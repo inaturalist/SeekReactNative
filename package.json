@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
+    "eslint-config-airbnb": "^17.1.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.47.0",
     "react-test-renderer": "16.5.0"

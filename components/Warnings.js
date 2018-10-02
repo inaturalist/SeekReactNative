@@ -20,7 +20,7 @@ const tips = [
 ];
 
 const Warnings = () => (
-  <View style={styles.container}>
+  <View>
     <ImageBackground
       style={styles.backgroundImage}
       source={require( "../assets/backgrounds/splash.png" )}
@@ -29,27 +29,33 @@ const Warnings = () => (
       <Text style={styles.earn}>
         Earn badges for taking photos of the plants and wildlife around you.
       </Text>
-      <FlatList
-        data={tips}
-        keyExtractor={( item, index ) => `${item}${index}`}
-        renderItem={( { item } ) => (
-          <View style={styles.tipList}>
-            <Text style={styles.checkMark}>&#xf00c;</Text>
-            <Text style={styles.tips}>{item.tip}</Text>
-          </View>
-        )}
-      />
-      <Text style={styles.disclaimer}>
-        We use your location to suggest plants and animals to find near you,
-        but we blur the location before we use it so your street name and town
-        or city is not identifiable
-      </Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => alert("You pressed OK")}
-      >
-        <Text>OK</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.tipContainer}>
+          <FlatList
+            data={tips}
+            keyExtractor={( item, index ) => `${item}${index}`}
+            renderItem={( { item } ) => (
+              <View style={styles.tipList}>
+                <Text style={styles.checkMark}>&#xf00c;</Text>
+                <Text style={styles.tips}>{item.tip}</Text>
+              </View>
+            )}
+          />
+        </View>
+        <View style={styles.disclaimerContainer}>
+          <Text style={styles.disclaimer}>
+            We use your location to suggest plants and animals to find near you,
+            but we blur the location before we use it so your street name and town
+            or city is not identifiable
+          </Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => alert("You pressed OK")}
+          >
+            <Text style={styles.buttonText}>OK</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </ImageBackground>
   </View>
 );

@@ -3,26 +3,39 @@ import { Dimensions, StyleSheet } from "react-native";
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  container: {
-    alignItems: "center",
-    backgroundColor: "transparent"
-  },
   backgroundImage: {
-    justifyContent: "center",
     alignItems: "center",
     width,
-    height,
-    resizeMode: "cover"
+    height
   },
-  disclaimer: {
-    fontSize: 14,
-    marginHorizontal: 50,
-    marginBottom: 150,
-    marginRight: 70,
-    lineHeight: 12,
+  welcome: {
+    fontSize: 36,
+    marginTop: 60,
     color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    flex: 2
+    fontFamily: "Whitney-Medium"
+  },
+  earn: {
+    fontSize: 20,
+    marginHorizontal: 50,
+    marginTop: 20,
+    marginBottom: 15,
+    lineHeight: 18,
+    color: "#F5FCFF",
+    fontFamily: "Whitney-Medium"
+  },
+  container: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginBottom: 175
+  },
+  tipContainer: {
+    flex: 1
+  },
+  tipList: {
+    marginLeft: 50,
+    marginBottom: 18,
+    marginRight: 108,
+    flexDirection: "row"
   },
   tips: {
     fontSize: 16,
@@ -37,35 +50,30 @@ export default StyleSheet.create( {
     fontFamily: "FontAwesome",
     marginRight: 15
   },
-  tipList: {
+  disclaimerContainer: {
     marginHorizontal: 50,
-    marginBottom: 18,
-    flexDirection: "row",
-    marginRight: 108,
-    flex: 1
+    marginBottom: 150,
+    marginRight: 70
   },
-  earn: {
-    fontSize: 20,
-    marginHorizontal: 50,
-    marginTop: 20,
-    marginBottom: 15,
-    lineHeight: 18,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
-  },
-  welcome: {
-    fontSize: 36,
+  disclaimer: {
     textAlign: "center",
-    marginTop: 60,
+    fontSize: 14,
+    lineHeight: 12,
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium"
   },
   button: {
     backgroundColor: "white",
     color: "black",
-    paddingLeft: 50,
-    paddingRight: 50,
-    borderRadius: 50,
-    marginBottom: 150
+    marginLeft: 50,
+    marginRight: 50,
+    marginTop: 10,
+    paddingTop: 5,
+    borderRadius: 40
+  },
+  buttonText: {
+    fontFamily: "Whitney-Semibold",
+    fontSize: 18,
+    textAlign: "center"
   }
 } );

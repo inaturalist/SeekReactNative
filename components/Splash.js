@@ -22,9 +22,11 @@ const styles = StyleSheet.create( {
     resizeMode: "cover"
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
-    margin: 10
+    color: "#F5FCFF",
+    fontFamily: "Arial",
+    marginBottom: 25
   }
 } );
 

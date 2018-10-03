@@ -1,26 +1,13 @@
 import React from "react";
 import {
-  Button, Dimensions, Image, ImageBackground, StyleSheet, Text, View
+  Button,
+  Image,
+  ImageBackground,
+  Text,
+  View
 } from "react-native";
 
-const { width, height } = Dimensions.get( "screen" );
-
-const styles = StyleSheet.create( {
-  backgroundImage: {
-    justifyContent: "center",
-    alignItems: "center",
-    width,
-    height,
-    resizeMode: "cover"
-  },
-  text: {
-    fontSize: 18,
-    textAlign: "center",
-    color: "#F5FCFF",
-    fontFamily: "Arial",
-    marginBottom: 25
-  }
-} );
+import styles from "../styles/splash";
 
 const Splash = ( { navigation } ) => (
   <View>

@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Dimensions, Image, ImageBackground, StyleSheet, Text, View
+  Button, Dimensions, Image, ImageBackground, StyleSheet, Text, View
 } from "react-native";
 
 const { width, height } = Dimensions.get( "screen" );
@@ -22,7 +22,7 @@ const styles = StyleSheet.create( {
   }
 } );
 
-const Splash = () => (
+const Splash = ( { navigation } ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -30,6 +30,7 @@ const Splash = () => (
     >
       <Text style={styles.text}>Backyard Wilderness Presents</Text>
       <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
+      <Button title="Continue" onPress={() => navigation.navigate( "Loading" )} />
     </ImageBackground>
   </View>
 );

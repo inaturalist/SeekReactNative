@@ -19,7 +19,7 @@ const tips = [
   }
 ];
 
-const Warnings = () => (
+const Warnings = ( { navigation } ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -50,7 +50,7 @@ const Warnings = () => (
           </Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => alert("You pressed OK")}
+            onPress={() => navigation.navigate( "Home" )}
           >
             <Text style={styles.buttonText}>OK</Text>
           </TouchableOpacity>

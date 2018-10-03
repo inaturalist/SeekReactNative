@@ -1,36 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from "react";
 import {
-  Dimensions, Image, ImageBackground, StyleSheet, Text, View
+  Button,
+  Image,
+  ImageBackground,
+  Text,
+  View
 } from "react-native";
 
-const { width, height } = Dimensions.get( "screen" );
+import styles from "../styles/splash";
 
-const styles = StyleSheet.create( {
-  backgroundImage: {
-    justifyContent: "center",
-    alignItems: "center",
-    width,
-    height,
-    resizeMode: "cover"
-  },
-  text: {
-    fontSize: 18,
-    textAlign: "center",
-    color: "#F5FCFF",
-    fontFamily: "Arial",
-    marginBottom: 25
-  }
-} );
-
-const Splash = () => (
+const Splash = ( { navigation } ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -38,6 +17,7 @@ const Splash = () => (
     >
       <Text style={styles.text}>Backyard Wilderness Presents</Text>
       <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
+      <Button title="Continue" onPress={() => navigation.navigate( "Loading" )} />
     </ImageBackground>
   </View>
 );

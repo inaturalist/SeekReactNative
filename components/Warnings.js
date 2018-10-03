@@ -50,7 +50,7 @@ const Warnings = ( { navigation } ) => (
           </Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate( "Home" )}
+            onPress={() => navigation.navigate( "Main" )}
           >
             <Text style={styles.buttonText}>OK</Text>
           </TouchableOpacity>

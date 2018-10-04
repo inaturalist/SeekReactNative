@@ -60,7 +60,19 @@ const ChallengeGrids = ( { capitalizeNames, navigation, taxa } ) => (
         ) }
       />
       <View style={styles.footer}>
-        <Image source={ require( "../assets/profiles/icn-profile-egg.png" )} />
+        <TouchableOpacity
+          style={styles.profileButton}
+          onPress={() => alert( "profile click" )}
+        >
+          <Image source={require( "../assets/profiles/icn-profile-egg.png" )} />
+        </TouchableOpacity>
+        <Text style={styles.profileText}>Species: 21  Badges: 3</Text>
+        <TouchableOpacity
+          style={styles.addPhotoButton}
+          onPress={() => alert( "you clicked me" )}
+        >
+          <Image source={require( "../assets/btn-add-species/btn-add-species.png" )} />
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   </View>

@@ -81,6 +81,27 @@ export default StyleSheet.create( {
   footer: {
     height: 80,
     backgroundColor: "#1f3d48",
-    maxHeight: height - 48
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  profileButton: {
+    position: "absolute",
+    bottom: 5,
+    left: 0,
+    paddingLeft: 15
+  },
+  addPhotoButton: {
+    position: "absolute",
+    bottom: 5,
+    right: 0,
+    paddingRight: 15
+  },
+  profileText: {
+    color: "#F5FCFF",
+    fontFamily: "Whitney-Medium",
+    fontSize: 13,
+    paddingTop: 3,
+    lineHeight: 12,
+    paddingLeft: 90
   }
 } );

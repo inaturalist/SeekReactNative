@@ -7,7 +7,9 @@ import {
   FlatList,
   ImageBackground,
   Text,
-  View
+  View,
+  StatusBar,
+  ActivityIndicator
 } from "react-native";
 
 import styles from "../styles/challenges";
@@ -17,7 +19,8 @@ class Challenges extends Component {
     super();
 
     this.state = {
-      taxa: []
+      taxa: [],
+      loading: true
     };
   }
 
@@ -26,8 +29,8 @@ class Challenges extends Component {
       verifiable: true,
       photos: true,
       per_page: 9,
-      lat: 37.7749, // San Francisco hardcoded for testing
-      lng: -122.4194, // San Francisco hardcoded for testing
+      lat: 40.7128, // 37.7749, San Francisco hardcoded for testing
+      lng: -74.0060, // -122.4194, San Francisco hardcoded for testing
       radius: 50,
       threatened: false,
       oauth_application_id: "2,3",
@@ -44,15 +47,20 @@ class Challenges extends Component {
 
   setTaxa( challenges ) {
     this.setState( {
-      taxa: challenges
+      taxa: challenges,
+      loading: false
     } );
   }
 
-  render() {
-    const {
-      taxa
-    } = this.state;
+  loading( ) {
+    return (
+      <View style={ styles.activity }>
+        <ActivityIndicator color="white" size="large" />
+      </View>
+    );
+  }
 
+  results( taxa ) {
     return (
       <View>
         <ImageBackground
@@ -87,6 +95,27 @@ class Challenges extends Component {
             ) }
           />
         </ImageBackground>
+      </View>
+    );
+  }
+
+  render() {
+    const {
+      taxa,
+      loading
+    } = this.state;
+
+    const challenges = loading ? this.loading( ) : this.results( taxa );
+
+    return (
+      <View style={ { flex: 1 } }>
+        <View style={ styles.container }>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor="#4F6D7A"
+          />
+          { challenges }
+        </View>
       </View>
     );
   }

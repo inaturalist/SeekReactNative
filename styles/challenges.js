@@ -5,20 +5,49 @@ const { width, height } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   backgroundImage: {
     justifyContent: "center",
-    alignItems: "center",
     width,
-    height,
-    resizeMode: "cover"
+    height
   },
-  activity: {
+  loadingWheel: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
   container: {
     flex: 1,
-    backgroundColor: "#37535e",
-    alignItems: "center"
+    backgroundColor: "#37535e"
+  },
+  header: {
+    height: 80
+  },
+  headerText: {
+    marginTop: 40,
+    marginLeft: 15,
+    fontSize: 14,
+    lineHeight: 12,
+    color: "#F5FCFF",
+    fontFamily: "Whitney-Medium"
+  },
+  locationChooser: {
+    position: "absolute",
+    bottom: 5,
+    paddingLeft: 15
+  },
+  locationChooserText: {
+    color: "#F5FCFF",
+    fontFamily: "Whitney-Medium",
+    fontSize: 16
+  },
+  taxonChooser: {
+    position: "absolute",
+    bottom: 5,
+    right: 0,
+    paddingRight: 15
+  },
+  taxonChooserText: {
+    color: "#F5FCFF",
+    fontFamily: "Whitney-Medium",
+    fontSize: 16
   },
   taxonGrid: {
     paddingHorizontal: 8,
@@ -48,30 +77,6 @@ export default StyleSheet.create( {
     fontSize: 13,
     paddingTop: 3,
     lineHeight: 12
-  },
-  header: {
-    height: 80
-  },
-  locationChooser: {
-    position: "absolute",
-    bottom: 5,
-    paddingLeft: 15
-  },
-  locationChooserText: {
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 16
-  },
-  taxonChooser: {
-    position: "absolute",
-    bottom: 5,
-    right: 0,
-    paddingRight: 15
-  },
-  taxonChooserText: {
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 16
   },
   footer: {
     height: 80,

@@ -52,21 +52,47 @@ class Challenges extends Component {
     } );
   }
 
+  capitalizeNames( name ) {
+    const titleCaseName = name.split( " " )
+      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
+      .join( " " );
+    return titleCaseName;
+  }
+
   loading( ) {
     return (
-      <View style={ styles.activity }>
+      <View style={ styles.loadingWheel }>
         <ActivityIndicator color="white" size="large" />
       </View>
     );
   }
 
   results( taxa ) {
+    const {
+      navigation
+    } = this.props;
+
     return (
       <View>
         <ImageBackground
           style={styles.backgroundImage}
           source={require( "../assets/backgrounds/background.png" )}
         >
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
+            <TouchableOpacity
+              style={styles.locationChooser}
+              onPress={() => navigation.navigate( "Loading" )}
+            >
+              <Text style={styles.locationChooserText}>Pick Location</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.taxonChooser}
+              onPress={() => navigation.navigate( "Loading" )}
+            >
+              <Text style={styles.taxonChooserText}>Pick Taxon</Text>
+            </TouchableOpacity>
+          </View>
           <FlatList
             data={ taxa }
             keyExtractor={ taxon => taxon.id }
@@ -86,7 +112,7 @@ class Challenges extends Component {
                     />
                     <View style={ styles.cellTitle }>
                       <Text style={ styles.cellTitleText }>
-                        { item.preferred_common_name || item.name }
+                        { this.capitalizeNames( item.preferred_common_name || item.name ) }
                       </Text>
                     </View>
                   </View>

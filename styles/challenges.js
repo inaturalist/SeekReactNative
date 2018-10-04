@@ -80,6 +80,7 @@ export default StyleSheet.create( {
   },
   footer: {
     height: 80,
-    backgroundColor: "#1f3d48"
+    backgroundColor: "#1f3d48",
+    maxHeight: height - 48
   }
 } );

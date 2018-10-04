@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 
 import {
-  TouchableOpacity,
-  Image,
-  FlatList,
-  ImageBackground,
-  Text,
   View,
   StatusBar,
   ActivityIndicator
 } from "react-native";
 
+import ChallengeGrids from "./ChallengeGrids";
 import styles from "../styles/challenges";
 
 class Challenges extends Component {
@@ -22,6 +18,8 @@ class Challenges extends Component {
       taxa: [],
       loading: true
     };
+
+    this.capitalizeNames = this.capitalizeNames.bind( this );
   }
 
   componentDidMount() {
@@ -68,60 +66,11 @@ class Challenges extends Component {
   }
 
   results( taxa ) {
-    const {
-      navigation
-    } = this.props;
-
     return (
-      <View>
-        <ImageBackground
-          style={styles.backgroundImage}
-          source={require( "../assets/backgrounds/background.png" )}
-        >
-          <View style={styles.header}>
-            <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
-            <TouchableOpacity
-              style={styles.locationChooser}
-              onPress={() => navigation.navigate( "Loading" )}
-            >
-              <Text style={styles.locationChooserText}>Pick Location</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.taxonChooser}
-              onPress={() => navigation.navigate( "Loading" )}
-            >
-              <Text style={styles.taxonChooserText}>Pick Taxon</Text>
-            </TouchableOpacity>
-          </View>
-          <FlatList
-            data={ taxa }
-            keyExtractor={ taxon => taxon.id }
-            numColumns={ 3 }
-            renderItem={ ( { item } ) => (
-              <View style={ styles.gridCell }>
-                <TouchableOpacity
-                  onPress={ ( ) => alert( "Button pressed" ) }
-                >
-                  <View style={ styles.gridCellContents }>
-                    <Image
-                      style={ {
-                        width: "100%",
-                        aspectRatio: 1.1
-                      } }
-                      source={ { uri: item.default_photo.medium_url } }
-                    />
-                    <View style={ styles.cellTitle }>
-                      <Text style={ styles.cellTitleText }>
-                        { this.capitalizeNames( item.preferred_common_name || item.name ) }
-                      </Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ) }
-          />
-        </ImageBackground>
-      </View>
+      <ChallengeGrids
+        taxa={taxa}
+        capitalizeNames={this.capitalizeNames}
+      />
     );
   }
 

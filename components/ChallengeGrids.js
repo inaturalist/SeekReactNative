@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 
 import {
@@ -11,7 +13,17 @@ import {
 
 import styles from "../styles/challenges";
 
-const ChallengeGrids = ( { capitalizeNames, location, navigation, taxa } ) => (
+
+type Props = {
+  capitalizeNames: Function,
+  location: string,
+  navigation: Function,
+  taxa: Array<Object>
+}
+
+const ChallengeGrids = ( {
+  capitalizeNames, location, navigation, taxa
+}: Props ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}

@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 
@@ -10,7 +12,20 @@ import {
 import ChallengeGrids from "./ChallengeGrids";
 import styles from "../styles/challenges";
 
-class Challenges extends Component {
+type Props = {
+  navigation: any
+}
+
+type State = {
+  taxa: Array<Object>,
+  loading: boolean,
+  latitude: ?number,
+  longitude: ?number,
+  location: string,
+  error: ?string
+}
+
+class Challenges extends Component<Props, State> {
   constructor() {
     super();
 
@@ -23,14 +38,56 @@ class Challenges extends Component {
       error: null
     };
 
-    this.capitalizeNames = this.capitalizeNames.bind( this );
+    ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
   }
 
   componentDidMount() {
     this.getGeolocation();
   }
 
-  fetchChallenges( latitude, longitude ) {
+  setTaxa( challenges: Array<Object> ) {
+    this.setState( {
+      taxa: challenges,
+      loading: false
+    } );
+  }
+
+  getGeolocation( ) {
+    const {
+      error,
+      latitude,
+      longitude
+    } = this.state;
+
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      this.setState( {
+        latitude: this.truncateCoordinates( position.coords.latitude ),
+        longitude: this.truncateCoordinates( position.coords.longitude ),
+        error: null
+      } );
+    }, ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+
+    if ( !error ) {
+      this.fetchChallenges( latitude, longitude );
+    }
+  }
+
+  truncateCoordinates( coordinate: number ) {
+    return Number( coordinate.toFixed( 2 ) );
+  }
+
+  capitalizeNames( name: string ) {
+    const titleCaseName = name.split( " " )
+      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
+      .join( " " );
+    return titleCaseName;
+  }
+
+  fetchChallenges( latitude: ?number, longitude: ?number ) {
     const params = {
       verifiable: true,
       photos: true,
@@ -51,48 +108,6 @@ class Challenges extends Component {
     } );
   }
 
-  setTaxa( challenges ) {
-    this.setState( {
-      taxa: challenges,
-      loading: false
-    } );
-  }
-
-  capitalizeNames( name ) {
-    const titleCaseName = name.split( " " )
-      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
-      .join( " " );
-    return titleCaseName;
-  }
-
-  truncateCoordinates( coordinate ) {
-    return Number( coordinate.toFixed( 2 ) );
-  }
-
-  getGeolocation( ) {
-    const {
-      error,
-      latitude,
-      longitude
-    } = this.state;
-
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      this.setState( {
-        latitude: this.truncateCoordinates( position.coords.latitude ),
-        longitude: this.truncateCoordinates( position.coords.longitude ),
-        error: null
-      } );
-    }, ( error ) => {
-      this.setState( {
-        error: error.message
-      } );
-    } );
-
-    if ( !error ) {
-      this.fetchChallenges( latitude, longitude );
-    }
-  }
-
   loading( ) {
     return (
       <View style={ styles.loadingWheel }>
@@ -101,7 +116,7 @@ class Challenges extends Component {
     );
   }
 
-  results( taxa ) {
+  results( taxa: Array<Object> ) {
     const {
       location
     } = this.state;

@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import {
   FlatList,
@@ -9,6 +11,10 @@ import {
 
 import styles from "../styles/warnings";
 
+type Props = {
+  navigation: any
+}
+
 const tips = [
   { tip: "Always be aware of your surroundings and stay safe!" },
   { tip: "Don't eat anything you find in the wild." },
@@ -19,7 +25,7 @@ const tips = [
   }
 ];
 
-const Warnings = ( { navigation } ) => (
+const Warnings = ( { navigation }: Props ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}

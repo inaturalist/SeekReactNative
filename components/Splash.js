@@ -1,4 +1,6 @@
-import * as React from "react";
+// @flow
+
+import React from "react";
 import {
   Button,
   Image,
@@ -9,7 +11,11 @@ import {
 
 import styles from "../styles/splash";
 
-const Splash = ( { navigation } ) => (
+type Props = {
+  navigation: any
+}
+
+const Splash = ( { navigation }: Props ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}

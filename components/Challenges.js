@@ -16,19 +16,27 @@ class Challenges extends Component {
 
     this.state = {
       taxa: [],
-      loading: true
+      loading: true,
+      latitude: null,
+      longitude: null,
+      location: "San Francisco",
+      error: null
     };
 
     this.capitalizeNames = this.capitalizeNames.bind( this );
   }
 
   componentDidMount() {
+    this.getGeolocation();
+  }
+
+  fetchChallenges( latitude, longitude ) {
     const params = {
       verifiable: true,
       photos: true,
       per_page: 9,
-      lat: 40.7128, // 37.7749, San Francisco hardcoded for testing
-      lng: -74.0060, // -122.4194, San Francisco hardcoded for testing
+      lat: latitude, // 37.7749, San Francisco hardcoded for testing
+      lng: longitude, // -122.4194, San Francisco hardcoded for testing
       radius: 50,
       threatened: false,
       oauth_application_id: "2,3",
@@ -57,6 +65,34 @@ class Challenges extends Component {
     return titleCaseName;
   }
 
+  truncateCoordinates( coordinate ) {
+    return Number( coordinate.toFixed( 2 ) );
+  }
+
+  getGeolocation( ) {
+    const {
+      error,
+      latitude,
+      longitude
+    } = this.state;
+
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      this.setState( {
+        latitude: this.truncateCoordinates( position.coords.latitude ),
+        longitude: this.truncateCoordinates( position.coords.longitude ),
+        error: null
+      } );
+    }, ( error ) => {
+      this.setState( {
+        error: error.message
+      } );
+    } );
+
+    if ( !error ) {
+      this.fetchChallenges( latitude, longitude );
+    }
+  }
+
   loading( ) {
     return (
       <View style={ styles.loadingWheel }>
@@ -66,9 +102,14 @@ class Challenges extends Component {
   }
 
   results( taxa ) {
+    const {
+      location
+    } = this.state;
+
     return (
       <ChallengeGrids
         taxa={taxa}
+        location={location}
         capitalizeNames={this.capitalizeNames}
       />
     );

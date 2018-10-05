@@ -11,7 +11,7 @@ import {
 
 import styles from "../styles/challenges";
 
-const ChallengeGrids = ( { capitalizeNames, navigation, taxa } ) => (
+const ChallengeGrids = ( { capitalizeNames, location, navigation, taxa } ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -23,7 +23,7 @@ const ChallengeGrids = ( { capitalizeNames, navigation, taxa } ) => (
           style={styles.locationChooser}
           onPress={() => navigation.navigate( "Loading" )}
         >
-          <Text style={styles.locationChooserText}>Pick Location</Text>
+          <Text style={styles.locationChooserText}>{location.toUpperCase()}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.taxonChooser}

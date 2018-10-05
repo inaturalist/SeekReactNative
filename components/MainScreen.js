@@ -5,11 +5,11 @@ import inatjs from "inaturalistjs";
 
 import {
   View,
-  StatusBar,
-  ActivityIndicator
+  StatusBar
 } from "react-native";
 
-import ChallengeGrids from "./ChallengeGrids";
+import ChallengeScreen from "./ChallengeScreen";
+import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 
 type Props = {
@@ -22,11 +22,13 @@ type State = {
   latitude: ?number,
   longitude: ?number,
   location: string,
-  error: ?string
+  error: ?string,
+  count: number,
+  profileIcon: string
 }
 
-class Challenges extends Component<Props, State> {
-  constructor() {
+class MainScreen extends Component<Props, State> {
+  constructor( { navigation }: Props ) {
     super();
 
     this.state = {
@@ -108,24 +110,23 @@ class Challenges extends Component<Props, State> {
     } );
   }
 
-  loading( ) {
-    return (
-      <View style={ styles.loadingWheel }>
-        <ActivityIndicator color="white" size="large" />
-      </View>
-    );
-  }
-
   results( taxa: Array<Object> ) {
     const {
-      location
+      location,
+      profileIcon
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     return (
-      <ChallengeGrids
+      <ChallengeScreen
         taxa={taxa}
         location={location}
         capitalizeNames={this.capitalizeNames}
+        profileIcon={profileIcon}
+        navigation={navigation}
       />
     );
   }
@@ -136,7 +137,7 @@ class Challenges extends Component<Props, State> {
       loading
     } = this.state;
 
-    const challenges = loading ? this.loading( ) : this.results( taxa );
+    const challenges = loading ? <LoadingScreen /> : this.results( taxa );
 
     return (
       <View style={ { flex: 1 } }>
@@ -152,4 +153,4 @@ class Challenges extends Component<Props, State> {
   }
 }
 
-export default Challenges;
+export default MainScreen;

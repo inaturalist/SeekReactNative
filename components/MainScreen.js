@@ -23,7 +23,7 @@ type State = {
   longitude: ?number,
   location: string,
   error: ?string,
-  count: number,
+  speciesCount: number,
   profileIcon: string
 }
 
@@ -37,7 +37,8 @@ class MainScreen extends Component<Props, State> {
       latitude: null,
       longitude: null,
       location: "San Francisco",
-      error: null
+      error: null,
+      speciesCount: 115
     };
 
     ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
@@ -113,7 +114,8 @@ class MainScreen extends Component<Props, State> {
   results( taxa: Array<Object> ) {
     const {
       location,
-      profileIcon
+      profileIcon,
+      speciesCount
     } = this.state;
 
     const {
@@ -127,6 +129,7 @@ class MainScreen extends Component<Props, State> {
         capitalizeNames={this.capitalizeNames}
         profileIcon={profileIcon}
         navigation={navigation}
+        speciesCount={speciesCount}
       />
     );
   }

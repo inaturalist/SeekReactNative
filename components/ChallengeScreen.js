@@ -14,13 +14,14 @@ import styles from "../styles/challenges";
 
 type Props = {
   capitalizeNames: Function,
+  speciesCount: number,
   location: string,
   navigation: Function,
   taxa: Array<Object>
 }
 
 const ChallengeScreen = ( {
-  capitalizeNames, location, navigation, taxa
+  capitalizeNames, speciesCount, location, navigation, taxa
 }: Props ) => (
   <View>
     <ImageBackground
@@ -36,7 +37,7 @@ const ChallengeScreen = ( {
         navigation={navigation}
         taxa={taxa}
       />
-      <ChallengeFooter navigation={navigation} />
+      <ChallengeFooter navigation={navigation} speciesCount={speciesCount} />
     </ImageBackground>
   </View>
 );

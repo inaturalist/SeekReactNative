@@ -22,13 +22,15 @@ const ChallengeHeader = ( { navigation, location }: Props ) => (
       style={styles.locationChooser}
       onPress={() => navigation.navigate( "Loading" )}
     >
-      <Text style={styles.locationChooserText}>{location.toUpperCase()}</Text>
+      <Text style={styles.locationChooserText}>
+        {location} &#9660;
+      </Text>
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.taxonChooser}
       onPress={() => navigation.navigate( "Loading" )}
     >
-      <Text style={styles.taxonChooserText}>Pick Taxon</Text>
+      <Text style={styles.taxonChooserText}>All species &#9660;</Text>
     </TouchableOpacity>
   </View>
 );

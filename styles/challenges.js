@@ -35,8 +35,9 @@ export default StyleSheet.create( {
   },
   locationChooserText: {
     color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 16
+    fontFamily: "FontAwesome",
+    fontSize: 18,
+    fontWeight: "900"
   },
   taxonChooser: {
     position: "absolute",

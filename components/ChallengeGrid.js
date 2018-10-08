@@ -22,6 +22,7 @@ const ChallengeGrid = ( { navigation, taxa, capitalizeNames }: Props ) => (
   <View>
     <FlatList
       data={ taxa }
+      scrollEnabled={false}
       keyExtractor={ taxon => taxon.id }
       numColumns={ 3 }
       renderItem={ ( { item } ) => (

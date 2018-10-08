@@ -80,7 +80,8 @@ export default StyleSheet.create( {
     lineHeight: 12
   },
   footer: {
-    height: 80,
+    height: 50,
+    bottom: -10,
     backgroundColor: "#1f3d48",
     flexDirection: "row",
     alignItems: "center"

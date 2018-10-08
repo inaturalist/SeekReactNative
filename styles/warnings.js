@@ -16,25 +16,20 @@ export default StyleSheet.create( {
   },
   earn: {
     fontSize: 20,
-    marginHorizontal: 50,
+    marginHorizontal: 20,
     marginTop: 20,
     marginBottom: 15,
     lineHeight: 18,
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium"
   },
-  container: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-    marginBottom: 175
-  },
   tipContainer: {
     flex: 1
   },
   tipList: {
-    marginLeft: 50,
     marginBottom: 18,
-    marginRight: 108,
+    marginLeft: 20,
+    marginRight: 100,
     flexDirection: "row"
   },
   tips: {
@@ -51,12 +46,10 @@ export default StyleSheet.create( {
     marginRight: 15
   },
   disclaimerContainer: {
-    marginHorizontal: 50,
-    marginBottom: 150,
-    marginRight: 70
+    marginHorizontal: 20,
+    marginBottom: 10
   },
   disclaimer: {
-    textAlign: "center",
     fontSize: 14,
     lineHeight: 12,
     color: "#F5FCFF",
@@ -69,6 +62,7 @@ export default StyleSheet.create( {
     marginRight: 50,
     marginTop: 10,
     paddingTop: 5,
+    paddingBottom: 5,
     borderRadius: 40
   },
   buttonText: {

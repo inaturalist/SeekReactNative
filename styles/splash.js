@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     fontSize: 18,
     textAlign: "center",
     color: "#F5FCFF",
-    fontFamily: "Arial",
+    fontFamily: "Whitney-Medium",
     marginBottom: 25
   }
 } );

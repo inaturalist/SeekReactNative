@@ -10,15 +10,15 @@ export default StyleSheet.create( {
   },
   welcome: {
     fontSize: 36,
-    marginTop: 60,
+    marginTop: "20%",
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium"
   },
   earn: {
     fontSize: 20,
-    marginHorizontal: 20,
-    marginTop: 20,
-    marginBottom: 15,
+    marginHorizontal: "10%",
+    marginTop: "10%",
+    marginBottom: "10%",
     lineHeight: 18,
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium"
@@ -28,8 +28,8 @@ export default StyleSheet.create( {
   },
   tipList: {
     marginBottom: 18,
-    marginLeft: 20,
-    marginRight: 100,
+    marginLeft: "10%",
+    marginRight: "20%",
     flexDirection: "row"
   },
   tips: {
@@ -46,28 +46,31 @@ export default StyleSheet.create( {
     marginRight: 15
   },
   disclaimerContainer: {
-    marginHorizontal: 20,
-    marginBottom: 10
+    flex: 1,
+    marginHorizontal: "10%",
+    marginTop: "1%"
   },
   disclaimer: {
     fontSize: 14,
     lineHeight: 12,
     color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    fontFamily: "Whitney-Medium",
+    flexWrap: "wrap"
   },
   button: {
     backgroundColor: "white",
     color: "black",
-    marginLeft: 50,
-    marginRight: 50,
-    marginTop: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: "5%",
+    paddingTop: "1%",
+    paddingBottom: "1%",
     borderRadius: 40
   },
   buttonText: {
     fontFamily: "Whitney-Semibold",
     fontSize: 18,
-    textAlign: "center"
+    textAlign: "center",
+    justifyContent: "center"
   }
 } );

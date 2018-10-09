@@ -1,23 +1,32 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, Text } from "react-native";
 import { RNCamera } from "react-native-camera";
 
+import CameraCaptureScreen from "./CameraCaptureScreen";
 import styles from "../styles/camera";
 
 const PendingView = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: "lightgreen",
-      justifyContent: "center",
-      alignItems: "center"
-    }}
-  >
+  <View style={styles.pending}>
     <Text>Waiting</Text>
   </View>
 );
 
 class CameraScreen extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cameraType: RNCamera.Constants.Type.back,
+      cameraTypeText: "Front camera",
+      flash: RNCamera.Constants.FlashMode.off,
+      flashText: "Flash on"
+    };
+
+    this.toggleCamera = this.toggleCamera.bind( this );
+    this.toggleFlash = this.toggleFlash.bind( this );
+    this.takePicture = this.takePicture.bind( this );
+  }
+
   takePicture = async ( camera ) => {
     const options = { quality: 0.5, base64: true };
     const data = await camera.takePictureAsync( options );
@@ -25,26 +34,71 @@ class CameraScreen extends Component {
     console.log(data.uri);
   }
 
+  toggleFlash() {
+    const {
+      flash
+    } = this.state;
+
+    if ( flash === RNCamera.Constants.FlashMode.off ) {
+      this.setState( {
+        flash: RNCamera.Constants.FlashMode.on,
+        flashText: "Flash off"
+      } );
+    } else {
+      this.setState( {
+        flash: RNCamera.Constants.FlashMode.off,
+        flashText: "Flash on"
+      } );
+    }
+  }
+
+  toggleCamera() {
+    const {
+      cameraType
+    } = this.state;
+
+    if ( cameraType === RNCamera.Constants.Type.back ) {
+      this.setState( {
+        cameraType: RNCamera.Constants.Type.front,
+        cameraTypeText: "Back camera"
+      } );
+    } else {
+      this.setState( {
+        cameraType: RNCamera.Constants.Type.back,
+        cameraTypeText: "Front camera"
+      } );
+    }
+  }
+
   render() {
+    const {
+      cameraType,
+      flash,
+      cameraTypeText,
+      flashText
+    } = this.state;
+
     return (
       <View style={styles.container}>
         <RNCamera
           style={styles.preview}
-          type={RNCamera.Constants.Type.back}
-          flashMode={RNCamera.Constants.FlashMode.on}
+          type={cameraType}
+          flashMode={flash}
           permissionDialogTitle="Permission to use camera"
           permissionDialogMessage="We need your permission to use your camera phone"
         >
-          {( { camera, status } ) => {
-            if ( status !== "READY" ) return <PendingView />;
-            return (
-              <View style={{ flex: 0, flexDirection: "row", justifyContent: "center" }}>
-                <TouchableOpacity onPress={() => this.takePicture( camera )} style={styles.capture}>
-                  <Text style={{ fontSize: 14 }}> SNAP </Text>
-                </TouchableOpacity>
-              </View>
-            );
-          }}
+          {( { camera, status } ) => ( status !== "READY"
+            ? <PendingView /> : (
+              <CameraCaptureScreen
+                camera={camera}
+                cameraTypeText={cameraTypeText}
+                flashText={flashText}
+                takePicture={this.takePicture}
+                toggleFlash={this.toggleFlash}
+                toggleCamera={this.toggleCamera}
+              />
+            ) )
+          }
         </RNCamera>
       </View>
     );

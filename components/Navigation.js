@@ -4,11 +4,13 @@ import { createStackNavigator } from "react-navigation";
 import Splash from "./Splash";
 import Warnings from "./Warnings";
 import MainScreen from "./MainScreen";
+import CameraScreen from "./CameraScreen";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },
   Loading: { screen: Warnings },
-  Main: { screen: MainScreen }
+  Main: { screen: MainScreen },
+  Camera: { screen: CameraScreen }
 }, {
   navigationOptions: { header: null }
 } );

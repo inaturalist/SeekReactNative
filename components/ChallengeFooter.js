@@ -58,7 +58,7 @@ class ChallengeFooter extends Component<Props> {
         <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
         <TouchableOpacity
           style={styles.addPhotoButton}
-          onPress={() => navigation.navigate( "Loading" )}
+          onPress={() => navigation.navigate( "Camera" )}
         >
           <Image source={require( "../assets/btn-add-species/btn-add-species.png" )} />
         </TouchableOpacity>

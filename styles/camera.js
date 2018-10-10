@@ -1,18 +1,19 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    paddingTop: 10,
-    backgroundColor: "#000"
+    backgroundColor: "#000",
+    width,
+    height,
+    flexDirection: "column"
   },
-  navigation: {
-    flex: 1
-  },
-  gallery: {
-    flex: 1,
+  header: {
     flexDirection: "row",
-    flexWrap: "wrap"
+    justifyContent: "space-around",
+    alignItems: "flex-start"
   },
   buttons: {
     flex: 0.3,
@@ -31,30 +32,24 @@ export default StyleSheet.create( {
     color: "white",
     fontSize: 15
   },
-  item: {
-    margin: 4,
-    backgroundColor: "indianred",
-    height: 35,
-    width: 80,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center"
+  main: {
+    flexGrow: 1
   },
-  picButton: {
-    backgroundColor: "darkseagreen"
+  footer: {
+    flexDirection: "column",
+    justifyContent: "flex-end"
   },
-  galleryButton: {
-    backgroundColor: "indianred"
-  },
-  row: {
-    flexDirection: "row"
+  bottomNavigation: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "flex-end"
   },
   capture: {
     flex: 0,
     backgroundColor: "#fff",
     borderWidth: 4,
     borderRadius: 100,
-    alignItems: "center",
+    alignItems: "flex-end",
     justifyContent: "center",
     borderColor: "#d3d3d3",
     alignSelf: "center",

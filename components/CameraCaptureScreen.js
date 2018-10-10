@@ -17,62 +17,46 @@ type Props = {
 const CameraCaptureScreen = ( {
   cameraTypeText, flashText, navigation, takePicture, toggleFlash, toggleCamera
 }: Props ) => (
-  <View
-    style={{
-      flex: 0.5,
-      backgroundColor: "transparent",
-      flexDirection: "row",
-      justifyContent: "space-around"
-    }}
-  >
-    <TouchableOpacity
-      style={styles.buttons}
-      onPress={() => navigation.navigate( "Main" )}
-    >
-      <Text style={styles.buttonText}>X</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.buttons}
-      onPress={() => toggleFlash()}
-    >
-      <Text style={styles.buttonText}>{flashText}</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.buttons}
-      onPress={() => toggleCamera()}
-    >
-      <Text style={styles.buttonText}>{cameraTypeText}</Text>
-    </TouchableOpacity>
-    <View
-      style={{
-        flex: 0.1,
-        backgroundColor: "transparent",
-        flexDirection: "row",
-        alignSelf: "flex-end"
-      }}
-    >
-      <TouchableOpacity onPress={() => takePicture()} style={styles.capture} />
+  <View style={styles.container}>
+    <View style={styles.header}>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => navigation.navigate( "Main" )}
+      >
+        <Text style={styles.buttonText}>X</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => toggleFlash()}
+      >
+        <Text style={styles.buttonText}>{flashText}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => toggleCamera()}
+      >
+        <Text style={styles.buttonText}>{cameraTypeText}</Text>
+      </TouchableOpacity>
     </View>
-    <View
-      style={{
-        flex: 0.1,
-        backgroundColor: "transparent",
-        flexDirection: "row",
-        alignSelf: "flex-end"
-      }}
-    >
-      <TouchableOpacity
-        style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-        onPress={() => navigation.navigate( "CameraCapture" )}
-      >
-        <Text style={styles.buttonText}>Camera</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-        onPress={() => navigation.navigate( "Gallery" )}
-      >
-        <Text style={styles.buttonText}>Gallery</Text>
-      </TouchableOpacity>
+    <View style={styles.main} />
+    <View style={styles.footer}>
+      <View>
+        <TouchableOpacity onPress={() => takePicture()} style={styles.capture} />
+      </View>
+      <View style={styles.bottomNavigation}>
+        <TouchableOpacity
+          style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
+          onPress={() => navigation.navigate( "CameraCapture" )}
+        >
+          <Text style={styles.buttonText}>Camera</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
+          onPress={() => navigation.navigate( "Gallery" )}
+        >
+          <Text style={styles.buttonText}>Gallery</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   </View>
 );

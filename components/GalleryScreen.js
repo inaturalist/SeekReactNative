@@ -1,7 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 
-const GalleryScreen = () => (
-  <p>Gallery</p>
-);
+class GalleryScreen extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      photos: []
+    };
+  }
+
+  getPhotos = () => {
+    CameraRoll.getPhotos( {
+      assetType: "Photos"
+    } );
+  }
+
+  render() {
+    return (
+      <p>Gallery</p>
+    );
+  }
+};
 
 export default GalleryScreen;

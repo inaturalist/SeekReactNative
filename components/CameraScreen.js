@@ -1,9 +1,11 @@
 // @flow
 
 import React, { Component } from "react";
+import { CameraRoll, View } from "react-native";
 import { RNCamera } from "react-native-camera";
 
 import CameraCaptureScreen from "./CameraCaptureScreen";
+import styles from "../styles/camera";
 
 type Props = {
   navigation: any
@@ -17,7 +19,8 @@ class CameraScreen extends Component {
       cameraType: RNCamera.Constants.Type.back,
       cameraTypeText: "Front camera",
       flash: RNCamera.Constants.FlashMode.off,
-      flashText: "Flash on"
+      flashText: "Flash on",
+      error: null
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
@@ -27,8 +30,14 @@ class CameraScreen extends Component {
 
   takePicture = async () => {
     if ( this.camera ) {
-      const data = await this.camera.takePictureAsync();
-      console.log( data.uri );
+      this.camera
+        .takePictureAsync()
+        .then( data => CameraRoll.saveToCameraRoll( data.uri, "photo" ) )
+        .catch( ( err ) => {
+          this.setState( {
+            error: err.message
+          } );
+        } );
     }
   }
 
@@ -90,6 +99,12 @@ class CameraScreen extends Component {
         flashMode={flash}
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
+        pendingAuthorizationView={
+          <View style={styles.pendingAuthorization} />
+        }
+        notAuthorizedView={
+          <View style={styles.notAuthorized} />
+        }
       >
         <CameraCaptureScreen
           cameraTypeText={cameraTypeText}

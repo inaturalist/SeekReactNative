@@ -1,11 +1,10 @@
 // @flow
 
 import React, { Component } from "react";
-import { CameraRoll, View } from "react-native";
 import { RNCamera } from "react-native-camera";
+import { CameraRoll } from "react-native";
 
 import CameraCaptureScreen from "./CameraCaptureScreen";
-import styles from "../styles/camera";
 
 type Props = {
   navigation: any
@@ -99,12 +98,6 @@ class CameraScreen extends Component {
         flashMode={flash}
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
-        pendingAuthorizationView={
-          <View style={styles.pendingAuthorization} />
-        }
-        notAuthorizedView={
-          <View style={styles.notAuthorized} />
-        }
       >
         <CameraCaptureScreen
           cameraTypeText={cameraTypeText}

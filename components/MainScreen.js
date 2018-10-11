@@ -148,10 +148,10 @@ class MainScreen extends Component<Props, State> {
 
     let challenges;
 
-    if ( loading ) {
-      challenges = <LoadingScreen />;
-    } else if ( error ) {
+    if ( error ) {
       challenges = <ErrorScreen error={error} />;
+    } else if ( loading ) {
+      challenges = <LoadingScreen />;
     } else {
       challenges = this.results( taxa );
     }

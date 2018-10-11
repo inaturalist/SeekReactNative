@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { CameraRoll, Dimensions, ScrollView, TouchableHighlight, Image } from "react-native";
+import {
+  CameraRoll, Dimensions, ScrollView, TouchableHighlight, Image 
+} from "react-native";
 
 const { width } = Dimensions.get( "window" );
 
@@ -27,7 +29,7 @@ class GalleryScreen extends Component {
         photos: results.edges
       } );
       console.log(results.edges, "photos");
-    } ).catch ( ( err ) => {
+    } ).catch( ( err ) => {
       this.setState( {
         error: err.message
       } );

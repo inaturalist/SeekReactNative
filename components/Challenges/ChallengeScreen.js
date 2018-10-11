@@ -10,7 +10,7 @@ import {
 import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
-import styles from "../styles/challenges";
+import styles from "../../styles/challenges";
 
 type Props = {
   capitalizeNames: Function,
@@ -26,7 +26,7 @@ const ChallengeScreen = ( {
   <View>
     <ImageBackground
       style={styles.backgroundImage}
-      source={require( "../assets/backgrounds/background.png" )}
+      source={require( "../../assets/backgrounds/background.png" )}
     >
       <ChallengeHeader
         location={location}

@@ -4,9 +4,9 @@ import { createStackNavigator } from "react-navigation";
 import Splash from "./Splash";
 import Warnings from "./Warnings";
 import MainScreen from "./MainScreen";
-import CameraScreen from "./CameraScreen";
-import CameraCaptureScreen from "./CameraCaptureScreen";
-import GalleryScreen from "./GalleryScreen";
+import CameraScreen from "./Camera/CameraScreen";
+import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
+import GalleryScreen from "./Camera/GalleryScreen";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },

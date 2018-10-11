@@ -3,7 +3,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
-import styles from "../styles/camera";
+import styles from "../../styles/camera";
 
 type Props = {
   cameraTypeText: string,

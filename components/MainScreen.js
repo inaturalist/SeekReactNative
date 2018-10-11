@@ -8,7 +8,7 @@ import {
   StatusBar
 } from "react-native";
 
-import ChallengeScreen from "./ChallengeScreen";
+import ChallengeScreen from "./Challenges/ChallengeScreen";
 import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 

@@ -6,7 +6,7 @@ import Warnings from "./Warnings";
 import MainScreen from "./MainScreen";
 import CameraScreen from "./Camera/CameraScreen";
 import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
-import GalleryScreen from "./Camera/GalleryScreen";
+import GalleryScreen from "./Camera/Gallery2";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },

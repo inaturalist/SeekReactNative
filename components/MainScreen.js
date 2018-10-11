@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
+import ErrorScreen from "./ErrorScreen";
 import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 
@@ -108,6 +109,10 @@ class MainScreen extends Component<Props, State> {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
     } );
   }
 
@@ -136,11 +141,20 @@ class MainScreen extends Component<Props, State> {
 
   render() {
     const {
-      taxa,
-      loading
+      error,
+      loading,
+      taxa
     } = this.state;
 
-    const challenges = loading ? <LoadingScreen /> : this.results( taxa );
+    let challenges;
+
+    if ( loading ) {
+      challenges = <LoadingScreen />;
+    } else if ( error ) {
+      challenges = <ErrorScreen error={error} />;
+    } else {
+      challenges = this.results( taxa );
+    }
 
     return (
       <View style={ { flex: 1 } }>

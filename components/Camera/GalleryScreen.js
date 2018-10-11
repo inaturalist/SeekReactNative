@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  CameraRoll, Dimensions, ScrollView, TouchableHighlight, Image 
+  CameraRoll, Dimensions, ScrollView, TouchableHighlight
 } from "react-native";
 
 const { width } = Dimensions.get( "window" );
@@ -51,7 +51,7 @@ class GalleryScreen extends Component {
                 style={{ opacity: i === index ? 0.5 : 1 }}
                 key={i.toString()}
                 underlayColor="transparent"
-                onPress={() => this.setIndex( i )}
+                onPress={() => console.log( "clicked image" )}
               >
                 <Image
                   style={{

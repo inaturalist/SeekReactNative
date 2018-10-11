@@ -16,6 +16,7 @@
     "react": "16.5.0",
     "react-native": "0.57.1",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera",
+    "react-native-image-crop-picker": "^0.21.2",
     "react-navigation": "^2.17.0"
   },
   "devDependencies": {

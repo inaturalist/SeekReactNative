@@ -6,7 +6,6 @@ import inatjs from "inaturalistjs";
 import {
   View,
   StatusBar
-  // PermissionsAndroid
 } from "react-native";
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
@@ -46,7 +45,6 @@ class MainScreen extends Component<Props, State> {
   }
 
   componentDidMount() {
-    // this.requestCameraPermission();
     this.getGeolocation();
   }
 
@@ -56,29 +54,6 @@ class MainScreen extends Component<Props, State> {
       loading: false
     } );
   }
-
-  // async requestCameraPermission() {
-  //   try {
-  //     const granted = await PermissionsAndroid.request(
-  //       PermissionsAndroid.PERMISSIONS.CAMERA,
-  //       {
-  //         'title': 'iNaturalist Camera Permission',
-  //         'message': 'iNaturalist needs access to your camera ' +
-  //                    'so you can share observations.'
-  //       }
-  //     )
-  //     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-  //       this.getGeolocation();
-  //     } else {
-  //       console.log("Camera permission denied")
-  //       this.setState( {
-  //         error: "Bummer, we can't fetch nearby challenges without location"
-  //       } );
-  //     }
-  //   } catch (err) {
-  //     console.log( err )
-  //   }
-  // }
 
   getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  CameraRoll, Dimensions, Image, ScrollView, TouchableHighlight
+  CameraRoll, Dimensions, Image, ScrollView, TouchableHighlight, View
 } from "react-native";
 
 const { width } = Dimensions.get( "window" );
@@ -37,32 +37,39 @@ class GalleryScreen extends Component {
 
   render() {
     const {
-      photos,
-      index
+      photos
     } = this.state;
 
     return (
-      <ScrollView>
-        {
-          photos.map( ( p, i ) => {
-            return (
-              <TouchableHighlight
-                key={i.toString()}
-                underlayColor="transparent"
-                onPress={() => console.log( "clicked image" )}
-              >
-                <Image
-                  style={{
-                    width: width / 3,
-                    height: width / 3
-                  }}
-                  source={{ uri: p.node.image.uri }}
-                />
-              </TouchableHighlight>
-            );
-          } )
-        }
-      </ScrollView>
+      <View style={{
+        flex: 1
+      }}
+      >
+        <View style={{ paddingTop: 20, flex: 1 }}>
+          <ScrollView contentContainerStyle={{ flexWrap: "wrap", flexDirection: "row" }}>
+            {
+              photos.map( ( p, i ) => {
+                return (
+                  <TouchableHighlight
+                    style={{ paddingHorizontal: 1, paddingTop: 2 }}
+                    key={i.toString()}
+                    underlayColor="transparent"
+                    onPress={() => console.log( "clicked image" )}
+                  >
+                    <Image
+                      style={{
+                        width: width / 4 - 2,
+                        height: width / 4 - 2
+                      }}
+                      source={{ uri: p.node.image.uri }}
+                    />
+                  </TouchableHighlight>
+                );
+              } )
+            }
+          </ScrollView>
+        </View>
+      </View>
     );
   }
 }

@@ -6,6 +6,7 @@ import inatjs from "inaturalistjs";
 import {
   View,
   StatusBar
+  // PermissionsAndroid
 } from "react-native";
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
@@ -45,6 +46,7 @@ class MainScreen extends Component<Props, State> {
   }
 
   componentDidMount() {
+    // this.requestCameraPermission();
     this.getGeolocation();
   }
 
@@ -55,29 +57,46 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  getGeolocation( ) {
-    const {
-      error,
-      latitude,
-      longitude
-    } = this.state;
+  // async requestCameraPermission() {
+  //   try {
+  //     const granted = await PermissionsAndroid.request(
+  //       PermissionsAndroid.PERMISSIONS.CAMERA,
+  //       {
+  //         'title': 'iNaturalist Camera Permission',
+  //         'message': 'iNaturalist needs access to your camera ' +
+  //                    'so you can share observations.'
+  //       }
+  //     )
+  //     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+  //       this.getGeolocation();
+  //     } else {
+  //       console.log("Camera permission denied")
+  //       this.setState( {
+  //         error: "Bummer, we can't fetch nearby challenges without location"
+  //       } );
+  //     }
+  //   } catch (err) {
+  //     console.log( err )
+  //   }
+  // }
 
+  getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {
+      console.log("position:", position);
       this.setState( {
         latitude: this.truncateCoordinates( position.coords.latitude ),
         longitude: this.truncateCoordinates( position.coords.longitude ),
         error: null
-      } );
+      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     }, ( err ) => {
-      console.log(err, "error from geolocation");
       this.setState( {
         error: err.message
       } );
     } );
 
-    if ( !error ) {
-      this.fetchChallenges( latitude, longitude );
-    }
+    // if ( !error ) {
+    //   this.fetchChallenges( latitude, longitude );
+    // }
   }
 
   truncateCoordinates( coordinate: number ) {
@@ -112,7 +131,7 @@ class MainScreen extends Component<Props, State> {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
     } ).catch( ( err ) => {
-      console.log(err);
+      console.log( err );
       this.setState( {
         error: err.message
       } );

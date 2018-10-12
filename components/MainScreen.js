@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
-import ErrorScreen from "./ErrorScreen";
 import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 
@@ -70,6 +69,7 @@ class MainScreen extends Component<Props, State> {
         error: null
       } );
     }, ( err ) => {
+      console.log(err, "error from geolocation");
       this.setState( {
         error: err.message
       } );
@@ -106,10 +106,13 @@ class MainScreen extends Component<Props, State> {
       not_in_list_id: 945029
     };
 
+    console.log( "params: ", params );
+
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
     } ).catch( ( err ) => {
+      console.log(err);
       this.setState( {
         error: err.message
       } );
@@ -141,20 +144,11 @@ class MainScreen extends Component<Props, State> {
 
   render() {
     const {
-      error,
       loading,
       taxa
     } = this.state;
 
-    let challenges;
-
-    if ( error ) {
-      challenges = <ErrorScreen error={error} />;
-    } else if ( loading ) {
-      challenges = <LoadingScreen />;
-    } else {
-      challenges = this.results( taxa );
-    }
+    const challenges = loading ? <LoadingScreen /> : this.results( taxa );
 
     return (
       <View style={ { flex: 1 } }>

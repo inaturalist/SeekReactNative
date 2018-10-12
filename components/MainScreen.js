@@ -8,7 +8,7 @@ import {
   StatusBar
 } from "react-native";
 
-import ChallengeScreen from "./ChallengeScreen";
+import ChallengeScreen from "./Challenges/ChallengeScreen";
 import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 
@@ -56,27 +56,22 @@ class MainScreen extends Component<Props, State> {
   }
 
   getGeolocation( ) {
-    const {
-      error,
-      latitude,
-      longitude
-    } = this.state;
-
     navigator.geolocation.getCurrentPosition( ( position ) => {
+      console.log("position:", position);
       this.setState( {
         latitude: this.truncateCoordinates( position.coords.latitude ),
         longitude: this.truncateCoordinates( position.coords.longitude ),
         error: null
-      } );
+      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     }, ( err ) => {
       this.setState( {
         error: err.message
       } );
     } );
 
-    if ( !error ) {
-      this.fetchChallenges( latitude, longitude );
-    }
+    // if ( !error ) {
+    //   this.fetchChallenges( latitude, longitude );
+    // }
   }
 
   truncateCoordinates( coordinate: number ) {
@@ -105,9 +100,16 @@ class MainScreen extends Component<Props, State> {
       not_in_list_id: 945029
     };
 
+    console.log( "params: ", params );
+
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
+    } ).catch( ( err ) => {
+      console.log( err );
+      this.setState( {
+        error: err.message
+      } );
     } );
   }
 
@@ -136,8 +138,8 @@ class MainScreen extends Component<Props, State> {
 
   render() {
     const {
-      taxa,
-      loading
+      loading,
+      taxa
     } = this.state;
 
     const challenges = loading ? <LoadingScreen /> : this.results( taxa );

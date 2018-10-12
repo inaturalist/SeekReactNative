@@ -57,7 +57,8 @@ export default StyleSheet.create( {
     width: "100%"
   },
   gridCell: {
-    width: "33%",
+    width: width / 3,
+    height: width / 3,
     paddingHorizontal: 6,
     marginTop: 15
   },

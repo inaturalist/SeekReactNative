@@ -9,7 +9,7 @@ import {
   View
 } from "react-native";
 
-import styles from "../styles/challenges";
+import styles from "../../styles/challenges";
 
 type Props = {
   navigation: any,
@@ -30,21 +30,21 @@ class ChallengeFooter extends Component<Props> {
     let profileIcon;
 
     if ( speciesCount <= 0 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-egg.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg.png" )} />;
     } else if ( speciesCount === 1 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-egg-crack-01.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg-crack-01.png" )} />;
     } else if ( speciesCount === 2 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-egg-crack-02.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg-crack-02.png" )} />;
     } else if ( speciesCount < 15 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-tadpole.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-tadpole.png" )} />;
     } else if ( speciesCount < 35 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-cub.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-cub.png" )} />;
     } else if ( speciesCount < 65 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-surveyor.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-surveyor.png" )} />;
     } else if ( speciesCount < 100 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-naturalist.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-naturalist.png" )} />;
     } else if ( speciesCount >= 100 ) {
-      profileIcon = <Image source={require( "../assets/profiles/icn-profile-explorer.png" )} />;
+      profileIcon = <Image source={require( "../../assets/profiles/icn-profile-explorer.png" )} />;
     }
 
     return (
@@ -58,9 +58,9 @@ class ChallengeFooter extends Component<Props> {
         <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
         <TouchableOpacity
           style={styles.addPhotoButton}
-          onPress={() => navigation.navigate( "Loading" )}
+          onPress={() => navigation.navigate( "Camera" )}
         >
-          <Image source={require( "../assets/btn-add-species/btn-add-species.png" )} />
+          <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
         </TouchableOpacity>
       </View>
     );

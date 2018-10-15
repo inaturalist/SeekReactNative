@@ -7,6 +7,7 @@ import MainScreen from "./MainScreen";
 import CameraScreen from "./Camera/CameraScreen";
 import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
 import GalleryScreen from "./Camera/GalleryScreen";
+import LocationPicker from "./Challenges/LocationPicker";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },
@@ -14,7 +15,8 @@ const RootStack = createStackNavigator( {
   Main: { screen: MainScreen },
   Camera: { screen: CameraScreen },
   CameraCapture: { screen: CameraCaptureScreen },
-  Gallery: { screen: GalleryScreen }
+  Gallery: { screen: GalleryScreen },
+  Location: { screen: LocationPicker }
 }, {
   navigationOptions: { header: null }
 } );

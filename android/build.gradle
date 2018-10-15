@@ -7,6 +7,8 @@ buildscript {
         compileSdkVersion = 27
         targetSdkVersion = 26
         supportLibVersion = "27.1.1"
+        googlePlayServicesVersion = "11.8.0"
+        androidMapsUtilsVersion = "0.5+"
     }
     repositories {
         jcenter()

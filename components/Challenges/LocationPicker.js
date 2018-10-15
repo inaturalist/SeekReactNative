@@ -2,7 +2,7 @@
 
 import React from "react";
 import { TouchableHighlight, Text, View } from "react-native";
-import MapView from "react-native-maps";
+import LocationMap from "./LocationMap";
 
 import styles from "../../styles/locationPicker";
 
@@ -20,14 +20,7 @@ const LocationPicker = ( { navigation }: Props ) => {
       </Text>
       <Text style={styles.locationText}>{location}</Text>
       <View style={styles.mapContainer}>
-        <MapView
-          initialRegion={{
-            latitude,
-            longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421
-          }}
-        />
+        <LocationMap latitude={latitude} longitude={longitude} />
       </View>
       <TouchableHighlight style={styles.button}>
         <Text style={styles.buttonText}>Done</Text>

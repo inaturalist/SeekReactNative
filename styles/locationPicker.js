@@ -21,8 +21,10 @@ export default StyleSheet.create( {
   locationText: {
     color: "#F5FCFF",
     fontFamily: "FontAwesome",
-    fontSize: 18,
-    fontWeight: "900"
+    fontSize: 24,
+    marginLeft: 15,
+    marginTop: 15,
+    fontWeight: "600"
   },
   container: {
     flex: 1,
@@ -36,6 +38,7 @@ export default StyleSheet.create( {
     justifyContent: "flex-end",
     marginHorizontal: 40,
     marginBottom: 10,
+    marginTop: 10,
     paddingTop: 5,
     paddingBottom: 5,
     borderRadius: 40
@@ -46,5 +49,12 @@ export default StyleSheet.create( {
     color: "white",
     textAlign: "center",
     justifyContent: "center"
+  },
+  map: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   }
 } );

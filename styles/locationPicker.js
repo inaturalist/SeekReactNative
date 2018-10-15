@@ -56,5 +56,13 @@ export default StyleSheet.create( {
     left: 0,
     right: 0,
     bottom: 0
+  },
+  marker: {
+    height: 40,
+    width: 40
+  },
+  markerFixed: {
+    justifyContent: "center",
+    alignItems: "center"
   }
 } );

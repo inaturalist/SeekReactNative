@@ -22,7 +22,7 @@ const ChallengeHeader = ( { navigation, latitude, longitude, location }: Props )
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}
-      onPress={() => navigation.navigate( "Location", location, latitude, longitude )}
+      onPress={() => navigation.navigate( "Location", { location, latitude, longitude } )}
     >
       <Text style={styles.locationChooserText}>
         {location} &#9660;

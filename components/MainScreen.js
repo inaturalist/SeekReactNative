@@ -115,6 +115,8 @@ class MainScreen extends Component<Props, State> {
 
   results( taxa: Array<Object> ) {
     const {
+      latitude,
+      longitude,
       location,
       profileIcon,
       speciesCount
@@ -127,6 +129,8 @@ class MainScreen extends Component<Props, State> {
     return (
       <ChallengeScreen
         taxa={taxa}
+        latitude={latitude}
+        longitude={longitude}
         location={location}
         capitalizeNames={this.capitalizeNames}
         profileIcon={profileIcon}

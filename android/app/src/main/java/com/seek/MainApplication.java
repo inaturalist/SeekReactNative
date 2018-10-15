@@ -3,8 +3,7 @@ package com.seek;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import fr.greweb.rnwebgl.RNWebGLPackage;
-import com.reactnative.ivpusic.imagepicker.PickerPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -26,8 +25,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNWebGLPackage(),
-            new PickerPackage(),
+            new MapsPackage(),
             new RNCameraPackage()
       );
     }

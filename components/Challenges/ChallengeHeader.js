@@ -12,15 +12,17 @@ import styles from "../../styles/challenges";
 
 type Props = {
   navigation: any,
+  latitude: number,
+  longitude: number,
   location: string
 }
 
-const ChallengeHeader = ( { navigation, location }: Props ) => (
+const ChallengeHeader = ( { navigation, latitude, longitude, location }: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}
-      onPress={() => navigation.navigate( "Loading" )}
+      onPress={() => navigation.navigate( "Location", location, latitude, longitude )}
     >
       <Text style={styles.locationChooserText}>
         {location} &#9660;

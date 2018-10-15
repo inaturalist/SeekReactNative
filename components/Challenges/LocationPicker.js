@@ -23,7 +23,7 @@ const LocationPicker = ( { navigation }: Props ) => {
         <LocationMap latitude={latitude} longitude={longitude} />
       </View>
       <TouchableHighlight style={styles.button}>
-        <Text style={styles.buttonText}>Done</Text>
+        <Text style={styles.buttonText} onPress={() => navigation.navigate( "Main" )}>Done</Text>
       </TouchableHighlight>
     </View>
   );

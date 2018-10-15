@@ -58,10 +58,11 @@ export default StyleSheet.create( {
     bottom: 0
   },
   marker: {
-    height: 40,
-    width: 40
+    width: "15%",
+    height: "20%"
   },
   markerFixed: {
+    flex: 1,
     justifyContent: "center",
     alignItems: "center"
   }

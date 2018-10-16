@@ -42,6 +42,7 @@ class MainScreen extends Component<Props, State> {
     };
 
     ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
+    ( this: any ).updateLocation = this.updateLocation.bind( this );
   }
 
   componentDidMount() {
@@ -113,6 +114,14 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
+  updateLocation( latitude, longitude ) {
+    this.setState( {
+      latitude,
+      longitude
+    } );
+    console.log("updated location", latitude, longitude);
+  }
+
   results( taxa: Array<Object> ) {
     const {
       latitude,
@@ -136,6 +145,7 @@ class MainScreen extends Component<Props, State> {
         profileIcon={profileIcon}
         navigation={navigation}
         speciesCount={speciesCount}
+        updateLocation={this.updateLocation}
       />
     );
   }

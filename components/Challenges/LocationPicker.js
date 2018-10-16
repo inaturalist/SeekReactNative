@@ -17,7 +17,12 @@ class LocationPicker extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { location, latitude, longitude } = navigation.state.params;
+    const {
+      location,
+      latitude,
+      longitude,
+      updateLocation
+    } = navigation.state.params;
 
     this.state = {
       region: {
@@ -26,7 +31,8 @@ class LocationPicker extends Component {
         latitude,
         longitude
       },
-      location
+      location,
+      updateLocation
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -40,7 +46,7 @@ class LocationPicker extends Component {
   }
 
   render() {
-    const { region, location } = this.state;
+    const { region, location, updateLocation } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -56,7 +62,15 @@ class LocationPicker extends Component {
           />
         </View>
         <TouchableHighlight style={styles.button}>
-          <Text style={styles.buttonText} onPress={() => navigation.navigate( "Main", { latitude: region.latitude, longitude: region.longitude } )}>Done</Text>
+          <Text
+            style={styles.buttonText}
+            onPress={() => {
+              updateLocation( region.latitude, region.longitude );
+              navigation.navigate( "Main" );
+            }}
+          >
+            Done
+          </Text>
         </TouchableHighlight>
       </View>
     );

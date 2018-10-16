@@ -15,7 +15,8 @@ type Props = {
   latitude: number,
   longitude: number,
   location: string,
-  updateLocation: Function
+  updateLocation: Function,
+  reverseGeocodeLocation: Function
 }
 
 const ChallengeHeader = ( {

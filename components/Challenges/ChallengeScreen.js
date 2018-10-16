@@ -20,11 +20,19 @@ type Props = {
   location: string,
   navigation: Function,
   taxa: Array<Object>,
-  updateLocation: Function
+  updateLocation: Function,
+  reverseGeocodeLocation: Function
 }
 
 const ChallengeScreen = ( {
-  capitalizeNames, speciesCount, latitude, longitude, location, navigation, taxa, updateLocation
+  capitalizeNames,
+  speciesCount,
+  latitude,
+  longitude,
+  location,
+  navigation,
+  taxa,
+  updateLocation
 }: Props ) => (
   <View>
     <ImageBackground

@@ -37,7 +37,7 @@ class MainScreen extends Component<Props, State> {
       loading: true,
       latitude: null,
       longitude: null,
-      location: "San Francisco",
+      location: null,
       error: null,
       speciesCount: 115
     };
@@ -59,10 +59,13 @@ class MainScreen extends Component<Props, State> {
 
   getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {
-      console.log("position:", position);
+      const latitude = this.truncateCoordinates( position.coords.latitude );
+      const longitude = this.truncateCoordinates( position.coords.longitude );
+
       this.setState( {
-        latitude: this.truncateCoordinates( position.coords.latitude ),
-        longitude: this.truncateCoordinates( position.coords.longitude ),
+        latitude,
+        longitude,
+        location: this.reverseGeocodeLocation( latitude, longitude ),
         error: null
       }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     }, ( err ) => {
@@ -112,7 +115,6 @@ class MainScreen extends Component<Props, State> {
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
-    console.log(latitude, longitude, "reverse geocode", Geocoder);
     Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
       const { locality, subAdminArea } = result[0];
       this.setState( {

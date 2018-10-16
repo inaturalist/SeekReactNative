@@ -43,7 +43,7 @@ const ChallengeHeader = ( {
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.taxonChooser}
-      onPress={() => navigation.navigate( "Loading" )}
+      onPress={() => navigation.navigate( "Taxon" )}
     >
       <Text style={styles.taxonChooserText}>All species &#9660;</Text>
     </TouchableOpacity>

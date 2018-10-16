@@ -14,15 +14,28 @@ type Props = {
   navigation: any,
   latitude: number,
   longitude: number,
-  location: string
+  location: string,
+  updateLocation: Function,
+  reverseGeocodeLocation: Function
 }
 
-const ChallengeHeader = ( { navigation, latitude, longitude, location }: Props ) => (
+const ChallengeHeader = ( {
+  navigation,
+  latitude,
+  longitude,
+  location,
+  updateLocation
+}: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}
-      onPress={() => navigation.navigate( "Location", location, latitude, longitude )}
+      onPress={() => navigation.navigate( "Location", {
+        location,
+        latitude,
+        longitude,
+        updateLocation
+      } )}
     >
       <Text style={styles.locationChooserText}>
         {location} &#9660;

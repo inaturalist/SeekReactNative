@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import inatjs from "inaturalistjs";
+import Geocoder from "react-native-geocoder";
 
 import {
   View,
@@ -36,12 +37,13 @@ class MainScreen extends Component<Props, State> {
       loading: true,
       latitude: null,
       longitude: null,
-      location: "San Francisco",
+      location: null,
       error: null,
       speciesCount: 115
     };
 
     ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
+    ( this: any ).updateLocation = this.updateLocation.bind( this );
   }
 
   componentDidMount() {
@@ -57,10 +59,13 @@ class MainScreen extends Component<Props, State> {
 
   getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {
-      console.log("position:", position);
+      const latitude = this.truncateCoordinates( position.coords.latitude );
+      const longitude = this.truncateCoordinates( position.coords.longitude );
+
       this.setState( {
-        latitude: this.truncateCoordinates( position.coords.latitude ),
-        longitude: this.truncateCoordinates( position.coords.longitude ),
+        latitude,
+        longitude,
+        location: this.reverseGeocodeLocation( latitude, longitude ),
         error: null
       }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     }, ( err ) => {
@@ -68,10 +73,6 @@ class MainScreen extends Component<Props, State> {
         error: err.message
       } );
     } );
-
-    // if ( !error ) {
-    //   this.fetchChallenges( latitude, longitude );
-    // }
   }
 
   truncateCoordinates( coordinate: number ) {
@@ -113,6 +114,29 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
+  reverseGeocodeLocation( latitude, longitude ) {
+    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setState( {
+        location: locality || subAdminArea
+      } ); // might need an error state here
+      console.log(result, "reverse geocode location result");
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
+  updateLocation( latitude, longitude ) {
+    this.setState( {
+      latitude,
+      longitude,
+      location: this.reverseGeocodeLocation( latitude, longitude )
+    }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+    console.log("updated location", latitude, longitude);
+  }
+
   results( taxa: Array<Object> ) {
     const {
       latitude,
@@ -136,6 +160,7 @@ class MainScreen extends Component<Props, State> {
         profileIcon={profileIcon}
         navigation={navigation}
         speciesCount={speciesCount}
+        updateLocation={this.updateLocation}
       />
     );
   }

@@ -1,27 +1,96 @@
 // @flow
 
-import React from "react";
+import React, { Component } from "react";
 import { TouchableHighlight, Text, View } from "react-native";
-import MapView from "react-native-maps";
+import Geocoder from "react-native-geocoder";
+import LocationMap from "./LocationMap";
+
+import styles from "../../styles/locationPicker";
+
+const latitudeDelta = 0.025;
+const longitudeDelta = 0.025;
 
 type Props = {
-  location: string
+  navigation: any
 }
 
-const LocationPicker = ( { location }: Props ) => (
-  <View>
-    <Text>Looking for a species in a 50 mile radius around this point:</Text>
-    <Text>{location}</Text>
-    <MapView
-      initialRegion={{
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }}
-    />
-    <TouchableHighlight>Done</TouchableHighlight>
-  </View>
-);
+class LocationPicker extends Component {
+  constructor( { navigation }: Props ) {
+    super();
+
+    const {
+      location,
+      latitude,
+      longitude,
+      updateLocation
+    } = navigation.state.params;
+
+    this.state = {
+      region: {
+        latitudeDelta,
+        longitudeDelta,
+        latitude,
+        longitude
+      },
+      mapLocation: location,
+      updateLocation
+    };
+
+    this.onRegionChange = this.onRegionChange.bind( this );
+  }
+
+  onRegionChange( region ) {
+    const { latitude, longitude } = this.state.region;
+
+    this.setState( {
+      region
+    }, () => this.reverseGeocodeLocation( latitude, longitude ) );
+    console.log( "region changed to: ", region );
+  }
+
+  reverseGeocodeLocation( latitude, longitude ) {
+    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setState( {
+        mapLocation: locality || subAdminArea
+      } ); // might need an error state here
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
+  render() {
+    const { region, mapLocation, updateLocation } = this.state;
+    const { navigation } = this.props;
+
+    return (
+      <View style={styles.container}>
+        <Text style={styles.headerText}>
+          Looking for species in a 50 mile radius around this point:
+        </Text>
+        <Text style={styles.locationText}>{mapLocation}</Text>
+        <View style={styles.mapContainer}>
+          <LocationMap
+            region={region}
+            onRegionChange={this.onRegionChange}
+          />
+        </View>
+        <TouchableHighlight style={styles.button}>
+          <Text
+            style={styles.buttonText}
+            onPress={() => {
+              updateLocation( region.latitude, region.longitude );
+              navigation.navigate( "Main" );
+            }}
+          >
+            Done
+          </Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+}
 
 export default LocationPicker;

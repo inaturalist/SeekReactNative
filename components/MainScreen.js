@@ -69,10 +69,6 @@ class MainScreen extends Component<Props, State> {
         error: err.message
       } );
     } );
-
-    // if ( !error ) {
-    //   this.fetchChallenges( latitude, longitude );
-    // }
   }
 
   truncateCoordinates( coordinate: number ) {
@@ -118,7 +114,7 @@ class MainScreen extends Component<Props, State> {
     this.setState( {
       latitude,
       longitude
-    } );
+    }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     console.log("updated location", latitude, longitude);
   }
 

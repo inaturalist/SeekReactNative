@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import inatjs from "inaturalistjs";
+import Geocoder from "react-native-geocoder";
 
 import {
   View,
@@ -110,10 +111,26 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
+  reverseGeocodeLocation( latitude, longitude ) {
+    console.log(latitude, longitude, "reverse geocode", Geocoder);
+    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setState( {
+        location: locality || subAdminArea
+      } ); // might need an error state here
+      console.log(result, "reverse geocode location result");
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
   updateLocation( latitude, longitude ) {
     this.setState( {
       latitude,
-      longitude
+      longitude,
+      location: this.reverseGeocodeLocation( latitude, longitude )
     }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     console.log("updated location", latitude, longitude);
   }

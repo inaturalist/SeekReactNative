@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-geocoder')
     implementation project(':react-native-maps')
     implementation project(':react-native-camera')
     implementation fileTree(dir: "libs", include: ["*.jar"])

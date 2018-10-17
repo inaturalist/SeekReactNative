@@ -44,7 +44,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => setTaxonId( "plants" )}
+              onPress={() => {
+                setTaxonId( "plants" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -55,7 +58,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "amphibians" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -66,7 +72,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "fungi" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -77,7 +86,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "fish" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -88,7 +100,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "reptiles" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -99,7 +114,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "arachnids" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -110,7 +128,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "birds" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -121,7 +142,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "insects" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -132,7 +156,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "mollusks" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}
@@ -143,7 +170,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "mammals" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}

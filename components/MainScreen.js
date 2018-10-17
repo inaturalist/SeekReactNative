@@ -60,6 +60,8 @@ class MainScreen extends Component<Props, State> {
   }
 
   setTaxonId( taxa ) {
+    const { latitude, longitude } = this.state;
+
     if ( taxa === "plants" ) {
       this.setState( {
         taxonId: 47126
@@ -105,6 +107,7 @@ class MainScreen extends Component<Props, State> {
         taxonId: null
       } );
     }
+    this.fetchChallenges( latitude, longitude );
   }
 
   getGeolocation( ) {
@@ -137,12 +140,14 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
+    const { taxonId } = this.state;
+
     const params = {
       verifiable: true,
       photos: true,
       per_page: 9,
-      lat: latitude, // 37.7749, San Francisco hardcoded for testing
-      lng: longitude, // -122.4194, San Francisco hardcoded for testing
+      lat: latitude,
+      lng: longitude,
       radius: 50,
       threatened: false,
       oauth_application_id: "2,3",
@@ -151,13 +156,16 @@ class MainScreen extends Component<Props, State> {
       not_in_list_id: 945029
     };
 
+    if ( taxonId ) {
+      params.taxon_id = taxonId;
+    }
+
     console.log( "params: ", params );
 
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
     } ).catch( ( err ) => {
-      console.log( err );
       this.setState( {
         error: err.message
       } );
@@ -170,7 +178,6 @@ class MainScreen extends Component<Props, State> {
       this.setState( {
         location: locality || subAdminArea
       } ); // might need an error state here
-      console.log(result, "reverse geocode location result");
     } ).catch( ( err ) => {
       this.setState( {
         error: err.message

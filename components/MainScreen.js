@@ -64,47 +64,58 @@ class MainScreen extends Component<Props, State> {
 
     if ( taxa === "plants" ) {
       this.setState( {
-        taxonId: 47126
+        taxonId: 47126,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "amphibians" ) {
       this.setState( {
-        taxonId: 20978
+        taxonId: 20978,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fungi" ) {
       this.setState( {
-        taxonId: 47170
+        taxonId: 47170,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fish" ) {
       this.setState( {
-        taxonId: 47178
+        taxonId: 47178,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "reptiles" ) {
       this.setState( {
-        taxonId: 26036
+        taxonId: 26036,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "arachnids" ) {
       this.setState( {
-        taxonId: 47119
+        taxonId: 47119,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "birds" ) {
       this.setState( {
-        taxonId: 3
+        taxonId: 3,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "insects" ) {
       this.setState( {
-        taxonId: 47158
+        taxonId: 47158,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mollusks" ) {
       this.setState( {
-        taxonId: 47115
+        taxonId: 47115,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mammals" ) {
       this.setState( {
-        taxonId: 40151
+        taxonId: 40151,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else {
-      this.setState ( {
-        taxonId: null
+      this.setState( {
+        taxonId: null,
+        loading: true
       }, () => this.fetchChallenges( latitude, longitude ) );
     }
   }
@@ -188,7 +199,8 @@ class MainScreen extends Component<Props, State> {
     this.setState( {
       latitude,
       longitude,
-      location: this.reverseGeocodeLocation( latitude, longitude )
+      location: this.reverseGeocodeLocation( latitude, longitude ),
+      loading: true
     }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
     console.log("updated location", latitude, longitude);
   }

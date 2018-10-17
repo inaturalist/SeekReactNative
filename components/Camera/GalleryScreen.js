@@ -51,21 +51,18 @@ class GalleryScreen extends Component {
     } = this.props;
 
     return (
-      <ScrollView contentContainerStyle={{ flexWrap: "wrap", flexDirection: "row" }}>
+      <ScrollView contentContainerStyle={styles.container}>
         {
           photos.map( ( p, i ) => {
             return (
               <TouchableHighlight
-                style={{ paddingHorizontal: 1, paddingTop: 2 }}
+                style={styles.button}
                 key={i.toString()}
                 underlayColor="transparent"
                 onPress={() => navigation.navigate( "Results" )}
               >
                 <Image
-                  style={{
-                    width: width / 4 - 2,
-                    height: width / 4 - 2
-                  }}
+                  style={styles.image}
                   source={{ uri: p.node.image.uri }}
                 />
               </TouchableHighlight>
@@ -90,7 +87,7 @@ class GalleryScreen extends Component {
           style={styles.backgroundImage}
           source={require( "../../assets/backgrounds/background.png" )}
         >
-          <View style={{ paddingTop: 20, flex: 1 }}>
+          <View style={styles.gallery}>
             {gallery}
           </View>
         </ImageBackground>

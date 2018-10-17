@@ -39,11 +39,13 @@ class MainScreen extends Component<Props, State> {
       longitude: null,
       location: null,
       error: null,
+      taxonId: null,
       speciesCount: 115
     };
 
     ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
     ( this: any ).updateLocation = this.updateLocation.bind( this );
+    ( this: any ).setTaxonId = this.setTaxonId.bind( this );
   }
 
   componentDidMount() {
@@ -55,6 +57,18 @@ class MainScreen extends Component<Props, State> {
       taxa: challenges,
       loading: false
     } );
+  }
+
+  setTaxonId( taxa ) {
+    if ( taxa === "mollusks" ) {
+      this.setState( {
+        taxonId: 47115
+      } );
+    } else if ( taxa === "plants" ) {
+      this.setState( {
+        taxonId: 47126
+      }, () => console.log( this.state.taxonId ) );
+    }
   }
 
   getGeolocation( ) {
@@ -161,6 +175,7 @@ class MainScreen extends Component<Props, State> {
         navigation={navigation}
         speciesCount={speciesCount}
         updateLocation={this.updateLocation}
+        setTaxonId={this.setTaxonId}
       />
     );
   }

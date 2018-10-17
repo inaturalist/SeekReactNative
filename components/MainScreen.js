@@ -39,6 +39,7 @@ class MainScreen extends Component<Props, State> {
       longitude: null,
       location: null,
       error: null,
+      taxaType: "All species",
       taxonId: null,
       speciesCount: 115
     };
@@ -65,57 +66,68 @@ class MainScreen extends Component<Props, State> {
     if ( taxa === "plants" ) {
       this.setState( {
         taxonId: 47126,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "amphibians" ) {
       this.setState( {
         taxonId: 20978,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fungi" ) {
       this.setState( {
         taxonId: 47170,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fish" ) {
       this.setState( {
         taxonId: 47178,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "reptiles" ) {
       this.setState( {
         taxonId: 26036,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "arachnids" ) {
       this.setState( {
         taxonId: 47119,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "birds" ) {
       this.setState( {
         taxonId: 3,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "insects" ) {
       this.setState( {
         taxonId: 47158,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mollusks" ) {
       this.setState( {
         taxonId: 47115,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mammals" ) {
       this.setState( {
         taxonId: 40151,
-        loading: true
+        loading: true,
+        taxaType: this.capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else {
       this.setState( {
         taxonId: null,
-        loading: true
+        loading: true,
+        taxaType: "All species"
       }, () => this.fetchChallenges( latitude, longitude ) );
     }
   }
@@ -211,7 +223,8 @@ class MainScreen extends Component<Props, State> {
       longitude,
       location,
       profileIcon,
-      speciesCount
+      speciesCount,
+      taxaType
     } = this.state;
 
     const {
@@ -221,6 +234,7 @@ class MainScreen extends Component<Props, State> {
     return (
       <ChallengeScreen
         taxa={taxa}
+        taxaType={taxaType}
         latitude={latitude}
         longitude={longitude}
         location={location}

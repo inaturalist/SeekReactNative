@@ -20,6 +20,7 @@ type Props = {
   location: string,
   navigation: Function,
   taxa: Array<Object>,
+  taxaType: string,
   setTaxonId: Function,
   updateLocation: Function,
   reverseGeocodeLocation: Function
@@ -34,6 +35,7 @@ const ChallengeScreen = ( {
   navigation,
   setTaxonId,
   taxa,
+  taxaType,
   updateLocation
 }: Props ) => (
   <View>
@@ -48,6 +50,7 @@ const ChallengeScreen = ( {
         navigation={navigation}
         updateLocation={updateLocation}
         setTaxonId={setTaxonId}
+        taxaType={taxaType}
       />
       <ChallengeGrid
         capitalizeNames={capitalizeNames}

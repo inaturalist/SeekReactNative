@@ -34,7 +34,10 @@ const TaxonPicker = ( { navigation } ) => {
             <TouchableOpacity
               style={styles.imageCell}
               underlayColor="transparent"
-              onPress={() => console.log( "clicked image" )}
+              onPress={() => {
+                setTaxonId( "all" );
+                navigation.navigate( "Main" );
+              }}
             >
               <Image
                 style={styles.image}

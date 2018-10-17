@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    compile project(':gl-react-native')
     implementation project(':react-native-geocoder')
     implementation project(':react-native-maps')
     implementation project(':react-native-camera')

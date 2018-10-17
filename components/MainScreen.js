@@ -65,49 +65,48 @@ class MainScreen extends Component<Props, State> {
     if ( taxa === "plants" ) {
       this.setState( {
         taxonId: 47126
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "amphibians" ) {
       this.setState( {
         taxonId: 20978
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fungi" ) {
       this.setState( {
         taxonId: 47170
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fish" ) {
       this.setState( {
         taxonId: 47178
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "reptiles" ) {
       this.setState( {
         taxonId: 26036
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "arachnids" ) {
       this.setState( {
         taxonId: 47119
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "birds" ) {
       this.setState( {
         taxonId: 3
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "insects" ) {
       this.setState( {
         taxonId: 47158
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mollusks" ) {
       this.setState( {
         taxonId: 47115
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mammals" ) {
       this.setState( {
         taxonId: 40151
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     } else {
       this.setState ( {
         taxonId: null
-      } );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     }
-    this.fetchChallenges( latitude, longitude );
   }
 
   getGeolocation( ) {

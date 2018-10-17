@@ -13,6 +13,7 @@ import styles from "../../styles/taxonPicker";
 
 const TaxonPicker = ( { navigation } ) => {
   const { setTaxonId } = navigation.state.params;
+
   return (
     <View style={{
       flex: 1

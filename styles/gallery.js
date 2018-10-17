@@ -1,6 +1,12 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  backgroundImage: {
+    width,
+    height
+  },
   container: {
     flex: 1,
     backgroundColor: "#F5FCFF"

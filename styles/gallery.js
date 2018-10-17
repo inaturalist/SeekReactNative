@@ -1,19 +1,30 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: "#F5FCFF"
   },
-  imageGrid: {
-    flex: 1,
-    flexDirection: "row",
+  backgroundImage: {
+    width,
+    height
+  },
+  gallery: {
+    paddingTop: 20,
+    flex: 1
+  },
+  scroll: {
     flexWrap: "wrap",
-    justifyContent: "center"
+    flexDirection: "row"
+  },
+  button: {
+    paddingHorizontal: 1,
+    paddingTop: 2
   },
   image: {
-    width: 100,
-    height: 100,
-    margin: 10
+    width: width / 4 - 2,
+    height: width / 4 - 2
   }
 } );

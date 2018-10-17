@@ -11,15 +11,20 @@ export default StyleSheet.create( {
     width,
     height
   },
-  imageGrid: {
-    flex: 1,
-    flexDirection: "row",
+  gallery: {
+    paddingTop: 20,
+    flex: 1
+  },
+  scroll: {
     flexWrap: "wrap",
-    justifyContent: "center"
+    flexDirection: "row"
+  },
+  button: {
+    paddingHorizontal: 1,
+    paddingTop: 2
   },
   image: {
-    width: 100,
-    height: 100,
-    margin: 10
+    width: width / 4 - 2,
+    height: width / 4 - 2
   }
 } );

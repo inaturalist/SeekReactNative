@@ -5,7 +5,7 @@ import {
   Image,
   ImageBackground,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   View
 } from "react-native";
 
@@ -21,14 +21,14 @@ const TaxonPicker = () => (
       source={require( "../../assets/backgrounds/background.png" )}
     >
       <View style={styles.header}>
-        <Text>Show me...</Text>
+        <Text style={styles.headerText}>Show me...</Text>
       </View>
       <View style={styles.gridContainer}>
         <ScrollView
           contentContainerStyle={{ flexWrap: "wrap", flexDirection: "row" }}
           scrollEnabled={false}
         >
-          <TouchableHighlight
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -37,8 +37,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-all.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>All</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -47,8 +48,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-plants.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Plants</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -57,8 +59,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-amphibians.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Amphibians</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -67,8 +70,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-fungi.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Fungi</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -77,8 +81,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-fish.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Fish</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -87,8 +92,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-reptiles.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Reptiles</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -97,8 +103,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-arachnids.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Arachnids</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -107,8 +114,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-birds.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Birds</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -117,8 +125,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-insects.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Insects</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -127,8 +136,9 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-mollusks.png" )}
             />
-          </TouchableHighlight>
-          <TouchableHighlight
+            <Text style={styles.text}>Mollusks</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={styles.imageCell}
             underlayColor="transparent"
             onPress={() => console.log( "clicked image" )}
@@ -137,7 +147,8 @@ const TaxonPicker = () => (
               style={styles.image}
               source={require( "../../assets/taxa/icn-iconic-taxa-mammals.png" )}
             />
-          </TouchableHighlight>
+            <Text style={styles.text}>Mammals</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </ImageBackground>

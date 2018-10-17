@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- copy this file to config.xml and uncomment / fill in the values specific to your project -->
+<resources>
+    <!-- https://developers.google.com/maps/documentation/android/ -->
+    <!-- <string name="gmaps_api_key">xxx</string>  -->
+</resources>

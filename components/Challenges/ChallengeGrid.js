@@ -19,7 +19,7 @@ type Props = {
 }
 
 const ChallengeGrid = ( { navigation, taxa, capitalizeNames }: Props ) => (
-  <View>
+  <View style={styles.taxonGrid}>
     <FlatList
       data={ taxa }
       scrollEnabled={false}

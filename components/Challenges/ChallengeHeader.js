@@ -15,6 +15,8 @@ type Props = {
   latitude: number,
   longitude: number,
   location: string,
+  setTaxonId: Function,
+  taxaType: string,
   updateLocation: Function,
   reverseGeocodeLocation: Function
 }
@@ -24,6 +26,8 @@ const ChallengeHeader = ( {
   latitude,
   longitude,
   location,
+  setTaxonId,
+  taxaType,
   updateLocation
 }: Props ) => (
   <View style={styles.header}>
@@ -43,9 +47,9 @@ const ChallengeHeader = ( {
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.taxonChooser}
-      onPress={() => navigation.navigate( "Loading" )}
+      onPress={() => navigation.navigate( "Taxon", { setTaxonId } )}
     >
-      <Text style={styles.taxonChooserText}>All species &#9660;</Text>
+      <Text style={styles.taxonChooserText}>{taxaType} &#9660;</Text>
     </TouchableOpacity>
   </View>
 );

@@ -49,19 +49,21 @@ class ChallengeFooter extends Component<Props> {
 
     return (
       <View style={styles.footer}>
-        <TouchableOpacity
-          style={styles.profileButton}
-          onPress={() => navigation.navigate( "Loading" )}
-        >
-          {profileIcon}
-        </TouchableOpacity>
-        <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
-        <TouchableOpacity
-          style={styles.addPhotoButton}
-          onPress={() => navigation.navigate( "Camera" )}
-        >
-          <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
-        </TouchableOpacity>
+        <View style={styles.bottomNavigation}>
+          <TouchableOpacity
+            style={styles.profileButton}
+            onPress={() => navigation.navigate( "Loading" )}
+          >
+            {profileIcon}
+          </TouchableOpacity>
+          <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
+          <TouchableOpacity
+            style={styles.addPhotoButton}
+            onPress={() => navigation.navigate( "Camera" )}
+          >
+            <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

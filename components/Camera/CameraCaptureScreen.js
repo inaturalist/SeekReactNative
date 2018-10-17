@@ -41,7 +41,13 @@ const CameraCaptureScreen = ( {
     <View style={styles.main} />
     <View style={styles.footer}>
       <View>
-        <TouchableOpacity onPress={() => takePicture()} style={styles.capture} />
+        <TouchableOpacity
+          onPress={() => {
+            takePicture();
+            navigation.navigate( "Results" );
+          }}
+          style={styles.capture}
+        />
       </View>
       <View style={styles.bottomNavigation}>
         <TouchableOpacity

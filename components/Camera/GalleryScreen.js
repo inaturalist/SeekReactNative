@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import {
   CameraRoll, Dimensions, Image, ScrollView, TouchableHighlight, View
@@ -5,8 +7,12 @@ import {
 
 const { width } = Dimensions.get( "window" );
 
+type Props = {
+  navigation: any
+}
+
 class GalleryScreen extends Component {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
     this.state = {
@@ -40,6 +46,10 @@ class GalleryScreen extends Component {
       photos
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     return (
       <View style={{
         flex: 1
@@ -54,7 +64,7 @@ class GalleryScreen extends Component {
                     style={{ paddingHorizontal: 1, paddingTop: 2 }}
                     key={i.toString()}
                     underlayColor="transparent"
-                    onPress={() => console.log( "clicked image" )}
+                    onPress={() => navigation.navigate( "Results" )}
                   >
                     <Image
                       style={{

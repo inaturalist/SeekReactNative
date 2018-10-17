@@ -10,7 +10,6 @@ import {
 } from "react-native";
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
-import LoadingScreen from "./LoadingScreen";
 import styles from "../styles/challenges";
 
 type Props = {
@@ -217,44 +216,21 @@ class MainScreen extends Component<Props, State> {
     console.log("updated location", latitude, longitude);
   }
 
-  results( taxa: Array<Object> ) {
+  render() {
     const {
+      loading,
       latitude,
       longitude,
       location,
       profileIcon,
       speciesCount,
-      taxaType
+      taxaType,
+      taxa
     } = this.state;
 
     const {
       navigation
     } = this.props;
-
-    return (
-      <ChallengeScreen
-        taxa={taxa}
-        taxaType={taxaType}
-        latitude={latitude}
-        longitude={longitude}
-        location={location}
-        capitalizeNames={this.capitalizeNames}
-        profileIcon={profileIcon}
-        navigation={navigation}
-        speciesCount={speciesCount}
-        updateLocation={this.updateLocation}
-        setTaxonId={this.setTaxonId}
-      />
-    );
-  }
-
-  render() {
-    const {
-      loading,
-      taxa
-    } = this.state;
-
-    const challenges = loading ? <LoadingScreen /> : this.results( taxa );
 
     return (
       <View style={ { flex: 1 } }>
@@ -263,7 +239,20 @@ class MainScreen extends Component<Props, State> {
             barStyle="light-content"
             backgroundColor="#4F6D7A"
           />
-          { challenges }
+          <ChallengeScreen
+            taxa={taxa}
+            taxaType={taxaType}
+            latitude={latitude}
+            loading={loading}
+            longitude={longitude}
+            location={location}
+            capitalizeNames={this.capitalizeNames}
+            profileIcon={profileIcon}
+            navigation={navigation}
+            speciesCount={speciesCount}
+            updateLocation={this.updateLocation}
+            setTaxonId={this.setTaxonId}
+          />
         </View>
       </View>
     );

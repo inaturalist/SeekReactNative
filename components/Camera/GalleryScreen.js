@@ -2,13 +2,11 @@
 
 import React, { Component } from "react";
 import {
-  CameraRoll, Dimensions, Image, ImageBackground, ScrollView, TouchableHighlight, View
+  CameraRoll, Image, ImageBackground, ScrollView, TouchableHighlight, View
 } from "react-native";
 import LoadingScreen from "../LoadingScreen";
 
 import styles from "../../styles/gallery";
-
-const { width } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -70,7 +68,7 @@ class GalleryScreen extends Component {
           } )
         }
       </ScrollView>
-    )
+    );
   }
 
   render() {

@@ -4,24 +4,23 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
-    justifyContent: "center",
     width,
     height
   },
-  loadingWheel: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
   container: {
     flex: 1,
+    width,
+    height,
     backgroundColor: "#37535e",
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: "center"
   },
   header: {
-    flex: 1,
-    paddingTop: "5%",
-    flexDirection: "row",
-    justifyContent: "flex-start"
+    height: 100,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0
   },
   headerText: {
     marginLeft: 15,
@@ -55,13 +54,15 @@ export default StyleSheet.create( {
     fontSize: 16
   },
   taxonGrid: {
-    flexGrow: 1
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 100,
+    marginBottom: 40
   },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
     paddingHorizontal: 6,
-    paddingTop: 10,
     marginTop: 15
   },
   gridCellContents: {
@@ -70,7 +71,7 @@ export default StyleSheet.create( {
     shadowColor: "#0d2d3a"
   },
   cellTitle: {
-    height: "30%",
+    height: 40,
     backgroundColor: "#355c6b",
     padding: 5,
     justifyContent: "center",
@@ -81,37 +82,33 @@ export default StyleSheet.create( {
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium",
     fontSize: 13,
-    paddingTop: 3,
-    lineHeight: 12
+    paddingTop: 3
   },
   footer: {
-    flex: 0.2,
-    height: 40,
-    justifyContent: "flex-end",
-    backgroundColor: "#1f3d48",
-    flexDirection: "column"
-  },
-  bottomNavigation: {
-    flexDirection: "row",
-    alignItems: "flex-end"
+    height: 50,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "#1f3d48"
   },
   profileButton: {
     position: "absolute",
     left: 0,
-    paddingLeft: 15,
-    paddingBottom: "10%"
+    bottom: 5,
+    paddingLeft: 15
   },
   addPhotoButton: {
     position: "absolute",
     right: 0,
-    paddingRight: 15,
-    paddingBottom: "10%"
+    bottom: 5,
+    paddingRight: 15
   },
   profileText: {
     color: "#F5FCFF",
     fontFamily: "Whitney-Medium",
     fontSize: 13,
-    paddingLeft: "30%",
-    paddingBottom: "10%"
+    bottom: 5,
+    paddingLeft: "30%"
   }
 } );

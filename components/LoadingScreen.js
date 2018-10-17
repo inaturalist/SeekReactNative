@@ -8,9 +8,7 @@ import styles from "../styles/challenges";
 
 const LoadingScreen = () => (
   <View style={styles.taxonGrid}>
-    <View style={styles.loadingWheel}>
-      <ActivityIndicator color="white" size="large" />
-    </View>
+    <ActivityIndicator color="white" size="large" />
   </View>
 );
 

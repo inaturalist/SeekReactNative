@@ -49,7 +49,6 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
-    console.log( image, 'photo clicked' );
     this.setState( {
       imageClicked: image
     }, () => navigation.navigate( "Results", { image: this.state.imageClicked } ) );

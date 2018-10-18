@@ -32,8 +32,8 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
-    console.log( this.state.image );
     this.resizeImage();
+    console.log( this.state.image );
   }
 
   getCameraCaptureFromGallery() {
@@ -54,13 +54,12 @@ class ChallengeResults extends Component {
 
   resizeImage() {
     const { image } = this.state;
-    console.log( image, 'in resize function' );
-    // image.height = 299;
-    // image.width = 299;
+    image.height = 299;
+    image.width = 299;
 
-    // this.setState( {
-    //   image
-    // } );
+    this.setState( {
+      image
+    } );
   }
 
   scoreImage() {

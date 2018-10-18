@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors, fonts, fontSize } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -11,7 +12,7 @@ export default StyleSheet.create( {
     flex: 1,
     width,
     height,
-    backgroundColor: "#37535e",
+    backgroundColor: colors.darkBlue,
     flexDirection: "column",
     justifyContent: "center"
   },
@@ -24,10 +25,10 @@ export default StyleSheet.create( {
   },
   headerText: {
     marginLeft: 15,
-    fontSize: 14,
+    fontSize: fontSize.smallText,
     lineHeight: 12,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    color: colors.white,
+    fontFamily: fonts.default,
     position: "absolute",
     bottom: 30
   },
@@ -37,9 +38,9 @@ export default StyleSheet.create( {
     paddingLeft: 15
   },
   locationChooserText: {
-    color: "#F5FCFF",
-    fontFamily: "FontAwesome",
-    fontSize: 18,
+    color: colors.white,
+    fontFamily: fonts.playful,
+    fontSize: fontSize.buttonText,
     fontWeight: "900"
   },
   taxonChooser: {
@@ -49,9 +50,9 @@ export default StyleSheet.create( {
     paddingRight: 15
   },
   taxonChooserText: {
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 16
+    color: colors.white,
+    fontFamily: fonts.default,
+    fontSize: fontSize.text
   },
   taxonGrid: {
     alignItems: "center",
@@ -68,20 +69,20 @@ export default StyleSheet.create( {
   gridCellContents: {
     borderRadius: 5,
     overflow: "hidden",
-    shadowColor: "#0d2d3a"
+    shadowColor: colors.blueShadow
   },
   cellTitle: {
     height: 40,
-    backgroundColor: "#355c6b",
+    backgroundColor: colors.darkBlue,
     padding: 5,
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   cellTitleText: {
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 13,
+    color: colors.white,
+    fontFamily: fonts.default,
+    fontSize: fontSize.smallText,
     paddingTop: 3
   },
   footer: {
@@ -90,7 +91,7 @@ export default StyleSheet.create( {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "#1f3d48"
+    backgroundColor: colors.darkDesaturatedBlue
   },
   profileButton: {
     position: "absolute",
@@ -105,9 +106,9 @@ export default StyleSheet.create( {
     paddingRight: 15
   },
   profileText: {
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
-    fontSize: 13,
+    color: colors.white,
+    fontFamily: fonts.default,
+    fontSize: fontSize.smallText,
     bottom: 5,
     paddingLeft: "30%"
   }

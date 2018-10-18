@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors, fonts, fontSize } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -21,15 +22,16 @@ export default StyleSheet.create( {
     marginBottom: 10,
     marginTop: 20,
     borderRadius: 8,
-    borderColor: "white",
+    borderColor: colors.white,
     borderWidth: 1,
     padding: 5,
     alignItems: "center",
     justifyContent: "center"
   },
   buttonText: {
-    color: "white",
-    fontSize: 15
+    color: colors.white,
+    fontSize: fontSize.buttonText,
+    fontFamily: fonts.default
   },
   main: {
     flexGrow: 1
@@ -45,12 +47,12 @@ export default StyleSheet.create( {
   },
   capture: {
     flex: 0,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     borderWidth: 4,
     borderRadius: 100,
     alignItems: "flex-end",
     justifyContent: "center",
-    borderColor: "#d3d3d3",
+    borderColor: colors.lightGray,
     alignSelf: "center",
     width: 50,
     height: 50

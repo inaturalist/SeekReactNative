@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors, fonts, fontSize } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -16,20 +17,20 @@ export default StyleSheet.create( {
     width: 100
   },
   headerText: {
-    fontSize: 20,
+    fontSize: fontSize.header,
     lineHeight: 18,
     color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    fontFamily: fonts.default
   },
   text: {
-    fontSize: 16,
+    fontSize: fontSize.text,
     lineHeight: 14,
     color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   button: {
-    backgroundColor: "green",
+    backgroundColor: colors.green,
     justifyContent: "flex-end",
     marginHorizontal: 40,
     marginBottom: 10,
@@ -39,9 +40,9 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: "Whitney-Semibold",
-    fontSize: 18,
-    color: "white",
+    fontFamily: fonts.button,
+    fontSize: fontSize.button,
+    color: colors.white,
     textAlign: "center",
     justifyContent: "center"
   }

@@ -1,5 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -17,14 +23,14 @@ export default StyleSheet.create( {
   },
   buttons: {
     flex: 0.3,
-    height: 40,
-    marginHorizontal: 2,
-    marginBottom: 10,
-    marginTop: 20,
+    height: 30,
+    marginHorizontal: margins.extraSmall,
+    marginBottom: margins.small,
+    marginTop: margins.large,
     borderRadius: 8,
     borderColor: colors.white,
     borderWidth: 1,
-    padding: 5,
+    padding: padding.medium,
     alignItems: "center",
     justifyContent: "center"
   },

@@ -1,5 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -10,9 +16,9 @@ export default StyleSheet.create( {
     height
   },
   headerText: {
-    marginTop: 40,
-    marginLeft: 15,
-    marginRight: 15,
+    marginTop: margins.large,
+    marginLeft: margins.medium,
+    marginRight: margins.medium,
     justifyContent: "space-around",
     fontSize: fontSize.header,
     flexWrap: "wrap",
@@ -23,8 +29,8 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.playful,
     fontSize: fontSize.mediumHeader,
-    marginLeft: 15,
-    marginTop: 15,
+    marginLeft: margins.medium,
+    marginTop: margins.medium,
     fontWeight: "600"
   },
   container: {
@@ -37,11 +43,11 @@ export default StyleSheet.create( {
   button: {
     backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
-    marginHorizontal: 40,
-    marginBottom: 10,
-    marginTop: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
+    marginHorizontal: margins.large,
+    marginBottom: margins.small,
+    marginTop: margins.small,
+    paddingTop: padding.medium,
+    paddingBottom: padding.medium,
     borderRadius: 40
   },
   buttonText: {

@@ -1,5 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -11,7 +17,7 @@ export default StyleSheet.create( {
   },
   welcome: {
     fontSize: fontSize.largeHeader,
-    marginTop: "20%",
+    marginTop: margins.large,
     color: colors.white,
     fontFamily: fonts.default
   },
@@ -19,16 +25,17 @@ export default StyleSheet.create( {
     fontSize: fontSize.header,
     marginHorizontal: "10%",
     marginTop: "10%",
-    marginBottom: "10%",
+    marginBottom: margins.small,
     lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default
   },
   tipContainer: {
-    flex: 1
+    flex: 1,
+    marginBottom: margins.medium
   },
   tipList: {
-    marginBottom: 18,
+    marginBottom: margins.small,
     marginLeft: "10%",
     marginRight: "20%",
     flexDirection: "row"
@@ -41,15 +48,15 @@ export default StyleSheet.create( {
     flexWrap: "wrap"
   },
   checkMark: {
-    fontSize: 24,
+    fontSize: fontSize.mediumHeader,
     color: colors.lightGreen,
     fontFamily: fonts.playful,
-    marginRight: 15
+    marginRight: margins.medium
   },
   disclaimerContainer: {
     flex: 1,
-    marginHorizontal: "10%",
-    marginTop: "1%"
+    marginHorizontal: margins.large,
+    marginTop: margins.medium
   },
   disclaimer: {
     fontSize: fontSize.smallText,
@@ -61,11 +68,12 @@ export default StyleSheet.create( {
   button: {
     backgroundColor: colors.white,
     color: colors.black,
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: "5%",
-    paddingTop: "1%",
-    paddingBottom: "1%",
+    marginLeft: margins.medium,
+    marginRight: margins.medium,
+    marginBottom: margins.small,
+    marginTop: margins.small,
+    paddingTop: padding.small,
+    paddingBottom: padding.extraSmall,
     borderRadius: 40
   },
   buttonText: {

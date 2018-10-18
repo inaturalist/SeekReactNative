@@ -1,5 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -24,7 +30,7 @@ export default StyleSheet.create( {
     top: 0
   },
   headerText: {
-    marginLeft: 15,
+    marginLeft: margins.medium,
     fontSize: fontSize.smallText,
     lineHeight: 12,
     color: colors.white,
@@ -35,7 +41,7 @@ export default StyleSheet.create( {
   locationChooser: {
     position: "absolute",
     bottom: 5,
-    paddingLeft: 15
+    paddingLeft: padding.large
   },
   locationChooserText: {
     color: colors.white,
@@ -47,7 +53,7 @@ export default StyleSheet.create( {
     position: "absolute",
     bottom: 5,
     right: 0,
-    paddingRight: 15
+    paddingRight: padding.large
   },
   taxonChooserText: {
     color: colors.white,
@@ -57,14 +63,14 @@ export default StyleSheet.create( {
   taxonGrid: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 100,
-    marginBottom: 40
+    marginTop: margins.extraLarge,
+    marginBottom: margins.large
   },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
-    paddingHorizontal: 6,
-    marginTop: 15
+    paddingHorizontal: padding.medium,
+    marginTop: margins.medium
   },
   gridCellContents: {
     borderRadius: 5,
@@ -74,7 +80,7 @@ export default StyleSheet.create( {
   cellTitle: {
     height: 40,
     backgroundColor: colors.darkBlue,
-    padding: 5,
+    padding: padding.medium,
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
@@ -83,7 +89,7 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    paddingTop: 3
+    paddingTop: padding.small
   },
   footer: {
     height: 50,
@@ -97,13 +103,13 @@ export default StyleSheet.create( {
     position: "absolute",
     left: 0,
     bottom: 5,
-    paddingLeft: 15
+    paddingLeft: padding.large
   },
   addPhotoButton: {
     position: "absolute",
     right: 0,
     bottom: 5,
-    paddingRight: 15
+    paddingRight: padding.large
   },
   profileText: {
     color: colors.white,

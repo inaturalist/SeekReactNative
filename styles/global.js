@@ -23,3 +23,19 @@ export const fontSize = {
   text: 16,
   smallText: 14
 };
+
+export const margins = {
+  extraSmall: 2,
+  small: 10,
+  medium: 15,
+  large: 40,
+  extraLarge: 100
+};
+
+export const padding = {
+  extraSmall: 1,
+  small: 2,
+  medium: 5,
+  large: 15,
+  extraLarge: 20
+};

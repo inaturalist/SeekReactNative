@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { padding } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -12,12 +13,12 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   gallery: {
-    paddingTop: 20,
-    flex: 1
+    flex: 1,
+    paddingTop: padding.extraLarge
   },
   button: {
-    paddingHorizontal: 1,
-    paddingTop: 2
+    paddingHorizontal: padding.extraSmall,
+    paddingTop: padding.small
   },
   image: {
     width: width / 4 - 2,

@@ -45,21 +45,17 @@ class GalleryScreen extends Component {
   }
 
   selectImage( image ) {
-    console.log( image, 'photo clicked' );
-    this.setState( {
-      imageClicked: image
-    } );
-  }
-
-  renderGallery( photos ) {
-    const {
-      imageClicked
-    } = this.state;
-
     const {
       navigation
     } = this.props;
 
+    console.log( image, 'photo clicked' );
+    this.setState( {
+      imageClicked: image
+    }, () => navigation.navigate( "Results", { image: this.state.imageClicked } ) );
+  }
+
+  renderGallery( photos ) {
     return (
       <ScrollView contentContainerStyle={styles.container}>
         {
@@ -71,7 +67,6 @@ class GalleryScreen extends Component {
                 underlayColor="transparent"
                 onPress={() => {
                   this.selectImage( p.node.image );
-                  navigation.navigate( "Results", { image: imageClicked } );
                 }}
               >
                 <Image

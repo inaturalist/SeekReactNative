@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import {
   View,
@@ -8,9 +10,15 @@ import {
 
 import styles from "../../styles/results";
 
+type Props = {
+  navigation: any
+}
+
 class ChallengeResults extends Component {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
+
+    const { image } = navigation.state.params;
 
     this.state = {
       headerText: "It's a match",
@@ -18,8 +26,14 @@ class ChallengeResults extends Component {
       buttonText: "Add to collection",
       taxon: null,
       match: false,
-      photoClear: false
+      photoClear: false,
+      image
     };
+  }
+
+  componentDidMount() {
+    console.log( this.state.image );
+    this.resizeImage();
   }
 
   getCameraCaptureFromGallery() {
@@ -39,7 +53,14 @@ class ChallengeResults extends Component {
   }
 
   resizeImage() {
-    
+    const { image } = this.state;
+    console.log( image, 'in resize function' );
+    // image.height = 299;
+    // image.width = 299;
+
+    // this.setState( {
+    //   image
+    // } );
   }
 
   scoreImage() {

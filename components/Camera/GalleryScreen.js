@@ -19,6 +19,9 @@ class GalleryScreen extends Component {
     this.state = {
       photos: [],
       imageClicked: null,
+      imageTimestamp: null,
+      imageLatitude: null,
+      imageLongitude: null,
       loading: true,
       error: null
     };
@@ -44,14 +47,27 @@ class GalleryScreen extends Component {
     } );
   }
 
-  selectImage( image ) {
+  truncateCoordinates( coordinate ) {
+    return Number( coordinate.toFixed( 2 ) );
+  }
+
+  selectImage( image, time, location ) {
+    // remember to deal with error state -> what happens if photo location undefined?
     const {
       navigation
     } = this.props;
 
     this.setState( {
-      imageClicked: image
-    }, () => navigation.navigate( "Results", { image: this.state.imageClicked } ) );
+      imageClicked: image,
+      imageTimestamp: time,
+      imageLatitude: location.latitude ? this.truncateCoordinates( location.latitude ) : null,
+      imageLongitude: location.longitude ? this.truncateCoordinates( location.longitude ) : null
+    }, () => navigation.navigate( "Results", {
+      image: this.state.imageClicked,
+      time: this.state.imageTimestamp,
+      latitude: this.state.imageLatitude,
+      longitude: this.state.imageLongitude
+    } ) );
   }
 
   renderGallery( photos ) {
@@ -65,7 +81,7 @@ class GalleryScreen extends Component {
                 key={i.toString()}
                 underlayColor="transparent"
                 onPress={() => {
-                  this.selectImage( p.node.image );
+                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
                 }}
               >
                 <Image

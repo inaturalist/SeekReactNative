@@ -11,11 +11,18 @@ type Props = {
   navigation: any,
   takePicture: Function,
   toggleFlash: Function,
-  toggleCamera: Function
+  toggleCamera: Function,
+  getCameraCaptureFromGallery: Function
 }
 
 const CameraCaptureScreen = ( {
-  cameraTypeText, flashText, navigation, takePicture, toggleFlash, toggleCamera
+  cameraTypeText,
+  flashText,
+  navigation,
+  takePicture,
+  toggleFlash,
+  toggleCamera,
+  getCameraCaptureFromGallery
 }: Props ) => (
   <View style={styles.container}>
     <View style={styles.header}>
@@ -44,7 +51,7 @@ const CameraCaptureScreen = ( {
         <TouchableOpacity
           onPress={() => {
             takePicture();
-            navigation.navigate( "Results" );
+            getCameraCaptureFromGallery();
           }}
           style={styles.capture}
         />

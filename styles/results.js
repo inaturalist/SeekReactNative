@@ -19,18 +19,18 @@ export default StyleSheet.create( {
   headerText: {
     fontSize: fontSize.header,
     lineHeight: 18,
-    color: "#F5FCFF",
+    color: colors.white,
     fontFamily: fonts.default
   },
   text: {
     fontSize: fontSize.text,
     lineHeight: 14,
-    color: "#F5FCFF",
+    color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   button: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
     marginHorizontal: 40,
     marginBottom: 10,

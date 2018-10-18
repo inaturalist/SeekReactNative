@@ -1,7 +1,9 @@
 export const colors = {
   white: "#F5FCFF",
   darkBlue: "#37535e",
-  green: "green"
+  lightGreen: "#b3ff5a",
+  darkGreen: "#4CAF50",
+  black: "black"
 };
 
 export const fonts = {
@@ -11,7 +13,10 @@ export const fonts = {
 };
 
 export const fontSize = {
+  largeHeader: 36,
+  mediumHeader: 24,
   header: 20,
+  buttonText: 18,
   text: 16,
-  buttonText: 18
+  smallText: 14
 };

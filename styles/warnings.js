@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors, fonts, fontSize } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -9,19 +10,19 @@ export default StyleSheet.create( {
     height
   },
   welcome: {
-    fontSize: 36,
+    fontSize: fontSize.largeHeader,
     marginTop: "20%",
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    color: colors.white,
+    fontFamily: fonts.default
   },
   earn: {
-    fontSize: 20,
+    fontSize: fontSize.header,
     marginHorizontal: "10%",
     marginTop: "10%",
     marginBottom: "10%",
     lineHeight: 18,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    color: colors.white,
+    fontFamily: fonts.default
   },
   tipContainer: {
     flex: 1
@@ -33,16 +34,16 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   tips: {
-    fontSize: 16,
+    fontSize: fontSize.text,
     lineHeight: 14,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    color: colors.white,
+    fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   checkMark: {
     fontSize: 24,
-    color: "#b3ff5a",
-    fontFamily: "FontAwesome",
+    color: colors.lightGreen,
+    fontFamily: fonts.playful,
     marginRight: 15
   },
   disclaimerContainer: {
@@ -51,15 +52,15 @@ export default StyleSheet.create( {
     marginTop: "1%"
   },
   disclaimer: {
-    fontSize: 14,
+    fontSize: fontSize.smallText,
     lineHeight: 12,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    color: colors.white,
+    fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   button: {
-    backgroundColor: "white",
-    color: "black",
+    backgroundColor: colors.white,
+    color: colors.black,
     marginLeft: 20,
     marginRight: 20,
     marginTop: "5%",
@@ -68,8 +69,8 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: "Whitney-Semibold",
-    fontSize: 18,
+    fontFamily: fonts.button,
+    fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"
   }

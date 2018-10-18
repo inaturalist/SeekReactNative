@@ -18,6 +18,7 @@ class GalleryScreen extends Component {
 
     this.state = {
       photos: [],
+      imageClicked: null,
       loading: true,
       error: null
     };
@@ -43,7 +44,18 @@ class GalleryScreen extends Component {
     } );
   }
 
+  selectImage( image ) {
+    console.log( image, 'photo clicked' );
+    this.setState( {
+      imageClicked: image
+    } );
+  }
+
   renderGallery( photos ) {
+    const {
+      imageClicked
+    } = this.state;
+
     const {
       navigation
     } = this.props;
@@ -57,7 +69,10 @@ class GalleryScreen extends Component {
                 style={styles.button}
                 key={i.toString()}
                 underlayColor="transparent"
-                onPress={() => navigation.navigate( "Results" )}
+                onPress={() => {
+                  this.selectImage( p.node.image );
+                  navigation.navigate( "Results", { image: imageClicked } );
+                }}
               >
                 <Image
                   style={styles.image}

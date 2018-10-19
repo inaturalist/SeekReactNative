@@ -7,7 +7,10 @@ import {
   Text,
   TouchableHighlight
 } from "react-native";
+import inatjs from "inaturalistjs";
+import jwt from "react-native-jwt-io";
 
+import config from "../../config";
 import styles from "../../styles/results";
 
 type Props = {
@@ -40,7 +43,6 @@ class ChallengeResults extends Component {
 
   componentDidMount() {
     this.resizeImage();
-    console.log(this.state);
   }
 
   resizeImage() {
@@ -53,22 +55,44 @@ class ChallengeResults extends Component {
     } );
   }
 
-  scoreImage() {
-    const { time, latitude, longitude } = this.state;
-
+  splitUri( uri ) {
+    const uriParts = uri.split( "." );
+    const fileType = uriParts[uriParts.length - 1];
     const params = {
-      lat: latitude,
-      lng: longitude,
-      observed_on: time
+      image: {
+        uri,
+        name: `photo.${fileType}`,
+        type: `image/${fileType}`,
+      }
     };
+    return params;
+  }
+
+  scoreImage() {
+    const { image } = this.state;
+    // const { time, latitude, longitude } = this.state;
+
+    // const params = {
+    //   lat: latitude,
+    //   lng: longitude,
+    //   observed_on: time
+    // };
 
     const claims = {
       application: "SeekRN",
       exp: new Date().getTime() / 1000 + 300
     };
 
-    // const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    // const data = image; -> need to access this image from gallery or camera
+    const params = this.splitUri( image.uri );
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+
+    inatjs.computervision.score_image( params, { api_token: token } )
+      .then( ( results ) => {
+        console.log(results, 'computer vision scoring');
+      } )
+      .catch( ( err ) => {
+        console.log(err);
+      } );
   }
 
   render() {

@@ -5,13 +5,20 @@ import {
   View,
   ImageBackground,
   Text,
-  TouchableHighlight
+  TouchableHighlight,
+  Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
+import RNFetchBlob from "rn-fetch-blob";
 
 import config from "../../config";
 import styles from "../../styles/results";
+
+const { Blob } = RNFetchBlob.polyfill;
+const { fs, wrap } = RNFetchBlob;
+window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+window.Blob = Blob;
 
 type Props = {
   navigation: any
@@ -43,6 +50,7 @@ class ChallengeResults extends Component {
 
   componentDidMount() {
     this.resizeImage();
+    this.scoreImage();
   }
 
   resizeImage() {
@@ -55,7 +63,25 @@ class ChallengeResults extends Component {
     } );
   }
 
-  splitUri( uri ) {
+  createJwtToken() {
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
+
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
+  }
+
+  scoreImage() {
+    const {
+      image,
+      time,
+      latitude,
+      longitude
+    } = this.state;
+
+    const { uri } = image;
     const uriParts = uri.split( "." );
     const fileType = uriParts[uriParts.length - 1];
     const params = {
@@ -65,33 +91,51 @@ class ChallengeResults extends Component {
         type: `image/${fileType}`,
       }
     };
-    return params;
+
+    console.log( params );
+
+    // const imageUri = wrap( image.uri );
+    // console.log( uri, "wrapped image uri" );
+
+    // RNFetchBlob.fetch( "POST", "https://api.inaturalist.org/v1/computervision/score_image", {
+    //   Authorization: this.createJwtToken(),
+    //   "Content-Type": "multipart/form-data"
+    // }, [
+    //   {
+    //     name: "file",
+    //     filename: imageUri.fileName,
+    //     type: "image/jpg",
+    //     data: RNFetchBlob.wrap( imageUri.replace( "file://", "" ) )
+    //   }
+    // ] )
+    //   .then( resp => console.log( resp, "response from fetch" ) )
+
+    fs.readFile( uri, "base64" )
+      .then( ( data ) => {
+        const blob = new Blob( data, { type: "image/jpg" } );
+
+        const params = {
+          image: blob,
+          lat: latitude,
+          lng: longitude,
+          observed_on: time
+        };
+        console.log( params, "params with blob" );
+        this.fetchScore( params );
+      } ).catch( ( err ) => {
+        console.log( err, "reading file" );
+      } );
   }
 
-  scoreImage() {
-    const { image } = this.state;
-    // const { time, latitude, longitude } = this.state;
-
-    // const params = {
-    //   lat: latitude,
-    //   lng: longitude,
-    //   observed_on: time
-    // };
-
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const params = this.splitUri( image.uri );
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+  fetchScore( params ) {
+    const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( results ) => {
-        console.log(results, 'computer vision scoring');
+        console.log(results, 'computer vision results');
       } )
       .catch( ( err ) => {
-        console.log(err);
+        console.log(err.response, 'computer vision error');
       } );
   }
 

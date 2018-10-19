@@ -17,8 +17,8 @@ import styles from "../../styles/results";
 
 const { Blob } = RNFetchBlob.polyfill;
 const { fs, wrap } = RNFetchBlob;
-window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
-window.Blob = Blob;
+// window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+// window.Blob = Blob;
 
 type Props = {
   navigation: any
@@ -39,8 +39,6 @@ class ChallengeResults extends Component {
       headerText: "It's a match",
       text: "You saw a California Poppy",
       buttonText: "Add to collection",
-      taxon: null,
-      match: false,
       image,
       time,
       latitude,
@@ -49,50 +47,47 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
-    this.scoreImage();
+    this.resizeImage();
   }
 
-  resizeImage() {
+  getBinaryImageData( uri ) {
     const {
-      image,
       time,
       latitude,
       longitude
     } = this.state;
-    // console.log( image.uri, "original image uri")
-    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 1 )
-      .then( ( res ) => {
-        console.log( res.uri, "new uri" );
-        const { uri } = res;
-        const uriParts = uri.split( "." );
-        const fileType = uriParts[uriParts.length - 1];
+
+    fs.readFile( uri, "utf8" )
+      .then( ( data ) => {
+        const blob = new Blob( data, { type: "image/jpg" } );
+
         const params = {
-          image: {
-            uri,
-            name: `photo.${fileType}`,
-            type: `image/${fileType}`,
-          }
+          image: blob,
+          lat: latitude,
+          lng: longitude,
+          observed_on: time
         };
+        console.log( params, "params passed into computervision" );
+        this.fetchScore( params );
+      } ).catch( ( err ) => {
+        console.log( err, "err reading file from device" );
+      } );
+  }
 
-        console.log( params );
+  resizeImage() {
+    const {
+      image
+    } = this.state;
+    console.log( "oldUri: ", image.uri );
 
-        fs.readFile( uri, "base64" )
-          .then( ( data ) => {
-            const blob = new Blob( data, { type: "image/jpg" } );
-
-            const params = {
-              image: blob,
-              lat: latitude,
-              lng: longitude,
-              observed_on: time
-            };
-            console.log( params, "params with blob" );
-            this.fetchScore( params );
-          } ).catch( ( err ) => {
-            console.log( err, "reading file" );
-          } );
-      } )
-      .catch( ( err ) => {
+    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
+      .then( ( res ) => {
+        const { uri } = res;
+        const uriParts = uri.split( "://" );
+        const resizedImageUri = uriParts[uriParts.length - 1];
+        console.log( "resizedImageUri: ", resizedImageUri );
+        this.getBinaryImageData( resizedImageUri );
+      } ).catch( ( err ) => {
         console.log( err, "error with image resizer" );
       } );
   }
@@ -107,45 +102,6 @@ class ChallengeResults extends Component {
     return token;
   }
 
-  scoreImage() {
-    const {
-      uri,
-      time,
-      latitude,
-      longitude
-    } = this.state;
-
-    this.resizeImage();
-
-    // const uriParts = uri.split( "." );
-    // const fileType = uriParts[uriParts.length - 1];
-    // const params = {
-    //   image: {
-    //     uri,
-    //     name: `photo.${fileType}`,
-    //     type: `image/${fileType}`,
-    //   }
-    // };
-
-    // console.log( params );
-
-    // fs.readFile( uri, "base64" )
-    //   .then( ( data ) => {
-    //     const blob = new Blob( data, { type: "image/jpg" } );
-
-    //     const params = {
-    //       image: blob,
-    //       lat: latitude,
-    //       lng: longitude,
-    //       observed_on: time
-    //     };
-    //     console.log( params, "params with blob" );
-    //     this.fetchScore( params );
-    //   } ).catch( ( err ) => {
-    //     console.log( err, "reading file" );
-    //   } );
-  }
-
   fetchScore( params ) {
     const token = this.createJwtToken();
 
@@ -154,7 +110,7 @@ class ChallengeResults extends Component {
         console.log(results, 'computer vision results');
       } )
       .catch( ( err ) => {
-        console.log(err.response, 'computer vision error');
+        console.log(err.response, 'error fetching results from computer vision');
       } );
   }
 

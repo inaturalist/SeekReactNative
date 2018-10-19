@@ -5,12 +5,12 @@ import {
   View,
   ImageBackground,
   Text,
-  TouchableHighlight,
-  Platform
+  TouchableHighlight
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import RNFetchBlob from "rn-fetch-blob";
+import ImageResizer from "react-native-image-resizer";
 
 import config from "../../config";
 import styles from "../../styles/results";
@@ -49,18 +49,52 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
-    this.resizeImage();
     this.scoreImage();
   }
 
   resizeImage() {
-    const { image } = this.state;
-    image.height = 299;
-    image.width = 299;
+    const {
+      image,
+      time,
+      latitude,
+      longitude
+    } = this.state;
+    // console.log( image.uri, "original image uri")
+    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 1 )
+      .then( ( res ) => {
+        console.log( res.uri, "new uri" );
+        const { uri } = res;
+        const uriParts = uri.split( "." );
+        const fileType = uriParts[uriParts.length - 1];
+        const params = {
+          image: {
+            uri,
+            name: `photo.${fileType}`,
+            type: `image/${fileType}`,
+          }
+        };
 
-    this.setState( {
-      image
-    } );
+        console.log( params );
+
+        fs.readFile( uri, "base64" )
+          .then( ( data ) => {
+            const blob = new Blob( data, { type: "image/jpg" } );
+
+            const params = {
+              image: blob,
+              lat: latitude,
+              lng: longitude,
+              observed_on: time
+            };
+            console.log( params, "params with blob" );
+            this.fetchScore( params );
+          } ).catch( ( err ) => {
+            console.log( err, "reading file" );
+          } );
+      } )
+      .catch( ( err ) => {
+        console.log( err, "error with image resizer" );
+      } );
   }
 
   createJwtToken() {
@@ -75,56 +109,41 @@ class ChallengeResults extends Component {
 
   scoreImage() {
     const {
-      image,
+      uri,
       time,
       latitude,
       longitude
     } = this.state;
 
-    const { uri } = image;
-    const uriParts = uri.split( "." );
-    const fileType = uriParts[uriParts.length - 1];
-    const params = {
-      image: {
-        uri,
-        name: `photo.${fileType}`,
-        type: `image/${fileType}`,
-      }
-    };
+    this.resizeImage();
 
-    console.log( params );
-
-    // const imageUri = wrap( image.uri );
-    // console.log( uri, "wrapped image uri" );
-
-    // RNFetchBlob.fetch( "POST", "https://api.inaturalist.org/v1/computervision/score_image", {
-    //   Authorization: this.createJwtToken(),
-    //   "Content-Type": "multipart/form-data"
-    // }, [
-    //   {
-    //     name: "file",
-    //     filename: imageUri.fileName,
-    //     type: "image/jpg",
-    //     data: RNFetchBlob.wrap( imageUri.replace( "file://", "" ) )
+    // const uriParts = uri.split( "." );
+    // const fileType = uriParts[uriParts.length - 1];
+    // const params = {
+    //   image: {
+    //     uri,
+    //     name: `photo.${fileType}`,
+    //     type: `image/${fileType}`,
     //   }
-    // ] )
-    //   .then( resp => console.log( resp, "response from fetch" ) )
+    // };
 
-    fs.readFile( uri, "base64" )
-      .then( ( data ) => {
-        const blob = new Blob( data, { type: "image/jpg" } );
+    // console.log( params );
 
-        const params = {
-          image: blob,
-          lat: latitude,
-          lng: longitude,
-          observed_on: time
-        };
-        console.log( params, "params with blob" );
-        this.fetchScore( params );
-      } ).catch( ( err ) => {
-        console.log( err, "reading file" );
-      } );
+    // fs.readFile( uri, "base64" )
+    //   .then( ( data ) => {
+    //     const blob = new Blob( data, { type: "image/jpg" } );
+
+    //     const params = {
+    //       image: blob,
+    //       lat: latitude,
+    //       lng: longitude,
+    //       observed_on: time
+    //     };
+    //     console.log( params, "params with blob" );
+    //     this.fetchScore( params );
+    //   } ).catch( ( err ) => {
+    //     console.log( err, "reading file" );
+    //   } );
   }
 
   fetchScore( params ) {

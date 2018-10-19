@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-image-resizer')
     compile project(':rn-fetch-blob')
     implementation project(':react-native-geocoder')
     implementation project(':react-native-maps')

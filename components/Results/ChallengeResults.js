@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
+  Image,
   ImageBackground,
   Platform,
   Text,
@@ -35,7 +36,10 @@ class ChallengeResults extends Component {
       title: null,
       subtitle: null,
       loading: true,
-      buttonText: "Add to collection",
+      match: null,
+      matchUrl: null,
+      text: null,
+      buttonText: null,
       image,
       time,
       latitude,
@@ -116,6 +120,7 @@ class ChallengeResults extends Component {
         this.setState( {
           taxaName: match.taxon.preferred_common_name || match.taxon.name,
           score: match.combined_score,
+          matchUrl: match.taxon.default_photo.medium_url,
           loading: false
         }, () => {
           this.setTextAndPhoto();
@@ -136,6 +141,7 @@ class ChallengeResults extends Component {
       this.setState( {
         title: "Sweet!",
         subtitle: `You saw a ${taxaName}`,
+        match: true,
         text: null,
         buttonText: "Add to Collection"
       } );
@@ -143,6 +149,7 @@ class ChallengeResults extends Component {
       this.setState( {
         title: "Hrmmmmm",
         subtitle: "We can't figure this one out. Please try some adjustments.",
+        match: "unknown",
         text: "Here's some photo tips:",
         buttonText: "Adjust Photo"
       } );
@@ -153,15 +160,36 @@ class ChallengeResults extends Component {
     const {
       title,
       subtitle,
+      match,
+      matchUrl,
       text,
       buttonText
     } = this.state;
+
+    let resultsIcon;
+
+    if ( match === true ) {
+      resultsIcon = <Image source={require( "../../assets/results/icn-results-match.png" )} />;
+    } else if ( match === false ) {
+      resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
+    } else {
+      resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;
+    }
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>{title}</Text>
           <Text style={styles.text}>{subtitle}</Text>
+        </View>
+        <View>
+          {resultsIcon}
+        </View>
+        <View>
+          <Image
+            style={styles.imageContainer}
+            source={{ uri: matchUrl }}
+          />
         </View>
         <View>
           <Text style={styles.text}>{text}</Text>

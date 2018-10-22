@@ -51,5 +51,9 @@ export default StyleSheet.create( {
     color: colors.white,
     textAlign: "center",
     justifyContent: "center"
+  },
+  imageContainer: {
+    width: 299,
+    height: 299
   }
 } );

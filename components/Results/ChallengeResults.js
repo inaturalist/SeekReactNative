@@ -9,16 +9,12 @@ import {
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
-import RNFetchBlob from "rn-fetch-blob";
 import ImageResizer from "react-native-image-resizer";
 
 import config from "../../config";
 import styles from "../../styles/results";
 
-const { Blob } = RNFetchBlob.polyfill;
-const { fs, wrap } = RNFetchBlob;
-// window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
-// window.Blob = Blob;
+// inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
 
 type Props = {
   navigation: any
@@ -50,33 +46,15 @@ class ChallengeResults extends Component {
     this.resizeImage();
   }
 
-  getBinaryImageData( uri ) {
-    const {
-      time,
-      latitude,
-      longitude
-    } = this.state;
-
-    fs.readFile( uri, "utf8" )
-      .then( ( data ) => {
-        const blob = new Blob( data, { type: "image/jpg" } );
-
-        const params = {
-          image: blob,
-          lat: latitude,
-          lng: longitude,
-          observed_on: time
-        };
-        console.log( params, "params passed into computervision" );
-        this.fetchScore( params );
-      } ).catch( ( err ) => {
-        console.log( err, "err reading file from device" );
-      } );
-  }
+  // flattenUploadParameters() {
+  // }
 
   resizeImage() {
     const {
-      image
+      image,
+      time,
+      latitude,
+      longitude
     } = this.state;
     console.log( "oldUri: ", image.uri );
 
@@ -86,7 +64,26 @@ class ChallengeResults extends Component {
         const uriParts = uri.split( "://" );
         const resizedImageUri = uriParts[uriParts.length - 1];
         console.log( "resizedImageUri: ", resizedImageUri );
-        this.getBinaryImageData( resizedImageUri );
+
+        const UploadParams = class UploadParams {
+          constructor( attrs ) {
+            Object.assign( this, attrs );
+          }
+        };
+
+        const params = {
+          image: new UploadParams( {
+            uri,
+            name: "photo.jpeg",
+            type: "image/jpeg"
+          } ),
+          observed_on: new Date( time * 1000 ).toISOString(),
+          latitude,
+          longitude
+        };
+
+        console.log( params, "params passed into computervision" );
+        this.fetchScore( params );
       } ).catch( ( err ) => {
         console.log( err, "error with image resizer" );
       } );

@@ -20,8 +20,7 @@
     "react-native-image-resizer": "^1.0.0",
     "react-native-jwt-io": "^1.0.3",
     "react-native-maps": "^0.22.0",
-    "react-navigation": "^2.17.0",
-    "rn-fetch-blob": "^0.10.13"
+    "react-navigation": "^2.17.0"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

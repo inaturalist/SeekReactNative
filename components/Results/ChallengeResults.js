@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   ImageBackground,
+  Platform,
   Text,
   TouchableHighlight
 } from "react-native";
@@ -43,46 +44,55 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
+    console.log( this.state.image.uri, "original uri android" );
     this.resizeImage();
   }
 
-  // flattenUploadParameters() {
-  // }
+  flattenUploadParameters( uri ) {
+    const {
+      time,
+      latitude, // need to account for null case
+      longitude // need to account for null case
+    } = this.state;
+
+    const UploadParams = class UploadParams {
+      constructor( attrs ) {
+        Object.assign( this, attrs );
+      }
+    };
+
+    console.log( uri, "uri file type jpeg?" );
+
+    const params = {
+      image: new UploadParams( {
+        uri,
+        name: "photo.jpeg",
+        type: "image/jpeg"
+      } ),
+      observed_on: new Date( time * 1000 ).toISOString(),
+      latitude,
+      longitude
+    };
+
+    return params;
+  }
 
   resizeImage() {
     const {
-      image,
-      time,
-      latitude,
-      longitude
+      image
     } = this.state;
-    console.log( "oldUri: ", image.uri );
 
     ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
-      .then( ( res ) => {
-        const { uri } = res;
-        const uriParts = uri.split( "://" );
-        const resizedImageUri = uriParts[uriParts.length - 1];
-        console.log( "resizedImageUri: ", resizedImageUri );
+      .then( ( { uri } ) => {
+        let resizedImageUri;
 
-        const UploadParams = class UploadParams {
-          constructor( attrs ) {
-            Object.assign( this, attrs );
-          }
-        };
-
-        const params = {
-          image: new UploadParams( {
-            uri,
-            name: "photo.jpeg",
-            type: "image/jpeg"
-          } ),
-          observed_on: new Date( time * 1000 ).toISOString(),
-          latitude,
-          longitude
-        };
-
-        console.log( params, "params passed into computervision" );
+        if ( Platform.OS === "ios" ) {
+          const uriParts = uri.split( "://" );
+          resizedImageUri = uriParts[uriParts.length - 1];
+        } else {
+          resizedImageUri = uri;
+        }
+        const params = this.flattenUploadParameters( resizedImageUri );
         this.fetchScore( params );
       } ).catch( ( err ) => {
         console.log( err, "error with image resizer" );
@@ -105,9 +115,12 @@ class ChallengeResults extends Component {
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( results ) => {
         console.log(results, 'computer vision results');
+        // this.setState( {
+        //   taxaName: results.
+        // } );
       } )
       .catch( ( err ) => {
-        console.log(err.response, 'error fetching results from computer vision');
+        console.log(err, 'error fetching results from computer vision');
       } );
   }
 

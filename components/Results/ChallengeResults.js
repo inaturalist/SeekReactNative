@@ -16,8 +16,6 @@ import LoadingScreen from "../LoadingScreen";
 import config from "../../config";
 import styles from "../../styles/results";
 
-// inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
-
 type Props = {
   navigation: any
 }
@@ -120,8 +118,7 @@ class ChallengeResults extends Component {
           score: match.combined_score,
           loading: false
         }, () => {
-          this.setTitle();
-          this.setSubtitle();
+          this.setTextAndPhoto();
         } );
       } )
       .catch( ( err ) => {
@@ -129,23 +126,7 @@ class ChallengeResults extends Component {
       } );
   }
 
-  setTitle() {
-    const {
-      score
-    } = this.state;
-
-    if ( score > 85 ) {
-      this.setState( {
-        title: "Sweet!"
-      } );
-    } else {
-      this.setState( {
-        title: "Hrmmmmm"
-      } );
-    }
-  }
-
-  setSubtitle() {
+  setTextAndPhoto() {
     const {
       score,
       taxaName
@@ -153,23 +134,37 @@ class ChallengeResults extends Component {
 
     if ( score > 85 ) {
       this.setState( {
-        subtitle: `You saw a ${taxaName}`
+        title: "Sweet!",
+        subtitle: `You saw a ${taxaName}`,
+        text: null,
+        buttonText: "Add to Collection"
       } );
     } else {
       this.setState( {
-        subtitle: "We can't figure this one out. Please try some adjustments."
+        title: "Hrmmmmm",
+        subtitle: "We can't figure this one out. Please try some adjustments.",
+        text: "Here's some photo tips:",
+        buttonText: "Adjust Photo"
       } );
     }
   }
 
   renderResult() {
-    const { title, subtitle, buttonText } = this.state;
+    const {
+      title,
+      subtitle,
+      text,
+      buttonText
+    } = this.state;
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>{title}</Text>
           <Text style={styles.text}>{subtitle}</Text>
+        </View>
+        <View>
+          <Text style={styles.text}>{text}</Text>
         </View>
         <View>
           <TouchableHighlight style={styles.button}>

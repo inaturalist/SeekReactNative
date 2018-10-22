@@ -12,6 +12,7 @@ import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 
+import LoadingScreen from "../LoadingScreen";
 import config from "../../config";
 import styles from "../../styles/results";
 
@@ -33,8 +34,9 @@ class ChallengeResults extends Component {
     } = navigation.state.params;
 
     this.state = {
-      headerText: "It's a match",
-      text: "You saw a California Poppy",
+      title: null,
+      subtitle: null,
+      loading: true,
       buttonText: "Add to collection",
       image,
       time,
@@ -44,7 +46,6 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
-    console.log( this.state.image.uri, "original uri android" );
     this.resizeImage();
   }
 
@@ -60,8 +61,6 @@ class ChallengeResults extends Component {
         Object.assign( this, attrs );
       }
     };
-
-    console.log( uri, "uri file type jpeg?" );
 
     const params = {
       image: new UploadParams( {
@@ -113,43 +112,92 @@ class ChallengeResults extends Component {
     const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
-      .then( ( results ) => {
+      .then( ( { results } ) => {
         console.log(results, 'computer vision results');
-        // this.setState( {
-        //   taxaName: results.
-        // } );
+        const match = results[0];
+        this.setState( {
+          taxaName: match.taxon.preferred_common_name || match.taxon.name,
+          score: match.combined_score,
+          loading: false
+        }, () => {
+          this.setTitle();
+          this.setSubtitle();
+        } );
       } )
       .catch( ( err ) => {
         console.log(err, 'error fetching results from computer vision');
       } );
   }
 
+  setTitle() {
+    const {
+      score
+    } = this.state;
+
+    if ( score > 85 ) {
+      this.setState( {
+        title: "Sweet!"
+      } );
+    } else {
+      this.setState( {
+        title: "Hrmmmmm"
+      } );
+    }
+  }
+
+  setSubtitle() {
+    const {
+      score,
+      taxaName
+    } = this.state;
+
+    if ( score > 85 ) {
+      this.setState( {
+        subtitle: `You saw a ${taxaName}`
+      } );
+    } else {
+      this.setState( {
+        subtitle: "We can't figure this one out. Please try some adjustments."
+      } );
+    }
+  }
+
+  renderResult() {
+    const { title, subtitle, buttonText } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{title}</Text>
+          <Text style={styles.text}>{subtitle}</Text>
+        </View>
+        <View>
+          <TouchableHighlight style={styles.button}>
+            <Text
+              style={styles.buttonText}
+              onPress={() => console.log( "pressed button" )}
+            >
+              {buttonText}
+            </Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    );
+  }
+
   render() {
-    const { headerText, text, buttonText } = this.state;
+    const { loading } = this.state;
+
+    const content = loading ? <LoadingScreen /> : this.renderResult();
 
     return (
       <View style={ { flex: 1 } }>
-        <View style={styles.container}>
-          <ImageBackground
-            style={styles.backgroundImage}
-            source={require( "../../assets/backgrounds/background.png" )}
-          >
-            <View style={styles.header}>
-              <Text style={styles.headerText}>{headerText}</Text>
-              <Text style={styles.text}>{text}</Text>
-            </View>
-            <View>
-              <TouchableHighlight style={styles.button}>
-                <Text
-                  style={styles.buttonText}
-                  onPress={() => console.log( "pressed button" )}
-                >
-                  {buttonText}
-                </Text>
-              </TouchableHighlight>
-            </View>
-          </ImageBackground>
-        </View>
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require( "../../assets/backgrounds/background.png" )}
+        >
+          {content}
+        </ImageBackground>
       </View>
     );
   }

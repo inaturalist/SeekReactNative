@@ -115,7 +115,7 @@ class ChallengeResults extends Component {
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( { results } ) => {
-        console.log(results, 'computer vision results');
+        console.log( results, "computer vision results" );
         const match = results[0];
         this.setState( {
           taxaName: match.taxon.preferred_common_name || match.taxon.name,
@@ -127,7 +127,7 @@ class ChallengeResults extends Component {
         } );
       } )
       .catch( ( err ) => {
-        console.log(err, 'error fetching results from computer vision');
+        console.log( err, "error fetching results from computer vision" );
       } );
   }
 
@@ -143,7 +143,8 @@ class ChallengeResults extends Component {
         subtitle: `You saw a ${taxaName}`,
         match: true,
         text: null,
-        buttonText: "Add to Collection"
+        buttonText: "Add to Collection",
+        photoText: `Identified Species:\n${taxaName}`
       } );
     } else {
       this.setState( {
@@ -163,38 +164,79 @@ class ChallengeResults extends Component {
       match,
       matchUrl,
       text,
-      buttonText
+      buttonText,
+      photoText,
+      image
     } = this.state;
 
     let resultsIcon;
+    let photos;
+    let captions;
 
     if ( match === true ) {
       resultsIcon = <Image source={require( "../../assets/results/icn-results-match.png" )} />;
-    } else if ( match === false ) {
-      resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
-    } else {
-      resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;
-    }
-
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{title}</Text>
-          <Text style={styles.text}>{subtitle}</Text>
-        </View>
-        <View>
-          {resultsIcon}
-        </View>
-        <View>
+      photos = (
+        <View style={styles.imageCell}>
+          <Image
+            style={styles.imageContainer}
+            source={{ uri: image.uri }}
+          />
           <Image
             style={styles.imageContainer}
             source={{ uri: matchUrl }}
           />
+        </View> );
+      captions = (
+        <View style={styles.textCell}>
+          <Text style={styles.text}>{photoText}</Text>
+          <Text style={styles.text}>{photoText}</Text>
+        </View> );
+    } else if ( match === false ) {
+      resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
+      photos = (
+        <View style={styles.imageCell}>
+          <Image
+            style={styles.imageContainer}
+            source={{ uri: image.uri }}
+          />
+          <Image
+            style={styles.imageContainer}
+            source={{ uri: matchUrl }}
+          />
+        </View> );
+      captions = (
+        <View style={styles.textCell}>
+          <Text style={styles.text}>{photoText}</Text>
+          <Text style={styles.text}>{photoText}</Text>
+        </View> );
+    } else {
+      resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;
+      photos = (
+        <View style={styles.imageCell}>
+          <Image
+            style={styles.imageContainer}
+            source={{ uri: image.uri }}
+          />
+        </View> );
+    }
+
+    return (
+      <View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{title}</Text>
+          <Text style={styles.text}>{subtitle}</Text>
+          <View>
+            {resultsIcon}
+          </View>
+        </View>
+        <View style={styles.imageBackground}>
+          {photos}
+          {captions}
         </View>
         <View>
           <Text style={styles.text}>{text}</Text>
         </View>
-        <View>
+        <View style={styles.footer}>
           <TouchableHighlight style={styles.button}>
             <Text
               style={styles.buttonText}

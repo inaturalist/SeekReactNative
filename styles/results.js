@@ -17,9 +17,9 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    flex: 2,
+    flex: 1,
     width,
-    marginTop: margins.large,
+    marginTop: margins.medium,
     alignItems: "center",
     justifyContent: "flex-start"
   },
@@ -28,7 +28,8 @@ export default StyleSheet.create( {
     lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
-    marginBottom: margins.medium
+    marginBottom: margins.medium,
+    marginTop: margins.extraSmall
   },
   text: {
     fontSize: fontSize.text,
@@ -64,11 +65,15 @@ export default StyleSheet.create( {
     textAlign: "center",
     justifyContent: "center"
   },
+  matchImage: {
+    alignSelf: "center"
+  },
   imageBackground: {
-    flex: 3,
+    flex: 1,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
-    height: height / 3,
+    paddingTop: padding.large,
+    paddingBottom: padding.large,
     justifyContent: "center"
   },
   imageCell: {
@@ -80,6 +85,7 @@ export default StyleSheet.create( {
   textCell: {
     flexDirection: "row",
     alignItems: "center",
+    textAlign: "center",
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
@@ -90,6 +96,6 @@ export default StyleSheet.create( {
     height: width / 3 - 10
   },
   footer: {
-    flex: 2
+    flex: 0.5
   }
 } );

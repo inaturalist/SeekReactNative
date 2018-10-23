@@ -174,6 +174,10 @@ class ChallengeResults extends Component {
       image
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     const content = loading ? <LoadingScreen />
       : (
         <ChallengeResultsScreen
@@ -186,6 +190,7 @@ class ChallengeResults extends Component {
           photoText={photoText}
           yourPhotoText={yourPhotoText}
           image={image}
+          navigation={navigation}
         />
       );
 

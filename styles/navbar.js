@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -6,13 +6,12 @@ import {
   margins
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
-
 export default StyleSheet.create( {
   container: {
-    position: "absolute",
-    width,
-    height: height / 10
+    flex: 0.7,
+    backgroundColor: colors.darkestBlue,
+    borderBottomWidth: 0.25,
+    borderColor: colors.white
   },
   text: {
     fontSize: fontSize.text,
@@ -20,7 +19,6 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     marginTop: margins.large,
-    marginLeft: margins.medium,
-    marginBottom: margins.medium
+    marginLeft: margins.medium
   }
 } );

@@ -20,7 +20,8 @@ type Props = {
   buttonText: string,
   photoText: string,
   yourPhotoText: string,
-  image: Object
+  image: Object,
+  navigation: any
 }
 
 const ChallengeResultsScreen = ( {
@@ -32,7 +33,8 @@ const ChallengeResultsScreen = ( {
   buttonText,
   photoText,
   yourPhotoText,
-  image  
+  image,
+  navigation
 }: Props ) => {
   let resultsIcon;
   let photos;
@@ -87,11 +89,11 @@ const ChallengeResultsScreen = ( {
 
   return (
     <View>
-      <NavBar />
+      <NavBar navigation={navigation} />
       <View style={styles.header}>
         <Text style={styles.headerText}>{title}</Text>
         <Text style={styles.text}>{subtitle}</Text>
-        <View>
+        <View style={styles.matchImage}>
           {resultsIcon}
         </View>
       </View>

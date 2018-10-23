@@ -144,6 +144,7 @@ class ChallengeResults extends Component {
         match: true,
         text: null,
         buttonText: "Add to Collection",
+        yourPhotoText: `Your photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
     } else {
@@ -166,6 +167,7 @@ class ChallengeResults extends Component {
       text,
       buttonText,
       photoText,
+      yourPhotoText,
       image
     } = this.state;
 
@@ -188,8 +190,8 @@ class ChallengeResults extends Component {
         </View> );
       captions = (
         <View style={styles.textCell}>
-          <Text style={styles.text}>{photoText}</Text>
-          <Text style={styles.text}>{photoText}</Text>
+          <Text style={styles.captionText}>{yourPhotoText}</Text>
+          <Text style={styles.captionText}>{photoText}</Text>
         </View> );
     } else if ( match === false ) {
       resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
@@ -206,8 +208,8 @@ class ChallengeResults extends Component {
         </View> );
       captions = (
         <View style={styles.textCell}>
-          <Text style={styles.text}>{photoText}</Text>
-          <Text style={styles.text}>{photoText}</Text>
+          <Text style={styles.captionText}>{yourPhotoText}</Text>
+          <Text style={styles.captionText}>{photoText}</Text>
         </View> );
     } else {
       resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;

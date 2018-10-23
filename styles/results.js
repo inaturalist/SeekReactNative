@@ -38,6 +38,14 @@ export default StyleSheet.create( {
     flexWrap: "wrap",
     marginBottom: margins.medium
   },
+  captionText: {
+    fontSize: fontSize.text,
+    lineHeight: 14,
+    color: colors.white,
+    fontFamily: fonts.default,
+    flexWrap: "wrap",
+    marginTop: margins.medium
+  },
   button: {
     backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
@@ -59,7 +67,8 @@ export default StyleSheet.create( {
     flex: 3,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
-    height: height / 3
+    height: height / 3,
+    justifyContent: "center"
   },
   imageCell: {
     flexDirection: "row",

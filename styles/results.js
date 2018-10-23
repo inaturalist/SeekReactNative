@@ -36,6 +36,7 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap",
+    alignSelf: "center",
     marginBottom: margins.medium
   },
   captionText: {

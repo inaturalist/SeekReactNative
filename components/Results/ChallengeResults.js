@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
+  FlatList,
   Image,
   ImageBackground,
   Platform,
@@ -13,6 +14,7 @@ import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 
+import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingScreen from "../LoadingScreen";
 import config from "../../config";
 import styles from "../../styles/results";
@@ -152,14 +154,15 @@ class ChallengeResults extends Component {
         title: "Hrmmmmm",
         subtitle: "We can't figure this one out. Please try some adjustments.",
         match: "unknown",
-        text: "Here's some photo tips:",
-        buttonText: "Adjust Photo"
+        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
+        buttonText: "Start over"
       } );
     }
   }
 
-  renderResult() {
+  render() {
     const {
+      loading,
       title,
       subtitle,
       match,
@@ -171,91 +174,20 @@ class ChallengeResults extends Component {
       image
     } = this.state;
 
-    let resultsIcon;
-    let photos;
-    let captions;
-
-    if ( match === true ) {
-      resultsIcon = <Image source={require( "../../assets/results/icn-results-match.png" )} />;
-      photos = (
-        <View style={styles.imageCell}>
-          <Image
-            style={styles.imageContainer}
-            source={{ uri: image.uri }}
-          />
-          <Image
-            style={styles.imageContainer}
-            source={{ uri: matchUrl }}
-          />
-        </View> );
-      captions = (
-        <View style={styles.textCell}>
-          <Text style={styles.captionText}>{yourPhotoText}</Text>
-          <Text style={styles.captionText}>{photoText}</Text>
-        </View> );
-    } else if ( match === false ) {
-      resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
-      photos = (
-        <View style={styles.imageCell}>
-          <Image
-            style={styles.imageContainer}
-            source={{ uri: image.uri }}
-          />
-          <Image
-            style={styles.imageContainer}
-            source={{ uri: matchUrl }}
-          />
-        </View> );
-      captions = (
-        <View style={styles.textCell}>
-          <Text style={styles.captionText}>{yourPhotoText}</Text>
-          <Text style={styles.captionText}>{photoText}</Text>
-        </View> );
-    } else {
-      resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;
-      photos = (
-        <View style={styles.imageCell}>
-          <Image
-            style={styles.imageContainer}
-            source={{ uri: image.uri }}
-          />
-        </View> );
-    }
-
-    return (
-      <View>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{title}</Text>
-          <Text style={styles.text}>{subtitle}</Text>
-          <View>
-            {resultsIcon}
-          </View>
-        </View>
-        <View style={styles.imageBackground}>
-          {photos}
-          {captions}
-        </View>
-        <View>
-          <Text style={styles.text}>{text}</Text>
-        </View>
-        <View style={styles.footer}>
-          <TouchableHighlight style={styles.button}>
-            <Text
-              style={styles.buttonText}
-              onPress={() => console.log( "pressed button" )}
-            >
-              {buttonText}
-            </Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    );
-  }
-
-  render() {
-    const { loading } = this.state;
-
-    const content = loading ? <LoadingScreen /> : this.renderResult();
+    const content = loading ? <LoadingScreen />
+      : (
+        <ChallengeResultsScreen
+          title={title}
+          subtitle={subtitle}
+          match={match}
+          matchUrl={matchUrl}
+          text={text}
+          buttonText={buttonText}
+          photoText={photoText}
+          yourPhotoText={yourPhotoText}
+          image={image}
+        />
+      );
 
     return (
       <View style={ { flex: 1 } }>

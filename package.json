@@ -12,6 +12,8 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@types/react-navigation": "^2.0.23",
+    "gl-react": "^3.15.0",
+    "gl-react-native": "^2.57.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "react": "16.5.0",
     "react-native": "0.57.1",

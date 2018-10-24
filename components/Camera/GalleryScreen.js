@@ -13,6 +13,9 @@ type Props = {
   navigation: any
 }
 
+import LoadingScreen from "../LoadingScreen";
+import styles from "../../styles/gallery";
+
 class GalleryScreen extends Component {
   constructor( { navigation }: Props ) {
     super();

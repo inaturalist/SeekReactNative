@@ -28,7 +28,7 @@ const ChallengeGrid = ( { navigation, taxa, capitalizeNames }: Props ) => (
       renderItem={ ( { item } ) => (
         <View style={ styles.gridCell }>
           <TouchableOpacity
-            onPress={ ( ) => navigation.navigate( "Loading" ) }
+            onPress={ ( ) => navigation.navigate( "Species" ) }
           >
             <View style={ styles.gridCellContents }>
               <Image

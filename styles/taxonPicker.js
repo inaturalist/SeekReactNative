@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { colors, fonts, fontSize } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -15,10 +16,10 @@ export default StyleSheet.create( {
   },
   headerText: {
     marginTop: "15%",
-    fontSize: 20,
+    fontSize: fontSize.header,
     lineHeight: 18,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    color: colors.white,
+    fontFamily: fonts.default
   },
   gridContainer: {
     flex: 1,
@@ -29,13 +30,13 @@ export default StyleSheet.create( {
     height: width / 3 - 2
   },
   image: {
-    backgroundColor: "#37535e",
+    backgroundColor: colors.darkBlue,
     width: "80%",
     height: "80%"
   },
   text: {
     alignItems: "center",
     justifyContent: "center",
-    color: "white"
+    color: colors.white
   }
 } );

@@ -1,4 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -9,67 +16,69 @@ export default StyleSheet.create( {
     height
   },
   welcome: {
-    fontSize: 36,
-    marginTop: "20%",
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    fontSize: fontSize.largeHeader,
+    marginTop: margins.large,
+    color: colors.white,
+    fontFamily: fonts.default
   },
   earn: {
-    fontSize: 20,
+    fontSize: fontSize.header,
     marginHorizontal: "10%",
     marginTop: "10%",
-    marginBottom: "10%",
+    marginBottom: margins.small,
     lineHeight: 18,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    color: colors.white,
+    fontFamily: fonts.default
   },
   tipContainer: {
-    flex: 1
+    flex: 1,
+    marginBottom: margins.medium
   },
   tipList: {
-    marginBottom: 18,
+    marginBottom: margins.small,
     marginLeft: "10%",
     marginRight: "20%",
     flexDirection: "row"
   },
   tips: {
-    fontSize: 16,
+    fontSize: fontSize.text,
     lineHeight: 14,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    color: colors.white,
+    fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   checkMark: {
-    fontSize: 24,
-    color: "#b3ff5a",
-    fontFamily: "FontAwesome",
-    marginRight: 15
+    fontSize: fontSize.mediumHeader,
+    color: colors.lightGreen,
+    fontFamily: fonts.playful,
+    marginRight: margins.medium
   },
   disclaimerContainer: {
     flex: 1,
-    marginHorizontal: "10%",
-    marginTop: "1%"
+    marginHorizontal: margins.large,
+    marginTop: margins.medium
   },
   disclaimer: {
-    fontSize: 14,
+    fontSize: fontSize.smallText,
     lineHeight: 12,
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium",
+    color: colors.white,
+    fontFamily: fonts.default,
     flexWrap: "wrap"
   },
   button: {
-    backgroundColor: "white",
-    color: "black",
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: "5%",
-    paddingTop: "1%",
-    paddingBottom: "1%",
+    backgroundColor: colors.white,
+    color: colors.black,
+    marginLeft: margins.medium,
+    marginRight: margins.medium,
+    marginBottom: margins.small,
+    marginTop: margins.small,
+    paddingTop: padding.small,
+    paddingBottom: padding.extraSmall,
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: "Whitney-Semibold",
-    fontSize: 18,
+    fontFamily: fonts.button,
+    fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"
   }

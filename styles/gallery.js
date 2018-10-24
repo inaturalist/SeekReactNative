@@ -1,27 +1,23 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { padding } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: "#F5FCFF"
-  },
   backgroundImage: {
     width,
     height
   },
-  gallery: {
-    paddingTop: 20,
-    flex: 1
-  },
-  scroll: {
+  container: {
     flexWrap: "wrap",
     flexDirection: "row"
   },
+  gallery: {
+    flex: 4
+  },
   button: {
-    paddingHorizontal: 1,
-    paddingTop: 2
+    paddingHorizontal: padding.extraSmall,
+    paddingTop: padding.small
   },
   image: {
     width: width / 4 - 2,

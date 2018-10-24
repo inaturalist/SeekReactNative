@@ -3,7 +3,7 @@ package com.seek;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.projectseptember.RNGL.RNGLPackage;
+import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import org.reactnative.camera.RNCameraPackage;
@@ -27,7 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNGLPackage(),
+            new ImageResizerPackage(),
             new MapsPackage(),
             new RNCameraPackage(),
             new RNGeocoderPackage()

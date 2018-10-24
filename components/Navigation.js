@@ -9,6 +9,7 @@ import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
 import GalleryScreen from "./Camera/GalleryScreen";
 import LocationPicker from "./Challenges/LocationPicker";
 import TaxonPicker from "./Challenges/TaxonPicker";
+import ChallengeResults from "./Results/ChallengeResults";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },
@@ -18,7 +19,8 @@ const RootStack = createStackNavigator( {
   CameraCapture: { screen: CameraCaptureScreen },
   Gallery: { screen: GalleryScreen },
   Location: { screen: LocationPicker },
-  Taxon: { screen: TaxonPicker }
+  Taxon: { screen: TaxonPicker },
+  Results: { screen: ChallengeResults }
 }, {
   navigationOptions: { header: null }
 } );

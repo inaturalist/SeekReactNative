@@ -19,12 +19,14 @@ class CameraScreen extends Component {
       cameraTypeText: "Front camera",
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "Flash on",
+      photo: null,
       error: null
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
     this.toggleFlash = this.toggleFlash.bind( this );
     this.takePicture = this.takePicture.bind( this );
+    this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
   }
 
   takePicture = async () => {
@@ -76,6 +78,34 @@ class CameraScreen extends Component {
     }
   }
 
+  truncateCoordinates( coordinate ) {
+    return Number( coordinate.toFixed( 2 ) );
+  }
+
+  getCameraCaptureFromGallery() {
+    const {
+      navigation
+    } = this.props;
+
+    CameraRoll.getPhotos( {
+      first: 1,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      this.setState( {
+        photo: results.edges[0].node
+      }, () => navigation.navigate( "Results", {
+        image: this.state.photo.image,
+        time: this.state.photo.timestamp,
+        latitude: this.state.photo.location.latitude ? this.truncateCoordinates( this.state.photo.location.latitude ) : null,
+        longitude: this.state.photo.location.longitude ? this.truncateCoordinates( this.state.photo.location.longitude ) : null,
+      } ) );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
   render() {
     const {
       cameraType,
@@ -106,6 +136,7 @@ class CameraScreen extends Component {
           takePicture={this.takePicture}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
+          getCameraCaptureFromGallery={this.getCameraCaptureFromGallery}
         />
       </RNCamera>
     );

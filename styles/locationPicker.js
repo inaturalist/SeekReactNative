@@ -1,4 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins,
+  padding
+} from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -9,44 +16,44 @@ export default StyleSheet.create( {
     height
   },
   headerText: {
-    marginTop: 40,
-    marginLeft: 15,
-    marginRight: 15,
+    marginTop: margins.large,
+    marginLeft: margins.medium,
+    marginRight: margins.medium,
     justifyContent: "space-around",
-    fontSize: 18,
+    fontSize: fontSize.header,
     flexWrap: "wrap",
-    color: "#F5FCFF",
-    fontFamily: "Whitney-Medium"
+    color: colors.white,
+    fontFamily: fonts.default
   },
   locationText: {
-    color: "#F5FCFF",
-    fontFamily: "FontAwesome",
-    fontSize: 24,
-    marginLeft: 15,
-    marginTop: 15,
+    color: colors.white,
+    fontFamily: fonts.playful,
+    fontSize: fontSize.mediumHeader,
+    marginLeft: margins.medium,
+    marginTop: margins.medium,
     fontWeight: "600"
   },
   container: {
     flex: 1,
-    backgroundColor: "#37535e"
+    backgroundColor: colors.darkBlue
   },
   mapContainer: {
     flexGrow: 1
   },
   button: {
-    backgroundColor: "green",
+    backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
-    marginHorizontal: 40,
-    marginBottom: 10,
-    marginTop: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
+    marginHorizontal: margins.large,
+    marginBottom: margins.small,
+    marginTop: margins.small,
+    paddingTop: padding.medium,
+    paddingBottom: padding.medium,
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: "Whitney-Semibold",
-    fontSize: 18,
-    color: "white",
+    fontFamily: fonts.default,
+    fontSize: fontSize.buttonText,
+    color: colors.white,
     textAlign: "center",
     justifyContent: "center"
   },

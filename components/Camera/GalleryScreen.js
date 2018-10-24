@@ -1,19 +1,31 @@
+// @flow
+
 import React, { Component } from "react";
 import {
-  CameraRoll, Dimensions, Image, ImageBackground, ScrollView, TouchableHighlight, View
+  CameraRoll, Image, ImageBackground, ScrollView, TouchableHighlight, View
 } from "react-native";
+import LoadingScreen from "../LoadingScreen";
+import NavBar from "../NavBar";
+
+import styles from "../../styles/gallery";
+
+type Props = {
+  navigation: any
+}
 
 import LoadingScreen from "../LoadingScreen";
 import styles from "../../styles/gallery";
 
-const { width } = Dimensions.get( "window" );
-
 class GalleryScreen extends Component {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
     this.state = {
       photos: [],
+      imageClicked: null,
+      imageTimestamp: null,
+      imageLatitude: null,
+      imageLongitude: null,
       loading: true,
       error: null
     };
@@ -39,9 +51,32 @@ class GalleryScreen extends Component {
     } );
   }
 
+  truncateCoordinates( coordinate ) {
+    return Number( coordinate.toFixed( 2 ) );
+  }
+
+  selectImage( image, time, location ) {
+    // remember to deal with error state -> what happens if photo location undefined?
+    const {
+      navigation
+    } = this.props;
+
+    this.setState( {
+      imageClicked: image,
+      imageTimestamp: time,
+      imageLatitude: location.latitude ? this.truncateCoordinates( location.latitude ) : null,
+      imageLongitude: location.longitude ? this.truncateCoordinates( location.longitude ) : null
+    }, () => navigation.navigate( "Results", {
+      image: this.state.imageClicked,
+      time: this.state.imageTimestamp,
+      latitude: this.state.imageLatitude,
+      longitude: this.state.imageLongitude
+    } ) );
+  }
+
   renderGallery( photos ) {
     return (
-      <ScrollView contentContainerStyle={styles.scroll}>
+      <ScrollView contentContainerStyle={styles.container}>
         {
           photos.map( ( p, i ) => {
             return (
@@ -49,7 +84,9 @@ class GalleryScreen extends Component {
                 style={styles.button}
                 key={i.toString()}
                 underlayColor="transparent"
-                onPress={() => console.log( "clicked image" )}
+                onPress={() => {
+                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
+                }}
               >
                 <Image
                   style={styles.image}
@@ -69,18 +106,23 @@ class GalleryScreen extends Component {
       loading
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     const gallery = loading ? <LoadingScreen /> : this.renderGallery( photos );
 
     return (
-      <View style={styles.container>
-        <View style={styles.gallery}>
-          <ImageBackground
-            style={styles.backgroundImage}
-            source={require( "../../assets/backgrounds/background.png" )}
-          >
+      <View style={{ flex: 1 }}>
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require( "../../assets/backgrounds/background.png" )}
+        >
+          <NavBar navigation={navigation} />
+          <View style={styles.gallery}>
             {gallery}
-          </ImageBackground>
-        </View>
+          </View>
+        </ImageBackground>
       </View>
     );
   }

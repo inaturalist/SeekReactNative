@@ -181,8 +181,6 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
-    console.log( "params: ", params );
-
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );

@@ -42,5 +42,15 @@ export default StyleSheet.create( {
     color: colors.white,
     textAlign: "center",
     justifyContent: "center"
+  },
+  imageContainer: {
+    flex: 3
+  },
+  image: {
+    width,
+    height: width
+  },
+  infoContainer: {
+    flex: 2
   }
 } );

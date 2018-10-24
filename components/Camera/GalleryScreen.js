@@ -5,6 +5,7 @@ import {
   CameraRoll, Image, ImageBackground, ScrollView, TouchableHighlight, View
 } from "react-native";
 import LoadingScreen from "../LoadingScreen";
+import NavBar from "../NavBar";
 
 import styles from "../../styles/gallery";
 
@@ -102,6 +103,10 @@ class GalleryScreen extends Component {
       loading
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     const gallery = loading ? <LoadingScreen /> : this.renderGallery( photos );
 
     return (
@@ -110,6 +115,7 @@ class GalleryScreen extends Component {
           style={styles.backgroundImage}
           source={require( "../../assets/backgrounds/background.png" )}
         >
+          <NavBar navigation={navigation} />
           <View style={styles.gallery}>
             {gallery}
           </View>

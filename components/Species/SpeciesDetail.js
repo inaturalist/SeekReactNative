@@ -75,6 +75,10 @@ class SpeciesDetail extends Component {
       taxaType
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     const photoList = [];
 
     photos.forEach( ( photo, i ) => {
@@ -92,7 +96,7 @@ class SpeciesDetail extends Component {
 
     return (
       <View style={styles.container}>
-        <NavBar />
+        <NavBar navigation={navigation} />
         <View style={styles.infoContainer}>
           <ScrollView>
             <ScrollView

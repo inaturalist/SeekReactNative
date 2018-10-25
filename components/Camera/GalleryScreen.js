@@ -2,7 +2,12 @@
 
 import React, { Component } from "react";
 import {
-  CameraRoll, Image, ImageBackground, ScrollView, TouchableHighlight, View
+  CameraRoll,
+  Image,
+  ImageBackground,
+  ScrollView,
+  TouchableHighlight,
+  View
 } from "react-native";
 import LoadingScreen from "../LoadingScreen";
 import NavBar from "../NavBar";

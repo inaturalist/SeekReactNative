@@ -51,7 +51,7 @@ class SpeciesDetail extends Component {
         scientificName: taxa.name,
         about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
         timesSeen: `${taxa.observations_count} times worldwide`
-      }, () => console.log(this.state.photos, "photos of taxa") );
+      } );
       console.log( taxa, "taxa details" );
     } ).catch( ( err ) => {
       console.log( err, "error fetching taxon details" );
@@ -78,32 +78,34 @@ class SpeciesDetail extends Component {
     const photoList = [];
 
     photos.forEach( ( photo, i ) => {
-      const image = (
-        <Image
-          key={`image${photo.taxon_id}${i}`}
-          source={{ uri: photo.photo.original_url }}
-          style={styles.image}
-        />
-      );
-      photoList.push( image );
+      if ( i <= 7 ) {
+        const image = (
+          <Image
+            key={`image${photo.taxon_id}${i}`}
+            source={{ uri: photo.photo.original_url }}
+            style={styles.image}
+          />
+        );
+        photoList.push( image );
+      }
     } );
 
     return (
       <View style={styles.container}>
         <NavBar />
-        <View style={styles.imageContainer}>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator
-            scrollEventThrottle
-            pagingEnabled
-          >
-            {photoList}
-          </ScrollView>
-        </View>
         <View style={styles.infoContainer}>
           <ScrollView>
-            <Text style={styles.text}>{commonName}</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator
+              scrollEventThrottle
+              pagingEnabled
+              nestedScrollEnabled
+              indicatorStyle="white"
+            >
+              {photoList}
+            </ScrollView>
+            <Text style={styles.largeHeaderText}>{commonName}</Text>
             <Text style={styles.headerText}>Scientific Name:</Text>
             <Text style={styles.text}>{scientificName}</Text>
             <Text>{taxaType}</Text>

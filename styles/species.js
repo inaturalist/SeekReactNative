@@ -15,7 +15,15 @@ export default StyleSheet.create( {
     height,
     backgroundColor: colors.darkBlue
   },
+  largeHeaderText: {
+    marginTop: margins.medium,
+    fontSize: fontSize.largeHeader,
+    lineHeight: 18,
+    color: colors.white,
+    fontFamily: fonts.default
+  },
   headerText: {
+    marginTop: margins.medium,
     fontSize: fontSize.header,
     lineHeight: 18,
     color: colors.white,
@@ -43,14 +51,11 @@ export default StyleSheet.create( {
     textAlign: "center",
     justifyContent: "center"
   },
-  imageContainer: {
-    flex: 3
-  },
   image: {
     width,
-    height: width
+    height: height / 2 - 100
   },
   infoContainer: {
-    flex: 2
+    flex: 5
   }
 } );

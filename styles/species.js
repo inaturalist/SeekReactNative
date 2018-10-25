@@ -16,13 +16,14 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkBlue
   },
   largeHeaderText: {
+    marginLeft: margins.medium,
     marginTop: margins.medium,
     fontSize: fontSize.largeHeader,
-    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default
   },
   headerText: {
+    marginLeft: margins.medium,
     marginTop: margins.medium,
     fontSize: fontSize.header,
     lineHeight: 18,
@@ -30,9 +31,15 @@ export default StyleSheet.create( {
     fontFamily: fonts.default
   },
   text: {
+    marginLeft: margins.medium,
     alignItems: "center",
     justifyContent: "center",
     color: colors.white
+  },
+  greenText: {
+    alignItems: "center",
+    justifyContent: "center",
+    color: colors.lightGreen
   },
   button: {
     backgroundColor: colors.darkGreen,
@@ -54,6 +61,36 @@ export default StyleSheet.create( {
   image: {
     width,
     height: height / 2 - 100
+  },
+  categoryContainer: {
+    backgroundColor: "rgba(76, 175, 80, 0.3)",
+    opacity: 0.8
+  },
+  categoryRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "space-around",
+    height: 40,
+    marginTop: margins.medium,
+    marginBottom: margins.medium
+  },
+  logoRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: margins.medium,
+    marginBottom: margins.medium
+  },
+  smallImage: {
+    width: width / 5,
+    overflow: "visible"
+  },
+  greenImage: {
+    width: width / 4,
+    marginBottom: margins.medium,
+    backgroundColor: "transparent",
+    tintColor: colors.lightGreen
   },
   infoContainer: {
     flex: 5

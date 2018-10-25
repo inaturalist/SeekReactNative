@@ -46,7 +46,6 @@ const ChallengeScreen = ( {
       capitalizeNames={capitalizeNames}
       navigation={navigation}
       taxa={taxa}
-      taxaType={taxaType}
     />
   );
 

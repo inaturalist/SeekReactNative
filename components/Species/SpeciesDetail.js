@@ -11,7 +11,11 @@ import {
 import inatjs from "inaturalistjs";
 
 import NavBar from "../NavBar";
+import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
+
+const latitudeDelta = 0.025;
+const longitudeDelta = 0.025;
 
 type Props = {
   navigation: any
@@ -21,7 +25,7 @@ class SpeciesDetail extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { id } = navigation.state.params;
+    const { id, latitude, longitude } = navigation.state.params;
 
     this.state = {
       id,
@@ -30,7 +34,13 @@ class SpeciesDetail extends Component {
       scientificName: null,
       about: null,
       timesSeen: null,
-      taxaType: null
+      taxaType: null,
+      region: {
+        latitude,
+        longitude,
+        latitudeDelta,
+        longitudeDelta
+      }
     };
   }
 
@@ -72,6 +82,7 @@ class SpeciesDetail extends Component {
       commonName,
       scientificName,
       about,
+      region,
       timesSeen,
       taxaType
     } = this.state;
@@ -185,14 +196,17 @@ class SpeciesDetail extends Component {
             >
               {photoList}
             </ScrollView>
-            <Text style={styles.largeHeaderText}>{commonName}</Text>
-            <Text style={styles.headerText}>Scientific Name:</Text>
-            <Text style={[styles.text, { fontStyle: "italic" }]}>{scientificName}</Text>
-            <View style={[styles.categoryRow, styles.categoryContainer]}>
-              <Text style={styles.greenText}>Category: {category}</Text>
-              {taxaPhoto}
+            <View style={styles.headerContainer}>
+              <Text style={styles.largeHeaderText}>{commonName}</Text>
+              <Text style={styles.headerText}>Scientific Name:</Text>
+              <Text style={[styles.text, { fontStyle: "italic" }]}>{scientificName}</Text>
+              <View style={[styles.categoryRow, styles.categoryContainer]}>
+                <Text style={styles.greenText}>Category: {category}</Text>
+                {taxaPhoto}
+              </View>
             </View>
             <Text style={styles.headerText}>Where are people seeing it nearby?</Text>
+            <SpeciesMap region={region} />
             <Text style={styles.headerText}>When is the best time to find it</Text>
             <Text style={styles.headerText}>About</Text>
             <Text style={styles.text}>

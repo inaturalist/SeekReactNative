@@ -15,6 +15,9 @@ export default StyleSheet.create( {
     height,
     backgroundColor: colors.darkBlue
   },
+  headerContainer: {
+    backgroundColor: colors.darkBlue
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,
@@ -25,6 +28,7 @@ export default StyleSheet.create( {
   headerText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,
+    marginBottom: margins.medium,
     fontSize: fontSize.header,
     lineHeight: 18,
     color: colors.white,
@@ -93,6 +97,18 @@ export default StyleSheet.create( {
     tintColor: colors.lightGreen
   },
   infoContainer: {
-    flex: 5
+    flex: 5,
+    backgroundColor: colors.darkestBlue
+  },
+  mapContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: margins.medium
+  },
+  map: {
+    width: width - 30,
+    height: width / 2,
+    borderRadius: 5
   }
 } );

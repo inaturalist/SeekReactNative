@@ -11,6 +11,7 @@ import {
 import inatjs from "inaturalistjs";
 
 import NavBar from "../NavBar";
+import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
 
@@ -208,6 +209,7 @@ class SpeciesDetail extends Component {
             <Text style={styles.headerText}>Where are people seeing it nearby?</Text>
             <SpeciesMap region={region} />
             <Text style={styles.headerText}>When is the best time to find it</Text>
+            <SpeciesChart />
             <Text style={styles.headerText}>About</Text>
             <Text style={styles.text}>
               {about}
@@ -215,7 +217,7 @@ class SpeciesDetail extends Component {
             <Text style={styles.headerText}>Seen using iNaturalist</Text>
             <View style={styles.logoRow}>
               <Image
-                source={require("../../assets/logos/logo-inaturalist-bird.png")}
+                source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
                 style={styles.smallImage}
               />
               <Text style={styles.text}>

@@ -42,7 +42,8 @@ class SpeciesDetail extends Component {
         longitude,
         latitudeDelta,
         longitudeDelta
-      }
+      },
+      observationsByMonth: []
     };
   }
 
@@ -53,6 +54,7 @@ class SpeciesDetail extends Component {
 
     this.fetchTaxonDetails();
     this.fetchHeatMap( id );
+    this.fetchHistogram();
   }
 
   fetchTaxonDetails() {
@@ -104,12 +106,34 @@ class SpeciesDetail extends Component {
       } );
   }
 
+  fetchHistogram() {
+    const { id, observationsByMonth } = this.state;
+
+    const params = {
+      date_field: "observed",
+      interval: "month_of_year",
+      taxon_id: id
+    };
+
+    inatjs.observations.histogram( params ).then( ( response ) => {
+      const months = response.results.month_of_year;
+
+      for ( let i = 1; i <= 12; i += 1 ) {
+        observationsByMonth.push( months[i] );
+      }
+      console.log( months, "response", this.state.observationsByMonth );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching histogram" );
+    } );
+  }
+
   render() {
     const {
       photos,
       commonName,
       scientificName,
       about,
+      observationsByMonth,
       region,
       timesSeen,
       taxaType,
@@ -240,7 +264,7 @@ class SpeciesDetail extends Component {
               urlTemplate={urlTemplate}
             />
             <Text style={styles.headerText}>When is the best time to find it</Text>
-            {/* <SpeciesChart /> */}
+            <SpeciesChart data={observationsByMonth} />
             <Text style={styles.headerText}>About</Text>
             <Text style={styles.text}>
               {about}

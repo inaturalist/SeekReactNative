@@ -1,38 +1,34 @@
+// @flow
 import React from "react";
-import { AreaChart, Grid, YAxis } from "react-native-svg-charts";
-import { Defs, LinearGradient, Stop } from "react-native-svg";
+import Path from "react-native-svg";
+import { AreaChart, Grid } from "react-native-svg-charts";
+import * as shape from "d3-shape";
 
-const SpeciesChart = () => {
-  const data = [50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80];
+type Props = {
+  data: Array<number>
+};
 
-  const Gradient = ( { index } ) => (
-    <Defs key={index}>
-      <LinearGradient id="gradient" x1="0%" y="0%" x2="0%" y2="100%">
-        <Stop offset="0%" stopColor="rgb(255, 255, 255)" stopOpacity={0.8} />
-        <Stop offset="100%" stopColor="rgb(255, 255, 255)" stopOpacity={0.2} />
-      </LinearGradient>
-    </Defs>
+const SpeciesChart = ( { data }: Props ) => {
+  // console.log( data, "props passed down" );
+  const Line = ( { line } ) => (
+    <Path
+      key={"line"}
+      d={line}
+      stroke={"rgb(134, 65, 244)"}
+      fill={"none"}
+    />
   );
 
   return (
     <AreaChart
       style={{ height: 200, marginLeft: 15, marginRight: 15 }}
       data={data}
-      contentInset={{ top: 20, bottom: 20 }}
-      svg={{ fill: "url(#gradient)" }}
+      contentInset={{ top: 30, bottom: 30 }}
+      curve={shape.curveNatural}
+      svg={{ fill: "rgba(134, 65, 244, 0.2)" }}
     >
-      <YAxis
-        data={data}
-        contentInset={{ top: 20, bottom: 20 }}
-        svg={{ fill: "url(#gradient)" }}
-        min={0}
-        numberOfTicks={ 3 }
-        formatLabel={ value => Math.round( value )}
-      />
       <Grid />
-      {
-        data.forEach( ( item, i ) => <Gradient index={i} /> )
-      }
+      <Line />
     </AreaChart>
   );
 };

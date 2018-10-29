@@ -8,7 +8,7 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 0.7,
+    flex: 0.5,
     backgroundColor: colors.darkestBlue,
     borderBottomWidth: 0.25,
     borderColor: colors.white
@@ -18,7 +18,7 @@ export default StyleSheet.create( {
     textAlign: "left",
     color: colors.white,
     fontFamily: fonts.default,
-    marginTop: margins.large,
+    marginTop: margins.medium + 5,
     marginLeft: margins.medium
   }
 } );

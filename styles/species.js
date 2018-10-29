@@ -110,5 +110,8 @@ export default StyleSheet.create( {
     width: width - 30,
     height: width / 2,
     borderRadius: 5
+  },
+  footer: {
+    flex: 0.8
   }
 } );

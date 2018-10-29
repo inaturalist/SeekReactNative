@@ -84,15 +84,21 @@ class SpeciesDetail extends Component {
   }
 
   fetchHeatMap( speciesId ) {
+    const { region } = this.state;
+    const { latitude, longitude } = region;
     const z = 0;
     const x = 0;
     const y = 0;
 
-    fetch( `https://api.inaturalist.org/v1/colored_heatmap/${z}/${x}/${y}.png?taxon_id=${speciesId}` )
+    // &lat=${latitude}&lng=${longitude}&radius=${50}
+
+    const apiUrl = "https://api.inaturalist.org/v1/colored_heatmap";
+
+    fetch( `${apiUrl}/${z}/${x}/${y}.png?taxon_id=${speciesId}&color=darkorange&lat=${latitude}&lng=${longitude}&radius=${10000}` )
       .then( ( result ) => {
         this.setState( {
           urlTemplate: result.url
-        } );
+        }, () => console.log( result.url ) );
       } ).catch( ( err ) => {
         console.log( err, "error fetching heatmap" );
       } );
@@ -251,9 +257,11 @@ class SpeciesDetail extends Component {
             </View>
           </ScrollView>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Found it!</Text>
-        </TouchableOpacity>
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Found it!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

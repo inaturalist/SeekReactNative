@@ -7,9 +7,14 @@ export default StyleSheet.create( {
     marginLeft: margins.medium,
     marginRight: margins.medium,
     borderRadius: 5,
-    height: 150
+    height: 150,
+    flexDirection: "row"
+  },
+  yAxis: {
+    alignItems: "center"
   },
   chart: {
+    flex: 1,
     height: 150,
     marginLeft: margins.medium,
     marginRight: margins.medium

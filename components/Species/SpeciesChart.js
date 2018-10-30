@@ -7,7 +7,7 @@ import {
   Path,
   Stop
 } from "react-native-svg";
-import { AreaChart, XAxis } from "react-native-svg-charts";
+import { AreaChart, YAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
 
 import styles from "../../styles/speciesChart";
@@ -38,6 +38,12 @@ const SpeciesChart = ( { data }: Props ) => {
 
   return (
     <View style={styles.container}>
+      <YAxis
+        data={data}
+        style={styles.yAxis}
+        contentInset={styles.contentInset}
+        svg={{ fontSize: 10, fill: "white" }}
+      />
       <AreaChart
         style={styles.chart}
         data={data}

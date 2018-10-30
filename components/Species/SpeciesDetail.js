@@ -48,12 +48,7 @@ class SpeciesDetail extends Component {
   }
 
   componentDidMount() {
-    const {
-      id
-    } = this.state;
-
     this.fetchTaxonDetails();
-    this.fetchHeatMap( id );
     this.fetchHistogram();
   }
 
@@ -85,27 +80,6 @@ class SpeciesDetail extends Component {
     return titleCaseName;
   }
 
-  fetchHeatMap( speciesId ) {
-    const { region } = this.state;
-    const { latitude, longitude } = region;
-    const z = 0;
-    const x = 0;
-    const y = 0;
-
-    // &lat=${latitude}&lng=${longitude}&radius=${50}
-
-    const apiUrl = "https://api.inaturalist.org/v1/colored_heatmap";
-
-    fetch( `${apiUrl}/${z}/${x}/${y}.png?taxon_id=${speciesId}&color=darkorange&lat=${latitude}&lng=${longitude}&radius=${10000}` )
-      .then( ( result ) => {
-        this.setState( {
-          urlTemplate: result.url
-        }, () => console.log( result.url ) );
-      } ).catch( ( err ) => {
-        console.log( err, "error fetching heatmap" );
-      } );
-  }
-
   fetchHistogram() {
     const { id, observationsByMonth } = this.state;
 
@@ -135,11 +109,11 @@ class SpeciesDetail extends Component {
       commonName,
       scientificName,
       about,
+      id,
       observationsByMonth,
       region,
       timesSeen,
-      taxaType,
-      urlTemplate
+      taxaType
     } = this.state;
 
     const {
@@ -263,7 +237,7 @@ class SpeciesDetail extends Component {
             <Text style={styles.headerText}>Where are people seeing it nearby?</Text>
             <SpeciesMap
               region={region}
-              urlTemplate={urlTemplate}
+              id={id}
             />
             <Text style={styles.headerText}>When is the best time to find it</Text>
             <SpeciesChart data={observationsByMonth} />

@@ -16,8 +16,12 @@ export default StyleSheet.create( {
   chart: {
     flex: 1,
     height: 150,
+    marginTop: margins.medium,
     marginLeft: margins.medium,
-    marginRight: margins.medium
+    marginRight: margins.medium,
+    marginBottom: margins.medium,
+    borderLeftColor: colors.white,
+    borderLeftWidth: 0.5
   },
   contentInset: {
     top: 30,

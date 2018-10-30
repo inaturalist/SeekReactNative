@@ -7,7 +7,7 @@ import {
   Path,
   Stop
 } from "react-native-svg";
-import { AreaChart, YAxis } from "react-native-svg-charts";
+import { AreaChart, XAxis, YAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
 
 import styles from "../../styles/speciesChart";
@@ -17,6 +17,8 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
+  const months = ["Jan", "Mar", "May", "Jul", "Sept", "Nov"];
+
   const Line = ( { line } ) => (
     <Path
       key="line"
@@ -43,17 +45,27 @@ const SpeciesChart = ( { data }: Props ) => {
         style={styles.yAxis}
         contentInset={styles.contentInset}
         svg={{ fontSize: 10, fill: "white" }}
+        min={0}
       />
-      <AreaChart
-        style={styles.chart}
-        data={data}
-        contentInset={styles.contentInset}
-        curve={shape.curveNatural}
-        svg={{ fill: "url(#gradient)" }}
-      >
-        <Line />
-        <Gradient />
-      </AreaChart>
+      <View style={{ flex: 1, marginLeft: 15 }}>
+        <AreaChart
+          style={styles.chart}
+          data={data}
+          contentInset={styles.contentInset}
+          curve={shape.curveNatural}
+          svg={{ fill: "url(#gradient)" }}
+        >
+          <Line />
+          <Gradient />
+        </AreaChart>
+        <XAxis
+          style={{ marginHorizontal: 10, height: 30 }}
+          data={data}
+          formatLabel={( value, index ) => index}
+          contentInset={styles.contentInset}
+          svg={{ fontSize: 10, fill: "white" }}
+        />
+      </View>
     </View>
   );
 };

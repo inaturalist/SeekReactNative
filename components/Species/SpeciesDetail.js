@@ -121,7 +121,9 @@ class SpeciesDetail extends Component {
       for ( let i = 1; i <= 12; i += 1 ) {
         observationsByMonth.push( months[i] );
       }
-      console.log( months, "response", this.state.observationsByMonth );
+      this.setState( {
+        observationsByMonth
+      } );
     } ).catch( ( err ) => {
       console.log( err, "error fetching histogram" );
     } );

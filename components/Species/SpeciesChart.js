@@ -1,35 +1,50 @@
 // @flow
 import React from "react";
-import Path from "react-native-svg";
-import { AreaChart, Grid } from "react-native-svg-charts";
+import { View } from "react-native";
+import Path, { Defs, LinearGradient, Stop } from "react-native-svg";
+import { AreaChart, XAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
+
+import styles from "../../styles/speciesChart";
 
 type Props = {
   data: Array<number>
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  // console.log( data, "props passed down" );
+  console.log(data, "props passed to chart" );
+
   const Line = ( { line } ) => (
     <Path
-      key={"line"}
+      key="line"
       d={line}
-      stroke={"rgb(134, 65, 244)"}
-      fill={"none"}
+      stroke="rgb(255, 255, 255)"
+      fill="rgb(255, 255, 255)"
     />
   );
 
+  const Gradient = ( { index } ) => (
+    <Defs key={index}>
+      <LinearGradient id={'gradient'} x1={'0%'} y={'0%'} x2={'0%'} y2={'100%'}>
+        <Stop offset={'0%'} stopColor={'rgb(255, 255, 255)'} stopOpacity={0.8}/>
+        <Stop offset={'100%'} stopColor={'rgb(255, 255, 255)'} stopOpacity={0.2}/>
+      </LinearGradient>
+    </Defs>
+  );
+
   return (
-    <AreaChart
-      style={{ height: 200, marginLeft: 15, marginRight: 15 }}
-      data={data}
-      contentInset={{ top: 30, bottom: 30 }}
-      curve={shape.curveNatural}
-      svg={{ fill: "rgba(134, 65, 244, 0.2)" }}
-    >
-      <Grid />
-      <Line />
-    </AreaChart>
+    <View>
+      <AreaChart
+        style={styles.container}
+        data={data}
+        contentInset={styles.contentInset}
+        curve={shape.curveNatural}
+        svg={{ fill: "url(#gradient)" }}
+      >
+        <Line />
+        <Gradient />
+      </AreaChart>
+    </View>
   );
 };
 

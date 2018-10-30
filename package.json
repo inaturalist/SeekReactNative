@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@types/react-navigation": "^2.0.23",
+    "d3-scale": "^2.1.2",
     "d3-shape": "^1.2.2",
     "gl-react": "^3.15.0",
     "gl-react-native": "^2.57.0",

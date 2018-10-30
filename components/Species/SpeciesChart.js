@@ -1,7 +1,12 @@
 // @flow
 import React from "react";
 import { View } from "react-native";
-import Path, { Defs, LinearGradient, Stop } from "react-native-svg";
+import {
+  Defs,
+  LinearGradient,
+  Path,
+  Stop
+} from "react-native-svg";
 import { AreaChart, XAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
 
@@ -17,7 +22,8 @@ const SpeciesChart = ( { data }: Props ) => {
       key="line"
       d={line}
       stroke="rgb(255, 255, 255)"
-      fill="rgb(255, 255, 255)"
+      strokeWidth={3}
+      fill="none"
     />
   );
 

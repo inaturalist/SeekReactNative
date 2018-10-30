@@ -22,7 +22,7 @@ const LocationMap = ( { region, id }: Props ) => (
       maxZoomLevel={7}
     >
       <UrlTile
-        urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/0/0/0.png?taxon_id=${id}&color=darkorange&lat=${region.latitude}&lng=${region.longitude}&radius=${10000}`}
+        urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=darkorange`}
       />
     </MapView>
   </View>

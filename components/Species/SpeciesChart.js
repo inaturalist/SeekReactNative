@@ -12,8 +12,6 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  console.log(data, "props passed to chart" );
-
   const Line = ( { line } ) => (
     <Path
       key="line"
@@ -25,17 +23,17 @@ const SpeciesChart = ( { data }: Props ) => {
 
   const Gradient = ( { index } ) => (
     <Defs key={index}>
-      <LinearGradient id={'gradient'} x1={'0%'} y={'0%'} x2={'0%'} y2={'100%'}>
-        <Stop offset={'0%'} stopColor={'rgb(255, 255, 255)'} stopOpacity={0.8}/>
-        <Stop offset={'100%'} stopColor={'rgb(255, 255, 255)'} stopOpacity={0.2}/>
+      <LinearGradient id="gradient" x1="0%" y="0%" x2="0%" y2="100%">
+        <Stop offset="0%" stopColor="rgb(255, 255, 255)" stopOpacity={0.8} />
+        <Stop offset="100%" stopColor="rgb(255, 255, 255)" stopOpacity={0.2} />
       </LinearGradient>
     </Defs>
   );
 
   return (
-    <View>
+    <View style={styles.container}>
       <AreaChart
-        style={styles.container}
+        style={styles.chart}
         data={data}
         contentInset={styles.contentInset}
         curve={shape.curveNatural}

@@ -9,6 +9,7 @@ import {
 } from "react-native-svg";
 import { AreaChart, XAxis, YAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
+import moment from "moment";
 
 import styles from "../../styles/speciesChart";
 
@@ -17,7 +18,17 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  const months = ["Jan", "Mar", "May", "Jul", "Sept", "Nov"];
+  const formatXAxis = () => {
+    const allMonths = moment.monthsShort();
+    const labelMonths = [];
+
+    allMonths.forEach( ( month, i ) => {
+      if ( i % 2 === 0 ) {
+        labelMonths.push( month );
+      }
+    } );
+    return labelMonths;
+  };
 
   const Line = ( { line } ) => (
     <Path
@@ -46,6 +57,7 @@ const SpeciesChart = ( { data }: Props ) => {
         contentInset={styles.contentInset}
         svg={{ fontSize: 10, fill: "white" }}
         min={0}
+        numberOfTicks={8}
       />
       <View style={{ flex: 1, marginLeft: 15 }}>
         <AreaChart
@@ -59,11 +71,17 @@ const SpeciesChart = ( { data }: Props ) => {
           <Gradient />
         </AreaChart>
         <XAxis
-          style={{ marginHorizontal: 10, height: 30 }}
+          style={{ flexDirection: "row", justifyContent: "space-around" }}
           data={data}
-          formatLabel={( value, index ) => index}
+          formatLabel={formatXAxis}
           contentInset={styles.contentInset}
-          svg={{ fontSize: 10, fill: "white" }}
+          svg={{
+            fontSize: 10,
+            fill: "white",
+            originY: 30,
+            y: 5
+          }}
+          numberOfTicks={1}
         />
       </View>
     </View>

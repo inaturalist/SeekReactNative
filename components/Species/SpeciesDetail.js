@@ -100,7 +100,8 @@ class SpeciesDetail extends Component {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const nearbySpeciesCount = response.results[0].count;
       this.setState( {
-        nearbySpeciesCount: `${nearbySpeciesCount} times seen in ${location}`
+        nearbySpeciesCount: nearbySpeciesCount && location
+          ? `${nearbySpeciesCount} times near ${location}` : null
       } );
     } ).catch( ( err ) => {
       console.log( err, "error fetching species count" );
@@ -282,12 +283,15 @@ class SpeciesDetail extends Component {
                 source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
                 style={styles.smallImage}
               />
-              <Text style={styles.text}>
-                {timesSeen}
-              </Text>
-              <Text style={styles.text}>
-                {nearbySpeciesCount}
-              </Text>
+              <View>
+                <Text style={styles.text}>
+                  {timesSeen}
+                  {"\n"}
+                </Text>
+                <Text style={styles.text}>
+                  {nearbySpeciesCount}
+                </Text>
+              </View>
             </View>
           </ScrollView>
         </View>

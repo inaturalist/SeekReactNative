@@ -19,18 +19,47 @@ class CameraScreen extends Component {
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
       cameraTypeText: "Front camera",
+      error: null,
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "Flash on",
+      image: {},
       latitude,
       longitude,
-      photo: null,
-      error: null
+      time: null
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
     this.toggleFlash = this.toggleFlash.bind( this );
     this.takePicture = this.takePicture.bind( this );
     this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
+  }
+
+  getCameraCaptureFromGallery() {
+    const {
+      latitude,
+      longitude,
+      navigation
+    } = this.props;
+
+    CameraRoll.getPhotos( {
+      first: 1,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      const photo = results.edges[0].node;
+      this.setState( {
+        image: photo.image,
+        time: photo.timestamp
+      }, () => navigation.navigate( "Results", {
+        image: this.state.image,
+        time: this.state.time,
+        latitude,
+        longitude
+      } ) );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
   }
 
   takePicture = async () => {
@@ -84,32 +113,6 @@ class CameraScreen extends Component {
 
   truncateCoordinates( coordinate ) {
     return Number( coordinate.toFixed( 2 ) );
-  }
-
-  getCameraCaptureFromGallery() {
-    const {
-      latitude,
-      longitude,
-      navigation
-    } = this.props;
-
-    CameraRoll.getPhotos( {
-      first: 1,
-      assetType: "Photos"
-    } ).then( ( results ) => {
-      this.setState( {
-        photo: results.edges[0].node
-      }, () => navigation.navigate( "Results", {
-        image: this.state.photo.image,
-        time: this.state.photo.timestamp,
-        latitude: this.state.photo.location.latitude ? this.truncateCoordinates( this.state.photo.location.latitude ) : latitude,
-        longitude: this.state.photo.location.longitude ? this.truncateCoordinates( this.state.photo.location.longitude ) : longitude,
-      } ) );
-    } ).catch( ( err ) => {
-      this.setState( {
-        error: err.message
-      } );
-    } );
   }
 
   render() {

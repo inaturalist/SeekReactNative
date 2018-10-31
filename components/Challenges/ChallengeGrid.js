@@ -17,15 +17,17 @@ type Props = {
   capitalizeNames: Function,
   taxa: Array<Object>,
   latitude: number,
+  location: string,
   longitude: number
 }
 
 const ChallengeGrid = ( {
-  navigation,
-  taxa,
   capitalizeNames,
+  location,
   latitude,
-  longitude
+  longitude,
+  navigation,
+  taxa
 }: Props ) => (
   <View style={styles.taxonGrid}>
     <FlatList
@@ -36,7 +38,12 @@ const ChallengeGrid = ( {
       renderItem={ ( { item } ) => (
         <View style={ styles.gridCell }>
           <TouchableOpacity
-            onPress={ () => navigation.navigate( "Species", { id: item.id, latitude, longitude } ) }
+            onPress={ () => navigation.navigate( "Species", {
+              id: item.id,
+              latitude,
+              longitude,
+              location
+            } ) }
           >
             <View style={ styles.gridCellContents }>
               <Image

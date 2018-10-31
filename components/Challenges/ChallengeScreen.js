@@ -48,6 +48,7 @@ const ChallengeScreen = ( {
       taxa={taxa}
       latitude={latitude}
       longitude={longitude}
+      location={location}
     />
   );
 

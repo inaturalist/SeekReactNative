@@ -211,7 +211,6 @@ class MainScreen extends Component<Props, State> {
       location: this.reverseGeocodeLocation( latitude, longitude ),
       loading: true
     }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
-    console.log("updated location", latitude, longitude);
   }
 
   render() {

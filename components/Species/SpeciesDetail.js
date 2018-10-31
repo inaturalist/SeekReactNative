@@ -26,10 +26,16 @@ class SpeciesDetail extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { id, latitude, longitude } = navigation.state.params;
+    const {
+      id,
+      latitude,
+      location,
+      longitude
+    } = navigation.state.params;
 
     this.state = {
       id,
+      location,
       photos: [],
       commonName: null,
       scientificName: null,
@@ -42,13 +48,15 @@ class SpeciesDetail extends Component {
         latitudeDelta,
         longitudeDelta
       },
-      observationsByMonth: []
+      observationsByMonth: [],
+      nearbySpeciesCount: 0
     };
   }
 
   componentDidMount() {
     this.fetchTaxonDetails();
     this.fetchHistogram();
+    this.fetchNearbySpeciesCount();
   }
 
   fetchTaxonDetails() {
@@ -66,7 +74,6 @@ class SpeciesDetail extends Component {
         timesSeen: `${taxa.observations_count} times worldwide`,
         taxaType: taxa.iconic_taxon_name
       } );
-      console.log( taxa, "taxa details" );
     } ).catch( ( err ) => {
       console.log( err, "error fetching taxon details" );
     } );
@@ -77,6 +84,27 @@ class SpeciesDetail extends Component {
       .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
       .join( " " );
     return titleCaseName;
+  }
+
+  fetchNearbySpeciesCount() {
+    const { id, region, location } = this.state;
+    const { latitude, longitude } = region;
+
+    const params = {
+      lat: latitude,
+      lng: longitude,
+      radius: 50,
+      taxon_id: id
+    };
+
+    inatjs.observations.speciesCounts( params ).then( ( response ) => {
+      const nearbySpeciesCount = response.results[0].count;
+      this.setState( {
+        nearbySpeciesCount: `${nearbySpeciesCount} times seen in ${location}`
+      } );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching species count" );
+    } );
   }
 
   fetchHistogram() {
@@ -107,13 +135,14 @@ class SpeciesDetail extends Component {
 
   render() {
     const {
-      photos,
-      commonName,
-      scientificName,
       about,
+      commonName,
       id,
+      nearbySpeciesCount,
       observationsByMonth,
+      photos,
       region,
+      scientificName,
       timesSeen,
       taxaType
     } = this.state;
@@ -255,6 +284,9 @@ class SpeciesDetail extends Component {
               />
               <Text style={styles.text}>
                 {timesSeen}
+              </Text>
+              <Text style={styles.text}>
+                {nearbySpeciesCount}
               </Text>
             </View>
           </ScrollView>

@@ -9,6 +9,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
+import moment from "moment";
 
 import NavBar from "../NavBar";
 import SpeciesChart from "./SpeciesChart";
@@ -36,7 +37,6 @@ class SpeciesDetail extends Component {
       about: null,
       timesSeen: null,
       taxaType: null,
-      urlTemplate: "",
       region: {
         latitude,
         longitude,
@@ -90,10 +90,14 @@ class SpeciesDetail extends Component {
     };
 
     inatjs.observations.histogram( params ).then( ( response ) => {
-      const months = response.results.month_of_year;
+      const countsByMonth = response.results.month_of_year;
+      const allMonths = moment.monthsShort();
 
       for ( let i = 1; i <= 12; i += 1 ) {
-        observationsByMonth.push( months[i] );
+        observationsByMonth.push( {
+          month: allMonths[i - 1],
+          count: countsByMonth[i]
+        } );
       }
       this.setState( {
         observationsByMonth

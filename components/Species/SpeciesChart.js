@@ -9,27 +9,14 @@ import {
 } from "react-native-svg";
 import { AreaChart, XAxis, YAxis } from "react-native-svg-charts";
 import * as shape from "d3-shape";
-import moment from "moment";
 
 import styles from "../../styles/speciesChart";
 
 type Props = {
-  data: Array<number>
+  data: Array<Object>
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  const formatXAxis = () => {
-    const allMonths = moment.monthsShort();
-    const labelMonths = [];
-
-    allMonths.forEach( ( month, i ) => {
-      if ( i % 2 === 0 ) {
-        labelMonths.push( month );
-      }
-    } );
-    return labelMonths;
-  };
-
   const Line = ( { line } ) => (
     <Path
       key="line"
@@ -53,16 +40,19 @@ const SpeciesChart = ( { data }: Props ) => {
     <View style={styles.container}>
       <YAxis
         data={data}
+        yAccessor={ ( { item } ) => item.count }
         style={styles.yAxis}
         contentInset={styles.contentInset}
         svg={{ fontSize: 10, fill: "white" }}
         min={0}
         numberOfTicks={8}
       />
-      <View style={{ flex: 1, marginLeft: 15 }}>
+      <View style={styles.chartRow}>
         <AreaChart
           style={styles.chart}
           data={data}
+          yAccessor={ ( { item } ) => item.count }
+          xAccessor={( { item } ) => item.month }
           contentInset={styles.contentInset}
           curve={shape.curveNatural}
           svg={{ fill: "url(#gradient)" }}
@@ -71,17 +61,13 @@ const SpeciesChart = ( { data }: Props ) => {
           <Gradient />
         </AreaChart>
         <XAxis
-          style={{ flexDirection: "row", justifyContent: "space-around" }}
+          style={styles.xAxis}
           data={data}
-          formatLabel={formatXAxis}
-          contentInset={styles.contentInset}
+          xAccessor={( { item } ) => item.month }
           svg={{
-            fontSize: 10,
-            fill: "white",
-            originY: 30,
-            y: 5
+            fontSize: 7,
+            fill: "white"
           }}
-          numberOfTicks={1}
         />
       </View>
     </View>

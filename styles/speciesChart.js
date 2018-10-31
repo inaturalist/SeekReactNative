@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, margins } from "./global";
+import { colors, margins, padding } from "./global";
 
 export default StyleSheet.create( {
   container: {
@@ -11,7 +11,13 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   yAxis: {
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: margins.medium
+  },
+  chartRow: {
+    flex: 1,
+    flexDirection: "column",
+    marginLeft: 15
   },
   chart: {
     flex: 1,
@@ -19,12 +25,16 @@ export default StyleSheet.create( {
     marginTop: margins.medium,
     marginLeft: margins.medium,
     marginRight: margins.medium,
-    marginBottom: margins.medium,
     borderLeftColor: colors.white,
     borderLeftWidth: 0.5
   },
   contentInset: {
     top: 30,
     bottom: 30
+  },
+  xAxis: {
+    marginBottom: margins.medium,
+    marginLeft: margins.medium + 5,
+    height: 30
   }
 } );

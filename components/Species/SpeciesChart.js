@@ -8,6 +8,7 @@ import {
   Stop
 } from "react-native-svg";
 import { AreaChart, XAxis, YAxis } from "react-native-svg-charts";
+import * as scale from "d3-scale";
 import * as shape from "d3-shape";
 
 import styles from "../../styles/speciesChart";
@@ -53,6 +54,8 @@ const SpeciesChart = ( { data }: Props ) => {
           data={data}
           yAccessor={ ( { item } ) => item.count }
           xAccessor={( { item } ) => item.month }
+          xScale={scale.scaleTime}
+          yScale={scale.scaleLinear}
           contentInset={styles.contentInset}
           curve={shape.curveNatural}
           svg={{ fill: "url(#gradient)" }}
@@ -64,8 +67,7 @@ const SpeciesChart = ( { data }: Props ) => {
           style={styles.xAxis}
           data={data}
           xAccessor={( { item } ) => item.month }
-          formatLabel={ ( value, index ) => index }
-          spacingInner={0.5}
+          formatLabel={ value => value }
           svg={{
             fontSize: 10,
             fill: "white"

@@ -6,7 +6,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkDesaturatedBlue,
     marginLeft: margins.medium,
     marginRight: margins.medium,
-    paddingBottom: padding.medium,
+    padding: padding.medium,
     borderRadius: 5,
     height: 150,
     flexDirection: "row"
@@ -22,10 +22,8 @@ export default StyleSheet.create( {
   },
   chart: {
     flex: 1,
-    marginTop: margins.medium,
-    marginRight: margins.medium,
     borderLeftColor: colors.white,
-    borderLeftWidth: 0.5,
+    borderLeftWidth: 1,
     borderBottomColor: colors.white,
     borderBottomWidth: 1
   },

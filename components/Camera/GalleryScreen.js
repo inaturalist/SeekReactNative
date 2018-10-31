@@ -2,7 +2,12 @@
 
 import React, { Component } from "react";
 import {
-  CameraRoll, Image, ImageBackground, ScrollView, TouchableHighlight, View
+  CameraRoll,
+  Image,
+  ImageBackground,
+  ScrollView,
+  TouchableHighlight,
+  View
 } from "react-native";
 import LoadingScreen from "../LoadingScreen";
 import NavBar from "../NavBar";
@@ -12,9 +17,6 @@ import styles from "../../styles/gallery";
 type Props = {
   navigation: any
 }
-
-import LoadingScreen from "../LoadingScreen";
-import styles from "../../styles/gallery";
 
 class GalleryScreen extends Component {
   constructor( { navigation }: Props ) {

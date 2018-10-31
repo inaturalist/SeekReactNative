@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-svg')
     implementation project(':react-native-image-resizer')
     implementation project(':react-native-geocoder')
     implementation project(':react-native-maps')

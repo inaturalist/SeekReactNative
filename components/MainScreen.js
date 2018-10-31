@@ -181,8 +181,6 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
-    console.log( "params: ", params );
-
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
@@ -213,7 +211,6 @@ class MainScreen extends Component<Props, State> {
       location: this.reverseGeocodeLocation( latitude, longitude ),
       loading: true
     }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
-    console.log("updated location", latitude, longitude);
   }
 
   render() {

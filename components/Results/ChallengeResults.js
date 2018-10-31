@@ -3,14 +3,10 @@
 import React, { Component } from "react";
 import {
   View,
-  FlatList,
-  Image,
   ImageBackground,
-  Platform,
-  Text,
-  TouchableHighlight
+  Platform
 } from "react-native";
-import inatjs from "inaturalistjs";
+import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 
@@ -60,14 +56,8 @@ class ChallengeResults extends Component {
       longitude // need to account for null case
     } = this.state;
 
-    const UploadParams = class UploadParams {
-      constructor( attrs ) {
-        Object.assign( this, attrs );
-      }
-    };
-
     const params = {
-      image: new UploadParams( {
+      image: new FileUpload( {
         uri,
         name: "photo.jpeg",
         type: "image/jpeg"

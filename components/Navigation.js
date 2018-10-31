@@ -10,6 +10,7 @@ import GalleryScreen from "./Camera/GalleryScreen";
 import LocationPicker from "./Challenges/LocationPicker";
 import TaxonPicker from "./Challenges/TaxonPicker";
 import ChallengeResults from "./Results/ChallengeResults";
+import SpeciesDetail from "./Species/SpeciesDetail";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },
@@ -20,7 +21,8 @@ const RootStack = createStackNavigator( {
   Gallery: { screen: GalleryScreen },
   Location: { screen: LocationPicker },
   Taxon: { screen: TaxonPicker },
-  Results: { screen: ChallengeResults }
+  Results: { screen: ChallengeResults },
+  Species: { screen: SpeciesDetail }
 }, {
   navigationOptions: { header: null }
 } );

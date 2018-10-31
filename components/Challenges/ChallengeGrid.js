@@ -15,10 +15,20 @@ import styles from "../../styles/challenges";
 type Props = {
   navigation: any,
   capitalizeNames: Function,
-  taxa: Array<Object>
+  taxa: Array<Object>,
+  latitude: number,
+  location: string,
+  longitude: number
 }
 
-const ChallengeGrid = ( { navigation, taxa, capitalizeNames }: Props ) => (
+const ChallengeGrid = ( {
+  capitalizeNames,
+  location,
+  latitude,
+  longitude,
+  navigation,
+  taxa
+}: Props ) => (
   <View style={styles.taxonGrid}>
     <FlatList
       data={ taxa }
@@ -28,7 +38,12 @@ const ChallengeGrid = ( { navigation, taxa, capitalizeNames }: Props ) => (
       renderItem={ ( { item } ) => (
         <View style={ styles.gridCell }>
           <TouchableOpacity
-            onPress={ ( ) => navigation.navigate( "Loading" ) }
+            onPress={ () => navigation.navigate( "Species", {
+              id: item.id,
+              latitude,
+              longitude,
+              location
+            } ) }
           >
             <View style={ styles.gridCellContents }>
               <Image

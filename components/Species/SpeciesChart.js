@@ -22,7 +22,7 @@ const SpeciesChart = ( { data }: Props ) => {
   const formatXAxis = ( index ) => {
     const allMonths = moment.monthsShort();
     if ( index === 0 || index % 2 === 0 ) {
-      return allMonths[index];
+      return "      " + allMonths[index]; // super hacky, but Jan is cut off on XAxis without this
     }
   };
 

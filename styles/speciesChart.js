@@ -32,8 +32,7 @@ export default StyleSheet.create( {
     bottom: 10
   },
   xAxis: {
-    // marginBottom: margins.smal,
-    marginLeft: margins.small,
+    marginLeft: margins.medium,
     height: 15
   }
 } );

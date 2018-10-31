@@ -10,6 +10,7 @@ import {
 import { AreaChart, XAxis, YAxis } from "react-native-svg-charts";
 import * as scale from "d3-scale";
 import * as shape from "d3-shape";
+import moment from "moment";
 
 import styles from "../../styles/speciesChart";
 
@@ -18,6 +19,13 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
+  const formatXAxis = ( index ) => {
+    const allMonths = moment.monthsShort();
+    if ( index === 0 || index % 2 === 0 ) {
+      return allMonths[index];
+    }
+  };
+
   const Line = ( { line } ) => (
     <Path
       key="line"
@@ -67,7 +75,7 @@ const SpeciesChart = ( { data }: Props ) => {
           style={styles.xAxis}
           data={data}
           xAccessor={( { item } ) => item.month }
-          formatLabel={ value => value }
+          formatLabel={ value => formatXAxis( value - 1 ) }
           svg={{
             fontSize: 10,
             fill: "white"

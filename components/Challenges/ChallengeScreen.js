@@ -68,7 +68,12 @@ const ChallengeScreen = ( {
           taxaType={taxaType}
         />
         {challenges}
-        <ChallengeFooter navigation={navigation} speciesCount={speciesCount} />
+        <ChallengeFooter
+          latitude={latitude}
+          longitude={longitude}
+          navigation={navigation}
+          speciesCount={speciesCount}
+        />
       </ImageBackground>
     </View>
   );

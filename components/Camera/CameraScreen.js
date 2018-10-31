@@ -14,11 +14,15 @@ class CameraScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
+    const { latitude, longitude } = navigation.state.params;
+
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
       cameraTypeText: "Front camera",
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "Flash on",
+      latitude,
+      longitude,
       photo: null,
       error: null
     };
@@ -84,6 +88,8 @@ class CameraScreen extends Component {
 
   getCameraCaptureFromGallery() {
     const {
+      latitude,
+      longitude,
       navigation
     } = this.props;
 
@@ -96,8 +102,8 @@ class CameraScreen extends Component {
       }, () => navigation.navigate( "Results", {
         image: this.state.photo.image,
         time: this.state.photo.timestamp,
-        latitude: this.state.photo.location.latitude ? this.truncateCoordinates( this.state.photo.location.latitude ) : null,
-        longitude: this.state.photo.location.longitude ? this.truncateCoordinates( this.state.photo.location.longitude ) : null,
+        latitude: this.state.photo.location.latitude ? this.truncateCoordinates( this.state.photo.location.latitude ) : latitude,
+        longitude: this.state.photo.location.longitude ? this.truncateCoordinates( this.state.photo.location.longitude ) : longitude,
       } ) );
     } ).catch( ( err ) => {
       this.setState( {

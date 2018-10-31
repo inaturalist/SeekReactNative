@@ -64,8 +64,10 @@ const SpeciesChart = ( { data }: Props ) => {
           style={styles.xAxis}
           data={data}
           xAccessor={( { item } ) => item.month }
+          formatLabel={ ( value, index ) => index }
+          spacingInner={0.5}
           svg={{
-            fontSize: 7,
+            fontSize: 10,
             fill: "white"
           }}
         />

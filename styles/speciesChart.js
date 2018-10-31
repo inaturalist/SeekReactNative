@@ -6,6 +6,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkDesaturatedBlue,
     marginLeft: margins.medium,
     marginRight: margins.medium,
+    paddingBottom: padding.medium,
     borderRadius: 5,
     height: 150,
     flexDirection: "row"
@@ -16,25 +17,25 @@ export default StyleSheet.create( {
   },
   chartRow: {
     flex: 1,
-    flexDirection: "column",
-    marginLeft: 15
+    marginLeft: margins.small,
+    marginRight: margins.small
   },
   chart: {
     flex: 1,
-    height: 150,
     marginTop: margins.medium,
-    marginLeft: margins.medium,
     marginRight: margins.medium,
     borderLeftColor: colors.white,
-    borderLeftWidth: 0.5
+    borderLeftWidth: 0.5,
+    borderBottomColor: colors.white,
+    borderBottomWidth: 1
   },
   contentInset: {
-    top: 30,
-    bottom: 30
+    top: 10,
+    bottom: 10
   },
   xAxis: {
-    marginBottom: margins.medium,
-    marginLeft: margins.medium + 5,
-    height: 30
+    // marginBottom: margins.smal,
+    marginLeft: margins.small,
+    height: 15
   }
 } );

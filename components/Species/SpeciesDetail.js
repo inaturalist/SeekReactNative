@@ -95,7 +95,8 @@ class SpeciesDetail extends Component {
 
       for ( let i = 1; i <= 12; i += 1 ) {
         observationsByMonth.push( {
-          month: allMonths[i - 1],
+          month: i,
+          // month: allMonths[i - 1],
           count: countsByMonth[i]
         } );
       }

@@ -4,12 +4,12 @@ import React, { Component } from "react";
 import {
   View,
   ImageBackground,
-  Platform,
-  TouchableWithoutFeedbackBase
+  Platform
 } from "react-native";
 import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
+import Realm from "realm";
 
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingScreen from "../LoadingScreen";
@@ -53,6 +53,69 @@ class ChallengeResults extends Component {
 
   componentDidMount() {
     this.resizeImage();
+  }
+
+  setTextAndPhoto() {
+    const {
+      id,
+      taxaId,
+      score,
+      taxaName
+    } = this.state;
+
+    if ( score > 85 && id === undefined ) {
+      this.setState( {
+        title: "Sweet!",
+        subtitle: `You saw a ${taxaName}`,
+        match: true,
+        text: null,
+        buttonText: "Add to Collection",
+        yourPhotoText: `Your photo:\n${taxaName}`,
+        photoText: `Identified Species:\n${taxaName}`
+      } );
+    } else if ( score <= 85 && id === undefined ) {
+      this.setState( {
+        title: "Hrmmmmm",
+        subtitle: "We can't figure this one out. Please try some adjustments.",
+        match: "unknown",
+        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
+        buttonText: "Start over"
+      } );
+    } else if ( score > 85 && id === taxaId ) {
+      this.setState( {
+        title: "It's a Match!",
+        subtitle: `You saw a ${taxaName}`,
+        match: true,
+        text: null,
+        buttonText: "Add to Collection"
+      } );
+    } else if ( score > 85 && id !== taxaId ) {
+      this.setState( {
+        title: "Good Try!",
+        subtitle: `However, this isn't a ... it's a ${taxaName}`,
+        match: false,
+        text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
+        buttonText: "Add to Collection"
+      } );
+    }
+  }
+
+  savePhotoOrStartOver( buttonText ) {
+    const {
+      id
+    } = this.state;
+
+    const {
+      navigation
+    } = this.props;
+
+    if ( buttonText === "Add to Collection" ) {
+      this.addToCollection();
+    } else if ( buttonText === "Start over" ) {
+      navigation.navigate( "CameraCapture", { id } );
+    } else {
+      navigation.navigate( "Main" );
+    }
   }
 
   flattenUploadParameters( uri ) {
@@ -128,65 +191,6 @@ class ChallengeResults extends Component {
       .catch( ( err ) => {
         console.log( err, "error fetching results from computer vision" );
       } );
-  }
-
-  savePhotoOrStartOver( buttonText ) {
-    const {
-      navigation
-    } = this.props;
-
-    if ( buttonText === "Add to Collection" ) {
-      console.log( "add to realm" );
-    } else if ( buttonText === "Start over" ) {
-      navigation.navigate( "CameraCapture" );
-    } else {
-      navigation.navigate( "Main" );
-    }
-  }
-
-  setTextAndPhoto() {
-    const {
-      id,
-      taxaId,
-      score,
-      taxaName
-    } = this.state;
-
-    if ( score > 85 && id === undefined ) {
-      this.setState( {
-        title: "Sweet!",
-        subtitle: `You saw a ${taxaName}`,
-        match: true,
-        text: null,
-        buttonText: "Add to Collection",
-        yourPhotoText: `Your photo:\n${taxaName}`,
-        photoText: `Identified Species:\n${taxaName}`
-      } );
-    } else if ( score <= 85 && id === undefined ) {
-      this.setState( {
-        title: "Hrmmmmm",
-        subtitle: "We can't figure this one out. Please try some adjustments.",
-        match: "unknown",
-        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
-        buttonText: "Start over"
-      } );
-    } else if ( score > 85 && id === taxaId ) {
-      this.setState( {
-        title: "It's a Match!",
-        subtitle: `You saw a ${taxaName}`,
-        match: true,
-        text: null,
-        buttonText: "Add to Collection"
-      } );
-    } else if ( score > 85 && id !== taxaId ) {
-      this.setState( {
-        title: "Good Try!",
-        subtitle: `However, this isn't a ... it's a ${taxaName}`,
-        match: false,
-        text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
-        buttonText: "Add to Collection"
-      } );
-    }
   }
 
   render() {

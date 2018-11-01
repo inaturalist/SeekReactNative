@@ -13,7 +13,7 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   gallery: {
-    flex: 4
+    flex: 6
   },
   button: {
     paddingHorizontal: padding.extraSmall,

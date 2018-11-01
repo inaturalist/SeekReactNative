@@ -4,10 +4,10 @@ ObservationRealm.schema = {
   primaryKey: "uuidString",
   properties: {
     uuidString: "string?",
-    date: "date",
-    taxon: { type: "TaxonRealm" },
-    latitude: "float",
-    longitude: "float",
+    date: "date?",
+    taxon: { type: "TaxonRealm?" },
+    latitude: { type: "float", default: 0.0 },
+    longitude: { type: "float", default: 0.0 },
     placeName: "string?"
   }
 };

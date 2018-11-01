@@ -3,8 +3,8 @@ BadgeRealm.schema = {
   name: "BadgeRealm",
   primaryKey: "name",
   properties: {
-    name: "string",
-    earned: "bool",
+    name: { type: "string", default: "" },
+    earned: { type: "bool", default: false },
     earnedDate: "date?",
     iconicTaxonName: "string?",
     iconicTaxonId: { type: "int", default: 0 },

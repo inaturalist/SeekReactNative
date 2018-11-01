@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    flex: 2,
+    flex: 1,
     width,
     marginTop: margins.medium,
     alignItems: "center",
@@ -66,7 +66,8 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   matchImage: {
-    alignSelf: "center"
+    alignSelf: "center",
+    zIndex: 1
   },
   imageBackground: {
     flex: 2,
@@ -96,6 +97,6 @@ export default StyleSheet.create( {
     height: width / 3 - 10
   },
   footer: {
-    flex: 1
+    flex: 2
   }
 } );

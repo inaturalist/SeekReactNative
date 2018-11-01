@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    flex: 1,
+    flex: 2,
     width,
     marginTop: margins.medium,
     alignItems: "center",
@@ -69,7 +69,7 @@ export default StyleSheet.create( {
     alignSelf: "center"
   },
   imageBackground: {
-    flex: 1,
+    flex: 2,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
     paddingTop: padding.large,
@@ -96,6 +96,6 @@ export default StyleSheet.create( {
     height: width / 3 - 10
   },
   footer: {
-    flex: 0.5
+    flex: 1
   }
 } );

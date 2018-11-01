@@ -1,6 +1,7 @@
 class ObservationRealm {}
 ObservationRealm.schema = {
   name: "ObservationRealm",
+  primaryKey: "uuidString",
   properties: {
     uuidString: "string?",
     date: "date",

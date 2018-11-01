@@ -1,6 +1,7 @@
 class BadgeRealm {}
 BadgeRealm.schema = {
   name: "BadgeRealm",
+  primaryKey: "name",
   properties: {
     name: "string",
     earned: "bool",

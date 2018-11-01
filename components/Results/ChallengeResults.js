@@ -4,7 +4,8 @@ import React, { Component } from "react";
 import {
   View,
   ImageBackground,
-  Platform
+  Platform,
+  TouchableWithoutFeedbackBase
 } from "react-native";
 import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -46,6 +47,8 @@ class ChallengeResults extends Component {
       latitude,
       longitude
     };
+
+    this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
   }
 
   componentDidMount() {
@@ -127,6 +130,20 @@ class ChallengeResults extends Component {
       } );
   }
 
+  savePhotoOrStartOver( buttonText ) {
+    const {
+      navigation
+    } = this.props;
+
+    if ( buttonText === "Add to Collection" ) {
+      console.log( "add to realm" );
+    } else if ( buttonText === "Start over" ) {
+      navigation.navigate( "CameraCapture" );
+    } else {
+      navigation.navigate( "Main" );
+    }
+  }
+
   setTextAndPhoto() {
     const {
       id,
@@ -203,6 +220,7 @@ class ChallengeResults extends Component {
           yourPhotoText={yourPhotoText}
           image={image}
           navigation={navigation}
+          onPress={this.savePhotoOrStartOver}
         />
       );
 

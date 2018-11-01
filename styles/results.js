@@ -29,11 +29,12 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     marginBottom: margins.medium,
+    marginLeft: margins.medium,
     marginTop: margins.extraSmall
   },
   text: {
     fontSize: fontSize.text,
-    lineHeight: 14,
+    lineHeight: 20,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap",

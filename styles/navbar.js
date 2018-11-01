@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     borderColor: colors.white
   },
   text: {
-    fontSize: fontSize.text,
+    fontSize: fontSize.mediumHeader,
     textAlign: "left",
     color: colors.white,
     fontFamily: fonts.default,

@@ -16,7 +16,7 @@ const NavBar = ( { navigation }: Props ) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.dispatch( popAction )}>
-        <Text style={styles.text}>Back</Text>
+        <Text style={styles.text}>{"<"}</Text>
       </TouchableOpacity>
     </View>
   );

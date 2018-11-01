@@ -11,6 +11,7 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
+    backgroundColor: "transparent",
     flex: 1,
     width,
     height,

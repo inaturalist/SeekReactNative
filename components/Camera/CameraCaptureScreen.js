@@ -23,55 +23,59 @@ const CameraCaptureScreen = ( {
   toggleFlash,
   toggleCamera,
   getCameraCaptureFromGallery
-}: Props ) => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => navigation.navigate( "Main" )}
-      >
-        <Text style={styles.buttonText}>X</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleFlash()}
-      >
-        <Text style={styles.buttonText}>{flashText}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleCamera()}
-      >
-        <Text style={styles.buttonText}>{cameraTypeText}</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.main} />
-    <View style={styles.footer}>
-      <View>
+}: Props ) => {
+  const { id } = navigation.state.params;
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
         <TouchableOpacity
-          onPress={() => {
-            takePicture();
-            getCameraCaptureFromGallery();
-          }}
-          style={styles.capture}
-        />
-      </View>
-      <View style={styles.bottomNavigation}>
-        <TouchableOpacity
-          style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-          onPress={() => navigation.navigate( "CameraCapture" )}
+          style={styles.buttons}
+          onPress={() => navigation.navigate( "Main" )}
         >
-          <Text style={styles.buttonText}>Camera</Text>
+          <Text style={styles.buttonText}>X</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-          onPress={() => navigation.navigate( "Gallery" )}
+          style={styles.buttons}
+          onPress={() => toggleFlash()}
         >
-          <Text style={styles.buttonText}>Gallery</Text>
+          <Text style={styles.buttonText}>{flashText}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => toggleCamera()}
+        >
+          <Text style={styles.buttonText}>{cameraTypeText}</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.main} />
+      <View style={styles.footer}>
+        <View>
+          <TouchableOpacity
+            onPress={() => {
+              takePicture();
+              getCameraCaptureFromGallery( id );
+            }}
+            style={styles.capture}
+          />
+        </View>
+        <View style={styles.bottomNavigation}>
+          <TouchableOpacity
+            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
+            onPress={() => navigation.navigate( "CameraCapture", { id } )}
+          >
+            <Text style={styles.buttonText}>Camera</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
+            onPress={() => navigation.navigate( "Gallery", { id } )}
+          >
+            <Text style={styles.buttonText}>Gallery</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
 export default CameraCaptureScreen;

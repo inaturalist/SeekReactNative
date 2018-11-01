@@ -12,17 +12,26 @@ import {
 import styles from "../../styles/challenges";
 
 type Props = {
+  latitude: number,
+  longitude: number,
   navigation: any,
   speciesCount: number
 }
 
 class ChallengeFooter extends Component<Props> { 
-  constructor( { navigation, speciesCount }: Props ) {
+  constructor( {
+    latitude,
+    longitude,
+    navigation,
+    speciesCount
+  }: Props ) {
     super();
   }
 
   render() {
     const {
+      latitude,
+      longitude,
       speciesCount,
       navigation
     } = this.props;
@@ -59,7 +68,7 @@ class ChallengeFooter extends Component<Props> {
           <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
           <TouchableOpacity
             style={styles.addPhotoButton}
-            onPress={() => navigation.navigate( "Camera" )}
+            onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}
           >
             <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
           </TouchableOpacity>

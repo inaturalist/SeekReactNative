@@ -24,6 +24,7 @@ class ChallengeResults extends Component {
     super();
 
     const {
+      id,
       image,
       time,
       latitude,
@@ -38,6 +39,8 @@ class ChallengeResults extends Component {
       matchUrl: null,
       text: null,
       buttonText: null,
+      taxaId: null,
+      id,
       image,
       time,
       latitude,
@@ -110,6 +113,7 @@ class ChallengeResults extends Component {
         console.log( results, "computer vision results" );
         const match = results[0];
         this.setState( {
+          taxaId: match.taxon.id,
           taxaName: match.taxon.preferred_common_name || match.taxon.name,
           score: match.combined_score,
           matchUrl: match.taxon.default_photo.medium_url,
@@ -125,11 +129,13 @@ class ChallengeResults extends Component {
 
   setTextAndPhoto() {
     const {
+      id,
+      taxaId,
       score,
       taxaName
     } = this.state;
 
-    if ( score > 85 ) {
+    if ( score > 85 && id === undefined ) {
       this.setState( {
         title: "Sweet!",
         subtitle: `You saw a ${taxaName}`,
@@ -139,13 +145,29 @@ class ChallengeResults extends Component {
         yourPhotoText: `Your photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
-    } else {
+    } else if ( score <= 85 && id === undefined ) {
       this.setState( {
         title: "Hrmmmmm",
         subtitle: "We can't figure this one out. Please try some adjustments.",
         match: "unknown",
         text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
         buttonText: "Start over"
+      } );
+    } else if ( score > 85 && id === taxaId ) {
+      this.setState( {
+        title: "It's a Match!",
+        subtitle: `You saw a ${taxaName}`,
+        match: true,
+        text: null,
+        buttonText: "Add to Collection"
+      } );
+    } else if ( score > 85 && id !== taxaId ) {
+      this.setState( {
+        title: "Good Try!",
+        subtitle: `However, this isn't a ... it's a ${taxaName}`,
+        match: false,
+        text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
+        buttonText: "Add to Collection"
       } );
     }
   }

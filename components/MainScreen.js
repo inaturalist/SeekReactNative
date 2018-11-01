@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
-
+import Realm from "realm";
 import {
   View,
   StatusBar
@@ -11,6 +11,8 @@ import {
 
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
+import TaxonRealm from "../models/TaxonRealm";
+import PhotoRealm from "../models/PhotoRealm";
 
 type Props = {
   navigation: any
@@ -181,6 +183,18 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
+    Realm.open( { schema: [TaxonRealm, PhotoRealm], deleteRealmIfMigrationNeeded: true } )
+      .then( ( realm ) => {
+        const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        params.without_taxon_id = existingTaxonIds.join( "," );
+        this.fetchTaxonForChallenges( params );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        this.fetchTaxonForChallenges( params );
+      } );
+  }
+
+  fetchTaxonForChallenges( params ) {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );

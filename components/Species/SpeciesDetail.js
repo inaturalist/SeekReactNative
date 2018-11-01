@@ -298,7 +298,7 @@ class SpeciesDetail extends Component {
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate( "CameraCapture" )}
+            onPress={() => navigation.navigate( "CameraCapture", { id } )}
           >
             <Text style={styles.buttonText}>Found it!</Text>
           </TouchableOpacity>

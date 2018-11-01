@@ -34,7 +34,7 @@ class CameraScreen extends Component {
     this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
   }
 
-  getCameraCaptureFromGallery() {
+  getCameraCaptureFromGallery( id ) {
     const {
       latitude,
       longitude,
@@ -53,7 +53,8 @@ class CameraScreen extends Component {
         image: this.state.image,
         time: this.state.time,
         latitude,
-        longitude
+        longitude,
+        id
       } ) );
     } ).catch( ( err ) => {
       this.setState( {

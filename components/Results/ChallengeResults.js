@@ -10,6 +10,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
+import PhotoRealm from "../../models/PhotoRealm";
 
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingScreen from "../LoadingScreen";
@@ -111,6 +112,7 @@ class ChallengeResults extends Component {
 
     if ( buttonText === "Add to Collection" ) {
       this.addToCollection();
+      navigation.navigate( "Main" );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "CameraCapture", { id } );
     } else {
@@ -190,6 +192,19 @@ class ChallengeResults extends Component {
       } )
       .catch( ( err ) => {
         console.log( err, "error fetching results from computer vision" );
+      } );
+  }
+
+  addToCollection() {
+    Realm.open( { schema: [PhotoRealm] } )
+      .then( ( realm ) => realm.write( () => {
+        realm.create( "PhotoRealm", {
+          squareUrl: "",
+          mediumUrl: ""
+        } );
+      } )
+      ).catch( ( e ) => {
+        console.log( "Error adding photos to collection: ", e );
       } );
   }
 

@@ -45,7 +45,6 @@ class GalleryScreen extends Component {
       first: 100,
       assetType: "Photos"
     } ).then( ( results ) => {
-      console.log( results.page_info, "page" );
       this.setState( {
         photos: results.edges,
         loading: false

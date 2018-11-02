@@ -138,7 +138,6 @@ android {
 }
 
 dependencies {
-    compile project(':realm')
     implementation project(':realm')
     implementation project(':react-native-svg')
     implementation project(':react-native-image-resizer')

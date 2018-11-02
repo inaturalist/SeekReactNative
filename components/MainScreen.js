@@ -183,8 +183,11 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
+    console.log( Realm, "realm..." );
+
     Realm.open( { schema: [TaxonRealm, PhotoRealm], deleteRealmIfMigrationNeeded: true } )
       .then( ( realm ) => {
+        console.log( realm, "what's in the realm" );
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );

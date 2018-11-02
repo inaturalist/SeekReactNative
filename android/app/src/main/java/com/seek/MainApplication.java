@@ -2,9 +2,8 @@ package com.seek;
 
 import android.app.Application;
 
+import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
-import io.realm.react.RealmReactPackage;
-import io.realm.react.RealmReactPackage;
 import com.horcrux.svg.SvgPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;

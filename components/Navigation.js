@@ -1,27 +1,27 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 
-import Splash from "./Splash";
-import Warnings from "./Warnings";
+import SplashScreen from "./SplashScreen";
+import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
 import Camera from "./Camera/Camera";
 import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
 import GalleryScreen from "./Camera/GalleryScreen";
-import LocationPicker from "./Challenges/LocationPicker";
-import TaxonPicker from "./Challenges/TaxonPicker";
+import LocationPickerScreen from "./Challenges/LocationPickerScreen";
+import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";
 
 const RootStack = createStackNavigator( {
-  Home: { screen: Splash },
-  Loading: { screen: Warnings },
+  Home: { screen: SplashScreen },
+  Warnings: { screen: WarningsScreen },
   Main: { screen: MainScreen },
   Camera: { screen: Camera },
   CameraCapture: { screen: CameraCaptureScreen },
   Gallery: { screen: GalleryScreen },
-  Location: { screen: LocationPicker },
-  Taxon: { screen: TaxonPicker },
+  Location: { screen: LocationPickerScreen },
+  Taxon: { screen: TaxonPickerScreen },
   Results: { screen: ChallengeResults },
   Species: { screen: SpeciesDetail },
   YourCollection: { screen: YourCollection }

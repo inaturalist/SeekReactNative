@@ -13,7 +13,7 @@ import Realm from "realm";
 
 import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
-import LoadingScreen from "../LoadingScreen";
+import LoadingWheel from "../LoadingWheel";
 import config from "../../config";
 import styles from "../../styles/results";
 
@@ -252,7 +252,7 @@ class ChallengeResults extends Component {
       navigation
     } = this.props;
 
-    const content = loading ? <LoadingScreen />
+    const content = loading ? <LoadingWheel />
       : (
         <ChallengeResultsScreen
           title={title}

@@ -11,7 +11,7 @@ import {
 
 import styles from "../../styles/taxonPicker";
 
-const TaxonPicker = ( { navigation } ) => {
+const TaxonPickerScreen = ( { navigation } ) => {
   const { setTaxonId } = navigation.state.params;
 
   return (
@@ -192,4 +192,4 @@ const TaxonPicker = ( { navigation } ) => {
   );
 };
 
-export default TaxonPicker;
+export default TaxonPickerScreen;

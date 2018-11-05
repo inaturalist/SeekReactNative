@@ -10,7 +10,7 @@ import {
 import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
-import LoadingScreen from "../LoadingScreen";
+import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/challenges";
 
 type Props = {
@@ -43,7 +43,7 @@ const ChallengeScreen = ( {
   taxaType,
   updateLocation
 }: Props ) => {
-  const challenges = loading ? <LoadingScreen /> : (
+  const challenges = loading ? <LoadingWheel /> : (
     <ChallengeGrid
       capitalizeNames={capitalizeNames}
       navigation={navigation}

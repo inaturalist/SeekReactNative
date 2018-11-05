@@ -14,7 +14,7 @@ type Props = {
   navigation: any
 }
 
-class LocationPicker extends Component {
+class LocationPickerScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
@@ -93,4 +93,4 @@ class LocationPicker extends Component {
   }
 }
 
-export default LocationPicker;
+export default LocationPickerScreen;

@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
   View
 } from "react-native";
-import LoadingScreen from "../LoadingScreen";
+import LoadingWheel from "../LoadingWheel";
 import NavBar from "../NavBar";
 
 import styles from "../../styles/gallery";
@@ -120,7 +120,7 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
-    const gallery = loading ? <LoadingScreen /> : this.renderGallery( photos );
+    const gallery = loading ? <LoadingWheel /> : this.renderGallery( photos );
 
     return (
       <View style={{ flex: 1 }}>

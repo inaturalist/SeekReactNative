@@ -6,7 +6,7 @@ import {
 
 import styles from "../styles/challenges";
 
-const LoadingScreen = () => (
+const LoadingWheel = () => (
   <View style={{ flexGrow: 1, justifyContent: "center" }}>
     <View style={styles.taxonGrid}>
       <ActivityIndicator color="white" size="large" />
@@ -14,4 +14,4 @@ const LoadingScreen = () => (
   </View>
 );
 
-export default LoadingScreen;
+export default LoadingWheel;

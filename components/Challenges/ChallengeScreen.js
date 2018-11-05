@@ -14,6 +14,7 @@ import LoadingScreen from "../LoadingScreen";
 import styles from "../../styles/challenges";
 
 type Props = {
+  badgeCount: number,
   capitalizeNames: Function,
   speciesCount: number,
   latitude: number,
@@ -29,6 +30,7 @@ type Props = {
 }
 
 const ChallengeScreen = ( {
+  badgeCount,
   capitalizeNames,
   speciesCount,
   latitude,
@@ -72,6 +74,7 @@ const ChallengeScreen = ( {
           latitude={latitude}
           longitude={longitude}
           navigation={navigation}
+          badgeCount={badgeCount}
           speciesCount={speciesCount}
         />
       </ImageBackground>

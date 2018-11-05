@@ -42,7 +42,8 @@ class MainScreen extends Component<Props, State> {
       taxaType: "All species",
       taxonId: null,
       realm: null,
-      speciesCount: 115
+      badgeCount: 0,
+      speciesCount: 0
     };
 
     ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
@@ -199,7 +200,11 @@ class MainScreen extends Component<Props, State> {
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );
-        this.setState( { realm } );
+        this.setState( {
+          realm,
+          speciesCount: realm.objects( "ObservationRealm" ).length,
+          badgeCount: realm.objects( "BadgeRealm" ).length || 0
+        } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
         this.fetchTaxonForChallenges( params );
@@ -246,6 +251,7 @@ class MainScreen extends Component<Props, State> {
       longitude,
       location,
       profileIcon,
+      badgeCount,
       speciesCount,
       taxaType,
       taxa
@@ -272,6 +278,7 @@ class MainScreen extends Component<Props, State> {
             capitalizeNames={this.capitalizeNames}
             profileIcon={profileIcon}
             navigation={navigation}
+            badgeCount={badgeCount}
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}

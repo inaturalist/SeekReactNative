@@ -61,6 +61,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
+    flex: 3,
     alignItems: "center",
     justifyContent: "center",
     marginTop: margins.extraLarge,

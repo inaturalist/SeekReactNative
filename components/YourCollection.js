@@ -1,7 +1,7 @@
+// @flow
+
 import React, { Component } from "react";
 import {
-  FlatList,
-  Image,
   TouchableOpacity,
   Text,
   View
@@ -12,8 +12,12 @@ import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/collection";
 
+type Props = {
+  navigation: any
+}
+
 class YourCollection extends Component {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
     this.state = {
@@ -44,9 +48,13 @@ class YourCollection extends Component {
       observations
     } = this.state;
 
+    const {
+      navigation
+    } = this.props;
+
     return (
       <View style={styles.container}>
-        <NavBar />
+        <NavBar navigation={navigation} />
         <View style={styles.badges}>
           <Text style={styles.headerText}>Recent Badges</Text>
           <TouchableOpacity>

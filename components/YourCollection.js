@@ -31,8 +31,10 @@ class YourCollection extends Component {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const badges = realm.objects( "BadgeRealm" );
-        console.log( observations, "observations from Realm" );
-        console.log( badges, "badges from Realm" );
+        this.setState( {
+          badges,
+          observations
+        } );
       } )
       .catch( e => console.log( "Err: ", e ) );
   }

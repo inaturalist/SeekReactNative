@@ -1,6 +1,13 @@
+const uuid = require( "react-native-uuid" );
+
 class ObservationRealm {
   get uuid() {
-    // set uuid string
+    const uuidString = uuid.v1();
+    if ( uuidString ) {
+      return uuidString;
+    } else {
+      return null;
+    }
   }
 
   get pathForImage() {
@@ -19,7 +26,7 @@ ObservationRealm.schema = {
   name: "ObservationRealm",
   primaryKey: "uuidString",
   properties: {
-    uuidString: "string?",
+    uuidString: { type: "string?", default: uuid() },
     date: "date?",
     taxon: { type: "TaxonRealm?" },
     latitude: { type: "float", default: 0.0 },

@@ -7,8 +7,10 @@ import {
 import styles from "../styles/challenges";
 
 const LoadingScreen = () => (
-  <View style={styles.taxonGrid}>
-    <ActivityIndicator color="white" size="large" />
+  <View style={{ flexGrow: 1, justifyContent: "center" }}>
+    <View style={styles.taxonGrid}>
+      <ActivityIndicator color="white" size="large" />
+    </View>
   </View>
 );
 

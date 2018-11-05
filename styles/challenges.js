@@ -92,30 +92,29 @@ export default StyleSheet.create( {
     paddingTop: padding.small
   },
   footer: {
-    height: 50,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 0.5,
+    marginTop: margins.small,
+    justifyContent: "flex-end",
+    height: height / 3,
     backgroundColor: colors.darkDesaturatedBlue
   },
   profileButton: {
-    position: "absolute",
-    left: 0,
-    bottom: 5,
+    zIndex: 1,
+    marginBottom: margins.extraSmall,
     paddingLeft: padding.large
   },
   addPhotoButton: {
+    zIndex: 1,
     position: "absolute",
     right: 0,
-    bottom: 5,
+    marginBottom: margins.extraSmall,
     paddingRight: padding.large
   },
   profileText: {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    bottom: 5,
+    marginBottom: margins.medium,
     paddingLeft: "30%"
   }
 } );

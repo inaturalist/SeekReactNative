@@ -23,8 +23,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    height: 100,
-    position: "absolute",
+    flex: 0.6,
     left: 0,
     right: 0,
     top: 0
@@ -64,14 +63,14 @@ export default StyleSheet.create( {
     flex: 3,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: margins.extraLarge,
-    marginBottom: margins.large
+    marginBottom: margins.medium
   },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
     paddingHorizontal: padding.medium,
-    marginTop: margins.medium
+    marginTop: margins.medium,
+    marginBottom: margins.small
   },
   gridCellContents: {
     borderRadius: 5,
@@ -79,10 +78,11 @@ export default StyleSheet.create( {
     shadowColor: colors.blueShadow
   },
   cellTitle: {
-    height: 40,
+    height: 45,
     backgroundColor: colors.darkBlue,
     padding: padding.medium,
-    justifyContent: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap"
   },
@@ -90,7 +90,7 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    paddingTop: padding.small
+    paddingTop: padding.extraSmall
   },
   footer: {
     flex: 0.5,

@@ -31,7 +31,7 @@ const SpeciesChart = ( { data }: Props ) => {
       key="line"
       d={line}
       stroke="rgb(255, 255, 255)"
-      strokeWidth={3}
+      strokeWidth="3"
       fill="none"
     />
   );

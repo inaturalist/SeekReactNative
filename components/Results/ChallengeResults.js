@@ -181,6 +181,7 @@ class ChallengeResults extends Component {
         console.log( results, "computer vision results" );
         const match = results[0];
         this.setState( {
+          observation: match,
           taxaId: match.taxon.id,
           taxaName: match.taxon.preferred_common_name || match.taxon.name,
           score: match.combined_score,
@@ -196,13 +197,38 @@ class ChallengeResults extends Component {
   }
 
   addToCollection() {
+    const {
+      observation
+    } = this.state;
+
     Realm.open( { schema: [PhotoRealm] } )
-      .then( ( realm ) => realm.write( () => {
-        realm.create( "PhotoRealm", {
-          squareUrl: "",
-          mediumUrl: ""
+      .then( ( realm ) => {
+        realm.write( ( ) => {
+          let defaultPhoto;
+          const p = observation.taxon.default_photo;
+          if ( p ) {
+            defaultPhoto = realm.create( "PhotoRealm", {
+              squareUrl: p.square_url,
+              mediumUrl: p.medium_url
+            } );
+          }
+          const taxon = realm.create( "TaxonRealm", {
+            id: observation.taxon.id,
+            name: observation.taxon.name,
+            preferredCommonName: observation.taxon.preferred_common_name,
+            iconicTaxonId: observation.taxon.iconic_taxon_id,
+            defaultPhoto
+          } );
+          realm.create( "ObservationRealm", {
+            taxon,
+            date: new Date( ),
+            // fudging some of the required attributes for now
+            latitude: 1,
+            longitude: 1
+          } );
         } );
-      } )
+        console.log( realm, "realm after writing to file");
+      }
       ).catch( ( e ) => {
         console.log( "Error adding photos to collection: ", e );
       } );

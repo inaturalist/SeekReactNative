@@ -9,10 +9,9 @@ import {
   StatusBar
 } from "react-native";
 
+import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
-import TaxonRealm from "../models/TaxonRealm";
-import PhotoRealm from "../models/PhotoRealm";
 
 type Props = {
   navigation: any
@@ -42,6 +41,7 @@ class MainScreen extends Component<Props, State> {
       error: null,
       taxaType: "All species",
       taxonId: null,
+      realm: null,
       speciesCount: 115
     };
 
@@ -183,14 +183,23 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
-    console.log( Realm, "realm..." );
+    console.log(realmConfig, "realm config");
 
-    Realm.open( { schema: [TaxonRealm, PhotoRealm], deleteRealmIfMigrationNeeded: true } )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
-        console.log( realm, "what's in the realm" );
+        console.log(realm, "is realm instance");
+        realm.write( ( ) => {
+          const photoTest = realm.create( "PhotoRealm", {
+            squareUrl: "url1",
+            mediumUrl: "url2"
+          } );
+          console.log(photoTest, "is photo created" );
+          console.log( Realm.path, "realm path", Realm.defaultPath );
+        } );
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );
+        this.setState( { realm } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
         this.fetchTaxonForChallenges( params );

@@ -11,6 +11,7 @@ import LocationPicker from "./Challenges/LocationPicker";
 import TaxonPicker from "./Challenges/TaxonPicker";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
+import YourCollection from "./YourCollection";
 
 const RootStack = createStackNavigator( {
   Home: { screen: Splash },
@@ -22,7 +23,8 @@ const RootStack = createStackNavigator( {
   Location: { screen: LocationPicker },
   Taxon: { screen: TaxonPicker },
   Results: { screen: ChallengeResults },
-  Species: { screen: SpeciesDetail }
+  Species: { screen: SpeciesDetail },
+  YourCollection: { screen: YourCollection }
 }, {
   navigationOptions: { header: null }
 } );

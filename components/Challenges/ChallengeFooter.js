@@ -61,7 +61,7 @@ class ChallengeFooter extends Component<Props> {
         <View style={styles.bottomNavigation}>
           <TouchableOpacity
             style={styles.profileButton}
-            onPress={() => navigation.navigate( "Loading" )}
+            onPress={() => navigation.navigate( "YourCollection" )}
           >
             {profileIcon}
           </TouchableOpacity>

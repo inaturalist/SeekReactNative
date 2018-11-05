@@ -10,6 +10,18 @@ import {
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  container: {
+    flex: 1
+  },
+  badges: {
+    flex: 2
+  },
+  headerText: {
+    fontSize: fontSize.header
+  },
+  species: {
+    flex: 2
+  },
   taxonGrid: {
     alignItems: "center",
     justifyContent: "center",

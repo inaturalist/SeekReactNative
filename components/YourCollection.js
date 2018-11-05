@@ -43,42 +43,24 @@ class YourCollection extends Component {
     } = this.state;
 
     return (
-      <View>
+      <View style={styles.container}>
         <NavBar />
-        <View style={styles.taxonGrid}>
-          <FlatList
-            data={ observations }
-            scrollEnabled={false}
-            keyExtractor={ taxon => taxon.id }
-            numColumns={ 3 }
-            renderItem={ ( { item } ) => (
-              <View style={ styles.gridCell }>
-                <TouchableOpacity
-                  onPress={ () => console.log( "clicked" )}
-                >
-                  <View style={ styles.gridCellContents }>
-                    <Image
-                      style={ {
-                        width: "100%",
-                        aspectRatio: 1.1
-                      } }
-                      source={ { uri: item.default_photo.medium_url } }
-                    />
-                    <View style={ styles.cellTitle }>
-                      <Text style={ styles.cellTitleText }>
-                        Name of species
-                        {/* { capitalizeNames( item.preferred_common_name || item.name ) } */}
-                      </Text>
-                    </View>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ) }
-          />
+        <View style={styles.badges}>
+          <Text style={styles.headerText}>Recent Badges</Text>
+          <TouchableOpacity>
+            <Text>
+              View All
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.species}>
+          <View style={styles.taxonGrid}>
+            <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
+          </View>
         </View>
       </View>
     );
   }
-};
+}
 
 export default YourCollection;

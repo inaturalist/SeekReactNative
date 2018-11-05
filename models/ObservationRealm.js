@@ -1,4 +1,20 @@
-class ObservationRealm {}
+class ObservationRealm {
+  get uuid() {
+    // set uuid string
+  }
+
+  get pathForImage() {
+    // look in directory for file path
+  }
+
+  get dateString() {
+    // create a date string
+  }
+
+  get relativeDateString() {
+    // create a relative date string
+  }
+}
 ObservationRealm.schema = {
   name: "ObservationRealm",
   primaryKey: "uuidString",

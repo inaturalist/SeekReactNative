@@ -184,11 +184,11 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
-    console.log(realmConfig, "realm config");
+    console.log( realmConfig, "realm config" );
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        console.log(realm, "is realm instance");
+        console.log( realm, "is realm instance" );
         realm.write( ( ) => {
           const photoTest = realm.create( "PhotoRealm", {
             squareUrl: "url1",
@@ -203,7 +203,7 @@ class MainScreen extends Component<Props, State> {
         this.setState( {
           realm,
           speciesCount: realm.objects( "ObservationRealm" ).length,
-          badgeCount: realm.objects( "BadgeRealm" ).length || 0
+          badgeCount: realm.objects( "BadgeRealm" ).length
         } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );

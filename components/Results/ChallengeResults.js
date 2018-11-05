@@ -10,8 +10,8 @@ import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
-import PhotoRealm from "../../models/PhotoRealm";
 
+import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingScreen from "../LoadingScreen";
 import config from "../../config";
@@ -201,7 +201,7 @@ class ChallengeResults extends Component {
       observation
     } = this.state;
 
-    Realm.open( { schema: [PhotoRealm] } )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         realm.write( ( ) => {
           let defaultPhoto;
@@ -219,17 +219,17 @@ class ChallengeResults extends Component {
             iconicTaxonId: observation.taxon.iconic_taxon_id,
             defaultPhoto
           } );
-          realm.create( "ObservationRealm", {
-            taxon,
-            date: new Date( ),
-            // fudging some of the required attributes for now
-            latitude: 1,
-            longitude: 1
-          } );
+          // realm.create( "ObservationRealm", {
+          //   uuidString,
+          //   date: new Date( ),
+          //   taxon,
+          //   latitude: 1,
+          //   longitude: 1,
+          //   placeName,
+          // } );
+          console.log( taxon, "realm taxon and photo after writing to file", defaultPhoto );
         } );
-        console.log( realm, "realm after writing to file");
-      }
-      ).catch( ( e ) => {
+      } ).catch( ( e ) => {
         console.log( "Error adding photos to collection: ", e );
       } );
   }

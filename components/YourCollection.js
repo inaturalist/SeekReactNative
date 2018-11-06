@@ -13,7 +13,7 @@ import Realm from "realm";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/collection";
-import capitalizeNames from "../utility/helpers";
+// import capitalizeNames from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -67,8 +67,8 @@ class YourCollection extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.species}>
+          <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
           <View style={styles.taxonGrid}>
-            <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
             <FlatList
               data={ observations }
               scrollEnabled={false}
@@ -77,7 +77,12 @@ class YourCollection extends Component {
               renderItem={ ( { item } ) => (
                 <View style={ styles.gridCell }>
                   <TouchableOpacity
-                    onPress={ () => console.log( "clicked" )}
+                    onPress={ () => navigation.navigate( "Species", {
+                      id: item.taxon.id,
+                      latitude: item.latitude,
+                      longitude: item.longitude,
+                      location: undefined
+                    } )}
                   >
                     <View style={ styles.gridCellContents }>
                       <Image

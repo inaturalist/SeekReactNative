@@ -7,50 +7,55 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1
   },
   badges: {
-    flex: 2
+    flex: 1,
+    backgroundColor: colors.lightGray
   },
   headerText: {
-    fontSize: fontSize.header
+    fontSize: fontSize.header,
+    fontWeight: "100",
+    fontFamily: fonts.playful,
+    marginLeft: margins.medium
   },
   species: {
-    flex: 2
+    flex: 3
   },
   taxonGrid: {
+    flex: 3,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: margins.extraLarge,
-    marginBottom: margins.large
+    marginBottom: margins.medium
   },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
     paddingHorizontal: padding.medium,
-    marginTop: margins.medium
+    marginTop: margins.medium,
+    marginBottom: margins.small
   },
   gridCellContents: {
     borderRadius: 5,
-    overflow: "hidden",
-    shadowColor: colors.blueShadow
+    overflow: "hidden"
   },
   cellTitle: {
-    height: 40,
-    backgroundColor: colors.darkBlue,
+    height: 45,
+    backgroundColor: colors.lightGray,
     padding: padding.medium,
-    justifyContent: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   cellTitleText: {
-    color: colors.white,
+    color: colors.black,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    paddingTop: padding.small
+    paddingTop: padding.extraSmall
   }
 } );

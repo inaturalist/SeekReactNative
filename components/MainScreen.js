@@ -12,6 +12,7 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
+import { capitalizeNames } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -46,7 +47,6 @@ class MainScreen extends Component<Props, State> {
       speciesCount: 0
     };
 
-    ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
     ( this: any ).updateLocation = this.updateLocation.bind( this );
     ( this: any ).setTaxonId = this.setTaxonId.bind( this );
   }
@@ -69,61 +69,61 @@ class MainScreen extends Component<Props, State> {
       this.setState( {
         taxonId: 47126,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "amphibians" ) {
       this.setState( {
         taxonId: 20978,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fungi" ) {
       this.setState( {
         taxonId: 47170,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fish" ) {
       this.setState( {
         taxonId: 47178,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "reptiles" ) {
       this.setState( {
         taxonId: 26036,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "arachnids" ) {
       this.setState( {
         taxonId: 47119,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "birds" ) {
       this.setState( {
         taxonId: 3,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "insects" ) {
       this.setState( {
         taxonId: 47158,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mollusks" ) {
       this.setState( {
         taxonId: 47115,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mammals" ) {
       this.setState( {
         taxonId: 40151,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else {
       this.setState( {
@@ -154,13 +154,6 @@ class MainScreen extends Component<Props, State> {
 
   truncateCoordinates( coordinate: number ) {
     return Number( coordinate.toFixed( 2 ) );
-  }
-
-  capitalizeNames( name: string ) {
-    const titleCaseName = name.split( " " )
-      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
-      .join( " " );
-    return titleCaseName;
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
@@ -275,7 +268,6 @@ class MainScreen extends Component<Props, State> {
             loading={loading}
             longitude={longitude}
             location={location}
-            capitalizeNames={this.capitalizeNames}
             profileIcon={profileIcon}
             navigation={navigation}
             badgeCount={badgeCount}

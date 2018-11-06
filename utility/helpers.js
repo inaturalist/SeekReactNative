@@ -5,6 +5,6 @@ const capitalizeNames = ( name ) => {
   return titleCaseName;
 };
 
-export default {
+export {
   capitalizeNames
 };

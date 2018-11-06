@@ -15,7 +15,6 @@ import styles from "../../styles/challenges";
 
 type Props = {
   badgeCount: number,
-  capitalizeNames: Function,
   speciesCount: number,
   latitude: number,
   loading: boolean,
@@ -31,7 +30,6 @@ type Props = {
 
 const ChallengeScreen = ( {
   badgeCount,
-  capitalizeNames,
   speciesCount,
   latitude,
   loading,
@@ -45,7 +43,6 @@ const ChallengeScreen = ( {
 }: Props ) => {
   const challenges = loading ? <LoadingWheel /> : (
     <ChallengeGrid
-      capitalizeNames={capitalizeNames}
       navigation={navigation}
       taxa={taxa}
       latitude={latitude}

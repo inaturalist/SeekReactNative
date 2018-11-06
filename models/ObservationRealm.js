@@ -2,12 +2,12 @@ const uuid = require( "react-native-uuid" );
 
 class ObservationRealm {
   get uuid() {
-    const uuidString = uuid.v1();
-    if ( uuidString ) {
-      return uuidString;
-    } else {
-      return null;
-    }
+    // const uuidString = uuid.v1();
+    // if ( uuidString ) {
+    //   return uuidString;
+    // } else {
+    //   return null;
+    // }
   }
 
   get pathForImage() {

@@ -42,6 +42,7 @@ class ChallengeResults extends Component {
       text: null,
       buttonText: null,
       taxaId: null,
+      observation: {},
       id,
       image,
       time,
@@ -198,12 +199,14 @@ class ChallengeResults extends Component {
 
   addToCollection() {
     const {
-      observation
+      observation,
+      latitude,
+      longitude
     } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        realm.write( ( ) => {
+        realm.write( () => {
           let defaultPhoto;
           const p = observation.taxon.default_photo;
           if ( p ) {
@@ -219,15 +222,15 @@ class ChallengeResults extends Component {
             iconicTaxonId: observation.taxon.iconic_taxon_id,
             defaultPhoto
           } );
-          // realm.create( "ObservationRealm", {
-          //   uuidString,
-          //   date: new Date( ),
-          //   taxon,
-          //   latitude: 1,
-          //   longitude: 1,
-          //   placeName,
-          // } );
-          console.log( taxon, "realm taxon and photo after writing to file", defaultPhoto );
+          const species = realm.create( "ObservationRealm", {
+            date: new Date(),
+            taxon,
+            latitude,
+            longitude,
+            placeName: "San Francisco"
+          } );
+          console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
+          console.log( species, "realm observation after writing to file" );
         } );
       } ).catch( ( e ) => {
         console.log( "Error adding photos to collection: ", e );

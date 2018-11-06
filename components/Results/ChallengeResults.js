@@ -9,6 +9,7 @@ import {
 import inatjs, { FileUpload } from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
+import uuid from "react-native-uuid";
 import Realm from "realm";
 
 import realmConfig from "../../models/index";
@@ -223,6 +224,7 @@ class ChallengeResults extends Component {
             defaultPhoto
           } );
           const species = realm.create( "ObservationRealm", {
+            uuid: uuid.v1(),
             date: new Date(),
             taxon,
             latitude,

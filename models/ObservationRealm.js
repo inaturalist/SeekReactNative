@@ -1,4 +1,4 @@
-const uuid = require( "react-native-uuid" );
+// const uuid = require( "react-native-uuid" );
 
 class ObservationRealm {
   get uuid() {
@@ -26,7 +26,7 @@ ObservationRealm.schema = {
   name: "ObservationRealm",
   primaryKey: "uuidString",
   properties: {
-    uuidString: { type: "string?", default: uuid() },
+    uuidString: { type: "string?" },
     date: "date?",
     taxon: { type: "TaxonRealm?" },
     latitude: { type: "float", default: 0.0 },

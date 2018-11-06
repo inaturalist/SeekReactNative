@@ -224,7 +224,7 @@ class ChallengeResults extends Component {
             defaultPhoto
           } );
           const species = realm.create( "ObservationRealm", {
-            uuid: uuid.v1(),
+            uuidString: uuid.v1(),
             date: new Date(),
             taxon,
             latitude,

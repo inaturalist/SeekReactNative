@@ -13,7 +13,7 @@ import Realm from "realm";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/collection";
-import capitalizeNames from "../utility/helpers";
+// import capitalizeNames from "../utility/helpers";
 
 type Props = {
   navigation: any

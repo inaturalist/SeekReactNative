@@ -50,8 +50,7 @@ export default StyleSheet.create( {
   },
   gridCellContents: {
     borderRadius: 5,
-    overflow: "hidden",
-    shadowColor: colors.blueShadow
+    overflow: "hidden"
   },
   cellTitle: {
     height: 45,

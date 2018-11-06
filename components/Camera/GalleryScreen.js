@@ -9,10 +9,11 @@ import {
   TouchableHighlight,
   View
 } from "react-native";
+
 import LoadingWheel from "../LoadingWheel";
 import NavBar from "../NavBar";
-
 import styles from "../../styles/gallery";
+import { truncateCoordinates } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -56,10 +57,6 @@ class GalleryScreen extends Component {
     } );
   }
 
-  truncateCoordinates( coordinate ) {
-    return Number( coordinate.toFixed( 2 ) );
-  }
-
   selectImage( image, time, location ) {
     // remember to deal with error state -> what happens if photo location undefined?
     const {
@@ -73,8 +70,8 @@ class GalleryScreen extends Component {
     this.setState( {
       imageClicked: image,
       imageTimestamp: time,
-      imageLatitude: location.latitude ? this.truncateCoordinates( location.latitude ) : null,
-      imageLongitude: location.longitude ? this.truncateCoordinates( location.longitude ) : null
+      imageLatitude: location.latitude ? truncateCoordinates( location.latitude ) : null,
+      imageLongitude: location.longitude ? truncateCoordinates( location.longitude ) : null
     }, () => navigation.navigate( "Results", {
       id,
       image: this.state.imageClicked,

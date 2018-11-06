@@ -12,7 +12,7 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
-import { capitalizeNames } from "../utility/helpers";
+import { capitalizeNames, truncateCoordinates } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -136,8 +136,8 @@ class MainScreen extends Component<Props, State> {
 
   getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = this.truncateCoordinates( position.coords.latitude );
-      const longitude = this.truncateCoordinates( position.coords.longitude );
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
 
       this.setState( {
         latitude,
@@ -152,9 +152,9 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  truncateCoordinates( coordinate: number ) {
-    return Number( coordinate.toFixed( 2 ) );
-  }
+  // truncateCoordinates( coordinate: number ) {
+  //   return Number( coordinate.toFixed( 2 ) );
+  // }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
     const { taxonId } = this.state;
@@ -182,14 +182,6 @@ class MainScreen extends Component<Props, State> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         console.log( realm, "is realm instance" );
-        realm.write( ( ) => {
-          const photoTest = realm.create( "PhotoRealm", {
-            squareUrl: "url1",
-            mediumUrl: "url2"
-          } );
-          console.log(photoTest, "is photo created" );
-          console.log( Realm.path, "realm path", Realm.defaultPath );
-        } );
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );

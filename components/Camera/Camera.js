@@ -112,10 +112,6 @@ class CameraScreen extends Component {
     }
   }
 
-  truncateCoordinates( coordinate ) {
-    return Number( coordinate.toFixed( 2 ) );
-  }
-
   render() {
     const {
       cameraType,

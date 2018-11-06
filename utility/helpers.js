@@ -5,6 +5,11 @@ const capitalizeNames = ( name ) => {
   return titleCaseName;
 };
 
+const truncateCoordinates = ( coordinate ) => {
+  return Number( coordinate.toFixed( 2 ) );
+};
+
 export {
-  capitalizeNames
+  capitalizeNames,
+  truncateCoordinates
 };

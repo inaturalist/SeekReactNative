@@ -42,6 +42,7 @@ class YourCollection extends Component {
           badges,
           observations
         } );
+        console.log( observations, "observations on collection page" );
       } )
       .catch( e => console.log( "Err: ", e ) );
   }
@@ -77,7 +78,12 @@ class YourCollection extends Component {
               renderItem={ ( { item } ) => (
                 <View style={ styles.gridCell }>
                   <TouchableOpacity
-                    onPress={ () => console.log( "clicked" )}
+                    onPress={ () => navigation.navigate( "Species", {
+                      id: item.taxon.id,
+                      latitude: item.latitude,
+                      longitude: item.longitude,
+                      location: item.placeName
+                    } )}
                   >
                     <View style={ styles.gridCellContents }>
                       <Image

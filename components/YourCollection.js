@@ -59,12 +59,14 @@ class YourCollection extends Component {
       <View style={styles.container}>
         <NavBar navigation={navigation} />
         <View style={styles.badges}>
-          <Text style={styles.headerText}>Recent Badges</Text>
-          <TouchableOpacity>
-            <Text>
-              View All
-            </Text>
-          </TouchableOpacity>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Recent Badges</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.text}>
+                View All
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.species}>
           <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>

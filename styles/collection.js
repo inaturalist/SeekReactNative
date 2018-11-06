@@ -17,11 +17,24 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.lightGray
   },
+  header: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
   headerText: {
     fontSize: fontSize.header,
     fontWeight: "100",
     fontFamily: fonts.playful,
     marginLeft: margins.medium
+  },
+  button: {
+    position: "absolute",
+    bottom: 5,
+    right: 0,
+    paddingRight: padding.large
+  },
+  text: {
+    fontSize: fontSize.text
   },
   species: {
     flex: 3

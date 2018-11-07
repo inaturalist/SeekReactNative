@@ -39,13 +39,13 @@ class LocationPickerScreen extends Component {
     this.onRegionChange = this.onRegionChange.bind( this );
   }
 
-  onRegionChange( region ) {
-    const { latitude, longitude } = this.state.region;
+  onRegionChange( newRegion ) {
+    const { region } = this.state;
+    const { latitude, longitude } = region;
 
     this.setState( {
-      region
+      region: newRegion
     }, () => this.reverseGeocodeLocation( latitude, longitude ) );
-    console.log( "region changed to: ", region );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {

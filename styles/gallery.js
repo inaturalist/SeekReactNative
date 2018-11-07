@@ -5,17 +5,18 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   background: {
+    backgroundColor: colors.lightGray,
     flex: 1,
     width,
     height,
-    backgroundColor: colors.lightGray
+    flexDirection: "column"
   },
   container: {
     flexWrap: "wrap",
     flexDirection: "row"
   },
   gallery: {
-    flex: 6
+    flex: 3
   },
   button: {
     paddingHorizontal: padding.extraSmall,

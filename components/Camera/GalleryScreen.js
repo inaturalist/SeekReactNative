@@ -4,24 +4,29 @@ import React, { Component } from "react";
 import {
   CameraRoll,
   Image,
-  ImageBackground,
   ScrollView,
   TouchableHighlight,
   View
 } from "react-native";
 
-import LoadingWheel from "../LoadingWheel";
+import CameraTopNav from "./CameraTopNav";
 import CameraBottomNav from "./CameraBottomNav";
-import NavBar from "../NavBar";
+import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/gallery";
 import { truncateCoordinates } from "../../utility/helpers";
 
 type Props = {
-  navigation: any
+  navigation: any,
+  toggleActiveLink: Function,
+  camera: boolean
 }
 
 class GalleryScreen extends Component {
-  constructor( { navigation }: Props ) {
+  constructor( {
+    navigation,
+    toggleActiveLink,
+    camera
+  }: Props ) {
     super();
 
     const { id } = navigation.state.params;
@@ -63,7 +68,7 @@ class GalleryScreen extends Component {
     const {
       id
     } = this.state;
-    
+
     const {
       navigation
     } = this.props;
@@ -116,18 +121,28 @@ class GalleryScreen extends Component {
     } = this.state;
 
     const {
-      navigation
+      navigation,
+      camera,
+      toggleActiveLink
     } = this.props;
 
     const gallery = loading ? <LoadingWheel /> : this.renderGallery( photos );
 
     return (
       <View style={styles.background}>
-        <NavBar navigation={navigation} />
+        <CameraTopNav
+          camera={camera}
+          navigation={navigation}
+        />
         <View style={styles.gallery}>
           {gallery}
         </View>
-        <CameraBottomNav navigation={navigation} id={id} />
+        <CameraBottomNav
+          navigation={navigation}
+          id={id}
+          camera={camera}
+          toggleActiveLink={toggleActiveLink}
+        />
       </View>
     );
   }

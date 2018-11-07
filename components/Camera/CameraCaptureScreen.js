@@ -6,6 +6,7 @@ import { View } from "react-native";
 import CameraTopNav from "./CameraTopNav";
 import CameraCapture from "./CameraCapture";
 import CameraBottomNav from "./CameraBottomNav";
+import GalleryScreen from "./GalleryScreen";
 import styles from "../../styles/camera";
 
 type Props = {
@@ -44,11 +45,19 @@ const CameraCaptureScreen = ( {
         toggleCamera={toggleCamera}
       />
       <View style={styles.main} />
-      <CameraCapture
-        id={id}
-        takePicture={takePicture}
-        getCameraCaptureFromGallery={getCameraCaptureFromGallery}
-      />
+      { camera ? (
+        <CameraCapture
+          id={id}
+          takePicture={takePicture}
+          getCameraCaptureFromGallery={getCameraCaptureFromGallery}
+        />
+      ) : (
+        <GalleryScreen
+          navigation={navigation}
+          camera={camera}
+          toggleActiveLink={toggleActiveLink}
+        />
+      ) }
       <CameraBottomNav
         navigation={navigation}
         id={id}

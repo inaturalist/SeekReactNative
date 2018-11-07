@@ -14,6 +14,7 @@ import NavBar from "../NavBar";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
+import { capitalizeNames } from "../../utility/helpers";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
@@ -68,7 +69,7 @@ class SpeciesDetail extends Component {
       const taxa = response.results[0];
       this.setState( {
         photos: taxa.taxon_photos,
-        commonName: this.capitalizeNames( taxa.preferred_common_name ),
+        commonName: capitalizeNames( taxa.preferred_common_name ),
         scientificName: taxa.name,
         about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
         timesSeen: `${taxa.observations_count} times worldwide`,
@@ -77,13 +78,6 @@ class SpeciesDetail extends Component {
     } ).catch( ( err ) => {
       console.log( err, "error fetching taxon details" );
     } );
-  }
-
-  capitalizeNames( name: string ) {
-    const titleCaseName = name.split( " " )
-      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
-      .join( " " );
-    return titleCaseName;
   }
 
   fetchNearbySpeciesCount() {

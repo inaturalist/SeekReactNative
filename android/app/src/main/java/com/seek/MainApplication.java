@@ -2,6 +2,7 @@ package com.seek;
 
 import android.app.Application;
 
+import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
 import com.horcrux.svg.SvgPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
@@ -28,6 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RealmReactPackage(),
             new SvgPackage(),
             new ImageResizerPackage(),
             new MapsPackage(),

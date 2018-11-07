@@ -15,6 +15,7 @@ type Props = {
   latitude: number,
   longitude: number,
   navigation: any,
+  badgeCount: number,
   speciesCount: number
 }
 
@@ -23,6 +24,7 @@ class ChallengeFooter extends Component<Props> {
     latitude,
     longitude,
     navigation,
+    badgeCount,
     speciesCount
   }: Props ) {
     super();
@@ -32,6 +34,7 @@ class ChallengeFooter extends Component<Props> {
     const {
       latitude,
       longitude,
+      badgeCount,
       speciesCount,
       navigation
     } = this.props;
@@ -61,11 +64,11 @@ class ChallengeFooter extends Component<Props> {
         <View style={styles.bottomNavigation}>
           <TouchableOpacity
             style={styles.profileButton}
-            onPress={() => navigation.navigate( "Loading" )}
+            onPress={() => navigation.navigate( "YourCollection" )}
           >
             {profileIcon}
           </TouchableOpacity>
-          <Text style={styles.profileText}>Species: {speciesCount}  Badges: 3</Text>
+          <Text style={styles.profileText}>Species: {speciesCount}  Badges: {badgeCount}</Text>
           <TouchableOpacity
             style={styles.addPhotoButton}
             onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}
@@ -76,6 +79,6 @@ class ChallengeFooter extends Component<Props> {
       </View>
     );
   }
-};
+}
 
 export default ChallengeFooter;

@@ -23,8 +23,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    height: 100,
-    position: "absolute",
+    flex: 0.6,
     left: 0,
     right: 0,
     top: 0
@@ -61,16 +60,17 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
+    flex: 3,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: margins.extraLarge,
-    marginBottom: margins.large
+    marginBottom: margins.medium
   },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
     paddingHorizontal: padding.medium,
-    marginTop: margins.medium
+    marginTop: margins.medium,
+    marginBottom: margins.small
   },
   gridCellContents: {
     borderRadius: 5,
@@ -78,10 +78,11 @@ export default StyleSheet.create( {
     shadowColor: colors.blueShadow
   },
   cellTitle: {
-    height: 40,
+    height: 45,
     backgroundColor: colors.darkBlue,
     padding: padding.medium,
-    justifyContent: "center",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap"
   },
@@ -89,33 +90,32 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    paddingTop: padding.small
+    paddingTop: padding.extraSmall
   },
   footer: {
-    height: 50,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 0.5,
+    marginTop: margins.small,
+    justifyContent: "flex-end",
+    height: height / 3,
     backgroundColor: colors.darkDesaturatedBlue
   },
   profileButton: {
-    position: "absolute",
-    left: 0,
-    bottom: 5,
+    zIndex: 1,
+    marginBottom: margins.extraSmall,
     paddingLeft: padding.large
   },
   addPhotoButton: {
+    zIndex: 1,
     position: "absolute",
     right: 0,
-    bottom: 5,
+    marginBottom: margins.extraSmall,
     paddingRight: padding.large
   },
   profileText: {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
-    bottom: 5,
+    marginBottom: margins.medium,
     paddingLeft: "30%"
   }
 } );

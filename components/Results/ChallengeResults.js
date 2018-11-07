@@ -6,14 +6,15 @@ import {
   ImageBackground,
   Platform
 } from "react-native";
-import inatjs, { FileUpload } from "inaturalistjs";
+import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
-import LoadingScreen from "../LoadingScreen";
+import LoadingWheel from "../LoadingWheel";
 import config from "../../config";
 import styles from "../../styles/results";
+import { addToCollection, flattenUploadParameters } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -40,91 +41,19 @@ class ChallengeResults extends Component {
       text: null,
       buttonText: null,
       taxaId: null,
+      observation: {},
       id,
       image,
       time,
       latitude,
       longitude
     };
+
+    this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
   }
 
   componentDidMount() {
     this.resizeImage();
-  }
-
-  flattenUploadParameters( uri ) {
-    const {
-      time,
-      latitude, // need to account for null case
-      longitude // need to account for null case
-    } = this.state;
-
-    const params = {
-      image: new FileUpload( {
-        uri,
-        name: "photo.jpeg",
-        type: "image/jpeg"
-      } ),
-      observed_on: new Date( time * 1000 ).toISOString(),
-      latitude,
-      longitude
-    };
-
-    return params;
-  }
-
-  resizeImage() {
-    const {
-      image
-    } = this.state;
-
-    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
-      .then( ( { uri } ) => {
-        let resizedImageUri;
-
-        if ( Platform.OS === "ios" ) {
-          const uriParts = uri.split( "://" );
-          resizedImageUri = uriParts[uriParts.length - 1];
-        } else {
-          resizedImageUri = uri;
-        }
-        const params = this.flattenUploadParameters( resizedImageUri );
-        this.fetchScore( params );
-      } ).catch( ( err ) => {
-        console.log( err, "error with image resizer" );
-      } );
-  }
-
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
-  fetchScore( params ) {
-    const token = this.createJwtToken();
-
-    inatjs.computervision.score_image( params, { api_token: token } )
-      .then( ( { results } ) => {
-        console.log( results, "computer vision results" );
-        const match = results[0];
-        this.setState( {
-          taxaId: match.taxon.id,
-          taxaName: match.taxon.preferred_common_name || match.taxon.name,
-          score: match.combined_score,
-          matchUrl: match.taxon.default_photo.medium_url,
-          loading: false
-        }, () => {
-          this.setTextAndPhoto();
-        } );
-      } )
-      .catch( ( err ) => {
-        console.log( err, "error fetching results from computer vision" );
-      } );
   }
 
   setTextAndPhoto() {
@@ -172,6 +101,86 @@ class ChallengeResults extends Component {
     }
   }
 
+  savePhotoOrStartOver( buttonText ) {
+    const {
+      id,
+      observation,
+      latitude,
+      longitude
+    } = this.state;
+
+    const {
+      navigation
+    } = this.props;
+
+    if ( buttonText === "Add to Collection" ) {
+      addToCollection( observation, latitude, longitude );
+      navigation.navigate( "Main" );
+    } else if ( buttonText === "Start over" ) {
+      navigation.navigate( "CameraCapture", { id } );
+    } else {
+      navigation.navigate( "Main" );
+    }
+  }
+
+  resizeImage() {
+    const {
+      image,
+      time,
+      latitude,
+      longitude
+    } = this.state;
+
+    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
+      .then( ( { uri } ) => {
+        let resizedImageUri;
+
+        if ( Platform.OS === "ios" ) {
+          const uriParts = uri.split( "://" );
+          resizedImageUri = uriParts[uriParts.length - 1];
+        } else {
+          resizedImageUri = uri;
+        }
+        const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
+        this.fetchScore( params );
+      } ).catch( ( err ) => {
+        console.log( err, "error with image resizer" );
+      } );
+  }
+
+  createJwtToken() {
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
+
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
+  }
+
+  fetchScore( params ) {
+    const token = this.createJwtToken();
+
+    inatjs.computervision.score_image( params, { api_token: token } )
+      .then( ( { results } ) => {
+        console.log( results, "computer vision results" );
+        const match = results[0];
+        this.setState( {
+          observation: match,
+          taxaId: match.taxon.id,
+          taxaName: match.taxon.preferred_common_name || match.taxon.name,
+          score: match.combined_score,
+          matchUrl: match.taxon.default_photo.medium_url,
+          loading: false
+        }, () => {
+          this.setTextAndPhoto();
+        } );
+      } )
+      .catch( ( err ) => {
+        console.log( err, "error fetching results from computer vision" );
+      } );
+  }
+
   render() {
     const {
       loading,
@@ -190,7 +199,7 @@ class ChallengeResults extends Component {
       navigation
     } = this.props;
 
-    const content = loading ? <LoadingScreen />
+    const content = loading ? <LoadingWheel />
       : (
         <ChallengeResultsScreen
           title={title}
@@ -203,6 +212,7 @@ class ChallengeResults extends Component {
           yourPhotoText={yourPhotoText}
           image={image}
           navigation={navigation}
+          onPress={this.savePhotoOrStartOver}
         />
       );
 

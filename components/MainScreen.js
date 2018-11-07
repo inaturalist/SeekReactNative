@@ -3,14 +3,16 @@
 import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
-
+import Realm from "realm";
 import {
   View,
   StatusBar
 } from "react-native";
 
+import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
+import { capitalizeNames, truncateCoordinates } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -40,16 +42,17 @@ class MainScreen extends Component<Props, State> {
       error: null,
       taxaType: "All species",
       taxonId: null,
-      speciesCount: 115
+      badgeCount: 0,
+      speciesCount: 0
     };
 
-    ( this: any ).capitalizeNames = this.capitalizeNames.bind( this );
     ( this: any ).updateLocation = this.updateLocation.bind( this );
     ( this: any ).setTaxonId = this.setTaxonId.bind( this );
   }
 
   componentDidMount() {
     this.getGeolocation();
+    this.fetchSpeciesAndBadgeCount();
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -66,61 +69,61 @@ class MainScreen extends Component<Props, State> {
       this.setState( {
         taxonId: 47126,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "amphibians" ) {
       this.setState( {
         taxonId: 20978,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fungi" ) {
       this.setState( {
         taxonId: 47170,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "fish" ) {
       this.setState( {
         taxonId: 47178,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "reptiles" ) {
       this.setState( {
         taxonId: 26036,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "arachnids" ) {
       this.setState( {
         taxonId: 47119,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "birds" ) {
       this.setState( {
         taxonId: 3,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "insects" ) {
       this.setState( {
         taxonId: 47158,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mollusks" ) {
       this.setState( {
         taxonId: 47115,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else if ( taxa === "mammals" ) {
       this.setState( {
         taxonId: 40151,
         loading: true,
-        taxaType: this.capitalizeNames( taxa )
+        taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
     } else {
       this.setState( {
@@ -133,8 +136,8 @@ class MainScreen extends Component<Props, State> {
 
   getGeolocation( ) {
     navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = this.truncateCoordinates( position.coords.latitude );
-      const longitude = this.truncateCoordinates( position.coords.longitude );
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
 
       this.setState( {
         latitude,
@@ -147,17 +150,6 @@ class MainScreen extends Component<Props, State> {
         error: err.message
       } );
     } );
-  }
-
-  truncateCoordinates( coordinate: number ) {
-    return Number( coordinate.toFixed( 2 ) );
-  }
-
-  capitalizeNames( name: string ) {
-    const titleCaseName = name.split( " " )
-      .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
-      .join( " " );
-    return titleCaseName;
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
@@ -181,6 +173,30 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        params.without_taxon_id = existingTaxonIds.join( "," );
+        this.fetchTaxonForChallenges( params );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        this.fetchTaxonForChallenges( params );
+      } );
+  }
+
+  fetchSpeciesAndBadgeCount() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        this.setState( {
+          speciesCount: realm.objects( "ObservationRealm" ).length,
+          badgeCount: realm.objects( "BadgeRealm" ).length
+        } );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
+  fetchTaxonForChallenges( params ) {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const challenges = response.results.map( r => r.taxon );
       this.setTaxa( challenges );
@@ -220,6 +236,7 @@ class MainScreen extends Component<Props, State> {
       longitude,
       location,
       profileIcon,
+      badgeCount,
       speciesCount,
       taxaType,
       taxa
@@ -232,10 +249,6 @@ class MainScreen extends Component<Props, State> {
     return (
       <View style={ { flex: 1 } }>
         <View style={ styles.container }>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#4F6D7A"
-          />
           <ChallengeScreen
             taxa={taxa}
             taxaType={taxaType}
@@ -243,9 +256,9 @@ class MainScreen extends Component<Props, State> {
             loading={loading}
             longitude={longitude}
             location={location}
-            capitalizeNames={this.capitalizeNames}
             profileIcon={profileIcon}
             navigation={navigation}
+            badgeCount={badgeCount}
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}

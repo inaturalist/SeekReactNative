@@ -25,7 +25,7 @@ const tips = [
   }
 ];
 
-const Warnings = ( { navigation }: Props ) => (
+const WarningsScreen = ( { navigation }: Props ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -65,4 +65,4 @@ const Warnings = ( { navigation }: Props ) => (
   </View>
 );
 
-export default Warnings;
+export default WarningsScreen;

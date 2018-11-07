@@ -29,11 +29,12 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     marginBottom: margins.medium,
+    marginLeft: margins.medium,
     marginTop: margins.extraSmall
   },
   text: {
     fontSize: fontSize.text,
-    lineHeight: 14,
+    lineHeight: 20,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap",
@@ -66,10 +67,11 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   matchImage: {
-    alignSelf: "center"
+    alignSelf: "center",
+    zIndex: 1
   },
   imageBackground: {
-    flex: 1,
+    flex: 2,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
     paddingTop: padding.large,
@@ -96,6 +98,6 @@ export default StyleSheet.create( {
     height: width / 3 - 10
   },
   footer: {
-    flex: 0.5
+    flex: 2
   }
 } );

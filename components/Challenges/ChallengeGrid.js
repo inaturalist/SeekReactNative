@@ -11,10 +11,10 @@ import {
 } from "react-native";
 
 import styles from "../../styles/challenges";
+import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any,
-  capitalizeNames: Function,
   taxa: Array<Object>,
   latitude: number,
   location: string,
@@ -22,7 +22,6 @@ type Props = {
 }
 
 const ChallengeGrid = ( {
-  capitalizeNames,
   location,
   latitude,
   longitude,

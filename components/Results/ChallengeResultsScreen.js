@@ -12,16 +12,17 @@ import NavBar from "../NavBar";
 import styles from "../../styles/results";
 
 type Props = {
+  buttonText: string,
+  image: Object,
   title: string,
-  subtitle: string,
   match: ?boolean,
   matchUrl: string,
-  text: string,
-  buttonText: string,
+  navigation: any,
+  onPress: Function,
   photoText: string,
-  yourPhotoText: string,
-  image: Object,
-  navigation: any
+  subtitle: string,
+  text: string,
+  yourPhotoText: string
 }
 
 const ChallengeResultsScreen = ( {
@@ -31,6 +32,7 @@ const ChallengeResultsScreen = ( {
   matchUrl,
   text,
   buttonText,
+  onPress,
   photoText,
   yourPhotoText,
   image,
@@ -108,7 +110,7 @@ const ChallengeResultsScreen = ( {
         <TouchableHighlight style={styles.button}>
           <Text
             style={styles.buttonText}
-            onPress={() => console.log( "pressed button" )}
+            onPress={() => onPress( buttonText )}
           >
             {buttonText}
           </Text>

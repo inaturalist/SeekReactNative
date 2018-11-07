@@ -15,7 +15,7 @@ type Props = {
   navigation: any
 }
 
-const Splash = ( { navigation }: Props ) => (
+const SplashScreen = ( { navigation }: Props ) => (
   <View>
     <ImageBackground
       style={styles.backgroundImage}
@@ -23,9 +23,9 @@ const Splash = ( { navigation }: Props ) => (
     >
       <Text style={styles.text}>Backyard Wilderness Presents</Text>
       <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
-      <Button title="Continue" onPress={() => navigation.navigate( "Loading" )} />
+      <Button title="Continue" onPress={() => navigation.navigate( "Warnings" )} />
     </ImageBackground>
   </View>
 );
 
-export default Splash;
+export default SplashScreen;

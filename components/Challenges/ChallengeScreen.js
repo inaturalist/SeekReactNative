@@ -10,11 +10,11 @@ import {
 import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
-import LoadingScreen from "../LoadingScreen";
+import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/challenges";
 
 type Props = {
-  capitalizeNames: Function,
+  badgeCount: number,
   speciesCount: number,
   latitude: number,
   loading: boolean,
@@ -29,7 +29,7 @@ type Props = {
 }
 
 const ChallengeScreen = ( {
-  capitalizeNames,
+  badgeCount,
   speciesCount,
   latitude,
   loading,
@@ -41,9 +41,8 @@ const ChallengeScreen = ( {
   taxaType,
   updateLocation
 }: Props ) => {
-  const challenges = loading ? <LoadingScreen /> : (
+  const challenges = loading ? <LoadingWheel /> : (
     <ChallengeGrid
-      capitalizeNames={capitalizeNames}
       navigation={navigation}
       taxa={taxa}
       latitude={latitude}
@@ -72,6 +71,7 @@ const ChallengeScreen = ( {
           latitude={latitude}
           longitude={longitude}
           navigation={navigation}
+          badgeCount={badgeCount}
           speciesCount={speciesCount}
         />
       </ImageBackground>

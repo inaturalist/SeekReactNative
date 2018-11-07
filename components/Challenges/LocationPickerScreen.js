@@ -14,7 +14,7 @@ type Props = {
   navigation: any
 }
 
-class LocationPicker extends Component {
+class LocationPickerScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
@@ -39,13 +39,13 @@ class LocationPicker extends Component {
     this.onRegionChange = this.onRegionChange.bind( this );
   }
 
-  onRegionChange( region ) {
-    const { latitude, longitude } = this.state.region;
+  onRegionChange( newRegion ) {
+    const { region } = this.state;
+    const { latitude, longitude } = region;
 
     this.setState( {
-      region
+      region: newRegion
     }, () => this.reverseGeocodeLocation( latitude, longitude ) );
-    console.log( "region changed to: ", region );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
@@ -93,4 +93,4 @@ class LocationPicker extends Component {
   }
 }
 
-export default LocationPicker;
+export default LocationPickerScreen;

@@ -1,4 +1,3 @@
-// import Realm from "realm";
 import ObservationRealm from "./ObservationRealm";
 import BadgeRealm from "./BadgeRealm";
 import TaxonRealm from "./TaxonRealm";

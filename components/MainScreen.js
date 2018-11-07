@@ -42,7 +42,6 @@ class MainScreen extends Component<Props, State> {
       error: null,
       taxaType: "All species",
       taxonId: null,
-      realm: null,
       badgeCount: 0,
       speciesCount: 0
     };
@@ -53,6 +52,7 @@ class MainScreen extends Component<Props, State> {
 
   componentDidMount() {
     this.getGeolocation();
+    this.fetchSpeciesAndBadgeCount();
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -152,10 +152,6 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  // truncateCoordinates( coordinate: number ) {
-  //   return Number( coordinate.toFixed( 2 ) );
-  // }
-
   fetchChallenges( latitude: ?number, longitude: ?number ) {
     const { taxonId } = this.state;
 
@@ -177,22 +173,26 @@ class MainScreen extends Component<Props, State> {
       params.taxon_id = taxonId;
     }
 
-    console.log( realmConfig, "realm config" );
-
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        console.log( realm, "is realm instance" );
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        this.fetchTaxonForChallenges( params );
+      } );
+  }
+
+  fetchSpeciesAndBadgeCount() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
         this.setState( {
-          realm,
           speciesCount: realm.objects( "ObservationRealm" ).length,
           badgeCount: realm.objects( "BadgeRealm" ).length
         } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
-        this.fetchTaxonForChallenges( params );
       } );
   }
 
@@ -249,10 +249,6 @@ class MainScreen extends Component<Props, State> {
     return (
       <View style={ { flex: 1 } }>
         <View style={ styles.container }>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor="#4F6D7A"
-          />
           <ChallengeScreen
             taxa={taxa}
             taxaType={taxaType}

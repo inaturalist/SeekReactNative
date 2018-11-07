@@ -6,17 +6,15 @@ import {
   ImageBackground,
   Platform
 } from "react-native";
-import inatjs, { FileUpload } from "inaturalistjs";
+import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
-import uuid from "react-native-uuid";
-import Realm from "realm";
 
-import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingWheel from "../LoadingWheel";
 import config from "../../config";
 import styles from "../../styles/results";
+import { addToCollection, flattenUploadParameters } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -105,7 +103,10 @@ class ChallengeResults extends Component {
 
   savePhotoOrStartOver( buttonText ) {
     const {
-      id
+      id,
+      observation,
+      latitude,
+      longitude
     } = this.state;
 
     const {
@@ -113,7 +114,7 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "Add to Collection" ) {
-      this.addToCollection();
+      addToCollection( observation, latitude, longitude );
       navigation.navigate( "Main" );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "CameraCapture", { id } );
@@ -122,30 +123,12 @@ class ChallengeResults extends Component {
     }
   }
 
-  flattenUploadParameters( uri ) {
-    const {
-      time,
-      latitude, // need to account for null case
-      longitude // need to account for null case
-    } = this.state;
-
-    const params = {
-      image: new FileUpload( {
-        uri,
-        name: "photo.jpeg",
-        type: "image/jpeg"
-      } ),
-      observed_on: new Date( time * 1000 ).toISOString(),
-      latitude,
-      longitude
-    };
-
-    return params;
-  }
-
   resizeImage() {
     const {
-      image
+      image,
+      time,
+      latitude,
+      longitude
     } = this.state;
 
     ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
@@ -158,7 +141,7 @@ class ChallengeResults extends Component {
         } else {
           resizedImageUri = uri;
         }
-        const params = this.flattenUploadParameters( resizedImageUri );
+        const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
         this.fetchScore( params );
       } ).catch( ( err ) => {
         console.log( err, "error with image resizer" );
@@ -195,47 +178,6 @@ class ChallengeResults extends Component {
       } )
       .catch( ( err ) => {
         console.log( err, "error fetching results from computer vision" );
-      } );
-  }
-
-  addToCollection() {
-    const {
-      observation,
-      latitude,
-      longitude
-    } = this.state;
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        realm.write( () => {
-          let defaultPhoto;
-          const p = observation.taxon.default_photo;
-          if ( p ) {
-            defaultPhoto = realm.create( "PhotoRealm", {
-              squareUrl: p.square_url,
-              mediumUrl: p.medium_url
-            } );
-          }
-          const taxon = realm.create( "TaxonRealm", {
-            id: observation.taxon.id,
-            name: observation.taxon.name,
-            preferredCommonName: observation.taxon.preferred_common_name,
-            iconicTaxonId: observation.taxon.iconic_taxon_id,
-            defaultPhoto
-          } );
-          const species = realm.create( "ObservationRealm", {
-            uuidString: uuid.v1(),
-            date: new Date(),
-            taxon,
-            latitude,
-            longitude,
-            placeName: "San Francisco"
-          } );
-          console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
-          console.log( species, "realm observation after writing to file" );
-        } );
-      } ).catch( ( e ) => {
-        console.log( "Error adding photos to collection: ", e );
       } );
   }
 

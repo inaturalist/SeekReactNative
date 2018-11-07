@@ -79,6 +79,6 @@ class ChallengeFooter extends Component<Props> {
       </View>
     );
   }
-};
+}
 
 export default ChallengeFooter;

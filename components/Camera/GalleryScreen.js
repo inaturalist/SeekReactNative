@@ -122,17 +122,12 @@ class GalleryScreen extends Component {
     const gallery = loading ? <LoadingWheel /> : this.renderGallery( photos );
 
     return (
-      <View style={{ flex: 1 }}>
-        <ImageBackground
-          style={styles.backgroundImage}
-          source={require( "../../assets/backgrounds/background.png" )}
-        >
-          <NavBar navigation={navigation} />
-          <View style={styles.gallery}>
-            {gallery}
-          </View>
-          <CameraBottomNav navigation={navigation} id={id} />
-        </ImageBackground>
+      <View style={styles.background}>
+        <NavBar navigation={navigation} />
+        <View style={styles.gallery}>
+          {gallery}
+        </View>
+        <CameraBottomNav navigation={navigation} id={id} />
       </View>
     );
   }

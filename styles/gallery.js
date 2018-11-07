@@ -1,12 +1,14 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { padding } from "./global";
+import { colors, padding } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  backgroundImage: {
+  background: {
+    flex: 1,
     width,
-    height
+    height,
+    backgroundColor: colors.lightGray
   },
   container: {
     flexWrap: "wrap",

@@ -17,6 +17,7 @@ class CameraScreen extends Component {
     const { latitude, longitude } = navigation.state.params;
 
     this.state = {
+      camera: true,
       cameraType: RNCamera.Constants.Type.back,
       cameraTypeText: "Front",
       error: null,
@@ -32,6 +33,7 @@ class CameraScreen extends Component {
     this.toggleFlash = this.toggleFlash.bind( this );
     this.takePicture = this.takePicture.bind( this );
     this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
+    this.toggleActiveLink = this.toggleActiveLink.bind( this );
   }
 
   getCameraCaptureFromGallery( id ) {
@@ -112,8 +114,17 @@ class CameraScreen extends Component {
     }
   }
 
+  toggleActiveLink() {
+    const { camera } = this.state;
+
+    this.setState( {
+      camera: !camera
+    } );
+  }
+
   render() {
     const {
+      camera,
       cameraType,
       flash,
       cameraTypeText,
@@ -136,6 +147,8 @@ class CameraScreen extends Component {
         permissionDialogMessage="We need your permission to use your camera phone"
       >
         <CameraCaptureScreen
+          camera={camera}
+          toggleActiveLink={this.toggleActiveLink}
           cameraTypeText={cameraTypeText}
           flashText={flashText}
           navigation={navigation}

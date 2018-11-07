@@ -28,10 +28,6 @@ class CameraScreen extends Component {
       latitude,
       longitude,
       time: null,
-      imageClicked: null,
-      imageTimestamp: null,
-      imageLatitude: null,
-      imageLongitude: null,
       id,
       loading: true,
       photos: []
@@ -148,14 +144,12 @@ class CameraScreen extends Component {
     } );
   }
 
-  selectImage( image, time, location ) {
+  selectImage( imageClicked, timestamp, location ) {
     // remember to deal with error state -> what happens if photo location undefined?
     const {
       id,
-      imageClicked,
-      imageTimestamp,
-      imageLatitude,
-      imageLongitude
+      latitude,
+      longitude
     } = this.state;
 
     const {
@@ -163,16 +157,16 @@ class CameraScreen extends Component {
     } = this.props;
 
     this.setState( {
-      imageClicked: image,
-      imageTimestamp: time,
-      imageLatitude: location.latitude ? truncateCoordinates( location.latitude ) : null,
-      imageLongitude: location.longitude ? truncateCoordinates( location.longitude ) : null
+      image: imageClicked,
+      time: timestamp,
+      latitude: location.latitude ? truncateCoordinates( location.latitude ) : latitude,
+      longitude: location.longitude ? truncateCoordinates( location.longitude ) : longitude
     }, () => navigation.navigate( "Results", {
       id,
-      image: imageClicked,
-      time: imageTimestamp,
-      latitude: imageLatitude,
-      longitude: imageLongitude
+      image: this.state.image,
+      time: this.state.time,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
     } ) );
   }
 

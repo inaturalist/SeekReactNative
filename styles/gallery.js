@@ -6,9 +6,8 @@ const { width, height } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   background: {
     backgroundColor: colors.lightGray,
-    flex: 1,
-    width,
     height,
+    width,
     flexDirection: "column"
   },
   container: {
@@ -16,7 +15,7 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   gallery: {
-    flex: 3
+    flex: 4
   },
   button: {
     paddingHorizontal: padding.extraSmall,

@@ -17,40 +17,12 @@ export default StyleSheet.create( {
     height,
     flexDirection: "column"
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "flex-start"
-  },
-  buttons: {
-    flex: 0.3,
-    height: 30,
-    marginHorizontal: margins.extraSmall,
-    marginBottom: margins.small,
-    marginTop: margins.large,
-    borderRadius: 8,
-    borderColor: colors.white,
-    borderWidth: 1,
-    padding: padding.medium,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  buttonText: {
-    color: colors.white,
-    fontSize: fontSize.buttonText,
-    fontFamily: fonts.default
-  },
   main: {
     flexGrow: 1
   },
   footer: {
     flexDirection: "column",
     justifyContent: "flex-end"
-  },
-  bottomNavigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "flex-end"
   },
   capture: {
     flex: 0,

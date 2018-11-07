@@ -27,7 +27,7 @@ const CameraTopNav = ( {
       style={styles.buttons}
       onPress={() => navigation.navigate( "Main" )}
     >
-      <Text style={styles.text}>X</Text>
+      <Text style={[styles.text, !camera && styles.grayText]}>X</Text>
     </TouchableOpacity>
     { camera ? (
       <TouchableOpacity

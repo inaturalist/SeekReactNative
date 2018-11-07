@@ -41,6 +41,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     marginLeft: margins.medium
   },
+  grayText: {
+    fontSize: fontSize.smallText,
+    color: colors.darkGray,
+    fontFamily: fonts.default,
+    marginLeft: margins.medium
+  },
   underline: {
     textDecorationLine: "underline"
   }

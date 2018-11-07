@@ -18,7 +18,11 @@ type Props = {
   takePicture: Function,
   toggleFlash: Function,
   toggleCamera: Function,
-  getCameraCaptureFromGallery: Function
+  getCameraCaptureFromGallery: Function,
+  photos: Array<Object>,
+  loading: boolean,
+  selectImage: Function,
+  getPhotos: Function
 }
 
 const CameraCaptureScreen = ( {
@@ -30,7 +34,11 @@ const CameraCaptureScreen = ( {
   takePicture,
   toggleFlash,
   toggleCamera,
-  getCameraCaptureFromGallery
+  getCameraCaptureFromGallery,
+  photos,
+  loading,
+  selectImage,
+  getPhotos
 }: Props ) => {
   const { id } = navigation.state.params;
 
@@ -56,6 +64,9 @@ const CameraCaptureScreen = ( {
           navigation={navigation}
           camera={camera}
           toggleActiveLink={toggleActiveLink}
+          photos={photos}
+          loading={loading}
+          selectImage={selectImage}
         />
       ) }
       <CameraBottomNav
@@ -63,6 +74,7 @@ const CameraCaptureScreen = ( {
         id={id}
         camera={camera}
         toggleActiveLink={toggleActiveLink}
+        getPhotos={getPhotos}
       />
     </View>
   );

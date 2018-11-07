@@ -5,6 +5,7 @@ import { RNCamera } from "react-native-camera";
 import { CameraRoll } from "react-native";
 
 import CameraCaptureScreen from "./CameraCaptureScreen";
+import { truncateCoordinates } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -14,7 +15,7 @@ class CameraScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { latitude, longitude } = navigation.state.params;
+    const { id, latitude, longitude } = navigation.state.params;
 
     this.state = {
       camera: true,
@@ -26,7 +27,14 @@ class CameraScreen extends Component {
       image: {},
       latitude,
       longitude,
-      time: null
+      time: null,
+      imageClicked: null,
+      imageTimestamp: null,
+      imageLatitude: null,
+      imageLongitude: null,
+      id,
+      loading: true,
+      photos: []
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
@@ -34,6 +42,8 @@ class CameraScreen extends Component {
     this.takePicture = this.takePicture.bind( this );
     this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
     this.toggleActiveLink = this.toggleActiveLink.bind( this );
+    this.selectImage = this.selectImage.bind( this );
+    this.getPhotos = this.getPhotos.bind( this );
   }
 
   getCameraCaptureFromGallery( id ) {
@@ -122,13 +132,59 @@ class CameraScreen extends Component {
     } );
   }
 
+  getPhotos = () => {
+    CameraRoll.getPhotos( {
+      first: 100,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      this.setState( {
+        photos: results.edges,
+        loading: false
+      } );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
+  selectImage( image, time, location ) {
+    // remember to deal with error state -> what happens if photo location undefined?
+    const {
+      id,
+      imageClicked,
+      imageTimestamp,
+      imageLatitude,
+      imageLongitude
+    } = this.state;
+
+    const {
+      navigation
+    } = this.props;
+
+    this.setState( {
+      imageClicked: image,
+      imageTimestamp: time,
+      imageLatitude: location.latitude ? truncateCoordinates( location.latitude ) : null,
+      imageLongitude: location.longitude ? truncateCoordinates( location.longitude ) : null
+    }, () => navigation.navigate( "Results", {
+      id,
+      image: imageClicked,
+      time: imageTimestamp,
+      latitude: imageLatitude,
+      longitude: imageLongitude
+    } ) );
+  }
+
   render() {
     const {
       camera,
       cameraType,
       flash,
       cameraTypeText,
-      flashText
+      flashText,
+      photos,
+      loading
     } = this.state;
 
     const {
@@ -156,6 +212,10 @@ class CameraScreen extends Component {
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
           getCameraCaptureFromGallery={this.getCameraCaptureFromGallery}
+          photos={photos}
+          loading={loading}
+          selectImage={this.selectImage}
+          getPhotos={this.getPhotos}
         />
       </RNCamera>
     );

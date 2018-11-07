@@ -6,7 +6,6 @@ import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
 import Camera from "./Camera/Camera";
 import CameraCaptureScreen from "./Camera/CameraCaptureScreen";
-import GalleryScreen from "./Camera/GalleryScreen";
 import LocationPickerScreen from "./Challenges/LocationPickerScreen";
 import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
@@ -19,7 +18,6 @@ const RootStack = createStackNavigator( {
   Main: { screen: MainScreen },
   Camera: { screen: Camera },
   CameraCapture: { screen: CameraCaptureScreen },
-  Gallery: { screen: GalleryScreen },
   Location: { screen: LocationPickerScreen },
   Taxon: { screen: TaxonPickerScreen },
   Results: { screen: ChallengeResults },

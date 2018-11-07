@@ -9,14 +9,16 @@ type Props = {
   navigation: any,
   id: number,
   camera: boolean,
-  toggleActiveLink: Function
+  toggleActiveLink: Function,
+  getPhotos: Function
 }
 
 const CameraBottomNav = ( {
   navigation,
   id,
   camera,
-  toggleActiveLink
+  toggleActiveLink,
+  getPhotos
 }: Props ) => (
   <View style={styles.bottomNavigation}>
     <TouchableOpacity
@@ -24,7 +26,6 @@ const CameraBottomNav = ( {
       onPress={() => {
         if ( !camera ) {
           toggleActiveLink();
-          navigation.navigate( "CameraCapture", { id } );
         }
       }}
     >
@@ -34,8 +35,8 @@ const CameraBottomNav = ( {
       style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
       onPress={() => {
         if ( camera ) {
+          getPhotos();
           toggleActiveLink();
-          navigation.navigate( "Gallery", { id, camera, toggleActiveLink } );
         }
       }}
     >

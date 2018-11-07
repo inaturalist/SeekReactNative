@@ -11,6 +11,7 @@ import {
 } from "react-native";
 
 import LoadingWheel from "../LoadingWheel";
+import CameraNavBar from "./CameraNavBar";
 import NavBar from "../NavBar";
 import styles from "../../styles/gallery";
 import { truncateCoordinates } from "../../utility/helpers";
@@ -109,6 +110,7 @@ class GalleryScreen extends Component {
 
   render() {
     const {
+      id,
       photos,
       loading
     } = this.state;
@@ -129,6 +131,7 @@ class GalleryScreen extends Component {
           <View style={styles.gallery}>
             {gallery}
           </View>
+          <CameraNavBar navigation={navigation} id={id} />
         </ImageBackground>
       </View>
     );

@@ -3,6 +3,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 
+import CameraNavBar from "./CameraNavBar";
 import styles from "../../styles/camera";
 
 type Props = {
@@ -59,20 +60,7 @@ const CameraCaptureScreen = ( {
             style={styles.capture}
           />
         </View>
-        <View style={styles.bottomNavigation}>
-          <TouchableOpacity
-            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-            onPress={() => navigation.navigate( "CameraCapture", { id } )}
-          >
-            <Text style={styles.buttonText}>Camera</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-            onPress={() => navigation.navigate( "Gallery", { id } )}
-          >
-            <Text style={styles.buttonText}>Gallery</Text>
-          </TouchableOpacity>
-        </View>
+        <CameraNavBar navigation={navigation} id={id} />
       </View>
     </View>
   );

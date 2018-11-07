@@ -19,22 +19,41 @@ class CameraNavBar extends Component {
     };
   }
 
+  toggleActiveLink() {
+    const { camera } = this.state;
+
+    this.setState( {
+      camera: !camera
+    } );
+  }
+
   render() {
     const { id, navigation } = this.props;
+    const { camera } = this.state;
 
     return (
-      <View style={styles.container}>
+      <View style={styles.bottomNavigation}>
         <TouchableOpacity
           style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-          onPress={() => navigation.navigate( "CameraCapture", { id } )}
+          onPress={() => {
+            if ( !camera ) {
+              this.toggleActiveLink();
+              navigation.navigate( "CameraCapture", { id } );
+            }
+          }}
         >
-          <Text style={styles.buttonText}>CAMERA</Text>
+          <Text style={[styles.text, camera && styles.underline]}>CAMERA</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-          onPress={() => navigation.navigate( "Gallery", { id } )}
+          onPress={() => {
+            if ( camera ) {
+              this.toggleActiveLink();
+              navigation.navigate( "Gallery", { id } );
+            }
+          }}
         >
-          <Text style={styles.buttonText}>GALLERY</Text>
+          <Text style={[styles.text, !camera && styles.underline]}>GALLERY</Text>
         </TouchableOpacity>
       </View>
     );

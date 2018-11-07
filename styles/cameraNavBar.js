@@ -3,22 +3,26 @@ import {
   colors,
   fonts,
   fontSize,
-  margins
+  margins,
+  padding
 } from "./global";
 
 export default StyleSheet.create( {
-  container: {
-    flex: 0.5,
+  bottomNavigation: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: margins.medium,
+    paddingBottom: padding.extraLarge,
     backgroundColor: colors.black,
-    borderBottomWidth: 0.25,
-    borderColor: colors.white
+    height: 55
   },
   text: {
-    fontSize: fontSize.mediumHeader,
-    textAlign: "left",
+    fontSize: fontSize.smallText,
     color: colors.white,
     fontFamily: fonts.default,
-    marginTop: margins.medium + 5,
     marginLeft: margins.medium
+  },
+  underline: {
+    textDecorationLine: "underline"
   }
 } );

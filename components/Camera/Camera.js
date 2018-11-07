@@ -84,6 +84,22 @@ class CameraScreen extends Component {
     }
   }
 
+  getPhotos = () => {
+    CameraRoll.getPhotos( {
+      first: 100,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      this.setState( {
+        photos: results.edges,
+        loading: false
+      } );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
   toggleFlash() {
     const {
       flash
@@ -128,22 +144,6 @@ class CameraScreen extends Component {
     } );
   }
 
-  getPhotos = () => {
-    CameraRoll.getPhotos( {
-      first: 100,
-      assetType: "Photos"
-    } ).then( ( results ) => {
-      this.setState( {
-        photos: results.edges,
-        loading: false
-      } );
-    } ).catch( ( err ) => {
-      this.setState( {
-        error: err.message
-      } );
-    } );
-  }
-
   selectImage( imageClicked, timestamp, location ) {
     // remember to deal with error state -> what happens if photo location undefined?
     const {
@@ -178,7 +178,8 @@ class CameraScreen extends Component {
       cameraTypeText,
       flashText,
       photos,
-      loading
+      loading,
+      id
     } = this.state;
 
     const {
@@ -210,6 +211,7 @@ class CameraScreen extends Component {
           loading={loading}
           selectImage={this.selectImage}
           getPhotos={this.getPhotos}
+          id={id}
         />
       </RNCamera>
     );

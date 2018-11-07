@@ -117,7 +117,7 @@ class ChallengeResults extends Component {
       addToCollection( observation, latitude, longitude );
       navigation.navigate( "Main" );
     } else if ( buttonText === "Start over" ) {
-      navigation.navigate( "CameraCapture", { id } );
+      navigation.navigate( "Camera", { id } );
     } else {
       navigation.navigate( "Main" );
     }

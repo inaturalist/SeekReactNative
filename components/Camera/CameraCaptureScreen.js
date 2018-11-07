@@ -22,7 +22,8 @@ type Props = {
   photos: Array<Object>,
   loading: boolean,
   selectImage: Function,
-  getPhotos: Function
+  getPhotos: Function,
+  id: number
 }
 
 const CameraCaptureScreen = ( {
@@ -38,46 +39,43 @@ const CameraCaptureScreen = ( {
   photos,
   loading,
   selectImage,
-  getPhotos
-}: Props ) => {
-  const { id } = navigation.state.params;
-
-  return (
-    <View style={styles.container}>
-      <CameraTopNav
-        camera={camera}
-        navigation={navigation}
-        cameraTypeText={cameraTypeText}
-        flashText={flashText}
-        toggleFlash={toggleFlash}
-        toggleCamera={toggleCamera}
-      />
-      <View style={styles.main} />
-      { camera ? (
-        <CameraCapture
-          id={id}
-          takePicture={takePicture}
-          getCameraCaptureFromGallery={getCameraCaptureFromGallery}
-        />
-      ) : (
-        <GalleryScreen
-          navigation={navigation}
-          camera={camera}
-          toggleActiveLink={toggleActiveLink}
-          photos={photos}
-          loading={loading}
-          selectImage={selectImage}
-        />
-      ) }
-      <CameraBottomNav
-        navigation={navigation}
+  getPhotos,
+  id
+}: Props ) => (
+  <View style={styles.container}>
+    <CameraTopNav
+      camera={camera}
+      navigation={navigation}
+      cameraTypeText={cameraTypeText}
+      flashText={flashText}
+      toggleFlash={toggleFlash}
+      toggleCamera={toggleCamera}
+    />
+    <View style={styles.main} />
+    { camera ? (
+      <CameraCapture
         id={id}
+        takePicture={takePicture}
+        getCameraCaptureFromGallery={getCameraCaptureFromGallery}
+      />
+    ) : (
+      <GalleryScreen
+        navigation={navigation}
         camera={camera}
         toggleActiveLink={toggleActiveLink}
-        getPhotos={getPhotos}
+        photos={photos}
+        loading={loading}
+        selectImage={selectImage}
       />
-    </View>
-  );
-};
+    ) }
+    <CameraBottomNav
+      navigation={navigation}
+      id={id}
+      camera={camera}
+      toggleActiveLink={toggleActiveLink}
+      getPhotos={getPhotos}
+    />
+  </View>
+);
 
 export default CameraCaptureScreen;

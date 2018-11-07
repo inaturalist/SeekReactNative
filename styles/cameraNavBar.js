@@ -12,9 +12,22 @@ export default StyleSheet.create( {
     flexDirection: "row",
     justifyContent: "space-around",
     marginTop: margins.medium,
-    paddingBottom: padding.extraLarge,
+    paddingBottom: padding.medium,
     backgroundColor: colors.black,
     height: 55
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start"
+  },
+  buttons: {
+    flex: 0.3,
+    height: 30,
+    marginHorizontal: margins.extraSmall,
+    marginBottom: margins.small,
+    marginTop: margins.medium + 5,
+    padding: padding.medium
   },
   text: {
     fontSize: fontSize.smallText,

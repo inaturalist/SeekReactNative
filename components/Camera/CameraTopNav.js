@@ -3,7 +3,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
-import styles from "../../styles/camera";
+import styles from "../../styles/cameraNavBar";
 
 type Props = {
   cameraTypeText: string,
@@ -25,19 +25,19 @@ const CameraTopNav = ( {
       style={styles.buttons}
       onPress={() => navigation.navigate( "Main" )}
     >
-      <Text style={styles.buttonText}>X</Text>
+      <Text style={styles.text}>X</Text>
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.buttons}
       onPress={() => toggleFlash()}
     >
-      <Text style={styles.buttonText}>{flashText}</Text>
+      <Text style={styles.text}>{flashText}</Text>
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.buttons}
       onPress={() => toggleCamera()}
     >
-      <Text style={styles.buttonText}>{cameraTypeText}</Text>
+      <Text style={styles.text}>{cameraTypeText}</Text>
     </TouchableOpacity>
   </View>
 );

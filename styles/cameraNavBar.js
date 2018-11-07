@@ -8,6 +8,12 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  coloredHeader: {
+    backgroundColor: colors.lightGray,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start"
+  },
   bottomNavigation: {
     flexDirection: "row",
     justifyContent: "space-around",

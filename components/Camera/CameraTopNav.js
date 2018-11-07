@@ -6,6 +6,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "../../styles/cameraNavBar";
 
 type Props = {
+  camera: boolean,
   cameraTypeText: string,
   flashText: string,
   navigation: any,
@@ -14,31 +15,37 @@ type Props = {
 }
 
 const CameraTopNav = ( {
+  camera,
   cameraTypeText,
   flashText,
   navigation,
   toggleFlash,
   toggleCamera
 }: Props ) => (
-  <View style={styles.header}>
+  <View style={[styles.header, !camera && styles.coloredHeader]}>
     <TouchableOpacity
       style={styles.buttons}
       onPress={() => navigation.navigate( "Main" )}
     >
       <Text style={styles.text}>X</Text>
     </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.buttons}
-      onPress={() => toggleFlash()}
-    >
-      <Text style={styles.text}>{flashText}</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.buttons}
-      onPress={() => toggleCamera()}
-    >
-      <Text style={styles.text}>{cameraTypeText}</Text>
-    </TouchableOpacity>
+    { camera ? (
+      <View>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => toggleFlash()}
+        >
+          <Text style={styles.text}>{flashText}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => toggleCamera()}
+        >
+          <Text style={styles.text}>{cameraTypeText}</Text>
+        </TouchableOpacity>
+      </View>
+    ) : null
+    }
   </View>
 );
 

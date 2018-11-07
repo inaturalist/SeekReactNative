@@ -18,7 +18,7 @@ class CameraScreen extends Component {
 
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
-      cameraTypeText: "Front camera",
+      cameraTypeText: "Front",
       error: null,
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "Flash on",
@@ -102,12 +102,12 @@ class CameraScreen extends Component {
     if ( cameraType === RNCamera.Constants.Type.back ) {
       this.setState( {
         cameraType: RNCamera.Constants.Type.front,
-        cameraTypeText: "Back camera"
+        cameraTypeText: "Back"
       } );
     } else {
       this.setState( {
         cameraType: RNCamera.Constants.Type.back,
-        cameraTypeText: "Front camera"
+        cameraTypeText: "Front"
       } );
     }
   }

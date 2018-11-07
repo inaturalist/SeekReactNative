@@ -1,9 +1,10 @@
 // @flow
 
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 
-import CameraNavBar from "./CameraNavBar";
+import CameraTopNav from "./CameraTopNav";
+import CameraBottomNav from "./CameraBottomNav";
 import styles from "../../styles/camera";
 
 type Props = {
@@ -29,26 +30,13 @@ const CameraCaptureScreen = ( {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => navigation.navigate( "Main" )}
-        >
-          <Text style={styles.buttonText}>X</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleFlash()}
-        >
-          <Text style={styles.buttonText}>{flashText}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleCamera()}
-        >
-          <Text style={styles.buttonText}>{cameraTypeText}</Text>
-        </TouchableOpacity>
-      </View>
+      <CameraTopNav
+        navigation={navigation}
+        cameraTypeText={cameraTypeText}
+        flashText={flashText}
+        toggleFlash={toggleFlash}
+        toggleCamera={toggleCamera}
+      />
       <View style={styles.main} />
       <View style={styles.footer}>
         <View>
@@ -60,7 +48,7 @@ const CameraCaptureScreen = ( {
             style={styles.capture}
           />
         </View>
-        <CameraNavBar navigation={navigation} id={id} />
+        <CameraBottomNav navigation={navigation} id={id} />
       </View>
     </View>
   );

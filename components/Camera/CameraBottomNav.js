@@ -10,7 +10,7 @@ type Props = {
   id: number
 }
 
-class CameraNavBar extends Component {
+class CameraBottomNav extends Component {
   constructor( { navigation, id }: Props ) {
     super();
 
@@ -53,11 +53,11 @@ class CameraNavBar extends Component {
             }
           }}
         >
-          <Text style={[styles.text, !camera && styles.underline]}>GALLERY</Text>
+          <Text style={[styles.text, !camera && styles.underline]}>PHOTOS</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default CameraNavBar;
+export default CameraBottomNav;

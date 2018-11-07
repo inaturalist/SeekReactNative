@@ -6,16 +6,12 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "../../styles/cameraNavBar";
 
 type Props = {
-  navigation: any,
-  id: number,
   camera: boolean,
   toggleActiveLink: Function,
   getPhotos: Function
 }
 
 const CameraBottomNav = ( {
-  navigation,
-  id,
   camera,
   toggleActiveLink,
   getPhotos

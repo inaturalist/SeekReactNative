@@ -30,20 +30,20 @@ const CameraTopNav = ( {
       <Text style={styles.text}>X</Text>
     </TouchableOpacity>
     { camera ? (
-      <View>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleFlash()}
-        >
-          <Text style={styles.text}>{flashText}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleCamera()}
-        >
-          <Text style={styles.text}>{cameraTypeText}</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => toggleFlash()}
+      >
+        <Text style={styles.text}>{flashText}</Text>
+      </TouchableOpacity>
+    ) : null }
+    { camera ? (
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => toggleCamera()}
+      >
+        <Text style={styles.text}>{cameraTypeText}</Text>
+      </TouchableOpacity>
     ) : null
     }
   </View>

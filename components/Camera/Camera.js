@@ -5,6 +5,7 @@ import { RNCamera } from "react-native-camera";
 import { CameraRoll } from "react-native";
 
 import CameraCaptureScreen from "./CameraCaptureScreen";
+import { truncateCoordinates } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -14,24 +15,31 @@ class CameraScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { latitude, longitude } = navigation.state.params;
+    const { id, latitude, longitude } = navigation.state.params;
 
     this.state = {
+      camera: true,
       cameraType: RNCamera.Constants.Type.back,
-      cameraTypeText: "Front camera",
+      cameraTypeText: "Front",
       error: null,
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "Flash on",
       image: {},
       latitude,
       longitude,
-      time: null
+      time: null,
+      id,
+      loading: true,
+      photos: []
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
     this.toggleFlash = this.toggleFlash.bind( this );
     this.takePicture = this.takePicture.bind( this );
     this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
+    this.toggleActiveLink = this.toggleActiveLink.bind( this );
+    this.selectImage = this.selectImage.bind( this );
+    this.getPhotos = this.getPhotos.bind( this );
   }
 
   getCameraCaptureFromGallery( id ) {
@@ -76,6 +84,22 @@ class CameraScreen extends Component {
     }
   }
 
+  getPhotos = () => {
+    CameraRoll.getPhotos( {
+      first: 100,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      this.setState( {
+        photos: results.edges,
+        loading: false
+      } );
+    } ).catch( ( err ) => {
+      this.setState( {
+        error: err.message
+      } );
+    } );
+  }
+
   toggleFlash() {
     const {
       flash
@@ -102,22 +126,60 @@ class CameraScreen extends Component {
     if ( cameraType === RNCamera.Constants.Type.back ) {
       this.setState( {
         cameraType: RNCamera.Constants.Type.front,
-        cameraTypeText: "Back camera"
+        cameraTypeText: "Back"
       } );
     } else {
       this.setState( {
         cameraType: RNCamera.Constants.Type.back,
-        cameraTypeText: "Front camera"
+        cameraTypeText: "Front"
       } );
     }
   }
 
+  toggleActiveLink() {
+    const { camera } = this.state;
+
+    this.setState( {
+      camera: !camera
+    } );
+  }
+
+  selectImage( imageClicked, timestamp, location ) {
+    // remember to deal with error state -> what happens if photo location undefined?
+    const {
+      id,
+      latitude,
+      longitude
+    } = this.state;
+
+    const {
+      navigation
+    } = this.props;
+
+    this.setState( {
+      image: imageClicked,
+      time: timestamp,
+      latitude: location.latitude ? truncateCoordinates( location.latitude ) : latitude,
+      longitude: location.longitude ? truncateCoordinates( location.longitude ) : longitude
+    }, () => navigation.navigate( "Results", {
+      id,
+      image: this.state.image,
+      time: this.state.time,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
+    } ) );
+  }
+
   render() {
     const {
+      camera,
       cameraType,
       flash,
       cameraTypeText,
-      flashText
+      flashText,
+      photos,
+      loading,
+      id
     } = this.state;
 
     const {
@@ -136,6 +198,8 @@ class CameraScreen extends Component {
         permissionDialogMessage="We need your permission to use your camera phone"
       >
         <CameraCaptureScreen
+          camera={camera}
+          toggleActiveLink={this.toggleActiveLink}
           cameraTypeText={cameraTypeText}
           flashText={flashText}
           navigation={navigation}
@@ -143,6 +207,11 @@ class CameraScreen extends Component {
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
           getCameraCaptureFromGallery={this.getCameraCaptureFromGallery}
+          photos={photos}
+          loading={loading}
+          selectImage={this.selectImage}
+          getPhotos={this.getPhotos}
+          id={id}
         />
       </RNCamera>
     );

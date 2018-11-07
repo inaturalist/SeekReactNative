@@ -1,81 +1,81 @@
 // @flow
 
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View } from "react-native";
 
+import CameraTopNav from "./CameraTopNav";
+import CameraCapture from "./CameraCapture";
+import CameraBottomNav from "./CameraBottomNav";
+import GalleryScreen from "./GalleryScreen";
 import styles from "../../styles/camera";
 
 type Props = {
+  camera: boolean,
+  toggleActiveLink: Function,
   cameraTypeText: string,
   flashText: string,
   navigation: any,
   takePicture: Function,
   toggleFlash: Function,
   toggleCamera: Function,
-  getCameraCaptureFromGallery: Function
+  getCameraCaptureFromGallery: Function,
+  photos: Array<Object>,
+  loading: boolean,
+  selectImage: Function,
+  getPhotos: Function,
+  id: number
 }
 
 const CameraCaptureScreen = ( {
+  camera,
+  toggleActiveLink,
   cameraTypeText,
   flashText,
   navigation,
   takePicture,
   toggleFlash,
   toggleCamera,
-  getCameraCaptureFromGallery
-}: Props ) => {
-  const { id } = navigation.state.params;
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => navigation.navigate( "Main" )}
-        >
-          <Text style={styles.buttonText}>X</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleFlash()}
-        >
-          <Text style={styles.buttonText}>{flashText}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleCamera()}
-        >
-          <Text style={styles.buttonText}>{cameraTypeText}</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.main} />
-      <View style={styles.footer}>
-        <View>
-          <TouchableOpacity
-            onPress={() => {
-              takePicture();
-              getCameraCaptureFromGallery( id );
-            }}
-            style={styles.capture}
-          />
-        </View>
-        <View style={styles.bottomNavigation}>
-          <TouchableOpacity
-            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-            onPress={() => navigation.navigate( "CameraCapture", { id } )}
-          >
-            <Text style={styles.buttonText}>Camera</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-            onPress={() => navigation.navigate( "Gallery", { id } )}
-          >
-            <Text style={styles.buttonText}>Gallery</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
-  );
-};
+  getCameraCaptureFromGallery,
+  photos,
+  loading,
+  selectImage,
+  getPhotos,
+  id
+}: Props ) => (
+  <View style={styles.container}>
+    <CameraTopNav
+      camera={camera}
+      navigation={navigation}
+      cameraTypeText={cameraTypeText}
+      flashText={flashText}
+      toggleFlash={toggleFlash}
+      toggleCamera={toggleCamera}
+    />
+    <View style={styles.main} />
+    { camera ? (
+      <CameraCapture
+        id={id}
+        takePicture={takePicture}
+        getCameraCaptureFromGallery={getCameraCaptureFromGallery}
+      />
+    ) : (
+      <GalleryScreen
+        navigation={navigation}
+        camera={camera}
+        toggleActiveLink={toggleActiveLink}
+        photos={photos}
+        loading={loading}
+        selectImage={selectImage}
+      />
+    ) }
+    <CameraBottomNav
+      navigation={navigation}
+      id={id}
+      camera={camera}
+      toggleActiveLink={toggleActiveLink}
+      getPhotos={getPhotos}
+    />
+  </View>
+);
 
 export default CameraCaptureScreen;

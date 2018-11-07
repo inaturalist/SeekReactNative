@@ -22,32 +22,30 @@ const GalleryScreen = ( {
   photos,
   selectImage
 }: Props ) => (
-  <View style={styles.background}>
-    <View style={styles.gallery}>
-      {loading ? <LoadingWheel /> : (
-        <ScrollView contentContainerStyle={styles.container}>
-          {
-            photos.map( ( p, i ) => {
-              return (
-                <TouchableHighlight
-                  style={styles.button}
-                  key={i.toString()}
-                  underlayColor="transparent"
-                  onPress={() => {
-                    selectImage( p.node.image, p.node.timestamp, p.node.location );
-                  }}
-                >
-                  <Image
-                    style={styles.image}
-                    source={{ uri: p.node.image.uri }}
-                  />
-                </TouchableHighlight>
-              );
-            } )
-          }
-        </ScrollView>
-      ) }
-    </View>
+  <View style={styles.galleryContainer}>
+    {loading ? <LoadingWheel /> : (
+      <ScrollView contentContainerStyle={styles.container}>
+        {
+          photos.map( ( p, i ) => {
+            return (
+              <TouchableHighlight
+                style={styles.button}
+                key={i.toString()}
+                underlayColor="transparent"
+                onPress={() => {
+                  selectImage( p.node.image, p.node.timestamp, p.node.location );
+                }}
+              >
+                <Image
+                  style={styles.image}
+                  source={{ uri: p.node.image.uri }}
+                />
+              </TouchableHighlight>
+            );
+          } )
+        }
+      </ScrollView>
+    ) }
   </View>
 );
 

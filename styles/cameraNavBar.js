@@ -14,14 +14,6 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     alignItems: "flex-start"
   },
-  bottomNavigation: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: margins.medium,
-    paddingBottom: padding.medium,
-    backgroundColor: colors.black,
-    height: 55
-  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -29,11 +21,8 @@ export default StyleSheet.create( {
   },
   buttons: {
     flex: 0.3,
-    height: 30,
-    marginHorizontal: margins.extraSmall,
-    marginBottom: margins.small,
     marginTop: margins.medium + 5,
-    padding: padding.medium
+    padding: padding.small
   },
   text: {
     fontSize: fontSize.smallText,
@@ -49,5 +38,15 @@ export default StyleSheet.create( {
   },
   underline: {
     textDecorationLine: "underline"
+  },
+  footer: {
+    flex: 0.2,
+    marginTop: margins.medium,
+    paddingBottom: padding.extraSmall,
+    backgroundColor: colors.black
+  },
+  bottomNavigation: {
+    flexDirection: "row",
+    justifyContent: "space-around"
   }
 } );

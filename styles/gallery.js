@@ -4,18 +4,13 @@ import { colors, padding } from "./global";
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  background: {
-    backgroundColor: colors.lightGray,
+  galleryContainer: {
     height,
-    width,
-    flexDirection: "column"
+    backgroundColor: colors.lightGray
   },
   container: {
     flexWrap: "wrap",
     flexDirection: "row"
-  },
-  gallery: {
-    flex: 4
   },
   button: {
     paddingHorizontal: padding.extraSmall,

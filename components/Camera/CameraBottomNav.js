@@ -16,28 +16,30 @@ const CameraBottomNav = ( {
   toggleActiveLink,
   getPhotos
 }: Props ) => (
-  <View style={styles.bottomNavigation}>
-    <TouchableOpacity
-      style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-      onPress={() => {
-        if ( !camera ) {
-          toggleActiveLink();
-        }
-      }}
-    >
-      <Text style={[styles.text, camera && styles.underline]}>CAMERA</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={[styles.buttons, { flex: 0.3, alignSelf: "flex-end" }]}
-      onPress={() => {
-        if ( camera ) {
-          getPhotos();
-          toggleActiveLink();
-        }
-      }}
-    >
-      <Text style={[styles.text, !camera && styles.underline]}>PHOTOS</Text>
-    </TouchableOpacity>
+  <View style={styles.footer}>
+    <View style={styles.bottomNavigation}>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => {
+          if ( !camera ) {
+            toggleActiveLink();
+          }
+        }}
+      >
+        <Text style={[styles.text, camera && styles.underline]}>CAMERA</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttons}
+        onPress={() => {
+          if ( camera ) {
+            getPhotos();
+            toggleActiveLink();
+          }
+        }}
+      >
+        <Text style={[styles.text, !camera && styles.underline]}>PHOTOS</Text>
+      </TouchableOpacity>
+    </View>
   </View>
 );
 

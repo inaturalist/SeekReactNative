@@ -1,10 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
 import {
-  colors,
-  fonts,
-  fontSize,
-  margins,
-  padding
+  colors
 } from "./global";
 
 const { width, height } = Dimensions.get( "screen" );
@@ -12,10 +8,8 @@ const { width, height } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   container: {
     backgroundColor: "transparent",
-    flex: 1,
     width,
-    height,
-    flexDirection: "column"
+    height
   },
   main: {
     flexGrow: 1

@@ -17,8 +17,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   header: {
-    flex: 1,
-    width,
+    flex: 0.3,
     marginTop: margins.medium,
     alignItems: "center",
     justifyContent: "flex-start"
@@ -73,7 +72,7 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   imageBackground: {
-    flex: 5,
+    flex: 4,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
     paddingTop: padding.large,
@@ -93,6 +92,9 @@ export default StyleSheet.create( {
     marginHorizontal: "auto",
     justifyContent: "space-around",
     flexWrap: "nowrap"
+  },
+  centeredText: {
+    textAlign: "center"
   },
   imageContainer: {
     borderRadius: 5,

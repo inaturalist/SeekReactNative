@@ -80,10 +80,8 @@ const ChallengeResultsScreen = ( {
             </View>
           ) : null }
         </View>
-        <View>
-          <Text style={styles.text}>{text}</Text>
-        </View>
         <View style={styles.footer}>
+          <Text style={styles.text}>{text}</Text>
           <TouchableHighlight style={styles.button}>
             <Text
               style={styles.buttonText}

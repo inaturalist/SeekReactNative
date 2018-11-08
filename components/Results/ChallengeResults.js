@@ -9,7 +9,10 @@ import {
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
+import Realm from "realm";
+import moment from "moment";
 
+import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingWheel from "../LoadingWheel";
 import config from "../../config";
@@ -42,6 +45,8 @@ class ChallengeResults extends Component {
       buttonText: null,
       taxaId: null,
       observation: {},
+      seenTaxaIds: [],
+      seenDate: null,
       id,
       image,
       time,
@@ -56,15 +61,29 @@ class ChallengeResults extends Component {
     this.resizeImage();
   }
 
-  setTextAndPhoto() {
+  setTextAndPhoto( seenDate ) {
     const {
       id,
       taxaId,
       score,
-      taxaName
+      taxaName,
+      seenTaxaIds
     } = this.state;
 
-    if ( score > 85 && id === undefined ) {
+    console.log( seenDate, "seen date in function" );
+    console.log( seenTaxaIds, "seen taxa" );
+
+    if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
+      this.setState( {
+        title: "Deja Vu!",
+        subtitle: `Looks like you already collected a ${taxaName}`,
+        match: true,
+        text: `You collected a photo of a ${taxaName} on ${seenDate}`,
+        buttonText: "OK",
+        yourPhotoText: `Your photo:\n${taxaName}`,
+        photoText: `Identified Species:\n${taxaName}`
+      } );
+    } else if ( score > 85 && id === undefined ) {
       this.setState( {
         title: "Sweet!",
         subtitle: `You saw a ${taxaName}`,
@@ -99,6 +118,23 @@ class ChallengeResults extends Component {
         buttonText: "Add to Collection"
       } );
     }
+  }
+
+  fetchSeenTaxaIds( taxaId ) {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        if ( seenTaxaIds.includes( taxaId ) ) {
+          const observations = realm.objects( "ObservationRealm" );
+          const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
+          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          this.setState( {
+            seenTaxaIds
+          }, () => this.setTextAndPhoto( seenDate ) );
+        }
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
   }
 
   savePhotoOrStartOver( buttonText ) {
@@ -173,7 +209,7 @@ class ChallengeResults extends Component {
           matchUrl: match.taxon.default_photo.medium_url,
           loading: false
         }, () => {
-          this.setTextAndPhoto();
+          this.fetchSeenTaxaIds( this.state.taxaId );
         } );
       } )
       .catch( ( err ) => {

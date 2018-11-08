@@ -5,8 +5,7 @@ import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import {
-  View,
-  StatusBar
+  View
 } from "react-native";
 
 import realmConfig from "../models/index";

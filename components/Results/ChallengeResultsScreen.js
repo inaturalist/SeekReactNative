@@ -4,6 +4,7 @@ import React from "react";
 import {
   View,
   Image,
+  ScrollView,
   Text,
   TouchableHighlight
 } from "react-native";
@@ -39,83 +40,60 @@ const ChallengeResultsScreen = ( {
   navigation
 }: Props ) => {
   let resultsIcon;
-  let photos;
-  let captions;
 
   if ( match === true ) {
     resultsIcon = <Image source={require( "../../assets/results/icn-results-match.png" )} />;
-    photos = (
-      <View style={styles.imageCell}>
-        <Image
-          style={styles.imageContainer}
-          source={{ uri: image.uri }}
-        />
-        <Image
-          style={styles.imageContainer}
-          source={{ uri: matchUrl }}
-        />
-      </View> );
-    captions = (
-      <View style={styles.textCell}>
-        <Text style={styles.captionText}>{yourPhotoText}</Text>
-        <Text style={styles.captionText}>{photoText}</Text>
-      </View> );
   } else if ( match === false ) {
     resultsIcon = <Image source={require( "../../assets/results/icn-results-mismatch.png" )} />;
-    photos = (
-      <View style={styles.imageCell}>
-        <Image
-          style={styles.imageContainer}
-          source={{ uri: image.uri }}
-        />
-        <Image
-          style={styles.imageContainer}
-          source={{ uri: matchUrl }}
-        />
-      </View> );
-    captions = (
-      <View style={styles.textCell}>
-        <Text style={styles.captionText}>{yourPhotoText}</Text>
-        <Text style={styles.captionText}>{photoText}</Text>
-      </View> );
   } else {
     resultsIcon = <Image source={require( "../../assets/results/icn-results-unknown.png" )} />;
-    photos = (
-      <View style={styles.imageCell}>
-        <Image
-          style={styles.imageContainer}
-          source={{ uri: image.uri }}
-        />
-      </View> );
-  };
+  }
 
   return (
     <View>
       <NavBar navigation={navigation} />
-      <View style={styles.header}>
-        <Text style={styles.headerText}>{title}</Text>
-        <Text style={styles.text}>{subtitle}</Text>
-        <View style={styles.matchImage}>
-          {resultsIcon}
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>{title}</Text>
+          <Text style={styles.text}>{subtitle}</Text>
+          <View style={styles.matchImage}>
+            {resultsIcon}
+          </View>
         </View>
-      </View>
-      <View style={styles.imageBackground}>
-        {photos}
-        {captions}
-      </View>
-      <View>
-        <Text style={styles.text}>{text}</Text>
-      </View>
-      <View style={styles.footer}>
-        <TouchableHighlight style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => onPress( buttonText )}
-          >
-            {buttonText}
-          </Text>
-        </TouchableHighlight>
-      </View>
+        <View style={styles.imageBackground}>
+          <View style={styles.imageCell}>
+            <Image
+              style={styles.imageContainer}
+              source={{ uri: image.uri }}
+            />
+            { ( match === true || match === false ) ? (
+              <Image
+                style={styles.imageContainer}
+                source={{ uri: matchUrl }}
+              />
+            ) : null }
+          </View>
+          { ( match === true || match === false ) ? (
+            <View style={styles.textCell}>
+              <Text style={styles.captionText}>{yourPhotoText}</Text>
+              <Text style={styles.captionText}>{photoText}</Text>
+            </View>
+          ) : null }
+        </View>
+        <View>
+          <Text style={styles.text}>{text}</Text>
+        </View>
+        <View style={styles.footer}>
+          <TouchableHighlight style={styles.button}>
+            <Text
+              style={styles.buttonText}
+              onPress={() => onPress( buttonText )}
+            >
+              {buttonText}
+            </Text>
+          </TouchableHighlight>
+        </View>
+      </ScrollView>
     </View>
   );
 };

@@ -24,7 +24,7 @@ export default StyleSheet.create( {
     justifyContent: "flex-start"
   },
   headerText: {
-    fontSize: fontSize.header,
+    fontSize: fontSize.mediumHeader,
     lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
@@ -39,6 +39,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     flexWrap: "wrap",
     alignSelf: "center",
+    marginHorizontal: margins.medium,
     marginBottom: margins.medium
   },
   captionText: {
@@ -47,7 +48,8 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap",
-    marginTop: margins.medium
+    marginHorizontal: margins.medium,
+    marginTop: margins.large
   },
   button: {
     backgroundColor: colors.darkGreen,
@@ -71,7 +73,7 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   imageBackground: {
-    flex: 2,
+    flex: 5,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
     paddingTop: padding.large,
@@ -88,16 +90,18 @@ export default StyleSheet.create( {
     flexDirection: "row",
     alignItems: "center",
     textAlign: "center",
+    marginHorizontal: "auto",
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
   imageContainer: {
+    borderRadius: 5,
     borderColor: colors.white,
     borderWidth: 1,
     width: width / 3 - 10,
     height: width / 3 - 10
   },
   footer: {
-    flex: 2
+    flex: 1
   }
 } );

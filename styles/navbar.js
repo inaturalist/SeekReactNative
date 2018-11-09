@@ -13,10 +13,24 @@ export default StyleSheet.create( {
     borderBottomWidth: 0.25,
     borderColor: colors.darkGray
   },
+  blueContainer: {
+    flex: 0.5,
+    backgroundColor: colors.darkestBlue,
+    borderBottomWidth: 0.25,
+    borderColor: colors.white
+  },
   text: {
     fontSize: fontSize.mediumHeader,
     textAlign: "left",
     color: colors.black,
+    fontFamily: fonts.default,
+    marginTop: margins.medium + 5,
+    marginLeft: margins.medium
+  },
+  blueContainerText: {
+    fontSize: fontSize.mediumHeader,
+    textAlign: "left",
+    color: colors.white,
     fontFamily: fonts.default,
     marginTop: margins.medium + 5,
     marginLeft: margins.medium

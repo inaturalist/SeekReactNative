@@ -263,7 +263,7 @@ class SpeciesDetail extends Component {
 
     return (
       <View style={styles.container}>
-        <NavBar navigation={navigation} />
+        <NavBar navigation={navigation} species />
         <View style={styles.infoContainer}>
           <ScrollView>
             <ScrollView

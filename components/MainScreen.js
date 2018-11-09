@@ -32,8 +32,13 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
+    const banner = navigation.getParam( "banner" );
+    const taxaName = navigation.getParam( "taxaName" );
+
     this.state = {
       taxa: [],
+      banner,
+      bannerText: `${taxaName} collected!`,
       loading: true,
       latitude: null,
       longitude: null,
@@ -230,6 +235,8 @@ class MainScreen extends Component<Props, State> {
 
   render() {
     const {
+      banner,
+      bannerText,
       loading,
       latitude,
       longitude,
@@ -261,6 +268,8 @@ class MainScreen extends Component<Props, State> {
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}
+            banner={banner}
+            bannerText={bannerText}
           />
         </View>
       </View>

@@ -44,9 +44,9 @@ class ChallengeResults extends Component {
       text: null,
       buttonText: null,
       taxaId: null,
+      taxaName: null,
       observation: {},
       seenTaxaIds: [],
-      seenDate: null,
       id,
       image,
       time,
@@ -69,9 +69,6 @@ class ChallengeResults extends Component {
       taxaName,
       seenTaxaIds
     } = this.state;
-
-    console.log( seenDate, "seen date in function" );
-    console.log( seenTaxaIds, "seen taxa" );
 
     if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
       this.setState( {
@@ -117,6 +114,14 @@ class ChallengeResults extends Component {
         text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
         buttonText: "Add to Collection"
       } );
+    } else {
+      this.setState( {
+        title: "Hrmmmmm",
+        subtitle: "We can't figure this one out. Please try some adjustments.",
+        match: "unknown",
+        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
+        buttonText: "Start over"
+      } );
     }
   }
 
@@ -134,13 +139,16 @@ class ChallengeResults extends Component {
         }
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
+        this.setTextAndPhoto();
       } );
+    this.setTextAndPhoto();
   }
 
   savePhotoOrStartOver( buttonText ) {
     const {
       id,
       observation,
+      taxaName,
       latitude,
       longitude
     } = this.state;
@@ -151,7 +159,7 @@ class ChallengeResults extends Component {
 
     if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude );
-      navigation.navigate( "Main" );
+      navigation.navigate( "Main", { banner: true, taxaName } );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );
     } else {

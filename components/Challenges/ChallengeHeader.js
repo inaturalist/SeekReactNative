@@ -3,15 +3,19 @@
 import React from "react";
 
 import {
+  Image,
   TouchableOpacity,
   Text,
   View
 } from "react-native";
 
+import Banner from "../Banner";
 import styles from "../../styles/challenges";
 
 type Props = {
   navigation: any,
+  banner: ?boolean,
+  bannerText: string,
   latitude: number,
   longitude: number,
   location: string,
@@ -23,6 +27,8 @@ type Props = {
 
 const ChallengeHeader = ( {
   navigation,
+  banner,
+  bannerText,
   latitude,
   longitude,
   location,
@@ -31,6 +37,16 @@ const ChallengeHeader = ( {
   updateLocation
 }: Props ) => (
   <View style={styles.header}>
+    { banner ? (
+      <View style={styles.banner}>
+        <Image
+          source={require( "../../assets/results/icn-results-match.png" )}
+          style={styles.bannerImage}
+        />
+        <Banner bannerText={bannerText} />
+      </View>
+    ) : null
+    }
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}

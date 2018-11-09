@@ -22,6 +22,17 @@ export default StyleSheet.create( {
     flexDirection: "column",
     justifyContent: "center"
   },
+  banner: {
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  bannerImage: {
+    position: "absolute",
+    bottom: 10,
+    left: 10,
+    zIndex: 1
+  },
   header: {
     flex: 0.6,
     left: 0,

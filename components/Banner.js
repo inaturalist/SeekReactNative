@@ -1,11 +1,16 @@
+// @flow
 import React from "react";
 import { View, Text } from "react-native";
 
 import styles from "../styles/banner";
 
-const Banner = () => (
+type Props = {
+  bannerText: string
+}
+
+const Banner = ( { bannerText }: Props ) => (
   <View style={styles.background}>
-    <Text style={styles.text}>Collected X on X date!</Text>
+    <Text style={styles.text}>{bannerText}</Text>
   </View>
 );
 

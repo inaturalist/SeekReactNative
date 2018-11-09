@@ -9,7 +9,10 @@ import {
   TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
+import Realm from "realm";
+import moment from "moment";
 
+import realmConfig from "../../models/index";
 import NavBar from "../NavBar";
 import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
@@ -42,6 +45,7 @@ class SpeciesDetail extends Component {
       commonName: null,
       scientificName: null,
       about: null,
+      showBanner: false,
       timesSeen: null,
       taxaType: null,
       region: {
@@ -59,6 +63,24 @@ class SpeciesDetail extends Component {
     this.fetchTaxonDetails();
     this.fetchHistogram();
     this.fetchNearbySpeciesCount();
+    this.checkIfSpeciesSeen();
+  }
+
+  checkIfSpeciesSeen() {
+    const { id } = this.state;
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const observations = realm.objects( "ObservationRealm" );
+        const seenTaxa = observations.filtered( `taxon.id == ${id}` );
+        const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+        this.setState( {
+          bannerText: `Collected on ${seenDate}!`,
+          showBanner: true
+        } );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
   }
 
   fetchTaxonDetails() {
@@ -139,6 +161,8 @@ class SpeciesDetail extends Component {
       photos,
       region,
       scientificName,
+      showBanner,
+      bannerText,
       timesSeen,
       taxaType
     } = this.state;
@@ -252,13 +276,16 @@ class SpeciesDetail extends Component {
             >
               {photoList}
             </ScrollView>
-            <View style={styles.banner}>
-              <Image
-                source={require( "../../assets/results/icn-results-match.png" )}
-                style={{ position: "absolute", bottom: 10, left: 10, zIndex: 1 }}
-              />
-              <Banner />
-            </View>
+            { showBanner ? (
+              <View style={styles.banner}>
+                <Image
+                  source={require( "../../assets/results/icn-results-match.png" )}
+                  style={styles.bannerImage}
+                />
+                <Banner bannerText={bannerText} />
+              </View>
+            ) : null
+            }
             <View style={styles.headerContainer}>
               <Text style={styles.largeHeaderText}>{commonName}</Text>
               <Text style={styles.headerText}>Scientific Name:</Text>

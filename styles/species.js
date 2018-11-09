@@ -23,6 +23,12 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
+  bannerImage: {
+    position: "absolute",
+    bottom: 10,
+    left: 10,
+    zIndex: 1
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,

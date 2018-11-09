@@ -99,6 +99,10 @@ export default StyleSheet.create( {
     height: height / 3,
     backgroundColor: colors.darkDesaturatedBlue
   },
+  profile: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
   profileButton: {
     zIndex: 1,
     marginBottom: margins.extraSmall,
@@ -116,6 +120,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     marginBottom: margins.medium,
-    paddingLeft: "30%"
+    paddingLeft: "25%"
   }
 } );

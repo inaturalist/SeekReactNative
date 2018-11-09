@@ -14,6 +14,9 @@ export default StyleSheet.create( {
     height: 42,
     width
   },
+  mainBackground: {
+    top: 40
+  },
   text: {
     fontFamily: fonts.default,
     fontSize: fontSize.text,

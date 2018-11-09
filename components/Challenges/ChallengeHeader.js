@@ -14,7 +14,7 @@ import styles from "../../styles/challenges";
 
 type Props = {
   navigation: any,
-  banner: ?boolean,
+  speciesSeen: ?boolean,
   bannerText: string,
   latitude: number,
   longitude: number,
@@ -27,7 +27,7 @@ type Props = {
 
 const ChallengeHeader = ( {
   navigation,
-  banner,
+  speciesSeen,
   bannerText,
   latitude,
   longitude,
@@ -37,16 +37,16 @@ const ChallengeHeader = ( {
   updateLocation
 }: Props ) => (
   <View style={styles.header}>
-    { banner ? (
+    {/* { speciesSeen ? ( */}
       <View style={styles.banner}>
         <Image
           source={require( "../../assets/results/icn-results-match.png" )}
           style={styles.bannerImage}
         />
-        <Banner bannerText={bannerText} />
+        <Banner bannerText={bannerText} main />
       </View>
-    ) : null
-    }
+      {/* ) : null */}
+      {/* } */}
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}

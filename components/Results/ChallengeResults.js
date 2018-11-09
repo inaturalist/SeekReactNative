@@ -159,7 +159,7 @@ class ChallengeResults extends Component {
 
     if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude );
-      navigation.navigate( "Main", { banner: true, taxaName } );
+      navigation.navigate( "Main", { taxaName, speciesSeen: true } );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );
     } else {

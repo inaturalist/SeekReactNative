@@ -23,13 +23,14 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   banner: {
+    zIndex: 1,
     backgroundColor: colors.white,
     flexDirection: "row",
     flexWrap: "nowrap"
   },
   bannerImage: {
     position: "absolute",
-    bottom: 10,
+    top: 25,
     left: 10,
     zIndex: 1
   },

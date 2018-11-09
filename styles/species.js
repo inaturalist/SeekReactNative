@@ -18,6 +18,11 @@ export default StyleSheet.create( {
   headerContainer: {
     backgroundColor: colors.darkBlue
   },
+  banner: {
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,

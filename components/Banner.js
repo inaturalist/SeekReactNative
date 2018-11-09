@@ -5,7 +5,7 @@ import styles from "../styles/banner";
 
 const Banner = () => (
   <View style={styles.background}>
-    <Text style={styles.text}>Collected X on X date</Text>
+    <Text style={styles.text}>Collected X on X date!</Text>
   </View>
 );
 

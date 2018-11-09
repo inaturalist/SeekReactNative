@@ -1,5 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins
+} from "./global";
 
 const { width } = Dimensions.get( "screen" );
 
@@ -12,6 +17,10 @@ export default StyleSheet.create( {
   text: {
     fontFamily: fonts.default,
     fontSize: fontSize.text,
-    color: colors.black
+    fontWeight: "500",
+    color: colors.black,
+    marginTop: margins.small,
+    marginBottom: margins.small,
+    textAlign: "center"
   }
 } );

@@ -11,6 +11,7 @@ import {
 import inatjs from "inaturalistjs";
 
 import NavBar from "../NavBar";
+import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
@@ -251,6 +252,13 @@ class SpeciesDetail extends Component {
             >
               {photoList}
             </ScrollView>
+            <View style={styles.banner}>
+              <Image
+                source={require( "../../assets/results/icn-results-match.png" )}
+                style={{ position: "absolute", bottom: 10, left: 10, zIndex: 1 }}
+              />
+              <Banner />
+            </View>
             <View style={styles.headerContainer}>
               <Text style={styles.largeHeaderText}>{commonName}</Text>
               <Text style={styles.headerText}>Scientific Name:</Text>

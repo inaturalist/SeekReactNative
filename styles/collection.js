@@ -33,7 +33,8 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   species: {
-    flex: 3
+    flex: 3,
+    backgroundColor: colors.white
   },
   taxonGrid: {
     flex: 4,

@@ -5,8 +5,7 @@ import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import {
-  View,
-  StatusBar
+  View
 } from "react-native";
 
 import realmConfig from "../models/index";
@@ -35,6 +34,7 @@ class MainScreen extends Component<Props, State> {
 
     this.state = {
       taxa: [],
+      bannerText: ` collected!`,
       loading: true,
       latitude: null,
       longitude: null,
@@ -53,6 +53,8 @@ class MainScreen extends Component<Props, State> {
   componentDidMount() {
     this.getGeolocation();
     this.fetchSpeciesAndBadgeCount();
+
+    console.log( this.props.navigation, 'navigation');
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -231,6 +233,8 @@ class MainScreen extends Component<Props, State> {
 
   render() {
     const {
+      speciesSeen,
+      bannerText,
       loading,
       latitude,
       longitude,
@@ -262,6 +266,8 @@ class MainScreen extends Component<Props, State> {
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}
+            speciesSeen={speciesSeen}
+            bannerText={bannerText}
           />
         </View>
       </View>

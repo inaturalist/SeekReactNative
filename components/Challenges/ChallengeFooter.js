@@ -40,6 +40,8 @@ class ChallengeFooter extends Component<Props> {
     } = this.props;
 
     let profileIcon;
+    const species = `Species: ${speciesCount}  `;
+    const badges = `Badges: ${badgeCount}`;
 
     if ( speciesCount <= 0 ) {
       profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg.png" )} />;
@@ -62,13 +64,18 @@ class ChallengeFooter extends Component<Props> {
     return (
       <View style={styles.footer}>
         <View style={styles.bottomNavigation}>
-          <TouchableOpacity
-            style={styles.profileButton}
-            onPress={() => navigation.navigate( "YourCollection" )}
-          >
-            {profileIcon}
-          </TouchableOpacity>
-          <Text style={styles.profileText}>Species: {speciesCount}  Badges: {badgeCount}</Text>
+          <View style={styles.profile}>
+            <TouchableOpacity
+              style={styles.profileButton}
+              onPress={() => navigation.navigate( "YourCollection" )}
+            >
+              {profileIcon}
+              <Text style={styles.profileText}>
+                {species}
+                {badges}
+              </Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
             style={styles.addPhotoButton}
             onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}

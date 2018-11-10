@@ -22,6 +22,18 @@ export default StyleSheet.create( {
     flexDirection: "column",
     justifyContent: "center"
   },
+  banner: {
+    zIndex: 1,
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  bannerImage: {
+    position: "absolute",
+    top: 25,
+    left: 10,
+    zIndex: 1
+  },
   header: {
     flex: 0.6,
     left: 0,
@@ -99,6 +111,10 @@ export default StyleSheet.create( {
     height: height / 3,
     backgroundColor: colors.darkDesaturatedBlue
   },
+  profile: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
   profileButton: {
     zIndex: 1,
     marginBottom: margins.extraSmall,
@@ -116,6 +132,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     marginBottom: margins.medium,
-    paddingLeft: "30%"
+    paddingLeft: "25%"
   }
 } );

@@ -60,7 +60,10 @@ class YourCollection extends Component {
         <NavBar navigation={navigation} />
         <View style={styles.badges}>
           <Text style={styles.headerText}>Recent Badges</Text>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={navigation.navigate( "Badges" )}
+          >
             <Text style={styles.text}>
               View All
             </Text>

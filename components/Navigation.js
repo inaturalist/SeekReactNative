@@ -10,6 +10,7 @@ import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";
+import BadgesScreen from "./BadgesScreen";
 
 const RootStack = createStackNavigator( {
   Home: { screen: SplashScreen },
@@ -20,7 +21,8 @@ const RootStack = createStackNavigator( {
   Taxon: { screen: TaxonPickerScreen },
   Results: { screen: ChallengeResults },
   Species: { screen: SpeciesDetail },
-  YourCollection: { screen: YourCollection }
+  YourCollection: { screen: YourCollection },
+  Badges: { screen: BadgesScreen }
 }, {
   navigationOptions: { header: null }
 } );

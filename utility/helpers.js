@@ -29,7 +29,6 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
 };
 
 const reverseGeocodeLocation = ( latitude, longitude ) => {
-  console.log( Geocoder.default, "geocoder", latitude, longitude );
   Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )
     .then( ( result ) => {
       const { locality, subAdminArea } = result[0];

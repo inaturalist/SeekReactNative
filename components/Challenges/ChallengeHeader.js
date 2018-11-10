@@ -37,7 +37,7 @@ const ChallengeHeader = ( {
   updateLocation
 }: Props ) => (
   <View style={styles.header}>
-    {/* { speciesSeen ? ( */}
+    { speciesSeen ? (
       <View style={styles.banner}>
         <Image
           source={require( "../../assets/results/icn-results-match.png" )}
@@ -45,8 +45,8 @@ const ChallengeHeader = ( {
         />
         <Banner bannerText={bannerText} main />
       </View>
-      {/* ) : null */}
-      {/* } */}
+    ) : null
+    }
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}

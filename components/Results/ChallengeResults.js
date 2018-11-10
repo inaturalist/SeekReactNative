@@ -163,7 +163,8 @@ class ChallengeResults extends Component {
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );
     } else {
-      navigation.navigate( "Main" );
+      // navigation.navigate( "Main" );
+      navigation.navigate( "Main", { taxaName, speciesSeen: true } );
     }
   }
 
@@ -207,7 +208,6 @@ class ChallengeResults extends Component {
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( { results } ) => {
-        console.log( results, "computer vision results" );
         const match = results[0];
         this.setState( {
           observation: match,

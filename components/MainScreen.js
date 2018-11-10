@@ -32,13 +32,9 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const taxaName = navigation.getParam( "taxaName", null );
-    const speciesSeen = navigation.getParam( "speciesSeen", false );
-
     this.state = {
       taxa: [],
-      bannerText: `${taxaName} collected!`,
-      speciesSeen,
+      bannerText: ` collected!`,
       loading: true,
       latitude: null,
       longitude: null,
@@ -57,6 +53,8 @@ class MainScreen extends Component<Props, State> {
   componentDidMount() {
     this.getGeolocation();
     this.fetchSpeciesAndBadgeCount();
+
+    console.log( this.props.navigation, 'navigation');
   }
 
   setTaxa( challenges: Array<Object> ) {

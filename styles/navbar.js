@@ -8,13 +8,13 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 0.5,
+    height: 60,
     backgroundColor: colors.lightGray,
     borderBottomWidth: 0.25,
     borderColor: colors.darkGray
   },
   blueContainer: {
-    flex: 0.5,
+    height: 60,
     backgroundColor: colors.darkestBlue,
     borderBottomWidth: 0.25,
     borderColor: colors.white

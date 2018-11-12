@@ -24,7 +24,8 @@ class BadgesScreen extends Component {
     super();
 
     this.state = {
-      badges: [{ id: 1, name: "bird" }, { id: 2, name: "quail" }]
+      badges: [{ id: 1, name: "bird" }, { id: 2, name: "quail" }],
+      title: ""
     };
   }
 
@@ -32,6 +33,20 @@ class BadgesScreen extends Component {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
+        const earned = badges.filtered( "earned == true" );
+        if ( earned.length === 0 ) {
+          this.setState( {
+            title: "No Badges Earned"
+          } );
+        } else if ( earned.length === 1 ) {
+          this.setState( {
+            title: "1 Badge Earned"
+          } );
+        } else {
+          this.setState( {
+            title: `${earned.length} Badges Earned`
+          } );
+        }
         console.log( badges, "badges in realm" );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -40,12 +55,13 @@ class BadgesScreen extends Component {
 
   render() {
     console.log( badgeImages, "badges imported from assets" );
-    const { badges } = this.state;
+    const { badges, title } = this.state;
     const { navigation } = this.props;
 
     return (
       <View>
         <NavBar navigation={navigation} />
+        <Text>{title}</Text>
         <FlatList
           data={ badges }
           scrollEnabled={false}

@@ -41,7 +41,7 @@ class YourCollection extends Component {
           badges,
           observations
         } );
-        console.log( observations, "observations on collection page" );
+        // console.log( observations, "observations on collection page" );
       } )
       .catch( e => console.log( "Err: ", e ) );
   }
@@ -62,7 +62,7 @@ class YourCollection extends Component {
           <Text style={styles.headerText}>Recent Badges</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={navigation.navigate( "Badges" )}
+            onPress={() => navigation.navigate( "Badges" )}
           >
             <Text style={styles.text}>
               View All

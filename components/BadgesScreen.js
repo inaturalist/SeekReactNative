@@ -8,7 +8,10 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
+import Realm from "realm";
 
+import badgeImages from "../assets/badges";
+import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/badges";
 
@@ -25,7 +28,18 @@ class BadgesScreen extends Component {
     };
   }
 
+  fetchBadges() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const badges = realm.objects( "BadgeRealm" );
+        console.log( badges, "badges in realm" );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   render() {
+    console.log( badgeImages, "badges imported from assets" );
     const { badges } = this.state;
     const { navigation } = this.props;
 
@@ -44,7 +58,7 @@ class BadgesScreen extends Component {
               >
                 <View style={ styles.gridCellContents }>
                   <Image
-                    source={require( "../assets/taxa/icn-iconic-taxa-birds.png" )}
+                    source={badgeImages.cub.earnedIcon}
                   />
                   <View style={ styles.cellTitle }>
                     <Text style={ styles.cellTitleText }>

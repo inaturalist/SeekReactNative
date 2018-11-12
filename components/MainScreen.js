@@ -11,7 +11,7 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
-import { capitalizeNames, truncateCoordinates } from "../utility/helpers";
+import { capitalizeNames, setupBadges, truncateCoordinates } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -53,8 +53,7 @@ class MainScreen extends Component<Props, State> {
   componentDidMount() {
     this.getGeolocation();
     this.fetchSpeciesAndBadgeCount();
-
-    console.log( this.props.navigation, 'navigation');
+    setupBadges();
   }
 
   setTaxa( challenges: Array<Object> ) {

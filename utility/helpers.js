@@ -3,6 +3,7 @@ const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
 
+const badgesDict = require( "../assets/badges" );
 const realmConfig = require( "../models/index" );
 
 const capitalizeNames = ( name ) => {
@@ -65,11 +66,37 @@ const addToCollection = ( observation, latitude, longitude ) => {
           longitude,
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
-        console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
-        console.log( species, "realm observation after writing to file" );
+        // console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
+        // console.log( species, "realm observation after writing to file" );
       } );
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
+    } );
+};
+
+const setupBadges = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      realm.write( () => {
+        const dict = Object.keys( badgesDict.default );
+        dict.forEach( ( badgeType ) => {
+          const badges = badgesDict.default[badgeType];
+
+          const badge = realm.create( "BadgeRealm", {
+            name: badges.name,
+            iconicTaxonName: badges.iconicTaxonName,
+            iconicTaxonId: badges.iconicTaxonId,
+            count: badges.count,
+            earnedIconName: badges.earnedIconName,
+            unearnedIconName: badges.unearnedIconName,
+            infoText: badges.infoText,
+            index: badges.index
+          } );
+          console.log( badge, "realm badges after writing to file" );
+        } );
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm, error: ", err );
     } );
 };
 
@@ -78,5 +105,6 @@ export {
   capitalizeNames,
   flattenUploadParameters,
   reverseGeocodeLocation,
+  setupBadges,
   truncateCoordinates
 };

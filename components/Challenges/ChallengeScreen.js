@@ -56,7 +56,7 @@ const ChallengeScreen = ( {
   );
 
   return (
-    <View>
+    <View style={ { flex: 1 } }>
       <ImageBackground
         style={styles.backgroundImage}
         source={require( "../../assets/backgrounds/background.png" )}

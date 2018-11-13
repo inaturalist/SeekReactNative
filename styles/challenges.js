@@ -11,6 +11,7 @@ const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
+    paddingTop: 20,
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between"

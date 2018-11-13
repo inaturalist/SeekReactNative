@@ -7,20 +7,18 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
-    width,
-    height
+    paddingTop: 20,
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   container: {
     flex: 1,
-    width,
-    height,
-    backgroundColor: colors.darkBlue,
-    flexDirection: "column",
-    justifyContent: "center"
+    backgroundColor: colors.darkBlue
   },
   banner: {
     zIndex: 1,
@@ -35,15 +33,12 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   header: {
-    flex: 0.6,
-    left: 0,
-    right: 0,
-    top: 0
+    height: 50
   },
   headerText: {
     marginLeft: margins.medium,
     fontSize: fontSize.smallText,
-    lineHeight: 12,
+    lineHeight: 14,
     color: colors.white,
     fontFamily: fonts.default,
     position: "absolute",
@@ -105,10 +100,9 @@ export default StyleSheet.create( {
     paddingTop: padding.extraSmall
   },
   footer: {
-    flex: 0.5,
     marginTop: margins.small,
     justifyContent: "flex-end",
-    height: height / 3,
+    height: 50,
     backgroundColor: colors.darkDesaturatedBlue
   },
   profile: {

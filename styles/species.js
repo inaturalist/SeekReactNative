@@ -11,9 +11,8 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
-    width,
-    height,
-    backgroundColor: colors.darkBlue
+    backgroundColor: colors.darkBlue,
+    flex: 1
   },
   headerContainer: {
     backgroundColor: colors.darkBlue

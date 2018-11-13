@@ -18,7 +18,6 @@ type Props = {
   takePicture: Function,
   toggleFlash: Function,
   toggleCamera: Function,
-  getCameraCaptureFromGallery: Function,
   photos: Array<Object>,
   loading: boolean,
   selectImage: Function,
@@ -35,7 +34,6 @@ const CameraCaptureScreen = ( {
   takePicture,
   toggleFlash,
   toggleCamera,
-  getCameraCaptureFromGallery,
   photos,
   loading,
   selectImage,
@@ -54,9 +52,7 @@ const CameraCaptureScreen = ( {
     <View style={styles.main} />
     { camera ? (
       <CameraCapture
-        id={id}
         takePicture={takePicture}
-        getCameraCaptureFromGallery={getCameraCaptureFromGallery}
       />
     ) : (
       <GalleryScreen

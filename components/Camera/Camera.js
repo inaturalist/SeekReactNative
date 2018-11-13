@@ -36,7 +36,6 @@ class CameraScreen extends Component {
     this.toggleCamera = this.toggleCamera.bind( this );
     this.toggleFlash = this.toggleFlash.bind( this );
     this.takePicture = this.takePicture.bind( this );
-    this.getCameraCaptureFromGallery = this.getCameraCaptureFromGallery.bind( this );
     this.toggleActiveLink = this.toggleActiveLink.bind( this );
     this.selectImage = this.selectImage.bind( this );
     this.getPhotos = this.getPhotos.bind( this );
@@ -75,7 +74,7 @@ class CameraScreen extends Component {
     if ( this.camera ) {
       this.camera
         .takePictureAsync()
-        .then( data => CameraRoll.saveToCameraRoll( data.uri, "photo" ) )
+        .then( data => this.savePhotoToGallery( data ) )
         .catch( ( err ) => {
           this.setState( {
             error: err.message
@@ -98,6 +97,16 @@ class CameraScreen extends Component {
         error: err.message
       } );
     } );
+  }
+
+  savePhotoToGallery( data ) {
+    CameraRoll.saveToCameraRoll( data.uri, "photo" )
+      .then( () => this.getCameraCaptureFromGallery() )
+      .catch( ( err ) => {
+        this.setState( {
+          error: err.message
+        } );
+      } );
   }
 
   toggleFlash() {
@@ -206,7 +215,6 @@ class CameraScreen extends Component {
           takePicture={this.takePicture}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
-          getCameraCaptureFromGallery={this.getCameraCaptureFromGallery}
           photos={photos}
           loading={loading}
           selectImage={this.selectImage}

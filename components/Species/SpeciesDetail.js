@@ -73,7 +73,12 @@ class SpeciesDetail extends Component {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-        const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+        let seenDate;
+
+        if ( seenTaxa[0] ) {
+          seenDate = moment( seenTaxa[0].date ).format( "ll" );
+        }
+
         this.setState( {
           bannerText: `Collected on ${seenDate}!`,
           showBanner: true

@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 
+import { setupBadges } from "../utility/helpers";
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
@@ -27,6 +28,9 @@ const RootStack = createStackNavigator( {
   navigationOptions: { header: null }
 } );
 
-export default App = () => (
-  <RootStack />
-);
+export default App = () => {
+  setupBadges();
+  return (
+    <RootStack />
+  );
+};

@@ -24,7 +24,7 @@ class BadgesScreen extends Component {
     super();
 
     this.state = {
-      badges: [{ id: 1, name: "bird" }, { id: 2, name: "quail" }],
+      badges: [],
       title: ""
     };
   }
@@ -32,7 +32,7 @@ class BadgesScreen extends Component {
   fetchBadges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const badges = realm.objects( "BadgeRealm" );
+        const badges = realm.objects( "BadgeRealm" ).sorted( "index" );
         const earned = badges.filtered( "earned == true" );
         if ( earned.length === 0 ) {
           this.setState( {
@@ -40,11 +40,13 @@ class BadgesScreen extends Component {
           } );
         } else if ( earned.length === 1 ) {
           this.setState( {
-            title: "1 Badge Earned"
+            title: "1 Badge Earned",
+            badges
           } );
         } else {
           this.setState( {
-            title: `${earned.length} Badges Earned`
+            title: `${earned.length} Badges Earned`,
+            badges
           } );
         }
         console.log( badges, "badges in realm" );
@@ -54,7 +56,6 @@ class BadgesScreen extends Component {
   }
 
   render() {
-    console.log( badgeImages, "badges imported from assets" );
     const { badges, title } = this.state;
     const { navigation } = this.props;
 
@@ -65,7 +66,7 @@ class BadgesScreen extends Component {
         <FlatList
           data={ badges }
           scrollEnabled={false}
-          keyExtractor={ badge => badge.id }
+          keyExtractor={ badge => badge.name }
           numColumns={ 3 }
           renderItem={ ( { item } ) => (
             <View style={ styles.gridCell }>
@@ -74,7 +75,7 @@ class BadgesScreen extends Component {
               >
                 <View style={ styles.gridCellContents }>
                   <Image
-                    source={badgeImages.cub.earnedIcon}
+                    source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
                   />
                   <View style={ styles.cellTitle }>
                     <Text style={ styles.cellTitleText }>

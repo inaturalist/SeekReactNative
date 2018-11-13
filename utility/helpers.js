@@ -78,21 +78,30 @@ const setupBadges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
+        const prevBadge = realm.objects( "BadgeRealm" );
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
           const badges = badgesDict.default[badgeType];
 
-          const badge = realm.create( "BadgeRealm", {
-            name: badges.name,
-            iconicTaxonName: badges.iconicTaxonName,
-            iconicTaxonId: badges.iconicTaxonId,
-            count: badges.count,
-            earnedIconName: badges.earnedIconName,
-            unearnedIconName: badges.unearnedIconName,
-            infoText: badges.infoText,
-            index: badges.index
-          } );
-          console.log( badge, "realm badges after writing to file" );
+          if ( prevBadge ) {
+            const badge = realm.create( "BadgeRealm", {
+              earned: badges.prevBadge.earned,
+              earnedDate: badges.prevBadge.earnedDate
+            }, true );
+            console.log( badge, "realm badge if previously created" );
+          } else {
+            const badge = realm.create( "BadgeRealm", {
+              name: badges.name,
+              iconicTaxonName: badges.iconicTaxonName,
+              iconicTaxonId: badges.iconicTaxonId,
+              count: badges.count,
+              earnedIconName: badges.earnedIconName,
+              unearnedIconName: badges.unearnedIconName,
+              infoText: badges.infoText,
+              index: badges.index
+            } );
+            console.log( badge, "realm badges after writing to file" );
+          }
         } );
       } );
     } ).catch( ( err ) => {
@@ -100,10 +109,39 @@ const setupBadges = () => {
     } );
 };
 
+// const recalculateBadges = () => {
+//   Realm.open( realmConfig.default )
+//     .then( ( realm ) => {
+//       const collectedTaxa = realm.objects( "TaxonRealm" );
+//       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
+//       unearnedBadges.forEach( ( badge ) => {
+//         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+//           const filteredCollection = collectedTaxa.filter( "iconicTaxonId == badge.iconicTaxonId" );
+//           if ( filteredCollection.length >= badge.count ) {
+//             realm.write( () => {
+//               unearnedBadges.earned = true;
+//               unearnedBadges.earnedDate = new Date();
+//             } );
+//           }
+//         } else if ( badge.count !== 0 ) {
+//           if ( collectedTaxa.length >= badge.count ) {
+//             realm.write( () => {
+//               unearnedBadges.earned = true;
+//               unearnedBadges.earnedDate = new Date();
+//             } );
+//           }
+//         }
+//       } );
+//     } ).catch( ( err ) => {
+//       console.log( "[DEBUG] Failed to open realm, error: ", err );
+//     } );
+// };
+
 export {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
+  // recalculateBadges,
   reverseGeocodeLocation,
   setupBadges,
   truncateCoordinates

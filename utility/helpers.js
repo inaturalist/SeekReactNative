@@ -92,11 +92,11 @@ const setupBadges = () => {
             infoText: badges.infoText,
             index: badges.index
           }, true );
-          console.log( badge, "realm badges after writing to file" );
+          // console.log( badge, "realm badges after writing to file" );
         } );
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm, error: ", err );
+      console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
     } );
 };
 
@@ -106,30 +106,22 @@ const recalculateBadges = () => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
 
-      console.log( collectedTaxa, "collected taxa" );
-      console.log( unearnedBadges, "unearned badges" );
-      // unearnedBadges.forEach( ( badge ) => {
-      //   if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
-      //     const filteredCollection = collectedTaxa.filter( "iconicTaxonId == badge.iconicTaxonId" );
+      unearnedBadges.forEach( ( badge ) => {
+        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+          const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
+          const collectionLength = Object.keys( filteredCollection );
 
-      //     console.log( filteredCollection, "filtered collection" );
-      //     if ( filteredCollection.length >= badge.count ) {
-      //       realm.write( () => {
-      //         badge.earned = true;
-      //         badge.earnedDate = new Date();
-      //       } );
-      //     }
-      //   } else if ( badge.count !== 0 ) {
-      //     if ( collectedTaxa.length >= badge.count ) {
-      //       realm.write( () => {
-      //         badge.earned = true;
-      //         badge.earnedDate = new Date();
-      //       } );
-      //     }
-      //  }
-      // } );
+          if ( collectionLength.length >= badge.count ) {
+            realm.write( () => {
+              badge.earned = true;
+              badge.earnedDate = new Date();
+            } );
+          }
+        }
+      } );
+      // console.log( realm.objects( "BadgeRealm" ).filtered( "earned == true" ), "earned badges" );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm, error: ", err );
+      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
 };
 

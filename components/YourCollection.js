@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   FlatList,
+  Alert,
   Image,
   TouchableOpacity,
   Text,
@@ -48,7 +49,8 @@ class YourCollection extends Component {
 
   render() {
     const {
-      observations
+      observations,
+      badges
     } = this.state;
 
     const {
@@ -59,15 +61,58 @@ class YourCollection extends Component {
       <View style={styles.container}>
         <NavBar navigation={navigation} />
         <View style={styles.badges}>
-          <Text style={styles.headerText}>Recent Badges</Text>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate( "Badges" )}
-          >
-            <Text style={styles.text}>
-              View All
-            </Text>
-          </TouchableOpacity>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Recent Badges</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate( "Badges" )}
+            >
+              <Text style={styles.text}>
+                View All
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.taxonGrid}>
+            <FlatList
+              data={ badges }
+              keyExtractor={ badge => badge.name }
+              numColumns={ 3 }
+              renderItem={ ( { item } ) => {
+                let msg = item.infoText;
+                if ( item.earned ) {
+                  msg = `${msg} You earned this badge.`;
+                }
+                return (
+                  <View style={ styles.gridCell }>
+                    <TouchableOpacity
+                      onPress={ () => Alert.alert(
+                        item.name,
+                        msg,
+                        [
+                          {
+                            text: "Got it!"
+                          }
+                        ],
+                        { cancelable: false }
+                      )}
+                    >
+                      <View style={ styles.gridCellContents }>
+                        <Image
+                          source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
+                        />
+                        <View style={ styles.cellTitle }>
+                          <Text style={ styles.cellTitleText }>
+                            {item.name}
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }
+            }
+            />
+          </View>
         </View>
         <View style={styles.species}>
           <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>

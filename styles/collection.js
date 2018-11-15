@@ -14,10 +14,12 @@ export default StyleSheet.create( {
     flex: 1
   },
   badges: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "nowrap",
+    flex: 1.5,
     backgroundColor: colors.lightGray
+  },
+  header: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
   },
   headerText: {
     fontSize: fontSize.header,

@@ -29,6 +29,10 @@ class BadgesScreen extends Component {
     };
   }
 
+  componentDidMount() {
+    this.fetchBadges();
+  }
+
   fetchBadges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {

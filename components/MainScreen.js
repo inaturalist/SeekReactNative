@@ -52,8 +52,8 @@ class MainScreen extends Component<Props, State> {
 
   componentDidMount() {
     this.getGeolocation();
-    this.fetchSpeciesAndBadgeCount();
     recalculateBadges();
+    this.fetchSpeciesAndBadgeCount();
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -190,7 +190,7 @@ class MainScreen extends Component<Props, State> {
       .then( ( realm ) => {
         this.setState( {
           speciesCount: realm.objects( "ObservationRealm" ).length,
-          badgeCount: realm.objects( "BadgeRealm" ).length
+          badgeCount: realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length
         } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );

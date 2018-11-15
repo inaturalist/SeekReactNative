@@ -117,6 +117,13 @@ const recalculateBadges = () => {
               badge.earnedDate = new Date();
             } );
           }
+        } else if ( badge.count !== 0 ) {
+          if ( collectedTaxa.length >= badge.count ) {
+            realm.write( () => {
+              badge.earned = true;
+              badge.earnedDate = new Date();
+            } );
+          }
         }
       } );
       // console.log( realm.objects( "BadgeRealm" ).filtered( "earned == true" ), "earned badges" );

@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
+  Alert,
   Image,
   Text,
   FlatList,
@@ -10,7 +11,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 
-import badgeImages from "../assets/badges";
+import badges from "../assets/badges";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/badges";
@@ -63,6 +64,16 @@ class BadgesScreen extends Component {
     const { badges, title } = this.state;
     const { navigation } = this.props;
 
+    let badgeIconName;
+
+    badges.forEach( ( badge ) => {
+      if ( badge.earned ) {
+        badgeIconName = badge.earnedIconName;
+      } else {
+        badgeIconName = badge.unearnedIconName;
+      }
+    } );
+
     return (
       <View>
         <NavBar navigation={navigation} />
@@ -71,24 +82,40 @@ class BadgesScreen extends Component {
           data={ badges }
           keyExtractor={ badge => badge.name }
           numColumns={ 3 }
-          renderItem={ ( { item } ) => (
-            <View style={ styles.gridCell }>
-              <TouchableOpacity
-                onPress={ console.log( "you clicked a badge" )}
-              >
-                <View style={ styles.gridCellContents }>
-                  <Image
-                    source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
-                  />
-                  <View style={ styles.cellTitle }>
-                    <Text style={ styles.cellTitleText }>
-                      {item.name}
-                    </Text>
+          renderItem={ ( { item } ) => {
+            let msg = item.infoText;
+            if ( item.earned ) {
+              msg = `${msg} You earned this badge.`;
+            }
+            return (
+              <View style={ styles.gridCell }>
+                <TouchableOpacity
+                  onPress={ () => Alert.alert(
+                    item.name,
+                    msg,
+                    [
+                      {
+                        text: "Got it!"
+                      }
+                    ],
+                    { cancelable: false }
+                  )}
+                >
+                  <View style={ styles.gridCellContents }>
+                    <Image
+                      source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
+                    />
+                    <View style={ styles.cellTitle }>
+                      <Text style={ styles.cellTitleText }>
+                        {item.name}
+                      </Text>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          ) }
+                </TouchableOpacity>
+              </View>
+            );
+          }
+          }
         />
       </View>
     );

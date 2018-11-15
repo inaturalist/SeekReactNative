@@ -3,7 +3,7 @@ const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
 
-const badgesDict = require( "../assets/badges" );
+const badgesDict = require( "./badgesDict" );
 const realmConfig = require( "../models/index" );
 
 const capitalizeNames = ( name ) => {

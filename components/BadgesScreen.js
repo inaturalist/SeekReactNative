@@ -44,12 +44,12 @@ class BadgesScreen extends Component {
           } );
         } else if ( earned.length === 1 ) {
           this.setState( {
-            title: "1 Badge Earned",
+            title: "1 Badge Earned!",
             badges
           } );
         } else {
           this.setState( {
-            title: `${earned.length} Badges Earned`,
+            title: `${earned.length} Badges Earned!`,
             badges
           } );
         }
@@ -69,7 +69,6 @@ class BadgesScreen extends Component {
         <Text>{title}</Text>
         <FlatList
           data={ badges }
-          scrollEnabled={false}
           keyExtractor={ badge => badge.name }
           numColumns={ 3 }
           renderItem={ ( { item } ) => (

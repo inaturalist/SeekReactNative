@@ -30,15 +30,14 @@ export default StyleSheet.create( {
   },
   cellTitle: {
     height: 45,
-    backgroundColor: colors.darkBlue,
     padding: padding.medium,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
+    alignItems: "center",
+    justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   cellTitleText: {
-    color: colors.white,
+    color: colors.black,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     paddingTop: padding.extraSmall

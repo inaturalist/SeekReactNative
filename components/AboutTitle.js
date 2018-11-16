@@ -2,12 +2,14 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
+import styles from "../styles/about";
+
 type Props = {
   navigation: any
 }
 
 const AboutTitle = ( { navigation }: Props ) => (
-  <View style={{ position: "absolute", right: 0 }}>
+  <View style={styles.headerText}>
     <TouchableOpacity
       onPress={() => navigation.navigate( "About" )}
     >

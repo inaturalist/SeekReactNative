@@ -35,5 +35,8 @@ export default StyleSheet.create( {
   },
   greenText: {
     color: colors.lightGreen
+  },
+  headerText: {
+    marginRight: margins.medium
   }
 } );

@@ -69,7 +69,7 @@ const RootStack = createStackNavigator( {
   YourCollection: {
     screen: YourCollection,
     navigationOptions: ( { navigation } ) => ( {
-      headerTitle: <AboutTitle navigation={navigation} />
+      headerRight: <AboutTitle navigation={navigation} />
     } )
   },
   Badges: {

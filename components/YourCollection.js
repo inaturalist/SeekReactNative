@@ -37,7 +37,7 @@ class YourCollection extends Component {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
-        const badges = realm.objects( "BadgeRealm" );
+        const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", true]] );
         this.setState( {
           badges,
           observations

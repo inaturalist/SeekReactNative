@@ -55,6 +55,12 @@ export default StyleSheet.create( {
     borderRadius: 5,
     overflow: "hidden"
   },
+  badgeTitle: {
+    height: 45,
+    padding: padding.medium,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   cellTitle: {
     height: 45,
     backgroundColor: colors.lightGray,

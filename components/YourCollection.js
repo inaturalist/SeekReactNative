@@ -39,8 +39,9 @@ class YourCollection extends Component {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", true]] );
+        const firstBadges = badges.slice( 0, 3 );
         this.setState( {
-          badges,
+          badges: firstBadges,
           observations
         } );
         // console.log( observations, "observations on collection page" );
@@ -77,6 +78,7 @@ class YourCollection extends Component {
             <FlatList
               data={ badges }
               keyExtractor={ badge => badge.name }
+              scrollEnabled={false}
               numColumns={ 3 }
               renderItem={ ( { item } ) => {
                 let badgeIcon;
@@ -105,7 +107,7 @@ class YourCollection extends Component {
                         <Image
                           source={badgeIcon}
                         />
-                        <View style={ styles.cellTitle }>
+                        <View style={ styles.badgeTitle }>
                           <Text style={ styles.cellTitleText }>
                             {item.name}
                           </Text>

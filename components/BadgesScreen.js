@@ -54,7 +54,6 @@ class BadgesScreen extends Component {
             badges
           } );
         }
-        console.log( badges, "badges in realm" );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

@@ -78,12 +78,17 @@ class SpeciesDetail extends Component {
 
         if ( seenTaxa[0] ) {
           seenDate = moment( seenTaxa[0].date ).format( "ll" );
-        }
 
-        this.setState( {
-          bannerText: `Collected on ${seenDate}!`,
-          showBanner: true
-        } );
+          this.setState( {
+            bannerText: `Collected on ${seenDate}!`,
+            showBanner: true
+          } );
+        } else {
+          this.setState( {
+            bannerText: "",
+            showBanner: false
+          } );
+        }
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

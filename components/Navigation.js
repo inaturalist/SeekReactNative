@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
 
+import { colors } from "../styles/global";
 import { setupBadges } from "../utility/helpers";
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
@@ -52,15 +53,16 @@ const RootStack = createStackNavigator( {
     } )
   },
   Results: {
-    screen: ChallengeResults,
-    navigationOptions: ( { navigation } ) => ( {
-      header: null
-    } )
+    screen: ChallengeResults
   },
   Species: {
     screen: SpeciesDetail,
     navigationOptions: ( { navigation } ) => ( {
-      title: "Collect This!"
+      title: "Collect This!",
+      headerStyle: {
+        backgroundColor: colors.darkestBlue
+      },
+      headerTintColor: colors.white
     } )
   },
   YourCollection: {
@@ -72,7 +74,7 @@ const RootStack = createStackNavigator( {
   Badges: {
     screen: BadgesScreen,
     navigationOptions: ( { navigation } ) => ( {
-      title: `${navigation.state.params.badges} Earned!`
+      title: "Badges Earned!"
     } )
   },
   About: {

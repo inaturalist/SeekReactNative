@@ -13,7 +13,6 @@ import Realm from "realm";
 
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
-import NavBar from "./NavBar";
 import styles from "../styles/badges";
 
 type Props = {
@@ -61,11 +60,9 @@ class BadgesScreen extends Component {
 
   render() {
     const { badges, title } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
-        <NavBar navigation={navigation} />
         <Text>{title}</Text>
         <View style={styles.list}>
           <FlatList

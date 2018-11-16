@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 
-import badges from "../assets/badges";
+import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/badges";
@@ -64,16 +64,6 @@ class BadgesScreen extends Component {
     const { badges, title } = this.state;
     const { navigation } = this.props;
 
-    let badgeIconName;
-
-    badges.forEach( ( badge ) => {
-      if ( badge.earned ) {
-        badgeIconName = badge.earnedIconName;
-      } else {
-        badgeIconName = badge.unearnedIconName;
-      }
-    } );
-
     return (
       <View>
         <NavBar navigation={navigation} />
@@ -83,9 +73,13 @@ class BadgesScreen extends Component {
           keyExtractor={ badge => badge.name }
           numColumns={ 3 }
           renderItem={ ( { item } ) => {
+            let badgeIcon;
             let msg = item.infoText;
             if ( item.earned ) {
               msg = `${msg} You earned this badge.`;
+              badgeIcon = badgeImages[item.earnedIconName];
+            } else {
+              badgeIcon = badgeImages[item.unearnedIconName];
             }
             return (
               <View style={ styles.gridCell }>
@@ -103,7 +97,7 @@ class BadgesScreen extends Component {
                 >
                   <View style={ styles.gridCellContents }>
                     <Image
-                      source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
+                      source={badgeIcon}
                     />
                     <View style={ styles.cellTitle }>
                       <Text style={ styles.cellTitleText }>

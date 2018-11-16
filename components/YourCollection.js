@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 
+import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/collection";
@@ -78,9 +79,13 @@ class YourCollection extends Component {
               keyExtractor={ badge => badge.name }
               numColumns={ 3 }
               renderItem={ ( { item } ) => {
+                let badgeIcon;
                 let msg = item.infoText;
                 if ( item.earned ) {
                   msg = `${msg} You earned this badge.`;
+                  badgeIcon = badgeImages[item.earnedIconName];
+                } else {
+                  badgeIcon = badgeImages[item.unearnedIconName];
                 }
                 return (
                   <View style={ styles.gridCell }>
@@ -98,7 +103,7 @@ class YourCollection extends Component {
                     >
                       <View style={ styles.gridCellContents }>
                         <Image
-                          source={require( "../assets/badges/naturalist/badge_naturalist-03-tadpole.png" )}
+                          source={badgeIcon}
                         />
                         <View style={ styles.cellTitle }>
                           <Text style={ styles.cellTitleText }>

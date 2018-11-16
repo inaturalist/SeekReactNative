@@ -64,53 +64,55 @@ class BadgesScreen extends Component {
     const { navigation } = this.props;
 
     return (
-      <View>
+      <View style={styles.container}>
         <NavBar navigation={navigation} />
         <Text>{title}</Text>
-        <FlatList
-          data={ badges }
-          keyExtractor={ badge => badge.name }
-          numColumns={ 3 }
-          renderItem={ ( { item } ) => {
-            let badgeIcon;
-            let msg = item.infoText;
-            if ( item.earned ) {
-              msg = `${msg} You earned this badge.`;
-              badgeIcon = badgeImages[item.earnedIconName];
-            } else {
-              badgeIcon = badgeImages[item.unearnedIconName];
-            }
-            return (
-              <View style={ styles.gridCell }>
-                <TouchableOpacity
-                  onPress={ () => Alert.alert(
-                    item.name,
-                    msg,
-                    [
-                      {
-                        text: "Got it!"
-                      }
-                    ],
-                    { cancelable: false }
-                  )}
-                >
-                  <View style={ styles.gridCellContents }>
-                    <Image
-                      source={badgeIcon}
-                      style={styles.badgeIcon}
-                    />
-                    <View style={ styles.cellTitle }>
-                      <Text style={ styles.cellTitleText }>
-                        {item.name}
-                      </Text>
+        <View style={styles.list}>
+          <FlatList
+            data={ badges }
+            keyExtractor={ badge => badge.name }
+            numColumns={ 3 }
+            renderItem={ ( { item } ) => {
+              let badgeIcon;
+              let msg = item.infoText;
+              if ( item.earned ) {
+                msg = `${msg} You earned this badge.`;
+                badgeIcon = badgeImages[item.earnedIconName];
+              } else {
+                badgeIcon = badgeImages[item.unearnedIconName];
+              }
+              return (
+                <View style={ styles.gridCell }>
+                  <TouchableOpacity
+                    onPress={ () => Alert.alert(
+                      item.name,
+                      msg,
+                      [
+                        {
+                          text: "Got it!"
+                        }
+                      ],
+                      { cancelable: false }
+                    )}
+                  >
+                    <View style={ styles.gridCellContents }>
+                      <Image
+                        source={badgeIcon}
+                        style={styles.badgeIcon}
+                      />
+                      <View style={ styles.cellTitle }>
+                        <Text style={ styles.cellTitleText }>
+                          {item.name}
+                        </Text>
+                      </View>
                     </View>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            );
-          }
-          }
-        />
+                  </TouchableOpacity>
+                </View>
+              );
+            }
+            }
+          />
+        </View>
       </View>
     );
   }

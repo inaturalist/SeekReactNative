@@ -10,6 +10,12 @@ import {
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  container: {
+    flex: 1
+  },
+  list: {
+    flex: 3
+  },
   taxonGrid: {
     flex: 3,
     alignItems: "center",

@@ -106,7 +106,7 @@ class YourCollection extends Component {
                       <View style={ styles.gridCellContents }>
                         <Image
                           source={badgeIcon}
-                          style={{ width: 70, height: 70, alignSelf: "center" }}
+                          style={styles.badgeIcon}
                         />
                         <View style={ styles.badgeTitle }>
                           <Text style={ styles.cellTitleText }>

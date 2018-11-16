@@ -44,12 +44,10 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginBottom: margins.medium
   },
-  badgeCell: {
-    width: width / 4,
-    height: width / 4,
-    paddingHorizontal: padding.medium,
-    marginTop: margins.medium,
-    marginBottom: margins.small
+  badgeIcon: {
+    width: 70,
+    height: 70,
+    alignSelf: "center"
   },
   gridCell: {
     width: width / 3 - 3,

@@ -98,6 +98,7 @@ class BadgesScreen extends Component {
                   <View style={ styles.gridCellContents }>
                     <Image
                       source={badgeIcon}
+                      style={styles.badgeIcon}
                     />
                     <View style={ styles.cellTitle }>
                       <Text style={ styles.cellTitleText }>

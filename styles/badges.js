@@ -16,6 +16,11 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginBottom: margins.medium
   },
+  badgeIcon: {
+    width: 70,
+    height: 70,
+    alignSelf: "center"
+  },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,

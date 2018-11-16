@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   FlatList,
+  Alert,
   Image,
   TouchableOpacity,
   Text,
@@ -10,6 +11,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 
+import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import NavBar from "./NavBar";
 import styles from "../styles/collection";
@@ -36,19 +38,21 @@ class YourCollection extends Component {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
-        const badges = realm.objects( "BadgeRealm" );
+        const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", true]] );
+        const firstBadges = badges.slice( 0, 3 );
         this.setState( {
-          badges,
+          badges: firstBadges,
           observations
         } );
-        console.log( observations, "observations on collection page" );
+        // console.log( observations, "observations on collection page" );
       } )
       .catch( e => console.log( "Err: ", e ) );
   }
 
   render() {
     const {
-      observations
+      observations,
+      badges
     } = this.state;
 
     const {
@@ -59,12 +63,64 @@ class YourCollection extends Component {
       <View style={styles.container}>
         <NavBar navigation={navigation} />
         <View style={styles.badges}>
-          <Text style={styles.headerText}>Recent Badges</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.text}>
-              View All
-            </Text>
-          </TouchableOpacity>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Recent Badges</Text>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate( "Badges" )}
+            >
+              <Text style={styles.text}>
+                View All
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.taxonGrid}>
+            <FlatList
+              data={ badges }
+              keyExtractor={ badge => badge.name }
+              scrollEnabled={false}
+              numColumns={ 3 }
+              renderItem={ ( { item } ) => {
+                let badgeIcon;
+                let msg = item.infoText;
+                if ( item.earned ) {
+                  msg = `${msg} You earned this badge.`;
+                  badgeIcon = badgeImages[item.earnedIconName];
+                } else {
+                  badgeIcon = badgeImages[item.unearnedIconName];
+                }
+                return (
+                  <View style={ styles.gridCell }>
+                    <TouchableOpacity
+                      onPress={ () => Alert.alert(
+                        item.name,
+                        msg,
+                        [
+                          {
+                            text: "Got it!"
+                          }
+                        ],
+                        { cancelable: false }
+                      )}
+                    >
+                      <View style={ styles.gridCellContents }>
+                        <Image
+                          source={badgeIcon}
+                          style={styles.badgeIcon}
+                        />
+                        <View style={ styles.badgeTitle }>
+                          <Text style={ styles.cellTitleText }>
+                            {item.name}
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                );
+              }
+            }
+            />
+          </View>
         </View>
         <View style={styles.species}>
           <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>

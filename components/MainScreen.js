@@ -11,7 +11,7 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
-import { capitalizeNames, truncateCoordinates } from "../utility/helpers";
+import { capitalizeNames, recalculateBadges, truncateCoordinates } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -52,9 +52,8 @@ class MainScreen extends Component<Props, State> {
 
   componentDidMount() {
     this.getGeolocation();
+    recalculateBadges();
     this.fetchSpeciesAndBadgeCount();
-
-    console.log( this.props.navigation, 'navigation');
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -191,7 +190,7 @@ class MainScreen extends Component<Props, State> {
       .then( ( realm ) => {
         this.setState( {
           speciesCount: realm.objects( "ObservationRealm" ).length,
-          badgeCount: realm.objects( "BadgeRealm" ).length
+          badgeCount: realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length
         } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );

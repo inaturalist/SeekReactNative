@@ -1,27 +1,4 @@
-// const uuid = require( "react-native-uuid" );
-
-class ObservationRealm {
-  get uuid() {
-    // const uuidString = uuid.v1();
-    // if ( uuidString ) {
-    //   return uuidString;
-    // } else {
-    //   return null;
-    // }
-  }
-
-  get pathForImage() {
-    // look in directory for file path
-  }
-
-  get dateString() {
-    // create a date string
-  }
-
-  get relativeDateString() {
-    // create a relative date string
-  }
-}
+class ObservationRealm {}
 ObservationRealm.schema = {
   name: "ObservationRealm",
   primaryKey: "uuidString",

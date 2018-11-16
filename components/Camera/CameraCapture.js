@@ -5,17 +5,14 @@ import { View, TouchableOpacity } from "react-native";
 import styles from "../../styles/camera";
 
 type Props = {
-  id: number,
-  takePicture: Function,
-  getCameraCaptureFromGallery: Function
+  takePicture: Function
 }
 
-const CameraCapture = ( { id, takePicture, getCameraCaptureFromGallery }: Props ) => (
+const CameraCapture = ( { takePicture }: Props ) => (
   <View style={styles.footer}>
     <TouchableOpacity
       onPress={() => {
         takePicture();
-        getCameraCaptureFromGallery( id );
       }}
       style={styles.capture}
     />

@@ -14,10 +14,12 @@ export default StyleSheet.create( {
     flex: 1
   },
   badges: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "nowrap",
+    flex: 1.5,
     backgroundColor: colors.lightGray
+  },
+  header: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
   },
   headerText: {
     fontSize: fontSize.header,
@@ -42,6 +44,11 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginBottom: margins.medium
   },
+  badgeIcon: {
+    width: 70,
+    height: 70,
+    alignSelf: "center"
+  },
   gridCell: {
     width: width / 3 - 3,
     height: width / 3 - 3,
@@ -52,6 +59,12 @@ export default StyleSheet.create( {
   gridCellContents: {
     borderRadius: 5,
     overflow: "hidden"
+  },
+  badgeTitle: {
+    height: 45,
+    padding: padding.medium,
+    alignItems: "center",
+    justifyContent: "center"
   },
   cellTitle: {
     height: 45,

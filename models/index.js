@@ -5,8 +5,8 @@ import PhotoRealm from "./PhotoRealm";
 
 export default {
   schema: [
-    ObservationRealm,
     BadgeRealm,
+    ObservationRealm,
     TaxonRealm,
     PhotoRealm
   ],

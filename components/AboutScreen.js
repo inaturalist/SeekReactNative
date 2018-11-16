@@ -8,6 +8,8 @@ import {
   View
 } from "react-native";
 
+import styles from "../styles/about";
+
 type Props = {
   navigation: any
 }

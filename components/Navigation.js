@@ -14,6 +14,7 @@ import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";
 import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
+import AboutTitle from "./AboutTitle";
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -68,7 +69,7 @@ const RootStack = createStackNavigator( {
   YourCollection: {
     screen: YourCollection,
     navigationOptions: ( { navigation } ) => ( {
-      title: "About"
+      headerTitle: <AboutTitle navigation={navigation} />
     } )
   },
   Badges: {

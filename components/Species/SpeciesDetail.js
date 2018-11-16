@@ -12,6 +12,7 @@ import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
 
+import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
 import NavBar from "../NavBar";
 import Banner from "../Banner";
@@ -176,79 +177,29 @@ class SpeciesDetail extends Component {
       navigation
     } = this.props;
 
-    let taxaPhoto;
+    const taxaPhoto = speciesImages[taxaType];
     let category;
 
     if ( taxaType === "Plantae" ) {
       category = "Plants";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-plants.png" )}
-        /> );
     } else if ( taxaType === "Amphibia" ) {
       category = "Amphibians";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-amphibians.png" )}
-        /> );
     } else if ( taxaType === "Fungi" ) {
       category = "Fungi";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-fungi.png" )}
-        /> );
     } else if ( taxaType === "Actinopterygii" ) {
       category = "Fish";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-fish.png" )}
-        /> );
     } else if ( taxaType === "Reptilia" ) {
       category = "Reptiles";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-reptiles.png" )}
-        /> );
     } else if ( taxaType === "Arachnida" ) {
       category = "Arachnids";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-arachnids.png" )}
-        /> );
     } else if ( taxaType === "Aves" ) {
       category = "Birds";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-birds.png" )}
-        /> );
     } else if ( taxaType === "Insecta" ) {
       category = "Insects";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-insects.png" )}
-        /> );
     } else if ( taxaType === "Mollusca" ) {
       category = "Mollusks";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-mollusks.png" )}
-        /> );
     } else if ( taxaType === "Mammalia" ) {
       category = "Mammals";
-      taxaPhoto = (
-        <Image
-          style={styles.greenImage}
-          source={require( "../../assets/taxa/icn-iconic-taxa-mammals.png" )}
-        /> );
     }
 
     const photoList = [];
@@ -297,7 +248,10 @@ class SpeciesDetail extends Component {
               <Text style={[styles.text, { fontStyle: "italic" }]}>{scientificName}</Text>
               <View style={[styles.categoryRow, styles.categoryContainer]}>
                 <Text style={styles.greenText}>Category: {category}</Text>
-                {taxaPhoto}
+                <Image
+                  style={styles.greenImage}
+                  source={taxaPhoto}
+                />
               </View>
             </View>
             <Text style={styles.headerText}>Where are people seeing it nearby?</Text>

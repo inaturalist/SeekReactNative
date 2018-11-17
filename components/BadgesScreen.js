@@ -13,7 +13,6 @@ import Realm from "realm";
 
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
-import NavBar from "./NavBar";
 import styles from "../styles/badges";
 
 type Props = {
@@ -25,8 +24,7 @@ class BadgesScreen extends Component {
     super();
 
     this.state = {
-      badges: [],
-      title: ""
+      badges: []
     };
   }
 
@@ -38,35 +36,19 @@ class BadgesScreen extends Component {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).sorted( "index" );
-        const earned = badges.filtered( "earned == true" );
-        if ( earned.length === 0 ) {
-          this.setState( {
-            title: "No Badges Earned"
-          } );
-        } else if ( earned.length === 1 ) {
-          this.setState( {
-            title: "1 Badge Earned!",
-            badges
-          } );
-        } else {
-          this.setState( {
-            title: `${earned.length} Badges Earned!`,
-            badges
-          } );
-        }
+        this.setState( {
+          badges
+        } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
   render() {
-    const { badges, title } = this.state;
-    const { navigation } = this.props;
+    const { badges } = this.state;
 
     return (
       <View style={styles.container}>
-        <NavBar navigation={navigation} />
-        <Text>{title}</Text>
         <View style={styles.list}>
           <FlatList
             data={ badges }

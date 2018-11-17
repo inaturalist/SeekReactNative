@@ -8,7 +8,8 @@ export const colors = {
   darkGreen: "#4CAF50",
   lightGray: "#f2f2f2",
   darkGray: "#a9a9a9",
-  black: "black"
+  black: "black",
+  lightBlue: "#225C8E"
 };
 
 export const fonts = {

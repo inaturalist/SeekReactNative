@@ -9,7 +9,6 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import NavBar from "../NavBar";
 import styles from "../../styles/results";
 
 type Props = {
@@ -18,7 +17,6 @@ type Props = {
   title: string,
   match: ?boolean,
   matchUrl: string,
-  navigation: any,
   onPress: Function,
   photoText: string,
   subtitle: string,
@@ -36,8 +34,7 @@ const ChallengeResultsScreen = ( {
   onPress,
   photoText,
   yourPhotoText,
-  image,
-  navigation
+  image
 }: Props ) => {
   let resultsIcon;
 
@@ -51,7 +48,6 @@ const ChallengeResultsScreen = ( {
 
   return (
     <View>
-      <NavBar navigation={navigation} />
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.header}>
           <Text style={styles.headerText}>{title}</Text>

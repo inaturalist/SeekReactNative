@@ -14,7 +14,6 @@ import moment from "moment";
 
 import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
-import NavBar from "../NavBar";
 import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
@@ -224,7 +223,6 @@ class SpeciesDetail extends Component {
 
     return (
       <View style={styles.container}>
-        <NavBar navigation={navigation} species />
         <View style={styles.infoContainer}>
           <ScrollView>
             <ScrollView

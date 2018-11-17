@@ -13,7 +13,6 @@ import Realm from "realm";
 
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
-import NavBar from "./NavBar";
 import styles from "../styles/collection";
 
 type Props = {
@@ -61,7 +60,6 @@ class YourCollection extends Component {
 
     return (
       <View style={styles.container}>
-        <NavBar navigation={navigation} />
         <View style={styles.badges}>
           <View style={styles.header}>
             <Text style={styles.headerText}>Recent Badges</Text>

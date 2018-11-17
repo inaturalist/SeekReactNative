@@ -55,7 +55,13 @@ const RootStack = createStackNavigator( {
     } )
   },
   Results: {
-    screen: ChallengeResults
+    screen: ChallengeResults,
+    navigationOptions: ( { navigation } ) => ( {
+      headerStyle: {
+        backgroundColor: colors.darkestBlue
+      },
+      headerTintColor: colors.white
+    } )
   },
   Species: {
     screen: SpeciesDetail,

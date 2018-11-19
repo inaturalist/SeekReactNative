@@ -21,7 +21,7 @@ const SplashScreen = ( { navigation }: Props ) => (
       style={styles.backgroundImage}
       source={require( "../assets/backgrounds/splash.png" )}
     >
-      <Text style={styles.text}>Backyard Wilderness Presents</Text>
+      <Text style={styles.text}>Backyard Wilderness presents:</Text>
       <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
       <Button title="Continue" onPress={() => navigation.navigate( "Warnings" )} />
     </ImageBackground>

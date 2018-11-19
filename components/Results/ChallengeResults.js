@@ -195,13 +195,13 @@ class ChallengeResults extends Component {
   }
 
   createJwtToken() {
-    // const claims = {
-    //   application: "SeekRN",
-    //   exp: new Date().getTime() / 1000 + 300
-    // };
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
 
-    // const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    // return token;
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
   }
 
   fetchScore( params ) {

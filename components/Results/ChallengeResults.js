@@ -15,6 +15,7 @@ import moment from "moment";
 import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingWheel from "../LoadingWheel";
+import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
 import styles from "../../styles/results";
 import { addToCollection, flattenUploadParameters } from "../../utility/helpers";
@@ -51,7 +52,8 @@ class ChallengeResults extends Component {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      error: null
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -163,7 +165,6 @@ class ChallengeResults extends Component {
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );
     } else {
-      // navigation.navigate( "Main" );
       navigation.navigate( "Main", { taxaName, speciesSeen: true } );
     }
   }
@@ -194,13 +195,13 @@ class ChallengeResults extends Component {
   }
 
   createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
+    // const claims = {
+    //   application: "SeekRN",
+    //   exp: new Date().getTime() / 1000 + 300
+    // };
 
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
+    // const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    // return token;
   }
 
   fetchScore( params ) {
@@ -220,13 +221,16 @@ class ChallengeResults extends Component {
           this.fetchSeenTaxaIds( this.state.taxaId );
         } );
       } )
-      .catch( ( err ) => {
-        console.log( err, "error fetching results from computer vision" );
+      .catch( () => {
+        this.setState( {
+          error: "Can't load computer vision suggestions. Try again later."
+        } );
       } );
   }
 
   render() {
     const {
+      error,
       loading,
       title,
       subtitle,
@@ -243,8 +247,14 @@ class ChallengeResults extends Component {
       navigation
     } = this.props;
 
-    const content = loading ? <LoadingWheel />
-      : (
+    let content;
+
+    if ( error ) {
+      content = <ErrorScreen error={error} />;
+    } else if ( loading ) {
+      content = <LoadingWheel />;
+    } else {
+      content = (
         <ChallengeResultsScreen
           title={title}
           subtitle={subtitle}
@@ -259,6 +269,7 @@ class ChallengeResults extends Component {
           onPress={this.savePhotoOrStartOver}
         />
       );
+    }
 
     return (
       <View style={ { flex: 1 } }>

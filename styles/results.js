@@ -7,12 +7,12 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
     width,
-    height,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },

@@ -11,7 +11,7 @@ type Props = {
 }
 
 const ErrorScreen = ( { error, errorTitle }: Props ) => (
-  <View>
+  <View style={styles.container}>
     <Text style={styles.errorTitle}>{errorTitle}</Text>
     <Text style={styles.error}>{error}</Text>
   </View>

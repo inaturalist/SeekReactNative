@@ -1,22 +1,19 @@
 // @flow
 
 import React from "react";
-import { ImageBackground, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 import styles from "../styles/error";
 
 type Props = {
+  errorTitle: string,
   error: string
 }
 
-const ErrorScreen = ( { error }: Props ) => (
+const ErrorScreen = ( { error, errorTitle }: Props ) => (
   <View>
-    <ImageBackground
-      style={styles.backgroundImage}
-      source={require( "../assets/backgrounds/background.png" )}
-    >
-      <Text style={styles.error}>{error}</Text>
-    </ImageBackground>
+    <Text style={styles.errorTitle}>{errorTitle}</Text>
+    <Text style={styles.error}>{error}</Text>
   </View>
 );
 

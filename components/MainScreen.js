@@ -40,6 +40,7 @@ class MainScreen extends Component<Props, State> {
       longitude: null,
       location: null,
       error: null,
+      errorTitle: null,
       taxaType: "All species",
       taxonId: null,
       badgeCount: 0,
@@ -219,7 +220,8 @@ class MainScreen extends Component<Props, State> {
       this.setTaxa( challenges );
     } ).catch( ( err ) => {
       this.setState( {
-        error: err.message
+        errorTitle: "Bummer",
+        error: `Unable to load challenges: ${err.message}`
       } );
     } );
   }
@@ -250,6 +252,8 @@ class MainScreen extends Component<Props, State> {
     const {
       speciesSeen,
       bannerText,
+      error,
+      errorTitle,
       loading,
       latitude,
       longitude,
@@ -283,6 +287,8 @@ class MainScreen extends Component<Props, State> {
             setTaxonId={this.setTaxonId}
             speciesSeen={speciesSeen}
             bannerText={bannerText}
+            error={error}
+            errorTitle={errorTitle}
           />
         </View>
       </View>

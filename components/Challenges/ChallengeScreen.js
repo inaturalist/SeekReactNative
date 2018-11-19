@@ -65,6 +65,7 @@ const ChallengeScreen = ( {
           latitude={latitude}
           longitude={longitude}
           location={location}
+          loading={loading}
           navigation={navigation}
           updateLocation={updateLocation}
           setTaxonId={setTaxonId}

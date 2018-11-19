@@ -17,6 +17,7 @@ type Props = {
   speciesSeen: ?boolean,
   bannerText: string,
   latitude: number,
+  loading: boolean,
   longitude: number,
   location: string,
   setTaxonId: Function,
@@ -30,6 +31,7 @@ const ChallengeHeader = ( {
   speciesSeen,
   bannerText,
   latitude,
+  loading,
   longitude,
   location,
   setTaxonId,
@@ -57,9 +59,11 @@ const ChallengeHeader = ( {
         updateLocation
       } )}
     >
-      <Text style={styles.locationChooserText}>
-        {location} &#9660;
-      </Text>
+      { loading ? (
+        <Text style={styles.locationChooserText}>Loading...</Text>
+      ) : (
+        <Text style={styles.locationChooserText}>{location} &#9660;</Text>
+      )}
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.taxonChooser}

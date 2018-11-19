@@ -153,6 +153,21 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
+  getCurrentMonth() {
+    const date = new Date();
+    return date.getMonth();
+  }
+
+  getPreviousAndNextMonth() {
+    const month = this.getCurrentMonth();
+
+    if ( month === 1 ) {
+      return [12, 1, 2];
+    }
+
+    return [month - 1, month, month + 1];
+  }
+
   fetchChallenges( latitude: ?number, longitude: ?number ) {
     const { taxonId } = this.state;
 
@@ -167,7 +182,8 @@ class MainScreen extends Component<Props, State> {
       oauth_application_id: "2,3",
       hrank: "species",
       include_only_vision_taxa: true,
-      not_in_list_id: 945029
+      not_in_list_id: 945029,
+      month: this.getPreviousAndNextMonth()
     };
 
     if ( taxonId ) {

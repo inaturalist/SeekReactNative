@@ -26,13 +26,13 @@ export default StyleSheet.create( {
     marginHorizontal: "10%",
     marginTop: "10%",
     marginBottom: margins.small,
-    lineHeight: 18,
+    lineHeight: 27,
     color: colors.white,
     fontFamily: fonts.default
   },
   tipContainer: {
     flex: 1,
-    marginBottom: margins.medium
+    marginBottom: margins.small
   },
   tipList: {
     marginBottom: margins.small,
@@ -42,7 +42,7 @@ export default StyleSheet.create( {
   },
   tips: {
     fontSize: fontSize.text,
-    lineHeight: 14,
+    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"
@@ -55,12 +55,11 @@ export default StyleSheet.create( {
   },
   disclaimerContainer: {
     flex: 1,
-    marginHorizontal: margins.large,
-    marginTop: margins.medium
+    marginHorizontal: margins.large
   },
   disclaimer: {
     fontSize: fontSize.smallText,
-    lineHeight: 12,
+    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"

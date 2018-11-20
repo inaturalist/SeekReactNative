@@ -126,7 +126,6 @@ const recalculateBadges = () => {
           }
         }
       } );
-      // console.log( realm.objects( "BadgeRealm" ).filtered( "earned == true" ), "earned badges" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );

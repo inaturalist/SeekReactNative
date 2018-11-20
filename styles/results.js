@@ -24,7 +24,6 @@ export default StyleSheet.create( {
   },
   headerText: {
     fontSize: fontSize.mediumHeader,
-    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     marginBottom: margins.medium,
@@ -41,15 +40,6 @@ export default StyleSheet.create( {
     marginHorizontal: margins.medium,
     marginBottom: margins.medium
   },
-  captionText: {
-    fontSize: fontSize.text,
-    lineHeight: 14,
-    color: colors.white,
-    fontFamily: fonts.default,
-    flexWrap: "wrap",
-    marginHorizontal: margins.medium,
-    marginTop: margins.large
-  },
   button: {
     backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
@@ -62,7 +52,7 @@ export default StyleSheet.create( {
   },
   buttonText: {
     fontFamily: fonts.button,
-    fontSize: fontSize.button,
+    fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",
     justifyContent: "center"
@@ -72,11 +62,9 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   imageBackground: {
-    flex: 4,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
-    paddingTop: padding.large,
-    paddingBottom: padding.large,
+    height: 231,
     justifyContent: "center"
   },
   imageCell: {
@@ -87,11 +75,17 @@ export default StyleSheet.create( {
   },
   textCell: {
     flexDirection: "row",
-    alignItems: "center",
-    textAlign: "center",
-    marginHorizontal: "auto",
-    justifyContent: "space-around",
-    flexWrap: "nowrap"
+    alignItems: "center"
+  },
+  captionText: {
+    fontSize: fontSize.text,
+    lineHeight: 14,
+    color: colors.white,
+    fontFamily: fonts.default,
+    width: 135,
+    flexWrap: "wrap",
+    marginHorizontal: margins.small,
+    marginTop: margins.small
   },
   centeredText: {
     textAlign: "center"
@@ -100,8 +94,8 @@ export default StyleSheet.create( {
     borderRadius: 5,
     borderColor: colors.white,
     borderWidth: 1,
-    width: width / 3 - 10,
-    height: width / 3 - 10
+    width: 135,
+    height: 135
   },
   footer: {
     flex: 1

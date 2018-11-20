@@ -41,7 +41,8 @@ const ChallengeGrid = ( {
               id: item.id,
               latitude,
               longitude,
-              location
+              location,
+              seen: false
             } ) }
           >
             <View style={ styles.gridCellContents }>

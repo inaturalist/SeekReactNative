@@ -66,11 +66,11 @@ const RootStack = createStackNavigator( {
   Species: {
     screen: SpeciesDetail,
     navigationOptions: ( { navigation } ) => ( {
-      title: "Collect This!",
+      title: navigation.state.params.seen ? "Collected" : "Collect This!",
       headerStyle: {
-        backgroundColor: colors.darkestBlue
+        backgroundColor: navigation.state.params.seen ? colors.lightGray : colors.darkestBlue
       },
-      headerTintColor: colors.white
+      headerTintColor: navigation.state.params.seen ? colors.black : colors.white
     } )
   },
   YourCollection: {

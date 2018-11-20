@@ -43,7 +43,6 @@ class YourCollection extends Component {
           badges: firstBadges,
           observations
         } );
-        // console.log( observations, "observations on collection page" );
       } )
       .catch( e => console.log( "Err: ", e ) );
   }
@@ -135,7 +134,8 @@ class YourCollection extends Component {
                       id: item.taxon.id,
                       latitude: item.latitude,
                       longitude: item.longitude,
-                      location: item.placeName
+                      location: item.placeName,
+                      seen: true
                     } )}
                   >
                     <View style={ styles.gridCellContents }>

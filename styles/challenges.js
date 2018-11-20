@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -6,8 +6,6 @@ import {
   margins,
   padding
 } from "./global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
@@ -67,17 +65,15 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    flex: 3,
+    flex: 2,
+    flexGrow: 1,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: margins.medium
+    justifyContent: "center"
   },
   gridCell: {
-    width: width / 3 - 3,
-    height: width / 3 - 3,
-    paddingHorizontal: padding.medium,
-    marginTop: margins.medium,
-    marginBottom: margins.small
+    width: 105,
+    height: 138,
+    paddingHorizontal: padding.medium
   },
   gridCellContents: {
     borderRadius: 5,

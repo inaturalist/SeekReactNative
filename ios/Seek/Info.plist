@@ -59,9 +59,20 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>FontAwesome.otf</string>
 		<string>Whitney-Medium-Pro.otf</string>
 		<string>Whitney-Semibold-Pro.otf</string>
+		<string>riffic-bold.ttf</string>
+		<string>Whitney-Black-Pro.otf</string>
+		<string>Whitney-BlackItalic-Pro.otf</string>
+		<string>Whitney-Bold-Pro.otf</string>
+		<string>Whitney-BoldItalic-Pro.otf</string>
+		<string>Whitney-Book-Pro.otf</string>
+		<string>Whitney-BookItalic-Pro.otf</string>
+		<string>Whitney-Light-Pro.otf</string>
+		<string>Whitney-LightItalic-Pro.otf</string>
+		<string>Whitney-MediumItalic-Pro.otf</string>
+		<string>Whitney-SemiboldItalic-Pro.otf</string>
+		<string>FontAwesome.otf</string>
 	</array>
 </dict>
 </plist>

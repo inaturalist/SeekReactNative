@@ -22,7 +22,8 @@ export default StyleSheet.create( {
     flexWrap: "nowrap"
   },
   headerText: {
-    fontSize: fontSize.header,
+    fontSize: fontSize.buttonText,
+    fontFamily: fonts.book,
     alignItems: "flex-start",
     marginLeft: margins.medium
   },

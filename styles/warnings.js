@@ -24,7 +24,7 @@ export default StyleSheet.create( {
   earn: {
     fontSize: fontSize.header,
     marginHorizontal: "10%",
-    marginTop: "10%",
+    marginTop: margins.medium,
     marginBottom: margins.small,
     lineHeight: 27,
     color: colors.white,
@@ -50,7 +50,7 @@ export default StyleSheet.create( {
   checkMark: {
     fontSize: fontSize.mediumHeader,
     color: colors.lightGreen,
-    fontFamily: fonts.playful,
+    fontFamily: fonts.checkboxes,
     marginRight: margins.medium
   },
   disclaimerContainer: {
@@ -59,7 +59,7 @@ export default StyleSheet.create( {
   },
   disclaimer: {
     fontSize: fontSize.smallText,
-    lineHeight: 18,
+    lineHeight: 15,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"
@@ -76,7 +76,7 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.button,
+    fontFamily: fonts.book,
     fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"

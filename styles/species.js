@@ -48,7 +48,8 @@ export default StyleSheet.create( {
     marginLeft: margins.medium,
     alignItems: "center",
     justifyContent: "center",
-    color: colors.white
+    color: colors.white,
+    fontFamily: fonts.book
   },
   greenText: {
     alignItems: "center",
@@ -66,7 +67,7 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.default,
+    fontFamily: fonts.book,
     fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",

@@ -51,7 +51,7 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.button,
+    fontFamily: fonts.book,
     fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",

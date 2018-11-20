@@ -4,6 +4,12 @@ import android.app.Application;
 
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
+import io.realm.react.RealmReactPackage;
+import com.horcrux.svg.SvgPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.devfd.RNGeocoder.RNGeocoderPackage;
+import org.reactnative.camera.RNCameraPackage;
 import com.horcrux.svg.SvgPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
@@ -31,10 +37,10 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new RealmReactPackage(),
             new SvgPackage(),
-            new ImageResizerPackage(),
             new MapsPackage(),
-            new RNCameraPackage(),
-            new RNGeocoderPackage()
+            new ImageResizerPackage(),
+            new RNGeocoderPackage(),
+            new RNCameraPackage()
       );
     }
 

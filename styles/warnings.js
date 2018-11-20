@@ -25,14 +25,14 @@ export default StyleSheet.create( {
     fontSize: fontSize.header,
     marginHorizontal: "10%",
     marginTop: "10%",
-    marginBottom: margins.small,
-    lineHeight: 18,
+    marginBottom: margins.medium,
+    lineHeight: 27,
     color: colors.white,
     fontFamily: fonts.default
   },
   tipContainer: {
     flex: 1,
-    marginBottom: margins.medium
+    marginBottom: margins.small
   },
   tipList: {
     marginBottom: margins.small,
@@ -42,7 +42,7 @@ export default StyleSheet.create( {
   },
   tips: {
     fontSize: fontSize.text,
-    lineHeight: 14,
+    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"
@@ -50,17 +50,17 @@ export default StyleSheet.create( {
   checkMark: {
     fontSize: fontSize.mediumHeader,
     color: colors.lightGreen,
-    fontFamily: fonts.playful,
+    fontFamily: fonts.checkboxes,
     marginRight: margins.medium
   },
   disclaimerContainer: {
     flex: 1,
     marginHorizontal: margins.large,
-    marginTop: margins.medium
+    marginTop: margins.small
   },
   disclaimer: {
     fontSize: fontSize.smallText,
-    lineHeight: 12,
+    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     flexWrap: "wrap"
@@ -77,7 +77,7 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.button,
+    fontFamily: fonts.book,
     fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"

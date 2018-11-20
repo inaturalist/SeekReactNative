@@ -6,7 +6,7 @@ export const colors = {
   blueShadow: "#0d2d3a",
   lightGreen: "#b3ff5a",
   darkGreen: "#4CAF50",
-  lightGray: "#f2f2f2",
+  lightGray: "#f5f5f5",
   darkGray: "#a9a9a9",
   black: "black",
   lightBlue: "#225C8E"
@@ -14,8 +14,9 @@ export const colors = {
 
 export const fonts = {
   default: "Whitney-Medium",
-  playful: "FontAwesome",
-  button: "Whitney-Semibold"
+  checkboxes: "FontAwesome",
+  playful: "Riffic-Bold",
+  book: "Whitney-Book"
 };
 
 export const fontSize = {

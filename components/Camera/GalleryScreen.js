@@ -12,6 +12,7 @@ import {
 import LoadingWheel from "../LoadingWheel";
 import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/gallery";
+import { colors } from "../../styles/global";
 
 type Props = {
   navigation: any
@@ -84,7 +85,7 @@ class GalleryScreen extends Component {
 
     return (
       <View style={styles.galleryContainer}>
-        {loading ? <LoadingWheel /> : (
+        {loading ? <LoadingWheel color={colors.darkGray} /> : (
           <ScrollView contentContainerStyle={styles.container}>
             {
               photos.map( ( p, i ) => {

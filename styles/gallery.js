@@ -1,11 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
 import { colors, padding } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   galleryContainer: {
-    height,
+    flex: 1,
     backgroundColor: colors.lightGray
   },
   container: {

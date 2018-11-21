@@ -7,7 +7,7 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -40,7 +40,7 @@ export default StyleSheet.create( {
     marginTop: margins.medium,
     marginBottom: margins.medium,
     fontSize: fontSize.header,
-    lineHeight: 18,
+    lineHeight: 22,
     color: colors.white,
     fontFamily: fonts.default
   },
@@ -75,7 +75,7 @@ export default StyleSheet.create( {
   },
   image: {
     width,
-    height: height / 2 - 100
+    height: 251
   },
   categoryContainer: {
     backgroundColor: "rgba(76, 175, 80, 0.3)",
@@ -98,11 +98,12 @@ export default StyleSheet.create( {
     marginBottom: margins.medium
   },
   smallImage: {
-    width: width / 5,
-    overflow: "visible"
+    width: 56,
+    height: 43
   },
   greenImage: {
-    width: width / 4,
+    width: 74,
+    height: 74,
     marginBottom: margins.medium,
     backgroundColor: "transparent",
     tintColor: colors.lightGreen

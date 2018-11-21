@@ -7,24 +7,20 @@ import { RNCamera } from "react-native-camera";
 import styles from "../../styles/cameraNavBar";
 
 type Props = {
-  navigation: any,
-  camera: boolean
+  navigation: any
 }
 
 class CameraTopNav extends Component {
-  constructor( { navigation, camera }: Props ) {
+  constructor( { navigation }: Props ) {
     super();
 
     this.state = {
-      camera: true,
       cameraType: RNCamera.Constants.Type.back,
       cameraTypeText: "Front",
       error: null,
       flash: RNCamera.Constants.FlashMode.off,
-      flashText: "Flash on",
-      image: {},
-      time: null
-    }
+      flashText: "Flash on"
+    };
   }
 
   toggleFlash() {
@@ -64,34 +60,24 @@ class CameraTopNav extends Component {
   }
 
   render() {
-    const { camera, flashText, cameraTypeText } = this.state;
+    const { flashText, cameraTypeText } = this.state;
     const { navigation } = this.props;
+    const { index } = navigation.state;
+
+    console.log( index, "navigation index in camera top nav" );
 
     return (
       <View style={styles.header}>
         <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => navigation.navigate( "Main" )}
+          onPress={() => this.toggleFlash()}
         >
-          <Text style={[styles.text, !camera && styles.grayText]}>X</Text>
+          <Text style={styles.text}>{flashText}</Text>
         </TouchableOpacity>
-        { camera ? (
-          <TouchableOpacity
-            style={styles.buttons}
-            onPress={() => this.toggleFlash()}
-          >
-            <Text style={styles.text}>{flashText}</Text>
-          </TouchableOpacity>
-        ) : null }
-        { camera ? (
-          <TouchableOpacity
-            style={styles.buttons}
-            onPress={() => this.toggleCamera()}
-          >
-            <Text style={styles.text}>{cameraTypeText}</Text>
-          </TouchableOpacity>
-        ) : null
-        }
+        <TouchableOpacity
+          onPress={() => this.toggleCamera()}
+        >
+          <Text style={styles.text}>{cameraTypeText}</Text>
+        </TouchableOpacity>
       </View>
     );
   }

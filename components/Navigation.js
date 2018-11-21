@@ -3,6 +3,7 @@ import { createStackNavigator, createBottomTabNavigator } from "react-navigation
 
 import { colors, padding, fontSize } from "../styles/global";
 import { setupBadges } from "../utility/helpers";
+
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
@@ -66,7 +67,9 @@ const RootStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
-      header: <CameraTopNav navigation={navigation} camera />
+      headerTitle: navigation.state.index === 0 ? <CameraTopNav navigation={navigation} /> : null,
+      headerTransparent: navigation.state.index === 0 ? true : false,
+      headerTintColor: navigation.state.index === 0 ? colors.white : colors.darkGray
     } )
   },
   Location: {

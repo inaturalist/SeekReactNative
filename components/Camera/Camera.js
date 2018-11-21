@@ -5,6 +5,7 @@ import { RNCamera } from "react-native-camera";
 import { CameraRoll, View, TouchableOpacity } from "react-native";
 
 import styles from "../../styles/camera";
+import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   navigation: any
@@ -23,6 +24,7 @@ class CameraScreen extends Component {
       image: {},
       latitude,
       longitude,
+      loading: false,
       time: null,
       id
     };
@@ -45,7 +47,8 @@ class CameraScreen extends Component {
       const photo = results.edges[0].node;
       this.setState( {
         image: photo.image,
-        time: photo.timestamp
+        time: photo.timestamp,
+        loading: false
       }, () => navigation.navigate( "Results", {
         image: this.state.image,
         time: this.state.time,
@@ -61,13 +64,18 @@ class CameraScreen extends Component {
   }
 
   takePicture = async () => {
+    this.setState( {
+      loading: true
+    } );
+
     if ( this.camera ) {
       this.camera
         .takePictureAsync()
         .then( data => this.savePhotoToGallery( data ) )
         .catch( ( err ) => {
           this.setState( {
-            error: err.message
+            error: err.message,
+            loading: false
           } );
         } );
     }
@@ -88,8 +96,29 @@ class CameraScreen extends Component {
   render() {
     const {
       cameraType,
-      flash
+      flash,
+      loading
     } = this.state;
+
+    let content;
+
+    if ( loading ) {
+      content = <LoadingWheel />;
+    } else {
+      content = (
+        <View style={styles.container}>
+          <View style={styles.main} />
+          <View style={styles.footer}>
+            <TouchableOpacity
+              onPress={() => {
+                this.takePicture();
+              }}
+              style={styles.capture}
+            />
+          </View>
+        </View>
+      );
+    }
 
     return (
       <RNCamera
@@ -102,17 +131,7 @@ class CameraScreen extends Component {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
-        <View style={styles.container}>
-          <View style={styles.main} />
-          <View style={styles.footer}>
-            <TouchableOpacity
-              onPress={() => {
-                this.takePicture();
-              }}
-              style={styles.capture}
-            />
-          </View>
-        </View>
+        {content}
       </RNCamera>
     );
   }

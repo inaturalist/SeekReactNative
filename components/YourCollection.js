@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   FlatList,
+  ScrollView,
   Alert,
   Image,
   TouchableOpacity,
@@ -61,105 +62,107 @@ class YourCollection extends Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.badges}>
-          <View style={styles.header}>
-            <Text style={styles.headerText}>Recent Badges</Text>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.navigate( "Badges" )}
-            >
-              <Text style={styles.text}>
-                View All
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.taxonGrid}>
-            <FlatList
-              data={ badges }
-              keyExtractor={ badge => badge.name }
-              scrollEnabled={false}
-              numColumns={ 3 }
-              renderItem={ ( { item } ) => {
-                let badgeIcon;
-                let msg = item.infoText;
-                if ( item.earned ) {
-                  msg = `${msg} You earned this badge.`;
-                  badgeIcon = badgeImages[item.earnedIconName];
-                } else {
-                  badgeIcon = badgeImages[item.unearnedIconName];
+        <ScrollView>
+          <View style={styles.badges}>
+            <View style={styles.header}>
+              <Text style={styles.headerText}>Recent Badges</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate( "Badges" )}
+              >
+                <Text style={styles.text}>
+                  View All
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.taxonGrid}>
+              <FlatList
+                data={ badges }
+                scrollEnabled={false}
+                keyExtractor={ badge => badge.name }
+                numColumns={ 3 }
+                renderItem={ ( { item } ) => {
+                  let badgeIcon;
+                  let msg = item.infoText;
+                  if ( item.earned ) {
+                    msg = `${msg} You earned this badge.`;
+                    badgeIcon = badgeImages[item.earnedIconName];
+                  } else {
+                    badgeIcon = badgeImages[item.unearnedIconName];
+                  }
+                  return (
+                    <View style={ styles.gridCell }>
+                      <TouchableOpacity
+                        onPress={ () => Alert.alert(
+                          item.name,
+                          msg,
+                          [
+                            {
+                              text: "Got it!"
+                            }
+                          ],
+                          { cancelable: false }
+                        )}
+                      >
+                        <View style={ styles.badgeCellContents }>
+                          <Image
+                            source={badgeIcon}
+                            style={styles.badgeIcon}
+                          />
+                          <View style={ styles.badgeTitle }>
+                            <Text style={ styles.cellTitleText }>
+                              {item.name}
+                            </Text>
+                          </View>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  );
                 }
-                return (
+              }
+              />
+            </View>
+          </View>
+          <View style={styles.species}>
+            <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
+            <View style={styles.taxonGrid}>
+              <FlatList
+                data={ observations }
+                scrollEnabled={false}
+                keyExtractor={ t => t.taxon.id }
+                numColumns={ 3 }
+                renderItem={ ( { item } ) => (
                   <View style={ styles.gridCell }>
                     <TouchableOpacity
-                      onPress={ () => Alert.alert(
-                        item.name,
-                        msg,
-                        [
-                          {
-                            text: "Got it!"
-                          }
-                        ],
-                        { cancelable: false }
-                      )}
+                      onPress={ () => navigation.navigate( "Species", {
+                        id: item.taxon.id,
+                        latitude: item.latitude,
+                        longitude: item.longitude,
+                        location: item.placeName,
+                        seen: true
+                      } )}
                     >
                       <View style={ styles.gridCellContents }>
                         <Image
-                          source={badgeIcon}
-                          style={styles.badgeIcon}
+                          style={ {
+                            width: "100%",
+                            aspectRatio: 1.1
+                          } }
+                          source={ { uri: item.taxon.defaultPhoto.mediumUrl } }
                         />
-                        <View style={ styles.badgeTitle }>
-                          <Text style={ styles.cellTitleText }>
-                            {item.name}
+                        <View style={ styles.cellTitle }>
+                          <Text style={ styles.cellTitleText } numberOfLines={2}>
+                            { item.taxon.preferredCommonName || item.taxon.name }
                           </Text>
                         </View>
                       </View>
                     </TouchableOpacity>
                   </View>
-                );
-              }
-            }
-            />
+                ) }
+              />
+            </View>
           </View>
-        </View>
-        <View style={styles.species}>
-          <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
-          <View style={styles.taxonGrid}>
-            <FlatList
-              data={ observations }
-              scrollEnabled={false}
-              keyExtractor={ t => t.taxon.id }
-              numColumns={ 3 }
-              renderItem={ ( { item } ) => (
-                <View style={ styles.gridCell }>
-                  <TouchableOpacity
-                    onPress={ () => navigation.navigate( "Species", {
-                      id: item.taxon.id,
-                      latitude: item.latitude,
-                      longitude: item.longitude,
-                      location: item.placeName,
-                      seen: true
-                    } )}
-                  >
-                    <View style={ styles.gridCellContents }>
-                      <Image
-                        style={ {
-                          width: "100%",
-                          aspectRatio: 1.1
-                        } }
-                        source={ { uri: item.taxon.defaultPhoto.mediumUrl } }
-                      />
-                      <View style={ styles.cellTitle }>
-                        <Text style={ styles.cellTitleText }>
-                          { item.taxon.preferredCommonName || item.taxon.name }
-                        </Text>
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              ) }
-            />
-          </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }

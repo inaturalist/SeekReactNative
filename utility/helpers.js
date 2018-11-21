@@ -62,8 +62,8 @@ const addToCollection = ( observation, latitude, longitude ) => {
           uuidString: uuid.v1(),
           date: new Date(),
           taxon,
-          latitude,
-          longitude,
+          latitude: truncateCoordinates( latitude ),
+          longitude: truncateCoordinates( longitude ),
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );

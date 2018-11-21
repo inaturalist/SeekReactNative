@@ -1,42 +1,57 @@
-import { Dimensions, StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
-
-const { width, height } = Dimensions.get( "screen" );
+import { StyleSheet } from "react-native";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins
+} from "./global";
 
 export default StyleSheet.create( {
+  container: {
+    flex: 1
+  },
   backgroundImage: {
-    justifyContent: "center",
-    width,
-    height
+    paddingTop: 20,
+    flex: 1
   },
   header: {
-    justifyContent: "flex-start",
     alignItems: "center",
-    height: "15%"
+    marginBottom: margins.medium
   },
   headerText: {
-    marginTop: "15%",
+    marginTop: margins.large,
     fontSize: fontSize.header,
-    lineHeight: 18,
+    lineHeight: 29,
     color: colors.white,
     fontFamily: fonts.default
   },
   gridContainer: {
     flex: 1,
-    justifyContent: "flex-end"
+    flexDirection: "column"
+  },
+  row: {
+    justifyContent: "center",
+    flexWrap: "wrap",
+    flexDirection: "row"
   },
   imageCell: {
-    width: width / 3 - 2,
-    height: width / 3 - 2
+    backgroundColor: colors.darkBlue,
+    marginHorizontal: margins.extraSmall,
+    marginBottom: margins.extraSmall * 2,
+    borderRadius: 4,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 100,
+    height: 100
   },
   image: {
-    backgroundColor: colors.darkBlue,
-    width: "80%",
-    height: "80%"
+    width: 64,
+    height: 64
   },
   text: {
     alignItems: "center",
     justifyContent: "center",
-    color: colors.white
+    color: colors.white,
+    fontSize: fontSize.smallText
   }
 } );

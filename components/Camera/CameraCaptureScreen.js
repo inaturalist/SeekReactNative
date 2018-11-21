@@ -3,58 +3,58 @@
 import React from "react";
 import { View } from "react-native";
 
-import CameraTopNav from "./CameraTopNav";
+// import CameraTopNav from "./CameraTopNav";
 import CameraCapture from "./CameraCapture";
-import CameraBottomNav from "./CameraBottomNav";
+// import CameraBottomNav from "./CameraBottomNav";
 import GalleryScreen from "./GalleryScreen";
 import styles from "../../styles/camera";
 
 type Props = {
-  camera: boolean,
-  toggleActiveLink: Function,
-  cameraTypeText: string,
-  flashText: string,
+  // camera: boolean,
+  // toggleActiveLink: Function,
+  // cameraTypeText: string,
+  // flashText: string,
   navigation: any,
   takePicture: Function,
-  toggleFlash: Function,
-  toggleCamera: Function,
-  photos: Array<Object>,
-  loading: boolean,
-  selectImage: Function,
-  getPhotos: Function,
-  id: number
+  // toggleFlash: Function,
+  // toggleCamera: Function,
+  // photos: Array<Object>,
+  // loading: boolean,
+  // selectImage: Function,
+  // getPhotos: Function,
+  // id: number
 }
 
 const CameraCaptureScreen = ( {
-  camera,
-  toggleActiveLink,
-  cameraTypeText,
-  flashText,
+  // camera,
+  // toggleActiveLink,
+  // cameraTypeText,
+  // flashText,
   navigation,
   takePicture,
-  toggleFlash,
-  toggleCamera,
-  photos,
-  loading,
-  selectImage,
-  getPhotos,
-  id
+  // toggleFlash,
+  // toggleCamera,
+  // photos,
+  // loading,
+  // selectImage
+  // getPhotos,
+  // id
 }: Props ) => (
   <View style={styles.container}>
-    <CameraTopNav
+    {/* <CameraTopNav
       camera={camera}
       navigation={navigation}
       cameraTypeText={cameraTypeText}
       flashText={flashText}
       toggleFlash={toggleFlash}
       toggleCamera={toggleCamera}
-    />
+    /> */}
     <View style={styles.main} />
-    { camera ? (
-      <CameraCapture
-        takePicture={takePicture}
-      />
-    ) : (
+    {/* { camera ? ( */}
+    <CameraCapture
+      takePicture={takePicture}
+    />
+    {/* ) : (
       <GalleryScreen
         navigation={navigation}
         camera={camera}
@@ -63,14 +63,14 @@ const CameraCaptureScreen = ( {
         loading={loading}
         selectImage={selectImage}
       />
-    ) }
-    <CameraBottomNav
+    ) } */}
+    {/* <CameraBottomNav
       navigation={navigation}
       id={id}
       camera={camera}
       toggleActiveLink={toggleActiveLink}
       getPhotos={getPhotos}
-    />
+    /> */}
   </View>
 );
 

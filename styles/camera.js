@@ -1,22 +1,21 @@
 import { Dimensions, StyleSheet } from "react-native";
-import {
-  colors
-} from "./global";
+import { colors, padding } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
     backgroundColor: "transparent",
     width,
-    height
+    flex: 1
   },
   main: {
     flexGrow: 1
   },
   footer: {
-    flexDirection: "column",
-    justifyContent: "flex-end"
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingBottom: padding.large
   },
   capture: {
     flex: 0,

@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
 
-import { colors } from "../styles/global";
+import { colors, padding, fontSize } from "../styles/global";
 import { setupBadges } from "../utility/helpers";
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
@@ -17,18 +17,29 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
+import CameraTopNav from "./Camera/CameraTopNav";
 
 const CameraNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
   PHOTOS: { screen: Gallery }
 }, {
   initialRouteName: "CAMERA",
+  animationEnabled: true,
   tabBarOptions: {
+    activeTintColor: colors.white,
+    activeBackgroundColor: colors.darkGreen,
+    inactiveTintColor: colors.lightGray,
     labelStyle: {
-      color: colors.white
+      color: colors.white,
+      paddingBottom: padding.extraLarge,
+      fontSize: fontSize.text
+    },
+    indicatorStyle: {
+      backgroundColor: colors.white
     },
     style: {
-      backgroundColor: colors.black
+      backgroundColor: colors.black,
+      height: 55
     }
   }
 } );
@@ -55,7 +66,7 @@ const RootStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
-      header: null
+      header: <CameraTopNav navigation={navigation} camera />
     } )
   },
   Location: {

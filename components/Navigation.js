@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
 
 import { colors } from "../styles/global";
 import { setupBadges } from "../utility/helpers";
@@ -7,6 +7,7 @@ import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
 import Camera from "./Camera/Camera";
+import Gallery from "./Camera/GalleryScreen";
 import LocationPickerScreen from "./Challenges/LocationPickerScreen";
 import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
@@ -16,6 +17,21 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
+
+const CameraNav = createBottomTabNavigator( {
+  CAMERA: { screen: Camera },
+  PHOTOS: { screen: Gallery }
+}, {
+  initialRouteName: "CAMERA",
+  tabBarOptions: {
+    labelStyle: {
+      color: colors.white
+    },
+    style: {
+      backgroundColor: colors.black
+    }
+  }
+} );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -37,7 +53,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Camera: {
-    screen: Camera,
+    screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
       header: null
     } )

@@ -15,9 +15,12 @@ export default StyleSheet.create( {
     alignItems: "flex-start"
   },
   header: {
+    backgroundColor: colors.black,
+    opacity: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    marginTop: 30
   },
   buttons: {
     flex: 0.3,
@@ -36,17 +39,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     marginLeft: margins.medium
   },
-  underline: {
-    textDecorationLine: "underline"
-  },
   footer: {
     flex: 0.2,
     marginTop: margins.medium,
     paddingBottom: padding.extraSmall,
     backgroundColor: colors.black
-  },
-  bottomNavigation: {
-    flexDirection: "row",
-    justifyContent: "space-around"
   }
 } );

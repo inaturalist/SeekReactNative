@@ -53,8 +53,8 @@ const addToCollection = ( observation, latitude, longitude ) => {
         }
         const taxon = realm.create( "TaxonRealm", {
           id: observation.taxon.id,
-          name: observation.taxon.name,
-          preferredCommonName: observation.taxon.preferred_common_name,
+          name: capitalizeNames( observation.taxon.name ),
+          preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
           iconicTaxonId: observation.taxon.iconic_taxon_id,
           defaultPhoto
         } );
@@ -66,8 +66,6 @@ const addToCollection = ( observation, latitude, longitude ) => {
           longitude,
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
-        // console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
-        // console.log( species, "realm observation after writing to file" );
       } );
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );

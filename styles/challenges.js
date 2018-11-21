@@ -65,8 +65,8 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    flex: 2,
-    flexGrow: 1,
+    flex: 1,
+    flexGrow: 2,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -77,8 +77,7 @@ export default StyleSheet.create( {
   },
   gridCellContents: {
     borderRadius: 5,
-    overflow: "hidden",
-    shadowColor: colors.blueShadow
+    overflow: "hidden"
   },
   cellTitle: {
     height: 45,

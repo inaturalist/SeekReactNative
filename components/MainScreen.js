@@ -11,6 +11,7 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
+import taxonIds from "../utility/taxonDict";
 import { capitalizeNames, recalculateBadges, truncateCoordinates } from "../utility/helpers";
 
 type Props = {
@@ -67,63 +68,9 @@ class MainScreen extends Component<Props, State> {
   setTaxonId( taxa ) {
     const { latitude, longitude } = this.state;
 
-    if ( taxa === "plants" ) {
+    if ( taxonIds[taxa] ) {
       this.setState( {
-        taxonId: 47126,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "amphibians" ) {
-      this.setState( {
-        taxonId: 20978,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "fungi" ) {
-      this.setState( {
-        taxonId: 47170,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "fish" ) {
-      this.setState( {
-        taxonId: 47178,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "reptiles" ) {
-      this.setState( {
-        taxonId: 26036,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "arachnids" ) {
-      this.setState( {
-        taxonId: 47119,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "birds" ) {
-      this.setState( {
-        taxonId: 3,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "insects" ) {
-      this.setState( {
-        taxonId: 47158,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "mollusks" ) {
-      this.setState( {
-        taxonId: 47115,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "mammals" ) {
-      this.setState( {
-        taxonId: 40151,
+        taxonId: taxonIds[taxa],
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );

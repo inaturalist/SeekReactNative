@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import LoadingWheel from "../LoadingWheel";
+import CameraTopNav from "./CameraTopNav";
 import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/gallery";
 import { colors } from "../../styles/global";
@@ -82,32 +83,38 @@ class GalleryScreen extends Component {
 
   render() {
     const { loading, photos } = this.state;
+    const { navigation } = this.props;
 
     return (
-      <View style={styles.galleryContainer}>
-        {loading ? <LoadingWheel color={colors.darkGray} /> : (
-          <ScrollView contentContainerStyle={styles.container}>
-            {
-              photos.map( ( p, i ) => {
-                return (
-                  <TouchableHighlight
-                    style={styles.button}
-                    key={i.toString()}
-                    underlayColor="transparent"
-                    onPress={() => {
-                      this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                    }}
-                  >
-                    <Image
-                      style={styles.image}
-                      source={{ uri: p.node.image.uri }}
-                    />
-                  </TouchableHighlight>
-                );
-              } )
-            }
-          </ScrollView>
-        ) }
+      <View style={styles.background}>
+        <View style={styles.navbar}>
+          <CameraTopNav navigation={navigation} />
+        </View>
+        <View style={styles.galleryContainer}>
+          {loading ? <LoadingWheel color={colors.darkGray} /> : (
+            <ScrollView contentContainerStyle={styles.container}>
+              {
+                photos.map( ( p, i ) => {
+                  return (
+                    <TouchableHighlight
+                      style={styles.button}
+                      key={i.toString()}
+                      underlayColor="transparent"
+                      onPress={() => {
+                        this.selectImage( p.node.image, p.node.timestamp, p.node.location );
+                      }}
+                    >
+                      <Image
+                        style={styles.image}
+                        source={{ uri: p.node.image.uri }}
+                      />
+                    </TouchableHighlight>
+                  );
+                } )
+              }
+            </ScrollView>
+          ) }
+        </View>
       </View>
     );
   }

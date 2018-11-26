@@ -8,14 +8,19 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  container: {
+    flex: 1
+  },
   header: {
     flexDirection: "row",
     justifyContent: "space-between"
   },
   text: {
-    fontSize: fontSize.medium,
+    fontSize: fontSize.large,
     color: colors.white,
-    fontFamily: fonts.default
+    fontFamily: fonts.default,
+    marginTop: margins.large,
+    marginHorizontal: margins.large
   },
   footer: {
     flex: 0.2,

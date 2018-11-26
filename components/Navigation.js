@@ -18,7 +18,6 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
-import CameraTopNav from "./Camera/CameraTopNav";
 
 const CameraNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
@@ -67,9 +66,7 @@ const RootStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
-      headerTitle: navigation.state.index === 0 ? <CameraTopNav navigation={navigation} /> : null,
-      headerTransparent: navigation.state.index === 0 ? true : false,
-      headerTintColor: navigation.state.index === 0 ? colors.white : colors.darkGray
+      header: null
     } )
   },
   Location: {

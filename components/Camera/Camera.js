@@ -6,6 +6,7 @@ import { CameraRoll, View, TouchableOpacity } from "react-native";
 
 import styles from "../../styles/camera";
 import LoadingWheel from "../LoadingWheel";
+import CameraTopNav from "./CameraTopNav";
 
 type Props = {
   navigation: any
@@ -19,8 +20,10 @@ class CameraScreen extends Component {
 
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
-      error: null,
       flash: RNCamera.Constants.FlashMode.off,
+      flashText: "Flash on",
+      cameraTypeText: "Back",
+      error: null,
       image: {},
       latitude,
       longitude,
@@ -28,6 +31,9 @@ class CameraScreen extends Component {
       time: null,
       id
     };
+
+    this.toggleCamera = this.toggleCamera.bind( this );
+    this.toggleFlash = this.toggleFlash.bind( this );
   }
 
   getCameraCaptureFromGallery( id ) {
@@ -93,12 +99,52 @@ class CameraScreen extends Component {
       } );
   }
 
+  toggleFlash() {
+    const {
+      flash
+    } = this.state;
+
+    if ( flash === RNCamera.Constants.FlashMode.off ) {
+      this.setState( {
+        flash: RNCamera.Constants.FlashMode.on,
+        flashText: "Flash off"
+      } );
+    } else {
+      this.setState( {
+        flash: RNCamera.Constants.FlashMode.off,
+        flashText: "Flash on"
+      } );
+    }
+  }
+
+  toggleCamera() {
+    const {
+      cameraType
+    } = this.state;
+
+    if ( cameraType === RNCamera.Constants.Type.back ) {
+      this.setState( {
+        cameraType: RNCamera.Constants.Type.front,
+        cameraTypeText: "Back"
+      } );
+    } else {
+      this.setState( {
+        cameraType: RNCamera.Constants.Type.back,
+        cameraTypeText: "Front"
+      } );
+    }
+  }
+
   render() {
     const {
       cameraType,
       flash,
+      flashText,
+      cameraTypeText,
       loading
     } = this.state;
+
+    const { navigation } = this.props;
 
     let content;
 
@@ -110,9 +156,7 @@ class CameraScreen extends Component {
           <View style={styles.main} />
           <View style={styles.footer}>
             <TouchableOpacity
-              onPress={() => {
-                this.takePicture();
-              }}
+              onPress={() => this.takePicture()}
               style={styles.capture}
             />
           </View>
@@ -131,6 +175,15 @@ class CameraScreen extends Component {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
+        <CameraTopNav
+          navigation={navigation}
+          flash={flash}
+          cameraType={cameraType}
+          toggleFlash={this.toggleFlash}
+          toggleCamera={this.toggleCamera}
+          flashText={flashText}
+          cameraTypeText={cameraTypeText}
+        />
         {content}
       </RNCamera>
     );

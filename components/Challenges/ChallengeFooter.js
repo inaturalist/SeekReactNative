@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from "react";
-
 import {
   Image,
   TouchableOpacity,
@@ -19,7 +18,7 @@ type Props = {
   speciesCount: number
 }
 
-class ChallengeFooter extends Component<Props> { 
+class ChallengeFooter extends Component { 
   constructor( {
     latitude,
     longitude,

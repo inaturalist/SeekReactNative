@@ -4,8 +4,15 @@ import { colors, padding } from "./global";
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  background: {
+    flex: 1
+  },
+  navbar: {
+    height: 60
+  },
   galleryContainer: {
     flex: 1,
+    flexGrow: 1,
     backgroundColor: colors.lightGray
   },
   container: {

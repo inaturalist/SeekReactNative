@@ -100,21 +100,16 @@ export default StyleSheet.create( {
     height: 50,
     backgroundColor: colors.darkDesaturatedBlue
   },
-  profile: {
+  bottomRow: {
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
   },
   profileButton: {
-    zIndex: 1,
-    marginBottom: margins.extraSmall,
     paddingLeft: padding.large
   },
   addPhotoButton: {
-    zIndex: 1,
-    position: "absolute",
-    right: 0,
-    marginBottom: margins.extraSmall,
-    paddingRight: padding.large
+    paddingRight: padding.medium
   },
   profileText: {
     color: colors.white,

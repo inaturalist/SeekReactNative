@@ -62,19 +62,17 @@ class ChallengeFooter extends Component {
 
     return (
       <View style={styles.footer}>
-        <View style={styles.bottomNavigation}>
-          <View style={styles.profile}>
-            <TouchableOpacity
-              style={styles.profileButton}
-              onPress={() => navigation.navigate( "YourCollection" )}
-            >
-              {profileIcon}
-              <Text style={styles.profileText}>
-                {species}
-                {badges}
-              </Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.bottomRow}>
+          <TouchableOpacity
+            style={styles.profileButton}
+            onPress={() => navigation.navigate( "YourCollection" )}
+          >
+            {profileIcon}
+            <Text style={styles.profileText}>
+              {species}
+              {badges}
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.addPhotoButton}
             onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}

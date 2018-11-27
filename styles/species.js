@@ -72,24 +72,28 @@ export default StyleSheet.create( {
   },
   button: {
     backgroundColor: colors.darkGreen,
-    justifyContent: "flex-end",
     marginHorizontal: margins.large,
     marginBottom: margins.small,
     marginTop: margins.small,
     paddingTop: padding.medium,
     paddingBottom: padding.medium,
-    borderRadius: 40
+    borderRadius: 40,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center"
   },
   buttonText: {
     fontFamily: fonts.playful,
     fontSize: fontSize.buttonText,
-    color: colors.white,
-    textAlign: "center",
-    justifyContent: "center"
+    color: colors.darkBlue
+  },
+  plus: {
+    paddingRight: padding.medium
   },
   ccButtonText: {
     fontFamily: fonts.semibold,
-    fontSize: fontSize.text
+    fontSize: fontSize.text,
+    color: colors.white
   },
   image: {
     width,

@@ -49,7 +49,7 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center",
     color: colors.white,
-    fontFamily: fonts.book
+    fontFamily: fonts.semibold
   },
   greenText: {
     alignItems: "center",
@@ -67,7 +67,7 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.book,
+    fontFamily: fonts.semibold,
     fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",

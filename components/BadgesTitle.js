@@ -4,6 +4,7 @@ import { View, Text } from "react-native";
 import Realm from "realm";
 
 import realmConfig from "../models/index";
+import { fontSize, fonts } from "../styles/global";
 
 type Props = {
   navigation: any
@@ -49,7 +50,7 @@ class BadgesTitle extends Component {
     const { title } = this.state;
     return (
       <View>
-        <Text>{title}</Text>
+        <Text style={{ fontFamily: fonts.default, fontSize: fontSize.header }}>{title}</Text>
       </View>
     );
   }

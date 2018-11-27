@@ -17,7 +17,9 @@ export const colors = {
 export const fonts = {
   default: "Whitney-Medium",
   checkboxes: "FontAwesome",
-  book: "Whitney-Semibold"
+  semibold: "Whitney-Semibold",
+  playful: "Riffic-Bold",
+  book: "Whitney-Book"
 };
 
 export const fontSize = {

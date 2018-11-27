@@ -33,7 +33,7 @@ export default StyleSheet.create( {
     paddingRight: padding.large
   },
   text: {
-    fontSize: fontSize.text,
+    fontSize: fontSize.smallText,
     fontFamily: fonts.default
   },
   species: {

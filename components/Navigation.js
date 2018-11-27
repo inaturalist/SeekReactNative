@@ -1,7 +1,11 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
 
-import { colors, padding, fontSize } from "../styles/global";
+import {
+  colors,
+  padding,
+  fontSize
+} from "../styles/global";
 import { setupBadges } from "../utility/helpers";
 
 import SplashScreen from "./SplashScreen";

@@ -26,7 +26,7 @@ class CameraScreen extends Component {
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
       flash: RNCamera.Constants.FlashMode.off,
-      flashText: "Flash on",
+      flashText: "ON",
       cameraTypeText: "Back",
       error: null,
       image: {},
@@ -115,12 +115,12 @@ class CameraScreen extends Component {
     if ( flash === RNCamera.Constants.FlashMode.off ) {
       this.setState( {
         flash: RNCamera.Constants.FlashMode.on,
-        flashText: "Flash off"
+        flashText: "OFF"
       } );
     } else {
       this.setState( {
         flash: RNCamera.Constants.FlashMode.off,
-        flashText: "Flash on"
+        flashText: "ON"
       } );
     }
   }

@@ -22,6 +22,13 @@ export default StyleSheet.create( {
     marginTop: margins.large,
     marginHorizontal: margins.large
   },
+  cameraFlip: {
+    width: 35,
+    height: 35,
+    tintColor: colors.white,
+    marginTop: margins.large,
+    marginHorizontal: margins.large
+  },
   footer: {
     flex: 0.2,
     marginTop: margins.medium,

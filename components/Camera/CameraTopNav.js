@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 
 import styles from "../../styles/cameraNavBar";
 import { colors } from "../../styles/global";
@@ -39,7 +39,7 @@ const CameraTopNav = ( {
         style={styles.buttons}
         onPress={() => toggleCamera()}
       >
-        <Text style={styles.text}>{cameraTypeText}</Text>
+        <Image style={styles.cameraFlip} source={require( "../../assets/reverse-camera.png" )} />
       </TouchableOpacity>
     </View>
   </View>

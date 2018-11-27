@@ -81,11 +81,15 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.semibold,
+    fontFamily: fonts.playful,
     fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",
     justifyContent: "center"
+  },
+  ccButtonText: {
+    fontFamily: fonts.semibold,
+    fontSize: fontSize.text
   },
   image: {
     width,

@@ -212,9 +212,8 @@ class SpeciesDetail extends Component {
     photos.forEach( ( photo, i ) => {
       if ( i <= 7 ) {
         const image = (
-          <View>
+          <View key={`image${photo.taxon_id}${i}`}>
             <Image
-              key={`image${photo.taxon_id}${i}`}
               source={{ uri: photo.photo.original_url }}
               style={styles.image}
             />
@@ -226,7 +225,7 @@ class SpeciesDetail extends Component {
                   photo.photo.attribution
                 )}
               >
-                <Text style={[styles.buttonText, { fontSize: 14 }]}>CC</Text>
+                <Text style={[styles.buttonText, styles.ccButtonText]}>CC</Text>
               </TouchableOpacity>
             </View>
           </View>

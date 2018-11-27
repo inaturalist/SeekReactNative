@@ -212,6 +212,7 @@ class ChallengeResults extends Component {
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( { results } ) => {
+        console.log( results, "match of score image" );
         const match = results[0];
         this.setState( {
           observation: match,

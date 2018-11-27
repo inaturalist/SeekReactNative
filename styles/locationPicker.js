@@ -65,8 +65,8 @@ export default StyleSheet.create( {
     bottom: 0
   },
   marker: {
-    width: "15%",
-    height: "20%"
+    width: 37,
+    height: 60
   },
   markerFixed: {
     flex: 1,

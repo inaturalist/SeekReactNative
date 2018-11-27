@@ -27,7 +27,6 @@ class CameraScreen extends Component {
       cameraType: RNCamera.Constants.Type.back,
       flash: RNCamera.Constants.FlashMode.off,
       flashText: "ON",
-      cameraTypeText: "Back",
       error: null,
       image: {},
       latitude,
@@ -132,13 +131,11 @@ class CameraScreen extends Component {
 
     if ( cameraType === RNCamera.Constants.Type.back ) {
       this.setState( {
-        cameraType: RNCamera.Constants.Type.front,
-        cameraTypeText: "Back"
+        cameraType: RNCamera.Constants.Type.front
       } );
     } else {
       this.setState( {
-        cameraType: RNCamera.Constants.Type.back,
-        cameraTypeText: "Front"
+        cameraType: RNCamera.Constants.Type.back
       } );
     }
   }
@@ -148,7 +145,6 @@ class CameraScreen extends Component {
       cameraType,
       flash,
       flashText,
-      cameraTypeText,
       loading
     } = this.state;
 
@@ -190,7 +186,6 @@ class CameraScreen extends Component {
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
           flashText={flashText}
-          cameraTypeText={cameraTypeText}
         />
         {content}
       </RNCamera>

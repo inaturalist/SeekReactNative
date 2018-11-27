@@ -1,13 +1,17 @@
 // @flow
 
 import React from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity
+} from "react-native";
 
 import styles from "../../styles/cameraNavBar";
 import { colors } from "../../styles/global";
 
 type Props = {
-  cameraTypeText: string,
   flashText: string,
   navigation: any,
   toggleFlash: Function,
@@ -15,7 +19,6 @@ type Props = {
 }
 
 const CameraTopNav = ( {
-  cameraTypeText,
   flashText,
   navigation,
   toggleFlash,

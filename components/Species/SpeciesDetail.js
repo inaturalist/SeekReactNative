@@ -225,6 +225,11 @@ class SpeciesDetail extends Component {
       <View style={styles.container}>
         <View style={styles.infoContainer}>
           <ScrollView>
+            <View style={styles.photoOverlay}>
+              <TouchableOpacity style={styles.ccButton}>
+                <Text style={[styles.buttonText, { fontSize: 14 }]}>CC</Text>
+              </TouchableOpacity>
+            </View>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator

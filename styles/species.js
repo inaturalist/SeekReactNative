@@ -28,6 +28,20 @@ export default StyleSheet.create( {
     left: 10,
     zIndex: 1
   },
+  photoOverlay: {
+    zIndex: 1,
+    position: "absolute",
+    right: 5,
+    top: 200
+  },
+  ccButton: {
+    backgroundColor: colors.darkDesaturatedBlue,
+    paddingRight: padding.medium,
+    paddingLeft: padding.medium,
+    paddingTop: padding.medium,
+    paddingBottom: padding.medium,
+    borderRadius: 40
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,

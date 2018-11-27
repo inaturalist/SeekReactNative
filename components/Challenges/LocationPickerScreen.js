@@ -82,7 +82,7 @@ class LocationPickerScreen extends Component {
             style={styles.buttonText}
             onPress={() => {
               updateLocation( region.latitude, region.longitude );
-              navigation.navigate( "Main" );
+              navigation.push( "Main" );
             }}
           >
             Done

@@ -33,7 +33,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "all" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -47,7 +47,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "plants" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -61,7 +61,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "amphibians" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -75,7 +75,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "fungi" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -89,7 +89,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "fish" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -103,7 +103,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "reptiles" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -117,7 +117,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "arachnids" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -131,7 +131,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "birds" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -145,7 +145,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "insects" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -159,7 +159,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "mollusks" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -173,7 +173,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "mammals" );
-                navigation.push( "Main" );
+                navigation.navigate( "Main" );
               }}
             >
               <Image

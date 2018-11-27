@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
+  Alert,
   Image,
   ScrollView,
   Text,
@@ -211,11 +212,24 @@ class SpeciesDetail extends Component {
     photos.forEach( ( photo, i ) => {
       if ( i <= 7 ) {
         const image = (
-          <Image
-            key={`image${photo.taxon_id}${i}`}
-            source={{ uri: photo.photo.original_url }}
-            style={styles.image}
-          />
+          <View>
+            <Image
+              key={`image${photo.taxon_id}${i}`}
+              source={{ uri: photo.photo.original_url }}
+              style={styles.image}
+            />
+            <View style={styles.photoOverlay}>
+              <TouchableOpacity
+                style={styles.ccButton}
+                onPress={() => Alert.alert(
+                  "License",
+                  photo.photo.attribution
+                )}
+              >
+                <Text style={[styles.buttonText, { fontSize: 14 }]}>CC</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         );
         photoList.push( image );
       }
@@ -225,11 +239,6 @@ class SpeciesDetail extends Component {
       <View style={styles.container}>
         <View style={styles.infoContainer}>
           <ScrollView>
-            <View style={styles.photoOverlay}>
-              <TouchableOpacity style={styles.ccButton}>
-                <Text style={[styles.buttonText, { fontSize: 14 }]}>CC</Text>
-              </TouchableOpacity>
-            </View>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator

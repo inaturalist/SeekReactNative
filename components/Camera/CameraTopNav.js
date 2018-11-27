@@ -6,12 +6,17 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import CameraFlipIcon from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import styles from "../../styles/cameraNavBar";
 import { colors } from "../../styles/global";
 
-const cameraFlipIcon = ( <Icon name="ios-reverse-camera" size={30} color="white" /> );
+const cameraFlipIcon = ( <CameraFlipIcon name="ios-reverse-camera" size={30} color={colors.white} /> );
+const exitIconWhite = ( <Icon name="close" size={25} color={colors.white} /> );
+const exitIconGray = ( <Icon name="close" size={25} color={colors.darkGray} /> );
+const flashOnIcon = ( <Icon name="flash" size={25} color={colors.white} /> );
+const flashOffIcon = ( <Icon name="flash-off" size={25} color={colors.white} /> );
 
 type Props = {
   flashText: string,
@@ -32,19 +37,26 @@ const CameraTopNav = ( {
         style={styles.buttons}
         onPress={() => navigation.navigate( "Main" )}
       >
-        <Text style={[styles.text, navigation.state.key === "PHOTOS" ? { color: colors.darkGray } : { color: colors.white }]}>X</Text>
+        <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttons}
         onPress={() => toggleFlash()}
       >
-        <Text style={styles.text}>{flashText}</Text>
+        {navigation.state.key === "CAMERA" ? (
+          <Text style={styles.text}>
+            {flashText === "ON" ? flashOnIcon : flashOffIcon}
+            {flashText}
+          </Text>
+        ) : null}
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttons}
         onPress={() => toggleCamera()}
       >
-        <Text style={styles.cameraFlip}>{cameraFlipIcon}</Text>
+        {navigation.state.key === "CAMERA" ? (
+          <Text style={styles.text}>{cameraFlipIcon}</Text>
+        ) : null}
       </TouchableOpacity>
     </View>
   </View>

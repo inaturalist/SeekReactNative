@@ -13,18 +13,17 @@ export default StyleSheet.create( {
   },
   header: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: margins.medium + 5,
+    marginHorizontal: margins.medium
   },
   text: {
-    fontSize: fontSize.large,
+    fontSize: fontSize.buttonText,
     color: colors.white,
     fontFamily: fonts.default,
-    marginTop: margins.large,
-    marginHorizontal: margins.large
-  },
-  cameraFlip: {
-    marginTop: margins.large,
-    marginHorizontal: margins.large
+    textAlign: "center"
   },
   footer: {
     flex: 0.2,

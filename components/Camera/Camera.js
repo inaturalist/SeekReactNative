@@ -16,7 +16,12 @@ class CameraScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { id, latitude, longitude } = navigation.state.params;
+    const {
+      id,
+      latitude,
+      longitude,
+      commonName
+    } = navigation.state.params;
 
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
@@ -29,7 +34,8 @@ class CameraScreen extends Component {
       longitude,
       loading: false,
       time: null,
-      id
+      id,
+      commonName
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
@@ -39,7 +45,8 @@ class CameraScreen extends Component {
   getCameraCaptureFromGallery( id ) {
     const {
       latitude,
-      longitude
+      longitude,
+      commonName
     } = this.state;
 
     const {
@@ -60,7 +67,8 @@ class CameraScreen extends Component {
         time: this.state.time,
         latitude,
         longitude,
-        id
+        id,
+        commonName
       } ) );
     } ).catch( ( err ) => {
       this.setState( {

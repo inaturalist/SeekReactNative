@@ -23,7 +23,7 @@ class GalleryScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { id, latitude, longitude } = navigation.state.params;
+    const { id, latitude, longitude, commonName } = navigation.state.params;
 
     this.state = {
       photos: [],
@@ -31,7 +31,8 @@ class GalleryScreen extends Component {
       latitude,
       longitude,
       time: null,
-      id
+      id,
+      commonName
     };
   }
 
@@ -60,7 +61,8 @@ class GalleryScreen extends Component {
     const {
       id,
       latitude,
-      longitude
+      longitude,
+      commonName
     } = this.state;
 
     const {
@@ -77,7 +79,8 @@ class GalleryScreen extends Component {
       image: this.state.image,
       time: this.state.time,
       latitude: this.state.latitude,
-      longitude: this.state.longitude
+      longitude: this.state.longitude,
+      commonName
     } ) );
   }
 

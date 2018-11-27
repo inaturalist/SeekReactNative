@@ -33,7 +33,8 @@ class ChallengeResults extends Component {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      commonName
     } = navigation.state.params;
 
     this.state = {
@@ -53,7 +54,8 @@ class ChallengeResults extends Component {
       time,
       latitude,
       longitude,
-      error: null
+      error: null,
+      commonName
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -69,7 +71,8 @@ class ChallengeResults extends Component {
       taxaId,
       score,
       taxaName,
-      seenTaxaIds
+      seenTaxaIds,
+      commonName
     } = this.state;
 
     if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
@@ -111,7 +114,7 @@ class ChallengeResults extends Component {
     } else if ( score > 85 && id !== taxaId ) {
       this.setState( {
         title: "Good Try!",
-        subtitle: `However, this isn't a ... it's a ${taxaName}`,
+        subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
         match: false,
         text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
         buttonText: "Add to Collection"

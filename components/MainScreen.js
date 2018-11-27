@@ -12,7 +12,12 @@ import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
 import taxonIds from "../utility/taxonDict";
-import { capitalizeNames, recalculateBadges, truncateCoordinates } from "../utility/helpers";
+import {
+  capitalizeNames,
+  recalculateBadges,
+  truncateCoordinates,
+  getPreviousAndNextMonth
+} from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -101,21 +106,6 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  getCurrentMonth() {
-    const date = new Date();
-    return date.getMonth();
-  }
-
-  getPreviousAndNextMonth() {
-    const month = this.getCurrentMonth();
-
-    if ( month === 1 ) {
-      return [12, 1, 2];
-    }
-
-    return [month - 1, month, month + 1];
-  }
-
   fetchChallenges( latitude: ?number, longitude: ?number ) {
     const { taxonId } = this.state;
 
@@ -131,7 +121,7 @@ class MainScreen extends Component<Props, State> {
       hrank: "species",
       include_only_vision_taxa: true,
       not_in_list_id: 945029,
-      month: this.getPreviousAndNextMonth()
+      month: getPreviousAndNextMonth()
     };
 
     if ( taxonId ) {

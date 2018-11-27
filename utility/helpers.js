@@ -129,6 +129,21 @@ const recalculateBadges = () => {
     } );
 };
 
+const getCurrentMonth = () => {
+  const date = new Date();
+  return date.getMonth();
+};
+
+const getPreviousAndNextMonth = () => {
+  const month = getCurrentMonth();
+
+  if ( month === 1 ) {
+    return [12, 1, 2];
+  }
+
+  return [month - 1, month, month + 1];
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -136,5 +151,6 @@ export {
   recalculateBadges,
   reverseGeocodeLocation,
   setupBadges,
-  truncateCoordinates
+  truncateCoordinates,
+  getPreviousAndNextMonth
 };

@@ -3,13 +3,15 @@
 import React from "react";
 import {
   View,
-  Image,
   Text,
   TouchableOpacity
 } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import styles from "../../styles/cameraNavBar";
 import { colors } from "../../styles/global";
+
+const cameraFlipIcon = ( <Icon name="ios-reverse-camera" size={30} color="white" /> );
 
 type Props = {
   flashText: string,
@@ -42,7 +44,7 @@ const CameraTopNav = ( {
         style={styles.buttons}
         onPress={() => toggleCamera()}
       >
-        <Image style={styles.cameraFlip} source={require( "../../assets/reverse-camera.png" )} />
+        <Text style={styles.cameraFlip}>{cameraFlipIcon}</Text>
       </TouchableOpacity>
     </View>
   </View>

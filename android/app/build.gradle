@@ -138,6 +138,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-vector-icons')
     implementation project(':realm')
     implementation project(':react-native-svg')
     implementation project(':react-native-maps')

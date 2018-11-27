@@ -23,9 +23,6 @@ export default StyleSheet.create( {
     marginHorizontal: margins.large
   },
   cameraFlip: {
-    width: 35,
-    height: 35,
-    tintColor: colors.white,
     marginTop: margins.large,
     marginHorizontal: margins.large
   },

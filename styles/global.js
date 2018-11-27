@@ -10,7 +10,8 @@ export const colors = {
   lightGray: "#f5f5f5",
   darkGray: "#a9a9a9",
   black: "black",
-  lightBlue: "#225C8E"
+  lightBlue: "#225C8E",
+  tomatoRed: "#ff6347"
 };
 
 export const fonts = {

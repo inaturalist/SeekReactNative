@@ -29,7 +29,7 @@ class CameraScreen extends Component {
     } = navigation.state.params;
 
     this.state = {
-      cameraType: RNCamera.Constants.Type.back,
+      cameraType: "back",
       flash: "off",
       flashText: "ON",
       error: null,
@@ -129,19 +129,11 @@ class CameraScreen extends Component {
   }
 
   toggleCamera() {
-    const {
-      cameraType
-    } = this.state;
+    const { cameraType } = this.state;
 
-    if ( cameraType === "back" ) {
-      this.setState( {
-        cameraType: "front"
-      } );
-    } else {
-      this.setState( {
-        cameraType: "back"
-      } );
-    }
+    this.setState( {
+      cameraType: cameraType === "back" ? "front" : "back"
+    } );
   }
 
   render() {

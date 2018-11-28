@@ -15,7 +15,7 @@ import { colors } from "../../styles/global";
 const cameraFlipIcon = ( <CameraFlipIcon name="ios-reverse-camera" size={30} color={colors.white} /> );
 const exitIconWhite = ( <Icon name="close" size={25} color={colors.white} /> );
 const exitIconGray = ( <Icon name="close" size={25} color={colors.darkGray} /> );
-const flashOnIcon = ( <Icon name="flash" size={25} color={colors.white} /> );
+const flashOnIcon = ( <Icon name="flash" size={25} color={colors.yellow} /> );
 const flashOffIcon = ( <Icon name="flash-off" size={25} color={colors.white} /> );
 
 type Props = {
@@ -45,7 +45,7 @@ const CameraTopNav = ( {
       >
         {navigation.state.key === "CAMERA" ? (
           <Text style={styles.text}>
-            {flashText === "ON" ? flashOnIcon : flashOffIcon}
+            {flashText === "OFF" ? flashOffIcon : flashOnIcon}
             {flashText}
           </Text>
         ) : null}

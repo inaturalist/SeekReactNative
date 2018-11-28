@@ -31,7 +31,7 @@ class CameraScreen extends Component {
     this.state = {
       cameraType: "back",
       flash: "off",
-      flashText: "ON",
+      flashText: "OFF",
       error: null,
       image: {},
       latitude,
@@ -84,9 +84,9 @@ class CameraScreen extends Component {
 
   takePicture = async () => {
     console.log( "picture is taking" );
-    this.setState( {
-      loading: true
-    } );
+    // this.setState( {
+    //   loading: true
+    // } );
 
     if ( this.camera ) {
       this.camera
@@ -96,13 +96,8 @@ class CameraScreen extends Component {
           this.setState( {
             error: err.message,
             loading: false
-          }, () => console.log( this.state.error, "error in taking pic async" ) );
+          } );
         } );
-    } else {
-      this.setState( {
-        error: "camera not working",
-        loading: false
-      }, () => console.log( this.state.error, "error in camera" ) );
     }
   }
 
@@ -124,7 +119,7 @@ class CameraScreen extends Component {
 
     this.setState( {
       flash: flashModeOrder[flash],
-      flashText: flash.toUpperCase()
+      flashText: flashModeOrder[flash].toUpperCase()
     } );
   }
 

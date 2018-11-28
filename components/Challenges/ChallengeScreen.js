@@ -29,8 +29,7 @@ type Props = {
   setTaxonId: Function,
   updateLocation: Function,
   reverseGeocodeLocation: Function,
-  error: string,
-  errorTitle: string
+  error: string
 }
 
 const ChallengeScreen = ( {
@@ -47,13 +46,12 @@ const ChallengeScreen = ( {
   taxa,
   taxaType,
   updateLocation,
-  error,
-  errorTitle
+  error
 }: Props ) => {
   let challenges;
 
   if ( error ) {
-    challenges = <ErrorScreen errorTitle={errorTitle} error={error} />;
+    challenges = <ErrorScreen error={error} />;
   } else if ( loading ) {
     challenges = <LoadingWheel />;
   } else {

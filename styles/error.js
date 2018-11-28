@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, fontSize } from "./global";
+import {
+  colors,
+  fonts,
+  fontSize,
+  margins
+} from "./global";
 
 
 export default StyleSheet.create( {
@@ -18,6 +23,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.header,
     color: colors.white,
     fontFamily: fonts.default,
-    textAlign: "center"
+    textAlign: "center",
+    marginHorizontal: margins.medium
   }
 } );

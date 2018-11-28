@@ -73,23 +73,6 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
-  textCell: {
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  captionText: {
-    fontSize: fontSize.text,
-    lineHeight: 14,
-    color: colors.white,
-    fontFamily: fonts.default,
-    width: 135,
-    flexWrap: "wrap",
-    marginHorizontal: margins.small,
-    marginTop: margins.small
-  },
-  centeredText: {
-    textAlign: "center"
-  },
   imageContainer: {
     borderRadius: 5,
     borderColor: colors.white,
@@ -97,7 +80,25 @@ export default StyleSheet.create( {
     width: 135,
     height: 135
   },
+  textCell: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center"
+  },
+  captionText: {
+    fontSize: fontSize.text,
+    color: colors.white,
+    fontFamily: fonts.default,
+    width: 135,
+    flexWrap: "wrap",
+    marginHorizontal: margins.small,
+    marginTop: margins.small
+  },
   footer: {
-    flex: 1
+    flex: 1,
+    marginTop: margins.large
+  },
+  centeredText: {
+    textAlign: "center"
   }
 } );

@@ -20,7 +20,7 @@ import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
-import { colors, margins } from "../../styles/global";
+import { colors } from "../../styles/global";
 import { capitalizeNames } from "../../utility/helpers";
 
 const latitudeDelta = 0.025;
@@ -179,7 +179,8 @@ class SpeciesDetail extends Component {
       showBanner,
       bannerText,
       timesSeen,
-      taxaType
+      taxaType,
+      seenTaxa
     } = this.state;
 
     const {
@@ -303,17 +304,19 @@ class SpeciesDetail extends Component {
             </View>
           </ScrollView>
         </View>
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate( "Camera", { id, commonName } )}
-          >
-            <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
-            <Text style={styles.buttonText}>
-              Found it!
-            </Text>
-          </TouchableOpacity>
-        </View>
+        { showBanner ? null : (
+          <View style={styles.footer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate( "Camera", { id, commonName } )}
+            >
+              <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
+              <Text style={styles.buttonText}>
+                Found it!
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) }
       </View>
     );
   }

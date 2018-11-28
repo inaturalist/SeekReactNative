@@ -47,7 +47,6 @@ class CameraScreen extends Component {
   }
 
   getCameraCaptureFromGallery( id ) {
-    console.log( "photo being gathered from gallery" );
     const {
       latitude,
       longitude,
@@ -83,11 +82,6 @@ class CameraScreen extends Component {
   }
 
   takePicture = async () => {
-    console.log( "picture is taking" );
-    // this.setState( {
-    //   loading: true
-    // } );
-
     if ( this.camera ) {
       this.camera
         .takePictureAsync()
@@ -102,7 +96,6 @@ class CameraScreen extends Component {
   }
 
   savePhotoToGallery( data ) {
-    console.log( "photo being saved to gallery" );
     const { id } = this.state;
 
     CameraRoll.saveToCameraRoll( data.uri, "photo" )

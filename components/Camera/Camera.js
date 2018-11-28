@@ -8,6 +8,11 @@ import styles from "../../styles/camera";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
 
+const flashModeOrder = {
+  off: "on",
+  on: "off"
+};
+
 type Props = {
   navigation: any
 }
@@ -25,7 +30,7 @@ class CameraScreen extends Component {
 
     this.state = {
       cameraType: RNCamera.Constants.Type.back,
-      flash: RNCamera.Constants.FlashMode.off,
+      flash: "off",
       flashText: "ON",
       error: null,
       image: {},
@@ -42,6 +47,7 @@ class CameraScreen extends Component {
   }
 
   getCameraCaptureFromGallery( id ) {
+    console.log( "photo being gathered from gallery" );
     const {
       latitude,
       longitude,
@@ -77,6 +83,7 @@ class CameraScreen extends Component {
   }
 
   takePicture = async () => {
+    console.log( "picture is taking" );
     this.setState( {
       loading: true
     } );
@@ -89,12 +96,18 @@ class CameraScreen extends Component {
           this.setState( {
             error: err.message,
             loading: false
-          } );
+          }, () => console.log( this.state.error, "error in taking pic async" ) );
         } );
+    } else {
+      this.setState( {
+        error: "camera not working",
+        loading: false
+      }, () => console.log( this.state.error, "error in camera" ) );
     }
   }
 
   savePhotoToGallery( data ) {
+    console.log( "photo being saved to gallery" );
     const { id } = this.state;
 
     CameraRoll.saveToCameraRoll( data.uri, "photo" )
@@ -107,21 +120,12 @@ class CameraScreen extends Component {
   }
 
   toggleFlash() {
-    const {
-      flash
-    } = this.state;
+    const { flash } = this.state;
 
-    if ( flash === RNCamera.Constants.FlashMode.off ) {
-      this.setState( {
-        flash: RNCamera.Constants.FlashMode.on,
-        flashText: "OFF"
-      } );
-    } else {
-      this.setState( {
-        flash: RNCamera.Constants.FlashMode.off,
-        flashText: "ON"
-      } );
-    }
+    this.setState( {
+      flash: flashModeOrder[flash],
+      flashText: flash.toUpperCase()
+    } );
   }
 
   toggleCamera() {
@@ -129,13 +133,13 @@ class CameraScreen extends Component {
       cameraType
     } = this.state;
 
-    if ( cameraType === RNCamera.Constants.Type.back ) {
+    if ( cameraType === "back" ) {
       this.setState( {
-        cameraType: RNCamera.Constants.Type.front
+        cameraType: "front"
       } );
     } else {
       this.setState( {
-        cameraType: RNCamera.Constants.Type.back
+        cameraType: "back"
       } );
     }
   }
@@ -150,24 +154,6 @@ class CameraScreen extends Component {
 
     const { navigation } = this.props;
 
-    let content;
-
-    if ( loading ) {
-      content = <LoadingWheel />;
-    } else {
-      content = (
-        <View style={styles.container}>
-          <View style={styles.main} />
-          <View style={styles.footer}>
-            <TouchableOpacity
-              onPress={() => this.takePicture()}
-              style={styles.capture}
-            />
-          </View>
-        </View>
-      );
-    }
-
     return (
       <RNCamera
         ref={( ref ) => {
@@ -181,13 +167,22 @@ class CameraScreen extends Component {
       >
         <CameraTopNav
           navigation={navigation}
-          flash={flash}
           cameraType={cameraType}
+          flashText={flashText}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
-          flashText={flashText}
         />
-        {content}
+        {loading ? <LoadingWheel /> : (
+          <View style={styles.container}>
+            <View style={styles.main} />
+            <View style={styles.footer}>
+              <TouchableOpacity
+                onPress={() => this.takePicture()}
+                style={styles.capture}
+              />
+            </View>
+          </View>
+        )}
       </RNCamera>
     );
   }

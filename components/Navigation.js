@@ -28,7 +28,6 @@ const CameraNav = createBottomTabNavigator( {
   PHOTOS: { screen: Gallery }
 }, {
   initialRouteName: "CAMERA",
-  animationEnabled: true,
   tabBarOptions: {
     activeTintColor: colors.white,
     activeBackgroundColor: colors.darkGreen,

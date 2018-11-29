@@ -282,6 +282,7 @@ class SpeciesDetail extends Component {
             <SpeciesMap
               region={region}
               id={id}
+              error={error}
             />
             <Text style={styles.headerText}>When is the best time to find it?</Text>
             <SpeciesChart data={observationsByMonth} error={error} />

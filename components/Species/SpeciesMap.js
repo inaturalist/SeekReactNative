@@ -11,12 +11,14 @@ const markerIcon = ( <Icon name="location-on" size={50} color={colors.tomatoRed}
 
 type Props = {
   region: Object,
-  id: number
+  id: number,
+  error: string
 }
 
 const LocationMap = ( {
   region,
-  id
+  id,
+  error
 }: Props ) => (
   <View style={styles.mapContainer}>
     <MapView
@@ -31,11 +33,13 @@ const LocationMap = ( {
       <UrlTile
         urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=darkorange`}
       />
-      <Marker
-        coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-      >
-        <Text>{markerIcon}</Text>
-      </Marker>
+      {error ? null : (
+        <Marker
+          coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+        >
+          <Text>{markerIcon}</Text>
+        </Marker>
+      )}
     </MapView>
   </View>
 );

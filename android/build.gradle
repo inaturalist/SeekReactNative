@@ -42,3 +42,19 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
     distributionUrl = distributionUrl.replace("bin", "all")
 }
+
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 27
+                buildToolsVersion "27.0.3"
+            }
+        }
+    }
+}
+
+buildScan { 
+    termsOfServiceUrl = 'https://gradle.com/terms-of-service';
+    termsOfServiceAgree = 'yes'
+}

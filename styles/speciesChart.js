@@ -8,12 +8,24 @@ export default StyleSheet.create( {
     marginRight: margins.medium,
     padding: padding.medium,
     borderRadius: 5,
-    height: 150,
+    height: 150
+  },
+  errorContainer: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  errorText: {
+    textAlign: "center"
+  },
+  chartContainer: {
+    flex: 1,
     flexDirection: "row"
   },
   yAxis: {
     alignItems: "center",
-    marginBottom: margins.medium
+    marginBottom: margins.small
   },
   chartRow: {
     flex: 1,

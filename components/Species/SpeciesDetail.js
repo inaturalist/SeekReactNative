@@ -49,7 +49,7 @@ class SpeciesDetail extends Component {
       photos: [],
       commonName: null,
       scientificName: null,
-      about: null,
+      about: "No additional information.",
       showBanner: false,
       timesSeen: null,
       taxaType: null,
@@ -60,7 +60,8 @@ class SpeciesDetail extends Component {
         longitudeDelta
       },
       observationsByMonth: [],
-      nearbySpeciesCount: 0
+      nearbySpeciesCount: null,
+      error: null
     };
   }
 
@@ -161,8 +162,10 @@ class SpeciesDetail extends Component {
       this.setState( {
         observationsByMonth
       } );
-    } ).catch( ( err ) => {
-      console.log( err, "error fetching histogram" );
+    } ).catch( () => {
+      this.setState( {
+        error: "No chart data available."
+      } );
     } );
   }
 
@@ -180,7 +183,7 @@ class SpeciesDetail extends Component {
       bannerText,
       timesSeen,
       taxaType,
-      seenTaxa
+      error
     } = this.state;
 
     const {
@@ -280,8 +283,8 @@ class SpeciesDetail extends Component {
               region={region}
               id={id}
             />
-            <Text style={styles.headerText}>When is the best time to find it</Text>
-            <SpeciesChart data={observationsByMonth} />
+            <Text style={styles.headerText}>When is the best time to find it?</Text>
+            <SpeciesChart data={observationsByMonth} error={error} />
             <Text style={styles.headerText}>About</Text>
             <Text style={styles.text}>
               {about}

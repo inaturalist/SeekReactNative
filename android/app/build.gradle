@@ -125,12 +125,10 @@ android {
     }
     signingConfigs {
         release {
-            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-                storeFile file(MYAPP_RELEASE_STORE_FILE)
-                storePassword pass
-                keyAlias MYAPP_RELEASE_KEY_ALIAS
-                keyPassword pass
-            }
+            storeFile file(SEEK_RELEASE_STORE_FILE)
+            storePassword pass
+            keyAlias SEEK_RELEASE_KEY_ALIAS
+            keyPassword pass
         }
     }
     splits {
@@ -145,6 +143,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release

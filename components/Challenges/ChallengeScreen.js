@@ -55,7 +55,7 @@ const ChallengeScreen = ( {
   } else if ( loading ) {
     challenges = <LoadingWheel />;
   } else if ( taxa.length === 0 ) {
-    challenges = <ErrorScreen error={`We couldn't find any ${taxaType} in your area`} />;
+    challenges = <ErrorScreen error={`We couldn't find any ${taxaType} in this location. Please try again.`} />;
   } else {
     challenges = (
       <ChallengeGrid

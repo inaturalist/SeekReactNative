@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import {
   Defs,
   LinearGradient,
@@ -15,10 +15,11 @@ import moment from "moment";
 import styles from "../../styles/speciesChart";
 
 type Props = {
-  data: Array<Object>
+  data: Array<Object>,
+  error: string
 };
 
-const SpeciesChart = ( { data }: Props ) => {
+const SpeciesChart = ( { data, error }: Props ) => {
   const formatXAxis = ( index ) => {
     const allMonths = moment.monthsShort();
     if ( index === 0 || index % 2 === 0 ) {
@@ -47,41 +48,49 @@ const SpeciesChart = ( { data }: Props ) => {
 
   return (
     <View style={styles.container}>
-      <YAxis
-        data={data}
-        yAccessor={ ( { item } ) => item.count }
-        style={styles.yAxis}
-        contentInset={styles.contentInset}
-        svg={{ fontSize: 10, fill: "white" }}
-        min={0}
-        numberOfTicks={8}
-      />
-      <View style={styles.chartRow}>
-        <AreaChart
-          style={styles.chart}
-          data={data}
-          yAccessor={ ( { item } ) => item.count }
-          xAccessor={( { item } ) => item.month }
-          xScale={scale.scaleTime}
-          yScale={scale.scaleLinear}
-          contentInset={styles.contentInset}
-          curve={shape.curveNatural}
-          svg={{ fill: "url(#gradient)" }}
-        >
-          <Line />
-          <Gradient />
-        </AreaChart>
-        <XAxis
-          style={styles.xAxis}
-          data={data}
-          xAccessor={( { item } ) => item.month }
-          formatLabel={ value => formatXAxis( value - 1 ) }
-          svg={{
-            fontSize: 10,
-            fill: "white"
-          }}
-        />
-      </View>
+      { error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
+        </View>
+      ) : (
+        <View style={styles.chartContainer}>
+          <YAxis
+            data={data}
+            yAccessor={ ( { item } ) => item.count }
+            style={styles.yAxis}
+            contentInset={styles.contentInset}
+            svg={{ fontSize: 10, fill: "white" }}
+            min={0}
+            numberOfTicks={8}
+          />
+          <View style={styles.chartRow}>
+            <AreaChart
+              style={styles.chart}
+              data={data}
+              yAccessor={ ( { item } ) => item.count }
+              xAccessor={( { item } ) => item.month }
+              xScale={scale.scaleTime}
+              yScale={scale.scaleLinear}
+              contentInset={styles.contentInset}
+              curve={shape.curveNatural}
+              svg={{ fill: "url(#gradient)" }}
+            >
+              <Line />
+              <Gradient />
+            </AreaChart>
+            <XAxis
+              style={styles.xAxis}
+              data={data}
+              xAccessor={( { item } ) => item.month }
+              formatLabel={ value => formatXAxis( value - 1 ) }
+              svg={{
+                fontSize: 10,
+                fill: "white"
+              }}
+            />
+          </View>
+        </View>
+      ) }
     </View>
   );
 };

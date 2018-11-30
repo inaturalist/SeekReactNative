@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -6,8 +6,6 @@ import {
   margins,
   padding
 } from "./global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -22,43 +20,57 @@ export default StyleSheet.create( {
     flexWrap: "nowrap"
   },
   headerText: {
-    fontSize: fontSize.header,
+    fontSize: fontSize.buttonText,
+    fontFamily: fonts.book,
     alignItems: "flex-start",
-    marginLeft: margins.medium
+    marginLeft: margins.medium,
+    marginTop: margins.medium
   },
   button: {
+    marginTop: margins.medium,
     position: "absolute",
     right: 0,
     paddingRight: padding.large
   },
   text: {
-    fontSize: fontSize.text
+    fontSize: fontSize.smallText,
+    fontFamily: fonts.default
   },
   species: {
     flex: 3,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    paddingBottom: padding.medium
   },
   taxonGrid: {
-    flex: 4,
+    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: margins.medium
+    justifyContent: "center"
   },
   badgeIcon: {
     width: 70,
     height: 70,
     alignSelf: "center"
   },
+  badgeCellContents: {
+    borderRadius: 5,
+    overflow: "hidden"
+  },
   gridCell: {
-    width: width / 3 - 3,
-    height: width / 3 - 3,
+    width: 105,
+    height: 138,
     paddingHorizontal: padding.medium,
-    marginTop: margins.medium,
-    marginBottom: margins.small
+    marginTop: margins.medium
   },
   gridCellContents: {
     borderRadius: 5,
-    overflow: "hidden"
+    elevation: 2,
+    shadowOpacity: 0.3,
+    shadowColor: colors.darkGray,
+    shadowRadius: 3,
+    shadowOffset: {
+      height: 2,
+      width: 0
+    }
   },
   badgeTitle: {
     height: 45,

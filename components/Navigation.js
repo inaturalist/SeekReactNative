@@ -1,12 +1,18 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
 
-import { colors } from "../styles/global";
+import {
+  colors,
+  padding,
+  fontSize
+} from "../styles/global";
 import { setupBadges } from "../utility/helpers";
+
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
 import MainScreen from "./MainScreen";
 import Camera from "./Camera/Camera";
+import Gallery from "./Camera/GalleryScreen";
 import LocationPickerScreen from "./Challenges/LocationPickerScreen";
 import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
@@ -16,6 +22,30 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
+
+const CameraNav = createBottomTabNavigator( {
+  CAMERA: { screen: Camera },
+  PHOTOS: { screen: Gallery }
+}, {
+  initialRouteName: "CAMERA",
+  tabBarOptions: {
+    activeTintColor: colors.white,
+    activeBackgroundColor: colors.darkGreen,
+    inactiveTintColor: colors.lightGray,
+    labelStyle: {
+      color: colors.white,
+      paddingBottom: padding.extraLarge,
+      fontSize: fontSize.text
+    },
+    indicatorStyle: {
+      backgroundColor: colors.white
+    },
+    style: {
+      backgroundColor: colors.black,
+      height: 55
+    }
+  }
+} );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -37,7 +67,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Camera: {
-    screen: Camera,
+    screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
       header: null
     } )
@@ -66,11 +96,11 @@ const RootStack = createStackNavigator( {
   Species: {
     screen: SpeciesDetail,
     navigationOptions: ( { navigation } ) => ( {
-      title: "Collect This!",
+      title: navigation.state.params.seen ? "Collected" : "Collect This!",
       headerStyle: {
-        backgroundColor: colors.darkestBlue
+        backgroundColor: navigation.state.params.seen ? colors.lightGray : colors.darkestBlue
       },
-      headerTintColor: colors.white
+      headerTintColor: navigation.state.params.seen ? colors.black : colors.white
     } )
   },
   YourCollection: {

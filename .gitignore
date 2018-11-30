@@ -30,6 +30,7 @@ build/
 local.properties
 *.iml
 android/app/src/main/res/values/config.xml
+android/app/release/
 
 # node.js
 #

@@ -72,6 +72,19 @@ import com.android.build.OutputFile
  * ]
  */
 
+ def getPassword(String currentUser, String keyChain) {
+   def stdout = new ByteArrayOutputStream()
+   def stderr = new ByteArrayOutputStream()
+   exec {
+       commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+       standardOutput = stdout
+       errorOutput = stderr
+       ignoreExitValue true
+   }
+   //noinspection GroovyAssignabilityCheck
+      stdout.toString().trim()
+}
+
 project.ext.react = [
     entryFile: "index.js"
 ]
@@ -93,6 +106,8 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+def pass = getPassword("iNaturalist.org","inaturalist-android")
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion '28.0.3'
@@ -108,6 +123,14 @@ android {
         }
         vectorDrawables.useSupportLibrary = true
     }
+    signingConfigs {
+        release {
+            storeFile file(SEEK_RELEASE_STORE_FILE)
+            storePassword pass
+            keyAlias SEEK_RELEASE_KEY_ALIAS
+            keyPassword pass
+        }
+    }
     splits {
         abi {
             reset()
@@ -120,6 +143,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -138,6 +162,13 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-vector-icons')
+    implementation project(':realm')
+    implementation project(':react-native-svg')
+    implementation project(':react-native-maps')
+    implementation project(':react-native-image-resizer')
+    implementation project(':react-native-geocoder')
+    implementation project(':react-native-camera')
     implementation project(':realm')
     implementation project(':react-native-svg')
     implementation project(':react-native-image-resizer')

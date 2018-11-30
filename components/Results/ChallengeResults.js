@@ -15,6 +15,7 @@ import moment from "moment";
 import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingWheel from "../LoadingWheel";
+import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
 import styles from "../../styles/results";
 import { addToCollection, flattenUploadParameters } from "../../utility/helpers";
@@ -32,7 +33,8 @@ class ChallengeResults extends Component {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      commonName
     } = navigation.state.params;
 
     this.state = {
@@ -51,7 +53,9 @@ class ChallengeResults extends Component {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      error: null,
+      commonName
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -67,7 +71,8 @@ class ChallengeResults extends Component {
       taxaId,
       score,
       taxaName,
-      seenTaxaIds
+      seenTaxaIds,
+      commonName
     } = this.state;
 
     if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
@@ -109,7 +114,7 @@ class ChallengeResults extends Component {
     } else if ( score > 85 && id !== taxaId ) {
       this.setState( {
         title: "Good Try!",
-        subtitle: `However, this isn't a ... it's a ${taxaName}`,
+        subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
         match: false,
         text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
         buttonText: "Add to Collection"
@@ -159,12 +164,11 @@ class ChallengeResults extends Component {
 
     if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude );
-      navigation.navigate( "Main", { taxaName, speciesSeen: true } );
+      navigation.push( "Main", { taxaName, speciesSeen: true } );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );
     } else {
-      // navigation.navigate( "Main" );
-      navigation.navigate( "Main", { taxaName, speciesSeen: true } );
+      navigation.push( "Main", { taxaName, speciesSeen: true } );
     }
   }
 
@@ -220,13 +224,16 @@ class ChallengeResults extends Component {
           this.fetchSeenTaxaIds( this.state.taxaId );
         } );
       } )
-      .catch( ( err ) => {
-        console.log( err, "error fetching results from computer vision" );
+      .catch( () => {
+        this.setState( {
+          error: "Can't load computer vision suggestions. Try again later."
+        } );
       } );
   }
 
   render() {
     const {
+      error,
       loading,
       title,
       subtitle,
@@ -243,8 +250,14 @@ class ChallengeResults extends Component {
       navigation
     } = this.props;
 
-    const content = loading ? <LoadingWheel />
-      : (
+    let content;
+
+    if ( error ) {
+      content = <ErrorScreen error={error} />;
+    } else if ( loading ) {
+      content = <LoadingWheel />;
+    } else {
+      content = (
         <ChallengeResultsScreen
           title={title}
           subtitle={subtitle}
@@ -259,6 +272,7 @@ class ChallengeResults extends Component {
           onPress={this.savePhotoOrStartOver}
         />
       );
+    }
 
     return (
       <View style={ { flex: 1 } }>

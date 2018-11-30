@@ -11,6 +11,7 @@ import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
 import LoadingWheel from "../LoadingWheel";
+import ErrorScreen from "../ErrorScreen";
 import styles from "../../styles/challenges";
 
 type Props = {
@@ -27,7 +28,8 @@ type Props = {
   taxaType: string,
   setTaxonId: Function,
   updateLocation: Function,
-  reverseGeocodeLocation: Function
+  reverseGeocodeLocation: Function,
+  error: string
 }
 
 const ChallengeScreen = ( {
@@ -43,17 +45,26 @@ const ChallengeScreen = ( {
   setTaxonId,
   taxa,
   taxaType,
-  updateLocation
+  updateLocation,
+  error
 }: Props ) => {
-  const challenges = loading ? <LoadingWheel /> : (
-    <ChallengeGrid
-      navigation={navigation}
-      taxa={taxa}
-      latitude={latitude}
-      longitude={longitude}
-      location={location}
-    />
-  );
+  let challenges;
+
+  if ( error ) {
+    challenges = <ErrorScreen error={error} />;
+  } else if ( loading ) {
+    challenges = <LoadingWheel />;
+  } else {
+    challenges = (
+      <ChallengeGrid
+        navigation={navigation}
+        taxa={taxa}
+        latitude={latitude}
+        longitude={longitude}
+        location={location}
+      />
+    );
+  }
 
   return (
     <View style={ { flex: 1 } }>
@@ -65,6 +76,7 @@ const ChallengeScreen = ( {
           latitude={latitude}
           longitude={longitude}
           location={location}
+          loading={loading}
           navigation={navigation}
           updateLocation={updateLocation}
           setTaxonId={setTaxonId}

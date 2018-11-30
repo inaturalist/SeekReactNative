@@ -53,8 +53,8 @@ const addToCollection = ( observation, latitude, longitude ) => {
         }
         const taxon = realm.create( "TaxonRealm", {
           id: observation.taxon.id,
-          name: observation.taxon.name,
-          preferredCommonName: observation.taxon.preferred_common_name,
+          name: capitalizeNames( observation.taxon.name ),
+          preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
           iconicTaxonId: observation.taxon.iconic_taxon_id,
           defaultPhoto
         } );
@@ -62,12 +62,10 @@ const addToCollection = ( observation, latitude, longitude ) => {
           uuidString: uuid.v1(),
           date: new Date(),
           taxon,
-          latitude,
-          longitude,
+          latitude: truncateCoordinates( latitude ),
+          longitude: truncateCoordinates( longitude ),
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
-        // console.log( taxon, "realm taxon, photo after writing to file", defaultPhoto );
-        // console.log( species, "realm observation after writing to file" );
       } );
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
@@ -126,10 +124,24 @@ const recalculateBadges = () => {
           }
         }
       } );
-      // console.log( realm.objects( "BadgeRealm" ).filtered( "earned == true" ), "earned badges" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
+};
+
+const getCurrentMonth = () => {
+  const date = new Date();
+  return date.getMonth();
+};
+
+const getPreviousAndNextMonth = () => {
+  const month = getCurrentMonth();
+
+  if ( month === 1 ) {
+    return [12, 1, 2];
+  }
+
+  return [month - 1, month, month + 1];
 };
 
 export {
@@ -139,5 +151,6 @@ export {
   recalculateBadges,
   reverseGeocodeLocation,
   setupBadges,
-  truncateCoordinates
+  truncateCoordinates,
+  getPreviousAndNextMonth
 };

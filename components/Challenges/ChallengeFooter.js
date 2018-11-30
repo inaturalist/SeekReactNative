@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from "react";
-
 import {
   Image,
   TouchableOpacity,
@@ -19,7 +18,7 @@ type Props = {
   speciesCount: number
 }
 
-class ChallengeFooter extends Component<Props> { 
+class ChallengeFooter extends Component { 
   constructor( {
     latitude,
     longitude,
@@ -63,19 +62,17 @@ class ChallengeFooter extends Component<Props> {
 
     return (
       <View style={styles.footer}>
-        <View style={styles.bottomNavigation}>
-          <View style={styles.profile}>
-            <TouchableOpacity
-              style={styles.profileButton}
-              onPress={() => navigation.navigate( "YourCollection" )}
-            >
-              {profileIcon}
-              <Text style={styles.profileText}>
-                {species}
-                {badges}
-              </Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.bottomRow}>
+          <TouchableOpacity
+            style={styles.profileButton}
+            onPress={() => navigation.navigate( "YourCollection" )}
+          >
+            {profileIcon}
+            <Text style={styles.profileText}>
+              {species}
+              {badges}
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.addPhotoButton}
             onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}

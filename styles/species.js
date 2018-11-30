@@ -7,7 +7,7 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -28,6 +28,20 @@ export default StyleSheet.create( {
     left: 10,
     zIndex: 1
   },
+  photoOverlay: {
+    zIndex: 1,
+    position: "absolute",
+    right: 5,
+    top: 200
+  },
+  ccButton: {
+    backgroundColor: colors.darkDesaturatedBlue,
+    paddingRight: padding.medium,
+    paddingLeft: padding.medium,
+    paddingTop: padding.medium,
+    paddingBottom: padding.medium,
+    borderRadius: 40
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,
@@ -40,7 +54,7 @@ export default StyleSheet.create( {
     marginTop: margins.medium,
     marginBottom: margins.medium,
     fontSize: fontSize.header,
-    lineHeight: 18,
+    lineHeight: 22,
     color: colors.white,
     fontFamily: fonts.default
   },
@@ -48,7 +62,8 @@ export default StyleSheet.create( {
     marginLeft: margins.medium,
     alignItems: "center",
     justifyContent: "center",
-    color: colors.white
+    color: colors.white,
+    fontFamily: fonts.semibold
   },
   greenText: {
     alignItems: "center",
@@ -57,24 +72,32 @@ export default StyleSheet.create( {
   },
   button: {
     backgroundColor: colors.darkGreen,
-    justifyContent: "flex-end",
     marginHorizontal: margins.large,
     marginBottom: margins.small,
     marginTop: margins.small,
     paddingTop: padding.medium,
     paddingBottom: padding.medium,
-    borderRadius: 40
+    borderRadius: 40,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center"
   },
   buttonText: {
-    fontFamily: fonts.default,
+    fontFamily: fonts.playful,
     fontSize: fontSize.buttonText,
-    color: colors.white,
-    textAlign: "center",
-    justifyContent: "center"
+    color: colors.darkBlue
+  },
+  plus: {
+    paddingRight: padding.medium
+  },
+  ccButtonText: {
+    fontFamily: fonts.semibold,
+    fontSize: fontSize.text,
+    color: colors.white
   },
   image: {
     width,
-    height: height / 2 - 100
+    height: 251
   },
   categoryContainer: {
     backgroundColor: "rgba(76, 175, 80, 0.3)",
@@ -97,11 +120,12 @@ export default StyleSheet.create( {
     marginBottom: margins.medium
   },
   smallImage: {
-    width: width / 5,
-    overflow: "visible"
+    width: 56,
+    height: 43
   },
   greenImage: {
-    width: width / 4,
+    width: 74,
+    height: 74,
     marginBottom: margins.medium,
     backgroundColor: "transparent",
     tintColor: colors.lightGreen

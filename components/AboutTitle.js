@@ -3,6 +3,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import styles from "../styles/about";
+import { fonts, fontSize } from "../styles/global";
 
 type Props = {
   navigation: any
@@ -13,7 +14,9 @@ const AboutTitle = ( { navigation }: Props ) => (
     <TouchableOpacity
       onPress={() => navigation.navigate( "About" )}
     >
-      <Text>About</Text>
+      <Text style={{ fontFamily: fonts.default, fontSize: fontSize.text }}>
+        About
+      </Text>
     </TouchableOpacity>
   </View>
 );

@@ -56,7 +56,7 @@ const WarningsScreen = ( { navigation }: Props ) => (
         </Text>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate( "Main" )}
+          onPress={() => navigation.push( "Main" )}
         >
           <Text style={styles.buttonText}>OK. Got it!</Text>
         </TouchableOpacity>

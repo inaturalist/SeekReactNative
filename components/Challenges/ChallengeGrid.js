@@ -41,7 +41,8 @@ const ChallengeGrid = ( {
               id: item.id,
               latitude,
               longitude,
-              location
+              location,
+              seen: false
             } ) }
           >
             <View style={ styles.gridCellContents }>
@@ -53,7 +54,7 @@ const ChallengeGrid = ( {
                 source={ { uri: item.default_photo.medium_url } }
               />
               <View style={ styles.cellTitle }>
-                <Text style={ styles.cellTitleText }>
+                <Text numberOfLines={2} style={ styles.cellTitleText }>
                   { capitalizeNames( item.preferred_common_name || item.name ) }
                 </Text>
               </View>

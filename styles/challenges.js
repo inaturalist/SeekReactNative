@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -6,8 +6,6 @@ import {
   margins,
   padding
 } from "./global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
@@ -67,22 +65,19 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    flex: 3,
+    flex: 1,
+    flexGrow: 2,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: margins.medium
+    justifyContent: "center"
   },
   gridCell: {
-    width: width / 3 - 3,
-    height: width / 3 - 3,
-    paddingHorizontal: padding.medium,
-    marginTop: margins.medium,
-    marginBottom: margins.small
+    width: 105,
+    height: 138,
+    paddingHorizontal: padding.medium
   },
   gridCellContents: {
     borderRadius: 5,
-    overflow: "hidden",
-    shadowColor: colors.blueShadow
+    overflow: "hidden"
   },
   cellTitle: {
     height: 45,
@@ -105,21 +100,16 @@ export default StyleSheet.create( {
     height: 50,
     backgroundColor: colors.darkDesaturatedBlue
   },
-  profile: {
+  bottomRow: {
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
   },
   profileButton: {
-    zIndex: 1,
-    marginBottom: margins.extraSmall,
     paddingLeft: padding.large
   },
   addPhotoButton: {
-    zIndex: 1,
-    position: "absolute",
-    right: 0,
-    marginBottom: margins.extraSmall,
-    paddingRight: padding.large
+    paddingRight: padding.medium
   },
   profileText: {
     color: colors.white,

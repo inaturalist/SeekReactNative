@@ -7,12 +7,12 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
     width,
-    height,
+    flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -24,7 +24,6 @@ export default StyleSheet.create( {
   },
   headerText: {
     fontSize: fontSize.mediumHeader,
-    lineHeight: 18,
     color: colors.white,
     fontFamily: fonts.default,
     marginBottom: margins.medium,
@@ -41,15 +40,6 @@ export default StyleSheet.create( {
     marginHorizontal: margins.medium,
     marginBottom: margins.medium
   },
-  captionText: {
-    fontSize: fontSize.text,
-    lineHeight: 14,
-    color: colors.white,
-    fontFamily: fonts.default,
-    flexWrap: "wrap",
-    marginHorizontal: margins.medium,
-    marginTop: margins.large
-  },
   button: {
     backgroundColor: colors.darkGreen,
     justifyContent: "flex-end",
@@ -61,8 +51,8 @@ export default StyleSheet.create( {
     borderRadius: 40
   },
   buttonText: {
-    fontFamily: fonts.button,
-    fontSize: fontSize.button,
+    fontFamily: fonts.semibold,
+    fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",
     justifyContent: "center"
@@ -72,11 +62,9 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   imageBackground: {
-    flex: 4,
     backgroundColor: colors.darkDesaturatedBlue,
     width,
-    paddingTop: padding.large,
-    paddingBottom: padding.large,
+    height: 231,
     justifyContent: "center"
   },
   imageCell: {
@@ -85,25 +73,32 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
-  textCell: {
-    flexDirection: "row",
-    alignItems: "center",
-    textAlign: "center",
-    marginHorizontal: "auto",
-    justifyContent: "space-around",
-    flexWrap: "nowrap"
-  },
-  centeredText: {
-    textAlign: "center"
-  },
   imageContainer: {
     borderRadius: 5,
     borderColor: colors.white,
     borderWidth: 1,
-    width: width / 3 - 10,
-    height: width / 3 - 10
+    width: 135,
+    height: 135
+  },
+  textCell: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center"
+  },
+  captionText: {
+    fontSize: fontSize.text,
+    color: colors.white,
+    fontFamily: fonts.default,
+    width: 135,
+    flexWrap: "wrap",
+    marginHorizontal: margins.small,
+    marginTop: margins.small
   },
   footer: {
-    flex: 1
+    flex: 1,
+    marginTop: margins.large
+  },
+  centeredText: {
+    textAlign: "center"
   }
 } );

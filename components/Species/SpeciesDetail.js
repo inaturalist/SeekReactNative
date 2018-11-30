@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
+  Alert,
   Image,
   ScrollView,
   Text,
@@ -11,6 +12,7 @@ import {
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
+import Icon from "react-native-vector-icons/AntDesign";
 
 import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
@@ -18,10 +20,13 @@ import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
+import { colors } from "../../styles/global";
 import { capitalizeNames } from "../../utility/helpers";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
+
+const plusIcon = ( <Icon name="pluscircle" size={15} color={colors.darkBlue} /> );
 
 type Props = {
   navigation: any
@@ -44,7 +49,7 @@ class SpeciesDetail extends Component {
       photos: [],
       commonName: null,
       scientificName: null,
-      about: null,
+      about: "No additional information.",
       showBanner: false,
       timesSeen: null,
       taxaType: null,
@@ -55,7 +60,8 @@ class SpeciesDetail extends Component {
         longitudeDelta
       },
       observationsByMonth: [],
-      nearbySpeciesCount: 0
+      nearbySpeciesCount: null,
+      error: null
     };
   }
 
@@ -156,8 +162,10 @@ class SpeciesDetail extends Component {
       this.setState( {
         observationsByMonth
       } );
-    } ).catch( ( err ) => {
-      console.log( err, "error fetching histogram" );
+    } ).catch( () => {
+      this.setState( {
+        error: "No chart data available."
+      } );
     } );
   }
 
@@ -174,7 +182,8 @@ class SpeciesDetail extends Component {
       showBanner,
       bannerText,
       timesSeen,
-      taxaType
+      taxaType,
+      error
     } = this.state;
 
     const {
@@ -211,11 +220,23 @@ class SpeciesDetail extends Component {
     photos.forEach( ( photo, i ) => {
       if ( i <= 7 ) {
         const image = (
-          <Image
-            key={`image${photo.taxon_id}${i}`}
-            source={{ uri: photo.photo.original_url }}
-            style={styles.image}
-          />
+          <View key={`image${photo.taxon_id}${i}`}>
+            <Image
+              source={{ uri: photo.photo.original_url }}
+              style={styles.image}
+            />
+            <View style={styles.photoOverlay}>
+              <TouchableOpacity
+                style={styles.ccButton}
+                onPress={() => Alert.alert(
+                  "License",
+                  photo.photo.attribution
+                )}
+              >
+                <Text style={[styles.buttonText, styles.ccButtonText]}>CC</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         );
         photoList.push( image );
       }
@@ -261,9 +282,10 @@ class SpeciesDetail extends Component {
             <SpeciesMap
               region={region}
               id={id}
+              error={error}
             />
-            <Text style={styles.headerText}>When is the best time to find it</Text>
-            <SpeciesChart data={observationsByMonth} />
+            <Text style={styles.headerText}>When is the best time to find it?</Text>
+            <SpeciesChart data={observationsByMonth} error={error} />
             <Text style={styles.headerText}>About</Text>
             <Text style={styles.text}>
               {about}
@@ -286,14 +308,19 @@ class SpeciesDetail extends Component {
             </View>
           </ScrollView>
         </View>
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate( "Camera", { id } )}
-          >
-            <Text style={styles.buttonText}>Found it!</Text>
-          </TouchableOpacity>
-        </View>
+        { showBanner ? null : (
+          <View style={styles.footer}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => navigation.navigate( "Camera", { id, commonName } )}
+            >
+              <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
+              <Text style={styles.buttonText}>
+                Found it!
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) }
       </View>
     );
   }

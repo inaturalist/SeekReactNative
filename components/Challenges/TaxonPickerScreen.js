@@ -15,10 +15,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
   const { setTaxonId } = navigation.state.params;
 
   return (
-    <View style={{
-      flex: 1
-    }}
-    >
+    <View style={styles.container}>
       <ImageBackground
         style={styles.backgroundImage}
         source={require( "../../assets/backgrounds/background.png" )}
@@ -28,7 +25,7 @@ const TaxonPickerScreen = ( { navigation } ) => {
         </View>
         <View style={styles.gridContainer}>
           <ScrollView
-            contentContainerStyle={{ flexWrap: "wrap", flexDirection: "row" }}
+            contentContainerStyle={styles.row}
             scrollEnabled={false}
           >
             <TouchableOpacity
@@ -185,6 +182,9 @@ const TaxonPickerScreen = ( { navigation } ) => {
               />
               <Text style={styles.text}>Mammals</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.imageCell, { backgroundColor: "transparent" }]}
+            />
           </ScrollView>
         </View>
       </ImageBackground>

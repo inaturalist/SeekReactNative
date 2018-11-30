@@ -11,7 +11,13 @@ import {
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
-import { capitalizeNames, recalculateBadges, truncateCoordinates } from "../utility/helpers";
+import taxonIds from "../utility/taxonDict";
+import {
+  capitalizeNames,
+  recalculateBadges,
+  truncateCoordinates,
+  getPreviousAndNextMonth
+} from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -66,63 +72,9 @@ class MainScreen extends Component<Props, State> {
   setTaxonId( taxa ) {
     const { latitude, longitude } = this.state;
 
-    if ( taxa === "plants" ) {
+    if ( taxonIds[taxa] ) {
       this.setState( {
-        taxonId: 47126,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "amphibians" ) {
-      this.setState( {
-        taxonId: 20978,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "fungi" ) {
-      this.setState( {
-        taxonId: 47170,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "fish" ) {
-      this.setState( {
-        taxonId: 47178,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "reptiles" ) {
-      this.setState( {
-        taxonId: 26036,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "arachnids" ) {
-      this.setState( {
-        taxonId: 47119,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "birds" ) {
-      this.setState( {
-        taxonId: 3,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "insects" ) {
-      this.setState( {
-        taxonId: 47158,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "mollusks" ) {
-      this.setState( {
-        taxonId: 47115,
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
-    } else if ( taxa === "mammals" ) {
-      this.setState( {
-        taxonId: 40151,
+        taxonId: taxonIds[taxa],
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => this.fetchChallenges( latitude, longitude ) );
@@ -167,7 +119,8 @@ class MainScreen extends Component<Props, State> {
       oauth_application_id: "2,3",
       hrank: "species",
       include_only_vision_taxa: true,
-      not_in_list_id: 945029
+      not_in_list_id: 945029,
+      month: getPreviousAndNextMonth()
     };
 
     if ( taxonId ) {
@@ -203,7 +156,7 @@ class MainScreen extends Component<Props, State> {
       this.setTaxa( challenges );
     } ).catch( ( err ) => {
       this.setState( {
-        error: err.message
+        error: `Unable to load challenges: ${err.message}`
       } );
     } );
   }
@@ -234,6 +187,7 @@ class MainScreen extends Component<Props, State> {
     const {
       speciesSeen,
       bannerText,
+      error,
       loading,
       latitude,
       longitude,
@@ -267,6 +221,7 @@ class MainScreen extends Component<Props, State> {
             setTaxonId={this.setTaxonId}
             speciesSeen={speciesSeen}
             bannerText={bannerText}
+            error={error}
           />
         </View>
       </View>

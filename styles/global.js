@@ -5,17 +5,22 @@ export const colors = {
   darkestBlue: "#0C2D3B",
   blueShadow: "#0d2d3a",
   lightGreen: "#b3ff5a",
+  iNatGreen: "#74ac00",
   darkGreen: "#4CAF50",
-  lightGray: "#f2f2f2",
+  lightGray: "#f5f5f5",
   darkGray: "#a9a9a9",
   black: "black",
-  lightBlue: "#225C8E"
+  lightBlue: "#225C8E",
+  tomatoRed: "#ff6347",
+  yellow: "#ffff7f"
 };
 
 export const fonts = {
   default: "Whitney-Medium",
-  playful: "FontAwesome",
-  button: "Whitney-Semibold"
+  checkboxes: "FontAwesome",
+  semibold: "Whitney-Semibold",
+  playful: "Riffic-Bold",
+  book: "Whitney-Book"
 };
 
 export const fontSize = {

@@ -23,7 +23,12 @@ class GalleryScreen extends Component {
   constructor( { navigation }: Props ) {
     super();
 
-    const { id, latitude, longitude, commonName } = navigation.state.params;
+    const {
+      id,
+      latitude,
+      longitude,
+      commonName
+    } = navigation.state.params;
 
     this.state = {
       photos: [],

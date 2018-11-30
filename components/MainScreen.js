@@ -169,16 +169,16 @@ class MainScreen extends Component<Props, State> {
       } ); // might need an error state here
     } ).catch( ( err ) => {
       this.setState( {
-        error: err.message
+        error: `${err}: We weren't able to determine your location. Please try again.`
       } );
     } );
   }
 
-  updateLocation( latitude, longitude ) {
+  updateLocation( latitude, longitude, location ) {
     this.setState( {
       latitude,
       longitude,
-      location: this.reverseGeocodeLocation( latitude, longitude ),
+      location,
       loading: true
     }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
   }

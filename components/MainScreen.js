@@ -88,21 +88,25 @@ class MainScreen extends Component<Props, State> {
   }
 
   getGeolocation( ) {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
+    const { location } = this.state;
 
-      this.setState( {
-        latitude,
-        longitude,
-        location: this.reverseGeocodeLocation( latitude, longitude ),
-        error: null
-      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
-    }, ( err ) => {
-      this.setState( {
-        error: err.message
+    if ( !location ) {
+      navigator.geolocation.getCurrentPosition( ( position ) => {
+        const latitude = truncateCoordinates( position.coords.latitude );
+        const longitude = truncateCoordinates( position.coords.longitude );
+
+        this.setState( {
+          latitude,
+          longitude,
+          location: this.reverseGeocodeLocation( latitude, longitude ),
+          error: null
+        }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+      }, ( err ) => {
+        this.setState( {
+          error: err.message
+        } );
       } );
-    } );
+    }
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {

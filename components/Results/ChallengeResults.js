@@ -155,7 +155,8 @@ class ChallengeResults extends Component {
       observation,
       taxaName,
       latitude,
-      longitude
+      longitude,
+      image
     } = this.state;
 
     const {
@@ -163,7 +164,7 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "Add to Collection" ) {
-      addToCollection( observation, latitude, longitude );
+      addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", { taxaName, speciesSeen: true } );
     } else if ( buttonText === "Start over" ) {
       navigation.navigate( "Camera", { id } );

@@ -61,7 +61,8 @@ class SpeciesDetail extends Component {
       },
       observationsByMonth: [],
       nearbySpeciesCount: null,
-      error: null
+      error: null,
+      userPhoto: null
     };
   }
 
@@ -80,13 +81,16 @@ class SpeciesDetail extends Component {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` );
         let seenDate;
+        let userPhoto;
 
         if ( seenTaxa[0] ) {
           seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
 
           this.setState( {
             bannerText: `Collected on ${seenDate}!`,
-            showBanner: true
+            showBanner: true,
+            userPhoto
           } );
         } else {
           this.setState( {
@@ -183,7 +187,8 @@ class SpeciesDetail extends Component {
       bannerText,
       timesSeen,
       taxaType,
-      error
+      error,
+      userPhoto
     } = this.state;
 
     const {
@@ -216,6 +221,17 @@ class SpeciesDetail extends Component {
     }
 
     const photoList = [];
+
+    if ( userPhoto ) {
+      photoList.push(
+        <View key="user-image">
+          <Image
+            source={{ uri: userPhoto }}
+            style={styles.image}
+          />
+        </View>
+      );
+    }
 
     photos.forEach( ( photo, i ) => {
       if ( i <= 7 ) {

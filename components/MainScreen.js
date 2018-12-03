@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
-import {
-  View
-} from "react-native";
+import { View } from "react-native";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
@@ -209,6 +208,9 @@ class MainScreen extends Component<Props, State> {
 
     return (
       <View style={ { flex: 1 } }>
+        <NavigationEvents
+          onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
+        />
         <View style={ styles.container }>
           <ChallengeScreen
             taxa={taxa}

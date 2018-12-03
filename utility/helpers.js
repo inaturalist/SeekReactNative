@@ -44,10 +44,10 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
     .then( ( realm ) => {
       realm.write( () => {
         let defaultPhoto;
-        // const p = observation.taxon.default_photo;
+        const p = observation.taxon.default_photo;
         if ( image ) {
           defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: image.uri,
+            squareUrl: p.medium_url,
             mediumUrl: image.uri
           } );
         }

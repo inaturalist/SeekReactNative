@@ -66,7 +66,7 @@ class CameraScreen extends Component {
         image: photo.image,
         time: photo.timestamp,
         loading: false
-      }, () => navigation.navigate( "Results", {
+      }, () => navigation.push( "Results", {
         image: this.state.image,
         time: this.state.time,
         latitude,

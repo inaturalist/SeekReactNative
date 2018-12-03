@@ -37,7 +37,7 @@ const ChallengeGrid = ( {
       renderItem={ ( { item } ) => (
         <View style={ styles.gridCell }>
           <TouchableOpacity
-            onPress={ () => navigation.navigate( "Species", {
+            onPress={ () => navigation.push( "Species", {
               id: item.id,
               latitude,
               longitude,

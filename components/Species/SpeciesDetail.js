@@ -328,7 +328,7 @@ class SpeciesDetail extends Component {
           <View style={styles.footer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate( "Camera", { id, commonName } )}
+              onPress={() => navigation.push( "Camera", { id, commonName } )}
             >
               <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
               <Text style={styles.buttonText}>

@@ -79,7 +79,7 @@ class GalleryScreen extends Component {
       time: timestamp,
       latitude: location.latitude ? truncateCoordinates( location.latitude ) : latitude,
       longitude: location.longitude ? truncateCoordinates( location.longitude ) : longitude
-    }, () => navigation.navigate( "Results", {
+    }, () => navigation.push( "Results", {
       id,
       image: this.state.image,
       time: this.state.time,

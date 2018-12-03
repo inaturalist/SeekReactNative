@@ -148,7 +148,7 @@ class YourCollection extends Component {
                             width: "100%",
                             aspectRatio: 1.1
                           } }
-                          source={ { uri: item.taxon.defaultPhoto.mediumUrl } }
+                          source={ { uri: item.taxon.defaultPhoto.squareUrl } }
                         />
                         <View style={ styles.cellTitle }>
                           <Text style={ styles.cellTitleText } numberOfLines={2}>

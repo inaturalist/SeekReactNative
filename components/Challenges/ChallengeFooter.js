@@ -75,7 +75,7 @@ class ChallengeFooter extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.addPhotoButton}
-            onPress={() => navigation.navigate( "Camera", { latitude, longitude } )}
+            onPress={() => navigation.push( "Camera", { latitude, longitude } )}
           >
             <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
           </TouchableOpacity>

@@ -178,12 +178,17 @@ class MainScreen extends Component<Props, State> {
   }
 
   updateLocation( latitude, longitude, location ) {
+    const { navigation } = this.props;
+
     this.setState( {
       latitude,
       longitude,
       location,
       loading: true
-    }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+    }, () => {
+      navigation.navigate( "Main" );
+      this.fetchChallenges( this.state.latitude, this.state.longitude ) 
+    } );
   }
 
   render() {

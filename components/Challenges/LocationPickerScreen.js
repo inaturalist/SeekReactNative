@@ -63,7 +63,6 @@ class LocationPickerScreen extends Component {
 
   render() {
     const { region, location, updateLocation } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -82,7 +81,6 @@ class LocationPickerScreen extends Component {
             style={styles.buttonText}
             onPress={() => {
               updateLocation( region.latitude, region.longitude, location );
-              navigation.navigate( "Main" );
             }}
           >
             Done

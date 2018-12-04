@@ -70,19 +70,26 @@ class MainScreen extends Component<Props, State> {
 
   setTaxonId( taxa ) {
     const { latitude, longitude } = this.state;
+    const { navigation } = this.props;
 
     if ( taxonIds[taxa] ) {
       this.setState( {
         taxonId: taxonIds[taxa],
         loading: true,
         taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
+      }, () => {
+        navigation.navigate( "Main" );
+        this.fetchChallenges( latitude, longitude );
+      } );
     } else {
       this.setState( {
         taxonId: null,
         loading: true,
         taxaType: "All species"
-      }, () => this.fetchChallenges( latitude, longitude ) );
+      }, () => {
+        navigation.navigate( "Main" );
+        this.fetchChallenges( latitude, longitude );
+      } );
     }
   }
 

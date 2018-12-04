@@ -134,7 +134,7 @@ class YourCollection extends Component {
                 renderItem={ ( { item } ) => (
                   <View style={ styles.gridCell }>
                     <TouchableOpacity
-                      onPress={ () => navigation.navigate( "Species", {
+                      onPress={ () => navigation.push( "Species", {
                         id: item.taxon.id,
                         latitude: item.latitude,
                         longitude: item.longitude,

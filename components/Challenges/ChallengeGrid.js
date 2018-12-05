@@ -42,7 +42,8 @@ const ChallengeGrid = ( {
               latitude,
               longitude,
               location,
-              seen: false
+              seen: false,
+              commonName: capitalizeNames( item.preferred_common_name )
             } ) }
           >
             <View style={ styles.gridCellContents }>

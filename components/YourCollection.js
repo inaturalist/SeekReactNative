@@ -144,7 +144,8 @@ class YourCollection extends Component {
                           latitude: item.latitude,
                           longitude: item.longitude,
                           location: item.placeName,
-                          seen: true
+                          seen: true,
+                          commonName: item.taxon.preferredCommonName
                         } )}
                       >
                         <View style={ styles.gridCellContents }>

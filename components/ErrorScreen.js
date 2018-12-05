@@ -4,15 +4,17 @@ import React from "react";
 import { Text, View } from "react-native";
 
 import styles from "../styles/error";
+import { colors } from "../styles/global";
 
 type Props = {
-  error: string
+  error: string,
+  collection: boolean
 }
 
-const ErrorScreen = ( { error }: Props ) => (
+const ErrorScreen = ( { error, collection }: Props ) => (
   <View style={styles.container}>
-    <Text style={styles.errorTitle}>Bummer</Text>
-    <Text style={styles.error}>{error}</Text>
+    {!collection ? <Text style={styles.errorTitle}>Bummer</Text> : null}
+    <Text style={[styles.error, collection && { color: colors.darkBlue }]}>{error}</Text>
   </View>
 );
 

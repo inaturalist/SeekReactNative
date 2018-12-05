@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 
+import ErrorScreen from "./ErrorScreen";
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import styles from "../styles/collection";
@@ -124,43 +125,55 @@ class YourCollection extends Component {
             </View>
           </View>
           <View style={styles.species}>
-            <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
-            <View style={styles.taxonGrid}>
-              <FlatList
-                data={ observations }
-                scrollEnabled={false}
-                keyExtractor={ t => t.taxon.id }
-                numColumns={ 3 }
-                renderItem={ ( { item } ) => (
-                  <View style={ styles.gridCell }>
-                    <TouchableOpacity
-                      onPress={ () => navigation.push( "Species", {
-                        id: item.taxon.id,
-                        latitude: item.latitude,
-                        longitude: item.longitude,
-                        location: item.placeName,
-                        seen: true
-                      } )}
-                    >
-                      <View style={ styles.gridCellContents }>
-                        <Image
-                          style={ {
-                            width: "100%",
-                            aspectRatio: 1.1
-                          } }
-                          source={ { uri: item.taxon.defaultPhoto.squareUrl } }
-                        />
-                        <View style={ styles.cellTitle }>
-                          <Text style={ styles.cellTitleText } numberOfLines={2}>
-                            { item.taxon.preferredCommonName || item.taxon.name }
-                          </Text>
+            {observations.length > 0
+              ? <Text style={styles.headerText}>Species You&#39;ve Seen ({observations.length})</Text>
+              : <Text style={styles.headerText}>Species You&#39;ve Seen</Text>
+            }
+            {observations.length > 0 ? (
+              <View style={styles.taxonGrid}>
+                <FlatList
+                  data={ observations }
+                  scrollEnabled={false}
+                  keyExtractor={ t => t.taxon.id }
+                  numColumns={ 3 }
+                  renderItem={ ( { item } ) => (
+                    <View style={ styles.gridCell }>
+                      <TouchableOpacity
+                        onPress={ () => navigation.push( "Species", {
+                          id: item.taxon.id,
+                          latitude: item.latitude,
+                          longitude: item.longitude,
+                          location: item.placeName,
+                          seen: true
+                        } )}
+                      >
+                        <View style={ styles.gridCellContents }>
+                          <Image
+                            style={ {
+                              width: "100%",
+                              aspectRatio: 1.1
+                            } }
+                            source={ { uri: item.taxon.defaultPhoto.squareUrl } }
+                          />
+                          <View style={ styles.cellTitle }>
+                            <Text style={ styles.cellTitleText } numberOfLines={2}>
+                              { item.taxon.preferredCommonName || item.taxon.name }
+                            </Text>
+                          </View>
                         </View>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                ) }
-              />
-            </View>
+                      </TouchableOpacity>
+                    </View>
+                  ) }
+                />
+              </View>
+            ) : (
+              <View style={styles.noSpecies}>
+                <ErrorScreen
+                  error="Looks like you have not yet found any species nearby. Try taking a photo with the green plus button."
+                  collection
+                />
+              </View>
+            ) }
           </View>
         </ScrollView>
       </View>

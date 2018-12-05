@@ -93,5 +93,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     paddingTop: padding.extraSmall
+  },
+  noSpecies: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: margins.large
   }
 } );

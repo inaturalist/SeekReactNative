@@ -74,6 +74,7 @@ const SpeciesChart = ( { data, error }: Props ) => {
               contentInset={styles.contentInset}
               curve={shape.curveNatural}
               svg={{ fill: "url(#gradient)" }}
+              numberOfTicks={8}
             >
               <Line />
               <Gradient />

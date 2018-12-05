@@ -41,7 +41,8 @@ class SpeciesDetail extends Component {
       latitude,
       location,
       longitude,
-      commonName
+      commonName,
+      scientificName
     } = navigation.state.params;
 
     this.state = {
@@ -49,7 +50,7 @@ class SpeciesDetail extends Component {
       location,
       photos: [],
       commonName,
-      scientificName: null,
+      scientificName,
       about: "No additional information.",
       showBanner: false,
       timesSeen: null,
@@ -113,8 +114,6 @@ class SpeciesDetail extends Component {
       const taxa = response.results[0];
       this.setState( {
         photos: taxa.taxon_photos,
-        // commonName: capitalizeNames( taxa.preferred_common_name ),
-        scientificName: taxa.name,
         about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
         timesSeen: `${taxa.observations_count} times worldwide`,
         taxaType: taxa.iconic_taxon_name

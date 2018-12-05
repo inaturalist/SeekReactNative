@@ -145,7 +145,8 @@ class YourCollection extends Component {
                           longitude: item.longitude,
                           location: item.placeName,
                           seen: true,
-                          commonName: item.taxon.preferredCommonName
+                          commonName: item.taxon.preferredCommonName,
+                          scientificName: item.taxon.name
                         } )}
                       >
                         <View style={ styles.gridCellContents }>

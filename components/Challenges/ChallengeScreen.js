@@ -17,7 +17,7 @@ import styles from "../../styles/challenges";
 type Props = {
   badgeCount: number,
   speciesSeen: ?boolean,
-  bannerText: string,
+  taxaName: string,
   speciesCount: number,
   latitude: number,
   loading: boolean,
@@ -35,7 +35,7 @@ type Props = {
 const ChallengeScreen = ( {
   badgeCount,
   speciesSeen,
-  bannerText,
+  taxaName,
   speciesCount,
   latitude,
   loading,
@@ -84,7 +84,7 @@ const ChallengeScreen = ( {
           setTaxonId={setTaxonId}
           taxaType={taxaType}
           speciesSeen={speciesSeen}
-          bannerText={bannerText}
+          taxaName={taxaName}
         />
         {challenges}
         <ChallengeFooter

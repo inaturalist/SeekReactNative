@@ -15,7 +15,7 @@ import styles from "../../styles/challenges";
 type Props = {
   navigation: any,
   speciesSeen: ?boolean,
-  bannerText: string,
+  taxaName: string,
   latitude: number,
   loading: boolean,
   longitude: number,
@@ -29,7 +29,7 @@ type Props = {
 const ChallengeHeader = ( {
   navigation,
   speciesSeen,
-  bannerText,
+  taxaName,
   latitude,
   loading,
   longitude,
@@ -45,7 +45,7 @@ const ChallengeHeader = ( {
           source={require( "../../assets/results/icn-results-match.png" )}
           style={styles.bannerImage}
         />
-        <Banner bannerText={bannerText} main />
+        <Banner bannerText={`${taxaName} collected`} main />
       </View>
     ) : null
     }

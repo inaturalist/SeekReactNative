@@ -15,7 +15,8 @@ export default StyleSheet.create( {
     width
   },
   mainBackground: {
-    top: 40
+    top: 35,
+    zIndex: 1
   },
   text: {
     fontFamily: fonts.default,

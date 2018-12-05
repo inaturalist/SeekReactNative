@@ -37,9 +37,10 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
+    const { taxaName, speciesSeen } = navigation.state.params;
+
     this.state = {
       taxa: [],
-      bannerText: ` collected!`,
       loading: true,
       latitude: null,
       longitude: null,
@@ -48,7 +49,9 @@ class MainScreen extends Component<Props, State> {
       taxaType: "All species",
       taxonId: null,
       badgeCount: 0,
-      speciesCount: 0
+      speciesCount: 0,
+      taxaName,
+      speciesSeen
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -78,7 +81,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main" );
+        navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
         this.fetchChallenges( latitude, longitude );
       } );
     } else {
@@ -87,7 +90,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main" );
+        navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
         this.fetchChallenges( latitude, longitude );
       } );
     }
@@ -193,7 +196,7 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main" );
+      navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
     } );
   }
@@ -201,7 +204,7 @@ class MainScreen extends Component<Props, State> {
   render() {
     const {
       speciesSeen,
-      bannerText,
+      taxaName,
       error,
       loading,
       latitude,
@@ -238,7 +241,7 @@ class MainScreen extends Component<Props, State> {
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}
             speciesSeen={speciesSeen}
-            bannerText={bannerText}
+            taxaName={taxaName}
             error={error}
           />
         </View>

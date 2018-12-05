@@ -61,7 +61,7 @@ const SpeciesChart = ( { data, error }: Props ) => {
             contentInset={styles.contentInset}
             svg={{ fontSize: 10, fill: "white" }}
             min={0}
-            numberOfTicks={8}
+            numberOfTicks={6}
           />
           <View style={styles.chartRow}>
             <AreaChart
@@ -74,7 +74,7 @@ const SpeciesChart = ( { data, error }: Props ) => {
               contentInset={styles.contentInset}
               curve={shape.curveNatural}
               svg={{ fill: "url(#gradient)" }}
-              numberOfTicks={8}
+              numberOfTicks={6}
             >
               <Line />
               <Gradient />

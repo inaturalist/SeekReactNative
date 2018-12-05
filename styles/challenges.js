@@ -19,7 +19,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkBlue
   },
   banner: {
-    zIndex: 1,
+    zIndex: 2,
     backgroundColor: colors.white,
     flexDirection: "row",
     flexWrap: "nowrap"

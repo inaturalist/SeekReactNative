@@ -40,8 +40,8 @@ export default StyleSheet.create( {
     borderBottomWidth: 1
   },
   contentInset: {
-    top: 10,
-    bottom: 10
+    top: 20,
+    bottom: 5
   },
   xAxis: {
     height: 15

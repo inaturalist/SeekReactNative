@@ -18,18 +18,6 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.darkBlue
   },
-  banner: {
-    zIndex: 2,
-    backgroundColor: colors.white,
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  bannerImage: {
-    position: "absolute",
-    top: 25,
-    left: 10,
-    zIndex: 1
-  },
   header: {
     height: 50
   },

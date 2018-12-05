@@ -273,13 +273,7 @@ class SpeciesDetail extends Component {
               {photoList}
             </ScrollView>
             { showBanner ? (
-              <View style={styles.banner}>
-                <Image
-                  source={require( "../../assets/results/icn-results-match.png" )}
-                  style={styles.bannerImage}
-                />
-                <Banner bannerText={bannerText} />
-              </View>
+              <Banner bannerText={bannerText} />
             ) : null
             }
             <View style={styles.headerContainer}>

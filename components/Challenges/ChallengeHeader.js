@@ -3,19 +3,16 @@
 import React from "react";
 
 import {
-  Image,
   TouchableOpacity,
   Text,
   View
 } from "react-native";
 
-import Banner from "../Banner";
+
 import styles from "../../styles/challenges";
 
 type Props = {
   navigation: any,
-  speciesSeen: ?boolean,
-  taxaName: string,
   latitude: number,
   loading: boolean,
   longitude: number,
@@ -28,8 +25,6 @@ type Props = {
 
 const ChallengeHeader = ( {
   navigation,
-  speciesSeen,
-  taxaName,
   latitude,
   loading,
   longitude,
@@ -39,9 +34,6 @@ const ChallengeHeader = ( {
   updateLocation
 }: Props ) => (
   <View style={styles.header}>
-    { speciesSeen ? (
-      <Banner bannerText={`${taxaName} collected`} main />
-    ) : null }
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
     <TouchableOpacity
       style={styles.locationChooser}

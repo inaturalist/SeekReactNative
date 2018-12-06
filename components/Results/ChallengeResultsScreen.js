@@ -17,7 +17,7 @@ type Props = {
   title: string,
   match: ?boolean,
   matchUrl: string,
-  onPress: Function,
+  savePhotoOrStartOver: Function,
   photoText: string,
   subtitle: string,
   text: string,
@@ -31,7 +31,7 @@ const ChallengeResultsScreen = ( {
   matchUrl,
   text,
   buttonText,
-  onPress,
+  savePhotoOrStartOver,
   photoText,
   yourPhotoText,
   image
@@ -81,7 +81,7 @@ const ChallengeResultsScreen = ( {
           <TouchableHighlight style={styles.button}>
             <Text
               style={styles.buttonText}
-              onPress={() => onPress( buttonText )}
+              onPress={() => savePhotoOrStartOver()}
             >
               {buttonText}
             </Text>

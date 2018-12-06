@@ -81,7 +81,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
+        navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
         this.fetchChallenges( latitude, longitude );
       } );
     } else {
@@ -90,7 +90,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
+        navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
         this.fetchChallenges( latitude, longitude );
       } );
     }
@@ -196,14 +196,13 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main", { taxaName: null, speciesSeen: false } );
+      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
     } );
   }
 
   render() {
     const {
-      speciesSeen,
       taxaName,
       error,
       loading,
@@ -213,6 +212,7 @@ class MainScreen extends Component<Props, State> {
       profileIcon,
       badgeCount,
       speciesCount,
+      speciesSeen,
       taxaType,
       taxa
     } = this.state;
@@ -240,8 +240,8 @@ class MainScreen extends Component<Props, State> {
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}
-            speciesSeen={speciesSeen}
             taxaName={taxaName}
+            speciesSeen={speciesSeen}
             error={error}
           />
         </View>

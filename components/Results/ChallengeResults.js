@@ -55,7 +55,8 @@ class ChallengeResults extends Component {
       latitude,
       longitude,
       error: null,
-      commonName
+      commonName,
+      seenDate: null
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -139,7 +140,8 @@ class ChallengeResults extends Component {
           const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
           this.setState( {
-            seenTaxaIds
+            seenTaxaIds,
+            seenDate
           }, () => this.setTextAndPhoto( seenDate ) );
         }
       } ).catch( ( err ) => {
@@ -149,29 +151,31 @@ class ChallengeResults extends Component {
     this.setTextAndPhoto();
   }
 
-  savePhotoOrStartOver( buttonText ) {
+  savePhotoOrStartOver() {
     const {
       id,
       observation,
       taxaName,
       latitude,
       longitude,
-      image
+      image,
+      buttonText,
+      seenDate
     } = this.state;
 
     const {
       navigation
     } = this.props;
 
-    if ( buttonText === "Add to Collection" ) {
+    if ( buttonText === "OK" && seenDate !== null ) {
+      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+    } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", { taxaName, speciesSeen: true } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", { id } );
-    } else if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null, speciesSeen: false } );
     } else {
-      navigation.push( "Main", { taxaName, speciesSeen: true } );
+      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
     }
   }
 
@@ -272,7 +276,7 @@ class ChallengeResults extends Component {
           yourPhotoText={yourPhotoText}
           image={image}
           navigation={navigation}
-          onPress={this.savePhotoOrStartOver}
+          savePhotoOrStartOver={this.savePhotoOrStartOver}
         />
       );
     }

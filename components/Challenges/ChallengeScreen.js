@@ -7,6 +7,7 @@ import {
   View
 } from "react-native";
 
+import Banner from "../Banner";
 import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
@@ -16,7 +17,6 @@ import styles from "../../styles/challenges";
 
 type Props = {
   badgeCount: number,
-  speciesSeen: ?boolean,
   taxaName: string,
   speciesCount: number,
   latitude: number,
@@ -26,6 +26,7 @@ type Props = {
   navigation: Function,
   taxa: Array<Object>,
   taxaType: string,
+  speciesSeen: boolean,
   setTaxonId: Function,
   updateLocation: Function,
   reverseGeocodeLocation: Function,
@@ -34,9 +35,9 @@ type Props = {
 
 const ChallengeScreen = ( {
   badgeCount,
-  speciesSeen,
   taxaName,
   speciesCount,
+  speciesSeen,
   latitude,
   loading,
   longitude,
@@ -74,6 +75,9 @@ const ChallengeScreen = ( {
         style={styles.backgroundImage}
         source={require( "../../assets/backgrounds/background.png" )}
       >
+        { speciesSeen ? (
+          <Banner bannerText={`${taxaName} collected`} main />
+        ) : null }
         <ChallengeHeader
           latitude={latitude}
           longitude={longitude}
@@ -83,7 +87,6 @@ const ChallengeScreen = ( {
           updateLocation={updateLocation}
           setTaxonId={setTaxonId}
           taxaType={taxaType}
-          speciesSeen={speciesSeen}
           taxaName={taxaName}
         />
         {challenges}

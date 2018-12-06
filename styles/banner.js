@@ -9,6 +9,12 @@ import {
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  banner: {
+    zIndex: 1,
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
   background: {
     backgroundColor: colors.white,
     height: 42,
@@ -17,11 +23,6 @@ export default StyleSheet.create( {
   mainBackground: {
     top: 35,
     zIndex: 1
-  },
-  banner: {
-    backgroundColor: colors.white,
-    flexDirection: "row",
-    flexWrap: "nowrap"
   },
   speciesBannerImage: {
     position: "absolute",
@@ -33,7 +34,7 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 25,
     left: 10,
-    zIndex: 1
+    zIndex: 2
   },
   text: {
     fontFamily: fonts.default,

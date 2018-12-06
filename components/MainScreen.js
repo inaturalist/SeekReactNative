@@ -37,7 +37,7 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaName, speciesSeen } = navigation.state.params;
+    const { taxaName } = navigation.state.params;
 
     this.state = {
       taxa: [],
@@ -50,8 +50,7 @@ class MainScreen extends Component<Props, State> {
       taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
-      taxaName,
-      speciesSeen
+      taxaName
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -81,7 +80,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+        navigation.navigate( "Main", { taxaName: null } );
         this.fetchChallenges( latitude, longitude );
       } );
     } else {
@@ -90,7 +89,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+        navigation.navigate( "Main", { taxaName: null } );
         this.fetchChallenges( latitude, longitude );
       } );
     }
@@ -196,7 +195,7 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+      navigation.navigate( "Main", { taxaName: null } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
     } );
   }
@@ -212,7 +211,6 @@ class MainScreen extends Component<Props, State> {
       profileIcon,
       badgeCount,
       speciesCount,
-      speciesSeen,
       taxaType,
       taxa
     } = this.state;
@@ -241,7 +239,6 @@ class MainScreen extends Component<Props, State> {
             updateLocation={this.updateLocation}
             setTaxonId={this.setTaxonId}
             taxaName={taxaName}
-            speciesSeen={speciesSeen}
             error={error}
           />
         </View>

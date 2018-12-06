@@ -26,7 +26,6 @@ type Props = {
   navigation: Function,
   taxa: Array<Object>,
   taxaType: string,
-  speciesSeen: boolean,
   setTaxonId: Function,
   updateLocation: Function,
   reverseGeocodeLocation: Function,
@@ -37,7 +36,6 @@ const ChallengeScreen = ( {
   badgeCount,
   taxaName,
   speciesCount,
-  speciesSeen,
   latitude,
   loading,
   longitude,
@@ -75,7 +73,7 @@ const ChallengeScreen = ( {
         style={styles.backgroundImage}
         source={require( "../../assets/backgrounds/background.png" )}
       >
-        { speciesSeen ? (
+        { taxaName ? (
           <Banner bannerText={`${taxaName} collected`} main />
         ) : null }
         <ChallengeHeader

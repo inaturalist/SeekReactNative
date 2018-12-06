@@ -159,23 +159,22 @@ class ChallengeResults extends Component {
       latitude,
       longitude,
       image,
-      buttonText,
-      seenDate
+      buttonText
     } = this.state;
 
     const {
       navigation
     } = this.props;
 
-    if ( buttonText === "OK" && seenDate !== null ) {
-      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+    if ( buttonText === "OK" ) {
+      navigation.navigate( "Main", { taxaName: null } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", { taxaName, speciesSeen: true } );
+      navigation.push( "Main", { taxaName } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", { id } );
     } else {
-      navigation.navigate( "Main", { taxaName: "", speciesSeen: false } );
+      navigation.navigate( "Main", { taxaName: null } );
     }
   }
 

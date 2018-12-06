@@ -168,6 +168,8 @@ class ChallengeResults extends Component {
       navigation.push( "Main", { taxaName, speciesSeen: true } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", { id } );
+    } else if ( buttonText === "OK" ) {
+      navigation.push( "Main", { taxaName: null, speciesSeen: false } );
     } else {
       navigation.push( "Main", { taxaName, speciesSeen: true } );
     }

@@ -53,8 +53,8 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    flex: 1,
-    flexGrow: 2,
+    // flex: 1,
+    // flexGrow: 2,
     alignItems: "center",
     justifyContent: "center"
   },

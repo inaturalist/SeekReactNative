@@ -19,6 +19,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkBlue
   },
   header: {
+    flex: 1,
     height: 50
   },
   headerText: {
@@ -26,14 +27,17 @@ export default StyleSheet.create( {
     fontSize: fontSize.smallText,
     lineHeight: 14,
     color: colors.white,
-    fontFamily: fonts.default,
-    position: "absolute",
-    bottom: 30
+    fontFamily: fonts.default
+  },
+  buttons: {
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
   },
   locationChooser: {
-    position: "absolute",
-    bottom: 5,
-    paddingLeft: padding.large
+    paddingLeft: padding.large,
+    paddingBottom: padding.medium
   },
   locationChooserText: {
     color: colors.white,
@@ -42,10 +46,8 @@ export default StyleSheet.create( {
     fontWeight: "900"
   },
   taxonChooser: {
-    position: "absolute",
-    bottom: 5,
-    right: 0,
-    paddingRight: padding.large
+    paddingRight: padding.large,
+    paddingBottom: padding.medium
   },
   taxonChooserText: {
     color: colors.white,
@@ -53,8 +55,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    // flex: 1,
-    // flexGrow: 2,
+    flexGrow: 1,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -83,6 +84,7 @@ export default StyleSheet.create( {
     paddingTop: padding.extraSmall
   },
   footer: {
+    flex: 1,
     marginTop: margins.small,
     justifyContent: "flex-end",
     height: 50,

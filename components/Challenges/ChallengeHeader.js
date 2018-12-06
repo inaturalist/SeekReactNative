@@ -35,27 +35,29 @@ const ChallengeHeader = ( {
 }: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
-    <TouchableOpacity
-      style={styles.locationChooser}
-      onPress={() => navigation.navigate( "Location", {
-        location,
-        latitude,
-        longitude,
-        updateLocation
-      } )}
-    >
-      { loading ? (
-        <Text style={styles.locationChooserText}>Loading...</Text>
-      ) : (
-        <Text style={styles.locationChooserText}>{location} &#9660;</Text>
-      )}
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.taxonChooser}
-      onPress={() => navigation.navigate( "Taxon", { setTaxonId } )}
-    >
-      <Text style={styles.taxonChooserText}>{taxaType} &#9660;</Text>
-    </TouchableOpacity>
+    <View style={styles.buttons}>
+      <TouchableOpacity
+        style={styles.locationChooser}
+        onPress={() => navigation.navigate( "Location", {
+          location,
+          latitude,
+          longitude,
+          updateLocation
+        } )}
+      >
+        { loading ? (
+          <Text style={styles.locationChooserText}>Loading...</Text>
+        ) : (
+          <Text style={styles.locationChooserText}>{location} &#9660;</Text>
+        )}
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.taxonChooser}
+        onPress={() => navigation.navigate( "Taxon", { setTaxonId } )}
+      >
+        <Text style={styles.taxonChooserText}>{taxaType} &#9660;</Text>
+      </TouchableOpacity>
+    </View>
   </View>
 );
 

@@ -1,53 +1,36 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
   fontSize,
-  padding,
   margins
 } from "./global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   banner: {
     zIndex: 1,
-    flex: 1
-  },
-  background: {
-    backgroundColor: colors.white,
-    height: 42,
-    width
-  },
-  mainBackground: {
-    top: 35,
-    zIndex: 1
-  },
-  speciesBannerImage: {
-    position: "absolute",
-    bottom: 10,
-    left: 10,
-    zIndex: 1
+    backgroundColor: colors.white
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    backgroundColor: colors.white
+    alignItems: "center",
+    justifyContent: "center",
+    height: 42
+  },
+  speciesBannerImage: {
+    zIndex: 1,
+    marginBottom: margins.medium
   },
   mainBannerImage: {
-    paddingLeft: padding.medium,
-    // position: "absolute",
-    // top: 25,
-    // left: 10,
-    zIndex: 2
+    zIndex: 2,
+    marginBottom: margins.medium
   },
   text: {
+    marginLeft: margins.medium,
     fontFamily: fonts.default,
     fontSize: fontSize.text,
     fontWeight: "500",
-    color: colors.black,
-    marginTop: margins.small,
-    marginBottom: margins.small,
-    textAlign: "center"
+    color: colors.black
   }
 } );

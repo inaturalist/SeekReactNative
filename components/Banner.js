@@ -16,9 +16,7 @@ const Banner = ( { bannerText, main }: Props ) => (
         source={require( "../assets/results/icn-results-match.png" )}
         style={[styles.speciesBannerImage, main && styles.mainBannerImage]}
       />
-      <View style={[styles.background, main && styles.mainBackground]}>
-        <Text style={styles.text}>{bannerText}</Text>
-      </View>
+      <Text style={styles.text}>{bannerText}</Text>
     </View>
   </View>
 );

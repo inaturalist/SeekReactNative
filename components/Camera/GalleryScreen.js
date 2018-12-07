@@ -2,6 +2,8 @@
 
 import React, { Component } from "react";
 import {
+  PermissionsAndroid,
+  Platform,
   CameraRoll,
   Image,
   ScrollView,
@@ -9,6 +11,7 @@ import {
   View
 } from "react-native";
 
+import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
 import { truncateCoordinates } from "../../utility/helpers";
@@ -37,15 +40,20 @@ class GalleryScreen extends Component {
       longitude,
       time: null,
       id,
-      commonName
+      commonName,
+      error: null
     };
   }
 
   componentDidMount() {
-    this.getPhotos();
+    if ( Platform.OS === "android" ) {
+      this.requestAndroidPermissions();
+    } else {
+      this.getPhotos();
+    }
   }
 
-  getPhotos = () => {
+  getPhotos() {
     CameraRoll.getPhotos( {
       first: 100,
       assetType: "Photos"
@@ -58,6 +66,28 @@ class GalleryScreen extends Component {
       this.setState( {
         error: err.message
       } );
+    } );
+  }
+
+  requestAndroidPermissions = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+      );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.getPhotos();
+      } else {
+        this.showError( JSON.stringify( granted ) );
+      }
+    } catch ( err ) {
+      this.showError( err );
+    }
+  }
+
+  showError( err ) {
+    this.setState( {
+      error: err || "Photo access permission denied",
+      loading: false
     } );
   }
 
@@ -90,8 +120,40 @@ class GalleryScreen extends Component {
   }
 
   render() {
-    const { loading, photos } = this.state;
+    const { error, loading, photos } = this.state;
     const { navigation } = this.props;
+
+    let gallery;
+
+    if ( error ) {
+      gallery = <ErrorScreen error={error} collection />;
+    } else if ( loading ) {
+      gallery = <LoadingWheel color={colors.darkGray} />;
+    } else {
+      gallery = (
+        <ScrollView contentContainerStyle={styles.container}>
+          {
+            photos.map( ( p, i ) => {
+              return (
+                <TouchableHighlight
+                  style={styles.button}
+                  key={i.toString()}
+                  underlayColor="transparent"
+                  onPress={() => {
+                    this.selectImage( p.node.image, p.node.timestamp, p.node.location );
+                  }}
+                >
+                  <Image
+                    style={styles.image}
+                    source={{ uri: p.node.image.uri }}
+                  />
+                </TouchableHighlight>
+              );
+            } )
+          }
+        </ScrollView>
+      );
+    }
 
     return (
       <View style={styles.background}>
@@ -99,29 +161,7 @@ class GalleryScreen extends Component {
           <CameraTopNav navigation={navigation} />
         </View>
         <View style={styles.galleryContainer}>
-          {loading ? <LoadingWheel color={colors.darkGray} /> : (
-            <ScrollView contentContainerStyle={styles.container}>
-              {
-                photos.map( ( p, i ) => {
-                  return (
-                    <TouchableHighlight
-                      style={styles.button}
-                      key={i.toString()}
-                      underlayColor="transparent"
-                      onPress={() => {
-                        this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                      }}
-                    >
-                      <Image
-                        style={styles.image}
-                        source={{ uri: p.node.image.uri }}
-                      />
-                    </TouchableHighlight>
-                  );
-                } )
-              }
-            </ScrollView>
-          ) }
+          {gallery}
         </View>
       </View>
     );

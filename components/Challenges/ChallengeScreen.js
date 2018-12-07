@@ -69,10 +69,10 @@ const ChallengeScreen = ( {
       style={styles.backgroundImage}
       source={require( "../../assets/backgrounds/background.png" )}
     >
-      { taxaName ? (
-        <Banner bannerText={`${taxaName} collected`} main />
-      ) : null }
       <View style={styles.container}>
+        { taxaName ? (
+          <Banner bannerText={`${taxaName} collected`} main />
+        ) : null }
         <ChallengeHeader
           latitude={latitude}
           longitude={longitude}

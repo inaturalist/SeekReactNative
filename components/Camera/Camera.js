@@ -84,7 +84,7 @@ class CameraScreen extends Component {
   takePicture = async () => {
     if ( this.camera ) {
       this.camera
-        .takePictureAsync()
+        .takePictureAsync( { fixOrientation: true } )
         .then( data => this.savePhotoToGallery( data ) )
         .catch( ( err ) => {
           this.setState( {

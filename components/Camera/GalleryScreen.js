@@ -104,19 +104,33 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
-    this.setState( {
-      image: imageClicked,
-      time: timestamp,
-      latitude: location.latitude ? truncateCoordinates( location.latitude ) : latitude,
-      longitude: location.longitude ? truncateCoordinates( location.longitude ) : longitude
-    }, () => navigation.push( "Results", {
-      id,
-      image: this.state.image,
-      time: this.state.time,
-      latitude: this.state.latitude,
-      longitude: this.state.longitude,
-      commonName
-    } ) );
+    if ( location ) {
+      this.setState( {
+        image: imageClicked,
+        time: timestamp,
+        latitude: truncateCoordinates( location.latitude ),
+        longitude: truncateCoordinates( location.longitude )
+      }, () => navigation.push( "Results", {
+        id,
+        image: this.state.image,
+        time: this.state.time,
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        commonName
+      } ) );
+    } else {
+      this.setState( {
+        image: imageClicked,
+        time: timestamp
+      }, () => navigation.push( "Results", {
+        id,
+        image: this.state.image,
+        time: this.state.time,
+        latitude,
+        longitude,
+        commonName
+      } ) );
+    }
   }
 
   render() {

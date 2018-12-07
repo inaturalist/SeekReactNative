@@ -3,6 +3,7 @@ import {
   colors,
   fonts,
   fontSize,
+  padding,
   margins
 } from "./global";
 
@@ -11,9 +12,7 @@ const { width } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   banner: {
     zIndex: 1,
-    backgroundColor: colors.white,
-    flexDirection: "row",
-    flexWrap: "nowrap"
+    flex: 1
   },
   background: {
     backgroundColor: colors.white,
@@ -30,10 +29,16 @@ export default StyleSheet.create( {
     left: 10,
     zIndex: 1
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    backgroundColor: colors.white
+  },
   mainBannerImage: {
-    position: "absolute",
-    top: 25,
-    left: 10,
+    paddingLeft: padding.medium,
+    // position: "absolute",
+    // top: 25,
+    // left: 10,
     zIndex: 2
   },
   text: {

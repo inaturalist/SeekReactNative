@@ -220,28 +220,26 @@ class MainScreen extends Component<Props, State> {
     } = this.props;
 
     return (
-      <View style={ { flex: 1 } }>
+      <View style={styles.mainContainer}>
         <NavigationEvents
           onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
         />
-        <View style={ styles.container }>
-          <ChallengeScreen
-            taxa={taxa}
-            taxaType={taxaType}
-            latitude={latitude}
-            loading={loading}
-            longitude={longitude}
-            location={location}
-            profileIcon={profileIcon}
-            navigation={navigation}
-            badgeCount={badgeCount}
-            speciesCount={speciesCount}
-            updateLocation={this.updateLocation}
-            setTaxonId={this.setTaxonId}
-            taxaName={taxaName}
-            error={error}
-          />
-        </View>
+        <ChallengeScreen
+          taxa={taxa}
+          taxaType={taxaType}
+          latitude={latitude}
+          loading={loading}
+          longitude={longitude}
+          location={location}
+          profileIcon={profileIcon}
+          navigation={navigation}
+          badgeCount={badgeCount}
+          speciesCount={speciesCount}
+          updateLocation={this.updateLocation}
+          setTaxonId={this.setTaxonId}
+          taxaName={taxaName}
+          error={error}
+        />
       </View>
     );
   }

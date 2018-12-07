@@ -11,12 +11,14 @@ type Props = {
 
 const Banner = ( { bannerText, main }: Props ) => (
   <View style={styles.banner}>
-    <Image
-      source={require( "../assets/results/icn-results-match.png" )}
-      style={[styles.speciesBannerImage, main && styles.mainBannerImage]}
-    />
-    <View style={[styles.background, main && styles.mainBackground]}>
-      <Text style={styles.text}>{bannerText}</Text>
+    <View style={styles.row}>
+      <Image
+        source={require( "../assets/results/icn-results-match.png" )}
+        style={[styles.speciesBannerImage, main && styles.mainBannerImage]}
+      />
+      <View style={[styles.background, main && styles.mainBackground]}>
+        <Text style={styles.text}>{bannerText}</Text>
+      </View>
     </View>
   </View>
 );

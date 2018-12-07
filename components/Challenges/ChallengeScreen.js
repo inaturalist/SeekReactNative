@@ -2,10 +2,7 @@
 
 import React from "react";
 
-import {
-  ImageBackground,
-  View
-} from "react-native";
+import { ImageBackground, View } from "react-native";
 
 import Banner from "../Banner";
 import ChallengeGrid from "./ChallengeGrid";
@@ -68,14 +65,14 @@ const ChallengeScreen = ( {
   }
 
   return (
-    <View style={ { flex: 1 } }>
-      <ImageBackground
-        style={styles.backgroundImage}
-        source={require( "../../assets/backgrounds/background.png" )}
-      >
-        { taxaName ? (
-          <Banner bannerText={`${taxaName} collected`} main />
-        ) : null }
+    <ImageBackground
+      style={styles.backgroundImage}
+      source={require( "../../assets/backgrounds/background.png" )}
+    >
+      { taxaName ? (
+        <Banner bannerText={`${taxaName} collected`} main />
+      ) : null }
+      <View style={styles.container}>
         <ChallengeHeader
           latitude={latitude}
           longitude={longitude}
@@ -95,8 +92,8 @@ const ChallengeScreen = ( {
           badgeCount={badgeCount}
           speciesCount={speciesCount}
         />
-      </ImageBackground>
-    </View>
+      </View>
+    </ImageBackground>
   );
 };
 

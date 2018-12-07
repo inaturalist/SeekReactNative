@@ -47,48 +47,50 @@ const ChallengeResultsScreen = ( {
   }
 
   return (
-    <View>
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{title}</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>{title}</Text>
+        <View style={styles.row}>
           <Text style={styles.text}>{subtitle}</Text>
-          <View style={styles.matchImage}>
-            {resultsIcon}
-          </View>
         </View>
-        <View style={styles.imageBackground}>
-          <View style={styles.imageCell}>
-            <Image
-              style={styles.imageContainer}
-              source={{ uri: image.uri }}
-            />
-            { ( match === true || match === false ) ? (
-              <Image
-                style={styles.imageContainer}
-                source={{ uri: matchUrl }}
-              />
-            ) : null }
-          </View>
+        <View style={styles.matchImage}>
+          {resultsIcon}
+        </View>
+      </View>
+      <View style={styles.imageBackground}>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.imageCell}
+            source={{ uri: image.uri }}
+          />
           { ( match === true || match === false ) ? (
-            <View style={styles.textCell}>
-              <Text style={styles.captionText}>{yourPhotoText}</Text>
-              <Text style={styles.captionText}>{photoText}</Text>
-            </View>
+            <Image
+              style={styles.imageCell}
+              source={{ uri: matchUrl }}
+            />
           ) : null }
         </View>
-        <View style={styles.footer}>
+        { ( match === true || match === false ) ? (
+          <View style={styles.textCell}>
+            <Text style={styles.captionText}>{yourPhotoText}</Text>
+            <Text style={styles.captionText}>{photoText}</Text>
+          </View>
+        ) : null }
+      </View>
+      <View style={styles.footer}>
+        <View style={styles.row}>
           <Text style={styles.text}>{text}</Text>
-          <TouchableHighlight style={styles.button}>
-            <Text
-              style={styles.buttonText}
-              onPress={() => savePhotoOrStartOver()}
-            >
-              {buttonText}
-            </Text>
-          </TouchableHighlight>
         </View>
-      </ScrollView>
-    </View>
+        <TouchableHighlight style={styles.button}>
+          <Text
+            style={styles.buttonText}
+            onPress={() => savePhotoOrStartOver()}
+          >
+            {buttonText}
+          </Text>
+        </TouchableHighlight>
+      </View>
+    </ScrollView>
   );
 };
 

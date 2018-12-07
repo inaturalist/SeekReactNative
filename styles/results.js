@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -7,73 +7,55 @@ import {
   padding
 } from "./global";
 
-const { width } = Dimensions.get( "screen" );
-
 export default StyleSheet.create( {
+  mainContainer: {
+    flex: 1
+  },
   backgroundImage: {
-    width,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    flex: 1
+  },
+  container: {
+    flexDirection: "column",
+    justifyContent: "flex-start"
   },
   header: {
-    flex: 0.3,
     marginTop: margins.medium,
     alignItems: "center",
-    justifyContent: "flex-start"
+    justifyContent: "center"
   },
   headerText: {
     fontSize: fontSize.mediumHeader,
     color: colors.white,
     fontFamily: fonts.default,
-    marginBottom: margins.medium,
-    marginLeft: margins.medium,
-    marginTop: margins.extraSmall
+    marginBottom: margins.medium
+  },
+  row: {
+    alignItems: "center",
+    justifyContent: "flex-start",
+    flexWrap: "wrap",
+    marginHorizontal: 40
   },
   text: {
     fontSize: fontSize.text,
     lineHeight: 20,
     color: colors.white,
-    fontFamily: fonts.default,
-    flexWrap: "wrap",
-    alignSelf: "center",
-    marginHorizontal: margins.medium,
-    marginBottom: margins.medium
-  },
-  button: {
-    backgroundColor: colors.darkGreen,
-    justifyContent: "flex-end",
-    marginHorizontal: margins.large,
-    marginBottom: margins.small,
-    marginTop: margins.small,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
-    borderRadius: 40
-  },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    fontSize: fontSize.buttonText,
-    color: colors.white,
-    textAlign: "center",
-    justifyContent: "center"
+    fontFamily: fonts.default
   },
   matchImage: {
-    alignSelf: "center",
     zIndex: 1
   },
   imageBackground: {
     backgroundColor: colors.darkDesaturatedBlue,
-    width,
     height: 231,
     justifyContent: "center"
   },
-  imageCell: {
+  imageContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
-  imageContainer: {
+  imageCell: {
     borderRadius: 5,
     borderColor: colors.white,
     borderWidth: 1,
@@ -95,10 +77,23 @@ export default StyleSheet.create( {
     marginTop: margins.small
   },
   footer: {
-    flex: 1,
-    marginTop: margins.large
+    marginTop: margins.small,
+    justifyContent: "flex-end"
   },
-  centeredText: {
-    textAlign: "center"
+  button: {
+    backgroundColor: colors.darkGreen,
+    marginHorizontal: margins.large,
+    marginBottom: margins.large,
+    marginTop: margins.medium,
+    paddingTop: padding.medium,
+    paddingBottom: padding.medium,
+    borderRadius: 40
+  },
+  buttonText: {
+    fontFamily: fonts.semibold,
+    fontSize: fontSize.buttonText,
+    color: colors.white,
+    textAlign: "center",
+    justifyContent: "center"
   }
 } );

@@ -15,15 +15,17 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     height: 42
   },
   speciesBannerImage: {
     zIndex: 1,
+    marginLeft: margins.medium,
     marginBottom: margins.medium
   },
   mainBannerImage: {
     zIndex: 2,
+    marginLeft: margins.medium,
     marginBottom: margins.medium
   },
   text: {

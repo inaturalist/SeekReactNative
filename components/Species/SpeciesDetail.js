@@ -21,7 +21,6 @@ import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
 import { colors } from "../../styles/global";
-import { capitalizeNames } from "../../utility/helpers";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;

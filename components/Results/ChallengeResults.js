@@ -34,7 +34,8 @@ class ChallengeResults extends Component {
       time,
       latitude,
       longitude,
-      commonName
+      commonName,
+      targetTaxaPhoto
     } = navigation.state.params;
 
     this.state = {
@@ -56,7 +57,7 @@ class ChallengeResults extends Component {
       longitude,
       error: null,
       commonName,
-      seenDate: null
+      targetTaxaPhoto
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -64,6 +65,7 @@ class ChallengeResults extends Component {
 
   componentDidMount() {
     this.resizeImage();
+    this.fetchTargetTaxonPhoto();
   }
 
   setTextAndPhoto( seenDate ) {
@@ -73,7 +75,8 @@ class ChallengeResults extends Component {
       score,
       taxaName,
       seenTaxaIds,
-      commonName
+      commonName,
+      targetTaxaPhoto
     } = this.state;
 
     if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
@@ -83,7 +86,7 @@ class ChallengeResults extends Component {
         match: true,
         text: `You collected a photo of a ${taxaName} on ${seenDate}`,
         buttonText: "OK",
-        yourPhotoText: `Your photo:\n${taxaName}`,
+        yourPhotoText: `Your Photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
     } else if ( score > 85 && id === undefined ) {
@@ -93,7 +96,7 @@ class ChallengeResults extends Component {
         match: true,
         text: null,
         buttonText: "Add to Collection",
-        yourPhotoText: `Your photo:\n${taxaName}`,
+        yourPhotoText: `Your Photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
     } else if ( score <= 85 && id === undefined ) {
@@ -118,7 +121,10 @@ class ChallengeResults extends Component {
         subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
         match: false,
         text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
-        buttonText: "Add to Collection"
+        buttonText: "Add to Collection",
+        yourPhotoText: "Your Photo\n",
+        photoText: `Target Species:\n${commonName}`,
+        matchUrl: targetTaxaPhoto
       } );
     } else {
       this.setState( {
@@ -131,6 +137,19 @@ class ChallengeResults extends Component {
     }
   }
 
+  fetchTargetTaxonPhoto() {
+    const { id } = this.state;
+
+    inatjs.taxa.fetch( id ).then( ( response ) => {
+      const taxa = response.results[0];
+      this.setState( {
+        targetTaxaPhoto: taxa.default_photo.medium_url
+      } );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching taxon photo" );
+    } );
+  }
+
   fetchSeenTaxaIds( taxaId ) {
     Realm.open( realmConfig )
       .then( ( realm ) => {
@@ -140,8 +159,7 @@ class ChallengeResults extends Component {
           const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
           this.setState( {
-            seenTaxaIds,
-            seenDate
+            seenTaxaIds
           }, () => this.setTextAndPhoto( seenDate ) );
         }
       } ).catch( ( err ) => {

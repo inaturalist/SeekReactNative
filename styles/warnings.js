@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -7,31 +7,35 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
-
 export default StyleSheet.create( {
-  backgroundImage: {
-    alignItems: "center",
-    width,
-    height
+  container: {
+    flex: 1
   },
-  welcome: {
+  backgroundImage: {
+    flex: 1
+  },
+  header: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: margins.large
+  },
+  welcomeText: {
     fontSize: fontSize.largeHeader,
-    marginTop: margins.large,
     color: colors.white,
     fontFamily: fonts.default
   },
-  earn: {
+  earnText: {
     fontSize: fontSize.header,
-    marginHorizontal: "10%",
     marginTop: margins.medium,
-    marginBottom: margins.small,
+    marginBottom: margins.medium,
+    marginHorizontal: margins.large,
+    flexDirection: "row",
+    flexWrap: "wrap",
     lineHeight: 27,
     color: colors.white,
     fontFamily: fonts.default
   },
   tipContainer: {
-    flex: 1,
     marginBottom: margins.small
   },
   tipList: {
@@ -40,6 +44,12 @@ export default StyleSheet.create( {
     marginRight: "20%",
     flexDirection: "row"
   },
+  checkMark: {
+    fontSize: fontSize.mediumHeader,
+    color: colors.lightGreen,
+    fontFamily: fonts.checkboxes,
+    marginRight: margins.medium
+  },
   tips: {
     fontSize: fontSize.text,
     lineHeight: 18,
@@ -47,28 +57,23 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     flexWrap: "wrap"
   },
-  checkMark: {
-    fontSize: fontSize.mediumHeader,
-    color: colors.lightGreen,
-    fontFamily: fonts.checkboxes,
-    marginRight: margins.medium
-  },
   disclaimerContainer: {
-    flex: 1,
-    marginHorizontal: margins.large
+    marginTop: margins.medium,
+    marginHorizontal: margins.large,
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   disclaimer: {
     fontSize: fontSize.smallText,
+    marginBottom: margins.medium,
     lineHeight: 15,
     color: colors.white,
-    fontFamily: fonts.default,
-    flexWrap: "wrap"
+    fontFamily: fonts.default
   },
   button: {
     backgroundColor: colors.white,
     color: colors.black,
-    marginLeft: margins.medium,
-    marginRight: margins.medium,
+    marginHorizontal: margins.large,
     marginBottom: margins.small,
     marginTop: margins.small,
     paddingTop: padding.small,

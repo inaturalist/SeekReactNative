@@ -39,16 +39,16 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
     } );
 };
 
-const addToCollection = ( observation, latitude, longitude ) => {
+const addToCollection = ( observation, latitude, longitude, image ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
         let defaultPhoto;
         const p = observation.taxon.default_photo;
-        if ( p ) {
+        if ( image ) {
           defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p.square_url,
-            mediumUrl: p.medium_url
+            squareUrl: p.medium_url,
+            mediumUrl: image.uri
           } );
         }
         const taxon = realm.create( "TaxonRealm", {

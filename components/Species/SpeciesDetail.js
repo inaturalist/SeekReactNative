@@ -21,7 +21,6 @@ import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
 import { colors } from "../../styles/global";
-import { capitalizeNames } from "../../utility/helpers";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
@@ -40,15 +39,17 @@ class SpeciesDetail extends Component {
       id,
       latitude,
       location,
-      longitude
+      longitude,
+      commonName,
+      scientificName
     } = navigation.state.params;
 
     this.state = {
       id,
       location,
       photos: [],
-      commonName: null,
-      scientificName: null,
+      commonName,
+      scientificName,
       about: "No additional information.",
       showBanner: false,
       timesSeen: null,
@@ -61,7 +62,8 @@ class SpeciesDetail extends Component {
       },
       observationsByMonth: [],
       nearbySpeciesCount: null,
-      error: null
+      error: null,
+      userPhoto: null
     };
   }
 
@@ -80,13 +82,16 @@ class SpeciesDetail extends Component {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` );
         let seenDate;
+        let userPhoto;
 
         if ( seenTaxa[0] ) {
           seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
 
           this.setState( {
             bannerText: `Collected on ${seenDate}!`,
-            showBanner: true
+            showBanner: true,
+            userPhoto
           } );
         } else {
           this.setState( {
@@ -108,8 +113,6 @@ class SpeciesDetail extends Component {
       const taxa = response.results[0];
       this.setState( {
         photos: taxa.taxon_photos,
-        commonName: capitalizeNames( taxa.preferred_common_name ),
-        scientificName: taxa.name,
         about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
         timesSeen: `${taxa.observations_count} times worldwide`,
         taxaType: taxa.iconic_taxon_name
@@ -183,7 +186,8 @@ class SpeciesDetail extends Component {
       bannerText,
       timesSeen,
       taxaType,
-      error
+      error,
+      userPhoto
     } = this.state;
 
     const {
@@ -216,6 +220,17 @@ class SpeciesDetail extends Component {
     }
 
     const photoList = [];
+
+    if ( userPhoto ) {
+      photoList.push(
+        <View key="user-image">
+          <Image
+            source={{ uri: userPhoto }}
+            style={styles.image}
+          />
+        </View>
+      );
+    }
 
     photos.forEach( ( photo, i ) => {
       if ( i <= 7 ) {
@@ -257,13 +272,7 @@ class SpeciesDetail extends Component {
               {photoList}
             </ScrollView>
             { showBanner ? (
-              <View style={styles.banner}>
-                <Image
-                  source={require( "../../assets/results/icn-results-match.png" )}
-                  style={styles.bannerImage}
-                />
-                <Banner bannerText={bannerText} />
-              </View>
+              <Banner bannerText={bannerText} />
             ) : null
             }
             <View style={styles.headerContainer}>
@@ -312,7 +321,7 @@ class SpeciesDetail extends Component {
           <View style={styles.footer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate( "Camera", { id, commonName } )}
+              onPress={() => navigation.push( "Camera", { id, commonName } )}
             >
               <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
               <Text style={styles.buttonText}>

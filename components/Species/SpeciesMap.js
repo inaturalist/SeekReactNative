@@ -31,7 +31,7 @@ const LocationMap = ( {
       maxZoomLevel={7}
     >
       <UrlTile
-        urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=darkorange`}
+        urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}`}
       />
       {error ? null : (
         <Marker

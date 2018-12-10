@@ -2,9 +2,16 @@
 
 import React, { Component } from "react";
 import { RNCamera } from "react-native-camera";
-import { CameraRoll, View, TouchableOpacity } from "react-native";
+import {
+  PermissionsAndroid,
+  Platform,
+  CameraRoll,
+  View,
+  TouchableOpacity
+} from "react-native";
 
 import styles from "../../styles/camera";
+import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
 
@@ -66,7 +73,7 @@ class CameraScreen extends Component {
         image: photo.image,
         time: photo.timestamp,
         loading: false
-      }, () => navigation.navigate( "Results", {
+      }, () => navigation.push( "Results", {
         image: this.state.image,
         time: this.state.time,
         latitude,
@@ -84,8 +91,14 @@ class CameraScreen extends Component {
   takePicture = async () => {
     if ( this.camera ) {
       this.camera
-        .takePictureAsync()
-        .then( data => this.savePhotoToGallery( data ) )
+        .takePictureAsync( { fixOrientation: true } )
+        .then( ( data ) => {
+          if ( Platform.OS === "android" ) {
+            this.requestAndroidPermissions( data );
+          } else {
+            this.savePhotoToGallery( data );
+          }
+        } )
         .catch( ( err ) => {
           this.setState( {
             error: err.message,
@@ -93,6 +106,28 @@ class CameraScreen extends Component {
           } );
         } );
     }
+  }
+
+  requestAndroidPermissions = async ( data ) => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
+      );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.savePhotoToGallery( data );
+      } else {
+        this.showError( JSON.stringify( granted ) );
+      }
+    } catch ( err ) {
+      this.showError( err );
+    }
+  }
+
+  showError( err ) {
+    this.setState( {
+      error: err || "Permission to save photos denied",
+      loading: false
+    } );
   }
 
   savePhotoToGallery( data ) {
@@ -129,10 +164,31 @@ class CameraScreen extends Component {
       cameraType,
       flash,
       flashText,
-      loading
+      loading,
+      error
     } = this.state;
 
     const { navigation } = this.props;
+
+    let cameraContent;
+
+    if ( error ) {
+      cameraContent = <ErrorScreen error={error} collection />;
+    } else if ( loading ) {
+      cameraContent = <LoadingWheel />;
+    } else {
+      cameraContent = (
+        <View style={styles.container}>
+          <View style={styles.main} />
+          <View style={styles.footer}>
+            <TouchableOpacity
+              onPress={() => this.takePicture()}
+              style={styles.capture}
+            />
+          </View>
+        </View>
+      );
+    }
 
     return (
       <RNCamera
@@ -152,17 +208,7 @@ class CameraScreen extends Component {
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
         />
-        {loading ? <LoadingWheel /> : (
-          <View style={styles.container}>
-            <View style={styles.main} />
-            <View style={styles.footer}>
-              <TouchableOpacity
-                onPress={() => this.takePicture()}
-                style={styles.capture}
-              />
-            </View>
-          </View>
-        )}
+        {cameraContent}
       </RNCamera>
     );
   }

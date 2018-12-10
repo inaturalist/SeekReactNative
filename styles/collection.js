@@ -9,7 +9,8 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.white
   },
   badges: {
     flex: 1.5,
@@ -92,5 +93,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     paddingTop: padding.extraSmall
+  },
+  noSpecies: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: margins.large
   }
 } );

@@ -26,15 +26,17 @@ const tips = [
 ];
 
 const WarningsScreen = ( { navigation }: Props ) => (
-  <View>
+  <View style={styles.container}>
     <ImageBackground
       style={styles.backgroundImage}
       source={require( "../assets/backgrounds/splash.png" )}
     >
-      <Text style={styles.welcome}>Welcome to Seek!</Text>
-      <Text style={styles.earn}>
-        Earn badges for taking photos of the plants and wildlife around you.
-      </Text>
+      <View style={styles.header}>
+        <Text style={styles.welcomeText}>Welcome to Seek!</Text>
+        <Text style={styles.earnText}>
+          Earn badges for taking photos of the plants and wildlife around you.
+        </Text>
+      </View>
       <View style={styles.tipContainer}>
         <FlatList
           data={tips}
@@ -54,13 +56,13 @@ const WarningsScreen = ( { navigation }: Props ) => (
           but we blur the location before we use it so your street name and town
           or city is not identifiable
         </Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.push( "Main" )}
-        >
-          <Text style={styles.buttonText}>OK. Got it!</Text>
-        </TouchableOpacity>
       </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.push( "Main", { taxaName: null } )}
+      >
+        <Text style={styles.buttonText}>OK. Got it!</Text>
+      </TouchableOpacity>
     </ImageBackground>
   </View>
 );

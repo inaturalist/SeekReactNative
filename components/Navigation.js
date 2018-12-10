@@ -75,13 +75,15 @@ const RootStack = createStackNavigator( {
   Location: {
     screen: LocationPickerScreen,
     navigationOptions: ( { navigation } ) => ( {
-      header: null
+      header: null,
+      gesturesEnabled: false
     } )
   },
   Taxon: {
     screen: TaxonPickerScreen,
     navigationOptions: ( { navigation } ) => ( {
-      header: null
+      header: null,
+      gesturesEnabled: false
     } )
   },
   Results: {

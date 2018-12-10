@@ -4,9 +4,8 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
-import {
-  View
-} from "react-native";
+import { PermissionsAndroid, Platform, View } from "react-native";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../models/index";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
@@ -38,9 +37,10 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
+    const { taxaName } = navigation.state.params;
+
     this.state = {
       taxa: [],
-      bannerText: ` collected!`,
       loading: true,
       latitude: null,
       longitude: null,
@@ -49,7 +49,8 @@ class MainScreen extends Component<Props, State> {
       taxaType: "All species",
       taxonId: null,
       badgeCount: 0,
-      speciesCount: 0
+      speciesCount: 0,
+      taxaName
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -57,7 +58,11 @@ class MainScreen extends Component<Props, State> {
   }
 
   componentDidMount() {
-    this.getGeolocation();
+    if ( Platform.OS === "android" ) {
+      this.requestAndroidPermissions();
+    } else {
+      this.getGeolocation();
+    }
     recalculateBadges();
     this.fetchSpeciesAndBadgeCount();
   }
@@ -71,37 +76,70 @@ class MainScreen extends Component<Props, State> {
 
   setTaxonId( taxa ) {
     const { latitude, longitude } = this.state;
+    const { navigation } = this.props;
 
     if ( taxonIds[taxa] ) {
       this.setState( {
         taxonId: taxonIds[taxa],
         loading: true,
         taxaType: capitalizeNames( taxa )
-      }, () => this.fetchChallenges( latitude, longitude ) );
+      }, () => {
+        navigation.navigate( "Main", { taxaName: null } );
+        this.fetchChallenges( latitude, longitude );
+      } );
     } else {
       this.setState( {
         taxonId: null,
         loading: true,
         taxaType: "All species"
-      }, () => this.fetchChallenges( latitude, longitude ) );
+      }, () => {
+        navigation.navigate( "Main", { taxaName: null } );
+        this.fetchChallenges( latitude, longitude );
+      } );
     }
   }
 
   getGeolocation( ) {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
+    const { location } = this.state;
 
-      this.setState( {
-        latitude,
-        longitude,
-        location: this.reverseGeocodeLocation( latitude, longitude ),
-        error: null
-      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
-    }, ( err ) => {
-      this.setState( {
-        error: err.message
+    if ( !location ) {
+      navigator.geolocation.getCurrentPosition( ( position ) => {
+        const latitude = truncateCoordinates( position.coords.latitude );
+        const longitude = truncateCoordinates( position.coords.longitude );
+
+        this.setState( {
+          latitude,
+          longitude,
+          location: this.reverseGeocodeLocation( latitude, longitude ),
+          error: null
+        }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+      }, ( err ) => {
+        this.setState( {
+          error: err.message
+        } );
       } );
+    }
+  }
+
+  requestAndroidPermissions = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.getGeolocation();
+      } else {
+        this.showError( JSON.stringify( granted ) );
+      }
+    } catch ( err ) {
+      this.showError( err );
+    }
+  }
+
+  showError( err ) {
+    this.setState( {
+      error: err || "Permission to access location denied",
+      loading: false
     } );
   }
 
@@ -169,24 +207,28 @@ class MainScreen extends Component<Props, State> {
       } ); // might need an error state here
     } ).catch( ( err ) => {
       this.setState( {
-        error: err.message
+        error: `${err}: We weren't able to determine your location. Please try again.`
       } );
     } );
   }
 
-  updateLocation( latitude, longitude ) {
+  updateLocation( latitude, longitude, location ) {
+    const { navigation } = this.props;
+
     this.setState( {
       latitude,
       longitude,
-      location: this.reverseGeocodeLocation( latitude, longitude ),
+      location,
       loading: true
-    }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+    }, () => {
+      navigation.navigate( "Main", { taxaName: null } );
+      this.fetchChallenges( this.state.latitude, this.state.longitude ) 
+    } );
   }
 
   render() {
     const {
-      speciesSeen,
-      bannerText,
+      taxaName,
       error,
       loading,
       latitude,
@@ -204,26 +246,26 @@ class MainScreen extends Component<Props, State> {
     } = this.props;
 
     return (
-      <View style={ { flex: 1 } }>
-        <View style={ styles.container }>
-          <ChallengeScreen
-            taxa={taxa}
-            taxaType={taxaType}
-            latitude={latitude}
-            loading={loading}
-            longitude={longitude}
-            location={location}
-            profileIcon={profileIcon}
-            navigation={navigation}
-            badgeCount={badgeCount}
-            speciesCount={speciesCount}
-            updateLocation={this.updateLocation}
-            setTaxonId={this.setTaxonId}
-            speciesSeen={speciesSeen}
-            bannerText={bannerText}
-            error={error}
-          />
-        </View>
+      <View style={styles.mainContainer}>
+        <NavigationEvents
+          onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
+        />
+        <ChallengeScreen
+          taxa={taxa}
+          taxaType={taxaType}
+          latitude={latitude}
+          loading={loading}
+          longitude={longitude}
+          location={location}
+          profileIcon={profileIcon}
+          navigation={navigation}
+          badgeCount={badgeCount}
+          speciesCount={speciesCount}
+          updateLocation={this.updateLocation}
+          setTaxonId={this.setTaxonId}
+          taxaName={taxaName}
+          error={error}
+        />
       </View>
     );
   }

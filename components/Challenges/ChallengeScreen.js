@@ -2,11 +2,9 @@
 
 import React from "react";
 
-import {
-  ImageBackground,
-  View
-} from "react-native";
+import { ImageBackground, View } from "react-native";
 
+import Banner from "../Banner";
 import ChallengeGrid from "./ChallengeGrid";
 import ChallengeHeader from "./ChallengeHeader";
 import ChallengeFooter from "./ChallengeFooter";
@@ -16,8 +14,7 @@ import styles from "../../styles/challenges";
 
 type Props = {
   badgeCount: number,
-  speciesSeen: ?boolean,
-  bannerText: string,
+  taxaName: string,
   speciesCount: number,
   latitude: number,
   loading: boolean,
@@ -34,8 +31,7 @@ type Props = {
 
 const ChallengeScreen = ( {
   badgeCount,
-  speciesSeen,
-  bannerText,
+  taxaName,
   speciesCount,
   latitude,
   loading,
@@ -54,6 +50,8 @@ const ChallengeScreen = ( {
     challenges = <ErrorScreen error={error} />;
   } else if ( loading ) {
     challenges = <LoadingWheel />;
+  } else if ( taxa.length === 0 ) {
+    challenges = <ErrorScreen error={`We couldn't find any ${taxaType} in this location. Please try again.`} />;
   } else {
     challenges = (
       <ChallengeGrid
@@ -67,11 +65,14 @@ const ChallengeScreen = ( {
   }
 
   return (
-    <View style={ { flex: 1 } }>
-      <ImageBackground
-        style={styles.backgroundImage}
-        source={require( "../../assets/backgrounds/background.png" )}
-      >
+    <ImageBackground
+      style={styles.backgroundImage}
+      source={require( "../../assets/backgrounds/background.png" )}
+    >
+      <View style={styles.container}>
+        { taxaName ? (
+          <Banner bannerText={`${taxaName} collected`} main />
+        ) : null }
         <ChallengeHeader
           latitude={latitude}
           longitude={longitude}
@@ -81,8 +82,7 @@ const ChallengeScreen = ( {
           updateLocation={updateLocation}
           setTaxonId={setTaxonId}
           taxaType={taxaType}
-          speciesSeen={speciesSeen}
-          bannerText={bannerText}
+          taxaName={taxaName}
         />
         {challenges}
         <ChallengeFooter
@@ -92,8 +92,8 @@ const ChallengeScreen = ( {
           badgeCount={badgeCount}
           speciesCount={speciesCount}
         />
-      </ImageBackground>
-    </View>
+      </View>
+    </ImageBackground>
   );
 };
 

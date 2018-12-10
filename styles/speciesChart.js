@@ -24,8 +24,7 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   yAxis: {
-    alignItems: "center",
-    marginBottom: margins.small
+    marginBottom: margins.medium
   },
   chartRow: {
     flex: 1,
@@ -40,8 +39,8 @@ export default StyleSheet.create( {
     borderBottomWidth: 1
   },
   contentInset: {
-    top: 10,
-    bottom: 10
+    top: 20,
+    bottom: 5
   },
   xAxis: {
     height: 15

@@ -33,7 +33,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "all" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -47,7 +46,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "plants" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -61,7 +59,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "amphibians" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -75,7 +72,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "fungi" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -89,7 +85,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "fish" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -103,7 +98,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "reptiles" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -117,7 +111,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "arachnids" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -131,7 +124,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "birds" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -145,7 +137,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "insects" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -159,7 +150,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "mollusks" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image
@@ -173,7 +163,6 @@ const TaxonPickerScreen = ( { navigation } ) => {
               underlayColor="transparent"
               onPress={() => {
                 setTaxonId( "mammals" );
-                navigation.navigate( "Main" );
               }}
             >
               <Image

@@ -1,8 +1,7 @@
 // @flow
 
-import React from "react";
+import React, { Component } from "react";
 import {
-  Button,
   Image,
   ImageBackground,
   Text,
@@ -15,17 +14,34 @@ type Props = {
   navigation: any
 }
 
-const SplashScreen = ( { navigation }: Props ) => (
-  <View>
-    <ImageBackground
-      style={styles.backgroundImage}
-      source={require( "../assets/backgrounds/splash.png" )}
-    >
-      <Text style={styles.text}>Backyard Wilderness presents:</Text>
-      <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
-      <Button title="Continue" onPress={() => navigation.navigate( "Warnings" )} />
-    </ImageBackground>
-  </View>
-);
+class SplashScreen extends Component { 
+  constructor( { navigation }: Props ) {
+    super();
+  }
+
+  componentDidMount() {
+    this.transitionScreen();
+  }
+
+  transitionScreen() {
+    const { navigation } = this.props;
+
+    setTimeout( () => navigation.navigate( "Warnings" ), 2000 );
+  }
+
+  render() {
+    return (
+      <View>
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require( "../assets/backgrounds/splash.png" )}
+        >
+          <Text style={styles.text}>Backyard Wilderness presents:</Text>
+          <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
+        </ImageBackground>
+      </View>
+    );
+  }
+}
 
 export default SplashScreen;

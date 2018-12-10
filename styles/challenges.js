@@ -8,43 +8,34 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  mainContainer: {
+    flex: 1,
+    backgroundColor: colors.darkBlue
+  },
   backgroundImage: {
-    paddingTop: 20,
+    flex: 1
+  },
+  container: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between"
   },
-  container: {
-    flex: 1,
-    backgroundColor: colors.darkBlue
-  },
-  banner: {
-    zIndex: 1,
-    backgroundColor: colors.white,
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  bannerImage: {
-    position: "absolute",
-    top: 25,
-    left: 10,
-    zIndex: 1
-  },
   header: {
-    height: 50
+    marginTop: margins.medium + 10
   },
   headerText: {
     marginLeft: margins.medium,
     fontSize: fontSize.smallText,
     lineHeight: 14,
     color: colors.white,
-    fontFamily: fonts.default,
-    position: "absolute",
-    bottom: 30
+    fontFamily: fonts.default
+  },
+  buttons: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
   },
   locationChooser: {
-    position: "absolute",
-    bottom: 5,
     paddingLeft: padding.large
   },
   locationChooserText: {
@@ -54,9 +45,6 @@ export default StyleSheet.create( {
     fontWeight: "900"
   },
   taxonChooser: {
-    position: "absolute",
-    bottom: 5,
-    right: 0,
     paddingRight: padding.large
   },
   taxonChooserText: {
@@ -65,10 +53,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.text
   },
   taxonGrid: {
-    flex: 1,
-    flexGrow: 2,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
   },
   gridCell: {
     width: 105,
@@ -95,9 +80,9 @@ export default StyleSheet.create( {
     paddingTop: padding.extraSmall
   },
   footer: {
-    marginTop: margins.small,
-    justifyContent: "flex-end",
+    marginTop: margins.medium,
     height: 50,
+    justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },
   bottomRow: {
@@ -108,14 +93,14 @@ export default StyleSheet.create( {
   profileButton: {
     paddingLeft: padding.large
   },
-  addPhotoButton: {
-    paddingRight: padding.medium
-  },
   profileText: {
     color: colors.white,
     fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     marginBottom: margins.medium,
     paddingLeft: "25%"
+  },
+  addPhotoButton: {
+    paddingRight: padding.medium
   }
 } );

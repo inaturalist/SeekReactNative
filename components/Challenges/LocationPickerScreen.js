@@ -32,7 +32,7 @@ class LocationPickerScreen extends Component {
         latitude,
         longitude
       },
-      mapLocation: location,
+      location,
       updateLocation
     };
 
@@ -52,7 +52,7 @@ class LocationPickerScreen extends Component {
     Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
       const { locality, subAdminArea } = result[0];
       this.setState( {
-        mapLocation: locality || subAdminArea
+        location: locality || subAdminArea
       } ); // might need an error state here
     } ).catch( ( err ) => {
       this.setState( {
@@ -62,15 +62,14 @@ class LocationPickerScreen extends Component {
   }
 
   render() {
-    const { region, mapLocation, updateLocation } = this.state;
-    const { navigation } = this.props;
+    const { region, location, updateLocation } = this.state;
 
     return (
       <View style={styles.container}>
         <Text style={styles.headerText}>
           Looking for species in a 50 mile radius around this point:
         </Text>
-        <Text style={styles.locationText}>{mapLocation}</Text>
+        <Text style={styles.locationText}>{location}</Text>
         <View style={styles.mapContainer}>
           <LocationMap
             region={region}
@@ -81,8 +80,7 @@ class LocationPickerScreen extends Component {
           <Text
             style={styles.buttonText}
             onPress={() => {
-              updateLocation( region.latitude, region.longitude );
-              navigation.navigate( "Main" );
+              updateLocation( region.latitude, region.longitude, location );
             }}
           >
             Done

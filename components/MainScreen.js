@@ -4,7 +4,12 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
-import { PermissionsAndroid, Platform, View } from "react-native";
+import {
+  PermissionsAndroid,
+  Platform,
+  View,
+  SafeAreaView
+} from "react-native";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../models/index";
@@ -246,27 +251,29 @@ class MainScreen extends Component<Props, State> {
     } = this.props;
 
     return (
-      <View style={styles.mainContainer}>
-        <NavigationEvents
-          onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
-        />
-        <ChallengeScreen
-          taxa={taxa}
-          taxaType={taxaType}
-          latitude={latitude}
-          loading={loading}
-          longitude={longitude}
-          location={location}
-          profileIcon={profileIcon}
-          navigation={navigation}
-          badgeCount={badgeCount}
-          speciesCount={speciesCount}
-          updateLocation={this.updateLocation}
-          setTaxonId={this.setTaxonId}
-          taxaName={taxaName}
-          error={error}
-        />
-      </View>
+      <SafeAreaView style={styles.mainContainer}>
+        <View style={styles.mainContainer}>
+          <NavigationEvents
+            onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
+          />
+          <ChallengeScreen
+            taxa={taxa}
+            taxaType={taxaType}
+            latitude={latitude}
+            loading={loading}
+            longitude={longitude}
+            location={location}
+            profileIcon={profileIcon}
+            navigation={navigation}
+            badgeCount={badgeCount}
+            speciesCount={speciesCount}
+            updateLocation={this.updateLocation}
+            setTaxonId={this.setTaxonId}
+            taxaName={taxaName}
+            error={error}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
 }

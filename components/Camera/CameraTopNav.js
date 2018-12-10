@@ -4,7 +4,8 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import CameraFlipIcon from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -31,35 +32,37 @@ const CameraTopNav = ( {
   toggleFlash,
   toggleCamera
 }: Props ) => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => navigation.push( "Main", { taxaName: null } )}
-      >
-        <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleFlash()}
-      >
-        {navigation.state.key === "CAMERA" ? (
-          <Text style={styles.text}>
-            {flashText === "OFF" ? flashOffIcon : flashOnIcon}
-            {flashText}
-          </Text>
-        ) : null}
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleCamera()}
-      >
-        {navigation.state.key === "CAMERA" ? (
-          <Text style={styles.text}>{cameraFlipIcon}</Text>
-        ) : null}
-      </TouchableOpacity>
+  <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => navigation.push( "Main", { taxaName: null } )}
+        >
+          <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => toggleFlash()}
+        >
+          {navigation.state.key === "CAMERA" ? (
+            <Text style={styles.text}>
+              {flashText === "OFF" ? flashOffIcon : flashOnIcon}
+              {flashText}
+            </Text>
+          ) : null}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttons}
+          onPress={() => toggleCamera()}
+        >
+          {navigation.state.key === "CAMERA" ? (
+            <Text style={styles.text}>{cameraFlipIcon}</Text>
+          ) : null}
+        </TouchableOpacity>
+      </View>
     </View>
-  </View>
+  </SafeAreaView>
 );
 
 export default CameraTopNav;

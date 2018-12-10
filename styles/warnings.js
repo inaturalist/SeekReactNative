@@ -12,12 +12,15 @@ export default StyleSheet.create( {
     flex: 1
   },
   backgroundImage: {
-    flex: 1
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center"
   },
   header: {
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: margins.large
+    justifyContent: "flex-start",
+    marginTop: margins.large,
+    marginHorizontal: margins.medium
   },
   welcomeText: {
     fontSize: fontSize.largeHeader,
@@ -26,12 +29,12 @@ export default StyleSheet.create( {
   },
   earnText: {
     fontSize: fontSize.header,
-    marginTop: margins.medium,
-    marginBottom: margins.medium,
-    marginHorizontal: margins.large,
+    marginTop: margins.small,
+    marginHorizontal: margins.medium,
+    marginBottom: margins.small,
     flexDirection: "row",
     flexWrap: "wrap",
-    lineHeight: 27,
+    lineHeight: 24,
     color: colors.white,
     fontFamily: fonts.default
   },
@@ -58,14 +61,15 @@ export default StyleSheet.create( {
     flexWrap: "wrap"
   },
   disclaimerContainer: {
-    marginTop: margins.medium,
-    marginHorizontal: margins.large,
+    marginHorizontal: margins.medium,
+    justifyContent: "flex-end",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   disclaimer: {
+    marginHorizontal: margins.medium,
     fontSize: fontSize.smallText,
-    marginBottom: margins.medium,
+    marginBottom: margins.small,
     lineHeight: 15,
     color: colors.white,
     fontFamily: fonts.default

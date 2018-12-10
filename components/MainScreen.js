@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
-import { View } from "react-native";
+import { PermissionsAndroid, Platform, View } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../models/index";
@@ -58,7 +58,11 @@ class MainScreen extends Component<Props, State> {
   }
 
   componentDidMount() {
-    this.getGeolocation();
+    if ( Platform.OS === "android" ) {
+      this.requestAndroidPermissions();
+    } else {
+      this.getGeolocation();
+    }
     recalculateBadges();
     this.fetchSpeciesAndBadgeCount();
   }
@@ -115,6 +119,28 @@ class MainScreen extends Component<Props, State> {
         } );
       } );
     }
+  }
+
+  requestAndroidPermissions = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.getGeolocation();
+      } else {
+        this.showError( JSON.stringify( granted ) );
+      }
+    } catch ( err ) {
+      this.showError( err );
+    }
+  }
+
+  showError( err ) {
+    this.setState( {
+      error: err || "Permission to access location denied",
+      loading: false
+    } );
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {

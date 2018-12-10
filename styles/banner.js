@@ -7,9 +7,24 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  container: {
+    zIndex: 1
+  },
+  animatedStyle: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    right: 0,
+    justifyContent: "center",
+    backgroundColor: colors.white,
+    height: 80
+  },
   banner: {
     zIndex: 1,
     backgroundColor: colors.white
+  },
+  animatedRow: {
+    alignItems: "flex-end"
   },
   row: {
     flexDirection: "row",
@@ -25,8 +40,8 @@ export default StyleSheet.create( {
   },
   mainBannerImage: {
     zIndex: 2,
-    marginLeft: margins.medium,
-    marginBottom: margins.medium
+    alignItems: "flex-end",
+    marginLeft: margins.medium
   },
   text: {
     marginLeft: margins.medium,

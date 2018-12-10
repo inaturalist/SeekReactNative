@@ -60,18 +60,14 @@ class Banner extends Component {
 
     if ( main ) {
       banner = (
-        <Animated.View style={{
-          transform: [{ translateY: this.animatedValue }],
-          position: "absolute",
-          left: 0,
-          top: 0,
-          right: 0,
-          justifyContent: "center",
-          backgroundColor: colors.white,
-          height: 50
-        }}
+        <Animated.View style={[
+          styles.animatedStyle,
+          {
+            transform: [{ translateY: this.animatedValue }]
+          }
+        ]}
         >
-          <View style={styles.row}>
+          <View style={[styles.row, styles.animatedRow]}>
             <Image
               source={require( "../assets/results/icn-results-match.png" )}
               style={styles.mainBannerImage}
@@ -95,7 +91,7 @@ class Banner extends Component {
     }
 
     return (
-      <View>
+      <View style={styles.container}>
         {banner}
       </View>
     );

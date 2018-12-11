@@ -190,7 +190,12 @@ class ChallengeResults extends Component {
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", { taxaName } );
     } else if ( buttonText === "Start over" ) {
-      navigation.push( "Camera", { id } );
+      navigation.push( "Camera", {
+        id,
+        latitude,
+        longitude,
+        commonName: null
+      } );
     } else {
       navigation.push( "Main", { taxaName: null } );
     }

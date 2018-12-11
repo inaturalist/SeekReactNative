@@ -251,7 +251,7 @@ class MainScreen extends Component<Props, State> {
     } = this.props;
 
     return (
-      <SafeAreaView style={styles.mainContainer}>
+      <SafeAreaView style={styles.safeContainer}>
         <View style={styles.mainContainer}>
           <NavigationEvents
             onWillFocus={() => this.fetchSpeciesAndBadgeCount()}

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -16,7 +16,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: margins.medium + 5,
+    marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.extraSmall,
     marginHorizontal: margins.medium
   },
   text: {

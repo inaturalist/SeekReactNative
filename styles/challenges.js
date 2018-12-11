@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -8,6 +8,10 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  safeContainer: {
+    flex: 1,
+    backgroundColor: colors.darkDesaturatedBlue
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: colors.darkBlue
@@ -21,7 +25,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   header: {
-    marginTop: margins.medium + 10
+    marginTop: Platform.OS === "android" ? margins.medium + 10 : margins.extraSmall
   },
   headerText: {
     marginLeft: margins.medium,

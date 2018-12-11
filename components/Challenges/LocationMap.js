@@ -9,6 +9,7 @@ import styles from "../../styles/locationPicker";
 import { colors } from "../../styles/global";
 
 const markerIcon = ( <Icon name="location-on" size={70} color={colors.iNatGreen} /> );
+const locationIcon = ( <Icon name="navigation" size={40} /> );
 
 type Props = {
   region: Object,
@@ -33,8 +34,9 @@ const LocationMap = ( {
     </View>
     <TouchableHighlight
       onPress={() => returnToUserLocation()}
+      style={styles.locationIcon}
     >
-      <Text>Current location</Text>
+      <Text>{locationIcon}</Text>
     </TouchableHighlight>
   </View>
 );

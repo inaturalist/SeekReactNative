@@ -8,7 +8,6 @@ import {
   View
 } from "react-native";
 
-
 import styles from "../../styles/challenges";
 
 type Props = {

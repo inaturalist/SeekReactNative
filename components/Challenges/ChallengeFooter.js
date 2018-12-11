@@ -18,7 +18,7 @@ type Props = {
   speciesCount: number
 }
 
-class ChallengeFooter extends Component { 
+class ChallengeFooter extends Component {
   constructor( {
     latitude,
     longitude,

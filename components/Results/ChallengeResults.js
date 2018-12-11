@@ -222,7 +222,9 @@ class ChallengeResults extends Component {
         const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
         this.fetchScore( params );
       } ).catch( ( err ) => {
-        console.log( err, "error with image resizer" );
+        this.setState( {
+          error: `${err.message}: couldn't resize image`
+        } );
       } );
   }
 

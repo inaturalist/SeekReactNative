@@ -19,8 +19,7 @@ type Props = {
   location: string,
   setTaxonId: Function,
   taxaType: string,
-  updateLocation: Function,
-  reverseGeocodeLocation: Function
+  updateLocation: Function
 }
 
 const ChallengeHeader = ( {

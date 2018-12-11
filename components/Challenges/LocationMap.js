@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TouchableHighlight } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
@@ -12,11 +12,15 @@ const markerIcon = ( <Icon name="location-on" size={70} color={colors.iNatGreen}
 
 type Props = {
   region: Object,
-  onRegionChange: Function
+  onRegionChange: Function,
+  returnToUserLocation: Function
 }
 
-
-const LocationMap = ( { region, onRegionChange }: Props ) => (
+const LocationMap = ( {
+  region,
+  onRegionChange,
+  returnToUserLocation
+}: Props ) => (
   <View style={{ flex: 1 }}>
     <MapView
       provider={PROVIDER_DEFAULT}
@@ -27,6 +31,11 @@ const LocationMap = ( { region, onRegionChange }: Props ) => (
     <View pointerEvents="none" style={styles.markerFixed}>
       <Text>{markerIcon}</Text>
     </View>
+    <TouchableHighlight
+      onPress={() => returnToUserLocation()}
+    >
+      <Text>Current location</Text>
+    </TouchableHighlight>
   </View>
 );
 

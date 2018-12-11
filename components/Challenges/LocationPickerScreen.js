@@ -32,11 +32,14 @@ class LocationPickerScreen extends Component {
         latitude,
         longitude
       },
+      userLatitude: latitude,
+      userLongitude: longitude,
       location,
       updateLocation
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
+    this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
   onRegionChange( newRegion ) {
@@ -44,7 +47,8 @@ class LocationPickerScreen extends Component {
     const { latitude, longitude } = region;
 
     this.setState( {
-      region: newRegion
+      region: newRegion,
+      location: null
     }, () => this.reverseGeocodeLocation( latitude, longitude ) );
   }
 
@@ -61,6 +65,19 @@ class LocationPickerScreen extends Component {
     } );
   }
 
+  returnToUserLocation() {
+    const { userLatitude, userLongitude } = this.state;
+
+    this.setState( {
+      region: {
+        latitude: userLatitude,
+        longitude: userLongitude,
+        locationDelta: 0.025,
+        longitudeDelta: 0.025
+      }
+    } );
+  }
+
   render() {
     const { region, location, updateLocation } = this.state;
 
@@ -74,6 +91,7 @@ class LocationPickerScreen extends Component {
           <LocationMap
             region={region}
             onRegionChange={this.onRegionChange}
+            returnToUserLocation={this.returnToUserLocation}
           />
         </View>
         <TouchableHighlight style={styles.button}>

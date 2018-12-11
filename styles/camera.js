@@ -1,12 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors, padding } from "./global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
     backgroundColor: "transparent",
-    width,
     flex: 1
   },
   main: {

@@ -71,8 +71,8 @@ class LocationPickerScreen extends Component {
       region: {
         latitude: userLatitude,
         longitude: userLongitude,
-        locationDelta: 0.025,
-        longitudeDelta: 0.025
+        latitudeDelta: 0.2,
+        longitudeDelta: 0.2
       }
     } );
   }

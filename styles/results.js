@@ -31,17 +31,19 @@ export default StyleSheet.create( {
   },
   row: {
     alignItems: "center",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     flexWrap: "wrap",
     marginHorizontal: 40
   },
   text: {
     fontSize: fontSize.text,
     lineHeight: 20,
+    textAlign: "center",
     color: colors.white,
     fontFamily: fonts.default
   },
   matchImage: {
+    marginTop: margins.small,
     zIndex: 1
   },
   imageBackground: {
@@ -73,6 +75,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     width: 135,
     flexWrap: "wrap",
+    textAlign: "center",
     marginHorizontal: margins.small,
     marginTop: margins.small
   },

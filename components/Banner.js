@@ -8,7 +8,6 @@ import {
 } from "react-native";
 
 import styles from "../styles/banner";
-import { colors } from "../styles/global";
 
 type Props = {
   bannerText: string,

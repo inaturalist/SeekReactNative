@@ -57,7 +57,8 @@ class ChallengeResults extends Component {
       longitude,
       error: null,
       commonName,
-      targetTaxaPhoto
+      targetTaxaPhoto,
+      commonAncestor: null
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -76,62 +77,82 @@ class ChallengeResults extends Component {
       taxaName,
       seenTaxaIds,
       commonName,
-      targetTaxaPhoto
+      targetTaxaPhoto,
+      commonAncestor
     } = this.state;
 
-    if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
-      this.setState( {
-        title: "Deja Vu!",
-        subtitle: `Looks like you already collected a ${taxaName}`,
-        match: true,
-        text: `You collected a photo of a ${taxaName} on ${seenDate}`,
-        buttonText: "OK",
-        yourPhotoText: `Your Photo:\n${taxaName}`,
-        photoText: `Identified Species:\n${taxaName}`
-      } );
-    } else if ( score > 85 && id === null ) {
-      this.setState( {
-        title: "Sweet!",
-        subtitle: `You saw a ${taxaName}`,
-        match: true,
-        text: null,
-        buttonText: "Add to Collection",
-        yourPhotoText: `Your Photo:\n${taxaName}`,
-        photoText: `Identified Species:\n${taxaName}`
-      } );
-    } else if ( score <= 85 && id === null ) {
+    console.log( commonAncestor.taxon.name, "common ancestor name" );
+    console.log( score, "score of target" );
+
+    if ( score > 85 && id === taxaId ) {
+      if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
+        this.setState( {
+          title: "Deja Vu!",
+          subtitle: `Looks like you already collected a ${taxaName}`,
+          match: true,
+          text: `You collected a photo of a ${taxaName} on ${seenDate}`,
+          buttonText: "OK",
+          yourPhotoText: `Your Photo:\n${taxaName}`,
+          photoText: `Identified Species:\n${commonName}`
+        } );
+      } else {
+        this.setState( {
+          title: "It's a Match!",
+          subtitle: `You saw a ${taxaName}`,
+          match: true,
+          text: null,
+          buttonText: "Add to Collection"
+        } );
+      }
+    } else if ( score > 97 ) {
+      if ( id === null ) {
+        this.setState( {
+          title: "Sweet!",
+          subtitle: `You saw a ${taxaName}`,
+          match: true,
+          text: null,
+          buttonText: "Add to Collection",
+          yourPhotoText: `Your Photo:\n${taxaName}`,
+          photoText: `Identified Species:\n${taxaName}`
+        } );
+      } else if ( id !== taxaId ) {
+        if ( seenTaxaIds.length >= 1 && seenDate !== null ) {
+          this.setState( {
+            title: "Good try!",
+            subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
+            match: true,
+            text: `You collected a photo of a ${taxaName} on ${seenDate}`,
+            buttonText: "OK",
+            yourPhotoText: `Your Photo:\n${taxaName}`,
+            photoText: `Target Species:\n${commonName}`
+          } );
+        } else {
+          this.setState( {
+            title: "Good Try!",
+            subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
+            match: false,
+            text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
+            buttonText: "Add to Collection",
+            yourPhotoText: "Your Photo\n",
+            photoText: `Target Species:\n${commonName}`,
+            matchUrl: targetTaxaPhoto
+          } );
+        }
+      }
+    } else if ( commonAncestor ) {
       this.setState( {
         title: "Hrmmmmm",
-        subtitle: "We can't figure this one out. Please try some adjustments.",
+        subtitle: `We think this is a photo of ${commonAncestor.taxon.name}, but we can't say for sure what species it is.`,
         match: "unknown",
-        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
+        text: "Here are some photo tips:\n\n\u2022 Get as close as possible while being safe\n\u2022 Crop out unimportant parts\n\u2022 Make sure things are in focus",
         buttonText: "Start over"
-      } );
-    } else if ( score > 85 && id === taxaId ) {
-      this.setState( {
-        title: "It's a Match!",
-        subtitle: `You saw a ${taxaName}`,
-        match: true,
-        text: null,
-        buttonText: "Add to Collection"
-      } );
-    } else if ( score > 85 && id !== taxaId ) {
-      this.setState( {
-        title: "Good Try!",
-        subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
-        match: false,
-        text: `You still need to collect a ${taxaName}. Would you like to collect it now?`,
-        buttonText: "Add to Collection",
-        yourPhotoText: "Your Photo\n",
-        photoText: `Target Species:\n${commonName}`,
-        matchUrl: targetTaxaPhoto
       } );
     } else {
       this.setState( {
         title: "Hrmmmmm",
         subtitle: "We can't figure this one out. Please try some adjustments.",
         match: "unknown",
-        text: "Here are some photo tips:\nGet as close as possible while being safe\nCrop out unimportant parts\nMake sure things are in focus",
+        text: "Here are some photo tips:\n\n\u2022 Get as close as possible while being safe\n\u2022 Crop out unimportant parts\n\u2022 Make sure things are in focus",
         buttonText: "Start over"
       } );
     }
@@ -185,11 +206,10 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null } );
+      navigation.push( "Main", { taxaName: null, seenTaxaId: null } );
     } else if ( buttonText === "Add to Collection" ) {
-      console.log( "clicked on:", latitude, longitude, image );
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", { taxaName: capitalizeNames( taxaName ) } );
+      navigation.push( "Main", { taxaName: capitalizeNames( taxaName ), seenTaxaId: id } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
@@ -198,7 +218,7 @@ class ChallengeResults extends Component {
         commonName: null
       } );
     } else {
-      navigation.push( "Main", { taxaName: null } );
+      navigation.push( "Main", { taxaName: null, seenTaxaId: null } );
     }
   }
 
@@ -243,14 +263,16 @@ class ChallengeResults extends Component {
     const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
-      .then( ( { results } ) => {
-        const match = results[0];
+      .then( ( response ) => {
+        const match = response.results[0];
+        const commonAncestor = response.common_ancestor;
         this.setState( {
           observation: match,
           taxaId: match.taxon.id,
           taxaName: match.taxon.preferred_common_name || match.taxon.name,
           score: match.combined_score,
           matchUrl: match.taxon.default_photo.medium_url,
+          commonAncestor,
           loading: false
         }, () => {
           this.fetchSeenTaxaIds( this.state.taxaId );

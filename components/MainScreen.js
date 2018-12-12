@@ -56,6 +56,7 @@ class MainScreen extends Component<Props, State> {
       badgeCount: 0,
       speciesCount: 0,
       taxaName
+      
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );

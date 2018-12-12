@@ -18,7 +18,7 @@ import LoadingWheel from "../LoadingWheel";
 import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
 import styles from "../../styles/results";
-import { addToCollection, flattenUploadParameters } from "../../utility/helpers";
+import { addToCollection, capitalizeNames, flattenUploadParameters } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -189,7 +189,7 @@ class ChallengeResults extends Component {
     } else if ( buttonText === "Add to Collection" ) {
       console.log( "clicked on:", latitude, longitude, image );
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", { taxaName } );
+      navigation.push( "Main", { taxaName: capitalizeNames( taxaName ) } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,

@@ -120,7 +120,7 @@ class MainScreen extends Component<Props, State> {
         }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
       }, ( err ) => {
         this.setState( {
-          error: err.message
+          error: `Couldn't fetch your current location: ${err.message}.`
         } );
       } );
     }

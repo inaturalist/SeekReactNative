@@ -43,10 +43,10 @@ class CameraScreen extends Component {
       image: {},
       latitude,
       longitude,
-      loading: false,
       time: null,
       id,
-      commonName
+      commonName,
+      pictureTaken: false
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
@@ -71,8 +71,7 @@ class CameraScreen extends Component {
       const photo = results.edges[0].node;
       this.setState( {
         image: photo.image,
-        time: photo.timestamp,
-        loading: false
+        time: photo.timestamp
       }, () => navigation.push( "Results", {
         image: this.state.image,
         time: this.state.time,
@@ -91,7 +90,7 @@ class CameraScreen extends Component {
   takePicture = async () => {
     if ( this.camera ) {
       this.setState( {
-        loading: true
+        pictureTaken: true
       } );
       this.camera
         .takePictureAsync( { fixOrientation: true } )
@@ -104,8 +103,7 @@ class CameraScreen extends Component {
         } )
         .catch( ( err ) => {
           this.setState( {
-            error: err.message,
-            loading: false
+            error: err.message
           } );
         } );
     }
@@ -128,8 +126,7 @@ class CameraScreen extends Component {
 
   showError( err ) {
     this.setState( {
-      error: err || "Permission to save photos denied",
-      loading: false
+      error: err || "Permission to save photos denied"
     } );
   }
 
@@ -167,8 +164,8 @@ class CameraScreen extends Component {
       cameraType,
       flash,
       flashText,
-      loading,
-      error
+      error,
+      pictureTaken
     } = this.state;
 
     const { navigation } = this.props;
@@ -177,11 +174,12 @@ class CameraScreen extends Component {
 
     if ( error ) {
       cameraContent = <ErrorScreen error={error} collection />;
-    } else if ( loading ) {
-      cameraContent = <LoadingWheel />;
     } else {
       cameraContent = (
         <View style={styles.container}>
+          { pictureTaken ? (
+            <LoadingWheel />
+          ) : null }
           <View style={styles.main} />
           <View style={styles.footer}>
             <TouchableOpacity

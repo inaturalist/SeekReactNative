@@ -294,7 +294,7 @@ const badges = {
     name: "25th Insect",
     iconicTaxon: "Insects",
     iconicTaxonId: 47158,
-    count: 1,
+    count: 25,
     unearnedIconName: "badge_species-25-empty",
     earnedIconName: "badge_species-25-insects",
     index: 305

@@ -106,6 +106,7 @@ const recalculateBadges = () => {
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+          console.log( badge.iconicTaxonId, "badge is undefined" );
           const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
           const collectionLength = Object.keys( filteredCollection );
 

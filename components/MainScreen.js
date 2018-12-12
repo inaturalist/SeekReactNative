@@ -68,7 +68,6 @@ class MainScreen extends Component<Props, State> {
     } else {
       this.getGeolocation();
     }
-    recalculateBadges();
     this.fetchSpeciesAndBadgeCount();
   }
 
@@ -182,6 +181,8 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchSpeciesAndBadgeCount() {
+    recalculateBadges();
+
     Realm.open( realmConfig )
       .then( ( realm ) => {
         this.setState( {

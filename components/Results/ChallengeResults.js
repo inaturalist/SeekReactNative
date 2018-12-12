@@ -187,6 +187,7 @@ class ChallengeResults extends Component {
     if ( buttonText === "OK" ) {
       navigation.push( "Main", { taxaName: null } );
     } else if ( buttonText === "Add to Collection" ) {
+      console.log( "clicked on:", latitude, longitude, image );
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", { taxaName } );
     } else if ( buttonText === "Start over" ) {

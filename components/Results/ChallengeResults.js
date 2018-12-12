@@ -89,7 +89,7 @@ class ChallengeResults extends Component {
         yourPhotoText: `Your Photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
-    } else if ( score > 85 && id === undefined ) {
+    } else if ( score > 85 && id === null ) {
       this.setState( {
         title: "Sweet!",
         subtitle: `You saw a ${taxaName}`,
@@ -99,7 +99,7 @@ class ChallengeResults extends Component {
         yourPhotoText: `Your Photo:\n${taxaName}`,
         photoText: `Identified Species:\n${taxaName}`
       } );
-    } else if ( score <= 85 && id === undefined ) {
+    } else if ( score <= 85 && id === null ) {
       this.setState( {
         title: "Hrmmmmm",
         subtitle: "We can't figure this one out. Please try some adjustments.",

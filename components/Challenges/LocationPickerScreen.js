@@ -7,8 +7,8 @@ import LocationMap from "./LocationMap";
 
 import styles from "../../styles/locationPicker";
 
-const latitudeDelta = 0.025;
-const longitudeDelta = 0.025;
+const latitudeDelta = 0.2;
+const longitudeDelta = 0.2;
 
 type Props = {
   navigation: any
@@ -47,8 +47,7 @@ class LocationPickerScreen extends Component {
     const { latitude, longitude } = region;
 
     this.setState( {
-      region: newRegion,
-      location: null
+      region: newRegion
     }, () => this.reverseGeocodeLocation( latitude, longitude ) );
   }
 

@@ -72,6 +72,14 @@ export default StyleSheet.create( {
   },
   locationIcon: {
     marginLeft: margins.medium,
-    marginBottom: margins.medium
+    marginBottom: margins.large,
+    backgroundColor: colors.darkBlue,
+    borderWidth: 2,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: colors.white,
+    width: 50,
+    height: 50
   }
 } );

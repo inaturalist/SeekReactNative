@@ -233,7 +233,8 @@ class ChallengeResults extends Component {
       latitude,
       longitude,
       image,
-      buttonText
+      buttonText,
+      taxaId
     } = this.state;
 
     const {
@@ -241,10 +242,13 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null } );
+      navigation.push( "Main", { taxaName: null, id: null } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", { taxaName: capitalizeNames( taxaName ) } );
+      navigation.push( "Main", {
+        taxaName: capitalizeNames( taxaName ),
+        id: taxaId
+      } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
@@ -253,7 +257,7 @@ class ChallengeResults extends Component {
         commonName: null
       } );
     } else {
-      navigation.push( "Main", { taxaName: null } );
+      navigation.push( "Main", { taxaName: null, id: null } );
     }
   }
 

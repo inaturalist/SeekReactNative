@@ -9,19 +9,30 @@ import {
 import Realm from "realm";
 
 import styles from "../styles/banner";
+import speciesImages from "../assets/species";
 import realmConfig from "../models/index";
 
 type Props = {
   bannerText: string,
+  taxaName: string,
+  id: number,
   main: boolean
 }
 
 class Banner extends Component {
-  constructor( { bannerText, main }: Props ) {
+  constructor( {
+    bannerText,
+    taxaName,
+    id,
+    main
+  }: Props ) {
     super();
 
     this.state = {
       bannerText,
+      taxaName,
+      id,
+      iconicTaxonId: 0,
       main
     };
 
@@ -32,21 +43,29 @@ class Banner extends Component {
     this.showToast();
   }
 
-  // fetchLastEarnedBadge() {
-  //   Realm.open( realmConfig )
-  //     .then( ( realm ) => {
-  //       const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
-  //       const lastEarnedBadge = badges.slice( 0, 1 );
-  //       this.setState( {
-  //         lastEarnedBadge
-  //       }, () => console.log( this.state.lastEarnedBadge, "updated badge in state" ) );
-  //     } ).catch( ( err ) => {
-  //       console.log( "[DEBUG] Failed to fetch last earned badge, error: ", err );
-  //     } );
-  //   }
-  // }
+  fetchTaxonId() {
+    const { taxaName, id } = this.state;
+
+    if ( taxaName ) {
+      Realm.open( realmConfig )
+        .then( ( realm ) => {
+          const observations = realm.objects( "ObservationRealm" );
+          const seenTaxa = observations.filtered( `taxon.id == ${id}` );
+          console.log( seenTaxa, "seen taxa" );
+          const { iconicTaxonId } = seenTaxa[0].taxon;
+          console.log( iconicTaxonId, "in fetch banner" );
+          this.setState( {
+            iconicTaxonId
+          } );
+        } ).catch( ( err ) => {
+          console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+        } );
+    }
+  }
 
   showToast() {
+    this.fetchTaxonId();
+
     Animated.timing(
       this.animatedValue,
       {
@@ -69,7 +88,7 @@ class Banner extends Component {
   }
 
   render() {
-    const { bannerText, main } = this.state;
+    const { bannerText, iconicTaxonId, main } = this.state;
 
     let banner;
 
@@ -84,10 +103,10 @@ class Banner extends Component {
         >
           <View style={[styles.row, styles.animatedRow]}>
             <Image
-              source={require( "../assets/results/icn-results-match.png" )}
+              source={speciesImages[iconicTaxonId.toString()]}
               style={styles.mainBannerImage}
             />
-            <Text style={styles.text}>{bannerText}</Text>
+            <Text style={[styles.text, styles.mainText]}>{bannerText}</Text>
           </View>
         </Animated.View>
       );

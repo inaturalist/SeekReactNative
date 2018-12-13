@@ -33,15 +33,22 @@ export default StyleSheet.create( {
     justifyContent: "flex-start",
     height: 42
   },
+  mainBannerImage: {
+    zIndex: 2,
+    marginTop: margins.medium,
+    marginLeft: margins.medium,
+    tintColor: colors.darkGreen,
+    height: 31,
+    width: 38
+  },
   speciesBannerImage: {
     zIndex: 1,
     marginLeft: margins.medium,
     marginBottom: margins.medium
   },
-  mainBannerImage: {
-    zIndex: 2,
-    alignItems: "flex-end",
-    marginLeft: margins.medium
+  mainText: {
+    marginLeft: margins.small,
+    fontWeight: "100"
   },
   text: {
     marginLeft: margins.medium,

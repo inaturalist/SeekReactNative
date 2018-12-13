@@ -42,7 +42,7 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaName } = navigation.state.params;
+    const { taxaName, id } = navigation.state.params;
 
     this.state = {
       taxa: [],
@@ -55,7 +55,8 @@ class MainScreen extends Component<Props, State> {
       taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
-      taxaName
+      taxaName,
+      id
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -88,7 +89,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main", { taxaName: null } );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
         this.fetchChallenges( latitude, longitude );
       } );
     } else {
@@ -97,7 +98,7 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main", { taxaName: null } );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
         this.fetchChallenges( latitude, longitude );
       } );
     }
@@ -227,7 +228,7 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main", { taxaName: null } );
+      navigation.navigate( "Main", { taxaName: null, id: null } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
     } );
   }
@@ -244,7 +245,8 @@ class MainScreen extends Component<Props, State> {
       badgeCount,
       speciesCount,
       taxaType,
-      taxa
+      taxa,
+      id
     } = this.state;
 
     const {
@@ -272,6 +274,7 @@ class MainScreen extends Component<Props, State> {
             setTaxonId={this.setTaxonId}
             taxaName={taxaName}
             error={error}
+            id={id}
           />
         </View>
       </SafeAreaView>

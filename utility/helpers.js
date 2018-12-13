@@ -39,65 +39,6 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
     } );
 };
 
-const addToCollection = ( observation, latitude, longitude, image ) => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      realm.write( () => {
-        let defaultPhoto;
-        const p = observation.taxon.default_photo;
-        if ( image ) {
-          defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p.medium_url,
-            mediumUrl: image.uri
-          } );
-        }
-        const taxon = realm.create( "TaxonRealm", {
-          id: observation.taxon.id,
-          name: capitalizeNames( observation.taxon.name ),
-          preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
-          iconicTaxonId: observation.taxon.iconic_taxon_id,
-          defaultPhoto
-        } );
-        const species = realm.create( "ObservationRealm", {
-          uuidString: uuid.v1(),
-          date: new Date(),
-          taxon,
-          latitude: truncateCoordinates( latitude ),
-          longitude: truncateCoordinates( longitude ),
-          placeName: reverseGeocodeLocation( latitude, longitude )
-        } );
-      } );
-    } ).catch( ( e ) => {
-      console.log( "Error adding photos to collection: ", e );
-    } );
-};
-
-const setupBadges = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      realm.write( () => {
-        const dict = Object.keys( badgesDict.default );
-        dict.forEach( ( badgeType ) => {
-          const badges = badgesDict.default[badgeType];
-
-          const badge = realm.create( "BadgeRealm", {
-            name: badges.name,
-            iconicTaxonName: badges.iconicTaxonName,
-            iconicTaxonId: badges.iconicTaxonId,
-            count: badges.count,
-            earnedIconName: badges.earnedIconName,
-            unearnedIconName: badges.unearnedIconName,
-            infoText: badges.infoText,
-            index: badges.index
-          }, true );
-          // console.log( badge, "realm badges after writing to file" );
-        } );
-      } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
-    } );
-};
-
 const recalculateBadges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -126,6 +67,66 @@ const recalculateBadges = () => {
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+    } );
+};
+
+const addToCollection = ( observation, latitude, longitude, image ) => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      realm.write( () => {
+        let defaultPhoto;
+        const p = observation.taxon.default_photo;
+        if ( image ) {
+          defaultPhoto = realm.create( "PhotoRealm", {
+            squareUrl: p.medium_url,
+            mediumUrl: image.uri
+          } );
+        }
+        const taxon = realm.create( "TaxonRealm", {
+          id: observation.taxon.id,
+          name: capitalizeNames( observation.taxon.name ),
+          preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
+          iconicTaxonId: observation.taxon.iconic_taxon_id,
+          defaultPhoto
+        } );
+        const species = realm.create( "ObservationRealm", {
+          uuidString: uuid.v1(),
+          date: new Date(),
+          taxon,
+          latitude: truncateCoordinates( latitude ),
+          longitude: truncateCoordinates( longitude ),
+          placeName: reverseGeocodeLocation( latitude, longitude )
+        } );
+      } );
+      recalculateBadges();
+    } ).catch( ( e ) => {
+      console.log( "Error adding photos to collection: ", e );
+    } );
+};
+
+const setupBadges = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      realm.write( () => {
+        const dict = Object.keys( badgesDict.default );
+        dict.forEach( ( badgeType ) => {
+          const badges = badgesDict.default[badgeType];
+
+          const badge = realm.create( "BadgeRealm", {
+            name: badges.name,
+            iconicTaxonName: badges.iconicTaxonName,
+            iconicTaxonId: badges.iconicTaxonId,
+            count: badges.count,
+            earnedIconName: badges.earnedIconName,
+            unearnedIconName: badges.unearnedIconName,
+            infoText: badges.infoText,
+            index: badges.index
+          }, true );
+          // console.log( badge, "realm badges after writing to file" );
+        } );
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
     } );
 };
 

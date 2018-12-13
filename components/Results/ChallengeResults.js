@@ -78,17 +78,22 @@ class ChallengeResults extends Component {
 
     console.log( commonAncestor, "common ancestor name" );
     console.log( score, "score of target" );
+    console.log( id, taxaId, "id and taxa Id" );
+    console.log ( seenDate, "seen date" );
 
-    if ( score > 85 && id === taxaId ) {
-      this.setTargetMatched( seenDate );
-    } else if ( score > 97 ) {
-      if ( id === null ) {
+    if ( score > 97 ) {
+      if ( id === taxaId ) {
+        this.setTargetMatched( seenDate );
+      } else if ( id === null ) {
         this.setTaxaIdentifiedNoTarget( seenDate );
       } else if ( id !== taxaId ) {
         this.setTargetNotMatched( seenDate );
       }
+    } else if ( score > 85 && id === taxaId ) {
+      this.setTargetMatched( seenDate );
+    } else {
+      this.setTaxaUnknown( commonAncestor );
     }
-    this.setTaxaUnknown( commonAncestor );
   }
 
   setTargetNotMatched( seenDate ) {
@@ -296,7 +301,6 @@ class ChallengeResults extends Component {
       .then( ( response ) => {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
-        console.log( commonAncestor, "ancestor in scoring" );
         this.setState( {
           observation: match,
           taxaId: match.taxon.id,

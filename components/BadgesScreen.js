@@ -14,7 +14,6 @@ import Realm from "realm";
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import styles from "../styles/badges";
-import { recalculateBadges } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -30,7 +29,6 @@ class BadgesScreen extends Component {
   }
 
   componentDidMount() {
-    recalculateBadges();
     this.fetchBadges();
   }
 

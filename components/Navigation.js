@@ -47,6 +47,10 @@ const CameraNav = createBottomTabNavigator( {
   }
 } );
 
+const StackNavigatorConfig = {
+  headerMode: "screen"
+};
+
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen,
@@ -123,7 +127,7 @@ const RootStack = createStackNavigator( {
       title: "About"
     } )
   }
-} );
+}, StackNavigatorConfig );
 
 export default App = () => {
   setupBadges();

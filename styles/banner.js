@@ -20,13 +20,13 @@ export default StyleSheet.create( {
     height: 80
   },
   banner: {
-    zIndex: 1,
-    backgroundColor: colors.white
+    zIndex: 1
   },
   animatedRow: {
     alignItems: "flex-end"
   },
   row: {
+    backgroundColor: colors.white,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",

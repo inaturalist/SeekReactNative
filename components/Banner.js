@@ -6,8 +6,10 @@ import {
   Text,
   Animated
 } from "react-native";
+import Realm from "realm";
 
 import styles from "../styles/banner";
+import realmConfig from "../models/index";
 
 type Props = {
   bannerText: string,
@@ -29,6 +31,20 @@ class Banner extends Component {
   componentDidMount() {
     this.showToast();
   }
+
+  // fetchLastEarnedBadge() {
+  //   Realm.open( realmConfig )
+  //     .then( ( realm ) => {
+  //       const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
+  //       const lastEarnedBadge = badges.slice( 0, 1 );
+  //       this.setState( {
+  //         lastEarnedBadge
+  //       }, () => console.log( this.state.lastEarnedBadge, "updated badge in state" ) );
+  //     } ).catch( ( err ) => {
+  //       console.log( "[DEBUG] Failed to fetch last earned badge, error: ", err );
+  //     } );
+  //   }
+  // }
 
   showToast() {
     Animated.timing(

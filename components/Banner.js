@@ -34,7 +34,7 @@ class Banner extends Component {
     this.state = {
       bannerText,
       badgeEarned,
-      secondBannerText: "badge earned!",
+      secondBannerText: "Badge earned!",
       taxaName,
       id,
       iconicTaxonId: 0,

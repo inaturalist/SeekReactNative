@@ -56,7 +56,8 @@ class MainScreen extends Component<Props, State> {
       badgeCount: 0,
       speciesCount: 0,
       taxaName,
-      id
+      id,
+      badgeEarned: false
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -69,7 +70,6 @@ class MainScreen extends Component<Props, State> {
     } else {
       this.getGeolocation();
     }
-    this.fetchSpeciesAndBadgeCount();
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -182,14 +182,33 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchSpeciesAndBadgeCount() {
+    let badgeCount;
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        badgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
+
+        console.log( badgeCount, "old badge count" );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+
     recalculateBadges();
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
+        const newBadgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
+        const speciesCount = realm.objects( "ObservationRealm" ).length;
+
+        console.log( badgeCount, "old badge count 2" );
+        console.log( newBadgeCount, "new badge count" );
+        console.log( speciesCount, "species count" );
+
         this.setState( {
-          speciesCount: realm.objects( "ObservationRealm" ).length,
-          badgeCount: realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length
-        } );
+          speciesCount,
+          badgeEarned: newBadgeCount > badgeCount && speciesCount !== 0,
+          badgeCount: newBadgeCount
+        }, () => console.log( this.state.badgeEarned, "badge earned" ) );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -246,7 +265,8 @@ class MainScreen extends Component<Props, State> {
       speciesCount,
       taxaType,
       taxa,
-      id
+      id,
+      badgeEarned
     } = this.state;
 
     const {
@@ -275,6 +295,7 @@ class MainScreen extends Component<Props, State> {
             taxaName={taxaName}
             error={error}
             id={id}
+            badgeEarned={badgeEarned}
           />
         </View>
       </SafeAreaView>

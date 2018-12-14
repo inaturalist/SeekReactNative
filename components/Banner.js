@@ -14,7 +14,8 @@ import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 
 type Props = {
-  bannerText: string, // add banner text 2
+  bannerText: string,
+  badgeEarned: boolean,
   taxaName: string,
   id: number,
   main: boolean
@@ -23,6 +24,7 @@ type Props = {
 class Banner extends Component {
   constructor( {
     bannerText,
+    badgeEarned,
     taxaName,
     id,
     main
@@ -31,7 +33,8 @@ class Banner extends Component {
 
     this.state = {
       bannerText,
-      secondBannerText: "banner earned",
+      badgeEarned,
+      secondBannerText: "badge earned!",
       taxaName,
       id,
       iconicTaxonId: 0,
@@ -44,12 +47,9 @@ class Banner extends Component {
   }
 
   componentDidMount() {
-    const { secondBannerText } = this.state;
+    console.log( this.state.badgeEarned, "does banner know badge earned" );
     this.showToast();
-
-    if ( secondBannerText ) {
-      this.showSecondToast();
-    }
+    this.showSecondToast();
   }
 
   fetchTaxonId() {
@@ -64,7 +64,6 @@ class Banner extends Component {
           const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
           const lastEarnedBadge = badges.slice( 0, 1 );
           const lastEarnedBadgeIcon = lastEarnedBadge[0].earnedIconName;
-          console.log( lastEarnedBadgeIcon, "last earned badge in banner" );
           this.setState( {
             iconicTaxonId,
             lastEarnedBadgeIcon
@@ -125,6 +124,7 @@ class Banner extends Component {
   render() {
     const {
       bannerText,
+      badgeEarned,
       secondBannerText,
       iconicTaxonId,
       main,
@@ -168,7 +168,7 @@ class Banner extends Component {
     return (
       <View style={styles.container}>
         {banner}
-        { secondBannerText ? (
+        { badgeEarned ? (
           <Animated.View style={[
             styles.animatedStyle,
             styles.secondAnimatedStyle,
@@ -180,9 +180,9 @@ class Banner extends Component {
             <View style={[styles.row, styles.animatedRow]}>
               <Image
                 source={badgeImages[lastEarnedBadgeIcon]}
-                style={styles.mainBannerImage}
+                style={styles.badgeBannerImage}
               />
-              <Text style={[styles.text, styles.mainText]}>{bannerText}</Text>
+              <Text style={[styles.text, styles.mainText]}>{secondBannerText}</Text>
             </View>
           </Animated.View>
         ) : null}

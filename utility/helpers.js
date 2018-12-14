@@ -23,8 +23,8 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
       type: "image/jpeg"
     } ),
     observed_on: new Date( time * 1000 ).toISOString(),
-    latitude, // need to account for null case
-    longitude // need to account for null case
+    latitude,
+    longitude
   };
   return params;
 };
@@ -40,6 +40,8 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
 };
 
 const recalculateBadges = () => {
+  let badgeEarned = false;
+
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
@@ -55,6 +57,7 @@ const recalculateBadges = () => {
               badge.earned = true;
               badge.earnedDate = new Date();
             } );
+            badgeEarned = true;
           }
         } else if ( badge.count !== 0 ) {
           if ( collectedTaxa.length >= badge.count ) {
@@ -62,12 +65,14 @@ const recalculateBadges = () => {
               badge.earned = true;
               badge.earnedDate = new Date();
             } );
+            badgeEarned = true;
           }
         }
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
+  return badgeEarned;
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {

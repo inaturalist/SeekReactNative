@@ -10,6 +10,7 @@ import Realm from "realm";
 
 import styles from "../styles/banner";
 import speciesImages from "../assets/species";
+import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 
 type Props = {
@@ -34,7 +35,8 @@ class Banner extends Component {
       taxaName,
       id,
       iconicTaxonId: 0,
-      main
+      main,
+      lastEarnedBadgeIcon: null
     };
 
     this.animatedValue = new Animated.Value( -120 );
@@ -59,10 +61,13 @@ class Banner extends Component {
           const observations = realm.objects( "ObservationRealm" );
           const seenTaxa = observations.filtered( `taxon.id == ${id}` );
           const { iconicTaxonId } = seenTaxa[0].taxon;
-          // also fetch info about last badge earned and update state
-          // if badge earned, display a second toast
+          const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
+          const lastEarnedBadge = badges.slice( 0, 1 );
+          const lastEarnedBadgeIcon = lastEarnedBadge[0].earnedIconName;
+          console.log( lastEarnedBadgeIcon, "last earned badge in banner" );
           this.setState( {
-            iconicTaxonId
+            iconicTaxonId,
+            lastEarnedBadgeIcon
           } );
         } ).catch( ( err ) => {
           console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
@@ -122,7 +127,8 @@ class Banner extends Component {
       bannerText,
       secondBannerText,
       iconicTaxonId,
-      main
+      main,
+      lastEarnedBadgeIcon
     } = this.state;
 
     let banner;
@@ -173,7 +179,7 @@ class Banner extends Component {
           >
             <View style={[styles.row, styles.animatedRow]}>
               <Image
-                source={require( "../assets/results/icn-results-match.png" )}
+                source={badgeImages[lastEarnedBadgeIcon]}
                 style={styles.mainBannerImage}
               />
               <Text style={[styles.text, styles.mainText]}>{bannerText}</Text>

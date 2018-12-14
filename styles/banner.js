@@ -44,6 +44,13 @@ export default StyleSheet.create( {
     height: 31,
     width: 38
   },
+  badgeBannerImage: {
+    zIndex: 2,
+    marginTop: margins.medium,
+    marginLeft: margins.medium,
+    height: 31,
+    width: 38
+  },
   speciesBannerImage: {
     zIndex: 1,
     marginLeft: margins.medium,

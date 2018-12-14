@@ -246,7 +246,7 @@ class ChallengeResults extends Component {
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", {
-        taxaName: capitalizeNames( taxaName ),
+        taxaName,
         id: taxaId
       } );
     } else if ( buttonText === "Start over" ) {
@@ -308,7 +308,7 @@ class ChallengeResults extends Component {
         this.setState( {
           observation: match,
           taxaId: match.taxon.id,
-          taxaName: match.taxon.preferred_common_name || match.taxon.name,
+          taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
           score: match.combined_score,
           matchUrl: match.taxon.default_photo.medium_url,
           commonAncestor: commonAncestor ? commonAncestor.taxon.name : null,

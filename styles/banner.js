@@ -57,6 +57,8 @@ export default StyleSheet.create( {
     marginBottom: margins.medium
   },
   mainText: {
+    maxWidth: 200,
+    flexWrap: "wrap",
     marginLeft: margins.small,
     fontWeight: "100"
   },

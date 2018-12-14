@@ -47,7 +47,6 @@ class Banner extends Component {
   }
 
   componentDidMount() {
-    console.log( this.state.badgeEarned, "does banner know badge earned" );
     this.showToast();
     this.showSecondToast();
   }

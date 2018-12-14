@@ -137,7 +137,7 @@ const setupBadges = () => {
 
 const getCurrentMonth = () => {
   const date = new Date();
-  return date.getMonth();
+  return date.getMonth() + 1;
 };
 
 const getPreviousAndNextMonth = () => {
@@ -145,6 +145,10 @@ const getPreviousAndNextMonth = () => {
 
   if ( month === 1 ) {
     return [12, 1, 2];
+  }
+
+  if ( month === 12 ) {
+    return [11, 12, 1];
   }
 
   return [month - 1, month, month + 1];

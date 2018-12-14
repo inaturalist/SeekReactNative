@@ -89,8 +89,8 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main", { taxaName: null, id: null } );
         this.fetchChallenges( latitude, longitude );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     } else {
       this.setState( {
@@ -98,8 +98,8 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main", { taxaName: null, id: null } );
         this.fetchChallenges( latitude, longitude );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     }
   }
@@ -247,8 +247,8 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main", { taxaName: null, id: null } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
+      navigation.navigate( "Main", { taxaName: null, id: null } );
     } );
   }
 

@@ -187,8 +187,6 @@ class MainScreen extends Component<Props, State> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         badgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
-
-        console.log( badgeCount, "old badge count" );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -200,15 +198,11 @@ class MainScreen extends Component<Props, State> {
         const newBadgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
         const speciesCount = realm.objects( "ObservationRealm" ).length;
 
-        console.log( badgeCount, "old badge count 2" );
-        console.log( newBadgeCount, "new badge count" );
-        console.log( speciesCount, "species count" );
-
         this.setState( {
           speciesCount,
           badgeEarned: newBadgeCount > badgeCount && speciesCount !== 0,
           badgeCount: newBadgeCount
-        }, () => console.log( this.state.badgeEarned, "badge earned" ) );
+        } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, padding } from "./global";
+import { colors, padding, margins } from "./global";
 
 export default StyleSheet.create( {
   container: {
@@ -25,5 +25,10 @@ export default StyleSheet.create( {
     alignSelf: "center",
     width: 50,
     height: 50
+  },
+  zoomButtons: {
+    zIndex: 1,
+    marginTop: margins.small,
+    marginLeft: margins.medium
   }
 } );

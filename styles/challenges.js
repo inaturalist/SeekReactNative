@@ -40,9 +40,13 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   locationChooser: {
-    paddingLeft: padding.large
+    paddingLeft: padding.large,
+    maxWidth: 200,
+    flexWrap: "nowrap"
   },
   locationChooserText: {
+    flex: 1,
+    maxWidth: 200,
     color: colors.white,
     fontFamily: fonts.playful,
     fontSize: fontSize.buttonText,

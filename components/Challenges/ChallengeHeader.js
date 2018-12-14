@@ -46,7 +46,11 @@ const ChallengeHeader = ( {
         { loading ? (
           <Text style={styles.locationChooserText}>Loading...</Text>
         ) : (
-          <Text style={styles.locationChooserText}>{location} &#9660;</Text>
+          <Text
+            style={styles.locationChooserText}
+            numberOfLines={1}
+            ellipsizeMode="middle"
+          >{location} &#9660;</Text>
         )}
       </TouchableOpacity>
       <TouchableOpacity

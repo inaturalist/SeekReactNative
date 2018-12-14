@@ -89,7 +89,7 @@ export default StyleSheet.create( {
   },
   footer: {
     marginTop: margins.medium,
-    height: 50,
+    height: Platform.OS === "ios" ? 50 : 70,
     justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },

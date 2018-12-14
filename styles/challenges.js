@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -8,6 +8,10 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
+  safeContainer: {
+    flex: 1,
+    backgroundColor: colors.darkDesaturatedBlue
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: colors.darkBlue
@@ -21,7 +25,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   header: {
-    marginTop: margins.medium + 10
+    marginTop: Platform.OS === "android" ? margins.medium + 10 : margins.extraSmall
   },
   headerText: {
     marginLeft: margins.medium,
@@ -36,9 +40,13 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   locationChooser: {
-    paddingLeft: padding.large
+    paddingLeft: padding.large,
+    maxWidth: 200,
+    flexWrap: "nowrap"
   },
   locationChooserText: {
+    flex: 1,
+    maxWidth: 200,
     color: colors.white,
     fontFamily: fonts.playful,
     fontSize: fontSize.buttonText,
@@ -81,7 +89,7 @@ export default StyleSheet.create( {
   },
   footer: {
     marginTop: margins.medium,
-    height: 50,
+    height: Platform.OS === "ios" ? 50 : 70,
     justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },

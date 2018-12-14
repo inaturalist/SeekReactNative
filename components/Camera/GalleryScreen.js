@@ -55,7 +55,7 @@ class GalleryScreen extends Component {
 
   getPhotos() {
     CameraRoll.getPhotos( {
-      first: 100,
+      first: 1000,
       assetType: "Photos"
     } ).then( ( results ) => {
       this.setState( {

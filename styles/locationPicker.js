@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -7,13 +7,10 @@ import {
   padding
 } from "./global";
 
-const { width, height } = Dimensions.get( "screen" );
-
 export default StyleSheet.create( {
   backgroundImage: {
     justifyContent: "center",
-    width,
-    height
+    flex: 1
   },
   headerText: {
     marginTop: margins.large,
@@ -72,5 +69,17 @@ export default StyleSheet.create( {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  locationIcon: {
+    marginLeft: margins.medium,
+    marginBottom: margins.large,
+    backgroundColor: colors.darkBlue,
+    borderWidth: 2,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: colors.white,
+    width: 50,
+    height: 50
   }
 } );

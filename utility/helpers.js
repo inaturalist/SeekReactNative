@@ -23,8 +23,8 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
       type: "image/jpeg"
     } ),
     observed_on: new Date( time * 1000 ).toISOString(),
-    latitude, // need to account for null case
-    longitude // need to account for null case
+    latitude,
+    longitude
   };
   return params;
 };
@@ -37,6 +37,42 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
     } ).catch( ( err ) => {
       console.log( "Error reverse geocoding location: ", err.message );
     } );
+};
+
+const recalculateBadges = () => {
+  let badgeEarned = false;
+
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const collectedTaxa = realm.objects( "TaxonRealm" );
+      const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
+
+      unearnedBadges.forEach( ( badge ) => {
+        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+          const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
+          const collectionLength = Object.keys( filteredCollection );
+
+          if ( collectionLength.length >= badge.count ) {
+            realm.write( () => {
+              badge.earned = true;
+              badge.earnedDate = new Date();
+            } );
+            badgeEarned = true;
+          }
+        } else if ( badge.count !== 0 ) {
+          if ( collectedTaxa.length >= badge.count ) {
+            realm.write( () => {
+              badge.earned = true;
+              badge.earnedDate = new Date();
+            } );
+            badgeEarned = true;
+          }
+        }
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+    } );
+  return badgeEarned;
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {
@@ -67,6 +103,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );
+      recalculateBadges();
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
     } );
@@ -98,40 +135,9 @@ const setupBadges = () => {
     } );
 };
 
-const recalculateBadges = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const collectedTaxa = realm.objects( "TaxonRealm" );
-      const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
-
-      unearnedBadges.forEach( ( badge ) => {
-        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
-          const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
-          const collectionLength = Object.keys( filteredCollection );
-
-          if ( collectionLength.length >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
-          }
-        } else if ( badge.count !== 0 ) {
-          if ( collectedTaxa.length >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
-          }
-        }
-      } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
-    } );
-};
-
 const getCurrentMonth = () => {
   const date = new Date();
-  return date.getMonth();
+  return date.getMonth() + 1;
 };
 
 const getPreviousAndNextMonth = () => {
@@ -139,6 +145,10 @@ const getPreviousAndNextMonth = () => {
 
   if ( month === 1 ) {
     return [12, 1, 2];
+  }
+
+  if ( month === 12 ) {
+    return [11, 12, 1];
   }
 
   return [month - 1, month, month + 1];

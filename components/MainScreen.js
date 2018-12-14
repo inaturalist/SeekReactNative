@@ -4,7 +4,12 @@ import React, { Component } from "react";
 import inatjs from "inaturalistjs";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
-import { PermissionsAndroid, Platform, View } from "react-native";
+import {
+  PermissionsAndroid,
+  Platform,
+  View,
+  SafeAreaView
+} from "react-native";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../models/index";
@@ -37,7 +42,7 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaName } = navigation.state.params;
+    const { taxaName, id } = navigation.state.params;
 
     this.state = {
       taxa: [],
@@ -50,7 +55,9 @@ class MainScreen extends Component<Props, State> {
       taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
-      taxaName
+      taxaName,
+      id,
+      badgeEarned: false
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
@@ -63,8 +70,6 @@ class MainScreen extends Component<Props, State> {
     } else {
       this.getGeolocation();
     }
-    recalculateBadges();
-    this.fetchSpeciesAndBadgeCount();
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -84,8 +89,8 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: capitalizeNames( taxa )
       }, () => {
-        navigation.navigate( "Main", { taxaName: null } );
         this.fetchChallenges( latitude, longitude );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     } else {
       this.setState( {
@@ -93,8 +98,8 @@ class MainScreen extends Component<Props, State> {
         loading: true,
         taxaType: "All species"
       }, () => {
-        navigation.navigate( "Main", { taxaName: null } );
         this.fetchChallenges( latitude, longitude );
+        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     }
   }
@@ -115,7 +120,7 @@ class MainScreen extends Component<Props, State> {
         }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
       }, ( err ) => {
         this.setState( {
-          error: err.message
+          error: `Couldn't fetch your current location: ${err.message}.`
         } );
       } );
     }
@@ -177,11 +182,26 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchSpeciesAndBadgeCount() {
+    let badgeCount;
+
     Realm.open( realmConfig )
       .then( ( realm ) => {
+        badgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+
+    recalculateBadges();
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const newBadgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
+        const speciesCount = realm.objects( "ObservationRealm" ).length;
+
         this.setState( {
-          speciesCount: realm.objects( "ObservationRealm" ).length,
-          badgeCount: realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length
+          speciesCount,
+          badgeEarned: newBadgeCount > badgeCount && speciesCount !== 0,
+          badgeCount: newBadgeCount
         } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -221,8 +241,8 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      navigation.navigate( "Main", { taxaName: null } );
       this.fetchChallenges( this.state.latitude, this.state.longitude ) 
+      navigation.navigate( "Main", { taxaName: null, id: null } );
     } );
   }
 
@@ -238,7 +258,9 @@ class MainScreen extends Component<Props, State> {
       badgeCount,
       speciesCount,
       taxaType,
-      taxa
+      taxa,
+      id,
+      badgeEarned
     } = this.state;
 
     const {
@@ -246,27 +268,31 @@ class MainScreen extends Component<Props, State> {
     } = this.props;
 
     return (
-      <View style={styles.mainContainer}>
-        <NavigationEvents
-          onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
-        />
-        <ChallengeScreen
-          taxa={taxa}
-          taxaType={taxaType}
-          latitude={latitude}
-          loading={loading}
-          longitude={longitude}
-          location={location}
-          profileIcon={profileIcon}
-          navigation={navigation}
-          badgeCount={badgeCount}
-          speciesCount={speciesCount}
-          updateLocation={this.updateLocation}
-          setTaxonId={this.setTaxonId}
-          taxaName={taxaName}
-          error={error}
-        />
-      </View>
+      <SafeAreaView style={styles.safeContainer}>
+        <View style={styles.mainContainer}>
+          <NavigationEvents
+            onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
+          />
+          <ChallengeScreen
+            taxa={taxa}
+            taxaType={taxaType}
+            latitude={latitude}
+            loading={loading}
+            longitude={longitude}
+            location={location}
+            profileIcon={profileIcon}
+            navigation={navigation}
+            badgeCount={badgeCount}
+            speciesCount={speciesCount}
+            updateLocation={this.updateLocation}
+            setTaxonId={this.setTaxonId}
+            taxaName={taxaName}
+            error={error}
+            id={id}
+            badgeEarned={badgeEarned}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
 }

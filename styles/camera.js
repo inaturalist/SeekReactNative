@@ -1,12 +1,9 @@
-import { Dimensions, StyleSheet } from "react-native";
-import { colors, padding } from "./global";
-
-const { width } = Dimensions.get( "screen" );
+import { StyleSheet } from "react-native";
+import { colors, padding, margins } from "./global";
 
 export default StyleSheet.create( {
   container: {
     backgroundColor: "transparent",
-    width,
     flex: 1
   },
   main: {
@@ -28,5 +25,10 @@ export default StyleSheet.create( {
     alignSelf: "center",
     width: 50,
     height: 50
+  },
+  zoomButtons: {
+    zIndex: 1,
+    marginTop: margins.small,
+    marginLeft: margins.medium
   }
 } );

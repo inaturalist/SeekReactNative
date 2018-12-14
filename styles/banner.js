@@ -19,29 +19,48 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 80
   },
+  secondAnimatedStyle: {
+    top: 90
+  },
   banner: {
-    zIndex: 1,
-    backgroundColor: colors.white
+    zIndex: 1
   },
   animatedRow: {
     alignItems: "flex-end"
   },
   row: {
+    backgroundColor: colors.white,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
     justifyContent: "flex-start",
     height: 42
   },
+  mainBannerImage: {
+    zIndex: 2,
+    marginTop: margins.medium,
+    marginLeft: margins.medium,
+    tintColor: colors.darkGreen,
+    height: 31,
+    width: 38
+  },
+  badgeBannerImage: {
+    zIndex: 2,
+    marginTop: margins.medium,
+    marginLeft: margins.medium,
+    height: 31,
+    width: 38
+  },
   speciesBannerImage: {
     zIndex: 1,
     marginLeft: margins.medium,
     marginBottom: margins.medium
   },
-  mainBannerImage: {
-    zIndex: 2,
-    alignItems: "flex-end",
-    marginLeft: margins.medium
+  mainText: {
+    maxWidth: 350,
+    flexWrap: "wrap",
+    marginLeft: margins.small,
+    fontWeight: "100"
   },
   text: {
     marginLeft: margins.medium,

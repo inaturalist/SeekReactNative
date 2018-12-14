@@ -10,6 +10,5 @@ export default {
     TaxonRealm,
     PhotoRealm
   ],
-  path: "db.realm",
-  deleteRealmIfMigrationNeeded: true
+  path: "db.realm"
 };

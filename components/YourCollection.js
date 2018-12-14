@@ -16,7 +16,6 @@ import ErrorScreen from "./ErrorScreen";
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import styles from "../styles/collection";
-import { recalculateBadges } from "../utility/helpers";
 
 type Props = {
   navigation: any
@@ -33,7 +32,6 @@ class YourCollection extends Component {
   }
 
   componentDidMount() {
-    recalculateBadges();
     this.fetchDataFromRealm();
   }
 

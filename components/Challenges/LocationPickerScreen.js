@@ -7,8 +7,8 @@ import LocationMap from "./LocationMap";
 
 import styles from "../../styles/locationPicker";
 
-const latitudeDelta = 0.025;
-const longitudeDelta = 0.025;
+const latitudeDelta = 0.2;
+const longitudeDelta = 0.2;
 
 type Props = {
   navigation: any
@@ -32,11 +32,14 @@ class LocationPickerScreen extends Component {
         latitude,
         longitude
       },
+      userLatitude: latitude,
+      userLongitude: longitude,
       location,
       updateLocation
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
+    this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
   onRegionChange( newRegion ) {
@@ -61,6 +64,19 @@ class LocationPickerScreen extends Component {
     } );
   }
 
+  returnToUserLocation() {
+    const { userLatitude, userLongitude } = this.state;
+
+    this.setState( {
+      region: {
+        latitude: userLatitude,
+        longitude: userLongitude,
+        latitudeDelta: 0.2,
+        longitudeDelta: 0.2
+      }
+    } );
+  }
+
   render() {
     const { region, location, updateLocation } = this.state;
 
@@ -74,6 +90,7 @@ class LocationPickerScreen extends Component {
           <LocationMap
             region={region}
             onRegionChange={this.onRegionChange}
+            returnToUserLocation={this.returnToUserLocation}
           />
         </View>
         <TouchableHighlight style={styles.button}>

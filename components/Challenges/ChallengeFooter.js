@@ -18,7 +18,7 @@ type Props = {
   speciesCount: number
 }
 
-class ChallengeFooter extends Component { 
+class ChallengeFooter extends Component {
   constructor( {
     latitude,
     longitude,
@@ -75,7 +75,12 @@ class ChallengeFooter extends Component {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.addPhotoButton}
-            onPress={() => navigation.push( "Camera", { latitude, longitude } )}
+            onPress={() => navigation.push( "Camera", {
+              latitude,
+              longitude,
+              id: null,
+              commonName: null
+            } )}
           >
             <Image source={require( "../../assets/btn-add-species/btn-add-species.png" )} />
           </TouchableOpacity>

@@ -19,6 +19,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 80
   },
+  secondAnimatedStyle: {
+    top: 90
+  },
   banner: {
     zIndex: 1
   },

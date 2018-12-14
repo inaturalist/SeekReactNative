@@ -13,7 +13,7 @@ import speciesImages from "../assets/species";
 import realmConfig from "../models/index";
 
 type Props = {
-  bannerText: string,
+  bannerText: string, // add banner text 2
   taxaName: string,
   id: number,
   main: boolean
@@ -30,6 +30,7 @@ class Banner extends Component {
 
     this.state = {
       bannerText,
+      secondBannerText: "banner earned",
       taxaName,
       id,
       iconicTaxonId: 0,
@@ -37,10 +38,16 @@ class Banner extends Component {
     };
 
     this.animatedValue = new Animated.Value( -120 );
+    this.secondAnimatedValue = new Animated.Value( -200 );
   }
 
   componentDidMount() {
+    const { secondBannerText } = this.state;
     this.showToast();
+
+    if ( secondBannerText ) {
+      this.showSecondToast();
+    }
   }
 
   fetchTaxonId() {
@@ -51,9 +58,9 @@ class Banner extends Component {
         .then( ( realm ) => {
           const observations = realm.objects( "ObservationRealm" );
           const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-          console.log( seenTaxa, "seen taxa" );
           const { iconicTaxonId } = seenTaxa[0].taxon;
-          console.log( iconicTaxonId, "in fetch banner" );
+          // also fetch info about last badge earned and update state
+          // if badge earned, display a second toast
           this.setState( {
             iconicTaxonId
           } );
@@ -62,6 +69,7 @@ class Banner extends Component {
         } );
     }
   }
+
 
   showToast() {
     this.fetchTaxonId();
@@ -87,8 +95,35 @@ class Banner extends Component {
     }, 2000 );
   }
 
+  showSecondToast() {
+    Animated.timing(
+      this.secondAnimatedValue,
+      {
+        toValue: 0,
+        duration: 750
+      }
+    ).start( this.hideSecondToast() );
+  }
+
+  hideSecondToast() {
+    setTimeout( () => {
+      Animated.timing(
+        this.secondAnimatedValue,
+        {
+          toValue: -200,
+          duration: 350
+        }
+      ).start();
+    }, 2000 );
+  }
+
   render() {
-    const { bannerText, iconicTaxonId, main } = this.state;
+    const {
+      bannerText,
+      secondBannerText,
+      iconicTaxonId,
+      main
+    } = this.state;
 
     let banner;
 
@@ -127,6 +162,24 @@ class Banner extends Component {
     return (
       <View style={styles.container}>
         {banner}
+        { secondBannerText ? (
+          <Animated.View style={[
+            styles.animatedStyle,
+            styles.secondAnimatedStyle,
+            {
+              transform: [{ translateY: this.secondAnimatedValue }]
+            }
+          ]}
+          >
+            <View style={[styles.row, styles.animatedRow]}>
+              <Image
+                source={require( "../assets/results/icn-results-match.png" )}
+                style={styles.mainBannerImage}
+              />
+              <Text style={[styles.text, styles.mainText]}>{bannerText}</Text>
+            </View>
+          </Animated.View>
+        ) : null}
       </View>
     );
   }

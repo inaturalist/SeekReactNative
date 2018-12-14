@@ -73,7 +73,7 @@ const ChallengeScreen = ( {
     >
       <View style={styles.container}>
         { taxaName ? (
-          <Banner bannerText={`${taxaName} collected`} main taxaName={taxaName} id={id} />
+          <Banner bannerText={`${taxaName} collected!`} main taxaName={taxaName} id={id} />
         ) : null }
         <ChallengeHeader
           latitude={latitude}

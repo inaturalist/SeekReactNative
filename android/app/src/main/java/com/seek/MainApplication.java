@@ -1,4 +1,4 @@
-package com.seek;
+package org.inaturalist.seek;
 
 import android.app.Application;
 

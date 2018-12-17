@@ -104,8 +104,6 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
-    console.log( location, "location deets in gallery screen" );
-
     if ( location ) {
       if ( location.latitude ) {
         this.setState( {

@@ -22,7 +22,6 @@ import {
   truncateCoordinates,
   getPreviousAndNextMonth
 } from "../utility/helpers";
-import species from "../assets/species";
 
 type Props = {
   navigation: any
@@ -244,9 +243,9 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      this.fetchChallenges( this.state.latitude, this.state.longitude ) 
-      navigation.navigate( "Main", { taxaName: null, id: null } );
+      this.fetchChallenges( this.state.latitude, this.state.longitude );
     } );
+    navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
   render() {

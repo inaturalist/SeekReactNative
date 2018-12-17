@@ -34,6 +34,7 @@ class LocationPickerScreen extends Component {
       },
       userLatitude: latitude,
       userLongitude: longitude,
+      userLocation: location,
       location,
       updateLocation
     };
@@ -65,7 +66,7 @@ class LocationPickerScreen extends Component {
   }
 
   returnToUserLocation() {
-    const { userLatitude, userLongitude } = this.state;
+    const { userLatitude, userLongitude, userLocation } = this.state;
 
     this.setState( {
       region: {
@@ -73,7 +74,8 @@ class LocationPickerScreen extends Component {
         longitude: userLongitude,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
-      }
+      },
+      location: userLocation
     } );
   }
 

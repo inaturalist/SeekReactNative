@@ -12,6 +12,7 @@ import styles from "../styles/banner";
 import speciesImages from "../assets/species";
 import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
+import { recalculateBadges } from "../utility/helpers";
 
 type Props = {
   bannerText: string,
@@ -52,7 +53,9 @@ class Banner extends Component {
   }
 
   fetchTaxonId() {
-    const { taxaName, id } = this.state;
+    const { taxaName, id, badgeEarned } = this.state;
+
+    recalculateBadges();
 
     if ( taxaName ) {
       Realm.open( realmConfig )
@@ -61,8 +64,13 @@ class Banner extends Component {
           const seenTaxa = observations.filtered( `taxon.id == ${id}` );
           const { iconicTaxonId } = seenTaxa[0].taxon;
           const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
-          const lastEarnedBadge = badges.slice( 0, 1 );
-          const lastEarnedBadgeIcon = lastEarnedBadge[0].earnedIconName;
+          let lastEarnedBadgeIcon;
+
+          if ( badgeEarned ) {
+            const lastEarnedBadge = badges.slice( 0, 1 );
+            lastEarnedBadgeIcon = lastEarnedBadge[0].earnedIconName;
+          }
+
           this.setState( {
             iconicTaxonId,
             lastEarnedBadgeIcon

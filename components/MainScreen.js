@@ -22,6 +22,7 @@ import {
   truncateCoordinates,
   getPreviousAndNextMonth
 } from "../utility/helpers";
+import species from "../assets/species";
 
 type Props = {
   navigation: any
@@ -90,7 +91,6 @@ class MainScreen extends Component<Props, State> {
         taxaType: capitalizeNames( taxa )
       }, () => {
         this.fetchChallenges( latitude, longitude );
-        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     } else {
       this.setState( {
@@ -99,9 +99,9 @@ class MainScreen extends Component<Props, State> {
         taxaType: "All species"
       }, () => {
         this.fetchChallenges( latitude, longitude );
-        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     }
+    navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
   getGeolocation( ) {
@@ -198,9 +198,12 @@ class MainScreen extends Component<Props, State> {
         const newBadgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
         const speciesCount = realm.objects( "ObservationRealm" ).length;
 
+        const badgesIncreased = newBadgeCount > badgeCount;
+        const badgeEarned = badgesIncreased && speciesCount !== 0;
+
         this.setState( {
           speciesCount,
-          badgeEarned: newBadgeCount > badgeCount && speciesCount !== 0,
+          badgeEarned,
           badgeCount: newBadgeCount
         } );
       } ).catch( ( err ) => {

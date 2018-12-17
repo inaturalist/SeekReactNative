@@ -104,6 +104,8 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
+    console.log( location, "location deets in gallery screen" );
+
     if ( location ) {
       if ( location.latitude ) {
         this.setState( {
@@ -120,18 +122,19 @@ class GalleryScreen extends Component {
           commonName
         } ) );
       }
+    } else {
+      this.setState( {
+        image: imageClicked,
+        time: timestamp
+      }, () => navigation.push( "Results", {
+        id,
+        image: this.state.image,
+        time: this.state.time,
+        latitude,
+        longitude,
+        commonName
+      } ) );
     }
-    this.setState( {
-      image: imageClicked,
-      time: timestamp
-    }, () => navigation.push( "Results", {
-      id,
-      image: this.state.image,
-      time: this.state.time,
-      latitude,
-      longitude,
-      commonName
-    } ) );
   }
 
   render() {

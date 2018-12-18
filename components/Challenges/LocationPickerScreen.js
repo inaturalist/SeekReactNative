@@ -3,8 +3,9 @@
 import React, { Component } from "react";
 import { TouchableHighlight, Text, View } from "react-native";
 import Geocoder from "react-native-geocoder";
-import LocationMap from "./LocationMap";
 
+import LocationMap from "./LocationMap";
+import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -34,8 +35,10 @@ class LocationPickerScreen extends Component {
       },
       userLatitude: latitude,
       userLongitude: longitude,
+      userLocation: location,
       location,
-      updateLocation
+      updateLocation,
+      error: null
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -47,6 +50,23 @@ class LocationPickerScreen extends Component {
 
     this.setState( {
       region: newRegion
+    } );
+  }
+
+  getGeolocation( ) {
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
+
+      this.setState( {
+        userLatitude: latitude,
+        userLongitude: longitude,
+        userLocation: this.reverseGeocodeLocation( latitude, longitude )
+      } );
+    }, ( err ) => {
+      this.setState( {
+        error: `Couldn't fetch your current location: ${err.message}.`
+      } );
     } );
   }
 
@@ -64,7 +84,9 @@ class LocationPickerScreen extends Component {
   }
 
   returnToUserLocation() {
-    const { userLatitude, userLongitude } = this.state;
+    const { userLatitude, userLongitude, userLocation } = this.state;
+
+    this.getGeolocation();
 
     this.setState( {
       region: {
@@ -72,7 +94,8 @@ class LocationPickerScreen extends Component {
         longitude: userLongitude,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
-      }
+      },
+      location: userLocation
     } );
   }
 

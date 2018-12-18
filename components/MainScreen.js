@@ -90,7 +90,6 @@ class MainScreen extends Component<Props, State> {
         taxaType: capitalizeNames( taxa )
       }, () => {
         this.fetchChallenges( latitude, longitude );
-        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     } else {
       this.setState( {
@@ -99,9 +98,9 @@ class MainScreen extends Component<Props, State> {
         taxaType: "All species"
       }, () => {
         this.fetchChallenges( latitude, longitude );
-        navigation.navigate( "Main", { taxaName: null, id: null } );
       } );
     }
+    navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
   getGeolocation( ) {
@@ -241,9 +240,9 @@ class MainScreen extends Component<Props, State> {
       location,
       loading: true
     }, () => {
-      this.fetchChallenges( this.state.latitude, this.state.longitude ) 
-      navigation.navigate( "Main", { taxaName: null, id: null } );
+      this.fetchChallenges( this.state.latitude, this.state.longitude );
     } );
+    navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
   render() {

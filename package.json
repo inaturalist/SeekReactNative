@@ -21,6 +21,7 @@
     "react-native": "^0.57.4",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
+    "react-native-gesture-handler": "^1.0.12",
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
     "react-native-jwt-io": "^1.0.3",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",

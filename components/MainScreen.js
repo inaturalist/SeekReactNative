@@ -175,7 +175,7 @@ class MainScreen extends Component<Props, State> {
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchTaxonForChallenges( params );
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
         this.fetchTaxonForChallenges( params );
       } );
   }
@@ -187,7 +187,7 @@ class MainScreen extends Component<Props, State> {
       .then( ( realm ) => {
         badgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
 
     recalculateBadges();
@@ -203,7 +203,7 @@ class MainScreen extends Component<Props, State> {
           badgeCount: newBadgeCount
         } );
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 

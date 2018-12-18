@@ -71,7 +71,7 @@ class Banner extends Component {
             lastEarnedBadgeIcon
           } );
         } ).catch( ( err ) => {
-          console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+          // console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
         } );
     }
   }

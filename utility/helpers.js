@@ -35,7 +35,7 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
       const { locality, subAdminArea } = result[0];
       return locality || subAdminArea;
     } ).catch( ( err ) => {
-      console.log( "Error reverse geocoding location: ", err.message );
+      // console.log( "Error reverse geocoding location: ", err.message );
     } );
 };
 
@@ -70,7 +70,7 @@ const recalculateBadges = () => {
         }
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+      // console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
   return badgeEarned;
 };
@@ -105,7 +105,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
       } );
       recalculateBadges();
     } ).catch( ( e ) => {
-      console.log( "Error adding photos to collection: ", e );
+      // console.log( "Error adding photos to collection: ", e );
     } );
 };
 
@@ -130,7 +130,7 @@ const setupBadges = () => {
         } );
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
+      // console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
     } );
 };
 

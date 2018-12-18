@@ -100,7 +100,7 @@ class SpeciesDetail extends Component {
           } );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
@@ -118,7 +118,7 @@ class SpeciesDetail extends Component {
         taxaType: taxa.iconic_taxon_name
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching taxon details" );
+      // console.log( err, "error fetching taxon details" );
     } );
   }
 
@@ -140,7 +140,7 @@ class SpeciesDetail extends Component {
           ? `${nearbySpeciesCount} times near ${location}` : null
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching species count" );
+      // console.log( err, "error fetching species count" );
     } );
   }
 

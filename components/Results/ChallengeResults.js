@@ -197,7 +197,7 @@ class ChallengeResults extends Component {
         targetTaxaPhoto: taxa.default_photo.medium_url
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching taxon photo" );
+      // console.log( err, "error fetching taxon photo" );
     } );
   }
 
@@ -214,7 +214,7 @@ class ChallengeResults extends Component {
           }, () => this.setTextAndPhoto( seenDate ) );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
         this.setTextAndPhoto();
       } );
     this.setTextAndPhoto();

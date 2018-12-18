@@ -46,7 +46,9 @@ class YourCollection extends Component {
           observations
         } );
       } )
-      .catch( e => console.log( "Err: ", e ) );
+      .catch( ( err ) => {
+        // console.log( "Err: ", err )
+      } );
   }
 
   render() {

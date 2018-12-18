@@ -5,7 +5,6 @@ import { TouchableHighlight, Text, View } from "react-native";
 import Geocoder from "react-native-geocoder";
 import LocationMap from "./LocationMap";
 
-import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -35,10 +34,8 @@ class LocationPickerScreen extends Component {
       },
       userLatitude: latitude,
       userLongitude: longitude,
-      userLocation: location,
       location,
-      updateLocation,
-      error: null
+      updateLocation
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -46,28 +43,12 @@ class LocationPickerScreen extends Component {
   }
 
   onRegionChange( newRegion ) {
-    this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
+    const { region } = this.state;
+    const { latitude, longitude } = region;
 
     this.setState( {
       region: newRegion
-    } );
-  }
-
-  getGeolocation( ) {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
-
-      this.setState( {
-        userLatitude: latitude,
-        userLongitude: longitude,
-        userLocation: this.reverseGeocodeLocation( latitude, longitude )
-      } );
-    }, ( err ) => {
-      this.setState( {
-        error: `Couldn't fetch your current location: ${err.message}.`
-      } );
-    } );
+    }, () => this.reverseGeocodeLocation( latitude, longitude ) );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
@@ -84,9 +65,7 @@ class LocationPickerScreen extends Component {
   }
 
   returnToUserLocation() {
-    const { userLatitude, userLongitude, userLocation } = this.state;
-
-    this.getGeolocation();
+    const { userLatitude, userLongitude } = this.state;
 
     this.setState( {
       region: {
@@ -94,8 +73,7 @@ class LocationPickerScreen extends Component {
         longitude: userLongitude,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
-      },
-      location: userLocation
+      }
     } );
   }
 

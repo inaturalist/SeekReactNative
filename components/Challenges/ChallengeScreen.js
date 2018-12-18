@@ -80,7 +80,7 @@ const ChallengeScreen = ( {
             main
             taxaName={taxaName}
             id={id}
-            badgeEarned={badgeEarned}
+            badgeEarned
           />
         ) : null }
         <ChallengeHeader

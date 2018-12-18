@@ -5,17 +5,12 @@ import android.app.Application;
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
-import io.realm.react.RealmReactPackage;
 import com.horcrux.svg.SvgPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import org.reactnative.camera.RNCameraPackage;
-import com.horcrux.svg.SvgPackage;
-import fr.bamlab.rnimageresizer.ImageResizerPackage;
-import com.devfd.RNGeocoder.RNGeocoderPackage;
-import com.airbnb.android.react.maps.MapsPackage;
-import org.reactnative.camera.RNCameraPackage;
+
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;

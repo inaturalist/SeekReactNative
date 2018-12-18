@@ -51,9 +51,9 @@ const AboutScreen = ( { navigation }: Props ) => (
         </Text>
         <Text style={styles.text}>Credits:</Text>
         <Text style={styles.text}>
-          Designed and developed by the iNaturalist team: Yaron Budowski, Amanda Bullington, Tony Iwane, Patrick Leary, Scott Loarie, Abhas Misraraj, Carrie Seltzer, Alex Shepard, and Ken-ichi Ueda. Special thanks to Caltech, Cornell Tech, Parker Kellman, and the iNaturalist community.
+          Designed and developed by the iNaturalist team: Joelle Belmonte, Yaron Budowski, Tony Iwane, Patrick Leary, Scott Loarie, Carrie Seltzer, Alex Shepard, and Ken-ichi Ueda. Special thanks to Caltech, Cornell Tech, Parker Kellman, and the iNaturalist community.
         </Text>
-        <Text style={[styles.text, styles.greenText]}>Version 1.0.3</Text>
+        <Text style={[styles.text, styles.greenText]}>Version 1.0.2</Text>
         <Image
           source={require("../assets/logos/logo-inaturalist.png")}
           style={styles.logo}

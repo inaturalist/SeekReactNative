@@ -127,6 +127,7 @@ const setupBadges = () => {
             infoText: badges.infoText,
             index: badges.index
           }, true );
+          // console.log( badge, "realm badges after writing to file" );
         } );
       } );
     } ).catch( ( err ) => {

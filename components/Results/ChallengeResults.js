@@ -76,6 +76,11 @@ class ChallengeResults extends Component {
       commonAncestor
     } = this.state;
 
+    console.log( commonAncestor, "common ancestor name" );
+    console.log( score, "score of target" );
+    console.log( id, taxaId, "id and taxa Id" );
+    console.log ( seenDate, "seen date" );
+
     if ( score > 97 ) {
       if ( id === taxaId ) {
         this.setTargetMatched( seenDate );

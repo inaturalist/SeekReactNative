@@ -11,6 +11,7 @@ import Realm from "realm";
 import styles from "../styles/banner";
 import speciesImages from "../assets/species";
 import badgeImages from "../assets/badges";
+import { recalculateBadges } from "../utility/helpers";
 import realmConfig from "../models/index";
 
 type Props = {
@@ -53,6 +54,8 @@ class Banner extends Component {
 
   fetchTaxonId() {
     const { taxaName, id } = this.state;
+
+    recalculateBadges();
 
     if ( taxaName ) {
       Realm.open( realmConfig )

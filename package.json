@@ -21,14 +21,14 @@
     "react-native": "^0.57.4",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
-    "react-native-image-resizer": "^1.0.0",
+    "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
     "react-native-jwt-io": "^1.0.3",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
     "react-native-svg": "^6.3.1",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",
     "react-native-vector-icons": "^6.1.0",
-    "react-navigation": "^2.17.0",
+    "react-navigation": "^2.18.3",
     "realm": "^2.19.0-rc.4"
   },
   "devDependencies": {

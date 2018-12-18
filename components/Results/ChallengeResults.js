@@ -11,6 +11,7 @@ import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
@@ -65,7 +66,7 @@ class ChallengeResults extends Component {
   }
 
   componentDidMount() {
-    this.resizeImage();
+    // this.resizeImage();
   }
 
   setTextAndPhoto( seenDate ) {
@@ -365,6 +366,9 @@ class ChallengeResults extends Component {
 
     return (
       <View style={styles.mainContainer}>
+        <NavigationEvents
+          onWillFocus={() => this.resizeImage()}
+        />
         <ImageBackground
           style={styles.backgroundImage}
           source={require( "../../assets/backgrounds/background.png" )}

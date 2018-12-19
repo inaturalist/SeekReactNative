@@ -80,12 +80,12 @@ export default StyleSheet.create( {
     marginHorizontal: margins.large,
     marginBottom: margins.small,
     marginTop: margins.small,
-    paddingTop: padding.small,
-    paddingBottom: padding.extraSmall,
     borderRadius: 40
   },
   buttonText: {
     fontFamily: fonts.semibold,
+    paddingTop: padding.medium,
+    paddingBottom: padding.small,
     fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"

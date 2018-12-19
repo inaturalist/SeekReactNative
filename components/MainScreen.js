@@ -8,7 +8,8 @@ import {
   PermissionsAndroid,
   Platform,
   View,
-  SafeAreaView
+  SafeAreaView,
+  StatusBar
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -196,10 +197,13 @@ class MainScreen extends Component<Props, State> {
       .then( ( realm ) => {
         const newBadgeCount = realm.objects( "BadgeRealm" ).filtered( "earned == true" ).length;
         const speciesCount = realm.objects( "ObservationRealm" ).length;
+        const badgeEarned = newBadgeCount > badgeCount;
+
+        console.log( badgeEarned, badgeCount, newBadgeCount, "is badge earned true in main" );
 
         this.setState( {
           speciesCount,
-          badgeEarned: newBadgeCount > badgeCount && speciesCount !== 0,
+          badgeEarned: badgeEarned && speciesCount !== 0,
           badgeCount: newBadgeCount
         } );
       } ).catch( ( err ) => {
@@ -268,6 +272,10 @@ class MainScreen extends Component<Props, State> {
 
     return (
       <SafeAreaView style={styles.safeContainer}>
+        <StatusBar
+          translucent
+          barStyle="light-content"
+        />
         <View style={styles.mainContainer}>
           <NavigationEvents
             onWillFocus={() => this.fetchSpeciesAndBadgeCount()}

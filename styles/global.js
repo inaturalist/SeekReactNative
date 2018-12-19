@@ -25,6 +25,7 @@ export const fonts = {
 
 export const fontSize = {
   largeHeader: 36,
+  mediumLargeHeader: 28,
   mediumHeader: 24,
   header: 20,
   buttonText: 18,

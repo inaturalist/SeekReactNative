@@ -5,10 +5,11 @@ import {
   FlatList,
   ImageBackground,
   Text,
-  View,
-  TouchableOpacity
+  View
+  // TouchableOpacity
 } from "react-native";
 
+import Button from "./Button";
 import styles from "../styles/warnings";
 
 type Props = {
@@ -57,12 +58,13 @@ const WarningsScreen = ( { navigation }: Props ) => (
           or city is not identifiable
         </Text>
       </View>
-      <TouchableOpacity
+      <Button navigation={navigation} buttonText="OK. Got it!" />
+      {/* <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.push( "Main", { taxaName: null, id: null } )}
       >
         <Text style={styles.buttonText}>OK. Got it!</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ImageBackground>
   </View>
 );

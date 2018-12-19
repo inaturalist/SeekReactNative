@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors, padding } from "./global";
 
 const { width } = Dimensions.get( "screen" );
@@ -8,7 +8,7 @@ export default StyleSheet.create( {
     flex: 1
   },
   navbar: {
-    height: Platform.OS === "android" ? 60 : 70
+    height: 60
   },
   galleryContainer: {
     flex: 1,

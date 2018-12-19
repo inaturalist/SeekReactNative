@@ -34,7 +34,7 @@ export default StyleSheet.create( {
   largeHeaderText: {
     marginLeft: margins.medium,
     marginTop: margins.medium,
-    fontSize: fontSize.largeHeader,
+    fontSize: fontSize.mediumLargeHeader,
     color: colors.white,
     fontFamily: fonts.default
   },

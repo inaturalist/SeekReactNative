@@ -7,6 +7,7 @@ import {
   Platform,
   CameraRoll,
   View,
+  StatusBar,
   Text,
   TouchableOpacity
 } from "react-native";
@@ -78,7 +79,8 @@ class CameraScreen extends Component {
       const photo = results.edges[0].node;
       this.setState( {
         image: photo.image,
-        time: photo.timestamp
+        time: photo.timestamp,
+        pictureTaken: false
       }, () => navigation.push( "Results", {
         image: this.state.image,
         time: this.state.time,
@@ -239,6 +241,7 @@ class CameraScreen extends Component {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
+        <StatusBar hidden />
         <CameraTopNav
           navigation={navigation}
           cameraType={cameraType}

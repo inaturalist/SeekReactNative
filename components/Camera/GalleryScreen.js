@@ -7,6 +7,7 @@ import {
   CameraRoll,
   Image,
   ScrollView,
+  StatusBar,
   TouchableHighlight,
   View
 } from "react-native";
@@ -173,6 +174,7 @@ class GalleryScreen extends Component {
 
     return (
       <View style={styles.background}>
+        <StatusBar hidden />
         <View style={styles.navbar}>
           <CameraTopNav navigation={navigation} />
         </View>

@@ -53,7 +53,9 @@ class Banner extends Component {
   }
 
   fetchTaxonId() {
-    const { taxaName, id } = this.state;
+    const { taxaName, id, badgeEarned } = this.state;
+
+    console.log( badgeEarned, "badge earned in banner" );
 
     recalculateBadges();
 

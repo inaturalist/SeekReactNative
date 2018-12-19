@@ -10,7 +10,7 @@ import {
 export default StyleSheet.create( {
   safeContainer: {
     flex: 1,
-    backgroundColor: colors.darkDesaturatedBlue
+    backgroundColor: "#0C2D3C"
   },
   mainContainer: {
     flex: 1,

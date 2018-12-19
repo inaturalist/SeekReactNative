@@ -12,20 +12,17 @@ import {
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
-import Icon from "react-native-vector-icons/AntDesign";
 
+import Button from "../Button";
 import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
 import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
-import { colors } from "../../styles/global";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
-
-const plusIcon = ( <Icon name="pluscircle" size={15} color={colors.darkBlue} /> );
 
 type Props = {
   navigation: any
@@ -319,20 +316,17 @@ class SpeciesDetail extends Component {
         </View>
         { showBanner ? null : (
           <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.push( "Camera", {
+            <Button
+              green
+              navigation={navigation}
+              navParams={{
                 id,
                 commonName,
                 latitude: region.latitude,
                 longitude: region.longitude
-              } )}
-            >
-              <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
-              <Text style={styles.buttonText}>
-                Found it!
-              </Text>
-            </TouchableOpacity>
+              }}
+              buttonText="Found it!"
+            />
           </View>
         ) }
       </View>

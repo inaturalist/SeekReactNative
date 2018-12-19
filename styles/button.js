@@ -23,5 +23,18 @@ export default StyleSheet.create( {
     fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"
+  },
+  greenButton: {
+    backgroundColor: colors.darkGreen,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center"
+  },
+  greenButtonText: {
+    fontFamily: fonts.playful,
+    color: colors.darkBlue
+  },
+  plus: {
+    paddingRight: padding.medium
   }
 } );

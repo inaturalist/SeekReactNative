@@ -8,8 +8,7 @@ import {
   PermissionsAndroid,
   Platform,
   View,
-  SafeAreaView,
-  StatusBar
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 

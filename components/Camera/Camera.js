@@ -7,7 +7,6 @@ import {
   Platform,
   CameraRoll,
   View,
-  StatusBar,
   Text,
   TouchableOpacity
 } from "react-native";
@@ -241,7 +240,6 @@ class CameraScreen extends Component {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
-        <StatusBar hidden />
         <CameraTopNav
           navigation={navigation}
           cameraType={cameraType}

@@ -13,11 +13,7 @@ type Props = {
   navigation: any
 }
 
-class Button extends Component {
-  constructor( { buttonText, navigation }: Props ) {
-    super();
-  }
-
+class Button extends Component<Props> {
   setNavigation() {
     const { buttonText, navigation } = this.props;
 

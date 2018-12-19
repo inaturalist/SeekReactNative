@@ -16,7 +16,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
+    marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.extraSmall,
     marginHorizontal: margins.medium
   },
   text: {

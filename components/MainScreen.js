@@ -272,10 +272,6 @@ class MainScreen extends Component<Props, State> {
 
     return (
       <SafeAreaView style={styles.safeContainer}>
-        <StatusBar
-          translucent
-          barStyle="light-content"
-        />
         <View style={styles.mainContainer}>
           <NavigationEvents
             onWillFocus={() => this.fetchSpeciesAndBadgeCount()}

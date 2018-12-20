@@ -6,7 +6,6 @@ import {
   ImageBackground,
   Text,
   View
-  // TouchableOpacity
 } from "react-native";
 
 import Button from "./Button";
@@ -59,12 +58,6 @@ const WarningsScreen = ( { navigation }: Props ) => (
         </Text>
       </View>
       <Button navigation={navigation} buttonText="OK. Got it!" />
-      {/* <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.push( "Main", { taxaName: null, id: null } )}
-      >
-        <Text style={styles.buttonText}>OK. Got it!</Text>
-      </TouchableOpacity> */}
     </ImageBackground>
   </View>
 );

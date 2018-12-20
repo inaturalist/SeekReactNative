@@ -24,7 +24,7 @@ class Button extends Component<Props> {
     const { buttonText, navigation, navParams } = this.props;
 
     if ( buttonText === "OK. Got it!" ) {
-      navigation.push( "Main", { taxaName: null, id: null } );
+      navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } );
     } else if ( buttonText === "Found it!" ) {
       navigation.push( "Camera", navParams );
     }

@@ -42,7 +42,7 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaName, id } = navigation.state.params;
+    const { taxaName, id, taxaType } = navigation.state.params;
 
     this.state = {
       taxa: [],
@@ -51,7 +51,7 @@ class MainScreen extends Component<Props, State> {
       longitude: null,
       location: null,
       error: null,
-      taxaType: "All species",
+      taxaType,
       taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
@@ -61,7 +61,6 @@ class MainScreen extends Component<Props, State> {
     };
 
     ( this: any ).updateLocation = this.updateLocation.bind( this );
-    ( this: any ).setTaxonId = this.setTaxonId.bind( this );
   }
 
   componentDidMount() {
@@ -77,30 +76,6 @@ class MainScreen extends Component<Props, State> {
       taxa: challenges,
       loading: false
     } );
-  }
-
-  setTaxonId( taxa ) {
-    const { latitude, longitude } = this.state;
-    const { navigation } = this.props;
-
-    if ( taxonIds[taxa] ) {
-      this.setState( {
-        taxonId: taxonIds[taxa],
-        loading: true,
-        taxaType: capitalizeNames( taxa )
-      }, () => {
-        this.fetchChallenges( latitude, longitude );
-      } );
-    } else {
-      this.setState( {
-        taxonId: null,
-        loading: true,
-        taxaType: "All species"
-      }, () => {
-        this.fetchChallenges( latitude, longitude );
-      } );
-    }
-    navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
   getGeolocation( ) {
@@ -148,6 +123,11 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
+    this.setState( {
+      loading: true
+    } );
+    this.updateTaxonId();
+
     const { taxonId } = this.state;
 
     const params = {
@@ -248,6 +228,14 @@ class MainScreen extends Component<Props, State> {
     navigation.navigate( "Main", { taxaName: null, id: null } );
   }
 
+  updateTaxonId() {
+    const { taxaType } = this.state;
+
+    this.setState( {
+      taxonId: taxonIds[taxaType]
+    } );
+  }
+
   render() {
     const {
       taxaName,
@@ -273,7 +261,10 @@ class MainScreen extends Component<Props, State> {
       <SafeAreaView style={styles.safeContainer}>
         <View style={styles.mainContainer}>
           <NavigationEvents
-            onWillFocus={() => this.fetchSpeciesAndBadgeCount()}
+            onWillFocus={() => {
+              this.fetchSpeciesAndBadgeCount();
+              this.fetchChallenges( latitude, longitude );
+            }}
           />
           <ChallengeScreen
             taxa={taxa}
@@ -287,7 +278,6 @@ class MainScreen extends Component<Props, State> {
             badgeCount={badgeCount}
             speciesCount={speciesCount}
             updateLocation={this.updateLocation}
-            setTaxonId={this.setTaxonId}
             taxaName={taxaName}
             error={error}
             id={id}

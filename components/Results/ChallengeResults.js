@@ -237,13 +237,10 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null, id: null } );
+      navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", {
-        taxaName,
-        id: taxaId
-      } );
+      navigation.push( "Main", { taxaName, id: taxaId, taxaType: "all" } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
@@ -252,7 +249,7 @@ class ChallengeResults extends Component {
         commonName: null
       } );
     } else {
-      navigation.push( "Main", { taxaName: null, id: null } );
+      navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } );
     }
   }
 

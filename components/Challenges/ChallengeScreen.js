@@ -24,7 +24,6 @@ type Props = {
   navigation: Function,
   taxa: Array<Object>,
   taxaType: string,
-  setTaxonId: Function,
   updateLocation: Function,
   reverseGeocodeLocation: Function,
   error: string,
@@ -42,7 +41,6 @@ const ChallengeScreen = ( {
   longitude,
   location,
   navigation,
-  setTaxonId,
   taxa,
   taxaType,
   updateLocation,
@@ -90,7 +88,6 @@ const ChallengeScreen = ( {
           loading={loading}
           navigation={navigation}
           updateLocation={updateLocation}
-          setTaxonId={setTaxonId}
           taxaType={taxaType}
           taxaName={taxaName}
         />

@@ -9,6 +9,7 @@ const species = {
   Insecta: require( "./taxa/icn-iconic-taxa-insects.png" ),
   Mollusca: require( "./taxa/icn-iconic-taxa-mollusks.png" ),
   Mammalia: require( "./taxa/icn-iconic-taxa-mammals.png" ),
+  all: require( "./taxa/icn-iconic-taxa-all.png" ),
   plants: require( "./taxa/icn-iconic-taxa-plants.png" ),
   amphibians: require( "./taxa/icn-iconic-taxa-amphibians.png" ),
   fungi: require( "./taxa/icn-iconic-taxa-fungi.png" ),

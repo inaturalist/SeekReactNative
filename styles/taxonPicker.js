@@ -44,14 +44,23 @@ export default StyleSheet.create( {
     width: 100,
     height: 100
   },
+  highlightedImageCell: {
+    backgroundColor: colors.white
+  },
   image: {
     width: 64,
     height: 64
+  },
+  highlightedImage: {
+    tintColor: colors.darkestBlue
   },
   text: {
     alignItems: "center",
     justifyContent: "center",
     color: colors.white,
     fontSize: fontSize.smallText
+  },
+  highlightedText: {
+    color: colors.darkestBlue
   }
 } );

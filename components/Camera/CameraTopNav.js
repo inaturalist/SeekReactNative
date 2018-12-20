@@ -37,7 +37,7 @@ const CameraTopNav = ( {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.buttons}
-          onPress={() => navigation.push( "Main", { taxaName: null, id: null } )}
+          onPress={() => navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } )}
         >
           <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
         </TouchableOpacity>

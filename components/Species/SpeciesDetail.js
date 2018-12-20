@@ -236,6 +236,7 @@ class SpeciesDetail extends Component {
             <Image
               source={{ uri: photo.photo.original_url }}
               style={styles.image}
+              resizeMode="contain"
             />
             <View style={styles.photoOverlay}>
               <TouchableOpacity
@@ -265,6 +266,7 @@ class SpeciesDetail extends Component {
               pagingEnabled
               nestedScrollEnabled
               indicatorStyle="white"
+              contentContainerStyle={styles.photoContainer}
             >
               {photoList}
             </ScrollView>

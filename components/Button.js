@@ -39,7 +39,7 @@ class Button extends Component<Props> {
         onPress={() => this.setNavigation()}
       >
         {buttonText === "Found it!" ? (
-          <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
+          <Text style={styles.plus}>{plusIcon}</Text>
         ) : null}
         <Text style={[styles.buttonText, green && styles.greenButtonText]}>{buttonText}</Text>
       </TouchableOpacity>

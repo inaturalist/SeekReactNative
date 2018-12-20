@@ -23,6 +23,9 @@ export default StyleSheet.create( {
     right: 5,
     top: 200
   },
+  photoContainer: {
+    height: 251
+  },
   ccButton: {
     backgroundColor: colors.darkDesaturatedBlue,
     paddingRight: padding.medium,
@@ -58,26 +61,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center",
     color: colors.lightGreen
-  },
-  button: {
-    backgroundColor: colors.darkGreen,
-    marginHorizontal: margins.large,
-    marginBottom: margins.small,
-    marginTop: margins.small,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
-    borderRadius: 40,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center"
-  },
-  buttonText: {
-    fontFamily: fonts.playful,
-    fontSize: fontSize.buttonText,
-    color: colors.darkBlue
-  },
-  plus: {
-    paddingRight: padding.medium
   },
   ccButtonText: {
     fontFamily: fonts.semibold,
@@ -135,6 +118,7 @@ export default StyleSheet.create( {
     borderRadius: 5
   },
   footer: {
-    flex: 0.8
+    flex: 0.8,
+    justifyContent: "center"
   }
 } );

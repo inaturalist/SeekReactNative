@@ -12,8 +12,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     color: colors.black,
     marginHorizontal: margins.large,
-    marginBottom: margins.small,
-    marginTop: margins.small,
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 40
   },
   buttonText: {
@@ -28,6 +28,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkGreen,
     flexDirection: "row",
     flexWrap: "nowrap",
+    alignItems: "center",
     justifyContent: "center"
   },
   greenButtonText: {
@@ -35,6 +36,7 @@ export default StyleSheet.create( {
     color: colors.darkBlue
   },
   plus: {
-    paddingRight: padding.medium
+    paddingRight: padding.medium,
+    paddingTop: padding.medium
   }
 } );

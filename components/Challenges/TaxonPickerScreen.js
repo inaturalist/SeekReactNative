@@ -21,21 +21,30 @@ class TaxonPickerScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaType } = navigation.state.params;
+    const { taxaType, latitude, longitude } = navigation.state.params;
 
     this.state = {
-      taxaType
+      taxaType,
+      latitude,
+      longitude
     };
   }
 
   setTaxonId( taxaType ) {
+    const { latitude, longitude } = this.state;
     const { navigation } = this.props;
 
     this.setState( {
       taxaType
     } );
 
-    navigation.push( "Main", { taxaName: null, id: null, taxaType } );
+    navigation.push( "Main", {
+      taxaName: null,
+      id: null,
+      taxaType,
+      latitude,
+      longitude
+    } );
   }
 
   render() {

@@ -17,8 +17,7 @@ type Props = {
   loading: boolean,
   longitude: number,
   location: string,
-  taxaType: string,
-  updateLocation: Function
+  taxaType: string
 }
 
 const ChallengeHeader = ( {
@@ -27,8 +26,7 @@ const ChallengeHeader = ( {
   loading,
   longitude,
   location,
-  taxaType,
-  updateLocation
+  taxaType
 }: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
@@ -39,7 +37,7 @@ const ChallengeHeader = ( {
           location,
           latitude,
           longitude,
-          updateLocation
+          taxaType
         } )}
       >
         { loading ? (
@@ -54,7 +52,7 @@ const ChallengeHeader = ( {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.taxonChooser}
-        onPress={() => navigation.navigate( "Taxon", { taxaType } )}
+        onPress={() => navigation.navigate( "Taxon", { taxaType, latitude, longitude } )}
       >
         {taxaType === "all"
           ? <Text style={styles.taxonChooserText}>All species &#9660;</Text>

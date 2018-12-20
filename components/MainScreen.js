@@ -17,7 +17,6 @@ import ChallengeScreen from "./Challenges/ChallengeScreen";
 import styles from "../styles/challenges";
 import taxonIds from "../utility/taxonDict";
 import {
-  capitalizeNames,
   recalculateBadges,
   truncateCoordinates,
   getPreviousAndNextMonth
@@ -42,33 +41,29 @@ class MainScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
-    const { taxaName, id, taxaType } = navigation.state.params;
+    const {
+      taxaName,
+      id,
+      taxaType,
+      latitude,
+      longitude
+    } = navigation.state.params;
 
     this.state = {
       taxa: [],
       loading: true,
-      latitude: null,
-      longitude: null,
+      latitude,
+      longitude,
       location: null,
       error: null,
       taxaType,
-      taxonId: null,
+      // taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
       taxaName,
       id,
       badgeEarned: false
     };
-
-    ( this: any ).updateLocation = this.updateLocation.bind( this );
-  }
-
-  componentDidMount() {
-    if ( Platform.OS === "android" ) {
-      this.requestAndroidPermissions();
-    } else {
-      this.getGeolocation();
-    }
   }
 
   setTaxa( challenges: Array<Object> ) {
@@ -78,26 +73,22 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  getGeolocation( ) {
-    const { location } = this.state;
+  getGeolocation() {
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
 
-    if ( !location ) {
-      navigator.geolocation.getCurrentPosition( ( position ) => {
-        const latitude = truncateCoordinates( position.coords.latitude );
-        const longitude = truncateCoordinates( position.coords.longitude );
-
-        this.setState( {
-          latitude,
-          longitude,
-          location: this.reverseGeocodeLocation( latitude, longitude ),
-          error: null
-        }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
-      }, ( err ) => {
-        this.setState( {
-          error: `Couldn't fetch your current location: ${err.message}.`
-        } );
+      this.setState( {
+        latitude,
+        longitude,
+        location: this.reverseGeocodeLocation( latitude, longitude ),
+        error: null
+      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+    }, ( err ) => {
+      this.setState( {
+        error: `Couldn't fetch your current location: ${err.message}.`
       } );
-    }
+    } );
   }
 
   requestAndroidPermissions = async () => {
@@ -115,6 +106,20 @@ class MainScreen extends Component<Props, State> {
     }
   }
 
+  fetchUserLocation() {
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude && !longitude ) {
+      if ( Platform.OS === "android" ) {
+        this.requestAndroidPermissions();
+      } else {
+        this.getGeolocation();
+      }
+    } else {
+      this.fetchChallenges( latitude, longitude );
+    }
+  }
+
   showError( err ) {
     this.setState( {
       error: err || "Permission to access location denied",
@@ -123,12 +128,15 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
+    console.log( this.state.latitude, this.state.longitude, this.state.location, "location stuff before" );
     this.setState( {
       loading: true
     } );
-    this.updateTaxonId();
+    this.updateLocation();
 
-    const { taxonId } = this.state;
+    console.log( this.state.latitude, this.state.longitude, this.state.location, "location stuff after" );
+
+    const { taxaType } = this.state;
 
     const params = {
       verifiable: true,
@@ -145,8 +153,10 @@ class MainScreen extends Component<Props, State> {
       month: getPreviousAndNextMonth()
     };
 
-    if ( taxonId ) {
-      params.taxon_id = taxonId;
+    console.log( taxonIds[taxaType], "taxon id from dict" );
+
+    if ( taxonIds[taxaType] ) {
+      params.taxon_id = taxonIds[taxaType];
     }
 
     Realm.open( realmConfig )
@@ -214,26 +224,17 @@ class MainScreen extends Component<Props, State> {
     } );
   }
 
-  updateLocation( latitude, longitude, location ) {
-    const { navigation } = this.props;
-
-    this.setState( {
-      latitude,
-      longitude,
-      location,
-      loading: true
-    }, () => {
-      this.fetchChallenges( this.state.latitude, this.state.longitude );
-    } );
-    navigation.navigate( "Main", { taxaName: null, id: null } );
-  }
-
   updateTaxonId() {
     const { taxaType } = this.state;
 
     this.setState( {
       taxonId: taxonIds[taxaType]
     } );
+  }
+
+  updateLocation() {
+    const { latitude, longitude } = this.state;
+    this.reverseGeocodeLocation( latitude, longitude );
   }
 
   render() {
@@ -263,7 +264,7 @@ class MainScreen extends Component<Props, State> {
           <NavigationEvents
             onWillFocus={() => {
               this.fetchSpeciesAndBadgeCount();
-              this.fetchChallenges( latitude, longitude );
+              this.fetchUserLocation();
             }}
           />
           <ChallengeScreen
@@ -277,7 +278,6 @@ class MainScreen extends Component<Props, State> {
             navigation={navigation}
             badgeCount={badgeCount}
             speciesCount={speciesCount}
-            updateLocation={this.updateLocation}
             taxaName={taxaName}
             error={error}
             id={id}

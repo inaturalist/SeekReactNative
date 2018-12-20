@@ -15,7 +15,7 @@ type Props = {
   navigation: any
 }
 
-class LocationPickerScreen extends Component {
+class LocationPickerScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -23,7 +23,7 @@ class LocationPickerScreen extends Component {
       location,
       latitude,
       longitude,
-      updateLocation
+      taxaType
     } = navigation.state.params;
 
     this.state = {
@@ -37,7 +37,7 @@ class LocationPickerScreen extends Component {
       userLongitude: longitude,
       userLocation: location,
       location,
-      updateLocation,
+      taxaType,
       error: null
     };
 
@@ -53,7 +53,7 @@ class LocationPickerScreen extends Component {
     } );
   }
 
-  getGeolocation( ) {
+  getGeolocation() {
     navigator.geolocation.getCurrentPosition( ( position ) => {
       const latitude = truncateCoordinates( position.coords.latitude );
       const longitude = truncateCoordinates( position.coords.longitude );
@@ -99,8 +99,21 @@ class LocationPickerScreen extends Component {
     } );
   }
 
+  updateLocation() {
+    const { navigation } = this.props;
+    const { region, taxaType } = this.state;
+
+    navigation.push( "Main", {
+      taxaName: null,
+      id: null,
+      taxaType,
+      latitude: region.latitude,
+      longitude: region.longitude
+    } );
+  }
+
   render() {
-    const { region, location, updateLocation } = this.state;
+    const { region, location } = this.state;
 
     return (
       <View style={styles.container}>
@@ -118,9 +131,7 @@ class LocationPickerScreen extends Component {
         <TouchableHighlight style={styles.button}>
           <Text
             style={styles.buttonText}
-            onPress={() => {
-              updateLocation( region.latitude, region.longitude, location );
-            }}
+            onPress={() => this.updateLocation()}
           >
             Done
           </Text>

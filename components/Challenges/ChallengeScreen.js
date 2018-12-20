@@ -24,7 +24,6 @@ type Props = {
   navigation: Function,
   taxa: Array<Object>,
   taxaType: string,
-  updateLocation: Function,
   reverseGeocodeLocation: Function,
   error: string,
   badgeEarned: boolean
@@ -43,7 +42,6 @@ const ChallengeScreen = ( {
   navigation,
   taxa,
   taxaType,
-  updateLocation,
   error
 }: Props ) => {
   let challenges;
@@ -87,7 +85,6 @@ const ChallengeScreen = ( {
           location={location}
           loading={loading}
           navigation={navigation}
-          updateLocation={updateLocation}
           taxaType={taxaType}
           taxaName={taxaName}
         />

@@ -24,7 +24,7 @@ type Props = {
   navigation: any
 }
 
-class ChallengeResults extends Component {
+class ChallengeResults extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -237,10 +237,22 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } );
+      navigation.push( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude,
+        longitude
+      } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", { taxaName, id: taxaId, taxaType: "all" } );
+      navigation.push( "Main", {
+        taxaName,
+        id: taxaId,
+        taxaType: "all",
+        latitude,
+        longitude
+      } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
@@ -249,7 +261,13 @@ class ChallengeResults extends Component {
         commonName: null
       } );
     } else {
-      navigation.push( "Main", { taxaName: null, id: null, taxaType: "all" } );
+      navigation.push( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude,
+        longitude
+      } );
     }
   }
 

@@ -4,7 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from "react-navigation
 import {
   colors,
   padding,
-  fontSize
+  fontSize,
+  fonts
 } from "../styles/global";
 import { setupBadges } from "../utility/helpers";
 
@@ -34,7 +35,10 @@ const CameraNav = createBottomTabNavigator( {
     inactiveTintColor: colors.lightGray,
     labelStyle: {
       color: colors.white,
-      paddingBottom: padding.extraLarge,
+      textAlign: "center",
+      paddingTop: padding.small,
+      paddingBottom: padding.large,
+      fontFamily: fonts.semibold,
       fontSize: fontSize.text
     },
     indicatorStyle: {

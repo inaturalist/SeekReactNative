@@ -118,7 +118,7 @@ export default StyleSheet.create( {
     borderRadius: 5
   },
   footer: {
-    flex: 0.8,
+    height: 72,
     justifyContent: "center"
   }
 } );

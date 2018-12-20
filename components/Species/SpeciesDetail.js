@@ -142,12 +142,16 @@ class SpeciesDetail extends Component {
   }
 
   fetchHistogram() {
-    const { id, observationsByMonth } = this.state;
+    const { id, observationsByMonth, region } = this.state;
+    const { latitude, longitude } = region;
 
     const params = {
       date_field: "observed",
       interval: "month_of_year",
-      taxon_id: id
+      taxon_id: id,
+      lat: latitude,
+      lng: longitude,
+      radius: 50
     };
 
     inatjs.observations.histogram( params ).then( ( response ) => {

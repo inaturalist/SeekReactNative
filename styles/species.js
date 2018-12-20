@@ -14,17 +14,22 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkBlue,
     flex: 1
   },
-  headerContainer: {
-    backgroundColor: colors.darkBlue
+  infoContainer: {
+    flex: 5,
+    backgroundColor: colors.darkestBlue
+  },
+  photoContainer: {
+    height: 251
+  },
+  image: {
+    width,
+    height: 251
   },
   photoOverlay: {
     zIndex: 1,
     position: "absolute",
     right: 5,
     top: 200
-  },
-  photoContainer: {
-    height: 251
   },
   ccButton: {
     backgroundColor: colors.darkDesaturatedBlue,
@@ -34,17 +39,32 @@ export default StyleSheet.create( {
     paddingBottom: padding.medium,
     borderRadius: 40
   },
+  headerContainer: {
+    backgroundColor: colors.darkBlue
+  },
   largeHeaderText: {
     marginLeft: margins.medium,
-    marginTop: margins.medium,
+    marginTop: margins.small,
     fontSize: fontSize.mediumLargeHeader,
     color: colors.white,
     fontFamily: fonts.default
   },
+  scientificHeaderText: {
+    marginLeft: margins.medium,
+    fontSize: fontSize.text,
+    color: colors.white,
+    fontFamily: fonts.default
+  },
+  italicText: {
+    marginLeft: margins.medium,
+    fontFamily: fonts.book,
+    color: colors.white,
+    fontStyle: "italic"
+  },
   headerText: {
     marginLeft: margins.medium,
-    marginTop: margins.medium,
-    marginBottom: margins.medium,
+    marginTop: margins.mediumLarge,
+    marginBottom: margins.small,
     fontSize: fontSize.header,
     lineHeight: 22,
     color: colors.white,
@@ -52,28 +72,16 @@ export default StyleSheet.create( {
   },
   text: {
     marginLeft: margins.medium,
+    marginRight: margins.medium,
     alignItems: "center",
     justifyContent: "center",
     color: colors.white,
-    fontFamily: fonts.semibold
-  },
-  greenText: {
-    alignItems: "center",
-    justifyContent: "center",
-    color: colors.lightGreen
+    fontFamily: fonts.default
   },
   ccButtonText: {
     fontFamily: fonts.semibold,
     fontSize: fontSize.text,
     color: colors.white
-  },
-  image: {
-    width,
-    height: 251
-  },
-  categoryContainer: {
-    backgroundColor: "rgba(76, 175, 80, 0.3)",
-    opacity: 0.8
   },
   categoryRow: {
     flexDirection: "row",
@@ -84,16 +92,14 @@ export default StyleSheet.create( {
     marginTop: margins.medium,
     marginBottom: margins.medium
   },
-  logoRow: {
-    flexDirection: "row",
+  categoryContainer: {
+    backgroundColor: "rgba(76, 175, 80, 0.3)",
+    opacity: 0.8
+  },
+  greenText: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: margins.medium,
-    marginBottom: margins.medium
-  },
-  smallImage: {
-    width: 56,
-    height: 43
+    color: colors.lightGreen
   },
   greenImage: {
     width: 74,
@@ -101,10 +107,6 @@ export default StyleSheet.create( {
     marginBottom: margins.medium,
     backgroundColor: "transparent",
     tintColor: colors.lightGreen
-  },
-  infoContainer: {
-    flex: 5,
-    backgroundColor: colors.darkestBlue
   },
   mapContainer: {
     flex: 1,
@@ -116,6 +118,18 @@ export default StyleSheet.create( {
     width: width - 30,
     height: width / 2,
     borderRadius: 5
+  },
+  logoRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginLeft: margins.large,
+    marginBottom: margins.medium
+  },
+  smallImage: {
+    width: 56,
+    height: 43,
+    marginRight: margins.mediumLarge
   },
   footer: {
     height: 72,

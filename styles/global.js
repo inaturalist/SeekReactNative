@@ -37,6 +37,7 @@ export const margins = {
   extraSmall: 2,
   small: 10,
   medium: 15,
+  mediumLarge: 30,
   large: 40,
   extraLarge: 100
 };

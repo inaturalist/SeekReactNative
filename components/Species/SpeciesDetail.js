@@ -20,6 +20,7 @@ import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
+import { margins } from "../../styles/global";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
@@ -280,8 +281,8 @@ class SpeciesDetail extends Component {
             }
             <View style={styles.headerContainer}>
               <Text style={styles.largeHeaderText}>{commonName}</Text>
-              <Text style={styles.headerText}>Scientific Name:</Text>
-              <Text style={[styles.text, { fontStyle: "italic" }]}>{scientificName}</Text>
+              <Text style={styles.scientificHeaderText}>Scientific Name:</Text>
+              <Text style={styles.italicText}>{scientificName}</Text>
               <View style={[styles.categoryRow, styles.categoryContainer]}>
                 <Text style={styles.greenText}>Category: {category}</Text>
                 <Image
@@ -311,9 +312,8 @@ class SpeciesDetail extends Component {
               <View>
                 <Text style={styles.text}>
                   {timesSeen}
-                  {"\n"}
                 </Text>
-                <Text style={styles.text}>
+                <Text style={[styles.text, { marginTop: margins.small }]}>
                   {nearbySpeciesCount}
                 </Text>
               </View>

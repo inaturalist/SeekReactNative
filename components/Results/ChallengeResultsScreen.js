@@ -21,7 +21,8 @@ type Props = {
   photoText: string,
   subtitle: string,
   text: string,
-  yourPhotoText: string
+  yourPhotoText: string,
+  resizedImageUri: string
 }
 
 const ChallengeResultsScreen = ( {
@@ -34,7 +35,8 @@ const ChallengeResultsScreen = ( {
   savePhotoOrStartOver,
   photoText,
   yourPhotoText,
-  image
+  image,
+  resizedImageUri
 }: Props ) => {
   let resultsIcon;
 
@@ -61,7 +63,7 @@ const ChallengeResultsScreen = ( {
         <View style={styles.imageContainer}>
           <Image
             style={styles.imageCell}
-            source={{ uri: image.uri }}
+            source={{ uri: resizedImageUri }}
           />
           { ( match === true || match === false ) ? (
             <Image

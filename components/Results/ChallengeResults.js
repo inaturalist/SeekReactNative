@@ -58,7 +58,8 @@ class ChallengeResults extends Component<Props> {
       error: null,
       commonName,
       targetTaxaPhoto,
-      commonAncestor: null
+      commonAncestor: null,
+      resizedImageUri: null
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -287,16 +288,12 @@ class ChallengeResults extends Component<Props> {
           const uriParts = uri.split( "://" );
           resizedImageUri = uriParts[uriParts.length - 1];
           this.setState( {
-            image: {
-              uri: resizedImageUri
-            }
+            resizedImageUri
           } );
         } else {
           resizedImageUri = uri;
           this.setState( {
-            image: {
-              uri: resizedImageUri
-            }
+            resizedImageUri
           } );
         }
         const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
@@ -357,7 +354,8 @@ class ChallengeResults extends Component<Props> {
       buttonText,
       photoText,
       yourPhotoText,
-      image
+      image,
+      resizedImageUri
     } = this.state;
 
     const {
@@ -384,6 +382,7 @@ class ChallengeResults extends Component<Props> {
           image={image}
           navigation={navigation}
           savePhotoOrStartOver={this.savePhotoOrStartOver}
+          resizedImageUri={resizedImageUri}
         />
       );
     }

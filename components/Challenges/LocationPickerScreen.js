@@ -72,10 +72,15 @@ class LocationPickerScreen extends Component<Props> {
 
   reverseGeocodeLocation( latitude, longitude ) {
     Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+      if ( result.length === 0 ) {
+        this.setState( {
+          location: null
+        } );
+      }
       const { locality, subAdminArea } = result[0];
       this.setState( {
         location: locality || subAdminArea
-      } ); // might need an error state here
+      } );
     } ).catch( ( err ) => {
       this.setState( {
         error: err.message

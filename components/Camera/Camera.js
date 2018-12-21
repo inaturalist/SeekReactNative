@@ -30,7 +30,7 @@ type Props = {
   navigation: any
 }
 
-class CameraScreen extends Component {
+class CameraScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 

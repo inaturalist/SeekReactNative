@@ -57,7 +57,6 @@ class MainScreen extends Component<Props, State> {
       location: null,
       error: null,
       taxaType,
-      // taxonId: null,
       badgeCount: 0,
       speciesCount: 0,
       taxaName,
@@ -116,6 +115,7 @@ class MainScreen extends Component<Props, State> {
         this.getGeolocation();
       }
     } else {
+      this.updateLocation();
       this.fetchChallenges( latitude, longitude );
     }
   }
@@ -128,13 +128,9 @@ class MainScreen extends Component<Props, State> {
   }
 
   fetchChallenges( latitude: ?number, longitude: ?number ) {
-    console.log( this.state.latitude, this.state.longitude, this.state.location, "location stuff before" );
     this.setState( {
       loading: true
     } );
-    this.updateLocation();
-
-    console.log( this.state.latitude, this.state.longitude, this.state.location, "location stuff after" );
 
     const { taxaType } = this.state;
 
@@ -152,8 +148,6 @@ class MainScreen extends Component<Props, State> {
       not_in_list_id: 945029,
       month: getPreviousAndNextMonth()
     };
-
-    console.log( taxonIds[taxaType], "taxon id from dict" );
 
     if ( taxonIds[taxaType] ) {
       params.taxon_id = taxonIds[taxaType];
@@ -212,6 +206,7 @@ class MainScreen extends Component<Props, State> {
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
+    console.log( "when does geocode location get called" );
     Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
       const { locality, subAdminArea } = result[0];
       this.setState( {

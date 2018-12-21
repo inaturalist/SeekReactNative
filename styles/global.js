@@ -47,5 +47,7 @@ export const padding = {
   small: 2,
   medium: 5,
   large: 15,
-  extraLarge: 20
+  extraLarge: 20,
+  buttonTop: 11,
+  buttonBottom: 9.5
 };

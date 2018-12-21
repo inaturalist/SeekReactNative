@@ -1,9 +1,10 @@
 // @flow
 
 import React, { Component } from "react";
-import { TouchableHighlight, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Geocoder from "react-native-geocoder";
 
+import Button from "../Button";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
@@ -104,21 +105,11 @@ class LocationPickerScreen extends Component<Props> {
     } );
   }
 
-  updateLocation() {
-    const { navigation } = this.props;
-    const { region, taxaType } = this.state;
-
-    navigation.push( "Main", {
-      taxaName: null,
-      id: null,
-      taxaType,
-      latitude: region.latitude,
-      longitude: region.longitude
-    } );
-  }
-
   render() {
-    const { region, location } = this.state;
+    const { region, location, taxaType } = this.state;
+
+    console.log( taxaType, "taxa type in location picker" );
+    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -133,14 +124,18 @@ class LocationPickerScreen extends Component<Props> {
             returnToUserLocation={this.returnToUserLocation}
           />
         </View>
-        <TouchableHighlight style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => this.updateLocation()}
-          >
-            Done
-          </Text>
-        </TouchableHighlight>
+        <Button
+          buttonText="Done"
+          navigation={navigation}
+          green
+          navParams={{
+            taxaName: null,
+            id: null,
+            taxaType,
+            latitude: region.latitude,
+            longitude: region.longitude
+          }}
+        />
       </View>
     );
   }

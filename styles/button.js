@@ -10,16 +10,18 @@ import {
 export default StyleSheet.create( {
   button: {
     backgroundColor: colors.white,
-    color: colors.black,
-    marginHorizontal: margins.large,
+    marginHorizontal: margins.mediumLarge,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: margins.medium,
+    marginBottom: margins.medium,
     borderRadius: 40
   },
   buttonText: {
     fontFamily: fonts.semibold,
-    paddingTop: padding.medium,
-    paddingBottom: padding.small,
+    color: colors.black,
+    paddingTop: padding.buttonTop,
+    paddingBottom: padding.buttonBottom,
     fontSize: fontSize.buttonText,
     textAlign: "center",
     justifyContent: "center"

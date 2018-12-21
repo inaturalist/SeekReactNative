@@ -33,6 +33,8 @@ class Button extends Component<Props> {
       } );
     } else if ( buttonText === "Found it!" ) {
       navigation.push( "Camera", navParams );
+    } else if ( buttonText === "Done" ) {
+      navigation.push( "Main", navParams );
     }
   }
 
@@ -47,7 +49,15 @@ class Button extends Component<Props> {
         {buttonText === "Found it!" ? (
           <Text style={styles.plus}>{plusIcon}</Text>
         ) : null}
-        <Text style={[styles.buttonText, green && styles.greenButtonText]}>{buttonText}</Text>
+        <Text
+          style={[
+            styles.buttonText,
+            green && styles.greenButtonText,
+            buttonText === "Done" && { color: colors.white }
+          ]}
+        >
+          {buttonText}
+        </Text>
       </TouchableOpacity>
     );
   }

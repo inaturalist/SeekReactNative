@@ -190,7 +190,9 @@ class CameraScreen extends Component<Props> {
       flashText,
       error,
       pictureTaken,
-      zoom
+      zoom,
+      latitude,
+      longitude
     } = this.state;
 
     const { navigation } = this.props;
@@ -246,6 +248,8 @@ class CameraScreen extends Component<Props> {
           flashText={flashText}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
+          latitude={latitude}
+          longitude={longitude}
         />
         {cameraContent}
       </RNCamera>

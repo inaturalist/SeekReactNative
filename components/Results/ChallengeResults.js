@@ -279,15 +279,25 @@ class ChallengeResults extends Component<Props> {
       longitude
     } = this.state;
 
-    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
+    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
       .then( ( { uri } ) => {
         let resizedImageUri;
 
         if ( Platform.OS === "ios" ) {
           const uriParts = uri.split( "://" );
           resizedImageUri = uriParts[uriParts.length - 1];
+          this.setState( {
+            image: {
+              uri: resizedImageUri
+            }
+          } );
         } else {
           resizedImageUri = uri;
+          this.setState( {
+            image: {
+              uri: resizedImageUri
+            }
+          } );
         }
         const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
         this.fetchScore( params );

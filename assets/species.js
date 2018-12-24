@@ -9,6 +9,7 @@ const species = {
   Insecta: require( "./taxa/icn-iconic-taxa-insects.png" ),
   Mollusca: require( "./taxa/icn-iconic-taxa-mollusks.png" ),
   Mammalia: require( "./taxa/icn-iconic-taxa-mammals.png" ),
+  all: require( "./taxa/icn-iconic-taxa-all.png" ),
   plants: require( "./taxa/icn-iconic-taxa-plants.png" ),
   amphibians: require( "./taxa/icn-iconic-taxa-amphibians.png" ),
   fungi: require( "./taxa/icn-iconic-taxa-fungi.png" ),
@@ -19,16 +20,16 @@ const species = {
   insects: require( "./taxa/icn-iconic-taxa-insects.png" ),
   mollusks: require( "./taxa/icn-iconic-taxa-mollusks.png" ),
   mammals: require( "./taxa/icn-iconic-taxa-mammals.png" ),
-  "47126": require( "./taxa/icn-iconic-taxa-plants.png" ),
-  "20978": require( "./taxa/icn-iconic-taxa-amphibians.png" ),
-  "47170": require( "./taxa/icn-iconic-taxa-fungi.png" ),
-  "47178": require( "./taxa/icn-iconic-taxa-fish.png" ),
-  "26036": require( "./taxa/icn-iconic-taxa-reptiles.png" ),
-  "47119": require( "./taxa/icn-iconic-taxa-arachnids.png" ),
-  "3": require( "./taxa/icn-iconic-taxa-birds.png" ),
-  "47158": require( "./taxa/icn-iconic-taxa-insects.png" ),
-  "47115": require( "./taxa/icn-iconic-taxa-mollusks.png" ),
-  "40151": require( "./taxa/icn-iconic-taxa-mammals.png" )
+  47126: require( "./taxa/icn-iconic-taxa-plants.png" ),
+  20978: require( "./taxa/icn-iconic-taxa-amphibians.png" ),
+  47170: require( "./taxa/icn-iconic-taxa-fungi.png" ),
+  47178: require( "./taxa/icn-iconic-taxa-fish.png" ),
+  26036: require( "./taxa/icn-iconic-taxa-reptiles.png" ),
+  47119: require( "./taxa/icn-iconic-taxa-arachnids.png" ),
+  3: require( "./taxa/icn-iconic-taxa-birds.png" ),
+  47158: require( "./taxa/icn-iconic-taxa-insects.png" ),
+  47115: require( "./taxa/icn-iconic-taxa-mollusks.png" ),
+  40151: require( "./taxa/icn-iconic-taxa-mammals.png" )
 };
 
 export default species;

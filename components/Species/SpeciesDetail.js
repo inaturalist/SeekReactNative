@@ -12,20 +12,18 @@ import {
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
-import Icon from "react-native-vector-icons/AntDesign";
 
+import Button from "../Button";
 import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
 import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
-import { colors } from "../../styles/global";
+import { margins } from "../../styles/global";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
-
-const plusIcon = ( <Icon name="pluscircle" size={15} color={colors.darkBlue} /> );
 
 type Props = {
   navigation: any
@@ -100,7 +98,7 @@ class SpeciesDetail extends Component {
           } );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
@@ -118,7 +116,7 @@ class SpeciesDetail extends Component {
         taxaType: taxa.iconic_taxon_name
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching taxon details" );
+      // console.log( err, "error fetching taxon details" );
     } );
   }
 
@@ -140,17 +138,21 @@ class SpeciesDetail extends Component {
           ? `${nearbySpeciesCount} times near ${location}` : null
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching species count" );
+      // console.log( err, "error fetching species count" );
     } );
   }
 
   fetchHistogram() {
-    const { id, observationsByMonth } = this.state;
+    const { id, observationsByMonth, region } = this.state;
+    const { latitude, longitude } = region;
 
     const params = {
       date_field: "observed",
       interval: "month_of_year",
-      taxon_id: id
+      taxon_id: id,
+      lat: latitude,
+      lng: longitude,
+      radius: 50
     };
 
     inatjs.observations.histogram( params ).then( ( response ) => {
@@ -239,6 +241,7 @@ class SpeciesDetail extends Component {
             <Image
               source={{ uri: photo.photo.original_url }}
               style={styles.image}
+              resizeMode="contain"
             />
             <View style={styles.photoOverlay}>
               <TouchableOpacity
@@ -268,6 +271,7 @@ class SpeciesDetail extends Component {
               pagingEnabled
               nestedScrollEnabled
               indicatorStyle="white"
+              contentContainerStyle={styles.photoContainer}
             >
               {photoList}
             </ScrollView>
@@ -277,8 +281,8 @@ class SpeciesDetail extends Component {
             }
             <View style={styles.headerContainer}>
               <Text style={styles.largeHeaderText}>{commonName}</Text>
-              <Text style={styles.headerText}>Scientific Name:</Text>
-              <Text style={[styles.text, { fontStyle: "italic" }]}>{scientificName}</Text>
+              <Text style={styles.scientificHeaderText}>Scientific Name:</Text>
+              <Text style={styles.italicText}>{scientificName}</Text>
               <View style={[styles.categoryRow, styles.categoryContainer]}>
                 <Text style={styles.greenText}>Category: {category}</Text>
                 <Image
@@ -308,9 +312,8 @@ class SpeciesDetail extends Component {
               <View>
                 <Text style={styles.text}>
                   {timesSeen}
-                  {"\n"}
                 </Text>
-                <Text style={styles.text}>
+                <Text style={[styles.text, { marginTop: margins.small }]}>
                   {nearbySpeciesCount}
                 </Text>
               </View>
@@ -319,20 +322,17 @@ class SpeciesDetail extends Component {
         </View>
         { showBanner ? null : (
           <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => navigation.push( "Camera", {
+            <Button
+              green
+              navigation={navigation}
+              navParams={{
                 id,
                 commonName,
                 latitude: region.latitude,
                 longitude: region.longitude
-              } )}
-            >
-              <Text style={[styles.buttonText, styles.plus]}>{plusIcon}</Text>
-              <Text style={styles.buttonText}>
-                Found it!
-              </Text>
-            </TouchableOpacity>
+              }}
+              buttonText="Found it!"
+            />
           </View>
         ) }
       </View>

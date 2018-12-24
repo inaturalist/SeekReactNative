@@ -120,18 +120,19 @@ class GalleryScreen extends Component {
           commonName
         } ) );
       }
+    } else {
+      this.setState( {
+        image: imageClicked,
+        time: timestamp
+      }, () => navigation.push( "Results", {
+        id,
+        image: this.state.image,
+        time: this.state.time,
+        latitude,
+        longitude,
+        commonName
+      } ) );
     }
-    this.setState( {
-      image: imageClicked,
-      time: timestamp
-    }, () => navigation.push( "Results", {
-      id,
-      image: this.state.image,
-      time: this.state.time,
-      latitude,
-      longitude,
-      commonName
-    } ) );
   }
 
   render() {

@@ -1,10 +1,12 @@
 // @flow
 
 import React, { Component } from "react";
-import { TouchableHighlight, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Geocoder from "react-native-geocoder";
-import LocationMap from "./LocationMap";
 
+import Button from "../Button";
+import LocationMap from "./LocationMap";
+import { truncateCoordinates } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -14,7 +16,7 @@ type Props = {
   navigation: any
 }
 
-class LocationPickerScreen extends Component {
+class LocationPickerScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -22,7 +24,7 @@ class LocationPickerScreen extends Component {
       location,
       latitude,
       longitude,
-      updateLocation
+      taxaType
     } = navigation.state.params;
 
     this.state = {
@@ -34,8 +36,10 @@ class LocationPickerScreen extends Component {
       },
       userLatitude: latitude,
       userLongitude: longitude,
+      userLocation: location,
       location,
-      updateLocation
+      taxaType,
+      error: null
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -43,20 +47,41 @@ class LocationPickerScreen extends Component {
   }
 
   onRegionChange( newRegion ) {
-    const { region } = this.state;
-    const { latitude, longitude } = region;
+    this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
 
     this.setState( {
       region: newRegion
-    }, () => this.reverseGeocodeLocation( latitude, longitude ) );
+    } );
+  }
+
+  getGeolocation() {
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
+
+      this.setState( {
+        userLatitude: latitude,
+        userLongitude: longitude,
+        userLocation: this.reverseGeocodeLocation( latitude, longitude )
+      } );
+    }, ( err ) => {
+      this.setState( {
+        error: `Couldn't fetch your current location: ${err.message}.`
+      } );
+    } );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
     Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+      if ( result.length === 0 ) {
+        this.setState( {
+          location: null
+        } );
+      }
       const { locality, subAdminArea } = result[0];
       this.setState( {
         location: locality || subAdminArea
-      } ); // might need an error state here
+      } );
     } ).catch( ( err ) => {
       this.setState( {
         error: err.message
@@ -65,7 +90,9 @@ class LocationPickerScreen extends Component {
   }
 
   returnToUserLocation() {
-    const { userLatitude, userLongitude } = this.state;
+    const { userLatitude, userLongitude, userLocation } = this.state;
+
+    this.getGeolocation();
 
     this.setState( {
       region: {
@@ -73,12 +100,16 @@ class LocationPickerScreen extends Component {
         longitude: userLongitude,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
-      }
+      },
+      location: userLocation
     } );
   }
 
   render() {
-    const { region, location, updateLocation } = this.state;
+    const { region, location, taxaType } = this.state;
+
+    console.log( taxaType, "taxa type in location picker" );
+    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -93,16 +124,18 @@ class LocationPickerScreen extends Component {
             returnToUserLocation={this.returnToUserLocation}
           />
         </View>
-        <TouchableHighlight style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => {
-              updateLocation( region.latitude, region.longitude, location );
-            }}
-          >
-            Done
-          </Text>
-        </TouchableHighlight>
+        <Button
+          buttonText="Done"
+          navigation={navigation}
+          green
+          navParams={{
+            taxaName: null,
+            id: null,
+            taxaType,
+            latitude: region.latitude,
+            longitude: region.longitude
+          }}
+        />
       </View>
     );
   }

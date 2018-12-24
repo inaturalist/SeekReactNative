@@ -24,20 +24,30 @@ type Props = {
   navigation: any,
   toggleFlash: Function,
   toggleCamera: Function,
+  latitude: number,
+  longitude: number
 }
 
 const CameraTopNav = ( {
   flashText,
   navigation,
   toggleFlash,
-  toggleCamera
+  toggleCamera,
+  latitude,
+  longitude
 }: Props ) => (
   <SafeAreaView style={styles.container}>
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.buttons}
-          onPress={() => navigation.push( "Main", { taxaName: null, id: null } )}
+          onPress={() => navigation.push( "Main", {
+            taxaName: null,
+            id: null,
+            taxaType: "all",
+            latitude,
+            longitude
+          } )}
         >
           <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
         </TouchableOpacity>

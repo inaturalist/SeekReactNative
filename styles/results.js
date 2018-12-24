@@ -85,18 +85,20 @@ export default StyleSheet.create( {
   },
   button: {
     backgroundColor: colors.darkGreen,
-    marginHorizontal: margins.large,
-    marginBottom: margins.large,
+    marginHorizontal: margins.mediumLarge,
     marginTop: margins.medium,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
-    borderRadius: 40
+    marginBottom: margins.medium,
+    borderRadius: 40,
+    alignItems: "center",
+    justifyContent: "center"
   },
   buttonText: {
     fontFamily: fonts.semibold,
     fontSize: fontSize.buttonText,
     color: colors.white,
     textAlign: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingTop: padding.buttonTop,
+    paddingBottom: padding.buttonBottom
   }
 } );

@@ -13,7 +13,6 @@ import styles from "../../styles/results";
 
 type Props = {
   buttonText: string,
-  image: Object,
   title: string,
   match: ?boolean,
   matchUrl: string,
@@ -21,7 +20,8 @@ type Props = {
   photoText: string,
   subtitle: string,
   text: string,
-  yourPhotoText: string
+  yourPhotoText: string,
+  resizedImageUri: string
 }
 
 const ChallengeResultsScreen = ( {
@@ -34,7 +34,7 @@ const ChallengeResultsScreen = ( {
   savePhotoOrStartOver,
   photoText,
   yourPhotoText,
-  image
+  resizedImageUri
 }: Props ) => {
   let resultsIcon;
 
@@ -61,7 +61,7 @@ const ChallengeResultsScreen = ( {
         <View style={styles.imageContainer}>
           <Image
             style={styles.imageCell}
-            source={{ uri: image.uri }}
+            source={{ uri: resizedImageUri }}
           />
           { ( match === true || match === false ) ? (
             <Image

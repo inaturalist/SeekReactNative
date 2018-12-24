@@ -14,11 +14,7 @@ type Props = {
   navigation: any
 }
 
-class SplashScreen extends Component { 
-  constructor( { navigation }: Props ) {
-    super();
-  }
-
+class SplashScreen extends Component<Props> { 
   componentDidMount() {
     this.transitionScreen();
   }

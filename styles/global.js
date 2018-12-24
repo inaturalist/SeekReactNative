@@ -25,6 +25,7 @@ export const fonts = {
 
 export const fontSize = {
   largeHeader: 36,
+  mediumLargeHeader: 28,
   mediumHeader: 24,
   header: 20,
   buttonText: 18,
@@ -36,6 +37,7 @@ export const margins = {
   extraSmall: 2,
   small: 10,
   medium: 15,
+  mediumLarge: 30,
   large: 40,
   extraLarge: 100
 };
@@ -45,5 +47,7 @@ export const padding = {
   small: 2,
   medium: 5,
   large: 15,
-  extraLarge: 20
+  extraLarge: 20,
+  buttonTop: 11,
+  buttonBottom: 9.5
 };

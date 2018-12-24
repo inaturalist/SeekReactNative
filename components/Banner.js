@@ -11,21 +11,18 @@ import Realm from "realm";
 import styles from "../styles/banner";
 import speciesImages from "../assets/species";
 import badgeImages from "../assets/badges";
+import { recalculateBadges } from "../utility/helpers";
 import realmConfig from "../models/index";
 
 type Props = {
   bannerText: string,
-  badgeEarned: boolean,
-  taxaName: string,
   id: number,
   main: boolean
 }
 
-class Banner extends Component {
+class Banner extends Component<Props> {
   constructor( {
     bannerText,
-    badgeEarned,
-    taxaName,
     id,
     main
   }: Props ) {
@@ -33,13 +30,10 @@ class Banner extends Component {
 
     this.state = {
       bannerText,
-      badgeEarned,
-      secondBannerText: "Badge earned!",
-      taxaName,
       id,
       iconicTaxonId: 0,
       main,
-      lastEarnedBadgeIcon: null
+      badgeIcon: null
     };
 
     this.animatedValue = new Animated.Value( -120 );
@@ -47,36 +41,64 @@ class Banner extends Component {
   }
 
   componentDidMount() {
+    this.resetBadgeIcon();
+    this.fetchBadgeCount();
+    this.fetchTaxonId();
     this.showToast();
-    this.showSecondToast();
+  }
+
+  fetchBadgeCount() {
+    let lastBadgeEarned;
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
+        const lastBadge = badges.slice( 0, 1 );
+        const { earnedIconName } = lastBadge[0];
+
+        lastBadgeEarned = earnedIconName;
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+      } );
+
+    recalculateBadges();
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
+        const lastBadge = badges.slice( 0, 1 );
+        const { earnedIconName } = lastBadge[0];
+
+        console.log( lastBadgeEarned, "last badge earned" );
+        console.log( earnedIconName, "earned badge icon" );
+
+        if ( lastBadgeEarned !== earnedIconName ) {
+          this.setState( {
+            badgeIcon: earnedIconName
+          }, () => this.showSecondToast() );
+        }
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+      } );
   }
 
   fetchTaxonId() {
-    const { taxaName, id } = this.state;
+    const { id } = this.state;
 
-    if ( taxaName ) {
-      Realm.open( realmConfig )
-        .then( ( realm ) => {
-          const observations = realm.objects( "ObservationRealm" );
-          const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-          const { iconicTaxonId } = seenTaxa[0].taxon;
-          const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
-          const lastEarnedBadge = badges.slice( 0, 1 );
-          const lastEarnedBadgeIcon = lastEarnedBadge[0].earnedIconName;
-          this.setState( {
-            iconicTaxonId,
-            lastEarnedBadgeIcon
-          } );
-        } ).catch( ( err ) => {
-          console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const observations = realm.objects( "ObservationRealm" );
+        const seenTaxa = observations.filtered( `taxon.id == ${id}` );
+        const { iconicTaxonId } = seenTaxa[0].taxon;
+        this.setState( {
+          iconicTaxonId
         } );
-    }
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to fetch taxon id, error: ", err );
+      } );
   }
 
-
   showToast() {
-    this.fetchTaxonId();
-
     Animated.timing(
       this.animatedValue,
       {
@@ -120,14 +142,18 @@ class Banner extends Component {
     }, 2000 );
   }
 
+  resetBadgeIcon() {
+    this.setState( {
+      badgeIcon: null
+    } );
+  }
+
   render() {
     const {
       bannerText,
-      badgeEarned,
-      secondBannerText,
       iconicTaxonId,
       main,
-      lastEarnedBadgeIcon
+      badgeIcon
     } = this.state;
 
     let banner;
@@ -167,7 +193,7 @@ class Banner extends Component {
     return (
       <View style={styles.container}>
         {banner}
-        { badgeEarned ? (
+        { badgeIcon ? (
           <Animated.View style={[
             styles.animatedStyle,
             styles.secondAnimatedStyle,
@@ -178,13 +204,13 @@ class Banner extends Component {
           >
             <View style={[styles.row, styles.animatedRow]}>
               <Image
-                source={badgeImages[lastEarnedBadgeIcon]}
+                source={badgeImages[badgeIcon]}
                 style={styles.badgeBannerImage}
               />
-              <Text style={[styles.text, styles.mainText]}>{secondBannerText}</Text>
+              <Text style={[styles.text, styles.mainText]}>Badge earned!</Text>
             </View>
           </Animated.View>
-        ) : null}
+        ) : null }
       </View>
     );
   }

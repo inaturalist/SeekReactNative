@@ -24,7 +24,7 @@ type Props = {
   navigation: any
 }
 
-class ChallengeResults extends Component {
+class ChallengeResults extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -58,7 +58,8 @@ class ChallengeResults extends Component {
       error: null,
       commonName,
       targetTaxaPhoto,
-      commonAncestor: null
+      commonAncestor: null,
+      resizedImageUri: null
     };
 
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
@@ -75,11 +76,6 @@ class ChallengeResults extends Component {
       score,
       commonAncestor
     } = this.state;
-
-    console.log( commonAncestor, "common ancestor name" );
-    console.log( score, "score of target" );
-    console.log( id, taxaId, "id and taxa Id" );
-    console.log ( seenDate, "seen date" );
 
     if ( score > 97 ) {
       if ( id === taxaId ) {
@@ -202,7 +198,7 @@ class ChallengeResults extends Component {
         targetTaxaPhoto: taxa.default_photo.medium_url
       } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching taxon photo" );
+      // console.log( err, "error fetching taxon photo" );
     } );
   }
 
@@ -219,7 +215,7 @@ class ChallengeResults extends Component {
           }, () => this.setTextAndPhoto( seenDate ) );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
         this.setTextAndPhoto();
       } );
     this.setTextAndPhoto();
@@ -242,12 +238,21 @@ class ChallengeResults extends Component {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", { taxaName: null, id: null } );
+      navigation.push( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude,
+        longitude
+      } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", {
         taxaName,
-        id: taxaId
+        id: taxaId,
+        taxaType: "all",
+        latitude,
+        longitude
       } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
@@ -257,7 +262,13 @@ class ChallengeResults extends Component {
         commonName: null
       } );
     } else {
-      navigation.push( "Main", { taxaName: null, id: null } );
+      navigation.push( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude,
+        longitude
+      } );
     }
   }
 
@@ -269,15 +280,21 @@ class ChallengeResults extends Component {
       longitude
     } = this.state;
 
-    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 100 )
+    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
       .then( ( { uri } ) => {
         let resizedImageUri;
 
         if ( Platform.OS === "ios" ) {
           const uriParts = uri.split( "://" );
           resizedImageUri = uriParts[uriParts.length - 1];
+          this.setState( {
+            resizedImageUri
+          } );
         } else {
           resizedImageUri = uri;
+          this.setState( {
+            resizedImageUri
+          } );
         }
         const params = flattenUploadParameters( resizedImageUri, time, latitude, longitude );
         this.fetchScore( params );
@@ -337,7 +354,8 @@ class ChallengeResults extends Component {
       buttonText,
       photoText,
       yourPhotoText,
-      image
+      image,
+      resizedImageUri
     } = this.state;
 
     const {
@@ -364,6 +382,7 @@ class ChallengeResults extends Component {
           image={image}
           navigation={navigation}
           savePhotoOrStartOver={this.savePhotoOrStartOver}
+          resizedImageUri={resizedImageUri}
         />
       );
     }

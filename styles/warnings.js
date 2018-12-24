@@ -3,8 +3,7 @@ import {
   colors,
   fonts,
   fontSize,
-  margins,
-  padding
+  margins
 } from "./global";
 
 export default StyleSheet.create( {
@@ -73,21 +72,5 @@ export default StyleSheet.create( {
     lineHeight: 15,
     color: colors.white,
     fontFamily: fonts.default
-  },
-  button: {
-    backgroundColor: colors.white,
-    color: colors.black,
-    marginHorizontal: margins.large,
-    marginBottom: margins.small,
-    marginTop: margins.small,
-    paddingTop: padding.small,
-    paddingBottom: padding.extraSmall,
-    borderRadius: 40
-  },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    fontSize: fontSize.buttonText,
-    textAlign: "center",
-    justifyContent: "center"
   }
 } );

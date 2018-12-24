@@ -17,11 +17,11 @@ export default StyleSheet.create( {
   capture: {
     flex: 0,
     backgroundColor: colors.white,
-    borderWidth: 4,
+    borderWidth: 3,
     borderRadius: 100,
     alignItems: "flex-end",
     justifyContent: "center",
-    borderColor: colors.lightGray,
+    borderColor: colors.darkGray,
     alignSelf: "center",
     width: 50,
     height: 50

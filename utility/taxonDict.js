@@ -8,7 +8,8 @@ const taxonIds = {
   birds: 3,
   insects: 47158,
   mollusks: 47115,
-  mammals: 40151
+  mammals: 40151,
+  all: null
 };
 
 export default taxonIds;

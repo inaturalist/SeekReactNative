@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/challenges";
+import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any,
@@ -16,9 +17,7 @@ type Props = {
   loading: boolean,
   longitude: number,
   location: string,
-  setTaxonId: Function,
-  taxaType: string,
-  updateLocation: Function
+  taxaType: string
 }
 
 const ChallengeHeader = ( {
@@ -27,9 +26,7 @@ const ChallengeHeader = ( {
   loading,
   longitude,
   location,
-  setTaxonId,
-  taxaType,
-  updateLocation
+  taxaType
 }: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
@@ -40,7 +37,7 @@ const ChallengeHeader = ( {
           location,
           latitude,
           longitude,
-          updateLocation
+          taxaType
         } )}
       >
         { loading ? (
@@ -55,9 +52,12 @@ const ChallengeHeader = ( {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.taxonChooser}
-        onPress={() => navigation.navigate( "Taxon", { setTaxonId } )}
+        onPress={() => navigation.navigate( "Taxon", { taxaType, latitude, longitude } )}
       >
-        <Text style={styles.taxonChooserText}>{taxaType} &#9660;</Text>
+        {taxaType === "all"
+          ? <Text style={styles.taxonChooserText}>All species &#9660;</Text>
+          : <Text style={styles.taxonChooserText}>{capitalizeNames( taxaType )} &#9660;</Text>
+        }
       </TouchableOpacity>
     </View>
   </View>

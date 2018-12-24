@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -56,6 +57,7 @@
 		3777824121ADDD4B00EE85B0 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823221ADDD4A00EE85B0 /* SimpleLineIcons.ttf */; };
 		3777824221ADDD4B00EE85B0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823321ADDD4A00EE85B0 /* MaterialIcons.ttf */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
+		3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 283BB76ED58149118CBAC00A /* libRNGestureHandler.a */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
 		60552B3D8A884EA2A396E608 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62020055F64ADF979B4615 /* libRNVectorIcons-tvOS.a */; };
 		6663D69175A947568D6E47AB /* Whitney-BlackItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5229C53D51524867A0B7218B /* Whitney-BlackItalic-Pro.otf */; };
@@ -291,6 +293,13 @@
 			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
 			remoteInfo = "RNVectorIcons-tvOS";
 		};
+		378EED1B21CAD9EC00B5E571 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27195405E32A42A59CE0D369 /* RNGestureHandler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNGestureHandler;
+		};
 		37B0C429216E78E800A12596 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37B0C420216E78E800A12596 /* RCTCameraRoll.xcodeproj */;
@@ -471,7 +480,9 @@
 		15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		19887333932042FEB03BF672 /* libimageCropPicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libimageCropPicker.a; sourceTree = "<group>"; };
 		1C4B4FA4CE0644B48BB19157 /* Whitney-MediumItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-MediumItalic-Pro.otf"; path = "../assets/fonts/Whitney-MediumItalic-Pro.otf"; sourceTree = "<group>"; };
+		27195405E32A42A59CE0D369 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		27A10CCF095147EB957DA4C6 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		283BB76ED58149118CBAC00A /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = "<group>"; };
 		2931755B471B48628B1026A0 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* Seek-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seek-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Seek-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seek-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -577,6 +588,7 @@
 				C3E41C77266542B79A3D24AF /* libc++.tbd in Frameworks */,
 				1EBFD4CC68834923BDFB92DF /* libz.tbd in Frameworks */,
 				C3CB73A6229948C88A8D31A5 /* libRNVectorIcons.a in Frameworks */,
+				3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +767,7 @@
 				2931755B471B48628B1026A0 /* libRealmReact.a */,
 				5D3B961FBD2B4F1CAF7A3159 /* libRNVectorIcons.a */,
 				0C62020055F64ADF979B4615 /* libRNVectorIcons-tvOS.a */,
-				F15E7B303DC1433987C55C26 /* libSplashScreen.a */,
+				283BB76ED58149118CBAC00A /* libRNGestureHandler.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -833,6 +845,14 @@
 			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
+		378EED1821CAD9EC00B5E571 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				378EED1C21CAD9EC00B5E571 /* libRNGestureHandler.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		37B0C421216E78E800A12596 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +919,7 @@
 				AC25064EE2B84EAC8BA33A79 /* RNSVG.xcodeproj */,
 				AF67B0E9037F47E083287FA0 /* RealmReact.xcodeproj */,
 				3FC39C7BC5F9451E9C5BBF74 /* RNVectorIcons.xcodeproj */,
+				27195405E32A42A59CE0D369 /* RNGestureHandler.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1179,6 +1200,10 @@
 					ProjectRef = 3741928821766A39007414A3 /* RNGeocoder.xcodeproj */;
 				},
 				{
+					ProductGroup = 378EED1821CAD9EC00B5E571 /* Products */;
+					ProjectRef = 27195405E32A42A59CE0D369 /* RNGestureHandler.xcodeproj */;
+				},
+				{
 					ProductGroup = 3741930F2177DC86007414A3 /* Products */;
 					ProjectRef = A137AD88526A4B3F959EFA73 /* RNGL.xcodeproj */;
 				},
@@ -1396,6 +1421,13 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = 3777822221ADDB8A00EE85B0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		378EED1C21CAD9EC00B5E571 /* libRNGestureHandler.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNGestureHandler.a;
+			remoteRef = 378EED1B21CAD9EC00B5E571 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		37B0C42A216E78E800A12596 /* libRCTCameraRoll.a */ = {
@@ -1714,12 +1746,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = SeekTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1746,12 +1780,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = SeekTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1785,6 +1821,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1821,6 +1858,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1859,11 +1897,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = "Seek-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1900,11 +1940,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = "Seek-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1939,11 +1981,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = "Seek-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1978,11 +2022,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/realm/src/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
+					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
 				);
 				INFOPLIST_FILE = "Seek-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

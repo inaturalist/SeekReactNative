@@ -30,7 +30,7 @@ type Props = {
   navigation: any
 }
 
-class CameraScreen extends Component {
+class CameraScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -78,7 +78,8 @@ class CameraScreen extends Component {
       const photo = results.edges[0].node;
       this.setState( {
         image: photo.image,
-        time: photo.timestamp
+        time: photo.timestamp,
+        pictureTaken: false
       }, () => navigation.push( "Results", {
         image: this.state.image,
         time: this.state.time,
@@ -189,7 +190,9 @@ class CameraScreen extends Component {
       flashText,
       error,
       pictureTaken,
-      zoom
+      zoom,
+      latitude,
+      longitude
     } = this.state;
 
     const { navigation } = this.props;
@@ -245,6 +248,8 @@ class CameraScreen extends Component {
           flashText={flashText}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
+          latitude={latitude}
+          longitude={longitude}
         />
         {cameraContent}
       </RNCamera>

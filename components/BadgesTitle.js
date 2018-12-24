@@ -42,7 +42,7 @@ class BadgesTitle extends Component {
           } );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 

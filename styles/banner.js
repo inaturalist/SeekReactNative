@@ -38,7 +38,6 @@ export default StyleSheet.create( {
   },
   mainBannerImage: {
     zIndex: 2,
-    // marginTop: margins.medium,
     marginLeft: margins.medium,
     tintColor: colors.darkGreen,
     height: 31,
@@ -46,7 +45,6 @@ export default StyleSheet.create( {
   },
   badgeBannerImage: {
     zIndex: 2,
-    // marginTop: margins.medium,
     marginLeft: margins.medium,
     height: 31,
     width: 38

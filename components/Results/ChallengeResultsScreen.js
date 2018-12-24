@@ -13,7 +13,6 @@ import styles from "../../styles/results";
 
 type Props = {
   buttonText: string,
-  image: Object,
   title: string,
   match: ?boolean,
   matchUrl: string,
@@ -35,7 +34,6 @@ const ChallengeResultsScreen = ( {
   savePhotoOrStartOver,
   photoText,
   yourPhotoText,
-  image,
   resizedImageUri
 }: Props ) => {
   let resultsIcon;

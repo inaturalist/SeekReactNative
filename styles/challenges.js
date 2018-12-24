@@ -25,7 +25,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   header: {
-    marginTop: Platform.OS === "android" ? margins.medium + 10 : margins.extraSmall
+    marginTop: Platform.OS === "android" ? margins.medium + 10 : margins.medium
   },
   headerText: {
     marginLeft: margins.medium,
@@ -88,8 +88,8 @@ export default StyleSheet.create( {
     paddingTop: padding.extraSmall
   },
   footer: {
-    marginTop: margins.medium,
-    height: Platform.OS === "ios" ? 50 : 70,
+    marginTop: margins.extraSmall,
+    height: Platform.OS === "ios" ? 45 : 70,
     justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },
@@ -101,12 +101,15 @@ export default StyleSheet.create( {
   profileButton: {
     paddingLeft: padding.large
   },
+  speciesCountButton: {
+    paddingRight: padding.extraLarge,
+    paddingTop: padding.medium,
+    justifyContent: "center"
+  },
   profileText: {
     color: colors.white,
     fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
-    marginBottom: margins.medium,
-    paddingLeft: "25%"
+    fontSize: fontSize.smallText
   },
   addPhotoButton: {
     paddingRight: padding.medium

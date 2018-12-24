@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   Text,
-  View
+  View,
+  TouchableOpacityComponent
 } from "react-native";
 
 import styles from "../../styles/challenges";
@@ -55,6 +56,11 @@ const ChallengeFooter = ( {
           onPress={() => navigation.navigate( "YourCollection" )}
         >
           {profileIcon}
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.speciesCountButton}
+          onPress={() => navigation.navigate( "YourCollection" )}
+        >
           <Text style={styles.profileText}>
             {species}
             {badges}
@@ -74,6 +80,6 @@ const ChallengeFooter = ( {
       </View>
     </View>
   );
-}
+};
 
 export default ChallengeFooter;

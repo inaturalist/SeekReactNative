@@ -24,14 +24,11 @@ type Props = {
   navigation: Function,
   taxa: Array<Object>,
   taxaType: string,
-  reverseGeocodeLocation: Function,
-  error: string,
-  badgeEarned: boolean
+  error: string
 }
 
 const ChallengeScreen = ( {
   badgeCount,
-  badgeEarned,
   taxaName,
   id,
   speciesCount,
@@ -74,9 +71,7 @@ const ChallengeScreen = ( {
           <Banner
             bannerText={`${taxaName} collected!`}
             main
-            taxaName={taxaName}
             id={id}
-            badgeEarned={badgeEarned}
           />
         ) : null }
         <ChallengeHeader

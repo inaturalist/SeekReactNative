@@ -154,7 +154,6 @@ class GalleryScreen extends Component<Props> {
                   key={i.toString()}
                   underlayColor="transparent"
                   onPress={() => {
-                    alert( JSON.stringify( p ), "photo" );
                     this.selectImage( p.node.image, p.node.timestamp, p.node.location );
                   }}
                 >

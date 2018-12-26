@@ -209,18 +209,22 @@ class CameraScreen extends Component<Props> {
           ) : null }
           <View style={styles.main} />
           <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.zoomButtons}
-              onPress={() => this.zoomIn()}
-            >
-              <Text>{zoomInIcon}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.zoomButtons}
-              onPress={() => this.zoomOut()}
-            >
-              <Text>{zoomOutIcon}</Text>
-            </TouchableOpacity>
+            { Platform.OS === "android" ? (
+              <TouchableOpacity
+                style={styles.zoomButtons}
+                onPress={() => this.zoomIn()}
+              >
+                <Text>{zoomInIcon}</Text>
+              </TouchableOpacity>
+            ) : null}
+            { Platform.OS === "android" ? (
+              <TouchableOpacity
+                style={styles.zoomButtons}
+                onPress={() => this.zoomOut()}
+              >
+                <Text>{zoomOutIcon}</Text>
+              </TouchableOpacity>
+            ) : null}
             <TouchableOpacity
               onPress={() => this.takePicture()}
               style={styles.capture}

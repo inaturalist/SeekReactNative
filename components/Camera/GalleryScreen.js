@@ -22,7 +22,7 @@ type Props = {
   navigation: any
 }
 
-class GalleryScreen extends Component {
+class GalleryScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -104,30 +104,28 @@ class GalleryScreen extends Component {
       navigation
     } = this.props;
 
-    if ( location ) {
+    if ( Object.keys( location ).length !== 0 ) {
       if ( location.latitude ) {
         this.setState( {
           image: imageClicked,
-          time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
           longitude: truncateCoordinates( location.longitude )
         }, () => navigation.push( "Results", {
           id,
-          image: this.state.image,
-          time: this.state.time,
-          latitude: this.state.latitude,
-          longitude: this.state.longitude,
+          image: imageClicked,
+          time: timestamp,
+          latitude: truncateCoordinates( location.latitude ),
+          longitude: truncateCoordinates( location.longitude ),
           commonName
         } ) );
       }
     } else {
       this.setState( {
-        image: imageClicked,
-        time: timestamp
+        image: imageClicked
       }, () => navigation.push( "Results", {
         id,
         image: this.state.image,
-        time: this.state.time,
+        time: timestamp,
         latitude,
         longitude,
         commonName
@@ -156,6 +154,7 @@ class GalleryScreen extends Component {
                   key={i.toString()}
                   underlayColor="transparent"
                   onPress={() => {
+                    alert( JSON.stringify( p ), "photo" );
                     this.selectImage( p.node.image, p.node.timestamp, p.node.location );
                   }}
                 >

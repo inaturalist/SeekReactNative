@@ -58,45 +58,45 @@ const StackNavigatorConfig = {
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null
     } )
   },
   Warnings: {
     screen: WarningsScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null
     } )
   },
   Main: {
     screen: MainScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null
     } )
   },
   Camera: {
     screen: CameraNav,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null
     } )
   },
   Location: {
     screen: LocationPickerScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null,
       gesturesEnabled: false
     } )
   },
   Taxon: {
     screen: TaxonPickerScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       header: null,
       gesturesEnabled: false
     } )
   },
   Results: {
     screen: ChallengeResults,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       headerStyle: {
         backgroundColor: colors.darkestBlue
       },
@@ -127,7 +127,7 @@ const RootStack = createStackNavigator( {
   },
   About: {
     screen: AboutScreen,
-    navigationOptions: ( { navigation } ) => ( {
+    navigationOptions: () => ( {
       title: "About"
     } )
   }

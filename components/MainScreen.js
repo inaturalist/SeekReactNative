@@ -60,8 +60,7 @@ class MainScreen extends Component<Props, State> {
       badgeCount: 0,
       speciesCount: 0,
       taxaName,
-      id,
-      badgeEarned: false
+      id
     };
   }
 
@@ -82,7 +81,7 @@ class MainScreen extends Component<Props, State> {
         longitude,
         location: this.reverseGeocodeLocation( latitude, longitude ),
         error: null
-      }, () => this.fetchChallenges( this.state.latitude, this.state.longitude ) );
+      }, () => this.fetchChallenges( latitude, longitude ) );
     }, ( err ) => {
       this.setState( {
         error: `Couldn't fetch your current location: ${err.message}.`
@@ -115,7 +114,7 @@ class MainScreen extends Component<Props, State> {
         this.getGeolocation();
       }
     } else {
-      this.updateLocation();
+      this.reverseGeocodeLocation( latitude, longitude );
       this.fetchChallenges( latitude, longitude );
     }
   }
@@ -203,11 +202,6 @@ class MainScreen extends Component<Props, State> {
         error: `${err}: We weren't able to determine your location. Please try again.`
       } );
     } );
-  }
-
-  updateLocation() {
-    const { latitude, longitude } = this.state;
-    this.reverseGeocodeLocation( latitude, longitude );
   }
 
   render() {

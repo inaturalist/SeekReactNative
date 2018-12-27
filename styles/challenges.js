@@ -112,6 +112,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.smallText
   },
   addPhotoButton: {
-    paddingRight: padding.medium
+    paddingRight: padding.medium,
+    paddingBottom: padding.extraSmall
   }
 } );

@@ -29,7 +29,7 @@ type Props = {
   navigation: any
 }
 
-class SpeciesDetail extends Component {
+class SpeciesDetail extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 

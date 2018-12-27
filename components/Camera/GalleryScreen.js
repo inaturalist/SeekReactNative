@@ -8,7 +8,8 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
-  View
+  View,
+  StatusBar
 } from "react-native";
 
 import ErrorScreen from "../ErrorScreen";
@@ -22,7 +23,7 @@ type Props = {
   navigation: any
 }
 
-class GalleryScreen extends Component {
+class GalleryScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -38,7 +39,6 @@ class GalleryScreen extends Component {
       loading: true,
       latitude,
       longitude,
-      time: null,
       id,
       commonName,
       error: null
@@ -92,7 +92,6 @@ class GalleryScreen extends Component {
   }
 
   selectImage( imageClicked, timestamp, location ) {
-    // remember to deal with error state -> what happens if photo location undefined?
     const {
       id,
       latitude,
@@ -105,33 +104,37 @@ class GalleryScreen extends Component {
     } = this.props;
 
     if ( location ) {
-      if ( location.latitude ) {
-        this.setState( {
+      if ( Object.keys( location ).length !== 0 && location.latitude ) {
+        const navParams = {
+          id,
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude )
-        }, () => navigation.push( "Results", {
-          id,
-          image: this.state.image,
-          time: this.state.time,
-          latitude: this.state.latitude,
-          longitude: this.state.longitude,
+          longitude: truncateCoordinates( location.longitude ),
           commonName
-        } ) );
+        };
+        navigation.push( "Results", navParams );
+      } else {
+        const navParams = {
+          id,
+          image: imageClicked,
+          time: timestamp,
+          latitude,
+          longitude,
+          commonName
+        };
+        navigation.push( "Results", navParams );
       }
     } else {
-      this.setState( {
-        image: imageClicked,
-        time: timestamp
-      }, () => navigation.push( "Results", {
+      const navParams = {
         id,
-        image: this.state.image,
-        time: this.state.time,
+        image: imageClicked,
+        time: timestamp,
         latitude,
         longitude,
         commonName
-      } ) );
+      };
+      navigation.push( "Results", navParams );
     }
   }
 
@@ -173,6 +176,7 @@ class GalleryScreen extends Component {
 
     return (
       <View style={styles.background}>
+        <StatusBar hidden />
         <View style={styles.navbar}>
           <CameraTopNav navigation={navigation} />
         </View>

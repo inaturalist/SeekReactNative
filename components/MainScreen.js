@@ -114,7 +114,7 @@ class MainScreen extends Component<Props, State> {
         this.getGeolocation();
       }
     } else {
-      this.updateLocation();
+      this.reverseGeocodeLocation( latitude, longitude );
       this.fetchChallenges( latitude, longitude );
     }
   }
@@ -202,11 +202,6 @@ class MainScreen extends Component<Props, State> {
         error: `${err}: We weren't able to determine your location. Please try again.`
       } );
     } );
-  }
-
-  updateLocation() {
-    const { latitude, longitude } = this.state;
-    this.reverseGeocodeLocation( latitude, longitude );
   }
 
   render() {

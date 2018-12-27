@@ -9,11 +9,8 @@ import {
   ScrollView,
   TouchableHighlight,
   View,
-  StatusBar,
-  Dimensions
+  StatusBar
 } from "react-native";
-
-const { height } = Dimensions.get( "screen" );
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
@@ -105,7 +102,6 @@ class GalleryScreen extends Component<Props> {
     const {
       navigation
     } = this.props;
-    console.log( location, "location in gallery" );
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {

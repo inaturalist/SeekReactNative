@@ -107,8 +107,6 @@ class LocationPickerScreen extends Component<Props> {
 
   render() {
     const { region, location, taxaType } = this.state;
-
-    console.log( taxaType, "taxa type in location picker" );
     const { navigation } = this.props;
 
     return (

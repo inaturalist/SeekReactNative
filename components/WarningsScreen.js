@@ -17,10 +17,10 @@ type Props = {
 }
 
 const tips = [
-  { tip: i18n.t( "tip_1", { language: i18n.currentLocale() } ) },
-  { tip: i18n.t( "tip_2", { language: i18n.currentLocale() } ) },
-  { tip: i18n.t( "tip_3", { language: i18n.currentLocale() } ) },
-  { tip: i18n.t( "tip_4", { language: i18n.currentLocale() } ) }
+  { tip: i18n.t( "warnings.tip_1", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "warnings.tip_2", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "warnings.tip_3", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "warnings.tip_4", { language: i18n.currentLocale() } ) }
 ];
 
 const WarningsScreen = ( { navigation }: Props ) => (
@@ -30,9 +30,9 @@ const WarningsScreen = ( { navigation }: Props ) => (
       source={require( "../assets/backgrounds/splash.png" )}
     >
       <View style={styles.header}>
-        <Text style={styles.welcomeText}>{i18n.t( "welcome", { language: i18n.currentLocale() } )}</Text>
+        <Text style={styles.welcomeText}>{i18n.t( "warnings.welcome", { language: i18n.currentLocale() } )}</Text>
         <Text style={styles.earnText}>
-          {i18n.t( "earn_badges", { language: i18n.currentLocale() } )}
+          {i18n.t( "warnings.earn_badges", { language: i18n.currentLocale() } )}
         </Text>
       </View>
       <View style={styles.tipContainer}>
@@ -50,7 +50,7 @@ const WarningsScreen = ( { navigation }: Props ) => (
       </View>
       <View style={styles.disclaimerContainer}>
         <Text style={styles.disclaimer}>
-          {i18n.t( "disclaimer", { language: i18n.currentLocale() } )}
+          {i18n.t( "warnings.disclaimer", { language: i18n.currentLocale() } )}
         </Text>
       </View>
       <Button navigation={navigation} buttonText="OK. Got it!" />

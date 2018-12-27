@@ -113,7 +113,7 @@ class LocationPickerScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.headerText}>
-          {i18n.t( "looking_50_mile", { language: i18n.currentLocale() } )}
+          {i18n.t( "location_picker.looking_50_mile", { language: i18n.currentLocale() } )}
           {":"}
         </Text>
         <Text style={styles.locationText}>{location}</Text>

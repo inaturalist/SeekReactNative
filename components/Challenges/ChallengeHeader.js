@@ -31,7 +31,7 @@ const ChallengeHeader = ( {
 }: Props ) => (
   <View style={styles.header}>
     <Text style={styles.headerText}>
-      {i18n.t( "challenges.species_likely", { language: i18n.currentLocale() } )}
+      {i18n.t( "challenges.species_likely" )}
       {":"}
     </Text>
     <View style={styles.buttons}>
@@ -45,7 +45,7 @@ const ChallengeHeader = ( {
         } )}
       >
         { loading ? (
-          <Text style={styles.locationChooserText}>{i18n.t( "challenges.loading_location", { language: i18n.currentLocale() } )}</Text>
+          <Text style={styles.locationChooserText}>{i18n.t( "challenges.loading_location" )}</Text>
         ) : (
           <Text
             style={styles.locationChooserText}

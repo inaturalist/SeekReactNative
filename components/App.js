@@ -8,8 +8,8 @@ import { setupBadges } from "../utility/helpers";
 
 class App extends Component {
   componentWillMount() {
-    RNLanguages.addEventListener( "change", this.onLanguagesChange );
     setupBadges();
+    RNLanguages.addEventListener( "change", this.onLanguagesChange );
   }
 
   componentWillUnmount() {

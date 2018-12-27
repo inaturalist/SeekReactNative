@@ -6,5 +6,6 @@ import en from "./translations/en.json";
 i18n.locale = RNLanguages.language;
 i18n.fallbacks = true;
 i18n.translations = { en };
+i18n.currentLocale();
 
 export default i18n;

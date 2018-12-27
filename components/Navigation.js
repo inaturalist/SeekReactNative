@@ -9,7 +9,7 @@ import {
 } from "../styles/global";
 
 import SplashScreen from "./SplashScreen";
-import WarningsScreen from "./WarningsScreen";
+import HomeScreen from "./Home/HomeScreen";
 import MainScreen from "./MainScreen";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
@@ -61,14 +61,8 @@ const RootStack = createStackNavigator( {
       header: null
     } )
   },
-  Warnings: {
-    screen: WarningsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
   Main: {
-    screen: MainScreen,
+    screen: HomeScreen,
     navigationOptions: () => ( {
       header: null
     } )

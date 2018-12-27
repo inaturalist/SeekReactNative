@@ -1,15 +1,9 @@
 {
+  "species_nearby": {
+    "header": "Species nearby"
+  },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point"
-  },
-  "warnings": {
-    "welcome": "Welcome to Seek",
-    "earn_badges": "Earn badges for taking photos of the plants and wildlife around you.",
-    "disclaimer": "We use your location to suggest plants and animals to find near you, but we blur the location before we use it so your street name and town or city is not identifiable",
-    "tip_1": "Always be aware of your surroundings and stay safe!",
-    "tip_2": "Don't eat anything you find in the wild.",
-    "tip_3": "Don't trespass.",
-    "tip_4": "Respect other living things by not harassing or touching them. Some may sting, bite, or make you itch."
   },
   "challenges": {
     "current_location": "{{location}}",

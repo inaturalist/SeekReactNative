@@ -22,7 +22,7 @@ class SplashScreen extends Component<Props> {
   transitionScreen() {
     const { navigation } = this.props;
 
-    setTimeout( () => navigation.navigate( "Warnings" ), 2000 );
+    setTimeout( () => navigation.navigate( "Main" ), 2000 );
   }
 
   render() {

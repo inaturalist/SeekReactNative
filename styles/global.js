@@ -12,7 +12,9 @@ export const colors = {
   black: "black",
   lightBlue: "#225C8E",
   tomatoRed: "#ff6347",
-  yellow: "#ffff7f"
+  yellow: "#ffff7f",
+  teal: "#38976d",
+  greenButton: "#77b300"
 };
 
 export const fonts = {

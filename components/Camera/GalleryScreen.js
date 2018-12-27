@@ -8,8 +8,12 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
-  View
+  View,
+  StatusBar,
+  Dimensions
 } from "react-native";
+
+const { height } = Dimensions.get( "screen" );
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
@@ -38,7 +42,6 @@ class GalleryScreen extends Component<Props> {
       loading: true,
       latitude,
       longitude,
-      time: null,
       id,
       commonName,
       error: null
@@ -46,6 +49,7 @@ class GalleryScreen extends Component<Props> {
   }
 
   componentDidMount() {
+    alert( height, "device height" );
     if ( Platform.OS === "android" ) {
       this.requestAndroidPermissions();
     } else {
@@ -92,7 +96,6 @@ class GalleryScreen extends Component<Props> {
   }
 
   selectImage( imageClicked, timestamp, location ) {
-    // remember to deal with error state -> what happens if photo location undefined?
     const {
       id,
       latitude,
@@ -106,30 +109,26 @@ class GalleryScreen extends Component<Props> {
 
     if ( Object.keys( location ).length !== 0 ) {
       if ( location.latitude ) {
-        this.setState( {
-          image: imageClicked,
-          latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude )
-        }, () => navigation.push( "Results", {
+        const navParams = {
           id,
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
           longitude: truncateCoordinates( location.longitude ),
           commonName
-        } ) );
+        };
+        navigation.push( "Results", navParams );
       }
     } else {
-      this.setState( {
-        image: imageClicked
-      }, () => navigation.push( "Results", {
+      const navParams = {
         id,
-        image: this.state.image,
+        image: imageClicked,
         time: timestamp,
         latitude,
         longitude,
         commonName
-      } ) );
+      };
+      navigation.push( "Results", navParams );
     }
   }
 
@@ -171,6 +170,7 @@ class GalleryScreen extends Component<Props> {
 
     return (
       <View style={styles.background}>
+        <StatusBar hidden />
         <View style={styles.navbar}>
           <CameraTopNav navigation={navigation} />
         </View>

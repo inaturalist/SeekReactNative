@@ -41,7 +41,7 @@ const CameraTopNav = ( {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.buttons}
-          onPress={() => navigation.push( "Main", {
+          onPress={() => navigation.navigate( "Main", {
             taxaName: null,
             id: null,
             taxaType: "all",

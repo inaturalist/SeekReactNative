@@ -8,7 +8,8 @@ import {
   CameraRoll,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  StatusBar
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
@@ -46,10 +47,8 @@ class CameraScreen extends Component<Props> {
       flash: "off",
       flashText: "OFF",
       error: null,
-      image: {},
       latitude,
       longitude,
-      time: null,
       id,
       commonName,
       pictureTaken: false,
@@ -77,12 +76,10 @@ class CameraScreen extends Component<Props> {
     } ).then( ( results ) => {
       const photo = results.edges[0].node;
       this.setState( {
-        image: photo.image,
-        time: photo.timestamp,
         pictureTaken: false
       }, () => navigation.push( "Results", {
-        image: this.state.image,
-        time: this.state.time,
+        image: photo.image,
+        time: photo.timestamp,
         latitude,
         longitude,
         id,
@@ -246,6 +243,7 @@ class CameraScreen extends Component<Props> {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
+        <StatusBar hidden />
         <CameraTopNav
           navigation={navigation}
           cameraType={cameraType}

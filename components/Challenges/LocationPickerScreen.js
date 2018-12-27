@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import Geocoder from "react-native-geocoder";
 
+import i18n from "../../i18n";
 import Button from "../Button";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates } from "../../utility/helpers";
@@ -112,7 +113,8 @@ class LocationPickerScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.headerText}>
-          Looking for species in a 50 mile radius around this point:
+          {i18n.t( "looking_50_mile", { language: i18n.currentLocale() } )}
+          {":"}
         </Text>
         <Text style={styles.locationText}>{location}</Text>
         <View style={styles.mapContainer}>

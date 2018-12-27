@@ -7,7 +7,6 @@ import {
   fontSize,
   fonts
 } from "../styles/global";
-import { setupBadges } from "../utility/helpers";
 
 import SplashScreen from "./SplashScreen";
 import WarningsScreen from "./WarningsScreen";
@@ -133,9 +132,4 @@ const RootStack = createStackNavigator( {
   }
 }, StackNavigatorConfig );
 
-export default App = () => {
-  setupBadges();
-  return (
-    <RootStack />
-  );
-};
+export default RootStack;

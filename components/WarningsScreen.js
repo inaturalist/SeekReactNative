@@ -8,6 +8,7 @@ import {
   View
 } from "react-native";
 
+import i18n from "../i18n";
 import Button from "./Button";
 import styles from "../styles/warnings";
 
@@ -16,13 +17,10 @@ type Props = {
 }
 
 const tips = [
-  { tip: "Always be aware of your surroundings and stay safe!" },
-  { tip: "Don't eat anything you find in the wild." },
-  { tip: "Don't trespass." },
-  {
-    tip: "Respect other living things by not harassing or touching them. Some may "
-      + "sting, bite, or make you itch."
-  }
+  { tip: i18n.t( "tip_1", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "tip_2", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "tip_3", { language: i18n.currentLocale() } ) },
+  { tip: i18n.t( "tip_4", { language: i18n.currentLocale() } ) }
 ];
 
 const WarningsScreen = ( { navigation }: Props ) => (
@@ -32,9 +30,9 @@ const WarningsScreen = ( { navigation }: Props ) => (
       source={require( "../assets/backgrounds/splash.png" )}
     >
       <View style={styles.header}>
-        <Text style={styles.welcomeText}>Welcome to Seek!</Text>
+        <Text style={styles.welcomeText}>{i18n.t( "welcome", { language: i18n.currentLocale() } )}</Text>
         <Text style={styles.earnText}>
-          Earn badges for taking photos of the plants and wildlife around you.
+          {i18n.t( "earn_badges", { language: i18n.currentLocale() } )}
         </Text>
       </View>
       <View style={styles.tipContainer}>
@@ -52,9 +50,7 @@ const WarningsScreen = ( { navigation }: Props ) => (
       </View>
       <View style={styles.disclaimerContainer}>
         <Text style={styles.disclaimer}>
-          We use your location to suggest plants and animals to find near you,
-          but we blur the location before we use it so your street name and town
-          or city is not identifiable
+          {i18n.t( "disclaimer", { language: i18n.currentLocale() } )}
         </Text>
       </View>
       <Button navigation={navigation} buttonText="OK. Got it!" />

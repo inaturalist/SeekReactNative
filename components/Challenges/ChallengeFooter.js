@@ -5,11 +5,11 @@ import {
   Image,
   TouchableOpacity,
   Text,
-  View,
-  TouchableOpacityComponent
+  View
 } from "react-native";
 
 import styles from "../../styles/challenges";
+import profileImages from "../../assets/profiles";
 
 type Props = {
   latitude: number,
@@ -30,22 +30,18 @@ const ChallengeFooter = ( {
   const species = `Species: ${speciesCount}  `;
   const badges = `Badges: ${badgeCount}`;
 
-  if ( speciesCount <= 0 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg.png" )} />;
-  } else if ( speciesCount === 1 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg-crack-01.png" )} />;
-  } else if ( speciesCount === 2 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-egg-crack-02.png" )} />;
+  if ( speciesCount >= 0 && speciesCount <= 2 ) {
+    profileIcon = <Image source={profileImages[speciesCount]} />;
   } else if ( speciesCount < 15 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-tadpole.png" )} />;
+    profileIcon = <Image source={profileImages[15]} />;
   } else if ( speciesCount < 35 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-cub.png" )} />;
+    profileIcon = <Image source={profileImages[35]} />;
   } else if ( speciesCount < 65 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-surveyor.png" )} />;
+    profileIcon = <Image source={profileImages[65]} />;
   } else if ( speciesCount < 100 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-naturalist.png" )} />;
+    profileIcon = <Image source={profileImages[100]} />;
   } else if ( speciesCount >= 100 ) {
-    profileIcon = <Image source={require( "../../assets/profiles/icn-profile-explorer.png" )} />;
+    profileIcon = <Image source={profileImages[101]} />;
   }
 
   return (

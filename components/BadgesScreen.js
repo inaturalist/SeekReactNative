@@ -15,12 +15,8 @@ import badgeImages from "../assets/badges";
 import realmConfig from "../models/index";
 import styles from "../styles/badges";
 
-type Props = {
-  navigation: any
-}
-
 class BadgesScreen extends Component {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
     this.state = {

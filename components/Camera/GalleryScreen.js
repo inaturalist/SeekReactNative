@@ -49,7 +49,6 @@ class GalleryScreen extends Component<Props> {
   }
 
   componentDidMount() {
-    alert( height, "device height" );
     if ( Platform.OS === "android" ) {
       this.requestAndroidPermissions();
     } else {
@@ -106,15 +105,26 @@ class GalleryScreen extends Component<Props> {
     const {
       navigation
     } = this.props;
+    console.log( location, "location in gallery" );
 
-    if ( Object.keys( location ).length !== 0 ) {
-      if ( location.latitude ) {
+    if ( location ) {
+      if ( Object.keys( location ).length !== 0 && location.latitude ) {
         const navParams = {
           id,
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
           longitude: truncateCoordinates( location.longitude ),
+          commonName
+        };
+        navigation.push( "Results", navParams );
+      } else {
+        const navParams = {
+          id,
+          image: imageClicked,
+          time: timestamp,
+          latitude,
+          longitude,
           commonName
         };
         navigation.push( "Results", navParams );

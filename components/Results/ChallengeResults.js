@@ -12,6 +12,7 @@ import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
 
+import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import ChallengeResultsScreen from "./ChallengeResultsScreen";
 import LoadingWheel from "../LoadingWheel";
@@ -101,7 +102,7 @@ class ChallengeResults extends Component<Props> {
     } = this.state;
 
     this.setState( {
-      title: "Good Try!",
+      title: i18n.t( "results.good_try" ),
       subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
       photoText: `Target Species:\n${commonName}`,
       yourPhotoText: `Your Photo:\n${taxaName}`,
@@ -132,7 +133,7 @@ class ChallengeResults extends Component<Props> {
       this.setTaxaAlreadySeen( seenDate );
     } else {
       this.setState( {
-        title: "Sweet!",
+        title: i18n.t( "results.sweet" ),
         subtitle: `You saw a ${taxaName}`,
         text: null,
         match: true,
@@ -147,7 +148,7 @@ class ChallengeResults extends Component<Props> {
     const { taxaName } = this.state;
 
     this.setState( {
-      title: "Deja Vu!",
+      title: i18n.t( "results.deja_vu" ),
       match: true,
       subtitle: `Looks like you already collected a ${taxaName}`,
       text: `You collected a photo of a ${taxaName} on ${seenDate}`,
@@ -170,7 +171,7 @@ class ChallengeResults extends Component<Props> {
       } );
     } else {
       this.setState( {
-        title: "It's a Match!",
+        title: i18n.t( "results.match" ),
         subtitle: `You saw a ${taxaName}`,
         match: true,
         text: null,
@@ -181,7 +182,7 @@ class ChallengeResults extends Component<Props> {
 
   setTaxaUnknown( commonAncestor ) {
     this.setState( {
-      title: "Hrmmmmm",
+      title: i18n.t( "results.hrmmm" ),
       subtitle: commonAncestor ? `We think this is a photo of ${commonAncestor}, but we can't say for sure what species it is.` : "We can't figure this one out. Please try some adjustments.",
       match: "unknown",
       text: "Here are some photo tips:\n\n\u2022 Get as close as possible while being safe\n\u2022 Crop out unimportant parts\n\u2022 Make sure things are in focus",
@@ -332,12 +333,12 @@ class ChallengeResults extends Component<Props> {
           loading: false
         }, () => {
           this.fetchTargetTaxonPhoto();
-          this.fetchSeenTaxaIds( this.state.taxaId );
+          this.fetchSeenTaxaIds( match.taxon.id );
         } );
       } )
       .catch( () => {
         this.setState( {
-          error: "Can't load computer vision suggestions. Try again later."
+          error: i18n.t( "results.computer_vision_error" )
         } );
       } );
   }

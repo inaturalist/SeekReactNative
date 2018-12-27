@@ -8,6 +8,7 @@ import {
   View
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/challenges";
 import { capitalizeNames } from "../../utility/helpers";
 
@@ -29,7 +30,10 @@ const ChallengeHeader = ( {
   taxaType
 }: Props ) => (
   <View style={styles.header}>
-    <Text style={styles.headerText}>Species you&apos;re most likely to see near: </Text>
+    <Text style={styles.headerText}>
+      {i18n.t( "challenges.species_likely" )}
+      {":"}
+    </Text>
     <View style={styles.buttons}>
       <TouchableOpacity
         style={styles.locationChooser}
@@ -41,13 +45,13 @@ const ChallengeHeader = ( {
         } )}
       >
         { loading ? (
-          <Text style={styles.locationChooserText}>Loading...</Text>
+          <Text style={styles.locationChooserText}>{i18n.t( "challenges.loading_location" )}</Text>
         ) : (
           <Text
             style={styles.locationChooserText}
             numberOfLines={1}
             ellipsizeMode="middle"
-          >{location} &#9660;</Text>
+          >{i18n.t( "challenges.location", { defaultValue: "{{location}}", location } )} &#9660;</Text>
         )}
       </TouchableOpacity>
       <TouchableOpacity

@@ -2,6 +2,11 @@
   "species_nearby": {
     "header": "Species nearby"
   },
+  "get_started": {
+    "header": "Get started",
+    "how_to": "Point the Seek camera at plants, animals, & anything else living nearby to learn about the life around you!",
+    "button": "Get started with Seek"
+  },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point"
   },

@@ -7,7 +7,7 @@ import {
 import CameraIcon from "react-native-vector-icons/Entypo";
 
 import i18n from "../../i18n";
-import styles from "../../styles/getStarted";
+import styles from "../../styles/home/getStarted";
 import { colors } from "../../styles/global";
 
 const camera = ( <CameraIcon name="camera" size={25} color={colors.white} /> );

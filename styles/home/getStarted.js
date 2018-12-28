@@ -3,7 +3,7 @@ import {
   colors,
   fonts,
   fontSize
-} from "./global";
+} from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   header: {
-    // marginTop: 43,
+    marginTop: 21,
     marginLeft: 22
   },
   headerText: {
@@ -27,7 +27,7 @@ export default StyleSheet.create( {
   textContainer: {
     marginLeft: 22,
     marginRight: 22,
-    marginTop: 43,
+    marginTop: 21,
     flexDirection: "row",
     flexWrap: "wrap"
   },
@@ -46,8 +46,8 @@ export default StyleSheet.create( {
     borderRadius: 24,
     width: 331,
     height: 48,
-    marginTop: 32,
-    marginBottom: 32,
+    marginTop: 21,
+    marginBottom: 21,
     alignItems: "center",
     justifyContent: "center"
   },

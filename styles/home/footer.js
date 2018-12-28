@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create( {
   container: {
-    height: 107,
+    height: 70,
     justifyContent: "flex-end"
   },
   coloredBar: {

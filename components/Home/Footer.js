@@ -6,7 +6,7 @@ import BellIcon from "react-native-vector-icons/MaterialIcons";
 import MenuIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import CameraIcon from "react-native-vector-icons/Entypo";
 
-import styles from "../../styles/footer";
+import styles from "../../styles/home/footer";
 import { colors } from "../../styles/global";
 
 const notifications = ( <BellIcon name="notifications" size={30} color={colors.white} /> );

@@ -4,7 +4,7 @@ import {
   fonts,
   fontSize,
   padding
-} from "./global";
+} from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -15,7 +15,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   header: {
-    marginTop: 43,
+    marginTop: 21,
     marginLeft: 22
   },
   headerText: {

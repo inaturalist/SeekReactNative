@@ -11,7 +11,7 @@ import { NavigationEvents } from "react-navigation";
 import Icon from "react-native-vector-icons/Entypo";
 
 import i18n from "../../i18n";
-import styles from "../../styles/speciesNearby";
+import styles from "../../styles/home/speciesNearby";
 import { colors } from "../../styles/global";
 import { capitalizeNames } from "../../utility/helpers";
 

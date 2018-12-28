@@ -1,6 +1,7 @@
 {
   "species_nearby": {
-    "header": "Species nearby"
+    "header": "Species nearby",
+    "error": "Sorry, we could not load taxa nearby"
   },
   "get_started": {
     "header": "Get started",

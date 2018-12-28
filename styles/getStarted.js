@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   header: {
-    marginTop: 43,
+    // marginTop: 43,
     marginLeft: 22
   },
   headerText: {
@@ -28,7 +28,6 @@ export default StyleSheet.create( {
     marginLeft: 22,
     marginRight: 22,
     marginTop: 43,
-    marginBottom: 43,
     flexDirection: "row",
     flexWrap: "wrap"
   },

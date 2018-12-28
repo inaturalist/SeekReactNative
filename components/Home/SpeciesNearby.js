@@ -33,56 +33,55 @@ const SpeciesNearby = ( { fetchTaxa, taxa }: Props ) => (
           {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
         </Text>
       </View>
-      <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.greenButton}>
-          <Text style={styles.buttonText}>
-            {locationPin}
-            {" "}
-            Location
-          </Text>
-        </TouchableOpacity>
-        <Picker
-          style={[styles.greenButton, styles.smallGreenButton]}
-          itemStyle={styles.buttonText}
-          mode="dropdown"
-          prompt="All species &#9660;"
-        >
-          <Picker.Item label="All species &#9660;" value="all" />
-          <Picker.Item label="Reptiles &#9660;" value="reptiles" />
-        </Picker>
-      </View>
-    </View>
-    <View style={styles.speciesContainer}>
-      { taxa.length > 0 ? (
-        <FlatList
-          data={ taxa }
-          keyExtractor={ taxon => taxon.id }
-          horizontal
-          renderItem={ ( { item } ) => (
-            <View style={ styles.gridCell }>
-              <TouchableOpacity
-                onPress={ () => console.log( "pressed button" )}
-              >
-                <View style={ styles.gridCellContents }>
+      <View style={styles.speciesContainer}>
+        <View style={styles.buttonRow}>
+          <TouchableOpacity style={styles.greenButton}>
+            <Text style={styles.buttonText}>
+              {locationPin}
+              {" "}
+              Location
+            </Text>
+          </TouchableOpacity>
+          <Picker
+            style={[styles.greenButton, styles.smallGreenButton]}
+            itemStyle={styles.buttonText}
+            mode="dropdown"
+            prompt="All species &#9660;"
+          >
+            <Picker.Item label="All species &#9660;" value="all" />
+            <Picker.Item label="Reptiles &#9660;" value="reptiles" />
+          </Picker>
+        </View>
+        { taxa.length > 0 ? (
+          <FlatList
+            style={styles.taxonContainer}
+            data={taxa}
+            keyExtractor={taxon => `species-${taxon.id}`}
+            horizontal
+            renderItem={ ( { item } ) => (
+              <View style={styles.gridCell}>
+                <TouchableOpacity
+                  onPress={() => console.log( "pressed button" )}
+                >
                   <Image
                     style={styles.cellImage}
-                    source={ { uri: item.default_photo.medium_url } }
+                    source={{ uri: item.default_photo.medium_url }}
                   />
-                  <View style={ styles.cellTitle }>
-                    <Text numberOfLines={2} style={ styles.cellTitleText }>
-                      { capitalizeNames( item.preferred_common_name || item.name ) }
+                  <View style={styles.cellTitle}>
+                    <Text numberOfLines={2} style={styles.cellTitleText}>
+                      {capitalizeNames( item.preferred_common_name || item.name )}
                     </Text>
                   </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          ) }
-        />
-      ) : (
-        <View style={styles.textContainer}>
-          <Text>Sorry, we could not load taxa nearby</Text>
-        </View>
-      )}
+                </TouchableOpacity>
+              </View>
+            ) }
+          />
+        ) : (
+          <View style={styles.textContainer}>
+            <Text>{i18n.t( "species_nearby.error" )}</Text>
+          </View>
+        )}
+      </View>
     </View>
   </View>
 );

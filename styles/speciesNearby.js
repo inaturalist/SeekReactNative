@@ -8,8 +8,7 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    flexGrow: 1
+    flex: 1
   },
   column: {
     flexDirection: "column",
@@ -37,8 +36,7 @@ export default StyleSheet.create( {
     borderRadius: 7,
     width: 203,
     height: 34,
-    marginTop: 32,
-    marginBottom: 32,
+    marginBottom: 21,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -50,16 +48,20 @@ export default StyleSheet.create( {
     color: colors.white
   },
   speciesContainer: {
-    height: 263
+    marginTop: 21,
+    marginBottom: 21,
+    height: 236
+  },
+  taxonContainer: {
+    marginLeft: 22,
+    height: 159
   },
   gridCell: {
     width: 105,
-    height: 138,
-    paddingHorizontal: padding.medium
-  },
-  gridCellContents: {
-    borderRadius: 5,
-    overflow: "hidden"
+    height: 159,
+    paddingHorizontal: padding.medium,
+    alignItems: "center",
+    justifyContent: "center"
   },
   cellImage: {
     width: 90,
@@ -68,25 +70,27 @@ export default StyleSheet.create( {
   },
   cellTitle: {
     height: 34,
-    padding: padding.medium,
+    paddingTop: 10,
+    paddingBottom: 10,
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   cellTitleText: {
+    textAlign: "center",
     color: colors.black,
     fontFamily: fonts.default,
-    fontSize: fontSize.buttonText,
+    fontSize: fontSize.smallText,
     paddingTop: padding.extraSmall
   },
   textContainer: {
     marginLeft: 22,
     marginRight: 22,
-    marginTop: 43,
-    marginBottom: 43,
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "center"
   },
   text: {
     fontFamily: fonts.default,

@@ -15,8 +15,10 @@ type Props = {
 const HomeScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SpeciesNearby />
-    <View style={styles.divider} />
-    <GetStarted />
+    {/* <View style={styles.dividerContainer}>
+      <View style={styles.divider} />
+    </View>
+    <GetStarted /> */}
     <Footer navigation={navigation} />
   </View>
 );

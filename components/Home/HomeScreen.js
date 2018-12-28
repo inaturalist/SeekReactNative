@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { View } from "react-native";
 
@@ -6,12 +8,16 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Footer from "./Footer";
 
-const HomeScreen = () => (
+type Props = {
+  navigation: any
+}
+
+const HomeScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SpeciesNearby />
     <View style={styles.divider} />
     <GetStarted />
-    <Footer />
+    <Footer navigation={navigation} />
   </View>
 );
 

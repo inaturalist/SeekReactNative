@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { View, TouchableOpacity, Text } from "react-native";
 import BellIcon from "react-native-vector-icons/MaterialIcons";
@@ -11,7 +13,18 @@ const notifications = ( <BellIcon name="notifications" size={30} color={colors.w
 const hamburgerMenu = ( <MenuIcon name="menu" size={30} color={colors.white} /> );
 const camera = ( <CameraIcon name="camera" size={40} color={colors.white} /> );
 
-const Footer = () => (
+type Props = {
+  navigation: any
+}
+
+const navParams = {
+  latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
+  longitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
+  id: null,
+  commonName: null
+};
+
+const Footer = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.coloredBar}>
       <TouchableOpacity>
@@ -19,7 +32,7 @@ const Footer = () => (
           {hamburgerMenu}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.push( "Camera", navParams )}>
         <Text>
           {camera}
         </Text>

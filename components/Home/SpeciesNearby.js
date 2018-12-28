@@ -3,7 +3,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Picker
 } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 
@@ -29,9 +30,18 @@ const SpeciesNearby = () => (
             Location
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.greenButton, styles.smallGreenButton]}>
-          <Text style={styles.buttonText}>All species &#9660;</Text>
-        </TouchableOpacity>
+        {/* <TouchableOpacity > */}
+        <Picker
+          style={[styles.greenButton, styles.smallGreenButton]}
+          itemStyle={styles.buttonText}
+          mode="dropdown"
+          prompt="All species &#9660;"
+        >
+          <Picker.Item label="All species &#9660;" value="all" />
+          <Picker.Item label="Reptiles &#9660;" value="reptiles" />
+        </Picker>
+        {/* <Text style={styles.buttonText}>All species &#9660;</Text> */}
+        {/* </TouchableOpacity> */}
       </View>
     </View>
     <ScrollView />

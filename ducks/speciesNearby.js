@@ -5,16 +5,22 @@ import realmConfig from "../models/index";
 import { getPreviousAndNextMonth } from "../utility/helpers";
 
 const SET_TAXA = "seek/species_nearby/SET_TAXA";
+const SET_LOADING = "seek/species_nearby/SET_LOADING";
 
 export default function reducer( state = {
   taxa: [],
   latitude: 0.0,
-  longitude: 0.0
+  longitude: 0.0,
+  loading: false
 }, action ) {
   const newState = Object.assign( { }, state );
   switch ( action.type ) {
     case SET_TAXA:
       newState.taxa = action.taxa;
+      newState.loading = false;
+      break;
+    case SET_LOADING:
+      newState.loading = action.loading;
       break;
     default:
       // nothing
@@ -27,9 +33,16 @@ export const setTaxa = taxa => ( {
   taxa
 } );
 
+export const setLoading = loading => ( {
+  type: SET_LOADING,
+  loading
+} );
+
 export const fetchTaxa = () => {
   console.log( "fetch taxa being called" );
   return ( dispatch ) => {
+    dispatch( setLoading( true ) );
+
     const params = {
       verifiable: true,
       photos: true,

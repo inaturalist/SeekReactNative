@@ -27,7 +27,7 @@ const navParams = {
 const Footer = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.coloredBar}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate( "Menu" )}>
         <Text>
           {hamburgerMenu}
         </Text>

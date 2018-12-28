@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import {
   View,
@@ -12,7 +14,18 @@ import { colors } from "../../styles/global";
 
 const camera = ( <CameraIcon name="camera" size={25} color={colors.white} /> );
 
-const GetStarted = () => (
+const navParams = {
+  latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
+  longitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
+  id: null,
+  commonName: null
+};
+
+type Props = {
+  navigation: any
+}
+
+const GetStarted = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <View style={styles.header}>
@@ -26,7 +39,10 @@ const GetStarted = () => (
         </Text>
       </View>
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.greenButton}>
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => navigation.navigate( "Camera", navParams )}
+        >
           <Text style={styles.buttonText}>
             {i18n.t( "get_started.button" ).toLocaleUpperCase()}
             {" "}

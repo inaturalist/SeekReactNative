@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
 
 import {
   colors,
@@ -9,8 +9,7 @@ import {
 } from "../styles/global";
 
 import SplashScreen from "./SplashScreen";
-import HomeScreen from "./Home/HomeScreen";
-import MainScreen from "./MainScreen";
+import HomeScreen from "../containers/HomeContainer";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import LocationPickerScreen from "./Challenges/LocationPickerScreen";
@@ -22,6 +21,31 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
+import MenuTray from "./Home/MenuTray";
+
+const DrawerNavigatorConfig = {
+  drawerWidth: 100
+  // drawerBackgroundColor: colors.teal,
+  // drawerType: "slide"
+};
+
+const MenuNav = createDrawerNavigator( {
+  Menu: {
+    screen: MenuTray
+  }
+  // YourCollection: {
+  //   screen: YourCollection,
+  //   navigationOptions: ( { navigation } ) => ( {
+  //     headerRight: <AboutTitle navigation={navigation} />
+  //   } )
+  // },
+  // About: {
+  //   screen: AboutScreen,
+  //   navigationOptions: () => ( {
+  //     title: "About"
+  //   } )
+  // }
+}, DrawerNavigatorConfig );
 
 const CameraNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
@@ -57,6 +81,12 @@ const StackNavigatorConfig = {
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Menu: {
+    screen: MenuNav,
     navigationOptions: () => ( {
       header: null
     } )

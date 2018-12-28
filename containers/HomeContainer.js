@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
-import SpeciesNearby from "../components/Home/SpeciesNearby";
+import Home from "../components/Home/HomeScreen";
 import { fetchTaxa } from "../ducks/speciesNearby";
 
 function mapStateToProps( state ) {
-  console.log( state, "state in map state to props" );
+  console.log( state.species_nearby.loading, "state in map state to props" );
   return {
-    taxa: state.species_nearby.taxa
+    taxa: state.species_nearby.taxa,
+    loading: state.species_nearby.loading
   };
 }
 
@@ -15,9 +16,9 @@ function mapDispatchToProps( dispatch ) {
   };
 }
 
-const SpeciesNearbyContainer = connect(
+const HomeContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)( SpeciesNearby );
+)( Home );
 
-export default SpeciesNearbyContainer;
+export default HomeContainer;

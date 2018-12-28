@@ -4,7 +4,7 @@ import React from "react";
 import { View } from "react-native";
 
 import styles from "../../styles/home";
-import SpeciesNearby from "./SpeciesNearby";
+import SpeciesNearby from "../../containers/SpeciesNearbyContainer";
 import GetStarted from "./GetStarted";
 import Footer from "./Footer";
 

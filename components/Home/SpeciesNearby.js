@@ -3,19 +3,30 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
+  FlatList,
+  Image,
   Picker
 } from "react-native";
+import { NavigationEvents } from "react-navigation";
 import Icon from "react-native-vector-icons/Entypo";
 
 import i18n from "../../i18n";
 import styles from "../../styles/speciesNearby";
 import { colors } from "../../styles/global";
+import { capitalizeNames } from "../../utility/helpers";
 
 const locationPin = ( <Icon name="location-pin" size={19} color={colors.white} /> );
 
-const SpeciesNearby = () => (
+type Props = {
+  fetchTaxa: Function,
+  taxa: Array
+}
+
+const SpeciesNearby = ( { fetchTaxa, taxa }: Props ) => (
   <View style={styles.container}>
+    <NavigationEvents
+      onWillFocus={() => fetchTaxa()}
+    />
     <View style={styles.column}>
       <View style={styles.header}>
         <Text style={styles.headerText}>
@@ -30,7 +41,6 @@ const SpeciesNearby = () => (
             Location
           </Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity > */}
         <Picker
           style={[styles.greenButton, styles.smallGreenButton]}
           itemStyle={styles.buttonText}
@@ -40,11 +50,40 @@ const SpeciesNearby = () => (
           <Picker.Item label="All species &#9660;" value="all" />
           <Picker.Item label="Reptiles &#9660;" value="reptiles" />
         </Picker>
-        {/* <Text style={styles.buttonText}>All species &#9660;</Text> */}
-        {/* </TouchableOpacity> */}
       </View>
     </View>
-    <ScrollView />
+    <View style={styles.speciesContainer}>
+      { taxa.length > 0 ? (
+        <FlatList
+          data={ taxa }
+          keyExtractor={ taxon => taxon.id }
+          horizontal
+          renderItem={ ( { item } ) => (
+            <View style={ styles.gridCell }>
+              <TouchableOpacity
+                onPress={ () => console.log( "pressed button" )}
+              >
+                <View style={ styles.gridCellContents }>
+                  <Image
+                    style={styles.cellImage}
+                    source={ { uri: item.default_photo.medium_url } }
+                  />
+                  <View style={ styles.cellTitle }>
+                    <Text numberOfLines={2} style={ styles.cellTitleText }>
+                      { capitalizeNames( item.preferred_common_name || item.name ) }
+                    </Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            </View>
+          ) }
+        />
+      ) : (
+        <View style={styles.textContainer}>
+          <Text>Sorry, we could not load taxa nearby</Text>
+        </View>
+      )}
+    </View>
   </View>
 );
 

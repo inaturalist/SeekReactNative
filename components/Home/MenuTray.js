@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/home/menu";
+import logoImages from "../../assets/logos";
 
 type Props = {
   navigation: any
@@ -18,7 +19,7 @@ const MenuTray = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <View style={styles.textContainer}>
-        <Image source={require( "../../assets/logos/logo-seek-splash.png" )} />
+        <Image source={logoImages.seek} />
         <TouchableOpacity
           onPress={() => navigation.navigate( "Main" )}
         >

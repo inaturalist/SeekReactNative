@@ -8,6 +8,12 @@
     "how_to": "Point the Seek camera at plants, animals, & anything else living nearby to learn about the life around you!",
     "button": "Get started with Seek"
   },
+  "login": {
+    "log_in": "Log in with iNaturalist",
+    "sign_up": "Sign up with iNaturalist",
+    "or": "or",
+    "skip_login": "Continue without logging in"
+  },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point"
   },

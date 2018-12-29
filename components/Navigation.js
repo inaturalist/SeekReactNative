@@ -22,6 +22,7 @@ import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
 import MenuTray from "./Home/MenuTray";
+import LoginScreen from "./Login/LoginScreen";
 
 const DrawerNavigatorConfig = {
   drawerWidth: 100
@@ -87,6 +88,12 @@ const RootStack = createStackNavigator( {
   },
   Menu: {
     screen: MenuNav,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Login: {
+    screen: LoginScreen,
     navigationOptions: () => ( {
       header: null
     } )

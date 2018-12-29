@@ -9,12 +9,13 @@ import {
 } from "react-native";
 
 import styles from "../styles/splash";
+import logoImages from "../assets/logos";
 
 type Props = {
   navigation: any
 }
 
-class SplashScreen extends Component<Props> { 
+class SplashScreen extends Component<Props> {
   componentDidMount() {
     this.transitionScreen();
   }
@@ -22,7 +23,7 @@ class SplashScreen extends Component<Props> {
   transitionScreen() {
     const { navigation } = this.props;
 
-    setTimeout( () => navigation.navigate( "Main" ), 2000 );
+    setTimeout( () => navigation.navigate( "Login" ), 2000 );
   }
 
   render() {
@@ -33,7 +34,7 @@ class SplashScreen extends Component<Props> {
           source={require( "../assets/backgrounds/splash.png" )}
         >
           <Text style={styles.text}>Backyard Wilderness presents:</Text>
-          <Image source={require( "../assets/logos/logo-seek-splash.png" )} />
+          <Image source={logoImages.seek} />
         </ImageBackground>
       </View>
     );

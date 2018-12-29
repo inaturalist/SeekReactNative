@@ -9,7 +9,5 @@ export default StyleSheet.create( {
     height: 2,
     marginLeft: 22,
     marginRight: 22
-    // marginTop: 22,
-    // marginBottom: 22
   }
 } );

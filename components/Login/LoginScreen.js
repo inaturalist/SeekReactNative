@@ -21,22 +21,24 @@ const LoginScreen = ( { navigation }: Props ) => (
     <View style={styles.column}>
       <Image source={logoImages.seek} />
       <TouchableOpacity>
-        <Text>
+        <Text style={styles.text}>
           {i18n.t( "login.log_in" )}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Text>
+      <TouchableOpacity
+        onPress={() => navigation.navigate( "Age" )}
+      >
+        <Text style={styles.text}>
           {i18n.t( "login.sign_up" )}
         </Text>
       </TouchableOpacity>
-      <Text>
+      <Text style={styles.text}>
         {i18n.t( "login.or" ).toLocaleUpperCase()}
       </Text>
       <TouchableOpacity
         onPress={() => navigation.navigate( "Main" )}
       >
-        <Text>
+        <Text style={styles.text}>
           {i18n.t( "login.skip_login" )}
         </Text>
       </TouchableOpacity>

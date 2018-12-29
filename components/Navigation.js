@@ -23,6 +23,7 @@ import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
 import MenuTray from "./Home/MenuTray";
 import LoginScreen from "./Login/LoginScreen";
+import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 
 const DrawerNavigatorConfig = {
   drawerWidth: 100
@@ -94,6 +95,12 @@ const RootStack = createStackNavigator( {
   },
   Login: {
     screen: LoginScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Age: {
+    screen: AgeVerifyScreen,
     navigationOptions: () => ( {
       header: null
     } )

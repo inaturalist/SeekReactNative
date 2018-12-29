@@ -12,7 +12,11 @@
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up with iNaturalist",
     "or": "or",
-    "skip_login": "Continue without logging in"
+    "skip_login": "Continue without logging in",
+    "enter_birthday": "Enter your birthday",
+    "permission": "You need to be 13 or have parent's permission to make an account",
+    "privacy": "Privacy policy",
+    "continue": "Continue"
   },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point"

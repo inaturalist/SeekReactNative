@@ -33,7 +33,7 @@ class HomeScreen extends Component<Props> {
         /> */}
         <View style={styles.container}>
           <ScrollView>
-            <SpeciesNearby taxa={taxa} loading={loading} />
+            <SpeciesNearby taxa={taxa} loading={loading} navigation={navigation} />
             <View style={styles.divider} />
             <GetStarted navigation={navigation} />
           </ScrollView>

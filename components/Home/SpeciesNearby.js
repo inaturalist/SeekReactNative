@@ -20,10 +20,11 @@ const locationPin = ( <Icon name="location-pin" size={19} color={colors.white} /
 
 type Props = {
   taxa: Array,
-  loading: boolean
+  loading: boolean,
+  navigation: any
 }
 
-const SpeciesNearby = ( { taxa, loading }: Props ) => {
+const SpeciesNearby = ( { taxa, loading, navigation }: Props ) => {
   let species;
 
   console.log( loading, taxa, "props in species nearby" );
@@ -40,7 +41,15 @@ const SpeciesNearby = ( { taxa, loading }: Props ) => {
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity
-              onPress={() => console.log( "pressed button" )}
+              onPress={ () => navigation.push( "Species", {
+                id: item.id,
+                latitude: null,
+                longitude: null,
+                location: null,
+                seen: false,
+                commonName: capitalizeNames( item.preferred_common_name ),
+                scientificName: item.name
+              } ) }
             >
               <Image
                 style={styles.cellImage}

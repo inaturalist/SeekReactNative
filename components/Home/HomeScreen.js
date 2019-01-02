@@ -46,31 +46,18 @@ class HomeScreen extends Component<Props> {
       taxa: [],
       taxaType,
       taxaName,
-      id
+      id,
+      loading: false
     };
   }
 
-  // componentWillMount() {
-  //   this.fetchUserLocation();
-  // }
+  setLoading( loading ) {
+    this.setState( { loading } );
+  }
 
   setTaxa( taxa ) {
     this.setState( { taxa } );
-  }
-
-  fetchUserLatAndLng() {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
-      this.reverseGeocodeLocation( latitude, longitude );
-
-      this.setState( {
-        latitude,
-        longitude
-      }, () => this.checkRealmForSpecies( latitude, longitude ) );
-    }, ( err ) => {
-      // console.log( err.message );
-    } );
+    this.setLoading( false );
   }
 
   requestAndroidPermissions = async () => {
@@ -86,6 +73,21 @@ class HomeScreen extends Component<Props> {
     } catch ( err ) {
       // this.showError( err );
     }
+  }
+
+  fetchUserLatAndLng() {
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      const latitude = truncateCoordinates( position.coords.latitude );
+      const longitude = truncateCoordinates( position.coords.longitude );
+      this.reverseGeocodeLocation( latitude, longitude );
+
+      this.setState( {
+        latitude,
+        longitude
+      }, () => this.checkRealmForSpecies( latitude, longitude ) );
+    }, ( err ) => {
+      // console.log( err.message );
+    } );
   }
 
   fetchUserLocation() {
@@ -116,6 +118,7 @@ class HomeScreen extends Component<Props> {
 
   checkRealmForSpecies( lat, lng ) {
     const { taxaType } = this.state;
+    this.setLoading( true );
 
     const params = {
       verifiable: true,
@@ -162,17 +165,17 @@ class HomeScreen extends Component<Props> {
       location,
       latitude,
       longitude,
+      loading,
       taxa,
       taxaType
     } = this.state;
-    const { loading, navigation } = this.props;
+    const { navigation } = this.props;
     console.log( this.props, "props in home screen" );
-    // console.log( location, latitude, longitude, "state in home screen" );
 
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-        <NavigationEvents
+          <NavigationEvents
             onWillFocus={() => {
               this.fetchUserLocation();
             }}

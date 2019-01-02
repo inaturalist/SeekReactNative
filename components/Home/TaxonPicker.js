@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -25,9 +25,13 @@ const pickerSelectStyles = StyleSheet.create( {
   }
 } );
 
-class TaxonPicker extends React.Component {
-  constructor( props ) {
-    super( props );
+type Props = {
+  updateTaxaType: Function
+}
+
+class TaxonPicker extends Component<Props> {
+  constructor( { updateTaxaType }: Props ) {
+    super();
 
     this.inputRefs = {};
 
@@ -84,6 +88,8 @@ class TaxonPicker extends React.Component {
 
   render() {
     const { types, taxonType } = this.state;
+    const { updateTaxaType } = this.props;
+
     return (
       <View>
         <RNPickerSelect
@@ -93,7 +99,7 @@ class TaxonPicker extends React.Component {
           onValueChange={( value ) => {
             this.setState( {
               taxonType: value
-            } );
+            }, () => updateTaxaType( value ) );
           }}
           onUpArrow={() => {
             this.inputRefs.picker.togglePicker();

@@ -24,7 +24,7 @@ type Props = {
   navigation: any,
   // fetchTaxa: Function,
   // taxa: Array,
-  loading: boolean
+  // loading: boolean
 }
 
 class HomeScreen extends Component<Props> {
@@ -49,6 +49,8 @@ class HomeScreen extends Component<Props> {
       id,
       loading: false
     };
+
+    this.updateTaxaType = this.updateTaxaType.bind( this );
   }
 
   setLoading( loading ) {
@@ -73,6 +75,13 @@ class HomeScreen extends Component<Props> {
     } catch ( err ) {
       // this.showError( err );
     }
+  }
+
+  updateTaxaType( taxaType ) {
+    const { latitude, longitude } = this.state;
+    this.setState( {
+      taxaType
+    }, () => this.checkRealmForSpecies( latitude, longitude ) );
   }
 
   fetchUserLatAndLng() {
@@ -170,7 +179,7 @@ class HomeScreen extends Component<Props> {
       taxaType
     } = this.state;
     const { navigation } = this.props;
-    console.log( this.props, "props in home screen" );
+    // console.log( this.props, "props in home screen" );
 
     return (
       <View style={styles.container}>
@@ -189,6 +198,7 @@ class HomeScreen extends Component<Props> {
               latitude={latitude}
               longitude={longitude}
               taxaType={taxaType}
+              updateTaxaType={this.updateTaxaType}
             />
             <View style={styles.divider} />
             <GetStarted navigation={navigation} />

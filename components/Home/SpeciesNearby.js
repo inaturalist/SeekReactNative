@@ -4,17 +4,15 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  Image,
-  Picker
+  Image
 } from "react-native";
-// import RNPickerSelect from "react-native-picker-select";
 import Icon from "react-native-vector-icons/Entypo";
-import TaxonPicker from "./TaxonPicker";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
 import { colors } from "../../styles/global";
 import LoadingWheel from "../LoadingWheel";
+import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
 
 const locationPin = ( <Icon name="location-pin" size={19} color={colors.white} /> );
@@ -26,7 +24,8 @@ type Props = {
   location: string,
   taxaType: string,
   latitude: number,
-  longitude: number
+  longitude: number,
+  updateTaxaType: Function
 }
 
 const SpeciesNearby = ( {
@@ -36,7 +35,8 @@ const SpeciesNearby = ( {
   location,
   latitude,
   longitude,
-  taxaType
+  taxaType,
+  updateTaxaType
 }: Props ) => {
   let species;
 
@@ -109,7 +109,7 @@ const SpeciesNearby = ( {
                 {location}
               </Text>
             </TouchableOpacity>
-            <TaxonPicker />
+            <TaxonPicker updateTaxaType={updateTaxaType} />
           </View>
           {species}
         </View>

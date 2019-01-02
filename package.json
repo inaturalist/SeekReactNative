@@ -27,6 +27,7 @@
     "react-native-jwt-io": "^1.0.3",
     "react-native-languages": "^3.0.1",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
+    "react-native-picker-select": "^5.2.0",
     "react-native-svg": "^6.3.1",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",

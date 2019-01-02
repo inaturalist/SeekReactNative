@@ -7,7 +7,9 @@ import {
   Image,
   Picker
 } from "react-native";
+// import RNPickerSelect from "react-native-picker-select";
 import Icon from "react-native-vector-icons/Entypo";
+import TaxonPicker from "./TaxonPicker";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
@@ -107,15 +109,7 @@ const SpeciesNearby = ( {
                 {location}
               </Text>
             </TouchableOpacity>
-            <Picker
-              style={[styles.greenButton, styles.smallGreenButton]}
-              itemStyle={styles.buttonText}
-              mode="dropdown"
-              prompt="All species &#9660;"
-            >
-              <Picker.Item label="All species &#9660;" value="all" />
-              <Picker.Item label="Reptiles &#9660;" value="reptiles" />
-            </Picker>
+            <TaxonPicker />
           </View>
           {species}
         </View>

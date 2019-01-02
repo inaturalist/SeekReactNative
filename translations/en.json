@@ -22,6 +22,19 @@
     "looking_50_mile": "Looking for species in a 50 mile radius around this point",
     "done": "Done"
   },
+  "taxon_picker": {
+    "all": "All species",
+    "plants": "plants",
+    "amphibians": "amphibians",
+    "fungi": "fungi",
+    "fish": "fish",
+    "reptiles": "reptiles",
+    "arachnids": "arachnids",
+    "birds": "birds",
+    "insects": "insects",
+    "mollusks": "mollusks",
+    "mammals": "mammals"
+  },
   "challenges": {
     "current_location": "{{location}}",
     "loading_location": "Loading...",

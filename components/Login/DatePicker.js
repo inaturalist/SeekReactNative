@@ -21,6 +21,7 @@ class DatePicker extends Component {
   }
 
   setDate( newDate ) {
+    console.log( newDate, "new date" );
     this.setState( {
       chosenDate: newDate
     } );
@@ -40,7 +41,9 @@ class DatePicker extends Component {
       } );
       if ( action !== DatePickerAndroid.dismissedAction ) {
         console.log( year, month, day, "ymd" );
-        this.setDate( new Date( year, month, day ) );
+        const userBirthday = new Date( year, month, day );
+        console.log( userBirthday, "user birthday" );
+        this.setDate( userBirthday );
       }
     } catch ( { code, message } ) {
       console.warn( "Cannot open date picker", message );

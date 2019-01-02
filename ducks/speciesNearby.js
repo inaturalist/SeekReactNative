@@ -38,7 +38,7 @@ export const setLoading = loading => ( {
   loading
 } );
 
-export const fetchTaxa = () => {
+export const fetchTaxa = ( lat, lng ) => {
   console.log( "fetch taxa being called" );
   return ( dispatch ) => {
     dispatch( setLoading( true ) );
@@ -47,8 +47,8 @@ export const fetchTaxa = () => {
       verifiable: true,
       photos: true,
       per_page: 9,
-      // lat,
-      // lng,
+      lat,
+      lng,
       radius: 50,
       threatened: false,
       oauth_application_id: "2,3",

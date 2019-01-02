@@ -5,8 +5,7 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
-  Picker,
-  TouchableHighlight
+  Picker
 } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 
@@ -21,10 +20,22 @@ const locationPin = ( <Icon name="location-pin" size={19} color={colors.white} /
 type Props = {
   taxa: Array,
   loading: boolean,
-  navigation: any
+  navigation: any,
+  location: string,
+  taxaType: string,
+  latitude: number,
+  longitude: number
 }
 
-const SpeciesNearby = ( { taxa, loading, navigation }: Props ) => {
+const SpeciesNearby = ( {
+  taxa,
+  loading,
+  navigation,
+  location,
+  latitude,
+  longitude,
+  taxaType
+}: Props ) => {
   let species;
 
   console.log( loading, taxa, "props in species nearby" );
@@ -83,11 +94,19 @@ const SpeciesNearby = ( { taxa, loading, navigation }: Props ) => {
         </View>
         <View style={styles.speciesContainer}>
           <View style={styles.buttonRow}>
-            <TouchableOpacity style={styles.greenButton}>
+            <TouchableOpacity
+              style={styles.greenButton}
+              onPress={() => navigation.push( "Location", {
+                taxaType,
+                longitude,
+                latitude,
+                location
+              } )}
+            >
               <Text style={styles.buttonText}>
                 {locationPin}
                 {" "}
-                Location
+                {location}
               </Text>
             </TouchableOpacity>
             <Picker

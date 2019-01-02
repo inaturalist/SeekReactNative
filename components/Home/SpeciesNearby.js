@@ -38,8 +38,6 @@ const SpeciesNearby = ( {
 }: Props ) => {
   let species;
 
-  console.log( loading, taxa, "props in species nearby" );
-
   if ( loading ) {
     species = <LoadingWheel />;
   } else if ( taxa.length > 0 ) {

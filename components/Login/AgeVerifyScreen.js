@@ -29,7 +29,13 @@ const AgeVerifyScreen = ( { navigation }: Props ) => (
         {i18n.t( "login.privacy" )}
       </Text>
       <TouchableOpacity
-        onPress={() => navigation.navigate( "Main" )}
+        onPress={() => navigation.navigate( "Main", {
+          taxaName: null,
+          id: null,
+          taxaType: "all",
+          latitude: null,
+          longitude: null
+        } )}
       >
         <Text style={styles.text}>
           {i18n.t( "login.continue" )}

@@ -21,7 +21,13 @@ const MenuTray = ( { navigation }: Props ) => (
       <View style={styles.textContainer}>
         <Image source={logoImages.seek} />
         <TouchableOpacity
-          onPress={() => navigation.navigate( "Main" )}
+          onPress={() => navigation.navigate( "Main", {
+            taxaName: null,
+            id: null,
+            taxaType: "all",
+            latitude: null,
+            longitude: null
+          } )}
         >
           <Text style={styles.text}>Home</Text>
         </TouchableOpacity>

@@ -39,8 +39,8 @@ class LocationPickerScreen extends Component<Props> {
       userLongitude: longitude,
       userLocation: location,
       location,
-      taxaType,
-      error: null
+      taxaType
+      // error: null
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -66,9 +66,9 @@ class LocationPickerScreen extends Component<Props> {
         userLocation: this.reverseGeocodeLocation( latitude, longitude )
       } );
     }, ( err ) => {
-      this.setState( {
-        error: `Couldn't fetch your current location: ${err.message}.`
-      } );
+      // this.setState( {
+      //   error: `Couldn't fetch your current location: ${err.message}.`
+      // } );
     } );
   }
 
@@ -84,9 +84,9 @@ class LocationPickerScreen extends Component<Props> {
         location: locality || subAdminArea
       } );
     } ).catch( ( err ) => {
-      this.setState( {
-        error: err.message
-      } );
+      // this.setState( {
+      //   error: err.message
+      // } );
     } );
   }
 
@@ -125,7 +125,7 @@ class LocationPickerScreen extends Component<Props> {
           />
         </View>
         <Button
-          buttonText="Done"
+          buttonText={i18n.t( "location_picker.done" )}
           navigation={navigation}
           green
           navParams={{

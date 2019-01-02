@@ -8,13 +8,17 @@ import {
   PermissionsAndroid
 } from "react-native";
 import Geocoder from "react-native-geocoder";
+import Realm from "realm";
 import inatjs from "inaturalistjs";
+import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Footer from "./Footer";
-import { truncateCoordinates } from "../../utility/helpers";
+import { truncateCoordinates, getPreviousAndNextMonth } from "../../utility/helpers";
+import taxonIds from "../../utility/taxonDict";
+import realmConfig from "../../models/index";
 
 type Props = {
   navigation: any,
@@ -24,27 +28,37 @@ type Props = {
 }
 
 class HomeScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
+    const {
+      taxaName,
+      id,
+      taxaType,
+      latitude,
+      longitude
+    } = navigation.state.params;
+
     this.state = {
-      latitude: null,
-      longitude: null,
+      latitude,
+      longitude,
       location: null,
       taxa: [],
-      taxaType: null
+      taxaType,
+      taxaName,
+      id
     };
   }
 
-  componentWillMount() {
-    this.fetchUserLocation();
-  }
+  // componentWillMount() {
+  //   this.fetchUserLocation();
+  // }
 
   setTaxa( taxa ) {
     this.setState( { taxa } );
   }
 
-  getGeolocation() {
+  fetchUserLatAndLng() {
     navigator.geolocation.getCurrentPosition( ( position ) => {
       const latitude = truncateCoordinates( position.coords.latitude );
       const longitude = truncateCoordinates( position.coords.longitude );
@@ -53,9 +67,9 @@ class HomeScreen extends Component<Props> {
       this.setState( {
         latitude,
         longitude
-      }, () => this.fetchSpeciesNearby( latitude, longitude ) );
+      }, () => this.checkRealmForSpecies( latitude, longitude ) );
     }, ( err ) => {
-      console.log( err.message );
+      // console.log( err.message );
     } );
   }
 
@@ -65,7 +79,7 @@ class HomeScreen extends Component<Props> {
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
       );
       if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.getGeolocation();
+        this.fetchUserLatAndLng();
       // } else {
       //   // this.showError( JSON.stringify( granted ) );
       }
@@ -81,10 +95,11 @@ class HomeScreen extends Component<Props> {
       if ( Platform.OS === "android" ) {
         this.requestAndroidPermissions();
       } else {
-        this.getGeolocation();
+        this.fetchUserLatAndLng();
       }
     } else {
       this.reverseGeocodeLocation( latitude, longitude );
+      this.checkRealmForSpecies( latitude, longitude );
     }
   }
 
@@ -95,8 +110,40 @@ class HomeScreen extends Component<Props> {
         location: locality || subAdminArea
       } );
     } ).catch( ( err ) => {
-      console.log( err );
+      // console.log( err );
     } );
+  }
+
+  checkRealmForSpecies( lat, lng ) {
+    const { taxaType } = this.state;
+
+    const params = {
+      verifiable: true,
+      photos: true,
+      per_page: 9,
+      lat,
+      lng,
+      radius: 50,
+      threatened: false,
+      oauth_application_id: "2,3",
+      hrank: "species",
+      include_only_vision_taxa: true,
+      not_in_list_id: 945029,
+      month: getPreviousAndNextMonth()
+    };
+
+    if ( taxonIds[taxaType] ) {
+      params.taxon_id = taxonIds[taxaType];
+    }
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        params.without_taxon_id = existingTaxonIds.join( "," );
+        this.fetchSpeciesNearby( params );
+      } ).catch( ( err ) => {
+        this.fetchSpeciesNearby( params );
+      } );
   }
 
   fetchSpeciesNearby( params ) {
@@ -119,12 +166,17 @@ class HomeScreen extends Component<Props> {
       taxaType
     } = this.state;
     const { loading, navigation } = this.props;
-    // console.log( this.props, "props in home screen" );
+    console.log( this.props, "props in home screen" );
     // console.log( location, latitude, longitude, "state in home screen" );
 
     return (
       <View style={styles.container}>
         <View style={styles.container}>
+        <NavigationEvents
+            onWillFocus={() => {
+              this.fetchUserLocation();
+            }}
+          />
           <ScrollView>
             <SpeciesNearby
               taxa={taxa}

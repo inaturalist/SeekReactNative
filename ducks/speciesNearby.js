@@ -39,7 +39,6 @@ export const setLoading = loading => ( {
 } );
 
 export const fetchTaxa = ( lat, lng ) => {
-  console.log( "fetch taxa being called" );
   return ( dispatch ) => {
     dispatch( setLoading( true ) );
 

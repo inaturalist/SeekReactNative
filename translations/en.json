@@ -19,7 +19,8 @@
     "continue": "Continue"
   },
   "location_picker": {
-    "looking_50_mile": "Looking for species in a 50 mile radius around this point"
+    "looking_50_mile": "Looking for species in a 50 mile radius around this point",
+    "done": "Done"
   },
   "challenges": {
     "current_location": "{{location}}",

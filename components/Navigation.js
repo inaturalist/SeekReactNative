@@ -13,7 +13,6 @@ import HomeScreen from "../containers/HomeContainer";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import LocationPickerScreen from "./Challenges/LocationPickerScreen";
-import TaxonPickerScreen from "./Challenges/TaxonPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";
@@ -119,13 +118,6 @@ const RootStack = createStackNavigator( {
   },
   Location: {
     screen: LocationPickerScreen,
-    navigationOptions: () => ( {
-      header: null,
-      gesturesEnabled: false
-    } )
-  },
-  Taxon: {
-    screen: TaxonPickerScreen,
     navigationOptions: () => ( {
       header: null,
       gesturesEnabled: false

@@ -19,14 +19,14 @@ const AgeVerifyScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <Text style={styles.text}>
-        {i18n.t( "login.enter_birthday" )}
+        {i18n.t( "inat_signup.enter_birthday" )}
       </Text>
       <Text style={styles.text}>
-        {i18n.t( "login.permission" )}
+        {i18n.t( "inat_signup.permission" )}
       </Text>
-      <DatePicker />
+      <DatePicker navigation={navigation} />
       <Text style={styles.text}>
-        {i18n.t( "login.privacy" )}
+        {i18n.t( "inat_signup.privacy" )}
       </Text>
       <TouchableOpacity
         onPress={() => navigation.navigate( "Main", {
@@ -38,7 +38,7 @@ const AgeVerifyScreen = ( { navigation }: Props ) => (
         } )}
       >
         <Text style={styles.text}>
-          {i18n.t( "login.continue" )}
+          {i18n.t( "inat_signup.continue" )}
         </Text>
       </TouchableOpacity>
     </View>

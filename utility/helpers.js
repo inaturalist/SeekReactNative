@@ -2,6 +2,7 @@ const { FileUpload } = require( "inaturalistjs" );
 const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
+const moment = require( "moment" );
 
 const badgesDict = require( "./badgesDict" );
 const realmConfig = require( "../models/index" );
@@ -153,6 +154,15 @@ const getPreviousAndNextMonth = () => {
   return [month - 1, month, month + 1];
 };
 
+const requiresParent = ( birthday ) => {
+  const today = moment().format( "YYYY-MM-DD" );
+  const thirteen = moment( today ).subtract( 13, "year" ).format( "YYYY-MM-DD" );
+  if ( moment( birthday ).isAfter( thirteen ) ) {
+    return true;
+  }
+  return false;
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -161,5 +171,6 @@ export {
   reverseGeocodeLocation,
   setupBadges,
   truncateCoordinates,
-  getPreviousAndNextMonth
+  getPreviousAndNextMonth,
+  requiresParent
 };

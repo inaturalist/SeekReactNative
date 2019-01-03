@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from "react";
 import {
   DatePickerIOS,
@@ -8,8 +10,13 @@ import {
 } from "react-native";
 
 import styles from "../../styles/login/login";
+import { requiresParent } from "../../utility/helpers";
 
-class DatePicker extends Component {
+type Props = {
+  navigation: any
+}
+
+class DatePicker extends Component<Props> {
   constructor() {
     super();
 
@@ -21,7 +28,12 @@ class DatePicker extends Component {
   }
 
   setDate( newDate ) {
-    console.log( newDate, "new date" );
+    const { navigation } = this.props;
+    if ( requiresParent( newDate ) ) {
+      navigation.navigate( "Parent" );
+    } else {
+      navigation.navigate( "Main" );
+    }
     this.setState( {
       chosenDate: newDate
     } );
@@ -40,9 +52,7 @@ class DatePicker extends Component {
         mode: "spinner"
       } );
       if ( action !== DatePickerAndroid.dismissedAction ) {
-        console.log( year, month, day, "ymd" );
         const userBirthday = new Date( year, month, day );
-        console.log( userBirthday, "user birthday" );
         this.setDate( userBirthday );
       }
     } catch ( { code, message } ) {

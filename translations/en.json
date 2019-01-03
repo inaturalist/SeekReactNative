@@ -12,11 +12,16 @@
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up with iNaturalist",
     "or": "or",
-    "skip_login": "Continue without logging in",
+    "skip_login": "Continue without logging in"
+  },
+  "inat_signup": {
     "enter_birthday": "Enter your birthday",
     "permission": "You need to be 13 or have parent's permission to make an account",
     "privacy": "Privacy policy",
-    "continue": "Continue"
+    "continue": "Continue",
+    "need_permission": "We need your parents' permission.",
+    "email": "Please enter your parent's email",
+    "send_email": "Send email"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account.",

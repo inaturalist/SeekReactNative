@@ -20,7 +20,9 @@ const LoginScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <Image source={logoImages.seek} />
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate( "iNatLogin" )}
+      >
         <Text style={styles.text}>
           {i18n.t( "login.log_in" )}
         </Text>

@@ -15,7 +15,7 @@ type Props = {
   navigation: any
 }
 
-const MenuTray = ( { navigation }: Props ) => (
+const SideMenu = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <View style={styles.textContainer}>
@@ -32,9 +32,14 @@ const MenuTray = ( { navigation }: Props ) => (
           <Text style={styles.text}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => navigation.navigate( "Badges" )}
+        >
+          <Text style={styles.text}>Profile & Badges</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={() => navigation.navigate( "YourCollection" )}
         >
-          <Text style={styles.text}>Your Collection</Text>
+          <Text style={styles.text}>Observations</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate( "About" )}
@@ -46,4 +51,4 @@ const MenuTray = ( { navigation }: Props ) => (
   </View>
 );
 
-export default MenuTray;
+export default SideMenu;

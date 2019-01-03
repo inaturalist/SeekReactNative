@@ -27,6 +27,9 @@ export default StyleSheet.create( {
   },
   inputField: {
     width: 200,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1
   }
 } );

@@ -204,7 +204,11 @@ class HomeScreen extends Component<Props> {
             <GetStarted navigation={navigation} />
           </ScrollView>
         </View>
-        <Footer navigation={navigation} />
+        <Footer
+          navigation={navigation}
+          latitude={latitude}
+          longitude={longitude}
+        />
       </View>
     );
   }

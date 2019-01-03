@@ -14,17 +14,12 @@ const hamburgerMenu = ( <MenuIcon name="menu" size={30} color={colors.white} /> 
 const camera = ( <CameraIcon name="camera" size={40} color={colors.white} /> );
 
 type Props = {
-  navigation: any
+  navigation: any,
+  latitude: number,
+  longitude: number
 }
 
-const navParams = {
-  latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
-  longitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
-  id: null,
-  commonName: null
-};
-
-const Footer = ( { navigation }: Props ) => (
+const Footer = ( { navigation, latitude, longitude }: Props ) => (
   <View style={styles.container}>
     <View style={styles.coloredBar}>
       <TouchableOpacity onPress={() => navigation.navigate( "Menu" )}>
@@ -32,7 +27,13 @@ const Footer = ( { navigation }: Props ) => (
           {hamburgerMenu}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.push( "Camera", navParams )}>
+      <TouchableOpacity onPress={() => navigation.push( "Camera", {
+        latitude,
+        longitude,
+        id: null,
+        commonName: null
+      } )}
+      >
         <Text>
           {camera}
         </Text>

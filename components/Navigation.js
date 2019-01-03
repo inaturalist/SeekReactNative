@@ -20,35 +20,19 @@ import BadgesScreen from "./BadgesScreen";
 import AboutScreen from "./AboutScreen";
 import AboutTitle from "./AboutTitle";
 import BadgesTitle from "./BadgesTitle";
-import MenuTray from "./Home/MenuTray";
+import SideMenu from "./Home/SideMenu";
 import LoginScreen from "./Login/LoginScreen";
 import AgeVerifyScreen from "./Login/AgeVerifyScreen";
+import iNatLoginScreen from "./Login/iNatLoginScreen";
+import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 
-const DrawerNavigatorConfig = {
-  drawerWidth: 100
-  // drawerBackgroundColor: colors.teal,
-  // drawerType: "slide"
-};
-
-const MenuNav = createDrawerNavigator( {
+const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
-    screen: MenuTray
+    screen: SideMenu
   }
-  // YourCollection: {
-  //   screen: YourCollection,
-  //   navigationOptions: ( { navigation } ) => ( {
-  //     headerRight: <AboutTitle navigation={navigation} />
-  //   } )
-  // },
-  // About: {
-  //   screen: AboutScreen,
-  //   navigationOptions: () => ( {
-  //     title: "About"
-  //   } )
-  // }
-}, DrawerNavigatorConfig );
+} );
 
-const CameraNav = createBottomTabNavigator( {
+const CameraTabNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
   PHOTOS: { screen: Gallery }
 }, {
@@ -87,7 +71,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Menu: {
-    screen: MenuNav,
+    screen: MenuDrawerNav,
     navigationOptions: () => ( {
       header: null
     } )
@@ -104,6 +88,12 @@ const RootStack = createStackNavigator( {
       header: null
     } )
   },
+  iNatLogin: {
+    screen: iNatLoginScreen
+  },
+  Forgot: {
+    screen: ForgotPasswordScreen
+  },
   Main: {
     screen: HomeScreen,
     navigationOptions: () => ( {
@@ -111,7 +101,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Camera: {
-    screen: CameraNav,
+    screen: CameraTabNav,
     navigationOptions: () => ( {
       header: null
     } )

@@ -18,6 +18,15 @@
     "privacy": "Privacy policy",
     "continue": "Continue"
   },
+  "inat_login": {
+    "log_in_with_inat": "Log in with your iNaturalist account.",
+    "username": "username",
+    "password": "password",
+    "forgot_password": "forgot your password?",
+    "log_in": "Log in",
+    "no_worries": "No worries, we'll email you a link to reset it.",
+    "reset": "Reset my password"
+  },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point",
     "done": "Done"

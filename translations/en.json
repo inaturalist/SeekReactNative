@@ -21,7 +21,14 @@
     "continue": "Continue",
     "need_permission": "We need your parents' permission.",
     "email": "Please enter your parent's email",
-    "send_email": "Send email"
+    "send_email": "Send email",
+    "sign_up": "Sign up for iNaturalist",
+    "enter_email": "email",
+    "username": "username",
+    "password": "password",
+    "release_photos": "Yes, release my photos so scientists can use my data",
+    "data_usage": "How Seek + iNat use my data",
+    "create_account": "Create my account"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account.",

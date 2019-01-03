@@ -13,9 +13,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "space-around"
   },
-  textContainer: {
-    marginBottom: 22
-  },
   text: {
     fontFamily: fonts.semibold,
     fontSize: 23,
@@ -23,6 +20,11 @@ export default StyleSheet.create( {
     color: colors.white,
     marginLeft: 22,
     marginRight: 22
+  },
+  darkText: {
+    color: colors.black,
+    fontSize: 20,
+    textAlign: "center"
   },
   datePickerContainer: {
     justifyContent: "center"

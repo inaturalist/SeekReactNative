@@ -26,6 +26,7 @@ import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 import iNatLoginScreen from "./Login/iNatLoginScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import ParentalConsentScreen from "./Login/ParentalConsentScreen";
+import SignUpScreen from "./Login/SignUpScreen";
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
@@ -97,6 +98,9 @@ const RootStack = createStackNavigator( {
   },
   Parent: {
     screen: ParentalConsentScreen
+  },
+  Signup: {
+    screen: SignUpScreen
   },
   Main: {
     screen: HomeScreen,

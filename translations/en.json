@@ -32,6 +32,14 @@
     "no_worries": "No worries, we'll email you a link to reset it.",
     "reset": "Reset my password"
   },
+  "menu": {
+    "home": "Home",
+    "profile": "Profile & Badges",
+    "challenges": "Challenges",
+    "observations": "Observations",
+    "inat": "iNaturalist",
+    "about": "About"
+  },
   "location_picker": {
     "looking_50_mile": "Looking for species in a 50 mile radius around this point",
     "done": "Done"

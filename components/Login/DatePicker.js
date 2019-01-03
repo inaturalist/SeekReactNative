@@ -6,7 +6,8 @@ import {
   DatePickerAndroid,
   TextInput,
   View,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
 
 import styles from "../../styles/login/login";
@@ -71,9 +72,9 @@ class DatePicker extends Component<Props> {
             onDateChange={this.setDate}
           />
         ) : (
-          <TextInput
+          <TouchableOpacity
             style={styles.inputField}
-            onFocus={() => this.setDateAndroid()}
+            onPress={() => this.setDateAndroid()}
           />
         )}
       </View>

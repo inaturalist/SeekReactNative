@@ -13,6 +13,9 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "space-around"
   },
+  textContainer: {
+    marginBottom: 22
+  },
   text: {
     fontFamily: fonts.semibold,
     fontSize: 23,
@@ -22,7 +25,6 @@ export default StyleSheet.create( {
     marginRight: 22
   },
   datePickerContainer: {
-    flex: 1,
     justifyContent: "center"
   },
   inputField: {

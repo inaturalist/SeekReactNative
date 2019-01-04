@@ -10,10 +10,9 @@ const pickerSelectStyles = StyleSheet.create( {
   inputIOS: {
     backgroundColor: colors.greenButton,
     borderRadius: 7,
-    width: 104,
+    paddingHorizontal: 11,
     height: 34,
-    // paddingLeft: 9,
-    paddingBottom: 9,
+    // paddingBottom: 6,
     marginBottom: 21,
     fontSize: fontSize.smallText,
     color: colors.white,
@@ -22,11 +21,10 @@ const pickerSelectStyles = StyleSheet.create( {
   inputAndroid: {
     backgroundColor: colors.greenButton,
     borderRadius: 7,
-    width: 104,
+    paddingHorizontal: 11,
     height: 34,
     textAlign: "center",
-    paddingBottom: 9,
-    // paddingLeft: 9,
+    paddingBottom: 8,
     marginBottom: 21,
     fontSize: fontSize.smallText,
     color: colors.white
@@ -101,12 +99,6 @@ class TaxonPicker extends Component<Props> {
     return (
       <RNPickerSelect
         placeholder={{}}
-        // placeholder={{
-        //   label: capitalizeNames( i18n.t( "taxon_picker.all" ) ),
-        //   key: "placeholder",
-        //   color: colors.white
-        // }}
-        // placeholderTextColor={colors.white}
         hideIcon
         items={types}
         onValueChange={( value ) => {

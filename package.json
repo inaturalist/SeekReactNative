@@ -26,6 +26,7 @@
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
     "react-native-jwt-io": "^1.0.3",
     "react-native-languages": "^3.0.1",
+    "react-native-linear-gradient": "^2.5.3",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
     "react-native-picker-select": "^5.2.0",
     "react-native-svg": "^6.3.1",

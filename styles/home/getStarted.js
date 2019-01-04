@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
   fontSize
 } from "../global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -42,9 +44,11 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   greenButton: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
     backgroundColor: colors.greenButton,
     borderRadius: 24,
-    width: 331,
+    width: width - 44,
     height: 48,
     marginTop: 21,
     marginBottom: 21,

@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/home/getStarted";
 import { colors } from "../../styles/global";
 
-const camera = ( <CameraIcon name="camera" size={25} color={colors.white} /> );
+const camera = ( <CameraIcon name="camera" size={20} color={colors.white} /> );
 
 const navParams = {
   latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
@@ -46,6 +46,8 @@ const GetStarted = ( { navigation }: Props ) => (
           <Text style={styles.buttonText}>
             {i18n.t( "get_started.button" ).toLocaleUpperCase()}
             {" "}
+          </Text>
+          <Text style={styles.buttonText}>
             {camera}
           </Text>
         </TouchableOpacity>

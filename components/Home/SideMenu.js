@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Text
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import HomeIcon from "react-native-vector-icons/FontAwesome";
 import HexagonIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -24,7 +25,10 @@ type Props = {
 
 const SideMenu = ( { navigation }: Props ) => (
   <View style={styles.container}>
-    <View style={styles.column}>
+    <LinearGradient
+      colors={["#44ab55", "#297f87"]}
+      style={styles.column}
+    >
       <Image
         source={logoImages.seek}
         style={styles.image}
@@ -85,7 +89,7 @@ const SideMenu = ( { navigation }: Props ) => (
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </LinearGradient>
   </View>
 );
 

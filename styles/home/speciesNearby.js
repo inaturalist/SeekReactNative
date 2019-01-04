@@ -26,15 +26,16 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   buttonRow: {
+    marginHorizontal: 22,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-between"
   },
   greenButton: {
     backgroundColor: colors.greenButton,
     borderRadius: 7,
-    width: 203,
+    paddingHorizontal: 11,
     height: 34,
     marginBottom: 21,
     flexDirection: "row",
@@ -67,13 +68,13 @@ export default StyleSheet.create( {
   cellImage: {
     width: 90,
     height: 90,
-    borderRadius: 50
+    borderRadius: 90 / 2
   },
   cellTitle: {
     height: 54,
+    width: 90,
     marginTop: 10,
     paddingTop: 10,
-    paddingBottom: 10,
     marginBottom: 10,
     justifyContent: "center",
     flexDirection: "row",

@@ -4,6 +4,7 @@ import android.app.Application;
 
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
             new RNLanguagesPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),

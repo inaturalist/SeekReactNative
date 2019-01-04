@@ -179,7 +179,6 @@ class HomeScreen extends Component<Props> {
       taxaType
     } = this.state;
     const { navigation } = this.props;
-    // console.log( this.props, "props in home screen" );
 
     return (
       <View style={styles.container}>

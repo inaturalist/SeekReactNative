@@ -5,6 +5,7 @@ import { View, TouchableOpacity, Text } from "react-native";
 import BellIcon from "react-native-vector-icons/MaterialIcons";
 import MenuIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import CameraIcon from "react-native-vector-icons/Entypo";
+import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/home/footer";
 import { colors } from "../../styles/global";
@@ -21,7 +22,12 @@ type Props = {
 
 const Footer = ( { navigation, latitude, longitude }: Props ) => (
   <View style={styles.container}>
-    <View style={styles.coloredBar}>
+    <LinearGradient
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 0 }}
+      colors={["#44ab55", "#297f87"]}
+      style={styles.coloredBar}
+    >
       <TouchableOpacity onPress={() => navigation.navigate( "Menu" )}>
         <Text>
           {hamburgerMenu}
@@ -43,7 +49,7 @@ const Footer = ( { navigation, latitude, longitude }: Props ) => (
           {notifications}
         </Text>
       </TouchableOpacity>
-    </View>
+    </LinearGradient>
   </View>
 );
 

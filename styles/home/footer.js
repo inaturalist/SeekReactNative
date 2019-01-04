@@ -6,7 +6,7 @@ export default StyleSheet.create( {
     justifyContent: "flex-end"
   },
   coloredBar: {
-    backgroundColor: "#44ab55",
+    // backgroundColor: "#44ab55",
     height: 60,
     flexDirection: "row",
     flexWrap: "nowrap",

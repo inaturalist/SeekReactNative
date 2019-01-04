@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
-import { colors, fontSize } from "../../styles/global";
+import { colors, fonts, fontSize } from "../../styles/global";
 import { capitalizeNames } from "../../utility/helpers";
 
 const pickerSelectStyles = StyleSheet.create( {
@@ -12,7 +12,7 @@ const pickerSelectStyles = StyleSheet.create( {
     borderRadius: 7,
     paddingHorizontal: 11,
     height: 34,
-    // paddingBottom: 6,
+    fontFamily: fonts.default,
     marginBottom: 21,
     fontSize: fontSize.smallText,
     color: colors.white,
@@ -20,6 +20,7 @@ const pickerSelectStyles = StyleSheet.create( {
   },
   inputAndroid: {
     backgroundColor: colors.greenButton,
+    fontFamily: fonts.default,
     borderRadius: 7,
     paddingHorizontal: 11,
     height: 34,

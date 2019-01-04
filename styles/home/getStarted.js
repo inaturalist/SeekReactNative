@@ -23,7 +23,6 @@ export default StyleSheet.create( {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.teal,
-    fontWeight: "600",
     letterSpacing: 1.12
   },
   textContainer: {
@@ -56,10 +55,10 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   buttonText: {
+    fontFamily: fonts.default,
     fontSize: 18,
     letterSpacing: 1,
     textAlign: "center",
-    fontWeight: "500",
     color: colors.white
   }
 } );

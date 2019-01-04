@@ -22,7 +22,7 @@ export default StyleSheet.create( {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.teal,
-    fontWeight: "600",
+    // fontWeight: "600",
     letterSpacing: 1.12
   },
   buttonRow: {
@@ -47,6 +47,7 @@ export default StyleSheet.create( {
     width: 104
   },
   buttonText: {
+    fontFamily: fonts.default,
     fontSize: fontSize.smallText,
     color: colors.white
   },

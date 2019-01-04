@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
-import { colors } from "../../styles/global";
+import { colors, fontSize } from "../../styles/global";
 import { capitalizeNames } from "../../utility/helpers";
 
 const pickerSelectStyles = StyleSheet.create( {
@@ -12,15 +12,23 @@ const pickerSelectStyles = StyleSheet.create( {
     borderRadius: 7,
     width: 104,
     height: 34,
+    // paddingLeft: 9,
+    paddingBottom: 9,
     marginBottom: 21,
-    color: colors.white
+    fontSize: fontSize.smallText,
+    color: colors.white,
+    textAlign: "center"
   },
   inputAndroid: {
     backgroundColor: colors.greenButton,
     borderRadius: 7,
     width: 104,
     height: 34,
+    textAlign: "center",
+    paddingBottom: 9,
+    // paddingLeft: 9,
     marginBottom: 21,
+    fontSize: fontSize.smallText,
     color: colors.white
   }
 } );
@@ -30,7 +38,7 @@ type Props = {
 }
 
 class TaxonPicker extends Component<Props> {
-  constructor( { updateTaxaType }: Props ) {
+  constructor() {
     super();
 
     this.inputRefs = {};
@@ -91,30 +99,34 @@ class TaxonPicker extends Component<Props> {
     const { updateTaxaType } = this.props;
 
     return (
-      <View>
-        <RNPickerSelect
-          placeholder={{}}
-          hideIcon
-          items={types}
-          onValueChange={( value ) => {
-            this.setState( {
-              taxonType: value
-            }, () => updateTaxaType( value ) );
-          }}
-          onUpArrow={() => {
-            this.inputRefs.picker.togglePicker();
-          }}
-          onDownArrow={() => {
-            this.inputRefs.company.focus();
-          }}
-          style={{ ...pickerSelectStyles }}
-          value={taxonType}
-          ref={( el ) => {
-            this.inputRefs.picker2 = el;
-          }}
-          useNativeAndroidPickerStyle={false}
-        />
-      </View>
+      <RNPickerSelect
+        placeholder={{}}
+        // placeholder={{
+        //   label: capitalizeNames( i18n.t( "taxon_picker.all" ) ),
+        //   key: "placeholder",
+        //   color: colors.white
+        // }}
+        // placeholderTextColor={colors.white}
+        hideIcon
+        items={types}
+        onValueChange={( value ) => {
+          this.setState( {
+            taxonType: value
+          }, () => updateTaxaType( value ) );
+        }}
+        onUpArrow={() => {
+          this.inputRefs.picker.togglePicker();
+        }}
+        onDownArrow={() => {
+          this.inputRefs.company.focus();
+        }}
+        style={{ ...pickerSelectStyles }}
+        value={taxonType}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
+        useNativeAndroidPickerStyle={false}
+      />
     );
   }
 }

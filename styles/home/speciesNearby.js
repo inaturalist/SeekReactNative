@@ -37,6 +37,8 @@ export default StyleSheet.create( {
     width: 203,
     height: 34,
     marginBottom: 21,
+    flexDirection: "row",
+    flexWrap: "nowrap",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -49,16 +51,15 @@ export default StyleSheet.create( {
   },
   speciesContainer: {
     marginTop: 21,
-    marginBottom: 21,
     height: 236
   },
   taxonContainer: {
-    marginLeft: 22,
-    height: 159
+    marginLeft: 20,
+    height: 175
   },
   gridCell: {
     width: 105,
-    height: 159,
+    height: 175,
     paddingHorizontal: padding.medium,
     alignItems: "center",
     justifyContent: "center"
@@ -69,10 +70,11 @@ export default StyleSheet.create( {
     borderRadius: 50
   },
   cellTitle: {
-    height: 34,
+    height: 54,
+    marginTop: 10,
     paddingTop: 10,
     paddingBottom: 10,
-    alignItems: "center",
+    marginBottom: 10,
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"

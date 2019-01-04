@@ -34,7 +34,6 @@ class AgeVerifyScreen extends Component<Props> {
     this.setState( {
       chosenDate: newDate
     } );
-    console.log( this.state.chosenDate, "chosen date" );
   }
 
   async setDateAndroid() {

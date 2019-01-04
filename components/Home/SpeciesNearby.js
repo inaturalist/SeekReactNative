@@ -6,7 +6,7 @@ import {
   FlatList,
   Image
 } from "react-native";
-import Icon from "react-native-vector-icons/Entypo";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
@@ -15,7 +15,7 @@ import LoadingWheel from "../LoadingWheel";
 import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
 
-const locationPin = ( <Icon name="location-pin" size={19} color={colors.white} /> );
+const locationPin = ( <Icon name="location-on" size={19} color={colors.white} /> );
 
 type Props = {
   taxa: Array,
@@ -106,6 +106,8 @@ const SpeciesNearby = ( {
               <Text style={styles.buttonText}>
                 {locationPin}
                 {" "}
+              </Text>
+              <Text style={styles.buttonText}>
                 {location}
               </Text>
             </TouchableOpacity>

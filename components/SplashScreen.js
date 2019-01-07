@@ -8,6 +8,7 @@ import {
   View
 } from "react-native";
 
+import i18n from "../i18n";
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
 
@@ -23,20 +24,23 @@ class SplashScreen extends Component<Props> {
   transitionScreen() {
     const { navigation } = this.props;
 
-    setTimeout( () => navigation.navigate( "Login" ), 2000 );
+    // setTimeout( () => navigation.navigate( "Login" ), 2000 );
   }
 
   render() {
     return (
-      <View>
-        <ImageBackground
-          style={styles.backgroundImage}
-          source={require( "../assets/backgrounds/splash.png" )}
-        >
-          <Text style={styles.text}>Backyard Wilderness presents:</Text>
+      <ImageBackground
+        style={styles.backgroundImage}
+        source={require( "../assets/backgrounds/splash.png" )}
+      >
+        <View style={styles.banner}>
           <Image source={logoImages.seek} />
-        </ImageBackground>
-      </View>
+          <Image source={logoImages.seek} />
+        </View>
+        <Text style={styles.headerText}>{i18n.t( "splash.presents" ).toLocaleUpperCase()}</Text>
+        <Image source={logoImages.seek} />
+        <Text style={styles.text}>{i18n.t( "splash.initiative" )}</Text>
+      </ImageBackground>
     );
   }
 }

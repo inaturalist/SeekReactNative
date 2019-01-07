@@ -1,4 +1,8 @@
 {
+  "splash": {
+    "presents": "presents",
+    "initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society"
+  },
   "species_nearby": {
     "header": "Species nearby",
     "error": "Sorry, we could not load taxa nearby"

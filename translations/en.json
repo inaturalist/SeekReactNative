@@ -52,8 +52,8 @@
     "about": "About"
   },
   "location_picker": {
-    "looking_50_mile": "Looking for species in a 50 mile radius around this point",
-    "done": "Done"
+    "species_nearby": "Species nearby",
+    "button": "Search near location"
   },
   "taxon_picker": {
     "all": "All Species...",

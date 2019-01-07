@@ -4,13 +4,12 @@ import React from "react";
 import { View, Text, TouchableHighlight } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import NavIcon from "react-native-vector-icons/Feather";
 
 import styles from "../../styles/locationPicker";
 import { colors } from "../../styles/global";
 
 const markerIcon = ( <Icon name="location-on" size={70} color={colors.iNatGreen} /> );
-const locationIcon = ( <NavIcon name="navigation" size={30} color={colors.white} /> );
+const locationIcon = ( <Icon name="my-location" size={26} color={colors.locationGreen} /> );
 
 type Props = {
   region: Object,
@@ -33,12 +32,14 @@ const LocationMap = ( {
     <View pointerEvents="none" style={styles.markerFixed}>
       <Text>{markerIcon}</Text>
     </View>
-    <TouchableHighlight
-      onPress={() => returnToUserLocation()}
-      style={styles.locationIcon}
-    >
-      <Text>{locationIcon}</Text>
-    </TouchableHighlight>
+    <View style={styles.userLocation}>
+      <TouchableHighlight
+        onPress={() => returnToUserLocation()}
+        style={styles.locationIcon}
+      >
+        <Text>{locationIcon}</Text>
+      </TouchableHighlight>
+    </View>
   </View>
 );
 

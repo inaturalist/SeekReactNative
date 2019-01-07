@@ -1,7 +1,7 @@
 const { Platform } = require( "react-native" );
 
 export const colors = {
-  white: "#F5FCFF",
+  white: "#ffffff",
   darkBlue: "#37535e",
   darkDesaturatedBlue: "#1f3d48",
   darkestBlue: "#0C2D3B",
@@ -16,7 +16,8 @@ export const colors = {
   tomatoRed: "#ff6347",
   yellow: "#ffff7f",
   teal: "#38976d",
-  greenButton: "#77b300"
+  greenButton: "#77b300",
+  locationGreen: "#d8d8d8"
 };
 
 export const fonts = {

@@ -1,13 +1,12 @@
 // @flow
 
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
-import Button from "../Button";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates } from "../../utility/helpers";
+import { truncateCoordinates, capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -112,11 +111,12 @@ class LocationPickerScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.headerText}>
-          {i18n.t( "location_picker.looking_50_mile" )}
-          {":"}
-        </Text>
-        <Text style={styles.locationText}>{location}</Text>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>
+            {capitalizeNames( i18n.t( "location_picker.species_nearby" ) )}
+          </Text>
+          <Text style={styles.locationText}>{location}</Text>
+        </View>
         <View style={styles.mapContainer}>
           <LocationMap
             region={region}
@@ -124,18 +124,22 @@ class LocationPickerScreen extends Component<Props> {
             returnToUserLocation={this.returnToUserLocation}
           />
         </View>
-        <Button
-          buttonText={i18n.t( "location_picker.done" )}
-          navigation={navigation}
-          green
-          navParams={{
-            taxaName: null,
-            id: null,
-            taxaType,
-            latitude: region.latitude,
-            longitude: region.longitude
-          }}
-        />
+        <View style={styles.footer}>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.push( "Main", {
+              taxaName: null,
+              id: null,
+              taxaType,
+              latitude: region.latitude,
+              longitude: region.longitude
+            } )}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

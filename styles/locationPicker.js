@@ -8,51 +8,29 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
-  backgroundImage: {
-    justifyContent: "center",
+  container: {
     flex: 1
   },
+  header: {
+    backgroundColor: colors.teal,
+    justifyContent: "center",
+    alignItems: "center"
+  },
   headerText: {
-    marginTop: margins.large,
-    marginLeft: margins.medium,
-    marginRight: margins.medium,
-    justifyContent: "space-around",
-    fontSize: fontSize.header,
-    flexWrap: "wrap",
+    marginTop: 40,
+    fontSize: fontSize.buttonText,
     color: colors.white,
-    fontFamily: fonts.default
+    fontFamily: fonts.semibold
   },
   locationText: {
     color: colors.white,
     fontFamily: fonts.playful,
     fontSize: fontSize.mediumHeader,
     marginLeft: margins.medium,
-    marginTop: margins.medium,
-    fontWeight: "600"
-  },
-  container: {
-    flex: 1,
-    backgroundColor: colors.darkBlue
+    marginTop: margins.medium
   },
   mapContainer: {
     flexGrow: 1
-  },
-  button: {
-    backgroundColor: colors.darkGreen,
-    justifyContent: "flex-end",
-    marginHorizontal: margins.large,
-    marginBottom: margins.small,
-    marginTop: margins.small,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
-    borderRadius: 40
-  },
-  buttonText: {
-    fontFamily: fonts.default,
-    fontSize: fontSize.buttonText,
-    color: colors.white,
-    textAlign: "center",
-    justifyContent: "center"
   },
   map: {
     position: "absolute",
@@ -70,16 +48,40 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
+  userLocation: {
+    alignItems: "flex-end",
+    justifyContent: "flex-end"
+  },
   locationIcon: {
-    marginLeft: margins.medium,
+    marginRight: margins.medium,
     marginBottom: margins.large,
-    backgroundColor: colors.darkBlue,
-    borderWidth: 2,
-    borderRadius: 100,
+    backgroundColor: colors.white,
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: colors.white,
-    width: 50,
-    height: 50
+    borderColor: colors.white
+  },
+  footer: {
+    backgroundColor: colors.white
+  },
+  button: {
+    backgroundColor: colors.teal,
+    justifyContent: "flex-end",
+    marginHorizontal: 22,
+    marginBottom: margins.medium,
+    marginTop: margins.medium,
+    paddingTop: padding.large,
+    paddingBottom: padding.large,
+    borderRadius: 40
+  },
+  buttonText: {
+    fontFamily: fonts.semibold,
+    fontSize: fontSize.buttonText,
+    color: colors.white,
+    textAlign: "center",
+    justifyContent: "center",
+    letterSpacing: 0.7
   }
 } );

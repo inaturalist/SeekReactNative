@@ -12,7 +12,7 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "../containers/HomeContainer";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
-import LocationPickerScreen from "./Challenges/LocationPickerScreen";
+import LocationPickerScreen from "./Home/LocationPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";

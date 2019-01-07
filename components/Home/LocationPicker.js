@@ -13,19 +13,19 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  navigation: any
+  latitude: number,
+  longitude: number,
+  location: string,
+  updateLocation: Function
 }
 
-class LocationPickerScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+class LocationPicker extends Component<Props> {
+  constructor( {
+    latitude,
+    longitude,
+    location
+  }: Props ) {
     super();
-
-    const {
-      location,
-      latitude,
-      longitude,
-      taxaType
-    } = navigation.state.params;
 
     this.state = {
       region: {
@@ -37,8 +37,7 @@ class LocationPickerScreen extends Component<Props> {
       userLatitude: latitude,
       userLongitude: longitude,
       userLocation: location,
-      location,
-      taxaType
+      location
       // error: null
     };
 
@@ -106,8 +105,8 @@ class LocationPickerScreen extends Component<Props> {
   }
 
   render() {
-    const { region, location, taxaType } = this.state;
-    const { navigation } = this.props;
+    const { region, location } = this.state;
+    const { updateLocation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -127,13 +126,7 @@ class LocationPickerScreen extends Component<Props> {
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.push( "Main", {
-              taxaName: null,
-              id: null,
-              taxaType,
-              latitude: region.latitude,
-              longitude: region.longitude
-            } )}
+            onPress={() => updateLocation( region.latitude, region.longitude, location )}
           >
             <Text style={styles.buttonText}>
               {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
@@ -145,4 +138,4 @@ class LocationPickerScreen extends Component<Props> {
   }
 }
 
-export default LocationPickerScreen;
+export default LocationPicker;

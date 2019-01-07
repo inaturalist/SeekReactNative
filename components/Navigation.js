@@ -12,7 +12,6 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "../containers/HomeContainer";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
-import LocationPickerScreen from "./Home/LocationPickerScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./YourCollection";
@@ -112,13 +111,6 @@ const RootStack = createStackNavigator( {
     screen: CameraTabNav,
     navigationOptions: () => ( {
       header: null
-    } )
-  },
-  Location: {
-    screen: LocationPickerScreen,
-    navigationOptions: () => ( {
-      header: null,
-      gesturesEnabled: false
     } )
   },
   Results: {

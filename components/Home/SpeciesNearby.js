@@ -25,7 +25,8 @@ type Props = {
   taxaType: string,
   latitude: number,
   longitude: number,
-  updateTaxaType: Function
+  updateTaxaType: Function,
+  toggleLocationPicker: Function
 }
 
 const SpeciesNearby = ( {
@@ -36,7 +37,8 @@ const SpeciesNearby = ( {
   latitude,
   longitude,
   taxaType,
-  updateTaxaType
+  updateTaxaType,
+  toggleLocationPicker
 }: Props ) => {
   let species;
 
@@ -96,12 +98,13 @@ const SpeciesNearby = ( {
           <View style={styles.buttonRow}>
             <TouchableOpacity
               style={styles.greenButton}
-              onPress={() => navigation.push( "Location", {
-                taxaType,
-                longitude,
-                latitude,
-                location
-              } )}
+              onPress={() => toggleLocationPicker()}
+              // onPress={() => navigation.push( "Location", {
+              //   taxaType,
+              //   longitude,
+              //   latitude,
+              //   location
+              // } )}
             >
               <Text style={styles.buttonText}>
                 {locationPin}

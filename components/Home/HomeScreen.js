@@ -5,7 +5,8 @@ import {
   View,
   ScrollView,
   Platform,
-  PermissionsAndroid
+  PermissionsAndroid,
+  Modal
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
@@ -13,6 +14,7 @@ import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/home/home";
+import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Footer from "./Footer";
@@ -47,10 +49,13 @@ class HomeScreen extends Component<Props> {
       taxaType,
       taxaName,
       id,
-      loading: false
+      loading: false,
+      modalVisible: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
+    this.updateLocation = this.updateLocation.bind( this );
+    this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
   }
 
   setLoading( loading ) {
@@ -169,6 +174,24 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
+  toggleLocationPicker() {
+    const { modalVisible } = this.state;
+    this.setState( {
+      modalVisible: !modalVisible
+    } );
+  }
+
+  updateLocation( latitude, longitude, location ) {
+    this.setState( {
+      latitude,
+      longitude,
+      location
+    }, () => {
+      this.toggleLocationPicker();
+      this.checkRealmForSpecies( latitude, longitude );
+    } );
+  }
+
   render() {
     const {
       location,
@@ -176,7 +199,8 @@ class HomeScreen extends Component<Props> {
       longitude,
       loading,
       taxa,
-      taxaType
+      taxaType,
+      modalVisible
     } = this.state;
     const { navigation } = this.props;
 
@@ -189,6 +213,17 @@ class HomeScreen extends Component<Props> {
             }}
           />
           <ScrollView>
+            <Modal
+              visible={modalVisible}
+              onRequestClose={() => this.toggleLocationPicker()}
+            >
+              <LocationPicker
+                latitude={latitude}
+                longitude={longitude}
+                location={location}
+                updateLocation={this.updateLocation}
+              />
+            </Modal>
             <SpeciesNearby
               taxa={taxa}
               loading={loading}
@@ -198,6 +233,7 @@ class HomeScreen extends Component<Props> {
               longitude={longitude}
               taxaType={taxaType}
               updateTaxaType={this.updateTaxaType}
+              toggleLocationPicker={this.toggleLocationPicker}
             />
             <View style={styles.divider} />
             <GetStarted navigation={navigation} />

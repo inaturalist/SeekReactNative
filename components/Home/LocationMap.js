@@ -8,7 +8,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from "../../styles/locationPicker";
 import { colors } from "../../styles/global";
 
-const markerIcon = ( <Icon name="location-on" size={70} color={colors.iNatGreen} /> );
+// const markerIcon = ( <Icon name="lens" size={20} color={colors.blue} /> );
 const locationIcon = ( <Icon name="my-location" size={26} color={colors.locationGreen} /> );
 
 type Props = {
@@ -30,7 +30,7 @@ const LocationMap = ( {
       onRegionChangeComplete={region => onRegionChange( region )}
     />
     <View pointerEvents="none" style={styles.markerFixed}>
-      <Text>{markerIcon}</Text>
+      <View style={styles.markerCircle} />
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight

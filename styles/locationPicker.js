@@ -39,14 +39,18 @@ export default StyleSheet.create( {
     right: 0,
     bottom: 0
   },
-  marker: {
-    width: 37,
-    height: 60
-  },
   markerFixed: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  markerCircle: {
+    backgroundColor: colors.blue,
+    borderWidth: 3,
+    borderRadius: 100,
+    borderColor: colors.white,
+    width: 20,
+    height: 20
   },
   userLocation: {
     alignItems: "flex-end",

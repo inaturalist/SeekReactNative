@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "./global";
+
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -11,21 +13,32 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     alignItems: "center"
   },
-  column: {
-    flex: 1
-  },
   carousel: {
-    flex: 1
+    height: 330,
+    marginTop: 150
   },
   image: {
+    marginHorizontal: 72,
     width: 190,
-    height: 214
+    height: 100
+  },
+  textContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginHorizontal: 41,
+    marginTop: 42
   },
   text: {
     fontSize: 22,
     textAlign: "center",
     color: colors.white,
+    lineHeight: 35,
     fontFamily: fonts.semibold
+  },
+  buttonContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 34
   },
   skip: {
     fontSize: 22,
@@ -33,5 +46,32 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.light,
     textDecorationLine: "underline"
+  },
+  fullScreen: {
+    width,
+    height
+  },
+  pagination: {
+    position: "absolute",
+    bottom: 110,
+    left: 0,
+    right: 0,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    backgroundColor: "transparent"
+  },
+  dot: {
+    backgroundColor: colors.darkGray,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    marginHorizontal: 16,
+    marginTop: 3,
+    marginBottom: 3
+  },
+  activeDot: {
+    backgroundColor: colors.white
   }
 } );

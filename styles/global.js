@@ -10,7 +10,7 @@ export const colors = {
   iNatGreen: "#74ac00",
   darkGreen: "#4CAF50",
   lightGray: "#f5f5f5",
-  darkGray: "#a9a9a9",
+  darkGray: "#393939",
   black: "black",
   lightBlue: "#225C8E",
   tomatoRed: "#ff6347",

@@ -17,7 +17,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
   <Swiper navigation={navigation}>
     <View style={styles.carousel}>
       <Image
-        source={require( "../../assets/logos/logo-cas.png" )}
+        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
         style={styles.image}
       />
       <View style={styles.textContainer}>
@@ -26,7 +26,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     </View>
     <View style={styles.carousel}>
       <Image
-        source={require( "../../assets/logos/logo-bw.png" )}
+        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
         style={styles.image}
       />
       <View style={styles.textContainer}>
@@ -35,7 +35,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     </View>
     <View style={styles.carousel}>
       <Image
-        source={require( "../../assets/logos/logo-hhmi.png" )}
+        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
         style={styles.image}
       />
       <View style={styles.textContainer}>

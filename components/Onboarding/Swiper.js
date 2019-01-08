@@ -16,6 +16,12 @@ type Props = {
   navigation: any
 }
 
+const gradientColors = {
+  0: ["#ffffff", "#38976d"],
+  1: ["#ffffff", "#318b7a"],
+  2: ["#ffffff", "#297f87"]
+};
+
 class Swiper extends Component<Props> {
   static defaultProps = {
     horizontal: true,
@@ -32,9 +38,8 @@ class Swiper extends Component<Props> {
   state = this.initState( this.props );
 
   initState( props ) {
-    // Get the total number of slides passed as children
-    const total = props.children ? props.children.length || 1 : 0;
-    const index = total > 1 ? Math.min( props.index, total - 1 ) : 0;
+    const total = 3;
+    const index = 0;
     const offset = width * index;
 
     const state = {
@@ -44,7 +49,6 @@ class Swiper extends Component<Props> {
       width,
       height
     };
-
     // Component internals as a class property,
     // and not state to avoid component re-renders when updated
     this.internals = {
@@ -55,7 +59,7 @@ class Swiper extends Component<Props> {
     return state;
   }
 
-  onScrollBegin = ( e ) => {
+  onScrollBegin = () => {
     this.internals.isScrolling = true;
   }
 
@@ -74,8 +78,7 @@ class Swiper extends Component<Props> {
     const { index } = this.state;
     const { offset } = this.internals;
 
-    if ( offset === newOffset
-      && ( index === 0 || index === children.length - 1 ) ) {
+    if ( offset === newOffset && ( index === 0 || index === children.length - 1 ) ) {
       this.internals.isScrolling = false;
     }
   }
@@ -84,14 +87,13 @@ class Swiper extends Component<Props> {
     const state = this.state;
     const diff = offset - this.internals.offset;
     const step = state.width;
-    let index = state.index;
+    let { index } = state;
 
     if ( !diff ) {
       return;
     }
 
     index = parseInt( index + Math.round( diff / step ), 10 );
-
     this.internals.offset = offset;
 
     this.setState( {
@@ -100,16 +102,12 @@ class Swiper extends Component<Props> {
   }
 
   swipe = () => {
-    if ( this.internals.isScrolling || this.state.total < 2 ) {
+    if ( this.internals.isScrolling ) {
       return;
     }
 
     const state = this.state;
-    const diff = this.state.index + 1;
-    const x = diff * state.width;
-    const y = 0;
-
-    this.scrollView && this.scrollView.scrollTo( { x, y, animated: true } );
+    const diff = state.index + 1;
 
     this.internals.isScrolling = true;
 
@@ -142,20 +140,14 @@ class Swiper extends Component<Props> {
   )
 
   renderPagination = () => {
-    if ( this.state.total <= 1 ) {
-      return null;
-    }
-
     const ActiveDot = <View style={[styles.dot, styles.activeDot]} />;
     const Dot = <View style={styles.dot} />;
 
     const dots = [];
 
-    for ( let key = 0; key < this.state.total; key++ ) {
+    for ( let key = 0; key < 3; key += 1 ) {
       dots.push( key === this.state.index
-        // Active dot
         ? React.cloneElement( ActiveDot, { key } )
-        // Other dots
         : React.cloneElement( Dot, { key } ) );
     }
 
@@ -171,7 +163,7 @@ class Swiper extends Component<Props> {
 
   render = ( { children, navigation } = this.props ) => (
     <LinearGradient
-      colors={["#ffffff", "#38976d"]}
+      colors={gradientColors[this.state.index]}
       style={styles.container}
     >
       <View style={[styles.container, styles.fullScreen]}>

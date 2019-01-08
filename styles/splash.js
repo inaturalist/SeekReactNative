@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
   fontSize
 } from "./global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
@@ -15,14 +17,22 @@ export default StyleSheet.create( {
   banner: {
     marginTop: 48,
     height: 106,
+    width,
     backgroundColor: colors.white,
     flexDirection: "row",
     flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center",
     elevation: 10,
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
     shadowRadius: 1
+  },
+  image: {
+    width: 56 * 2,
+    height: 43 * 2,
+    marginRight: 22
   },
   headerText: {
     fontFamily: fonts.book,

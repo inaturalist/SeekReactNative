@@ -15,12 +15,14 @@ export default StyleSheet.create( {
   },
   carousel: {
     height: 330,
-    marginTop: 150
+    marginTop: 150,
+    alignItems: "center",
+    justifyContent: "center"
   },
   image: {
     marginHorizontal: 72,
-    width: 190,
-    height: 100
+    width: 56 * 2,
+    height: 43 * 2
   },
   textContainer: {
     flexDirection: "row",
@@ -56,11 +58,9 @@ export default StyleSheet.create( {
     bottom: 110,
     left: 0,
     right: 0,
-    flex: 1,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "flex-end",
-    backgroundColor: "transparent"
+    alignItems: "flex-end"
   },
   dot: {
     backgroundColor: colors.darkGray,

@@ -8,7 +8,6 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from "../../styles/locationPicker";
 import { colors } from "../../styles/global";
 
-// const markerIcon = ( <Icon name="lens" size={20} color={colors.blue} /> );
 const locationIcon = ( <Icon name="my-location" size={26} color={colors.locationGreen} /> );
 
 type Props = {

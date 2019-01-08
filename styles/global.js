@@ -26,7 +26,8 @@ export const fonts = {
   checkboxes: "FontAwesome",
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
-  book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro"
+  book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
+  light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro"
 };
 
 export const fontSize = {

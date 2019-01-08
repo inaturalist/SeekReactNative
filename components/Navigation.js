@@ -26,6 +26,7 @@ import iNatLoginScreen from "./Login/iNatLoginScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import ParentalConsentScreen from "./Login/ParentalConsentScreen";
 import SignUpScreen from "./Login/SignUpScreen";
+import OnboardingScreen from "./Onboarding/OnboardingScreen";
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
@@ -103,6 +104,12 @@ const RootStack = createStackNavigator( {
   },
   Main: {
     screen: HomeScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Onboarding: {
+    screen: OnboardingScreen,
     navigationOptions: () => ( {
       header: null
     } )

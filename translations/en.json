@@ -51,6 +51,12 @@
     "inat": "iNaturalist",
     "about": "About"
   },
+  "onboarding": {
+    "onboarding_1": "Get outside and learn about the life all around you!",
+    "onboarding_2": "Earn badges for seeing different species",
+    "onboarding_3": "Participate in global challenges with OurPlanet and WWF",
+    "skip": "Skip for now"
+  },
   "location_picker": {
     "species_nearby": "Species nearby",
     "button": "Search near location"

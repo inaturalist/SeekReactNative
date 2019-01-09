@@ -87,5 +87,14 @@ export default StyleSheet.create( {
     textAlign: "center",
     justifyContent: "center",
     letterSpacing: 0.7
+  },
+  inputField: {
+    width: "87%",
+    backgroundColor: colors.white,
+    height: 37,
+    borderRadius: 40,
+    paddingLeft: padding.extraLarge,
+    marginTop: margins.medium,
+    marginBottom: margins.medium
   }
 } );

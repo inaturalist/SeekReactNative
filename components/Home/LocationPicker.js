@@ -1,13 +1,21 @@
 // @flow
 
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput
+} from "react-native";
 import Geocoder from "react-native-geocoder";
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates, capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/locationPicker";
+
+const locationPin = ( <Icon name="location-on" size={19} color="white" /> );
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -88,6 +96,29 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
+  findLatAndLng( location ) {
+    Geocoder.geocodeAddress( location ).then( ( result ) => {
+      if ( result.length === 0 ) {
+        return;
+      }
+      const { locality, subAdminArea, position } = result[0];
+      const { lng, lat } = position;
+      this.setState( {
+        location: locality || subAdminArea,
+        region: {
+          latitude: truncateCoordinates( lat ),
+          longitude: truncateCoordinates( lng ),
+          latitudeDelta,
+          longitudeDelta
+        }
+      } );
+    } ).catch( ( err ) => {
+      // this.setState( {
+      //   error: err.message
+      // } );
+    } );
+  }
+
   returnToUserLocation() {
     const { userLatitude, userLongitude, userLocation } = this.state;
 
@@ -114,7 +145,13 @@ class LocationPicker extends Component<Props> {
           <Text style={styles.headerText}>
             {capitalizeNames( i18n.t( "location_picker.species_nearby" ) )}
           </Text>
-          <Text style={styles.locationText}>{location}</Text>
+          <TextInput
+            style={styles.inputField}
+            placeholder={location}
+            autoCapitalize="words"
+            textContentType="addressCity"
+            onChangeText={text => this.findLatAndLng( text )}
+          />
         </View>
         <View style={styles.mapContainer}>
           <LocationMap

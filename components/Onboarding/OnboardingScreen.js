@@ -34,10 +34,16 @@ const OnboardingScreen = ( { navigation }: Props ) => (
       </View>
     </View>
     <View style={styles.carousel}>
-      <Image
-        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
-        style={styles.image}
-      />
+      <View style={styles.banner}>
+        <Image
+          source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
+          style={styles.image}
+        />
+        <Image
+          source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
+          style={styles.image}
+        />
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.text}>{i18n.t( "onboarding.onboarding_3" )}</Text>
       </View>

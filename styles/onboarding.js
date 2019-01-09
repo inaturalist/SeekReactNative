@@ -15,12 +15,25 @@ export default StyleSheet.create( {
   },
   carousel: {
     height: 330,
-    marginTop: 150,
+    marginTop: 100,
     alignItems: "center",
     justifyContent: "center"
   },
+  banner: {
+    height: 150,
+    width,
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center",
+    elevation: 10,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1
+  },
   image: {
-    marginHorizontal: 72,
     width: 56 * 2,
     height: 43 * 2
   },

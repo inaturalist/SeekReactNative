@@ -17,7 +17,7 @@ export const colors = {
   yellow: "#ffff7f",
   teal: "#38976d",
   greenButton: "#77b300",
-  locationGreen: "#d8d8d8",
+  locationGreen: "#77b300",
   blue: "#0266C8"
 };
 

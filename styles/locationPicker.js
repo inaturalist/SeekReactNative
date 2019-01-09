@@ -88,6 +88,11 @@ export default StyleSheet.create( {
     justifyContent: "center",
     letterSpacing: 0.7
   },
+  locationRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
   inputField: {
     width: "87%",
     backgroundColor: colors.white,

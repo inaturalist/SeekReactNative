@@ -8,7 +8,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from "../../styles/locationPicker";
 import { colors } from "../../styles/global";
 
-const locationIcon = ( <Icon name="my-location" size={26} color={colors.locationGreen} /> );
+const locationIcon = ( <Icon name="my-location" size={26} color={colors.seekiNatGreen} /> );
 
 type Props = {
   region: Object,

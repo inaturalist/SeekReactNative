@@ -11,7 +11,7 @@ export default StyleSheet.create( {
   },
   column: {
     flex: 1,
-    backgroundColor: colors.teal,
+    backgroundColor: colors.seekForestGreen,
     width: width - 120,
     flexDirection: "column"
   },

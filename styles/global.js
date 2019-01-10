@@ -11,18 +11,15 @@ export const colors = {
   darkGreen: "#4CAF50",
   lightGray: "#f5f5f5",
   darkGray: "#393939",
-  black: "black",
+  black: "#000000",
   lightBlue: "#225C8E",
   tomatoRed: "#ff6347",
   yellow: "#ffff7f",
-  teal: "#38976d",
-  greenButton: "#77b300",
-  locationGreen: "#77b300",
   blue: "#0266C8",
   seekiNatGreen: "#77b300",
   seekTeal: "#297f87",
-  seekGreen1: "#44ab55",
-  seekGreen2: "#38976d"
+  seekGreen: "#44ab55",
+  seekForestGreen: "#38976d"
 };
 
 export const fonts = {

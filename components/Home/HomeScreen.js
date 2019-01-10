@@ -199,7 +199,6 @@ class HomeScreen extends Component<Props> {
       longitude,
       loading,
       taxa,
-      taxaType,
       modalVisible
     } = this.state;
     const { navigation } = this.props;
@@ -231,11 +230,9 @@ class HomeScreen extends Component<Props> {
               location={location}
               latitude={latitude}
               longitude={longitude}
-              taxaType={taxaType}
               updateTaxaType={this.updateTaxaType}
               toggleLocationPicker={this.toggleLocationPicker}
             />
-            <View style={styles.divider} />
             <GetStarted navigation={navigation} />
           </ScrollView>
         </View>

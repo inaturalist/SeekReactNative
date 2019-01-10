@@ -22,7 +22,7 @@ export default StyleSheet.create( {
   headerText: {
     fontSize: 19,
     fontFamily: fonts.semibold,
-    color: colors.teal,
+    color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
   textContainer: {
@@ -45,7 +45,7 @@ export default StyleSheet.create( {
   greenButton: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    backgroundColor: colors.greenButton,
+    backgroundColor: colors.seekiNatGreen,
     borderRadius: 24,
     width: width - 44,
     height: 48,

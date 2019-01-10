@@ -8,60 +8,57 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
-  },
-  column: {
-    flexDirection: "column",
-    justifyContent: "space-around"
+    flex: 1,
+    backgroundColor: colors.seekForestGreen
   },
   header: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
     marginTop: 21,
-    marginLeft: 22
+    marginLeft: 22,
+    width: 185
   },
   headerText: {
     fontSize: 19,
     fontFamily: fonts.semibold,
-    color: colors.teal,
-    // fontWeight: "600",
+    color: colors.seekForestGreen,
+    paddingTop: 11,
+    paddingBottom: 9,
+    paddingRight: 13,
+    paddingLeft: 13,
     letterSpacing: 1.12
+  },
+  buttons: {
+    marginTop: 22
   },
   buttonRow: {
     marginHorizontal: 22,
     flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-between"
+    flexWrap: "nowrap"
   },
-  greenButton: {
-    backgroundColor: colors.greenButton,
+  locationPicker: {
     borderRadius: 7,
     paddingHorizontal: 11,
-    height: 34,
-    marginBottom: 21,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
     justifyContent: "center"
   },
-  smallGreenButton: {
-    width: 104
-  },
-  buttonText: {
-    fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
+  locationText: {
+    fontFamily: fonts.book,
+    fontSize: 26,
     color: colors.white
   },
-  speciesContainer: {
-    marginTop: 21,
-    height: 236
+  speciesNearbyContainer: {
+    marginTop: 21
+    // height: 283
   },
-  taxonContainer: {
-    marginLeft: 20,
-    height: 175
+  taxonList: {
+    paddingLeft: 20
   },
   gridCell: {
     width: 105,
-    height: 175,
+    height: 230,
     paddingHorizontal: padding.medium,
     alignItems: "center",
     justifyContent: "center"
@@ -74,19 +71,17 @@ export default StyleSheet.create( {
   cellTitle: {
     height: 54,
     width: 90,
-    marginTop: 10,
     paddingTop: 10,
-    marginBottom: 10,
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
   },
   cellTitleText: {
     textAlign: "center",
-    color: colors.black,
+    color: colors.white,
     fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
-    paddingTop: padding.extraSmall
+    lineHeight: 17,
+    fontSize: fontSize.smallText
   },
   textContainer: {
     marginLeft: 22,

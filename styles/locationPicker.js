@@ -12,7 +12,7 @@ export default StyleSheet.create( {
     flex: 1
   },
   header: {
-    backgroundColor: colors.teal,
+    backgroundColor: colors.seekForestGreen,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -71,7 +71,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   button: {
-    backgroundColor: colors.teal,
+    backgroundColor: colors.seekForestGreen,
     justifyContent: "flex-end",
     marginHorizontal: 22,
     marginBottom: margins.medium,

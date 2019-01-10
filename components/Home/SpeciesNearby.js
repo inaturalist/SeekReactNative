@@ -22,7 +22,6 @@ type Props = {
   loading: boolean,
   navigation: any,
   location: string,
-  taxaType: string,
   latitude: number,
   longitude: number,
   updateTaxaType: Function,
@@ -36,7 +35,6 @@ const SpeciesNearby = ( {
   location,
   latitude,
   longitude,
-  taxaType,
   updateTaxaType,
   toggleLocationPicker
 }: Props ) => {
@@ -47,7 +45,7 @@ const SpeciesNearby = ( {
   } else if ( taxa.length > 0 ) {
     species = (
       <FlatList
-        style={styles.taxonContainer}
+        style={styles.taxonList}
         data={taxa}
         keyExtractor={taxon => `species-${taxon.id}`}
         horizontal
@@ -69,7 +67,7 @@ const SpeciesNearby = ( {
                 source={{ uri: item.default_photo.medium_url }}
               />
               <View style={styles.cellTitle}>
-                <Text numberOfLines={2} style={styles.cellTitleText}>
+                <Text numberOfLines={3} style={styles.cellTitleText}>
                   {capitalizeNames( item.preferred_common_name || item.name )}
                 </Text>
               </View>
@@ -88,36 +86,32 @@ const SpeciesNearby = ( {
 
   return (
     <View style={styles.container}>
-      <View style={styles.column}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-          </Text>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>
+          {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+        </Text>
+      </View>
+      <View style={styles.buttons}>
+        <View style={styles.buttonRow}>
+          <TouchableOpacity
+            style={styles.locationPicker}
+            onPress={() => toggleLocationPicker()}
+          >
+            <Text style={styles.locationText}>
+              {locationPin}
+              {" "}
+            </Text>
+            <Text style={styles.locationText}>
+              {location}
+            </Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.speciesContainer}>
-          <View style={styles.buttonRow}>
-            <TouchableOpacity
-              style={styles.greenButton}
-              onPress={() => toggleLocationPicker()}
-              // onPress={() => navigation.push( "Location", {
-              //   taxaType,
-              //   longitude,
-              //   latitude,
-              //   location
-              // } )}
-            >
-              <Text style={styles.buttonText}>
-                {locationPin}
-                {" "}
-              </Text>
-              <Text style={styles.buttonText}>
-                {location}
-              </Text>
-            </TouchableOpacity>
-            <TaxonPicker updateTaxaType={updateTaxaType} />
-          </View>
-          {species}
+        <View style={styles.buttonRow}>
+          <TaxonPicker updateTaxaType={updateTaxaType} />
         </View>
+      </View>
+      <View style={styles.speciesNearbyContainer}>
+        {species}
       </View>
     </View>
   );

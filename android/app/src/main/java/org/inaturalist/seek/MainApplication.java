@@ -13,6 +13,7 @@ import com.airbnb.android.react.maps.MapsPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import org.reactnative.camera.RNCameraPackage;
+import com.opensettings.OpenSettingsPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -43,7 +44,8 @@ public class MainApplication extends Application implements ReactApplication {
             new MapsPackage(),
             new ImageResizerPackage(),
             new RNGeocoderPackage(),
-            new RNCameraPackage()
+            new RNCameraPackage(),
+            new OpenSettingsPackage()
       );
     }
 

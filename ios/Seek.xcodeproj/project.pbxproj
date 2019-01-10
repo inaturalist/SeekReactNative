@@ -58,6 +58,7 @@
 		3777824121ADDD4B00EE85B0 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823221ADDD4A00EE85B0 /* SimpleLineIcons.ttf */; };
 		3777824221ADDD4B00EE85B0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823321ADDD4A00EE85B0 /* MaterialIcons.ttf */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
+		37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */; };
 		3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 283BB76ED58149118CBAC00A /* libRNGestureHandler.a */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
 		58E30AE4D7B24FD4B8C8F202 /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE6217EE324B27BC501B21 /* libRNLanguages.a */; };
@@ -345,6 +346,13 @@
 			remoteGlobalIDString = F60690131CA2766F0003FB26;
 			remoteInfo = RealmReact;
 		};
+		37F09A1D21E8083700D5C691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37F099FF21E8083700D5C691 /* React Native Open Settings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 190C8BAA1BEAADCC00CD505E;
+			remoteInfo = "React Native Open Settings";
+		};
 		3DAD3E831DF850E9000B6D8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -543,6 +551,7 @@
 		37B0C420216E78E800A12596 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		37CD59672162E99E002E78BA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		37CD59692162E99E002E78BA /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
+		37F099FF21E8083700D5C691 /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
 		38A1CF6C4F29432F981EAFC3 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		3ED39A80348341D1859CD2F9 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
@@ -602,6 +611,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */,
 				374192B621766AA1007414A3 /* libRNGeocoder.a in Frameworks */,
 				370DC8A1216FB722000A29BA /* libRCTCameraRoll.a in Frameworks */,
 				370180D5216C21890020ED84 /* libRNCamera.a in Frameworks */,
@@ -938,6 +948,14 @@
 			name = fonts;
 			sourceTree = "<group>";
 		};
+		37F09A0021E8083700D5C691 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -959,6 +977,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				37F099FF21E8083700D5C691 /* React Native Open Settings.xcodeproj */,
 				3741928821766A39007414A3 /* RNGeocoder.xcodeproj */,
 				37B0C420216E78E800A12596 /* RCTCameraRoll.xcodeproj */,
 				370180AA216C20E60020ED84 /* RNCamera.xcodeproj */,
@@ -1248,6 +1267,10 @@
 				{
 					ProductGroup = 139FDEE71B06529A00C62182 /* Products */;
 					ProjectRef = 139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */;
+				},
+				{
+					ProductGroup = 37F09A0021E8083700D5C691 /* Products */;
+					ProjectRef = 37F099FF21E8083700D5C691 /* React Native Open Settings.xcodeproj */;
 				},
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
@@ -1540,6 +1563,13 @@
 			fileType = archive.ar;
 			path = libRealmReact.a;
 			remoteRef = 37BFE8D9218CC25800CB627A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReact Native Open Settings.a";
+			remoteRef = 37F09A1D21E8083700D5C691 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */ = {

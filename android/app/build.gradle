@@ -162,6 +162,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-open-settings')
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-languages')
     implementation project(':react-native-gesture-handler')

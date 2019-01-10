@@ -81,12 +81,6 @@ const SpeciesNearby = ( {
         )}
       />
     );
-  } else {
-    species = (
-      <View style={styles.textContainer}>
-        <Text>{i18n.t( "species_nearby.error" )}</Text>
-      </View>
-    );
   }
 
   return (

@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/error";
@@ -32,7 +33,7 @@ const Error = ( { error }: Props ) => (
     { error === "location" ? (
       <TouchableOpacity
         style={styles.greenButton}
-        onPress={() => console.log( "go to location" )}
+        onPress={() => OpenSettings.openSettings()}
       >
         <Text style={styles.buttonText}>{i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}</Text>
       </TouchableOpacity>

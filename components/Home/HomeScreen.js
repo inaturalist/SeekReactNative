@@ -50,7 +50,7 @@ class HomeScreen extends Component<Props> {
       loading: false,
       modalVisible: false,
       notifications: false,
-      error: "location"
+      error: null
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );

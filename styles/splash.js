@@ -14,8 +14,12 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     alignItems: "center"
   },
+  header: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
   banner: {
-    marginTop: 48,
+    marginTop: 40,
     height: 106,
     width,
     backgroundColor: colors.white,
@@ -30,11 +34,11 @@ export default StyleSheet.create( {
     shadowRadius: 1
   },
   image: {
-    width: 56 * 2,
-    height: 43 * 2,
-    marginRight: 22
+    width: 202,
+    height: 80
   },
   headerText: {
+    marginTop: 20,
     fontFamily: fonts.book,
     fontSize: fontSize.header,
     color: colors.white,
@@ -47,5 +51,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     marginBottom: 25,
     marginHorizontal: 35
+  },
+  logo: {
+    width: 316,
+    height: 113
   }
 } );

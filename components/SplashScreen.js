@@ -33,12 +33,16 @@ class SplashScreen extends Component<Props> {
         style={styles.backgroundImage}
         source={require( "../assets/backgrounds/splash.png" )}
       >
-        <View style={styles.banner}>
-          <Image source={logoImages.bird} style={styles.image} />
-          <Image source={logoImages.bird} style={styles.image} />
+        <View style={styles.header}>
+          <View style={styles.banner}>
+            <Image source={logoImages.wwfop} style={styles.image} />
+          </View>
+          <Text style={styles.headerText}>{i18n.t( "splash.presents" ).toLocaleUpperCase()}</Text>
         </View>
-        <Text style={styles.headerText}>{i18n.t( "splash.presents" ).toLocaleUpperCase()}</Text>
-        <Image source={logoImages.seek} />
+        <Image
+          source={logoImages.seek}
+          style={styles.logo}
+        />
         <Text style={styles.text}>{i18n.t( "splash.initiative" )}</Text>
       </ImageBackground>
     );

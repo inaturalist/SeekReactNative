@@ -15,7 +15,7 @@ export default StyleSheet.create( {
   },
   carousel: {
     height: 330,
-    marginTop: 100,
+    marginTop: 90,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -34,17 +34,18 @@ export default StyleSheet.create( {
     shadowRadius: 1
   },
   image: {
-    width: 56 * 2,
-    height: 43 * 2
+    width: 293,
+    height: 232,
+    resizeMode: "contain"
   },
   textContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
     marginHorizontal: 41,
-    marginTop: 42
+    marginTop: 21
   },
   text: {
-    fontSize: 22,
+    fontSize: 20,
     textAlign: "center",
     color: colors.white,
     lineHeight: 35,
@@ -53,10 +54,10 @@ export default StyleSheet.create( {
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 34
+    marginBottom: 52
   },
   skip: {
-    fontSize: 22,
+    fontSize: 19,
     textAlign: "center",
     color: colors.white,
     fontFamily: fonts.light,
@@ -68,7 +69,7 @@ export default StyleSheet.create( {
   },
   pagination: {
     position: "absolute",
-    bottom: 110,
+    bottom: 130,
     left: 0,
     right: 0,
     flexDirection: "row",

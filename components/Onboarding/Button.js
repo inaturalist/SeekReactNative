@@ -9,15 +9,19 @@ import i18n from "../../i18n";
 import styles from "../../styles/onboarding";
 
 type Props = {
-  navigation: any
+  navigation: any,
+  index: number
 }
 
-const Button = ( { navigation }: Props ) => (
+const Button = ( { navigation, index }: Props ) => (
   <TouchableOpacity
     onPress={() => navigation.navigate( "Login" )}
   >
     <View style={styles.buttonContainer}>
-      <Text style={styles.skip}>{i18n.t( "onboarding.skip" )}</Text>
+      { index === 2
+        ? <Text style={styles.skip}>{i18n.t( "onboarding.continue" )}</Text>
+        : <Text style={styles.skip}>{i18n.t( "onboarding.skip" )}</Text>
+      }
     </View>
   </TouchableOpacity>
 );

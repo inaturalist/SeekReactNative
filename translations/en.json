@@ -52,10 +52,11 @@
     "about": "About"
   },
   "onboarding": {
-    "onboarding_1": "Get outside and learn about the life all around you!",
+    "onboarding_1": "Take a photo of anything living and Seek’s AI will identify it!",
     "onboarding_2": "Earn badges for seeing different species",
     "onboarding_3": "Participate in global challenges with OurPlanet and WWF",
-    "skip": "Skip for now"
+    "skip": "Skip for now",
+    "continue": "Continue"
   },
   "location_picker": {
     "species_nearby": "Species nearby",

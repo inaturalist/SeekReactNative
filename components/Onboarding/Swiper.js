@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import {
   Dimensions,
-  Platform,
   ScrollView,
   View
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import Button from "./Button";
-import { colors } from "../../styles/global";
 import styles from "../../styles/onboarding";
 
 const { width, height } = Dimensions.get( "window" );
@@ -18,9 +16,9 @@ type Props = {
 }
 
 const gradientColors = {
-  0: "#38976d",
-  1: "#318b7a",
-  2: "#297f87"
+  0: ["#50c49c", "#1b6537"],
+  1: ["#43b7a8", "#1d5d49"],
+  2: ["#3ab6bb", "#184b56"]
 };
 
 class Swiper extends Component<Props> {
@@ -48,8 +46,8 @@ class Swiper extends Component<Props> {
       offset,
       width,
       height,
-      colorTop: colors.white,
-      colorBottom: gradientColors[index]
+      colorTop: gradientColors[index][0],
+      colorBottom: gradientColors[index][1]
     };
     // Component internals as a class property,
     // and not state to avoid component re-renders when updated
@@ -85,7 +83,8 @@ class Swiper extends Component<Props> {
 
     this.setState( {
       index,
-      colorBottom: gradientColors[index]
+      colorTop: gradientColors[index][0],
+      colorBottom: gradientColors[index][1]
     } );
   }
 
@@ -129,15 +128,15 @@ class Swiper extends Component<Props> {
     );
   }
 
-  render = ( { children, navigation } = this.props, { colorBottom } = this.state ) => (
+  render = ( { children, navigation } = this.props, { colorBottom, colorTop, index } = this.state ) => (
     <LinearGradient
-      colors={[colors.white, colorBottom]}
+      colors={[colorTop, colorBottom]}
       style={styles.container}
     >
       <View style={[styles.container, styles.fullScreen]}>
         {this.renderScrollView( children )}
         {this.renderPagination()}
-        <Button navigation={navigation} />
+        <Button navigation={navigation} index={index} />
       </View>
     </LinearGradient>
   )

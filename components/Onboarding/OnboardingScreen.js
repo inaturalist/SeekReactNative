@@ -8,6 +8,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/onboarding";
 import Swiper from "./Swiper";
+import logoImages from "../../assets/logos";
 
 type Props = {
   navigation: any
@@ -17,7 +18,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
   <Swiper navigation={navigation}>
     <View style={styles.carousel}>
       <Image
-        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
+        source={require( "../../assets/onboarding/img-onboarding1.png" )}
         style={styles.image}
       />
       <View style={styles.textContainer}>
@@ -26,7 +27,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     </View>
     <View style={styles.carousel}>
       <Image
-        source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
+        source={require( "../../assets/onboarding/img-onboarding2.png" )}
         style={styles.image}
       />
       <View style={styles.textContainer}>
@@ -36,11 +37,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     <View style={styles.carousel}>
       <View style={styles.banner}>
         <Image
-          source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
-          style={styles.image}
-        />
-        <Image
-          source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
+          source={logoImages.wwfop}
           style={styles.image}
         />
       </View>

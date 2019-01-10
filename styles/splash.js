@@ -19,7 +19,6 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   banner: {
-    marginTop: 40,
     height: 106,
     width,
     backgroundColor: colors.white,
@@ -49,11 +48,12 @@ export default StyleSheet.create( {
     textAlign: "center",
     color: colors.white,
     fontFamily: fonts.default,
-    marginBottom: 25,
     marginHorizontal: 35
   },
   logo: {
-    width: 316,
-    height: 113
+    width: 300,
+    height: 113,
+    resizeMode: "contain",
+    marginBottom: 25
   }
 } );

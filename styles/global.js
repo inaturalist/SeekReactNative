@@ -18,7 +18,11 @@ export const colors = {
   teal: "#38976d",
   greenButton: "#77b300",
   locationGreen: "#77b300",
-  blue: "#0266C8"
+  blue: "#0266C8",
+  seekiNatGreen: "#77b300",
+  seekTeal: "#297f87",
+  seekGreen1: "#44ab55",
+  seekGreen2: "#38976d"
 };
 
 export const fonts = {

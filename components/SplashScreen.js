@@ -31,7 +31,7 @@ class SplashScreen extends Component<Props> {
     return (
       <ImageBackground
         style={styles.backgroundImage}
-        source={require( "../assets/backgrounds/splash.png" )}
+        source={require( "../assets/backgrounds/bg-splash.png" )}
       >
         <View style={styles.header}>
           <View style={styles.banner}>

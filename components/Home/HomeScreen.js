@@ -6,13 +6,15 @@ import {
   ScrollView,
   Platform,
   PermissionsAndroid,
-  Modal
+  Modal,
+  NetInfo
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
 import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
@@ -56,6 +58,7 @@ class HomeScreen extends Component<Props> {
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
   }
 
   setLoading( loading ) {
@@ -71,6 +74,12 @@ class HomeScreen extends Component<Props> {
     this.setState( {
       error
     } );
+
+    if ( error === "location" ) {
+      this.setState( {
+        location: i18n.t( "species_nearby.no_location" )
+      } );
+    }
   }
 
   requestAndroidPermissions = async () => {
@@ -136,9 +145,22 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
+  checkInternetConnection() {
+    NetInfo.getConnectionInfo()
+      .then( ( connectionInfo ) => {
+        if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
+          this.setError( "internet" );
+          this.setLoading( false );
+        } else {
+          this.setError( null );
+          this.setLoading( true );
+        }
+      } );
+  }
+
   checkRealmForSpecies( lat, lng ) {
     const { taxaType } = this.state;
-    this.setLoading( true );
+    this.checkInternetConnection();
 
     const params = {
       verifiable: true,
@@ -239,6 +261,7 @@ class HomeScreen extends Component<Props> {
               updateTaxaType={this.updateTaxaType}
               toggleLocationPicker={this.toggleLocationPicker}
               error={error}
+              checkRealmForSpecies={this.checkRealmForSpecies}
             />
             <GetStarted navigation={navigation} />
             <Challenges navigation={navigation} />

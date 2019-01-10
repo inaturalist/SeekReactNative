@@ -7,7 +7,8 @@
     "header": "Species nearby",
     "location_error": "In order to show you nearby species, we need to use your location.",
     "enable_location": "Enable location in settings",
-    "internet_error": "We need the internet to generate nearby species. Tap to try again."
+    "internet_error": "We need the internet to generate nearby species. Tap to try again.",
+    "no_location": "No Location"
   },
   "get_started": {
     "header": "Get started",

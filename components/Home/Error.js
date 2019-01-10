@@ -14,10 +14,18 @@ import styles from "../../styles/home/error";
 import icons from "../../assets/icons";
 
 type Props = {
-  error: string
+  error: string,
+  checkRealmForSpecies: Function,
+  latitude: string,
+  longitude: string
 }
 
-const Error = ( { error }: Props ) => (
+const Error = ( {
+  error,
+  checkRealmForSpecies,
+  latitude,
+  longitude
+}: Props ) => (
   <View style={styles.textContainer}>
     { error === "location" ? (
       <View style={styles.row}>
@@ -25,10 +33,14 @@ const Error = ( { error }: Props ) => (
         <Text style={styles.text}>{i18n.t( "species_nearby.location_error" )}</Text>
       </View>
     ) : (
-      <View style={styles.row}>
-        <Image source={icons.internet} />
-        <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => checkRealmForSpecies( latitude, longitude )}
+      >
+        <View style={styles.row}>
+          <Image source={icons.internet} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
+        </View>
+      </TouchableOpacity>
     )}
     { error === "location" ? (
       <TouchableOpacity

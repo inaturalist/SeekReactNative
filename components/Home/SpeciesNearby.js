@@ -25,6 +25,7 @@ type Props = {
   longitude: number,
   updateTaxaType: Function,
   toggleLocationPicker: Function,
+  checkRealmForSpecies: Function,
   error: string
 }
 
@@ -37,6 +38,7 @@ const SpeciesNearby = ( {
   longitude,
   updateTaxaType,
   toggleLocationPicker,
+  checkRealmForSpecies,
   error
 }: Props ) => {
   let species;
@@ -45,7 +47,12 @@ const SpeciesNearby = ( {
     species = <LoadingWheel color={colors.black} />;
   } else if ( error ) {
     species = (
-      <Error error={error} />
+      <Error
+        error={error}
+        checkRealmForSpecies={checkRealmForSpecies}
+        latitude={latitude}
+        longitude={longitude}
+      />
     );
   } else if ( taxa.length > 0 ) {
     species = (

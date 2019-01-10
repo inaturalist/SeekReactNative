@@ -17,6 +17,7 @@ import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
+import Challenges from "./Challenges";
 import Footer from "../../assets/icons/Footer";
 import { truncateCoordinates, getPreviousAndNextMonth } from "../../utility/helpers";
 import taxonIds from "../../utility/taxonDict";
@@ -236,6 +237,7 @@ class HomeScreen extends Component<Props> {
               toggleLocationPicker={this.toggleLocationPicker}
             />
             <GetStarted navigation={navigation} />
+            <Challenges navigation={navigation} />
           </ScrollView>
         </View>
         <Footer

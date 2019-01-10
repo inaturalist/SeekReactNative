@@ -1,11 +1,9 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
   fontSize
 } from "../global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {

@@ -13,6 +13,13 @@
     "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will identify it for you!",
     "tip_3": "Take a challenge sponsored by OurPlanet and WWF and find species with the worldwide Seek community!"
   },
+  "challenges_card": {
+    "header": "Challenges",
+    "april": "April 2019: Connectivity",
+    "join": "Join the global observation challenge and follow along with OurPlanet on Netflix!",
+    "take_challenge": "Take the challenge",
+    "view_all": "View all challenges"
+  },
   "login": {
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up with iNaturalist",

@@ -4,15 +4,13 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
-import CameraIcon from "react-native-vector-icons/Entypo";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/getStarted";
-import { colors } from "../../styles/global";
-
-const camera = ( <CameraIcon name="camera" size={20} color={colors.white} /> );
+import icons from "../../assets/icons";
 
 const navParams = {
   latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
@@ -34,23 +32,27 @@ const GetStarted = ( { navigation }: Props ) => (
         </Text>
       </View>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>
-          {i18n.t( "get_started.how_to" )}
-        </Text>
-      </View>
-      <View style={styles.buttonRow}>
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => navigation.navigate( "Camera", navParams )}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "get_started.button" ).toLocaleUpperCase()}
-            {" "}
+        <View style={styles.buttonRow}>
+          <Image source={icons.cameraGreen} style={styles.image} />
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_1" )}
           </Text>
-          <Text style={styles.buttonText}>
-            {camera}
+        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Camera", navParams )}
+          style={styles.buttonRow}
+        >
+          <Image source={icons.cameraGreen} style={styles.image} />
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_2" )}
           </Text>
         </TouchableOpacity>
+        <View style={styles.buttonRow}>
+          <Image source={icons.cameraGreen} style={styles.image} />
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_3" )}
+          </Text>
+        </View>
       </View>
     </View>
   </View>

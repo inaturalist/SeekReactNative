@@ -9,8 +9,9 @@
   },
   "get_started": {
     "header": "Get started",
-    "how_to": "Point the Seek camera at plants, animals, & anything else living nearby to learn about the life around you!",
-    "button": "Make an observation"
+    "tip_1": "Check out species commonly spotted near you in the “Nearby Species” section above. Search by location or specific taxa!",
+    "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will identify it for you!",
+    "tip_3": "Take a challenge sponsored by OurPlanet and WWF and find species with the worldwide Seek community!"
   },
   "login": {
     "log_in": "Log in with iNaturalist",

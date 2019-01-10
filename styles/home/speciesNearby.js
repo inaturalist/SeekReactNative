@@ -43,6 +43,9 @@ export default StyleSheet.create( {
   editImage: {
     marginLeft: 13
   },
+  caretImage: {
+    marginTop: 22
+  },
   locationPicker: {
     paddingHorizontal: 9,
     flexDirection: "row",

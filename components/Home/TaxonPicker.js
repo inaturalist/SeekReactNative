@@ -9,9 +9,10 @@ import { capitalizeNames } from "../../utility/helpers";
 const pickerSelectStyles = StyleSheet.create( {
   inputIOS: {
     borderRadius: 7,
-    paddingHorizontal: 11,
+    paddingRight: 10,
+    paddingLeft: 11,
     fontFamily: fonts.light,
-    marginLeft: 22,
+    marginLeft: 25,
     fontSize: 18,
     color: colors.white,
     textAlign: "center"
@@ -19,10 +20,11 @@ const pickerSelectStyles = StyleSheet.create( {
   inputAndroid: {
     fontFamily: fonts.light,
     borderRadius: 7,
-    paddingHorizontal: 11,
+    paddingRight: 10,
+    paddingLeft: 11,
     textAlign: "center",
     paddingBottom: 8,
-    marginLeft: 22,
+    marginLeft: 25,
     fontSize: 18,
     color: colors.white
   }

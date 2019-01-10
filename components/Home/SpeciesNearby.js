@@ -103,6 +103,7 @@ const SpeciesNearby = ( {
         </View>
         <View style={styles.buttonRow}>
           <TaxonPicker updateTaxaType={updateTaxaType} />
+          <Image source={icons.caret} style={styles.caretImage} />
         </View>
       </View>
       <View style={styles.speciesNearbyContainer}>

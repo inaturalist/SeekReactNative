@@ -17,7 +17,7 @@ import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
-import Footer from "./Footer";
+import Footer from "../../assets/icons/Footer";
 import { truncateCoordinates, getPreviousAndNextMonth } from "../../utility/helpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -50,7 +50,8 @@ class HomeScreen extends Component<Props> {
       taxaName,
       id,
       loading: false,
-      modalVisible: false
+      modalVisible: false,
+      notifications: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
@@ -199,7 +200,8 @@ class HomeScreen extends Component<Props> {
       longitude,
       loading,
       taxa,
-      modalVisible
+      modalVisible,
+      notifications
     } = this.state;
     const { navigation } = this.props;
 
@@ -240,6 +242,7 @@ class HomeScreen extends Component<Props> {
           navigation={navigation}
           latitude={latitude}
           longitude={longitude}
+          notifications={notifications}
         />
       </View>
     );

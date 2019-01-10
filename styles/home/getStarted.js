@@ -28,37 +28,24 @@ export default StyleSheet.create( {
   textContainer: {
     marginLeft: 22,
     marginRight: 22,
-    marginTop: 21,
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  text: {
-    fontFamily: fonts.default,
-    fontSize: fontSize.buttonText
+    marginTop: 21
   },
   buttonRow: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-between",
+    marginBottom: 14
   },
-  greenButton: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    backgroundColor: colors.seekiNatGreen,
-    borderRadius: 24,
-    width: width - 44,
-    height: 48,
-    marginTop: 21,
-    marginBottom: 21,
-    alignItems: "center",
-    justifyContent: "center"
+  image: {
+    width: 56,
+    height: 56
   },
-  buttonText: {
-    fontFamily: fonts.default,
-    fontSize: 18,
-    letterSpacing: 1,
-    textAlign: "center",
-    color: colors.white
+  text: {
+    maxWidth: 245,
+    fontFamily: fonts.book,
+    fontSize: fontSize.smallText,
+    lineHeight: 20,
+    marginHorizontal: 12
   }
 } );

@@ -10,9 +10,11 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
 import LoadingWheel from "../LoadingWheel";
+import Error from "./Error";
 import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
 import icons from "../../assets/icons";
+import { colors } from "../../styles/global";
 
 type Props = {
   taxa: Array,
@@ -22,7 +24,8 @@ type Props = {
   latitude: number,
   longitude: number,
   updateTaxaType: Function,
-  toggleLocationPicker: Function
+  toggleLocationPicker: Function,
+  error: string
 }
 
 const SpeciesNearby = ( {
@@ -33,12 +36,17 @@ const SpeciesNearby = ( {
   latitude,
   longitude,
   updateTaxaType,
-  toggleLocationPicker
+  toggleLocationPicker,
+  error
 }: Props ) => {
   let species;
 
   if ( loading ) {
-    species = <LoadingWheel />;
+    species = <LoadingWheel color={colors.black} />;
+  } else if ( error ) {
+    species = (
+      <Error error={error} />
+    );
   } else if ( taxa.length > 0 ) {
     species = (
       <FlatList
@@ -106,7 +114,7 @@ const SpeciesNearby = ( {
           <Image source={icons.caret} style={styles.caretImage} />
         </View>
       </View>
-      <View style={styles.speciesNearbyContainer}>
+      <View style={[styles.speciesNearbyContainer, error && { backgroundColor: "#4a4a4a", paddingTop: 32, paddingBottom: 32 }]}>
         {species}
       </View>
     </View>

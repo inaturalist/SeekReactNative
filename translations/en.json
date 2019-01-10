@@ -5,7 +5,9 @@
   },
   "species_nearby": {
     "header": "Species nearby",
-    "error": "Sorry, we could not load taxa nearby"
+    "location_error": "In order to show you nearby species, we need to use your location.",
+    "enable_location": "Enable location in settings",
+    "internet_error": "We need the internet to generate nearby species. Tap to try again."
   },
   "get_started": {
     "header": "Get started",

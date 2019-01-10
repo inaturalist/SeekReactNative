@@ -24,10 +24,7 @@ import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
 
 type Props = {
-  navigation: any,
-  // fetchTaxa: Function,
-  // taxa: Array,
-  // loading: boolean
+  navigation: any
 }
 
 class HomeScreen extends Component<Props> {
@@ -52,7 +49,8 @@ class HomeScreen extends Component<Props> {
       id,
       loading: false,
       modalVisible: false,
-      notifications: false
+      notifications: false,
+      error: "location"
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
@@ -69,6 +67,12 @@ class HomeScreen extends Component<Props> {
     this.setLoading( false );
   }
 
+  setError( error ) {
+    this.setState( {
+      error
+    } );
+  }
+
   requestAndroidPermissions = async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -76,11 +80,11 @@ class HomeScreen extends Component<Props> {
       );
       if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
         this.fetchUserLatAndLng();
-      // } else {
-      //   // this.showError( JSON.stringify( granted ) );
+      } else {
+        this.setError( "location" );
       }
     } catch ( err ) {
-      // this.showError( err );
+      this.setError( "location" );
     }
   }
 
@@ -101,8 +105,8 @@ class HomeScreen extends Component<Props> {
         latitude,
         longitude
       }, () => this.checkRealmForSpecies( latitude, longitude ) );
-    }, ( err ) => {
-      // console.log( err.message );
+    }, () => {
+      this.setError( "location" );
     } );
   }
 
@@ -127,8 +131,8 @@ class HomeScreen extends Component<Props> {
       this.setState( {
         location: locality || subAdminArea
       } );
-    } ).catch( ( err ) => {
-      // console.log( err );
+    } ).catch( () => {
+      this.setError( "location" );
     } );
   }
 
@@ -160,7 +164,7 @@ class HomeScreen extends Component<Props> {
         const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         params.without_taxon_id = existingTaxonIds.join( "," );
         this.fetchSpeciesNearby( params );
-      } ).catch( ( err ) => {
+      } ).catch( () => {
         this.fetchSpeciesNearby( params );
       } );
   }
@@ -169,10 +173,8 @@ class HomeScreen extends Component<Props> {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const taxa = response.results.map( r => r.taxon );
       this.setTaxa( taxa );
-    } ).catch( ( err ) => {
-      // this.setState( {
-      //   error: `Unable to load challenges: ${err.message}`
-      // } );
+    } ).catch( () => {
+      this.setError( "internet" );
     } );
   }
 
@@ -202,7 +204,8 @@ class HomeScreen extends Component<Props> {
       loading,
       taxa,
       modalVisible,
-      notifications
+      notifications,
+      error
     } = this.state;
     const { navigation } = this.props;
 
@@ -235,6 +238,7 @@ class HomeScreen extends Component<Props> {
               longitude={longitude}
               updateTaxaType={this.updateTaxaType}
               toggleLocationPicker={this.toggleLocationPicker}
+              error={error}
             />
             <GetStarted navigation={navigation} />
             <Challenges navigation={navigation} />

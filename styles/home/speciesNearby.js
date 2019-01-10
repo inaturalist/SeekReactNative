@@ -10,7 +10,7 @@ export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    height: 372
+    height: 362
   },
   header: {
     backgroundColor: colors.white,
@@ -56,7 +56,7 @@ export default StyleSheet.create( {
     color: colors.white
   },
   speciesNearbyContainer: {
-    marginTop: 21
+    marginTop: 16
   },
   taxonList: {
     paddingLeft: 20

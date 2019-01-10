@@ -3,6 +3,7 @@ const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
 const moment = require( "moment" );
+const { AsyncStorage } = require( "react-native" );
 
 const badgesDict = require( "./badgesDict" );
 const realmConfig = require( "../models/index" );
@@ -163,6 +164,25 @@ const requiresParent = ( birthday ) => {
   return false;
 };
 
+const HAS_LAUNCHED = "has_launched";
+
+const setAppLaunched = () => {
+  AsyncStorage.setItem( HAS_LAUNCHED, "true" );
+};
+
+const checkIfFirstLaunch = async () => {
+  try {
+    const hasLaunched = await AsyncStorage.getItem( HAS_LAUNCHED );
+    if ( hasLaunched === null ) {
+      setAppLaunched();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -172,5 +192,6 @@ export {
   setupBadges,
   truncateCoordinates,
   getPreviousAndNextMonth,
-  requiresParent
+  requiresParent,
+  checkIfFirstLaunch
 };

@@ -11,20 +11,42 @@ import {
 import i18n from "../i18n";
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
+import { checkIfFirstLaunch } from "../utility/helpers";
 
 type Props = {
   navigation: any
 }
 
 class SplashScreen extends Component<Props> {
-  componentDidMount() {
-    this.transitionScreen();
+  constructor() {
+    super();
+
+    this.state = {
+      isFirstLaunch: false,
+      hasCheckedAsyncStorage: false
+    };
+  }
+
+  async componentWillMount() {
+    const isFirstLaunch = await checkIfFirstLaunch();
+    this.setState( {
+      isFirstLaunch,
+      hasCheckedAsyncStorage: true
+    }, () => this.transitionScreen() );
   }
 
   transitionScreen() {
     const { navigation } = this.props;
+    const { isFirstLaunch, hasCheckedAsyncStorage } = this.state;
 
-    setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+    if ( !hasCheckedAsyncStorage ) {
+      return null;
+    }
+    if ( isFirstLaunch ) {
+      setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+    } else {
+      setTimeout( () => navigation.navigate( "Login" ), 2000 );
+    }
   }
 
   render() {

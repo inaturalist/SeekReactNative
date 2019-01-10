@@ -6,16 +6,13 @@ import {
   FlatList,
   Image
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialIcons";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
-import { colors } from "../../styles/global";
 import LoadingWheel from "../LoadingWheel";
 import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
-
-const locationPin = ( <Icon name="location-on" size={19} color={colors.white} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   taxa: Array,
@@ -91,19 +88,17 @@ const SpeciesNearby = ( {
           {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
         </Text>
       </View>
-      <View style={styles.buttons}>
+      <View style={styles.buttonContainer}>
         <View style={styles.buttonRow}>
           <TouchableOpacity
             style={styles.locationPicker}
             onPress={() => toggleLocationPicker()}
           >
-            <Text style={styles.locationText}>
-              {locationPin}
-              {" "}
-            </Text>
+            <Image source={icons.locationWhite} style={styles.image} />
             <Text style={styles.locationText}>
               {location}
             </Text>
+            <Image source={icons.edit} style={styles.editImage} />
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>

@@ -9,7 +9,8 @@ import {
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.seekForestGreen,
+    height: 372
   },
   header: {
     backgroundColor: colors.white,
@@ -28,17 +29,22 @@ export default StyleSheet.create( {
     paddingLeft: 13,
     letterSpacing: 1.12
   },
-  buttons: {
+  buttonContainer: {
     marginTop: 22
   },
   buttonRow: {
-    marginHorizontal: 22,
+    marginHorizontal: 17,
     flexDirection: "row",
     flexWrap: "nowrap"
   },
+  image: {
+    marginRight: 13
+  },
+  editImage: {
+    marginLeft: 13
+  },
   locationPicker: {
-    borderRadius: 7,
-    paddingHorizontal: 11,
+    paddingHorizontal: 9,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
@@ -51,14 +57,12 @@ export default StyleSheet.create( {
   },
   speciesNearbyContainer: {
     marginTop: 21
-    // height: 283
   },
   taxonList: {
     paddingLeft: 20
   },
   gridCell: {
     width: 105,
-    height: 230,
     paddingHorizontal: padding.medium,
     alignItems: "center",
     justifyContent: "center"
@@ -69,7 +73,7 @@ export default StyleSheet.create( {
     borderRadius: 90 / 2
   },
   cellTitle: {
-    height: 54,
+    height: 76,
     width: 90,
     paddingTop: 10,
     justifyContent: "center",

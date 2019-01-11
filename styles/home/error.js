@@ -6,14 +6,14 @@ import {
 
 export default StyleSheet.create( {
   textContainer: {
-    marginLeft: 42,
-    marginRight: 22
+    alignItems: "center",
+    justifyContent: "center"
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-between"
   },
   text: {
     textAlign: "center",
@@ -22,7 +22,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 24,
-    marginHorizontal: 12
+    marginLeft: 12
   },
   greenButton: {
     marginTop: 24,
@@ -31,7 +31,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 24,
     width: 284,
-    paddingHorizontal: 12,
     height: 34
   },
   buttonText: {

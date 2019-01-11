@@ -61,6 +61,8 @@ const SpeciesNearby = ( {
         data={taxa}
         keyExtractor={taxon => `species-${taxon.id}`}
         horizontal
+        bounces
+        alwaysBounceHorizontal
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity
@@ -112,7 +114,7 @@ const SpeciesNearby = ( {
         </View>
         <View style={styles.buttonRow}>
           <TaxonPicker updateTaxaType={updateTaxaType} />
-          <Image source={icons.caret} style={styles.caretImage} />
+          <Image source={icons.caret} />
         </View>
       </View>
       <View style={[styles.speciesNearbyContainer, error && { backgroundColor: "#4a4a4a", paddingTop: 32, paddingBottom: 32 }]}>

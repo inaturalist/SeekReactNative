@@ -7,7 +7,8 @@ import {
   Platform,
   PermissionsAndroid,
   Modal,
-  NetInfo
+  NetInfo,
+  SafeAreaView
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
@@ -232,48 +233,50 @@ class HomeScreen extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.safeView}>
         <View style={styles.container}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.fetchUserLocation();
-            }}
-          />
-          <ScrollView>
-            <Modal
-              visible={modalVisible}
-              onRequestClose={() => this.toggleLocationPicker()}
-            >
-              <LocationPicker
+          <View style={styles.container}>
+            <NavigationEvents
+              onWillFocus={() => {
+                this.fetchUserLocation();
+              }}
+            />
+            <ScrollView>
+              <Modal
+                visible={modalVisible}
+                onRequestClose={() => this.toggleLocationPicker()}
+              >
+                <LocationPicker
+                  latitude={latitude}
+                  longitude={longitude}
+                  location={location}
+                  updateLocation={this.updateLocation}
+                />
+              </Modal>
+              <SpeciesNearby
+                taxa={taxa}
+                loading={loading}
+                navigation={navigation}
+                location={location}
                 latitude={latitude}
                 longitude={longitude}
-                location={location}
-                updateLocation={this.updateLocation}
+                updateTaxaType={this.updateTaxaType}
+                toggleLocationPicker={this.toggleLocationPicker}
+                error={error}
+                checkRealmForSpecies={this.checkRealmForSpecies}
               />
-            </Modal>
-            <SpeciesNearby
-              taxa={taxa}
-              loading={loading}
-              navigation={navigation}
-              location={location}
-              latitude={latitude}
-              longitude={longitude}
-              updateTaxaType={this.updateTaxaType}
-              toggleLocationPicker={this.toggleLocationPicker}
-              error={error}
-              checkRealmForSpecies={this.checkRealmForSpecies}
-            />
-            <GetStarted navigation={navigation} />
-            <Challenges navigation={navigation} />
-          </ScrollView>
+              <GetStarted navigation={navigation} />
+              <Challenges navigation={navigation} />
+            </ScrollView>
+          </View>
+          <Footer
+            navigation={navigation}
+            latitude={latitude}
+            longitude={longitude}
+            notifications={notifications}
+          />
         </View>
-        <Footer
-          navigation={navigation}
-          latitude={latitude}
-          longitude={longitude}
-          notifications={notifications}
-        />
-      </View>
+      </SafeAreaView>
     );
   }
 }

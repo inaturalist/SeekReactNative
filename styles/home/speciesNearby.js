@@ -17,34 +17,32 @@ export default StyleSheet.create( {
     borderRadius: 10,
     marginTop: 21,
     marginLeft: 22,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 39,
     width: 185
   },
   headerText: {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    paddingTop: 11,
-    paddingBottom: 9,
-    paddingRight: 13,
-    paddingLeft: 13,
     letterSpacing: 1.12
   },
   buttonContainer: {
-    marginTop: 22
+    marginTop: 22,
+    marginLeft: 22
   },
   buttonRow: {
-    marginHorizontal: 17,
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "flex-start"
   },
   image: {
     marginRight: 13
   },
   editImage: {
     marginLeft: 13
-  },
-  caretImage: {
-    marginTop: 22
   },
   locationPicker: {
     paddingHorizontal: 9,

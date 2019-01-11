@@ -1,14 +1,11 @@
 // @flow
 
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import { View, Image, TouchableHighlight } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
-import Icon from "react-native-vector-icons/MaterialIcons";
 
 import styles from "../../styles/locationPicker";
-import { colors } from "../../styles/global";
-
-const locationIcon = ( <Icon name="my-location" size={26} color={colors.seekiNatGreen} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   region: Object,
@@ -36,7 +33,7 @@ const LocationMap = ( {
         onPress={() => returnToUserLocation()}
         style={styles.locationIcon}
       >
-        <Text>{locationIcon}</Text>
+        <Image source={icons.indicator} />
       </TouchableHighlight>
     </View>
   </View>

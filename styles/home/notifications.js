@@ -17,6 +17,7 @@ export default StyleSheet.create( {
   },
   headerText: {
     marginTop: 40,
+    marginBottom: 13,
     fontSize: fontSize.buttonText,
     color: colors.white,
     fontFamily: fonts.semibold

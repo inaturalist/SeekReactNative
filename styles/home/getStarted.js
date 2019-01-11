@@ -9,10 +9,6 @@ export default StyleSheet.create( {
   container: {
     flex: 1
   },
-  column: {
-    flexDirection: "column",
-    justifyContent: "space-around"
-  },
   header: {
     marginTop: 21,
     marginLeft: 22
@@ -24,8 +20,8 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   textContainer: {
-    marginLeft: 22,
-    marginRight: 22,
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 21
   },
   buttonRow: {

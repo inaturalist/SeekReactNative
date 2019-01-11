@@ -98,7 +98,7 @@ class Swiper extends Component<Props> {
       onMomentumScrollEnd={this.onScrollEnd}
     >
       {pages.map( ( page, i ) => (
-        <View style={styles.fullScreen} key={`page-${i}`}>
+        <View style={styles.contentContainer} key={`page-${i}`}>
           {page}
         </View>
       ) )}
@@ -121,7 +121,7 @@ class Swiper extends Component<Props> {
     return (
       <View
         pointerEvents="none"
-        style={[styles.pagination, styles.fullScreen]}
+        style={[styles.pagination]}
       >
         {dots}
       </View>
@@ -133,7 +133,7 @@ class Swiper extends Component<Props> {
       colors={[colorTop, colorBottom]}
       style={styles.container}
     >
-      <View style={[styles.container, styles.fullScreen]}>
+      <View style={[styles.container]}>
         {this.renderScrollView( children )}
         {this.renderPagination()}
         <Button navigation={navigation} index={index} />

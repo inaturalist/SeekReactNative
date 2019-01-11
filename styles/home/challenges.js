@@ -58,11 +58,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
     width: 254,
-    paddingHorizontal: 15,
     height: 46,
-    marginBottom: 21,
-    flexDirection: "row",
-    flexWrap: "nowrap"
+    marginBottom: 21
   },
   buttonText: {
     fontSize: fontSize.buttonText,

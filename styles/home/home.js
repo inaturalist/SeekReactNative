@@ -5,6 +5,10 @@ export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.white
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: colors.seekGreen
   }
   // divider: {
   //   backgroundColor: "#d8d8d8",

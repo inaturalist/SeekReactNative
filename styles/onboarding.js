@@ -4,20 +4,14 @@ import {
   fonts
 } from "./global";
 
-const { width, height } = Dimensions.get( "window" );
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
+    flex: 1
   },
   carousel: {
-    height: 330,
-    marginTop: 90,
-    alignItems: "center",
-    justifyContent: "center"
+    marginTop: 40
   },
   banner: {
     height: 150,
@@ -41,7 +35,7 @@ export default StyleSheet.create( {
   textContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginHorizontal: 41,
+    marginHorizontal: 22,
     marginTop: 21
   },
   text: {
@@ -63,9 +57,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.light,
     textDecorationLine: "underline"
   },
-  fullScreen: {
+  contentContainer: {
     width,
-    height
+    justifyContent: "center",
+    marginBottom: 50
   },
   pagination: {
     position: "absolute",

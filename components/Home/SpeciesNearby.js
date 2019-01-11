@@ -44,7 +44,11 @@ const SpeciesNearby = ( {
   let species;
 
   if ( loading ) {
-    species = <LoadingWheel color={colors.black} />;
+    species = (
+      <View style={{ flexGrow: 1 }}>
+        <LoadingWheel color={colors.black} />
+      </View>
+    );
   } else if ( error ) {
     species = (
       <Error
@@ -57,7 +61,7 @@ const SpeciesNearby = ( {
   } else if ( taxa.length > 0 ) {
     species = (
       <FlatList
-        style={styles.taxonList}
+        contentContainerStyle={styles.taxonList}
         data={taxa}
         keyExtractor={taxon => `species-${taxon.id}`}
         horizontal

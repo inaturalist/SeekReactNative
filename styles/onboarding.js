@@ -27,6 +27,11 @@ export default StyleSheet.create( {
     shadowOpacity: 0.8,
     shadowRadius: 1
   },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 22
+  },
   image: {
     width: 293,
     height: 232,
@@ -59,6 +64,7 @@ export default StyleSheet.create( {
   },
   contentContainer: {
     width,
+    alignItems: "center",
     justifyContent: "center",
     marginBottom: 50
   },

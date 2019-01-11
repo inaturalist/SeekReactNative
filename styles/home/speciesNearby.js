@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -10,7 +10,7 @@ export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    height: 362
+    height: 356
   },
   header: {
     backgroundColor: colors.white,
@@ -23,6 +23,7 @@ export default StyleSheet.create( {
     width: 185
   },
   headerText: {
+    paddingTop: Platform.OS === "ios" ? 10 : null,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -60,7 +61,9 @@ export default StyleSheet.create( {
     marginTop: 16
   },
   taxonList: {
-    paddingLeft: 20
+    paddingLeft: 20,
+    alignItems: "center",
+    justifyContent: "center"
   },
   gridCell: {
     width: 105,

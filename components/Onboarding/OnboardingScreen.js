@@ -17,19 +17,23 @@ type Props = {
 const OnboardingScreen = ( { navigation }: Props ) => (
   <Swiper navigation={navigation}>
     <View style={styles.carousel}>
-      <Image
-        source={require( "../../assets/onboarding/img-onboarding1.png" )}
-        style={styles.image}
-      />
+      <View style={styles.imageContainer}>
+        <Image
+          source={require( "../../assets/onboarding/img-onboarding1.png" )}
+          style={styles.image}
+        />
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.text}>{i18n.t( "onboarding.onboarding_1" )}</Text>
       </View>
     </View>
     <View style={styles.carousel}>
-      <Image
-        source={require( "../../assets/onboarding/img-onboarding2.png" )}
-        style={styles.image}
-      />
+      <View style={styles.imageContainer}>
+        <Image
+          source={require( "../../assets/onboarding/img-onboarding2.png" )}
+          style={styles.image}
+        />
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.text}>{i18n.t( "onboarding.onboarding_2" )}</Text>
       </View>

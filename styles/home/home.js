@@ -8,7 +8,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: colors.seekGreen
+    backgroundColor: colors.seekForestGreen
   }
   // divider: {
   //   backgroundColor: "#d8d8d8",

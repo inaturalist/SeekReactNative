@@ -20,7 +20,8 @@ export default StyleSheet.create( {
     marginLeft: 22,
     marginBottom: 22,
     width: 221,
-    height: 82
+    height: 82,
+    resizeMode: "contain"
   },
   textContainer: {
     marginLeft: 22,

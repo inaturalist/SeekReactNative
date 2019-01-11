@@ -23,6 +23,10 @@
     "take_challenge": "Take the challenge",
     "view_all": "View all challenges"
   },
+  "notifications": {
+    "header": "Notifications",
+    "learn_more": "Learn more about iNaturalist"
+  },
   "login": {
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up with iNaturalist",

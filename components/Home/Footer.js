@@ -4,7 +4,7 @@ import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
 
 import styles from "../../styles/home/footer";
-import icons from "../icons";
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any,
@@ -33,7 +33,9 @@ const Footer = ( {
       >
         <Image source={icons.cameraGreen} style={styles.cameraImage} />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.push( "Notifications" )}
+      >
         { notifications ? <Image source={icons.notifications} />
           : <Image source={icons.notificationsInactive} />
         }

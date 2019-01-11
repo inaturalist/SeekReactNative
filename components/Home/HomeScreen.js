@@ -20,7 +20,7 @@ import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
-import Footer from "../../assets/icons/Footer";
+import Footer from "./Footer";
 import { truncateCoordinates, getPreviousAndNextMonth } from "../../utility/helpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";

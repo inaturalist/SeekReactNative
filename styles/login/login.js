@@ -1,25 +1,36 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { fonts, colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: "#44ab55"
-  },
-  column: {
-    flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "center"
+  },
+  logo: {
+    width: 294,
+    height: 105,
+    resizeMode: "contain",
+    marginBottom: 50
+  },
+  textContainer: {
+    marginTop: 50,
+    marginHorizontal: 35
   },
   text: {
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 0.5,
+    textAlign: "center",
+    fontFamily: fonts.default,
+    fontSize: 17,
+    color: colors.white
+  },
+  textLink: {
+    marginTop: 30,
+    fontFamily: fonts.book,
+    fontSize: 19,
     color: colors.white,
-    marginLeft: 22,
-    marginRight: 22
+    textDecorationLine: "underline"
   },
   darkText: {
     color: colors.black,
@@ -35,5 +46,24 @@ export default StyleSheet.create( {
     height: 40,
     borderColor: "gray",
     borderWidth: 1
+  },
+  greenButton: {
+    marginBottom: 25,
+    backgroundColor: colors.seekiNatGreen,
+    width: 274,
+    height: 52,
+    borderRadius: 34,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 10,
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1
+  },
+  buttonText: {
+    fontFamily: fonts.semibold,
+    fontSize: 22,
+    color: colors.white
   }
 } );

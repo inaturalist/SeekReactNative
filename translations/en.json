@@ -29,9 +29,9 @@
   },
   "login": {
     "log_in": "Log in with iNaturalist",
-    "sign_up": "Sign up with iNaturalist",
-    "or": "or",
-    "skip_login": "Continue without logging in"
+    "sign_up": "Sign up for iNaturalist",
+    "about": "By logging in to iNaturalist, you can sync your observations across devices and post to the online community.",
+    "skip_login": "Continue without signing in"
   },
   "inat_signup": {
     "enter_birthday": "Enter your birthday",

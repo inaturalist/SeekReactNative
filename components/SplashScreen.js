@@ -11,6 +11,7 @@ import {
 import i18n from "../i18n";
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
+import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch } from "../utility/helpers";
 
 type Props = {
@@ -42,19 +43,19 @@ class SplashScreen extends Component<Props> {
     if ( !hasCheckedAsyncStorage ) {
       return null;
     }
-    setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
-    // if ( isFirstLaunch ) {
-    //   setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
-    // } else {
-    //   setTimeout( () => navigation.navigate( "Login" ), 2000 );
-    // }
+    // setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+    if ( isFirstLaunch ) {
+      setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+    } else {
+      setTimeout( () => navigation.navigate( "Login" ), 2000 );
+    }
   }
 
   render() {
     return (
       <ImageBackground
         style={styles.backgroundImage}
-        source={require( "../assets/backgrounds/bg-splash.png" )}
+        source={backgrounds.splash}
       >
         <View style={styles.header}>
           <View style={styles.banner}>

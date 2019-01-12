@@ -16,14 +16,19 @@ export default StyleSheet.create( {
   },
   headerText: {
     marginTop: 50,
-    marginHorizontal: 70,
+    marginHorizontal: 40,
     textAlign: "center",
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 26,
     lineHeight: 30
   },
-  textContainer: {
+  noWorriesTextContainer: {
+    marginTop: 20,
+    marginHorizontal: 20,
+    marginBottom: 20
+  },
+  aboutTextContainer: {
     marginTop: 50,
     marginHorizontal: 35
   },
@@ -39,11 +44,11 @@ export default StyleSheet.create( {
     alignSelf: "flex-start",
     marginLeft: 27,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 5
   },
   leftText: {
     fontFamily: fonts.default,
-    fontSize: 17,
+    fontSize: 16,
     color: colors.white
   },
   rightTextContainer: {
@@ -100,5 +105,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 22,
     color: colors.white
+  },
+  noWorriesText: {
+    textAlign: "center",
+    fontFamily: fonts.book,
+    fontSize: 22,
+    color: colors.white,
+    lineHeight: 30
   }
 } );

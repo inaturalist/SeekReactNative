@@ -55,7 +55,8 @@
     "password": "Password",
     "forgot_password": "Forgot your password?",
     "log_in": "Log in",
-    "no_worries": "No worries, we'll email you a link to reset it.",
+    "email": "Email",
+    "no_worries": "No worries. We’ll send password reset instructions to your email.",
     "reset": "Reset my password"
   },
   "menu": {

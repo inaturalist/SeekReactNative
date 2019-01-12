@@ -94,7 +94,8 @@ const RootStack = createStackNavigator( {
   Age: {
     screen: AgeVerifyScreen,
     navigationOptions: () => ( {
-      header: null
+      headerTransparent: true,
+      headerTintColor: colors.white
     } )
   },
   iNatLogin: {
@@ -105,10 +106,18 @@ const RootStack = createStackNavigator( {
     } )
   },
   Forgot: {
-    screen: ForgotPasswordScreen
+    screen: ForgotPasswordScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerTintColor: colors.white
+    } )
   },
   Parent: {
-    screen: ParentalConsentScreen
+    screen: ParentalConsentScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerTintColor: colors.white
+    } )
   },
   Signup: {
     screen: SignUpScreen

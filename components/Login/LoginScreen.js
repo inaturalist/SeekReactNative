@@ -55,7 +55,7 @@ const LoginScreen = ( { navigation }: Props ) => (
         {i18n.t( "login.skip_login" )}
       </Text>
     </TouchableOpacity>
-    <View style={styles.textContainer}>
+    <View style={styles.aboutTextContainer}>
       <Text style={styles.text}>
         {i18n.t( "login.about" )}
       </Text>

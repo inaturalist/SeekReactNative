@@ -98,7 +98,11 @@ const RootStack = createStackNavigator( {
     } )
   },
   iNatLogin: {
-    screen: iNatLoginScreen
+    screen: iNatLoginScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerTintColor: colors.white
+    } )
   },
   Forgot: {
     screen: ForgotPasswordScreen

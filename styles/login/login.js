@@ -5,7 +5,6 @@ import { fonts, colors } from "../global";
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -14,6 +13,15 @@ export default StyleSheet.create( {
     height: 105,
     resizeMode: "contain",
     marginBottom: 50
+  },
+  headerText: {
+    marginTop: 50,
+    marginHorizontal: 70,
+    textAlign: "center",
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 26,
+    lineHeight: 30
   },
   textContainer: {
     marginTop: 50,
@@ -25,10 +33,37 @@ export default StyleSheet.create( {
     fontSize: 17,
     color: colors.white
   },
+  leftTextContainer: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignSelf: "flex-start",
+    marginLeft: 27,
+    marginTop: 10,
+    marginBottom: 10
+  },
+  leftText: {
+    fontFamily: fonts.default,
+    fontSize: 17,
+    color: colors.white
+  },
+  rightTextContainer: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignSelf: "flex-end",
+    marginRight: 25,
+    marginTop: 10,
+    marginBottom: 10
+  },
   textLink: {
     marginTop: 30,
     fontFamily: fonts.book,
     fontSize: 19,
+    color: colors.white,
+    textDecorationLine: "underline"
+  },
+  forgotPasswordText: {
+    fontFamily: fonts.book,
+    fontSize: 16,
     color: colors.white,
     textDecorationLine: "underline"
   },
@@ -41,11 +76,11 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   inputField: {
-    width: 200,
+    width: 307,
     backgroundColor: colors.white,
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1
+    height: 37,
+    borderRadius: 40,
+    paddingLeft: 15
   },
   greenButton: {
     marginBottom: 25,

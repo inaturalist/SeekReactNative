@@ -50,10 +50,10 @@
     "create_account": "Create my account"
   },
   "inat_login": {
-    "log_in_with_inat": "Log in with your iNaturalist account.",
-    "username": "username",
-    "password": "password",
-    "forgot_password": "forgot your password?",
+    "log_in_with_inat": "Log in with your iNaturalist account",
+    "username": "Username",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
     "log_in": "Log in",
     "no_worries": "No worries, we'll email you a link to reset it.",
     "reset": "Reset my password"

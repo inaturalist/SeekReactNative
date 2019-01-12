@@ -31,13 +31,7 @@ class ForgotPasswordScreen extends Component<Props> {
     // try to log into iNat
     // if log in succeeds, navigate to Main
     // else, have a failure state / try again / forgot password prompt
-    navigation.navigate( "Main", {
-      taxaName: null,
-      id: null,
-      taxaType: "all",
-      latitude: null,
-      longitude: null
-    } );
+    navigation.navigate( "CheckEmail" );
   }
 
   render() {

@@ -57,7 +57,10 @@
     "log_in": "Log in",
     "email": "Email",
     "no_worries": "No worries. We’ll send password reset instructions to your email.",
-    "reset": "Reset my password"
+    "reset": "Reset my password",
+    "check_email": "Check your email!",
+    "reset_instructions": "We sent password reset instructions to your email.",
+    "return_login": "Return to Login"
   },
   "menu": {
     "home": "Home",

@@ -23,6 +23,7 @@ import SideMenu from "./Home/SideMenu";
 import LoginScreen from "./Login/LoginScreen";
 import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 import iNatLoginScreen from "./Login/iNatLoginScreen";
+import CheckEmailScreen from "./Login/CheckEmailScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import ParentalConsentScreen from "./Login/ParentalConsentScreen";
 import SignUpScreen from "./Login/SignUpScreen";
@@ -110,6 +111,12 @@ const RootStack = createStackNavigator( {
     navigationOptions: () => ( {
       headerTransparent: true,
       headerTintColor: colors.white
+    } )
+  },
+  CheckEmail: {
+    screen: CheckEmailScreen,
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   Parent: {

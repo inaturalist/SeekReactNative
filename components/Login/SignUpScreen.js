@@ -48,7 +48,7 @@ class SignUpScreen extends Component<Props> {
       <View style={styles.container}>
         <View style={styles.column}>
           <Text style={styles.text}>{i18n.t( "inat_signup.sign_up" )}</Text>
-          <Text style={styles.text}>{i18n.t( "inat_signup.enter_email" )}</Text>
+          <Text style={styles.text}>{i18n.t( "inat_signup.email" )}</Text>
           <TextInput
             style={styles.inputField}
             onChangeText={ value => this.setState( { email: value } )}

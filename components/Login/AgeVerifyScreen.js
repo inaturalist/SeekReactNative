@@ -9,11 +9,13 @@ import {
   DatePickerAndroid,
   Platform
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
 
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/helpers";
 import styles from "../../styles/login/login";
+import { colors } from "../../styles/global";
 
 type Props = {
   navigation: any
@@ -71,42 +73,46 @@ class AgeVerifyScreen extends Component<Props> {
     const { chosenDate } = this.state;
 
     return (
-      <View style={styles.container}>
-        <View style={styles.column}>
-          <Text style={styles.text}>
-            {i18n.t( "inat_signup.enter_birthday" )}
-          </Text>
-          <Text style={styles.text}>
+      <LinearGradient
+        style={styles.container}
+        colors={[colors.seekGreen, colors.seekTeal]}
+      >
+        <Text style={styles.headerText}>
+          {i18n.t( "inat_signup.enter_birthday" )}
+        </Text>
+        <View style={styles.secondHeaderTextContainer}>
+          <Text style={styles.secondHeaderText}>
             {i18n.t( "inat_signup.permission" )}
           </Text>
-          <View style={styles.datePickerContainer}>
-            { Platform.OS === "ios" ? (
-              <DatePickerIOS
-                date={chosenDate}
-                maximumDate={new Date()}
-                onDateChange={this.setDate()}
-              />
-            ) : (
-              <TouchableOpacity
-                style={styles.inputField}
-                onPress={() => this.setDateAndroid()}
-              >
-                <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-          <Text style={styles.text}>
-            {i18n.t( "inat_signup.privacy" )}
-          </Text>
-          <TouchableOpacity
-            onPress={() => this.submit()}
-          >
-            <Text style={styles.text}>
-              {i18n.t( "inat_signup.continue" )}
-            </Text>
-          </TouchableOpacity>
         </View>
-      </View>
+        <View style={styles.datePickerContainer}>
+          { Platform.OS === "ios" ? (
+            <DatePickerIOS
+              date={chosenDate}
+              maximumDate={new Date()}
+              onDateChange={this.setDate()}
+            />
+          ) : (
+            <TouchableOpacity
+              style={styles.inputField}
+              onPress={() => this.setDateAndroid()}
+            >
+              <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+        <Text style={styles.text}>
+          {i18n.t( "inat_signup.privacy" )}
+        </Text>
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => this.submit()}
+        >
+          <Text style={[styles.textLink, { fontSize: 17, marginBottom: 37 }]}>
+            {i18n.t( "inat_signup.continue" )}
+          </Text>
+        </TouchableOpacity>
+      </LinearGradient>
     );
   }
 }

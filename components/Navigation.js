@@ -25,6 +25,7 @@ import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 import iNatLoginScreen from "./Login/iNatLoginScreen";
 import CheckEmailScreen from "./Login/CheckEmailScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
+import WelcomeScreen from "./Login/WelcomeScreen";
 import ParentalConsentScreen from "./Login/ParentalConsentScreen";
 import SignUpScreen from "./Login/SignUpScreen";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
@@ -115,6 +116,12 @@ const RootStack = createStackNavigator( {
   },
   CheckEmail: {
     screen: CheckEmailScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Welcome: {
+    screen: WelcomeScreen,
     navigationOptions: () => ( {
       header: null
     } )

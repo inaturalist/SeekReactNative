@@ -22,8 +22,8 @@ const CheckEmailScreen = ( { navigation }: Props ) => (
     colors={[colors.seekGreen, colors.seekTeal]}
   >
     <Text style={styles.headerText}>{i18n.t( "inat_login.check_email" )}</Text>
-    <View style={styles.noWorriesTextContainer}>
-      <Text style={styles.noWorriesText}>{i18n.t( "inat_login.reset_instructions" )}</Text>
+    <View style={styles.secondHeaderTextContainer}>
+      <Text style={styles.secondHeaderText}>{i18n.t( "inat_login.reset_instructions" )}</Text>
     </View>
     <TouchableOpacity
       style={[styles.greenButton, { marginTop: 40 }]}

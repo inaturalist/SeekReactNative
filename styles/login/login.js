@@ -23,7 +23,7 @@ export default StyleSheet.create( {
     fontSize: 26,
     lineHeight: 30
   },
-  noWorriesTextContainer: {
+  secondHeaderTextContainer: {
     marginTop: 20,
     marginHorizontal: 20,
     marginBottom: 20
@@ -106,7 +106,7 @@ export default StyleSheet.create( {
     fontSize: 22,
     color: colors.white
   },
-  noWorriesText: {
+  secondHeaderText: {
     textAlign: "center",
     fontFamily: fonts.book,
     fontSize: 22,

@@ -43,8 +43,8 @@ class ForgotPasswordScreen extends Component<Props> {
         source={backgrounds.compass}
       >
         <Text style={styles.headerText}>{i18n.t( "inat_login.forgot_password" )}</Text>
-        <View style={styles.noWorriesTextContainer}>
-          <Text style={styles.noWorriesText}>{i18n.t( "inat_login.no_worries" )}</Text>
+        <View style={styles.secondHeaderTextContainer}>
+          <Text style={styles.secondHeaderText}>{i18n.t( "inat_login.no_worries" )}</Text>
         </View>
         <View style={styles.leftTextContainer}>
           <Text style={styles.leftText}>{i18n.t( "inat_login.email" )}</Text>

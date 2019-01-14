@@ -35,11 +35,12 @@ const WelcomeScreen = ( { navigation }: Props ) => (
     <View style={styles.aboutTextContainer}>
       <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
     </View>
-    <TouchableOpacity
+    <Text
+      style={[styles.textLink, { fontSize: 17, marginBottom: 37 }]}
       onPress={() => navigation.navigate( "Privacy" )}
     >
-      <Text style={[styles.textLink, { fontSize: 17, marginBottom: 37 }]}>{i18n.t( "inat_signup.privacy" )}</Text>
-    </TouchableOpacity>
+      {i18n.t( "inat_signup.privacy" )}
+    </Text>
   </LinearGradient>
 );
 

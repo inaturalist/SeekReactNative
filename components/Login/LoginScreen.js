@@ -42,7 +42,8 @@ const LoginScreen = ( { navigation }: Props ) => (
         </Text>
       </TouchableOpacity>
     </View>
-    <TouchableOpacity
+    <Text
+      style={styles.textLink}
       onPress={() => navigation.navigate( "Main", {
         taxaName: null,
         id: null,
@@ -51,10 +52,8 @@ const LoginScreen = ( { navigation }: Props ) => (
         longitude: null
       } )}
     >
-      <Text style={styles.textLink}>
-        {i18n.t( "login.skip_login" )}
-      </Text>
-    </TouchableOpacity>
+      {i18n.t( "login.skip_login" )}
+    </Text>
     <View style={styles.aboutTextContainer}>
       <Text style={styles.text}>
         {i18n.t( "login.about" )}

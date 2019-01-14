@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   DatePickerIOS,
   DatePickerAndroid,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
@@ -62,6 +63,11 @@ class AgeVerifyScreen extends Component<Props> {
   submit() {
     const { navigation } = this.props;
     const { chosenDate } = this.state;
+    if ( chosenDate === null ) {
+      Alert.alert( i18n.t( "inat_signup.enter_birthday" ) );
+      return null;
+    }
+
     if ( requiresParent( chosenDate ) ) {
       navigation.navigate( "Parent" );
     } else {
@@ -101,17 +107,17 @@ class AgeVerifyScreen extends Component<Props> {
             </TouchableOpacity>
           )}
         </View>
-        <Text style={styles.text}>
-          {i18n.t( "inat_signup.privacy" )}
-        </Text>
         <TouchableOpacity
           style={styles.greenButton}
           onPress={() => this.submit()}
         >
-          <Text style={[styles.textLink, { fontSize: 17, marginBottom: 37 }]}>
+          <Text style={styles.buttonText}>
             {i18n.t( "inat_signup.continue" )}
           </Text>
         </TouchableOpacity>
+        <Text style={[styles.textLink, { fontSize: 17 }]}>
+          {i18n.t( "inat_signup.privacy" )}
+        </Text>
       </LinearGradient>
     );
   }

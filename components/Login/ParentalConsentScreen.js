@@ -7,9 +7,11 @@ import {
   TextInput,
   TouchableOpacity
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
+import { colors } from "../../styles/global";
 
 type Props = {
   navigation: any
@@ -26,20 +28,17 @@ class ParentalConsentScreen extends Component<Props> {
 
   submit() {
     const { navigation } = this.props;
-    navigation.navigate( "Main", {
-      taxaName: null,
-      id: null,
-      taxaType: "all",
-      latitude: null,
-      longitude: null
-    } );
+    navigation.navigate( "ParentCheckEmail" );
   }
 
   render() {
     const { email } = this.state;
 
     return (
-      <View style={styles.container}>
+      <LinearGradient
+        style={styles.container}
+        colors={[colors.seekGreen, colors.seekTeal]}
+      >
         <Text style={styles.headerText}>{i18n.t( "inat_signup.enter_email" )}</Text>
         <View style={styles.secondHeaderTextContainer}>
           <Text style={styles.secondHeaderText}>{i18n.t( "inat_signup.under_13" )}</Text>
@@ -57,12 +56,12 @@ class ParentalConsentScreen extends Component<Props> {
           autoFocus
         />
         <TouchableOpacity
-          style={[styles.greenButton, { marginTop: 40 }]}
+          style={[styles.greenButton, { marginTop: 10 }]}
           onPress={() => this.submit()}
         >
           <Text style={styles.buttonText}>{i18n.t( "inat_signup.send_email" )}</Text>
         </TouchableOpacity>
-      </View>
+      </LinearGradient>
     );
   }
 }

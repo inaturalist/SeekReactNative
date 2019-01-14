@@ -78,6 +78,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   datePickerContainer: {
+    marginTop: 40,
+    marginBottom: 60,
     justifyContent: "center"
   },
   inputField: {
@@ -112,5 +114,20 @@ export default StyleSheet.create( {
     fontSize: 22,
     color: colors.white,
     lineHeight: 30
+  },
+  licenseText: {
+    fontFamily: fonts.book,
+    fontSize: 17,
+    lineHeight: 23,
+    color: colors.white
+  },
+  row: {
+    marginTop: 30,
+    marginBottom: 30,
+    marginHorizontal: 40,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center"
   }
 } );

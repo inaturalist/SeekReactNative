@@ -27,9 +27,11 @@ import CheckEmailScreen from "./Login/CheckEmailScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import WelcomeScreen from "./Login/WelcomeScreen";
 import ParentalConsentScreen from "./Login/ParentalConsentScreen";
-import SignUpScreen from "./Login/SignUpScreen";
+import SignUpScreen from "./Login/SignUpScreen-1";
+import SignUpScreen2 from "./Login/SignUpScreen-2";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Home/Notifications";
+import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
@@ -120,6 +122,12 @@ const RootStack = createStackNavigator( {
       header: null
     } )
   },
+  ParentCheckEmail: {
+    screen: ParentCheckEmailScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
   Welcome: {
     screen: WelcomeScreen,
     navigationOptions: () => ( {
@@ -134,7 +142,18 @@ const RootStack = createStackNavigator( {
     } )
   },
   Signup: {
-    screen: SignUpScreen
+    screen: SignUpScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerTintColor: colors.white
+    } )
+  },
+  Signup2: {
+    screen: SignUpScreen2,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerTintColor: colors.white
+    } )
   },
   Main: {
     screen: HomeScreen,

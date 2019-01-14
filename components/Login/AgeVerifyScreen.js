@@ -77,6 +77,7 @@ class AgeVerifyScreen extends Component<Props> {
 
   render() {
     const { chosenDate } = this.state;
+    const { navigation } = this.props;
 
     return (
       <LinearGradient
@@ -115,7 +116,10 @@ class AgeVerifyScreen extends Component<Props> {
             {i18n.t( "inat_signup.continue" )}
           </Text>
         </TouchableOpacity>
-        <Text style={[styles.textLink, { fontSize: 17 }]}>
+        <Text
+          style={[styles.textLink, { fontSize: 17 }]}
+          onPress={() => navigation.navigate( "Privacy" )}
+        >
           {i18n.t( "inat_signup.privacy" )}
         </Text>
       </LinearGradient>

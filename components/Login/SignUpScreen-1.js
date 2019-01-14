@@ -45,6 +45,8 @@ class SignUpScreen extends Component<Props> {
 
   render() {
     const { email, licensePhotos } = this.state;
+    const { navigation } = this.props;
+
     return (
       <ImageBackground
         style={styles.container}
@@ -73,7 +75,7 @@ class SignUpScreen extends Component<Props> {
             <Text style={styles.licenseText}>{i18n.t( "inat_signup.release_photos" )}</Text>
             <Text
               style={[styles.textLink, { fontSize: 17, marginTop: 0 }]}
-              onPress={() => console.log( "clicked privacy policy" )}
+              onPress={() => navigation.navigate( "Privacy" )}
             >
               {i18n.t( "inat_signup.privacy" )}
             </Text>

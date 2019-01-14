@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 
 import {
   colors,
@@ -34,6 +34,14 @@ import SignUpScreen2 from "./Login/SignUpScreen-2";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Home/Notifications";
 import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
+import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+
+const backButton = (
+  <Image
+    source={icons.backButton}
+    style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
+  />
+);
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
@@ -101,21 +109,21 @@ const RootStack = createStackNavigator( {
     screen: AgeVerifyScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
     } )
   },
   iNatLogin: {
     screen: iNatLoginScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
     } )
   },
   Forgot: {
     screen: ForgotPasswordScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
     } )
   },
   CheckEmail: {
@@ -140,21 +148,28 @@ const RootStack = createStackNavigator( {
     screen: ParentalConsentScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
     } )
   },
   Signup: {
     screen: SignUpScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
     } )
   },
   Signup2: {
     screen: SignUpScreen2,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerBackImage: <Image source={icons.backButton} />
+      headerBackImage: backButton
+    } )
+  },
+  Privacy: {
+    screen: PrivacyPolicyScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
     } )
   },
   Main: {

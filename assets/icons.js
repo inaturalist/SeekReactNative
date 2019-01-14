@@ -11,6 +11,7 @@ const icons = {
   notificationsInactive: require( "./navbar/Notifications-inactive.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
+  backButton: require( "./icons/back.png" ),
 };
 
 export default icons;

@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
+import { Image } from "react-native";
 
 import {
   colors,
@@ -7,6 +8,7 @@ import {
   fontSize,
   fonts
 } from "../styles/global";
+import icons from "../assets/icons";
 
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "../containers/HomeContainer";
@@ -99,21 +101,21 @@ const RootStack = createStackNavigator( {
     screen: AgeVerifyScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   iNatLogin: {
     screen: iNatLoginScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   Forgot: {
     screen: ForgotPasswordScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   CheckEmail: {
@@ -138,21 +140,21 @@ const RootStack = createStackNavigator( {
     screen: ParentalConsentScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   Signup: {
     screen: SignUpScreen,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   Signup2: {
     screen: SignUpScreen2,
     navigationOptions: () => ( {
       headerTransparent: true,
-      headerTintColor: colors.white
+      headerBackImage: <Image source={icons.backButton} />
     } )
   },
   Main: {

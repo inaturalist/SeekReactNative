@@ -1,6 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
 import { fonts, colors } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -23,13 +25,14 @@ export default StyleSheet.create( {
     fontSize: 26,
     lineHeight: 30
   },
+  keyboardHeaderText: {
+    marginTop: ( width > 350 ) ? 50 : 20
+  },
   secondHeaderTextContainer: {
-    marginTop: 20,
-    marginHorizontal: 20,
-    marginBottom: 20
+    marginHorizontal: 20
   },
   aboutTextContainer: {
-    marginTop: 50,
+    marginTop: 20,
     marginHorizontal: 35
   },
   text: {
@@ -78,9 +81,18 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   datePickerContainer: {
-    marginTop: 40,
-    marginBottom: 60,
+    marginTop: Platform.OS === "android" ? 40 : null,
+    marginBottom: Platform.OS === "android" ? 60 : null,
+    alignItems: Platform.OS === "android" ? "center" : null,
+    flex: Platform.OS === "ios" ? 1 : null,
     justifyContent: "center"
+  },
+  datePickerInputField: {
+    width: 307,
+    textAlign: "center",
+    backgroundColor: colors.white,
+    height: 37,
+    borderRadius: 40
   },
   inputField: {
     width: 307,
@@ -90,7 +102,6 @@ export default StyleSheet.create( {
     paddingLeft: 15
   },
   greenButton: {
-    marginBottom: 25,
     backgroundColor: colors.seekiNatGreen,
     width: 274,
     height: 52,
@@ -99,11 +110,12 @@ export default StyleSheet.create( {
     alignItems: "center",
     elevation: 10,
     shadowColor: colors.black,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 1
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4
   },
   buttonText: {
+    paddingTop: Platform.OS === "ios" ? 7 : null,
     fontFamily: fonts.semibold,
     fontSize: 22,
     color: colors.white
@@ -114,6 +126,10 @@ export default StyleSheet.create( {
     fontSize: 22,
     color: colors.white,
     lineHeight: 30
+  },
+  keyboardSecondHeaderText: {
+    fontSize: ( width > 350 ) ? 22 : 20,
+    lineHeight: ( width > 350 ) ? 30 : 28
   },
   licenseText: {
     fontFamily: fonts.book,

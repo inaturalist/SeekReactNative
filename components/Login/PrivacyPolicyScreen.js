@@ -1,7 +1,8 @@
 import React from "react";
 import {
   Text,
-  View
+  View,
+  ScrollView
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -15,6 +16,11 @@ const PrivacyPolicyScreen = () => (
         {capitalizeNames( i18n.t( "inat_signup.privacy" ) )}
       </Text>
     </View>
+    <ScrollView contentContainerStyle={styles.textContainer}>
+      <Text style={styles.text}>
+        {i18n.t( "privacy.policy" )}
+      </Text>
+    </ScrollView>
   </View>
 );
 

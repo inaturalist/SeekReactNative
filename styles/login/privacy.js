@@ -16,10 +16,21 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   headerText: {
-    marginTop: 16,
+    marginTop: 30,
     marginBottom: 16,
     fontSize: 22,
     color: colors.white,
     fontFamily: fonts.semibold
+  },
+  textContainer: {
+    marginHorizontal: 29,
+    marginTop: 29,
+    marginBottom: 29
+  },
+  text: {
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 23,
+    color: colors.black
   }
 } );

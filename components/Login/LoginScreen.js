@@ -26,7 +26,7 @@ const LoginScreen = ( { navigation }: Props ) => (
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.buttonContainer}>
       <TouchableOpacity
-        style={styles.greenButton}
+        style={[styles.greenButton, { marginBottom: 25 }]}
         onPress={() => navigation.navigate( "iNatLogin" )}
       >
         <Text style={styles.buttonText}>
@@ -34,7 +34,7 @@ const LoginScreen = ( { navigation }: Props ) => (
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.greenButton}
+        style={[styles.greenButton, { marginBottom: 25 }]}
         onPress={() => navigation.navigate( "Welcome" )}
       >
         <Text style={styles.buttonText}>

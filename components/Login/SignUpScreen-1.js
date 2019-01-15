@@ -6,7 +6,9 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
+  Platform,
+  KeyboardAvoidingView
 } from "react-native";
 import Checkbox from "react-native-check-box";
 
@@ -52,42 +54,44 @@ class SignUpScreen extends Component<Props> {
         style={styles.container}
         source={backgrounds.compass}
       >
-        <Text style={styles.headerText}>{i18n.t( "inat_signup.sign_up_inat" )}</Text>
-        <View style={styles.leftTextContainer}>
-          <Text style={styles.leftText}>{i18n.t( "inat_signup.email" )}</Text>
-        </View>
-        <TextInput
-          style={styles.inputField}
-          onChangeText={ value => this.setState( { email: value } )}
-          value={email}
-          placeholder="email"
-          textContentType="emailAddress"
-          autoFocus
-        />
-        <View style={styles.row}>
-          <Checkbox
-            style={{ padding: 10 }}
-            onClick={() => this.toggleLicensePhotos()}
-            isChecked={licensePhotos}
-            checkBoxColor={colors.white}
-          />
-          <View style={{ flexDirection: "row", flexWrap: "wrap", maxWidth: 200 }}>
-            <Text style={styles.licenseText}>{i18n.t( "inat_signup.release_photos" )}</Text>
-            <Text
-              style={[styles.textLink, { fontSize: 17, marginTop: 0 }]}
-              onPress={() => navigation.navigate( "Privacy" )}
-            >
-              {i18n.t( "inat_signup.privacy" )}
-            </Text>
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null} enabled>
+          <Text style={[styles.headerText, styles.keyboardHeaderText]}>{i18n.t( "inat_signup.sign_up_inat" )}</Text>
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>{i18n.t( "inat_signup.email" )}</Text>
           </View>
-        </View>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { email: value } )}
+            value={email}
+            placeholder="email"
+            textContentType="emailAddress"
+            autoFocus
+          />
+          <View style={styles.row}>
+            <Checkbox
+              style={{ padding: 10 }}
+              onClick={() => this.toggleLicensePhotos()}
+              isChecked={licensePhotos}
+              checkBoxColor={colors.white}
+            />
+            <View style={{ flexDirection: "row", flexWrap: "wrap", maxWidth: 200 }}>
+              <Text style={styles.licenseText}>{i18n.t( "inat_signup.release_photos" )}</Text>
+              <Text
+                style={[styles.textLink, { fontSize: 17, marginTop: 0 }]}
+                onPress={() => navigation.navigate( "Privacy" )}
+              >
+                {i18n.t( "inat_signup.privacy" )}
+              </Text>
+            </View>
+          </View>
 
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => this.submit()}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "inat_signup.next" )}</Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.greenButton}
+            onPress={() => this.submit()}
+          >
+            <Text style={styles.buttonText}>{i18n.t( "inat_signup.next" )}</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ImageBackground>
     );
   }

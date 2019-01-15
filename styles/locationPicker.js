@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -72,20 +72,19 @@ export default StyleSheet.create( {
   },
   button: {
     backgroundColor: colors.seekForestGreen,
-    justifyContent: "flex-end",
+    alignItems: "center",
+    justifyContent: "center",
     marginHorizontal: 22,
     marginBottom: margins.medium,
     marginTop: margins.medium,
-    paddingTop: padding.large,
-    paddingBottom: padding.large,
+    height: 46,
     borderRadius: 40
   },
   buttonText: {
+    paddingTop: Platform.OS === "ios" ? 9 : null,
     fontFamily: fonts.semibold,
     fontSize: fontSize.buttonText,
     color: colors.white,
-    textAlign: "center",
-    justifyContent: "center",
     letterSpacing: 0.7
   },
   locationRow: {

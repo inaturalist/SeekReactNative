@@ -6,7 +6,9 @@ import {
   ImageBackground,
   Text,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform,
+  KeyboardAvoidingView
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -53,35 +55,37 @@ class SignUpScreen extends Component<Props> {
         style={styles.container}
         source={backgrounds.compass}
       >
-        <Text style={styles.headerText}>{i18n.t( "inat_signup.sign_up_inat" )}</Text>
-        <View style={styles.leftTextContainer}>
-          <Text style={styles.leftText}>{i18n.t( "inat_login.username" )}</Text>
-        </View>
-        <TextInput
-          style={styles.inputField}
-          onChangeText={ value => this.setState( { username: value } )}
-          value={username}
-          placeholder="username"
-          textContentType="username"
-          autoFocus
-        />
-        <View style={styles.leftTextContainer}>
-          <Text style={styles.leftText}>{i18n.t( "inat_login.password" )}</Text>
-        </View>
-        <TextInput
-          style={styles.inputField}
-          onChangeText={ value => this.setState( { password: value } )}
-          value={password}
-          secureTextEntry
-          placeholder="*********"
-          textContentType="password"
-        />
-        <TouchableOpacity
-          style={[styles.greenButton, { marginTop: 40 }]}
-          onPress={() => this.submit()}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "inat_signup.sign_up" )}</Text>
-        </TouchableOpacity>
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null} enabled>
+          <Text style={[styles.headerText, styles.keyboardHeaderText]}>{i18n.t( "inat_signup.sign_up_inat" )}</Text>
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>{i18n.t( "inat_login.username" )}</Text>
+          </View>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { username: value } )}
+            value={username}
+            placeholder="username"
+            textContentType="username"
+            autoFocus
+          />
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>{i18n.t( "inat_login.password" )}</Text>
+          </View>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { password: value } )}
+            value={password}
+            secureTextEntry
+            placeholder="*********"
+            textContentType="password"
+          />
+          <TouchableOpacity
+            style={[styles.greenButton, { marginTop: 40 }]}
+            onPress={() => this.submit()}
+          >
+            <Text style={styles.buttonText}>{i18n.t( "inat_signup.sign_up" )}</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ImageBackground>
     );
   }

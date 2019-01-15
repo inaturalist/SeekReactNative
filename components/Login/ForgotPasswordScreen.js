@@ -6,7 +6,9 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
+  Platform,
+  KeyboardAvoidingView
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -42,28 +44,30 @@ class ForgotPasswordScreen extends Component<Props> {
         style={styles.container}
         source={backgrounds.compass}
       >
-        <Text style={styles.headerText}>{i18n.t( "inat_login.forgot_password" )}</Text>
-        <View style={styles.secondHeaderTextContainer}>
-          <Text style={styles.secondHeaderText}>{i18n.t( "inat_login.no_worries" )}</Text>
-        </View>
-        <View style={styles.leftTextContainer}>
-          <Text style={styles.leftText}>{i18n.t( "inat_login.email" )}</Text>
-        </View>
-        <TextInput
-          style={styles.inputField}
-          onChangeText={ value => this.setState( { email: value } )}
-          value={email}
-          placeholder="email address"
-          textContentType="emailAddress"
-          keyboardType="email-address"
-          autoFocus
-        />
-        <TouchableOpacity
-          style={[styles.greenButton, { marginTop: 40 }]}
-          onPress={() => this.submit()}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "inat_login.reset" )}</Text>
-        </TouchableOpacity>
+        <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : null} enabled>
+          <Text style={[styles.headerText, styles.keyboardHeaderText]}>{i18n.t( "inat_login.forgot_password" )}</Text>
+          <View style={styles.secondHeaderTextContainer}>
+            <Text style={[styles.secondHeaderText, styles.keyboardSecondHeaderText]}>{i18n.t( "inat_login.no_worries" )}</Text>
+          </View>
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>{i18n.t( "inat_login.email" )}</Text>
+          </View>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { email: value } )}
+            value={email}
+            placeholder="email address"
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            autoFocus
+          />
+          <TouchableOpacity
+            style={[styles.greenButton, { marginTop: 40 }]}
+            onPress={() => this.submit()}
+          >
+            <Text style={styles.buttonText}>{i18n.t( "inat_login.reset" )}</Text>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
       </ImageBackground>
     );
   }

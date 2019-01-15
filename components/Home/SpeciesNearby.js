@@ -113,7 +113,10 @@ const SpeciesNearby = ( {
             <Text style={styles.locationText}>
               {location}
             </Text>
-            <Image source={icons.edit} style={styles.editImage} />
+            {location !== i18n.t( "species_nearby.no_location" )
+              ? <Image source={icons.edit} style={styles.editImage} />
+              : null
+            }
           </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>

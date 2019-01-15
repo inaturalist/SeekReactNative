@@ -183,6 +183,25 @@ const checkIfFirstLaunch = async () => {
   }
 };
 
+const CARD_SHOWN = "card_shown";
+
+const setCardShown = () => {
+  AsyncStorage.setItem( CARD_SHOWN, "true" );
+};
+
+const checkIfCardShown = async () => {
+  try {
+    const hasShown = await AsyncStorage.getItem( CARD_SHOWN );
+    if ( hasShown === null ) {
+      setCardShown();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -193,5 +212,6 @@ export {
   truncateCoordinates,
   getPreviousAndNextMonth,
   requiresParent,
-  checkIfFirstLaunch
+  checkIfFirstLaunch,
+  checkIfCardShown
 };

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts
@@ -28,6 +28,7 @@ export default StyleSheet.create( {
     marginTop: 24,
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: Platform.OS === "ios" ? 5 : null,
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 24,
     width: 284,

@@ -22,7 +22,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
-import { truncateCoordinates, getPreviousAndNextMonth } from "../../utility/helpers";
+import { truncateCoordinates, getPreviousAndNextMonth, checkIfCardShown } from "../../utility/helpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
 
@@ -53,13 +53,21 @@ class HomeScreen extends Component<Props> {
       loading: false,
       modalVisible: false,
       notifications: false,
-      error: null
+      error: null,
+      isFirstLaunch: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
+  }
+
+  async componentWillMount() {
+    const isFirstLaunch = await checkIfCardShown();
+    this.setState( {
+      isFirstLaunch
+    } );
   }
 
   setLoading( loading ) {
@@ -202,10 +210,13 @@ class HomeScreen extends Component<Props> {
   }
 
   toggleLocationPicker() {
-    const { modalVisible } = this.state;
-    this.setState( {
-      modalVisible: !modalVisible
-    } );
+    const { modalVisible, location } = this.state;
+
+    if ( location !== i18n.t( "species_nearby.no_location" ) ) {
+      this.setState( {
+        modalVisible: !modalVisible
+      } );
+    }
   }
 
   updateLocation( latitude, longitude, location ) {
@@ -228,7 +239,8 @@ class HomeScreen extends Component<Props> {
       taxa,
       modalVisible,
       notifications,
-      error
+      error,
+      isFirstLaunch
     } = this.state;
     const { navigation } = this.props;
 
@@ -238,6 +250,7 @@ class HomeScreen extends Component<Props> {
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
+                this.checkInternetConnection();
                 this.fetchUserLocation();
               }}
             />
@@ -265,7 +278,7 @@ class HomeScreen extends Component<Props> {
                 error={error}
                 checkRealmForSpecies={this.checkRealmForSpecies}
               />
-              <GetStarted navigation={navigation} />
+              { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <Challenges navigation={navigation} />
             </ScrollView>
           </View>

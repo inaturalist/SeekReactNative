@@ -19,7 +19,7 @@ type Props = {
 }
 
 class NotificationsScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
     this.state = {

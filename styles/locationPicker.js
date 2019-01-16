@@ -68,7 +68,8 @@ export default StyleSheet.create( {
     borderColor: colors.white
   },
   footer: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    height: 86
   },
   button: {
     backgroundColor: colors.seekForestGreen,

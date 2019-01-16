@@ -6,6 +6,10 @@ export default StyleSheet.create( {
     backgroundColor: "transparent",
     flex: 1
   },
+  safeView: {
+    flex: 1,
+    backgroundColor: colors.black
+  },
   main: {
     flexGrow: 1
   },

@@ -13,7 +13,8 @@ export default StyleSheet.create( {
   header: {
     backgroundColor: colors.seekForestGreen,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 10
   },
   headerText: {
     marginTop: 40,

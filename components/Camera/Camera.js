@@ -8,7 +8,8 @@ import {
   CameraRoll,
   View,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
 
 import { NavigationEvents } from "react-navigation";
@@ -219,44 +220,46 @@ class CameraScreen extends Component<Props> {
     }
 
     return (
-      <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => {
-            this.resumeCamera();
-            this.setState( {
-              focusedScreen: true
-            } );
-          }}
-          onWillBlur={() => {
-            this.setState( {
-              focusedScreen: false
-            } );
-          }}
-        />
-        {focusedScreen ? (
-          <RNCamera
-            ref={( ref ) => {
-              this.camera = ref;
+      <SafeAreaView style={styles.safeView}>
+        <View style={styles.container}>
+          <NavigationEvents
+            onWillFocus={() => {
+              this.resumeCamera();
+              this.setState( {
+                focusedScreen: true
+              } );
             }}
-            type={cameraType}
-            style={styles.container}
-            flashMode={flash}
-            captureAudio={false}
-            permissionDialogTitle="Permission to use camera"
-            permissionDialogMessage="We need your permission to use your camera phone"
-          >
-            <StatusBar hidden />
-            <CameraTopNav
-              navigation={navigation}
-              cameraType={cameraType}
-              flash={flash}
-              toggleFlash={this.toggleFlash}
-              toggleCamera={this.toggleCamera}
-            />
-            {cameraContent}
-          </RNCamera>
-        ) : null}
-      </View>
+            onWillBlur={() => {
+              this.setState( {
+                focusedScreen: false
+              } );
+            }}
+          />
+          {focusedScreen ? (
+            <RNCamera
+              ref={( ref ) => {
+                this.camera = ref;
+              }}
+              type={cameraType}
+              style={styles.container}
+              flashMode={flash}
+              captureAudio={false}
+              permissionDialogTitle="Permission to use camera"
+              permissionDialogMessage="We need your permission to use your camera phone"
+            >
+              <StatusBar hidden />
+              <CameraTopNav
+                navigation={navigation}
+                cameraType={cameraType}
+                flash={flash}
+                toggleFlash={this.toggleFlash}
+                toggleCamera={this.toggleCamera}
+              />
+              {cameraContent}
+            </RNCamera>
+          ) : null}
+        </View>
+      </SafeAreaView>
     );
   }
 }

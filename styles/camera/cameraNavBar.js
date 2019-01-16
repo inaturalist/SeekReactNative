@@ -5,7 +5,7 @@ import {
   fontSize,
   margins,
   padding
-} from "./global";
+} from "../global";
 
 export default StyleSheet.create( {
   container: {

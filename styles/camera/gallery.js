@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet, Platform } from "react-native";
-import { colors, padding } from "./global";
+import { colors, padding } from "../global";
 
 const { width, height } = Dimensions.get( "screen" );
 

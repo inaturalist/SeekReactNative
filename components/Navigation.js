@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image, TouchableOpacity } from "react-native";
+import { Image } from "react-native";
 
 import {
   colors,
@@ -16,11 +16,11 @@ import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import ChallengeResults from "./Results/ChallengeResults";
 import SpeciesDetail from "./Species/SpeciesDetail";
-import YourCollection from "./YourCollection";
-import BadgesScreen from "./BadgesScreen";
-import AboutScreen from "./AboutScreen";
-import AboutTitle from "./AboutTitle";
-import BadgesTitle from "./BadgesTitle";
+import YourCollection from "./Menu/YourCollection";
+import BadgesScreen from "./Menu/BadgesScreen";
+import AboutScreen from "./Menu/AboutScreen";
+import AboutTitle from "./Menu/AboutTitle";
+import BadgesTitle from "./Menu/BadgesTitle";
 import SideMenu from "./Home/SideMenu";
 import LoginScreen from "./Login/LoginScreen";
 import AgeVerifyScreen from "./Login/AgeVerifyScreen";
@@ -226,7 +226,8 @@ const RootStack = createStackNavigator( {
   About: {
     screen: AboutScreen,
     navigationOptions: () => ( {
-      title: "About"
+      headerTransparent: true,
+      headerBackImage: backButton
     } )
   }
 }, StackNavigatorConfig );

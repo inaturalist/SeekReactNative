@@ -32,14 +32,17 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   card: {
-    marginHorizontal: 27,
+    marginHorizontal: 20,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-around",
     alignItems: "center"
   },
-  image: {
+  imageContainer: {
     marginRight: 20
+  },
+  image: {
+    marginRight: 5
   },
   textContainer: {
     flexDirection: "column",

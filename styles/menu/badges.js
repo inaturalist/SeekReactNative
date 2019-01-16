@@ -5,7 +5,7 @@ import {
   fontSize,
   padding,
   margins
-} from "./global";
+} from "../global";
 
 const { width } = Dimensions.get( "screen" );
 

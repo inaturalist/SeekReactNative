@@ -88,6 +88,14 @@ const SideMenu = ( { navigation }: Props ) => (
             {i18n.t( "menu.about" )}
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Login" )}
+        >
+          <Text style={styles.text}>
+            {hexagon}
+            Sign in
+          </Text>
+        </TouchableOpacity>
       </View>
     </LinearGradient>
   </View>

@@ -6,14 +6,12 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
   safeView: {
     flex: 1,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: "transparent"
   }
-  // divider: {
-  //   backgroundColor: "#d8d8d8",
-  //   height: 2,
-  //   marginLeft: 22,
-  //   marginRight: 22
-  // }
 } );

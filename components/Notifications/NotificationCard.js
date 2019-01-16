@@ -21,7 +21,9 @@ const NotificationCard = ( { navigation, item }: Props ) => (
       style={styles.card}
       onPress={() => navigation.navigate( item.nextScreen )}
     >
-      <Image style={styles.image} source={item.iconName} />
+      <View style={styles.imageContainer}>
+        <Image style={styles.image} source={item.iconName} />
+      </View>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
           {item.title}

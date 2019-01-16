@@ -4,7 +4,7 @@ import React from "react";
 import { View, Image, TouchableHighlight } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
-import styles from "../../styles/locationPicker";
+import styles from "../../styles/home/locationPicker";
 import icons from "../../assets/icons";
 
 type Props = {

@@ -39,12 +39,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "flex-start"
   },
-  image: {
-    marginRight: 13
-  },
-  editImage: {
-    marginLeft: 13
-  },
   locationPicker: {
     paddingHorizontal: 9,
     flexDirection: "row",
@@ -52,10 +46,18 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
+  image: {
+    marginRight: 13,
+    marginBottom: 7
+  },
   locationText: {
     fontFamily: fonts.book,
     fontSize: 26,
     color: colors.white
+  },
+  editImage: {
+    marginLeft: 13,
+    marginBottom: 6
   },
   speciesNearbyContainer: {
     marginTop: 16
@@ -102,5 +104,14 @@ export default StyleSheet.create( {
   text: {
     fontFamily: fonts.default,
     fontSize: fontSize.buttonText
+  },
+  error: {
+    backgroundColor: "#4a4a4a",
+    paddingTop: 32,
+    paddingBottom: 32
+  },
+  loading: {
+    paddingTop: 32,
+    paddingBottom: 32
   }
 } );

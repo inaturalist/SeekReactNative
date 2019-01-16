@@ -45,9 +45,7 @@ const SpeciesNearby = ( {
 
   if ( loading ) {
     species = (
-      <View style={{ flexGrow: 1 }}>
-        <LoadingWheel color={colors.black} />
-      </View>
+      <LoadingWheel color={colors.black} />
     );
   } else if ( error ) {
     species = (
@@ -105,26 +103,37 @@ const SpeciesNearby = ( {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonRow}>
-          <TouchableOpacity
-            style={styles.locationPicker}
-            onPress={() => toggleLocationPicker()}
-          >
-            <Image source={icons.locationWhite} style={styles.image} />
-            <Text style={styles.locationText}>
-              {location}
-            </Text>
-            {location !== i18n.t( "species_nearby.no_location" )
-              ? <Image source={icons.edit} style={styles.editImage} />
-              : null
-            }
-          </TouchableOpacity>
+          {error ? (
+            <View style={styles.locationPicker}>
+              <Image source={icons.locationWhite} style={styles.image} />
+              <Text style={styles.locationText}>
+                {location}
+              </Text>
+            </View>
+          ) : (
+            <TouchableOpacity
+              style={styles.locationPicker}
+              onPress={() => toggleLocationPicker()}
+            >
+              <Image source={icons.locationWhite} style={styles.image} />
+              <Text style={styles.locationText}>
+                {location}
+              </Text>
+              <Image source={icons.edit} style={styles.editImage} />
+            </TouchableOpacity>
+          )}
         </View>
         <View style={styles.buttonRow}>
           <TaxonPicker updateTaxaType={updateTaxaType} />
           <Image source={icons.caret} />
         </View>
       </View>
-      <View style={[styles.speciesNearbyContainer, error && { backgroundColor: "#4a4a4a", paddingTop: 32, paddingBottom: 32 }]}>
+      <View style={[
+        styles.speciesNearbyContainer,
+        error && styles.error,
+        loading && styles.loading
+      ]}
+      >
         {species}
       </View>
     </View>

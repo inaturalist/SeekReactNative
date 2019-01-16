@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 import Realm from "realm";
 
-import i18n from "../i18n";
-import realmConfig from "../models/index";
-import { fontSize, fonts } from "../styles/global";
+import i18n from "../../i18n";
+import realmConfig from "../../models";
+import { fontSize, fonts } from "../../styles/global";
 
 class BadgesTitle extends Component {
   constructor() {

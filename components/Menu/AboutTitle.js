@@ -2,8 +2,8 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
-import styles from "../styles/about";
-import { fonts, fontSize } from "../styles/global";
+import styles from "../../styles/menu/about";
+import { fonts, fontSize } from "../../styles/global";
 
 type Props = {
   navigation: any

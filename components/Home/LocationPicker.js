@@ -12,7 +12,7 @@ import Geocoder from "react-native-geocoder";
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates, capitalizeNames } from "../../utility/helpers";
-import styles from "../../styles/locationPicker";
+import styles from "../../styles/home/locationPicker";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

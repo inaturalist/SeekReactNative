@@ -11,9 +11,9 @@ import {
 } from "react-native";
 import Realm from "realm";
 
-import badgeImages from "../assets/badges";
-import realmConfig from "../models/index";
-import styles from "../styles/badges";
+import badgeImages from "../../assets/badges";
+import realmConfig from "../../models";
+import styles from "../../styles/menu/badges";
 
 class BadgesScreen extends Component {
   constructor() {

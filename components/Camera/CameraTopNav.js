@@ -9,7 +9,7 @@ import {
 import CameraFlipIcon from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import styles from "../../styles/cameraNavBar";
+import styles from "../../styles/camera/cameraNavBar";
 import { colors } from "../../styles/global";
 
 const cameraFlipIcon = ( <CameraFlipIcon name="ios-reverse-camera" size={30} color={colors.white} /> );

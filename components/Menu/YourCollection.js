@@ -12,17 +12,17 @@ import {
 } from "react-native";
 import Realm from "realm";
 
-import ErrorScreen from "./ErrorScreen";
-import badgeImages from "../assets/badges";
-import realmConfig from "../models/index";
-import styles from "../styles/collection";
+import ErrorScreen from "../ErrorScreen";
+import badgeImages from "../../assets/badges";
+import realmConfig from "../../models";
+import styles from "../../styles/menu/collection";
 
 type Props = {
   navigation: any
 }
 
-class YourCollection extends Component {
-  constructor( { navigation }: Props ) {
+class YourCollection extends Component<Props> {
+  constructor() {
     super();
 
     this.state = {

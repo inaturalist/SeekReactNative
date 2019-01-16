@@ -43,18 +43,16 @@ class SplashScreen extends Component<Props> {
     if ( !hasCheckedAsyncStorage ) {
       return null;
     }
-    // setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
     if ( isFirstLaunch ) {
       setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
     } else {
-      setTimeout( () => navigation.navigate( "Login" ) );
-      // setTimeout( () => navigation.navigate( "Main", {
-      //   taxaName: null,
-      //   id: null,
-      //   taxaType: "all",
-      //   latitude: null,
-      //   longitude: null
-      // } ), 2000 );
+      setTimeout( () => navigation.navigate( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude: null,
+        longitude: null
+      } ), 2000 );
     }
   }
 

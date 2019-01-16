@@ -8,7 +8,8 @@ import {
   PermissionsAndroid,
   Modal,
   NetInfo,
-  SafeAreaView
+  SafeAreaView,
+  StatusBar
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 import Realm from "realm";
@@ -102,7 +103,7 @@ class HomeScreen extends Component<Props> {
         this.setError( "location" );
       }
     } catch ( err ) {
-      this.setError( "location" );
+      this.setError( "internet" );
     }
   }
 
@@ -150,7 +151,7 @@ class HomeScreen extends Component<Props> {
         location: locality || subAdminArea
       } );
     } ).catch( () => {
-      this.setError( "location" );
+      this.setError( "internet" );
     } );
   }
 
@@ -245,8 +246,10 @@ class HomeScreen extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <SafeAreaView style={styles.safeView}>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
@@ -288,8 +291,8 @@ class HomeScreen extends Component<Props> {
             longitude={longitude}
             notifications={notifications}
           />
-        </View>
-      </SafeAreaView>
+        </SafeAreaView>
+      </View>
     );
   }
 }

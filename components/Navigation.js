@@ -49,11 +49,12 @@ const MenuDrawerNav = createDrawerNavigator( {
   }
 } );
 
-const CameraTabNav = createBottomTabNavigator( {
+const CameraNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
   PHOTOS: { screen: Gallery }
 }, {
   initialRouteName: "CAMERA",
+  backBehavior: "none",
   tabBarOptions: {
     activeTintColor: colors.white,
     activeBackgroundColor: colors.darkGreen,
@@ -185,9 +186,10 @@ const RootStack = createStackNavigator( {
     } )
   },
   Camera: {
-    screen: CameraTabNav,
-    navigationOptions: () => ( {
-      header: null
+    screen: CameraNav,
+    navigationOptions: ( { navigation } ) => ( {
+      headerTransparent: navigation.state.index === 0,
+      headerTintColor: navigation.state.index === 0 ? colors.white : null
     } )
   },
   Results: {

@@ -4,8 +4,7 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
-  SafeAreaView
+  TouchableOpacity
 } from "react-native";
 import CameraFlipIcon from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -14,65 +13,46 @@ import styles from "../../styles/cameraNavBar";
 import { colors } from "../../styles/global";
 
 const cameraFlipIcon = ( <CameraFlipIcon name="ios-reverse-camera" size={30} color={colors.white} /> );
-const exitIconWhite = ( <Icon name="close" size={25} color={colors.white} /> );
-const exitIconGray = ( <Icon name="close" size={25} color={colors.darkGray} /> );
 const flashOnIcon = ( <Icon name="flash" size={25} color={colors.yellow} /> );
 const flashOffIcon = ( <Icon name="flash-off" size={25} color={colors.white} /> );
 
 type Props = {
-  flashText: string,
+  flash: string,
   navigation: any,
   toggleFlash: Function,
-  toggleCamera: Function,
-  latitude: number,
-  longitude: number
+  toggleCamera: Function
 }
 
 const CameraTopNav = ( {
-  flashText,
+  flash,
   navigation,
   toggleFlash,
-  toggleCamera,
-  latitude,
-  longitude
+  toggleCamera
 }: Props ) => (
-  <SafeAreaView style={styles.container}>
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => navigation.navigate( "Main", {
-            taxaName: null,
-            id: null,
-            taxaType: "all",
-            latitude,
-            longitude
-          } )}
-        >
-          <Text style={styles.text}>{navigation.state.key === "PHOTOS" ? exitIconGray : exitIconWhite}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleFlash()}
-        >
-          {navigation.state.key === "CAMERA" ? (
-            <Text style={styles.text}>
-              {flashText === "OFF" ? flashOffIcon : flashOnIcon}
-              {flashText}
-            </Text>
-          ) : null}
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.buttons}
-          onPress={() => toggleCamera()}
-        >
-          {navigation.state.key === "CAMERA" ? (
-            <Text style={styles.text}>{cameraFlipIcon}</Text>
-          ) : null}
-        </TouchableOpacity>
-      </View>
-    </View>
-  </SafeAreaView>
+  <View style={styles.header}>
+    <TouchableOpacity
+      style={styles.buttons}
+    />
+    <TouchableOpacity
+      style={styles.buttons}
+      onPress={() => toggleFlash()}
+    >
+      {navigation.state.key === "CAMERA" ? (
+        <Text style={styles.text}>
+          {flash === "off" ? flashOffIcon : flashOnIcon}
+          {flash.toUpperCase()}
+        </Text>
+      ) : null}
+    </TouchableOpacity>
+    <TouchableOpacity
+      style={styles.buttons}
+      onPress={() => toggleCamera()}
+    >
+      {navigation.state.key === "CAMERA" ? (
+        <Text style={styles.text}>{cameraFlipIcon}</Text>
+      ) : null}
+    </TouchableOpacity>
+  </View>
 );
 
 export default CameraTopNav;

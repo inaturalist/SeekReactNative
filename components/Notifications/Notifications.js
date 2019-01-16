@@ -27,17 +27,20 @@ class NotificationsScreen extends Component<Props> {
         {
           title: "Your observation was identified to species on iNaturalist!",
           message: "Thanks for helping improve our model! Your badges may have been updated.",
-          iconName: logos.bird
+          iconName: logos.bird,
+          nextScreen: "About"
         },
         {
           title: "You've earned a lot of badges! You might like iNaturalist!",
           message: "Learn more about iNaturalist",
-          iconName: logos.bird
+          iconName: logos.bird,
+          nextScreen: "About"
         },
         {
           title: "You're almost finished with your challenge!",
           message: "View your progress",
-          iconName: logos.bird
+          iconName: logos.bird,
+          nextScreen: "Main"
         }
       ]
     };

@@ -4,6 +4,7 @@ import React from "react";
 import {
   Text,
   Image,
+  TouchableOpacity,
   View
 } from "react-native";
 
@@ -16,7 +17,10 @@ type Props = {
 
 const NotificationCard = ( { navigation, item }: Props ) => (
   <View style={styles.cardContainer}>
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate( item.nextScreen )}
+    >
       <Image style={styles.image} source={item.iconName} />
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
@@ -26,7 +30,7 @@ const NotificationCard = ( { navigation, item }: Props ) => (
           {item.message}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
     <View style={styles.divider} />
   </View>
 );

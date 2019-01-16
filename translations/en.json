@@ -25,7 +25,14 @@
   },
   "notifications": {
     "header": "Notifications",
-    "learn_more": "Learn more about iNaturalist"
+    "learn_more": "Learn more about iNaturalist",
+    "earned_badges": "You've earned a lot of badges! You might like iNaturalist!",
+    "new_challenge": "There's a new challenge from OurPlanet & WWF!",
+    "check_out": "Check it out now!",
+    "almost_finished": "You're almost finished with your challenge!",
+    "view_progress": "View your progress",
+    "observation_identified": "Your observation was identified to species on iNaturalist!",
+    "badges_updated": "Thanks for helping improve our model! Your badges may have been updated."
   },
   "login": {
     "log_in": "Log in with iNaturalist",

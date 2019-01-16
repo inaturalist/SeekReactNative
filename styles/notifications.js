@@ -3,7 +3,7 @@ import {
   colors,
   fonts,
   fontSize
-} from "../global";
+} from "./global";
 
 export default StyleSheet.create( {
   container: {
@@ -25,18 +25,46 @@ export default StyleSheet.create( {
   notificationsContainer: {
     flexGrow: 1
   },
-  row: {
-    backgroundColor: colors.white,
+  cardContainer: {
+    height: 118,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  card: {
+    marginHorizontal: 27,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
     justifyContent: "space-around",
+    alignItems: "center"
+  },
+  image: {
+    marginRight: 20
+  },
+  textContainer: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
     height: 96
+  },
+  titleText: {
+    maxWidth: 232,
+    fontFamily: fonts.default,
+    fontSize: 16,
+    marginBottom: 5,
+    lineHeight: 21
+  },
+  messageText: {
+    textAlign: "left",
+    maxWidth: 232,
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21
   },
   divider: {
     backgroundColor: "#d8d8d8",
-    height: 2,
-    marginLeft: 22,
-    marginRight: 22
+    height: 1,
+    marginTop: 10,
+    marginHorizontal: 27,
+    width: "85%"
   }
 } );

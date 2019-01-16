@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   DatePickerIOS,
   DatePickerAndroid,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
@@ -27,8 +26,7 @@ class AgeVerifyScreen extends Component<Props> {
     super();
 
     this.state = {
-      chosenDate: Platform.OS === "ios" ? new Date() : moment( new Date() ).format( "MMM DD YYYY" )
-      // chosenDate: null
+      chosenDate: Platform.OS === "ios" ? new Date() : moment().format( "YYYY-MM-DD" )
     };
 
     this.setDate = this.setDate.bind( this );
@@ -53,7 +51,7 @@ class AgeVerifyScreen extends Component<Props> {
         mode: "spinner"
       } );
       if ( action !== DatePickerAndroid.dismissedAction ) {
-        const userBirthday = moment( new Date( year, month, day ) ).format( "MMM DD YYYY" );
+        const userBirthday = moment( new Date( year, month, day ) ).format( "YYYY-MM-DD" );
         this.setDate( userBirthday );
       }
     } catch ( { code, message } ) {

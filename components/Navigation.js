@@ -32,7 +32,7 @@ import ParentalConsentScreen from "./Login/ParentalConsentScreen";
 import SignUpScreen from "./Login/SignUpScreen-1";
 import SignUpScreen2 from "./Login/SignUpScreen-2";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
-import NotificationsScreen from "./Home/Notifications";
+import NotificationsScreen from "./Notifications/Notifications";
 import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image } from "react-native";
+import { Image, Platform } from "react-native";
 
 import {
   colors,
@@ -54,7 +54,8 @@ const whiteHeaderTitle = {
   color: colors.white,
   fontFamily: fonts.semibold,
   flex: 1,
-  textAlign: "center"
+  textAlign: "center",
+  paddingRight: Platform.OS === "android" ? 60 : null
 };
 
 const MenuDrawerNav = createDrawerNavigator( {

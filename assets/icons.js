@@ -12,6 +12,7 @@ const icons = {
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
   backButton: require( "./icons/back.png" ),
+  badgePlaceholder: require( "./icons/badge-placeholder.png" )
 };
 
 export default icons;

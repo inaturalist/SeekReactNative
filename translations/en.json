@@ -112,7 +112,16 @@
   },
   "challenges": {
     "header": "Challenges",
-    "in_progress": "In progress"
+    "in_progress": "In progress",
+    "not_started": "Not started",
+    "completed": "Completed",
+    "connectivity": "Connectivity Challenge",
+    "biodiversity": "Biodiversity Challenge",
+    "productivity": "Productivity & Community Challenge",
+    "op_april": "OurPlanet - April 2019",
+    "op_may": "OurPlanet - May 2019",
+    "op_june": "OurPlanet - June 2019",
+    "start_now": "Start now"
   },
   "results": {
     "computer_vision_error": "Can't load computer vision suggestions. Try again later.",

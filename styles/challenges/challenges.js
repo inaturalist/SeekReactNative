@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.white
   },
   column: {
     flexDirection: "column",
@@ -23,33 +23,55 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
-  challengeContainer: {
-    backgroundColor: colors.darkGray,
-    alignItems: "center",
-    marginTop: 21,
-    height: 305
+  challengesContainer: {
+    flex: 1
   },
-  challengeHeader: {
-    marginTop: 22,
-    fontFamily: fonts.light,
-    fontSize: 22,
-    color: colors.white,
-    letterSpacing: 1.16
+  cardContainer: {
+    height: 95,
+    justifyContent: "center",
+    alignItems: "center"
   },
-  row: {
+  card: {
+    marginHorizontal: 20,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
     justifyContent: "space-around",
-    marginTop: 31,
-    marginBottom: 31
+    alignItems: "center"
   },
-  text: {
-    maxWidth: 165,
-    color: colors.white,
+  imageContainer: {
+    marginRight: 20
+  },
+  image: {
+    marginRight: 5
+  },
+  textContainer: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    height: 96
+  },
+  titleText: {
+    maxWidth: 150,
     fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
-    lineHeight: 20,
-    marginHorizontal: 16
+    fontSize: 16,
+    marginBottom: 5,
+    lineHeight: 21,
+    color: colors.seekTeal
+  },
+  messageText: {
+    textAlign: "left",
+    maxWidth: 150,
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21
+  },
+  circleStyle: {
+    width: 59,
+    height: 59,
+    marginLeft: 20
+  },
+  circleText: {
+    fontFamily: fonts.book,
+    fontSize: 20
   }
 } );

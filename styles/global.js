@@ -21,7 +21,8 @@ export const colors = {
   seekGreen: "#44ab55",
   seekForestGreen: "#38976d",
   dividerGray: "#d8d8d8",
-  errorGray: "#4a4a4a"
+  errorGray: "#4a4a4a",
+  circleGray: "#f0f0f0"
 };
 
 export const fonts = {

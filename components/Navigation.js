@@ -47,7 +47,8 @@ const backButton = (
 
 const greenHeader = {
   backgroundColor: colors.seekForestGreen,
-  borderBottomWidth: 0
+  borderBottomWidth: 0,
+  elevation: 0
 };
 
 const whiteHeaderTitle = {

@@ -121,7 +121,12 @@
     "op_april": "OurPlanet - April 2019",
     "op_may": "OurPlanet - May 2019",
     "op_june": "OurPlanet - June 2019",
-    "start_now": "Start now"
+    "start_now": "Start now",
+    "april": "April",
+    "2019": "2019",
+    "mission_1_april": "Find 20 new species!",
+    "mission_2_april": "Find 2 different species of dragonflies!",
+    "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home."
   },
   "results": {
     "computer_vision_error": "Can't load computer vision suggestions. Try again later.",

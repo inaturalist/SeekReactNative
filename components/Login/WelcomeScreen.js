@@ -28,7 +28,13 @@ const WelcomeScreen = ( { navigation }: Props ) => (
     <View style={{ flexGrow: 1 }} />
     <TouchableOpacity
       style={styles.greenButton}
-      onPress={() => navigation.navigate( "Age" )}
+      onPress={() => navigation.navigate( "Main", {
+        taxaName: null,
+        id: null,
+        taxaType: "all",
+        latitude: null,
+        longitude: null
+      } )}
     >
       <Text style={styles.buttonText}>{i18n.t( "inat_signup.continue" )}</Text>
     </TouchableOpacity>

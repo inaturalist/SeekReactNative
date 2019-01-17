@@ -35,7 +35,7 @@ const LoginScreen = ( { navigation }: Props ) => (
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.greenButton, { marginBottom: 25 }]}
-        onPress={() => navigation.navigate( "Welcome" )}
+        onPress={() => navigation.navigate( "Age" )}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "login.sign_up" )}

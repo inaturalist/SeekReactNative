@@ -36,6 +36,7 @@ import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Notifications/Notifications";
 import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import ChallengeScreen from "./Challenges/ChallengeScreen";
 
 const backButton = (
   <Image
@@ -203,6 +204,15 @@ const RootStack = createStackNavigator( {
     screen: OnboardingScreen,
     navigationOptions: () => ( {
       header: null
+    } )
+  },
+  Challenges: {
+    screen: ChallengeScreen,
+    navigationOptions: () => ( {
+      title: i18n.t( "challenges.header" ),
+      headerStyle: greenHeader,
+      headerTitleStyle: whiteHeaderTitle,
+      headerBackImage: backButton
     } )
   },
   Camera: {

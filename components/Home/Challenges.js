@@ -32,12 +32,12 @@ const Challenges = ( { navigation }: Props ) => (
         </View>
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => console.log( "pressed challenge card" )}
+          onPress={() => navigation.navigate( "Challenges" )}
         >
           <Text style={[styles.headerText, styles.buttonText]}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log( "pressed challenge card" )}
+          onPress={() => navigation.navigate( "Challenges" )}
         >
           <Text style={[styles.text, styles.viewText]}>{i18n.t( "challenges_card.view_all" )}</Text>
         </TouchableOpacity>

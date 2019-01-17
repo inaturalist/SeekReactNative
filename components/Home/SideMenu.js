@@ -50,7 +50,7 @@ const SideMenu = ( { navigation }: Props ) => (
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log( "challenges clicked" )}
+          onPress={() => navigation.navigate( "Challenges" )}
         >
           <Text style={styles.text}>
             {i18n.t( "menu.challenges" )}

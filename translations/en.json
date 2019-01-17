@@ -111,9 +111,8 @@
     "mammals": "mammals"
   },
   "challenges": {
-    "current_location": "{{location}}",
-    "loading_location": "Loading...",
-    "species_likely": "Species you're most likely to see near"
+    "header": "Challenges",
+    "in_progress": "In progress"
   },
   "results": {
     "computer_vision_error": "Can't load computer vision suggestions. Try again later.",

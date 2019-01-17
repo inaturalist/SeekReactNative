@@ -52,7 +52,9 @@ const greenHeader = {
 const whiteHeaderTitle = {
   fontSize: 22,
   color: colors.white,
-  fontFamily: fonts.semibold
+  fontFamily: fonts.semibold,
+  flex: 1,
+  textAlign: "center"
 };
 
 const MenuDrawerNav = createDrawerNavigator( {

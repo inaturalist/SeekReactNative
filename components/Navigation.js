@@ -9,6 +9,7 @@ import {
   fonts
 } from "../styles/global";
 import icons from "../assets/icons";
+import i18n from "../i18n";
 
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "../containers/HomeContainer";
@@ -42,6 +43,17 @@ const backButton = (
     style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
   />
 );
+
+const greenHeader = {
+  backgroundColor: colors.seekForestGreen,
+  borderBottomWidth: 0
+};
+
+const whiteHeaderTitle = {
+  fontSize: 22,
+  color: colors.white,
+  fontFamily: fonts.semibold
+};
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
@@ -97,7 +109,10 @@ const RootStack = createStackNavigator( {
   Notifications: {
     screen: NotificationsScreen,
     navigationOptions: () => ( {
-      header: null
+      title: i18n.t( "notifications.header" ),
+      headerStyle: greenHeader,
+      headerTitleStyle: whiteHeaderTitle,
+      headerBackImage: backButton
     } )
   },
   Login: {
@@ -169,7 +184,9 @@ const RootStack = createStackNavigator( {
   Privacy: {
     screen: PrivacyPolicyScreen,
     navigationOptions: () => ( {
-      headerTransparent: true,
+      title: i18n.t( "privacy.header" ),
+      headerStyle: greenHeader,
+      headerTitleStyle: whiteHeaderTitle,
       headerBackImage: backButton
     } )
   },
@@ -226,7 +243,9 @@ const RootStack = createStackNavigator( {
   About: {
     screen: AboutScreen,
     navigationOptions: () => ( {
-      headerTransparent: true,
+      title: i18n.t( "about.header" ),
+      headerStyle: greenHeader,
+      headerTitleStyle: whiteHeaderTitle,
       headerBackImage: backButton
     } )
   }

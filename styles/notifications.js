@@ -1,27 +1,13 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "./global";
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.white
-  },
-  header: {
-    backgroundColor: colors.seekForestGreen,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10
-  },
-  headerText: {
-    marginTop: 40,
-    marginBottom: 13,
-    fontSize: fontSize.buttonText,
-    color: colors.white,
-    fontFamily: fonts.semibold
   },
   notificationsContainer: {
     flexGrow: 1

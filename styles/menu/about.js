@@ -6,19 +6,6 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.seekForestGreen
   },
-  header: {
-    backgroundColor: colors.seekForestGreen,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 10
-  },
-  headerText: {
-    marginTop: 40,
-    marginBottom: 13,
-    fontSize: 18,
-    color: colors.white,
-    fontFamily: fonts.semibold
-  },
   image: {
     marginBottom: 15
   },

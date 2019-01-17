@@ -14,9 +14,6 @@ import i18n from "../../i18n";
 
 const AboutScreen = () => (
   <View style={styles.container}>
-    <View style={styles.header}>
-      <Text style={styles.headerText}>{i18n.t( "about.header" )}</Text>
-    </View>
     <ScrollView contentContainerStyle={styles.textContainer}>
       <Image style={styles.image} source={logos.wwfop} />
       <View>

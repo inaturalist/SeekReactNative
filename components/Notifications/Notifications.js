@@ -2,16 +2,13 @@
 
 import React, { Component } from "react";
 import {
-  Text,
   FlatList,
   View
 } from "react-native";
 
-import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import Footer from "../Home/Footer";
-import { capitalizeNames } from "../../utility/helpers";
 import logos from "../../assets/logos";
 
 type Props = {
@@ -52,11 +49,6 @@ class NotificationsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {capitalizeNames( i18n.t( "notifications.header" ) )}
-          </Text>
-        </View>
         <View style={styles.notificationsContainer}>
           <FlatList
             data={notifications}

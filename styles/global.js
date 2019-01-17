@@ -2,6 +2,7 @@ const { Platform } = require( "react-native" );
 
 export const colors = {
   white: "#ffffff",
+  black: "#000000",
   darkBlue: "#37535e",
   darkDesaturatedBlue: "#1f3d48",
   darkestBlue: "#0C2D3B",
@@ -11,7 +12,6 @@ export const colors = {
   darkGreen: "#4CAF50",
   lightGray: "#f5f5f5",
   darkGray: "#393939",
-  black: "#000000",
   lightBlue: "#225C8E",
   tomatoRed: "#ff6347",
   yellow: "#ffff7f",
@@ -19,7 +19,9 @@ export const colors = {
   seekiNatGreen: "#77b300",
   seekTeal: "#297f87",
   seekGreen: "#44ab55",
-  seekForestGreen: "#38976d"
+  seekForestGreen: "#38976d",
+  dividerGray: "#d8d8d8",
+  errorGray: "#4a4a4a"
 };
 
 export const fonts = {

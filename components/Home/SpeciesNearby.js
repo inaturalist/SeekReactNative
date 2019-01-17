@@ -103,25 +103,16 @@ const SpeciesNearby = ( {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonRow}>
-          {error ? (
-            <View style={styles.locationPicker}>
-              <Image source={icons.locationWhite} style={styles.image} />
-              <Text style={styles.locationText}>
-                {location}
-              </Text>
-            </View>
-          ) : (
-            <TouchableOpacity
-              style={styles.locationPicker}
-              onPress={() => toggleLocationPicker()}
-            >
-              <Image source={icons.locationWhite} style={styles.image} />
-              <Text style={styles.locationText}>
-                {location}
-              </Text>
-              <Image source={icons.edit} style={styles.editImage} />
-            </TouchableOpacity>
-          )}
+          <TouchableOpacity
+            style={styles.locationPicker}
+            onPress={() => toggleLocationPicker()}
+          >
+            <Image source={icons.locationWhite} style={styles.image} />
+            <Text style={styles.locationText}>
+              {location}
+            </Text>
+            {!error ? <Image source={icons.edit} style={styles.editImage} /> : null}
+          </TouchableOpacity>
         </View>
         <View style={styles.buttonRow}>
           <TaxonPicker updateTaxaType={updateTaxaType} />

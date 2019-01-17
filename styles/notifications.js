@@ -65,7 +65,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   divider: {
-    backgroundColor: "#d8d8d8",
+    backgroundColor: colors.dividerGray,
     height: 1,
     marginTop: 10,
     marginHorizontal: 27,

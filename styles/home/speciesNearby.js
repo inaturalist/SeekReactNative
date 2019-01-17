@@ -106,7 +106,7 @@ export default StyleSheet.create( {
     fontSize: fontSize.buttonText
   },
   error: {
-    backgroundColor: "#4a4a4a",
+    backgroundColor: colors.errorGray,
     paddingTop: 32,
     paddingBottom: 32
   },

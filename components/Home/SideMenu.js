@@ -8,16 +8,11 @@ import {
   Text
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import HomeIcon from "react-native-vector-icons/FontAwesome";
-import HexagonIcon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/menu";
 import { colors } from "../../styles/global";
 import logoImages from "../../assets/logos";
-
-const home = ( <HomeIcon name="home" size={19} color={colors.white} /> );
-const hexagon = ( <HexagonIcon name="hexagon-outline" size={19} color={colors.white} /> );
 
 type Props = {
   navigation: any
@@ -26,7 +21,7 @@ type Props = {
 const SideMenu = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <LinearGradient
-      colors={["#44ab55", "#297f87"]}
+      colors={[colors.seekGreen, colors.seekTeal]}
       style={styles.column}
     >
       <Image
@@ -44,7 +39,6 @@ const SideMenu = ( { navigation }: Props ) => (
           } )}
         >
           <Text style={styles.text}>
-            {home}
             {i18n.t( "menu.home" )}
           </Text>
         </TouchableOpacity>
@@ -52,7 +46,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => navigation.navigate( "Badges" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             {i18n.t( "menu.profile" )}
           </Text>
         </TouchableOpacity>
@@ -60,7 +53,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => console.log( "challenges clicked" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             {i18n.t( "menu.challenges" )}
           </Text>
         </TouchableOpacity>
@@ -68,7 +60,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => navigation.navigate( "YourCollection" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             {i18n.t( "menu.observations" )}
           </Text>
         </TouchableOpacity>
@@ -76,7 +67,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => console.log( "inaturalist stats clicked" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             {i18n.t( "menu.inat" )}
           </Text>
         </TouchableOpacity>
@@ -84,7 +74,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => navigation.navigate( "About" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             {i18n.t( "menu.about" )}
           </Text>
         </TouchableOpacity>
@@ -92,7 +81,6 @@ const SideMenu = ( { navigation }: Props ) => (
           onPress={() => navigation.navigate( "Login" )}
         >
           <Text style={styles.text}>
-            {hexagon}
             Sign in
           </Text>
         </TouchableOpacity>

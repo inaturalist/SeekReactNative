@@ -15,6 +15,7 @@ import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
+import Permissions from "react-native-permissions";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -92,29 +93,7 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  requestAndroidPermissions = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.fetchUserLatAndLng();
-      } else {
-        this.setError( "location" );
-      }
-    } catch ( err ) {
-      this.setError( "internet" );
-    }
-  }
-
-  updateTaxaType( taxaType ) {
-    const { latitude, longitude } = this.state;
-    this.setState( {
-      taxaType
-    }, () => this.checkRealmForSpecies( latitude, longitude ) );
-  }
-
-  fetchUserLatAndLng() {
+  getGeolocation() {
     navigator.geolocation.getCurrentPosition( ( position ) => {
       const latitude = truncateCoordinates( position.coords.latitude );
       const longitude = truncateCoordinates( position.coords.longitude );
@@ -125,8 +104,31 @@ class HomeScreen extends Component<Props> {
         longitude
       }, () => this.checkRealmForSpecies( latitude, longitude ) );
     }, () => {
-      this.setError( "location" );
+      this.checkInternetConnection();
     } );
+  }
+
+  requestAndroidPermissions = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+      );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.getGeolocation();
+      } else {
+        this.setError( "location" );
+      }
+    } catch ( err ) {
+      this.checkInternetConnection();
+    }
+  }
+
+  updateTaxaType( taxaType ) {
+    const { latitude, longitude } = this.state;
+    this.setLoading( true );
+    this.setState( {
+      taxaType
+    }, () => this.checkRealmForSpecies( latitude, longitude ) );
   }
 
   fetchUserLocation() {
@@ -136,10 +138,9 @@ class HomeScreen extends Component<Props> {
       if ( Platform.OS === "android" ) {
         this.requestAndroidPermissions();
       } else {
-        this.fetchUserLatAndLng();
+        this.getGeolocation();
       }
     } else {
-      this.reverseGeocodeLocation( latitude, longitude );
       this.checkRealmForSpecies( latitude, longitude );
     }
   }
@@ -151,7 +152,7 @@ class HomeScreen extends Component<Props> {
         location: locality || subAdminArea
       } );
     } ).catch( () => {
-      this.setError( "internet" );
+      this.checkInternetConnection();
     } );
   }
 
@@ -162,15 +163,28 @@ class HomeScreen extends Component<Props> {
           this.setError( "internet" );
           this.setLoading( false );
         } else {
-          this.setError( null );
-          this.setLoading( true );
+          this.checkiOSPermissions();
         }
       } );
   }
 
+  checkiOSPermissions() {
+    Permissions.check( "location" ).then( ( response ) => {
+      if ( response !== "authorized" ) {
+        this.setError( "location" );
+      } else {
+        this.setError( null );
+      }
+    } ).catch( () => this.setError( null ) );
+  }
+
   checkRealmForSpecies( lat, lng ) {
     const { taxaType } = this.state;
+    this.setLoading( true );
     this.checkInternetConnection();
+    if ( !lat || !lng ) {
+      this.fetchUserLocation();
+    }
 
     const params = {
       verifiable: true,
@@ -206,14 +220,14 @@ class HomeScreen extends Component<Props> {
       const taxa = response.results.map( r => r.taxon );
       this.setTaxa( taxa );
     } ).catch( () => {
-      this.setError( "internet" );
+      this.checkInternetConnection();
     } );
   }
 
   toggleLocationPicker() {
-    const { modalVisible, location } = this.state;
+    const { modalVisible, error } = this.state;
 
-    if ( location !== i18n.t( "species_nearby.no_location" ) ) {
+    if ( !error ) {
       this.setState( {
         modalVisible: !modalVisible
       } );
@@ -221,6 +235,7 @@ class HomeScreen extends Component<Props> {
   }
 
   updateLocation( latitude, longitude, location ) {
+    this.setLoading( true );
     this.setState( {
       latitude,
       longitude,

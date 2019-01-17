@@ -31,7 +31,7 @@
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
-			<string></string>
+			<string/>
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>

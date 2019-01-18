@@ -128,6 +128,14 @@
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
     "start_challenge": "Start the challenge"
   },
+  "inat_stats": {
+    "global_observations": "Global Observations",
+    "naturalists_worldwide": "Naturalists Worldwide",
+    "seek_data": "Seek gets its data from iNaturalist.",
+    "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of species across the globe, and our community works together to identify them. This data is what we use to train the identification AI, display map data, and generate nearby observations data in Seek.",
+    "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
+    "join": "Join iNaturalist"
+  },
   "results": {
     "computer_vision_error": "Can't load computer vision suggestions. Try again later.",
     "good_try": "Good Try!",

@@ -38,6 +38,7 @@ import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
+import iNatStatsScreen from "./Menu/iNatStats";
 
 const backButton = (
   <Image
@@ -219,6 +220,12 @@ const RootStack = createStackNavigator( {
   },
   ChallengeDetails: {
     screen: ChallengeDetailsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  iNatStats: {
+    screen: iNatStatsScreen,
     navigationOptions: () => ( {
       header: null
     } )

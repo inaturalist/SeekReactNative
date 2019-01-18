@@ -64,7 +64,7 @@ const SideMenu = ( { navigation }: Props ) => (
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => console.log( "inaturalist stats clicked" )}
+          onPress={() => navigation.navigate( "iNatStats" )}
         >
           <Text style={styles.text}>
             {i18n.t( "menu.inat" )}

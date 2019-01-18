@@ -31,7 +31,8 @@ export const fonts = {
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
-  light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro"
+  light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro",
+  bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro"
 };
 
 export const fontSize = {

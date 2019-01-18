@@ -21,7 +21,10 @@ const Footer = ( {
 }: Props ) => (
   <View style={styles.container}>
     <View style={styles.navbar}>
-      <TouchableOpacity onPress={() => navigation.navigate( "Menu" )}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate( "Menu" )}
+      >
         <Image source={icons.hamburger} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.push( "Camera", {
@@ -34,6 +37,7 @@ const Footer = ( {
         <Image source={icons.cameraGreen} style={styles.cameraImage} />
       </TouchableOpacity>
       <TouchableOpacity
+        style={styles.button}
         onPress={() => navigation.push( "Notifications" )}
       >
         { notifications ? <Image source={icons.notifications} />

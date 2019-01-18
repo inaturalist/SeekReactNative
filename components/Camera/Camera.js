@@ -9,7 +9,8 @@ import {
   View,
   TouchableOpacity,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 
 import { NavigationEvents } from "react-navigation";

@@ -48,10 +48,10 @@ export default StyleSheet.create( {
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    height: 96
+    height: 96,
+    width: 150
   },
   titleText: {
-    maxWidth: 150,
     fontFamily: fonts.default,
     fontSize: 16,
     marginBottom: 5,
@@ -60,7 +60,6 @@ export default StyleSheet.create( {
   },
   messageText: {
     textAlign: "left",
-    maxWidth: 150,
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21

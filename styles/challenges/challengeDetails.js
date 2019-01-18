@@ -10,6 +10,14 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.darkGray
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
   header: {
     paddingTop: 20,
     flexDirection: "row",
@@ -19,6 +27,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkGray
   },
   logo: {
+    marginTop: 30,
     marginRight: 10
   },
   backButton: {
@@ -26,22 +35,21 @@ export default StyleSheet.create( {
     marginHorizontal: 10
   },
   challengeContainer: {
-    flex: 1,
-    height: 370,
+    height: 320,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.darkGray
+    backgroundColor: colors.darkGray,
+    marginBottom: 10
   },
   missionContainer: {
     alignItems: "center",
     marginTop: 21,
     backgroundColor: colors.white,
-    marginHorizontal: 22
+    marginHorizontal: 36
   },
   challengeHeader: {
-    marginTop: 22,
     alignSelf: "flex-start",
-    marginLeft: 23,
+    marginLeft: 36,
     fontFamily: fonts.light,
     fontSize: 22,
     color: colors.white,
@@ -49,7 +57,8 @@ export default StyleSheet.create( {
   },
   challengeName: {
     alignSelf: "flex-start",
-    marginLeft: 23,
+    marginLeft: 36,
+    marginRight: 36,
     fontFamily: fonts.semibold,
     fontSize: 23,
     letterSpacing: 1.0,
@@ -59,9 +68,10 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-around",
-    marginTop: 31,
-    marginBottom: 31
+    justifyContent: "space-between",
+    marginHorizontal: 36,
+    marginTop: 21,
+    marginBottom: 21
   },
   text: {
     maxWidth: 183,
@@ -82,9 +92,8 @@ export default StyleSheet.create( {
     justifyContent: "center",
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
-    width: 292,
-    height: 46,
-    marginBottom: 21
+    width: "80%",
+    height: 46
   },
   buttonText: {
     fontFamily: fonts.semibold,

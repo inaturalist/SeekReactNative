@@ -43,6 +43,7 @@ class SplashScreen extends Component<Props> {
     if ( !hasCheckedAsyncStorage ) {
       return null;
     }
+    // fade this screen out if possible
     if ( isFirstLaunch ) {
       setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
     } else {

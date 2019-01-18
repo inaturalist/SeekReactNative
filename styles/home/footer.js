@@ -18,5 +18,11 @@ export default StyleSheet.create( {
   },
   cameraImage: {
     marginBottom: 50
+  },
+  button: {
+    paddingLeft: 5,
+    paddingRight: 5,
+    paddingTop: 5,
+    paddingBottom: 5
   }
 } );

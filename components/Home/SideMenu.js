@@ -84,6 +84,13 @@ const SideMenu = ( { navigation }: Props ) => (
             Sign in
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Onboarding" )}
+        >
+          <Text style={styles.text}>
+            Onboarding
+          </Text>
+        </TouchableOpacity>
       </View>
     </LinearGradient>
   </View>

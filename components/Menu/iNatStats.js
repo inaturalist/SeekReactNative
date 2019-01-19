@@ -31,7 +31,7 @@ class iNatStatsScreen extends Component<Props> {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchTotalObservations();
     this.fetchTotalObservers();
   }

@@ -35,8 +35,6 @@ class CameraScreen extends Component<Props> {
 
     const {
       id,
-      // latitude,
-      // longitude,
       commonName
     } = navigation.state.params;
 

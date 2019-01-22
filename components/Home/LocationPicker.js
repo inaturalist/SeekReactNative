@@ -102,12 +102,12 @@ class LocationPicker extends Component<Props> {
 
     this.setState( {
       region: {
-        latitude: Number( location.latitude ),
-        longitude: Number( location.longitude ),
+        latitude: location.latitude,
+        longitude: location.longitude,
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
       },
-      location: this.reverseGeocodeLocation( Number( location.latitude ), Number( location.longitude ) )
+      location: this.reverseGeocodeLocation( location.latitude, location.longitude )
     } );
   }
 

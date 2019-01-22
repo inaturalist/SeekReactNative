@@ -254,8 +254,6 @@ class ChallengeResults extends Component<Props> {
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
-        latitude,
-        longitude,
         commonName: null
       } );
     } else {
@@ -330,7 +328,8 @@ class ChallengeResults extends Component<Props> {
           this.fetchSeenTaxaIds( match.taxon.id );
         } );
       } )
-      .catch( () => {
+      .catch( ( err ) => {
+        console.log( err, "error in computer vision results" );
         this.setState( {
           error: i18n.t( "results.computer_vision_error" )
         } );

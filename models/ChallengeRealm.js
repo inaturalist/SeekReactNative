@@ -12,7 +12,7 @@ ChallengeRealm.schema = {
     mission2: { type: "string", default: "" },
     description: { type: "string", default: "" },
     earned: { type: "bool", default: false },
-    percentComplete: { type: "int", default: 0 },
+    // percentComplete: { type: "int", default: 0 },
     index: { type: "int", default: 0 }
   }
 };

@@ -212,13 +212,15 @@ const getLatAndLng = async () => {
     const latitude = await AsyncStorage.getItem( "latitude" );
     const longitude = await AsyncStorage.getItem( "longitude" );
     return {
-      latitude,
-      longitude
+      latitude: Number( latitude ),
+      longitude: Number( longitude )
     };
   } catch ( error ) {
     return ( error );
   }
 };
+
+const calculatePercent = ( number, total ) => ( number / total ) * 100;
 
 export {
   addToCollection,
@@ -233,5 +235,6 @@ export {
   checkIfFirstLaunch,
   checkIfCardShown,
   setLatAndLng,
-  getLatAndLng
+  getLatAndLng,
+  calculatePercent
 };

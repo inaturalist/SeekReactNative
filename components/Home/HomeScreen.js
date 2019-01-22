@@ -307,8 +307,6 @@ class HomeScreen extends Component<Props> {
           </View>
           <Footer
             navigation={navigation}
-            latitude={latitude}
-            longitude={longitude}
             notifications={notifications}
           />
         </SafeAreaView>

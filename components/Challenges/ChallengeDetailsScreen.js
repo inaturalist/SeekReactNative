@@ -14,6 +14,7 @@ import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
+import ChallengeMissionCard from "./ChallengeMissionCard";
 import Footer from "../Home/Footer";
 
 type Props = {
@@ -25,7 +26,8 @@ class ChallengeDetailsScreen extends Component<Props> {
     super();
 
     this.state = {
-      challengeStarted: false
+      challengeStarted: false,
+      percentComplete: 18
     };
 
     this.startChallenge = this.startChallenge.bind( this );
@@ -38,7 +40,7 @@ class ChallengeDetailsScreen extends Component<Props> {
   }
 
   render() {
-    const { challengeStarted } = this.state;
+    const { challengeStarted, percentComplete } = this.state;
     const { navigation } = this.props;
 
     let button;
@@ -57,8 +59,6 @@ class ChallengeDetailsScreen extends Component<Props> {
         <TouchableOpacity
           style={styles.greenButton}
           onPress={() => navigation.navigate( "Camera", {
-            latitude: 0.0,
-            longitude: 0.0,
             id: null,
             commonName: null
           } )}
@@ -98,6 +98,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               </View>
               {button}
             </View>
+            {challengeStarted ? <ChallengeMissionCard percentComplete={percentComplete} /> : null}
             <View style={styles.missionContainer}>
               <Text style={styles.missionText}>
                 {i18n.t( "challenges.april_description" )}

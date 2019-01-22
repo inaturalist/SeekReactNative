@@ -13,8 +13,6 @@ import styles from "../../styles/home/getStarted";
 import icons from "../../assets/icons";
 
 const navParams = {
-  latitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
-  longitude: null, // need a way to know where the user is to get results. should the camera ask you for your location?
   id: null,
   commonName: null
 };

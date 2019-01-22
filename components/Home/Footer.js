@@ -8,15 +8,11 @@ import icons from "../../assets/icons";
 
 type Props = {
   navigation: any,
-  latitude: number,
-  longitude: number,
   notifications: boolean
 }
 
 const Footer = ( {
   navigation,
-  latitude,
-  longitude,
   notifications
 }: Props ) => (
   <View style={styles.container}>
@@ -28,8 +24,6 @@ const Footer = ( {
         <Image source={icons.hamburger} />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.push( "Camera", {
-        latitude,
-        longitude,
         id: null,
         commonName: null
       } )}

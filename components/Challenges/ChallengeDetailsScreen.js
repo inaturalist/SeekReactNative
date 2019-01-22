@@ -25,13 +25,22 @@ class ChallengeDetailsScreen extends Component<Props> {
     super();
 
     this.state = {
+      challengeStarted: false,
       month: "april"
     };
   }
 
   render() {
-    const { month } = this.state;
+    const { month, challengeStarted } = this.state;
     const { navigation } = this.props;
+
+    let challengeButtonText;
+
+    if ( !challengeStarted ) {
+      challengeButtonText = i18n.t( "challenges.start_challenge" ).toLocaleUpperCase();
+    } else if ( challengeStarted ) {
+      challengeButtonText = i18n.t( "challenges.open_camera" ).toLocaleUpperCase();
+    }
 
     return (
       <View style={styles.container}>
@@ -78,7 +87,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Challenges" )}
               >
-                <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+                <Text style={styles.buttonText}>{challengeButtonText}</Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

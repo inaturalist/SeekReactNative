@@ -14,12 +14,12 @@
     "header": "Get started",
     "tip_1": "Check out species commonly spotted near you in the “Nearby Species” section above. Search by location or specific taxa!",
     "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will identify it for you!",
-    "tip_3": "Take a challenge sponsored by OurPlanet and WWF and find species with the worldwide Seek community!"
+    "tip_3": "Take a challenge sponsored by Our Planet and WWF and find species with the worldwide Seek community!"
   },
   "challenges_card": {
     "header": "Challenges",
     "april": "April 2019: Connectivity",
-    "join": "Join the global observation challenge and follow along with OurPlanet on Netflix!",
+    "join": "Join the global observation challenge and follow along with Our Planet on Netflix!",
     "take_challenge": "Take the challenge",
     "view_all": "View all challenges"
   },
@@ -27,7 +27,7 @@
     "header": "Notifications",
     "learn_more": "Learn more about iNaturalist",
     "earned_badges": "You've earned a lot of badges! You might like iNaturalist!",
-    "new_challenge": "There's a new challenge from OurPlanet & WWF!",
+    "new_challenge": "There's a new challenge from Our Planet & WWF!",
     "check_out": "Check it out now!",
     "almost_finished": "You're almost finished with your challenge!",
     "view_progress": "View your progress",
@@ -89,7 +89,7 @@
   "onboarding": {
     "onboarding_1": "Take a photo of anything living and Seek’s AI will identify it!",
     "onboarding_2": "Earn badges for seeing different species",
-    "onboarding_3": "Participate in global challenges with OurPlanet and WWF",
+    "onboarding_3": "Participate in global challenges with Our Planet and WWF",
     "skip": "Skip for now",
     "continue": "Continue"
   },
@@ -118,15 +118,16 @@
     "connectivity": "Connectivity Challenge",
     "biodiversity": "Biodiversity Challenge",
     "productivity": "Productivity & Community Challenge",
-    "op_april": "OurPlanet - April 2019",
-    "op_may": "OurPlanet - May 2019",
-    "op_june": "OurPlanet - June 2019",
+    "op_april": "Our Planet - April 2019",
+    "op_may": "Our Planet - May 2019",
+    "op_june": "Our Planet - June 2019",
     "start_now": "Start now",
     "april_2019": "April 2019",
     "mission_1_april": "Find 20 new species!",
     "mission_2_april": "Find 2 different species of dragonflies!",
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
-    "start_challenge": "Start the challenge"
+    "start_challenge": "Start the challenge",
+    "open_camera": "Open camera"
   },
   "inat_stats": {
     "global_observations": "Global Observations",
@@ -155,8 +156,8 @@
   },
   "about": {
     "header": "About",
-    "sponsored": "Seek is sponsored by OurPlanet on Netflix",
-    "our_planet": "OurPlanet is a landmark natural history TV series released on Netflix in April 2019. This series is a Netflix Original produced by Silverback films and World Wildlife Fund.",
+    "sponsored": "Seek is sponsored by Our Planet on Netflix",
+    "our_planet": "Our Planet is a landmark natural history TV series released on Netflix in April 2019. This series is a Netflix Original produced by Silverback films and World Wildlife Fund.",
     "seek": "Seek is produced by iNaturalist",
     "joint_initiative": "iNaturalist is a joint initiative between the California Academy of Sciences and the National Geographic Society."
   }

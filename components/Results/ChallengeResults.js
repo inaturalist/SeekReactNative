@@ -242,18 +242,14 @@ class ChallengeResults extends Component<Props> {
       navigation.push( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude,
-        longitude
+        taxaType: "all"
       } );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
       navigation.push( "Main", {
         taxaName,
         id: taxaId,
-        taxaType: "all",
-        latitude,
-        longitude
+        taxaType: "all"
       } );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
@@ -266,9 +262,7 @@ class ChallengeResults extends Component<Props> {
       navigation.push( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude,
-        longitude
+        taxaType: "all"
       } );
     }
   }

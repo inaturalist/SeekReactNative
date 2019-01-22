@@ -47,9 +47,7 @@ const LoginScreen = ( { navigation }: Props ) => (
       onPress={() => navigation.navigate( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude: null,
-        longitude: null
+        taxaType: "all"
       } )}
     >
       {i18n.t( "login.skip_login" )}

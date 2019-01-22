@@ -50,9 +50,7 @@ class SplashScreen extends Component<Props> {
       setTimeout( () => navigation.navigate( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude: null,
-        longitude: null
+        taxaType: "all"
       } ), 2000 );
     }
   }

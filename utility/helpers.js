@@ -202,6 +202,24 @@ const checkIfCardShown = async () => {
   }
 };
 
+const setLatAndLng = ( lat, lng ) => {
+  AsyncStorage.setItem( "latitude", lat );
+  AsyncStorage.setItem( "longitude", lng );
+};
+
+const getLatAndLng = async () => {
+  try {
+    const latitude = await AsyncStorage.getItem( "latitude" );
+    const longitude = await AsyncStorage.getItem( "longitude" );
+    return {
+      latitude,
+      longitude
+    };
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -213,5 +231,7 @@ export {
   getPreviousAndNextMonth,
   requiresParent,
   checkIfFirstLaunch,
-  checkIfCardShown
+  checkIfCardShown,
+  setLatAndLng,
+  getLatAndLng
 };

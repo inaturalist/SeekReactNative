@@ -11,7 +11,7 @@ import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, capitalizeNames } from "../../utility/helpers";
+import { truncateCoordinates, capitalizeNames, getLatAndLng } from "../../utility/helpers";
 import styles from "../../styles/home/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -39,9 +39,6 @@ class LocationPicker extends Component<Props> {
         latitude,
         longitude
       },
-      userLatitude: latitude,
-      userLongitude: longitude,
-      userLocation: location,
       location
       // error: null
     };
@@ -55,23 +52,6 @@ class LocationPicker extends Component<Props> {
 
     this.setState( {
       region: newRegion
-    } );
-  }
-
-  getGeolocation() {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
-
-      this.setState( {
-        userLatitude: latitude,
-        userLongitude: longitude,
-        userLocation: this.reverseGeocodeLocation( latitude, longitude )
-      } );
-    }, ( err ) => {
-      // this.setState( {
-      //   error: `Couldn't fetch your current location: ${err.message}.`
-      // } );
     } );
   }
 
@@ -116,19 +96,18 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  returnToUserLocation() {
-    const { userLatitude, userLongitude, userLocation } = this.state;
-
-    this.getGeolocation();
+  async returnToUserLocation() {
+    const location = await getLatAndLng();
+    console.log( location, "fetching location in location picker" );
 
     this.setState( {
       region: {
-        latitude: userLatitude,
-        longitude: userLongitude,
+        latitude: Number( location.latitude ),
+        longitude: Number( location.longitude ),
         latitudeDelta: 0.2,
         longitudeDelta: 0.2
       },
-      location: userLocation
+      location: this.reverseGeocodeLocation( Number( location.latitude ), Number( location.longitude ) )
     } );
   }
 
@@ -160,7 +139,7 @@ class LocationPicker extends Component<Props> {
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => updateLocation( region.latitude, region.longitude, location )}
+            onPress={() => updateLocation( truncateCoordinates( region.latitude ), truncateCoordinates( region.longitude ), location )}
           >
             <Text style={styles.buttonText}>
               {i18n.t( "location_picker.button" ).toLocaleUpperCase()}

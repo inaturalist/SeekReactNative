@@ -24,7 +24,12 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
-import { truncateCoordinates, getPreviousAndNextMonth, checkIfCardShown } from "../../utility/helpers";
+import {
+  truncateCoordinates,
+  getPreviousAndNextMonth,
+  checkIfCardShown,
+  setLatAndLng
+} from "../../utility/helpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
 
@@ -39,14 +44,12 @@ class HomeScreen extends Component<Props> {
     const {
       taxaName,
       id,
-      taxaType,
-      latitude,
-      longitude
+      taxaType
     } = navigation.state.params;
 
     this.state = {
-      latitude,
-      longitude,
+      latitude: null,
+      longitude: null,
       location: null,
       taxa: [],
       taxaType,
@@ -98,6 +101,8 @@ class HomeScreen extends Component<Props> {
       const latitude = truncateCoordinates( position.coords.latitude );
       const longitude = truncateCoordinates( position.coords.longitude );
       this.reverseGeocodeLocation( latitude, longitude );
+
+      setLatAndLng( latitude.toString(), longitude.toString() );
 
       this.setState( {
         latitude,

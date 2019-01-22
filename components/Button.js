@@ -28,9 +28,7 @@ class Button extends Component<Props> {
       navigation.push( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude: null,
-        longitude: null
+        taxaType: "all"
       } );
     } else if ( buttonText === "Found it!" ) {
       navigation.push( "Camera", navParams );

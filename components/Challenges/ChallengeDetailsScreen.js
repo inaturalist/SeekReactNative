@@ -25,21 +25,47 @@ class ChallengeDetailsScreen extends Component<Props> {
     super();
 
     this.state = {
-      challengeStarted: false,
-      month: "april"
+      challengeStarted: false
     };
+
+    this.startChallenge = this.startChallenge.bind( this );
+  }
+
+  startChallenge() {
+    this.setState( {
+      challengeStarted: true
+    } );
   }
 
   render() {
-    const { month, challengeStarted } = this.state;
+    const { challengeStarted } = this.state;
     const { navigation } = this.props;
 
-    let challengeButtonText;
+    let button;
 
     if ( !challengeStarted ) {
-      challengeButtonText = i18n.t( "challenges.start_challenge" ).toLocaleUpperCase();
+      button = (
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => this.startChallenge()}
+        >
+          <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
+        </TouchableOpacity>
+      );
     } else if ( challengeStarted ) {
-      challengeButtonText = i18n.t( "challenges.open_camera" ).toLocaleUpperCase();
+      button = (
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => navigation.navigate( "Camera", {
+            latitude: 0.0,
+            longitude: 0.0,
+            id: null,
+            commonName: null
+          } )}
+        >
+          <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
+        </TouchableOpacity>
+      );
     }
 
     return (
@@ -70,12 +96,7 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Image source={icons.badgePlaceholder} />
                 <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
               </View>
-              <TouchableOpacity
-                style={styles.greenButton}
-                onPress={() => navigation.navigate( "Challenges" )}
-              >
-                <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
-              </TouchableOpacity>
+              {button}
             </View>
             <View style={styles.missionContainer}>
               <Text style={styles.missionText}>
@@ -87,7 +108,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Challenges" )}
               >
-                <Text style={styles.buttonText}>{challengeButtonText}</Text>
+                <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

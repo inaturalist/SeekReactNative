@@ -9,16 +9,15 @@ import {
   View,
   TouchableOpacity,
   StatusBar,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
-
 import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/camera/camera";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
+import { getLatAndLng } from "../../utility/helpers";
 
 
 const flashModeOrder = {
@@ -36,8 +35,8 @@ class CameraScreen extends Component<Props> {
 
     const {
       id,
-      latitude,
-      longitude,
+      // latitude,
+      // longitude,
       commonName
     } = navigation.state.params;
 
@@ -45,8 +44,8 @@ class CameraScreen extends Component<Props> {
       cameraType: "back",
       flash: "off",
       error: null,
-      latitude,
-      longitude,
+      latitude: null,
+      longitude: null,
       id,
       commonName,
       pictureTaken: false,
@@ -57,7 +56,12 @@ class CameraScreen extends Component<Props> {
     this.toggleFlash = this.toggleFlash.bind( this );
   }
 
-  componentDidMount() {
+  async componentWillMount() {
+    const location = await getLatAndLng();
+    this.setState( {
+      latitude: location.latitude,
+      longitude: location.longitude
+    } );
   }
 
   getCameraCaptureFromGallery( id ) {

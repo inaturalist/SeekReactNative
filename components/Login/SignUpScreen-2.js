@@ -41,9 +41,7 @@ class SignUpScreen extends Component<Props> {
     navigation.navigate( "Main", {
       taxaName: null,
       id: null,
-      taxaType: "all",
-      latitude: null,
-      longitude: null
+      taxaType: "all"
     } );
   }
 

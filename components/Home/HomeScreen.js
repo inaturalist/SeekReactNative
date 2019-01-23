@@ -38,23 +38,15 @@ type Props = {
 }
 
 class HomeScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      taxaName,
-      id,
-      taxaType
-    } = navigation.state.params;
 
     this.state = {
       latitude: null,
       longitude: null,
       location: null,
       taxa: [],
-      taxaType,
-      taxaName,
-      id,
+      taxaType: "all",
       loading: false,
       modalVisible: false,
       notifications: false,

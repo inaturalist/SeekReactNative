@@ -1,11 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { height } = Dimensions.get( "window" );
+
 export default StyleSheet.create( {
-  container: {
+  innerContainer: {
     borderRadius: 40,
     backgroundColor: colors.white
   },
@@ -16,17 +18,17 @@ export default StyleSheet.create( {
   badgeImage: {
     marginTop: 15,
     marginBottom: 15,
-    height: 180,
+    height: height > 570 ? 180 : 120,
     width: "auto",
     resizeMode: "contain"
   },
   headerText: {
-    marginTop: 16,
+    marginTop: height > 570 ? 16 : 14,
     textAlign: "center",
-    fontSize: 17,
+    fontSize: height > 570 ? 17 : 15,
     fontFamily: fonts.semibold,
     color: colors.black,
-    lineHeight: 24
+    lineHeight: height > 570 ? 24 : 22
   },
   textContainer: {
     marginHorizontal: 27,
@@ -35,15 +37,15 @@ export default StyleSheet.create( {
   },
   text: {
     textAlign: "center",
-    marginTop: 16,
+    marginTop: height > 570 ? 16 : 14,
     fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
+    fontSize: height > 570 ? 16 : 14,
+    lineHeight: height > 570 ? 21 : 19,
     color: colors.black
   },
   logo: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: height > 570 ? 20 : 18,
+    marginBottom: height > 570 ? 20 : 18,
     height: 61,
     width: 200,
     resizeMode: "contain"

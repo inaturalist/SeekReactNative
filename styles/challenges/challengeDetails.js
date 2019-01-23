@@ -14,9 +14,11 @@ export default StyleSheet.create( {
     backgroundColor: "rgba(0,0,0,0.5)"
   },
   modalView: {
-    padding: 20,
-    alignItems: "center",
-    justifyContent: "center"
+    flex: 1,
+    justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
+    alignItems: "center"
   },
   safeViewTop: {
     flex: 0,
@@ -39,8 +41,8 @@ export default StyleSheet.create( {
     marginRight: 10
   },
   backButton: {
-    marginLeft: 20,
-    marginHorizontal: 10
+    marginTop: 20,
+    marginLeft: 20
   },
   challengeContainer: {
     height: 320,

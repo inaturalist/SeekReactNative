@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
+import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
 import { colors } from "../../styles/global";
 
@@ -28,26 +29,37 @@ const ChallengeProgressCard = ( { navigation, item }: Props ) => (
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
-          {item.title}
+          {item.name}
         </Text>
         <Text style={styles.messageText}>
-          {item.message}
+          {i18n.t( "challenges.op" )}
+          {" - "}
+          {item.month}
         </Text>
       </View>
-      <ProgressCircle
-        outerCircleStyle={styles.circleStyle}
-        percent={item.percentComplete}
-        radius={59 / 2}
-        borderWidth={3}
-        color={colors.seekiNatGreen}
-        shadowColor={colors.circleGray}
-        bgColor={colors.white}
-      >
-        <Text style={styles.circleText}>
-          {item.percentComplete}
-          {"%"}
-        </Text>
-      </ProgressCircle>
+      {item.started ? (
+        <ProgressCircle
+          outerCircleStyle={styles.circleStyle}
+          percent={item.percentComplete}
+          radius={59 / 2}
+          borderWidth={3}
+          color={colors.seekiNatGreen}
+          shadowColor={colors.circleGray}
+          bgColor={colors.white}
+        >
+          <Text style={styles.circleText}>
+            {item.percentComplete}
+            {"%"}
+          </Text>
+        </ProgressCircle>
+      ) : (
+        <TouchableOpacity
+          style={styles.startButton}
+          onPress={() => console.log( "user clicked start now" )}
+        >
+          <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>
+        </TouchableOpacity>
+      )}
     </TouchableOpacity>
     <View style={styles.divider} />
   </View>

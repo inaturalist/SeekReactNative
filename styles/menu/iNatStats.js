@@ -1,8 +1,10 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -38,8 +40,8 @@ export default StyleSheet.create( {
     position: "absolute",
     right: 10,
     top: 30,
-    height: 65,
-    width: 81
+    height: height > 570 ? 65 : 45,
+    width: height > 570 ? 81 : 61
   },
   numberText: {
     color: colors.black,
@@ -83,11 +85,12 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   greenButton: {
+    alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 24,
-    width: 310,
+    width: "95%",
     height: 52
   },
   buttonText: {

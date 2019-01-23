@@ -6,6 +6,7 @@ const moment = require( "moment" );
 const { AsyncStorage } = require( "react-native" );
 
 const badgesDict = require( "./badgesDict" );
+const challengesDict = require( "./challengesDict" );
 const realmConfig = require( "../models/index" );
 
 const capitalizeNames = ( name ) => {
@@ -77,6 +78,11 @@ const recalculateBadges = () => {
   return badgeEarned;
 };
 
+const recalculateChallenges = () => {
+  // to do, figure out how to calculate each challenge.
+  // need individual functions for april, may, june, etc?
+};
+
 const addToCollection = ( observation, latitude, longitude, image ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -133,6 +139,31 @@ const setupBadges = () => {
       } );
     } ).catch( ( err ) => {
       // console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
+    } );
+};
+
+const setupChallenges = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      realm.write( () => {
+        const dict = Object.keys( challengesDict.default );
+        dict.forEach( ( challengesType ) => {
+          const challenges = challengesDict.default[challengesType];
+
+          const challenge = realm.create( "ChallengeRealm", {
+            name: challenges.name,
+            month: challenges.month,
+            description: challenges.description,
+            totalSpecies: challenges.totalSpecies,
+            unearnedIconName: challenges.unearnedIconName,
+            earnedIconName: challenges.earnedIconName,
+            missions: challenges.missions,
+            index: challenges.index
+          }, true );
+        } );
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to setup challenges: ", err );
     } );
 };
 
@@ -227,8 +258,10 @@ export {
   capitalizeNames,
   flattenUploadParameters,
   recalculateBadges,
+  recalculateChallenges,
   reverseGeocodeLocation,
   setupBadges,
+  setupChallenges,
   truncateCoordinates,
   getPreviousAndNextMonth,
   requiresParent,

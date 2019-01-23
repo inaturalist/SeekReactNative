@@ -13,7 +13,7 @@ import logos from "../../assets/logos";
 const month = "April";
 
 const ChallengeBadge = () => (
-  <View style={styles.container}>
+  <View style={styles.innerContainer}>
     <LinearGradient
       style={styles.badgeHeader}
       colors={["#67c5ca", "#3ca2ab"]}

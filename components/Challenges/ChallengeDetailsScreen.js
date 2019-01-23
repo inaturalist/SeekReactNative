@@ -90,33 +90,31 @@ class ChallengeDetailsScreen extends Component<Props> {
 
     return (
       <View style={[styles.container, modalVisible && styles.modalContainer]}>
-        <Modal
-          transparent
-          visible={modalVisible}
-          onRequestClose={() => this.toggleBadgeModal()}
-        >
-          <View style={styles.modalView}>
-            <ChallengeBadge />
-            <TouchableOpacity
-              onPress={() => this.toggleBadgeModal()}
-              style={styles.backButton}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-          </View>
-        </Modal>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
+          <Modal
+            transparent
+            visible={modalVisible}
+            onRequestClose={() => this.toggleBadgeModal()}
+          >
+            <View style={styles.modalView}>
+              <ChallengeBadge />
+              <TouchableOpacity
+                onPress={() => this.toggleBadgeModal()}
+                style={styles.backButton}
+              >
+                <Image source={icons.backButton} />
+              </TouchableOpacity>
+            </View>
+          </Modal>
           {!modalVisible ? (
             <ScrollView>
               <View style={styles.header}>
                 <TouchableOpacity
+                  style={styles.backButton}
                   onPress={() => navigation.goBack()}
                 >
-                  <Image
-                    source={icons.backButton}
-                    style={styles.backButton}
-                  />
+                  <Image source={icons.backButton} />
                 </TouchableOpacity>
                 <Image style={styles.logo} source={logos.op} />
                 <View />

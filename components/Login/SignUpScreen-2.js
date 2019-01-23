@@ -38,11 +38,7 @@ class SignUpScreen extends Component<Props> {
     // try to log into iNat
     // if log in succeeds, navigate to Main
     // else, have a failure state / try again / forgot password prompt
-    navigation.navigate( "Main", {
-      taxaName: null,
-      id: null,
-      taxaType: "all"
-    } );
+    navigation.navigate( "Main" );
   }
 
   render() {

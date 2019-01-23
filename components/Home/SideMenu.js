@@ -30,11 +30,7 @@ const SideMenu = ( { navigation }: Props ) => (
       />
       <View style={styles.textContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate( "Main", {
-            taxaName: null,
-            id: null,
-            taxaType: "all"
-          } )}
+          onPress={() => navigation.navigate( "Main" )}
         >
           <Text style={styles.text}>
             {i18n.t( "menu.home" )}

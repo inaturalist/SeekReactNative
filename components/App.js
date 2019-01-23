@@ -3,12 +3,13 @@ import RNLanguages from "react-native-languages";
 
 import i18n from "../i18n";
 import RootStack from "./Navigation";
-import { setupBadges } from "../utility/helpers";
+import { setupBadges, setupChallenges } from "../utility/helpers";
 
 
 class App extends Component {
   componentWillMount() {
     setupBadges();
+    setupChallenges();
     RNLanguages.addEventListener( "change", this.onLanguagesChange );
   }
 

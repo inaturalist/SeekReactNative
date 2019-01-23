@@ -226,12 +226,12 @@ class Results extends Component<Props> {
     const {
       id,
       observation,
-      taxaName,
+      // taxaName,
       latitude,
       longitude,
       image,
-      buttonText,
-      taxaId
+      buttonText
+      // taxaId
     } = this.state;
 
     const {
@@ -239,29 +239,17 @@ class Results extends Component<Props> {
     } = this.props;
 
     if ( buttonText === "OK" ) {
-      navigation.push( "Main", {
-        taxaName: null,
-        id: null,
-        taxaType: "all"
-      } );
+      navigation.push( "Main" );
     } else if ( buttonText === "Add to Collection" ) {
       addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main", {
-        taxaName,
-        id: taxaId,
-        taxaType: "all"
-      } );
+      navigation.push( "Main" );
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,
         commonName: null
       } );
     } else {
-      navigation.push( "Main", {
-        taxaName: null,
-        id: null,
-        taxaType: "all"
-      } );
+      navigation.push( "Main" );
     }
   }
 

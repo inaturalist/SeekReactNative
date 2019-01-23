@@ -25,11 +25,7 @@ class Button extends Component<Props> {
     const { buttonText, navigation, navParams } = this.props;
 
     if ( buttonText === "OK. Got it!" ) {
-      navigation.push( "Main", {
-        taxaName: null,
-        id: null,
-        taxaType: "all"
-      } );
+      navigation.push( "Main" );
     } else if ( buttonText === "Found it!" ) {
       navigation.push( "Camera", navParams );
     } else if ( buttonText === i18n.t( "location_picker.done" ) ) {

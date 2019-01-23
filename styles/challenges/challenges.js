@@ -72,5 +72,17 @@ export default StyleSheet.create( {
   circleText: {
     fontFamily: fonts.book,
     fontSize: 20
+  },
+  startButton: {
+    alignItems: "center",
+    width: 59,
+    marginLeft: 20
+  },
+  greenText: {
+    textAlign: "center",
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    fontSize: 14,
+    lineHeight: 17
   }
 } );

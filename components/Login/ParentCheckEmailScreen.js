@@ -27,11 +27,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
     </View>
     <TouchableOpacity
       style={[styles.greenButton, { marginTop: 40, width: 316 }]}
-      onPress={() => navigation.navigate( "Main", {
-        taxaName: null,
-        id: null,
-        taxaType: "all"
-      } )}
+      onPress={() => navigation.navigate( "Main" )}
     >
       <Text style={styles.buttonText}>{i18n.t( "inat_signup.continue_no_log_in" )}</Text>
     </TouchableOpacity>

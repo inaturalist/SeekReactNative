@@ -22,7 +22,7 @@ const ChallengeProgressCard = ( { navigation, item }: Props ) => (
   <View style={styles.cardContainer}>
     <TouchableOpacity
       style={styles.card}
-      onPress={() => navigation.navigate( "ChallengeDetails" )}
+      onPress={() => navigation.navigate( "ChallengeDetails", { month: item.month } )}
     >
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={item.iconName} />

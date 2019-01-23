@@ -24,13 +24,16 @@ type Props = {
 }
 
 class ChallengeDetailsScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
+
+    // const { month } = navigation.state.params;
 
     this.state = {
       challengeStarted: false,
       percentComplete: 100,
-      modalVisible: false
+      modalVisible: false,
+      // month
     };
 
     this.startChallenge = this.startChallenge.bind( this );

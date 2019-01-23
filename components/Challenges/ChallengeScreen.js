@@ -26,32 +26,7 @@ class ChallengeScreen extends Component<Props> {
 
     this.state = {
       challengesNotStarted: [],
-      challenges: [
-        {
-          name: i18n.t( "challenges.connectivity" ),
-          description: i18n.t( "challenges.op_april" ),
-          iconName: icons.badgePlaceholder,
-          nextScreen: "Main",
-          started: true,
-          percentComplete: 62
-        },
-        {
-          name: i18n.t( "challenges.biodiversity" ),
-          description: i18n.t( "challenges.op_may" ),
-          iconName: icons.badgePlaceholder,
-          nextScreen: "Main",
-          started: true,
-          percentComplete: 0
-        },
-        {
-          name: i18n.t( "challenges.productivity" ),
-          description: i18n.t( "challenges.op_june" ),
-          iconName: icons.badgePlaceholder,
-          nextScreen: "Main",
-          started: true,
-          percentComplete: 25
-        }
-      ]
+      challengesStarted: []
     };
   }
 
@@ -63,7 +38,10 @@ class ChallengeScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challengesNotStarted = [];
+        const challengesStarted = [];
+        const challengesCompleted = [];
         const notStarted = realm.objects( "ChallengeRealm" ).filtered( "started == false" );
+        const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND completed == false" );
         // filter challenges where started === true && completed === false
         // filter challenges where started === true && completed === true
 
@@ -76,16 +54,28 @@ class ChallengeScreen extends Component<Props> {
           } );
         } );
 
+        started.forEach( ( challenge ) => {
+          challengesStarted.push( {
+            name: i18n.t( challenge.name ),
+            month: i18n.t( challenge.month ),
+            iconName: icons.badgePlaceholder,
+            started: true,
+            totalSpecies: challenge.totalSpecies,
+            percentComplete: 0
+          } );
+        } );
+
         this.setState( {
-          challengesNotStarted
-        }, () => console.log( this.state.challengesNotStarted, "state" ) );
+          challengesNotStarted,
+          challengesStarted
+        } );
       } ).catch( ( err ) => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
   render() {
-    const { challenges, challengesNotStarted } = this.state;
+    const { challengesNotStarted, challengesStarted } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -98,7 +88,7 @@ class ChallengeScreen extends Component<Props> {
           </View>
           <View style={styles.challengesContainer}>
             <FlatList
-              data={challenges}
+              data={challengesStarted}
               keyExtractor={( item, i ) => `${item}${i}`}
               renderItem={( { item } ) => (
                 <ChallengeProgressCard item={item} navigation={navigation} />

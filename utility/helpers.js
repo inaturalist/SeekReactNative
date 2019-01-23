@@ -253,6 +253,21 @@ const getLatAndLng = async () => {
 
 const calculatePercent = ( number, total ) => ( number / total ) * 100;
 
+const startChallenge = ( index ) => {
+  Realm.open( realmConfig )
+    .then( ( realm ) => {
+      const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+
+      challenges.forEach( ( challenge ) => {
+        realm.write( () => {
+          challenge.started = true;
+        } );
+      } );
+    } ).catch( ( err ) => {
+      // console.log( "[DEBUG] Failed to open realm, error: ", err );
+    } );
+};
+
 export {
   addToCollection,
   capitalizeNames,
@@ -269,5 +284,6 @@ export {
   checkIfCardShown,
   setLatAndLng,
   getLatAndLng,
-  calculatePercent
+  calculatePercent,
+  startChallenge
 };

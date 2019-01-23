@@ -15,7 +15,7 @@ import styles from "../../styles/menu/iNatStats";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
-import Footer from "../Home/Footer";
+import Footer from "../Challenges/ChallengeFooter";
 
 type Props = {
   navigation: any
@@ -31,8 +31,8 @@ class iNatStatsScreen extends Component<Props> {
     };
   }
 
-  componentWillMount() {
-    this.fetchTotalObservations();
+  async componentWillMount() {
+    await this.fetchTotalObservations();
     this.fetchTotalObservers();
   }
 

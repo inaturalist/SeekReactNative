@@ -17,7 +17,7 @@ import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeBadge from "./ChallengeBadge";
-import Footer from "../Home/Footer";
+import Footer from "./ChallengeFooter";
 
 type Props = {
   navigation: any

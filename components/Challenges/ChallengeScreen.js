@@ -12,7 +12,7 @@ import styles from "../../styles/challenges/challenges";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Footer from "../Home/Footer";
+import Footer from "./ChallengeFooter";
 
 type Props = {
   navigation: any

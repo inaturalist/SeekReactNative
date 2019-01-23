@@ -12,7 +12,7 @@ import icons from "../assets/icons";
 import i18n from "../i18n";
 
 import SplashScreen from "./SplashScreen";
-import HomeScreen from "../containers/HomeContainer";
+import HomeScreen from "./Home/HomeScreen";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";

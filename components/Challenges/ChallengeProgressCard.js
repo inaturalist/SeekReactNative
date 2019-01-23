@@ -58,7 +58,6 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         <TouchableOpacity
           style={styles.startButton}
           onPress={() => {
-            console.log( item.index, "item index" );
             startChallenge( item.index );
             fetchChallenges();
           }}

@@ -97,5 +97,17 @@ export default StyleSheet.create( {
     color: colors.errorGray,
     fontSize: 19,
     lineHeight: 24
+  },
+  lightText: {
+    marginTop: 10,
+    width: 204,
+    textAlign: "center",
+    fontFamily: fonts.light,
+    color: colors.errorGray,
+    fontSize: 16,
+    lineHeight: 18
+  },
+  extraPadding: {
+    marginBottom: 60
   }
 } );

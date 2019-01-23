@@ -5,6 +5,7 @@ import {
   View,
   Text,
   Image,
+  Modal,
   TouchableOpacity,
   ScrollView,
   SafeAreaView
@@ -15,6 +16,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
+import ChallengeBadge from "./ChallengeBadge";
 import Footer from "../Home/Footer";
 
 type Props = {
@@ -27,7 +29,8 @@ class ChallengeDetailsScreen extends Component<Props> {
 
     this.state = {
       challengeStarted: false,
-      percentComplete: 18
+      percentComplete: 100,
+      modalVisible: false
     };
 
     this.startChallenge = this.startChallenge.bind( this );
@@ -39,8 +42,16 @@ class ChallengeDetailsScreen extends Component<Props> {
     } );
   }
 
+  toggleBadgeModal() {
+    const { modalVisible } = this.state;
+
+    this.setState( {
+      modalVisible: !modalVisible
+    } );
+  }
+
   render() {
-    const { challengeStarted, percentComplete } = this.state;
+    const { challengeStarted, percentComplete, modalVisible } = this.state;
     const { navigation } = this.props;
 
     let button;
@@ -54,7 +65,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
-    } else if ( challengeStarted ) {
+    } else if ( challengeStarted && percentComplete < 100 ) {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
@@ -66,54 +77,74 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
+    } else if ( challengeStarted && percentComplete === 100 ) {
+      button = (
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => this.toggleBadgeModal()}
+        >
+          <Text style={styles.buttonText}>{i18n.t( "challenges.view_badge" ).toLocaleUpperCase()}</Text>
+        </TouchableOpacity>
+      );
     }
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, modalVisible && styles.modalContainer]}>
+        <Modal
+          transparent
+          visible={modalVisible}
+          onRequestClose={() => this.toggleBadgeModal()}
+        >
+          <View style={styles.modalView}>
+            <ChallengeBadge />
+          </View>
+        </Modal>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <ScrollView>
-            <View style={styles.header}>
-              <TouchableOpacity
-                onPress={() => navigation.goBack()}
-              >
-                <Image
-                  source={icons.backButton}
-                  style={styles.backButton}
-                />
-              </TouchableOpacity>
-              <Image style={styles.logo} source={logos.op} />
-              <View />
-            </View>
-            <View style={styles.challengeContainer}>
-              <Text style={styles.challengeHeader}>
-                {i18n.t( "challenges.april_2019" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.challengeName}>
-                {i18n.t( "challenges.connectivity" ).toLocaleUpperCase()}
-              </Text>
-              <View style={styles.row}>
-                <Image source={icons.badgePlaceholder} />
-                <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+          {!modalVisible ? (
+            <ScrollView>
+              <View style={styles.header}>
+                <TouchableOpacity
+                  onPress={() => navigation.goBack()}
+                >
+                  <Image
+                    source={icons.backButton}
+                    style={styles.backButton}
+                  />
+                </TouchableOpacity>
+                <Image style={styles.logo} source={logos.op} />
+                <View />
               </View>
-              {button}
-            </View>
-            {challengeStarted ? <ChallengeMissionCard percentComplete={percentComplete} /> : null}
-            <View style={styles.missionContainer}>
-              <Text style={styles.missionText}>
-                {i18n.t( "challenges.april_description" )}
-              </Text>
-              <View style={styles.row}>
-                <Image source={logos.wwfop} />
+              <View style={styles.challengeContainer}>
+                <Text style={styles.challengeHeader}>
+                  {i18n.t( "challenges.april_2019" ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.challengeName}>
+                  {i18n.t( "challenges.connectivity" ).toLocaleUpperCase()}
+                </Text>
+                <View style={styles.row}>
+                  <Image source={icons.badgePlaceholder} />
+                  <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+                </View>
+                {button}
               </View>
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "Challenges" )}
-              >
-                <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
-              </TouchableOpacity>
-            </View>
-          </ScrollView>
-          <Footer navigation={navigation} />
+              {challengeStarted ? <ChallengeMissionCard percentComplete={percentComplete} /> : null}
+              <View style={styles.missionContainer}>
+                <Text style={styles.missionText}>
+                  {i18n.t( "challenges.april_description" )}
+                </Text>
+                <View style={styles.row}>
+                  <Image source={logos.wwfop} />
+                </View>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate( "Challenges" )}
+                >
+                  <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          ) : null}
+          {!modalVisible ? <Footer navigation={navigation} /> : null}
         </SafeAreaView>
       </View>
     );

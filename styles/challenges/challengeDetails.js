@@ -10,6 +10,14 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
+  modalContainer: {
+    backgroundColor: "rgba(0,0,0,0.5)"
+  },
+  modalView: {
+    padding: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.darkGray

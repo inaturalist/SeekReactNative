@@ -15,7 +15,7 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "../containers/HomeContainer";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
-import ChallengeResults from "./Results/ChallengeResults";
+import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./Menu/YourCollection";
 import BadgesScreen from "./Menu/BadgesScreen";
@@ -238,7 +238,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Results: {
-    screen: ChallengeResults,
+    screen: Results,
     navigationOptions: () => ( {
       headerStyle: {
         backgroundColor: colors.darkestBlue

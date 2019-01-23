@@ -97,6 +97,12 @@ class ChallengeDetailsScreen extends Component<Props> {
         >
           <View style={styles.modalView}>
             <ChallengeBadge />
+            <TouchableOpacity
+              onPress={() => this.toggleBadgeModal()}
+              style={styles.backButton}
+            >
+              <Image source={icons.backButton} />
+            </TouchableOpacity>
           </View>
         </Modal>
         <SafeAreaView style={styles.safeViewTop} />

@@ -47,5 +47,11 @@ export default StyleSheet.create( {
     height: 61,
     width: 200,
     resizeMode: "contain"
+  },
+  backButton: {
+    alignItems: "flex-end",
+    padding: 10,
+    marginRight: 20,
+    marginTop: 20
   }
 } );

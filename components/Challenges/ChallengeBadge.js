@@ -1,5 +1,9 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import {
+  View,
+  Text,
+  Image
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/challenges/challengeBadge";

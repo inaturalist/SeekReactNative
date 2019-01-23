@@ -13,8 +13,8 @@ import Realm from "realm";
 import moment from "moment";
 
 import i18n from "../../i18n";
-import realmConfig from "../../models/index";
-import ChallengeResultsScreen from "./ChallengeResultsScreen";
+import realmConfig from "../../models";
+import ResultsScreen from "./ResultsScreen";
 import LoadingWheel from "../LoadingWheel";
 import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
@@ -25,7 +25,7 @@ type Props = {
   navigation: any
 }
 
-class ChallengeResults extends Component<Props> {
+class Results extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -364,7 +364,7 @@ class ChallengeResults extends Component<Props> {
       content = <LoadingWheel />;
     } else {
       content = (
-        <ChallengeResultsScreen
+        <ResultsScreen
           title={title}
           subtitle={subtitle}
           match={match}
@@ -394,4 +394,4 @@ class ChallengeResults extends Component<Props> {
   }
 }
 
-export default ChallengeResults;
+export default Results;

@@ -26,8 +26,11 @@ class ChallengeScreen extends Component<Props> {
 
     this.state = {
       challengesNotStarted: [],
-      challengesStarted: []
+      challengesStarted: [],
+      challengesCompleted: []
     };
+
+    this.fetchChallenges = this.fetchChallenges.bind( this );
   }
 
   componentDidMount() {
@@ -42,15 +45,15 @@ class ChallengeScreen extends Component<Props> {
         const challengesCompleted = [];
         const notStarted = realm.objects( "ChallengeRealm" ).filtered( "started == false" );
         const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND completed == false" );
-        // filter challenges where started === true && completed === false
-        // filter challenges where started === true && completed === true
+        const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND completed == true" );
 
         notStarted.forEach( ( challenge ) => {
           challengesNotStarted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
             iconName: icons.badgePlaceholder,
-            started: false
+            started: false,
+            index: challenge.index
           } );
         } );
 
@@ -61,13 +64,27 @@ class ChallengeScreen extends Component<Props> {
             iconName: icons.badgePlaceholder,
             started: true,
             totalSpecies: challenge.totalSpecies,
-            percentComplete: 0
+            percentComplete: 0,
+            index: challenge.index
+          } );
+        } );
+
+        completed.forEach( ( challenge ) => {
+          challengesStarted.push( {
+            name: i18n.t( challenge.name ),
+            month: i18n.t( challenge.month ),
+            iconName: icons.badgePlaceholder,
+            started: true,
+            totalSpecies: challenge.totalSpecies,
+            percentComplete: 100,
+            index: challenge.index
           } );
         } );
 
         this.setState( {
           challengesNotStarted,
-          challengesStarted
+          challengesStarted,
+          challengesCompleted
         } );
       } ).catch( ( err ) => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -75,7 +92,7 @@ class ChallengeScreen extends Component<Props> {
   }
 
   render() {
-    const { challengesNotStarted, challengesStarted } = this.state;
+    const { challengesNotStarted, challengesStarted, challengesCompleted } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -91,7 +108,10 @@ class ChallengeScreen extends Component<Props> {
               data={challengesStarted}
               keyExtractor={( item, i ) => `${item}${i}`}
               renderItem={( { item } ) => (
-                <ChallengeProgressCard item={item} navigation={navigation} />
+                <ChallengeProgressCard
+                  item={item}
+                  navigation={navigation}
+                />
               )}
             />
           </View>
@@ -105,7 +125,11 @@ class ChallengeScreen extends Component<Props> {
               data={challengesNotStarted}
               keyExtractor={( item, i ) => `${item}${i}`}
               renderItem={( { item } ) => (
-                <ChallengeProgressCard item={item} navigation={navigation} />
+                <ChallengeProgressCard
+                  item={item}
+                  navigation={navigation}
+                  fetchChallenges={this.fetchChallenges}
+                />
               )}
             />
           </View>
@@ -113,6 +137,24 @@ class ChallengeScreen extends Component<Props> {
             <Text style={styles.headerText}>
               {i18n.t( "challenges.completed" ).toLocaleUpperCase()}
             </Text>
+          </View>
+          <View style={styles.challengesContainer}>
+            {challengesCompleted.length > 0 ? (
+              <FlatList
+                data={challengesCompleted}
+                keyExtractor={( item, i ) => `${item}${i}`}
+                renderItem={( { item } ) => (
+                  <ChallengeProgressCard
+                    item={item}
+                    navigation={navigation}
+                  />
+                )}
+              />
+            ) : (
+              <View style={styles.noChallengeContainer}>
+                <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_completed_challenges" )}</Text>
+              </View>
+            )}
           </View>
         </ScrollView>
         <Footer navigation={navigation} />

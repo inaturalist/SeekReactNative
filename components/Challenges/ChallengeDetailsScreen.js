@@ -32,7 +32,7 @@ class ChallengeDetailsScreen extends Component<Props> {
     this.state = {
       challengeStarted: false,
       percentComplete: 100,
-      modalVisible: false,
+      modalVisible: false
       // month
     };
 

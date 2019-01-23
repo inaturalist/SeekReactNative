@@ -12,13 +12,15 @@ import ProgressCircle from "react-native-progress-circle";
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
 import { colors } from "../../styles/global";
+import { startChallenge } from "../../utility/helpers";
 
 type Props = {
   navigation: any,
-  item: Object
+  item: Object,
+  fetchChallenges: Function
 }
 
-const ChallengeProgressCard = ( { navigation, item }: Props ) => (
+const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) => (
   <View style={styles.cardContainer}>
     <TouchableOpacity
       style={styles.card}
@@ -55,7 +57,11 @@ const ChallengeProgressCard = ( { navigation, item }: Props ) => (
       ) : (
         <TouchableOpacity
           style={styles.startButton}
-          onPress={() => console.log( "user clicked start now" )}
+          onPress={() => {
+            console.log( item.index, "item index" );
+            startChallenge( item.index );
+            fetchChallenges();
+          }}
         >
           <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>

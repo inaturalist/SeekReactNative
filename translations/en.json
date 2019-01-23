@@ -137,7 +137,12 @@
     "mission_5_may": "Find 3 different fungi",
     "may_description": "From the deepest jungle to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "congrats": "Congrats! You completed the Our Planet Challenge for {{month}}!",
-    "thanks": "Thanks for participating! Remember that our world is interconnected. Species you see around you play a role in the ecosystem of your neighborhood and around the world. Follow along with the journey on Netflix’s Our Planet!"
+    "thanks": "Thanks for participating! Remember that our world is interconnected. Species you see around you play a role in the ecosystem of your neighborhood and around the world. Follow along with the journey on Netflix’s Our Planet!",
+    "no_completed_challenges": "Your completed challenges will appear here.",
+    "no_challenges_in_progress": "Start a new challenge below to earn badges!",
+    "no_new_challenges_header": "You have no new challenges.",
+    "no_new_challenges": "We’ll let you know when new challenges are available.",
+    "completed_all": "You’ve completed all available challenges!"
   },
   "inat_stats": {
     "global_observations": "Global Observations",

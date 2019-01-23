@@ -84,5 +84,18 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontSize: 14,
     lineHeight: 17
+  },
+  noChallengeContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noChallengeText: {
+    width: 229,
+    textAlign: "center",
+    fontFamily: fonts.default,
+    color: colors.errorGray,
+    fontSize: 19,
+    lineHeight: 24
   }
 } );

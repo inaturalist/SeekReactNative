@@ -254,7 +254,7 @@ const getLatAndLng = async () => {
 const calculatePercent = ( number, total ) => ( number / total ) * 100;
 
 const startChallenge = ( index ) => {
-  Realm.open( realmConfig )
+  Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
 
@@ -264,7 +264,7 @@ const startChallenge = ( index ) => {
         } );
       } );
     } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      // console.log( "[DEBUG] Failed to start challenge: ", err );
     } );
 };
 

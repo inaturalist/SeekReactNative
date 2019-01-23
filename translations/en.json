@@ -1,20 +1,151 @@
 {
-  "location_picker": {
-    "looking_50_mile": "Looking for species in a 50 mile radius around this point"
+  "splash": {
+    "presents": "presents",
+    "initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society"
   },
-  "warnings": {
-    "welcome": "Welcome to Seek",
-    "earn_badges": "Earn badges for taking photos of the plants and wildlife around you.",
-    "disclaimer": "We use your location to suggest plants and animals to find near you, but we blur the location before we use it so your street name and town or city is not identifiable",
-    "tip_1": "Always be aware of your surroundings and stay safe!",
-    "tip_2": "Don't eat anything you find in the wild.",
-    "tip_3": "Don't trespass.",
-    "tip_4": "Respect other living things by not harassing or touching them. Some may sting, bite, or make you itch."
+  "species_nearby": {
+    "header": "Species nearby",
+    "location_error": "In order to show you nearby species, we need to use your location.",
+    "enable_location": "Enable location in settings",
+    "internet_error": "We need the internet to generate nearby species. Tap to try again.",
+    "no_location": "No Location"
+  },
+  "get_started": {
+    "header": "Get started",
+    "tip_1": "Check out species commonly spotted near you in the “Nearby Species” section above. Search by location or specific taxa!",
+    "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will identify it for you!",
+    "tip_3": "Take a challenge sponsored by Our Planet and WWF and find species with the worldwide Seek community!"
+  },
+  "challenges_card": {
+    "header": "Challenges",
+    "april": "April 2019: Connectivity",
+    "join": "Join the global observation challenge and follow along with Our Planet on Netflix!",
+    "take_challenge": "Take the challenge",
+    "view_all": "View all challenges"
+  },
+  "notifications": {
+    "header": "Notifications",
+    "learn_more": "Learn more about iNaturalist",
+    "earned_badges": "You've earned a lot of badges! You might like iNaturalist!",
+    "new_challenge": "There's a new challenge from Our Planet & WWF!",
+    "check_out": "Check it out now!",
+    "almost_finished": "You're almost finished with your challenge!",
+    "view_progress": "View your progress",
+    "observation_identified": "Your observation was identified to species on iNaturalist!",
+    "badges_updated": "Thanks for helping improve our model! Your badges may have been updated."
+  },
+  "login": {
+    "log_in": "Log in with iNaturalist",
+    "sign_up": "Sign up for iNaturalist",
+    "about": "By logging in to iNaturalist, you can sync your observations across devices and post to the online community.",
+    "skip_login": "Continue without signing in"
+  },
+  "inat_signup": {
+    "welcome": "Welcome to Seek!",
+    "explore": "We’re excited to explore with you!",
+    "enter_birthday": "Please enter your birthday",
+    "permission": "You need to be at least 13 years old to create an account.",
+    "privacy": "Privacy Policy",
+    "continue": "Continue",
+    "need_permission": "We need your parents' permission.",
+    "enter_email": "Please enter your parent's email",
+    "send_email": "Send email",
+    "parent_email": "Your Parent's Email",
+    "under_13": "Because you’re under 13, we need to get your parent’s permission before making an account.",
+    "sign_up": "Sign up",
+    "sign_up_inat": "Sign up for iNaturalist",
+    "next": "Next",
+    "email": "Email",
+    "username": "username",
+    "password": "password",
+    "release_photos": "Yes, license my photos so scientists can use my data!",
+    "data_usage": "Seek uses your data to help improve our identification models.",
+    "create_account": "Create my account",
+    "thanks": "Thanks!",
+    "parent_instructions": "We sent your parent an email with instructions.",
+    "continue_no_log_in": "Continue Without Logging In"
+  },
+  "inat_login": {
+    "log_in_with_inat": "Log in with your iNaturalist account",
+    "username": "Username",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "log_in": "Log in",
+    "email": "Email",
+    "no_worries": "No worries. We’ll send password reset instructions to your email.",
+    "reset": "Reset my password",
+    "check_email": "Check your email!",
+    "reset_instructions": "We sent password reset instructions to your email.",
+    "return_login": "Return to Login"
+  },
+  "menu": {
+    "home": "Home",
+    "profile": "Profile & Badges",
+    "challenges": "Challenges",
+    "observations": "Observations",
+    "inat": "iNaturalist",
+    "about": "About"
+  },
+  "onboarding": {
+    "onboarding_1": "Take a photo of anything living and Seek’s AI will identify it!",
+    "onboarding_2": "Earn badges for seeing different species",
+    "onboarding_3": "Participate in global challenges with Our Planet and WWF",
+    "skip": "Skip for now",
+    "continue": "Continue"
+  },
+  "location_picker": {
+    "species_nearby": "Species nearby",
+    "button": "Search near location"
+  },
+  "taxon_picker": {
+    "all": "All Species",
+    "plants": "plants",
+    "amphibians": "amphibians",
+    "fungi": "fungi",
+    "fish": "fish",
+    "reptiles": "reptiles",
+    "arachnids": "arachnids",
+    "birds": "birds",
+    "insects": "insects",
+    "mollusks": "mollusks",
+    "mammals": "mammals"
   },
   "challenges": {
-    "current_location": "{{location}}",
-    "loading_location": "Loading...",
-    "species_likely": "Species you're most likely to see near"
+    "header": "Challenges",
+    "in_progress": "In progress",
+    "not_started": "Not started",
+    "completed": "Completed",
+    "connectivity": "Connectivity Challenge",
+    "biodiversity": "Biodiversity Challenge",
+    "productivity": "Productivity & Community Challenge",
+    "op_april": "Our Planet - April 2019",
+    "op_may": "Our Planet - May 2019",
+    "op_june": "Our Planet - June 2019",
+    "start_now": "Start now",
+    "april_2019": "April 2019",
+    "mission_1_april": "Find 20 new species!",
+    "mission_2_april": "Find 2 different species of dragonflies!",
+    "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
+    "start_challenge": "Start the challenge",
+    "open_camera": "Open camera",
+    "view_badge": "View badge",
+    "your_mission": "Your mission",
+    "mission_1_may": "Find 2 different mammals",
+    "mission_2_may": "Find 4 different birds",
+    "mission_3_may": "Find 3 different amphibians",
+    "mission_4_may": "Find 5 different plants",
+    "mission_5_may": "Find 3 different fungi",
+    "may_description": "From the deepest jungle to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
+    "congrats": "Congrats! You completed the Our Planet Challenge for {{month}}!",
+    "thanks": "Thanks for participating! Remember that our world is interconnected. Species you see around you play a role in the ecosystem of your neighborhood and around the world. Follow along with the journey on Netflix’s Our Planet!"
+  },
+  "inat_stats": {
+    "global_observations": "Global Observations",
+    "naturalists_worldwide": "Naturalists Worldwide",
+    "seek_data": "Seek gets its data from iNaturalist.",
+    "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of species across the globe, and our community works together to identify them. This data is what we use to train the identification AI, display map data, and generate nearby observations data in Seek.",
+    "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
+    "join": "Join iNaturalist"
   },
   "results": {
     "computer_vision_error": "Can't load computer vision suggestions. Try again later.",
@@ -28,5 +159,16 @@
     "no_badges": "No Badges Earned",
     "1_badge": "1 Badge Earned!",
     "many_badges": "{{earnedLength}} Badges Earned!"
+  },
+  "privacy": {
+    "header": "Privacy Policy",
+    "policy": "Last Modified on September 7, 2018\r\n\r\nThis is the privacy policy (\"Privacy Policy\") of the California Academy of Sciences' and National Geographic Society's iNaturalist.org website located at www.inaturalist.org (the \"Website\") and the iNaturalist.org iOS App, and Android App, and Our Seek by iNaturalist App (collectively, the \"App\"). This Privacy Policy describes how iNaturalist.org (\"iNaturalist,\" \"We,\" \"Us\" or \"Our\") handles Personal Information (as defined below) that users (\"You,\" \"Your\u201D or \"User\") provide to Us, or that We collect from You through the use of Our Website or Apps.\r\n\r\nWebsite and App Visitors\r\niNaturalist.org collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. iNaturalist.org's purpose in collecting non-personally identifying information is to better understand how iNaturalist.org's visitors use its Website and Apps. From time to time, iNaturalist.org may release non-personally-identifying information in the aggregate, e.g. by publishing a report on trends in the usage of its Website and Apps.\r\n\r\nPersonal Information\r\n\"Personal Information\" means information such as Your first\/middle initial or name, last name, e-mail address, street address, mailing address if different, town or city, state, postal code, telephone number, date of birth, location data, Internet Protocol (IP) addresses, personal photo, and any other information that would allow someone to identify You or contact You.\r\n\r\niNaturalist.org does not disclose such information other than as specified below.\r\n\r\nThe Personal Information We Collect\r\niNaturalist.org may collect Personal Information when You choose to interact with iNaturalist.org in ways that require iNaturalist.org to gather such information, such as if You browse on iNaturalist, register as an iNaturalist User, update or add information to Your iNaturalist page, provide content to iNaturalist through Your computer or phone, or otherwise communicate with Us about the iNaturalist service. When You post an Observation on iNaturalist, We may collect Your User ID, latitude and longitude of the site of the Observation, the place name of the site of the Observation, the date and time of the Observation, the app You used to contribute data, and the time zone of the site of the Observation. The amount and type of information that iNaturalist.org gathers depends on the nature of the interaction. In each case, iNaturalist.org collects such information only insofar as is necessary or appropriate to fulfill the purpose of Your interaction with iNaturalist.org. iNaturalist.org does not disclose personally-identifying information other than as described below, and You can always refuse to supply personally-identifying information, with the caveat that doing so may prevent You from engaging in certain Website and App-related activities.\r\n\r\nHow We Use Personal Information\r\nWe may use the Personal Information that You provide in order to provide the iNaturalist services and to administer and maintain the iNaturalist website. If You register as an iNaturalist User, You must give Us current, complete, and accurate information and keep the information You provide to Us up to date. We cannot and shall not be responsible for any problems or liability that may arise if You do not give Us current, accurate, truthful or complete information or You fail to update the information You give Us.\r\n\r\nHow We Disclose and Share Personal Information\r\nPersonal Information related to the Observations You post (date, time, location) is published on iNaturalist as matter of normal usage and therefore is shared with other iNaturalist Users. We explicitly share this public information in a machine-readable format for certain Observations with a handful of partners, including the Global Biodiversity Information Facility (\u201CGBIF\u201D).\r\n\r\nPersonal Information associated with Users\u2019 registration and account (name, email address, etc.) is shared with iNaturalist staff and representatives from iNaturalist Network partners (see https:\/\/www.inaturalist.org\/pages\/network for information about the iNaturalist Network). iNaturalist Network partners can request and receive Personal Information from Users who affiliate with their particular partner site as their primary site, including requesting and receiving Personal Data related to Observations made by such Users.\r\n\r\niNaturalist.org discloses potentially personally-identifying and personally-identifying information only to those of its programmers, contractors, and affiliated organizations that (i) need to know that information in order to process it on iNaturalist.org's behalf or to provide services available at iNaturalist.org's Website and Apps, and (ii) that have agreed not to disclose it to others.\r\n\r\n"
+  },
+  "about": {
+    "header": "About",
+    "sponsored": "Seek is sponsored by Our Planet on Netflix",
+    "our_planet": "Our Planet is a landmark natural history TV series released on Netflix in April 2019. This series is a Netflix Original produced by Silverback films and World Wildlife Fund.",
+    "seek": "Seek is produced by iNaturalist",
+    "joint_initiative": "iNaturalist is a joint initiative between the California Academy of Sciences and the National Geographic Society."
   }
 }

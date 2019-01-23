@@ -4,6 +4,7 @@ import android.app.Application;
 
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -12,6 +13,7 @@ import com.airbnb.android.react.maps.MapsPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import org.reactnative.camera.RNCameraPackage;
+import com.opensettings.OpenSettingsPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -33,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LinearGradientPackage(),
             new RNLanguagesPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage(),
@@ -41,7 +44,8 @@ public class MainApplication extends Application implements ReactApplication {
             new MapsPackage(),
             new ImageResizerPackage(),
             new RNGeocoderPackage(),
-            new RNCameraPackage()
+            new RNCameraPackage(),
+            new OpenSettingsPackage()
       );
     }
 

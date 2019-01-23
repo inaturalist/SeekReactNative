@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
+import i18n from "../i18n";
 import styles from "../styles/button";
 import { colors } from "../styles/global";
 
@@ -27,13 +28,11 @@ class Button extends Component<Props> {
       navigation.push( "Main", {
         taxaName: null,
         id: null,
-        taxaType: "all",
-        latitude: null,
-        longitude: null
+        taxaType: "all"
       } );
     } else if ( buttonText === "Found it!" ) {
       navigation.push( "Camera", navParams );
-    } else if ( buttonText === "Done" ) {
+    } else if ( buttonText === i18n.t( "location_picker.done" ) ) {
       navigation.push( "Main", navParams );
     }
   }
@@ -53,7 +52,7 @@ class Button extends Component<Props> {
           style={[
             styles.buttonText,
             green && styles.greenButtonText,
-            buttonText === "Done" && { color: colors.white }
+            buttonText === i18n.t( "location_picker.done" ) && { color: colors.white }
           ]}
         >
           {buttonText}

@@ -14,9 +14,8 @@ import {
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import CameraTopNav from "./CameraTopNav";
 import { truncateCoordinates } from "../../utility/helpers";
-import styles from "../../styles/gallery";
+import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 
 type Props = {
@@ -140,7 +139,6 @@ class GalleryScreen extends Component<Props> {
 
   render() {
     const { error, loading, photos } = this.state;
-    const { navigation } = this.props;
 
     let gallery;
 
@@ -177,9 +175,6 @@ class GalleryScreen extends Component<Props> {
     return (
       <View style={styles.background}>
         <StatusBar hidden />
-        <View style={styles.navbar}>
-          <CameraTopNav navigation={navigation} />
-        </View>
         <View style={styles.galleryContainer}>
           {gallery}
         </View>

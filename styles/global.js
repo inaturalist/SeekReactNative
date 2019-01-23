@@ -1,5 +1,8 @@
+const { Platform } = require( "react-native" );
+
 export const colors = {
-  white: "#F5FCFF",
+  white: "#ffffff",
+  black: "#000000",
   darkBlue: "#37535e",
   darkDesaturatedBlue: "#1f3d48",
   darkestBlue: "#0C2D3B",
@@ -8,19 +11,28 @@ export const colors = {
   iNatGreen: "#74ac00",
   darkGreen: "#4CAF50",
   lightGray: "#f5f5f5",
-  darkGray: "#a9a9a9",
-  black: "black",
+  darkGray: "#393939",
   lightBlue: "#225C8E",
   tomatoRed: "#ff6347",
-  yellow: "#ffff7f"
+  yellow: "#ffff7f",
+  blue: "#0266C8",
+  seekiNatGreen: "#77b300",
+  seekTeal: "#297f87",
+  seekGreen: "#44ab55",
+  seekForestGreen: "#38976d",
+  dividerGray: "#d8d8d8",
+  errorGray: "#4a4a4a",
+  circleGray: "#f0f0f0"
 };
 
 export const fonts = {
-  default: "Whitney-Medium",
+  default: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
   checkboxes: "FontAwesome",
-  semibold: "Whitney-Semibold",
-  playful: "Riffic-Bold",
-  book: "Whitney-Book"
+  semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
+  playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
+  book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
+  light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro",
+  bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro"
 };
 
 export const fontSize = {

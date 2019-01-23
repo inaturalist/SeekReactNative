@@ -2,6 +2,8 @@ const { FileUpload } = require( "inaturalistjs" );
 const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
+const moment = require( "moment" );
+const { AsyncStorage } = require( "react-native" );
 
 const badgesDict = require( "./badgesDict" );
 const realmConfig = require( "../models/index" );
@@ -153,6 +155,73 @@ const getPreviousAndNextMonth = () => {
   return [month - 1, month, month + 1];
 };
 
+const requiresParent = ( birthday ) => {
+  const today = moment().format( "YYYY-MM-DD" );
+  const thirteen = moment( today ).subtract( 13, "year" ).format( "YYYY-MM-DD" );
+  if ( moment( birthday ).isAfter( thirteen ) ) {
+    return true;
+  }
+  return false;
+};
+
+const HAS_LAUNCHED = "has_launched";
+
+const setAppLaunched = () => {
+  AsyncStorage.setItem( HAS_LAUNCHED, "true" );
+};
+
+const checkIfFirstLaunch = async () => {
+  try {
+    const hasLaunched = await AsyncStorage.getItem( HAS_LAUNCHED );
+    if ( hasLaunched === null ) {
+      setAppLaunched();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
+const CARD_SHOWN = "card_shown";
+
+const setCardShown = () => {
+  AsyncStorage.setItem( CARD_SHOWN, "true" );
+};
+
+const checkIfCardShown = async () => {
+  try {
+    const hasShown = await AsyncStorage.getItem( CARD_SHOWN );
+    if ( hasShown === null ) {
+      setCardShown();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
+const setLatAndLng = ( lat, lng ) => {
+  AsyncStorage.setItem( "latitude", lat );
+  AsyncStorage.setItem( "longitude", lng );
+};
+
+const getLatAndLng = async () => {
+  try {
+    const latitude = await AsyncStorage.getItem( "latitude" );
+    const longitude = await AsyncStorage.getItem( "longitude" );
+    return {
+      latitude: Number( latitude ),
+      longitude: Number( longitude )
+    };
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
+const calculatePercent = ( number, total ) => ( number / total ) * 100;
+
 export {
   addToCollection,
   capitalizeNames,
@@ -161,5 +230,11 @@ export {
   reverseGeocodeLocation,
   setupBadges,
   truncateCoordinates,
-  getPreviousAndNextMonth
+  getPreviousAndNextMonth,
+  requiresParent,
+  checkIfFirstLaunch,
+  checkIfCardShown,
+  setLatAndLng,
+  getLatAndLng,
+  calculatePercent
 };

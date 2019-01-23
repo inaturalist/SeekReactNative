@@ -7,20 +7,18 @@ import {
   Platform,
   CameraRoll,
   View,
-  Text,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
+import { NavigationEvents } from "react-navigation";
 
-import { colors } from "../../styles/global";
-import styles from "../../styles/camera";
+import styles from "../../styles/camera/camera";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
+import { getLatAndLng } from "../../utility/helpers";
 
-const zoomOutIcon = ( <Icon name="zoom-out" size={30} color={colors.white} /> );
-const zoomInIcon = ( <Icon name="zoom-in" size={30} color={colors.white} /> );
 
 const flashModeOrder = {
   off: "on",
@@ -37,26 +35,31 @@ class CameraScreen extends Component<Props> {
 
     const {
       id,
-      latitude,
-      longitude,
       commonName
     } = navigation.state.params;
 
     this.state = {
       cameraType: "back",
       flash: "off",
-      flashText: "OFF",
       error: null,
-      latitude,
-      longitude,
+      latitude: null,
+      longitude: null,
       id,
       commonName,
       pictureTaken: false,
-      zoom: 0
+      focusedScreen: false
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
     this.toggleFlash = this.toggleFlash.bind( this );
+  }
+
+  async componentWillMount() {
+    const location = await getLatAndLng();
+    this.setState( {
+      latitude: location.latitude,
+      longitude: location.longitude
+    } );
   }
 
   getCameraCaptureFromGallery( id ) {
@@ -98,7 +101,11 @@ class CameraScreen extends Component<Props> {
         pictureTaken: true
       } );
       this.camera
-        .takePictureAsync( { fixOrientation: true } )
+        .takePictureAsync( {
+          fixOrientation: true,
+          pauseAfterCapture: true,
+          orientation: "portrait"
+        } )
         .then( ( data ) => {
           if ( Platform.OS === "android" ) {
             this.requestAndroidPermissions( data );
@@ -114,6 +121,20 @@ class CameraScreen extends Component<Props> {
     }
   }
 
+  requestCameraPermissions = async () => {
+    console.log( "permissions being asked" );
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA
+      );
+      if ( !granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.showError( "Camera permissions denied" );
+      }
+    } catch ( err ) {
+      this.showError( `Camera permissions denied: ${err}` );
+    }
+  }
+
   requestAndroidPermissions = async ( data ) => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -126,6 +147,12 @@ class CameraScreen extends Component<Props> {
       }
     } catch ( err ) {
       this.showError( err );
+    }
+  }
+
+  resumeCamera() {
+    if ( this.camera ) {
+      this.camera.resumePreview();
     }
   }
 
@@ -151,8 +178,7 @@ class CameraScreen extends Component<Props> {
     const { flash } = this.state;
 
     this.setState( {
-      flash: flashModeOrder[flash],
-      flashText: flashModeOrder[flash].toUpperCase()
+      flash: flashModeOrder[flash]
     } );
   }
 
@@ -164,32 +190,13 @@ class CameraScreen extends Component<Props> {
     } );
   }
 
-  zoomOut() {
-    const { zoom } = this.state;
-
-    this.setState( {
-      zoom: zoom - 0.1 < 0 ? 0 : zoom - 0.1
-    } );
-  }
-
-  zoomIn() {
-    const { zoom } = this.state;
-
-    this.setState( {
-      zoom: zoom + 0.1 > 1 ? 1 : zoom + 0.1
-    } );
-  }
-
   render() {
     const {
       cameraType,
       flash,
-      flashText,
       error,
       pictureTaken,
-      zoom,
-      latitude,
-      longitude
+      focusedScreen
     } = this.state;
 
     const { navigation } = this.props;
@@ -206,22 +213,6 @@ class CameraScreen extends Component<Props> {
           ) : null }
           <View style={styles.main} />
           <View style={styles.footer}>
-            { Platform.OS === "android" ? (
-              <TouchableOpacity
-                style={styles.zoomButtons}
-                onPress={() => this.zoomIn()}
-              >
-                <Text>{zoomInIcon}</Text>
-              </TouchableOpacity>
-            ) : null}
-            { Platform.OS === "android" ? (
-              <TouchableOpacity
-                style={styles.zoomButtons}
-                onPress={() => this.zoomOut()}
-              >
-                <Text>{zoomOutIcon}</Text>
-              </TouchableOpacity>
-            ) : null}
             <TouchableOpacity
               onPress={() => this.takePicture()}
               style={styles.capture}
@@ -232,29 +223,46 @@ class CameraScreen extends Component<Props> {
     }
 
     return (
-      <RNCamera
-        ref={( ref ) => {
-          this.camera = ref;
-        }}
-        type={cameraType}
-        style={{ flex: 1 }}
-        flashMode={flash}
-        zoom={zoom}
-        permissionDialogTitle="Permission to use camera"
-        permissionDialogMessage="We need your permission to use your camera phone"
-      >
-        <StatusBar hidden />
-        <CameraTopNav
-          navigation={navigation}
-          cameraType={cameraType}
-          flashText={flashText}
-          toggleFlash={this.toggleFlash}
-          toggleCamera={this.toggleCamera}
-          latitude={latitude}
-          longitude={longitude}
-        />
-        {cameraContent}
-      </RNCamera>
+      <SafeAreaView style={styles.safeView}>
+        <View style={styles.container}>
+          <NavigationEvents
+            onWillFocus={() => {
+              this.resumeCamera();
+              this.setState( {
+                focusedScreen: true
+              } );
+            }}
+            onWillBlur={() => {
+              this.setState( {
+                focusedScreen: false
+              } );
+            }}
+          />
+          {focusedScreen ? (
+            <RNCamera
+              ref={( ref ) => {
+                this.camera = ref;
+              }}
+              type={cameraType}
+              style={styles.container}
+              flashMode={flash}
+              captureAudio={false}
+              permissionDialogTitle="Permission to use camera"
+              permissionDialogMessage="We need your permission to use your camera phone"
+            >
+              <StatusBar hidden />
+              <CameraTopNav
+                navigation={navigation}
+                cameraType={cameraType}
+                flash={flash}
+                toggleFlash={this.toggleFlash}
+                toggleCamera={this.toggleCamera}
+              />
+              {cameraContent}
+            </RNCamera>
+          ) : null}
+        </View>
+      </SafeAreaView>
     );
   }
 }

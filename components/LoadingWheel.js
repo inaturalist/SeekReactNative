@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  View,
   ActivityIndicator
 } from "react-native";
 
@@ -11,9 +10,7 @@ type Props = {
 }
 
 const LoadingWheel = ( { color }: Props ) => (
-  <View style={{ flexGrow: 1, justifyContent: "center" }}>
-    <ActivityIndicator color={color} size="large" />
-  </View>
+  <ActivityIndicator color={color} size="large" />
 );
 
 export default LoadingWheel;

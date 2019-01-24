@@ -87,31 +87,27 @@ const recalculateChallenges = () => {
       const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "completed == false AND started == true" );
 
       incompleteChallenges.forEach( ( challenge ) => {
-        const { index } = challenge;
-        const numbersPerMission = missionsDict.default[index];
-        const missionLength = Object.keys( numbersPerMission ).length;
-        const numbersObserved = [];
-        Object.keys( numbersPerMission ).forEach( ( taxa ) => {
-          if ( taxa === "all" ) {
-            numbersObserved.push( collectedTaxa.length );
-          } else {
-            const taxaId = taxonDict.default[taxa];
-            console.log( taxaId, "taxa id" );
-            const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` );
-            console.log( filteredCollection, "collection by id" );
-            const collectionLength = Object.keys( filteredCollection );
-            numbersObserved.push( collectionLength.length );
-          }
-          if ( numbersObserved.length === missionLength ) {
-            console.log( "writing to realm", numbersObserved );
-            realm.write( () => {
-              challenge.numbersObserved = numbersObserved;
-            } );
-          }
+        realm.write( () => {
+          realm.delete( challenge.numbersObserved );
+          // deleting numbers observed each time to update with fresh results
+          const { index } = challenge;
+          const numbersPerMission = missionsDict.default[index];
+
+          Object.keys( numbersPerMission ).forEach( ( taxa ) => {
+            if ( taxa === "all" ) {
+              challenge.numbersObserved.push( collectedTaxa.length );
+            } else {
+              const taxaId = taxonDict.default[taxa];
+              const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` );
+              const collectionLength = Object.keys( filteredCollection );
+              challenge.numbersObserved.push( collectionLength.length );
+            }
+          } );
         } );
       } );
+      // console.log( incompleteChallenges, "incomplete challenges" );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to recalculate badges: ", err );
+      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );
 };
 
@@ -284,7 +280,25 @@ const getLatAndLng = async () => {
   }
 };
 
-const calculatePercent = ( number, total ) => ( number / total ) * 100;
+const calculatePercent = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const challenges = realm.objects( "ChallengeRealm" );
+
+      challenges.forEach( ( challenge ) => {
+        const seen = challenge.numbersObserved.reduce( ( a, b ) => a + b, 0 );
+        const percent = ( seen / challenge.totalSpecies ) * 100;
+        console.log( percent, "percent of challenge" );
+
+        realm.write( () => {
+          challenge.percentComplete = percent;
+        } );
+      } );
+      console.log( challenges, "challenges after calc percent" );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to calculate percent: ", err );
+    } );
+};
 
 const startChallenge = ( index ) => {
   Realm.open( realmConfig.default )

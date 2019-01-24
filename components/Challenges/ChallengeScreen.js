@@ -15,7 +15,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
-import { recalculateChallenges } from "../../utility/helpers";
+import { recalculateChallenges, calculatePercent } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -36,6 +36,7 @@ class ChallengeScreen extends Component<Props> {
 
   componentDidMount() {
     recalculateChallenges();
+    calculatePercent();
     this.fetchChallenges();
   }
 
@@ -66,7 +67,7 @@ class ChallengeScreen extends Component<Props> {
             iconName: icons.badgePlaceholder,
             started: true,
             totalSpecies: challenge.totalSpecies,
-            percentComplete: 0,
+            percentComplete: challenge.percentComplete,
             index: challenge.index
           } );
         } );
@@ -78,7 +79,7 @@ class ChallengeScreen extends Component<Props> {
             iconName: icons.badgePlaceholder,
             started: true,
             totalSpecies: challenge.totalSpecies,
-            percentComplete: 100,
+            percentComplete: challenge.percentComplete,
             index: challenge.index
           } );
         } );

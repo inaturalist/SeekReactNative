@@ -26,7 +26,6 @@ const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (
           renderItem={( { item } ) => (
             <View>
               <Text style={styles.text}>
-                {console.log( item, "item in missions" )}
                 {i18n.t( item )}
               </Text>
               <Text style={styles.greenText}>
@@ -35,12 +34,6 @@ const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (
             </View>
           )}
         />
-        {/* // <Text style={styles.text}>
-        //   Find 2 different species of dragonflies!
-        // </Text>
-        // <Text style={styles.greenText}>
-        //   2 observed
-        // </Text> */}
       </View>
       <ProgressCircle
         outerCircleStyle={styles.circleStyle}

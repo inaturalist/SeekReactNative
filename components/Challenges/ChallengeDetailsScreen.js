@@ -58,9 +58,12 @@ class ChallengeDetailsScreen extends Component<Props> {
             challenge: {
               month: i18n.t( challenge.month ).toLocaleUpperCase(),
               name: i18n.t( challenge.name ).toLocaleUpperCase(),
-              description: i18n.t( challenge.description )
+              description: i18n.t( challenge.description ),
+              started: challenge.started,
+              completed: challenge.completed
             },
-            missions: Object.values( challenge.missions )
+            missions: Object.values( challenge.missions ),
+            challengeStarted: challenge.started
           } );
         } );
       } ).catch( ( err ) => {

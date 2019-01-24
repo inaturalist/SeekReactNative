@@ -10,7 +10,9 @@ import {
   ScrollView,
   SafeAreaView
 } from "react-native";
+import Realm from "realm";
 
+import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
@@ -18,6 +20,7 @@ import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeBadge from "./ChallengeBadge";
 import Footer from "./ChallengeFooter";
+import { startChallenge } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -27,19 +30,46 @@ class ChallengeDetailsScreen extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
-    // const { month } = navigation.state.params;
+    const { index } = navigation.state.params;
 
     this.state = {
+      challenge: {},
+      missions: {},
       challengeStarted: false,
       percentComplete: 100,
-      modalVisible: false
-      // month
+      modalVisible: false,
+      index
     };
-
-    this.startChallenge = this.startChallenge.bind( this );
   }
 
-  startChallenge() {
+  componentDidMount() {
+    this.fetchChallengeDetails();
+  }
+
+  fetchChallengeDetails() {
+    const { index } = this.state;
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+
+        challenges.forEach( ( challenge ) => {
+          this.setState( {
+            challenge: {
+              month: i18n.t( challenge.month ).toLocaleUpperCase(),
+              name: i18n.t( challenge.name ).toLocaleUpperCase(),
+              description: i18n.t( challenge.description )
+            },
+            missions: Object.values( challenge.missions )
+          } );
+        } );
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
+  showMission() {
+    startChallenge();
     this.setState( {
       challengeStarted: true
     } );
@@ -54,7 +84,13 @@ class ChallengeDetailsScreen extends Component<Props> {
   }
 
   render() {
-    const { challengeStarted, percentComplete, modalVisible } = this.state;
+    const {
+      challengeStarted,
+      percentComplete,
+      modalVisible,
+      challenge,
+      missions
+    } = this.state;
     const { navigation } = this.props;
 
     let button;
@@ -63,7 +99,7 @@ class ChallengeDetailsScreen extends Component<Props> {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => this.startChallenge()}
+          onPress={() => this.showMission()}
         >
           <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
@@ -123,23 +159,22 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <View />
               </View>
               <View style={styles.challengeContainer}>
-                <Text style={styles.challengeHeader}>
-                  {i18n.t( "challenges.april_2019" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.challengeName}>
-                  {i18n.t( "challenges.connectivity" ).toLocaleUpperCase()}
-                </Text>
+                <Text style={styles.challengeHeader}>{challenge.month}</Text>
+                <Text style={styles.challengeName}>{challenge.name}</Text>
                 <View style={styles.row}>
                   <Image source={icons.badgePlaceholder} />
                   <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
                 </View>
                 {button}
               </View>
-              {challengeStarted ? <ChallengeMissionCard percentComplete={percentComplete} /> : null}
+              {challengeStarted ? (
+                <ChallengeMissionCard
+                  percentComplete={percentComplete}
+                  missions={missions}
+                />
+              ) : null}
               <View style={styles.missionContainer}>
-                <Text style={styles.missionText}>
-                  {i18n.t( "challenges.april_description" )}
-                </Text>
+                <Text style={styles.missionText}>{challenge.description}</Text>
                 <View style={styles.row}>
                   <Image source={logos.wwfop} />
                 </View>

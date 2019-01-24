@@ -38,9 +38,10 @@ export default StyleSheet.create( {
   },
   logo: {
     marginTop: 30,
-    marginRight: 10
+    marginRight: 20
   },
   backButton: {
+    padding: 10,
     marginTop: 20,
     marginLeft: 20
   },

@@ -29,7 +29,7 @@ const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (
                 {i18n.t( item )}
               </Text>
               <Text style={styles.greenText}>
-                0 observed so far
+                {i18n.t( "challenges.number_observed", { defaultValue: "{{number}}", number: item } )}
               </Text>
             </View>
           )}

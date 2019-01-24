@@ -15,6 +15,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
+import { recalculateChallenges } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -34,6 +35,7 @@ class ChallengeScreen extends Component<Props> {
   }
 
   componentDidMount() {
+    recalculateChallenges();
     this.fetchChallenges();
   }
 

@@ -5,6 +5,8 @@ const uuid = require( "react-native-uuid" );
 const moment = require( "moment" );
 const { AsyncStorage } = require( "react-native" );
 
+const taxonDict = require( "./taxonDict" );
+const missionsDict = require( "./missionsDict" );
 const badgesDict = require( "./badgesDict" );
 const challengesDict = require( "./challengesDict" );
 const realmConfig = require( "../models/index" );
@@ -79,11 +81,42 @@ const recalculateBadges = () => {
 };
 
 const recalculateChallenges = () => {
-  // to do, figure out how to calculate each challenge.
-  // need individual functions for april, may, june, etc?
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const collectedTaxa = realm.objects( "TaxonRealm" );
+      const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "completed == false AND started == true" );
+
+      incompleteChallenges.forEach( ( challenge ) => {
+        const { index } = challenge;
+        const numbersPerMission = missionsDict.default[index];
+        const missionLength = Object.keys( numbersPerMission ).length;
+        const numbersObserved = [];
+        Object.keys( numbersPerMission ).forEach( ( taxa ) => {
+          if ( taxa === "all" ) {
+            numbersObserved.push( collectedTaxa.length );
+          } else {
+            const taxaId = taxonDict.default[taxa];
+            console.log( taxaId, "taxa id" );
+            const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` );
+            console.log( filteredCollection, "collection by id" );
+            const collectionLength = Object.keys( filteredCollection );
+            numbersObserved.push( collectionLength.length );
+          }
+          if ( numbersObserved.length === missionLength ) {
+            console.log( "writing to realm", numbersObserved );
+            realm.write( () => {
+              challenge.numbersObserved = numbersObserved;
+            } );
+          }
+        } );
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to recalculate badges: ", err );
+    } );
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {
+  console.log( "adding photos to collection" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
@@ -113,7 +146,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
       } );
       recalculateBadges();
     } ).catch( ( e ) => {
-      // console.log( "Error adding photos to collection: ", e );
+      console.log( "Error adding photos to collection: ", e );
     } );
 };
 

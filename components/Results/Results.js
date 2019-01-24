@@ -19,7 +19,12 @@ import LoadingWheel from "../LoadingWheel";
 import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
 import styles from "../../styles/results";
-import { addToCollection, capitalizeNames, flattenUploadParameters } from "../../utility/helpers";
+import {
+  addToCollection,
+  capitalizeNames,
+  flattenUploadParameters,
+  getLatAndLng
+} from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -222,16 +227,14 @@ class Results extends Component<Props> {
     this.setTextAndPhoto();
   }
 
-  savePhotoOrStartOver() {
+  async savePhotoOrStartOver() {
     const {
       id,
       observation,
-      // taxaName,
       latitude,
       longitude,
       image,
       buttonText
-      // taxaId
     } = this.state;
 
     const {
@@ -241,8 +244,14 @@ class Results extends Component<Props> {
     if ( buttonText === "OK" ) {
       navigation.push( "Main" );
     } else if ( buttonText === "Add to Collection" ) {
-      addToCollection( observation, latitude, longitude, image );
-      navigation.push( "Main" );
+      if ( !latitude || !longitude ) {
+        const location = await getLatAndLng();
+        addToCollection( observation, location.latitude, location.longitude, image );
+        navigation.push( "Main" );
+      } else {
+        addToCollection( observation, latitude, longitude, image );
+        navigation.push( "Main" );
+      }
     } else if ( buttonText === "Start over" ) {
       navigation.push( "Camera", {
         id,

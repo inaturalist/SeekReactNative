@@ -52,6 +52,7 @@ class ChallengeDetailsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+        
 
         challenges.forEach( ( challenge ) => {
           this.setState( {
@@ -70,6 +71,10 @@ class ChallengeDetailsScreen extends Component<Props> {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
+
+  // updateObservationNumbers() {
+
+  // }
 
   showMission() {
     startChallenge();

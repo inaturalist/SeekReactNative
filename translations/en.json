@@ -142,7 +142,8 @@
     "no_challenges_in_progress": "Start a new challenge below to earn badges!",
     "no_new_challenges_header": "You have no new challenges.",
     "no_new_challenges": "We’ll let you know when new challenges are available.",
-    "completed_all": "You’ve completed all available challenges!"
+    "completed_all": "You’ve completed all available challenges!",
+    "number_observed": "{{number}} observed so far"
   },
   "inat_stats": {
     "global_observations": "Global Observations",

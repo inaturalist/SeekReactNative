@@ -60,6 +60,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
           onPress={() => {
             startChallenge( item.index );
             fetchChallenges();
+            navigation.navigate( "ChallengeDetails", { index: item.index } );
           }}
         >
           <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>

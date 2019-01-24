@@ -9,7 +9,8 @@ const taxonIds = {
   insects: 47158,
   mollusks: 47115,
   mammals: 40151,
-  all: null
+  all: null,
+  dragonflies: 47792
 };
 
 export default taxonIds;

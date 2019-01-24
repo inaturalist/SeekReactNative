@@ -10,6 +10,7 @@ ChallengeRealm.schema = {
     unearnedIconName: "string?",
     earnedIconName: "string?",
     missions: { type: "string[]" },
+    numbersObserved: { type: "int[]" },
     started: { type: "bool", default: false },
     completed: { type: "bool", default: false },
     index: { type: "int", default: 0 }

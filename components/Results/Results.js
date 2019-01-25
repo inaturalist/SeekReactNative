@@ -311,6 +311,7 @@ class Results extends Component<Props> {
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
         const match = response.results[0];
+        console.log( match, "match in cv" );
         const commonAncestor = response.common_ancestor;
         this.setState( {
           observation: match,

@@ -9,13 +9,14 @@ import {
   ScrollView,
   SafeAreaView
 } from "react-native";
-import inatjs from "inaturalistjs";
+import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/menu/iNatStats";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import Footer from "../Challenges/ChallengeFooter";
+import { getObservationData } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -26,42 +27,31 @@ class iNatStatsScreen extends Component<Props> {
     super();
 
     this.state = {
-      globalObservations: null,
-      naturalistsWorldwide: null
+      observations: null,
+      observers: null
     };
   }
 
-  async componentWillMount() {
-    await this.fetchTotalObservations();
-    this.fetchTotalObservers();
-  }
-
-  fetchTotalObservations() {
-    inatjs.observations.fetch().then( ( response ) => {
-      this.setState( {
-        globalObservations: response.total_results
-      } );
-    } ).catch( () => {
-      // catch error here
-    } );
-  }
-
-  fetchTotalObservers() {
-    inatjs.observations.observers().then( ( response ) => {
-      this.setState( {
-        naturalistsWorldwide: response.total_results
-      } );
-    } ).catch( () => {
-      // catch error here
+  async setObservationData() {
+    const data = await getObservationData();
+    const { observations, observers } = data;
+    this.setState( {
+      observations,
+      observers
     } );
   }
 
   render() {
-    const { globalObservations, naturalistsWorldwide } = this.state;
+    const { observations, observers } = this.state;
     const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
+        <NavigationEvents
+          onWillFocus={() => {
+            this.setObservationData();
+          }}
+        />
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <ScrollView>
@@ -79,14 +69,14 @@ class iNatStatsScreen extends Component<Props> {
             </View>
             <View style={styles.missionContainer}>
               <Text style={styles.numberText}>
-                {globalObservations}
+                {observations}
               </Text>
               <Image source={logos.bird} style={styles.iNatLogo} />
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.numberText}>
-                {naturalistsWorldwide}
+                {observers}
               </Text>
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}

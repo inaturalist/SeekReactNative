@@ -24,7 +24,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
-import { checkIfCardShown } from "../../utility/helpers";
+import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -57,12 +57,9 @@ class HomeScreen extends Component<Props> {
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
   }
 
-  async componentWillMount() {
-    const isFirstLaunch = await checkIfCardShown();
-    this.setState( {
-      isFirstLaunch
-    } );
-  }
+  // componentWillMount() {
+
+  // }
 
   setLoading( loading ) {
     this.setState( { loading } );
@@ -115,6 +112,13 @@ class HomeScreen extends Component<Props> {
     } catch ( err ) {
       this.checkInternetConnection();
     }
+  }
+
+  async checkForFirstLaunch() {
+    const isFirstLaunch = await checkIfCardShown();
+    this.setState( {
+      isFirstLaunch
+    } );
   }
 
   updateTaxaType( taxaType ) {
@@ -262,8 +266,10 @@ class HomeScreen extends Component<Props> {
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
+                this.checkForFirstLaunch();
                 this.checkInternetConnection();
                 this.fetchUserLocation();
+                fetchObservationData();
               }}
             />
             <ScrollView>

@@ -95,12 +95,21 @@ const recalculateChallenges = () => {
 
           Object.keys( numbersPerMission ).forEach( ( taxa ) => {
             if ( taxa === "all" ) {
-              challenge.numbersObserved.push( collectedTaxa.length );
+              console.log( numbersPerMission );
+              if ( collectedTaxa.length <= numbersPerMission[taxa] ) {
+                challenge.numbersObserved.push( collectedTaxa.length );
+              } else {
+                challenge.numbersObserved.push( numbersPerMission[taxa] )
+              }
             } else {
               const taxaId = taxonDict.default[taxa];
               const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` );
               const collectionLength = Object.keys( filteredCollection );
-              challenge.numbersObserved.push( collectionLength.length );
+              if ( collectionLength.length <= numbersPerMission[taxa] ) {
+                challenge.numbersObserved.push( collectionLength.length );
+              } else {
+                challenge.numbersObserved.push( numbersPerMission[taxa] );
+              }
             }
           } );
         } );
@@ -111,7 +120,6 @@ const recalculateChallenges = () => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {
-  console.log( "adding photos to collection" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
@@ -140,6 +148,8 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         } );
       } );
       recalculateBadges();
+      recalculateChallenges();
+      calculatePercent();
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
     } );

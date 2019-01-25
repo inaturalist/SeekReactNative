@@ -27,7 +27,7 @@ class StatsMap extends Component {
     return (
       <View style={styles.mapContainer}>
         <MapView
-          initialRegion={region}
+          // initialRegion={region}
           provider={PROVIDER_DEFAULT}
           style={styles.map}
           zoomEnabled

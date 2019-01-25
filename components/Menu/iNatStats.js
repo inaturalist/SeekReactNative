@@ -10,6 +10,7 @@ import {
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import inatjs from "inaturalistjs";
 
 import styles from "../../styles/menu/iNatStats";
 import i18n from "../../i18n";
@@ -18,7 +19,7 @@ import logos from "../../assets/logos";
 import StatsMap from "./StatsMap";
 import Footer from "../Challenges/ChallengeFooter";
 import Padding from "../Padding";
-import { getObservationData } from "../../utility/helpers";
+import { getObservationData, capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -30,7 +31,8 @@ class iNatStatsScreen extends Component<Props> {
 
     this.state = {
       observations: null,
-      observers: null
+      observers: null,
+      photos: []
     };
   }
 
@@ -43,15 +45,65 @@ class iNatStatsScreen extends Component<Props> {
     } );
   }
 
+  fetchProjectPhotos() {
+    const params = {
+      project_id: 29905,
+      photos: true
+    };
+
+    inatjs.observations.search( params ).then( ( { results } ) => {
+      const taxa = results.map( r => r.taxon );
+      const photos = [];
+
+      taxa.forEach( ( photo ) => {
+        photos.push( {
+          photoUrl: photo.defaultPhoto.medium_url,
+          commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
+          attribution: photo.defaultPhoto.attribution
+        } );
+      } );
+
+      this.setState( {
+        photos
+      } );
+    } ).catch( ( error ) => {
+      console.log( error, "couldn't fetch project photos" );
+    } );
+  }
+
   render() {
-    const { observations, observers } = this.state;
+    const { observations, observers, photos } = this.state;
     const { navigation } = this.props;
+
+    const photoList = [];
+
+    photos.forEach( ( photo, i ) => {
+      if ( i <= 8 ) {
+        const image = (
+          <View
+            key={`image${photo.photoUrl}${i}`}
+            style={styles.center}
+          >
+            <Image
+              source={{ uri: photo.photoUrl }}
+              style={styles.image}
+            />
+            <Text style={[styles.missionText, styles.caption]}>
+              {photo.commonName}
+              {photo.attribution}
+            </Text>
+          </View>
+        );
+        photoList.push( image );
+      }
+    } );
 
     return (
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
             this.setObservationData();
+            this.fetchProjectPhotos();
           }}
         />
         <SafeAreaView style={styles.safeViewTop} />
@@ -90,6 +142,18 @@ class iNatStatsScreen extends Component<Props> {
               <Text style={styles.missionText}>
                 {i18n.t( "inat_stats.about_inat" )}
               </Text>
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator
+                scrollEventThrottle
+                pagingEnabled
+                nestedScrollEnabled
+                alwaysBounceHorizontal
+                indicatorStyle="white"
+                contentContainerStyle={styles.photoContainer}
+              >
+                {photoList}
+              </ScrollView>
               <Text style={styles.italicText}>
                 {i18n.t( "inat_stats.contribute" )}
               </Text>

@@ -107,5 +107,24 @@ export default StyleSheet.create( {
   map: {
     width,
     height: 227
+  },
+  image: {
+    width,
+    height: 186,
+    resizeMode: "contain"
+  },
+  caption: {
+    marginTop: 20,
+    textAlign: "center",
+    width: 245
+  },
+  center: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  photoContainer: {
+    marginTop: 20,
+    marginBottom: 20,
+    height: 251
   }
 } );

@@ -24,12 +24,9 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
-import {
-  truncateCoordinates,
-  getPreviousAndNextMonth,
-  checkIfCardShown,
-  setLatAndLng
-} from "../../utility/helpers";
+import { checkIfCardShown } from "../../utility/helpers";
+import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
+import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
 

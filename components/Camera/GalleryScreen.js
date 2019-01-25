@@ -14,7 +14,7 @@ import {
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { truncateCoordinates } from "../../utility/helpers";
+import { truncateCoordinates } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 

@@ -12,7 +12,7 @@ import ProgressCircle from "react-native-progress-circle";
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
 import { colors } from "../../styles/global";
-import { startChallenge } from "../../utility/helpers";
+import { startChallenge, recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any,
@@ -60,6 +60,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
           onPress={() => {
             startChallenge( item.index );
             fetchChallenges();
+            recalculateChallenges();
             navigation.navigate( "ChallengeDetails", { index: item.index } );
           }}
         >

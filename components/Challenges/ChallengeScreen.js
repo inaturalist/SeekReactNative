@@ -15,7 +15,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
-import { recalculateChallenges, calculatePercent } from "../../utility/helpers";
+import { recalculateChallenges, calculatePercent } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any

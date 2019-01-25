@@ -20,7 +20,7 @@ import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeBadge from "./ChallengeBadge";
 import Footer from "./ChallengeFooter";
-import { startChallenge } from "../../utility/helpers";
+import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any

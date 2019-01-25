@@ -105,7 +105,6 @@ const recalculateChallenges = () => {
           } );
         } );
       } );
-      // console.log( incompleteChallenges, "incomplete challenges" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );
@@ -288,13 +287,11 @@ const calculatePercent = () => {
       challenges.forEach( ( challenge ) => {
         const seen = challenge.numbersObserved.reduce( ( a, b ) => a + b, 0 );
         const percent = ( seen / challenge.totalSpecies ) * 100;
-        console.log( percent, "percent of challenge" );
 
         realm.write( () => {
           challenge.percentComplete = percent;
         } );
       } );
-      console.log( challenges, "challenges after calc percent" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to calculate percent: ", err );
     } );

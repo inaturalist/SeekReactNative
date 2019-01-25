@@ -36,7 +36,6 @@ class ChallengeDetailsScreen extends Component<Props> {
       challenge: {},
       missions: {},
       challengeStarted: false,
-      percentComplete: 100,
       modalVisible: false,
       index
     };
@@ -52,29 +51,35 @@ class ChallengeDetailsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
-        
+        const challenge = challenges[0];
+        const missionList = Object.values( challenge.missions );
+        const observationsList = Object.values( challenge.numbersObserved );
 
-        challenges.forEach( ( challenge ) => {
-          this.setState( {
-            challenge: {
-              month: i18n.t( challenge.month ).toLocaleUpperCase(),
-              name: i18n.t( challenge.name ).toLocaleUpperCase(),
-              description: i18n.t( challenge.description ),
-              started: challenge.started,
-              completed: challenge.completed
-            },
-            missions: Object.values( challenge.missions ),
-            challengeStarted: challenge.started
+        const missions = [];
+
+        missionList.forEach( ( mission, i ) => {
+          missions.push( {
+            mission,
+            observations: observationsList[i]
           } );
+        } );
+
+        this.setState( {
+          challenge: {
+            month: i18n.t( challenge.month ).toLocaleUpperCase(),
+            name: i18n.t( challenge.name ).toLocaleUpperCase(),
+            description: i18n.t( challenge.description ),
+            started: challenge.started,
+            completed: challenge.completed,
+            percentComplete: challenge.percentComplete
+          },
+          missions,
+          challengeStarted: challenge.started
         } );
       } ).catch( ( err ) => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
-
-  // updateObservationNumbers() {
-
-  // }
 
   showMission() {
     startChallenge();
@@ -94,7 +99,6 @@ class ChallengeDetailsScreen extends Component<Props> {
   render() {
     const {
       challengeStarted,
-      percentComplete,
       modalVisible,
       challenge,
       missions
@@ -112,7 +116,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
-    } else if ( challengeStarted && percentComplete < 100 ) {
+    } else if ( challengeStarted && challenge.percentComplete < 100 ) {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
@@ -124,7 +128,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
-    } else if ( challengeStarted && percentComplete === 100 ) {
+    } else if ( challengeStarted && challenge.percentComplete === 100 ) {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
@@ -177,7 +181,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               </View>
               {challengeStarted ? (
                 <ChallengeMissionCard
-                  percentComplete={percentComplete}
+                  percentComplete={challenge.percentComplete}
                   missions={missions}
                 />
               ) : null}

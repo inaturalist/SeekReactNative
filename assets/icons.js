@@ -1,4 +1,6 @@
 const icons = {
+  birdTeal: require( "./icons/icon-inaturalist-teal.png" ),
+  completed: require( "./icons/icon-completed.png" ),
   edit: require( "./icons/icon-editlocation.png" ),
   error: require( "./icons/icon-error.png" ),
   internet: require( "./icons/icon-internet.png"),
@@ -12,6 +14,7 @@ const icons = {
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
   backButton: require( "./icons/back.png" ),
+  backButtonGreen: require( "./icons/icon-back-green.png" ),
   badgePlaceholder: require( "./icons/badge-placeholder.png" )
 };
 

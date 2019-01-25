@@ -11,6 +11,7 @@ import {
   View,
   StatusBar
 } from "react-native";
+import { NavigationEvents } from "react-navigation";
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
@@ -44,14 +45,6 @@ class GalleryScreen extends Component<Props> {
     };
   }
 
-  componentDidMount() {
-    if ( Platform.OS === "android" ) {
-      this.requestAndroidPermissions();
-    } else {
-      this.getPhotos();
-    }
-  }
-
   getPhotos() {
     CameraRoll.getPhotos( {
       first: 1000,
@@ -80,6 +73,14 @@ class GalleryScreen extends Component<Props> {
       }
     } catch ( err ) {
       this.showError( err );
+    }
+  }
+
+  checkPermissions() {
+    if ( Platform.OS === "android" ) {
+      this.requestAndroidPermissions();
+    } else {
+      this.getPhotos();
     }
   }
 
@@ -174,6 +175,9 @@ class GalleryScreen extends Component<Props> {
 
     return (
       <View style={styles.background}>
+        <NavigationEvents
+          onWillFocus={() => this.checkPermissions()}
+        />
         <StatusBar hidden />
         <View style={styles.galleryContainer}>
           {gallery}

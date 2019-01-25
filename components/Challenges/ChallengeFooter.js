@@ -5,7 +5,6 @@ import { View, TouchableOpacity, Image } from "react-native";
 
 import styles from "../../styles/home/footer";
 import icons from "../../assets/icons";
-import logos from "../../assets/logos";
 
 type Props = {
   navigation: any
@@ -33,7 +32,7 @@ const Footer = ( {
         style={styles.button}
         onPress={() => navigation.push( "iNatStats" )}
       >
-        <Image source={logos.bird} style={{ width: 36, height: 29, resizeMode: "contain" }} />
+        <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
       </TouchableOpacity>
     </View>
   </View>

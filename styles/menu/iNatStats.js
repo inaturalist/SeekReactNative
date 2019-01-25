@@ -4,7 +4,7 @@ import {
   fonts
 } from "../global";
 
-const { height } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -26,7 +26,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.white
   },
   logo: {
     marginTop: 30,
@@ -98,5 +98,14 @@ export default StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? 10 : null,
     fontSize: 22,
     color: colors.white
+  },
+  mapContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  map: {
+    width,
+    height: 227
   }
 } );

@@ -15,7 +15,9 @@ import styles from "../../styles/menu/iNatStats";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
+import StatsMap from "./StatsMap";
 import Footer from "../Challenges/ChallengeFooter";
+import Padding from "../Padding";
 import { getObservationData } from "../../utility/helpers";
 
 type Props = {
@@ -60,13 +62,14 @@ class iNatStatsScreen extends Component<Props> {
                 onPress={() => navigation.goBack()}
               >
                 <Image
-                  source={icons.backButton}
+                  source={icons.backButtonGreen}
                   style={styles.backButton}
                 />
               </TouchableOpacity>
               <Image style={styles.logo} source={logos.iNat} />
               <View />
             </View>
+            <StatsMap />
             <View style={styles.missionContainer}>
               <Text style={styles.numberText}>
                 {observations}
@@ -96,6 +99,7 @@ class iNatStatsScreen extends Component<Props> {
               >
                 <Text style={styles.buttonText}>{i18n.t( "inat_stats.join" )}</Text>
               </TouchableOpacity>
+              <Padding />
             </View>
           </ScrollView>
           <Footer navigation={navigation} />

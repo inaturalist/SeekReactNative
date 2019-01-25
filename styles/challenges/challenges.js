@@ -106,8 +106,5 @@ export default StyleSheet.create( {
     color: colors.errorGray,
     fontSize: 16,
     lineHeight: 18
-  },
-  extraPadding: {
-    marginBottom: 60
   }
 } );

@@ -24,6 +24,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
+import Padding from "../Padding";
 import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
@@ -298,6 +299,7 @@ class HomeScreen extends Component<Props> {
               />
               { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <Challenges navigation={navigation} />
+              <Padding />
             </ScrollView>
           </View>
           <Footer

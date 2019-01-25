@@ -83,6 +83,7 @@ class ChallengeDetailsScreen extends Component<Props> {
 
   showMission() {
     startChallenge();
+    this.fetchChallengeDetails();
     this.setState( {
       challengeStarted: true
     } );

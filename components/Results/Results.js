@@ -22,9 +22,9 @@ import styles from "../../styles/results";
 import {
   addToCollection,
   capitalizeNames,
-  flattenUploadParameters,
-  getLatAndLng
+  flattenUploadParameters
 } from "../../utility/helpers";
+import { getLatAndLng } from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any

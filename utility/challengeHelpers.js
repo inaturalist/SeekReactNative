@@ -5,6 +5,24 @@ const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
 
+const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
+  // Realm.open( realmConfig.default )
+  //   .then( ( realm ) => {
+  //     const challenges = realm.objects( "ChallengeRealm" );
+
+  //     challenges.forEach( ( challenge ) => {
+  //       const seen = challenge.numbersObserved.reduce( ( a, b ) => a + b, 0 );
+  //       const percent = ( seen / challenge.totalSpecies ) * 100;
+
+  //       realm.write( () => {
+  //         challenge.percentComplete = percent;
+  //       } );
+  //     } );
+  //   } ).catch( ( err ) => {
+  //     console.log( "[DEBUG] Failed to calculate percent: ", err );
+  //   } );
+// 
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -15,6 +33,7 @@ const recalculateChallenges = () => {
         realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
+          let totalSeen = 0;
           const { index } = challenge;
           const numbersPerMission = missionsDict.default[index];
 
@@ -23,8 +42,10 @@ const recalculateChallenges = () => {
               console.log( numbersPerMission );
               if ( collectedTaxa.length <= numbersPerMission[taxa] ) {
                 challenge.numbersObserved.push( collectedTaxa.length );
+                totalSeen += collectedTaxa.length;
               } else {
                 challenge.numbersObserved.push( numbersPerMission[taxa] );
+                totalSeen += numbersPerMission[taxa];
               }
             } else {
               const taxaId = taxonDict.default[taxa];
@@ -32,34 +53,19 @@ const recalculateChallenges = () => {
               const collectionLength = Object.keys( filteredCollection );
               if ( collectionLength.length <= numbersPerMission[taxa] ) {
                 challenge.numbersObserved.push( collectionLength.length );
+                totalSeen += collectionLength.length;
               } else {
                 challenge.numbersObserved.push( numbersPerMission[taxa] );
+                totalSeen += numbersPerMission[taxa];
               }
             }
+            challenge.percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+            console.log( totalSeen, "total challenge seen-1" );
           } );
         } );
       } );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to recalculate challenges: ", err );
-    } );
-};
-
-
-const calculatePercent = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const challenges = realm.objects( "ChallengeRealm" );
-
-      challenges.forEach( ( challenge ) => {
-        const seen = challenge.numbersObserved.reduce( ( a, b ) => a + b, 0 );
-        const percent = ( seen / challenge.totalSpecies ) * 100;
-
-        realm.write( () => {
-          challenge.percentComplete = percent;
-        } );
-      } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to calculate percent: ", err );
     } );
 };
 

@@ -6,22 +6,6 @@ const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
-  // Realm.open( realmConfig.default )
-  //   .then( ( realm ) => {
-  //     const challenges = realm.objects( "ChallengeRealm" );
-
-  //     challenges.forEach( ( challenge ) => {
-  //       const seen = challenge.numbersObserved.reduce( ( a, b ) => a + b, 0 );
-  //       const percent = ( seen / challenge.totalSpecies ) * 100;
-
-  //       realm.write( () => {
-  //         challenge.percentComplete = percent;
-  //       } );
-  //     } );
-  //   } ).catch( ( err ) => {
-  //     console.log( "[DEBUG] Failed to calculate percent: ", err );
-  //   } );
-// 
 
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
@@ -39,7 +23,6 @@ const recalculateChallenges = () => {
 
           Object.keys( numbersPerMission ).forEach( ( taxa ) => {
             if ( taxa === "all" ) {
-              console.log( numbersPerMission );
               if ( collectedTaxa.length <= numbersPerMission[taxa] ) {
                 challenge.numbersObserved.push( collectedTaxa.length );
                 totalSeen += collectedTaxa.length;
@@ -60,7 +43,6 @@ const recalculateChallenges = () => {
               }
             }
             challenge.percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
-            console.log( totalSeen, "total challenge seen-1" );
           } );
         } );
       } );

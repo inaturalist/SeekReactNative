@@ -6,7 +6,7 @@ const { AsyncStorage } = require( "react-native" );
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
 const { recalculateBadges } = require( "./badgeHelpers" );
-const { recalculateChallenges, calculatePercent } = require( "./challengeHelpers" );
+const { recalculateChallenges } = require( "./challengeHelpers" );
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -59,7 +59,6 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
       } );
       recalculateBadges();
       recalculateChallenges();
-      calculatePercent();
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
     } );

@@ -8,6 +8,7 @@ import {
   ScrollView
 } from "react-native";
 import Realm from "realm";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challenges";
@@ -15,7 +16,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
-import { recalculateChallenges, calculatePercent } from "../../utility/challengeHelpers";
+import { recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
@@ -30,14 +31,6 @@ class ChallengeScreen extends Component<Props> {
       challengesStarted: [],
       challengesCompleted: []
     };
-
-    this.fetchChallenges = this.fetchChallenges.bind( this );
-  }
-
-  componentDidMount() {
-    recalculateChallenges();
-    calculatePercent();
-    this.fetchChallenges();
   }
 
   fetchChallenges() {
@@ -89,7 +82,7 @@ class ChallengeScreen extends Component<Props> {
           challengesStarted,
           challengesCompleted
         } );
-      } ).catch( ( err ) => {
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
@@ -98,7 +91,7 @@ class ChallengeScreen extends Component<Props> {
     const { challengesStarted } = this.state;
     const { navigation } = this.props;
 
-    return(
+    return (
       <View>
         <View style={styles.header}>
           <Text style={styles.headerText}>
@@ -166,7 +159,7 @@ class ChallengeScreen extends Component<Props> {
     const { challengesCompleted } = this.state;
     const { navigation } = this.props;
 
-    return(
+    return (
       <View>
         <View style={styles.header}>
           <Text style={styles.headerText}>
@@ -204,6 +197,12 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.column}>
+          <NavigationEvents
+            onWillFocus={ () => {
+              recalculateChallenges();
+              this.fetchChallenges();
+            }}
+          />
           {noChallenges ? (
             <View style={styles.noChallengeContainer}>
               <Text style={styles.noChallengeText}>{i18n.t( "challenges.completed_all" )}</Text>

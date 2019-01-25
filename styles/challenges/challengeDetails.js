@@ -45,6 +45,9 @@ export default StyleSheet.create( {
     marginTop: 20,
     marginLeft: 20
   },
+  missionContainer: {
+    flex: 1
+  },
   challengeContainer: {
     height: 320,
     alignItems: "center",
@@ -52,7 +55,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkGray,
     marginBottom: 10
   },
-  missionContainer: {
+  descriptionContainer: {
     alignItems: "center",
     marginTop: 21,
     backgroundColor: colors.white,
@@ -92,7 +95,7 @@ export default StyleSheet.create( {
     lineHeight: 25,
     marginLeft: 16
   },
-  missionText: {
+  descriptionText: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,

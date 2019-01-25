@@ -10,7 +10,7 @@ import { colors } from "../../styles/global";
 
 type Props = {
   percentComplete: number,
-  missions: Object
+  missions: Array<Object>
 };
 
 const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (

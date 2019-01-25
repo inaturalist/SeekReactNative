@@ -52,8 +52,8 @@ class ChallengeDetailsScreen extends Component<Props> {
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
         const challenge = challenges[0];
-        const missionList = Object.values( challenge.missions );
-        const observationsList = Object.values( challenge.numbersObserved );
+        const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
+        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
 
         const missions = [];
 
@@ -179,14 +179,16 @@ class ChallengeDetailsScreen extends Component<Props> {
                 </View>
                 {button}
               </View>
-              {challengeStarted ? (
-                <ChallengeMissionCard
-                  percentComplete={challenge.percentComplete}
-                  missions={missions}
-                />
-              ) : null}
               <View style={styles.missionContainer}>
-                <Text style={styles.missionText}>{challenge.description}</Text>
+                {challengeStarted ? (
+                  <ChallengeMissionCard
+                    percentComplete={challenge.percentComplete}
+                    missions={missions}
+                  />
+                ) : null}
+              </View>
+              <View style={styles.descriptionContainer}>
+                <Text style={styles.descriptionText}>{challenge.description}</Text>
                 <View style={styles.row}>
                   <Image source={logos.wwfop} />
                 </View>

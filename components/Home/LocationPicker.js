@@ -99,7 +99,6 @@ class LocationPicker extends Component<Props> {
 
   async returnToUserLocation() {
     const location = await getLatAndLng();
-    console.log( location, "fetching location in location picker" );
 
     this.setState( {
       region: {

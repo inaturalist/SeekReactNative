@@ -109,7 +109,7 @@ export default StyleSheet.create( {
     height: 227
   },
   image: {
-    width,
+    width: 291,
     height: 186,
     resizeMode: "contain"
   },

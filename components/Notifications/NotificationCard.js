@@ -8,7 +8,9 @@ import {
   View
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/notifications";
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any,
@@ -22,14 +24,14 @@ const NotificationCard = ( { navigation, item }: Props ) => (
       onPress={() => navigation.navigate( item.nextScreen )}
     >
       <View style={styles.imageContainer}>
-        <Image style={styles.image} source={item.iconName} />
+        <Image style={styles.image} source={icons[item.iconName]} />
       </View>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
-          {item.title}
+          {i18n.t( item.title )}
         </Text>
         <Text style={styles.messageText}>
-          {item.message}
+          {i18n.t( item.message )}
         </Text>
       </View>
     </TouchableOpacity>

@@ -45,27 +45,27 @@ class ChallengeScreen extends Component<Props> {
         const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
         const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
 
-        // notStarted.forEach( ( challenge ) => {
-        //   challengesNotStarted.push( {
-        //     name: i18n.t( challenge.name ),
-        //     month: i18n.t( challenge.month ),
-        //     iconName: icons.badgePlaceholder,
-        //     started: challenge.started,
-        //     index: challenge.index
-        //   } );
-        // } );
+        notStarted.forEach( ( challenge ) => {
+          challengesNotStarted.push( {
+            name: i18n.t( challenge.name ),
+            month: i18n.t( challenge.month ),
+            iconName: icons.badgePlaceholder,
+            started: challenge.started,
+            index: challenge.index
+          } );
+        } );
 
-        // started.forEach( ( challenge ) => {
-        //   challengesStarted.push( {
-        //     name: i18n.t( challenge.name ),
-        //     month: i18n.t( challenge.month ),
-        //     iconName: icons.badgePlaceholder,
-        //     started: challenge.started,
-        //     totalSpecies: challenge.totalSpecies,
-        //     percentComplete: challenge.percentComplete,
-        //     index: challenge.index
-        //   } );
-        // } );
+        started.forEach( ( challenge ) => {
+          challengesStarted.push( {
+            name: i18n.t( challenge.name ),
+            month: i18n.t( challenge.month ),
+            iconName: icons.badgePlaceholder,
+            started: challenge.started,
+            totalSpecies: challenge.totalSpecies,
+            percentComplete: challenge.percentComplete,
+            index: challenge.index
+          } );
+        } );
 
         completed.forEach( ( challenge ) => {
           challengesStarted.push( {

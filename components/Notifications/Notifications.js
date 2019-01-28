@@ -5,11 +5,14 @@ import {
   FlatList,
   View
 } from "react-native";
+import Realm from "realm";
+import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
+import realmConfig from "../../models";
 import Footer from "../Home/Footer";
-import logos from "../../assets/logos";
+// import logos from "../../assets/logos";
 
 type Props = {
   navigation: any
@@ -20,27 +23,21 @@ class NotificationsScreen extends Component<Props> {
     super();
 
     this.state = {
-      notifications: [
-        {
-          title: "Your observation was identified to species on iNaturalist!",
-          message: "Thanks for helping improve our model! Your badges may have been updated.",
-          iconName: logos.bird,
-          nextScreen: "About"
-        },
-        {
-          title: "You've earned a lot of badges! You might like iNaturalist!",
-          message: "Learn more about iNaturalist",
-          iconName: logos.bird,
-          nextScreen: "About"
-        },
-        {
-          title: "You're almost finished with your challenge!",
-          message: "View your progress",
-          iconName: logos.bird,
-          nextScreen: "Main"
-        }
-      ]
+      notifications: []
     };
+  }
+
+  fetchNotifications() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const notifications = realm.objects( "NotificationRealm" );
+        console.log( notifications, "notifications in screen" );
+        this.setState( {
+          notifications
+        } );
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
   }
 
   render() {
@@ -49,6 +46,9 @@ class NotificationsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
+        <NavigationEvents
+          onWillFocus={() => this.fetchNotifications()}
+        />
         <View style={styles.notificationsContainer}>
           <FlatList
             data={notifications}

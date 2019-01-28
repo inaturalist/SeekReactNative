@@ -3,6 +3,7 @@ import BadgeRealm from "./BadgeRealm";
 import TaxonRealm from "./TaxonRealm";
 import PhotoRealm from "./PhotoRealm";
 import ChallengeRealm from "./ChallengeRealm";
+import NotificationRealm from "./NotificationRealm";
 
 export default {
   schema: [
@@ -10,7 +11,8 @@ export default {
     ObservationRealm,
     TaxonRealm,
     PhotoRealm,
-    ChallengeRealm
+    ChallengeRealm,
+    NotificationRealm
   ],
   path: "db.realm"
 };

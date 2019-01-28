@@ -1,3 +1,5 @@
+import { createNotification } from "./notificationHelpers";
+
 const Realm = require( "realm" );
 
 const taxonDict = require( "./taxonDict" );
@@ -42,7 +44,11 @@ const recalculateChallenges = () => {
                 totalSeen += numbersPerMission[taxa];
               }
             }
-            challenge.percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+            const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+            if ( percentComplete > 1 ) { // change this to 50% later
+              createNotification( "challengeProgress" );
+            }
+            challenge.percentComplete = percentComplete;
           } );
         } );
       } );

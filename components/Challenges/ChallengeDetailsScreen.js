@@ -70,7 +70,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             name: i18n.t( challenge.name ).toLocaleUpperCase(),
             description: i18n.t( challenge.description ),
             started: challenge.started,
-            completed: challenge.completed,
+            // completed: challenge.completed,
             percentComplete: challenge.percentComplete
           },
           missions,

@@ -31,23 +31,23 @@
 		<key>NSExceptionDomains</key>
 		<dict/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>We use the camera so you can get identifications of your nature photos.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We use your location to suggest plants and animals to find near you.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We use the photo library so you can get identifications of your nature photos.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We use the photo library so you can get identifications of your nature photos.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>We use react-native-permissions library to deliver you the right error messages.</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>We use react-native-permissions library to deliver you the right error messages.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We use the camera so you can get identifications of your nature photos.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to suggest plants and animals to find near you.</string>
 	<key>NSMotionUsageDescription</key>
+	<string>We use react-native-permissions library to deliver you the right error messages.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We use the photo library so you can get identifications of your nature photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We use the photo library so you can get identifications of your nature photos.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>UIAppFonts</key>
 	<array>

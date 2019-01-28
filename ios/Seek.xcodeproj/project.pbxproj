@@ -45,7 +45,6 @@
 		370180D5216C21890020ED84 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 370180D4216C20E60020ED84 /* libRNCamera.a */; };
 		370DC8A1216FB722000A29BA /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0C42A216E78E800A12596 /* libRCTCameraRoll.a */; };
 		370FB06C21F003FF00468219 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 370FB06121F0020E00468219 /* libReactNativePermissions.a */; };
-		3734198B21C0C57300FCDFDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3734198921C0C57300FCDFDD /* LaunchScreen.storyboard */; };
 		374192B621766AA1007414A3 /* libRNGeocoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 374192B521766A39007414A3 /* libRNGeocoder.a */; };
 		3777823421ADDD4B00EE85B0 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777822521ADDD4A00EE85B0 /* Octicons.ttf */; };
 		3777823621ADDD4B00EE85B0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777822721ADDD4A00EE85B0 /* Entypo.ttf */; };
@@ -58,6 +57,7 @@
 		3777824021ADDD4B00EE85B0 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823121ADDD4A00EE85B0 /* EvilIcons.ttf */; };
 		3777824121ADDD4B00EE85B0 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823221ADDD4A00EE85B0 /* SimpleLineIcons.ttf */; };
 		3777824221ADDD4B00EE85B0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823321ADDD4A00EE85B0 /* MaterialIcons.ttf */; };
+		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
 		37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */; };
 		3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 283BB76ED58149118CBAC00A /* libRNGestureHandler.a */; };
@@ -538,7 +538,6 @@
 		2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		33923376FB954EF787C86BCD /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		370180AA216C20E60020ED84 /* RNCamera.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RNCamera.xcodeproj"; sourceTree = "<group>"; };
-		3734198A21C0C57300FCDFDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../iNatLiteIOS/iNatLite/UI/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3741928821766A39007414A3 /* RNGeocoder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGeocoder.xcodeproj; path = "../node_modules/react-native-geocoder/ios/RNGeocoder.xcodeproj"; sourceTree = "<group>"; };
 		3777822521ADDD4A00EE85B0 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		3777822621ADDD4A00EE85B0 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -559,6 +558,7 @@
 		37B0C420216E78E800A12596 /* RCTCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTCameraRoll.xcodeproj; path = "../node_modules/react-native/Libraries/CameraRoll/RCTCameraRoll.xcodeproj"; sourceTree = "<group>"; };
 		37CD59672162E99E002E78BA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		37CD59692162E99E002E78BA /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
+		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		37F099FF21E8083700D5C691 /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
 		38A1CF6C4F29432F981EAFC3 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
@@ -761,12 +761,12 @@
 		13B07FAE1A68108700A75B9A /* Seek */ = {
 			isa = PBXGroup;
 			children = (
+				37DFB70121FFA4BE007B4E22 /* Base.lproj */,
 				379A071821C4328C00F176E3 /* Seek.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				3734198921C0C57300FCDFDD /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = Seek;
@@ -964,6 +964,15 @@
 				37CD59672162E99E002E78BA /* Whitney-Semibold-Pro.otf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		37DFB70121FFA4BE007B4E22 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */,
+			);
+			name = Base.lproj;
+			path = "../../react-native-demos/Seek/ios/Seek/Base.lproj";
 			sourceTree = "<group>";
 		};
 		37F09A0021E8083700D5C691 /* Products */ = {
@@ -1750,9 +1759,9 @@
 				F59AD1E2477D4BFE8C6840E1 /* Whitney-Black-Pro.otf in Resources */,
 				6663D69175A947568D6E47AB /* Whitney-BlackItalic-Pro.otf in Resources */,
 				3777823F21ADDD4B00EE85B0 /* Zocial.ttf in Resources */,
-				3734198B21C0C57300FCDFDD /* LaunchScreen.storyboard in Resources */,
 				37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */,
 				2B8098F81BB14D5BBEB96B92 /* Whitney-BoldItalic-Pro.otf in Resources */,
+				37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */,
 				3777823A21ADDD4B00EE85B0 /* Foundation.ttf in Resources */,
 				AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */,
 				3777823421ADDD4B00EE85B0 /* Octicons.ttf in Resources */,
@@ -1875,12 +1884,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3734198921C0C57300FCDFDD /* LaunchScreen.storyboard */ = {
+		37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3734198A21C0C57300FCDFDD /* Base */,
+				37DFB70321FFA4BE007B4E22 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

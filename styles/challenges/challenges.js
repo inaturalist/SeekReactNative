@@ -86,8 +86,18 @@ export default StyleSheet.create( {
     lineHeight: 17
   },
   noChallengeContainer: {
-    marginTop: 20,
+    marginTop: 40,
+    marginBottom: 30,
     alignItems: "center",
+    justifyContent: "center"
+  },
+  noChallengeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "nowrap"
+  },
+  noChallengeTextContainer: {
+    marginLeft: 30,
     justifyContent: "center"
   },
   noChallengeText: {

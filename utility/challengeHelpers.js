@@ -11,7 +11,7 @@ const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
-      const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "completed == false AND started == true" );
+      const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND started == true" );
 
       incompleteChallenges.forEach( ( challenge ) => {
         realm.write( () => {

@@ -5,6 +5,7 @@ import {
   View,
   Text,
   FlatList,
+  Image,
   ScrollView
 } from "react-native";
 import Realm from "realm";
@@ -41,37 +42,37 @@ class ChallengeScreen extends Component<Props> {
         const challengesStarted = [];
         const challengesCompleted = [];
         const notStarted = realm.objects( "ChallengeRealm" ).filtered( "started == false" );
-        const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND completed == false" );
-        const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND completed == true" );
+        const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
+        const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
 
-        notStarted.forEach( ( challenge ) => {
-          challengesNotStarted.push( {
-            name: i18n.t( challenge.name ),
-            month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
-            started: false,
-            index: challenge.index
-          } );
-        } );
+        // notStarted.forEach( ( challenge ) => {
+        //   challengesNotStarted.push( {
+        //     name: i18n.t( challenge.name ),
+        //     month: i18n.t( challenge.month ),
+        //     iconName: icons.badgePlaceholder,
+        //     started: challenge.started,
+        //     index: challenge.index
+        //   } );
+        // } );
 
-        started.forEach( ( challenge ) => {
-          challengesStarted.push( {
-            name: i18n.t( challenge.name ),
-            month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
-            started: true,
-            totalSpecies: challenge.totalSpecies,
-            percentComplete: challenge.percentComplete,
-            index: challenge.index
-          } );
-        } );
+        // started.forEach( ( challenge ) => {
+        //   challengesStarted.push( {
+        //     name: i18n.t( challenge.name ),
+        //     month: i18n.t( challenge.month ),
+        //     iconName: icons.badgePlaceholder,
+        //     started: challenge.started,
+        //     totalSpecies: challenge.totalSpecies,
+        //     percentComplete: challenge.percentComplete,
+        //     index: challenge.index
+        //   } );
+        // } );
 
         completed.forEach( ( challenge ) => {
           challengesStarted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
             iconName: icons.badgePlaceholder,
-            started: true,
+            started: challenge.started,
             totalSpecies: challenge.totalSpecies,
             percentComplete: challenge.percentComplete,
             index: challenge.index
@@ -206,8 +207,13 @@ class ChallengeScreen extends Component<Props> {
           />
           {noChallenges ? (
             <View style={styles.noChallengeContainer}>
-              <Text style={styles.noChallengeText}>{i18n.t( "challenges.completed_all" )}</Text>
-              <Text style={styles.lightText}>{i18n.t( "challenges.no_new_challenges" )}</Text>
+              <View style={styles.noChallengeRow}>
+                <Image source={icons.completed} />
+                <View style={styles.noChallengeTextContainer}>
+                  <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
+                  <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
+                </View>
+              </View>
             </View>
           ) : null}
           {noChallenges ? null : this.renderChallengesStarted()}

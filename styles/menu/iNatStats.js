@@ -115,6 +115,7 @@ export default StyleSheet.create( {
   },
   caption: {
     marginTop: 20,
+    marginBottom: 20,
     textAlign: "center",
     width: 245
   },

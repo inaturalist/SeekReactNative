@@ -90,6 +90,9 @@ class iNatStatsScreen extends Component<Props> {
             />
             <Text style={[styles.missionText, styles.caption]}>
               {photo.commonName}
+              {" "}
+              {i18n.t( "inat_stats.by" )}
+              {" "}
               {photo.attribution}
             </Text>
           </View>

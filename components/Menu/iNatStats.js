@@ -142,18 +142,17 @@ class iNatStatsScreen extends Component<Props> {
               <Text style={styles.missionText}>
                 {i18n.t( "inat_stats.about_inat" )}
               </Text>
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator
-                scrollEventThrottle
-                pagingEnabled
-                nestedScrollEnabled
-                alwaysBounceHorizontal
-                indicatorStyle="white"
-                contentContainerStyle={styles.photoContainer}
-              >
-                {photoList}
-              </ScrollView>
+            </View>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator
+              pagingEnabled
+              indicatorStyle="white"
+              contentContainerStyle={styles.photoContainer}
+            >
+              {photoList}
+            </ScrollView>
+            <View style={styles.missionContainer}>
               <Text style={styles.italicText}>
                 {i18n.t( "inat_stats.contribute" )}
               </Text>

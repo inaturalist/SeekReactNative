@@ -109,7 +109,7 @@ export default StyleSheet.create( {
     height: 227
   },
   image: {
-    width: 291,
+    width,
     height: 186,
     resizeMode: "contain"
   },
@@ -123,8 +123,6 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   photoContainer: {
-    marginTop: 20,
-    marginBottom: 20,
     height: 251
   }
 } );

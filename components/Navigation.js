@@ -64,7 +64,8 @@ const whiteHeaderTitle = {
 
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
-    screen: SideMenu
+    screen: SideMenu,
+    drawerType: "slide"
   }
 } );
 
@@ -100,28 +101,7 @@ const StackNavigatorConfig = {
   headerMode: "screen"
 };
 
-const RootStack = createStackNavigator( {
-  Home: {
-    screen: SplashScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Menu: {
-    screen: MenuDrawerNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Notifications: {
-    screen: NotificationsScreen,
-    navigationOptions: () => ( {
-      title: i18n.t( "notifications.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
-      headerBackImage: backButton
-    } )
-  },
+const LoginStack = createStackNavigator( {
   Login: {
     screen: LoginScreen,
     navigationOptions: () => ( {
@@ -195,6 +175,36 @@ const RootStack = createStackNavigator( {
       headerStyle: greenHeader,
       headerTitleStyle: whiteHeaderTitle,
       headerBackImage: backButton
+    } )
+  }
+} );
+
+const RootStack = createStackNavigator( {
+  Home: {
+    screen: SplashScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Menu: {
+    screen: MenuDrawerNav,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Notifications: {
+    screen: NotificationsScreen,
+    navigationOptions: () => ( {
+      title: i18n.t( "notifications.header" ),
+      headerStyle: greenHeader,
+      headerTitleStyle: whiteHeaderTitle,
+      headerBackImage: backButton
+    } )
+  },
+  Login: {
+    screen: LoginStack,
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   Main: {

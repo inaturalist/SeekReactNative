@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 import { colors } from "../global";
 
@@ -15,7 +15,9 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   cameraImage: {
-    marginBottom: 50
+    marginBottom: Platform.OS === "android" ? 10 : 50,
+    width: Platform.OS === "android" ? 84 : "auto",
+    height: Platform.OS === "android" ? 84 : "auto"
   },
   button: {
     paddingLeft: 5,

@@ -155,12 +155,15 @@
     "by": "by"
   },
   "results": {
-    "computer_vision_error": "Can't load computer vision suggestions. Try again later.",
-    "good_try": "Good Try!",
-    "sweet": "Sweet!",
-    "hrmmm": "Hrmmmmm",
-    "match": "It's a Match!",
-    "deja_vu": "Deja Vu!"
+    "observed_species": "You observed a new Species!",
+    "learn_more": "Learn more about this species, where it’s found, and other facts about it!",
+    "view_species": "View Species",
+    "back": "Back to AR Camera",
+    "no_identification": "We weren’t able to identify this photo",
+    "sorry": "Sorry about that, Seek is still learning!\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
+    "take_photo": "Take another photo",
+    "common_ancestor": "But we couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
+    "believe": "We believe this is a member of"
   },
   "badges": {
     "no_badges": "No Badges Earned",

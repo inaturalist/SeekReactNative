@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   View,
-  ImageBackground,
   Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
@@ -11,14 +10,15 @@ import jwt from "react-native-jwt-io";
 import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
+import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
-import ResultsScreen from "./ResultsScreen";
+import ResultsScreen from "./MatchScreen";
 import LoadingWheel from "../LoadingWheel";
 import ErrorScreen from "../ErrorScreen";
 import config from "../../config";
-import styles from "../../styles/results";
+import styles from "../../styles/results/resultsMatch";
 import {
   addToCollection,
   capitalizeNames,
@@ -71,10 +71,6 @@ class Results extends Component<Props> {
     this.savePhotoOrStartOver = this.savePhotoOrStartOver.bind( this );
   }
 
-  componentDidMount() {
-    this.resizeImage();
-  }
-
   setTextAndPhoto( seenDate ) {
     const {
       id,
@@ -107,7 +103,7 @@ class Results extends Component<Props> {
     } = this.state;
 
     this.setState( {
-      title: i18n.t( "results.good_try" ),
+      title: i18n.t( "results.observed_species" ).toLocaleUpperCase(),
       subtitle: `However, this isn't a ${commonName}, it's a ${taxaName}.`,
       photoText: `Target Species:\n${commonName}`,
       yourPhotoText: `Your Photo:\n${taxaName}`,
@@ -138,8 +134,8 @@ class Results extends Component<Props> {
       this.setTaxaAlreadySeen( seenDate );
     } else {
       this.setState( {
-        title: i18n.t( "results.sweet" ),
-        subtitle: `You saw a ${taxaName}`,
+        title: i18n.t( "results.observed_species" ),
+        subtitle: taxaName,
         text: null,
         match: true,
         buttonText: "Add to Collection",
@@ -153,7 +149,7 @@ class Results extends Component<Props> {
     const { taxaName } = this.state;
 
     this.setState( {
-      title: i18n.t( "results.deja_vu" ),
+      title: i18n.t( "results.observed_species" ).toLocaleUpperCase(),
       match: true,
       subtitle: `Looks like you already collected a ${taxaName}`,
       text: `You collected a photo of a ${taxaName} on ${seenDate}`,
@@ -176,7 +172,7 @@ class Results extends Component<Props> {
       } );
     } else {
       this.setState( {
-        title: i18n.t( "results.match" ),
+        title: i18n.t( "results.observed_species" ),
         subtitle: `You saw a ${taxaName}`,
         match: true,
         text: null,
@@ -187,7 +183,7 @@ class Results extends Component<Props> {
 
   setTaxaUnknown( commonAncestor ) {
     this.setState( {
-      title: i18n.t( "results.hrmmm" ),
+      title: i18n.t( "results.observed_species" ).toLocaleUpperCase(),
       subtitle: commonAncestor ? `We think this is a photo of ${commonAncestor}, but we can't say for sure what species it is.` : "We can't figure this one out. Please try some adjustments.",
       match: "unknown",
       text: "Here are some photo tips:\n\n\u2022 Get as close as possible while being safe\n\u2022 Crop out unimportant parts\n\u2022 Make sure things are in focus",
@@ -307,11 +303,12 @@ class Results extends Component<Props> {
 
   fetchScore( params ) {
     const token = this.createJwtToken();
+    console.log( token, "token" );
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
         const match = response.results[0];
-        console.log( match, "match in cv" );
+        // console.log( match, "match in cv" );
         const commonAncestor = response.common_ancestor;
         this.setState( {
           observation: match,
@@ -328,9 +325,6 @@ class Results extends Component<Props> {
       } )
       .catch( ( err ) => {
         console.log( err, "error in computer vision results" );
-        this.setState( {
-          error: i18n.t( "results.computer_vision_error" )
-        } );
       } );
   }
 
@@ -364,7 +358,7 @@ class Results extends Component<Props> {
       content = (
         <ResultsScreen
           title={title}
-          subtitle={subtitle}
+          taxaName={subtitle}
           match={match}
           matchUrl={matchUrl}
           text={text}
@@ -380,13 +374,11 @@ class Results extends Component<Props> {
     }
 
     return (
-      <View style={styles.mainContainer}>
-        <ImageBackground
-          style={styles.backgroundImage}
-          source={require( "../../assets/backgrounds/background.png" )}
-        >
-          {content}
-        </ImageBackground>
+      <View style={styles.container}>
+        <NavigationEvents
+          onWillFocus={() => this.resizeImage()}
+        />
+        {content}
       </View>
     );
   }

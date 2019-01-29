@@ -11,7 +11,7 @@ import Realm from "realm";
 import styles from "../styles/banner";
 import speciesImages from "../assets/species";
 import badgeImages from "../assets/badges";
-import { recalculateBadges } from "../utility/helpers";
+import { recalculateBadges } from "../utility/badgeHelpers";
 import realmConfig from "../models/index";
 
 type Props = {
@@ -68,9 +68,6 @@ class Banner extends Component<Props> {
         const badges = realm.objects( "BadgeRealm" ).sorted( [["earnedDate", true], ["index", false]] );
         const lastBadge = badges.slice( 0, 1 );
         const { earnedIconName } = lastBadge[0];
-
-        console.log( lastBadgeEarned, "last badge earned" );
-        console.log( earnedIconName, "earned badge icon" );
 
         if ( lastBadgeEarned !== earnedIconName ) {
           this.setState( {
@@ -180,10 +177,6 @@ class Banner extends Component<Props> {
       banner = (
         <View style={styles.banner}>
           <View style={styles.row}>
-            <Image
-              source={require( "../assets/results/icn-results-match.png" )}
-              style={styles.speciesBannerImage}
-            />
             <Text style={styles.text}>{bannerText}</Text>
           </View>
         </View>

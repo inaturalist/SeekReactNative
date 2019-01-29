@@ -1,4 +1,5 @@
 import { createNotification } from "./notificationHelpers";
+// import { isChallengeMonth } from "./dateHelpers";
 
 const Realm = require( "realm" );
 
@@ -46,7 +47,7 @@ const recalculateChallenges = () => {
             }
             const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
             if ( percentComplete > 1 ) { // change this to 50% later
-              createNotification( "challengeProgress" );
+              createNotification( "challengeProgress", index );
             }
             challenge.percentComplete = percentComplete;
           } );
@@ -78,8 +79,11 @@ const setupChallenges = () => {
     .then( ( realm ) => {
       realm.write( () => {
         const dict = Object.keys( challengesDict.default );
+
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
+          // const month = challenges.month.split( "challenges." )[1];
+          // isChallengeMonth( month.replace( "_", " " ).split( " " ) );
 
           const challenge = realm.create( "ChallengeRealm", {
             name: challenges.name,

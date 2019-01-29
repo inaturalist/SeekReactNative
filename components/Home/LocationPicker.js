@@ -49,11 +49,9 @@ class LocationPicker extends Component<Props> {
   }
 
   onRegionChange( newRegion ) {
-    this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
-
     this.setState( {
       region: newRegion
-    } );
+    }, () => this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude ) );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {

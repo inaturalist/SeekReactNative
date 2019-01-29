@@ -13,7 +13,7 @@
   "get_started": {
     "header": "Get started",
     "tip_1": "Check out species commonly spotted near you in the “Nearby Species” section above. Search by location or specific taxa!",
-    "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will identify it for you!",
+    "tip_2": "Take a photo of a plant, animal, or anything living using our camera, and Seek will help you identify it!",
     "tip_3": "Take a challenge sponsored by Our Planet and WWF and find species with the worldwide Seek community!"
   },
   "challenges_card": {
@@ -87,7 +87,7 @@
     "about": "About"
   },
   "onboarding": {
-    "onboarding_1": "Take a photo of anything living and Seek’s AI will identify it!",
+    "onboarding_1": "Take a photo of anything living and Seek will help you identify it!",
     "onboarding_2": "Earn badges for seeing different species",
     "onboarding_3": "Participate in global challenges with Our Planet and WWF",
     "skip": "Skip for now",

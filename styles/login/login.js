@@ -90,6 +90,7 @@ export default StyleSheet.create( {
   datePickerInputField: {
     width: 307,
     textAlign: "center",
+    justifyContent: "center",
     backgroundColor: colors.white,
     height: 37,
     borderRadius: 40

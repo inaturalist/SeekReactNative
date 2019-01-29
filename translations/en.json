@@ -163,7 +163,9 @@
     "sorry": "Sorry about that, Seek is still learning!\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
     "take_photo": "Take another photo",
     "common_ancestor": "But we couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
-    "believe": "We believe this is a member of"
+    "believe": "We believe this is a member of",
+    "resighted": "You resighted a species!",
+    "date_observed": "You first observed it on:\n{{seenDate}}"
   },
   "badges": {
     "no_badges": "No Badges Earned",

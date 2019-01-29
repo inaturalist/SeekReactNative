@@ -17,7 +17,7 @@ import AncestorScreen from "./AncestorScreen";
 import MatchScreen from "./MatchScreen";
 import NoMatchScreen from "./NoMatchScreen";
 import config from "../../config";
-import styles from "../../styles/results/resultsMatch";
+import styles from "../../styles/results/results";
 import {
   capitalizeNames,
   flattenUploadParameters,
@@ -51,7 +51,8 @@ class Results extends Component<Props> {
       taxaId: null,
       taxaName: null,
       commonAncestor: null,
-      match: null
+      match: null,
+      seenDate: null
     };
   }
 
@@ -108,7 +109,10 @@ class Results extends Component<Props> {
           taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
           speciesSeenImage: match.taxon.default_photo.medium_url,
           commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
-        }, () => this.checkForMatch( match.combined_score ) );
+        }, () => {
+          this.checkForMatch( match.combined_score );
+          this.checkDateSpeciesSeen( match.taxon.id );
+        } );
       } )
       .catch( ( err ) => {
         console.log( err, "error fetching computer vision results" );
@@ -136,6 +140,23 @@ class Results extends Component<Props> {
     }
   }
 
+  checkDateSpeciesSeen( taxaId ) {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        if ( seenTaxaIds.includes( taxaId ) ) {
+          const observations = realm.objects( "ObservationRealm" );
+          const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
+          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          this.setState( {
+            seenDate
+          }, () => console.log( this.state.seenDate, "seen date" ) );
+        }
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   render() {
     const {
       userImage,
@@ -143,7 +164,8 @@ class Results extends Component<Props> {
       match,
       taxaId,
       speciesSeenImage,
-      commonAncestor
+      commonAncestor,
+      seenDate
     } = this.state;
     const { navigation } = this.props;
 
@@ -156,9 +178,8 @@ class Results extends Component<Props> {
           userImage={userImage}
           taxaName={taxaName}
           taxaId={taxaId}
-          match={match}
           speciesSeenImage={speciesSeenImage}
-          commonAncestor={commonAncestor}
+          seenDate={seenDate}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -166,9 +187,6 @@ class Results extends Component<Props> {
         <AncestorScreen
           navigation={navigation}
           userImage={userImage}
-          taxaName={taxaName}
-          taxaId={taxaId}
-          match={match}
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
         />

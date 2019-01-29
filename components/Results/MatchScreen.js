@@ -21,7 +21,8 @@ type Props = {
   taxaName: string,
   taxaId: number,
   userImage: string,
-  navigation: any
+  navigation: any,
+  seenDate: string
 }
 
 const MatchScreen = ( {
@@ -29,7 +30,8 @@ const MatchScreen = ( {
   taxaId,
   speciesSeenImage,
   userImage,
-  navigation
+  navigation,
+  seenDate
 }: Props ) => (
   <View style={styles.container}>
     <ScrollView>
@@ -58,9 +60,12 @@ const MatchScreen = ( {
         </View>
       </LinearGradient>
       <View style={styles.textContainer}>
-        <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>
+        {seenDate ? <Text style={styles.headerText}>{i18n.t( "results.resighted" ).toLocaleUpperCase()}</Text>
+          : <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>}
         <Text style={styles.speciesText}>{taxaName}</Text>
-        <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
+        {seenDate ? (
+          <Text style={styles.text}>{i18n.t( "results.date_observed", { defaultValue: "{{seenDate}}", seenDate } )}</Text>
+        ) : <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>}
         <TouchableOpacity style={styles.button}>
           <Text
             style={styles.buttonText}

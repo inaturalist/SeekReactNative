@@ -40,8 +40,8 @@ class iNatStatsScreen extends Component<Props> {
     const data = await getObservationData();
     const { observations, observers } = data;
     this.setState( {
-      observations,
-      observers
+      observations: i18n.toNumber( observations, { precision: 0 } ),
+      observers: i18n.toNumber( observers, { precision: 0 } )
     } );
   }
 

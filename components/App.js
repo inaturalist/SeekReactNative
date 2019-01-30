@@ -8,9 +8,9 @@ import { setupChallenges } from "../utility/challengeHelpers";
 
 
 class App extends Component {
-  componentWillMount() {
-    setupBadges();
-    setupChallenges();
+  async componentWillMount() {
+    await setupBadges();
+    await setupChallenges();
     RNLanguages.addEventListener( "change", this.onLanguagesChange );
   }
 

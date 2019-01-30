@@ -37,7 +37,7 @@ const MatchScreen = ( {
   showBanner
 }: Props ) => (
   <View style={styles.container}>
-    {showBanner ? <Banner /> : null}
+    {showBanner ? <Banner navigation={navigation} /> : null}
     <ScrollView>
       <LinearGradient
         colors={["#22784d", "#38976d"]}

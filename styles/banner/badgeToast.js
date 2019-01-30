@@ -2,6 +2,15 @@ import { StyleSheet, Platform } from "react-native";
 import { fonts, colors } from "../global";
 
 export default StyleSheet.create( {
+  animatedStyle: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    right: 0,
+    justifyContent: "center",
+    backgroundColor: colors.white,
+    height: 112
+  },
   container: {
     height: 112,
     flexDirection: "row",

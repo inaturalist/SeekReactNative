@@ -1,16 +1,26 @@
+// @flow
+
 import React from "react";
 import {
   View,
   Image,
-  Text
+  Text,
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/banner/badgeToast";
 import icons from "../../assets/icons";
 
-const BadgeToast = () => (
-  <View style={styles.container}>
+type Props = {
+  navigation: any
+}
+
+const BadgeToast = ( { navigation }: Props ) => (
+  <TouchableOpacity
+    style={styles.container}
+    onPress={() => navigation.navigate( "Badges" )}
+  >
     <View style={styles.textContainer}>
       <Text style={styles.headerText}>{"BADGE NAME".toUpperCase()}</Text>
       <Text style={styles.description}>
@@ -22,7 +32,7 @@ const BadgeToast = () => (
       <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>
     </View>
     <Image source={icons.badgePlaceholder} />
-  </View>
+  </TouchableOpacity>
 );
 
 export default BadgeToast;

@@ -171,6 +171,13 @@
     "number_seen": "You've seen {{number}} {{taxaType}}!",
     "view": "View badge"
   },
+  "headers": {
+    "choose_photo": "Choose a photo",
+    "identify": "Identify this photo?"
+  },
+  "confirm": {
+    "identify": "Identify Photo"
+  },
   "badges": {
     "no_badges": "No Badges Earned",
     "1_badge": "1 Badge Earned!",

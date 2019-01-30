@@ -35,10 +35,18 @@ import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
+import ConfirmScreen from "./Camera/ConfirmScreen";
 
 const backButton = (
   <Image
     source={icons.backButton}
+    style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
+  />
+);
+
+const backButtonGreen = (
+  <Image
+    source={icons.backButtonGreen}
     style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
   />
 );
@@ -210,11 +218,21 @@ const RootStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
-      title: navigation.state.index === 1 ? "CHOOSE A PHOTO" : null,
+      title: navigation.state.index === 1 ? i18n.t( "headers.choose_photo" ).toLocaleUpperCase() : null,
       headerTransparent: navigation.state.index === 0,
       headerTintColor: navigation.state.index === 0 ? colors.white : null,
       headerTitleStyle: styles.galleryHeader,
       mode: "modal"
+    } )
+  },
+  Confirm: {
+    screen: ConfirmScreen,
+    navigationOptions: () => ( {
+      title: i18n.t( "headers.identify" ).toLocaleUpperCase(),
+      headerStyle: styles.whiteHeader,
+      headerTintColor: colors.white,
+      headerTitleStyle: styles.galleryHeader,
+      headerBackImage: backButtonGreen
     } )
   },
   Results: {

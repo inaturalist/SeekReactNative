@@ -86,14 +86,14 @@ class GalleryScreen extends Component<Props> {
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        navigation.push( "Results", {
+        navigation.push( "Confirm", {
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
           longitude: truncateCoordinates( location.longitude )
         } );
       } else {
-        navigation.push( "Results", {
+        navigation.push( "Confirm", {
           image: imageClicked,
           time: timestamp,
           latitude: userLocation.latitude,
@@ -101,7 +101,7 @@ class GalleryScreen extends Component<Props> {
         } );
       }
     } else {
-      navigation.push( "Results", {
+      navigation.push( "Confirm", {
         image: imageClicked,
         time: timestamp,
         latitude: userLocation.latitude,

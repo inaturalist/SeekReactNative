@@ -30,5 +30,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     letterSpacing: 0.88,
     fontSize: 14
+  },
+  galleryHeader: {
+    paddingTop: Platform.OS === "ios" ? 10 : null,
+    fontSize: 18,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.0
   }
 } );

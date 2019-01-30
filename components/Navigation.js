@@ -210,8 +210,10 @@ const RootStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
+      title: navigation.state.index === 1 ? "CHOOSE A PHOTO" : null,
       headerTransparent: navigation.state.index === 0,
       headerTintColor: navigation.state.index === 0 ? colors.white : null,
+      headerTitleStyle: styles.galleryHeader,
       mode: "modal"
     } )
   },

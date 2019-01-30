@@ -13,6 +13,7 @@ import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
+import ConfirmScreen from "./ConfirmScreen";
 import AncestorScreen from "./AncestorScreen";
 import MatchScreen from "./MatchScreen";
 import NoMatchScreen from "./NoMatchScreen";
@@ -54,12 +55,20 @@ class Results extends Component<Props> {
       commonAncestor: null,
       match: null,
       seenDate: null,
-      showBanner: true
+      showBanner: true,
+      loading: true,
+      photoConfirmed: false
     };
+
+    this.confirmPhoto = this.confirmPhoto.bind( this );
   }
 
   setImageUri( uri ) {
     this.setState( { userImage: uri } );
+  }
+
+  setLoading() {
+    this.setState( { loading: false } );
   }
 
   resizeImage() {
@@ -142,6 +151,7 @@ class Results extends Component<Props> {
     } else {
       this.setState( { match: false } );
     }
+    this.setLoading();
   }
 
   checkDateSpeciesSeen( taxaId ) {
@@ -171,6 +181,12 @@ class Results extends Component<Props> {
     }
   }
 
+  confirmPhoto() {
+    this.setState( {
+      photoConfirmed: true
+    } );
+  }
+
   render() {
     const {
       userImage,
@@ -180,7 +196,10 @@ class Results extends Component<Props> {
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      showBanner
+      showBanner,
+      loading,
+      image,
+      photoConfirmed
     } = this.state;
     const { navigation } = this.props;
 
@@ -221,7 +240,17 @@ class Results extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => this.resizeImage()}
         />
-        {resultScreen}
+        {!loading && photoConfirmed
+          ? resultScreen
+          : (
+            <ConfirmScreen
+              navigation={navigation}
+              image={image}
+              photoConfirmed={photoConfirmed}
+              loading={loading}
+              confirmPhoto={this.confirmPhoto}
+            />
+          )}
       </View>
     );
   }

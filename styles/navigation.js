@@ -10,11 +10,6 @@ export default StyleSheet.create( {
     borderBottomWidth: 0,
     elevation: 0
   },
-  whiteHeader: {
-    backgroundColor: colors.white,
-    borderBottomWidth: 0,
-    elevation: 0
-  },
   whiteHeaderTitle: {
     fontSize: 22,
     color: colors.white,

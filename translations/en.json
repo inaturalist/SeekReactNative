@@ -172,11 +172,11 @@
     "view": "View badge"
   },
   "headers": {
-    "choose_photo": "Choose a photo",
-    "identify": "Identify this photo?"
+    "choose_photo": "Choose a photo"
   },
   "confirm": {
-    "identify": "Identify Photo"
+    "identify": "Identify this photo?",
+    "button": "Identify Photo"
   },
   "badges": {
     "no_badges": "No Badges Earned",

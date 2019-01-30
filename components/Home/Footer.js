@@ -23,10 +23,7 @@ const Footer = ( {
       >
         <Image source={icons.hamburger} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.push( "Camera", {
-        id: null,
-        commonName: null
-      } )}
+      <TouchableOpacity onPress={() => navigation.push( "Camera" )}
       >
         <Image source={icons.cameraGreen} style={styles.cameraImage} />
       </TouchableOpacity>

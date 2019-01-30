@@ -121,10 +121,7 @@ class ChallengeDetailsScreen extends Component<Props> {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => navigation.navigate( "Camera", {
-            id: null,
-            commonName: null
-          } )}
+          onPress={() => navigation.navigate( "Camera" )}
         >
           <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>

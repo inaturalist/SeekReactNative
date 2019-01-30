@@ -29,13 +29,8 @@ type Props = {
 }
 
 class CameraScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      id,
-      commonName
-    } = navigation.state.params;
 
     this.state = {
       cameraType: "back",
@@ -43,8 +38,6 @@ class CameraScreen extends Component<Props> {
       error: null,
       latitude: null,
       longitude: null,
-      id,
-      commonName,
       pictureTaken: false,
       focusedScreen: false
     };
@@ -61,11 +54,10 @@ class CameraScreen extends Component<Props> {
     } );
   }
 
-  getCameraCaptureFromGallery( id ) {
+  getCameraCaptureFromGallery() {
     const {
       latitude,
-      longitude,
-      commonName
+      longitude
     } = this.state;
 
     const {
@@ -83,9 +75,7 @@ class CameraScreen extends Component<Props> {
         image: photo.image,
         time: photo.timestamp,
         latitude,
-        longitude,
-        id,
-        commonName
+        longitude
       } ) );
     } ).catch( ( err ) => {
       this.setState( {
@@ -121,7 +111,6 @@ class CameraScreen extends Component<Props> {
   }
 
   requestCameraPermissions = async () => {
-    console.log( "permissions being asked" );
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.CAMERA
@@ -162,10 +151,8 @@ class CameraScreen extends Component<Props> {
   }
 
   savePhotoToGallery( data ) {
-    const { id } = this.state;
-
     CameraRoll.saveToCameraRoll( data.uri, "photo" )
-      .then( () => this.getCameraCaptureFromGallery( id ) )
+      .then( () => this.getCameraCaptureFromGallery() )
       .catch( ( err ) => {
         this.setState( {
           error: err.message

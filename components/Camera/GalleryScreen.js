@@ -15,7 +15,7 @@ import { NavigationEvents } from "react-navigation";
 
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { truncateCoordinates } from "../../utility/locationHelpers";
+import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 
@@ -24,23 +24,12 @@ type Props = {
 }
 
 class GalleryScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      id,
-      latitude,
-      longitude,
-      commonName
-    } = navigation.state.params;
 
     this.state = {
       photos: [],
       loading: true,
-      latitude,
-      longitude,
-      id,
-      commonName,
       error: null
     };
   }
@@ -91,50 +80,33 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  selectImage( imageClicked, timestamp, location ) {
-    const {
-      id,
-      latitude,
-      longitude,
-      commonName
-    } = this.state;
-
-    const {
-      navigation
-    } = this.props;
+  async selectImage( imageClicked, timestamp, location ) {
+    const { navigation } = this.props;
+    const userLocation = await getLatAndLng();
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        const navParams = {
-          id,
+        navigation.push( "Results", {
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude ),
-          commonName
-        };
-        navigation.push( "Results", navParams );
+          longitude: truncateCoordinates( location.longitude )
+        } );
       } else {
-        const navParams = {
-          id,
+        navigation.push( "Results", {
           image: imageClicked,
           time: timestamp,
-          latitude,
-          longitude,
-          commonName
-        };
-        navigation.push( "Results", navParams );
+          latitude: userLocation.latitude,
+          longitude: userLocation.longitude
+        } );
       }
     } else {
-      const navParams = {
-        id,
+      navigation.push( "Results", {
         image: imageClicked,
         time: timestamp,
-        latitude,
-        longitude,
-        commonName
-      };
-      navigation.push( "Results", navParams );
+        latitude: userLocation.latitude,
+        longitude: userLocation.longitude
+      } );
     }
   }
 
@@ -150,25 +122,23 @@ class GalleryScreen extends Component<Props> {
     } else {
       gallery = (
         <ScrollView contentContainerStyle={styles.container}>
-          {
-            photos.map( ( p, i ) => {
-              return (
-                <TouchableHighlight
-                  style={styles.button}
-                  key={i.toString()}
-                  underlayColor="transparent"
-                  onPress={() => {
-                    this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                  }}
-                >
-                  <Image
-                    style={styles.image}
-                    source={{ uri: p.node.image.uri }}
-                  />
-                </TouchableHighlight>
-              );
-            } )
-          }
+          {photos.map( ( p, i ) => {
+            return (
+              <TouchableHighlight
+                style={styles.button}
+                key={i.toString()}
+                underlayColor="transparent"
+                onPress={() => {
+                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
+                }}
+              >
+                <Image
+                  style={styles.image}
+                  source={{ uri: p.node.image.uri }}
+                />
+              </TouchableHighlight>
+            );
+          } )}
         </ScrollView>
       );
     }

@@ -7,7 +7,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   header: {
-    height: 196
+    height: 196,
+    overflow: "visible"
   },
   buttonContainer: {
     marginTop: 40,

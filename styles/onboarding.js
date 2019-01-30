@@ -40,6 +40,8 @@ export default StyleSheet.create( {
   textContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
     marginHorizontal: 22,
     marginTop: 21
   },

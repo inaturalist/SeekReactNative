@@ -20,6 +20,7 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   textContainer: {
+    width: 310,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 21

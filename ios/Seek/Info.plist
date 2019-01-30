@@ -29,7 +29,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 		<key>NSExceptionDomains</key>
-		<dict/>
+		<dict>
+			<key>localhost</key>
+			<string></string>
+		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>

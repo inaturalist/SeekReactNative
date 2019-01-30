@@ -16,8 +16,8 @@ export default StyleSheet.create( {
   },
   cameraImage: {
     marginBottom: Platform.OS === "android" ? 10 : 50,
-    width: Platform.OS === "android" ? 84 : "auto",
-    height: Platform.OS === "android" ? 84 : "auto"
+    width: Platform.OS === "android" ? 84 : 94,
+    height: Platform.OS === "android" ? 84 : 94
   },
   button: {
     paddingLeft: 5,

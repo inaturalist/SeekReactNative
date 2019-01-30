@@ -2,9 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  fontSize,
-  margins,
-  padding
+  margins
 } from "../global";
 
 export default StyleSheet.create( {
@@ -20,15 +18,9 @@ export default StyleSheet.create( {
     marginHorizontal: margins.medium
   },
   text: {
-    fontSize: fontSize.buttonText,
+    fontSize: 14,
     color: colors.white,
     fontFamily: fonts.default,
     textAlign: "center"
-  },
-  footer: {
-    flex: 0.2,
-    marginTop: margins.medium,
-    paddingBottom: padding.extraSmall,
-    backgroundColor: colors.black
   }
 } );

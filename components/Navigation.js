@@ -1,13 +1,9 @@
 import React from "react";
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image, Platform } from "react-native";
+import { Image } from "react-native";
 
-import {
-  colors,
-  padding,
-  fontSize,
-  fonts
-} from "../styles/global";
+import { colors } from "../styles/global";
+import styles from "../styles/navigation";
 import icons from "../assets/icons";
 import i18n from "../i18n";
 
@@ -47,21 +43,6 @@ const backButton = (
   />
 );
 
-const greenHeader = {
-  backgroundColor: colors.seekForestGreen,
-  borderBottomWidth: 0,
-  elevation: 0
-};
-
-const whiteHeaderTitle = {
-  fontSize: 22,
-  color: colors.white,
-  fontFamily: fonts.semibold,
-  flex: 1,
-  textAlign: "center",
-  paddingRight: Platform.OS === "android" ? 60 : null
-};
-
 const MenuDrawerNav = createDrawerNavigator( {
   Menu: {
     screen: SideMenu,
@@ -74,26 +55,12 @@ const CameraNav = createBottomTabNavigator( {
   PHOTOS: { screen: Gallery }
 }, {
   initialRouteName: "CAMERA",
-  backBehavior: "none",
+  backBehavior: "initialRoute",
+  animationEnabled: false,
   tabBarOptions: {
-    activeTintColor: colors.white,
-    activeBackgroundColor: colors.darkGreen,
-    inactiveTintColor: colors.lightGray,
-    labelStyle: {
-      color: colors.white,
-      textAlign: "center",
-      paddingTop: padding.small,
-      paddingBottom: padding.large,
-      fontFamily: fonts.semibold,
-      fontSize: fontSize.text
-    },
-    indicatorStyle: {
-      backgroundColor: colors.white
-    },
-    style: {
-      backgroundColor: colors.black,
-      height: 55
-    }
+    activeBackgroundColor: colors.seekForestGreen,
+    labelStyle: styles.cameraTabLabel,
+    style: styles.cameraTab
   }
 } );
 
@@ -172,8 +139,8 @@ const LoginStack = createStackNavigator( {
     screen: PrivacyPolicyScreen,
     navigationOptions: () => ( {
       title: i18n.t( "privacy.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
     } )
   }
@@ -196,8 +163,8 @@ const RootStack = createStackNavigator( {
     screen: NotificationsScreen,
     navigationOptions: () => ( {
       title: i18n.t( "notifications.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
     } )
   },
@@ -223,8 +190,8 @@ const RootStack = createStackNavigator( {
     screen: ChallengeScreen,
     navigationOptions: () => ( {
       title: i18n.t( "challenges.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
     } )
   },
@@ -244,7 +211,8 @@ const RootStack = createStackNavigator( {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
       headerTransparent: navigation.state.index === 0,
-      headerTintColor: navigation.state.index === 0 ? colors.white : null
+      headerTintColor: navigation.state.index === 0 ? colors.white : null,
+      mode: "modal"
     } )
   },
   Results: {
@@ -279,8 +247,8 @@ const RootStack = createStackNavigator( {
     screen: AboutScreen,
     navigationOptions: () => ( {
       title: i18n.t( "about.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
     } )
   }

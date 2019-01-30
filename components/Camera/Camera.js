@@ -204,19 +204,15 @@ class CameraScreen extends Component<Props> {
 
     if ( error ) {
       cameraContent = <ErrorScreen error={error} collection />;
+    } else if ( pictureTaken ) {
+      cameraContent = <LoadingWheel />;
     } else {
       cameraContent = (
-        <View style={styles.container}>
-          { pictureTaken ? (
-            <LoadingWheel />
-          ) : null }
-          <View style={styles.main} />
-          <View style={styles.footer}>
-            <TouchableOpacity
-              onPress={() => this.takePicture()}
-              style={styles.capture}
-            />
-          </View>
+        <View style={styles.footer}>
+          <TouchableOpacity
+            onPress={() => this.takePicture()}
+            style={styles.capture}
+          />
         </View>
       );
     }
@@ -257,6 +253,7 @@ class CameraScreen extends Component<Props> {
                 toggleFlash={this.toggleFlash}
                 toggleCamera={this.toggleCamera}
               />
+              <View style={styles.main} />
               {cameraContent}
             </RNCamera>
           ) : null}

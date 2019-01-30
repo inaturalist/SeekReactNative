@@ -12,6 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/results/results";
 import icons from "../../assets/icons";
+import Banner from "../Banner/Banner";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
@@ -22,7 +23,8 @@ type Props = {
   taxaId: number,
   userImage: string,
   navigation: any,
-  seenDate: string
+  seenDate: string,
+  showBanner: boolean
 }
 
 const MatchScreen = ( {
@@ -31,9 +33,11 @@ const MatchScreen = ( {
   speciesSeenImage,
   userImage,
   navigation,
-  seenDate
+  seenDate,
+  showBanner
 }: Props ) => (
   <View style={styles.container}>
+    {showBanner ? <Banner /> : null}
     <ScrollView>
       <LinearGradient
         colors={["#22784d", "#38976d"]}

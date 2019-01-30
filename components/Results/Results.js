@@ -53,7 +53,8 @@ class Results extends Component<Props> {
       taxaName: null,
       commonAncestor: null,
       match: null,
-      seenDate: null
+      seenDate: null,
+      showBanner: true
     };
   }
 
@@ -132,9 +133,11 @@ class Results extends Component<Props> {
       this.setState( { match: true } );
       if ( !latitude || !longitude ) {
         const location = await getLatAndLng();
-        addToCollection( observation, location.latitude, location.longitude, image );
+        await addToCollection( observation, location.latitude, location.longitude, image );
+        this.checkForNewBadges();
       } else {
-        addToCollection( observation, latitude, longitude, image );
+        await addToCollection( observation, latitude, longitude, image );
+        this.checkForNewBadges();
       }
     } else {
       this.setState( { match: false } );
@@ -161,6 +164,11 @@ class Results extends Component<Props> {
   checkForNewBadges() {
     const badgeEarned = recalculateBadges();
     console.log( badgeEarned, "badge earned in results" );
+    if ( badgeEarned ) {
+      this.setState( {
+        showBanner: true
+      } );
+    }
   }
 
   render() {
@@ -171,7 +179,8 @@ class Results extends Component<Props> {
       taxaId,
       speciesSeenImage,
       commonAncestor,
-      seenDate
+      seenDate,
+      showBanner
     } = this.state;
     const { navigation } = this.props;
 
@@ -186,6 +195,7 @@ class Results extends Component<Props> {
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
           seenDate={seenDate}
+          showBanner={showBanner}
         />
       );
     } else if ( !match && commonAncestor ) {

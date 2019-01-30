@@ -167,6 +167,10 @@
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}"
   },
+  "banner": {
+    "number_seen": "You've seen {{number}} {{taxaType}}!",
+    "view": "View badge"
+  },
   "badges": {
     "no_badges": "No Badges Earned",
     "1_badge": "1 Badge Earned!",

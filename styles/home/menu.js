@@ -1,8 +1,6 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { colors, fonts } from "../global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -12,7 +10,7 @@ export default StyleSheet.create( {
   column: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    width: width - 120,
+    width: 300,
     flexDirection: "column"
   },
   image: {

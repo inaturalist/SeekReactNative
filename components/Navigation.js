@@ -146,9 +146,9 @@ const LoginStack = createStackNavigator( {
   }
 } );
 
-const RootStack = createStackNavigator( {
-  Home: {
-    screen: SplashScreen,
+const MainStack = createStackNavigator( {
+  Main: {
+    screen: HomeScreen,
     navigationOptions: () => ( {
       header: null
     } )
@@ -166,24 +166,6 @@ const RootStack = createStackNavigator( {
       headerStyle: styles.greenHeader,
       headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
-    } )
-  },
-  Login: {
-    screen: LoginStack,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Main: {
-    screen: HomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Onboarding: {
-    screen: OnboardingScreen,
-    navigationOptions: () => ( {
-      header: null
     } )
   },
   Challenges: {
@@ -252,6 +234,33 @@ const RootStack = createStackNavigator( {
       headerStyle: styles.greenHeader,
       headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton
+    } )
+  }
+} );
+
+const RootStack = createStackNavigator( {
+  Home: {
+    screen: SplashScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Onboarding: {
+    screen: OnboardingScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Login: {
+    screen: LoginStack,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Main: {
+    screen: MainStack,
+    navigationOptions: () => ( {
+      header: null
     } )
   }
 }, StackNavigatorConfig );

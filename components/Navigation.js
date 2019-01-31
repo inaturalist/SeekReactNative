@@ -43,13 +43,6 @@ const backButton = (
   />
 );
 
-const MenuDrawerNav = createDrawerNavigator( {
-  Menu: {
-    screen: SideMenu,
-    drawerType: "slide"
-  }
-} );
-
 const CameraNav = createBottomTabNavigator( {
   CAMERA: { screen: Camera },
   PHOTOS: { screen: Gallery }
@@ -68,93 +61,13 @@ const StackNavigatorConfig = {
   headerMode: "screen"
 };
 
-const LoginStack = createStackNavigator( {
-  Login: {
-    screen: LoginScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Age: {
-    screen: AgeVerifyScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  iNatLogin: {
-    screen: iNatLoginScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Forgot: {
-    screen: ForgotPasswordScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  CheckEmail: {
-    screen: CheckEmailScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  ParentCheckEmail: {
-    screen: ParentCheckEmailScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Welcome: {
-    screen: WelcomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Parent: {
-    screen: ParentalConsentScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Signup: {
-    screen: SignUpScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Signup2: {
-    screen: SignUpScreen2,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Privacy: {
-    screen: PrivacyPolicyScreen,
-    navigationOptions: () => ( {
-      title: i18n.t( "privacy.header" ),
-      headerStyle: styles.greenHeader,
-      headerTitleStyle: styles.whiteHeaderTitle,
-      headerBackImage: backButton
-    } )
-  }
-} );
+const DrawerNavigatorConfig = {
+  contentComponent: SideMenu
+};
 
 const MainStack = createStackNavigator( {
   Main: {
     screen: HomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Menu: {
-    screen: MenuDrawerNav,
     navigationOptions: () => ( {
       header: null
     } )
@@ -238,6 +151,93 @@ const MainStack = createStackNavigator( {
   }
 } );
 
+const MenuDrawerNav = createDrawerNavigator( {
+  Main: {
+    screen: MainStack,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  }
+}, DrawerNavigatorConfig );
+
+const LoginStack = createStackNavigator( {
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Age: {
+    screen: AgeVerifyScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  iNatLogin: {
+    screen: iNatLoginScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  Forgot: {
+    screen: ForgotPasswordScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  CheckEmail: {
+    screen: CheckEmailScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  ParentCheckEmail: {
+    screen: ParentCheckEmailScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Welcome: {
+    screen: WelcomeScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Parent: {
+    screen: ParentalConsentScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  Signup: {
+    screen: SignUpScreen,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  Signup2: {
+    screen: SignUpScreen2,
+    navigationOptions: () => ( {
+      headerTransparent: true,
+      headerBackImage: backButton
+    } )
+  },
+  Privacy: {
+    screen: PrivacyPolicyScreen,
+    navigationOptions: () => ( {
+      title: i18n.t( "privacy.header" ),
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
+      headerBackImage: backButton
+    } )
+  }
+} );
+
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen,
@@ -258,7 +258,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Main: {
-    screen: MainStack,
+    screen: MenuDrawerNav,
     navigationOptions: () => ( {
       header: null
     } )

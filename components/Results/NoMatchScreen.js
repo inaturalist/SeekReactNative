@@ -50,11 +50,11 @@ const MatchScreen = ( {
       <View style={styles.textContainer}>
         <Text style={styles.headerText}>{i18n.t( "results.no_identification" ).toLocaleUpperCase()}</Text>
         <Text style={styles.text}>{i18n.t( "results.sorry" )}</Text>
-        <TouchableOpacity style={[styles.button, styles.buttonGray]}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => navigation.push( "Camera" )}
-          >
+        <TouchableOpacity
+          style={[styles.button, styles.buttonGray]}
+          onPress={() => navigation.push( "Camera" )}
+        >
+          <Text style={styles.buttonText}>
             {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>

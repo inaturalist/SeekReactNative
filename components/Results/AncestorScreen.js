@@ -59,11 +59,11 @@ const MatchScreen = ( {
         <Text style={styles.headerText}>{i18n.t( "results.believe" ).toLocaleUpperCase()}</Text>
         <Text style={styles.speciesText}>{commonAncestor}</Text>
         <Text style={styles.text}>{i18n.t( "results.common_ancestor" )}</Text>
-        <TouchableOpacity style={[styles.button, styles.buttonBlue]}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => navigation.navigate( "Camera" )}
-          >
+        <TouchableOpacity
+          style={[styles.button, styles.buttonBlue]}
+          onPress={() => navigation.navigate( "Camera" )}
+        >
+          <Text style={styles.buttonText}>
             {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>

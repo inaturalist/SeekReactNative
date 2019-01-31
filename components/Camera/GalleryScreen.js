@@ -30,24 +30,42 @@ class GalleryScreen extends Component<Props> {
     this.state = {
       photos: [],
       loading: true,
-      error: null
+      error: null,
+      hasNextPage: true,
+      lastCursor: null,
+      stillLoading: false
     };
   }
 
   getPhotos() {
-    CameraRoll.getPhotos( {
-      first: 1000,
+    const { lastCursor, hasNextPage, stillLoading } = this.state;
+
+    const photoOptions = {
+      first: 28,
       assetType: "Photos"
-    } ).then( ( results ) => {
+    };
+
+    if ( lastCursor ) {
+      photoOptions.after = lastCursor;
+    }
+
+    if ( hasNextPage && !stillLoading ) {
       this.setState( {
-        photos: results.edges,
-        loading: false
+        stillLoading: true
       } );
-    } ).catch( ( err ) => {
-      this.setState( {
-        error: err.message
+      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+        this.appendPhotos( results.edges );
+        this.setState( {
+          loading: false,
+          hasNextPage: results.page_info.has_next_page,
+          lastCursor: results.page_info.end_cursor
+        } );
+      } ).catch( ( err ) => {
+        this.setState( {
+          error: err.message
+        } );
       } );
-    } );
+    }
   }
 
   requestAndroidPermissions = async () => {
@@ -62,6 +80,27 @@ class GalleryScreen extends Component<Props> {
       }
     } catch ( err ) {
       this.showError( err );
+    }
+  }
+
+  appendPhotos( data ) {
+    const { photos } = this.state;
+
+    if ( photos.length > 0 ) {
+      data.forEach( ( photo ) => {
+        photos.push( photo );
+      } );
+      this.setState( {
+        photos,
+        stillLoading: false
+      } );
+      console.log( this.state.photos.length, "photos after concat" );
+    } else {
+      this.setState( {
+        photos: data,
+        stillLoading: false
+      } );
+      console.log( this.state.photos.length, "photos no concat" );
     }
   }
 
@@ -111,7 +150,11 @@ class GalleryScreen extends Component<Props> {
   }
 
   render() {
-    const { error, loading, photos } = this.state;
+    const {
+      error,
+      loading,
+      photos
+    } = this.state;
 
     let gallery;
 
@@ -121,7 +164,10 @@ class GalleryScreen extends Component<Props> {
       gallery = <LoadingWheel color={colors.darkGray} />;
     } else {
       gallery = (
-        <ScrollView contentContainerStyle={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.container}
+          onScroll={() => this.getPhotos()}
+        >
           {photos.map( ( p, i ) => {
             return (
               <TouchableHighlight

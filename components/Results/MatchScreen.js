@@ -70,18 +70,21 @@ const MatchScreen = ( {
         {seenDate ? (
           <Text style={styles.text}>{i18n.t( "results.date_observed", { defaultValue: "{{seenDate}}", seenDate } )}</Text>
         ) : <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.push( "Species", {
+            id: taxaId,
+            latitude: 0.0,
+            longitude: 0.0,
+            location: null,
+            seen: false,
+            commonName: taxaName,
+            scientificName: null
+          } )
+          }
+        >
           <Text
             style={styles.buttonText}
-            onPress={() => navigation.push( "Species", {
-              id: taxaId,
-              latitude: 0.0,
-              longitude: 0.0,
-              location: null,
-              seen: false,
-              commonName: taxaName,
-              scientificName: null
-            } )}
           >
             {i18n.t( "results.view_species" ).toLocaleUpperCase()}
           </Text>

@@ -20,7 +20,6 @@ const Footer = ( {
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.openDrawer()}
-        // onPress={() => navigation.navigate( "Menu" )}
       >
         <Image source={icons.hamburger} />
       </TouchableOpacity>

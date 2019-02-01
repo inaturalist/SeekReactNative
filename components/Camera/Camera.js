@@ -110,25 +110,15 @@ class CameraScreen extends Component<Props> {
     }
   }
 
-  requestCameraPermissions = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA
-      );
-      if ( !granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.showError( "Camera permissions denied" );
-      }
-    } catch ( err ) {
-      this.showError( `Camera permissions denied: ${err}` );
-    }
-  }
-
   requestAndroidPermissions = async ( data ) => {
+    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+      const granted = await PermissionsAndroid.requestMultiple( [
+        save,
+        retrieve
+      ] );
+      if ( granted[save] === PermissionsAndroid.RESULTS.GRANTED ) {
         this.savePhotoToGallery( data );
       } else {
         this.showError( JSON.stringify( granted ) );

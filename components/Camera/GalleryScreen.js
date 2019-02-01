@@ -69,11 +69,15 @@ class GalleryScreen extends Component<Props> {
   }
 
   requestAndroidPermissions = async () => {
+    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+      const granted = await PermissionsAndroid.requestMultiple( [
+        save,
+        retrieve
+      ] );
+      if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
         this.getPhotos();
       } else {
         this.showError( JSON.stringify( granted ) );

@@ -182,7 +182,11 @@ class CameraScreen extends Component<Props> {
     if ( error ) {
       cameraContent = <ErrorScreen error={error} collection />;
     } else if ( pictureTaken ) {
-      cameraContent = <LoadingWheel />;
+      cameraContent = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel />
+        </View>
+      );
     } else {
       cameraContent = (
         <View style={styles.footer}>

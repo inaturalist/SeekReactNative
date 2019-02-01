@@ -13,6 +13,11 @@ export default StyleSheet.create( {
   main: {
     flexGrow: 1
   },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   footer: {
     height: 80,
     flexDirection: "row",

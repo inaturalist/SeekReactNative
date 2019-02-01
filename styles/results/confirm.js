@@ -6,32 +6,32 @@ const { width } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: colors.white,
-    justifyContent: "space-around"
+    justifyContent: "space-between"
   },
   header: {
-    marginLeft: 21,
+    backgroundColor: colors.white,
+    height: 60,
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "space-around"
   },
   headerText: {
-    marginLeft: 40,
     paddingTop: Platform.OS === "ios" ? 10 : null,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.0
   },
-  textContainer: {
-    alignItems: "center"
-  },
   image: {
     width,
-    height: width,
+    height: width
+  },
+  footer: {
+    alignItems: "center",
     marginBottom: 50
   },
   button: {
-
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekForestGreen,
@@ -45,5 +45,8 @@ export default StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? 10 : null,
     fontSize: 18,
     color: colors.white
+  },
+  backButton: {
+    padding: 10
   }
 } );

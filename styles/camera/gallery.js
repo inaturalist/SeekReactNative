@@ -9,7 +9,7 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 50,
+    height: 60,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
@@ -21,6 +21,11 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.0
+  },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   galleryContainer: {
     flex: 1,
@@ -38,5 +43,8 @@ export default StyleSheet.create( {
   image: {
     width: width / 4 - 2,
     height: width / 4 - 2
+  },
+  backButton: {
+    padding: 10
   }
 } );

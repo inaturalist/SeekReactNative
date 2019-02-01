@@ -169,7 +169,11 @@ class GalleryScreen extends Component<Props> {
     if ( error ) {
       gallery = <ErrorScreen error={error} collection />;
     } else if ( loading ) {
-      gallery = <LoadingWheel color={colors.darkGray} />;
+      gallery = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel color={colors.darkGray} />
+        </View>
+      );
     } else {
       gallery = (
         <ScrollView
@@ -205,6 +209,7 @@ class GalleryScreen extends Component<Props> {
         <StatusBar hidden />
         <View style={styles.header}>
           <TouchableOpacity
+            style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
             <Image

@@ -31,20 +31,20 @@ const ConfirmScreen = ( {
   <View style={styles.container}>
     <View style={styles.header}>
       <TouchableOpacity
+        style={styles.backButton}
         onPress={() => navigation.goBack()}
       >
-        <Image
-          source={icons.backButtonGreen}
-        />
+        <Image source={icons.backButtonGreen} />
       </TouchableOpacity>
       <Text style={styles.headerText}>{i18n.t( "confirm.identify" ).toLocaleUpperCase()}</Text>
+      <View />
     </View>
-    <View style={styles.textContainer}>
-      {loading && photoConfirmed ? <LoadingWheel /> : null}
-      <Image
-        source={{ uri: image.uri }}
-        style={styles.image}
-      />
+    {loading && photoConfirmed ? <LoadingWheel /> : null}
+    <Image
+      source={{ uri: image.uri }}
+      style={styles.image}
+    />
+    <View style={styles.footer}>
       <TouchableOpacity
         style={styles.button}
         onPress={() => confirmPhoto()}

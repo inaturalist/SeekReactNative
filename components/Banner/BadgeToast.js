@@ -31,7 +31,7 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
       <Text style={styles.description}>
         {i18n.t( "banner.number_seen", {
           number: badge.count,
-          taxaType: badge.iconicTaxonName
+          taxaType: badge.iconicTaxonName || i18n.t( "banner.species" )
         } )}
       </Text>
       <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>

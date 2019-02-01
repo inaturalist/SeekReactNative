@@ -19,7 +19,8 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   textContainer: {
-    width: 215
+    width: 215,
+    marginRight: 10
   },
   headerText: {
     paddingTop: Platform.OS === "ios" ? 10 : null,

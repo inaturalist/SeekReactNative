@@ -35,6 +35,7 @@ import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
+import CameraHelpScreen from "./Camera/CameraHelpScreen";
 
 const backButton = (
   <Image
@@ -58,7 +59,6 @@ const CameraNav = createMaterialTopTabNavigator( {
   }
 }, {
   initialRouteName: "CAMERA",
-  // backBehavior: "initialRoute",
   tabBarPosition: "bottom",
   tabBarOptions: {
     scrollEnabled: true,
@@ -118,6 +118,15 @@ const MainStack = createStackNavigator( {
     navigationOptions: () => ( {
       header: null,
       mode: "modal"
+    } )
+  },
+  CameraHelp: {
+    screen: CameraHelpScreen,
+    navigationOptions: () => ( {
+      title: i18n.t( "about.header" ),
+      headerStyle: styles.greenHeader,
+      headerTitleStyle: styles.whiteHeaderTitle,
+      headerBackImage: backButton
     } )
   },
   Results: {

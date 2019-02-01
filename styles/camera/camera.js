@@ -19,9 +19,10 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   footer: {
-    height: 80,
+    height: 105,
     flexDirection: "row",
-    justifyContent: "center"
+    alignItems: "center",
+    justifyContent: "space-around"
   },
   capture: {
     backgroundColor: colors.white,
@@ -30,5 +31,21 @@ export default StyleSheet.create( {
     borderColor: colors.seekiNatGreen,
     width: 49,
     height: 49
+  },
+  placeholder: {
+    width: 49
+  },
+  textCircle: {
+    width: 29,
+    height: 29,
+    borderWidth: 1,
+    borderRadius: 29 / 2,
+    borderColor: colors.white,
+    justifyContent: "center"
+  },
+  helpText: {
+    textAlign: "center",
+    color: colors.white,
+    fontSize: 23
   }
 } );

@@ -9,7 +9,8 @@ import {
   View,
   TouchableOpacity,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -190,10 +191,17 @@ class CameraScreen extends Component<Props> {
     } else {
       cameraContent = (
         <View style={styles.footer}>
+          <View style={styles.placeholder} />
           <TouchableOpacity
             onPress={() => this.takePicture()}
             style={styles.capture}
           />
+          <TouchableOpacity
+            style={styles.textCircle}
+            onPress={() => navigation.navigate( "CameraHelp" )}
+          >
+            <Text style={styles.helpText}>?</Text>
+          </TouchableOpacity>
         </View>
       );
     }

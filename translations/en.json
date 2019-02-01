@@ -186,6 +186,20 @@
     "label": "Photos",
     "choose_photo": "Choose a photo"
   },
+  "camera_help": {
+    "title": "Seek's Camera",
+    "header": "Fill up all the green circles, then take a picture!",
+    "explanation": "When all the dots are filled, it means Seek is confident that it can identify the organism to species!\n\nCollect observations by taking photos identified to species of as many plants, animals, and fungi as you can!",
+    "header_1": "How does it work?",
+    "how_works": "Seek’s identification AI works directly using the Tree of Life!\n\nEach dot on the identification bar represents a taxonomic level on the Tree of Life. As Seek is able to confidently identify the species you’re looking at at each level, it will add a dot to the level it is confident.",
+    "header_2": "Tips and Tricks",
+    "tips": "Make sure you try different angles and make sure your lighting is good! Seek is best at identifying photos with good lighting and a clear shot of the species.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at a species that’s not commonly found in iNaturalist’s database.",
+    "header_3": "Remember",
+    "tip_1": "Always be aware of your surroundings and stay safe!",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Don’t trespass.",
+    "tip_4": "Respect other living things by not harassing or touching them. Some may sting or bite."
+  },
   "confirm": {
     "identify": "Identify this photo?",
     "button": "Identify Photo"

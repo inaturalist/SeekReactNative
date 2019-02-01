@@ -123,7 +123,7 @@ const MainStack = createStackNavigator( {
   CameraHelp: {
     screen: CameraHelpScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "about.header" ),
+      title: i18n.t( "camera_help.title" ),
       headerStyle: styles.greenHeader,
       headerTitleStyle: styles.whiteHeaderTitle,
       headerBackImage: backButton

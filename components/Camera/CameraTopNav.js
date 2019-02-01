@@ -4,12 +4,14 @@ import React from "react";
 import {
   View,
   Text,
+  Image,
   TouchableOpacity
 } from "react-native";
 import CameraFlipIcon from "react-native-vector-icons/Ionicons";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import i18n from "../../i18n";
+import icons from "../../assets/icons";
 import styles from "../../styles/camera/cameraNavBar";
 import { colors } from "../../styles/global";
 
@@ -31,24 +33,25 @@ const CameraTopNav = ( {
   toggleCamera
 }: Props ) => (
   <View style={styles.header}>
-    <View />
-    {navigation.state.key === "CAMERA" ? (
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleFlash()}
-      >
-        <Text style={styles.text}>
-          {flash === "off" ? flashOffIcon : flashOnIcon}
-        </Text>
-        <Text style={styles.text}>
-          {flash === "off" ? i18n.t( "camera.off" ).toUpperCase() : i18n.t( "camera.on" ).toUpperCase()}
-        </Text>
-      </TouchableOpacity>
-    ) : null}
+    <TouchableOpacity
+      style={styles.backButton}
+      onPress={() => navigation.navigate( "Main" )}
+    >
+      <Image source={icons.backButton} />
+    </TouchableOpacity>
+    <TouchableOpacity
+      style={styles.buttons}
+      onPress={() => toggleFlash()}
+    >
+      <Text style={styles.text}>
+        {flash === "off" ? flashOffIcon : flashOnIcon}
+      </Text>
+      <Text style={styles.text}>
+        {flash === "off" ? i18n.t( "camera.off" ).toUpperCase() : i18n.t( "camera.on" ).toUpperCase()}
+      </Text>
+    </TouchableOpacity>
     <TouchableOpacity onPress={() => toggleCamera()}>
-      {navigation.state.key === "CAMERA" ? (
-        <Text style={styles.text}>{cameraFlipIcon}</Text>
-      ) : null}
+      <Text style={styles.text}>{cameraFlipIcon}</Text>
     </TouchableOpacity>
   </View>
 );

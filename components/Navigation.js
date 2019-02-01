@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image, Text } from "react-native";
+import { Image } from "react-native";
 
 import { colors } from "../styles/global";
 import styles from "../styles/navigation";
@@ -58,7 +58,7 @@ const CameraNav = createMaterialTopTabNavigator( {
   }
 }, {
   initialRouteName: "CAMERA",
-  backBehavior: "initialRoute",
+  // backBehavior: "initialRoute",
   tabBarPosition: "bottom",
   tabBarOptions: {
     scrollEnabled: true,
@@ -115,11 +115,8 @@ const MainStack = createStackNavigator( {
   },
   Camera: {
     screen: CameraNav,
-    navigationOptions: ( { navigation } ) => ( {
-      title: navigation.state.index === 1 ? i18n.t( "gallery.choose_photo" ).toLocaleUpperCase() : null,
-      headerTransparent: navigation.state.index === 0,
-      headerTintColor: navigation.state.index === 0 ? colors.white : null,
-      headerTitleStyle: styles.galleryHeader,
+    navigationOptions: () => ( {
+      header: null,
       mode: "modal"
     } )
   },

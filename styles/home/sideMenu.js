@@ -2,16 +2,10 @@ import { StyleSheet } from "react-native";
 
 import { colors, fonts } from "../global";
 
+
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    backgroundColor: colors.darkGray
-  },
-  column: {
-    flex: 1,
-    backgroundColor: colors.seekForestGreen,
-    width: 300,
-    flexDirection: "column"
+    flex: 1
   },
   image: {
     marginTop: 22,

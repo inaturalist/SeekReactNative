@@ -8,11 +8,15 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
+  TouchableOpacity,
+  Text,
   View,
   StatusBar
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
+import icons from "../../assets/icons";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
@@ -158,6 +162,8 @@ class GalleryScreen extends Component<Props> {
       photos
     } = this.state;
 
+    const { navigation } = this.props;
+
     let gallery;
 
     if ( error ) {
@@ -197,6 +203,17 @@ class GalleryScreen extends Component<Props> {
           onWillFocus={() => this.checkPermissions()}
         />
         <StatusBar hidden />
+        <View style={styles.header}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+          >
+            <Image
+              source={icons.backButtonGreen}
+            />
+          </TouchableOpacity>
+          <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
+          <View />
+        </View>
         <View style={styles.galleryContainer}>
           {gallery}
         </View>

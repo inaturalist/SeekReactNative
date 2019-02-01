@@ -17,6 +17,9 @@ export default StyleSheet.create( {
     marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
     marginHorizontal: 25
   },
+  backButton: {
+    padding: 10
+  },
   buttons: {
     flexDirection: "row",
     flexWrap: "nowrap",

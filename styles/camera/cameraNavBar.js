@@ -15,7 +15,13 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     alignItems: "center",
     marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
-    marginHorizontal: margins.medium
+    marginHorizontal: 25
+  },
+  buttons: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center"
   },
   text: {
     fontSize: 14,

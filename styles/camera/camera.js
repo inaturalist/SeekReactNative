@@ -20,10 +20,10 @@ export default StyleSheet.create( {
   },
   capture: {
     backgroundColor: colors.white,
-    borderWidth: 3,
-    borderRadius: 100,
-    borderColor: colors.darkGray,
-    width: 50,
-    height: 50
+    borderWidth: 2,
+    borderRadius: 49 / 2,
+    borderColor: colors.seekiNatGreen,
+    width: 49,
+    height: 49
   }
 } );

@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
+import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
 import { Image } from "react-native";
 
 import { colors } from "../styles/global";
@@ -43,17 +43,28 @@ const backButton = (
   />
 );
 
-const CameraNav = createBottomTabNavigator( {
-  CAMERA: { screen: Camera },
-  PHOTOS: { screen: Gallery }
+const CameraNav = createMaterialTopTabNavigator( {
+  CAMERA: {
+    screen: Camera,
+    navigationOptions: () => ( {
+      title: i18n.t( "camera.label" ).toLocaleUpperCase()
+    } )
+  },
+  PHOTOS: {
+    screen: Gallery,
+    navigationOptions: () => ( {
+      title: i18n.t( "gallery.label" ).toLocaleUpperCase()
+    } )
+  }
 }, {
   initialRouteName: "CAMERA",
   backBehavior: "initialRoute",
-  animationEnabled: false,
+  tabBarPosition: "bottom",
   tabBarOptions: {
-    activeBackgroundColor: colors.seekForestGreen,
+    scrollEnabled: true,
     labelStyle: styles.cameraTabLabel,
-    style: styles.cameraTab
+    style: styles.cameraTab,
+    indicatorStyle: styles.indicator
   }
 } );
 
@@ -105,7 +116,7 @@ const MainStack = createStackNavigator( {
   Camera: {
     screen: CameraNav,
     navigationOptions: ( { navigation } ) => ( {
-      title: navigation.state.index === 1 ? i18n.t( "headers.choose_photo" ).toLocaleUpperCase() : null,
+      title: navigation.state.index === 1 ? i18n.t( "gallery.choose_photo" ).toLocaleUpperCase() : null,
       headerTransparent: navigation.state.index === 0,
       headerTintColor: navigation.state.index === 0 ? colors.white : null,
       headerTitleStyle: styles.galleryHeader,

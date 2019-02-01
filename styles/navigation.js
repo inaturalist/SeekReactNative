@@ -1,8 +1,10 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "./global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   greenHeader: {
@@ -21,15 +23,19 @@ export default StyleSheet.create( {
   cameraTab: {
     backgroundColor: colors.black,
     height: 41,
-    justifyContent: "center",
     alignItems: "center"
   },
   cameraTabLabel: {
     color: colors.white,
-    paddingBottom: 10,
     fontFamily: fonts.semibold,
     letterSpacing: 0.88,
     fontSize: 14
+  },
+  indicator: {
+    position: "absolute",
+    left: width / 10,
+    width: width / 2.5,
+    backgroundColor: colors.seekGreen
   },
   galleryHeader: {
     paddingTop: Platform.OS === "ios" ? 10 : null,

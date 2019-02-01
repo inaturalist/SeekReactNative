@@ -2,6 +2,9 @@ import { StyleSheet, Platform } from "react-native";
 import { fonts, colors } from "../global";
 
 export default StyleSheet.create( {
+  topContainer: {
+    zIndex: 1
+  },
   animatedStyle: {
     position: "absolute",
     left: 0,

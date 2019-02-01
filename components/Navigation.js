@@ -1,6 +1,6 @@
 import React from "react";
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image } from "react-native";
+import { Image, Text } from "react-native";
 
 import { colors } from "../styles/global";
 import styles from "../styles/navigation";

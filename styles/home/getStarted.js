@@ -21,6 +21,7 @@ export default StyleSheet.create( {
   },
   textContainer: {
     width: 310,
+    marginHorizontal: 22,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 21

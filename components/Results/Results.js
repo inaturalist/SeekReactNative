@@ -25,7 +25,7 @@ import {
   addToCollection
 } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
-import { recalculateBadges } from "../../utility/badgeHelpers";
+import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 
 type Props = {
   navigation: any
@@ -55,7 +55,6 @@ class Results extends Component<Props> {
       commonAncestor: null,
       match: null,
       seenDate: null,
-      showBanner: true,
       loading: true,
       photoConfirmed: false
     };
@@ -122,7 +121,6 @@ class Results extends Component<Props> {
           commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
         }, () => {
           this.checkForMatch( match.combined_score );
-          this.checkDateSpeciesSeen( match.taxon.id );
         } );
       } )
       .catch( ( err ) => {
@@ -135,18 +133,18 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image
+      image,
+      taxaId
     } = this.state;
 
     if ( score > 97 ) {
+      this.checkDateSpeciesSeen( taxaId );
       this.setState( { match: true } );
       if ( !latitude || !longitude ) {
         const location = await getLatAndLng();
-        await addToCollection( observation, location.latitude, location.longitude, image );
-        this.checkForNewBadges();
+        addToCollection( observation, location.latitude, location.longitude, image );
       } else {
-        await addToCollection( observation, latitude, longitude, image );
-        this.checkForNewBadges();
+        addToCollection( observation, latitude, longitude, image );
       }
     } else {
       this.setState( { match: false } );
@@ -171,16 +169,6 @@ class Results extends Component<Props> {
       } );
   }
 
-  checkForNewBadges() {
-    const badgeEarned = recalculateBadges();
-    console.log( badgeEarned, "badge earned in results" );
-    if ( badgeEarned ) {
-      this.setState( {
-        showBanner: true
-      } );
-    }
-  }
-
   confirmPhoto() {
     this.setState( {
       photoConfirmed: true
@@ -196,7 +184,6 @@ class Results extends Component<Props> {
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      showBanner,
       loading,
       image,
       photoConfirmed
@@ -214,7 +201,6 @@ class Results extends Component<Props> {
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
           seenDate={seenDate}
-          showBanner={showBanner}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -238,7 +224,10 @@ class Results extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavigationEvents
-          onWillFocus={() => this.resizeImage()}
+          onWillFocus={() => {
+            this.resizeImage();
+            checkNumberOfBadgesEarned();
+          }}
         />
         {!loading && photoConfirmed
           ? resultScreen

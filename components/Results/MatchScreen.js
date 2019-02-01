@@ -23,8 +23,7 @@ type Props = {
   taxaId: number,
   userImage: string,
   navigation: any,
-  seenDate: string,
-  showBanner: boolean
+  seenDate: string
 }
 
 const MatchScreen = ( {
@@ -33,11 +32,10 @@ const MatchScreen = ( {
   speciesSeenImage,
   userImage,
   navigation,
-  seenDate,
-  showBanner
+  seenDate
 }: Props ) => (
   <View style={styles.container}>
-    {showBanner ? <Banner navigation={navigation} /> : null}
+    <Banner navigation={navigation} />
     <ScrollView>
       <LinearGradient
         colors={["#22784d", "#38976d"]}

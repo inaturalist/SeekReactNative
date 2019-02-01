@@ -41,5 +41,9 @@ export default StyleSheet.create( {
     fontSize: 14,
     lineHeight: 21,
     color: colors.black
+  },
+  image: {
+    width: 59,
+    height: 66
   }
 } );

@@ -10,28 +10,33 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/banner/badgeToast";
-import icons from "../../assets/icons";
+import badges from "../../assets/badges";
 
 type Props = {
-  navigation: any
+  navigation: any,
+  badge: Object
 }
 
-const BadgeToast = ( { navigation }: Props ) => (
+const BadgeToast = ( { navigation, badge }: Props ) => (
   <TouchableOpacity
     style={styles.container}
     onPress={() => navigation.navigate( "Badges" )}
   >
     <View style={styles.textContainer}>
-      <Text style={styles.headerText}>{"BADGE NAME".toUpperCase()}</Text>
+      <Text style={styles.headerText}>
+        {badge.name.toUpperCase()}
+        {" "}
+        {i18n.t( "banner.badge" ).toLocaleUpperCase()}
+      </Text>
       <Text style={styles.description}>
         {i18n.t( "banner.number_seen", {
-          number: 10,
-          taxaType: "Amphibians"
+          number: badge.count,
+          taxaType: badge.iconicTaxonName
         } )}
       </Text>
       <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>
     </View>
-    <Image source={icons.badgePlaceholder} />
+    <Image style={styles.image} source={badges[badge.earnedIconName]} />
   </TouchableOpacity>
 );
 

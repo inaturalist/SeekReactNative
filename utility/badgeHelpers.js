@@ -1,11 +1,10 @@
 const Realm = require( "realm" );
+const { AsyncStorage } = require( "react-native" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );
 
 const recalculateBadges = () => {
-  let badgeEarned = false;
-
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
@@ -21,7 +20,6 @@ const recalculateBadges = () => {
               badge.earned = true;
               badge.earnedDate = new Date();
             } );
-            badgeEarned = true;
           }
         } else if ( badge.count !== 0 ) {
           if ( collectedTaxa.length >= badge.count ) {
@@ -29,14 +27,12 @@ const recalculateBadges = () => {
               badge.earned = true;
               badge.earnedDate = new Date();
             } );
-            badgeEarned = true;
           }
         }
       } );
     } ).catch( ( err ) => {
       // console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
-  return badgeEarned;
 };
 
 const setupBadges = () => {
@@ -64,7 +60,32 @@ const setupBadges = () => {
     } );
 };
 
+const setBadgesEarned = ( badges ) => {
+  AsyncStorage.setItem( "badgesEarned", badges );
+};
+
+const checkNumberOfBadgesEarned = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
+      setBadgesEarned( earnedBadges.length.toString() );
+    } ).catch( ( e ) => {
+      console.log( e, "error checking number of badges earned" );
+    } );
+};
+
+const getBadgesEarned = async () => {
+  try {
+    const earned = await AsyncStorage.getItem( "badgesEarned" );
+    return earned;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   recalculateBadges,
-  setupBadges
+  setupBadges,
+  checkNumberOfBadgesEarned,
+  getBadgesEarned
 };

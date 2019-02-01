@@ -42,7 +42,7 @@ const badges = {
   amphibian1: {
     infoText: "Earned after collecting your first amphibian photo.",
     name: "1st Amphibian",
-    iconicTaxon: "Amphibians",
+    iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -52,7 +52,7 @@ const badges = {
   arachnid1: {
     infoText: "Earned after collecting your first arachnid photo.",
     name: "1st Arachnid",
-    iconicTaxon: "Arachnids",
+    iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -62,7 +62,7 @@ const badges = {
   bird1: {
     infoText: "Earned after collecting your first bird photo.",
     name: "1st Bird",
-    iconicTaxon: "Birds",
+    iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -72,7 +72,7 @@ const badges = {
   fish1: {
     infoText: "Earned after collecting your first fish photo.",
     name: "1st Fish",
-    iconicTaxon: "Fishs",
+    iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -82,7 +82,7 @@ const badges = {
   fungi1: {
     infoText: "Earned after collecting your first fungi photo.",
     name: "1st Fungus",
-    iconicTaxon: "Fungi",
+    iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -92,7 +92,7 @@ const badges = {
   insect1: {
     infoText: "Earned after collecting your first insect photo.",
     name: "1st Insect",
-    iconicTaxon: "Insects",
+    iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -102,7 +102,7 @@ const badges = {
   mammal1: {
     infoText: "Earned after collecting your first mammal photo.",
     name: "1st Mammal",
-    iconicTaxon: "Mammals",
+    iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -112,7 +112,7 @@ const badges = {
   mollusk1: {
     infoText: "Earned after collecting your first mollusk photo.",
     name: "1st Mollusk",
-    iconicTaxon: "Mollusks",
+    iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -122,7 +122,7 @@ const badges = {
   plant1: {
     infoText: "Earned after collecting your first plant photo.",
     name: "1st Plant",
-    iconicTaxon: "Plants",
+    iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -132,7 +132,7 @@ const badges = {
   reptile1: {
     infoText: "Earned after collecting your first reptile photo.",
     name: "1st Reptile",
-    iconicTaxon: "Reptiles",
+    iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 1,
     unearnedIconName: "badge_species-01-empty",
@@ -142,7 +142,7 @@ const badges = {
   amphibian5: {
     infoText: "Earned after collecting your fifth amphibian photo.",
     name: "5th Amphibian",
-    iconicTaxon: "Amphibians",
+    iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -152,7 +152,7 @@ const badges = {
   arachnid5: {
     infoText: "Earned after collecting your fifth arachnid photo.",
     name: "5th Arachnid",
-    iconicTaxon: "Arachnids",
+    iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -162,7 +162,7 @@ const badges = {
   bird5: {
     infoText: "Earned after collecting your fifth bird photo.",
     name: "5th Bird",
-    iconicTaxon: "Birds",
+    iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -172,7 +172,7 @@ const badges = {
   fish5: {
     infoText: "Earned after collecting your fifth fish photo.",
     name: "5th Fish",
-    iconicTaxon: "Fishs",
+    iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -182,7 +182,7 @@ const badges = {
   fungi5: {
     infoText: "Earned after collecting your fifth fungi photo.",
     name: "5th Fungus",
-    iconicTaxon: "Fungi",
+    iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -192,7 +192,7 @@ const badges = {
   insect5: {
     infoText: "Earned after collecting your fifth insect photo.",
     name: "5th Insect",
-    iconicTaxon: "Insects",
+    iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -202,7 +202,7 @@ const badges = {
   mammal5: {
     infoText: "Earned after collecting your fifth mammal photo.",
     name: "5th Mammal",
-    iconicTaxon: "Mammals",
+    iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -212,7 +212,7 @@ const badges = {
   mollusk5: {
     infoText: "Earned after collecting your fifth mollusk photo.",
     name: "5th Mollusk",
-    iconicTaxon: "Mollusks",
+    iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -222,7 +222,7 @@ const badges = {
   plant5: {
     infoText: "Earned after collecting your fifth plant photo.",
     name: "5th Plant",
-    iconicTaxon: "Plants",
+    iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -232,7 +232,7 @@ const badges = {
   reptile5: {
     infoText: "Earned after collecting your fifth reptile photo.",
     name: "5th Reptile",
-    iconicTaxon: "Reptiles",
+    iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 5,
     unearnedIconName: "badge_species-05-empty",
@@ -242,7 +242,7 @@ const badges = {
   amphibian25: {
     infoText: "Earned after collecting your 25th amphibian photo.",
     name: "25th Amphibian",
-    iconicTaxon: "Amphibians",
+    iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -252,7 +252,7 @@ const badges = {
   arachnid25: {
     infoText: "Earned after collecting your 25th arachnid photo.",
     name: "25th Arachnid",
-    iconicTaxon: "Arachnids",
+    iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -262,7 +262,7 @@ const badges = {
   bird25: {
     infoText: "Earned after collecting your 25th bird photo.",
     name: "25th Bird",
-    iconicTaxon: "Birds",
+    iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -272,7 +272,7 @@ const badges = {
   fish25: {
     infoText: "Earned after collecting your 25th fish photo.",
     name: "25th Fish",
-    iconicTaxon: "Fishs",
+    iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -282,7 +282,7 @@ const badges = {
   fungi25: {
     infoText: "Earned after collecting your 25th fungi photo.",
     name: "25th Fungus",
-    iconicTaxon: "Fungi",
+    iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 25,
     unearnedIconName: "badge_species-01-empty",
@@ -292,7 +292,7 @@ const badges = {
   insect25: {
     infoText: "Earned after collecting your 25th insect photo.",
     name: "25th Insect",
-    iconicTaxon: "Insects",
+    iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -302,7 +302,7 @@ const badges = {
   mammal25: {
     infoText: "Earned after collecting your 25th mammal photo.",
     name: "25th Mammal",
-    iconicTaxon: "Mammals",
+    iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -312,7 +312,7 @@ const badges = {
   mollusk25: {
     infoText: "Earned after collecting your 25th mollusk photo.",
     name: "25th Mollusk",
-    iconicTaxon: "Mollusks",
+    iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -322,7 +322,7 @@ const badges = {
   plant25: {
     infoText: "Earned after collecting your 25th plant photo.",
     name: "25th Plant",
-    iconicTaxon: "Plants",
+    iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 25,
     unearnedIconName: "badge_species-25-empty",
@@ -332,7 +332,7 @@ const badges = {
   reptile25: {
     infoText: "Earned after collecting your 25th reptile photo.",
     name: "25th Reptile",
-    iconicTaxon: "Reptiles",
+    iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 25,
     unearnedIconName: "badge_species-25-empty",

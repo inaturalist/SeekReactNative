@@ -58,8 +58,8 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );
-      recalculateBadges();
-      recalculateChallenges();
+      // recalculateBadges();
+      // recalculateChallenges();
     } ).catch( ( e ) => {
       console.log( "Error adding photos to collection: ", e );
     } );

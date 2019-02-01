@@ -94,13 +94,11 @@ class GalleryScreen extends Component<Props> {
         photos,
         stillLoading: false
       } );
-      console.log( this.state.photos.length, "photos after concat" );
     } else {
       this.setState( {
         photos: data,
         stillLoading: false
       } );
-      console.log( this.state.photos.length, "photos no concat" );
     }
   }
 

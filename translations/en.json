@@ -169,7 +169,8 @@
   },
   "banner": {
     "number_seen": "You've seen {{number}} {{taxaType}}!",
-    "view": "View badge"
+    "view": "View badge",
+    "badge": "Badge"
   },
   "headers": {
     "choose_photo": "Choose a photo"

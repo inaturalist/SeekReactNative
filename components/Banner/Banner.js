@@ -63,7 +63,8 @@ class Banner extends Component<Props> {
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
+        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
+        console.log( earnedBadges, "earned badges" );
         const badges = earnedBadges.sorted( "earnedDate", true );
 
         if ( badgesEarned < earnedBadges.length ) {

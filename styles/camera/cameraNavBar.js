@@ -30,6 +30,7 @@ export default StyleSheet.create( {
     fontSize: 14,
     color: colors.white,
     fontFamily: fonts.default,
-    textAlign: "center"
+    textAlign: "center",
+    letterSpacing: 1.0
   }
 } );

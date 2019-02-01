@@ -7,6 +7,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   header: {
+    marginHorizontal: 36,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -19,7 +20,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   headerText: {
-    maxWidth: 308,
     textAlign: "center",
     marginTop: 16,
     fontSize: 19,

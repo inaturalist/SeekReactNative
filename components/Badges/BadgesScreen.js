@@ -48,14 +48,16 @@ class BadgesScreen extends Component<Props> {
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).sorted( "index" );
         const badgesEarned = badges.filtered( "earned == true" ).length;
+
         const speciesBadges = badges.filtered( "iconicTaxonName != null" );
-        const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" );
-        const lastLevelEarned = levelsEarned.sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" );
-        const nextLevelCount = nextLevel.sorted( "count" );
+        console.log( speciesBadges, "species badges" );
+
+        const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
+        const nextLevelCount = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
+
         this.setState( {
           speciesBadges,
-          level: lastLevelEarned[0],
+          level: levelsEarned[0],
           nextLevelCount: nextLevelCount[0].count,
           badgesEarned
         } );

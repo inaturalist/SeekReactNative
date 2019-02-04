@@ -66,6 +66,7 @@ const startChallenge = ( index ) => {
       challenges.forEach( ( challenge ) => {
         realm.write( () => {
           challenge.started = true;
+          challenge.numbersObserved = [0, 0, 0, 0, 0];
         } );
       } );
     } ).catch( ( err ) => {

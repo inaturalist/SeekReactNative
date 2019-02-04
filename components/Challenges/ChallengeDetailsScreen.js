@@ -70,7 +70,6 @@ class ChallengeDetailsScreen extends Component<Props> {
             name: i18n.t( challenge.name ).toLocaleUpperCase(),
             description: i18n.t( challenge.description ),
             started: challenge.started,
-            // completed: challenge.completed,
             percentComplete: challenge.percentComplete
           },
           missions,
@@ -82,11 +81,10 @@ class ChallengeDetailsScreen extends Component<Props> {
   }
 
   showMission() {
-    startChallenge();
+    const { index } = this.state;
+
+    startChallenge( index );
     this.fetchChallengeDetails();
-    this.setState( {
-      challengeStarted: true
-    } );
   }
 
   toggleBadgeModal() {

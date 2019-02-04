@@ -3,13 +3,10 @@ const challenges = {
     name: "challenges.connectivity",
     month: "challenges.april_2019",
     description: "challenges.april_description",
-    totalSpecies: 22,
+    totalSpecies: 20,
     unearnedIconName: "",
     earnedIconName: "",
-    missions: [
-      "challenges.mission_1_april",
-      "challenges.mission_2_april"
-    ],
+    missions: ["challenges.mission_1_april"],
     index: 0
   },
   may: {

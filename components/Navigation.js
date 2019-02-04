@@ -14,10 +14,9 @@ import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import YourCollection from "./Menu/YourCollection";
-import BadgesScreen from "./Menu/BadgesScreen";
+import BadgesScreen from "./Badges/BadgesScreen";
 import AboutScreen from "./Menu/AboutScreen";
 import AboutTitle from "./Menu/AboutTitle";
-import BadgesTitle from "./Menu/BadgesTitle";
 import SideMenu from "./Home/SideMenu";
 import LoginScreen from "./Login/LoginScreen";
 import AgeVerifyScreen from "./Login/AgeVerifyScreen";
@@ -153,8 +152,8 @@ const MainStack = createStackNavigator( {
   },
   Badges: {
     screen: BadgesScreen,
-    navigationOptions: ( { navigation } ) => ( {
-      headerTitle: <BadgesTitle navigation={navigation} />
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   About: {

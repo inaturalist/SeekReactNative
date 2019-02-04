@@ -22,7 +22,8 @@ export default StyleSheet.create( {
   textContainer: {
     width: 191,
     flexDirection: "row",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    marginBottom: 20
   },
   text: {
     marginTop: 16,

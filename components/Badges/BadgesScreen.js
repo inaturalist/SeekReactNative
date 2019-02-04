@@ -53,12 +53,12 @@ class BadgesScreen extends Component<Props> {
         console.log( speciesBadges, "species badges" );
 
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevelCount = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
+        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
 
         this.setState( {
           speciesBadges,
-          level: levelsEarned[0],
-          nextLevelCount: nextLevelCount[0].count,
+          level: levelsEarned.length > 0 ? levelsEarned[0] : nextLevel[0],
+          nextLevelCount: nextLevel[0].count,
           badgesEarned
         } );
       } ).catch( ( err ) => {

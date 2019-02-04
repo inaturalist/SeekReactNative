@@ -2,6 +2,7 @@ const challenges = {
   april: {
     name: "challenges.connectivity",
     month: "challenges.april_2019",
+    startDate: new Date( 2019, 3, 1 ),
     description: "challenges.april_description",
     totalSpecies: 20,
     unearnedIconName: "",
@@ -12,6 +13,7 @@ const challenges = {
   may: {
     name: "challenges.biodiversity",
     month: "challenges.may_2019",
+    startDate: new Date( 2019, 4, 1 ),
     description: "challenges.may_description",
     totalSpecies: 17,
     unearnedIconName: "",

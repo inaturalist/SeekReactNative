@@ -62,6 +62,7 @@ const startChallenge = ( index ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+      console.log( challenges, "start challenge date" );
 
       challenges.forEach( ( challenge ) => {
         realm.write( () => {

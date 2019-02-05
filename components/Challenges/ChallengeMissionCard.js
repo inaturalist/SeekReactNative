@@ -7,19 +7,18 @@ import {
   FlatList,
   Image
 } from "react-native";
-import ProgressCircle from "react-native-progress-circle";
 
 import styles from "../../styles/challenges/challengeMission";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import { colors } from "../../styles/global";
+import PercentCircle from "./PercentCircle";
 
 type Props = {
-  percentComplete: number,
+  challenge: Object,
   missions: Array<Object>
 };
 
-const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (
+const ChallengeMissionCard = ( { challenge, missions }: Props ) => (
   <View style={styles.container}>
     <View style={styles.header}>
       <Text style={styles.headerText}>
@@ -41,27 +40,15 @@ const ChallengeMissionCard = ( { percentComplete, missions }: Props ) => (
           )}
         />
       </View>
-      {percentComplete === 100 ? (
+      {challenge.percentComplete === 100 ? (
         <View style={styles.circleStyle}>
           <Image source={icons.completed} />
         </View>
       ) : (
-        <ProgressCircle
-          outerCircleStyle={styles.circleStyle}
-          percent={percentComplete}
-          radius={59 / 2}
-          borderWidth={3}
-          color={colors.seekiNatGreen}
-          shadowColor={colors.circleGray}
-          bgColor={colors.white}
-        >
-          <Text style={styles.circleText}>
-            {percentComplete}
-            {"%"}
-          </Text>
-        </ProgressCircle>
-      )
-      }
+        <View style={styles.circleStyle}>
+          <PercentCircle item={challenge} />
+        </View>
+      )}
     </View>
   </View>
 );

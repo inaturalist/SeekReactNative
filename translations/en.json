@@ -172,7 +172,9 @@
   "banner": {
     "view": "View badge",
     "badge": "Badge",
-    "species": "species"
+    "species": "species",
+    "challenge_progress": "You found another species!",
+    "challenge_view": "View your progress"
   },
   "camera": {
     "label": "Camera",

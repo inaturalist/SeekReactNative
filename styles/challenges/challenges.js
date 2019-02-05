@@ -64,15 +64,6 @@ export default StyleSheet.create( {
     fontSize: 14,
     lineHeight: 21
   },
-  circleStyle: {
-    width: 59,
-    height: 59,
-    marginLeft: 20
-  },
-  circleText: {
-    fontFamily: fonts.book,
-    fontSize: 20
-  },
   startButton: {
     alignItems: "center",
     width: 59,

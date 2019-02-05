@@ -178,7 +178,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <View style={styles.missionContainer}>
                 {challengeStarted ? (
                   <ChallengeMissionCard
-                    percentComplete={challenge.percentComplete}
+                    challenge={challenge}
                     missions={missions}
                   />
                 ) : null}

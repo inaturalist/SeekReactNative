@@ -7,11 +7,10 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import ProgressCircle from "react-native-progress-circle";
 
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
-import { colors } from "../../styles/global";
+import PercentCircle from "./PercentCircle";
 import { startChallenge, recalculateChallenges } from "../../utility/challengeHelpers";
 import icons from "../../assets/icons";
 
@@ -32,20 +31,9 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
     );
   } else if ( item.started && item.percentComplete !== 100 ) {
     rightIcon = (
-      <ProgressCircle
-        outerCircleStyle={styles.circleStyle}
-        percent={item.percentComplete}
-        radius={59 / 2}
-        borderWidth={3}
-        color={colors.seekiNatGreen}
-        shadowColor={colors.circleGray}
-        bgColor={colors.white}
-      >
-        <Text style={styles.circleText}>
-          {item.percentComplete}
-          {"%"}
-        </Text>
-      </ProgressCircle>
+      <View style={styles.startButton}>
+        <PercentCircle item={item} />
+      </View>
     );
   } else {
     rightIcon = (

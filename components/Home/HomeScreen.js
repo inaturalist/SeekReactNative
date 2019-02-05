@@ -25,6 +25,7 @@ import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
 import Padding from "../Padding";
+import CardPadding from "./CardPadding";
 import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
@@ -188,7 +189,7 @@ class HomeScreen extends Component<Props> {
     const params = {
       verifiable: true,
       photos: true,
-      per_page: 9,
+      per_page: 20,
       lat,
       lng,
       radius: 50,
@@ -297,7 +298,9 @@ class HomeScreen extends Component<Props> {
                 error={error}
                 checkRealmForSpecies={this.checkRealmForSpecies}
               />
+              { isFirstLaunch ? <CardPadding /> : null }
               { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
+              <CardPadding />
               <Challenges navigation={navigation} />
               <Padding />
             </ScrollView>

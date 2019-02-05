@@ -20,9 +20,13 @@ const Challenges = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>
-          {i18n.t( "challenges_card.header" ).toLocaleUpperCase()}
-        </Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Challenges" )}
+        >
+          <Text style={styles.headerText}>
+            {i18n.t( "challenges_card.header" ).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.challengeContainer}>
         <Text style={styles.challengeHeader}>{i18n.t( "challenges_card.april" ).toLocaleUpperCase()}</Text>

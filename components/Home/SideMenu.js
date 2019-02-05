@@ -25,10 +25,14 @@ const SideMenu = ( { navigation }: Props ) => (
     style={styles.container}
   >
     <SafeAreaView />
-    <Image
-      source={logoImages.seek}
-      style={styles.image}
-    />
+    <TouchableOpacity
+      onPress={() => navigation.navigate( "Main" )}
+    >
+      <Image
+        source={logoImages.seek}
+        style={styles.image}
+      />
+    </TouchableOpacity>
     <View style={styles.textContainer}>
       <TouchableOpacity
         onPress={() => navigation.navigate( "Main" )}

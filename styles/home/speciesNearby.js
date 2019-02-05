@@ -47,8 +47,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   image: {
-    marginRight: 13,
-    marginBottom: 7
+    marginRight: 13
   },
   locationText: {
     fontFamily: fonts.book,

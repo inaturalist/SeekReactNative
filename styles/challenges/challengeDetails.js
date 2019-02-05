@@ -29,7 +29,6 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
-    paddingTop: 20,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between",

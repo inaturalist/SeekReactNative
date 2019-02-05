@@ -16,7 +16,6 @@ import LinearGradient from "react-native-linear-gradient";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import taxonIds from "../../utility/taxonDict";
-import { capitalizeNames } from "../../utility/helpers";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Footer from "../Home/Footer";
@@ -59,8 +58,12 @@ class BadgesScreen extends Component<Props> {
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
 
-        speciesBadges.sort( ( a, b ) => a.earnedDate > b.earnedDate ? -1 : 1 );
-        console.log( speciesBadges, "species badges" );
+        speciesBadges.sort( ( a, b ) => {
+          if ( a.earnedDate > b.earnedDate ) {
+            return -1;
+          }
+          return 1;
+        } );
 
         this.setState( {
           speciesBadges,

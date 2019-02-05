@@ -32,7 +32,7 @@ const Challenges = ( { navigation }: Props ) => (
         </View>
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => navigation.navigate( "Challenges" )}
+          onPress={() => navigation.navigate( "ChallengeDetails", { index: 0 } )}
         >
           <Text style={[styles.headerText, styles.buttonText]}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>

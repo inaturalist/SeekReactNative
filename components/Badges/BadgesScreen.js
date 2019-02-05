@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   View,
-  Alert,
   Image,
   Text,
   FlatList,
@@ -16,6 +15,8 @@ import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
+import taxonIds from "../../utility/taxonDict";
+import { capitalizeNames } from "../../utility/helpers";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Footer from "../Home/Footer";
@@ -39,18 +40,25 @@ class BadgesScreen extends Component<Props> {
     };
   }
 
-  // componentDidMount() {
-  //   this.fetchBadges();
-  // }
-
   fetchBadges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).sorted( "index" );
         const badgesEarned = badges.filtered( "earned == true" ).length;
 
-        const speciesBadges = badges.filtered( "iconicTaxonName != null" );
-        console.log( speciesBadges, "species badges" );
+        const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
+
+        const speciesBadges = [];
+
+        taxaIds.forEach( ( id ) => {
+          const tempBadges = badges.filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` );
+          const sorted = tempBadges.sorted( "earnedDate", true );
+          speciesBadges.push( sorted[0] );
+        } );
+
+        // const taxa = Object.keys( speciesBadges );
+
+        // const taxaList = Object.keys( taxonIds );
 
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
@@ -61,7 +69,7 @@ class BadgesScreen extends Component<Props> {
           nextLevelCount: nextLevel[0].count,
           badgesEarned
         } );
-      } ).catch( ( err ) => {
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
@@ -71,7 +79,7 @@ class BadgesScreen extends Component<Props> {
       .then( ( realm ) => {
         const speciesCount = realm.objects( "ObservationRealm" ).length;
         this.setState( { speciesCount } );
-      } ).catch( ( err ) => {
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
@@ -119,9 +127,7 @@ class BadgesScreen extends Component<Props> {
             numColumns={3}
             renderItem={( { item } ) => {
               let badgeIcon;
-              let msg = item.infoText;
               if ( item.earned ) {
-                msg = `${msg} You earned this badge.`;
                 badgeIcon = badgeImages[item.earnedIconName];
               } else {
                 badgeIcon = badgeImages[item.unearnedIconName];
@@ -129,16 +135,7 @@ class BadgesScreen extends Component<Props> {
               return (
                 <TouchableOpacity
                   style={styles.gridCell}
-                  onPress={() => Alert.alert(
-                    item.name,
-                    msg,
-                    [
-                      {
-                        text: "Got it!"
-                      }
-                    ],
-                    { cancelable: false }
-                  )}
+                  onPress={() => console.log( "modal will pop up here" )}
                 >
                   <View style={styles.gridCellContents}>
                     <Image
@@ -148,8 +145,7 @@ class BadgesScreen extends Component<Props> {
                   </View>
                 </TouchableOpacity>
               );
-            }
-            }
+            }}
           />
           <View style={styles.secondTextContainer}>
             <Text style={styles.bannerText}>{i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()}</Text>

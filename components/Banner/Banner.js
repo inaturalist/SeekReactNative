@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, View, Text } from "react-native";
+import { Animated, View } from "react-native";
 import Realm from "realm";
 
 import BadgeToast from "./BadgeToast";
@@ -80,11 +80,9 @@ class Banner extends Component<Props> {
     const { navigation } = this.props;
     const { badge } = this.state;
 
-    let toast;
-
-    if ( badge ) {
-      toast = (
-        <View style={styles.topContainer}>
+    return (
+      <View style={styles.topContainer}>
+        {badge ? (
           <Animated.View style={[
             styles.animatedStyle,
             {
@@ -97,28 +95,7 @@ class Banner extends Component<Props> {
               badge={badge}
             />
           </Animated.View>
-        </View>
-      );
-    } else {
-      toast = (
-        <View style={{ zIndex: 1 }}>
-          <Animated.View style={[
-            styles.animatedStyle,
-            {
-              transform: [{ translateY: this.animatedValue }]
-            }
-          ]}
-          >
-            <Text>this is a toast</Text>
-          </Animated.View>
-        </View>
-      );
-      // toast = null;
-    }
-
-    return (
-      <View>
-        {toast}
+        ) : null}
       </View>
     );
   }

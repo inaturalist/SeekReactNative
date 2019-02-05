@@ -22,21 +22,20 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
     style={styles.container}
     onPress={() => navigation.navigate( "Badges" )}
   >
-    <View style={styles.textContainer}>
-      <Text style={styles.headerText}>
-        {badge.name.toUpperCase()}
-        {" "}
-        {i18n.t( "banner.badge" ).toLocaleUpperCase()}
-      </Text>
-      <Text style={styles.description}>
-        {i18n.t( "banner.number_seen", {
-          number: badge.count,
-          taxaType: badge.iconicTaxonName || i18n.t( "banner.species" )
-        } )}
-      </Text>
-      <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>
+    <View style={styles.row}>
+      <View style={styles.textContainer}>
+        <Text style={styles.headerText}>
+          {badge.name.toUpperCase()}
+          {" "}
+          {i18n.t( "banner.badge" ).toLocaleUpperCase()}
+        </Text>
+        <Text style={styles.description}>
+          {i18n.t( badge.infoText )}
+        </Text>
+        <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>
+      </View>
+      <Image style={styles.image} source={badges[badge.earnedIconName]} />
     </View>
-    <Image style={styles.image} source={badges[badge.earnedIconName]} />
   </TouchableOpacity>
 );
 

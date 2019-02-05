@@ -15,6 +15,9 @@ export default StyleSheet.create( {
     height: 112
   },
   container: {
+    zIndex: 1
+  },
+  row: {
     height: 112,
     flexDirection: "row",
     flexWrap: "nowrap",

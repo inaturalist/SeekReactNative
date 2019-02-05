@@ -43,7 +43,7 @@ class BadgesScreen extends Component<Props> {
   fetchBadges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const badges = realm.objects( "BadgeRealm" ).sorted( "index" );
+        const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "earned == true" ).length;
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
@@ -56,12 +56,11 @@ class BadgesScreen extends Component<Props> {
           speciesBadges.push( sorted[0] );
         } );
 
-        // const taxa = Object.keys( speciesBadges );
-
-        // const taxaList = Object.keys( taxonIds );
-
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
+
+        speciesBadges.sort( ( a, b ) => a.earnedDate > b.earnedDate ? -1 : 1 );
+        console.log( speciesBadges, "species badges" );
 
         this.setState( {
           speciesBadges,

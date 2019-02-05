@@ -16,7 +16,6 @@ import moment from "moment";
 import Button from "../Button";
 import speciesImages from "../../assets/species";
 import realmConfig from "../../models/index";
-import Banner from "../Banner";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
@@ -275,10 +274,6 @@ class SpeciesDetail extends Component<Props> {
             >
               {photoList}
             </ScrollView>
-            { showBanner ? (
-              <Banner bannerText={bannerText} />
-            ) : null
-            }
             <View style={styles.headerContainer}>
               <Text style={styles.largeHeaderText}>{commonName}</Text>
               <Text style={styles.scientificHeaderText}>Scientific Name:</Text>

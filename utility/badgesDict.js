@@ -40,8 +40,8 @@ const badges = {
     index: 4
   },
   amphibian1: {
-    infoText: "Earned after collecting your first amphibian photo.",
-    name: "1st Amphibian",
+    infoText: "badges.amphibian_1",
+    name: "badges.name_amphibian_1",
     iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 1,
@@ -50,8 +50,8 @@ const badges = {
     index: 100
   },
   arachnid1: {
-    infoText: "Earned after collecting your first arachnid photo.",
-    name: "1st Arachnid",
+    infoText: "badges.arachnid_1",
+    name: "badges.name_arachnid_1",
     iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 1,
@@ -61,7 +61,7 @@ const badges = {
   },
   bird1: {
     infoText: "badges.bird_1",
-    name: "1st Bird",
+    name: "badges.name_bird_1",
     iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 1,
@@ -71,7 +71,7 @@ const badges = {
   },
   fish1: {
     infoText: "badges.fish_1",
-    name: "1st Fish",
+    name: "badges.name_fish_1",
     iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 1,
@@ -81,7 +81,7 @@ const badges = {
   },
   fungi1: {
     infoText: "badges.fungi_1",
-    name: "1st Fungus",
+    name: "badges.name_fungi_1",
     iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 1,
@@ -91,7 +91,7 @@ const badges = {
   },
   insect1: {
     infoText: "badges.insect_1",
-    name: "1st Insect",
+    name: "badges.name_insect_1",
     iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 1,
@@ -101,7 +101,7 @@ const badges = {
   },
   mammal1: {
     infoText: "badges.mammal_1",
-    name: "1st Mammal",
+    name: "badges.name_mammal_1",
     iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 1,
@@ -111,7 +111,7 @@ const badges = {
   },
   mollusk1: {
     infoText: "badges.mollusk_1",
-    name: "1st Mollusk",
+    name: "badges.name_mollusk_1",
     iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 1,
@@ -121,7 +121,7 @@ const badges = {
   },
   plant1: {
     infoText: "badges.plant_1",
-    name: "1st Plant",
+    name: "badges.name_plant_1",
     iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 1,
@@ -131,7 +131,7 @@ const badges = {
   },
   reptile1: {
     infoText: "badges.reptile_1",
-    name: "1st Reptile",
+    name: "badges.name_reptile_1",
     iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 1,
@@ -141,7 +141,7 @@ const badges = {
   }, // start 5s
   amphibian5: {
     infoText: "badges.amphibian_5",
-    name: "5th Amphibian",
+    name: "badges.name_amphibian_5",
     iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 5,
@@ -151,7 +151,7 @@ const badges = {
   },
   arachnid5: {
     infoText: "badges.arachnid_5",
-    name: "5th Arachnid",
+    name: "badges.name_arachnid_5",
     iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 5,
@@ -161,7 +161,7 @@ const badges = {
   },
   bird5: {
     infoText: "badges.bird_5",
-    name: "5th Bird",
+    name: "badges.name_bird_5",
     iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 5,
@@ -171,7 +171,7 @@ const badges = {
   },
   fish5: {
     infoText: "badges.fish_5",
-    name: "5th Fish",
+    name: "badges.name_fish_5",
     iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 5,
@@ -181,7 +181,7 @@ const badges = {
   },
   fungi5: {
     infoText: "badges.fungi_5",
-    name: "5th Fungus",
+    name: "badges.name_fungi_5",
     iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 5,
@@ -191,7 +191,7 @@ const badges = {
   },
   insect5: {
     infoText: "badges.insect_5",
-    name: "5th Insect",
+    name: "badges.name_insect_5",
     iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 5,
@@ -201,7 +201,7 @@ const badges = {
   },
   mammal5: {
     infoText: "badges.mammal_5",
-    name: "5th Mammal",
+    name: "badges.name_mammal_5",
     iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 5,
@@ -211,7 +211,7 @@ const badges = {
   },
   mollusk5: {
     infoText: "badges.mollusk_5",
-    name: "5th Mollusk",
+    name: "badges.name_mollusk_5",
     iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 5,
@@ -221,7 +221,7 @@ const badges = {
   },
   plant5: {
     infoText: "badges.plant_5",
-    name: "5th Plant",
+    name: "badges.name_plant_5",
     iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 5,
@@ -231,7 +231,7 @@ const badges = {
   },
   reptile5: {
     infoText: "badges.reptile_5",
-    name: "5th Reptile",
+    name: "badges.name_reptile_5",
     iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 5,
@@ -241,7 +241,7 @@ const badges = {
   }, // start 15
   amphibian15: {
     infoText: "badges.amphibian_15",
-    name: "25th Amphibian",
+    name: "badges.name_amphibian_15",
     iconicTaxonName: "Amphibians",
     iconicTaxonId: 20978,
     count: 15,
@@ -251,7 +251,7 @@ const badges = {
   },
   arachnid15: {
     infoText: "badges.arachnid_15",
-    name: "25th Arachnid",
+    name: "badges.name_arachnid_15",
     iconicTaxonName: "Arachnids",
     iconicTaxonId: 47119,
     count: 15,
@@ -261,7 +261,7 @@ const badges = {
   },
   bird15: {
     infoText: "badges.bird_15",
-    name: "25th Bird",
+    name: "badges.name_bird_15",
     iconicTaxonName: "Birds",
     iconicTaxonId: 3,
     count: 15,
@@ -271,7 +271,7 @@ const badges = {
   },
   fish15: {
     infoText: "badges.fish_15",
-    name: "25th Fish",
+    name: "badges.name_fish_15",
     iconicTaxonName: "Fishs",
     iconicTaxonId: 47178,
     count: 15,
@@ -281,7 +281,7 @@ const badges = {
   },
   fungi15: {
     infoText: "badges.fungi_15",
-    name: "25th Fungus",
+    name: "badges.name_fungi_15",
     iconicTaxonName: "Fungi",
     iconicTaxonId: 47170,
     count: 15,
@@ -291,7 +291,7 @@ const badges = {
   },
   insect15: {
     infoText: "badges.insect_15",
-    name: "25th Insect",
+    name: "badges.name_insect_15",
     iconicTaxonName: "Insects",
     iconicTaxonId: 47158,
     count: 15,
@@ -301,7 +301,7 @@ const badges = {
   },
   mammal15: {
     infoText: "badges.mammal_15",
-    name: "25th Mammal",
+    name: "badges.name_mammal_15",
     iconicTaxonName: "Mammals",
     iconicTaxonId: 40151,
     count: 15,
@@ -311,7 +311,7 @@ const badges = {
   },
   mollusk15: {
     infoText: "badges.mollusk_15",
-    name: "25th Mollusk",
+    name: "badges.name_mollusk_15",
     iconicTaxonName: "Mollusks",
     iconicTaxonId: 47115,
     count: 15,
@@ -321,7 +321,7 @@ const badges = {
   },
   plant15: {
     infoText: "badges.plant_15",
-    name: "25th Plant",
+    name: "badges.name_plant_15",
     iconicTaxonName: "Plants",
     iconicTaxonId: 47126,
     count: 15,
@@ -331,7 +331,7 @@ const badges = {
   },
   reptile15: {
     infoText: "badges.reptile_15",
-    name: "25th Reptile",
+    name: "badges.name_reptile_15",
     iconicTaxonName: "Reptiles",
     iconicTaxonId: 26036,
     count: 15,

@@ -24,7 +24,6 @@ type Props = {
 
 const LevelModal = ( { level, toggleLevelModal }: Props ) => (
   <View style={styles.outerContainer}>
-    {console.log( level, "level in modal" )}
     <View style={styles.container}>
       <Text style={styles.headerText}>{i18n.t( "banner.level_up" ).toLocaleUpperCase()}</Text>
       <LinearGradient

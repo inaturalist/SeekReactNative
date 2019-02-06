@@ -18,7 +18,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeBadge from "./ChallengeBadge";
+import ChallengeBadge from "../Badges/ChallengeModal";
 import Footer from "./ChallengeFooter";
 import { startChallenge } from "../../utility/challengeHelpers";
 

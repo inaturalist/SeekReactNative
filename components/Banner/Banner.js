@@ -9,6 +9,7 @@ import styles from "../../styles/banner/badgeToast";
 import { recalculateBadges, getBadgesEarned, getLevelsEarned } from "../../utility/badgeHelpers";
 import realmConfig from "../../models/index";
 import LevelModal from "../Badges/LevelModal";
+import ChallengeModal from "../Badges/ChallengeModal";
 
 type Props = {
   navigation: any
@@ -23,16 +24,19 @@ class Banner extends Component<Props> {
       levelsEarned: 0,
       badge: null,
       showLevelModal: false,
+      showChallengeModal: false,
       newestLevel: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
+    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
     this.animatedValue = new Animated.Value( -120 );
   }
 
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
     const levelsEarned = await getLevelsEarned();
+    this.toggleChallengeModal(); // temp
     this.setBadgesEarned( badgesEarned );
     this.setLevelsEarned( levelsEarned );
     this.checkForNewBadges();
@@ -50,6 +54,12 @@ class Banner extends Component<Props> {
     const { showLevelModal } = this.state;
 
     this.setState( { showLevelModal: !showLevelModal } );
+  }
+
+  toggleChallengeModal() {
+    const { showChallengeModal } = this.state;
+
+    this.setState( { showChallengeModal: !showChallengeModal } );
   }
 
   showToast() {
@@ -86,7 +96,6 @@ class Banner extends Component<Props> {
 
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
-        console.log( newestLevels[0], "newest level" );
 
         if ( badgesEarned < earnedBadges.length ) {
           this.setState( {
@@ -105,19 +114,27 @@ class Banner extends Component<Props> {
   }
 
   render() {
-    const { badge, showLevelModal, newestLevel } = this.state;
+    const { badge, showChallengeModal, showLevelModal, newestLevel } = this.state;
     const { navigation } = this.props;
 
     return (
       <View style={styles.topContainer}>
         <Modal
+          isVisible={showChallengeModal}
+          onSwipe={() => this.toggleChallengeModal()}
+          onBackdropPress={() => this.toggleChallengeModal()}
+          swipeDirection="down"
+        >
+          <ChallengeModal toggleChallengeModal={this.toggleChallengeModal} />
+        </Modal>
+        {/* <Modal
           isVisible={showLevelModal}
           onSwipe={() => this.toggleLevelModal()}
           onBackdropPress={() => this.toggleLevelModal()}
           swipeDirection="down"
         >
           <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
-        </Modal>
+        </Modal> */}
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {

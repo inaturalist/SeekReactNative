@@ -5,7 +5,6 @@ ChallengeRealm.schema = {
   properties: {
     name: { type: "string", default: "" },
     month: { type: "string", default: "" },
-    startDate: { type: "date?" },
     description: { type: "string", default: "" },
     totalSpecies: { type: "int", default: 0 },
     unearnedIconName: "string?",

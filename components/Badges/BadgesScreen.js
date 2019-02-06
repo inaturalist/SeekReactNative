@@ -12,6 +12,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 import LinearGradient from "react-native-linear-gradient";
+import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
@@ -21,6 +22,7 @@ import styles from "../../styles/badges/badges";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import BannerHeader from "./BannerHeader";
+import LevelModal from "./LevelModal";
 
 type Props = {
   navigation: any
@@ -36,7 +38,8 @@ class BadgesScreen extends Component<Props> {
       level: null,
       nextLevelCount: null,
       badgesEarned: null,
-      speciesCount: null
+      speciesCount: null,
+      showModal: false
     };
   }
 
@@ -87,13 +90,19 @@ class BadgesScreen extends Component<Props> {
       } );
   }
 
+  toggleModal() {
+    const { showModal } = this.state;
+    this.setState( { showModal: !showModal } );
+  }
+
   render() {
     const {
       speciesBadges,
       level,
       nextLevelCount,
       badgesEarned,
-      speciesCount
+      speciesCount,
+      showModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -110,9 +119,20 @@ class BadgesScreen extends Component<Props> {
             colors={["#22784d", "#38976d"]}
             style={styles.header}
           >
+            <Modal
+              isVisible={showModal}
+              onSwipe={() => this.toggleModal()}
+              swipeDirection="down"
+            >
+              <LevelModal level={level} />
+            </Modal>
             {level ? (
               <View style={styles.row}>
-                <Image source={badgeImages[level.earnedIconName]} />
+                <TouchableOpacity
+                  onPress={() => this.toggleModal()}
+                >
+                  <Image source={badgeImages[level.earnedIconName]} />
+                </TouchableOpacity>
                 <View style={styles.textContainer}>
                   <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
                   <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>

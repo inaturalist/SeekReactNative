@@ -46,7 +46,7 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => (
         </View>
       ) : (
         <View style={styles.circleStyle}>
-          <PercentCircle item={challenge} />
+          <PercentCircle challenge={challenge} />
         </View>
       )}
     </View>

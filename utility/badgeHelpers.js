@@ -12,10 +12,9 @@ const recalculateBadges = () => {
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
-          const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
-          const collectionLength = Object.keys( filteredCollection );
+          const collectionLength = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` ).length;
 
-          if ( collectionLength.length >= badge.count ) {
+          if ( collectionLength >= badge.count ) {
             realm.write( () => {
               badge.earned = true;
               badge.earnedDate = new Date();
@@ -30,7 +29,7 @@ const recalculateBadges = () => {
           }
         }
       } );
-    } ).catch( ( err ) => {
+    } ).catch( () => {
       // console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
 };
@@ -67,7 +66,8 @@ const setBadgesEarned = ( badges ) => {
 const checkNumberOfBadgesEarned = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
-      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
+      // const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
       setBadgesEarned( earnedBadges.length.toString() );
     } ).catch( ( e ) => {
       console.log( e, "error checking number of badges earned" );

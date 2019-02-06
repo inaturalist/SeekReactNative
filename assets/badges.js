@@ -1,8 +1,8 @@
 const badges = {
-  "badge_naturalist-empty": require( "./badges/naturalist/badge_naturalist-empty.png" ),
-  "badge_species-01-empty": require( "./badges/species/01/badge_species-01-empty.png" ),
-  "badge_species-05-empty": require( "./badges/species/05/badge_species-05-empty.png" ),
-  "badge_species-25-empty": require( "./badges/species/25/badge_species-25-empty.png" ),
+  "badge_naturalist-empty": require( "./badges/Badge_Empty.png" ),
+  "badge_species-01-empty": require( "./badges/Badge_Empty.png" ),
+  "badge_species-05-empty": require( "./badges/Badge_Empty.png" ),
+  "badge_species-25-empty": require( "./badges/Badge_Empty.png" ),
   "badge_naturalist-03-tadpole": require( "./badges/naturalist/badge_naturalist-03-tadpole.png" ),
   "badge_naturalist-15-cub": require( "./badges/naturalist/badge_naturalist-15-cub.png" ),
   "badge_naturalist-35-surveyor": require( "./badges/naturalist/badge_naturalist-35-surveyor.png" ),

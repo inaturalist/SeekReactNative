@@ -32,7 +32,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
   } else if ( item.started && item.percentComplete !== 100 ) {
     rightIcon = (
       <View style={styles.startButton}>
-        <PercentCircle item={item} />
+        <PercentCircle challenge={item} />
       </View>
     );
   } else {

@@ -27,7 +27,7 @@ export const colors = {
 
 export const fonts = {
   default: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
-  checkboxes: "FontAwesome",
+  // checkboxes: "FontAwesome",
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",

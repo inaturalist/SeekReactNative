@@ -66,6 +66,10 @@ class Banner extends Component<Props> {
         const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
         const badges = earnedBadges.sorted( "earnedDate", true );
 
+        const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
+        const newestLevels = earnedLevels.sorted( "earnedDate", true );
+        console.log( newestLevels, "newest levels" );
+
         if ( badgesEarned < earnedBadges.length ) {
           this.setState( {
             badge: badges[0]
@@ -84,8 +88,7 @@ class Banner extends Component<Props> {
       <View style={styles.topContainer}>
         {badge ? (
           <Animated.View style={[
-            styles.animatedStyle,
-            {
+            styles.animatedStyle, {
               transform: [{ translateY: this.animatedValue }]
             }
           ]}

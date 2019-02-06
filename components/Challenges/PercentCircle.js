@@ -10,13 +10,13 @@ import styles from "../../styles/challenges/circle";
 import { colors } from "../../styles/global";
 
 type Props = {
-  item: Object
+  challenge: Object
 }
 
-const PercentCircle = ( { item }: Props ) => (
+const PercentCircle = ( { challenge }: Props ) => (
   <ProgressCircle
     outerCircleStyle={styles.circleStyle}
-    percent={item.percentComplete}
+    percent={challenge.percentComplete}
     radius={59 / 2}
     borderWidth={3}
     color={colors.seekiNatGreen}
@@ -24,7 +24,7 @@ const PercentCircle = ( { item }: Props ) => (
     bgColor={colors.white}
   >
     <Text style={styles.circleText}>
-      {item.percentComplete}
+      {challenge.percentComplete}
       {"%"}
     </Text>
   </ProgressCircle>

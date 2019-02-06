@@ -174,7 +174,9 @@
     "badge": "Badge",
     "species": "species",
     "challenge_progress": "You found another species!",
-    "challenge_view": "View your progress"
+    "challenge_view": "View your progress",
+    "level_up": "You leveled up!",
+    "number_species": "You’ve seen different {{number}} species! You’re truly a naturalist at heart."
   },
   "camera": {
     "label": "Camera",

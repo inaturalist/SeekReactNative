@@ -39,30 +39,23 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   badgesContainer: {
-    marginTop: 12,
+    marginTop: 5,
     marginHorizontal: 12
   },
   badgeIcon: {
     width: 100,
-    height: 100
+    height: 100,
+    resizeMode: "contain"
   },
   gridCell: {
     width: 100,
-    height: 100,
+    height: 110,
     marginHorizontal: 6,
     marginBottom: 12
   },
   stats: {
     flexDirection: "row",
     flexWrap: "nowrap"
-  },
-  bannerText: {
-    marginTop: 10,
-    marginBottom: 30,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
   },
   secondHeaderText: {
     maxWidth: 96,

@@ -31,7 +31,7 @@ const ChallengeToast = ( { navigation, challenge }: Props ) => (
         </Text>
         <Text style={styles.view}>{i18n.t( "banner.challenge_view" )}</Text>
       </View>
-      <PercentCircle item={challenge} />
+      <PercentCircle challenge={challenge} />
     </View>
   </TouchableOpacity>
 );

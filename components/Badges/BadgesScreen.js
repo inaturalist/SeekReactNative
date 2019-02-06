@@ -20,6 +20,7 @@ import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
+import BannerHeader from "./BannerHeader";
 
 type Props = {
   navigation: any
@@ -120,7 +121,7 @@ class BadgesScreen extends Component<Props> {
             ) : null}
           </LinearGradient>
           <View style={styles.secondTextContainer}>
-            <Text style={styles.bannerText}>{i18n.t( "badges.species_badges" ).toLocaleUpperCase()}</Text>
+            <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
           </View>
           <FlatList
             data={speciesBadges}
@@ -150,7 +151,7 @@ class BadgesScreen extends Component<Props> {
             }}
           />
           <View style={styles.secondTextContainer}>
-            <Text style={styles.bannerText}>{i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()}</Text>
+            <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
             <View style={styles.stats}>
               <View>
                 <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>

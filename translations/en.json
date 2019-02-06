@@ -240,7 +240,7 @@
     "fungi_15": "You found 15 fungi!",
     "plant_1": "You found 1 plant!",
     "plant_5": "You found 5 plants!",
-    "plant_15": "You found 15 plants!",
+    "plant_20": "You found 20 plants!",
     "name_bird_1": "Bronze Toucan",
     "name_bird_5": "Silver Toucan",
     "name_bird_15": "Keel-billed Toucan",
@@ -270,7 +270,7 @@
     "name_fungi_15": "Gold Mushroom",
     "name_plant_1": "Bronze Orchid",
     "name_plant_5": "Silver Orchid",
-    "name_plant_15": "Gold Orchid"
+    "name_plant_20": "Gold Orchid"
   },
   "about": {
     "header": "About",

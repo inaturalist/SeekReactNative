@@ -5,8 +5,8 @@ const challenges = {
     startDate: new Date( 2019, 3, 1 ),
     description: "challenges.april_description",
     totalSpecies: 20,
-    unearnedIconName: "",
-    earnedIconName: "",
+    unearnedIconName: "badge_empty",
+    earnedIconName: "ourplanet_april",
     missions: ["challenges.mission_1_april"],
     index: 0
   },
@@ -16,7 +16,7 @@ const challenges = {
     startDate: new Date( 2019, 4, 1 ),
     description: "challenges.may_description",
     totalSpecies: 17,
-    unearnedIconName: "",
+    unearnedIconName: "badge_empty",
     earnedIconName: "",
     missions: [
       "challenges.mission_1_may",

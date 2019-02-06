@@ -41,6 +41,8 @@ class BadgesScreen extends Component<Props> {
       speciesCount: null,
       showModal: false
     };
+
+    this.toggleModal = this.toggleModal.bind( this );
   }
 
   fetchBadges() {
@@ -122,9 +124,13 @@ class BadgesScreen extends Component<Props> {
             <Modal
               isVisible={showModal}
               onSwipe={() => this.toggleModal()}
+              onBackdropPress={() => this.toggleModal()}
               swipeDirection="down"
             >
-              <LevelModal level={level} />
+              <LevelModal
+                level={level}
+                toggleModal={this.toggleModal}
+              />
             </Modal>
             {level ? (
               <View style={styles.row}>

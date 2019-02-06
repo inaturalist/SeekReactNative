@@ -18,10 +18,11 @@ import badgeImages from "../../assets/badges";
 const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
 
 type Props = {
-  level: Object
+  level: Object,
+  toggleModal: Function
 };
 
-const LevelModal = ( { level }: Props ) => (
+const LevelModal = ( { level, toggleModal }: Props ) => (
   <View style={styles.outerContainer}>
     <View style={styles.container}>
       <Text style={styles.headerText}>{i18n.t( "banner.level_up" ).toLocaleUpperCase()}</Text>
@@ -37,7 +38,7 @@ const LevelModal = ( { level }: Props ) => (
       </LinearGradient>
       <Text style={styles.text}>{i18n.t( "banner.number_species", { number: level.count } )}</Text>
     </View>
-    <TouchableOpacity style={styles.backButton}>
+    <TouchableOpacity style={styles.backButton} onPress={() => toggleModal()}>
       <Text>{backIcon}</Text>
     </TouchableOpacity>
   </View>

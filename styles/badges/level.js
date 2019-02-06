@@ -47,6 +47,7 @@ export default StyleSheet.create( {
     fontSize: 16
   },
   backButton: {
+    padding: 20,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 20

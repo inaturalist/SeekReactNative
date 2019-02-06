@@ -2,11 +2,13 @@
 import React, { Component } from "react";
 import { Animated, View } from "react-native";
 import Realm from "realm";
+import Modal from "react-native-modal";
 
 import BadgeToast from "./BadgeToast";
 import styles from "../../styles/banner/badgeToast";
-import { recalculateBadges, getBadgesEarned } from "../../utility/badgeHelpers";
+import { recalculateBadges, getBadgesEarned, getLevelsEarned } from "../../utility/badgeHelpers";
 import realmConfig from "../../models/index";
+import LevelModal from "../Badges/LevelModal";
 
 type Props = {
   navigation: any
@@ -18,20 +20,36 @@ class Banner extends Component<Props> {
 
     this.state = {
       badgesEarned: 0,
-      badge: null
+      levelsEarned: 0,
+      badge: null,
+      showLevelModal: false,
+      newestLevel: null
     };
 
+    this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.animatedValue = new Animated.Value( -120 );
   }
 
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
+    const levelsEarned = await getLevelsEarned();
     this.setBadgesEarned( badgesEarned );
+    this.setLevelsEarned( levelsEarned );
     this.checkForNewBadges();
   }
 
   setBadgesEarned( badgesEarned ) {
     this.setState( { badgesEarned } );
+  }
+
+  setLevelsEarned( levelsEarned ) {
+    this.setState( { levelsEarned } );
+  }
+
+  toggleLevelModal() {
+    const { showLevelModal } = this.state;
+
+    this.setState( { showLevelModal: !showLevelModal } );
   }
 
   showToast() {
@@ -57,7 +75,7 @@ class Banner extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned } = this.state;
+    const { badgesEarned, levelsEarned } = this.state;
 
     recalculateBadges();
 
@@ -68,12 +86,18 @@ class Banner extends Component<Props> {
 
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
-        console.log( newestLevels, "newest levels" );
+        console.log( newestLevels[0], "newest level" );
 
         if ( badgesEarned < earnedBadges.length ) {
           this.setState( {
             badge: badges[0]
           }, () => this.showToast() );
+        }
+
+        if ( levelsEarned < earnedLevels.length ) {
+          this.setState( {
+            newestLevel: newestLevels[0]
+          }, () => this.toggleLevelModal() );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
@@ -81,11 +105,19 @@ class Banner extends Component<Props> {
   }
 
   render() {
+    const { badge, showLevelModal, newestLevel } = this.state;
     const { navigation } = this.props;
-    const { badge } = this.state;
 
     return (
       <View style={styles.topContainer}>
+        <Modal
+          isVisible={showLevelModal}
+          onSwipe={() => this.toggleLevelModal()}
+          onBackdropPress={() => this.toggleLevelModal()}
+          swipeDirection="down"
+        >
+          <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
+        </Modal>
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {

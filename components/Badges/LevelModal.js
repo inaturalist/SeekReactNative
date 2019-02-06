@@ -19,11 +19,12 @@ const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /
 
 type Props = {
   level: Object,
-  toggleModal: Function
+  toggleLevelModal: Function
 };
 
-const LevelModal = ( { level, toggleModal }: Props ) => (
+const LevelModal = ( { level, toggleLevelModal }: Props ) => (
   <View style={styles.outerContainer}>
+    {console.log( level, "level in modal" )}
     <View style={styles.container}>
       <Text style={styles.headerText}>{i18n.t( "banner.level_up" ).toLocaleUpperCase()}</Text>
       <LinearGradient
@@ -38,7 +39,7 @@ const LevelModal = ( { level, toggleModal }: Props ) => (
       </LinearGradient>
       <Text style={styles.text}>{i18n.t( "banner.number_species", { number: level.count } )}</Text>
     </View>
-    <TouchableOpacity style={styles.backButton} onPress={() => toggleModal()}>
+    <TouchableOpacity style={styles.backButton} onPress={() => toggleLevelModal()}>
       <Text>{backIcon}</Text>
     </TouchableOpacity>
   </View>

@@ -63,12 +63,17 @@ const setBadgesEarned = ( badges ) => {
   AsyncStorage.setItem( "badgesEarned", badges );
 };
 
+const setLevelsEarned = ( levels ) => {
+  AsyncStorage.setItem( "levelsEarned", levels );
+};
+
 const checkNumberOfBadgesEarned = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
-      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
-      // const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
-      setBadgesEarned( earnedBadges.length.toString() );
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
+      const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" ).length;
+      setBadgesEarned( earnedBadges.toString() );
+      setLevelsEarned( earnedLevels.toString() );
     } ).catch( ( e ) => {
       console.log( e, "error checking number of badges earned" );
     } );
@@ -83,9 +88,19 @@ const getBadgesEarned = async () => {
   }
 };
 
+const getLevelsEarned = async () => {
+  try {
+    const earned = await AsyncStorage.getItem( "levelsEarned" );
+    return earned;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   recalculateBadges,
   setupBadges,
   checkNumberOfBadgesEarned,
-  getBadgesEarned
+  getBadgesEarned,
+  getLevelsEarned
 };

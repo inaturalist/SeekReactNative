@@ -2,7 +2,7 @@ const badges = {
   tadpole: {
     infoText: "Earned after collecting your third species.",
     name: "Tadpole",
-    count: 3,
+    count: 1,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_naturalist-03-tadpole",
     index: 0
@@ -10,7 +10,7 @@ const badges = {
   cub: {
     infoText: "Earned after collecting your 15th species.",
     name: "Cub",
-    count: 15,
+    count: 3,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_naturalist-15-cub",
     index: 1
@@ -18,7 +18,7 @@ const badges = {
   surveyor: {
     infoText: "Earned after collecting your 35th species.",
     name: "Surveyor",
-    count: 35,
+    count: 5,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_naturalist-35-surveyor",
     index: 2
@@ -26,7 +26,7 @@ const badges = {
   naturalist: {
     infoText: "Earned after collecting your 65th species.",
     name: "Naturalist",
-    count: 65,
+    count: 7,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_naturalist-65-naturalist",
     index: 3
@@ -34,7 +34,7 @@ const badges = {
   explorer: {
     infoText: "Earned after collecting your 100th species.",
     name: "Explorer",
-    count: 100,
+    count: 8,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_naturalist-100-explorer",
     index: 4

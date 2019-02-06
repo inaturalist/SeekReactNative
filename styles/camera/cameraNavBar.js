@@ -28,6 +28,7 @@ export default StyleSheet.create( {
   },
   text: {
     fontSize: 14,
+    marginHorizontal: 5,
     color: colors.white,
     fontFamily: fonts.default,
     textAlign: "center",

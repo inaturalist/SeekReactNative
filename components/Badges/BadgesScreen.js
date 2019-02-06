@@ -114,7 +114,7 @@ class BadgesScreen extends Component<Props> {
               <View style={styles.row}>
                 <Image source={badgeImages[level.earnedIconName]} />
                 <View style={styles.textContainer}>
-                  <Text style={styles.headerText}>{level.name}</Text>
+                  <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
                   <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
                 </View>
               </View>

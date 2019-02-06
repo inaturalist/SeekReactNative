@@ -16,7 +16,8 @@ export default StyleSheet.create( {
   },
   row: {
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    alignItems: "center"
   },
   textContainer: {
     width: 167,
@@ -25,7 +26,8 @@ export default StyleSheet.create( {
   headerText: {
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 23
+    fontSize: 23,
+    letterSpacing: 1.0
   },
   text: {
     marginTop: 10,

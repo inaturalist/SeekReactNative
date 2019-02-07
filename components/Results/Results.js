@@ -27,6 +27,7 @@ import {
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
+import AlreadySeenScreen from "./AlreadySeenScreen";
 
 type Props = {
   navigation: any
@@ -193,7 +194,18 @@ class Results extends Component<Props> {
 
     let resultScreen;
 
-    if ( match && taxaName ) {
+    if ( seenDate ) {
+      resultScreen = (
+        <AlreadySeenScreen
+          navigation={navigation}
+          userImage={userImage}
+          taxaName={taxaName}
+          taxaId={taxaId}
+          speciesSeenImage={speciesSeenImage}
+          seenDate={seenDate}
+        />
+      );
+    } else if ( match && taxaName ) {
       resultScreen = (
         <MatchScreen
           navigation={navigation}
@@ -201,7 +213,6 @@ class Results extends Component<Props> {
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
-          seenDate={seenDate}
         />
       );
     } else if ( !match && commonAncestor ) {

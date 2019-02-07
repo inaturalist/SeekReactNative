@@ -22,15 +22,17 @@ type Props = {
   taxaName: string,
   taxaId: number,
   userImage: string,
-  navigation: any
+  navigation: any,
+  seenDate: string
 }
 
-const MatchScreen = ( {
+const AlreadySeenScreen = ( {
   taxaName,
   taxaId,
   speciesSeenImage,
   userImage,
-  navigation
+  navigation,
+  seenDate
 }: Props ) => (
   <View style={styles.container}>
     <Banner navigation={navigation} />
@@ -60,9 +62,9 @@ const MatchScreen = ( {
         </View>
       </LinearGradient>
       <View style={styles.textContainer}>
-        <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>
+        <Text style={styles.headerText}>{i18n.t( "results.resighted" ).toLocaleUpperCase()}</Text>
         <Text style={styles.speciesText}>{taxaName}</Text>
-        <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
+        <Text style={styles.text}>{i18n.t( "results.date_observed", { seenDate } )}</Text>
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.push( "Species", {
@@ -95,4 +97,4 @@ const MatchScreen = ( {
   </View>
 );
 
-export default MatchScreen;
+export default AlreadySeenScreen;

@@ -12,7 +12,6 @@ import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import Footer from "../Home/Footer";
-import Padding from "../Padding";
 
 type Props = {
   navigation: any
@@ -49,16 +48,14 @@ class NotificationsScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => this.fetchNotifications()}
         />
-        <View style={styles.notificationsContainer}>
-          <FlatList
-            data={notifications}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <NotificationCard item={item} navigation={navigation} />
-            )}
-          />
-          <Padding />
-        </View>
+        <FlatList
+          data={notifications}
+          style={styles.notificationsContainer}
+          keyExtractor={( item, i ) => `${item}${i}`}
+          renderItem={( { item } ) => (
+            <NotificationCard item={item} navigation={navigation} />
+          )}
+        />
         <Footer navigation={navigation} />
       </View>
     );

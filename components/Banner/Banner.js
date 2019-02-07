@@ -18,6 +18,7 @@ import {
 import realmConfig from "../../models/index";
 import LevelModal from "../Badges/LevelModal";
 import ChallengeModal from "../Badges/ChallengeModal";
+import { createNotification } from "../../utility/notificationHelpers";
 
 type Props = {
   navigation: any
@@ -113,7 +114,7 @@ class Banner extends Component<Props> {
           this.setState( {
             challenge: challenges[0]
           }, () => {
-            console.log( this.state.challenge, "challenge in banner" );
+            // console.log( this.state.challenge, "challenge in banner" );
             this.toggleChallengeModal();
           } );
         } else {
@@ -141,7 +142,13 @@ class Banner extends Component<Props> {
         if ( badgesEarned < earnedBadges.length ) {
           this.setState( {
             badge: badges[0]
-          }, () => this.showToast() );
+          }, () => {
+            this.showToast();
+            if ( badges[0].count > 1 ) {
+              console.log( "count above 1" );
+              createNotification( "badgeEarned" );
+            }
+          } );
         }
 
         if ( levelsEarned < earnedLevels.length ) {

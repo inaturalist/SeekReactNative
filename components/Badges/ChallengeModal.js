@@ -22,7 +22,7 @@ type Props = {
 
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <View style={styles.outerContainer}>
-    {console.log( challenge, "challenge in challenge modal" )}
+    {/* {console.log( challenge, "challenge in challenge modal" )} */}
     <View style={styles.container}>
       <View style={styles.header}>
         <Image

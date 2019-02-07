@@ -32,7 +32,9 @@
     "almost_finished": "You're almost finished with your challenge!",
     "view_progress": "View your progress",
     "observation_identified": "Your observation was identified to species on iNaturalist!",
-    "badges_updated": "Thanks for helping improve our model! Your badges may have been updated."
+    "badges_updated": "Thanks for helping improve our model! Your badges may have been updated.",
+    "challenge_completed": "Congrats! You completed a challenge",
+    "view_challenges": "View challenge"
   },
   "login": {
     "log_in": "Log in with iNaturalist",

@@ -103,19 +103,21 @@ class Banner extends Component<Props> {
 
   checkForChallengesCompleted() {
     const { challengesCompleted } = this.state;
+    console.log( challengesCompleted, "challenges completed to date" );
 
     recalculateChallenges();
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
+        console.log( challenges, "challenges completed current" );
 
         if ( challenges > challengesCompleted ) {
           this.setState( {
             challenge: challenges[0]
           }, () => {
-            // console.log( this.state.challenge, "challenge in banner" );
             this.toggleChallengeModal();
+            createNotification( "challengeCompleted", challenges[0].index );
           } );
         } else {
           this.checkForNewBadges();
@@ -145,7 +147,6 @@ class Banner extends Component<Props> {
           }, () => {
             this.showToast();
             if ( badges[0].count > 1 ) {
-              console.log( "count above 1" );
               createNotification( "badgeEarned" );
             }
           } );
@@ -184,14 +185,14 @@ class Banner extends Component<Props> {
             toggleChallengeModal={this.toggleChallengeModal}
           />
         </Modal>
-        {/* <Modal
+        <Modal
           isVisible={showLevelModal}
           onSwipe={() => this.toggleLevelModal()}
           onBackdropPress={() => this.toggleLevelModal()}
           swipeDirection="down"
         >
           <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
-        </Modal> */}
+        </Modal>
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {

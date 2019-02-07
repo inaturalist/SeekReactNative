@@ -10,6 +10,12 @@ const notifications = {
     message: "notifications.learn_more",
     iconName: "badgePlaceholder",
     nextScreen: "iNatStats"
+  },
+  challengeCompleted: {
+    title: "notifications.challenge_completed",
+    message: "notifications.view_challenges",
+    iconName: "badgePlaceholder",
+    nextScreen: "Challenges"
   }
 };
 

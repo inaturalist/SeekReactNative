@@ -29,11 +29,8 @@ class NotificationsScreen extends Component<Props> {
   fetchNotifications() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const notifications = realm.objects( "NotificationRealm" );
-        console.log( notifications, "notifications in screen" );
-        this.setState( {
-          notifications
-        } );
+        const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
+        this.setState( { notifications } );
       } ).catch( ( err ) => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

@@ -1,8 +1,7 @@
-import { createNotification } from "./notificationHelpers";
-// import { isChallengeMonth } from "./dateHelpers";
-
+const { AsyncStorage } = require( "react-native" );
 const Realm = require( "realm" );
 
+const { createNotification } = require( "./notificationHelpers" );
 const taxonDict = require( "./taxonDict" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
@@ -15,9 +14,7 @@ const recalculateChallenges = () => {
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
       const totalCollectedTaxa = collectedTaxa.length;
-      console.log( totalCollectedTaxa, "total taxa" );
       const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND started == true" );
-      console.log( incompleteChallenges, "incomplete challenges" );
 
       incompleteChallenges.forEach( ( challenge ) => {
         realm.write( () => {
@@ -49,7 +46,9 @@ const recalculateChallenges = () => {
               }
             }
             const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
-            if ( percentComplete > 1 ) { // change this to 50% later
+            if ( percentComplete === 100 ) {
+              challenge.completedDate = new Date();
+            } else if ( percentComplete > 50 ) { // change this to 50% later
               createNotification( "challengeProgress", index );
             }
             challenge.percentComplete = percentComplete;
@@ -105,9 +104,35 @@ const setupChallenges = () => {
     } );
 };
 
+const setChallengesCompleted = ( challenges ) => {
+  AsyncStorage.setItem( "challengesCompleted", challenges );
+};
+
+const checkNumberOfChallengesCompleted = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" ).length;
+
+      setChallengesCompleted( challengesCompleted.toString() );
+    } ).catch( ( e ) => {
+      console.log( e, "error checking number of badges earned" );
+    } );
+};
+
+const getChallengesCompleted = async () => {
+  try {
+    const earned = await AsyncStorage.getItem( "challengesCompleted" );
+    return earned;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
   startChallenge,
-  setupChallenges
+  setupChallenges,
+  checkNumberOfChallengesCompleted,
+  getChallengesCompleted
 };

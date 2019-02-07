@@ -65,7 +65,14 @@ class BadgesScreen extends Component<Props> {
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
 
         speciesBadges.sort( ( a, b ) => {
-          if ( a.earnedDate > b.earnedDate ) {
+          if ( a.index < b.index ) {
+            return -1;
+          }
+          return 1;
+        } );
+
+        speciesBadges.sort( ( a, b ) => {
+          if ( a.earned > b.earned ) {
             return -1;
           }
           return 1;

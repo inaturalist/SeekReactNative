@@ -26,6 +26,7 @@ import {
 } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
+import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
@@ -164,8 +165,8 @@ class Results extends Component<Props> {
             seenDate
           } );
         }
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to check date species seen: ", err );
       } );
   }
 
@@ -227,6 +228,7 @@ class Results extends Component<Props> {
           onWillFocus={() => {
             this.resizeImage();
             checkNumberOfBadgesEarned();
+            checkNumberOfChallengesCompleted();
           }}
         />
         {!loading && photoConfirmed

@@ -11,10 +11,9 @@ import { colors } from "../../styles/global";
 import styles from "../../styles/badges/challengeBadge";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
+import badges from "../../assets/badges";
 
 const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
-
-const month = "April";
 
 type Props = {
   toggleChallengeModal: Function,
@@ -23,15 +22,16 @@ type Props = {
 
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <View style={styles.outerContainer}>
+    {console.log( challenge, "challenge in challenge modal" )}
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require( "../../assets/onboarding/img-onboarding2.png" )}
+          source={badges[challenge.earnedIconName]}
           style={styles.image}
         />
       </View>
       <Text style={styles.headerText}>
-        {i18n.t( "challenges.congrats", { defaultValue: "{{month}}", month } ).toLocaleUpperCase()}
+        {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).toLocaleUpperCase() } ).toLocaleUpperCase()}
       </Text>
       <Text style={styles.text}>
         {i18n.t( "challenges.thanks" )}

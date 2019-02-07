@@ -5,7 +5,7 @@ const challenges = {
     description: "challenges.april_description",
     totalSpecies: 4, // change this back to 20 before release
     unearnedIconName: "badge_empty",
-    earnedIconName: "ourplanet_april",
+    earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
     index: 0
   },

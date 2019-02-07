@@ -6,7 +6,15 @@ import Modal from "react-native-modal";
 
 import BadgeToast from "./BadgeToast";
 import styles from "../../styles/banner/badgeToast";
-import { recalculateBadges, getBadgesEarned, getLevelsEarned } from "../../utility/badgeHelpers";
+import {
+  recalculateBadges,
+  getBadgesEarned,
+  getLevelsEarned
+} from "../../utility/badgeHelpers";
+import {
+  recalculateChallenges,
+  getChallengesCompleted
+} from "../../utility/challengeHelpers";
 import realmConfig from "../../models/index";
 import LevelModal from "../Badges/LevelModal";
 import ChallengeModal from "../Badges/ChallengeModal";
@@ -22,10 +30,12 @@ class Banner extends Component<Props> {
     this.state = {
       badgesEarned: 0,
       levelsEarned: 0,
+      challengesCompleted: 0,
       badge: null,
       showLevelModal: false,
       showChallengeModal: false,
-      newestLevel: null
+      newestLevel: null,
+      challenge: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -34,32 +44,38 @@ class Banner extends Component<Props> {
   }
 
   async componentWillMount() {
-    const badgesEarned = await getBadgesEarned();
+    const challengesCompleted = await getChallengesCompleted();
     const levelsEarned = await getLevelsEarned();
-    this.toggleChallengeModal(); // temp
-    this.setBadgesEarned( badgesEarned );
+    const badgesEarned = await getBadgesEarned();
+    this.setChallengesCompleted( challengesCompleted );
     this.setLevelsEarned( levelsEarned );
-    this.checkForNewBadges();
+    this.setBadgesEarned( badgesEarned );
+    this.checkForChallengesCompleted();
+    // this.checkForNewBadges();
   }
 
-  setBadgesEarned( badgesEarned ) {
-    this.setState( { badgesEarned } );
+  setChallengesCompleted( challengesCompleted ) {
+    this.setState( { challengesCompleted } );
   }
 
   setLevelsEarned( levelsEarned ) {
     this.setState( { levelsEarned } );
   }
 
-  toggleLevelModal() {
-    const { showLevelModal } = this.state;
-
-    this.setState( { showLevelModal: !showLevelModal } );
+  setBadgesEarned( badgesEarned ) {
+    this.setState( { badgesEarned } );
   }
 
   toggleChallengeModal() {
     const { showChallengeModal } = this.state;
 
     this.setState( { showChallengeModal: !showChallengeModal } );
+  }
+
+  toggleLevelModal() {
+    const { showLevelModal } = this.state;
+
+    this.setState( { showLevelModal: !showLevelModal } );
   }
 
   showToast() {
@@ -82,6 +98,31 @@ class Banner extends Component<Props> {
         }
       ).start();
     }, 2000 );
+  }
+
+  checkForChallengesCompleted() {
+    const { challengesCompleted } = this.state;
+
+    recalculateChallenges();
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
+
+        if ( challenges > challengesCompleted ) {
+          this.setState( {
+            challenge: challenges[0]
+          }, () => {
+            console.log( this.state.challenge, "challenge in banner" );
+            this.toggleChallengeModal();
+          } );
+        } else {
+          this.checkForNewBadges();
+        }
+      } ).catch( ( e ) => {
+        console.log( e, "error" );
+      } );
+    // check for 100 percent on any challenges, from oldest to newest
   }
 
   checkForNewBadges() {
@@ -114,7 +155,13 @@ class Banner extends Component<Props> {
   }
 
   render() {
-    const { badge, showChallengeModal, showLevelModal, newestLevel } = this.state;
+    const {
+      badge,
+      showChallengeModal,
+      showLevelModal,
+      newestLevel,
+      challenge
+    } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -125,7 +172,10 @@ class Banner extends Component<Props> {
           onBackdropPress={() => this.toggleChallengeModal()}
           swipeDirection="down"
         >
-          <ChallengeModal toggleChallengeModal={this.toggleChallengeModal} />
+          <ChallengeModal
+            challenge={challenge}
+            toggleChallengeModal={this.toggleChallengeModal}
+          />
         </Modal>
         {/* <Modal
           isVisible={showLevelModal}

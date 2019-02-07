@@ -12,6 +12,7 @@ ChallengeRealm.schema = {
     missions: { type: "string[]" },
     numbersObserved: { type: "int[]" },
     percentComplete: { type: "int", default: 0 },
+    completedDate: { type: "date?" },
     started: { type: "bool", default: false },
     index: { type: "int", default: 0 }
   }

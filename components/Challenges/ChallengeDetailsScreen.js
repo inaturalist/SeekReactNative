@@ -166,7 +166,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <View />
             </View>
             <View style={styles.challengeContainer}>
-              <Text style={styles.challengeHeader}>{challenge.month}</Text>
+              <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
               <Text style={styles.challengeName}>{challenge.name}</Text>
               <View style={styles.row}>
                 <Image source={icons.badgePlaceholder} />

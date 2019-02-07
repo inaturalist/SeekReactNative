@@ -12,40 +12,45 @@ const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
-      const collectedTaxa = realm.objects( "TaxonRealm" );
-      const totalCollectedTaxa = collectedTaxa.length;
       const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND started == true" );
 
       incompleteChallenges.forEach( ( challenge ) => {
+        const { startedDate } = challenge;
+        const seenAfterChallengeStart = [];
+        const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
+        observations.forEach( ( observation ) => {
+          if ( observation.date >= startedDate ) {
+            seenAfterChallengeStart.push( observation );
+          }
+        } );
         realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
-          let totalSeen = 0;
+          let numberSeen = 0;
           const { index } = challenge;
-          const totalPerMission = missionsDict.default[index];
+          const mission = missionsDict.default[index];
 
-          Object.keys( totalPerMission ).forEach( ( taxa ) => {
+          Object.keys( mission ).forEach( ( taxa ) => {
             if ( taxa === "all" ) {
-              if ( totalCollectedTaxa <= totalPerMission[taxa] ) {
-                challenge.numbersObserved.push( totalCollectedTaxa );
-                totalSeen += totalCollectedTaxa;
+              if ( seenAfterChallengeStart.length <= mission[taxa] ) {
+                challenge.numbersObserved.push( seenAfterChallengeStart.length );
+                numberSeen += seenAfterChallengeStart.length;
               } else {
-                challenge.numbersObserved.push( totalPerMission[taxa] );
-                totalSeen += totalPerMission[taxa];
+                challenge.numbersObserved.push( mission[taxa] );
+                numberSeen += mission[taxa];
               }
             } else {
               const taxaId = taxonDict.default[taxa];
-              const collectedIconicTaxa = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` );
-              const collectionLength = Object.keys( collectedIconicTaxa ).length;
-              if ( collectionLength <= totalPerMission[taxa] ) {
-                challenge.numbersObserved.push( collectionLength );
-                totalSeen += collectionLength;
+              const taxaSeenAfterChallengeStart = seenAfterChallengeStart.filter( t => t.taxon.iconicTaxonId === taxaId );
+              if ( taxaSeenAfterChallengeStart.length <= mission[taxa] ) {
+                challenge.numbersObserved.push( taxaSeenAfterChallengeStart.length );
+                numberSeen += taxaSeenAfterChallengeStart.length;
               } else {
-                challenge.numbersObserved.push( totalPerMission[taxa] );
-                totalSeen += totalPerMission[taxa];
+                challenge.numbersObserved.push( mission[taxa] );
+                numberSeen += mission[taxa];
               }
             }
-            const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+            const percentComplete = calculatePercent( numberSeen, challenge.totalSpecies );
             if ( percentComplete === 100 ) {
               challenge.completedDate = new Date();
             } else if ( percentComplete > 50 ) { // change this to 50% later
@@ -69,6 +74,7 @@ const startChallenge = ( index ) => {
       challenges.forEach( ( challenge ) => {
         realm.write( () => {
           challenge.started = true;
+          challenge.startedDate = new Date();
           challenge.numbersObserved = [0, 0, 0, 0, 0];
         } );
       } );

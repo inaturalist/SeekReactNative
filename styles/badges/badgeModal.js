@@ -10,6 +10,8 @@ export default StyleSheet.create( {
   },
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 40,
     backgroundColor: colors.white
   },
@@ -23,8 +25,9 @@ export default StyleSheet.create( {
   image: {
     marginTop: 25,
     marginBottom: 25,
-    height: 183,
-    width: 183
+    height: 208,
+    width: 208,
+    resizeMode: "contain"
   },
   headerText: {
     marginHorizontal: 27,
@@ -32,7 +35,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     fontSize: 19,
     fontFamily: fonts.semibold,
-    color: "#4a4a4a",
+    color: colors.seekForestGreen,
     lineHeight: 24
   },
   text: {

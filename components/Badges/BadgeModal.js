@@ -13,6 +13,8 @@ import i18n from "../../i18n";
 import styles from "../../styles/badges/badgeModal";
 import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
+import BannerHeader from "./BannerHeader";
+import { FlatList } from "react-native-gesture-handler";
 
 const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
 
@@ -24,11 +26,12 @@ type Props = {
 const BadgeModal = ( { badge, toggleBadgeModal }: Props ) => (
   <View style={styles.outerContainer}>
     <View style={styles.container}>
-      <Text style={styles.headerText}>{i18n.t( "banner.level_up" ).toLocaleUpperCase()}</Text>
+      <BannerHeader text={badge.iconicTaxonName.toLocaleUpperCase()} />
       <Image
-        source={badgeImages[badge.earnedIconName]}
+        source={badgeImages[badge.unearnedIconName]}
         style={styles.image}
       />
+      <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
       <Text style={styles.nameText}>{badge.name.toLocaleUpperCase()}</Text>
     </View>
     <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>

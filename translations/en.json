@@ -270,7 +270,8 @@
     "name_fungi_15": "Gold Mushroom",
     "name_plant_1": "Bronze Orchid",
     "name_plant_5": "Silver Orchid",
-    "name_plant_20": "Gold Orchid"
+    "name_plant_20": "Gold Orchid",
+    "to_earn": "To earn this badge:"
   },
   "about": {
     "header": "About",

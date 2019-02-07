@@ -23,6 +23,7 @@ import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import BannerHeader from "./BannerHeader";
 import LevelModal from "./LevelModal";
+import BadgeModal from "./BadgeModal";
 
 type Props = {
   navigation: any
@@ -39,7 +40,8 @@ class BadgesScreen extends Component<Props> {
       nextLevelCount: null,
       badgesEarned: null,
       speciesCount: null,
-      showModal: false
+      showModal: false,
+      showBadgeModal: false
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -99,19 +101,36 @@ class BadgesScreen extends Component<Props> {
       } );
   }
 
+  fetchChallenges() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" );
+        this.setState( { challengeBadges: challenges } );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   toggleLevelModal() {
     const { showModal } = this.state;
     this.setState( { showModal: !showModal } );
   }
 
+  toggleBadgeModal() {
+    const { showBadgeModal } = this.state;
+    this.setState( { showBadgeModal: !showBadgeModal } );
+  }
+
   render() {
     const {
       speciesBadges,
+      challengeBadges,
       level,
       nextLevelCount,
       badgesEarned,
       speciesCount,
-      showModal
+      showModal,
+      showBadgeModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -120,6 +139,7 @@ class BadgesScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.fetchBadges();
+            this.fetchChallenges();
             this.fetchSpeciesCount();
           }}
         />
@@ -171,8 +191,19 @@ class BadgesScreen extends Component<Props> {
               return (
                 <TouchableOpacity
                   style={styles.gridCell}
-                  onPress={() => console.log( "modal will pop up here" )}
+                  onPress={() => this.toggleBadgeModal()}
                 >
+                  <Modal
+                    isVisible={showBadgeModal}
+                    onSwipe={() => this.toggleBadgeModal()}
+                    onBackdropPress={() => this.toggleBadgeModal()}
+                    swipeDirection="down"
+                  >
+                    <BadgeModal
+                      badge={item}
+                      toggleBadgeModal={this.toggleBadgeModal}
+                    />
+                  </Modal>
                   <View style={styles.gridCellContents}>
                     <Image
                       source={badgeIcon}
@@ -185,6 +216,33 @@ class BadgesScreen extends Component<Props> {
           />
           <View style={styles.secondTextContainer}>
             <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+            <FlatList
+              data={challengeBadges}
+              style={styles.badgesContainer}
+              keyExtractor={challenge => challenge.name}
+              numColumns={3}
+              renderItem={( { item } ) => {
+                let badgeIcon;
+                if ( item.percentComplete === 100 ) {
+                  badgeIcon = badgeImages[item.earnedIconName];
+                } else {
+                  badgeIcon = badgeImages[item.unearnedIconName];
+                }
+                return (
+                  <TouchableOpacity
+                    style={styles.gridCell}
+                    // onPress={() => this.toggleBadgeModal()}
+                  >
+                    <View style={styles.gridCellContents}>
+                      <Image
+                        source={badgeIcon}
+                        style={styles.badgeIcon}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                );
+              }}
+            />
             <View style={styles.stats}>
               <View>
                 <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>

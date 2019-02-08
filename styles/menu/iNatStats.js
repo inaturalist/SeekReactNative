@@ -77,8 +77,8 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   italicText: {
+    textAlign: "center",
     marginTop: 20,
-    marginBottom: 20,
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 16,

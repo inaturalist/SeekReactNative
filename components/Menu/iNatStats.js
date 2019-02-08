@@ -155,18 +155,16 @@ class iNatStatsScreen extends Component<Props> {
             >
               {photoList}
             </ScrollView>
-            <View style={styles.missionContainer}>
-              <Text style={styles.italicText}>
-                {i18n.t( "inat_stats.contribute" )}
-              </Text>
-              <TouchableOpacity
-                style={styles.greenButton}
-                onPress={() => navigation.navigate( "Login" )}
-              >
-                <Text style={styles.buttonText}>{i18n.t( "inat_stats.join" )}</Text>
-              </TouchableOpacity>
-              <Padding />
-            </View>
+            <Text style={styles.italicText}>
+              {i18n.t( "inat_stats.thanks" )}
+            </Text>
+            {/* <TouchableOpacity
+              style={styles.greenButton}
+              onPress={() => navigation.navigate( "Login" )}
+            >
+              <Text style={styles.buttonText}>{i18n.t( "inat_stats.join" )}</Text>
+            </TouchableOpacity> */}
+            <Padding />
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

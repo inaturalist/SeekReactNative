@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   outerContainer: {
@@ -21,6 +23,10 @@ export default StyleSheet.create( {
     justifyContent: "center",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40
+  },
+  carousel: {
+    alignItems: "center",
+    width: width - 50
   },
   image: {
     marginBottom: 25,

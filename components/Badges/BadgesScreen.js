@@ -179,9 +179,9 @@ class BadgesScreen extends Component<Props> {
         </Modal>
         <Modal
           isVisible={showBadgeModal}
-          onSwipe={() => this.toggleBadgeModal()}
+          // onSwipe={() => this.toggleBadgeModal()}
           onBackdropPress={() => this.toggleBadgeModal()}
-          swipeDirection="down"
+          // swipeDirection="down"
         >
           <BadgeModal
             badges={iconicTaxonBadges}

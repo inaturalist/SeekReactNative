@@ -19,11 +19,38 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
+  circleStyle: {
+    width: 59,
+    height: 59,
+    position: "absolute",
+    top: 40,
+    right: 40
+  },
+  circleText: {
+    fontFamily: fonts.book,
+    fontSize: 20
+  },
   textContainer: {
-    width: 191,
-    flexDirection: "row",
-    flexWrap: "wrap",
+    width: 240,
     marginBottom: 20
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  leftItem: {
+    width: 20,
+    alignItems: "center"
+  },
+  bullets: {
+    marginTop: 8,
+    fontSize: 27
+  },
+  checklist: {
+    marginTop: 20
+  },
+  missionText: {
+    marginLeft: 10
   },
   text: {
     marginTop: 16,
@@ -38,16 +65,5 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     color: colors.seekForestGreen
-  },
-  circleStyle: {
-    width: 59,
-    height: 59,
-    position: "absolute",
-    top: 40,
-    right: 40
-  },
-  circleText: {
-    fontFamily: fonts.book,
-    fontSize: 20
   }
 } );

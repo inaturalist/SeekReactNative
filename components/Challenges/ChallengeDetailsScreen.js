@@ -74,7 +74,8 @@ class ChallengeDetailsScreen extends Component<Props> {
             description: i18n.t( challenge.description ),
             earnedIconName: challenge.earnedIconName,
             started: challenge.started,
-            percentComplete: challenge.percentComplete
+            percentComplete: challenge.percentComplete,
+            index: challenge.index
           },
           missions,
           challengeStarted: challenge.started

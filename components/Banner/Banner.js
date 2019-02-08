@@ -138,21 +138,22 @@ class Banner extends Component<Props> {
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
 
-        if ( badgesEarned < earnedBadges.length ) {
-          this.setState( {
-            badge: badges[0]
-          }, () => {
-            this.showToast();
-            if ( badges[0].count > 1 ) {
-              createNotification( "badgeEarned" );
-            }
-          } );
-        }
-
         if ( levelsEarned < earnedLevels.length ) {
           this.setState( {
             newestLevel: newestLevels[0]
           }, () => this.toggleLevelModal() );
+        }
+
+        if ( badgesEarned < earnedBadges.length ) {
+          this.setState( {
+            badge: badges[0]
+          }, () => {
+            console.log( "show toast when badge earned" );
+            this.showToast();
+          } );
+          if ( badges[0].count > 1 ) {
+            createNotification( "badgeEarned" );
+          }
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
@@ -188,6 +189,12 @@ class Banner extends Component<Props> {
           onSwipe={() => this.toggleLevelModal()}
           onBackdropPress={() => this.toggleLevelModal()}
           swipeDirection="down"
+          onModalHide={() => {
+            if ( badge ) {
+              console.log( "show toast when level modal closes" );
+              this.showToast();
+            }
+          }}
         >
           <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
         </Modal>

@@ -6,6 +6,7 @@ const taxonDict = require( "./taxonDict" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
+const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
@@ -69,7 +70,6 @@ const startChallenge = ( index ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
-      console.log( challenges, "start challenge date" );
 
       challenges.forEach( ( challenge ) => {
         realm.write( () => {
@@ -79,10 +79,9 @@ const startChallenge = ( index ) => {
         } );
       } );
     } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to start challenge: ", err );
+      console.log( "[DEBUG] Failed to start challenge: ", err );
     } );
 };
-
 
 const setupChallenges = () => {
   Realm.open( realmConfig.default )
@@ -92,17 +91,21 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
+          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          const challenge = realm.create( "ChallengeRealm", {
-            name: challenges.name,
-            month: challenges.month,
-            description: challenges.description,
-            totalSpecies: challenges.totalSpecies,
-            unearnedIconName: challenges.unearnedIconName,
-            earnedIconName: challenges.earnedIconName,
-            missions: challenges.missions,
-            index: challenges.index
-          }, true );
+          if ( isAvailable ) {
+            const challenge = realm.create( "ChallengeRealm", {
+              name: challenges.name,
+              month: challenges.month,
+              description: challenges.description,
+              totalSpecies: challenges.totalSpecies,
+              unearnedIconName: challenges.unearnedIconName,
+              earnedIconName: challenges.earnedIconName,
+              missions: challenges.missions,
+              availableDate: challenges.availableDate,
+              index: challenges.index
+            }, true );
+          }
         } );
       } );
     } ).catch( ( err ) => {

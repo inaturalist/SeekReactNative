@@ -28,15 +28,15 @@ const requiresParent = ( birthday ) => {
   return false;
 };
 
-const isChallengeMonth = ( month ) => {
-  // const today = moment().format( "YYYY-MM" );
-  // console.log( month, "month before edits" );
-  // const challengeMonth = moment( month[0], Number( month[1] ) ).format( "YYYY-MM" );
-  // console.log( challengeMonth, "challenge month in date helpers" );
+const checkIfChallengeAvailable = ( date ) => {
+  if ( date <= new Date() ) {
+    return true;
+  }
+  return false;
 };
 
 export {
   getPreviousAndNextMonth,
-  isChallengeMonth,
+  checkIfChallengeAvailable,
   requiresParent
 };

@@ -4,7 +4,6 @@ const realmConfig = require( "../models/index" );
 const notificationDict = require( "./notificationDict" );
 
 const createNotification = ( type, index ) => {
-  console.log( "creating a notification" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const notifications = realm.objects( "NotificationRealm" );

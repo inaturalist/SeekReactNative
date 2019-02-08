@@ -7,6 +7,7 @@ const challenges = {
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
+    availableDate: new Date( 2019, 3, 1 ),
     index: 0
   },
   may: {
@@ -23,6 +24,7 @@ const challenges = {
       "challenges.mission_4_may",
       "challenges.mission_5_may"
     ],
+    availableDate: new Date( 2019, 4, 1 ),
     index: 1
   }
 };

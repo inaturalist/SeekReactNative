@@ -15,16 +15,14 @@ export default StyleSheet.create( {
   },
   header: {
     marginTop: 21,
-    marginLeft: 22
+    marginLeft: 22,
+    marginBottom: 10
   },
   headerText: {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.12
-  },
-  challengesContainer: {
-    flex: 1
   },
   cardContainer: {
     height: 95,
@@ -77,8 +75,7 @@ export default StyleSheet.create( {
     lineHeight: 17
   },
   noChallengeContainer: {
-    marginTop: 40,
-    marginBottom: 30,
+    marginTop: 20,
     alignItems: "center",
     justifyContent: "center"
   },

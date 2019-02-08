@@ -94,10 +94,7 @@ const MainStack = createStackNavigator( {
   Challenges: {
     screen: ChallengeScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "challenges.header" ),
-      headerStyle: styles.greenHeader,
-      headerTitleStyle: styles.whiteHeaderTitle,
-      headerBackImage: backButton
+      header: null
     } )
   },
   ChallengeDetails: {

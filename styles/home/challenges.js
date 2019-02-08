@@ -30,6 +30,7 @@ export default StyleSheet.create( {
     height: 305
   },
   challengeHeader: {
+    textAlign: "center",
     marginTop: 22,
     marginLeft: 22,
     marginRight: 22,

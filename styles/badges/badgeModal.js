@@ -23,19 +23,31 @@ export default StyleSheet.create( {
     borderTopRightRadius: 40
   },
   image: {
-    marginTop: 25,
     marginBottom: 25,
     height: 208,
     width: 208,
     resizeMode: "contain"
   },
+  row: {
+    marginTop: 20,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginBottom: 47
+  },
+  smallImage: {
+    height: 57,
+    width: 57,
+    resizeMode: "contain",
+    marginHorizontal: 20
+  },
   headerText: {
     marginHorizontal: 27,
-    marginTop: 16,
+    marginBottom: 9,
     textAlign: "center",
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
+    letterSpacing: 1.12,
     lineHeight: 24
   },
   text: {

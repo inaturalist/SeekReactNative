@@ -40,11 +40,13 @@ class BadgesScreen extends Component<Props> {
       nextLevelCount: null,
       badgesEarned: null,
       speciesCount: null,
-      showModal: false,
-      showBadgeModal: false
+      showLevelModal: false,
+      showBadgeModal: false,
+      clickedBadge: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
+    this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
   }
 
   fetchBadges() {
@@ -112,13 +114,17 @@ class BadgesScreen extends Component<Props> {
   }
 
   toggleLevelModal() {
-    const { showModal } = this.state;
-    this.setState( { showModal: !showModal } );
+    const { showLevelModal } = this.state;
+    this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  toggleBadgeModal() {
-    const { showBadgeModal } = this.state;
-    this.setState( { showBadgeModal: !showBadgeModal } );
+  toggleBadgeModal( clickedItem ) {
+    console.log( clickedBadge, "clicked badge in toggle modal" );
+    const { showBadgeModal, clickedBadge } = this.state;
+    this.setState( {
+      showBadgeModal: !showBadgeModal,
+      clickedBadge: clickedItem || clickedBadge
+    } );
   }
 
   render() {
@@ -129,10 +135,13 @@ class BadgesScreen extends Component<Props> {
       nextLevelCount,
       badgesEarned,
       speciesCount,
-      showModal,
-      showBadgeModal
+      showLevelModal,
+      showBadgeModal,
+      clickedBadge
     } = this.state;
     const { navigation } = this.props;
+
+    console.log( clickedBadge, "clicked badge" );
 
     return (
       <View style={styles.container}>
@@ -143,22 +152,33 @@ class BadgesScreen extends Component<Props> {
             this.fetchSpeciesCount();
           }}
         />
+        <Modal
+          isVisible={showLevelModal}
+          onSwipe={() => this.toggleLevelModal()}
+          onBackdropPress={() => this.toggleLevelModal()}
+          swipeDirection="down"
+        >
+          <LevelModal
+            level={level}
+            toggleLevelModal={this.toggleLevelModal}
+          />
+        </Modal>
+        <Modal
+          isVisible={showBadgeModal}
+          onSwipe={() => this.toggleBadgeModal()}
+          onBackdropPress={() => this.toggleBadgeModal()}
+          swipeDirection="down"
+        >
+          <BadgeModal
+            badge={clickedBadge}
+            toggleBadgeModal={this.toggleBadgeModal}
+          />
+        </Modal>
         <ScrollView>
           <LinearGradient
             colors={["#22784d", "#38976d"]}
             style={styles.header}
           >
-            <Modal
-              isVisible={showModal}
-              onSwipe={() => this.toggleLevelModal()}
-              onBackdropPress={() => this.toggleLevelModal()}
-              swipeDirection="down"
-            >
-              <LevelModal
-                level={level}
-                toggleLevelModal={this.toggleLevelModal}
-              />
-            </Modal>
             {level ? (
               <View style={styles.row}>
                 <TouchableOpacity
@@ -191,19 +211,8 @@ class BadgesScreen extends Component<Props> {
               return (
                 <TouchableOpacity
                   style={styles.gridCell}
-                  onPress={() => this.toggleBadgeModal()}
+                  onPress={() => this.toggleBadgeModal( item )}
                 >
-                  <Modal
-                    isVisible={showBadgeModal}
-                    onSwipe={() => this.toggleBadgeModal()}
-                    onBackdropPress={() => this.toggleBadgeModal()}
-                    swipeDirection="down"
-                  >
-                    <BadgeModal
-                      badge={item}
-                      toggleBadgeModal={this.toggleBadgeModal}
-                    />
-                  </Modal>
                   <View style={styles.gridCellContents}>
                     <Image
                       source={badgeIcon}

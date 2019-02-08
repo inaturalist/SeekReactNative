@@ -6,7 +6,7 @@ const taxonDict = require( "./taxonDict" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
-const { checkIfChallengeAvailable } = require( "./dateHelpers" );
+// const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 

@@ -42,7 +42,8 @@ class BadgesScreen extends Component<Props> {
       speciesCount: null,
       showLevelModal: false,
       showBadgeModal: false,
-      iconicTaxonBadges: []
+      iconicTaxonBadges: [],
+      iconicSpeciesCount: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -97,9 +98,14 @@ class BadgesScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
+        const collectedTaxa = realm.objects( "TaxonRealm" );
+        const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
+
+        console.log( collection, "species count in iconic id check" );
 
         this.setState( {
-          iconicTaxonBadges: badges
+          iconicTaxonBadges: badges,
+          iconicSpeciesCount: collection
         }, () => this.toggleBadgeModal() );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -146,7 +152,8 @@ class BadgesScreen extends Component<Props> {
       speciesCount,
       showLevelModal,
       showBadgeModal,
-      iconicTaxonBadges
+      iconicTaxonBadges,
+      iconicSpeciesCount
     } = this.state;
     const { navigation } = this.props;
 
@@ -178,6 +185,7 @@ class BadgesScreen extends Component<Props> {
         >
           <BadgeModal
             badges={iconicTaxonBadges}
+            iconicSpeciesCount={iconicSpeciesCount}
             toggleBadgeModal={this.toggleBadgeModal}
           />
         </Modal>

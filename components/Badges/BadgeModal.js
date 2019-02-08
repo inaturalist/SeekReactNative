@@ -21,10 +21,11 @@ const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /
 
 type Props = {
   badges: Array<Object>,
+  iconicSpeciesCount: number,
   toggleBadgeModal: Function
 };
 
-const BadgeModal = ( { badges, toggleBadgeModal }: Props ) => (
+const BadgeModal = ( { badges, toggleBadgeModal, iconicSpeciesCount }: Props ) => (
   <View style={styles.outerContainer}>
   {console.log( badges, "badges in badge modal" )}
     <View style={styles.container}>
@@ -37,7 +38,7 @@ const BadgeModal = ( { badges, toggleBadgeModal }: Props ) => (
           style={styles.image}
           imageStyle={styles.imageStyle}
         >
-          <LargeProgressCircle badge={badges[0]} />
+          <LargeProgressCircle badge={badges[0]} iconicSpeciesCount={iconicSpeciesCount} />
         </ImageBackground>
       )}
       <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>

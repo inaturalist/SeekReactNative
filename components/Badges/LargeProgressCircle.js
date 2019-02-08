@@ -20,7 +20,7 @@ const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
   <View style={styles.center}>
     <ProgressCircle
       outerCircleStyle={styles.circleStyle}
-      percent={calculatePercent( iconicSpeciesCount / badge.count )}
+      percent={calculatePercent( iconicSpeciesCount, badge.count )}
       radius={113 / 2}
       borderWidth={3}
       color={colors.seekiNatGreen}

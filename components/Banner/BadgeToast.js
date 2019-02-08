@@ -30,6 +30,8 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
           {i18n.t( "banner.badge" ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.description}>
+          {i18n.t( "badges.you_found" )}
+          {" "}
           {i18n.t( badge.infoText )}
         </Text>
         <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>

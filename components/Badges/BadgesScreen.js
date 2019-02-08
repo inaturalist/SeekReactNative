@@ -170,6 +170,7 @@ class BadgesScreen extends Component<Props> {
           swipeDirection="down"
         >
           <BadgeModal
+            speciesBadges={speciesBadges}
             badge={clickedBadge}
             toggleBadgeModal={this.toggleBadgeModal}
           />

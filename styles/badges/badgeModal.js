@@ -25,7 +25,10 @@ export default StyleSheet.create( {
   image: {
     marginBottom: 25,
     height: 208,
-    width: 208,
+    justifyContent: "center",
+    width: 208
+  },
+  imageStyle: {
     resizeMode: "contain"
   },
   row: {

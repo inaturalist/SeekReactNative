@@ -26,7 +26,7 @@ export default StyleSheet.create( {
   },
   carousel: {
     alignItems: "center",
-    width: width - 50
+    width: width - ( width * 0.1 )
   },
   image: {
     marginBottom: 25,

@@ -47,7 +47,8 @@ class SplashScreen extends Component<Props> {
     if ( isFirstLaunch ) {
       setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
     } else {
-      setTimeout( () => navigation.navigate( "Main" ), 2000 );
+      navigation.navigate( "Main" );
+      // setTimeout( () => navigation.navigate( "Main" ), 2000 );
     }
     return null;
   }

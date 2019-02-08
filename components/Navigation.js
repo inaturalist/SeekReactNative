@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
+import { fadeIn, fromLeft, fromRight } from "react-navigation-transitions";
 import { Image } from "react-native";
 
 import { colors } from "../styles/global";
@@ -36,6 +37,18 @@ import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 
+const handleCustomTransition = ( { scenes } ) => {
+  const prevScene = scenes[scenes.length - 2];
+  const nextScene = scenes[scenes.length - 1];
+  // Custom transitions go there
+  if ( prevScene
+    && prevScene.route.routeName === "Home"
+    && nextScene.route.routeName === "Main" ) {
+    return fadeIn( 2000 );
+  }
+  return fromLeft();
+};
+
 const backButton = (
   <Image
     source={icons.backButton}
@@ -68,7 +81,8 @@ const CameraNav = createMaterialTopTabNavigator( {
 } );
 
 const StackNavigatorConfig = {
-  headerMode: "screen"
+  headerMode: "screen",
+  transitionConfig: nav => handleCustomTransition( nav )
 };
 
 const DrawerNavigatorConfig = {

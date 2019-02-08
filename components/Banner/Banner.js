@@ -52,7 +52,6 @@ class Banner extends Component<Props> {
     this.setLevelsEarned( levelsEarned );
     this.setBadgesEarned( badgesEarned );
     this.checkForChallengesCompleted();
-    // this.checkForNewBadges();
   }
 
   setChallengesCompleted( challengesCompleted ) {
@@ -103,14 +102,12 @@ class Banner extends Component<Props> {
 
   checkForChallengesCompleted() {
     const { challengesCompleted } = this.state;
-    console.log( challengesCompleted, "challenges completed to date" );
 
     recalculateChallenges();
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
-        console.log( challenges, "challenges completed current" );
 
         if ( challenges > challengesCompleted ) {
           this.setState( {
@@ -179,6 +176,7 @@ class Banner extends Component<Props> {
           onSwipe={() => this.toggleChallengeModal()}
           onBackdropPress={() => this.toggleChallengeModal()}
           swipeDirection="down"
+          onModalHide={() => this.checkForNewBadges()}
         >
           <ChallengeModal
             challenge={challenge}

@@ -42,7 +42,7 @@ class BadgesScreen extends Component<Props> {
       speciesCount: null,
       showLevelModal: false,
       showBadgeModal: false,
-      clickedBadge: null
+      iconicTaxonBadges: []
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -93,6 +93,19 @@ class BadgesScreen extends Component<Props> {
       } );
   }
 
+  fetchBadgesByIconicId( taxaId ) {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
+
+        this.setState( {
+          iconicTaxonBadges: badges
+        }, () => this.toggleBadgeModal() );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   fetchSpeciesCount() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
@@ -118,13 +131,9 @@ class BadgesScreen extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  toggleBadgeModal( clickedItem ) {
-    console.log( clickedBadge, "clicked badge in toggle modal" );
-    const { showBadgeModal, clickedBadge } = this.state;
-    this.setState( {
-      showBadgeModal: !showBadgeModal,
-      clickedBadge: clickedItem || clickedBadge
-    } );
+  toggleBadgeModal() {
+    const { showBadgeModal } = this.state;
+    this.setState( { showBadgeModal: !showBadgeModal } );
   }
 
   render() {
@@ -137,11 +146,9 @@ class BadgesScreen extends Component<Props> {
       speciesCount,
       showLevelModal,
       showBadgeModal,
-      clickedBadge
+      iconicTaxonBadges
     } = this.state;
     const { navigation } = this.props;
-
-    console.log( clickedBadge, "clicked badge" );
 
     return (
       <View style={styles.container}>
@@ -170,8 +177,7 @@ class BadgesScreen extends Component<Props> {
           swipeDirection="down"
         >
           <BadgeModal
-            speciesBadges={speciesBadges}
-            badge={clickedBadge}
+            badges={iconicTaxonBadges}
             toggleBadgeModal={this.toggleBadgeModal}
           />
         </Modal>
@@ -212,7 +218,7 @@ class BadgesScreen extends Component<Props> {
               return (
                 <TouchableOpacity
                   style={styles.gridCell}
-                  onPress={() => this.toggleBadgeModal( item )}
+                  onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
                 >
                   <View style={styles.gridCellContents}>
                     <Image

@@ -8,10 +8,12 @@ import {
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import Footer from "../Home/Footer";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -45,6 +47,7 @@ class NotificationsScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => this.fetchNotifications()}
         />
+        <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
         <FlatList
           data={notifications}
           style={styles.notificationsContainer}

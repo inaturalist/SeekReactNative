@@ -2,7 +2,6 @@
 
 import React from "react";
 import {
-  Image,
   ScrollView,
   Text,
   View,
@@ -12,6 +11,7 @@ import {
 import styles from "../../styles/camera/help";
 import i18n from "../../i18n";
 import Footer from "../Challenges/ChallengeFooter";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -27,6 +27,7 @@ const CameraHelpScreen = ( { navigation }: Props ) => {
 
   return (
     <View style={styles.container}>
+      <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
       <ScrollView>
         <View style={styles.header}>
           <Text style={styles.headerText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>

@@ -162,7 +162,7 @@ class BadgesScreen extends Component<Props> {
             {level ? (
               <View style={styles.row}>
                 <TouchableOpacity
-                  onPress={() => this.toggleModal()}
+                  onPress={() => this.toggleLevelModal()}
                 >
                   <Image source={badgeImages[level.earnedIconName]} />
                 </TouchableOpacity>

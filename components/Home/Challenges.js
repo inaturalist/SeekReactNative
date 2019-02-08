@@ -13,10 +13,11 @@ import styles from "../../styles/home/challenges";
 import logos from "../../assets/logos";
 
 type Props = {
-  navigation: any
+  navigation: any,
+  challenge: Object
 }
 
-const Challenges = ( { navigation }: Props ) => (
+const Challenges = ( { navigation, challenge }: Props ) => (
   <View style={styles.container}>
     <View style={styles.column}>
       <View style={styles.header}>
@@ -29,14 +30,18 @@ const Challenges = ( { navigation }: Props ) => (
         </TouchableOpacity>
       </View>
       <View style={styles.challengeContainer}>
-        <Text style={styles.challengeHeader}>{i18n.t( "challenges_card.april" ).toLocaleUpperCase()}</Text>
+        <Text style={styles.challengeHeader}>
+          {i18n.t( challenge.month ).toLocaleUpperCase()}
+          {": "}
+          {i18n.t( challenge.name ).toLocaleUpperCase()}
+        </Text>
         <View style={styles.row}>
           <Image source={logos.op} />
           <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
         </View>
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => navigation.navigate( "ChallengeDetails", { index: 0 } )}
+          onPress={() => navigation.navigate( "ChallengeDetails", { index: challenge.index } )}
         >
           <Text style={[styles.headerText, styles.buttonText]}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>

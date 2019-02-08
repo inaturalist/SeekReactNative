@@ -50,7 +50,8 @@ class HomeScreen extends Component<Props> {
       modalVisible: false,
       notifications: false,
       error: null,
-      isFirstLaunch: false
+      isFirstLaunch: false,
+      challenge: null
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
@@ -58,10 +59,6 @@ class HomeScreen extends Component<Props> {
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
   }
-
-  // componentWillMount() {
-
-  // }
 
   setLoading( loading ) {
     this.setState( { loading } );
@@ -224,6 +221,18 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
+  fetchLatestChallenge() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
+        this.setState( {
+          challenge: challenges[0]
+        } );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   toggleLocationPicker() {
     const { modalVisible, error } = this.state;
 
@@ -256,7 +265,8 @@ class HomeScreen extends Component<Props> {
       modalVisible,
       notifications,
       error,
-      isFirstLaunch
+      isFirstLaunch,
+      challenge
     } = this.state;
     const { navigation } = this.props;
 
@@ -271,6 +281,7 @@ class HomeScreen extends Component<Props> {
                 this.checkForFirstLaunch();
                 this.checkInternetConnection();
                 this.fetchUserLocation();
+                this.fetchLatestChallenge();
                 fetchObservationData();
               }}
             />
@@ -301,7 +312,7 @@ class HomeScreen extends Component<Props> {
               { isFirstLaunch ? <CardPadding /> : null }
               { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <CardPadding />
-              <Challenges navigation={navigation} />
+              { challenge ? <Challenges navigation={navigation} challenge={challenge} /> : null}
               <Padding />
             </ScrollView>
           </View>

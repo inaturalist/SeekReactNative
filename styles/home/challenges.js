@@ -31,6 +31,8 @@ export default StyleSheet.create( {
   },
   challengeHeader: {
     marginTop: 22,
+    marginLeft: 22,
+    marginRight: 22,
     fontFamily: fonts.light,
     fontSize: 22,
     color: colors.white,

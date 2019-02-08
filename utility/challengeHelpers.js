@@ -91,21 +91,21 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
-          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          if ( isAvailable ) {
-            const challenge = realm.create( "ChallengeRealm", {
-              name: challenges.name,
-              month: challenges.month,
-              description: challenges.description,
-              totalSpecies: challenges.totalSpecies,
-              unearnedIconName: challenges.unearnedIconName,
-              earnedIconName: challenges.earnedIconName,
-              missions: challenges.missions,
-              availableDate: challenges.availableDate,
-              index: challenges.index
-            }, true );
-          }
+          // if ( isAvailable ) {
+          const challenge = realm.create( "ChallengeRealm", {
+            name: challenges.name,
+            month: challenges.month,
+            description: challenges.description,
+            totalSpecies: challenges.totalSpecies,
+            unearnedIconName: challenges.unearnedIconName,
+            earnedIconName: challenges.earnedIconName,
+            missions: challenges.missions,
+            availableDate: challenges.availableDate,
+            index: challenges.index
+          }, true );
+          // }
         } );
       } );
     } ).catch( ( err ) => {

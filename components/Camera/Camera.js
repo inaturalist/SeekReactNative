@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
-  Text
+  Image
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -19,6 +19,7 @@ import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
 import { getLatAndLng } from "../../utility/locationHelpers";
+import icons from "../../assets/icons";
 
 const flashModeOrder = {
   off: "on",
@@ -197,10 +198,9 @@ class CameraScreen extends Component<Props> {
             style={styles.capture}
           />
           <TouchableOpacity
-            style={styles.textCircle}
             onPress={() => navigation.navigate( "CameraHelp" )}
           >
-            <Text style={styles.helpText}>?</Text>
+            <Image source={icons.cameraHelp} />
           </TouchableOpacity>
         </View>
       );

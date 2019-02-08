@@ -34,18 +34,5 @@ export default StyleSheet.create( {
   },
   placeholder: {
     width: 49
-  },
-  textCircle: {
-    width: 29,
-    height: 29,
-    borderWidth: 1,
-    borderRadius: 29 / 2,
-    borderColor: colors.white,
-    justifyContent: "center"
-  },
-  helpText: {
-    textAlign: "center",
-    color: colors.white,
-    fontSize: 23
   }
 } );

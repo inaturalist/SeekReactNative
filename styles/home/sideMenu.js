@@ -5,27 +5,45 @@ import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.seekForestGreen
   },
-  image: {
-    marginTop: 22,
-    marginLeft: 22,
-    marginBottom: 22,
-    width: 221,
-    height: 82,
+  logo: {
+    marginTop: 28,
+    marginHorizontal: 34,
+    marginBottom: 16,
+    width: 223,
+    height: 79,
     resizeMode: "contain"
   },
   textContainer: {
-    marginLeft: 22,
     alignItems: "flex-start",
-    justifyContent: "space-between"
+    justifyContent: "space-around"
+  },
+  image: {
+    marginLeft: 34,
+    marginRight: 23,
+    width: 25,
+    height: 25,
+    resizeMode: "contain"
+  },
+  row: {
+    marginBottom: 18,
+    marginTop: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
   },
   text: {
-    marginBottom: 22,
-    marginRight: 4,
     fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 0.5,
+    fontSize: 18,
+    letterSpacing: 1.0,
     color: colors.white
+  },
+  divider: {
+    backgroundColor: "#63d4ab",
+    height: 1,
+    width: "100%"
   }
 } );

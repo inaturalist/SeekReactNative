@@ -85,11 +85,12 @@
   },
   "menu": {
     "home": "Home",
-    "profile": "Profile & Badges",
+    "achievements": "Achievements",
     "challenges": "Challenges",
-    "observations": "Observations",
+    "observations": "My Observations",
     "inat": "iNaturalist",
-    "about": "About"
+    "about": "About",
+    "settings": "Settings"
   },
   "onboarding": {
     "onboarding_1": "Take a photo of anything living and Seek will help you identify it!",

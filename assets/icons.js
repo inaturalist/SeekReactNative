@@ -18,7 +18,14 @@ const icons = {
   backButton: require( "./icons/back.png" ),
   backButtonGreen: require( "./icons/icon-back-green.png" ),
   badgePlaceholder: require( "./icons/badge-placeholder.png" ),
-  banner: require( "./icons/Banner.png" )
+  banner: require( "./icons/Banner.png" ),
+  menuHome: require( "./icons/icon-menu-home.png" ),
+  menuAchievements: require( "./icons/icon-menu-achievements.png" ),
+  menuChallenges: require( "./icons/icon-menu-challenges.png" ),
+  menuiNat: require( "./icons/icon-menu-inaturalist.png" ),
+  menuObservations: require( "./icons/icon-menu-observations.png" ),
+  menuSeek: require( "./icons/icon-menu-seek.png" ),
+  menuSettings: require( "./icons/icon-menu-settings.png" )
 };
 
 export default icons;

@@ -1,11 +1,11 @@
 import React from "react";
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
-import { fadeIn, fromLeft, fromRight } from "react-navigation-transitions";
-import { Image } from "react-native";
+import { fadeIn, fromLeft } from "react-navigation-transitions";
+// import { Image } from "react-native";
 
 import { colors } from "../styles/global";
 import styles from "../styles/navigation";
-import icons from "../assets/icons";
+// import icons from "../assets/icons";
 import i18n from "../i18n";
 
 import SplashScreen from "./SplashScreen";
@@ -49,12 +49,12 @@ const handleCustomTransition = ( { scenes } ) => {
   return fromLeft();
 };
 
-const backButton = (
-  <Image
-    source={icons.backButton}
-    style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
-  />
-);
+// const backButton = (
+//   <Image
+//     source={icons.backButton}
+//     style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
+//   />
+// );
 
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
@@ -164,10 +164,7 @@ const MainStack = createStackNavigator( {
   About: {
     screen: AboutScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "about.header" ),
-      headerStyle: styles.greenHeader,
-      headerTitleStyle: styles.whiteHeaderTitle,
-      headerBackImage: backButton
+      header: null
     } )
   }
 } );

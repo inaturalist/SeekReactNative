@@ -283,6 +283,10 @@
     "sponsored": "Seek is sponsored by Our Planet on Netflix",
     "our_planet": "Our Planet is a landmark natural history TV series released on Netflix in April 2019. This series is a Netflix Original produced by Silverback films and World Wildlife Fund.",
     "seek": "Seek is produced by iNaturalist",
-    "joint_initiative": "iNaturalist is a joint initiative between the California Academy of Sciences and the National Geographic Society."
+    "joint_initiative": "iNaturalist is a joint initiative between the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios.",
+    "designed_by": "Designed & developed by the iNaturalist team:",
+    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski.",
+    "version": "Version"
   }
 }

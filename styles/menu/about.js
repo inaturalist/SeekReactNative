@@ -4,35 +4,39 @@ import { colors, fonts } from "../global";
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.white
   },
   image: {
     marginBottom: 15
   },
   textContainer: {
-    flexDirection: "column",
+    marginTop: 20,
     alignItems: "center",
-    justifyContent: "space-around",
-    marginHorizontal: 22
+    marginHorizontal: 26
+  },
+  block: {
+    marginTop: 20
   },
   boldText: {
-    marginBottom: 15,
+    marginBottom: 9,
     color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 20,
+    fontFamily: fonts.semibold,
+    fontSize: 16,
+    lineHeight: 21,
     textAlign: "center"
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center"
   },
   text: {
     marginBottom: 15,
     color: colors.black,
-    fontFamily: fonts.default,
+    fontFamily: fonts.book,
     fontSize: 16,
+    lineHeight: 21,
     textAlign: "center"
+  },
+  greenText: {
+    fontSize: 18,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.0
   }
 } );

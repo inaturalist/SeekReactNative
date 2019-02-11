@@ -14,6 +14,11 @@ export default StyleSheet.create( {
     alignItems: "center",
     marginHorizontal: 26
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
   block: {
     marginTop: 20
   },

@@ -24,6 +24,10 @@ const AboutScreen = ( { navigation }: Props ) => (
     <GreenHeader navigation={navigation} header={i18n.t( "about.header" )} />
     <ScrollView contentContainerStyle={styles.textContainer}>
       <Image style={styles.image} source={logos.opBlack} />
+      <View style={styles.row}>
+        <Image style={styles.image} source={logos.netflix} />
+        <Image style={[styles.image, { marginLeft: 20 }]} source={logos.wwf} />
+      </View>
       <View style={styles.block}>
         <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
         <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>

@@ -85,7 +85,7 @@ const SideMenu = ( { navigation }: Props ) => (
         style={styles.row}
         onPress={() => navigation.navigate( "About" )}
       >
-        <Image source={icons.menuSettings} style={styles.image} />
+        <Image source={icons.menuSeek} style={styles.image} />
         <Text style={styles.text}>
           {i18n.t( "menu.about" ).toLocaleUpperCase()}
         </Text>

@@ -6,7 +6,9 @@ const logos = {
   opBlack: require( "./logos/logo-OPblack.png" ),
   iNat: require( "./logos/logo-inaturalist.png" ),
   casNatGeo: require( "./logos/logos-CAS-NatGeo.png" ),
-  hhmi: require( "./logos/logo-hhmi.png" )
+  hhmi: require( "./logos/logo-hhmi.png" ),
+  netflix: require( "./logos/logo-netflix.png" ),
+  wwf: require( "./logos/logo-wwf.png" )
 };
 
 export default logos;

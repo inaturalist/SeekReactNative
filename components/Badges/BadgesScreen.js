@@ -213,7 +213,7 @@ class BadgesScreen extends Component<Props> {
           </View>
           <FlatList
             data={speciesBadges}
-            style={styles.badgesContainer}
+            contentContainerStyle={styles.badgesContainer}
             keyExtractor={badge => badge.name}
             numColumns={3}
             renderItem={( { item } ) => {
@@ -228,12 +228,10 @@ class BadgesScreen extends Component<Props> {
                   style={styles.gridCell}
                   onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
                 >
-                  <View style={styles.gridCellContents}>
-                    <Image
-                      source={badgeIcon}
-                      style={styles.badgeIcon}
-                    />
-                  </View>
+                  <Image
+                    source={badgeIcon}
+                    style={styles.badgeIcon}
+                  />
                 </TouchableOpacity>
               );
             }}
@@ -242,7 +240,7 @@ class BadgesScreen extends Component<Props> {
             <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
             <FlatList
               data={challengeBadges}
-              style={styles.badgesContainer}
+              contentContainerStyle={styles.badgesContainer}
               keyExtractor={challenge => challenge.name}
               numColumns={3}
               renderItem={( { item } ) => {
@@ -257,12 +255,10 @@ class BadgesScreen extends Component<Props> {
                     style={styles.gridCell}
                     // onPress={() => this.toggleBadgeModal()}
                   >
-                    <View style={styles.gridCellContents}>
-                      <Image
-                        source={badgeIcon}
-                        style={styles.badgeIcon}
-                      />
-                    </View>
+                    <Image
+                      source={badgeIcon}
+                      style={styles.badgeIcon}
+                    />
                   </TouchableOpacity>
                 );
               }}

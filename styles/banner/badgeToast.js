@@ -1,5 +1,5 @@
-import { StyleSheet, Platform } from "react-native";
-import { fonts, colors } from "../global";
+import { StyleSheet } from "react-native";
+import { fonts, colors, padding } from "../global";
 
 export default StyleSheet.create( {
   topContainer: {
@@ -29,7 +29,7 @@ export default StyleSheet.create( {
     marginRight: 10
   },
   headerText: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

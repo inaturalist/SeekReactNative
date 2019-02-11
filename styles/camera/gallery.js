@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors, padding, fonts } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -16,7 +16,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   headerText: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

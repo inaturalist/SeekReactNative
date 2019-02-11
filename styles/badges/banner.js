@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts
@@ -8,7 +8,7 @@ export default StyleSheet.create( {
   banner: {
     marginTop: 20,
     marginBottom: 20,
-    paddingTop: 5,
+    paddingTop: Platform.OS === "android" ? 5 : 7,
     width: 284,
     height: 48
   },

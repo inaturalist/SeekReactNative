@@ -2,16 +2,14 @@ import { StyleSheet } from "react-native";
 
 import { colors, fonts } from "../global";
 
-
 export default StyleSheet.create( {
   container: {
     flex: 1,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.seekForestGreen,
+    justifyContent: "space-around"
   },
   logo: {
-    marginTop: 28,
     marginHorizontal: 34,
-    marginBottom: 16,
     width: 223,
     height: 79,
     resizeMode: "contain"

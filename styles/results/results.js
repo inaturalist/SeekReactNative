@@ -1,5 +1,5 @@
-import { StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { StyleSheet } from "react-native";
+import { colors, fonts, padding } from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -32,7 +32,7 @@ export default StyleSheet.create( {
   },
   headerText: {
     textAlign: "center",
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

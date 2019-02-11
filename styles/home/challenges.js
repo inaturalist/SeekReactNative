@@ -1,8 +1,9 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  fontSize
+  fontSize,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
@@ -65,7 +66,7 @@ export default StyleSheet.create( {
     marginBottom: 21
   },
   buttonText: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: fontSize.buttonText,
     color: colors.white
   },

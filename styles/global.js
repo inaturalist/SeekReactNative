@@ -27,7 +27,6 @@ export const colors = {
 
 export const fonts = {
   default: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
-  // checkboxes: "FontAwesome",
   semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
   playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
@@ -60,6 +59,7 @@ export const padding = {
   medium: 5,
   large: 15,
   extraLarge: 20,
+  iOSPadding: Platform.OS === "ios" ? 8 : 0,
   buttonTop: 11,
   buttonBottom: 9.5
 };

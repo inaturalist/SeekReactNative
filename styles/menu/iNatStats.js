@@ -1,7 +1,8 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -41,7 +42,8 @@ export default StyleSheet.create( {
     right: 10,
     top: 30,
     height: height > 570 ? 65 : 45,
-    width: height > 570 ? 81 : 61
+    width: height > 570 ? 81 : 61,
+    resizeMode: "contain"
   },
   numberText: {
     color: colors.black,
@@ -95,7 +97,7 @@ export default StyleSheet.create( {
   },
   buttonText: {
     fontFamily: fonts.semibold,
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 22,
     color: colors.white
   },

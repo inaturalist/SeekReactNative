@@ -23,7 +23,7 @@ export default StyleSheet.create( {
     width: 185
   },
   headerText: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

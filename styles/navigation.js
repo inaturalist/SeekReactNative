@@ -1,7 +1,8 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "./global";
 
 const { width } = Dimensions.get( "screen" );
@@ -38,7 +39,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen
   },
   galleryHeader: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

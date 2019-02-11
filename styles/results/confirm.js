@@ -1,5 +1,5 @@
-import { StyleSheet, Dimensions, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { StyleSheet, Dimensions } from "react-native";
+import { colors, fonts, padding } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   headerText: {
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -42,7 +42,7 @@ export default StyleSheet.create( {
   buttonText: {
     fontFamily: fonts.semibold,
     letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 18,
     color: colors.white
   },

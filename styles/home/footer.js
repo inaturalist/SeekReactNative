@@ -11,7 +11,7 @@ export default StyleSheet.create( {
     height: 70,
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center"
   },
   cameraImage: {
@@ -20,6 +20,7 @@ export default StyleSheet.create( {
     height: Platform.OS === "android" ? 84 : 94
   },
   button: {
+    marginHorizontal: 15,
     paddingLeft: 5,
     paddingRight: 5,
     paddingTop: 5,

@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -42,17 +44,19 @@ export default StyleSheet.create( {
   },
   badgesContainer: {
     marginTop: 5,
-    marginHorizontal: 12
+    marginBottom: 25,
+    alignItems: "center",
+    justifyContent: "center"
   },
   badgeIcon: {
-    width: 100,
-    height: 100,
+    width: width / 3 - 10,
+    height: width / 3 - 10,
     resizeMode: "contain"
   },
   gridCell: {
-    width: 100,
-    height: 110,
-    marginHorizontal: 6,
+    width: width / 3 - 10,
+    height: width / 3 - 10,
+    marginHorizontal: 3,
     marginBottom: 12
   },
   stats: {

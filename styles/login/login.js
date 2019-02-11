@@ -1,6 +1,6 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 
-import { fonts, colors } from "../global";
+import { fonts, colors, padding } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
@@ -116,7 +116,7 @@ export default StyleSheet.create( {
     shadowRadius: 4
   },
   buttonText: {
-    paddingTop: Platform.OS === "ios" ? 7 : null,
+    paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
     fontSize: 22,
     color: colors.white

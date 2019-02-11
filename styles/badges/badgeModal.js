@@ -11,7 +11,6 @@ export default StyleSheet.create( {
     flex: 1
   },
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 40,
@@ -30,9 +29,9 @@ export default StyleSheet.create( {
   },
   image: {
     marginBottom: 25,
-    height: 208,
+    height: width / 2,
     justifyContent: "center",
-    width: 208
+    width: width / 2
   },
   imageStyle: {
     resizeMode: "contain"
@@ -80,7 +79,6 @@ export default StyleSheet.create( {
   backButton: {
     padding: 10,
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: 4
+    justifyContent: "center"
   }
 } );

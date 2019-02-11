@@ -1,26 +1,27 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   outerContainer: {
     flex: 1
   },
   container: {
-    flex: 1,
     borderRadius: 40,
     backgroundColor: colors.white
   },
   backgroundColor: {
-    height: 300,
+    height: height / 2,
     alignItems: "center",
     justifyContent: "center"
   },
   headerText: {
     textAlign: "center",
-    marginTop: 35,
+    marginTop: 20,
     marginBottom: 20,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -41,6 +42,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     marginHorizontal: 40,
     marginTop: 20,
+    marginBottom: 20,
     fontFamily: fonts.book,
     color: colors.black,
     lineHeight: 21,
@@ -49,7 +51,6 @@ export default StyleSheet.create( {
   backButton: {
     padding: 20,
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20
+    justifyContent: "center"
   }
 } );

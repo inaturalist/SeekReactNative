@@ -81,52 +81,57 @@ class Banner extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  showBadgeToast() {
-    console.log( "showing badge toast" );
-    Animated.timing(
-      this.animatedBadge,
-      {
-        toValue: 0,
-        duration: 950
-      }
-    ).start( this.hideBadgeToast() );
-  }
+  showToasts() {
+    const { badge } = this.state;
+    console.log( "showing all toasts" );
 
-  hideBadgeToast() {
-    console.log( "hiding badge toast" );
-    setTimeout( () => {
-      Animated.timing(
-        this.animatedBadge,
-        {
-          toValue: -120,
-          duration: 350
-        }
-      ).start( this.showChallengeToast() );
-    }, 2000 );
-  }
-
-  showChallengeToast() {
-    console.log( "showing challenge toast" );
-    Animated.timing(
-      this.animatedChallenge,
-      {
-        toValue: 0,
-        duration: 950
-      }
-    ).start( this.hideChallengeToast() );
-  }
-
-  hideChallengeToast() {
-    console.log( "hiding challenge toast" );
-    setTimeout( () => {
-      Animated.timing(
-        this.animatedChallenge,
-        {
-          toValue: -130,
-          duration: 350
-        }
-      ).start();
-    }, 2000 );
+    if ( badge ) {
+      Animated.sequence( [
+        Animated.timing(
+          this.animatedBadge, {
+            toValue: 0,
+            duration: 3000
+          }
+        ),
+        Animated.timing(
+          this.animatedBadge, {
+            toValue: -120,
+            delay: 2000,
+            duration: 950
+          }
+        ),
+        Animated.timing(
+          this.animatedChallenge, {
+            toValue: 0,
+            duration: 1000
+          }
+        ),
+        Animated.timing(
+          this.animatedChallenge, {
+            toValue: -130,
+            delay: 2000,
+            duration: 2000
+          }
+        )
+      ] ).start();
+    } else {
+      console.log( "challenge progress only" );
+      Animated.sequence( [
+        Animated.timing(
+          this.animatedChallenge, {
+            toValue: 0,
+            duration: 1000
+          }
+        ),
+        Animated.timing(
+          this.animatedChallenge, {
+            toValue: -130,
+            delay: 2000,
+            duration: 2000
+          }
+        )
+      ] ).start();
+    }
   }
 
   checkForChallengesCompleted() {
@@ -139,14 +144,19 @@ class Banner extends Component<Props> {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
 
-        if ( challenges > challengesCompleted ) {
+        console.log( challenges, challengesCompleted, "challenges completed" );
+
+        if ( challenges.length > challengesCompleted ) {
           this.setState( {
-            challenge: challenges[0],
-            incompleteChallenge: incompleteChallenges[0]
+            challenge: challenges[0]
           }, () => {
             this.toggleChallengeModal();
             createNotification( "challengeCompleted", challenges[0].index );
           } );
+        } else if ( incompleteChallenges.length > 0 ) {
+          this.setState( {
+            incompleteChallenge: incompleteChallenges[0]
+          }, () => this.showToasts() );
         } else {
           this.checkForNewBadges();
         }
@@ -179,13 +189,14 @@ class Banner extends Component<Props> {
           this.setState( {
             badge: badges[0]
           }, () => {
-            console.log( "badge earned -- show badge toast" );
             if ( !showLevelModal ) {
-              this.showBadgeToast();
+              this.showToasts();
             }
           } );
           if ( badges[0].count > 1 ) {
             createNotification( "badgeEarned" );
+          } else {
+            this.showToasts();
           }
         }
       } ).catch( ( e ) => {
@@ -223,12 +234,7 @@ class Banner extends Component<Props> {
           onSwipe={() => this.toggleLevelModal()}
           onBackdropPress={() => this.toggleLevelModal()}
           swipeDirection="down"
-          onModalHide={() => {
-            if ( badge ) {
-              console.log( "level modal closing -- show badge toast" );
-              this.showBadgeToast();
-            }
-          }}
+          onModalHide={() => this.showToasts()}
         >
           <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
         </Modal>

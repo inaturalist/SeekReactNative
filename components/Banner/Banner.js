@@ -5,6 +5,7 @@ import Realm from "realm";
 import Modal from "react-native-modal";
 
 import BadgeToast from "./BadgeToast";
+import ChallengeToast from "./ChallengeToast";
 import styles from "../../styles/banner/badgeToast";
 import {
   recalculateBadges,
@@ -36,12 +37,14 @@ class Banner extends Component<Props> {
       showLevelModal: false,
       showChallengeModal: false,
       newestLevel: null,
-      challenge: null
+      challenge: null,
+      incompleteChallenge: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
-    this.animatedValue = new Animated.Value( -120 );
+    this.animatedBadge = new Animated.Value( -120 );
+    this.animatedChallenge = new Animated.Value( -130 );
   }
 
   async componentWillMount() {
@@ -78,22 +81,48 @@ class Banner extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  showToast() {
+  showBadgeToast() {
+    console.log( "showing badge toast" );
     Animated.timing(
-      this.animatedValue,
+      this.animatedBadge,
       {
         toValue: 0,
         duration: 950
       }
-    ).start( this.hideToast() );
+    ).start( this.hideBadgeToast() );
   }
 
-  hideToast() {
+  hideBadgeToast() {
+    console.log( "hiding badge toast" );
     setTimeout( () => {
       Animated.timing(
-        this.animatedValue,
+        this.animatedBadge,
         {
           toValue: -120,
+          duration: 350
+        }
+      ).start( this.showChallengeToast() );
+    }, 2000 );
+  }
+
+  showChallengeToast() {
+    console.log( "showing challenge toast" );
+    Animated.timing(
+      this.animatedChallenge,
+      {
+        toValue: 0,
+        duration: 950
+      }
+    ).start( this.hideChallengeToast() );
+  }
+
+  hideChallengeToast() {
+    console.log( "hiding challenge toast" );
+    setTimeout( () => {
+      Animated.timing(
+        this.animatedChallenge,
+        {
+          toValue: -130,
           duration: 350
         }
       ).start();
@@ -108,10 +137,12 @@ class Banner extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
+        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
 
         if ( challenges > challengesCompleted ) {
           this.setState( {
-            challenge: challenges[0]
+            challenge: challenges[0],
+            incompleteChallenge: incompleteChallenges[0]
           }, () => {
             this.toggleChallengeModal();
             createNotification( "challengeCompleted", challenges[0].index );
@@ -126,7 +157,7 @@ class Banner extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned, levelsEarned } = this.state;
+    const { badgesEarned, levelsEarned, showLevelModal } = this.state;
 
     recalculateBadges();
 
@@ -148,8 +179,10 @@ class Banner extends Component<Props> {
           this.setState( {
             badge: badges[0]
           }, () => {
-            console.log( "show toast when badge earned" );
-            this.showToast();
+            console.log( "badge earned -- show badge toast" );
+            if ( !showLevelModal ) {
+              this.showBadgeToast();
+            }
           } );
           if ( badges[0].count > 1 ) {
             createNotification( "badgeEarned" );
@@ -166,7 +199,8 @@ class Banner extends Component<Props> {
       showChallengeModal,
       showLevelModal,
       newestLevel,
-      challenge
+      challenge,
+      incompleteChallenge
     } = this.state;
     const { navigation } = this.props;
 
@@ -191,8 +225,8 @@ class Banner extends Component<Props> {
           swipeDirection="down"
           onModalHide={() => {
             if ( badge ) {
-              console.log( "show toast when level modal closes" );
-              this.showToast();
+              console.log( "level modal closing -- show badge toast" );
+              this.showBadgeToast();
             }
           }}
         >
@@ -201,13 +235,26 @@ class Banner extends Component<Props> {
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {
-              transform: [{ translateY: this.animatedValue }]
+              transform: [{ translateY: this.animatedBadge }]
             }
           ]}
           >
             <BadgeToast
               navigation={navigation}
               badge={badge}
+            />
+          </Animated.View>
+        ) : null}
+        {incompleteChallenge ? (
+          <Animated.View style={[
+            styles.animatedStyle, {
+              transform: [{ translateY: this.animatedChallenge }]
+            }
+          ]}
+          >
+            <ChallengeToast
+              navigation={navigation}
+              challenge={incompleteChallenge}
             />
           </Animated.View>
         ) : null}

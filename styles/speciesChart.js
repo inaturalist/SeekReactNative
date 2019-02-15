@@ -1,30 +1,13 @@
-import { StyleSheet } from "react-native";
-import { colors, margins, padding } from "./global";
+import { StyleSheet, Dimensions } from "react-native";
+import { colors, margins } from "./global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.darkDesaturatedBlue,
-    marginLeft: margins.medium,
-    marginRight: margins.medium,
-    padding: padding.medium,
-    borderRadius: 5,
-    height: 150
-  },
-  errorContainer: {
-    flex: 1,
+    height: 150,
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  errorText: {
-    textAlign: "center"
-  },
-  chartContainer: {
-    flex: 1,
-    flexDirection: "row"
-  },
-  yAxis: {
-    marginBottom: margins.medium
+    marginBottom: 20
   },
   chartRow: {
     flex: 1,
@@ -33,16 +16,15 @@ export default StyleSheet.create( {
   },
   chart: {
     flex: 1,
-    borderLeftColor: colors.white,
-    borderLeftWidth: 1,
-    borderBottomColor: colors.white,
-    borderBottomWidth: 1
+    borderBottomColor: colors.seekTeal,
+    borderBottomWidth: 2
   },
-  contentInset: {
-    top: 20,
-    bottom: 5
+  xAxisWidth: {
+    left: 10,
+    right: 10
   },
   xAxis: {
-    height: 15
+    marginTop: 10,
+    height: 20
   }
 } );

@@ -95,29 +95,11 @@ export default StyleSheet.create( {
   mapContainer: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: margins.medium
+    justifyContent: "center"
   },
   map: {
-    width: width - 30,
-    height: width / 2,
-    borderRadius: 5
-  },
-  logoRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    marginLeft: margins.large,
-    marginBottom: margins.medium
-  },
-  smallImage: {
-    width: 56,
-    height: 43,
-    marginRight: margins.mediumLarge
-  },
-  footer: {
-    height: 72,
-    justifyContent: "center"
+    width: width - 56,
+    height: 189
   },
   stats: {
     flexDirection: "row",

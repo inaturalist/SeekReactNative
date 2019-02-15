@@ -279,6 +279,16 @@
     "name_plant_20": "Gold Orchid",
     "to_earn": "To earn this badge:"
   },
+  "species_detail": {
+    "about": "About",
+    "range_map": "Range map",
+    "view_map": "View range map",
+    "cc": "CC",
+    "taxonomy": "Taxonomy",
+    "inat_obs": "iNaturalist Observations",
+    "monthly_obs": "Observations by month",
+    "worldwide": "Worldwide"
+  },
   "about": {
     "header": "About",
     "sponsored": "Seek is sponsored by Our Planet on Netflix",

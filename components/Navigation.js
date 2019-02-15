@@ -141,12 +141,8 @@ const MainStack = createStackNavigator( {
   },
   Species: {
     screen: SpeciesDetail,
-    navigationOptions: ( { navigation } ) => ( {
-      title: navigation.state.params.seen ? "Collected" : "Collect This!",
-      headerStyle: {
-        backgroundColor: navigation.state.params.seen ? colors.lightGray : colors.darkestBlue
-      },
-      headerTintColor: navigation.state.params.seen ? colors.black : colors.white
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   YourCollection: {

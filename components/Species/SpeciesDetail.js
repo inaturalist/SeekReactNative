@@ -9,17 +9,20 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+import { NavigationEvents } from "react-navigation"; 
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
 
-import Button from "../Button";
-import speciesImages from "../../assets/species";
+import i18n from "../../i18n";
+import iconicTaxaNames from "../../utility/iconicTaxonDict";
+import Footer from "../Home/Footer";
 import realmConfig from "../../models/index";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
 import { margins } from "../../styles/global";
+import icons from "../../assets/icons";
 
 const latitudeDelta = 0.025;
 const longitudeDelta = 0.025;
@@ -64,13 +67,6 @@ class SpeciesDetail extends Component<Props> {
     };
   }
 
-  componentDidMount() {
-    this.fetchTaxonDetails();
-    this.fetchHistogram();
-    this.fetchNearbySpeciesCount();
-    this.checkIfSpeciesSeen();
-  }
-
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
@@ -96,31 +92,29 @@ class SpeciesDetail extends Component<Props> {
             showBanner: false
           } );
         }
-      } ).catch( ( err ) => {
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
   fetchTaxonDetails() {
-    const {
-      id
-    } = this.state;
+    const { id } = this.state;
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
       this.setState( {
         photos: taxa.taxon_photos,
         about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
-        timesSeen: `${taxa.observations_count} times worldwide`,
+        timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name
       } );
-    } ).catch( ( err ) => {
+    } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
     } );
   }
 
   fetchNearbySpeciesCount() {
-    const { id, region, location } = this.state;
+    const { id, region } = this.state;
     const { latitude, longitude } = region;
 
     const params = {
@@ -133,8 +127,7 @@ class SpeciesDetail extends Component<Props> {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const nearbySpeciesCount = response.results[0].count;
       this.setState( {
-        nearbySpeciesCount: nearbySpeciesCount && location
-          ? `${nearbySpeciesCount} times near ${location}` : null
+        nearbySpeciesCount
       } );
     } ).catch( ( err ) => {
       // console.log( err, "error fetching species count" );
@@ -188,37 +181,13 @@ class SpeciesDetail extends Component<Props> {
       timesSeen,
       taxaType,
       error,
-      userPhoto
+      userPhoto,
+      location
     } = this.state;
 
     const {
       navigation
     } = this.props;
-
-    const taxaPhoto = speciesImages[taxaType];
-    let category;
-
-    if ( taxaType === "Plantae" ) {
-      category = "Plants";
-    } else if ( taxaType === "Amphibia" ) {
-      category = "Amphibians";
-    } else if ( taxaType === "Fungi" ) {
-      category = "Fungi";
-    } else if ( taxaType === "Actinopterygii" ) {
-      category = "Fish";
-    } else if ( taxaType === "Reptilia" ) {
-      category = "Reptiles";
-    } else if ( taxaType === "Arachnida" ) {
-      category = "Arachnids";
-    } else if ( taxaType === "Aves" ) {
-      category = "Birds";
-    } else if ( taxaType === "Insecta" ) {
-      category = "Insects";
-    } else if ( taxaType === "Mollusca" ) {
-      category = "Mollusks";
-    } else if ( taxaType === "Mammalia" ) {
-      category = "Mammals";
-    }
 
     const photoList = [];
 
@@ -242,6 +211,11 @@ class SpeciesDetail extends Component<Props> {
               style={styles.image}
               resizeMode="contain"
             />
+            <View style={styles.backButton}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={icons.backButton} />
+              </TouchableOpacity>
+            </View>
             <View style={styles.photoOverlay}>
               <TouchableOpacity
                 style={styles.ccButton}
@@ -250,7 +224,7 @@ class SpeciesDetail extends Component<Props> {
                   photo.photo.attribution
                 )}
               >
-                <Text style={[styles.buttonText, styles.ccButtonText]}>CC</Text>
+                <Text style={[styles.buttonText, styles.ccButtonText]}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -261,75 +235,58 @@ class SpeciesDetail extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <View style={styles.infoContainer}>
-          <ScrollView>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator
-              scrollEventThrottle
-              pagingEnabled
-              nestedScrollEnabled
-              indicatorStyle="white"
-              contentContainerStyle={styles.photoContainer}
-            >
-              {photoList}
-            </ScrollView>
-            <View style={styles.headerContainer}>
-              <Text style={styles.largeHeaderText}>{commonName}</Text>
-              <Text style={styles.scientificHeaderText}>Scientific Name:</Text>
-              <Text style={styles.italicText}>{scientificName}</Text>
-              <View style={[styles.categoryRow, styles.categoryContainer]}>
-                <Text style={styles.greenText}>Category: {category}</Text>
-                <Image
-                  style={styles.greenImage}
-                  source={taxaPhoto}
-                />
-              </View>
-            </View>
-            <Text style={styles.headerText}>Where are people seeing it nearby?</Text>
+        <NavigationEvents
+          onWillFocus={() => {
+            this.fetchTaxonDetails();
+            this.checkIfSpeciesSeen();
+            this.fetchHistogram();
+            this.fetchNearbySpeciesCount();
+          }}
+        />
+        <ScrollView>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator
+            scrollEventThrottle
+            pagingEnabled
+            nestedScrollEnabled
+            indicatorStyle="white"
+            contentContainerStyle={styles.photoContainer}
+          >
+            {photoList}
+          </ScrollView>
+          <View style={styles.greenBanner}>
+            <Text style={styles.iconicTaxaText}>
+              {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
+            </Text>
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.commonNameText}>{commonName}</Text>
+            <Text style={styles.scientificNameText}>{scientificName}</Text>
+            <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+            <Text style={styles.text}>{about}</Text>
+            <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
             <SpeciesMap
               region={region}
               id={id}
               error={error}
             />
-            <Text style={styles.headerText}>When is the best time to find it?</Text>
-            <SpeciesChart data={observationsByMonth} error={error} />
-            <Text style={styles.headerText}>About</Text>
-            <Text style={styles.text}>
-              {about}
-            </Text>
-            <Text style={styles.headerText}>Seen using iNaturalist</Text>
-            <View style={styles.logoRow}>
-              <Image
-                source={require( "../../assets/logos/logo-inaturalist-bird.png" )}
-                style={styles.smallImage}
-              />
+            <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
+            <View style={styles.stats}>
               <View>
-                <Text style={styles.text}>
-                  {timesSeen}
-                </Text>
-                <Text style={[styles.text, { marginTop: margins.small }]}>
-                  {nearbySpeciesCount}
-                </Text>
+                <Text style={styles.secondHeaderText}>{location}</Text>
+                <Text style={styles.number}>{nearbySpeciesCount}</Text>
+              </View>
+              <View>
+                <Text style={styles.secondHeaderText}>{i18n.t( "species_detail.worldwide" )}</Text>
+                <Text style={styles.number}>{timesSeen}</Text>
               </View>
             </View>
-          </ScrollView>
-        </View>
-        { showBanner ? null : (
-          <View style={styles.footer}>
-            <Button
-              green
-              navigation={navigation}
-              navParams={{
-                id,
-                commonName,
-                latitude: region.latitude,
-                longitude: region.longitude
-              }}
-              buttonText="Found it!"
-            />
+            <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
+            <SpeciesChart data={observationsByMonth} error={error} />
           </View>
-        ) }
+        </ScrollView>
+        <Footer navigation={navigation} />
       </View>
     );
   }

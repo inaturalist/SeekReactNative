@@ -11,102 +11,86 @@ const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.white,
     flex: 1
   },
-  infoContainer: {
-    flex: 5,
-    backgroundColor: colors.darkestBlue
-  },
   photoContainer: {
-    height: 251
+    height: 250,
+    backgroundColor: colors.seekForestGreen
   },
   image: {
     width,
-    height: 251
+    height: 250
+  },
+  backButton: {
+    zIndex: 1,
+    position: "absolute",
+    marginLeft: 20,
+    marginTop: 40
   },
   photoOverlay: {
     zIndex: 1,
     position: "absolute",
-    right: 5,
-    top: 200
+    right: 20,
+    bottom: 20
   },
   ccButton: {
-    backgroundColor: colors.darkDesaturatedBlue,
+    backgroundColor: colors.black,
+    opacity: 1,
     paddingRight: padding.medium,
     paddingLeft: padding.medium,
     paddingTop: padding.medium,
     paddingBottom: padding.medium,
     borderRadius: 40
   },
-  headerContainer: {
-    backgroundColor: colors.darkBlue
+  greenBanner: {
+    backgroundColor: colors.seekForestGreen,
+    justifyContent: "center",
+    height: 40
   },
-  largeHeaderText: {
-    marginLeft: margins.medium,
-    marginTop: margins.small,
-    fontSize: fontSize.mediumLargeHeader,
+  iconicTaxaText: {
+    marginLeft: 28,
     color: colors.white,
-    fontFamily: fonts.default
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.12
   },
-  scientificHeaderText: {
-    marginLeft: margins.medium,
-    fontSize: fontSize.text,
-    color: colors.white,
-    fontFamily: fonts.default
+  textContainer: {
+    marginTop: 20,
+    marginHorizontal: 28
   },
-  italicText: {
-    marginLeft: margins.medium,
-    fontFamily: fonts.book,
-    color: colors.white,
-    fontStyle: "italic"
+  commonNameText: {
+    fontSize: 30,
+    lineHeight: 35,
+    letterSpacing: 0.3,
+    color: colors.black,
+    fontFamily: fonts.book
+  },
+  scientificNameText: {
+    marginTop: 10,
+    fontFamily: fonts.bookItalic,
+    color: colors.black,
+    fontSize: 19,
+    lineHeight: 21
   },
   headerText: {
-    marginLeft: margins.medium,
-    marginTop: margins.mediumLarge,
-    marginBottom: margins.small,
-    fontSize: fontSize.header,
-    lineHeight: 22,
-    color: colors.white,
-    fontFamily: fonts.default
+    marginTop: 30,
+    marginBottom: 12,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
   },
   text: {
-    marginLeft: margins.medium,
-    marginRight: margins.medium,
-    alignItems: "center",
-    justifyContent: "center",
-    color: colors.white,
-    fontFamily: fonts.default
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21
   },
   ccButtonText: {
     fontFamily: fonts.semibold,
     fontSize: fontSize.text,
     color: colors.white
-  },
-  categoryRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-around",
-    height: 40,
-    marginTop: margins.medium,
-    marginBottom: margins.medium
-  },
-  categoryContainer: {
-    backgroundColor: "rgba(76, 175, 80, 0.3)",
-    opacity: 0.8
-  },
-  greenText: {
-    alignItems: "center",
-    justifyContent: "center",
-    color: colors.lightGreen
-  },
-  greenImage: {
-    width: 74,
-    height: 74,
-    marginBottom: margins.medium,
-    backgroundColor: "transparent",
-    tintColor: colors.lightGreen
   },
   mapContainer: {
     flex: 1,
@@ -134,5 +118,25 @@ export default StyleSheet.create( {
   footer: {
     height: 72,
     justifyContent: "center"
+  },
+  stats: {
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  secondHeaderText: {
+    textAlign: "center",
+    marginHorizontal: 23,
+    fontSize: 18,
+    fontFamily: fonts.default,
+    color: colors.black,
+    lineHeight: 24,
+    letterSpacing: 1.0
+  },
+  number: {
+    marginTop: 10,
+    textAlign: "center",
+    fontSize: 22,
+    fontFamily: fonts.light,
+    color: colors.black
   }
 } );

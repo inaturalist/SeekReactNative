@@ -22,7 +22,6 @@ import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
-import { margins } from "../../styles/global";
 import icons from "../../assets/icons";
 
 const latitudeDelta = 0.025;
@@ -102,14 +101,14 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
-      const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status.status_name;
-      console.log( taxa.taxon_photos[0].taxon.conservation_status.status_name, "taxa in results" );
+      const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
+
       this.setState( {
         photos: taxa.taxon_photos,
         about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
-        endangered: conservationStatus || false
+        endangered: conservationStatus ? conservationStatus.status_name : false
       } );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
@@ -226,7 +225,6 @@ class SpeciesDetail extends Component<Props> {
             <Image
               source={{ uri: photo.photo.original_url }}
               style={styles.image}
-              resizeMode="contain"
             />
             <View style={styles.backButton}>
               <TouchableOpacity onPress={() => navigation.goBack()}>

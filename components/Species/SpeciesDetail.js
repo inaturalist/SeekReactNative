@@ -18,6 +18,7 @@ import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
 import realmConfig from "../../models/index";
+import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
@@ -63,7 +64,12 @@ class SpeciesDetail extends Component<Props> {
       observationsByMonth: [],
       nearbySpeciesCount: null,
       error: null,
-      userPhoto: null
+      userPhoto: null,
+      endangered: false,
+      endemic: false,
+      threatened: false,
+      native: false,
+      similarSpecies: []
     };
   }
 
@@ -96,11 +102,14 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
+      const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status.status_name;
+      console.log( taxa.taxon_photos[0].taxon.conservation_status.status_name, "taxa in results" );
       this.setState( {
         photos: taxa.taxon_photos,
-        about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )}\n\nSource: Wikipedia`,
+        about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
-        taxaType: taxa.iconic_taxon_name
+        taxaType: taxa.iconic_taxon_name,
+        endangered: conservationStatus || false
       } );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
@@ -120,10 +129,8 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const nearbySpeciesCount = response.results[0].count;
-      this.setState( {
-        nearbySpeciesCount
-      } );
-    } ).catch( ( err ) => {
+      this.setState( { nearbySpeciesCount } );
+    } ).catch( () => {
       // console.log( err, "error fetching species count" );
     } );
   }
@@ -150,11 +157,24 @@ class SpeciesDetail extends Component<Props> {
           count: countsByMonth[i]
         } );
       }
-      this.setState( {
-        observationsByMonth
-      }, () => console.log( this.state.observationsByMonth, "obs by month" ) );
+      this.setState( { observationsByMonth } );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
+    } );
+  }
+
+  fetchSimilarSpecies() {
+    const { id } = this.state;
+    const params = {
+      taxon_id: id
+    };
+
+    inatjs.identifications.similar_species( params ).then( ( response ) => {
+      console.log( response.results, "response in similar species" );
+      const taxa = response.results.map( r => r.taxon );
+      this.setState( { similarSpecies: taxa } );
+    } ).catch( ( err ) => {
+      console.log( err, ": couldn't fetch similar species" );
     } );
   }
 
@@ -173,7 +193,9 @@ class SpeciesDetail extends Component<Props> {
       taxaType,
       error,
       userPhoto,
-      location
+      location,
+      endangered,
+      similarSpecies
     } = this.state;
 
     const {
@@ -237,6 +259,7 @@ class SpeciesDetail extends Component<Props> {
             this.checkIfSpeciesSeen();
             this.fetchHistogram();
             this.fetchNearbySpeciesCount();
+            this.fetchSimilarSpecies();
           }}
         />
         <ScrollView>
@@ -259,6 +282,11 @@ class SpeciesDetail extends Component<Props> {
           <View style={styles.textContainer}>
             <Text style={styles.commonNameText}>{commonName}</Text>
             <Text style={styles.scientificNameText}>{scientificName}</Text>
+            {endangered ? (
+              <View style={styles.greenButton}>
+                <Text style={styles.greenButtonText}>{endangered.toLocaleUpperCase()}</Text>
+              </View>
+            ) : null}
             {seenDate ? (
               <View style={styles.row}>
                 <Image source={icons.checklist} style={styles.checkmark} />
@@ -286,6 +314,10 @@ class SpeciesDetail extends Component<Props> {
             </View>
             <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
             {/* <SpeciesChart data={observationsByMonth} error={error} /> */}
+            <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
+          </View>
+          <View>
+            <SimilarSpecies navigation={navigation} taxa={similarSpecies} />
           </View>
         </ScrollView>
         <Footer navigation={navigation} />

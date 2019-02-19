@@ -70,7 +70,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.bookItalic,
     color: colors.black,
     fontSize: 19,
-    lineHeight: 21
+    lineHeight: 21,
+    marginBottom: 20
   },
   headerText: {
     marginTop: 30,
@@ -128,5 +129,20 @@ export default StyleSheet.create( {
   },
   checkmark: {
     marginRight: 10
+  },
+  greenButton: {
+    flexDirection: "row",
+    backgroundColor: colors.seekiNatGreen,
+    borderRadius: 6,
+    paddingHorizontal: 9,
+    paddingTop: 6,
+    paddingBottom: 4,
+    alignSelf: "flex-start"
+  },
+  greenButtonText: {
+    fontSize: 18,
+    fontFamily: fonts.semibold,
+    color: colors.white,
+    letterSpacing: 1.0
   }
 } );

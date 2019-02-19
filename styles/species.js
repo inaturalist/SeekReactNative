@@ -3,7 +3,6 @@ import {
   colors,
   fonts,
   fontSize,
-  margins,
   padding
 } from "./global";
 
@@ -120,5 +119,14 @@ export default StyleSheet.create( {
     fontSize: 22,
     fontFamily: fonts.light,
     color: colors.black
+  },
+  row: {
+    marginTop: 20,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
+  checkmark: {
+    marginRight: 10
   }
 } );

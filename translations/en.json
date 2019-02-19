@@ -287,7 +287,8 @@
     "taxonomy": "Taxonomy",
     "inat_obs": "iNaturalist Observations",
     "monthly_obs": "Observations by month",
-    "worldwide": "Worldwide"
+    "worldwide": "Worldwide",
+    "seen_on": "You observed it on {{date}}"
   },
   "about": {
     "header": "About",

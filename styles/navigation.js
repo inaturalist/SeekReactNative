@@ -36,6 +36,8 @@ export default StyleSheet.create( {
     position: "absolute",
     left: width / 10,
     width: width / 2.5,
+    borderRadius: 40,
+    height: 2,
     backgroundColor: colors.seekGreen
   },
   galleryHeader: {

@@ -50,8 +50,8 @@ class SpeciesDetail extends Component<Props> {
       photos: [],
       commonName,
       scientificName,
-      about: "No additional information.",
-      showBanner: false,
+      about: null,
+      seenDate: null,
       timesSeen: null,
       taxaType: null,
       region: {
@@ -82,14 +82,8 @@ class SpeciesDetail extends Component<Props> {
           userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
 
           this.setState( {
-            bannerText: `Collected on ${seenDate}!`,
-            showBanner: true,
+            seenDate,
             userPhoto
-          } );
-        } else {
-          this.setState( {
-            bannerText: "",
-            showBanner: false
           } );
         }
       } ).catch( () => {
@@ -104,7 +98,7 @@ class SpeciesDetail extends Component<Props> {
       const taxa = response.results[0];
       this.setState( {
         photos: taxa.taxon_photos,
-        about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )} (reference: Wikipedia)`,
+        about: `${taxa.wikipedia_summary.replace( /<[^>]+>/g, "" )}\n\nSource: Wikipedia`,
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name
       } );
@@ -158,11 +152,9 @@ class SpeciesDetail extends Component<Props> {
       }
       this.setState( {
         observationsByMonth
-      } );
-    } ).catch( () => {
-      this.setState( {
-        error: "No chart data available."
-      } );
+      }, () => console.log( this.state.observationsByMonth, "obs by month" ) );
+    } ).catch( ( err ) => {
+      console.log( err, ": couldn't fetch histogram" );
     } );
   }
 
@@ -176,8 +168,7 @@ class SpeciesDetail extends Component<Props> {
       photos,
       region,
       scientificName,
-      showBanner,
-      bannerText,
+      seenDate,
       timesSeen,
       taxaType,
       error,
@@ -198,6 +189,11 @@ class SpeciesDetail extends Component<Props> {
             source={{ uri: userPhoto }}
             style={styles.image}
           />
+          <View style={styles.backButton}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Image source={icons.backButton} />
+            </TouchableOpacity>
+          </View>
         </View>
       );
     }
@@ -263,6 +259,12 @@ class SpeciesDetail extends Component<Props> {
           <View style={styles.textContainer}>
             <Text style={styles.commonNameText}>{commonName}</Text>
             <Text style={styles.scientificNameText}>{scientificName}</Text>
+            {seenDate ? (
+              <View style={styles.row}>
+                <Image source={icons.checklist} style={styles.checkmark} />
+                <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
+              </View>
+            ) : null}
             <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
             <Text style={styles.text}>{about}</Text>
             <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
@@ -283,7 +285,7 @@ class SpeciesDetail extends Component<Props> {
               </View>
             </View>
             <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
-            <SpeciesChart data={observationsByMonth} error={error} />
+            {/* <SpeciesChart data={observationsByMonth} error={error} /> */}
           </View>
         </ScrollView>
         <Footer navigation={navigation} />

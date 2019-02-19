@@ -13,8 +13,10 @@ import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
+import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
+import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
 import realmConfig from "../../models/index";
@@ -24,9 +26,6 @@ import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species";
 import icons from "../../assets/icons";
 
-const latitudeDelta = 0.025;
-const longitudeDelta = 0.025;
-
 type Props = {
   navigation: any
 }
@@ -35,18 +34,11 @@ class SpeciesDetail extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
-    const {
-      id,
-      latitude,
-      location,
-      longitude,
-      commonName,
-      scientificName
-    } = navigation.state.params;
+    const { id, commonName, scientificName } = navigation.state.params;
 
     this.state = {
       id,
-      location,
+      location: null,
       photos: [],
       commonName,
       scientificName,
@@ -54,12 +46,7 @@ class SpeciesDetail extends Component<Props> {
       seenDate: null,
       timesSeen: null,
       taxaType: null,
-      region: {
-        latitude,
-        longitude,
-        latitudeDelta,
-        longitudeDelta
-      },
+      region: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
       error: null,
@@ -70,6 +57,32 @@ class SpeciesDetail extends Component<Props> {
       native: false,
       similarSpecies: []
     };
+  }
+
+  async fetchUserLocation() {
+    const userLocation = await getLatAndLng();
+    const { latitude, longitude } = userLocation;
+    this.reverseGeocodeLocation( latitude, longitude );
+
+    this.setState( {
+      region: {
+        latitude,
+        longitude,
+        latitudeDelta: 0.025,
+        longitudeDelta: 0.025
+      }
+    }, () => this.fetchNearbySpeciesCount() );
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setState( {
+        location: locality || subAdminArea
+      } );
+    } ).catch( () => {
+      // console.log( err, "error" );
+    } );
   }
 
   checkIfSpeciesSeen() {
@@ -104,6 +117,7 @@ class SpeciesDetail extends Component<Props> {
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
 
       this.setState( {
+        scientificName: taxa.name,
         photos: taxa.taxon_photos,
         about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
@@ -129,22 +143,18 @@ class SpeciesDetail extends Component<Props> {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
       const nearbySpeciesCount = response.results[0].count;
       this.setState( { nearbySpeciesCount } );
-    } ).catch( () => {
-      // console.log( err, "error fetching species count" );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching species count" );
     } );
   }
 
   fetchHistogram() {
-    const { id, observationsByMonth, region } = this.state;
-    const { latitude, longitude } = region;
+    const { id, observationsByMonth } = this.state;
 
     const params = {
       date_field: "observed",
       interval: "month_of_year",
-      taxon_id: id,
-      lat: latitude,
-      lng: longitude,
-      radius: 50
+      taxon_id: id
     };
 
     inatjs.observations.histogram( params ).then( ( response ) => {
@@ -252,10 +262,10 @@ class SpeciesDetail extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.fetchUserLocation();
             this.fetchTaxonDetails();
             this.checkIfSpeciesSeen();
             this.fetchHistogram();
-            this.fetchNearbySpeciesCount();
             this.fetchSimilarSpecies();
           }}
         />
@@ -293,11 +303,13 @@ class SpeciesDetail extends Component<Props> {
             <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
             <Text style={styles.text}>{about}</Text>
             <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
-            <SpeciesMap
-              region={region}
-              id={id}
-              error={error}
-            />
+            {region.latitude ? (
+              <SpeciesMap
+                region={region}
+                id={id}
+                error={error}
+              />
+            ) : null}
             <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
             <View style={styles.stats}>
               <View>

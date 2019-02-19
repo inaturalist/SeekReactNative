@@ -141,10 +141,6 @@ class YourCollection extends Component<Props> {
                       <TouchableOpacity
                         onPress={ () => navigation.push( "Species", {
                           id: item.taxon.id,
-                          latitude: item.latitude,
-                          longitude: item.longitude,
-                          location: item.placeName,
-                          seen: true,
                           commonName: item.taxon.preferredCommonName,
                           scientificName: item.taxon.name
                         } )}

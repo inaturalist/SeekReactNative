@@ -36,10 +36,6 @@ const SimilarSpecies = ( {
             <TouchableOpacity
               onPress={ () => navigation.push( "Species", {
                 id: item.id,
-                latitude: 0.0,
-                longitude: 0.0,
-                location: null,
-                seen: false,
                 commonName: capitalizeNames( item.preferred_common_name ),
                 scientificName: item.name
               } ) }

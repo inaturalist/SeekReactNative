@@ -70,10 +70,6 @@ const SpeciesNearby = ( {
             <TouchableOpacity
               onPress={ () => navigation.push( "Species", {
                 id: item.id,
-                latitude,
-                longitude,
-                location,
-                seen: false,
                 commonName: capitalizeNames( item.preferred_common_name ),
                 scientificName: item.name
               } ) }

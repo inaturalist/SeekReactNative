@@ -67,10 +67,6 @@ const MatchScreen = ( {
           style={styles.button}
           onPress={() => navigation.push( "Species", {
             id: taxaId,
-            latitude: 0.0,
-            longitude: 0.0,
-            location: null,
-            seen: false,
             commonName: taxaName,
             scientificName: null
           } )

@@ -170,7 +170,6 @@ class SpeciesDetail extends Component<Props> {
     };
 
     inatjs.identifications.similar_species( params ).then( ( response ) => {
-      console.log( response.results, "response in similar species" );
       const taxa = response.results.map( r => r.taxon );
       this.setState( { similarSpecies: taxa } );
     } ).catch( ( err ) => {
@@ -313,7 +312,7 @@ class SpeciesDetail extends Component<Props> {
               </View>
             </View>
             <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
-            {/* <SpeciesChart data={observationsByMonth} error={error} /> */}
+            {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
             <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
           </View>
           <View>

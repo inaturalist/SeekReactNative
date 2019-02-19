@@ -1,41 +1,49 @@
 // @flow
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
-import * as scale from "d3-scale";
 import moment from "moment";
 
 import { colors, fonts } from "../../styles/global";
 import styles from "../../styles/speciesChart";
 
 type Props = {
-  data: Array<Object>,
-  error: string
+  data: Array<Object>
 };
 
-const SpeciesChart = ( { data, error }: Props ) => {
+const SpeciesChart = ( { data }: Props ) => {
   const formatXAxis = ( index ) => {
-    console.log( index, "index in x axis" );
     const allMonths = moment.monthsShort();
     return allMonths[index][0];
   };
 
+  const Decorator = ( { x, y } ) => {
+    return data.map( value => (
+      <Circle
+        key={value.month}
+        cx={x( value.month )}
+        cy={y( value.count )}
+        r={4}
+        fill={colors.seekiNatGreen}
+      />
+    ) );
+  };
+
   return (
     <View style={styles.container}>
-      {data ? (
+      {data.length > 0 ? (
         <View style={styles.chartRow}>
           <LineChart
             style={styles.chart}
             data={data}
             yAccessor={ ( { item } ) => item.count }
             xAccessor={( { item } ) => item.month }
-            xScale={scale.scaleTime}
-            svg={{
-              stroke: colors.seekForestGreen,
-              strokeLinejoin: "round"
-            }}
+            svg={{ stroke: colors.seekForestGreen }}
             contentInset={styles.xAxisWidth}
-          />
+          >
+            <Decorator />
+          </LineChart>
           <XAxis
             style={styles.xAxis}
             data={data}
@@ -49,7 +57,7 @@ const SpeciesChart = ( { data, error }: Props ) => {
             }}
           />
         </View>
-      ) : <Text>{error}</Text>}
+      ) : null}
     </View>
   );
 };

@@ -21,7 +21,9 @@ export default StyleSheet.create( {
   },
   xAxisWidth: {
     left: 10,
-    right: 10
+    right: 10,
+    top: 10,
+    bottom: 10
   },
   xAxis: {
     marginTop: 10,

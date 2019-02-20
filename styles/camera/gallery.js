@@ -46,5 +46,12 @@ export default StyleSheet.create( {
   },
   backButton: {
     padding: 10
+  },
+  safeView: {
+    flex: 1
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.white
   }
 } );

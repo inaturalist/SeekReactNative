@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   Text,
   View,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import BackIcon from "react-native-vector-icons/AntDesign";
@@ -205,23 +206,26 @@ class GalleryScreen extends Component<Props> {
 
     return (
       <View style={styles.background}>
-        <NavigationEvents
-          onWillFocus={() => this.checkPermissions()}
-        />
-        <StatusBar hidden />
-        <View style={styles.header}>
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Text>{backIcon}</Text>
-          </TouchableOpacity>
-          <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
-          <View />
-        </View>
-        <View style={styles.galleryContainer}>
-          {gallery}
-        </View>
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => this.checkPermissions()}
+          />
+          <StatusBar hidden />
+          <View style={styles.header}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Text>{backIcon}</Text>
+            </TouchableOpacity>
+            <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
+            <View />
+          </View>
+          <View style={styles.galleryContainer}>
+            {gallery}
+          </View>
+        </SafeAreaView>
       </View>
     );
   }

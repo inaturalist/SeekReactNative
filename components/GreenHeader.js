@@ -27,7 +27,9 @@ const GreenHeader = ( { header, navigation }: Props ) => (
         style={styles.image}
       />
     </TouchableOpacity>
-    <Text style={styles.text}>{header}</Text>
+    <View style={styles.textContainer}>
+      <Text style={styles.text}>{header}</Text>
+    </View>
     <View />
   </View>
 );

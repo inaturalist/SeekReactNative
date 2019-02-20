@@ -7,7 +7,8 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -159,6 +160,7 @@ class BadgesScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
+        <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
           onWillFocus={() => {
             this.fetchBadges();

@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -33,6 +34,7 @@ const MatchScreen = ( {
   navigation
 }: Props ) => (
   <View style={styles.container}>
+    <SafeAreaView style={styles.safeViewTop} />
     <Banner navigation={navigation} />
     <ScrollView>
       <LinearGradient

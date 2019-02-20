@@ -45,17 +45,18 @@ export default StyleSheet.create( {
   badgesContainer: {
     marginTop: 5,
     marginBottom: 25,
+    marginHorizontal: 26,
     alignItems: "center",
     justifyContent: "center"
   },
   badgeIcon: {
-    width: width / 3 - 10,
-    height: width / 3 - 10,
+    width: width / 4,
+    height: width / 4,
     resizeMode: "contain"
   },
   gridCell: {
-    width: width / 3 - 10,
-    height: width / 3 - 10,
+    width: width / 4,
+    height: width / 4,
     marginHorizontal: 3,
     marginBottom: 12
   },
@@ -79,5 +80,9 @@ export default StyleSheet.create( {
     fontSize: 22,
     fontFamily: fonts.light,
     color: colors.black
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: "#22784d"
   }
 } );

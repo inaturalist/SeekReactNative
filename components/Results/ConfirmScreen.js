@@ -5,7 +5,8 @@ import {
   View,
   Image,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -29,6 +30,7 @@ const ConfirmScreen = ( {
   navigation
 }: Props ) => (
   <View style={styles.container}>
+    <SafeAreaView style={styles.safeViewTop} />
     <View style={styles.header}>
       <TouchableOpacity
         style={styles.backButton}
@@ -39,20 +41,22 @@ const ConfirmScreen = ( {
       <Text style={styles.headerText}>{i18n.t( "confirm.identify" ).toLocaleUpperCase()}</Text>
       <View />
     </View>
-    {loading && photoConfirmed ? <LoadingWheel /> : null}
-    <Image
-      source={{ uri: image.uri }}
-      style={styles.image}
-    />
-    <View style={styles.footer}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => confirmPhoto()}
-      >
-        <Text style={styles.buttonText}>
-          {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-        </Text>
-      </TouchableOpacity>
+    <View style={styles.imageContainer}>
+      {loading && photoConfirmed ? <LoadingWheel /> : null}
+      <Image
+        source={{ uri: image.uri }}
+        style={styles.image}
+      />
+      <View style={styles.footer}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => confirmPhoto()}
+        >
+          <Text style={styles.buttonText}>
+            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   </View>
 );

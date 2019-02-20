@@ -109,7 +109,6 @@ class iNatStatsScreen extends Component<Props> {
             this.fetchProjectPhotos();
           }}
         />
-        <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <ScrollView>
             <View style={styles.header}>

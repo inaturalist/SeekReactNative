@@ -6,7 +6,7 @@ export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    justifyContent: "space-around"
+    justifyContent: "flex-start"
   },
   logo: {
     marginHorizontal: 34,

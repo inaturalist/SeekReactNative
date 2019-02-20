@@ -5,7 +5,7 @@ import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { colors } from "../../styles/global";
-import styles from "../../styles/species";
+import styles from "../../styles/species/speciesMap";
 
 const markerIcon = ( <Icon name="location-on" size={50} color={colors.tomatoRed} /> );
 

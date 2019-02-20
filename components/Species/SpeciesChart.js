@@ -6,7 +6,7 @@ import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
 
 import { colors, fonts } from "../../styles/global";
-import styles from "../../styles/speciesChart";
+import styles from "../../styles/species/speciesChart";
 
 type Props = {
   data: Array<Object>

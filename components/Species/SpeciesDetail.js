@@ -9,7 +9,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import { NavigationEvents } from "react-navigation"; 
+import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -17,6 +17,7 @@ import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import { getLatAndLng } from "../../utility/locationHelpers";
+import { capitalizeNames } from "../../utility/helpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
@@ -24,7 +25,7 @@ import realmConfig from "../../models/index";
 import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
-import styles from "../../styles/species";
+import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -56,7 +57,8 @@ class SpeciesDetail extends Component<Props> {
       endemic: false,
       threatened: false,
       native: false,
-      similarSpecies: []
+      similarSpecies: [],
+      ancestors: []
     };
   }
 
@@ -115,6 +117,7 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
+      console.log( taxa.ancestors, "ancestors?" );
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
 
       this.setState( {
@@ -123,6 +126,7 @@ class SpeciesDetail extends Component<Props> {
         about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
+        ancestors: taxa.ancestors,
         endangered: conservationStatus ? conservationStatus.status_name : false
       } );
     } ).catch( () => {
@@ -205,14 +209,14 @@ class SpeciesDetail extends Component<Props> {
       userPhoto,
       location,
       endangered,
-      similarSpecies
+      similarSpecies,
+      ancestors
     } = this.state;
 
-    const {
-      navigation
-    } = this.props;
+    const { navigation } = this.props;
 
     const photoList = [];
+    const taxonomy = [];
 
     if ( userPhoto ) {
       photoList.push(
@@ -259,6 +263,37 @@ class SpeciesDetail extends Component<Props> {
         photoList.push( image );
       }
     } );
+
+    let margin = 0;
+
+    if ( ancestors.length > 0 ) {
+      ancestors.forEach( ( ancestor ) => {
+        const rank = (
+          <View key={`taxon-${ancestor.rank}`} style={{ marginLeft: margin }}>
+            {ancestor.preferred_common_name ? (
+              <View style={styles.taxonomyRow}>
+                <Text style={styles.bullets}>&#8226;</Text>
+                <View>
+                  <Text style={styles.taxonomyHeader}>
+                    {capitalizeNames( ancestor.rank )}
+                    {" "}
+                    {ancestor.name}
+                  </Text>
+                  <Text style={styles.taxonomyText}>
+                    {capitalizeNames( ancestor.preferred_common_name )}
+                  </Text>
+                </View>
+              </View>
+            ) : null}
+          </View>
+        );
+        if ( ancestor.preferred_common_name ) {
+          margin += 15;
+        }
+
+        taxonomy.push( rank );
+      } );
+    }
 
     return (
       <View style={styles.container}>
@@ -312,6 +347,8 @@ class SpeciesDetail extends Component<Props> {
                 error={error}
               />
             ) : null}
+            <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
+            {taxonomy}
             <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
             <View style={styles.stats}>
               <View>

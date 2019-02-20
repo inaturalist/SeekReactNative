@@ -4,7 +4,7 @@ import {
   fonts,
   fontSize,
   padding
-} from "./global";
+} from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
@@ -93,15 +93,6 @@ export default StyleSheet.create( {
     fontSize: fontSize.text,
     color: colors.white
   },
-  mapContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  map: {
-    width: width - 56,
-    height: 189
-  },
   stats: {
     flexDirection: "row",
     flexWrap: "nowrap"
@@ -145,5 +136,27 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     color: colors.white,
     letterSpacing: 1.0
+  },
+  taxonomyHeader: {
+    fontSize: 16,
+    fontFamily: fonts.semibold,
+    color: colors.black,
+    lineHeight: 21
+  },
+  taxonomyText: {
+    fontSize: 16,
+    fontFamily: fonts.book,
+    color: colors.black,
+    lineHeight: 21
+  },
+  taxonomyRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
+  bullets: {
+    color: colors.seekiNatGreen,
+    fontSize: 38,
+    marginRight: 16
   }
 } );

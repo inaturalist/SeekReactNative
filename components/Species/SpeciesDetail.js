@@ -19,6 +19,7 @@ import i18n from "../../i18n";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
+import Padding from "../Padding";
 import realmConfig from "../../models/index";
 import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
@@ -179,7 +180,8 @@ class SpeciesDetail extends Component<Props> {
     };
 
     inatjs.identifications.similar_species( params ).then( ( response ) => {
-      const taxa = response.results.map( r => r.taxon );
+      const shortenedList = response.results.slice( 0, 20 );
+      const taxa = shortenedList.map( r => r.taxon );
       this.setState( { similarSpecies: taxa } );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch similar species" );
@@ -325,9 +327,8 @@ class SpeciesDetail extends Component<Props> {
             {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
             <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
           </View>
-          <View>
-            <SimilarSpecies navigation={navigation} taxa={similarSpecies} />
-          </View>
+          <SimilarSpecies navigation={navigation} taxa={similarSpecies} />
+          <Padding />
         </ScrollView>
         <Footer navigation={navigation} />
       </View>

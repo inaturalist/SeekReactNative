@@ -21,7 +21,7 @@ const SpeciesChart = ( { data }: Props ) => {
   const Decorator = ( { x, y } ) => {
     return data.map( value => (
       <Circle
-        key={value.month}
+        key={`circle-${value.month}`}
         cx={x( value.month )}
         cy={y( value.count )}
         r={4}
@@ -40,7 +40,7 @@ const SpeciesChart = ( { data }: Props ) => {
             yAccessor={ ( { item } ) => item.count }
             xAccessor={( { item } ) => item.month }
             svg={{ stroke: colors.seekForestGreen }}
-            contentInset={styles.xAxisWidth}
+            contentInset={styles.chartInset}
           >
             <Decorator />
           </LineChart>

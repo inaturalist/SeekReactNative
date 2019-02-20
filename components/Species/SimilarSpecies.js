@@ -59,8 +59,10 @@ const SimilarSpecies = ( {
   return (
     <View style={[styles.speciesNearbyContainer, {
       backgroundColor: colors.seekForestGreen,
-      paddingTop: 20
-    }]}>
+      paddingTop: 20,
+      height: 200
+    }]}
+    >
       {species}
     </View>
   );

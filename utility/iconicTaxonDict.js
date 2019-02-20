@@ -1,14 +1,14 @@
 const iconicTaxaNames = {
-  Plantae: "taxon_picker.plants",
-  Amphibia: "taxon_picker.amphibians",
-  Fungi: "taxon_picker.fungi",
-  Actinopterygii: "taxon_picker.fish",
-  Reptilia: "taxon_picker.reptiles",
-  Arachnida: "taxon_picker.arachnids",
-  Aves: "taxon_picker.birds",
-  Insecta: "taxon_picker.insects",
-  Mollusca: "taxon_picker.mollusks",
-  Mammalia: "taxon_picker.mammals"
+  Plantae: "species_detail.plant",
+  Amphibia: "species_detail.amphibian",
+  Fungi: "species_detail.fungi",
+  Actinopterygii: "species_detail.fish",
+  Reptilia: "species_detail.reptile",
+  Arachnida: "species_detail.arachnid",
+  Aves: "species_detail.bird",
+  Insecta: "species_detail.insect",
+  Mollusca: "species_detail.mollusk",
+  Mammalia: "species_detail.mammal"
 };
 
 export default iconicTaxaNames;

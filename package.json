@@ -13,8 +13,6 @@
     "@babel/runtime": "^7.0.0",
     "@types/react-navigation": "^2.0.23",
     "ajv": "^6.6.1",
-    "d3-scale": "^2.1.2",
-    "d3-shape": "^1.2.2",
     "i18n-js": "^3.1.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.22.2",

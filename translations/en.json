@@ -294,7 +294,17 @@
     "native": "Native",
     "threatened": "Threatened",
     "wikipedia": "{{about}}\n\nSource: Wikipedia",
-    "related": "Related Species"
+    "related": "Related Species",
+    "plant": "plant",
+    "amphibian": "amphibian",
+    "fungi": "fungi",
+    "fish": "fish",
+    "reptile": "reptile",
+    "arachnid": "arachnid",
+    "bird": "bird",
+    "insect": "insect",
+    "mollusk": "mollusk",
+    "mammal": "mammal"
   },
   "about": {
     "header": "About",

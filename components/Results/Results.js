@@ -115,6 +115,7 @@ class Results extends Component<Props> {
       .then( ( response ) => {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
+        console.log( match, "match" );
         this.setState( {
           observation: match,
           taxaId: match.taxon.id,

@@ -74,7 +74,10 @@ class SpeciesDetail extends Component<Props> {
         latitudeDelta: 0.025,
         longitudeDelta: 0.025
       }
-    }, () => this.fetchNearbySpeciesCount() );
+    }, () => {
+      this.fetchNearbySpeciesCount( latitude, longitude );
+      this.checkIfSpeciesIsNative( latitude, longitude );
+    } );
   }
 
   reverseGeocodeLocation( lat, lng ) {
@@ -117,7 +120,6 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
-      console.log( taxa.ancestors, "ancestors?" );
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
 
       this.setState( {
@@ -134,9 +136,8 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchNearbySpeciesCount() {
-    const { id, region } = this.state;
-    const { latitude, longitude } = region;
+  fetchNearbySpeciesCount( latitude, longitude ) {
+    const { id } = this.state;
 
     const params = {
       lat: latitude,
@@ -145,9 +146,10 @@ class SpeciesDetail extends Component<Props> {
       taxon_id: id
     };
 
-    inatjs.observations.speciesCounts( params ).then( ( response ) => {
-      const nearbySpeciesCount = response.results[0].count;
-      this.setState( { nearbySpeciesCount } );
+    inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
+      this.setState( {
+        nearbySpeciesCount: results.length > 0 ? results[0].count : 0
+      } );
     } ).catch( ( err ) => {
       console.log( err, "error fetching species count" );
     } );
@@ -192,6 +194,33 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  checkIfSpeciesIsNative( latitude, longitude ) {
+    const { id } = this.state;
+
+    const params = {
+      per_page: 1,
+      lat: latitude,
+      lng: longitude,
+      radius: 50,
+      taxon_id: id
+    };
+
+    inatjs.observations.search( params ).then( ( response ) => {
+      const { taxon } = response.results[0];
+      console.log( taxon, "results in native check" );
+      if ( taxon ) {
+        this.setState( {
+          threatened: taxon.threatened,
+          endemic: taxon.endemic,
+          introduced: taxon.introduced,
+          native: taxon.native
+        } );
+      }
+    } ).catch( ( err ) => {
+      console.log( err, "err fetching observations nearby" );
+    } );
+  }
+
   render() {
     const {
       about,
@@ -210,7 +239,10 @@ class SpeciesDetail extends Component<Props> {
       location,
       endangered,
       similarSpecies,
-      ancestors
+      ancestors,
+      endemic,
+      native,
+      threatened
     } = this.state;
 
     const { navigation } = this.props;
@@ -279,7 +311,7 @@ class SpeciesDetail extends Component<Props> {
                     {" "}
                     {ancestor.name}
                   </Text>
-                  <Text style={styles.taxonomyText}>
+                  <Text numOfLines={1} style={styles.taxonomyText}>
                     {capitalizeNames( ancestor.preferred_common_name )}
                   </Text>
                 </View>
@@ -326,11 +358,28 @@ class SpeciesDetail extends Component<Props> {
           <View style={styles.textContainer}>
             <Text style={styles.commonNameText}>{commonName}</Text>
             <Text style={styles.scientificNameText}>{scientificName}</Text>
-            {endangered ? (
-              <View style={styles.greenButton}>
-                <Text style={styles.greenButtonText}>{endangered.toLocaleUpperCase()}</Text>
-              </View>
-            ) : null}
+            <View style={styles.greenButtonContainer}>
+              {endangered ? (
+                <View style={styles.greenButton}>
+                  <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
+                </View>
+              ) : null}
+              {endemic ? (
+                <View style={styles.greenButton}>
+                  <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
+                </View>
+              ) : null}
+              {native ? (
+                <View style={styles.greenButton}>
+                  <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
+                </View>
+              ) : null}
+              {threatened ? (
+                <View style={styles.greenButton}>
+                  <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
+                </View>
+              ) : null}
+            </View>
             {seenDate ? (
               <View style={styles.row}>
                 <Image source={icons.checklist} style={styles.checkmark} />

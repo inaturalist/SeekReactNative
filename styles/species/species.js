@@ -72,10 +72,10 @@ export default StyleSheet.create( {
     color: colors.black,
     fontSize: 19,
     lineHeight: 21,
-    marginBottom: 20
+    marginBottom: 10
   },
   headerText: {
-    marginTop: 30,
+    marginTop: 35,
     marginBottom: 12,
     fontSize: 19,
     fontFamily: fonts.semibold,
@@ -122,6 +122,11 @@ export default StyleSheet.create( {
   checkmark: {
     marginRight: 10
   },
+  greenButtonContainer: {
+    marginTop: 10,
+    flexDirection: "row",
+    flexWrap: "wrap"
+  },
   greenButton: {
     flexDirection: "row",
     backgroundColor: colors.seekiNatGreen,
@@ -129,6 +134,8 @@ export default StyleSheet.create( {
     paddingHorizontal: 9,
     paddingTop: 6,
     paddingBottom: 4,
+    marginRight: 10,
+    marginBottom: 7,
     alignSelf: "flex-start"
   },
   greenButtonText: {
@@ -144,6 +151,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   taxonomyText: {
+    maxWidth: 200,
     fontSize: 16,
     fontFamily: fonts.book,
     color: colors.black,

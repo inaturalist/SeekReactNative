@@ -19,7 +19,6 @@ import badgeImages from "../../assets/badges";
 import BannerHeader from "./BannerHeader";
 import LargeProgressCircle from "./LargeProgressCircle";
 
-const { width } = Dimensions.get( "window" );
 const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
 
 type Props = {

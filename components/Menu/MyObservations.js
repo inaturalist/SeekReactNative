@@ -2,10 +2,7 @@
 
 import React, { Component } from "react";
 import {
-  // FlatList,
   ScrollView,
-  // Image,
-  // TouchableOpacity,
   Text,
   View,
   TouchableOpacity
@@ -14,7 +11,6 @@ import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
 import i18n from "../../i18n";
-import ErrorScreen from "../ErrorScreen";
 import realmConfig from "../../models";
 import styles from "../../styles/menu/observations";
 import ObservationList from "./ObservationList";
@@ -62,9 +58,7 @@ class MyObservations extends Component<Props> {
         </View>
         <ScrollView>
           {observations.length > 0 ? (
-            <View style={styles.taxonGrid}>
-              <ObservationList observations={observations} navigation={navigation} />
-            </View>
+            <ObservationList observations={observations} navigation={navigation} />
           ) : (
             <View style={styles.textContainer}>
               <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>

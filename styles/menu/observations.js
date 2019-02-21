@@ -27,7 +27,8 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   secondHeaderText: {
-    marginTop: 35,
+    marginTop: 25,
+    marginBottom: 10,
     fontSize: 18,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -37,54 +38,12 @@ export default StyleSheet.create( {
     marginHorizontal: 25,
     alignItems: "center"
   },
-  button: {
-    marginTop: margins.medium,
-    position: "absolute",
-    right: 0,
-    paddingRight: padding.large
-  },
   text: {
     fontSize: 16,
     fontFamily: fonts.book,
     lineHeight: 21,
     color: colors.black,
     textAlign: "center"
-  },
-  taxonGrid: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  gridCell: {
-    width: 105,
-    height: 138,
-    paddingHorizontal: padding.medium,
-    marginTop: margins.medium
-  },
-  gridCellContents: {
-    borderRadius: 5,
-    elevation: 2,
-    shadowOpacity: 0.3,
-    shadowColor: colors.darkGray,
-    shadowRadius: 3,
-    shadowOffset: {
-      height: 2,
-      width: 0
-    }
-  },
-  cellTitle: {
-    height: 45,
-    backgroundColor: colors.lightGray,
-    padding: padding.medium,
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  cellTitleText: {
-    color: colors.black,
-    fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
-    paddingTop: padding.extraSmall
   },
   noSpeciesHeaderText: {
     marginTop: height / 5,
@@ -113,11 +72,39 @@ export default StyleSheet.create( {
     width: "94%",
     height: 46
   },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
-    color: colors.white
+  secondTextContainer: {
+    marginHorizontal: 25,
+    alignItems: "flex-start"
+  },
+  card: {
+    height: 100,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
+  },
+  image: {
+    width: 80,
+    height: 80,
+    borderRadius: 80 / 2,
+    marginRight: 20
+  },
+  speciesNameContainer: {
+    maxWidth: 223
+  },
+  commonNameText: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontSize: 21,
+    color: colors.black,
+    fontFamily: fonts.book
+  },
+  scientificNameText: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 5,
+    fontFamily: fonts.bookItalic,
+    color: colors.black,
+    fontSize: 16,
+    lineHeight: 21
   }
 } );

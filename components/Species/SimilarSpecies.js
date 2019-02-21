@@ -10,19 +10,26 @@ import {
 import styles from "../../styles/home/speciesNearby";
 import { capitalizeNames } from "../../utility/helpers";
 import { colors } from "../../styles/global";
+import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   taxa: Array,
-  navigation: any
+  navigation: any,
+  loading: boolean
 }
 
 const SimilarSpecies = ( {
   taxa,
-  navigation
+  navigation,
+  loading
 }: Props ) => {
   let species;
 
-  if ( taxa.length > 0 ) {
+  if ( loading ) {
+    species = (
+      <LoadingWheel color={colors.black} />
+    );
+  } else if ( taxa.length > 0 ) {
     species = (
       <FlatList
         contentContainerStyle={styles.taxonList}
@@ -59,7 +66,9 @@ const SimilarSpecies = ( {
   return (
     <View style={{
       backgroundColor: colors.seekForestGreen,
-      height: 220
+      height: 220,
+      alignItems: "center",
+      justifyContent: "center"
     }}
     >
       {species}

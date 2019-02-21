@@ -33,14 +33,31 @@ class BadgeModal extends Component<Props> {
     super();
 
     this.state = {
-      // index: 0,
-      // width: width - ( width * 0.1 ),
-      // offset: ( width - ( width * 0.1 ) ) * this.state.index
+      interval: 0
     };
   }
 
+  // scrollToB = () => {
+  //   this.setState( {
+  //     interval: width * 1
+  //   } );
+  // }
+
+  // scrollToC = () => {
+  //   this.setState( {
+  //     interval: width * 2
+  //   } );
+  // }
+
+  // scrollToTop = () => {
+  //   this.setState( {
+  //     interval: 0
+  //   } );
+  // }
+
   render() {
     const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
+    const { interval } = this.state;
 
     const badgeList = [];
 
@@ -77,50 +94,35 @@ class BadgeModal extends Component<Props> {
 
     return (
       <View style={styles.outerContainer}>
-      {/* {console.log( badges, "badges in badge modal" )} */}
         <View style={styles.container}>
           <BannerHeader text={badges[0].iconicTaxonName.toLocaleUpperCase()} />
           <ScrollView
             horizontal
             pagingEnabled
-            onScroll={this.handleScroll}
+            snapToInterval={interval}
+            showsHorizontalScrollIndicator={false}
           >
             {badgeList}
           </ScrollView>
           <View style={styles.row}>
-            {badges[0].earned ? (
+            <TouchableOpacity onPress={this.scrollToB}>
               <Image
-                source={badgeImages[badges[0].earnedIconName]}
+                source={badges[0].earned ? badgeImages[badges[0].earnedIconName] : badgeImages[badges[0].unearnedIconName]}
                 style={styles.smallImage}
               />
-            ) : (
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.scrollToC}>
               <Image
-                source={badgeImages[badges[0].unearnedIconName]}
+                source={badges[1].earned ? badgeImages[badges[1].earnedIconName] : badgeImages[badges[1].unearnedIconName]}
                 style={styles.smallImage}
               />
-            )}
-            {badges[1].earned ? (
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.scrollToTop}>
               <Image
-                source={badgeImages[badges[1].earnedIconName]}
+                source={badges[2].earned ? badgeImages[badges[2].earnedIconName] : badgeImages[badges[2].unearnedIconName]}
                 style={styles.smallImage}
               />
-            ) : (
-              <Image
-                source={badgeImages[badges[1].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            )}
-            {badges[2].earned ? (
-              <Image
-                source={badgeImages[badges[2].earnedIconName]}
-                style={styles.smallImage}
-              />
-            ) : (
-              <Image
-                source={badgeImages[badges[2].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            )}
+            </TouchableOpacity>
           </View>
         </View>
         <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>

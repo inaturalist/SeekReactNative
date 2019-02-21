@@ -63,7 +63,7 @@ const SideMenu = ( { navigation }: Props ) => (
       <View style={styles.divider} />
       <TouchableOpacity
         style={styles.row}
-        onPress={() => navigation.navigate( "YourCollection" )}
+        onPress={() => navigation.navigate( "MyObservations" )}
       >
         <Image source={icons.menuObservations} style={styles.image} />
         <Text style={styles.text}>

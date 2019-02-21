@@ -27,6 +27,7 @@ import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
+import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   navigation: any
@@ -58,7 +59,8 @@ class SpeciesDetail extends Component<Props> {
       threatened: false,
       native: false,
       similarSpecies: [],
-      ancestors: []
+      ancestors: [],
+      loading: true
     };
   }
 
@@ -188,7 +190,10 @@ class SpeciesDetail extends Component<Props> {
     inatjs.identifications.similar_species( params ).then( ( response ) => {
       const shortenedList = response.results.slice( 0, 20 );
       const taxa = shortenedList.map( r => r.taxon );
-      this.setState( { similarSpecies: taxa } );
+      this.setState( {
+        similarSpecies: taxa,
+        loading: false
+      } );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch similar species" );
     } );
@@ -207,7 +212,6 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.observations.search( params ).then( ( response ) => {
       const { taxon } = response.results[0];
-      console.log( taxon, "results in native check" );
       if ( taxon ) {
         this.setState( {
           threatened: taxon.threatened,
@@ -237,12 +241,14 @@ class SpeciesDetail extends Component<Props> {
       error,
       userPhoto,
       location,
-      endangered,
       similarSpecies,
       ancestors,
+      introduced,
+      endangered,
       endemic,
       native,
-      threatened
+      threatened,
+      loading
     } = this.state;
 
     const { navigation } = this.props;
@@ -348,12 +354,20 @@ class SpeciesDetail extends Component<Props> {
             indicatorStyle="white"
             contentContainerStyle={styles.photoContainer}
           >
-            {photoList}
+            {photos.length > 0
+              ? photoList
+              : (
+                <View style={styles.loading}>
+                  <LoadingWheel color="white" />
+                </View>
+              )}
           </ScrollView>
           <View style={styles.greenBanner}>
-            <Text style={styles.iconicTaxaText}>
-              {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
-            </Text>
+            {taxaType ? (
+              <Text style={styles.iconicTaxaText}>
+                {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
+              </Text>
+            ) : null}
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.commonNameText}>{commonName}</Text>
@@ -377,6 +391,11 @@ class SpeciesDetail extends Component<Props> {
               {threatened ? (
                 <View style={styles.greenButton}>
                   <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
+                </View>
+              ) : null}
+              {introduced ? (
+                <View style={styles.greenButton}>
+                  <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
                 </View>
               ) : null}
             </View>
@@ -413,7 +432,7 @@ class SpeciesDetail extends Component<Props> {
             {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
             <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
           </View>
-          <SimilarSpecies navigation={navigation} taxa={similarSpecies} />
+          <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loading} />
           <Padding />
         </ScrollView>
         <Footer navigation={navigation} />

@@ -279,6 +279,12 @@
     "name_plant_20": "Gold Orchid",
     "to_earn": "To earn this badge:"
   },
+  "observations": {
+    "header": "My Observations",
+    "no_obs": "You don’t have any observations yet!",
+    "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
+    "open_camera": "Open Camera"
+  },
   "species_detail": {
     "about": "About",
     "range_map": "Range map",
@@ -293,6 +299,7 @@
     "endemic": "Endemic",
     "native": "Native",
     "threatened": "Threatened",
+    "introduced": "Introduced",
     "wikipedia": "{{about}}\n\nSource: Wikipedia",
     "related": "Related Species",
     "plant": "plant",

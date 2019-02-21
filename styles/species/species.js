@@ -166,5 +166,10 @@ export default StyleSheet.create( {
     color: colors.seekiNatGreen,
     fontSize: 38,
     marginRight: 16
+  },
+  loading: {
+    width,
+    justifyContent: "center",
+    alignItems: "center"
   }
 } );

@@ -68,7 +68,7 @@ class BadgesScreen extends Component<Props> {
         } );
 
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count" );
+        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count", true );
 
         speciesBadges.sort( ( a, b ) => {
           if ( a.index < b.index ) {
@@ -87,7 +87,7 @@ class BadgesScreen extends Component<Props> {
         this.setState( {
           speciesBadges,
           level: levelsEarned.length > 0 ? levelsEarned[0] : nextLevel[0],
-          nextLevelCount: nextLevel[0].count,
+          nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
           badgesEarned
         } );
       } ).catch( () => {
@@ -101,8 +101,6 @@ class BadgesScreen extends Component<Props> {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
-
-        console.log( collection, "species count in iconic id check" );
 
         this.setState( {
           iconicTaxonBadges: badges,

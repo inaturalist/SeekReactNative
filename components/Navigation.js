@@ -1,9 +1,8 @@
-import React from "react";
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
 import { fadeIn, fromLeft } from "react-navigation-transitions";
 // import { Image } from "react-native";
 
-import { colors } from "../styles/global";
+// import { colors } from "../styles/global";
 import styles from "../styles/navigation";
 // import icons from "../assets/icons";
 import i18n from "../i18n";
@@ -14,10 +13,9 @@ import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
-import YourCollection from "./Menu/YourCollection";
+import MyObservations from "./Menu/MyObservations";
 import BadgesScreen from "./Badges/BadgesScreen";
 import AboutScreen from "./Menu/AboutScreen";
-import AboutTitle from "./Menu/AboutTitle";
 import SideMenu from "./Home/SideMenu";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
@@ -145,10 +143,10 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   },
-  YourCollection: {
-    screen: YourCollection,
-    navigationOptions: ( { navigation } ) => ( {
-      headerRight: <AboutTitle navigation={navigation} />
+  MyObservations: {
+    screen: MyObservations,
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   Badges: {

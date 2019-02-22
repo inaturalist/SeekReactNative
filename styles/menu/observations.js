@@ -3,7 +3,6 @@ import {
   colors,
   fonts,
   fontSize,
-  margins,
   padding
 } from "../global";
 
@@ -27,7 +26,7 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   secondHeaderText: {
-    marginTop: 25,
+    marginTop: 32,
     marginBottom: 10,
     fontSize: 18,
     color: colors.seekForestGreen,
@@ -72,9 +71,15 @@ export default StyleSheet.create( {
     width: "94%",
     height: 46
   },
+  buttonText: {
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.12,
+    paddingTop: padding.iOSPadding,
+    fontSize: fontSize.buttonText,
+    color: colors.white
+  },
   secondTextContainer: {
-    marginHorizontal: 25,
-    alignItems: "flex-start"
+    marginLeft: 25
   },
   card: {
     height: 100,

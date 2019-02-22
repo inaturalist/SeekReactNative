@@ -8,7 +8,7 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
     .then( ( result ) => {
       const { locality, subAdminArea } = result[0];
       return locality || subAdminArea;
-    } ).catch( ( err ) => {
+    } ).catch( () => {
       // console.log( "Error reverse geocoding location: ", err.message );
     } );
 };

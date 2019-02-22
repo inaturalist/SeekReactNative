@@ -16,6 +16,7 @@ import styles from "../../styles/menu/observations";
 import ObservationList from "./ObservationList";
 import Padding from "../Padding";
 import Footer from "../Home/Footer";
+import taxaIds from "../../utility/iconicTaxonDictById";
 
 type Props = {
   navigation: any
@@ -33,10 +34,29 @@ class MyObservations extends Component<Props> {
   fetchObservations() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const observations = realm.objects( "ObservationRealm" );
-        console.log( observations, "obs" );
+        const observations = [];
+        
+        const species = realm.objects( "ObservationRealm" );
+        const taxaIdList = Object.keys( taxaIds );
+
+        taxaIdList.forEach( ( id ) => {
+          const speciesSeen = realm.objects( "ObservationRealm" ).filtered( `taxon.iconicTaxonId == ${id}` );
+
+          observations.push( {
+            id,
+            speciesSeen
+          } );
+        } );
+
+        observations.sort( ( a, b ) => {
+          if ( a.speciesSeen.length > b.speciesSeen.length ) {
+            return -1;
+          }
+          return 1;
+        } );
+
         this.setState( {
-          observations
+          observations: species.length > 0 ? observations : species
         } );
       } )
       .catch( () => {
@@ -48,6 +68,14 @@ class MyObservations extends Component<Props> {
     const { observations } = this.state;
     const { navigation } = this.props;
 
+    const iconicTaxonList = [];
+
+    observations.forEach( ( iconicTaxon ) => {
+      const list = <ObservationList observations={iconicTaxon.speciesSeen} id={iconicTaxon.id} navigation={navigation} />;
+
+      iconicTaxonList.push( list );
+    } );
+
     return (
       <View style={styles.container}>
         <NavigationEvents onWillFocus={() => this.fetchObservations()} />
@@ -57,9 +85,7 @@ class MyObservations extends Component<Props> {
           </Text>
         </View>
         <ScrollView>
-          {observations.length > 0 ? (
-            <ObservationList observations={observations} navigation={navigation} />
-          ) : (
+          {observations.length > 0 ? iconicTaxonList : (
             <View style={styles.textContainer}>
               <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
               <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>

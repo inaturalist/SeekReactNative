@@ -16,6 +16,7 @@ import moment from "moment";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
+import taxaIds from "../../utility/iconicTaxonDictById";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
@@ -108,6 +109,7 @@ class SpeciesDetail extends Component<Props> {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` );
+        console.log( seenTaxa.taxon.iconicTaxonId, "seen taxa" );
         let seenDate;
         let userPhoto;
 
@@ -240,6 +242,14 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  fetchiNatData() {
+    this.fetchUserLocation();
+    this.fetchTaxonDetails();
+    this.checkIfSpeciesSeen();
+    this.fetchHistogram();
+    this.fetchSimilarSpecies();
+  }
+
   checkInternetConnection() {
     NetInfo.getConnectionInfo()
       .then( ( connectionInfo ) => {
@@ -248,12 +258,11 @@ class SpeciesDetail extends Component<Props> {
           this.checkIfSpeciesSeen();
         } else {
           this.setError( null );
-          this.fetchUserLocation();
-          this.fetchTaxonDetails();
-          this.checkIfSpeciesSeen();
-          this.fetchHistogram();
-          this.fetchSimilarSpecies();
+          this.fetchiNatData();
         }
+      } )
+      .catch( ( err ) => {
+        console.log( err, "can't check connection" );
       } );
   }
 
@@ -289,17 +298,10 @@ class SpeciesDetail extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            // this.checkInternetConnection();
-            this.fetchUserLocation();
-            this.fetchTaxonDetails();
-            this.checkIfSpeciesSeen();
-            this.fetchHistogram();
-            this.fetchSimilarSpecies();
+            this.checkInternetConnection();
           }}
         />
         <ScrollView>
-          {console.log( this.state, "state" )}
-          {/* {console.log( loading, userPhoto, error, photoList, "state" )} */}
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator
@@ -309,7 +311,7 @@ class SpeciesDetail extends Component<Props> {
             indicatorStyle="white"
             contentContainerStyle={styles.photoContainer}
           >
-            {photos.length > 0
+            {photos.length > 0 || userPhoto
               ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
               : (
                 <View style={styles.loading}>

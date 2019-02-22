@@ -72,6 +72,7 @@ class MyObservations extends Component<Props> {
     const iconicTaxonList = [];
 
     observations.forEach( ( iconicTaxon ) => {
+      console.log( iconicTaxon, "iconictaxon" );
       const list = <ObservationList observations={iconicTaxon.speciesSeen} id={iconicTaxon.id} navigation={navigation} />;
 
       iconicTaxonList.push( list );
@@ -81,7 +82,7 @@ class MyObservations extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <NavigationEvents onWillFocus={() => this.fetchObservations()} />
+          <NavigationEvents onDidFocus={() => this.fetchObservations()} />
           <View style={styles.header}>
             <Text style={styles.headerText}>
               {i18n.t( "observations.header" ).toLocaleUpperCase()}

@@ -40,7 +40,7 @@ const SpeciesPhotos = ( { photos, userPhoto, navigation }: Props ) => {
   photos.forEach( ( photo, i ) => {
     if ( i <= 7 ) {
       const image = (
-        <View key={`image${photo.taxon_id}${i}`}>
+        <View key={`image${photo.taxon_id}-${i}`}>
           <Image
             source={{ uri: photo.photo.original_url }}
             style={styles.image}

@@ -131,6 +131,13 @@ class SpeciesDetail extends Component<Props> {
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
+      const ancestors = [];
+      const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"]
+      taxa.ancestors.forEach( ( ancestor ) => {
+        if ( ranks.includes( ancestor.rank ) ) {
+          ancestors.push( ancestor );
+        }
+      } );
 
       this.setState( {
         scientificName: taxa.name,
@@ -138,7 +145,7 @@ class SpeciesDetail extends Component<Props> {
         about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
-        ancestors: taxa.ancestors,
+        ancestors,
         endangered: conservationStatus ? conservationStatus.status_name : false
       } );
     } ).catch( () => {

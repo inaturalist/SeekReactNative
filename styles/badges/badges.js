@@ -84,5 +84,9 @@ export default StyleSheet.create( {
   safeViewTop: {
     flex: 0,
     backgroundColor: "#22784d"
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

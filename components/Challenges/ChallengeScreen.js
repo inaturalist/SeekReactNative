@@ -6,7 +6,8 @@ import {
   Text,
   FlatList,
   Image,
-  ScrollView
+  ScrollView,
+  SafeAreaView
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -194,33 +195,36 @@ class ChallengeScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <GreenHeader navigation={navigation} header={i18n.t( "challenges.header" )} />
-        <ScrollView contentContainerStyle={styles.column}>
-          <NavigationEvents
-            onWillFocus={ () => {
-              recalculateChallenges();
-              this.fetchChallenges();
-            }}
-          />
-          {noChallenges ? (
-            <View style={styles.noChallengeContainer}>
-              <View style={styles.noChallengeRow}>
-                <Image source={icons.completed} />
-                <View style={styles.noChallengeTextContainer}>
-                  <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
-                  <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <GreenHeader navigation={navigation} header={i18n.t( "challenges.header" )} />
+          <ScrollView contentContainerStyle={styles.column}>
+            <NavigationEvents
+              onWillFocus={ () => {
+                recalculateChallenges();
+                this.fetchChallenges();
+              }}
+            />
+            {noChallenges ? (
+              <View style={styles.noChallengeContainer}>
+                <View style={styles.noChallengeRow}>
+                  <Image source={icons.completed} />
+                  <View style={styles.noChallengeTextContainer}>
+                    <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
+                    <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
+                  </View>
                 </View>
               </View>
-            </View>
-          ) : null}
-          {noChallenges ? null : this.renderChallengesStarted()}
-          {noChallenges ? null : <CardPadding />}
-          {noChallenges ? null : this.renderChallengesNotStarted()}
-          {noChallenges ? null : <CardPadding />}
-          {this.renderChallengesCompleted()}
-          <Padding />
-        </ScrollView>
-        <Footer navigation={navigation} />
+            ) : null}
+            {noChallenges ? null : this.renderChallengesStarted()}
+            {noChallenges ? null : <CardPadding />}
+            {noChallenges ? null : this.renderChallengesNotStarted()}
+            {noChallenges ? null : <CardPadding />}
+            {this.renderChallengesCompleted()}
+            <Padding />
+          </ScrollView>
+          <Footer navigation={navigation} />
+        </SafeAreaView>
       </View>
     );
   }

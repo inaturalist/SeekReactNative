@@ -159,93 +159,67 @@ class BadgesScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <NavigationEvents
-          onWillFocus={() => {
-            this.fetchBadges();
-            this.fetchChallenges();
-            this.fetchSpeciesCount();
-          }}
-        />
-        <Modal
-          isVisible={showLevelModal}
-          onSwipe={() => this.toggleLevelModal()}
-          onBackdropPress={() => this.toggleLevelModal()}
-          swipeDirection="down"
-        >
-          <LevelModal
-            level={level}
-            toggleLevelModal={this.toggleLevelModal}
-          />
-        </Modal>
-        <Modal
-          isVisible={showBadgeModal}
-          // onSwipe={() => this.toggleBadgeModal()}
-          onBackdropPress={() => this.toggleBadgeModal()}
-          // swipeDirection="down"
-        >
-          <BadgeModal
-            badges={iconicTaxonBadges}
-            iconicSpeciesCount={iconicSpeciesCount}
-            toggleBadgeModal={this.toggleBadgeModal}
-          />
-        </Modal>
-        <ScrollView>
-          <LinearGradient
-            colors={["#22784d", "#38976d"]}
-            style={styles.header}
-          >
-            {level ? (
-              <View style={styles.row}>
-                <TouchableOpacity
-                  onPress={() => this.toggleLevelModal()}
-                >
-                  <Image source={badgeImages[level.earnedIconName]} />
-                </TouchableOpacity>
-                <View style={styles.textContainer}>
-                  <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
-                  <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
-                </View>
-              </View>
-            ) : null}
-          </LinearGradient>
-          <View style={styles.secondTextContainer}>
-            <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
-          </View>
-          <FlatList
-            data={speciesBadges}
-            contentContainerStyle={styles.badgesContainer}
-            keyExtractor={badge => badge.name}
-            numColumns={3}
-            renderItem={( { item } ) => {
-              let badgeIcon;
-              if ( item.earned ) {
-                badgeIcon = badgeImages[item.earnedIconName];
-              } else {
-                badgeIcon = badgeImages[item.unearnedIconName];
-              }
-              return (
-                <TouchableOpacity
-                  style={styles.gridCell}
-                  onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
-                >
-                  <Image
-                    source={badgeIcon}
-                    style={styles.badgeIcon}
-                  />
-                </TouchableOpacity>
-              );
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => {
+              this.fetchBadges();
+              this.fetchChallenges();
+              this.fetchSpeciesCount();
             }}
           />
-          <View style={styles.secondTextContainer}>
-            <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+          <Modal
+            isVisible={showLevelModal}
+            onSwipe={() => this.toggleLevelModal()}
+            onBackdropPress={() => this.toggleLevelModal()}
+            swipeDirection="down"
+          >
+            <LevelModal
+              level={level}
+              toggleLevelModal={this.toggleLevelModal}
+            />
+          </Modal>
+          <Modal
+            isVisible={showBadgeModal}
+            // onSwipe={() => this.toggleBadgeModal()}
+            onBackdropPress={() => this.toggleBadgeModal()}
+            // swipeDirection="down"
+          >
+            <BadgeModal
+              badges={iconicTaxonBadges}
+              iconicSpeciesCount={iconicSpeciesCount}
+              toggleBadgeModal={this.toggleBadgeModal}
+            />
+          </Modal>
+          <ScrollView>
+            <LinearGradient
+              colors={["#22784d", "#38976d"]}
+              style={styles.header}
+            >
+              {level ? (
+                <View style={styles.row}>
+                  <TouchableOpacity
+                    onPress={() => this.toggleLevelModal()}
+                  >
+                    <Image source={badgeImages[level.earnedIconName]} />
+                  </TouchableOpacity>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
+                    <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
+                  </View>
+                </View>
+              ) : null}
+            </LinearGradient>
+            <View style={styles.secondTextContainer}>
+              <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
+            </View>
             <FlatList
-              data={challengeBadges}
+              data={speciesBadges}
               contentContainerStyle={styles.badgesContainer}
-              keyExtractor={challenge => challenge.name}
+              keyExtractor={badge => badge.name}
               numColumns={3}
               renderItem={( { item } ) => {
                 let badgeIcon;
-                if ( item.percentComplete === 100 ) {
+                if ( item.earned ) {
                   badgeIcon = badgeImages[item.earnedIconName];
                 } else {
                   badgeIcon = badgeImages[item.unearnedIconName];
@@ -253,7 +227,7 @@ class BadgesScreen extends Component<Props> {
                 return (
                   <TouchableOpacity
                     style={styles.gridCell}
-                    // onPress={() => this.toggleBadgeModal()}
+                    onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
                   >
                     <Image
                       source={badgeIcon}
@@ -263,20 +237,48 @@ class BadgesScreen extends Component<Props> {
                 );
               }}
             />
-            <View style={styles.stats}>
-              <View>
-                <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.number}>{speciesCount}</Text>
-              </View>
-              <View>
-                <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.number}>{badgesEarned}</Text>
+            <View style={styles.secondTextContainer}>
+              <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+              <FlatList
+                data={challengeBadges}
+                contentContainerStyle={styles.badgesContainer}
+                keyExtractor={challenge => challenge.name}
+                numColumns={3}
+                renderItem={( { item } ) => {
+                  let badgeIcon;
+                  if ( item.percentComplete === 100 ) {
+                    badgeIcon = badgeImages[item.earnedIconName];
+                  } else {
+                    badgeIcon = badgeImages[item.unearnedIconName];
+                  }
+                  return (
+                    <TouchableOpacity
+                      style={styles.gridCell}
+                      // onPress={() => this.toggleBadgeModal()}
+                    >
+                      <Image
+                        source={badgeIcon}
+                        style={styles.badgeIcon}
+                      />
+                    </TouchableOpacity>
+                  );
+                }}
+              />
+              <View style={styles.stats}>
+                <View>
+                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
+                  <Text style={styles.number}>{speciesCount}</Text>
+                </View>
+                <View>
+                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
+                  <Text style={styles.number}>{badgesEarned}</Text>
+                </View>
               </View>
             </View>
-          </View>
-          <Padding />
-        </ScrollView>
-        <Footer navigation={navigation} />
+            <Padding />
+          </ScrollView>
+          <Footer navigation={navigation} />
+        </SafeAreaView>
       </View>
     );
   }

@@ -104,5 +104,13 @@ export default StyleSheet.create( {
     color: colors.errorGray,
     fontSize: 16,
     lineHeight: 18
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

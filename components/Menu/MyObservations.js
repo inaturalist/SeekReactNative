@@ -80,28 +80,30 @@ class MyObservations extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <NavigationEvents onWillFocus={() => this.fetchObservations()} />
-        <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "observations.header" ).toLocaleUpperCase()}
-          </Text>
-        </View>
-        <ScrollView>
-          {observations.length > 0 ? iconicTaxonList : (
-            <View style={styles.textContainer}>
-              <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
-              <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "Camera" )}
-                style={styles.greenButton}
-              >
-                <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-          <Padding />
-        </ScrollView>
-        <Footer navigation={navigation} />
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents onWillFocus={() => this.fetchObservations()} />
+          <View style={styles.header}>
+            <Text style={styles.headerText}>
+              {i18n.t( "observations.header" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+          <ScrollView>
+            {observations.length > 0 ? iconicTaxonList : (
+              <View style={styles.textContainer}>
+                <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
+                <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate( "Camera" )}
+                  style={styles.greenButton}
+                >
+                  <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+            <Padding />
+          </ScrollView>
+          <Footer navigation={navigation} />
+        </SafeAreaView>
       </View>
     );
   }

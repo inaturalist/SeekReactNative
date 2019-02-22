@@ -24,7 +24,7 @@ const ObservationList = ( { observations, id, navigation }: Props ) => (
     {observations.length > 0 ? (
       <FlatList
         data={observations}
-        keyExtractor={item => item.taxon.id.toString()}
+        keyExtractor={item => `${item.taxon.id}${item.taxon.name}`}
         renderItem={( { item } ) => (
           <ObservationCard item={item} navigation={navigation} />
         ) }

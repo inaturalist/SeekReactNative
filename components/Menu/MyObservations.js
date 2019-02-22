@@ -5,7 +5,8 @@ import {
   ScrollView,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -78,6 +79,7 @@ class MyObservations extends Component<Props> {
 
     return (
       <View style={styles.container}>
+        <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents onWillFocus={() => this.fetchObservations()} />
         <View style={styles.header}>
           <Text style={styles.headerText}>

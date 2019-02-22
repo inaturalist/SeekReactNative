@@ -111,5 +111,9 @@ export default StyleSheet.create( {
     color: colors.black,
     fontSize: 16,
     lineHeight: 21
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
   }
 } );

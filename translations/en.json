@@ -312,7 +312,8 @@
     "bird": "bird",
     "insect": "insect",
     "mollusk": "mollusk",
-    "mammal": "mammal"
+    "mammal": "mammal",
+    "species_saved": "This species is saved to your observations."
   },
   "about": {
     "header": "About",

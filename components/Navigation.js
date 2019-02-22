@@ -1,19 +1,15 @@
 import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
 import { fadeIn, fromLeft } from "react-navigation-transitions";
-// import { Image } from "react-native";
 
-// import { colors } from "../styles/global";
 import styles from "../styles/navigation";
-// import icons from "../assets/icons";
 import i18n from "../i18n";
-
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
-import MyObservations from "./Menu/MyObservations";
+import MyObservations from "./Observations/MyObservations";
 import BadgesScreen from "./Badges/BadgesScreen";
 import AboutScreen from "./Menu/AboutScreen";
 import SideMenu from "./Home/SideMenu";
@@ -46,13 +42,6 @@ const handleCustomTransition = ( { scenes } ) => {
   }
   return fromLeft();
 };
-
-// const backButton = (
-//   <Image
-//     source={icons.backButton}
-//     style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
-//   />
-// );
 
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {

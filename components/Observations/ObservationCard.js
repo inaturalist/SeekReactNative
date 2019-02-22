@@ -24,6 +24,7 @@ const ObservationCard = ( { navigation, item }: Props ) => (
       scientificName: item.taxon.name
     } )}
   >
+  {console.log(item, "item in obs card" )}
     <Image style={styles.image} source={{ uri: item.taxon.defaultPhoto.mediumUrl }} />
     <View style={styles.speciesNameContainer}>
       <Text style={styles.commonNameText}>{item.taxon.preferredCommonName}</Text>

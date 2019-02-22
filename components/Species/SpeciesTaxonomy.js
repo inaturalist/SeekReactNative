@@ -14,9 +14,9 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   let margin = 0;
 
   if ( ancestors.length > 0 ) {
-    ancestors.forEach( ( ancestor ) => {
+    ancestors.forEach( ( ancestor, i ) => {
       const rank = (
-        <View key={`taxon-${ancestor.rank}`} style={{ marginLeft: margin }}>
+        <View key={`taxon-${ancestor.rank}${i}`} style={{ marginLeft: margin }}>
           {ancestor.preferred_common_name ? (
             <View style={styles.taxonomyRow}>
               <Text style={styles.bullets}>&#8226;</Text>

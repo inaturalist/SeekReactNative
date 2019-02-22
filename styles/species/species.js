@@ -1,9 +1,7 @@
 import { Dimensions, StyleSheet } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize,
-  padding
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -16,32 +14,6 @@ export default StyleSheet.create( {
   photoContainer: {
     height: 250,
     backgroundColor: colors.seekForestGreen
-  },
-  image: {
-    width,
-    height: 250
-  },
-  backButton: {
-    padding: 5,
-    zIndex: 1,
-    position: "absolute",
-    marginLeft: 20,
-    marginTop: 40
-  },
-  photoOverlay: {
-    zIndex: 1,
-    position: "absolute",
-    right: 20,
-    bottom: 20
-  },
-  ccButton: {
-    backgroundColor: colors.black,
-    opacity: 1,
-    paddingRight: padding.medium,
-    paddingLeft: padding.medium,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
-    borderRadius: 40
   },
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
@@ -87,11 +59,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
-  },
-  ccButtonText: {
-    fontFamily: fonts.semibold,
-    fontSize: fontSize.text,
-    color: colors.white
   },
   stats: {
     flexDirection: "row",
@@ -193,5 +160,5 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 24,
     marginLeft: 12
-  },
+  }
 } );

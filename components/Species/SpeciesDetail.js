@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   View,
-  Alert,
   Image,
   ScrollView,
   Text,
@@ -26,6 +25,7 @@ import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
 import SpeciesTaxonomy from "./SpeciesTaxonomy";
+import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import LoadingWheel from "../LoadingWheel";
@@ -285,54 +285,6 @@ class SpeciesDetail extends Component<Props> {
 
     const { navigation } = this.props;
 
-    const photoList = [];
-
-    if ( userPhoto ) {
-      photoList.push(
-        <View key="user-image">
-          <Image
-            source={{ uri: userPhoto }}
-            style={styles.image}
-          />
-          <View style={styles.backButton}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-          </View>
-        </View>
-      );
-    }
-
-    photos.forEach( ( photo, i ) => {
-      if ( i <= 7 ) {
-        const image = (
-          <View key={`image${photo.taxon_id}${i}`}>
-            <Image
-              source={{ uri: photo.photo.original_url }}
-              style={styles.image}
-            />
-            <View style={styles.backButton}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Image source={icons.backButton} />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.photoOverlay}>
-              <TouchableOpacity
-                style={styles.ccButton}
-                onPress={() => Alert.alert(
-                  "License",
-                  photo.photo.attribution
-                )}
-              >
-                <Text style={[styles.buttonText, styles.ccButtonText]}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        );
-        photoList.push( image );
-      }
-    } );
-
     return (
       <View style={styles.container}>
         <NavigationEvents
@@ -358,7 +310,7 @@ class SpeciesDetail extends Component<Props> {
             contentContainerStyle={styles.photoContainer}
           >
             {photos.length > 0
-              ? photoList
+              ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
               : (
                 <View style={styles.loading}>
                   <LoadingWheel color="white" />

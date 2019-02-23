@@ -1,29 +1,21 @@
-import i18n from "../i18n";
-
 const notifications = {
-  earnedManyBadges: {
-    title: i18n.t( "notifications.earned_badges" ),
-    message: "",
-    iconName: "inat-logo",
-    nextScreen: "About"
+  challengeProgress: {
+    title: "notifications.almost_finished",
+    message: "notifications.view_progress",
+    iconName: "badgePlaceholder",
+    nextScreen: "ChallengeDetails"
   },
-  newChallenge: {
-    title: "",
-    message: "",
-    iconName: "inat-logo",
-    nextScreen: "About"
+  badgeEarned: {
+    title: "notifications.earned_badges",
+    message: "notifications.learn_more",
+    iconName: "badgePlaceholder",
+    nextScreen: "iNatStats"
   },
-  almostFinishedChallenge: {
-    title: "",
-    message: "",
-    iconName: "challenge-badge",
-    nextScreen: "About"
-  },
-  observationIdentified: {
-    title: "",
-    message: "",
-    iconName: "species-icon",
-    nextScreen: "About"
+  challengeCompleted: {
+    title: "notifications.challenge_completed",
+    message: "notifications.view_challenges",
+    iconName: "badgePlaceholder",
+    nextScreen: "Challenges"
   }
 };
 

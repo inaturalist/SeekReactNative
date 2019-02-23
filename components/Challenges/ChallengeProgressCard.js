@@ -7,50 +7,74 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import ProgressCircle from "react-native-progress-circle";
 
+import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
-import { colors } from "../../styles/global";
+import PercentCircle from "./PercentCircle";
+import { startChallenge, recalculateChallenges } from "../../utility/challengeHelpers";
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any,
-  item: Object
+  item: Object,
+  fetchChallenges: Function
 }
 
-const ChallengeProgressCard = ( { navigation, item }: Props ) => (
-  <View style={styles.cardContainer}>
-    <TouchableOpacity
-      style={styles.card}
-      onPress={() => navigation.navigate( "ChallengeDetails" )}
-    >
-      <View style={styles.imageContainer}>
-        <Image style={styles.image} source={item.iconName} />
+const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) => {
+  let rightIcon;
+
+  if ( item.percentComplete === 100 ) {
+    rightIcon = (
+      <View style={styles.startButton}>
+        <Image source={icons.completed} />
       </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText}>
-          {item.title}
-        </Text>
-        <Text style={styles.messageText}>
-          {item.message}
-        </Text>
+    );
+  } else if ( item.started && item.percentComplete !== 100 ) {
+    rightIcon = (
+      <View style={styles.startButton}>
+        <PercentCircle challenge={item} />
       </View>
-      <ProgressCircle
-        outerCircleStyle={styles.circleStyle}
-        percent={item.percentComplete}
-        radius={59 / 2}
-        borderWidth={3}
-        color={colors.seekiNatGreen}
-        shadowColor={colors.circleGray}
-        bgColor={colors.white}
+    );
+  } else {
+    rightIcon = (
+      <TouchableOpacity
+        style={styles.startButton}
+        onPress={() => {
+          startChallenge( item.index );
+          fetchChallenges();
+          recalculateChallenges();
+          navigation.navigate( "ChallengeDetails", { index: item.index } );
+        }}
       >
-        <Text style={styles.circleText}>
-          {item.percentComplete}
-          {"%"}
-        </Text>
-      </ProgressCircle>
-    </TouchableOpacity>
-    <View style={styles.divider} />
-  </View>
-);
+        <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  return (
+    <View style={styles.cardContainer}>
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => navigation.navigate( "ChallengeDetails", { index: item.index } )}
+      >
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={item.iconName} />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.titleText}>
+            {item.name}
+          </Text>
+          <Text style={styles.messageText}>
+            {i18n.t( "challenges.op" )}
+            {" - "}
+            {item.month}
+          </Text>
+        </View>
+        {rightIcon}
+      </TouchableOpacity>
+      <View style={styles.divider} />
+    </View>
+  );
+};
 
 export default ChallengeProgressCard;

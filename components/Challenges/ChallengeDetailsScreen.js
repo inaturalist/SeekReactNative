@@ -5,53 +5,108 @@ import {
   View,
   Text,
   Image,
-  Modal,
+  // Modal,
   TouchableOpacity,
   ScrollView,
   SafeAreaView
 } from "react-native";
+import Realm from "realm";
+import Modal from "react-native-modal";
 
+import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeBadge from "./ChallengeBadge";
-import Footer from "../Home/Footer";
+import ChallengeModal from "../Badges/ChallengeModal";
+import Footer from "./ChallengeFooter";
+import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
 }
 
 class ChallengeDetailsScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
+    const { index } = navigation.state.params;
+
     this.state = {
+      challenge: {},
+      missions: {},
       challengeStarted: false,
-      percentComplete: 100,
-      modalVisible: false
+      showChallengeModal: false,
+      index
     };
 
-    this.startChallenge = this.startChallenge.bind( this );
+    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  startChallenge() {
-    this.setState( {
-      challengeStarted: true
-    } );
+  componentDidMount() {
+    this.fetchChallengeDetails();
   }
 
-  toggleBadgeModal() {
-    const { modalVisible } = this.state;
+  fetchChallengeDetails() {
+    const { index } = this.state;
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+        const challenge = challenges[0];
+        const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
+        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
+
+        const missions = [];
+
+        missionList.forEach( ( mission, i ) => {
+          missions.push( {
+            mission,
+            observations: observationsList[i]
+          } );
+        } );
+
+        this.setState( {
+          challenge: {
+            month: challenge.month,
+            name: i18n.t( challenge.name ).toLocaleUpperCase(),
+            description: i18n.t( challenge.description ),
+            earnedIconName: challenge.earnedIconName,
+            started: challenge.started,
+            percentComplete: challenge.percentComplete,
+            index: challenge.index
+          },
+          missions,
+          challengeStarted: challenge.started
+        } );
+      } ).catch( ( err ) => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
+  showMission() {
+    const { index } = this.state;
+
+    startChallenge( index );
+    this.fetchChallengeDetails();
+  }
+
+  toggleChallengeModal() {
+    const { showChallengeModal } = this.state;
 
     this.setState( {
-      modalVisible: !modalVisible
+      showChallengeModal: !showChallengeModal
     } );
   }
 
   render() {
-    const { challengeStarted, percentComplete, modalVisible } = this.state;
+    const {
+      challengeStarted,
+      showChallengeModal,
+      challenge,
+      missions
+    } = this.state;
     const { navigation } = this.props;
 
     let button;
@@ -60,28 +115,25 @@ class ChallengeDetailsScreen extends Component<Props> {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => this.startChallenge()}
+          onPress={() => this.showMission()}
         >
           <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
-    } else if ( challengeStarted && percentComplete < 100 ) {
+    } else if ( challengeStarted && challenge.percentComplete < 100 ) {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => navigation.navigate( "Camera", {
-            id: null,
-            commonName: null
-          } )}
+          onPress={() => navigation.navigate( "Camera" )}
         >
           <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       );
-    } else if ( challengeStarted && percentComplete === 100 ) {
+    } else if ( challengeStarted && challenge.percentComplete === 100 ) {
       button = (
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => this.toggleBadgeModal()}
+          onPress={() => this.toggleChallengeModal()}
         >
           <Text style={styles.buttonText}>{i18n.t( "challenges.view_badge" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
@@ -89,68 +141,61 @@ class ChallengeDetailsScreen extends Component<Props> {
     }
 
     return (
-      <View style={[styles.container, modalVisible && styles.modalContainer]}>
-        <Modal
-          transparent
-          visible={modalVisible}
-          onRequestClose={() => this.toggleBadgeModal()}
-        >
-          <View style={styles.modalView}>
-            <ChallengeBadge />
-            <TouchableOpacity
-              onPress={() => this.toggleBadgeModal()}
-              style={styles.backButton}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-          </View>
-        </Modal>
+      <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          {!modalVisible ? (
-            <ScrollView>
-              <View style={styles.header}>
-                <TouchableOpacity
-                  onPress={() => navigation.goBack()}
-                >
-                  <Image
-                    source={icons.backButton}
-                    style={styles.backButton}
-                  />
-                </TouchableOpacity>
-                <Image style={styles.logo} source={logos.op} />
-                <View />
+          <Modal
+            isVisible={showChallengeModal}
+            onSwipe={() => this.toggleChallengeModal()}
+            onBackdropPress={() => this.toggleChallengeModal()}
+            swipeDirection="down"
+          >
+            <ChallengeModal
+              challenge={challenge}
+              toggleChallengeModal={this.toggleChallengeModal}
+            />
+          </Modal>
+          <ScrollView>
+            <View style={styles.header}>
+              <TouchableOpacity
+                style={styles.backButton}
+                onPress={() => navigation.goBack()}
+              >
+                <Image source={icons.backButton} />
+              </TouchableOpacity>
+              <Image style={styles.logo} source={logos.op} />
+              <View />
+            </View>
+            <View style={styles.challengeContainer}>
+              <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
+              <Text style={styles.challengeName}>{challenge.name}</Text>
+              <View style={styles.row}>
+                <Image source={icons.badgePlaceholder} />
+                <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
               </View>
-              <View style={styles.challengeContainer}>
-                <Text style={styles.challengeHeader}>
-                  {i18n.t( "challenges.april_2019" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.challengeName}>
-                  {i18n.t( "challenges.connectivity" ).toLocaleUpperCase()}
-                </Text>
-                <View style={styles.row}>
-                  <Image source={icons.badgePlaceholder} />
-                  <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-                </View>
-                {button}
+              {button}
+            </View>
+            <View style={styles.missionContainer}>
+              {challengeStarted ? (
+                <ChallengeMissionCard
+                  challenge={challenge}
+                  missions={missions}
+                />
+              ) : null}
+            </View>
+            <View style={styles.descriptionContainer}>
+              <Text style={styles.descriptionText}>{challenge.description}</Text>
+              <View style={styles.row}>
+                <Image source={logos.wwfop} />
               </View>
-              {challengeStarted ? <ChallengeMissionCard percentComplete={percentComplete} /> : null}
-              <View style={styles.missionContainer}>
-                <Text style={styles.missionText}>
-                  {i18n.t( "challenges.april_description" )}
-                </Text>
-                <View style={styles.row}>
-                  <Image source={logos.wwfop} />
-                </View>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "Challenges" )}
-                >
-                  <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          ) : null}
-          {!modalVisible ? <Footer navigation={navigation} /> : null}
+              <TouchableOpacity
+                onPress={() => navigation.navigate( "Challenges" )}
+              >
+                <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

@@ -44,11 +44,7 @@ const LoginScreen = ( { navigation }: Props ) => (
     </View>
     <Text
       style={styles.textLink}
-      onPress={() => navigation.navigate( "Main", {
-        taxaName: null,
-        id: null,
-        taxaType: "all"
-      } )}
+      onPress={() => navigation.navigate( "Main" )}
     >
       {i18n.t( "login.skip_login" )}
     </Text>

@@ -12,11 +12,6 @@ import i18n from "../../i18n";
 import styles from "../../styles/home/getStarted";
 import icons from "../../assets/icons";
 
-const navParams = {
-  id: null,
-  commonName: null
-};
-
 type Props = {
   navigation: any
 }
@@ -36,7 +31,7 @@ const GetStarted = ( { navigation }: Props ) => (
         </Text>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate( "Camera", navParams )}
+        onPress={() => navigation.navigate( "Camera" )}
         style={styles.buttonRow}
       >
         <Image source={icons.cameraGreen} style={styles.image} />

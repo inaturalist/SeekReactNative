@@ -1,8 +1,11 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "../global";
+
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -24,7 +27,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.white
   },
   logo: {
     marginTop: 30,
@@ -38,8 +41,9 @@ export default StyleSheet.create( {
     position: "absolute",
     right: 10,
     top: 30,
-    height: 65,
-    width: 81
+    height: height > 570 ? 65 : 45,
+    width: height > 570 ? 81 : 61,
+    resizeMode: "contain"
   },
   numberText: {
     color: colors.black,
@@ -75,25 +79,53 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   italicText: {
+    textAlign: "center",
     marginTop: 20,
-    marginBottom: 20,
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 16,
     lineHeight: 21
   },
   greenButton: {
+    alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 24,
-    width: 310,
+    width: "95%",
     height: 52
   },
   buttonText: {
     fontFamily: fonts.semibold,
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: 22,
     color: colors.white
+  },
+  mapContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  map: {
+    width,
+    height: 227
+  },
+  image: {
+    width,
+    height: 186,
+    resizeMode: "contain"
+  },
+  caption: {
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: "center",
+    width: 245
+  },
+  center: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  photoContainer: {
+    height: 251
   }
 } );

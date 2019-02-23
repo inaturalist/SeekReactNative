@@ -1,4 +1,7 @@
 const icons = {
+  birdTeal: require( "./icons/icon-inaturalist-teal.png" ),
+  completed: require( "./icons/icon-completed.png" ),
+  checklist: require( "./icons/icon-checklist.png" ),
   edit: require( "./icons/icon-editlocation.png" ),
   error: require( "./icons/icon-error.png" ),
   internet: require( "./icons/icon-internet.png"),
@@ -9,10 +12,20 @@ const icons = {
   hamburger: require( "./navbar/Menu.png"),
   notifications: require( "./navbar/Notifications.png"),
   notificationsInactive: require( "./navbar/Notifications-inactive.png"),
+  cameraHelp: require( "./icons/icon-help.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
   backButton: require( "./icons/back.png" ),
-  badgePlaceholder: require( "./icons/badge-placeholder.png" )
+  backButtonGreen: require( "./icons/icon-back-green.png" ),
+  badgePlaceholder: require( "./icons/badge-placeholder.png" ),
+  banner: require( "./icons/Banner.png" ),
+  menuHome: require( "./icons/icon-menu-home.png" ),
+  menuAchievements: require( "./icons/icon-menu-achievements.png" ),
+  menuChallenges: require( "./icons/icon-menu-challenges.png" ),
+  menuiNat: require( "./icons/icon-menu-inaturalist.png" ),
+  menuObservations: require( "./icons/icon-menu-observations.png" ),
+  menuSeek: require( "./icons/icon-menu-seek.png" ),
+  menuSettings: require( "./icons/icon-menu-settings.png" )
 };
 
 export default icons;

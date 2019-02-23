@@ -1,12 +1,13 @@
 const { FileUpload } = require( "inaturalistjs" );
-const Geocoder = require( "react-native-geocoder" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const moment = require( "moment" );
 const { AsyncStorage } = require( "react-native" );
+const inatjs = require( "inaturalistjs" );
 
-const badgesDict = require( "./badgesDict" );
 const realmConfig = require( "../models/index" );
+const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
+const { recalculateBadges } = require( "./badgeHelpers" );
+const { recalculateChallenges } = require( "./challengeHelpers" );
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -14,8 +15,6 @@ const capitalizeNames = ( name ) => {
     .join( " " );
   return titleCaseName;
 };
-
-const truncateCoordinates = coordinate => Number( coordinate.toFixed( 2 ) );
 
 const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   const params = {
@@ -29,52 +28,6 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
     longitude
   };
   return params;
-};
-
-const reverseGeocodeLocation = ( latitude, longitude ) => {
-  Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )
-    .then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      return locality || subAdminArea;
-    } ).catch( ( err ) => {
-      // console.log( "Error reverse geocoding location: ", err.message );
-    } );
-};
-
-const recalculateBadges = () => {
-  let badgeEarned = false;
-
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const collectedTaxa = realm.objects( "TaxonRealm" );
-      const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
-
-      unearnedBadges.forEach( ( badge ) => {
-        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
-          const filteredCollection = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` );
-          const collectionLength = Object.keys( filteredCollection );
-
-          if ( collectionLength.length >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
-            badgeEarned = true;
-          }
-        } else if ( badge.count !== 0 ) {
-          if ( collectedTaxa.length >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
-            badgeEarned = true;
-          }
-        }
-      } );
-    } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
-    } );
-  return badgeEarned;
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {
@@ -105,63 +58,11 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );
-      recalculateBadges();
+      // recalculateBadges();
+      // recalculateChallenges();
     } ).catch( ( e ) => {
-      // console.log( "Error adding photos to collection: ", e );
+      console.log( "Error adding photos to collection: ", e );
     } );
-};
-
-const setupBadges = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      realm.write( () => {
-        const dict = Object.keys( badgesDict.default );
-        dict.forEach( ( badgeType ) => {
-          const badges = badgesDict.default[badgeType];
-
-          const badge = realm.create( "BadgeRealm", {
-            name: badges.name,
-            iconicTaxonName: badges.iconicTaxonName,
-            iconicTaxonId: badges.iconicTaxonId,
-            count: badges.count,
-            earnedIconName: badges.earnedIconName,
-            unearnedIconName: badges.unearnedIconName,
-            infoText: badges.infoText,
-            index: badges.index
-          }, true );
-        } );
-      } );
-    } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
-    } );
-};
-
-const getCurrentMonth = () => {
-  const date = new Date();
-  return date.getMonth() + 1;
-};
-
-const getPreviousAndNextMonth = () => {
-  const month = getCurrentMonth();
-
-  if ( month === 1 ) {
-    return [12, 1, 2];
-  }
-
-  if ( month === 12 ) {
-    return [11, 12, 1];
-  }
-
-  return [month - 1, month, month + 1];
-};
-
-const requiresParent = ( birthday ) => {
-  const today = moment().format( "YYYY-MM-DD" );
-  const thirteen = moment( today ).subtract( 13, "year" ).format( "YYYY-MM-DD" );
-  if ( moment( birthday ).isAfter( thirteen ) ) {
-    return true;
-  }
-  return false;
 };
 
 const HAS_LAUNCHED = "has_launched";
@@ -202,39 +103,54 @@ const checkIfCardShown = async () => {
   }
 };
 
-const setLatAndLng = ( lat, lng ) => {
-  AsyncStorage.setItem( "latitude", lat );
-  AsyncStorage.setItem( "longitude", lng );
+const setTotalObservations = ( total ) => {
+  AsyncStorage.setItem( "total_observations", total );
 };
 
-const getLatAndLng = async () => {
+const setTotalObservers = ( total ) => {
+  AsyncStorage.setItem( "total_observers", total );
+};
+
+const fetchTotalObservations = () => {
+  inatjs.observations.fetch().then( ( response ) => {
+    setTotalObservations( response.total_results.toString() );
+  } ).catch( ( error ) => {
+    // console.log( "can't set observations:", error );
+  } );
+};
+
+const fetchTotalObservers = () => {
+  inatjs.observations.observers().then( ( response ) => {
+    setTotalObservers( response.total_results.toString() );
+  } ).catch( ( error ) => {
+    // console.log( "can't set observers:", error );
+  } );
+};
+
+const getObservationData = async () => {
   try {
-    const latitude = await AsyncStorage.getItem( "latitude" );
-    const longitude = await AsyncStorage.getItem( "longitude" );
+    const observations = await AsyncStorage.getItem( "total_observations" );
+    const observers = await AsyncStorage.getItem( "total_observers" );
     return {
-      latitude: Number( latitude ),
-      longitude: Number( longitude )
+      observations: Number( observations ),
+      observers: Number( observers )
     };
   } catch ( error ) {
     return ( error );
   }
 };
 
-const calculatePercent = ( number, total ) => ( number / total ) * 100;
+const fetchObservationData = () => {
+  fetchTotalObservations();
+  fetchTotalObservers();
+};
 
 export {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  recalculateBadges,
-  reverseGeocodeLocation,
-  setupBadges,
-  truncateCoordinates,
-  getPreviousAndNextMonth,
-  requiresParent,
   checkIfFirstLaunch,
   checkIfCardShown,
-  setLatAndLng,
-  getLatAndLng,
-  calculatePercent
+  fetchObservationData,
+  getObservationData
 };

@@ -5,14 +5,14 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Text
+  Text,
+  SafeAreaView
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/menu";
-import { colors } from "../../styles/global";
+import styles from "../../styles/home/sideMenu";
 import logoImages from "../../assets/logos";
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any
@@ -20,77 +20,87 @@ type Props = {
 
 const SideMenu = ( { navigation }: Props ) => (
   <View style={styles.container}>
-    <LinearGradient
-      colors={[colors.seekGreen, colors.seekTeal]}
-      style={styles.column}
+    <SafeAreaView />
+    <TouchableOpacity
+      style={styles.row}
+      onPress={() => navigation.navigate( "Main" )}
     >
       <Image
         source={logoImages.seek}
-        style={styles.image}
+        style={styles.logo}
       />
-      <View style={styles.textContainer}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Main", {
-            taxaName: null,
-            id: null,
-            taxaType: "all"
-          } )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.home" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Badges" )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.profile" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Challenges" )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.challenges" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "YourCollection" )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.observations" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "iNatStats" )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.inat" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "About" )}
-        >
-          <Text style={styles.text}>
-            {i18n.t( "menu.about" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Login" )}
-        >
-          <Text style={styles.text}>
-            Sign in
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Onboarding" )}
-        >
-          <Text style={styles.text}>
-            Onboarding
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </LinearGradient>
+    </TouchableOpacity>
+    <View style={styles.textContainer}>
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "Main" )}
+      >
+        <Image source={icons.menuHome} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.home" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "Badges" )}
+      >
+        <Image source={icons.menuAchievements} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.achievements" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "Challenges" )}
+      >
+        <Image source={icons.menuChallenges} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.challenges" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "MyObservations" )}
+      >
+        <Image source={icons.menuObservations} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.observations" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "iNatStats" )}
+      >
+        <Image source={icons.menuiNat} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.inat" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "About" )}
+      >
+        <Image source={icons.menuSeek} style={styles.image} />
+        <Text style={styles.text}>
+          {i18n.t( "menu.about" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        style={styles.row}
+        onPress={() => navigation.navigate( "Onboarding" )}
+      >
+        <Image source={icons.menuSettings} style={styles.image} />
+        <Text style={styles.text}>
+          ONBOARDING
+        </Text>
+      </TouchableOpacity>
+    </View>
   </View>
 );
 

@@ -1,14 +1,31 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
-import { colors, padding } from "../global";
+import { Dimensions, StyleSheet } from "react-native";
+import { colors, padding, fonts } from "../global";
 
-const { width, height } = Dimensions.get( "screen" );
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   background: {
     flex: 1
   },
-  navbar: {
-    height: ( Platform.OS === "android" || height < 700 ) ? 60 : 85
+  header: {
+    backgroundColor: colors.white,
+    height: 60,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+  headerText: {
+    paddingTop: padding.iOSPadding,
+    fontSize: 18,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.0
+  },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   galleryContainer: {
     flex: 1,
@@ -26,5 +43,15 @@ export default StyleSheet.create( {
   image: {
     width: width / 4 - 2,
     height: width / 4 - 2
+  },
+  backButton: {
+    padding: 10
+  },
+  safeView: {
+    flex: 1
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.white
   }
 } );

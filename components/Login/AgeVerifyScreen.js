@@ -13,7 +13,7 @@ import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
 
 import i18n from "../../i18n";
-import { requiresParent } from "../../utility/helpers";
+import { requiresParent } from "../../utility/dateHelpers";
 import styles from "../../styles/login/login";
 import { colors } from "../../styles/global";
 

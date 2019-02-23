@@ -1,8 +1,9 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  fontSize
+  fontSize,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
@@ -14,9 +15,11 @@ export default StyleSheet.create( {
     backgroundColor: "rgba(0,0,0,0.5)"
   },
   modalView: {
-    padding: 20,
-    alignItems: "center",
-    justifyContent: "center"
+    flex: 1,
+    justifyContent: "center",
+    paddingLeft: 20,
+    paddingRight: 20,
+    alignItems: "center"
   },
   safeViewTop: {
     flex: 0,
@@ -27,7 +30,6 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
-    paddingTop: 20,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between",
@@ -36,11 +38,15 @@ export default StyleSheet.create( {
   },
   logo: {
     marginTop: 30,
-    marginRight: 10
+    marginRight: 20
   },
   backButton: {
-    marginLeft: 20,
-    marginHorizontal: 10
+    padding: 10,
+    marginTop: 20,
+    marginLeft: 20
+  },
+  missionContainer: {
+    flex: 1
   },
   challengeContainer: {
     height: 320,
@@ -49,7 +55,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.darkGray,
     marginBottom: 10
   },
-  missionContainer: {
+  descriptionContainer: {
     alignItems: "center",
     marginTop: 21,
     backgroundColor: colors.white,
@@ -89,7 +95,7 @@ export default StyleSheet.create( {
     lineHeight: 25,
     marginLeft: 16
   },
-  missionText: {
+  descriptionText: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
@@ -106,7 +112,7 @@ export default StyleSheet.create( {
   buttonText: {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
-    paddingTop: Platform.OS === "ios" ? 10 : null,
+    paddingTop: padding.iOSPadding,
     fontSize: fontSize.buttonText,
     color: colors.white
   },

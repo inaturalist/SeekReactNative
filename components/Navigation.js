@@ -1,114 +1,84 @@
-import React from "react";
-import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from "react-navigation";
-import { Image, Platform } from "react-native";
+import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
+import { fadeIn, fromLeft } from "react-navigation-transitions";
 
-import {
-  colors,
-  padding,
-  fontSize,
-  fonts
-} from "../styles/global";
-import icons from "../assets/icons";
+import styles from "../styles/navigation";
 import i18n from "../i18n";
-
 import SplashScreen from "./SplashScreen";
-import HomeScreen from "../containers/HomeContainer";
+import HomeScreen from "./Home/HomeScreen";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
-import YourCollection from "./Menu/YourCollection";
-import BadgesScreen from "./Menu/BadgesScreen";
+import MyObservations from "./Observations/MyObservations";
+import BadgesScreen from "./Badges/BadgesScreen";
 import AboutScreen from "./Menu/AboutScreen";
-import AboutTitle from "./Menu/AboutTitle";
-import BadgesTitle from "./Menu/BadgesTitle";
 import SideMenu from "./Home/SideMenu";
-import LoginScreen from "./Login/LoginScreen";
-import AgeVerifyScreen from "./Login/AgeVerifyScreen";
-import iNatLoginScreen from "./Login/iNatLoginScreen";
-import CheckEmailScreen from "./Login/CheckEmailScreen";
-import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
-import WelcomeScreen from "./Login/WelcomeScreen";
-import ParentalConsentScreen from "./Login/ParentalConsentScreen";
-import SignUpScreen from "./Login/SignUpScreen-1";
-import SignUpScreen2 from "./Login/SignUpScreen-2";
+// import LoginScreen from "./Login/LoginScreen";
+// import AgeVerifyScreen from "./Login/AgeVerifyScreen";
+// import iNatLoginScreen from "./Login/iNatLoginScreen";
+// import CheckEmailScreen from "./Login/CheckEmailScreen";
+// import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
+// import WelcomeScreen from "./Login/WelcomeScreen";
+// import ParentalConsentScreen from "./Login/ParentalConsentScreen";
+// import SignUpScreen from "./Login/SignUpScreen-1";
+// import SignUpScreen2 from "./Login/SignUpScreen-2";
+// import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
+// import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Notifications/Notifications";
-import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
-import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
+import CameraHelpScreen from "./Camera/CameraHelpScreen";
 
-const backButton = (
-  <Image
-    source={icons.backButton}
-    style={{ marginHorizontal: 10, marginTop: 10, marginBottom: 10 }}
-  />
-);
-
-const greenHeader = {
-  backgroundColor: colors.seekForestGreen,
-  borderBottomWidth: 0,
-  elevation: 0
-};
-
-const whiteHeaderTitle = {
-  fontSize: 22,
-  color: colors.white,
-  fontFamily: fonts.semibold,
-  flex: 1,
-  textAlign: "center",
-  paddingRight: Platform.OS === "android" ? 60 : null
-};
-
-const MenuDrawerNav = createDrawerNavigator( {
-  Menu: {
-    screen: SideMenu
+const handleCustomTransition = ( { scenes } ) => {
+  const prevScene = scenes[scenes.length - 2];
+  const nextScene = scenes[scenes.length - 1];
+  // Custom transitions go there
+  if ( prevScene
+    && prevScene.route.routeName === "Home"
+    && nextScene.route.routeName === "Main" ) {
+    return fadeIn( 2000 );
   }
-} );
+  return fromLeft();
+};
 
-const CameraNav = createBottomTabNavigator( {
-  CAMERA: { screen: Camera },
-  PHOTOS: { screen: Gallery }
+const CameraNav = createMaterialTopTabNavigator( {
+  CAMERA: {
+    screen: Camera,
+    navigationOptions: () => ( {
+      title: i18n.t( "camera.label" ).toLocaleUpperCase()
+    } )
+  },
+  PHOTOS: {
+    screen: Gallery,
+    navigationOptions: () => ( {
+      title: i18n.t( "gallery.label" ).toLocaleUpperCase()
+    } )
+  }
 }, {
   initialRouteName: "CAMERA",
-  backBehavior: "none",
+  tabBarPosition: "bottom",
   tabBarOptions: {
-    activeTintColor: colors.white,
-    activeBackgroundColor: colors.darkGreen,
-    inactiveTintColor: colors.lightGray,
-    labelStyle: {
-      color: colors.white,
-      textAlign: "center",
-      paddingTop: padding.small,
-      paddingBottom: padding.large,
-      fontFamily: fonts.semibold,
-      fontSize: fontSize.text
-    },
-    indicatorStyle: {
-      backgroundColor: colors.white
-    },
-    style: {
-      backgroundColor: colors.black,
-      height: 55
-    }
+    scrollEnabled: true,
+    labelStyle: styles.cameraTabLabel,
+    style: styles.cameraTab,
+    indicatorStyle: styles.indicator
   }
 } );
 
 const StackNavigatorConfig = {
-  headerMode: "screen"
+  headerMode: "screen",
+  transitionConfig: nav => handleCustomTransition( nav )
 };
 
-const RootStack = createStackNavigator( {
-  Home: {
-    screen: SplashScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Menu: {
-    screen: MenuDrawerNav,
+const DrawerNavigatorConfig = {
+  contentComponent: SideMenu
+};
+
+const MainStack = createStackNavigator( {
+  Main: {
+    screen: HomeScreen,
     navigationOptions: () => ( {
       header: null
     } )
@@ -116,106 +86,13 @@ const RootStack = createStackNavigator( {
   Notifications: {
     screen: NotificationsScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "notifications.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
-      headerBackImage: backButton
-    } )
-  },
-  Login: {
-    screen: LoginScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Age: {
-    screen: AgeVerifyScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  iNatLogin: {
-    screen: iNatLoginScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Forgot: {
-    screen: ForgotPasswordScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  CheckEmail: {
-    screen: CheckEmailScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  ParentCheckEmail: {
-    screen: ParentCheckEmailScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Welcome: {
-    screen: WelcomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Parent: {
-    screen: ParentalConsentScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Signup: {
-    screen: SignUpScreen,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Signup2: {
-    screen: SignUpScreen2,
-    navigationOptions: () => ( {
-      headerTransparent: true,
-      headerBackImage: backButton
-    } )
-  },
-  Privacy: {
-    screen: PrivacyPolicyScreen,
-    navigationOptions: () => ( {
-      title: i18n.t( "privacy.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
-      headerBackImage: backButton
-    } )
-  },
-  Main: {
-    screen: HomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  Onboarding: {
-    screen: OnboardingScreen,
-    navigationOptions: () => ( {
       header: null
     } )
   },
   Challenges: {
     screen: ChallengeScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "challenges.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
-      headerBackImage: backButton
+      header: null
     } )
   },
   ChallengeDetails: {
@@ -232,49 +109,159 @@ const RootStack = createStackNavigator( {
   },
   Camera: {
     screen: CameraNav,
-    navigationOptions: ( { navigation } ) => ( {
-      headerTransparent: navigation.state.index === 0,
-      headerTintColor: navigation.state.index === 0 ? colors.white : null
+    navigationOptions: () => ( {
+      header: null,
+      mode: "modal"
+    } )
+  },
+  CameraHelp: {
+    screen: CameraHelpScreen,
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   Results: {
     screen: Results,
     navigationOptions: () => ( {
-      headerStyle: {
-        backgroundColor: colors.darkestBlue
-      },
-      headerTintColor: colors.white
+      header: null
     } )
   },
   Species: {
     screen: SpeciesDetail,
-    navigationOptions: ( { navigation } ) => ( {
-      title: navigation.state.params.seen ? "Collected" : "Collect This!",
-      headerStyle: {
-        backgroundColor: navigation.state.params.seen ? colors.lightGray : colors.darkestBlue
-      },
-      headerTintColor: navigation.state.params.seen ? colors.black : colors.white
+    navigationOptions: () => ( {
+      header: null
     } )
   },
-  YourCollection: {
-    screen: YourCollection,
-    navigationOptions: ( { navigation } ) => ( {
-      headerRight: <AboutTitle navigation={navigation} />
+  MyObservations: {
+    screen: MyObservations,
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   Badges: {
     screen: BadgesScreen,
-    navigationOptions: ( { navigation } ) => ( {
-      headerTitle: <BadgesTitle navigation={navigation} />
+    navigationOptions: () => ( {
+      header: null
     } )
   },
   About: {
     screen: AboutScreen,
     navigationOptions: () => ( {
-      title: i18n.t( "about.header" ),
-      headerStyle: greenHeader,
-      headerTitleStyle: whiteHeaderTitle,
-      headerBackImage: backButton
+      header: null
+    } )
+  }
+} );
+
+const MenuDrawerNav = createDrawerNavigator( {
+  Main: {
+    screen: MainStack,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  }
+}, DrawerNavigatorConfig );
+
+// const LoginStack = createStackNavigator( {
+//   Login: {
+//     screen: LoginScreen,
+//     navigationOptions: () => ( {
+//       header: null
+//     } )
+//   },
+//   Age: {
+//     screen: AgeVerifyScreen,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   iNatLogin: {
+//     screen: iNatLoginScreen,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   Forgot: {
+//     screen: ForgotPasswordScreen,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   CheckEmail: {
+//     screen: CheckEmailScreen,
+//     navigationOptions: () => ( {
+//       header: null
+//     } )
+//   },
+//   ParentCheckEmail: {
+//     screen: ParentCheckEmailScreen,
+//     navigationOptions: () => ( {
+//       header: null
+//     } )
+//   },
+//   Welcome: {
+//     screen: WelcomeScreen,
+//     navigationOptions: () => ( {
+//       header: null
+//     } )
+//   },
+//   Parent: {
+//     screen: ParentalConsentScreen,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   Signup: {
+//     screen: SignUpScreen,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   Signup2: {
+//     screen: SignUpScreen2,
+//     navigationOptions: () => ( {
+//       headerTransparent: true,
+//       headerBackImage: backButton
+//     } )
+//   },
+//   Privacy: {
+//     screen: PrivacyPolicyScreen,
+//     navigationOptions: () => ( {
+//       title: i18n.t( "privacy.header" ),
+//       headerStyle: styles.greenHeader,
+//       headerTitleStyle: styles.whiteHeaderTitle,
+//       headerBackImage: backButton
+//     } )
+//   }
+// } );
+
+const RootStack = createStackNavigator( {
+  Home: {
+    screen: SplashScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Onboarding: {
+    screen: OnboardingScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  // Login: {
+  //   screen: LoginStack,
+  //   navigationOptions: () => ( {
+  //     header: null
+  //   } )
+  // },
+  Main: {
+    screen: MenuDrawerNav,
+    navigationOptions: () => ( {
+      header: null
     } )
   }
 }, StackNavigatorConfig );

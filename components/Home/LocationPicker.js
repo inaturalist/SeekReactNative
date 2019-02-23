@@ -11,7 +11,8 @@ import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, capitalizeNames, getLatAndLng } from "../../utility/helpers";
+import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
+import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/home/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -48,11 +49,9 @@ class LocationPicker extends Component<Props> {
   }
 
   onRegionChange( newRegion ) {
-    this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
-
     this.setState( {
       region: newRegion
-    } );
+    }, () => this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude ) );
   }
 
   reverseGeocodeLocation( latitude, longitude ) {
@@ -98,7 +97,6 @@ class LocationPicker extends Component<Props> {
 
   async returnToUserLocation() {
     const location = await getLatAndLng();
-    console.log( location, "fetching location in location picker" );
 
     this.setState( {
       region: {

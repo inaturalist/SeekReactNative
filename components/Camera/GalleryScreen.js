@@ -8,78 +8,116 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
+  TouchableOpacity,
+  Text,
   View,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
+import { NavigationEvents } from "react-navigation";
+import BackIcon from "react-native-vector-icons/AntDesign";
 
+import i18n from "../../i18n";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { truncateCoordinates } from "../../utility/helpers";
+import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
+
+const backIcon = ( <BackIcon name="close" size={23} color={colors.seekForestGreen} /> );
 
 type Props = {
   navigation: any
 }
 
 class GalleryScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      id,
-      latitude,
-      longitude,
-      commonName
-    } = navigation.state.params;
 
     this.state = {
       photos: [],
       loading: true,
-      latitude,
-      longitude,
-      id,
-      commonName,
-      error: null
+      error: null,
+      hasNextPage: true,
+      lastCursor: null,
+      stillLoading: false
     };
   }
 
-  componentDidMount() {
-    if ( Platform.OS === "android" ) {
-      this.requestAndroidPermissions();
-    } else {
-      this.getPhotos();
+  getPhotos() {
+    const { lastCursor, hasNextPage, stillLoading } = this.state;
+
+    const photoOptions = {
+      first: 28,
+      assetType: "Photos"
+    };
+
+    if ( lastCursor ) {
+      photoOptions.after = lastCursor;
+    }
+
+    if ( hasNextPage && !stillLoading ) {
+      this.setState( {
+        stillLoading: true
+      } );
+      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+        this.appendPhotos( results.edges );
+        this.setState( {
+          loading: false,
+          hasNextPage: results.page_info.has_next_page,
+          lastCursor: results.page_info.end_cursor
+        } );
+      } ).catch( ( err ) => {
+        this.setState( {
+          error: err.message
+        } );
+      } );
     }
   }
 
-  getPhotos() {
-    CameraRoll.getPhotos( {
-      first: 1000,
-      assetType: "Photos"
-    } ).then( ( results ) => {
-      this.setState( {
-        photos: results.edges,
-        loading: false
-      } );
-    } ).catch( ( err ) => {
-      this.setState( {
-        error: err.message
-      } );
-    } );
-  }
-
   requestAndroidPermissions = async () => {
+    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+      const granted = await PermissionsAndroid.requestMultiple( [
+        save,
+        retrieve
+      ] );
+      if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
         this.getPhotos();
       } else {
         this.showError( JSON.stringify( granted ) );
       }
     } catch ( err ) {
       this.showError( err );
+    }
+  }
+
+  appendPhotos( data ) {
+    const { photos } = this.state;
+
+    if ( photos.length > 0 ) {
+      data.forEach( ( photo ) => {
+        photos.push( photo );
+      } );
+      this.setState( {
+        photos,
+        stillLoading: false
+      } );
+    } else {
+      this.setState( {
+        photos: data,
+        stillLoading: false
+      } );
+    }
+  }
+
+  checkPermissions() {
+    if ( Platform.OS === "android" ) {
+      this.requestAndroidPermissions();
+    } else {
+      this.getPhotos();
     }
   }
 
@@ -90,94 +128,104 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  selectImage( imageClicked, timestamp, location ) {
-    const {
-      id,
-      latitude,
-      longitude,
-      commonName
-    } = this.state;
-
-    const {
-      navigation
-    } = this.props;
+  async selectImage( imageClicked, timestamp, location ) {
+    const { navigation } = this.props;
+    const userLocation = await getLatAndLng();
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        const navParams = {
-          id,
+        navigation.push( "Results", {
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude ),
-          commonName
-        };
-        navigation.push( "Results", navParams );
+          longitude: truncateCoordinates( location.longitude )
+        } );
       } else {
-        const navParams = {
-          id,
+        navigation.push( "Results", {
           image: imageClicked,
           time: timestamp,
-          latitude,
-          longitude,
-          commonName
-        };
-        navigation.push( "Results", navParams );
+          latitude: userLocation.latitude,
+          longitude: userLocation.longitude
+        } );
       }
     } else {
-      const navParams = {
-        id,
+      navigation.push( "Results", {
         image: imageClicked,
         time: timestamp,
-        latitude,
-        longitude,
-        commonName
-      };
-      navigation.push( "Results", navParams );
+        latitude: userLocation.latitude,
+        longitude: userLocation.longitude
+      } );
     }
   }
 
   render() {
-    const { error, loading, photos } = this.state;
+    const {
+      error,
+      loading,
+      photos
+    } = this.state;
+
+    const { navigation } = this.props;
 
     let gallery;
 
     if ( error ) {
       gallery = <ErrorScreen error={error} collection />;
     } else if ( loading ) {
-      gallery = <LoadingWheel color={colors.darkGray} />;
+      gallery = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel color={colors.darkGray} />
+        </View>
+      );
     } else {
       gallery = (
-        <ScrollView contentContainerStyle={styles.container}>
-          {
-            photos.map( ( p, i ) => {
-              return (
-                <TouchableHighlight
-                  style={styles.button}
-                  key={i.toString()}
-                  underlayColor="transparent"
-                  onPress={() => {
-                    this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                  }}
-                >
-                  <Image
-                    style={styles.image}
-                    source={{ uri: p.node.image.uri }}
-                  />
-                </TouchableHighlight>
-              );
-            } )
-          }
+        <ScrollView
+          contentContainerStyle={styles.container}
+          onScroll={() => this.getPhotos()}
+        >
+          {photos.map( ( p, i ) => {
+            return (
+              <TouchableHighlight
+                style={styles.button}
+                key={i.toString()}
+                underlayColor="transparent"
+                onPress={() => {
+                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
+                }}
+              >
+                <Image
+                  style={styles.image}
+                  source={{ uri: p.node.image.uri }}
+                />
+              </TouchableHighlight>
+            );
+          } )}
         </ScrollView>
       );
     }
 
     return (
       <View style={styles.background}>
-        <StatusBar hidden />
-        <View style={styles.galleryContainer}>
-          {gallery}
-        </View>
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => this.checkPermissions()}
+          />
+          <StatusBar hidden />
+          <View style={styles.header}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Text>{backIcon}</Text>
+            </TouchableOpacity>
+            <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
+            <View />
+          </View>
+          <View style={styles.galleryContainer}>
+            {gallery}
+          </View>
+        </SafeAreaView>
       </View>
     );
   }

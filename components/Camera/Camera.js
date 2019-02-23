@@ -9,7 +9,8 @@ import {
   View,
   TouchableOpacity,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Image
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -17,8 +18,8 @@ import styles from "../../styles/camera/camera";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
-import { getLatAndLng } from "../../utility/helpers";
-
+import { getLatAndLng } from "../../utility/locationHelpers";
+import icons from "../../assets/icons";
 
 const flashModeOrder = {
   off: "on",
@@ -30,13 +31,8 @@ type Props = {
 }
 
 class CameraScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      id,
-      commonName
-    } = navigation.state.params;
 
     this.state = {
       cameraType: "back",
@@ -44,8 +40,6 @@ class CameraScreen extends Component<Props> {
       error: null,
       latitude: null,
       longitude: null,
-      id,
-      commonName,
       pictureTaken: false,
       focusedScreen: false
     };
@@ -62,11 +56,10 @@ class CameraScreen extends Component<Props> {
     } );
   }
 
-  getCameraCaptureFromGallery( id ) {
+  getCameraCaptureFromGallery() {
     const {
       latitude,
-      longitude,
-      commonName
+      longitude
     } = this.state;
 
     const {
@@ -84,9 +77,7 @@ class CameraScreen extends Component<Props> {
         image: photo.image,
         time: photo.timestamp,
         latitude,
-        longitude,
-        id,
-        commonName
+        longitude
       } ) );
     } ).catch( ( err ) => {
       this.setState( {
@@ -121,26 +112,15 @@ class CameraScreen extends Component<Props> {
     }
   }
 
-  requestCameraPermissions = async () => {
-    console.log( "permissions being asked" );
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA
-      );
-      if ( !granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.showError( "Camera permissions denied" );
-      }
-    } catch ( err ) {
-      this.showError( `Camera permissions denied: ${err}` );
-    }
-  }
-
   requestAndroidPermissions = async ( data ) => {
+    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
     try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+      const granted = await PermissionsAndroid.requestMultiple( [
+        save,
+        retrieve
+      ] );
+      if ( granted[save] === PermissionsAndroid.RESULTS.GRANTED ) {
         this.savePhotoToGallery( data );
       } else {
         this.showError( JSON.stringify( granted ) );
@@ -163,10 +143,8 @@ class CameraScreen extends Component<Props> {
   }
 
   savePhotoToGallery( data ) {
-    const { id } = this.state;
-
     CameraRoll.saveToCameraRoll( data.uri, "photo" )
-      .then( () => this.getCameraCaptureFromGallery( id ) )
+      .then( () => this.getCameraCaptureFromGallery() )
       .catch( ( err ) => {
         this.setState( {
           error: err.message
@@ -205,19 +183,25 @@ class CameraScreen extends Component<Props> {
 
     if ( error ) {
       cameraContent = <ErrorScreen error={error} collection />;
+    } else if ( pictureTaken ) {
+      cameraContent = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel />
+        </View>
+      );
     } else {
       cameraContent = (
-        <View style={styles.container}>
-          { pictureTaken ? (
-            <LoadingWheel />
-          ) : null }
-          <View style={styles.main} />
-          <View style={styles.footer}>
-            <TouchableOpacity
-              onPress={() => this.takePicture()}
-              style={styles.capture}
-            />
-          </View>
+        <View style={styles.footer}>
+          <View style={styles.placeholder} />
+          <TouchableOpacity
+            onPress={() => this.takePicture()}
+            style={styles.capture}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "CameraHelp" )}
+          >
+            <Image source={icons.cameraHelp} />
+          </TouchableOpacity>
         </View>
       );
     }
@@ -258,6 +242,7 @@ class CameraScreen extends Component<Props> {
                 toggleFlash={this.toggleFlash}
                 toggleCamera={this.toggleCamera}
               />
+              <View style={styles.main} />
               {cameraContent}
             </RNCamera>
           ) : null}

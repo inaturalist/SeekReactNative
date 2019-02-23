@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, padding, margins } from "../global";
+import { colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -13,26 +13,26 @@ export default StyleSheet.create( {
   main: {
     flexGrow: 1
   },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   footer: {
-    flex: 1,
-    justifyContent: "flex-end",
-    paddingBottom: padding.large
+    height: 105,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around"
   },
   capture: {
-    flex: 0,
     backgroundColor: colors.white,
-    borderWidth: 3,
-    borderRadius: 100,
-    alignItems: "flex-end",
-    justifyContent: "center",
-    borderColor: colors.darkGray,
-    alignSelf: "center",
-    width: 50,
-    height: 50
+    borderWidth: 2,
+    borderRadius: 49 / 2,
+    borderColor: colors.seekiNatGreen,
+    width: 49,
+    height: 49
   },
-  zoomButtons: {
-    zIndex: 1,
-    marginTop: margins.small,
-    marginLeft: margins.medium
+  placeholder: {
+    width: 49
   }
 } );

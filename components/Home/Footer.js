@@ -19,15 +19,11 @@ const Footer = ( {
     <View style={styles.navbar}>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate( "Menu" )}
+        onPress={() => navigation.openDrawer()}
       >
         <Image source={icons.hamburger} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.push( "Camera", {
-        id: null,
-        commonName: null
-      } )}
-      >
+      <TouchableOpacity onPress={() => navigation.push( "Camera" )}>
         <Image source={icons.cameraGreen} style={styles.cameraImage} />
       </TouchableOpacity>
       <TouchableOpacity

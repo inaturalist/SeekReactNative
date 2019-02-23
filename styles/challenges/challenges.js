@@ -15,16 +15,14 @@ export default StyleSheet.create( {
   },
   header: {
     marginTop: 21,
-    marginLeft: 22
+    marginLeft: 22,
+    marginBottom: 10
   },
   headerText: {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.12
-  },
-  challengesContainer: {
-    flex: 1
   },
   cardContainer: {
     height: 95,
@@ -64,13 +62,55 @@ export default StyleSheet.create( {
     fontSize: 14,
     lineHeight: 21
   },
-  circleStyle: {
+  startButton: {
+    alignItems: "center",
     width: 59,
-    height: 59,
     marginLeft: 20
   },
-  circleText: {
-    fontFamily: fonts.book,
-    fontSize: 20
+  greenText: {
+    textAlign: "center",
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    fontSize: 14,
+    lineHeight: 17
+  },
+  noChallengeContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noChallengeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "nowrap"
+  },
+  noChallengeTextContainer: {
+    marginLeft: 30,
+    justifyContent: "center"
+  },
+  noChallengeText: {
+    width: 229,
+    textAlign: "center",
+    fontFamily: fonts.default,
+    color: colors.errorGray,
+    fontSize: 19,
+    lineHeight: 24
+  },
+  lightText: {
+    marginTop: 10,
+    width: 204,
+    textAlign: "center",
+    fontFamily: fonts.light,
+    color: colors.errorGray,
+    fontSize: 16,
+    lineHeight: 18
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

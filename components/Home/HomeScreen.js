@@ -24,12 +24,11 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import Footer from "./Footer";
-import {
-  truncateCoordinates,
-  getPreviousAndNextMonth,
-  checkIfCardShown,
-  setLatAndLng
-} from "../../utility/helpers";
+import Padding from "../Padding";
+import CardPadding from "./CardPadding";
+import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
+import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
+import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
 
@@ -38,41 +37,27 @@ type Props = {
 }
 
 class HomeScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const {
-      taxaName,
-      id,
-      taxaType
-    } = navigation.state.params;
 
     this.state = {
       latitude: null,
       longitude: null,
       location: null,
       taxa: [],
-      taxaType,
-      taxaName,
-      id,
+      taxaType: "all",
       loading: false,
       modalVisible: false,
       notifications: false,
       error: null,
-      isFirstLaunch: false
+      isFirstLaunch: false,
+      challenge: null
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
-  }
-
-  async componentWillMount() {
-    const isFirstLaunch = await checkIfCardShown();
-    this.setState( {
-      isFirstLaunch
-    } );
   }
 
   setLoading( loading ) {
@@ -126,6 +111,13 @@ class HomeScreen extends Component<Props> {
     } catch ( err ) {
       this.checkInternetConnection();
     }
+  }
+
+  async checkForFirstLaunch() {
+    const isFirstLaunch = await checkIfCardShown();
+    this.setState( {
+      isFirstLaunch
+    } );
   }
 
   updateTaxaType( taxaType ) {
@@ -194,7 +186,7 @@ class HomeScreen extends Component<Props> {
     const params = {
       verifiable: true,
       photos: true,
-      per_page: 9,
+      per_page: 20,
       lat,
       lng,
       radius: 50,
@@ -229,6 +221,18 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
+  fetchLatestChallenge() {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
+        this.setState( {
+          challenge: challenges[0]
+        } );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   toggleLocationPicker() {
     const { modalVisible, error } = this.state;
 
@@ -261,7 +265,8 @@ class HomeScreen extends Component<Props> {
       modalVisible,
       notifications,
       error,
-      isFirstLaunch
+      isFirstLaunch,
+      challenge
     } = this.state;
     const { navigation } = this.props;
 
@@ -273,8 +278,11 @@ class HomeScreen extends Component<Props> {
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
+                this.checkForFirstLaunch();
                 this.checkInternetConnection();
                 this.fetchUserLocation();
+                this.fetchLatestChallenge();
+                fetchObservationData();
               }}
             />
             <ScrollView>
@@ -301,8 +309,11 @@ class HomeScreen extends Component<Props> {
                 error={error}
                 checkRealmForSpecies={this.checkRealmForSpecies}
               />
+              { isFirstLaunch ? <CardPadding /> : null }
               { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
-              <Challenges navigation={navigation} />
+              <CardPadding />
+              { challenge ? <Challenges navigation={navigation} challenge={challenge} /> : null}
+              <Padding />
             </ScrollView>
           </View>
           <Footer

@@ -1,14 +1,14 @@
 class NotificationRealm {}
 NotificationRealm.schema = {
   name: "NotificationRealm",
-  primaryKey: "name",
+  primaryKey: "index",
   properties: {
-    name: { type: "string", default: "" },
     title: { type: "string", default: "" },
     message: { type: "string", default: "" },
     iconName: "string?",
-    receivedDate: "date?",
-    index: { type: "int", default: 0 } // need a way to either save auto incrementing index or date for ordering notifications
+    nextScreen: { type: "string", default: "" },
+    challengeIndex: { type: "int?", default: 0 },
+    index: { type: "int", default: 0 }
   }
 };
 

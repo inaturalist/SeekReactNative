@@ -43,8 +43,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.bookItalic,
     color: colors.black,
     fontSize: 19,
-    lineHeight: 21,
-    marginBottom: 10
+    lineHeight: 21
   },
   headerText: {
     marginTop: 35,
@@ -90,7 +89,6 @@ export default StyleSheet.create( {
     marginRight: 10
   },
   greenButtonContainer: {
-    marginTop: 10,
     flexDirection: "row",
     flexWrap: "wrap"
   },

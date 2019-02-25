@@ -20,6 +20,7 @@ import StatsMap from "./StatsMap";
 import Footer from "../Challenges/ChallengeFooter";
 import Padding from "../Padding";
 import { getObservationData, capitalizeNames } from "../../utility/helpers";
+import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   navigation: any
@@ -32,7 +33,8 @@ class iNatStatsScreen extends Component<Props> {
     this.state = {
       observations: null,
       observers: null,
-      photos: []
+      photos: [],
+      loading: true
     };
   }
 
@@ -64,7 +66,8 @@ class iNatStatsScreen extends Component<Props> {
       } );
 
       this.setState( {
-        photos
+        photos,
+        loading: false
       } );
     } ).catch( ( error ) => {
       console.log( error, "couldn't fetch project photos" );
@@ -72,7 +75,12 @@ class iNatStatsScreen extends Component<Props> {
   }
 
   render() {
-    const { observations, observers, photos } = this.state;
+    const {
+      observations,
+      observers,
+      photos,
+      loading
+    } = this.state;
     const { navigation } = this.props;
 
     const photoList = [];
@@ -145,15 +153,21 @@ class iNatStatsScreen extends Component<Props> {
                 {i18n.t( "inat_stats.about_inat" )}
               </Text>
             </View>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator
-              pagingEnabled
-              indicatorStyle="white"
-              contentContainerStyle={styles.photoContainer}
-            >
-              {photoList}
-            </ScrollView>
+            {loading ? (
+              <View style={[styles.center, styles.photoContainer]}>
+                <LoadingWheel color="black" />
+              </View>
+            ) : (
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator
+                pagingEnabled
+                indicatorStyle="white"
+                contentContainerStyle={styles.photoContainer}
+              >
+                {photoList}
+              </ScrollView>
+            )}
             <Text style={styles.italicText}>
               {i18n.t( "inat_stats.thanks" )}
             </Text>

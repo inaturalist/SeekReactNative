@@ -52,5 +52,13 @@ export default StyleSheet.create( {
     padding: 20,
     alignItems: "center",
     justifyContent: "center"
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: "transparent"
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

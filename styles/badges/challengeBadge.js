@@ -58,5 +58,9 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center",
     marginTop: 4
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

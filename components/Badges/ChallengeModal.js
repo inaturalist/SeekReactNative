@@ -3,7 +3,8 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import BackIcon from "react-native-vector-icons/AntDesign";
 
@@ -21,29 +22,31 @@ type Props = {
 };
 
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
-  <View style={styles.outerContainer}>
-    {/* {console.log( challenge, "challenge in challenge modal" )} */}
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image
-          source={badges[challenge.earnedIconName]}
-          style={styles.image}
-        />
+  <SafeAreaView style={styles.safeView}>
+    <View style={styles.outerContainer}>
+      {/* {console.log( challenge, "challenge in challenge modal" )} */}
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image
+            source={badges[challenge.earnedIconName]}
+            style={styles.image}
+          />
+        </View>
+        <Text style={styles.headerText}>
+          {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).toLocaleUpperCase() } ).toLocaleUpperCase()}
+        </Text>
+        <Text style={styles.text}>
+          {i18n.t( "challenges.thanks" )}
+        </Text>
+        <View style={styles.center}>
+          <Image source={logos.wwfop} style={styles.logo} />
+        </View>
       </View>
-      <Text style={styles.headerText}>
-        {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).toLocaleUpperCase() } ).toLocaleUpperCase()}
-      </Text>
-      <Text style={styles.text}>
-        {i18n.t( "challenges.thanks" )}
-      </Text>
-      <View style={styles.center}>
-        <Image source={logos.wwfop} style={styles.logo} />
-      </View>
+      <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
+        <Text>{backIcon}</Text>
+      </TouchableOpacity>
     </View>
-    <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
-      <Text>{backIcon}</Text>
-    </TouchableOpacity>
-  </View>
+  </SafeAreaView>
 );
 
 export default ChallengeModal;

@@ -48,7 +48,6 @@ class HomeScreen extends Component<Props> {
       taxaType: "all",
       loading: false,
       modalVisible: false,
-      notifications: false,
       error: null,
       isFirstLaunch: false,
       challenge: null
@@ -263,7 +262,6 @@ class HomeScreen extends Component<Props> {
       loading,
       taxa,
       modalVisible,
-      notifications,
       error,
       isFirstLaunch,
       challenge
@@ -316,10 +314,7 @@ class HomeScreen extends Component<Props> {
               <Padding />
             </ScrollView>
           </View>
-          <Footer
-            navigation={navigation}
-            notifications={notifications}
-          />
+          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

@@ -27,7 +27,7 @@ const NotificationCard = ( { navigation, item }: Props ) => {
   }
 
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, item.seen === false && styles.greenContainer]}>
       <TouchableOpacity
         style={styles.card}
         onPress={() => navigation.navigate( item.nextScreen, { index } )}

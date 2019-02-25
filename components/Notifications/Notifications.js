@@ -14,6 +14,7 @@ import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import Footer from "../Home/Footer";
 import GreenHeader from "../GreenHeader";
+import { updateNotifications } from "../../utility/notificationHelpers";
 
 type Props = {
   navigation: any
@@ -32,8 +33,10 @@ class NotificationsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
-        this.setState( { notifications } );
-      } ).catch( ( err ) => {
+        this.setState( {
+          notifications
+        }, () => updateNotifications() );
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }

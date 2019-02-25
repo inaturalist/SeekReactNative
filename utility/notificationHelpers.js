@@ -16,7 +16,8 @@ const createNotification = ( type, index ) => {
           iconName: newNotification.iconName,
           nextScreen: newNotification.nextScreen,
           challengeIndex: type === "challengeProgress" ? index : null,
-          index: notifications.length
+          index: notifications.length,
+          seen: false
         } );
       } );
     } ).catch( ( err ) => {
@@ -24,6 +25,24 @@ const createNotification = ( type, index ) => {
     } );
 };
 
+const updateNotifications = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const notifications = realm.objects( "NotificationRealm" );
+
+      notifications.forEach( ( notification ) => {
+        if ( notification.seen === false ) {
+          realm.write( () => {
+            notification.seen = true;
+          } );
+        }
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to create notification: ", err );
+    } );
+};
+
 export {
-  createNotification
+  createNotification,
+  updateNotifications
 };

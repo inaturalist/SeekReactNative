@@ -12,6 +12,9 @@ export default StyleSheet.create( {
   notificationsContainer: {
     flexGrow: 1
   },
+  greenContainer: {
+    backgroundColor: "#E0EBCC"
+  },
   cardContainer: {
     height: 118,
     justifyContent: "center",

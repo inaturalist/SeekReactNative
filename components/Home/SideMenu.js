@@ -91,7 +91,7 @@ const SideMenu = ( { navigation }: Props ) => (
         </Text>
       </TouchableOpacity>
       <View style={styles.divider} />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.row}
         onPress={() => navigation.navigate( "Onboarding" )}
       >
@@ -99,7 +99,7 @@ const SideMenu = ( { navigation }: Props ) => (
         <Text style={styles.text}>
           ONBOARDING
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   </View>
 );

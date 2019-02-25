@@ -112,6 +112,11 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.seekForestGreen

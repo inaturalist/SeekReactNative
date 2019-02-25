@@ -16,7 +16,7 @@ import moment from "moment";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
-import taxaIds from "../../utility/iconicTaxonDictById";
+// import taxaIds from "../../utility/iconicTaxonDictById";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
@@ -62,7 +62,8 @@ class SpeciesDetail extends Component<Props> {
       native: false,
       similarSpecies: [],
       ancestors: [],
-      loading: true
+      loading: true,
+      loadingSpecies: true
     };
   }
 
@@ -209,7 +210,7 @@ class SpeciesDetail extends Component<Props> {
       const taxa = shortenedList.map( r => r.taxon );
       this.setState( {
         similarSpecies: taxa,
-        loading: false
+        loadingSpecies: false
       } );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch similar species" );
@@ -289,7 +290,8 @@ class SpeciesDetail extends Component<Props> {
       endemic,
       native,
       threatened,
-      loading
+      loading,
+      loadingSpecies
     } = this.state;
 
     const { navigation } = this.props;
@@ -409,7 +411,7 @@ class SpeciesDetail extends Component<Props> {
             </View>
           ) : null}
           {!error ? (
-            <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loading} />
+            <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
           ) : null}
           <Padding />
         </ScrollView>

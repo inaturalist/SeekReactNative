@@ -18,6 +18,7 @@ import ObservationList from "./ObservationList";
 import Padding from "../Padding";
 import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
+import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   navigation: any
@@ -28,7 +29,8 @@ class MyObservations extends Component<Props> {
     super();
 
     this.state = {
-      observations: []
+      observations: [],
+      loading: true
     };
   }
 
@@ -57,7 +59,8 @@ class MyObservations extends Component<Props> {
         } );
 
         this.setState( {
-          observations: species.length > 0 ? observations : species
+          observations: species.length > 0 ? observations : species,
+          loading: false
         } );
       } )
       .catch( () => {
@@ -66,7 +69,7 @@ class MyObservations extends Component<Props> {
   }
 
   render() {
-    const { observations } = this.state;
+    const { observations, loading } = this.state;
     const { navigation } = this.props;
 
     const iconicTaxonList = [];
@@ -88,21 +91,27 @@ class MyObservations extends Component<Props> {
               {i18n.t( "observations.header" ).toLocaleUpperCase()}
             </Text>
           </View>
-          <ScrollView>
-            {observations.length > 0 ? iconicTaxonList : (
-              <View style={styles.textContainer}>
-                <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "Camera" )}
-                  style={styles.greenButton}
-                >
-                  <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-            <Padding />
-          </ScrollView>
+          {loading ? (
+            <View style={styles.loadingWheel}>
+              <LoadingWheel color="black" />
+            </View>
+          ) : (
+            <ScrollView>
+              {observations.length > 0 ? iconicTaxonList : (
+                <View style={styles.textContainer}>
+                  <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
+                  <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate( "Camera" )}
+                    style={styles.greenButton}
+                  >
+                    <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+              <Padding />
+            </ScrollView>
+          )}
           <Footer navigation={navigation} />
         </SafeAreaView>
       </View>

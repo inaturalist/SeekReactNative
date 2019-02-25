@@ -27,7 +27,9 @@ const SimilarSpecies = ( {
 
   if ( loading ) {
     species = (
-      <LoadingWheel color={colors.black} />
+      <View style={styles.loading}>
+        <LoadingWheel color="black" />
+      </View>
     );
   } else if ( taxa.length > 0 ) {
     species = (
@@ -71,6 +73,7 @@ const SimilarSpecies = ( {
       justifyContent: "center"
     }}
     >
+      {console.log( loading, "loading status" )}
       {species}
     </View>
   );

@@ -44,7 +44,7 @@ export default StyleSheet.create( {
   },
   badgesContainer: {
     marginTop: 5,
-    marginBottom: 25,
+    // marginBottom: 25,
     marginHorizontal: 26,
     alignItems: "center",
     justifyContent: "center"

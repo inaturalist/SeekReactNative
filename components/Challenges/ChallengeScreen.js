@@ -48,6 +48,9 @@ class ChallengeScreen extends Component<Props> {
         const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
         const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
 
+        console.log( started, "started" );
+        console.log( completed, "completed challenges" );
+
         notStarted.forEach( ( challenge ) => {
           challengesNotStarted.push( {
             name: i18n.t( challenge.name ),
@@ -71,7 +74,7 @@ class ChallengeScreen extends Component<Props> {
         } );
 
         completed.forEach( ( challenge ) => {
-          challengesStarted.push( {
+          challengesCompleted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
             iconName: icons.badgePlaceholder,

@@ -133,7 +133,6 @@ export default StyleSheet.create( {
     marginRight: 16
   },
   loading: {
-    width,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -158,5 +157,13 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 24,
     marginLeft: 12
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

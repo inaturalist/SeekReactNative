@@ -43,5 +43,13 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.0
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

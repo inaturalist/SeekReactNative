@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   NetInfo,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -68,10 +69,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   setError( error ) {
-    this.setState( {
-      error,
-      loading: false
-    } );
+    this.setState( { error } );
   }
 
   async fetchUserLocation() {
@@ -120,7 +118,8 @@ class SpeciesDetail extends Component<Props> {
 
           this.setState( {
             seenDate,
-            userPhoto
+            userPhoto,
+            loading: false
           } );
         }
       } ).catch( () => {
@@ -149,7 +148,8 @@ class SpeciesDetail extends Component<Props> {
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
         ancestors,
-        endangered: conservationStatus ? conservationStatus.status_name : false
+        endangered: conservationStatus ? conservationStatus.status_name : false,
+        loading: false
       } );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
@@ -298,124 +298,128 @@ class SpeciesDetail extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => {
-            this.checkInternetConnection();
-          }}
-        />
-        <ScrollView>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator
-            scrollEventThrottle
-            pagingEnabled
-            nestedScrollEnabled
-            indicatorStyle="white"
-            contentContainerStyle={styles.photoContainer}
-          >
-            {photos.length > 0 || userPhoto
-              ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
-              : (
-                <View style={styles.loading}>
-                  <LoadingWheel color="white" />
-                </View>
-              )}
-          </ScrollView>
-          <View style={styles.greenBanner}>
-            {taxaType ? (
-              <Text style={styles.iconicTaxaText}>
-                {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
-              </Text>
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => {
+              this.checkInternetConnection();
+            }}
+          />
+          <ScrollView>
+            {loading ? (
+              <View style={[styles.photoContainer, styles.loading]}>
+                <LoadingWheel color="white" />
+              </View>
             ) : null}
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.commonNameText}>{commonName}</Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
-          {error ? (
-            <TouchableOpacity
-              style={styles.errorContainer}
-              onPress={() => this.checkInternetConnection()}
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator
+              scrollEventThrottle
+              pagingEnabled
+              nestedScrollEnabled
+              indicatorStyle="white"
+              contentContainerStyle={styles.photoContainer}
             >
-              <View style={styles.errorRow}>
-                <Image source={icons.internet} />
-                <Text style={styles.errorText}>{i18n.t( "species_nearby.internet_error" )}</Text>
-              </View>
-            </TouchableOpacity>
-          ) : (
-            <View style={styles.textContainer}>
-              <View style={styles.greenButtonContainer}>
-                {endangered ? (
-                  <View style={styles.greenButton}>
-                    <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
-                  </View>
-                ) : null}
-                {endemic ? (
-                  <View style={styles.greenButton}>
-                    <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
-                  </View>
-                ) : null}
-                {native ? (
-                  <View style={styles.greenButton}>
-                    <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
-                  </View>
-                ) : null}
-                {threatened ? (
-                  <View style={styles.greenButton}>
-                    <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
-                  </View>
-                ) : null}
-                {introduced ? (
-                  <View style={styles.greenButton}>
-                    <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
-                  </View>
-                ) : null}
-              </View>
-              {seenDate ? (
-                <View style={styles.row}>
-                  <Image source={icons.checklist} style={styles.checkmark} />
-                  <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
-                </View>
+              {photos.length > 0 || userPhoto
+                ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
+                : null}
+            </ScrollView>
+            <View style={styles.greenBanner}>
+              {taxaType ? (
+                <Text style={styles.iconicTaxaText}>
+                  {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
+                </Text>
               ) : null}
-              <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
-              <Text style={styles.text}>{about}</Text>
-              <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
-              {region.latitude ? (
-                <SpeciesMap
-                  region={region}
-                  id={id}
-                  error={error}
-                />
-              ) : null}
-              <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
-              <SpeciesTaxonomy ancestors={ancestors} />
-              <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
-              <View style={styles.stats}>
-                <View>
-                  <Text style={styles.secondHeaderText}>{location}</Text>
-                  <Text style={styles.number}>{nearbySpeciesCount}</Text>
-                </View>
-                <View>
-                  <Text style={styles.secondHeaderText}>{i18n.t( "species_detail.worldwide" )}</Text>
-                  <Text style={styles.number}>{timesSeen}</Text>
-                </View>
-              </View>
-              <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
-              {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
-              <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
             </View>
-          ) }
-          {error && seenDate ? (
             <View style={styles.textContainer}>
-              <Text style={[styles.text, { textAlign: "center" }]}>{i18n.t( "species_detail.species_saved" )}</Text>
+              <Text style={styles.commonNameText}>{commonName}</Text>
+              <Text style={styles.scientificNameText}>{scientificName}</Text>
             </View>
-          ) : null}
-          {!error ? (
-            <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
-          ) : null}
-          <Padding />
-        </ScrollView>
-        <Footer navigation={navigation} />
+            {error ? (
+              <TouchableOpacity
+                style={styles.errorContainer}
+                onPress={() => this.checkInternetConnection()}
+              >
+                <View style={styles.errorRow}>
+                  <Image source={icons.internet} />
+                  <Text style={styles.errorText}>{i18n.t( "species_nearby.internet_error" )}</Text>
+                </View>
+              </TouchableOpacity>
+            ) : (
+              <View style={styles.textContainer}>
+                <View style={styles.greenButtonContainer}>
+                  {endangered ? (
+                    <View style={styles.greenButton}>
+                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
+                    </View>
+                  ) : null}
+                  {endemic ? (
+                    <View style={styles.greenButton}>
+                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
+                    </View>
+                  ) : null}
+                  {native ? (
+                    <View style={styles.greenButton}>
+                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
+                    </View>
+                  ) : null}
+                  {threatened ? (
+                    <View style={styles.greenButton}>
+                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
+                    </View>
+                  ) : null}
+                  {introduced ? (
+                    <View style={styles.greenButton}>
+                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
+                    </View>
+                  ) : null}
+                </View>
+                {seenDate ? (
+                  <View style={styles.row}>
+                    <Image source={icons.checklist} style={styles.checkmark} />
+                    <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
+                  </View>
+                ) : null}
+                <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+                <Text style={styles.text}>{about}</Text>
+                <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
+                {region.latitude ? (
+                  <SpeciesMap
+                    region={region}
+                    id={id}
+                    error={error}
+                  />
+                ) : null}
+                <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
+                <SpeciesTaxonomy ancestors={ancestors} />
+                <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
+                <View style={styles.stats}>
+                  <View>
+                    <Text style={styles.secondHeaderText}>{location}</Text>
+                    <Text style={styles.number}>{nearbySpeciesCount}</Text>
+                  </View>
+                  <View>
+                    <Text style={styles.secondHeaderText}>{i18n.t( "species_detail.worldwide" )}</Text>
+                    <Text style={styles.number}>{timesSeen}</Text>
+                  </View>
+                </View>
+                <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
+                {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
+                <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
+              </View>
+            ) }
+            {error && seenDate ? (
+              <View style={styles.textContainer}>
+                <Text style={[styles.text, { textAlign: "center" }]}>{i18n.t( "species_detail.species_saved" )}</Text>
+              </View>
+            ) : null}
+            {!error ? (
+              <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
+            ) : null}
+            <Padding />
+          </ScrollView>
+          <Footer navigation={navigation} />
+        </SafeAreaView>
       </View>
     );
   }

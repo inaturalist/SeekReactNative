@@ -28,7 +28,11 @@ const Footer = ( {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.push( "Notifications" )}
+        onPress={() => {
+          if ( navigation.state.routeName !== "Notifications" ) {
+            navigation.push( "Notifications" );
+          }
+        }}
       >
         { notifications ? <Image source={icons.notifications} />
           : <Image source={icons.notificationsInactive} />

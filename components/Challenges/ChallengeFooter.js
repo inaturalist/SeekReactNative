@@ -15,6 +15,7 @@ const Footer = ( {
 }: Props ) => (
   <View style={styles.container}>
     <View style={styles.navbar}>
+    {console.log( navigation, "nav in challenge footer" )}
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.openDrawer()}
@@ -26,7 +27,11 @@ const Footer = ( {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.push( "iNatStats" )}
+        onPress={() => {
+          if ( navigation.state.routeName !== "iNatStats" ) {
+            navigation.push( "iNatStats" );
+          }
+        }}
       >
         <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
       </TouchableOpacity>

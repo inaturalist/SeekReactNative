@@ -21,14 +21,20 @@ class Footer extends Component<Props> {
     };
   }
 
+  toggleNotifications( status ) {
+    this.setState( {
+      notifications: status
+    } );
+  }
+
   fetchNotifications() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const notifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
         if ( notifications > 0 ) {
-          this.setState( {
-            notifications: true
-          } );
+          this.toggleNotifications( true );
+        } else {
+          this.toggleNotifications( false );
         }
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );

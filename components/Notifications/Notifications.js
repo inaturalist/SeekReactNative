@@ -35,7 +35,7 @@ class NotificationsScreen extends Component<Props> {
         const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
         this.setState( {
           notifications
-        }, () => updateNotifications() );
+        } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -49,6 +49,7 @@ class NotificationsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => this.fetchNotifications()}
+          onWillBlur={() => updateNotifications()}
         />
         <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
         <FlatList

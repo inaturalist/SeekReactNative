@@ -13,15 +13,15 @@ export default StyleSheet.create( {
     flexGrow: 1
   },
   greenContainer: {
-    backgroundColor: "#E0EBCC"
+    backgroundColor: "#CDE5DA"
   },
   cardContainer: {
     height: 118,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "flex-start"
   },
   card: {
-    marginHorizontal: 20,
+    marginHorizontal: 23,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-around",
@@ -36,8 +36,7 @@ export default StyleSheet.create( {
   textContainer: {
     flexDirection: "column",
     alignItems: "flex-start",
-    justifyContent: "center",
-    height: 96
+    justifyContent: "center"
   },
   titleText: {
     maxWidth: 232,

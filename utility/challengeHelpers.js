@@ -10,6 +10,8 @@ const challengesDict = require( "./challengesDict" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
+const getSum = ( total, currentValue ) => total + currentValue;
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -24,6 +26,9 @@ const recalculateChallenges = () => {
             seenAfterChallengeStart.push( observation );
           }
         } );
+        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
+        let prevNumberSeen = observationsList.reduce( getSum );
+        const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
         realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
@@ -54,7 +59,7 @@ const recalculateChallenges = () => {
             const percentComplete = calculatePercent( numberSeen, challenge.totalSpecies );
             if ( percentComplete === 100 ) {
               challenge.completedDate = new Date();
-            } else if ( percentComplete > 50 ) { // change this to 50% later
+            } else if ( percentComplete >= 75 && prevPercent < 75 ) {
               createNotification( "challengeProgress", index );
             }
             challenge.percentComplete = percentComplete;

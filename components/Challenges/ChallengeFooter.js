@@ -10,12 +10,9 @@ type Props = {
   navigation: any
 }
 
-const Footer = ( {
-  navigation
-}: Props ) => (
+const Footer = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <View style={styles.navbar}>
-    {console.log( navigation, "nav in challenge footer" )}
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.openDrawer()}

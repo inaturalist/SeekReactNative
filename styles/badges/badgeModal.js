@@ -80,5 +80,12 @@ export default StyleSheet.create( {
     padding: 10,
     alignItems: "center",
     justifyContent: "center"
+  },
+  safeViewTop: {
+    flex: 0
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

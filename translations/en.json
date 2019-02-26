@@ -180,7 +180,7 @@
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
-    "number_species": "You’ve seen different {{number}} species! You’re truly a naturalist at heart."
+    "number_species": "You’ve seen {{number}} different species! You’re truly a naturalist at heart."
   },
   "camera": {
     "label": "Camera",

@@ -25,7 +25,10 @@ const icons = {
   menuiNat: require( "./icons/icon-menu-inaturalist.png" ),
   menuObservations: require( "./icons/icon-menu-observations.png" ),
   menuSeek: require( "./icons/icon-menu-seek.png" ),
-  menuSettings: require( "./icons/icon-menu-settings.png" )
+  menuSettings: require( "./icons/icon-menu-settings.png" ),
+  navbarShadow: require( "./navbar/NavBarShadow_rectangle.png"),
+  navbarCircleiOS: require( "./navbar/NavBarShadow_circle_iOS.png"),
+  navbarCircleAndroid: require( "./navbar/NavBarShadow_circle_Android.png")
 };
 
 export default icons;

@@ -1,6 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
-import { colors, fonts } from "../global";
+import { colors, fonts, padding } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -9,12 +11,14 @@ export default StyleSheet.create( {
     justifyContent: "flex-start"
   },
   logo: {
+    marginTop: 40,
     marginHorizontal: 34,
     width: 223,
     height: 79,
     resizeMode: "contain"
   },
   textContainer: {
+    marginTop: 40,
     alignItems: "flex-start",
     justifyContent: "space-around"
   },
@@ -26,14 +30,15 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   row: {
-    marginBottom: 18,
-    marginTop: 18,
+    height: ( width > 350 ) ? 75 : 45,
+    width: 300,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap"
   },
   text: {
+    paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,

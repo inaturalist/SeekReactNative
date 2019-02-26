@@ -49,5 +49,13 @@ export default StyleSheet.create( {
     marginLeft: 10,
     flexDirection: "row",
     flexWrap: "nowrap"
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

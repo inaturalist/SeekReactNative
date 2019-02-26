@@ -2,6 +2,7 @@
 
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/home/footer";
 import icons from "../../assets/icons";
@@ -12,6 +13,10 @@ type Props = {
 
 const Footer = ( { navigation }: Props ) => (
   <View style={styles.container}>
+    <LinearGradient
+      colors={["#ffffff", "#d8d8d8"]}
+      style={{ height: 3 }}
+    />
     <View style={styles.navbar}>
       <TouchableOpacity
         style={styles.button}

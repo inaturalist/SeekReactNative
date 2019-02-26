@@ -1,4 +1,9 @@
-import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
+import {
+  createStackNavigator,
+  createMaterialTopTabNavigator,
+  createDrawerNavigator,
+  createAppContainer
+} from "react-navigation";
 import { fadeIn, fromLeft } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
@@ -68,12 +73,13 @@ const CameraNav = createMaterialTopTabNavigator( {
 } );
 
 const StackNavigatorConfig = {
-  headerMode: "screen",
+  headerMode: "none",
   transitionConfig: nav => handleCustomTransition( nav )
 };
 
 const DrawerNavigatorConfig = {
-  contentComponent: SideMenu
+  contentComponent: SideMenu,
+  headerMode: "none"
 };
 
 const MainStack = createStackNavigator( {
@@ -241,29 +247,19 @@ const MenuDrawerNav = createDrawerNavigator( {
 
 const RootStack = createStackNavigator( {
   Home: {
-    screen: SplashScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: SplashScreen
   },
   Onboarding: {
-    screen: OnboardingScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: OnboardingScreen
   },
   // Login: {
-  //   screen: LoginStack,
-  //   navigationOptions: () => ( {
-  //     header: null
-  //   } )
+  //   screen: LoginStack
   // },
   Main: {
-    screen: MenuDrawerNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: MenuDrawerNav
   }
 }, StackNavigatorConfig );
 
-export default RootStack;
+const App = createAppContainer( RootStack );
+
+export default App;

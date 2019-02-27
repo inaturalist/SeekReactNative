@@ -89,45 +89,42 @@ class BadgeModal extends Component<Props> {
     } );
 
     return (
-      <View style={styles.outerContainer}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <View style={styles.container}>
-            <BannerHeader text={badges[0].iconicTaxonName.toLocaleUpperCase()} />
-            <ScrollView
-              horizontal
-              pagingEnabled
-              snapToInterval={interval}
-              showsHorizontalScrollIndicator={false}
-            >
-              {badgeList}
-            </ScrollView>
-            <View style={styles.row}>
-              <TouchableOpacity onPress={this.scrollToB}>
-                <Image
-                  source={badges[0].earned ? badgeImages[badges[0].earnedIconName] : badgeImages[badges[0].unearnedIconName]}
-                  style={styles.smallImage}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={this.scrollToC}>
-                <Image
-                  source={badges[1].earned ? badgeImages[badges[1].earnedIconName] : badgeImages[badges[1].unearnedIconName]}
-                  style={styles.smallImage}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={this.scrollToTop}>
-                <Image
-                  source={badges[2].earned ? badgeImages[badges[2].earnedIconName] : badgeImages[badges[2].unearnedIconName]}
-                  style={styles.smallImage}
-                />
-              </TouchableOpacity>
-            </View>
+      <SafeAreaView style={styles.safeView}>
+        <View style={styles.container}>
+          <BannerHeader text={badges[0].iconicTaxonName.toLocaleUpperCase()} />
+          <ScrollView
+            horizontal
+            pagingEnabled
+            snapToInterval={interval}
+            showsHorizontalScrollIndicator={false}
+          >
+            {badgeList}
+          </ScrollView>
+          <View style={styles.row}>
+            <TouchableOpacity onPress={this.scrollToB}>
+              <Image
+                source={badges[0].earned ? badgeImages[badges[0].earnedIconName] : badgeImages[badges[0].unearnedIconName]}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.scrollToC}>
+              <Image
+                source={badges[1].earned ? badgeImages[badges[1].earnedIconName] : badgeImages[badges[1].unearnedIconName]}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.scrollToTop}>
+              <Image
+                source={badges[2].earned ? badgeImages[badges[2].earnedIconName] : badgeImages[badges[2].unearnedIconName]}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
-            <Image source={icons.closeModal} />
-          </TouchableOpacity>
-        </SafeAreaView>
-      </View>
+        </View>
+        <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
+          <Image source={icons.closeModal} />
+        </TouchableOpacity>
+      </SafeAreaView>
     );
   }
 }

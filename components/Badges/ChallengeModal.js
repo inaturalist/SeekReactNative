@@ -4,8 +4,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  SafeAreaView,
-  ImageBackground
+  SafeAreaView
+  // ImageBackground
 } from "react-native";
 
 import styles from "../../styles/badges/challengeBadge";

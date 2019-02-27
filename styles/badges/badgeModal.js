@@ -7,19 +7,13 @@ import {
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1
-  },
   container: {
+    height: 490,
     alignItems: "center",
-    justifyContent: "center",
     borderRadius: 40,
     backgroundColor: colors.white
   },
   header: {
-    backgroundColor: colors.seekTeal,
-    alignItems: "center",
-    justifyContent: "center",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40
   },
@@ -80,9 +74,6 @@ export default StyleSheet.create( {
     padding: 10,
     alignItems: "center",
     justifyContent: "center"
-  },
-  safeViewTop: {
-    flex: 0
   },
   safeView: {
     flex: 1,

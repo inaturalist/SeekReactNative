@@ -209,6 +209,12 @@ class BadgesScreen extends Component<Props> {
             />
           </Modal>
           <Modal
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              paddingTop: 20,
+              paddingBottom: 70
+            }}
             isVisible={showBadgeModal}
             // onSwipe={() => this.toggleBadgeModal()}
             onBackdropPress={() => this.toggleBadgeModal()}

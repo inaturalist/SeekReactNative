@@ -4,16 +4,17 @@ import android.app.Application;
 
 import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
-import com.BV.LinearGradient.LinearGradientPackage;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
+import com.opensettings.OpenSettingsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import org.reactnative.camera.RNCameraPackage;
-import com.opensettings.OpenSettingsPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -35,17 +36,17 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RealmReactPackage(),
+            new VectorIconsPackage(),
+            new SvgPackage(),
+            new OpenSettingsPackage(),
+            new MapsPackage(),
             new LinearGradientPackage(),
             new RNLanguagesPackage(),
-            new RNGestureHandlerPackage(),
-            new VectorIconsPackage(),
-            new RealmReactPackage(),
-            new SvgPackage(),
-            new MapsPackage(),
             new ImageResizerPackage(),
+            new RNGestureHandlerPackage(),
             new RNGeocoderPackage(),
-            new RNCameraPackage(),
-            new OpenSettingsPackage()
+            new RNCameraPackage()
       );
     }
 

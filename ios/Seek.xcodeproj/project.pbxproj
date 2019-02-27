@@ -13,7 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* SeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeekTests.m */; };
-		01C35F319BCB466BBAD5A671 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */; };
 		0428FE3845784D73A7B6DE70 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9491791AA1C4FD296539D62 /* FontAwesome.ttf */; };
 		044669B5D8504D75BA5F5D5A /* libRNLanguages-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D28F142E914D498D866A1D /* libRNLanguages-tvOS.a */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -40,7 +39,6 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeekTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		30C365CBA2474E71A4A5B929 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9383BE4CD65246F48CCB18A0 /* libRNSVG.a */; };
 		33787D6627894B64BA95C5AF /* Whitney-LightItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5E17A692724D7ABD01DA41 /* Whitney-LightItalic-Pro.otf */; };
 		370180D5216C21890020ED84 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 370180D4216C20E60020ED84 /* libRNCamera.a */; };
 		370DC8A1216FB722000A29BA /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0C42A216E78E800A12596 /* libRCTCameraRoll.a */; };
@@ -57,29 +55,31 @@
 		3777824021ADDD4B00EE85B0 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823121ADDD4A00EE85B0 /* EvilIcons.ttf */; };
 		3777824121ADDD4B00EE85B0 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823221ADDD4A00EE85B0 /* SimpleLineIcons.ttf */; };
 		3777824221ADDD4B00EE85B0 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777823321ADDD4A00EE85B0 /* MaterialIcons.ttf */; };
+		378003B6222613B000AE5CC0 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A4193D21DEF0C0006024C8 /* libBVLinearGradient.a */; };
+		37800408222613D900AE5CC0 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3741926A21716ED5007414A3 /* libAirMaps.a */; };
+		37800409222613EC00AE5CC0 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 371B663D217A8872003E73E4 /* libRCTImageResizer.a */; };
+		3780040A222613F400AE5CC0 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 371B66B3218291BD003E73E4 /* libRNSVG.a */; };
+		3780040B222613FC00AE5CC0 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BFE8DA218CC25800CB627A /* libRealmReact.a */; };
+		3780040C2226140600AE5CC0 /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3744F0DA21D4890F0013E858 /* libRNLanguages.a */; };
+		3780040D2226140E00AE5CC0 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3777822121ADDB8A00EE85B0 /* libRNVectorIcons.a */; };
+		3780040E2226141600AE5CC0 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 378EED1C21CAD9EC00B5E571 /* libRNGestureHandler.a */; };
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
 		37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */; };
-		3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 283BB76ED58149118CBAC00A /* libRNGestureHandler.a */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
-		58E30AE4D7B24FD4B8C8F202 /* libRNLanguages.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EE6217EE324B27BC501B21 /* libRNLanguages.a */; };
 		60552B3D8A884EA2A396E608 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62020055F64ADF979B4615 /* libRNVectorIcons-tvOS.a */; };
-		641341E3322A4D9E81F6C308 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51115BBF8EE34D09BC8CB77B /* libBVLinearGradient.a */; };
 		6663D69175A947568D6E47AB /* Whitney-BlackItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5229C53D51524867A0B7218B /* Whitney-BlackItalic-Pro.otf */; };
 		67ABB4476CA64BDBA9C883A8 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC8F1189AAD24E6685412D86 /* Feather.ttf */; };
 		78F570DFE78B47D1B93D8213 /* Whitney-SemiboldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		896F0E08645C4529BC43B579 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83F74EF2BB4D608365E8AF /* libRCTImageResizer.a */; };
 		9463C4E09A794E4FB74B5719 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 72D16637A2CE4B0AB8BB4F46 /* FontAwesome.otf */; };
 		9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */; };
 		9CDD4CD5173944918F4C78FD /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 859BECC97510498E84D06B07 /* AntDesign.ttf */; };
 		AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B9B7533D57D0421BA0E82F5F /* Whitney-MediumItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B4FA4CE0644B48BB19157 /* Whitney-MediumItalic-Pro.otf */; };
-		C3CB73A6229948C88A8D31A5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D3B961FBD2B4F1CAF7A3159 /* libRNVectorIcons.a */; };
 		C3E41C77266542B79A3D24AF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5AC4E4167B4777B65409E8 /* libc++.tbd */; };
 		CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */; };
-		D7F18C90090E4B1D9EBE8CEF /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2931755B471B48628B1026A0 /* libRealmReact.a */; };
 		D9095DA9711A46388DF1E774 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C66F3A55E2A4E8A95451121 /* MaterialCommunityIcons.ttf */; };
 		F59AD1E2477D4BFE8C6840E1 /* Whitney-Black-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = DDAD319CE4BF4A81AA4136B9 /* Whitney-Black-Pro.otf */; };
 		FA9941FC2EE94905BC410308 /* libRNSVG-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E469A79FA67445059AF2D9EB /* libRNSVG-tvOS.a */; };
@@ -620,6 +620,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3780040E2226141600AE5CC0 /* libRNGestureHandler.a in Frameworks */,
+				3780040D2226140E00AE5CC0 /* libRNVectorIcons.a in Frameworks */,
+				3780040C2226140600AE5CC0 /* libRNLanguages.a in Frameworks */,
+				3780040B222613FC00AE5CC0 /* libRealmReact.a in Frameworks */,
+				3780040A222613F400AE5CC0 /* libRNSVG.a in Frameworks */,
+				37800409222613EC00AE5CC0 /* libRCTImageResizer.a in Frameworks */,
+				37800408222613D900AE5CC0 /* libAirMaps.a in Frameworks */,
+				378003B6222613B000AE5CC0 /* libBVLinearGradient.a in Frameworks */,
 				370FB06C21F003FF00468219 /* libReactNativePermissions.a in Frameworks */,
 				37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */,
 				374192B621766AA1007414A3 /* libRNGeocoder.a in Frameworks */,
@@ -637,16 +645,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				01C35F319BCB466BBAD5A671 /* libAirMaps.a in Frameworks */,
-				896F0E08645C4529BC43B579 /* libRCTImageResizer.a in Frameworks */,
-				30C365CBA2474E71A4A5B929 /* libRNSVG.a in Frameworks */,
-				D7F18C90090E4B1D9EBE8CEF /* libRealmReact.a in Frameworks */,
 				C3E41C77266542B79A3D24AF /* libc++.tbd in Frameworks */,
 				1EBFD4CC68834923BDFB92DF /* libz.tbd in Frameworks */,
-				C3CB73A6229948C88A8D31A5 /* libRNVectorIcons.a in Frameworks */,
-				3E71B093FE8C450D898E19CF /* libRNGestureHandler.a in Frameworks */,
-				58E30AE4D7B24FD4B8C8F202 /* libRNLanguages.a in Frameworks */,
-				641341E3322A4D9E81F6C308 /* libBVLinearGradient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +972,7 @@
 				37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */,
 			);
 			name = Base.lproj;
-			path = "../../react-native-demos/Seek/ios/Seek/Base.lproj";
+			path = Seek/Base.lproj;
 			sourceTree = "<group>";
 		};
 		37F09A0021E8083700D5C691 /* Products */ = {

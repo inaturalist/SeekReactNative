@@ -57,7 +57,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "SeekAppIcon_20@1x.png",
+      "filename" : "SeekAppIcon_20@1x-1.png",
       "scale" : "1x"
     },
     {
@@ -81,7 +81,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "SeekAppIcon_40@1x.png",
+      "filename" : "SeekAppIcon_40@1x-1.png",
       "scale" : "1x"
     },
     {
@@ -93,19 +93,19 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "SeekAppIcon_76@1x.png",
+      "filename" : "SeekAppIcon_76@1x-1.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "SeekAppIcon_76@2x.png",
+      "filename" : "SeekAppIcon_76@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "SeekAppIcon_83.5@2x.png",
+      "filename" : "SeekAppIcon_83.5@2x-1.png",
       "scale" : "2x"
     },
     {

@@ -48,9 +48,10 @@ class Footer extends Component<Props> {
 
     return (
       <View style={styles.container}>
+        {/* <Image source={icons.navbarShadow} style={{ height: 3 }} /> */}
         <LinearGradient
-          colors={["#ffffff", "#d8d8d8"]}
-          style={{ height: 3 }}
+          colors={["#ffffff", "#7F7F7F"]}
+          style={{ height: 4 }}
         />
         <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
         <View style={styles.navbar}>

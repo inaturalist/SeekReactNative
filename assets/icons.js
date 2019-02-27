@@ -28,7 +28,11 @@ const icons = {
   menuSettings: require( "./icons/icon-menu-settings.png" ),
   navbarShadow: require( "./navbar/NavBarShadow_rectangle.png"),
   navbarCircleiOS: require( "./navbar/NavBarShadow_circle_iOS.png"),
-  navbarCircleAndroid: require( "./navbar/NavBarShadow_circle_Android.png")
+  navbarCircleAndroid: require( "./navbar/NavBarShadow_circle_Android.png"),
+  closeGreen: require( "./icons/icon-close-green.png" ),
+  closeWhite: require( "./icons/icon-close-white.png" ),
+  closeModal: require( "./icons/icon-close-modal.png" ),
+  titleBanner: require( "./icons/img-titlebanner.png" )
 };
 
 export default icons;

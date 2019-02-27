@@ -10,16 +10,13 @@ import {
   ScrollView,
   SafeAreaView
 } from "react-native";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/badgeModal";
-import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
 import BannerHeader from "./BannerHeader";
 import LargeProgressCircle from "./LargeProgressCircle";
-
-const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   badges: Array<Object>,
@@ -127,7 +124,7 @@ class BadgeModal extends Component<Props> {
             </View>
           </View>
           <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
-            <Text>{backIcon}</Text>
+            <Image source={icons.closeModal} />
           </TouchableOpacity>
         </SafeAreaView>
       </View>

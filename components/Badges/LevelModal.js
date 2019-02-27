@@ -9,14 +9,11 @@ import {
   SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/level";
-import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
-
-const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   level: Object,
@@ -41,7 +38,7 @@ const LevelModal = ( { level, toggleLevelModal }: Props ) => (
         <Text style={styles.text}>{i18n.t( "banner.number_species", { number: level.count } )}</Text>
       </View>
       <TouchableOpacity style={styles.backButton} onPress={() => toggleLevelModal()}>
-        <Text>{backIcon}</Text>
+        <Image source={icons.closeModal} />
       </TouchableOpacity>
     </View>
   </SafeAreaView>

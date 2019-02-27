@@ -4,19 +4,19 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
 import i18n from "../../i18n";
 import styles from "../../styles/camera/cameraNavBar";
 import { colors } from "../../styles/global";
+import icons from "../../assets/icons";
 
 const cameraFlipIcon = ( <Icon name="ios-reverse-camera" size={25} color={colors.white} /> );
 const flashOnIcon = ( <Icon name="ios-flash" size={23} color={colors.white} /> );
 const flashOffIcon = ( <Icon name="ios-flash-off" size={23} color={colors.white} /> );
-const backIcon = ( <BackIcon name="close" size={23} color={colors.white} /> );
 
 type Props = {
   flash: string,
@@ -36,7 +36,7 @@ const CameraTopNav = ( {
       style={styles.backButton}
       onPress={() => navigation.navigate( "Main" )}
     >
-      <Text>{backIcon}</Text>
+      <Image source={icons.closeWhite} />
     </TouchableOpacity>
     <TouchableOpacity
       style={styles.buttons}

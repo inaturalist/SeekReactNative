@@ -14,7 +14,7 @@ type Props = {
 }
 
 const BannerHeader = ( { text }: Props ) => (
-  <ImageBackground source={icons.banner} style={styles.banner}>
+  <ImageBackground source={icons.titleBanner} style={styles.banner}>
     <Text style={styles.bannerText}>{text}</Text>
   </ImageBackground>
 );

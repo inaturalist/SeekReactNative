@@ -15,7 +15,6 @@ import {
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
 import i18n from "../../i18n";
 import ErrorScreen from "../ErrorScreen";
@@ -23,8 +22,7 @@ import LoadingWheel from "../LoadingWheel";
 import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
-
-const backIcon = ( <BackIcon name="close" size={23} color={colors.seekForestGreen} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any
@@ -217,7 +215,7 @@ class GalleryScreen extends Component<Props> {
               style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
-              <Text>{backIcon}</Text>
+              <Image source={icons.closeGreen} />
             </TouchableOpacity>
             <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
             <View />

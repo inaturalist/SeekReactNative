@@ -140,7 +140,7 @@ class Results extends Component<Props> {
       taxaId
     } = this.state;
 
-    if ( score > 97 ) {
+    if ( score > 90 ) {
       this.checkDateSpeciesSeen( taxaId );
       this.setState( { match: true } );
       if ( !latitude || !longitude ) {

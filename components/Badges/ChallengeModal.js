@@ -4,17 +4,15 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  ImageBackground
 } from "react-native";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
-import { colors } from "../../styles/global";
 import styles from "../../styles/badges/challengeBadge";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
-
-const backIcon = ( <BackIcon name="closecircle" size={50} color={colors.white} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   toggleChallengeModal: Function,
@@ -24,13 +22,15 @@ type Props = {
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <SafeAreaView style={styles.safeView}>
     <View style={styles.outerContainer}>
-      {/* {console.log( challenge, "challenge in challenge modal" )} */}
       <View style={styles.container}>
         <View style={styles.header}>
           <Image
             source={badges[challenge.earnedIconName]}
             style={styles.image}
           />
+          {/* <ImageBackground source={icons.banner} style={styles.banner}>
+            <Text style={styles.bannerText}>{challenge.name}</Text>
+          </ImageBackground> */}
         </View>
         <Text style={styles.headerText}>
           {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).toLocaleUpperCase() } ).toLocaleUpperCase()}
@@ -43,7 +43,7 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
         </View>
       </View>
       <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
-        <Text>{backIcon}</Text>
+        <Image source={icons.closeModal} />
       </TouchableOpacity>
     </View>
   </SafeAreaView>

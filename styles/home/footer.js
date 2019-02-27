@@ -21,9 +21,9 @@ export default StyleSheet.create( {
   },
   button: {
     marginHorizontal: 26,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: 5,
-    paddingBottom: 5
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10
   }
 } );

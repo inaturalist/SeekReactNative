@@ -90,7 +90,7 @@ const SideMenu = ( { navigation }: Props ) => (
           {i18n.t( "menu.about" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
-      <View style={styles.divider} />
+      {/* <View style={styles.divider} /> */}
       {/* <TouchableOpacity
         style={styles.row}
         onPress={() => navigation.navigate( "Onboarding" )}

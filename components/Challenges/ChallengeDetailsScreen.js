@@ -169,7 +169,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             <View style={styles.challengeContainer}>
               <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
               <Text style={styles.challengeName}>{challenge.name}</Text>
-              <View style={styles.row}>
+              <View style={styles.leftRow}>
                 <Image source={icons.badgePlaceholder} />
                 <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
               </View>

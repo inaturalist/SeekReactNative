@@ -50,7 +50,7 @@ export default StyleSheet.create( {
   },
   challengeContainer: {
     height: 320,
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
     backgroundColor: colors.darkGray,
     marginBottom: 10
@@ -78,6 +78,13 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     color: colors.white
   },
+  leftRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginLeft: 36,
+    marginTop: 21,
+    marginBottom: 21
+  },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -93,7 +100,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 16,
     lineHeight: 25,
-    marginLeft: 16
+    marginLeft: 26
   },
   descriptionText: {
     color: colors.black,
@@ -102,6 +109,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   greenButton: {
+    marginLeft: 36,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekGreen,

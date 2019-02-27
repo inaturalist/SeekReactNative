@@ -2,25 +2,24 @@ import { StyleSheet, Dimensions } from "react-native";
 
 import { colors, fonts, padding } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    justifyContent: "flex-start"
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   logo: {
-    marginTop: 40,
-    marginHorizontal: 34,
-    width: 223,
+    marginTop: 25,
+    width: ( width / 2 ) * 1.5,
     height: 79,
     resizeMode: "contain"
   },
   textContainer: {
-    marginTop: 40,
-    alignItems: "flex-start",
-    justifyContent: "space-around"
+    marginBottom: ( height / 11 ) * 1.5,
+    alignItems: "flex-start"
   },
   image: {
     marginLeft: 34,
@@ -30,7 +29,8 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   row: {
-    height: ( width > 350 ) ? 75 : 45,
+    height: height / 11,
+    // height: ( width > 350 ) ? 75 : 45,
     width: 300,
     alignItems: "center",
     justifyContent: "flex-start",

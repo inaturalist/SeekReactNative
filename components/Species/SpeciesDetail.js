@@ -405,7 +405,7 @@ class SpeciesDetail extends Component<Props> {
                 </View>
                 <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
                 {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
-                <Text style={styles.headerText}>{i18n.t( "species_detail.related" ).toLocaleUpperCase()}</Text>
+                <Text style={styles.headerText}>{i18n.t( "species_detail.similar" ).toLocaleUpperCase()}</Text>
               </View>
             ) }
             {error && seenDate ? (

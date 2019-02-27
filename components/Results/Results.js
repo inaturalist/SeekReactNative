@@ -64,6 +64,21 @@ class Results extends Component<Props> {
     this.confirmPhoto = this.confirmPhoto.bind( this );
   }
 
+  async getLocation() {
+    const { latitude, longitude } = this.state;
+    if ( !latitude || !longitude ) {
+      const location = await getLatAndLng();
+      this.setState( {
+        latitude: location.latitude,
+        longitude: location.longitude
+      }, () => {
+        this.resizeImage();
+      } );
+    } else {
+      this.resizeImage();
+    }
+  }
+
   setImageUri( uri ) {
     this.setState( { userImage: uri } );
   }
@@ -115,7 +130,7 @@ class Results extends Component<Props> {
       .then( ( response ) => {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
-        console.log( match, "match" );
+        console.log( match.combined_score, "match score" );
         this.setState( {
           observation: match,
           taxaId: match.taxon.id,
@@ -140,15 +155,15 @@ class Results extends Component<Props> {
       taxaId
     } = this.state;
 
-    if ( score > 90 ) {
+    if ( score > 97 ) {
       this.checkDateSpeciesSeen( taxaId );
       this.setState( { match: true } );
-      if ( !latitude || !longitude ) {
-        const location = await getLatAndLng();
-        addToCollection( observation, location.latitude, location.longitude, image );
-      } else {
-        addToCollection( observation, latitude, longitude, image );
-      }
+      // if ( !latitude || !longitude ) { // move this into vision check -- make sure lat/lng being recorded
+      //   const location = await getLatAndLng();
+      //   addToCollection( observation, location.latitude, location.longitude, image );
+      // } else {
+      addToCollection( observation, latitude, longitude, image );
+      // }
     } else {
       this.setState( { match: false } );
     }
@@ -238,7 +253,8 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.resizeImage();
+            this.getLocation();
+            // this.resizeImage();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();
           }}

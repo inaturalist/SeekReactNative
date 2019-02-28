@@ -1,10 +1,9 @@
 import { Dimensions, StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "../global";
-
-const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   container: {
@@ -21,6 +20,7 @@ export default StyleSheet.create( {
     height: 40
   },
   iconicTaxaText: {
+    paddingTop: padding.iOSPadding,
     marginLeft: 28,
     color: colors.white,
     fontSize: 19,

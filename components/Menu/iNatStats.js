@@ -17,7 +17,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import StatsMap from "./StatsMap";
-import Footer from "../Challenges/ChallengeFooter";
+import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import { getObservationData, capitalizeNames } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";

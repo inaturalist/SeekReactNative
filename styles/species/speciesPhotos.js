@@ -13,13 +13,6 @@ export default StyleSheet.create( {
     width,
     height: 250
   },
-  backButton: {
-    padding: 5,
-    zIndex: 1,
-    position: "absolute",
-    marginLeft: 20,
-    marginTop: 40
-  },
   photoOverlay: {
     zIndex: 1,
     position: "absolute",

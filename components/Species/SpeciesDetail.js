@@ -333,6 +333,11 @@ class SpeciesDetail extends Component<Props> {
                   : null}
               </ScrollView>
             )}
+            <View style={styles.backButton}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Image source={icons.backButton} />
+              </TouchableOpacity>
+            </View>
             <View style={styles.greenBanner}>
               {taxaType ? (
                 <Text style={styles.iconicTaxaText}>

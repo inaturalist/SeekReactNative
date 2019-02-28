@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
@@ -9,6 +9,13 @@ export default StyleSheet.create( {
   container: {
     backgroundColor: colors.white,
     flex: 1
+  },
+  backButton: {
+    padding: 5,
+    zIndex: 1,
+    position: "absolute",
+    left: 20,
+    top: 40
   },
   photoContainer: {
     height: 250,

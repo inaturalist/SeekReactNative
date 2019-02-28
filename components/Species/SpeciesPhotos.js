@@ -28,11 +28,6 @@ const SpeciesPhotos = ( { photos, userPhoto, navigation }: Props ) => {
           source={{ uri: userPhoto }}
           style={styles.image}
         />
-        <View style={styles.backButton}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }
@@ -44,11 +39,6 @@ const SpeciesPhotos = ( { photos, userPhoto, navigation }: Props ) => {
           source={{ uri: photo.photo.original_url }}
           style={styles.image}
         />
-        <View style={styles.backButton}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-        </View>
         <View style={styles.photoOverlay}>
           <TouchableOpacity
             style={styles.ccButton}

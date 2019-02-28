@@ -55,8 +55,8 @@ class BadgesScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
-        const badgesEarned = badges.filtered( "earned == true" ).length;
-        console.log( badgesEarned, "badges earned" );
+        const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
+        console.log( badges.filtered( "iconicTaxonName != null AND earned == true" ), "badges earned" );
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 

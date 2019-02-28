@@ -121,6 +121,8 @@
     "in_progress": "In progress",
     "not_started": "Not started",
     "completed": "Completed",
+    "challenge": "Challenge",
+    "badge": "Badge",
     "connectivity": "Connectivity Challenge",
     "biodiversity": "Biodiversity Challenge",
     "productivity": "Productivity & Community Challenge",

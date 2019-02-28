@@ -22,7 +22,7 @@ export default StyleSheet.create( {
   },
   image: {
     marginTop: 25,
-    marginBottom: 25,
+    marginBottom: 35,
     height: 183,
     width: 183
   },
@@ -64,17 +64,19 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   banner: {
-    marginTop: 20,
-    marginBottom: 20,
-    paddingTop: Platform.OS === "android" ? 5 : 7,
+    zIndex: 1,
+    position: "absolute",
+    bottom: 20,
+    paddingTop: 10,
     width: 284,
     height: 48
   },
   bannerText: {
     textAlign: "center",
-    fontSize: 19,
+    fontSize: 15,
     fontFamily: fonts.semibold,
     color: colors.white,
-    letterSpacing: 1.12
+    letterSpacing: 0.42,
+    lineHeight: 34
   }
 } );

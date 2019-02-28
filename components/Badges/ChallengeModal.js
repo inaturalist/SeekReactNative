@@ -4,8 +4,8 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  SafeAreaView
-  // ImageBackground
+  SafeAreaView,
+  ImageBackground
 } from "react-native";
 
 import styles from "../../styles/badges/challengeBadge";
@@ -27,13 +27,17 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
           <Image
             source={badges[challenge.earnedIconName]}
             style={styles.image}
-          />
-          {/* <ImageBackground source={icons.banner} style={styles.banner}>
-            <Text style={styles.bannerText}>{challenge.name}</Text>
-          </ImageBackground> */}
+          /> 
+          <ImageBackground source={icons.badgeBanner} style={styles.banner}>
+            <Text style={styles.bannerText}>
+              {challenge.name.split( " " )[0]}
+              {" "}
+              {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
+            </Text>
+          </ImageBackground>
         </View>
         <Text style={styles.headerText}>
-          {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).toLocaleUpperCase() } ).toLocaleUpperCase()}
+          {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.text}>
           {i18n.t( "challenges.thanks" )}

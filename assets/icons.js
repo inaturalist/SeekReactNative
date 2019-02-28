@@ -18,7 +18,7 @@ const icons = {
   backButton: require( "./icons/back.png" ),
   backButtonGreen: require( "./icons/icon-back-green.png" ),
   badgePlaceholder: require( "./icons/badge-placeholder.png" ),
-  banner: require( "./icons/Banner.png" ),
+  badgeBanner: require( "./icons/img-badgebanner.png" ),
   menuHome: require( "./icons/icon-menu-home.png" ),
   menuAchievements: require( "./icons/icon-menu-achievements.png" ),
   menuChallenges: require( "./icons/icon-menu-challenges.png" ),

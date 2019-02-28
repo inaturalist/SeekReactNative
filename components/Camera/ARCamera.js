@@ -72,7 +72,7 @@ class ARCamera extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>iNaturalist Native Camera Demo</Text>
-        <INatCamera
+        {/* <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
           onCameraPermissionMissing={this.onCameraPermissionMissing}
@@ -82,8 +82,8 @@ class ARCamera extends Component {
           modelSize="24875"
           taxonomyPath="../../taxonomy_data.csv"
           taxaDetectionInterval="2000"
-          // style={styles.camera}
-        />
+          style={styles.camera}
+        /> */}
         <Text style={styles.predictions}>
           {content}
         </Text>

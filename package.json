@@ -16,6 +16,7 @@
     "i18n-js": "^3.1.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.22.2",
+    "prop-types": "^15.7.2",
     "react": "^16.6.1",
     "react-native": "^0.57.4",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
@@ -38,7 +39,8 @@
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^3.3.2",
     "react-navigation-transitions": "^1.0.8",
-    "realm": "^2.19.0-rc.4"
+    "realm": "^2.19.0-rc.4",
+    "rn-fetch-blob": "^0.10.15"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

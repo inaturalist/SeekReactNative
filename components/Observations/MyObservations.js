@@ -75,7 +75,6 @@ class MyObservations extends Component<Props> {
     const iconicTaxonList = [];
 
     observations.forEach( ( iconicTaxon ) => {
-      console.log( iconicTaxon, "iconictaxon" );
       const list = <ObservationList observations={iconicTaxon.speciesSeen} id={iconicTaxon.id} navigation={navigation} />;
 
       iconicTaxonList.push( list );

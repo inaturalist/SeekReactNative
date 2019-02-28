@@ -1,9 +1,14 @@
 // @flow
 import React, { Component } from "react";
-import { View, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Image,
+  ImageBackground
+} from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
-import LinearGradient from "react-native-linear-gradient";
+// import LinearGradient from "react-native-linear-gradient";
 
 import realmConfig from "../../models";
 import styles from "../../styles/home/footer";
@@ -47,12 +52,7 @@ class Footer extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
-        {/* <Image source={icons.navbarShadow} style={{ height: 3 }} /> */}
-        <LinearGradient
-          colors={["#ffffff", "#7F7F7F"]}
-          style={{ height: 4 }}
-        />
+      <ImageBackground source={icons.navbarShadow} style={styles.container}>
         <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
         <View style={styles.navbar}>
           <TouchableOpacity
@@ -78,7 +78,7 @@ class Footer extends Component<Props> {
             }
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }

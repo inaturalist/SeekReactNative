@@ -141,9 +141,17 @@ class SpeciesDetail extends Component<Props> {
         }
       } );
 
+      const photos = [];
+
+      taxa.taxon_photos.forEach( ( photo ) => {
+        if ( photo.photo.license_code && photos.length < 8 ) {
+          photos.push( photo );
+        }
+      } );
+
       this.setState( {
         scientificName: taxa.name,
-        photos: taxa.taxon_photos,
+        photos,
         about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
@@ -310,20 +318,21 @@ class SpeciesDetail extends Component<Props> {
               <View style={[styles.photoContainer, styles.loading]}>
                 <LoadingWheel color="white" />
               </View>
-            ) : null}
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator
-              scrollEventThrottle
-              pagingEnabled
-              nestedScrollEnabled
-              indicatorStyle="white"
-              contentContainerStyle={styles.photoContainer}
-            >
-              {photos.length > 0 || userPhoto
-                ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
-                : null}
-            </ScrollView>
+            ) : (
+              <ScrollView
+                horizontal
+                showsHorizontalScrollIndicator
+                scrollEventThrottle
+                pagingEnabled
+                nestedScrollEnabled
+                indicatorStyle="white"
+                contentContainerStyle={styles.photoContainer}
+              >
+                {photos.length > 0 || userPhoto
+                  ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
+                  : null}
+              </ScrollView>
+            )}
             <View style={styles.greenBanner}>
               {taxaType ? (
                 <Text style={styles.iconicTaxaText}>

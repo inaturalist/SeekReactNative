@@ -83,7 +83,6 @@ class Banner extends Component<Props> {
 
   showToasts() {
     const { badge } = this.state;
-    console.log( "showing all toasts" );
 
     if ( badge ) {
       Animated.sequence( [
@@ -115,7 +114,6 @@ class Banner extends Component<Props> {
         )
       ] ).start();
     } else {
-      console.log( "challenge progress only" );
       Animated.sequence( [
         Animated.timing(
           this.animatedChallenge, {
@@ -143,8 +141,6 @@ class Banner extends Component<Props> {
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
-
-        console.log( challenges, challengesCompleted, "challenges completed" );
 
         if ( challenges.length > challengesCompleted ) {
           this.setState( {

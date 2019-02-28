@@ -4,7 +4,8 @@ import { colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    justifyContent: "center"
+    height: 76,
+    justifyContent: "flex-end"
   },
   navbar: {
     backgroundColor: colors.white,

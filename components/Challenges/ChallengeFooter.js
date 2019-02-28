@@ -1,8 +1,13 @@
 // @flow
 
 import React from "react";
-import { View, TouchableOpacity, Image } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import {
+  View,
+  TouchableOpacity,
+  Image,
+  ImageBackground
+} from "react-native";
+// import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/home/footer";
 import icons from "../../assets/icons";
@@ -12,11 +17,11 @@ type Props = {
 }
 
 const Footer = ( { navigation }: Props ) => (
-  <View style={styles.container}>
-    <LinearGradient
+  <ImageBackground source={icons.navbarShadow} style={styles.container}>
+    {/* <LinearGradient
       colors={["#ffffff", "#d8d8d8"]}
       style={{ height: 3 }}
-    />
+    /> */}
     <View style={styles.navbar}>
       <TouchableOpacity
         style={styles.button}
@@ -38,7 +43,7 @@ const Footer = ( { navigation }: Props ) => (
         <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
       </TouchableOpacity>
     </View>
-  </View>
+  </ImageBackground>
 );
 
 export default Footer;

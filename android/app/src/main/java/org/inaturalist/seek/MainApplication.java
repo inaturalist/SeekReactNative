@@ -2,8 +2,9 @@ package org.inaturalist.seek;
 
 import android.app.Application;
 
-import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
+import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
@@ -36,6 +37,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new INatCameraViewPackage(),
+            new RNFetchBlobPackage(),
             new RealmReactPackage(),
             new VectorIconsPackage(),
             new SvgPackage(),

@@ -102,6 +102,7 @@ class Results extends Component<Props> {
           const uriParts = uri.split( "://" );
           userImage = uriParts[uriParts.length - 1];
           this.setImageUri( userImage );
+          console.log( userImage, "user image" );
         } else {
           userImage = uri;
           this.setImageUri( userImage );
@@ -158,12 +159,7 @@ class Results extends Component<Props> {
     if ( score > 97 ) {
       this.checkDateSpeciesSeen( taxaId );
       this.setState( { match: true } );
-      // if ( !latitude || !longitude ) { // move this into vision check -- make sure lat/lng being recorded
-      //   const location = await getLatAndLng();
-      //   addToCollection( observation, location.latitude, location.longitude, image );
-      // } else {
       addToCollection( observation, latitude, longitude, image );
-      // }
     } else {
       this.setState( { match: false } );
     }

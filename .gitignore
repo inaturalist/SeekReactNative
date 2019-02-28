@@ -59,3 +59,5 @@ buck-out/
 
 # config
 config.js
+taxonomy_data.csv
+*.tflite

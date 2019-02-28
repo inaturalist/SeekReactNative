@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import {
   createStackNavigator,
   createMaterialTopTabNavigator,
@@ -10,6 +11,7 @@ import styles from "../styles/navigation";
 import i18n from "../i18n";
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
+import ARCamera from "./Camera/ARCamera";
 import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
@@ -51,6 +53,7 @@ const handleCustomTransition = ( { scenes } ) => {
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
     screen: Camera,
+    // screen: Platform.OS === "android" ? ARCamera : Camera,
     navigationOptions: () => ( {
       title: i18n.t( "camera.label" ).toLocaleUpperCase()
     } )

@@ -38,33 +38,31 @@ const SpeciesPhotos = ( { photos, userPhoto, navigation }: Props ) => {
   }
 
   photos.forEach( ( photo, i ) => {
-    if ( i <= 7 ) {
-      const image = (
-        <View key={`image${photo.taxon_id}-${i}`}>
-          <Image
-            source={{ uri: photo.photo.original_url }}
-            style={styles.image}
-          />
-          <View style={styles.backButton}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.photoOverlay}>
-            <TouchableOpacity
-              style={styles.ccButton}
-              onPress={() => Alert.alert(
-                "License",
-                photo.photo.attribution
-              )}
-            >
-              <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
-            </TouchableOpacity>
-          </View>
+    const image = (
+      <View key={`image${photo.taxon_id}-${i}`}>
+        <Image
+          source={{ uri: photo.photo.original_url }}
+          style={styles.image}
+        />
+        <View style={styles.backButton}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={icons.backButton} />
+          </TouchableOpacity>
         </View>
-      );
-      photoList.push( image );
-    }
+        <View style={styles.photoOverlay}>
+          <TouchableOpacity
+            style={styles.ccButton}
+            onPress={() => Alert.alert(
+              "License",
+              photo.photo.attribution
+            )}
+          >
+            <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+    photoList.push( image );
   } );
 
   return (

@@ -22,8 +22,8 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
               <Text style={styles.bullets}>&#8226;</Text>
               <View>
                 <Text style={styles.taxonomyHeader}>
-                  {capitalizeNames( ancestor.rank )}
-                  {" "}
+                  {ancestor.rank !== "species" ? capitalizeNames( ancestor.rank ) : null}
+                  {ancestor.rank !== "species" ? " " : null}
                   {ancestor.name}
                 </Text>
                 <Text numOfLines={1} style={styles.taxonomyText}>

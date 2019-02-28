@@ -108,7 +108,6 @@ class SpeciesDetail extends Component<Props> {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-        console.log( seenTaxa.taxon.iconicTaxonId, "seen taxa" );
         let seenDate;
         let userPhoto;
 
@@ -128,17 +127,25 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchTaxonDetails() {
-    const { id } = this.state;
+    const { id, scientificName, commonName } = this.state;
+    console.log( scientificName, commonName, "names" );
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
-      const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"]
+      const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
       taxa.ancestors.forEach( ( ancestor ) => {
+        // console.log( ancestor, "ancestor" );
         if ( ranks.includes( ancestor.rank ) ) {
           ancestors.push( ancestor );
         }
+      } );
+
+      ancestors.push( {
+        rank: "species",
+        name: scientificName || "name",
+        preferred_common_name: commonName || "commonname"
       } );
 
       const photos = [];
@@ -252,9 +259,9 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData() {
+    this.checkIfSpeciesSeen();
     this.fetchUserLocation();
     this.fetchTaxonDetails();
-    this.checkIfSpeciesSeen();
     this.fetchHistogram();
     this.fetchSimilarSpecies();
   }
@@ -328,8 +335,8 @@ class SpeciesDetail extends Component<Props> {
                 indicatorStyle="white"
                 contentContainerStyle={styles.photoContainer}
               >
-                {photos.length > 0 || userPhoto
-                  ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} navigation={navigation} />
+                {( photos.length > 0 || userPhoto ) && !loading
+                  ? <SpeciesPhotos photos={photos} userPhoto={userPhoto} />
                   : null}
               </ScrollView>
             )}

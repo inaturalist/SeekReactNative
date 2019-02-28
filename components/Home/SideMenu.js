@@ -19,28 +19,28 @@ type Props = {
 }
 
 class SideMenu extends Component<Props> {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      lastRoute: "Main"
-    };
-  }
+  //   this.state = {
+  //     lastRoute: "Main"
+  //   };
+  // }
 
-  setLastRoute( route ) {
-    this.setState( { lastRoute: route } );
-  }
+  // setLastRoute( route ) {
+  //   this.setState( { lastRoute: route } );
+  // }
 
   navigateTo( route ) {
-    const { lastRoute } = this.state;
+    // const { lastRoute } = this.state;
     const { navigation } = this.props;
 
-    if ( route !== lastRoute ) {
-      navigation.navigate( route );
-    } else {
-      navigation.closeDrawer();
-    }
-    this.setLastRoute( route );
+    // if ( route !== lastRoute ) {
+    navigation.navigate( route );
+    // } else {
+    //   navigation.closeDrawer();
+    // }
+    // this.setLastRoute( route );
   }
 
   render() {

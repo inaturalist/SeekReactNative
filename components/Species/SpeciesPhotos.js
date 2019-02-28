@@ -10,15 +10,13 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
-import icons from "../../assets/icons";
 
 type Props = {
   photos: Array<Object>,
-  userPhoto: string,
-  navigation: any
+  userPhoto: string
 };
 
-const SpeciesPhotos = ( { photos, userPhoto, navigation }: Props ) => {
+const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
   const photoList = [];
 
   if ( userPhoto ) {

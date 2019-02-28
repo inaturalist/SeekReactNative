@@ -73,7 +73,6 @@ const SimilarSpecies = ( {
       justifyContent: "center"
     }}
     >
-      {console.log( loading, "loading status" )}
       {species}
     </View>
   );

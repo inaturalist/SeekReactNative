@@ -25,6 +25,7 @@ import Padding from "../Padding";
 import BannerHeader from "./BannerHeader";
 import LevelModal from "./LevelModal";
 import BadgeModal from "./BadgeModal";
+import ChallengeModal from "./ChallengeModal";
 
 type Props = {
   navigation: any
@@ -43,12 +44,15 @@ class BadgesScreen extends Component<Props> {
       speciesCount: null,
       showLevelModal: false,
       showBadgeModal: false,
+      showChallengeModal: false,
       iconicTaxonBadges: [],
-      iconicSpeciesCount: null
+      iconicSpeciesCount: null,
+      selectedChallenge: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
+    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
   fetchBadges() {
@@ -56,7 +60,6 @@ class BadgesScreen extends Component<Props> {
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
-        console.log( badges.filtered( "iconicTaxonName != null AND earned == true" ), "badges earned" );
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 
@@ -142,6 +145,15 @@ class BadgesScreen extends Component<Props> {
     this.setState( { showBadgeModal: !showBadgeModal } );
   }
 
+  toggleChallengeModal() {
+    const { showChallengeModal } = this.state;
+    this.setState( { showChallengeModal: !showChallengeModal } );
+  }
+
+  setChallenge( challenge ) {
+    this.setState( { selectedChallenge: challenge } );
+  }
+
   renderBadgesRow( data ) {
     return (
       <FlatList
@@ -182,8 +194,10 @@ class BadgesScreen extends Component<Props> {
       speciesCount,
       showLevelModal,
       showBadgeModal,
+      showChallengeModal,
       iconicTaxonBadges,
-      iconicSpeciesCount
+      iconicSpeciesCount,
+      selectedChallenge
     } = this.state;
     const { navigation } = this.props;
 
@@ -225,6 +239,17 @@ class BadgesScreen extends Component<Props> {
               badges={iconicTaxonBadges}
               iconicSpeciesCount={iconicSpeciesCount}
               toggleBadgeModal={this.toggleBadgeModal}
+            />
+          </Modal>
+          <Modal
+            isVisible={showChallengeModal}
+            onSwipe={() => this.toggleChallengeModal()}
+            onBackdropPress={() => this.toggleChallengeModal()}
+            swipeDirection="down"
+          >
+            <ChallengeModal
+              challenge={selectedChallenge}
+              toggleChallengeModal={this.toggleChallengeModal}
             />
           </Modal>
           <ScrollView>
@@ -271,7 +296,12 @@ class BadgesScreen extends Component<Props> {
                   return (
                     <TouchableOpacity
                       style={styles.gridCell}
-                      // onPress={() => this.toggleBadgeModal()}
+                      onPress={() => {
+                        if ( item.percentComplete === 100 ) {
+                          this.toggleChallengeModal();
+                          this.setChallenge( item );
+                        }
+                      }}
                     >
                       <Image
                         source={badgeIcon}

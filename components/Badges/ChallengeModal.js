@@ -21,35 +21,34 @@ type Props = {
 
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <SafeAreaView style={styles.safeView}>
-    <View style={styles.outerContainer}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Image
-            source={badges[challenge.earnedIconName]}
-            style={styles.image}
-          /> 
-          <ImageBackground source={icons.badgeBanner} style={styles.banner}>
-            <Text style={styles.bannerText}>
-              {challenge.name.split( " " )[0]}
-              {" "}
-              {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
-            </Text>
-          </ImageBackground>
-        </View>
-        <Text style={styles.headerText}>
-          {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
-        </Text>
-        <Text style={styles.text}>
-          {i18n.t( "challenges.thanks" )}
-        </Text>
-        <View style={styles.center}>
-          <Image source={logos.wwfop} style={styles.logo} />
-        </View>
+    {console.log( challenge, "challenge in modal" )}
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Image
+          source={badges[challenge.earnedIconName]}
+          style={styles.image}
+        />
+        <ImageBackground source={icons.badgeBanner} style={styles.banner}>
+          <Text style={styles.bannerText}>
+            {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
+            {" "}
+            {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
+          </Text>
+        </ImageBackground>
       </View>
-      <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
-        <Image source={icons.closeModal} />
-      </TouchableOpacity>
+      <Text style={styles.headerText}>
+        {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
+      </Text>
+      <Text style={styles.text}>
+        {i18n.t( "challenges.thanks" )}
+      </Text>
+      <View style={styles.center}>
+        <Image source={logos.wwfop} style={styles.logo} />
+      </View>
     </View>
+    <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
+      <Image source={icons.closeModal} />
+    </TouchableOpacity>
   </SafeAreaView>
 );
 

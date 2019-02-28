@@ -1,13 +1,10 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1
-  },
   container: {
     flex: 1,
     borderRadius: 40,

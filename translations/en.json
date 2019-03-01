@@ -150,7 +150,9 @@
     "no_new_challenges_header": "You have no new challenges.",
     "no_new_challenges": "We’ll let you know when new challenges are available.",
     "completed_all": "You’ve completed all available challenges!",
-    "number_observed": "{{number}} observed so far"
+    "number_observed": "{{number}} observed so far",
+    "how_to": "Complete the Our Planet Challenge for {{month}}!",
+    "released": "This challenge will be released {{date}}."
   },
   "inat_stats": {
     "global_observations": "Global Observations",

@@ -26,6 +26,7 @@ import BannerHeader from "./BannerHeader";
 import LevelModal from "./LevelModal";
 import BadgeModal from "./BadgeModal";
 import ChallengeModal from "./ChallengeModal";
+import ChallengeUnearnedModal from "./ChallengeUnearnedModal";
 
 type Props = {
   navigation: any
@@ -53,6 +54,10 @@ class BadgesScreen extends Component<Props> {
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+  }
+
+  setChallenge( challenge ) {
+    this.setState( { selectedChallenge: challenge } );
   }
 
   fetchBadges() {
@@ -150,10 +155,6 @@ class BadgesScreen extends Component<Props> {
     this.setState( { showChallengeModal: !showChallengeModal } );
   }
 
-  setChallenge( challenge ) {
-    this.setState( { selectedChallenge: challenge } );
-  }
-
   renderBadgesRow( data ) {
     return (
       <FlatList
@@ -247,10 +248,19 @@ class BadgesScreen extends Component<Props> {
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
           >
-            <ChallengeModal
-              challenge={selectedChallenge}
-              toggleChallengeModal={this.toggleChallengeModal}
-            />
+            {selectedChallenge && selectedChallenge.percentComplete === 100 ? (
+              <ChallengeModal
+                challenge={selectedChallenge}
+                toggleChallengeModal={this.toggleChallengeModal}
+              />
+            ) : (
+              <ChallengeUnearnedModal
+                challenge={selectedChallenge}
+                toggleChallengeModal={this.toggleChallengeModal}
+              />
+            )
+            
+            }
           </Modal>
           <ScrollView>
             <LinearGradient
@@ -297,10 +307,10 @@ class BadgesScreen extends Component<Props> {
                     <TouchableOpacity
                       style={styles.gridCell}
                       onPress={() => {
-                        if ( item.percentComplete === 100 ) {
+                        // if ( item.percentComplete === 100 ) {
                           this.toggleChallengeModal();
                           this.setChallenge( item );
-                        }
+                        // }
                       }}
                     >
                       <Image

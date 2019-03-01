@@ -78,5 +78,23 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  nameText: {
+    marginTop: 6,
+    marginHorizontal: 27,
+    textAlign: "center",
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    color: colors.black
+  },
+  italicText: {
+    marginTop: 16,
+    marginHorizontal: 27,
+    textAlign: "center",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 25,
+    color: colors.black
   }
 } );

@@ -39,8 +39,8 @@ export default StyleSheet.create( {
   },
   iNatLogo: {
     position: "absolute",
-    right: 10,
-    top: 30,
+    top: 5,
+    right: -5,
     height: height > 570 ? 65 : 45,
     width: height > 570 ? 81 : 61,
     resizeMode: "contain"
@@ -49,27 +49,28 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 30,
-    marginBottom: 5
+    marginBottom: 26
   },
   forestGreenText: {
     color: colors.seekForestGreen,
-    fontFamily: fonts.default,
-    fontSize: 16,
-    marginBottom: 20
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginBottom: 7
   },
   missionContainer: {
     alignItems: "flex-start",
     marginTop: 21,
     marginBottom: 40,
     backgroundColor: colors.white,
-    marginHorizontal: 36
+    marginHorizontal: 27
   },
   missionHeaderText: {
     color: colors.black,
     fontFamily: fonts.semibold,
     fontSize: 19,
     lineHeight: 24,
-    marginTop: 20,
     marginBottom: 10
   },
   missionText: {
@@ -79,6 +80,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   italicText: {
+    marginHorizontal: 27,
     textAlign: "center",
     marginTop: 20,
     color: colors.black,

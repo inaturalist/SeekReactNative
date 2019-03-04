@@ -133,18 +133,18 @@ class iNatStatsScreen extends Component<Props> {
             </View>
             <StatsMap />
             <View style={styles.missionContainer}>
-              <Text style={styles.numberText}>
-                {observations}
-              </Text>
-              <Image source={logos.bird} style={styles.iNatLogo} />
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}
               </Text>
+              <Image source={logos.bird} style={styles.iNatLogo} />
               <Text style={styles.numberText}>
-                {observers}
+                {observations}
               </Text>
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.numberText}>
+                {observers}
               </Text>
               <Text style={styles.missionHeaderText}>
                 {i18n.t( "inat_stats.seek_data" )}

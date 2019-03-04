@@ -16,6 +16,7 @@ import Modal from "react-native-modal";
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
+import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
@@ -170,7 +171,11 @@ class ChallengeDetailsScreen extends Component<Props> {
               <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
               <Text style={styles.challengeName}>{challenge.name}</Text>
               <View style={styles.leftRow}>
-                <Image source={icons.badgePlaceholder} />
+                {challenge.percentComplete === 100
+                  ? <Image source={icons.badgePlaceholder} />
+                  : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
+                }
+                
                 <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
               </View>
               {button}

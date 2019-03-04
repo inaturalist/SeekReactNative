@@ -1,5 +1,6 @@
 const badges = {
   badge_empty: require( "./badges/Badge_Empty.png" ),
+  "badge-empty-white": require( "./badges/badge-empty-white.png" ),
   "badge_naturalist-03-tadpole": require( "./badges/naturalist/badge_naturalist-03-tadpole.png" ),
   "badge_naturalist-15-cub": require( "./badges/naturalist/badge_naturalist-15-cub.png" ),
   "badge_naturalist-35-surveyor": require( "./badges/naturalist/badge_naturalist-35-surveyor.png" ),

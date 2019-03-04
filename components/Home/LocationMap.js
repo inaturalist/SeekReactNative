@@ -26,7 +26,8 @@ const LocationMap = ( {
       onRegionChangeComplete={region => onRegionChange( region )}
     />
     <View pointerEvents="none" style={styles.markerFixed}>
-      <View style={styles.markerCircle} />
+      <View style={styles.greenCircle} />
+      <Image style={styles.markerPin} source={icons.locationPin} />
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight

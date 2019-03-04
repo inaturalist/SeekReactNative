@@ -21,21 +21,19 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center",
+    height: 75,
     backgroundColor: colors.white
   },
   logo: {
-    marginTop: 30,
-    marginRight: 10
+    top: 10,
+    alignSelf: "center",
+    width: 153,
+    height: 33,
+    resizeMode: "contain"
   },
   backButton: {
-    marginLeft: 20,
-    marginHorizontal: 10
+    top: 38,
+    left: 23
   },
   iNatLogo: {
     position: "absolute",

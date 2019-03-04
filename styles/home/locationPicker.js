@@ -11,16 +11,35 @@ export default StyleSheet.create( {
   container: {
     flex: 1
   },
+  backButton: {
+    top: 38,
+    left: 23
+  },
+  image: {
+    padding: 5
+  },
   header: {
-    backgroundColor: colors.seekForestGreen,
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: colors.seekForestGreen
+  },
+  textContainer: {
+    top: 16,
+    alignSelf: "center"
   },
   headerText: {
-    marginTop: 40,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white,
-    fontFamily: fonts.semibold
+    letterSpacing: 1.0,
+    fontFamily: fonts.semibold,
+    marginBottom: 16
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 23,
+    marginTop: 15,
+    marginBottom: 15
   },
   locationText: {
     color: colors.white,
@@ -44,21 +63,25 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
-  markerCircle: {
-    backgroundColor: colors.blue,
-    borderWidth: 3,
-    borderRadius: 100,
-    borderColor: colors.white,
-    width: 20,
-    height: 20
+  markerPin: {
+    width: 23,
+    height: 33,
+    position: "absolute"
+  },
+  greenCircle: {
+    width: 281,
+    height: 281,
+    backgroundColor: colors.seekGreen,
+    opacity: 0.33,
+    borderRadius: 281 / 2
   },
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"
   },
   locationIcon: {
-    marginRight: margins.medium,
-    marginBottom: margins.large,
+    marginRight: 19,
+    marginBottom: 19,
     backgroundColor: colors.white,
     width: 50,
     height: 50,
@@ -94,12 +117,10 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   inputField: {
-    width: "87%",
+    width: "91%",
     backgroundColor: colors.white,
     height: 37,
     borderRadius: 40,
-    paddingLeft: padding.extraLarge,
-    marginTop: margins.medium,
-    marginBottom: margins.medium
+    paddingLeft: padding.extraLarge
   }
 } );

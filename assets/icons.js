@@ -8,6 +8,7 @@ const icons = {
   indicator: require( "./icons/icon-locationindicator.png" ),
   locationGreen: require( "./icons/icon-locationpin-green.png" ),
   locationWhite: require( "./icons/icon-locationpin.png" ),
+  locationPin: require( "./icons/icon-location-onmap.png"),
   caret: require( "./icons/icon-speciespicker.png" ),
   hamburger: require( "./navbar/Menu.png"),
   notifications: require( "./navbar/Notifications.png"),

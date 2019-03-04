@@ -26,9 +26,8 @@ const AboutScreen = ( { navigation }: Props ) => (
     <SafeAreaView style={styles.safeView}>
       <GreenHeader navigation={navigation} header={i18n.t( "about.header" )} />
       <ScrollView contentContainerStyle={styles.textContainer}>
-        <Image style={styles.image} source={logos.opBlack} />
         <View style={styles.row}>
-          <Image style={styles.image} source={logos.netflix} />
+          <Image style={styles.image} source={logos.opBlack} />
           <Image style={[styles.image, { marginLeft: 20 }]} source={logos.wwf} />
         </View>
         <View style={styles.block}>
@@ -58,7 +57,7 @@ const AboutScreen = ( { navigation }: Props ) => (
         <View style={styles.block}>
           <Text style={styles.greenText}>
             {i18n.t( "about.version" ).toLocaleUpperCase()}
-            {" 2.0.0"}
+            {" 2.0.0 (4)"}
           </Text>
         </View>
         <Padding />

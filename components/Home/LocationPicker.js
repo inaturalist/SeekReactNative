@@ -5,14 +5,16 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  Image
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
-import { capitalizeNames } from "../../utility/helpers";
+import icons from "../../assets/icons";
+// import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/home/locationPicker";
 
 const latitudeDelta = 0.2;
@@ -116,16 +118,28 @@ class LocationPicker extends Component<Props> {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {capitalizeNames( i18n.t( "location_picker.species_nearby" ) )}
-          </Text>
-          <TextInput
-            style={styles.inputField}
-            placeholder={location}
-            autoCapitalize="words"
-            textContentType="addressCity"
-            onChangeText={text => this.findLatAndLng( text )}
-          />
+          <TouchableOpacity
+            style={styles.backButton}
+            // onPress={() => navigation.goBack()}
+          >
+            <Image
+              source={icons.backButton}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          <View style={styles.textContainer}>
+            <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
+          </View>
+          <View style={styles.row}>
+            <Image source={icons.locationWhite} />
+            <TextInput
+              style={styles.inputField}
+              placeholder={location}
+              autoCapitalize="words"
+              textContentType="addressCity"
+              onChangeText={text => this.findLatAndLng( text )}
+            />
+          </View>
         </View>
         <View style={styles.mapContainer}>
           <LocationMap

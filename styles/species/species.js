@@ -172,5 +172,22 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  darkGreenButton: {
+    marginTop: 20,
+    alignSelf: "center",
+    justifyContent: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 24,
+    width: "100%",
+    height: 46
+  },
+  darkGreenButtonText: {
+    textAlign: "center",
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.12,
+    paddingTop: padding.iOSPadding,
+    fontSize: 18,
+    color: colors.white
   }
 } );

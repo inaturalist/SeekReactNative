@@ -121,6 +121,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 37,
     borderRadius: 40,
-    paddingLeft: padding.extraLarge
+    paddingLeft: padding.extraLarge,
+    fontFamily: fonts.default,
+    fontSize: 15
   }
 } );

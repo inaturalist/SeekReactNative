@@ -13,18 +13,6 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
-  header: {
-    height: 75,
-    backgroundColor: colors.seekForestGreen,
-    alignItems: "center"
-  },
-  headerText: {
-    marginTop: 35,
-    fontSize: 18,
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
-  },
   secondHeaderText: {
     marginTop: 32,
     marginBottom: 10,

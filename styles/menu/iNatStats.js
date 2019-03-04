@@ -22,10 +22,11 @@ export default StyleSheet.create( {
   },
   header: {
     height: 75,
+    marginBottom: 15,
     backgroundColor: colors.white
   },
   logo: {
-    top: 10,
+    top: 15,
     alignSelf: "center",
     width: 153,
     height: 33,

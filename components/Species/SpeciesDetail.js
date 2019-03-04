@@ -411,6 +411,12 @@ class SpeciesDetail extends Component<Props> {
                     error={error}
                   />
                 ) : null}
+                <TouchableOpacity
+                  style={styles.darkGreenButton}
+                  onPress={() => navigation.navigate( "RangeMap", { region, id } )}
+                >
+                  <Text style={styles.darkGreenButtonText}>{i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}</Text>
+                </TouchableOpacity>
                 <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
                 <SpeciesTaxonomy ancestors={ancestors} />
                 <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>

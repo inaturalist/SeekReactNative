@@ -16,6 +16,7 @@ import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
+import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
 import BadgesScreen from "./Badges/BadgesScreen";
 import AboutScreen from "./Menu/AboutScreen";
@@ -137,6 +138,12 @@ const MainStack = createStackNavigator( {
   },
   Species: {
     screen: SpeciesDetail,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  RangeMap: {
+    screen: RangeMap,
     navigationOptions: () => ( {
       header: null
     } )

@@ -1,13 +1,10 @@
 // @flow
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Image } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import Icon from "react-native-vector-icons/MaterialIcons";
 
-import { colors } from "../../styles/global";
+import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
-
-const markerIcon = ( <Icon name="location-on" size={50} color={colors.tomatoRed} /> );
 
 type Props = {
   region: Object,
@@ -37,7 +34,7 @@ const LocationMap = ( {
         <Marker
           coordinate={{ latitude: region.latitude, longitude: region.longitude }}
         >
-          <Text>{markerIcon}</Text>
+          <Image source={icons.locationPin} />
         </Marker>
       )}
     </MapView>

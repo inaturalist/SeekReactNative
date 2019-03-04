@@ -19,6 +19,7 @@ import Padding from "../Padding";
 import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -85,11 +86,7 @@ class MyObservations extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents onDidFocus={() => this.fetchObservations()} />
-          <View style={styles.header}>
-            <Text style={styles.headerText}>
-              {i18n.t( "observations.header" ).toLocaleUpperCase()}
-            </Text>
-          </View>
+          <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
           {loading ? (
             <View style={styles.loadingWheel}>
               <LoadingWheel color="black" />

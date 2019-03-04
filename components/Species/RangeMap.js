@@ -18,7 +18,7 @@ const RangeMap = ( { navigation }: Props ) => {
   return (
     <View style={styles.container}>
       <GreenHeader header={i18n.t( "species_detail.range_map" )} navigation={navigation} />
-      {region ? (
+      {region.latitude ? (
         <MapView
           region={region}
           provider={PROVIDER_DEFAULT}

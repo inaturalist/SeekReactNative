@@ -293,6 +293,7 @@ class HomeScreen extends Component<Props> {
                   longitude={longitude}
                   location={location}
                   updateLocation={this.updateLocation}
+                  toggleLocationPicker={this.toggleLocationPicker}
                 />
               </Modal>
               <SpeciesNearby

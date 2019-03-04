@@ -24,7 +24,8 @@ type Props = {
   latitude: number,
   longitude: number,
   location: string,
-  updateLocation: Function
+  updateLocation: Function,
+  toggleLocationPicker: Function
 }
 
 class LocationPicker extends Component<Props> {
@@ -113,14 +114,14 @@ class LocationPicker extends Component<Props> {
 
   render() {
     const { region, location } = this.state;
-    const { updateLocation } = this.props;
+    const { updateLocation, toggleLocationPicker } = this.props;
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            // onPress={() => navigation.goBack()}
+            onPress={() => toggleLocationPicker()}
           >
             <Image
               source={icons.backButton}

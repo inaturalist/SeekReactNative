@@ -89,10 +89,6 @@ export default StyleSheet.create( {
   buttonBlue: {
     backgroundColor: colors.seekTeal
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.white
-  },
   safeView: {
     flex: 1,
     backgroundColor: "transparent"

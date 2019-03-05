@@ -51,7 +51,6 @@ class Banner extends Component<Props> {
     const challengesCompleted = await getChallengesCompleted();
     const levelsEarned = await getLevelsEarned();
     const badgesEarned = await getBadgesEarned();
-    // Alert.alert( badgesEarned, "badges earned in banner" );
     this.setChallengesCompleted( challengesCompleted );
     this.setLevelsEarned( levelsEarned );
     this.setBadgesEarned( badgesEarned );

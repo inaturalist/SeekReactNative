@@ -5,6 +5,7 @@ import {
   View,
   Alert
 } from "react-native";
+// import RNFS from "react-native-fs";
 import INatCamera from "../../INatCamera";
 
 const styles = StyleSheet.create( {
@@ -51,20 +52,26 @@ class ARCamera extends Component {
   }
 
   onCameraError = event => {
-    Alert.alert( `Camera error: ${event.nativeEvent.error}` );
+    console.log( `Camera error: ${event.nativeEvent.error}` );
   }
 
   onCameraPermissionMissing = event => {
-    Alert.alert( `Missing camera permission` )
+    console.log( `Missing camera permission` )
   }
 
   onClassifierError = event => {
-    Alert.alert( `Classifier error: ${event.nativeEvent.error}` )
+    console.log( `Classifier error: ${event.nativeEvent.error}` )
   }
 
   onDeviceNotSupported = event => {
-    Alert.alert( `Device not supported, reason: ${event.nativeEvent.reason}` )
+    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` )
   }
+
+  // readAssets() {
+  //   RNFS.readDir( RNFS.ExternalStorageDirectoryPath ).then( result => {
+  //     console.log( result, "result" );
+  //   } ).catch( err => console.log( "err: ", err ))
+  // }
 
   render() {
     const { content } = this.state;
@@ -72,17 +79,17 @@ class ARCamera extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>iNaturalist Native Camera Demo</Text>
-        <INatCamera
+        {/* <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
           onCameraPermissionMissing={this.onCameraPermissionMissing}
           onClassifierError={this.onClassifierError}
           onDeviceNotSupported={this.onDeviceNotSupported}
-          modelPath="Seek/components/Camera/optimized_model.tflite"
-          taxonomyPath="Seek/components/Camera/taxonomy_data.csv"
+          modelPath="/Download/optimized_model.tflite"
+          taxonomyPath="/Download/taxonomy_data.csv"
           taxaDetectionInterval="2000"
           style={styles.camera}
-        />
+        /> */}
         <Text style={styles.predictions}>
           {content}
         </Text>

@@ -35,7 +35,7 @@ const AlreadySeenScreen = ( {
   seenDate
 }: Props ) => (
   <View style={styles.container}>
-    <SafeAreaView style={styles.safeViewTop} />
+    <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
     <SafeAreaView style={styles.safeView}>
       <ScrollView>
         <LinearGradient

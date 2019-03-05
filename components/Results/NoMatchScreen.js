@@ -27,7 +27,7 @@ const MatchScreen = ( {
   navigation
 }: Props ) => (
   <View style={styles.container}>
-    <SafeAreaView style={styles.safeViewTop} />
+    <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
     <SafeAreaView style={styles.safeView}>
       <ScrollView>
         <LinearGradient

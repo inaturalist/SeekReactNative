@@ -5,7 +5,7 @@ import {
   padding
 } from "./global";
 
-const { width } = Dimensions.get( "screen" );
+const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   greenHeader: {
@@ -23,7 +23,7 @@ export default StyleSheet.create( {
   },
   cameraTab: {
     backgroundColor: colors.black,
-    height: 41,
+    height: height > 570 ? 81 : 41,
     alignItems: "center"
   },
   cameraTabLabel: {
@@ -38,6 +38,7 @@ export default StyleSheet.create( {
     width: width / 2.5,
     borderRadius: 40,
     height: 2,
+    marginBottom: height > 570 ? 25 : 0,
     backgroundColor: colors.seekGreen
   },
   galleryHeader: {

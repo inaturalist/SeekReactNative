@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, View, Alert } from "react-native";
+import { Animated, View, Dimensions } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
@@ -20,6 +20,8 @@ import realmConfig from "../../models/index";
 import LevelModal from "../Badges/LevelModal";
 import ChallengeModal from "../Badges/ChallengeModal";
 import { createNotification } from "../../utility/notificationHelpers";
+
+const { height } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -89,25 +91,25 @@ class Banner extends Component<Props> {
         Animated.timing(
           this.animatedBadge, {
             toValue: 0,
-            duration: 3000
+            duration: 2000
           }
         ),
         Animated.timing(
           this.animatedBadge, {
-            toValue: -120,
+            toValue: height > 570 ? -170 : -120,
             delay: 2000,
-            duration: 950
+            duration: 2000
           }
         ),
         Animated.timing(
           this.animatedChallenge, {
             toValue: 0,
-            duration: 1000
+            duration: 2000
           }
         ),
         Animated.timing(
           this.animatedChallenge, {
-            toValue: -130,
+            toValue: height > 570 ? -170 : -130,
             delay: 2000,
             duration: 2000
           }
@@ -118,7 +120,7 @@ class Banner extends Component<Props> {
         Animated.timing(
           this.animatedChallenge, {
             toValue: 0,
-            duration: 1000
+            duration: 2000
           }
         ),
         Animated.timing(
@@ -166,7 +168,6 @@ class Banner extends Component<Props> {
     const { badgesEarned, levelsEarned, showLevelModal } = this.state;
 
     recalculateBadges();
-    Alert.alert( "recalc badges" );
 
     Realm.open( realmConfig )
       .then( ( realm ) => {

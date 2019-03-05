@@ -345,6 +345,8 @@ class SpeciesDetail extends Component<Props> {
                 <Image source={icons.backButton} />
               </TouchableOpacity>
             </View>
+            <Image source={icons.swipeLeft} style={styles.leftArrow} />
+            <Image source={icons.swipeRight} style={styles.rightArrow} />
             <View style={styles.greenBanner}>
               {taxaType ? (
                 <Text style={styles.iconicTaxaText}>

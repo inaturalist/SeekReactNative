@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, View } from "react-native";
+import { Animated, View, Alert } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
@@ -51,6 +51,7 @@ class Banner extends Component<Props> {
     const challengesCompleted = await getChallengesCompleted();
     const levelsEarned = await getLevelsEarned();
     const badgesEarned = await getBadgesEarned();
+    // Alert.alert( badgesEarned, "badges earned in banner" );
     this.setChallengesCompleted( challengesCompleted );
     this.setLevelsEarned( levelsEarned );
     this.setBadgesEarned( badgesEarned );
@@ -166,6 +167,7 @@ class Banner extends Component<Props> {
     const { badgesEarned, levelsEarned, showLevelModal } = this.state;
 
     recalculateBadges();
+    Alert.alert( "recalc badges" );
 
     Realm.open( realmConfig )
       .then( ( realm ) => {

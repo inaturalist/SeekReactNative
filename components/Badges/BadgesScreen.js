@@ -8,7 +8,8 @@ import {
   FlatList,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -100,7 +101,7 @@ class BadgesScreen extends Component<Props> {
           badgesEarned
         } );
       } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // Alert.alert( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 

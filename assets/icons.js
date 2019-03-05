@@ -33,7 +33,9 @@ const icons = {
   closeGreen: require( "./icons/icon-close-green.png" ),
   closeWhite: require( "./icons/icon-close-white.png" ),
   closeModal: require( "./icons/icon-close-modal.png" ),
-  titleBanner: require( "./icons/img-titlebanner.png" )
+  titleBanner: require( "./icons/img-titlebanner.png" ),
+  swipeLeft: require( "./icons/img-swipearrow-left.png" ),
+  swipeRight: require( "./icons/img-swipearrow-right.png" )
 };
 
 export default icons;

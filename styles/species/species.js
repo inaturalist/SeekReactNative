@@ -189,5 +189,17 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPadding,
     fontSize: 18,
     color: colors.white
+  },
+  leftArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    left: 5
+  },
+  rightArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    right: 5
   }
 } );

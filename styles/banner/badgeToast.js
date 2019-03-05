@@ -51,6 +51,7 @@ export default StyleSheet.create( {
   },
   image: {
     width: 59,
-    height: 66
+    height: 66,
+    resizeMode: "contain"
   }
 } );

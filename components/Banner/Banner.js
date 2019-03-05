@@ -109,7 +109,7 @@ class Banner extends Component<Props> {
         ),
         Animated.timing(
           this.animatedChallenge, {
-            toValue: height > 570 ? -170 : -130,
+            toValue: height > 570 ? -180 : -130,
             delay: 2000,
             duration: 2000
           }
@@ -125,7 +125,7 @@ class Banner extends Component<Props> {
         ),
         Animated.timing(
           this.animatedChallenge, {
-            toValue: -130,
+            toValue: height > 570 ? -180 : -130,
             delay: 2000,
             duration: 2000
           }

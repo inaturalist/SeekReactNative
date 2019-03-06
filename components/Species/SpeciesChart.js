@@ -52,8 +52,7 @@ const SpeciesChart = ( { data }: Props ) => {
             contentInset={styles.xAxisWidth}
             svg={{
               fontSize: 18,
-              fill: colors.seekTeal,
-              fontFamily: fonts.default
+              fill: colors.seekTeal
             }}
           />
         </View>

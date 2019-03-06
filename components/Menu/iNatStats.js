@@ -122,6 +122,7 @@ class iNatStatsScreen extends Component<Props> {
             <View style={styles.header}>
               <TouchableOpacity
                 onPress={() => navigation.goBack()}
+                style={{ padding: 5 }}
               >
                 <Image
                   source={icons.backButtonGreen}

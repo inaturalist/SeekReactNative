@@ -14,8 +14,8 @@ class StatsMap extends Component {
 
     this.state = {
       region: {
-        latitude: 30.9,
-        longitude: 11.3,
+        latitude: 31.96,
+        longitude: -98.58,
         latitudeDelta,
         longitudeDelta
       }
@@ -27,14 +27,14 @@ class StatsMap extends Component {
     return (
       <View style={styles.mapContainer}>
         <MapView
-          // initialRegion={region}
+          initialRegion={region}
           provider={PROVIDER_DEFAULT}
           style={styles.map}
-          zoomEnabled
+          zoomEnabled={false}
           rotateEnabled={false}
-          scrollEnabled
+          scrollEnabled={false}
           minZoomLevel={0}
-          maxZoomLevel={3}
+          maxZoomLevel={2}
           mapType="satellite"
         >
           <UrlTile

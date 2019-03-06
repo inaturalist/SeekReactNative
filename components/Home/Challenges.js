@@ -19,7 +19,6 @@ type Props = {
 
 const Challenges = ( { navigation, challenge }: Props ) => (
   <View style={styles.container}>
-  {console.log( challenge, "challenge" )}
     <View style={styles.column}>
       <View style={styles.header}>
         <TouchableOpacity

@@ -84,5 +84,36 @@ export default StyleSheet.create( {
     textDecorationLine: "underline",
     color: colors.white,
     fontSize: 16
+  },
+  noChallengeContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noChallengeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "nowrap"
+  },
+  noChallengeTextContainer: {
+    marginLeft: 30,
+    justifyContent: "center"
+  },
+  noChallengeText: {
+    width: 229,
+    textAlign: "center",
+    fontFamily: fonts.default,
+    color: colors.errorGray,
+    fontSize: 19,
+    lineHeight: 24
+  },
+  lightText: {
+    marginTop: 10,
+    width: 204,
+    textAlign: "center",
+    fontFamily: fonts.light,
+    color: colors.errorGray,
+    fontSize: 16,
+    lineHeight: 18
   }
 } );

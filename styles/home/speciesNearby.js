@@ -84,6 +84,10 @@ export default StyleSheet.create( {
     marginTop: 29,
     paddingLeft: 20
   },
+  noTaxon: {
+    marginTop: 71,
+    marginHorizontal: 27
+  },
   gridCell: {
     width: 108,
     marginHorizontal: 10,

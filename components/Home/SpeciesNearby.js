@@ -88,6 +88,12 @@ const SpeciesNearby = ( {
         )}
       />
     );
+  } else {
+    species = (
+      <View style={styles.noTaxon}>
+        <Text style={styles.cellTitleText}>{i18n.t( "species_nearby.no_species" )}</Text>
+      </View>
+    );
   }
 
   return (

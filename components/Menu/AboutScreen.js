@@ -34,17 +34,17 @@ const AboutScreen = ( { navigation }: Props ) => (
           <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
           <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>
         </View>
-        <View style={styles.block}>
+        <View style={styles.row}>
           <Image style={styles.image} source={logos.iNat} />
         </View>
         <View style={styles.block}>
           <Text style={styles.boldText}>{i18n.t( "about.seek" )}</Text>
           <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
         </View>
-        <View style={styles.block}>
+        <View style={styles.row}>
           <Image style={styles.image} source={logos.casNatGeo} />
         </View>
-        <View style={styles.block}>
+        <View style={styles.row}>
           <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
         </View>
         <View style={styles.block}>

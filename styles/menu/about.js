@@ -6,24 +6,22 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
-  image: {
-    marginBottom: 15
-  },
   textContainer: {
-    marginTop: 20,
+    marginTop: 27,
     alignItems: "center",
-    marginHorizontal: 26
+    marginHorizontal: 34
   },
   row: {
+    marginBottom: 27,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
   },
   block: {
-    marginTop: 20
+    marginBottom: 34
   },
   boldText: {
-    marginBottom: 9,
+    marginBottom: 5,
     color: colors.black,
     fontFamily: fonts.semibold,
     fontSize: 16,
@@ -31,7 +29,6 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   text: {
-    marginBottom: 15,
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,

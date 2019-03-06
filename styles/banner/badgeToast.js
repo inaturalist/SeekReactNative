@@ -26,6 +26,7 @@ export default StyleSheet.create( {
   },
   textContainer: {
     width: 215,
+    justifyContent: "center",
     marginRight: 10
   },
   headerText: {
@@ -36,17 +37,14 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   description: {
-    marginTop: 8,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
     color: colors.black
   },
   view: {
-    marginTop: 8,
     fontFamily: fonts.light,
     fontSize: 14,
-    lineHeight: 21,
     color: colors.black
   },
   image: {

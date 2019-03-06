@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors, fonts, padding } from "../global";
 
 export default StyleSheet.create( {
@@ -59,6 +59,7 @@ export default StyleSheet.create( {
   button: {
     backgroundColor: colors.seekForestGreen,
     width: 292,
+    height: 46,
     marginTop: 28,
     marginBottom: 26,
     borderRadius: 40,
@@ -69,8 +70,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     color: colors.white,
-    paddingTop: 15,
-    paddingBottom: 13,
+    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : 0,
     letterSpacing: 1.0
   },
   backButton: {

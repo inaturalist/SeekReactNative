@@ -71,6 +71,36 @@ class Banner extends Component<Props> {
     this.setState( { badgesEarned } );
   }
 
+  showLatestChallenge( challenge ) {
+    this.setState( { challenge } );
+    this.toggleChallengeModal();
+    createNotification( "challengeCompleted", challenge.index );
+  }
+
+  showChallengeInProgress( incompleteChallenge ) {
+    this.checkForNewBadges();
+    this.setState( { incompleteChallenge } );
+    this.showToasts();
+  }
+
+  showLatestLevel( newestLevel ) {
+    this.setState( { newestLevel } );
+    this.toggleLevelModal();
+  }
+
+  showLatestBadge( badge ) {
+    const { showLevelModal } = this.state;
+    this.setState( { badge } );
+
+    if ( badge.count > 1 ) {
+      createNotification( "badgeEarned" );
+    }
+
+    if ( !showLevelModal ) {
+      this.showToasts();
+    }
+  }
+
   toggleChallengeModal() {
     const { showChallengeModal } = this.state;
 
@@ -86,50 +116,48 @@ class Banner extends Component<Props> {
   showToasts() {
     const { badge } = this.state;
 
+    const badgeToast = [
+      Animated.timing(
+        this.animatedBadge, {
+          toValue: 0,
+          duration: 2000
+        }
+      ),
+      Animated.timing(
+        this.animatedBadge, {
+          toValue: height > 570 ? -170 : -120,
+          delay: 2000,
+          duration: 2000
+        }
+      )];
+
+    const challengeToast = [
+      Animated.timing(
+        this.animatedChallenge, {
+          toValue: 0,
+          duration: 2000
+        }
+      ),
+      Animated.timing(
+        this.animatedChallenge, {
+          toValue: height > 570 ? -180 : -130,
+          delay: 2000,
+          duration: 2000
+        }
+      )
+    ];
+
     if ( badge ) {
       Animated.sequence( [
-        Animated.timing(
-          this.animatedBadge, {
-            toValue: 0,
-            duration: 2000
-          }
-        ),
-        Animated.timing(
-          this.animatedBadge, {
-            toValue: height > 570 ? -170 : -120,
-            delay: 2000,
-            duration: 2000
-          }
-        ),
-        Animated.timing(
-          this.animatedChallenge, {
-            toValue: 0,
-            duration: 2000
-          }
-        ),
-        Animated.timing(
-          this.animatedChallenge, {
-            toValue: height > 570 ? -180 : -130,
-            delay: 2000,
-            duration: 2000
-          }
-        )
+        badgeToast[0],
+        badgeToast[1],
+        challengeToast[0],
+        challengeToast[1]
       ] ).start();
     } else {
       Animated.sequence( [
-        Animated.timing(
-          this.animatedChallenge, {
-            toValue: 0,
-            duration: 2000
-          }
-        ),
-        Animated.timing(
-          this.animatedChallenge, {
-            toValue: height > 570 ? -180 : -130,
-            delay: 2000,
-            duration: 2000
-          }
-        )
+        challengeToast[0],
+        challengeToast[1]
       ] ).start();
     }
   }
@@ -145,27 +173,19 @@ class Banner extends Component<Props> {
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
 
         if ( challenges.length > challengesCompleted ) {
-          this.setState( {
-            challenge: challenges[0]
-          }, () => {
-            this.toggleChallengeModal();
-            createNotification( "challengeCompleted", challenges[0].index );
-          } );
+          this.showLatestChallenge( challenges[0] );
         } else if ( incompleteChallenges.length > 0 ) {
-          this.setState( {
-            incompleteChallenge: incompleteChallenges[0]
-          }, () => this.showToasts() );
+          this.showChallengeInProgress( incompleteChallenges[0] );
         } else {
           this.checkForNewBadges();
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
       } );
-    // check for 100 percent on any challenges, from oldest to newest
   }
 
   checkForNewBadges() {
-    const { badgesEarned, levelsEarned, showLevelModal } = this.state;
+    const { badgesEarned, levelsEarned } = this.state;
 
     recalculateBadges();
 
@@ -178,24 +198,11 @@ class Banner extends Component<Props> {
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
 
         if ( levelsEarned < earnedLevels.length ) {
-          this.setState( {
-            newestLevel: newestLevels[0]
-          }, () => this.toggleLevelModal() );
+          this.showLatestLevel( newestLevels[0] );
         }
 
         if ( badgesEarned < earnedBadges.length ) {
-          this.setState( {
-            badge: badges[0]
-          }, () => {
-            if ( !showLevelModal ) {
-              this.showToasts();
-            }
-          } );
-          if ( badges[0].count > 1 ) {
-            createNotification( "badgeEarned" );
-          } else {
-            this.showToasts();
-          }
+          this.showLatestBadge( badges[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );

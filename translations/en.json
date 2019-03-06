@@ -19,8 +19,9 @@
   "challenges_card": {
     "header": "Challenges",
     "april": "April 2019: Connectivity",
-    "join": "Join the global observation challenge and follow along with Our Planet on Netflix!",
+    "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
+    "continue_challenge": "Continue challenge",
     "view_all": "View all challenges"
   },
   "notifications": {

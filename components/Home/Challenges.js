@@ -19,6 +19,7 @@ type Props = {
 
 const Challenges = ( { navigation, challenge }: Props ) => (
   <View style={styles.container}>
+  {console.log( challenge, "challenge" )}
     <View style={styles.column}>
       <View style={styles.header}>
         <TouchableOpacity
@@ -30,26 +31,34 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         </TouchableOpacity>
       </View>
       <View style={styles.challengeContainer}>
-        <Text style={styles.challengeHeader}>
-          {i18n.t( challenge.month ).toLocaleUpperCase()}
-          {": "}
-          {i18n.t( challenge.name ).toLocaleUpperCase()}
-        </Text>
-        <View style={styles.row}>
-          <Image source={logos.op} />
-          <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.challengeHeader}>
+            {i18n.t( challenge.month ).toLocaleUpperCase()}
+          </Text>
+          <Text style={styles.challengeName}>
+            {i18n.t( challenge.name ).toLocaleUpperCase()}
+          </Text>
         </View>
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => navigation.navigate( "ChallengeDetails", { index: challenge.index } )}
-        >
-          <Text style={[styles.headerText, styles.buttonText]}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Challenges" )}
-        >
-          <Text style={[styles.text, styles.viewText]}>{i18n.t( "challenges_card.view_all" )}</Text>
-        </TouchableOpacity>
+        <View style={styles.centeredContent}>
+          <View style={styles.row}>
+            <Image source={logos.op} />
+            <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+          </View>
+          <TouchableOpacity
+            style={styles.greenButton}
+            onPress={() => navigation.navigate( "ChallengeDetails", { index: challenge.index } )}
+          >
+            {challenge.started
+              ? <Text style={styles.buttonText}>{i18n.t( "challenges_card.continue_challenge" ).toLocaleUpperCase()}</Text>
+              : <Text style={styles.buttonText}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>
+            }
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Challenges" )}
+          >
+            <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   </View>

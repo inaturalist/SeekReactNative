@@ -8,7 +8,7 @@ import { capitalizeNames } from "../../utility/helpers";
 
 const pickerSelectStyles = StyleSheet.create( {
   inputIOS: styles.secondButtonText,
-  inputAndroid: styles.secondButtonText
+  inputAndroid: styles.androidSecondButtonText
 } );
 
 type Props = {
@@ -72,9 +72,15 @@ class TaxonPicker extends Component<Props> {
     };
   }
 
+  setTaxonType( taxonType ) {
+    const { updateTaxaType } = this.props;
+
+    this.setState( { taxonType } );
+    updateTaxaType( taxonType );
+  }
+
   render() {
     const { types, taxonType } = this.state;
-    const { updateTaxaType } = this.props;
 
     return (
       <RNPickerSelect
@@ -82,16 +88,12 @@ class TaxonPicker extends Component<Props> {
         hideIcon
         items={types}
         onValueChange={( value ) => {
-          this.setState( {
-            taxonType: value
-          }, () => updateTaxaType( value ) );
+          this.setTaxonType( value );
         }}
-        onUpArrow={() => {
-          this.inputRefs.picker.togglePicker();
-        }}
-        onDownArrow={() => {
-          this.inputRefs.company.focus();
-        }}
+        // onDonePress={( value ) => {
+        //   this.setTaxonType( value );
+        //   updateTaxaType( value );
+        // }}
         style={{ ...pickerSelectStyles }}
         value={taxonType}
         ref={( el ) => {

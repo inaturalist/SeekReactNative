@@ -30,23 +30,13 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "flex-start",
     marginBottom: 15
-  },
-  locationPicker: {
-    paddingHorizontal: 9,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
   },
   whiteButton: {
     backgroundColor: colors.white,
     borderRadius: 6,
     justifyContent: "center",
-    alignItems: "center",
-    paddingLeft: 9,
-    paddingRight: 9,
+    paddingHorizontal: 9,
     height: 29
   },
   image: {
@@ -63,6 +53,24 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   secondButtonText: {
+    backgroundColor: colors.white,
+    paddingHorizontal: 9,
+    height: 29,
+    borderRadius: 6,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
+  },
+  androidSecondButtonText: {
+    textAlign: "left",
+    paddingHorizontal: 9,
+    width: 140,
+    height: 29,
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    paddingTop: 5,
+    paddingBottom: 2,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,

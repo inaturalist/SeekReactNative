@@ -28,7 +28,6 @@ const LocationMap = ( {
       />
     ) : null}
     <View pointerEvents="none" style={styles.markerFixed}>
-      {/* <View style={styles.greenCircle} /> */}
       <Image style={styles.markerPin} source={icons.locationPin} />
     </View>
     <View style={styles.userLocation}>

@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -263,6 +263,7 @@ class BadgesScreen extends Component<Props> {
             
             }
           </Modal>
+          {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
           <ScrollView>
             <LinearGradient
               colors={["#22784d", "#38976d"]}

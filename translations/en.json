@@ -103,7 +103,8 @@
   },
   "location_picker": {
     "species_nearby": "Species nearby",
-    "button": "Search near location"
+    "button": "Search near location",
+    "undefined": "Undefined location"
   },
   "taxon_picker": {
     "all": "All Species",

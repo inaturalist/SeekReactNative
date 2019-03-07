@@ -124,5 +124,13 @@ export default StyleSheet.create( {
     paddingLeft: padding.extraLarge,
     fontFamily: fonts.default,
     fontSize: 15
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

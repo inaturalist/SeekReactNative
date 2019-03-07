@@ -263,8 +263,8 @@ class BadgesScreen extends Component<Props> {
             
             }
           </Modal>
-          {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
           <ScrollView>
+            {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
             <LinearGradient
               colors={["#22784d", "#38976d"]}
               style={styles.header}

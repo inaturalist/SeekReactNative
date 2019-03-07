@@ -126,13 +126,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.buttonText
   },
-  error: {
-    backgroundColor: colors.errorGray,
-    paddingTop: 32,
-    paddingBottom: 32
-  },
   loading: {
-    paddingTop: 32,
-    paddingBottom: 32
+    alignItems: "center",
+    justifyContent: "center"
   }
 } );

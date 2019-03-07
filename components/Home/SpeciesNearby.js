@@ -123,7 +123,6 @@ const SpeciesNearby = ( {
       </View>
       <View style={[
         styles.speciesNearbyContainer,
-        error && styles.error,
         loading && styles.loading
       ]}
       >

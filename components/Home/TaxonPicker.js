@@ -81,6 +81,7 @@ class TaxonPicker extends Component<Props> {
 
   render() {
     const { types, taxonType } = this.state;
+    
 
     return (
       <RNPickerSelect

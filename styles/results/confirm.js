@@ -9,14 +9,10 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 60,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-around"
+    height: 54
   },
   headerText: {
-    paddingTop: padding.iOSPadding,
+    alignSelf: "center",
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -50,7 +46,11 @@ export default StyleSheet.create( {
     color: colors.white
   },
   backButton: {
-    padding: 10
+    top: 19,
+    left: 23
+  },
+  buttonImage: {
+    padding: 5
   },
   safeViewTop: {
     flex: 0,

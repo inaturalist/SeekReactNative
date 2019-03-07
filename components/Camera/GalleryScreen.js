@@ -215,10 +215,9 @@ class GalleryScreen extends Component<Props> {
               style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
-              <Image source={icons.closeGreen} />
+              <Image source={icons.closeGreen} style={styles.buttonImage} />
             </TouchableOpacity>
             <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
-            <View />
           </View>
           <View style={styles.galleryContainer}>
             {gallery}

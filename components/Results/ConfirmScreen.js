@@ -36,7 +36,7 @@ const ConfirmScreen = ( {
         style={styles.backButton}
         onPress={() => navigation.goBack()}
       >
-        <Image source={icons.backButtonGreen} />
+        <Image source={icons.backButtonGreen} style={styles.buttonImage} />
       </TouchableOpacity>
       <Text style={styles.headerText}>{i18n.t( "confirm.identify" ).toLocaleUpperCase()}</Text>
       <View />

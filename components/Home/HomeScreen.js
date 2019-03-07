@@ -292,6 +292,7 @@ class HomeScreen extends Component<Props> {
               }}
             />
             <ScrollView>
+              {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
                 visible={modalVisible}
                 onRequestClose={() => this.toggleLocationPicker()}

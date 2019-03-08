@@ -129,8 +129,7 @@ export default StyleSheet.create( {
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,
-    fontSize: 18,
-    textDecorationLine: "underline",
-    marginBottom: 50
+    fontSize: 16,
+    textDecorationLine: "underline"
   }
 } );

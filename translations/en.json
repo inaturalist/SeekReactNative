@@ -172,7 +172,7 @@
   },
   "results": {
     "observed_species": "You observed a new Species!",
-    "learn_more": "Learn more about this species, where it’s found, and other facts about it!",
+    "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
     "view_species": "View Species",
     "back": "Back to Camera",
     "no_identification": "We weren’t able to identify this photo",

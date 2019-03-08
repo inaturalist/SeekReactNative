@@ -38,11 +38,11 @@ const Challenges = ( { navigation, challenge }: Props ) => (
             {i18n.t( challenge.name ).toLocaleUpperCase()}
           </Text>
         </View>
+        <View style={styles.row}>
+          <Image source={logos.op} />
+          <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+        </View>
         <View style={styles.centeredContent}>
-          <View style={styles.row}>
-            <Image source={logos.op} />
-            <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-          </View>
           <TouchableOpacity
             style={styles.greenButton}
             onPress={() => navigation.navigate( "ChallengeDetails", { index: challenge.index } )}

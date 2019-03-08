@@ -52,16 +52,17 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
+    justifyContent: "space-between",
     marginTop: 14,
-    marginBottom: 28
+    marginBottom: 28,
+    marginHorizontal: 32
   },
   text: {
     maxWidth: 165,
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 24,
-    marginLeft: 16
+    lineHeight: 24
   },
   greenButton: {
     alignItems: "center",

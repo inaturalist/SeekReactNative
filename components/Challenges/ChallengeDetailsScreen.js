@@ -22,6 +22,7 @@ import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../Badges/ChallengeModal";
 import Footer from "./ChallengeFooter";
+import Padding from "../Padding";
 import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
@@ -198,6 +199,7 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>
             </View>
+            <Padding />
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

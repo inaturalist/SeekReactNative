@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
@@ -6,6 +6,8 @@ import {
   margins,
   padding
 } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -92,7 +94,7 @@ export default StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    height: 86
+    height: height > 570 ? 130 : 86
   },
   button: {
     backgroundColor: colors.seekForestGreen,

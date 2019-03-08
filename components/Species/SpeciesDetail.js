@@ -8,7 +8,8 @@ import {
   Text,
   NetInfo,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -352,13 +353,15 @@ class SpeciesDetail extends Component<Props> {
             </View>
             <Image source={icons.swipeLeft} style={styles.leftArrow} />
             <Image source={icons.swipeRight} style={styles.rightArrow} />
-            <View style={styles.greenBanner}>
-              {taxaType ? (
-                <Text style={styles.iconicTaxaText}>
-                  {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
-                </Text>
+            {taxaType && iconicTaxaNames[taxaType]
+              ? (
+                <View style={styles.greenBanner}>
+                  {Alert.alert( taxaType )}
+                  <Text style={styles.iconicTaxaText}>
+                    {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
+                  </Text>
+                </View>
               ) : null}
-            </View>
             <View style={styles.textContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
               <Text style={styles.scientificNameText}>{scientificName}</Text>

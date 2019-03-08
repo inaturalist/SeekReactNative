@@ -8,8 +8,7 @@ const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    justifyContent: "center"
+    flex: 1
   },
   carousel: {
     marginTop: 20
@@ -49,8 +48,8 @@ export default StyleSheet.create( {
     alignItems: "center",
     marginLeft: 42,
     marginRight: 42,
-    marginTop: 29
-    // marginBottom: 57
+    marginTop: 29,
+    marginBottom: 57
   },
   text: {
     maxWidth: 292,
@@ -82,8 +81,8 @@ export default StyleSheet.create( {
   contentContainer: {
     width,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 50
+    justifyContent: "flex-end",
+    paddingBottom: 57
   },
   pagination: {
     position: "absolute",
@@ -92,7 +91,7 @@ export default StyleSheet.create( {
     right: 0,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "flex-end"
+    alignItems: "center"
   },
   dot: {
     backgroundColor: "#393939",

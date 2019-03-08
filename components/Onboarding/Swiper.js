@@ -93,7 +93,6 @@ class Swiper extends Component<Props> {
     <ScrollView
       ref={( component ) => { this.scrollView = component; }}
       {...this.props}
-      contentContainerStyle={styles.wrapper}
       onMomentumScrollBegin={this.onScrollBegin}
       onMomentumScrollEnd={this.onScrollEnd}
     >

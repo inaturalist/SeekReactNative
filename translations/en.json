@@ -100,7 +100,7 @@
     "onboarding_1": "Use Seek’s Camera to learn about the organisms all around you",
     "onboarding_2": "Earn badges for seeing different species all around you",
     "onboarding_3": "Participate in global challenges with Our Planet and WWF",
-    "next": "Next",
+    "skip": "Skip for now",
     "continue": "Continue"
   },
   "location_picker": {

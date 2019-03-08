@@ -1,10 +1,11 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "./global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -62,9 +63,10 @@ export default StyleSheet.create( {
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 34
+    marginBottom: height > 670 ? 94 : 34
   },
   button: {
+    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
     justifyContent: "center",
     borderRadius: 34,
     width: 293,
@@ -78,6 +80,14 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     letterSpacing: 1.0
   },
+  skipText: {
+    marginBottom: 30,
+    fontSize: 16,
+    textAlign: "center",
+    color: colors.white,
+    fontFamily: fonts.book,
+    textDecorationLine: "underline"
+  },
   contentContainer: {
     width,
     alignItems: "center",
@@ -86,7 +96,7 @@ export default StyleSheet.create( {
   },
   pagination: {
     position: "absolute",
-    bottom: 130,
+    bottom: height > 670 ? 190 : 130,
     left: 0,
     right: 0,
     flexDirection: "row",

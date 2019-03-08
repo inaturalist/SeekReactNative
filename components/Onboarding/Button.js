@@ -25,8 +25,8 @@ const Button = ( { navigation, index }: Props ) => (
             <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
           </View>
         ) : (
-          <View style={[styles.button, index === 1 && { backgroundColor: "#318b7a" }]}>
-            <Text style={styles.skip}>{i18n.t( "onboarding.next" ).toLocaleUpperCase()}</Text>
+          <View>
+            <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>
           </View>
         )
       }

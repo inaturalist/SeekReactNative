@@ -69,6 +69,7 @@ class Swiper extends Component<Props> {
   }
 
   updateIndex = ( offset ) => {
+    console.log( offset, "offset", width, "width" );
     const state = this.state;
     const diff = offset - this.internals.offset;
     const step = state.width;
@@ -135,7 +136,10 @@ class Swiper extends Component<Props> {
       <View style={styles.container}>
         {this.renderScrollView( children )}
         {this.renderPagination()}
-        <Button navigation={navigation} index={index} />
+        <Button
+          navigation={navigation}
+          index={index}
+        />
       </View>
     </LinearGradient>
   )

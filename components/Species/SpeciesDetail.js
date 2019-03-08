@@ -17,12 +17,11 @@ import moment from "moment";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
-// import taxaIds from "../../utility/iconicTaxonDictById";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
-import Padding from "../Padding";
 import realmConfig from "../../models/index";
+import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
 import SpeciesChart from "./SpeciesChart";
 import SpeciesMap from "./SpeciesMap";
@@ -57,10 +56,7 @@ class SpeciesDetail extends Component<Props> {
       nearbySpeciesCount: null,
       error: null,
       userPhoto: null,
-      endangered: false,
-      endemic: false,
-      threatened: false,
-      native: false,
+      stats: {},
       similarSpecies: [],
       ancestors: [],
       loading: true,
@@ -70,6 +66,22 @@ class SpeciesDetail extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
+  }
+
+  setLoading( loading ) {
+    this.setState( { loading } );
+  }
+
+  setLocation( location ) {
+    this.setState( { location } );
+  }
+
+  setNearbySpeciesCount( nearbySpeciesCount ) {
+    this.setState( { nearbySpeciesCount } );
+  }
+
+  setTaxonStats( stats ) {
+    this.setState( { stats } );
   }
 
   async fetchUserLocation() {
@@ -93,9 +105,7 @@ class SpeciesDetail extends Component<Props> {
   reverseGeocodeLocation( lat, lng ) {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       const { locality, subAdminArea } = result[0];
-      this.setState( {
-        location: locality || subAdminArea
-      } );
+      this.setLocation( locality || subAdminArea );
     } ).catch( () => {
       // console.log( err, "error" );
     } );
@@ -117,8 +127,7 @@ class SpeciesDetail extends Component<Props> {
 
           this.setState( {
             seenDate,
-            userPhoto,
-            loading: false
+            userPhoto
           } );
         }
       } ).catch( () => {
@@ -128,7 +137,6 @@ class SpeciesDetail extends Component<Props> {
 
   fetchTaxonDetails() {
     const { id, scientificName, commonName } = this.state;
-    console.log( scientificName, commonName, "names" );
 
     inatjs.taxa.fetch( id ).then( ( response ) => {
       const taxa = response.results[0];
@@ -136,7 +144,6 @@ class SpeciesDetail extends Component<Props> {
       const ancestors = [];
       const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
       taxa.ancestors.forEach( ( ancestor ) => {
-        // console.log( ancestor, "ancestor" );
         if ( ranks.includes( ancestor.rank ) ) {
           ancestors.push( ancestor );
         }
@@ -163,8 +170,9 @@ class SpeciesDetail extends Component<Props> {
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
         ancestors,
-        endangered: conservationStatus ? conservationStatus.status_name : false,
-        loading: false
+        stats: {
+          endangered: conservationStatus ? conservationStatus.status_name : false
+        }
       } );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
@@ -182,9 +190,7 @@ class SpeciesDetail extends Component<Props> {
     };
 
     inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
-      this.setState( {
-        nearbySpeciesCount: results.length > 0 ? results[0].count : 0
-      } );
+      this.setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
     } ).catch( ( err ) => {
       console.log( err, "error fetching species count" );
     } );
@@ -209,6 +215,7 @@ class SpeciesDetail extends Component<Props> {
         } );
       }
       this.setState( { observationsByMonth } );
+      this.setLoading( false );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );
@@ -246,24 +253,28 @@ class SpeciesDetail extends Component<Props> {
     inatjs.observations.search( params ).then( ( response ) => {
       const { taxon } = response.results[0];
       if ( taxon ) {
-        this.setState( {
+        const stats = {
           threatened: taxon.threatened,
           endemic: taxon.endemic,
           introduced: taxon.introduced,
           native: taxon.native
-        } );
+        };
+        this.setTaxonStats( stats );
       }
     } ).catch( ( err ) => {
-      console.log( err, "err fetching observations nearby" );
+      console.log( err, "err fetching native threatened etc" );
     } );
   }
 
   fetchiNatData() {
-    this.checkIfSpeciesSeen();
-    this.fetchUserLocation();
-    this.fetchTaxonDetails();
-    this.fetchHistogram();
-    this.fetchSimilarSpecies();
+    const { error } = this.state;
+    if ( !error ) {
+      this.checkIfSpeciesSeen();
+      this.fetchUserLocation();
+      this.fetchTaxonDetails();
+      this.fetchHistogram();
+      this.fetchSimilarSpecies();
+    }
   }
 
   checkInternetConnection() {
@@ -272,12 +283,9 @@ class SpeciesDetail extends Component<Props> {
         if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
           this.setError( "internet" );
           this.checkIfSpeciesSeen();
-        } else {
-          this.setError( null );
-          this.fetchiNatData();
         }
-      } )
-      .catch( ( err ) => {
+        this.setError( null );
+      } ).catch( ( err ) => {
         console.log( err, "can't check connection" );
       } );
   }
@@ -300,11 +308,7 @@ class SpeciesDetail extends Component<Props> {
       location,
       similarSpecies,
       ancestors,
-      introduced,
-      endangered,
-      endemic,
-      native,
-      threatened,
+      stats,
       loading,
       loadingSpecies
     } = this.state;
@@ -318,6 +322,7 @@ class SpeciesDetail extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => {
               this.checkInternetConnection();
+              this.fetchiNatData();
             }}
           />
           <ScrollView>
@@ -370,33 +375,7 @@ class SpeciesDetail extends Component<Props> {
               </TouchableOpacity>
             ) : (
               <View style={styles.textContainer}>
-                <View style={styles.greenButtonContainer}>
-                  {endangered ? (
-                    <View style={styles.greenButton}>
-                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
-                    </View>
-                  ) : null}
-                  {endemic ? (
-                    <View style={styles.greenButton}>
-                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
-                    </View>
-                  ) : null}
-                  {native ? (
-                    <View style={styles.greenButton}>
-                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
-                    </View>
-                  ) : null}
-                  {threatened ? (
-                    <View style={styles.greenButton}>
-                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
-                    </View>
-                  ) : null}
-                  {introduced ? (
-                    <View style={styles.greenButton}>
-                      <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
-                    </View>
-                  ) : null}
-                </View>
+                <SpeciesStats stats={stats} />
                 {seenDate ? (
                   <View style={styles.row}>
                     <Image source={icons.checklist} style={styles.checkmark} />
@@ -433,7 +412,7 @@ class SpeciesDetail extends Component<Props> {
                   </View>
                 </View>
                 <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
-                {observationsByMonth ? <SpeciesChart data={observationsByMonth} /> : null}
+                {observationsByMonth.length > 0 ? <SpeciesChart data={observationsByMonth} /> : null}
                 <Text style={styles.headerText}>{i18n.t( "species_detail.similar" ).toLocaleUpperCase()}</Text>
               </View>
             ) }
@@ -445,7 +424,7 @@ class SpeciesDetail extends Component<Props> {
             {!error ? (
               <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
             ) : null}
-            <Padding />
+            <View style={styles.bottomPadding} />
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

@@ -55,8 +55,7 @@ export default StyleSheet.create( {
   gridCell: {
     width: width / 4,
     height: width / 4,
-    marginHorizontal: 3,
-    marginBottom: 12
+    marginHorizontal: 6
   },
   stats: {
     flexDirection: "row",

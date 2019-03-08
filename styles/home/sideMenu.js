@@ -22,7 +22,7 @@ export default StyleSheet.create( {
     alignItems: "flex-start"
   },
   image: {
-    marginLeft: 34,
+    marginLeft: 26,
     marginRight: 23,
     width: 25,
     height: 25,

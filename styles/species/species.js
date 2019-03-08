@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -19,7 +19,7 @@ export default StyleSheet.create( {
   },
   photoContainer: {
     height: 250,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.black
   },
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
@@ -40,7 +40,7 @@ export default StyleSheet.create( {
   },
   commonNameText: {
     fontSize: 30,
-    lineHeight: 35,
+    lineHeight: 31,
     letterSpacing: 0.3,
     color: colors.black,
     fontFamily: fonts.book
@@ -103,12 +103,11 @@ export default StyleSheet.create( {
     flexDirection: "row",
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
+    height: 29,
     paddingHorizontal: 9,
     paddingTop: 6,
-    paddingBottom: 4,
     marginRight: 10,
-    marginBottom: 7,
-    alignSelf: "flex-start"
+    marginBottom: 7
   },
   greenButtonText: {
     fontSize: 18,
@@ -201,5 +200,9 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 120,
     right: 5
+  },
+  bottomPadding: {
+    height: 35,
+    backgroundColor: colors.seekForestGreen
   }
 } );

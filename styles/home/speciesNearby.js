@@ -80,6 +80,14 @@ export default StyleSheet.create( {
     backgroundColor: "#2a7353",
     height: 223
   },
+  similarSpeciesContainer: {
+    backgroundColor: colors.seekForestGreen,
+    height: 223
+  },
+  similarSpeciesList: {
+    marginTop: 20,
+    paddingLeft: 20
+  },
   taxonList: {
     marginTop: 29,
     paddingLeft: 20

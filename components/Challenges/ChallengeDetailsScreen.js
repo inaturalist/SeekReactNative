@@ -162,10 +162,9 @@ class ChallengeDetailsScreen extends Component<Props> {
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}
               >
-                <Image source={icons.backButton} />
+                <Image source={icons.backButton} style={styles.image} />
               </TouchableOpacity>
               <Image style={styles.logo} source={logos.op} />
-              <View />
             </View>
             <View style={styles.challengeContainer}>
               <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>

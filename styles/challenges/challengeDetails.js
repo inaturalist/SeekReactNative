@@ -30,26 +30,27 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center",
+    height: 85,
     backgroundColor: colors.darkGray
   },
   logo: {
-    marginTop: 30,
-    marginRight: 20
+    alignSelf: "center",
+    height: 58,
+    width: 116,
+    resizeMode: "contain"
   },
   backButton: {
-    padding: 10,
-    marginTop: 20,
-    marginLeft: 20
+    top: 18,
+    marginLeft: 23
+  },
+  image: {
+    padding: 5
   },
   missionContainer: {
     flex: 1
   },
   challengeContainer: {
-    height: 320,
+    height: 315,
     alignItems: "flex-start",
     justifyContent: "center",
     backgroundColor: colors.darkGray,
@@ -92,7 +93,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 36,
     marginTop: 21,
-    marginBottom: 21
+    marginBottom: 23
   },
   text: {
     maxWidth: 183,
@@ -115,7 +116,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
     width: "80%",
-    height: 46
+    height: 46,
+    marginBottom: 37
   },
   buttonText: {
     fontFamily: fonts.semibold,

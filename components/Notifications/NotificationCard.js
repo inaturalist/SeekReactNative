@@ -18,6 +18,7 @@ type Props = {
 }
 
 const NotificationCard = ( { navigation, item }: Props ) => {
+  console.log( item, "item in notification" );
   let index;
 
   if ( item.nextScreen === "ChallengeDetails" ) {

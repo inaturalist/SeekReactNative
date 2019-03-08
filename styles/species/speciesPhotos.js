@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
   padding,
@@ -11,7 +11,8 @@ const { width } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   image: {
     width,
-    height: 250
+    height: 250,
+    resizeMode: "contain"
   },
   photoOverlay: {
     zIndex: 1,
@@ -22,10 +23,9 @@ export default StyleSheet.create( {
   ccButton: {
     backgroundColor: colors.black,
     opacity: 1,
-    paddingRight: padding.medium,
-    paddingLeft: padding.medium,
-    paddingTop: padding.medium,
-    paddingBottom: padding.medium,
+    paddingHorizontal: padding.medium,
+    paddingTop: Platform.OS === "ios" ? 8 : padding.medium,
+    paddingBottom: Platform.OS === "ios" ? 3 : padding.medium,
     borderRadius: 40
   },
   ccButtonText: {

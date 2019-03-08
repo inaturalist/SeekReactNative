@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import { Animated, View, Dimensions } from "react-native";
+import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
@@ -72,6 +73,7 @@ class Banner extends Component<Props> {
   }
 
   showLatestChallenge( challenge ) {
+    console.log( challenge, "chall in banner" );
     this.setState( { challenge } );
     this.toggleChallengeModal();
     createNotification( "challengeCompleted", challenge.index );
@@ -114,13 +116,11 @@ class Banner extends Component<Props> {
   }
 
   showToasts() {
-    const { badge } = this.state;
-
     const badgeToast = [
       Animated.timing(
         this.animatedBadge, {
           toValue: 0,
-          duration: 2000
+          duration: 1000
         }
       ),
       Animated.timing(
@@ -135,7 +135,7 @@ class Banner extends Component<Props> {
       Animated.timing(
         this.animatedChallenge, {
           toValue: 0,
-          duration: 2000
+          duration: 1000
         }
       ),
       Animated.timing(
@@ -147,19 +147,12 @@ class Banner extends Component<Props> {
       )
     ];
 
-    if ( badge ) {
-      Animated.sequence( [
-        badgeToast[0],
-        badgeToast[1],
-        challengeToast[0],
-        challengeToast[1]
-      ] ).start();
-    } else {
-      Animated.sequence( [
-        challengeToast[0],
-        challengeToast[1]
-      ] ).start();
-    }
+    Animated.sequence( [
+      badgeToast[0],
+      badgeToast[1],
+      challengeToast[0],
+      challengeToast[1]
+    ] ).start();
   }
 
   checkForChallengesCompleted() {

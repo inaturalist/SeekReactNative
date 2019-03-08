@@ -202,7 +202,7 @@ export default StyleSheet.create( {
     right: 5
   },
   bottomPadding: {
-    height: 35,
+    height: Platform.OS === "android" ? 17 : 60,
     backgroundColor: colors.seekForestGreen
   }
 } );

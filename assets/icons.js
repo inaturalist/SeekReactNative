@@ -35,7 +35,8 @@ const icons = {
   closeModal: require( "./icons/icon-close-modal.png" ),
   titleBanner: require( "./icons/img-titlebanner.png" ),
   swipeLeft: require( "./icons/img-swipearrow-left.png" ),
-  swipeRight: require( "./icons/img-swipearrow-right.png" )
+  swipeRight: require( "./icons/img-swipearrow-right.png" ),
+  taxonomyCircle: require( "./icons/img-taxonomycircle.png" )
 };
 
 export default icons;

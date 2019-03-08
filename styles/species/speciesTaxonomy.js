@@ -24,8 +24,6 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   bullets: {
-    color: colors.seekiNatGreen,
-    fontSize: 38,
     marginRight: 16
   }
 } );

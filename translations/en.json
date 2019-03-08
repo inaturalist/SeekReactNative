@@ -304,7 +304,7 @@
     "license": "License",
     "taxonomy": "Taxonomy",
     "inat_obs": "iNaturalist Observations",
-    "monthly_obs": "Observations by month",
+    "monthly_obs": "Seasonality",
     "worldwide": "Worldwide",
     "seen_on": "You observed it on {{date}}",
     "endangered": "Endangered",

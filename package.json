@@ -21,7 +21,6 @@
     "react-native": "^0.57.4",
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
     "react-native-check-box": "^2.1.7",
-    "react-native-fs": "^2.13.2",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
@@ -40,8 +39,7 @@
     "react-native-vector-icons": "^6.1.0",
     "react-navigation": "^3.3.2",
     "react-navigation-transitions": "^1.0.8",
-    "realm": "^2.19.0-rc.4",
-    "rn-fetch-blob": "^0.10.15"
+    "realm": "^2.19.0-rc.4"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

@@ -5,7 +5,6 @@ import {
   View,
   Alert
 } from "react-native";
-// import RNFS from "react-native-fs";
 import INatCamera from "../../INatCamera";
 
 const styles = StyleSheet.create( {
@@ -66,12 +65,6 @@ class ARCamera extends Component {
   onDeviceNotSupported = event => {
     console.log( `Device not supported, reason: ${event.nativeEvent.reason}` )
   }
-
-  // readAssets() {
-  //   RNFS.readDir( RNFS.ExternalStorageDirectoryPath ).then( result => {
-  //     console.log( result, "result" );
-  //   } ).catch( err => console.log( "err: ", err ))
-  // }
 
   render() {
     const { content } = this.state;

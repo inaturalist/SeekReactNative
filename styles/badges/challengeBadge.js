@@ -48,7 +48,8 @@ export default StyleSheet.create( {
   },
   logo: {
     height: 70,
-    width: 209
+    width: 209,
+    resizeMode: "contain"
   },
   backButton: {
     padding: 10,

@@ -105,7 +105,7 @@ export default StyleSheet.create( {
     borderRadius: 6,
     height: 29,
     paddingHorizontal: 9,
-    paddingTop: 6,
+    paddingTop: Platform.OS === "ios" ? 6 : 3,
     marginRight: 10,
     marginBottom: 7
   },

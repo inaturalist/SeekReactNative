@@ -34,7 +34,8 @@ export default StyleSheet.create( {
   },
   image: {
     width: 202,
-    height: 80
+    height: 80,
+    resizeMode: "contain"
   },
   headerText: {
     marginTop: 20,

@@ -5,7 +5,7 @@ import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
 
-import { colors, fonts } from "../../styles/global";
+import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 
 type Props = {

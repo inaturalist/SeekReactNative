@@ -19,6 +19,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   taxonomyRow: {
+    marginTop: 7,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"

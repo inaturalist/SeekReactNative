@@ -97,10 +97,10 @@
     "settings": "Settings"
   },
   "onboarding": {
-    "onboarding_1": "Take a photo of anything living and Seek will help you identify it!",
-    "onboarding_2": "Earn badges for seeing different species",
+    "onboarding_1": "Use Seek’s Camera to learn about the organisms all around you",
+    "onboarding_2": "Earn badges for seeing different species all around you",
     "onboarding_3": "Participate in global challenges with Our Planet and WWF",
-    "skip": "Skip for now",
+    "next": "Next",
     "continue": "Continue"
   },
   "location_picker": {

@@ -8,10 +8,11 @@ const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: "center"
   },
   carousel: {
-    marginTop: 40
+    marginTop: 20
   },
   banner: {
     height: 150,
@@ -28,13 +29,17 @@ export default StyleSheet.create( {
     shadowRadius: 1
   },
   imageContainer: {
-    justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 22
   },
+  image1: {
+    width: 256,
+    height: 304,
+    resizeMode: "contain"
+  },
   image: {
-    width: 293,
-    height: 232,
+    width: 297,
+    height: 268,
     resizeMode: "contain"
   },
   textContainer: {
@@ -42,27 +47,37 @@ export default StyleSheet.create( {
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 22,
-    marginTop: 21
+    marginLeft: 42,
+    marginRight: 42,
+    marginTop: 29
+    // marginBottom: 57
   },
   text: {
-    fontSize: 20,
+    maxWidth: 292,
+    fontSize: 19,
     textAlign: "center",
     color: colors.white,
-    lineHeight: 35,
-    fontFamily: fonts.semibold
+    lineHeight: 24,
+    fontFamily: fonts.medium
   },
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 52
+    marginBottom: 34
+  },
+  button: {
+    justifyContent: "center",
+    borderRadius: 34,
+    width: 293,
+    height: 50,
+    backgroundColor: colors.seekForestGreen
   },
   skip: {
-    fontSize: 19,
+    fontSize: 18,
     textAlign: "center",
     color: colors.white,
-    fontFamily: fonts.light,
-    textDecorationLine: "underline"
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.0
   },
   contentContainer: {
     width,
@@ -80,15 +95,18 @@ export default StyleSheet.create( {
     alignItems: "flex-end"
   },
   dot: {
-    backgroundColor: colors.darkGray,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    backgroundColor: "#393939",
+    width: 6,
+    height: 6,
+    borderRadius: 6 / 2,
     marginHorizontal: 16,
     marginTop: 3,
     marginBottom: 3
   },
   activeDot: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    width: 10,
+    height: 10,
+    borderRadius: 10 / 2
   }
 } );

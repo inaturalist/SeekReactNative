@@ -12,6 +12,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   logo: {
+    alignSelf: "center",
     marginTop: 25,
     width: ( width / 2 ) * 1.5,
     height: 79,

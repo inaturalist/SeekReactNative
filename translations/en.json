@@ -119,7 +119,8 @@
     "birds": "birds",
     "insects": "insects",
     "mollusks": "mollusks",
-    "mammals": "mammals"
+    "mammals": "mammals",
+    "other": "other"
   },
   "challenges": {
     "header": "Challenges",

@@ -123,7 +123,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
     paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white
   },
   viewText: {

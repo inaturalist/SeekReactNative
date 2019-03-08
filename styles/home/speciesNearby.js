@@ -118,7 +118,7 @@ export default StyleSheet.create( {
   cellTitleText: {
     textAlign: "center",
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     lineHeight: 21,
     fontSize: 16
   },
@@ -131,8 +131,8 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   text: {
-    fontFamily: fonts.default,
-    fontSize: fontSize.buttonText
+    fontFamily: fonts.medium,
+    fontSize: 18
   },
   loading: {
     alignItems: "center",

@@ -14,16 +14,16 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   errorTitle: {
-    fontSize: fontSize.largeHeader,
+    fontSize: 36,
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     textAlign: "center"
   },
   error: {
-    fontSize: fontSize.header,
+    fontSize: 20,
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     textAlign: "center",
-    marginHorizontal: margins.medium
+    marginHorizontal: 15
   }
 } );

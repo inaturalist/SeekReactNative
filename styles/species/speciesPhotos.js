@@ -23,14 +23,14 @@ export default StyleSheet.create( {
   ccButton: {
     backgroundColor: colors.black,
     opacity: 1,
-    paddingHorizontal: padding.medium,
-    paddingTop: Platform.OS === "ios" ? 8 : padding.medium,
-    paddingBottom: Platform.OS === "ios" ? 3 : padding.medium,
+    paddingHorizontal: 5,
+    paddingTop: Platform.OS === "ios" ? 8 : 5,
+    paddingBottom: Platform.OS === "ios" ? 3 : 5,
     borderRadius: 40
   },
   ccButtonText: {
     fontFamily: fonts.semibold,
-    fontSize: fontSize.text,
+    fontSize: 16,
     color: colors.white
   }
 } );

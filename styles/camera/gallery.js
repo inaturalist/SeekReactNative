@@ -34,8 +34,8 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   button: {
-    paddingHorizontal: padding.extraSmall,
-    paddingTop: padding.small
+    paddingHorizontal: 1,
+    paddingTop: 2
   },
   image: {
     width: width / 4 - 2,

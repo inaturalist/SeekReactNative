@@ -23,6 +23,7 @@ const RangeMap = ( { navigation }: Props ) => {
           region={region}
           provider={PROVIDER_DEFAULT}
           style={styles.map}
+          zoomEnabled
           maxZoomLevel={7}
         >
           <UrlTile

@@ -40,7 +40,7 @@ export default StyleSheet.create( {
   },
   titleText: {
     maxWidth: 232,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
     marginBottom: 5,
     lineHeight: 21

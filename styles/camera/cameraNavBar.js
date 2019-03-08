@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
+    marginTop: Platform.OS === "android" ? 15 + 5 : 15,
     marginHorizontal: 25
   },
   backButton: {
@@ -30,7 +30,7 @@ export default StyleSheet.create( {
     fontSize: 14,
     marginHorizontal: 5,
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     textAlign: "center",
     letterSpacing: 1.0
   }

@@ -356,7 +356,6 @@ class SpeciesDetail extends Component<Props> {
             {taxaType && iconicTaxaNames[taxaType]
               ? (
                 <View style={styles.greenBanner}>
-                  {Alert.alert( taxaType )}
                   <Text style={styles.iconicTaxaText}>
                     {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
                   </Text>

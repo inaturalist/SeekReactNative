@@ -74,7 +74,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     marginHorizontal: 23,
     fontSize: 18,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     color: colors.black,
     lineHeight: 24,
     letterSpacing: 1.0

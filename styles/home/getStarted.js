@@ -40,7 +40,7 @@ export default StyleSheet.create( {
   text: {
     maxWidth: 245,
     fontFamily: fonts.book,
-    fontSize: fontSize.smallText,
+    fontSize: 14,
     lineHeight: 20,
     marginHorizontal: 12
   }

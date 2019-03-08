@@ -28,7 +28,7 @@ export default StyleSheet.create( {
   },
   cameraTabLabel: {
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     letterSpacing: 0.88,
     fontSize: 14
   },

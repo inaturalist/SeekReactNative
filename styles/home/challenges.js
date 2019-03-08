@@ -102,7 +102,7 @@ export default StyleSheet.create( {
   noChallengeText: {
     width: 229,
     textAlign: "center",
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     color: colors.errorGray,
     fontSize: 19,
     lineHeight: 24

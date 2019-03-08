@@ -4,7 +4,8 @@ import React, { Component } from "react";
 import {
   FlatList,
   View,
-  SafeAreaView
+  SafeAreaView,
+  Text
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -55,14 +56,26 @@ class NotificationsScreen extends Component<Props> {
             onWillBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
-          <FlatList
-            data={notifications}
-            style={styles.notificationsContainer}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <NotificationCard item={item} navigation={navigation} />
+          {notifications.length > 0
+            ? (
+              <FlatList
+                data={notifications}
+                style={styles.notificationsContainer}
+                keyExtractor={( item, i ) => `${item}${i}`}
+                renderItem={( { item } ) => (
+                  <NotificationCard item={item} navigation={navigation} />
+                )}
+              />
+            ) : (
+              <View style={styles.noNotifications}>
+                <Text style={styles.noNotificationsHeader}>
+                  {i18n.t( "notifications.none" ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.noNotificationsText}>
+                  {i18n.t( "notifications.about" )}
+                </Text>
+              </View>
             )}
-          />
           <Footer navigation={navigation} />
         </SafeAreaView>
       </View>

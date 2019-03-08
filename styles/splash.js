@@ -40,9 +40,9 @@ export default StyleSheet.create( {
   headerText: {
     marginTop: 20,
     fontFamily: fonts.book,
-    fontSize: fontSize.header,
+    fontSize: 18,
     color: colors.white,
-    letterSpacing: 5
+    letterSpacing: 5.62
   },
   text: {
     fontSize: 17,

@@ -316,6 +316,9 @@ class SpeciesDetail extends Component<Props> {
 
     const { navigation } = this.props;
 
+    const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
+    console.log( showGreenButtons, "show" );
+
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
@@ -376,8 +379,8 @@ class SpeciesDetail extends Component<Props> {
                 </View>
               </TouchableOpacity>
             ) : (
-              <View style={styles.textContainer}>
-                <SpeciesStats stats={stats} />
+              <View style={styles.secondTextContainer}>
+                {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
                 {seenDate ? (
                   <View style={styles.row}>
                     <Image source={icons.checklist} style={styles.checkmark} />

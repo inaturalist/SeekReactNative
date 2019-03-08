@@ -38,6 +38,9 @@ export default StyleSheet.create( {
     marginTop: 20,
     marginHorizontal: 28
   },
+  secondTextContainer: {
+    marginHorizontal: 28
+  },
   commonNameText: {
     fontSize: 30,
     lineHeight: 31,
@@ -53,8 +56,8 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   headerText: {
-    marginTop: 35,
-    marginBottom: 12,
+    marginTop: 45,
+    marginBottom: 11,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -87,56 +90,13 @@ export default StyleSheet.create( {
     color: colors.black
   },
   row: {
-    marginTop: 20,
+    marginTop: 26,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
   },
   checkmark: {
     marginRight: 10
-  },
-  greenButtonContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  greenButton: {
-    flexDirection: "row",
-    backgroundColor: colors.seekiNatGreen,
-    borderRadius: 6,
-    height: 29,
-    paddingHorizontal: 9,
-    paddingTop: Platform.OS === "ios" ? 6 : 3,
-    marginRight: 10,
-    marginBottom: 7
-  },
-  greenButtonText: {
-    fontSize: 18,
-    fontFamily: fonts.semibold,
-    color: colors.white,
-    letterSpacing: 1.0
-  },
-  taxonomyHeader: {
-    fontSize: 16,
-    fontFamily: fonts.semibold,
-    color: colors.black,
-    lineHeight: 21
-  },
-  taxonomyText: {
-    maxWidth: 200,
-    fontSize: 16,
-    fontFamily: fonts.book,
-    color: colors.black,
-    lineHeight: 21
-  },
-  taxonomyRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  bullets: {
-    color: colors.seekiNatGreen,
-    fontSize: 38,
-    marginRight: 16
   },
   loading: {
     justifyContent: "center",

@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/species/species";
+import styles from "../../styles/species/speciesStats";
 
 type Props = {
   stats: Object

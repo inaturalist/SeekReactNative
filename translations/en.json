@@ -297,6 +297,7 @@
     "not_seen": "You haven’t observed any {{iconicTaxon}} yet!"
   },
   "species_detail": {
+    "near": "Near",
     "about": "About",
     "range_map": "Range map",
     "view_map": "View range map",
@@ -330,7 +331,8 @@
     "insect": "insect",
     "mollusk": "mollusk",
     "mammal": "mammal",
-    "species_saved": "This species is saved to your observations."
+    "species_saved": "This species is saved to your observations.",
+    "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them."
   },
   "about": {
     "header": "About",

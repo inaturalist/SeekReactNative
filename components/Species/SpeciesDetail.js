@@ -8,8 +8,7 @@ import {
   Text,
   NetInfo,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -31,6 +30,7 @@ import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import LoadingWheel from "../LoadingWheel";
+import INatObs from "./INatObs";
 
 type Props = {
   navigation: any
@@ -225,7 +225,8 @@ class SpeciesDetail extends Component<Props> {
   fetchSimilarSpecies() {
     const { id } = this.state;
     const params = {
-      taxon_id: id
+      taxon_id: id,
+      without_taxon_id: 43584
     };
 
     inatjs.identifications.similar_species( params ).then( ( response ) => {
@@ -317,7 +318,6 @@ class SpeciesDetail extends Component<Props> {
     const { navigation } = this.props;
 
     const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
-    console.log( showGreenButtons, "show" );
 
     return (
       <View style={styles.container}>
@@ -406,16 +406,7 @@ class SpeciesDetail extends Component<Props> {
                 <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
                 <SpeciesTaxonomy ancestors={ancestors} />
                 <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
-                <View style={styles.stats}>
-                  <View>
-                    <Text style={styles.secondHeaderText}>{location}</Text>
-                    <Text style={styles.number}>{nearbySpeciesCount}</Text>
-                  </View>
-                  <View>
-                    <Text style={styles.secondHeaderText}>{i18n.t( "species_detail.worldwide" )}</Text>
-                    <Text style={styles.number}>{timesSeen}</Text>
-                  </View>
-                </View>
+                <INatObs location={location} nearbySpeciesCount={nearbySpeciesCount} timesSeen={timesSeen} />
                 <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
                 {observationsByMonth.length > 0 ? <SpeciesChart data={observationsByMonth} /> : null}
                 <Text style={styles.headerText}>{i18n.t( "species_detail.similar" ).toLocaleUpperCase()}</Text>
@@ -426,9 +417,9 @@ class SpeciesDetail extends Component<Props> {
                 <Text style={[styles.text, { textAlign: "center" }]}>{i18n.t( "species_detail.species_saved" )}</Text>
               </View>
             ) : null}
-            {!error ? (
-              <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
-            ) : null}
+            {!error
+              ? <SimilarSpecies navigation={navigation} taxa={similarSpecies} loading={loadingSpecies} />
+              : null}
             <View style={styles.bottomPadding} />
           </ScrollView>
           <Footer navigation={navigation} />

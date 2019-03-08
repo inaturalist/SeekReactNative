@@ -69,26 +69,6 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  stats: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  secondHeaderText: {
-    textAlign: "center",
-    marginHorizontal: 23,
-    fontSize: 18,
-    fontFamily: fonts.medium,
-    color: colors.black,
-    lineHeight: 24,
-    letterSpacing: 1.0
-  },
-  number: {
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 22,
-    fontFamily: fonts.light,
-    color: colors.black
-  },
   row: {
     marginTop: 26,
     flexDirection: "row",

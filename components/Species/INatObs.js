@@ -3,7 +3,8 @@ import React from "react";
 import {
   View,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -13,12 +14,23 @@ import logos from "../../assets/logos";
 type Props = {
   location: string,
   nearbySpeciesCount: number,
-  timesSeen: number
+  timesSeen: number,
+  navigation: any
 };
 
-const INatObs = ( { location, nearbySpeciesCount, timesSeen }: Props ) => (
+const INatObs = ( {
+  location,
+  nearbySpeciesCount,
+  timesSeen,
+  navigation
+}: Props ) => (
   <View style={styles.stats}>
-    <Image source={logos.bird} style={styles.image} />
+    <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate( "iNatStats" )}
+    >
+      <Image source={logos.bird} style={styles.image} />
+    </TouchableOpacity>
     <View style={styles.textContainer}>
       <Text style={styles.secondHeaderText}>
         {i18n.t( "species_detail.near" )}

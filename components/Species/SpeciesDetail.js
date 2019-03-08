@@ -406,7 +406,12 @@ class SpeciesDetail extends Component<Props> {
                 <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
                 <SpeciesTaxonomy ancestors={ancestors} />
                 <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
-                <INatObs location={location} nearbySpeciesCount={nearbySpeciesCount} timesSeen={timesSeen} />
+                <INatObs
+                  location={location}
+                  nearbySpeciesCount={nearbySpeciesCount}
+                  timesSeen={timesSeen}
+                  navigation={navigation}
+                />
                 <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
                 {observationsByMonth.length > 0 ? <SpeciesChart data={observationsByMonth} /> : null}
                 <Text style={styles.headerText}>{i18n.t( "species_detail.similar" ).toLocaleUpperCase()}</Text>

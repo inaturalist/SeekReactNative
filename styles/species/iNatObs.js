@@ -9,13 +9,16 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginTop: 23
   },
+  button: {
+    padding: 10
+  },
   image: {
     height: 65,
     width: 81,
     resizeMode: "contain"
   },
   textContainer: {
-    marginLeft: 32
+    marginLeft: 22
   },
   secondHeaderText: {
     fontSize: 19,

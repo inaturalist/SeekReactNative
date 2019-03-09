@@ -230,7 +230,10 @@
     "adventurer": "Adventurer",
     "biologist": "Biologist"
   },
-  "badges": { 
+  "badges": {
+    "your_level": "Your Level",
+    "explanation": "Observe more total species to raise your level, find organisms of specific groups to earn species badges, and participate in challenges to earn challenge badges!",
+    "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_species": "Observe",
     "species_badges": "Species Badges",

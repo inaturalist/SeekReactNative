@@ -36,8 +36,15 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
+  lightText: {
+    marginBottom: 10,
+    fontFamily: fonts.light,
+    color: colors.white,
+    letterSpacing: 0.78,
+    fontSize: 18
+  },
   text: {
-    marginTop: 10,
+    marginTop: 7,
     fontFamily: fonts.book,
     color: colors.white,
     lineHeight: 21,
@@ -67,7 +74,6 @@ export default StyleSheet.create( {
     flexWrap: "nowrap"
   },
   secondHeaderText: {
-    maxWidth: 96,
     textAlign: "center",
     marginHorizontal: 23,
     fontSize: 18,
@@ -98,5 +104,16 @@ export default StyleSheet.create( {
     top: -1000,
     left: 0,
     right: 0
+  },
+  darkText: {
+    marginTop: 32,
+    marginBottom: 17,
+    marginLeft: 24,
+    marginRight: 24,
+    textAlign: "center",
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.book,
+    color: colors.black
   }
 } );

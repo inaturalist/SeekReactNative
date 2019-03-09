@@ -66,8 +66,6 @@
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
 		37F09A3921E8085700D5C691 /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37F09A1E21E8083700D5C691 /* libReact Native Open Settings.a */; };
-		39193494E86442DF8763C275 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A56A78BB67264A3A8356F598 /* libRNFS.a */; };
-		3CFA672CE539405BBA76E532 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3D8FEFD0BF24BCCB6D91C75 /* libRNFetchBlob.a */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
 		60552B3D8A884EA2A396E608 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C62020055F64ADF979B4615 /* libRNVectorIcons-tvOS.a */; };
 		6663D69175A947568D6E47AB /* Whitney-BlackItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5229C53D51524867A0B7218B /* Whitney-BlackItalic-Pro.otf */; };
@@ -674,8 +672,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				C3E41C77266542B79A3D24AF /* libc++.tbd in Frameworks */,
 				1EBFD4CC68834923BDFB92DF /* libz.tbd in Frameworks */,
-				3CFA672CE539405BBA76E532 /* libRNFetchBlob.a in Frameworks */,
-				39193494E86442DF8763C275 /* libRNFS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

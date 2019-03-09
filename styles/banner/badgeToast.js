@@ -19,37 +19,37 @@ export default StyleSheet.create( {
   },
   row: {
     height: 112,
+    marginLeft: 22,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "center"
-  },
-  textContainer: {
-    width: 215,
-    justifyContent: "center",
-    marginRight: 10
+    justifyContent: "space-between"
   },
   headerText: {
-    paddingTop: padding.iOSPadding,
-    fontSize: 19,
+    fontSize: 18,
+    lineHeight: 24,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    letterSpacing: 1.12
+    letterSpacing: 1.0
   },
   description: {
+    marginTop: 1,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
     color: colors.black
   },
   view: {
+    marginTop: 8,
     fontFamily: fonts.light,
     fontSize: 14,
+    lineHeight: 21,
     color: colors.black
   },
   image: {
-    width: 59,
-    height: 66,
-    resizeMode: "contain"
+    width: 75,
+    height: 75,
+    resizeMode: "contain",
+    marginRight: 17
   }
 } );

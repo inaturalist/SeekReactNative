@@ -27,17 +27,17 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
           style={styles.header}
           colors={["#67c5ca", "#3ca2ab"]}
       >
-          <Image
-            source={badges[challenge.earnedIconName]}
-            style={styles.image}
-          /> 
-          <ImageBackground source={icons.badgeBanner} style={styles.banner}>
-            <Text style={styles.bannerText}>
-              {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
-              {" "}
-              {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
-            </Text>
-          </ImageBackground>
+        <Image
+          source={badges[challenge.earnedIconName]}
+          style={styles.image}
+        />
+        <ImageBackground source={icons.badgeBanner} style={styles.banner}>
+          <Text style={styles.bannerText}>
+            {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
+            {" "}
+            {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
+          </Text>
+        </ImageBackground>
       </LinearGradient>
       <Text style={styles.headerText}>
         {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}

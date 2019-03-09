@@ -77,8 +77,10 @@ class BadgesScreen extends Component<Props> {
           speciesBadges.push( sorted[0] );
         } );
 
+        const allLevels = badges.filtered( "iconicTaxonName == null" );
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count", true );
+        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" );
+        console.log( nextLevel, "next" );
 
         speciesBadges.sort( ( a, b ) => {
           if ( a.index < b.index ) {
@@ -96,7 +98,7 @@ class BadgesScreen extends Component<Props> {
 
         this.setState( {
           speciesBadges,
-          level: levelsEarned.length > 0 ? levelsEarned[0] : nextLevel[0],
+          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
           badgesEarned
         } );
@@ -203,8 +205,6 @@ class BadgesScreen extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    const levelName = level ? i18n.t( level.name.toString() ) : null;
-
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
@@ -278,7 +278,7 @@ class BadgesScreen extends Component<Props> {
                     <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
                   </TouchableOpacity>
                   <View style={styles.textContainer}>
-                    <Text style={styles.headerText}>{levelName.toLocaleUpperCase()}</Text>
+                    <Text style={styles.headerText}>{i18n.t( level.name ).toLocaleUpperCase()}</Text>
                     <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
                   </View>
                 </View>

@@ -50,7 +50,8 @@ const setupBadges = () => {
             earnedIconName: badges.earnedIconName,
             unearnedIconName: badges.unearnedIconName,
             infoText: badges.infoText,
-            index: badges.index
+            index: badges.index,
+            earned: badges.name === "levels.tadpole" || false
           }, true );
         } );
       } );

@@ -1,43 +1,75 @@
 const badges = {
   tadpole: {
     infoText: "Earned after collecting your third species.",
-    name: "Tadpole",
-    count: 1,
+    name: "levels.tadpole",
+    count: 0,
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_naturalist-03-tadpole",
+    earnedIconName: "levelbadge-0",
     index: 0
   },
   cub: {
     infoText: "Earned after collecting your 15th species.",
-    name: "Cub",
+    name: "levels.cub",
     count: 3,
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_naturalist-15-cub",
+    earnedIconName: "levelbadge-3",
     index: 1
+  },
+  tracker: {
+    infoText: "Earned after collecting your 35th species.",
+    name: "levels.tracker",
+    count: 15,
+    unearnedIconName: "badge_empty",
+    earnedIconName: "levelbadge-15",
+    index: 2
   },
   surveyor: {
     infoText: "Earned after collecting your 35th species.",
-    name: "Surveyor",
-    count: 5,
+    name: "levels.surveyor",
+    count: 30,
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_naturalist-35-surveyor",
-    index: 2
+    earnedIconName: "levelbadge-30",
+    index: 3
   },
   naturalist: {
     infoText: "Earned after collecting your 65th species.",
-    name: "Naturalist",
-    count: 7,
+    name: "levels.naturalist",
+    count: 50,
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_naturalist-65-naturalist",
-    index: 3
+    earnedIconName: "levelbadge-50",
+    index: 4
+  },
+  seeker: {
+    infoText: "Earned after collecting your 100th species.",
+    name: "levels.seeker",
+    count: 75,
+    unearnedIconName: "badge_empty",
+    earnedIconName: "levelbadge-75",
+    index: 5
   },
   explorer: {
     infoText: "Earned after collecting your 100th species.",
-    name: "Explorer",
-    count: 8,
+    name: "levels.explorer",
+    count: 100,
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_naturalist-100-explorer",
-    index: 4
+    earnedIconName: "levelbadge-100",
+    index: 6
+  },
+  adventurer: {
+    infoText: "Earned after collecting your 100th species.",
+    name: "levels.adventurer",
+    count: 125,
+    unearnedIconName: "badge_empty",
+    earnedIconName: "levelbadge-125",
+    index: 7
+  },
+  biologist: {
+    infoText: "Earned after collecting your 100th species.",
+    name: "levels.biologist",
+    count: 150,
+    unearnedIconName: "badge_empty",
+    earnedIconName: "levelbadge-150",
+    index: 8
   },
   bird1: {
     infoText: "badges.bird_1",

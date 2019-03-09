@@ -21,6 +21,11 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     alignItems: "center"
   },
+  levelImage: {
+    width: 117,
+    height: 117,
+    resizeMode: "contain"
+  },
   textContainer: {
     width: 167,
     marginLeft: 24

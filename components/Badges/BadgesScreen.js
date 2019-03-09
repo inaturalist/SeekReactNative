@@ -203,6 +203,8 @@ class BadgesScreen extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
+    const levelName = level ? i18n.t( level.name.toString() ) : null;
+
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
@@ -260,7 +262,6 @@ class BadgesScreen extends Component<Props> {
                 toggleChallengeModal={this.toggleChallengeModal}
               />
             )
-            
             }
           </Modal>
           <ScrollView>
@@ -274,10 +275,10 @@ class BadgesScreen extends Component<Props> {
                   <TouchableOpacity
                     onPress={() => this.toggleLevelModal()}
                   >
-                    <Image source={badgeImages[level.earnedIconName]} />
+                    <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
                   </TouchableOpacity>
                   <View style={styles.textContainer}>
-                    <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
+                    <Text style={styles.headerText}>{levelName.toLocaleUpperCase()}</Text>
                     <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
                   </View>
                 </View>

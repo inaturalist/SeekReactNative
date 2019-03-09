@@ -219,6 +219,17 @@
     "identify": "Identify this photo?",
     "button": "Identify Photo"
   },
+  "levels": {
+    "tadpole": "Tadpole",
+    "cub": "Cub",
+    "tracker": "Tracker",
+    "surveyor": "Surveyor",
+    "naturalist": "Naturalist",
+    "seeker": "Seeker",
+    "explorer": "Explorer",
+    "adventurer": "Adventurer",
+    "biologist": "Biologist"
+  },
   "badges": { 
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_species": "Observe",

@@ -152,8 +152,8 @@ class SpeciesDetail extends Component<Props> {
 
       ancestors.push( {
         rank: "species",
-        name: scientificName || "name",
-        preferred_common_name: commonName || "commonname"
+        name: scientificName || null,
+        preferred_common_name: commonName || null
       } );
 
       const photos = [];

@@ -91,7 +91,7 @@ export default StyleSheet.create( {
   },
   safeViewTop: {
     flex: 0,
-    backgroundColor: "#22784d"
+    backgroundColor: colors.seekForestGreen
   },
   safeView: {
     flex: 1,

@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>12</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -31,7 +31,7 @@
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
-			<string/>
+			<string></string>
 		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
@@ -39,6 +39,8 @@
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>NSCalendarsUsageDescription</key>
+	<string>We use react-native-permissions library to deliver you the right error messages.</string>
+	<key>NSMicrophoneUsageDescription</key>
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use the camera so you can get identifications of your nature photos.</string>

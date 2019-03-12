@@ -53,8 +53,8 @@ const handleCustomTransition = ( { scenes } ) => {
 
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
-    screen: Camera,
-    // screen: Platform.OS === "android" ? ARCamera : Camera,
+    // screen: Camera,
+    screen: Platform.OS === "android" ? ARCamera : Camera,
     navigationOptions: () => ( {
       title: i18n.t( "camera.label" ).toLocaleUpperCase()
     } )

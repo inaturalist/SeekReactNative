@@ -195,7 +195,8 @@
   "camera": {
     "label": "Camera",
     "on": "on",
-    "off": "off"
+    "off": "off",
+    "scan": "Keep scanning the environment for organisms to identify!"
   },
   "gallery": {
     "label": "Photos",

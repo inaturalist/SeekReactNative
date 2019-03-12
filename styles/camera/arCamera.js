@@ -7,27 +7,22 @@ export default StyleSheet.create( {
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "transparent"
+    backgroundColor: colors.black
   },
   camera: {
     width,
     height,
     zIndex: -2
   },
-  scanText: {
-    fontSize: 16,
-    textAlign: "center",
-    margin: 20,
-    lineHeight: 21,
-    fontFamily: fonts.semibold,
-    maxWidth: 293
-  },
+
   greenButton: {
     backgroundColor: colors.seekGreen,
     borderRadius: 6,
     height: 26,
     paddingHorizontal: 10,
-    paddingTop: Platform.OS === "ios" ? 6 : 3
+    paddingTop: Platform.OS === "ios" ? 6 : null,
+    alignItems: "center",
+    justifyContent: "center"
   },
   greenButtonText: {
     fontSize: 16,
@@ -37,10 +32,14 @@ export default StyleSheet.create( {
   },
   predictions: {
     textAlign: "center",
-    margin: 10,
+    margin: 23,
     fontSize: 20,
     fontFamily: fonts.semibold,
-    color: colors.seekForestGreen
+    color: colors.white
+  },
+  header: {
+    position: "absolute",
+    top: 40
   },
   dotRow: {
     flexDirection: "row",
@@ -49,18 +48,18 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   whiteDot: {
-    margin: 18,
-    backgroundColor: colors.seekGreen,
+    marginHorizontal: 18,
+    backgroundColor: colors.white,
     borderRadius: 4 / 2,
     width: 4,
     height: 4
   },
   greenDot: {
-    margin: 18,
+    marginHorizontal: 18,
     backgroundColor: colors.seekGreen,
     borderWidth: 1,
     borderRadius: 10 / 2,
-    borderColor: colors.black,
+    borderColor: colors.white,
     width: 10,
     height: 10
   },
@@ -71,23 +70,37 @@ export default StyleSheet.create( {
   main: {
     flexGrow: 1
   },
+  scanText: {
+    position: "absolute",
+    bottom: 95,
+    fontSize: 16,
+    textAlign: "center",
+    color: colors.white,
+    margin: 20,
+    lineHeight: 21,
+    fontFamily: fonts.semibold,
+    maxWidth: 293
+  },
   footer: {
-    zIndex: 1,
-    height: 105,
     backgroundColor: colors.black,
+    position: "absolute",
+    bottom: 10,
+    height: 105,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "center"
   },
-  placeholder: {
-    width: 49
+  help: {
+    position: "absolute",
+    left: 70,
+    bottom: 35
+  },
+  shutter: {
+    position: "absolute",
+    bottom: 18
   },
   capture: {
-    backgroundColor: colors.white,
-    borderWidth: 2,
-    borderRadius: 49 / 2,
-    borderColor: colors.seekiNatGreen,
-    width: 49,
-    height: 49
+    position: "absolute",
+    bottom: 18
   }
 } );

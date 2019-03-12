@@ -16,6 +16,8 @@ const icons = {
   cameraHelp: require( "./icons/icon-help.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
+  arCameraButton: require( "./icons/CameraButton.png" ),
+  arCameraGreen: require( "./icons/CameraButton-Species.png" ),
   backButton: require( "./icons/back.png" ),
   backButtonGreen: require( "./icons/icon-back-green.png" ),
   badgePlaceholder: require( "./icons/badge-placeholder.png" ),

@@ -107,50 +107,32 @@ class ARCamera extends Component<Props> {
     const { species } = this.state;
     const { navigation } = this.props;
 
-    let dots;
-
-
+    // let dots;
 
     return (
       <View style={styles.container}>
         <NavigationEvents onWillFocus={() => this.requestPermissions()} />
-        {/* {kingdom ? (
-          <View>
-            <Text style={styles.welcome}>
-              kingdom:
-              {kingdom[0].name}
-              {console.log( kingdom, "kingdom" )}
-            </Text>
-            <Text style={styles.welcome}>
-             score: 
-            {kingdom[0].score}
-            </Text>
-            <Text style={styles.welcome}>
-             rank: 
-            {kingdom[0].rank}
-            </Text>
-          </View>
-        ) : null} */}
-        {species ? (
-          <View>
-            <Text style={styles.predictions}>{species[0].name}</Text>
-            <View style={styles.greenButton}>
-              <Text style={styles.greenButtonText}>
-                {species[0].score}
-              </Text>
+        <View style={styles.header}>
+          {species ? (
+            <View>
+              <View style={styles.greenButton}>
+                <Text style={styles.greenButtonText}>
+                  {species[0].score}
+                </Text>
+              </View>
+              <Text style={styles.predictions}>{species[0].name}</Text>
             </View>
+          ) : null}
+          <View style={styles.dotRow}>
+            <View style={styles.whiteDot} />
+            <View style={styles.whiteDot} />
+            <View style={styles.whiteDot} />
+            <View style={styles.whiteDot} />
+            <View style={styles.whiteDot} />
+            <View style={styles.whiteDot} />
+            <View style={styles.greenDot} />
           </View>
-        ) : null}
-        <View style={styles.dotRow}>
-          <View style={styles.whiteDot} />
-          <View style={styles.whiteDot} />
-          <View style={styles.whiteDot} />
-          <View style={styles.whiteDot} />
-          <View style={styles.whiteDot} />
-          <View style={styles.whiteDot} />
-          <View style={styles.greenDot} />
         </View>
-        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
         <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
@@ -159,24 +141,25 @@ class ARCamera extends Component<Props> {
           onDeviceNotSupported={this.onDeviceNotSupported}
           modelPath="/sdcard/Download/optimized_model.tflite"
           taxonomyPath="/sdcard/Download/taxonomy_data.csv"
-          taxaDetectionInterval="2000"
+          taxaDetectionInterval="5000"
           style={styles.camera}
         />
-        {/* <View style={styles.footer}>
-          <View style={styles.placeholder} />
+        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
+        <View style={styles.footer}>
           <TouchableOpacity
-            onPress={() => this.takePicture()}
-            style={styles.capture}
-          />
+            style={styles.shutter}
+          >
+            {species
+              ? <Image source={icons.arCameraGreen} />
+              : <Image source={icons.arCameraButton} />}
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate( "CameraHelp" )}
+            style={styles.help}
           >
             <Image source={icons.cameraHelp} />
           </TouchableOpacity>
-        </View> */}
-        {/* <Text style={styles.predictions}>
-          {content}
-        </Text> */}
+        </View>
       </View>
     );
   }

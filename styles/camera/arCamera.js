@@ -14,17 +14,21 @@ export default StyleSheet.create( {
     height,
     zIndex: -2
   },
-
+  header: {
+    position: "absolute",
+    top: 40
+  },
   greenButton: {
     backgroundColor: colors.seekGreen,
     borderRadius: 6,
     height: 26,
-    paddingHorizontal: 10,
-    paddingTop: Platform.OS === "ios" ? 6 : null,
+    width: 101,
+    alignSelf: "center",
     alignItems: "center",
     justifyContent: "center"
   },
   greenButtonText: {
+    paddingTop: Platform.OS === "ios" ? 6 : null,
     fontSize: 16,
     fontFamily: fonts.semibold,
     color: colors.white,
@@ -36,10 +40,6 @@ export default StyleSheet.create( {
     fontSize: 20,
     fontFamily: fonts.semibold,
     color: colors.white
-  },
-  header: {
-    position: "absolute",
-    top: 40
   },
   dotRow: {
     flexDirection: "row",
@@ -67,9 +67,6 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.black
   },
-  main: {
-    flexGrow: 1
-  },
   scanText: {
     position: "absolute",
     bottom: 95,
@@ -81,26 +78,15 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     maxWidth: 293
   },
-  footer: {
-    backgroundColor: colors.black,
+  shutter: {
+    zIndex: 1,
     position: "absolute",
-    bottom: 10,
-    height: 105,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
+    bottom: 18
   },
   help: {
+    zIndex: 1,
     position: "absolute",
-    left: 70,
+    right: 64,
     bottom: 35
-  },
-  shutter: {
-    position: "absolute",
-    bottom: 18
-  },
-  capture: {
-    position: "absolute",
-    bottom: 18
   }
 } );

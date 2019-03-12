@@ -14,6 +14,7 @@ import INatCamera from "../../INatCamera";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
+import rankDict from "../../utility/rankDict";
 
 type Props = {
   navigation: any
@@ -24,15 +25,8 @@ class ARCamera extends Component<Props> {
     super();
 
     this.state = {
-      content: null,
-      predictions: null,
-      kingdom: null,
-      phylum: null,
-      class: null,
-      order: null,
-      family: null,
-      genus: null,
-      species: null
+      ranks: {},
+      rankToRender: null
     };
   }
 
@@ -45,45 +39,65 @@ class ARCamera extends Component<Props> {
         console.log( granted, "granted" );
       } else {
         console.log( "permission denied" );
-        // this.showError( JSON.stringify( granted ) );
       }
     } catch ( err ) {
       console.log( err, "permission denied" );
-      // this.showError( err );
     }
   }
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
-    // console.log( predictions, "predictions" );
-
-    this.setState( previousState => (
-      { content: JSON.stringify( predictions ) }
-    ) );
-    
-    this.setState( predictions );
 
     if ( predictions.kingdom ) {
-      this.setState( { kingdom: predictions.kingdom } );
-      console.log( "kingdom" );
+      this.setState( { 
+        ranks: {
+          kingdom: predictions.kingdom
+        },
+        rankToRender: "kingdom"
+       } );
     } else if ( predictions.phylum ) {
-      this.setState( { phylum: predictions.phylum } );
-      console.log( "phylum" )
+      this.setState( { 
+        ranks: {
+          phylum: predictions.phylum
+        },
+        rankToRender: "phylum"
+       } );
     } else if ( predictions.class ) {
-      this.setState( { class: predictions.class } );
-      console.log( "class" )
+      this.setState( { 
+        ranks: {
+          class: predictions.class
+        },
+        rankToRender: "class"
+       } );
     } else if ( predictions.order ) {
-      this.setState( { order: predictions.order } );
-      console.log( "order" )
+      this.setState( { 
+        ranks: {
+          order: predictions.order
+        },
+        rankToRender: "order"
+       } );
     } else if ( predictions.family ) {
-      this.setState( { family: predictions.family } );
-      console.log( "family" )
+      this.setState( { 
+        ranks: {
+          family: predictions.family
+        },
+        rankToRender: "family"
+       } );
     } else if ( predictions.genus ) {
-      this.setState( { genus: predictions.genus } );
-      console.log( "genus" )
+      this.setState( { 
+        ranks: {
+          genus: predictions.genus
+        },
+        rankToRender: "genus"
+       } );
     } else if ( predictions.species ) {
-      this.setState( { species: predictions.species } );
-      console.log( "species" )
+      {console.log( predictions.species[0].name, "predictions" )}
+      this.setState( { 
+        ranks: {
+          species: predictions.species
+        },
+        rankToRender: "species"
+       } );
     }
   }
 
@@ -104,35 +118,55 @@ class ARCamera extends Component<Props> {
   }
 
   render() {
-    const { species } = this.state;
+    const { ranks, rankToRender } = this.state;
     const { navigation } = this.props;
 
-    // let dots;
+    console.log( rankToRender, "rank to render" );
 
     return (
       <View style={styles.container}>
         <NavigationEvents onWillFocus={() => this.requestPermissions()} />
         <View style={styles.header}>
-          {species ? (
-            <View>
-              <View style={styles.greenButton}>
-                <Text style={styles.greenButtonText}>
-                  {species[0].score}
-                </Text>
-              </View>
-              <Text style={styles.predictions}>{species[0].name}</Text>
+          {rankToRender ? (
+            <View style={styles.greenButton}>
+              <Text style={styles.greenButtonText}>
+                {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
+              </Text>
             </View>
           ) : null}
-          <View style={styles.dotRow}>
-            <View style={styles.whiteDot} />
-            <View style={styles.whiteDot} />
-            <View style={styles.whiteDot} />
-            <View style={styles.whiteDot} />
-            <View style={styles.whiteDot} />
-            <View style={styles.whiteDot} />
-            <View style={styles.greenDot} />
-          </View>
+          {rankToRender ? (
+            <Text style={styles.predictions}>
+              {ranks[rankToRender][0].name}
+              {console.log( ranks[rankToRender][0].name )}
+            </Text>
+          ) : null}
+          {ranks && rankToRender ? (
+            <View style={styles.dotRow}>
+              <View style={ranks.kingdom ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.phylum ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.class ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.order ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.family ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.genus ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.species ? styles.greenDot : styles.whiteDot} />
+            </View>
+          ) : null}
         </View>
+        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
+        <TouchableOpacity
+          onPress={() => console.log( "clicked shutter button" )}
+          style={styles.shutter}
+        >
+          {ranks && ranks.species
+            ? <Image source={icons.arCameraGreen} />
+            : <Image source={icons.arCameraButton} />}
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "CameraHelp" )}
+          style={styles.help}
+        >
+          <Image source={icons.cameraHelp} />
+        </TouchableOpacity>
         <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
@@ -144,22 +178,6 @@ class ARCamera extends Component<Props> {
           taxaDetectionInterval="5000"
           style={styles.camera}
         />
-        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
-        <View style={styles.footer}>
-          <TouchableOpacity
-            style={styles.shutter}
-          >
-            {species
-              ? <Image source={icons.arCameraGreen} />
-              : <Image source={icons.arCameraButton} />}
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "CameraHelp" )}
-            style={styles.help}
-          >
-            <Image source={icons.cameraHelp} />
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }

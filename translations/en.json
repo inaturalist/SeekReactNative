@@ -196,8 +196,15 @@
     "label": "Camera",
     "on": "on",
     "off": "off",
-    "scan": "Keep scanning the environment for organisms to identify!"
-  },
+    "scan": "Keep scanning the environment for organisms to identify!",
+    "kingdom": "kingdom",
+    "phylum": "phylum",
+    "class": "class",
+    "order": "order",
+    "family": "family",
+    "genus": "genus",
+    "species": "species"
+    },
   "gallery": {
     "label": "Photos",
     "choose_photo": "Choose a photo"

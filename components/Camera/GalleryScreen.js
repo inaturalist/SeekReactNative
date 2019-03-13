@@ -213,7 +213,7 @@ class GalleryScreen extends Component<Props> {
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate( "Main" )}
             >
               <Image source={icons.closeGreen} style={styles.buttonImage} />
             </TouchableOpacity>

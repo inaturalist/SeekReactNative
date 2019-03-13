@@ -5,13 +5,14 @@ import {
   Image,
   TouchableOpacity,
   View,
-  // PermissionsAndroid,
+  PermissionsAndroid,
   Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 
 import INatCamera from "../../INatCamera";
+import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
@@ -27,27 +28,36 @@ class ARCamera extends Component<Props> {
 
     this.state = {
       ranks: {},
-      rankToRender: null
+      rankToRender: null,
+      loading: true
     };
   }
 
-  // requestPermissions = async () => {
-  //   const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+  setLoading( loading ) {
+    this.setState( { loading } );
+  }
 
-  //   try {
-  //     const granted = await PermissionsAndroid.request( retrieve );
-  //     if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-  //       console.log( granted, "granted" );
-  //     } else {
-  //       console.log( "permission denied" );
-  //     }
-  //   } catch ( err ) {
-  //     console.log( err, "permission denied" );
-  //   }
-  // }
+  requestPermissions = async () => {
+    const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+
+    try {
+      const granted = await PermissionsAndroid.request( camera );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        console.log( granted, "granted" );
+      } else {
+        console.log( "permission denied" );
+      }
+    } catch ( err ) {
+      console.log( err, "permission denied" );
+    }
+  }
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
+
+    if ( predictions ) {
+      this.setLoading( false );
+    }
 
     if ( predictions.kingdom ) {
       this.setState( { 
@@ -119,14 +129,20 @@ class ARCamera extends Component<Props> {
   }
 
   render() {
-    const { ranks, rankToRender } = this.state;
+    const { ranks, rankToRender, loading } = this.state;
     const { navigation } = this.props;
 
     console.log( rankToRender, "rank to render" );
 
     return (
       <View style={styles.container}>
-        {/* <NavigationEvents onWillFocus={() => this.requestPermissions()} /> */}
+        <NavigationEvents onWillFocus={() => this.requestPermissions()} />
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.navigate( "Main" )}
+        >
+          <Image source={icons.closeWhite} />
+        </TouchableOpacity>
         <View style={styles.header}>
           {rankToRender ? (
             <View style={styles.greenButton}>
@@ -168,6 +184,11 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.cameraHelp} />
         </TouchableOpacity>
+        { loading ? (
+          <View style={styles.loading}>
+            <LoadingWheel color="white" />
+          </View>
+        ) : null}
         <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
@@ -176,7 +197,7 @@ class ARCamera extends Component<Props> {
           onDeviceNotSupported={this.onDeviceNotSupported}
           modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
           taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy_data.csv`}
-          taxaDetectionInterval="5000"
+          taxaDetectionInterval="80"
           style={styles.camera}
         />
       </View>

@@ -18,6 +18,11 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 40
   },
+  backButton: {
+    position: "absolute",
+    top: 19,
+    left: 23
+  },
   greenButton: {
     backgroundColor: colors.seekGreen,
     borderRadius: 6,
@@ -88,5 +93,9 @@ export default StyleSheet.create( {
     position: "absolute",
     right: 64,
     bottom: 35
+  },
+  loading: {
+    position: "absolute",
+    top: 300
   }
 } );

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -42,6 +43,7 @@
 		370180D5216C21890020ED84 /* libRNCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 370180D4216C20E60020ED84 /* libRNCamera.a */; };
 		370DC8A1216FB722000A29BA /* libRCTCameraRoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B0C42A216E78E800A12596 /* libRCTCameraRoll.a */; };
 		370FB06C21F003FF00468219 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 370FB06121F0020E00468219 /* libReactNativePermissions.a */; };
+		3739CB1522398D0100D8B525 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 378004D9222F020800AE5CC0 /* libRNFS.a */; };
 		374192B621766AA1007414A3 /* libRNGeocoder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 374192B521766A39007414A3 /* libRNGeocoder.a */; };
 		3777823421ADDD4B00EE85B0 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777822521ADDD4A00EE85B0 /* Octicons.ttf */; };
 		3777823621ADDD4B00EE85B0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3777822721ADDD4A00EE85B0 /* Entypo.ttf */; };
@@ -317,13 +319,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = A39873CE1EA65EE60051E01A;
 			remoteInfo = "RNVectorIcons-tvOS";
-		};
-		3780046322272A8E00AE5CC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F11CADD19CF146B69D223E31 /* RNFetchBlob.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A15C300E1CD25C330074CB35;
-			remoteInfo = RNFetchBlob;
 		};
 		378004D8222F020800AE5CC0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -625,7 +620,6 @@
 		E469A79FA67445059AF2D9EB /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
 		E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-BookItalic-Pro.otf"; path = "../assets/fonts/Whitney-BookItalic-Pro.otf"; sourceTree = "<group>"; };
 		E79DD168EA9549668944D7D1 /* ReactNativePermissions.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/ReactNativePermissions.xcodeproj"; sourceTree = "<group>"; };
-		F11CADD19CF146B69D223E31 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/rn-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		F9491791AA1C4FD296539D62 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Light-Pro.otf"; path = "../assets/fonts/Whitney-Light-Pro.otf"; sourceTree = "<group>"; };
 		FB83F74EF2BB4D608365E8AF /* libRCTImageResizer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageResizer.a; sourceTree = "<group>"; };
@@ -644,6 +638,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3739CB1522398D0100D8B525 /* libRNFS.a in Frameworks */,
 				3780040E2226141600AE5CC0 /* libRNGestureHandler.a in Frameworks */,
 				3780040D2226140E00AE5CC0 /* libRNVectorIcons.a in Frameworks */,
 				3780040C2226140600AE5CC0 /* libRNLanguages.a in Frameworks */,
@@ -950,14 +945,6 @@
 			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
-		3780046022272A8E00AE5CC0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3780046422272A8E00AE5CC0 /* libRNFetchBlob.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		378004D4222F020800AE5CC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,7 +1059,6 @@
 				4C67FAB1077946679B33FC8D /* RNLanguages.xcodeproj */,
 				9877F5A7B75D438B9437EF7C /* BVLinearGradient.xcodeproj */,
 				E79DD168EA9549668944D7D1 /* ReactNativePermissions.xcodeproj */,
-				F11CADD19CF146B69D223E31 /* RNFetchBlob.xcodeproj */,
 				68E82819DA564E38AE22A47E /* RNFS.xcodeproj */,
 			);
 			name = Libraries;
@@ -1362,10 +1348,6 @@
 					ProjectRef = 370180AA216C20E60020ED84 /* RNCamera.xcodeproj */;
 				},
 				{
-					ProductGroup = 3780046022272A8E00AE5CC0 /* Products */;
-					ProjectRef = F11CADD19CF146B69D223E31 /* RNFetchBlob.xcodeproj */;
-				},
-				{
 					ProductGroup = 378004D4222F020800AE5CC0 /* Products */;
 					ProjectRef = 68E82819DA564E38AE22A47E /* RNFS.xcodeproj */;
 				},
@@ -1620,13 +1602,6 @@
 			fileType = archive.ar;
 			path = "libRNVectorIcons-tvOS.a";
 			remoteRef = 3777822221ADDB8A00EE85B0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3780046422272A8E00AE5CC0 /* libRNFetchBlob.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFetchBlob.a;
-			remoteRef = 3780046322272A8E00AE5CC0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		378004D9222F020800AE5CC0 /* libRNFS.a */ = {
@@ -2097,7 +2072,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.seek;
+				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.iNatLite;
 				PRODUCT_NAME = Seek;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2139,7 +2114,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.seek;
+				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.iNatLite;
 				PRODUCT_NAME = Seek;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

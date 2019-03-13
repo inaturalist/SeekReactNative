@@ -14,6 +14,6 @@ export default {
     ChallengeRealm,
     NotificationRealm
   ],
-  schemaVersion: 1,
+  schemaVersion: 5,
   path: "db.realm"
 };

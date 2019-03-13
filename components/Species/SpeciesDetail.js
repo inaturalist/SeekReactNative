@@ -8,7 +8,8 @@ import {
   Text,
   NetInfo,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -17,6 +18,7 @@ import moment from "moment";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
+import { seenBeforeSeekV2 } from "../../utility/dateHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import Footer from "../Home/Footer";
@@ -124,7 +126,11 @@ class SpeciesDetail extends Component<Props> {
 
         if ( seenTaxa[0] ) {
           seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
+          if ( !seenBeforeSeekV2( seenDate ) ) {
+            userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
+          } else {
+            userPhoto = null;
+          }
 
           this.setState( {
             seenDate,

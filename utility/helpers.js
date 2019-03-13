@@ -1,7 +1,7 @@
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage } = require( "react-native" );
+const { AsyncStorage, Platform } = require( "react-native" );
 const inatjs = require( "inaturalistjs" );
 const RNFS = require( "react-native-fs" );
 
@@ -16,21 +16,22 @@ const capitalizeNames = ( name ) => {
 };
 
 const addARCameraFiles = () => {
-  RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
-    .then( ( result ) => {
-      console.log( result, "model in AR camera files" );
-    } ).catch( ( error ) => {
-      console.log( error, "err in AR camera files" );
-    } );
+  if ( Platform.OS === "android" ) {
+    RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
 
-  RNFS.readdir( RNFS.DocumentDirectoryPath ).then( ( result ) => console.log( result, "what's in the documents folder" ) );
-
-  RNFS.copyFileAssets( "camera/taxonomy_data.csv", `${RNFS.DocumentDirectoryPath}/taxonomy_data.csv` )
-    .then( ( result ) => {
-      console.log( result, "taxonomy in AR camera files" );
-    } ).catch( ( error ) => {
-      console.log( error, "err in AR camera files" );
-    } );
+    RNFS.copyFileAssets( "camera/taxonomy_data.csv", `${RNFS.DocumentDirectoryPath}/taxonomy_data.csv` )
+      .then( ( result ) => {
+        console.log( result, "taxonomy in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
+  }
+  // RNFS.readdir( RNFS.DocumentDirectoryPath ).then( ( result ) => console.log( result, "what's in the documents folder" ) );
 };
 
 const flattenUploadParameters = ( uri, time, latitude, longitude ) => {

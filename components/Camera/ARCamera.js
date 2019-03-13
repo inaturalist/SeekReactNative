@@ -43,17 +43,18 @@ class ARCamera extends Component<Props> {
     try {
       const granted = await PermissionsAndroid.request( camera );
       if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        console.log( granted, "granted" );
+        // console.log( granted, "granted" );
       } else {
-        console.log( "permission denied" );
+        // console.log( "permission denied" );
       }
     } catch ( err ) {
-      console.log( err, "permission denied" );
+      // console.log( err, "permission denied" );
     }
   }
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
+    console.log( predictions, "predictions" );
 
     if ( predictions ) {
       this.setLoading( false );
@@ -102,7 +103,7 @@ class ARCamera extends Component<Props> {
         rankToRender: "genus"
        } );
     } else if ( predictions.species ) {
-      {console.log( predictions.species[0].name, "predictions" )}
+      // {console.log( predictions.species[0].name, "predictions" )}
       this.setState( { 
         ranks: {
           species: predictions.species
@@ -154,7 +155,7 @@ class ARCamera extends Component<Props> {
           {rankToRender ? (
             <Text style={styles.predictions}>
               {ranks[rankToRender][0].name}
-              {console.log( ranks[rankToRender][0].name )}
+              {/* {console.log( ranks[rankToRender][0].name )} */}
             </Text>
           ) : null}
           {ranks && rankToRender ? (

@@ -164,6 +164,8 @@ class SpeciesDetail extends Component<Props> {
 
       const photos = [];
 
+      
+
       taxa.taxon_photos.forEach( ( photo ) => {
         if ( photo.photo.license_code && photos.length < 8 ) {
           photos.push( photo );

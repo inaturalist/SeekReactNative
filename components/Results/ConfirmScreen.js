@@ -48,14 +48,22 @@ const ConfirmScreen = ( {
         style={styles.image}
       />
       <View style={styles.footer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => confirmPhoto()}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
+        {!photoConfirmed ? (
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => confirmPhoto()}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>
+              {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+        )}
       </View>
     </View>
   </View>

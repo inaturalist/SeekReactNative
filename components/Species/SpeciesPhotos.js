@@ -42,8 +42,7 @@ const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
             style={styles.ccButton}
             onPress={() => Alert.alert(
               i18n.t( "species_detail.license" ),
-              photo.photo.attribution,
-              [{ text: i18n.t( "species_detail.got_it" ) }]
+              photo.photo.attribution
             )}
           >
             <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>

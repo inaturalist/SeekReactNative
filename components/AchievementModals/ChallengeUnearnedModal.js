@@ -12,7 +12,7 @@ import moment from "moment";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/badgeModal";
-import BannerHeader from "./BannerHeader";
+import BannerHeader from "../Achievements/BannerHeader";
 import icons from "../../assets/icons";
 import badgeImages from "../../assets/badges";
 

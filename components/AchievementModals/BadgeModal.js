@@ -14,8 +14,8 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/badges/badgeModal";
 import badgeImages from "../../assets/badges";
-import BannerHeader from "./BannerHeader";
-import LargeProgressCircle from "./LargeProgressCircle";
+import BannerHeader from "../Achievements/BannerHeader";
+import LargeProgressCircle from "../Achievements/LargeProgressCircle";
 import icons from "../../assets/icons";
 
 type Props = {

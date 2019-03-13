@@ -20,7 +20,7 @@ import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeModal from "../Badges/ChallengeModal";
+import ChallengeModal from "../AchievementModals/ChallengeModal";
 import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
 import { startChallenge } from "../../utility/challengeHelpers";

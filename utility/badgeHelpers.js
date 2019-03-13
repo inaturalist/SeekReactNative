@@ -1,5 +1,5 @@
 const Realm = require( "realm" );
-const { AsyncStorage } = require( "react-native" );
+const { AsyncStorage, Alert } = require( "react-native" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );
@@ -35,12 +35,15 @@ const recalculateBadges = () => {
 };
 
 const setupBadges = () => {
+  Alert.alert( "setting up badges" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
+          Alert.alert( badgeType, "badge type" );
           const badges = badgesDict.default[badgeType];
+          // Alert.alert( JSON.stringify( badges ), "badges" );
 
           const badge = realm.create( "BadgeRealm", {
             name: badges.name,
@@ -52,11 +55,11 @@ const setupBadges = () => {
             infoText: badges.infoText,
             index: badges.index,
             earned: badges.name === "levels.tadpole" || false
-          }, true );
+          } );
         } );
       } );
     } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
+      Alert.alert( "[DEBUG] Failed to open realm in setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 

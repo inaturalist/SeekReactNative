@@ -119,9 +119,7 @@ class HomeScreen extends Component<Props> {
 
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
-    this.setState( {
-      isFirstLaunch
-    } );
+    this.setState( { isFirstLaunch } );
   }
 
   updateTaxaType( taxaType ) {

@@ -9,11 +9,11 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
-import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
@@ -23,18 +23,20 @@ import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
+import LevelHeader from "./LevelHeader";
 import BannerHeader from "./BannerHeader";
-import LevelModal from "./LevelModal";
-import BadgeModal from "./BadgeModal";
-import ChallengeModal from "./ChallengeModal";
-import ChallengeUnearnedModal from "./ChallengeUnearnedModal";
+import SpeciesBadges from "./SpeciesBadges";
+import LevelModal from "../AchievementModals/LevelModal";
+import BadgeModal from "../AchievementModals/BadgeModal";
+import ChallengeModal from "../AchievementModals/ChallengeModal";
+import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
 import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
 }
 
-class BadgesScreen extends Component<Props> {
+class AchievementsScreen extends Component<Props> {
   constructor() {
     super();
 
@@ -159,35 +161,35 @@ class BadgesScreen extends Component<Props> {
     this.setState( { showChallengeModal: !showChallengeModal } );
   }
 
-  renderBadgesRow( data ) {
-    return (
-      <FlatList
-        data={data}
-        contentContainerStyle={styles.badgesContainer}
-        keyExtractor={badge => badge.name}
-        numColumns={3}
-        renderItem={( { item } ) => {
-          let badgeIcon;
-          if ( item.earned ) {
-            badgeIcon = badgeImages[item.earnedIconName];
-          } else {
-            badgeIcon = badgeImages[item.unearnedIconName];
-          }
-          return (
-            <TouchableOpacity
-              style={styles.gridCell}
-              onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
-            >
-              <Image
-                source={badgeIcon}
-                style={styles.badgeIcon}
-              />
-            </TouchableOpacity>
-          );
-        }}
-      />
-    );
-  }
+  // renderBadgesRow( data ) {
+  //   return (
+  //     <FlatList
+  //       data={data}
+  //       contentContainerStyle={styles.badgesContainer}
+  //       keyExtractor={badge => badge.name}
+  //       numColumns={3}
+  //       renderItem={( { item } ) => {
+  //         let badgeIcon;
+  //         if ( item.earned ) {
+  //           badgeIcon = badgeImages[item.earnedIconName];
+  //         } else {
+  //           badgeIcon = badgeImages[item.unearnedIconName];
+  //         }
+  //         return (
+  //           <TouchableOpacity
+  //             style={styles.gridCell}
+  //             onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
+  //           >
+  //             <Image
+  //               source={badgeIcon}
+  //               style={styles.badgeIcon}
+  //             />
+  //           </TouchableOpacity>
+  //         );
+  //       }}
+  //     />
+  //   );
+  // }
 
   render() {
     const {
@@ -268,33 +270,21 @@ class BadgesScreen extends Component<Props> {
           <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
           <ScrollView>
             {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
-            <LinearGradient
-              colors={["#22784d", "#38976d"]}
-              style={styles.header}
-            >
-              {level ? (
-                <View style={styles.row}>
-                  <TouchableOpacity
-                    onPress={() => this.toggleLevelModal()}
-                  >
-                    <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
-                  </TouchableOpacity>
-                  <View style={styles.textContainer}>
-                    <Text style={styles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</Text>
-                    <Text style={styles.headerText}>{i18n.t( level.name ).toLocaleUpperCase()}</Text>
-                    <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
-                  </View>
-                </View>
-              ) : null}
-            </LinearGradient>
-            <View style={styles.secondTextContainer}>
+            <LevelHeader
+              level={level}
+              nextLevelCount={nextLevelCount}
+              toggleLevelModal={this.toggleLevelModal}
+            />
+            {Alert.alert( JSON.stringify( speciesBadges ) )}
+            <SpeciesBadges speciesBadges={speciesBadges} />
+            {/* <View style={styles.secondTextContainer}>
               <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
             </View>
             {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
             {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}
             {this.renderBadgesRow( speciesBadges.slice( 5, 8 ) )}
             {this.renderBadgesRow( speciesBadges.slice( 8, 10 ) )}
-            <View style={{ marginTop: 12 }} />
+            <View style={{ marginTop: 12 }} /> */}
             <View style={styles.secondTextContainer}>
               <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
               <FlatList
@@ -351,4 +341,4 @@ class BadgesScreen extends Component<Props> {
   }
 }
 
-export default BadgesScreen;
+export default AchievementsScreen;

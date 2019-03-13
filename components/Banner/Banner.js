@@ -18,8 +18,8 @@ import {
   getChallengesCompleted
 } from "../../utility/challengeHelpers";
 import realmConfig from "../../models/index";
-import LevelModal from "../Badges/LevelModal";
-import ChallengeModal from "../Badges/ChallengeModal";
+import LevelModal from "../AchievementModals/LevelModal";
+import ChallengeModal from "../AchievementModals/ChallengeModal";
 import { createNotification } from "../../utility/notificationHelpers";
 
 const { height } = Dimensions.get( "window" );

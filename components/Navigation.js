@@ -18,7 +18,7 @@ import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
-import BadgesScreen from "./Badges/BadgesScreen";
+import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./Menu/AboutScreen";
 import SideMenu from "./Home/SideMenu";
 // import LoginScreen from "./Login/LoginScreen";
@@ -155,7 +155,7 @@ const MainStack = createStackNavigator( {
     } )
   },
   Badges: {
-    screen: BadgesScreen,
+    screen: AchievementsScreen,
     navigationOptions: () => ( {
       header: null
     } )

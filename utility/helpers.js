@@ -3,6 +3,7 @@ const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
 const { AsyncStorage } = require( "react-native" );
 const inatjs = require( "inaturalistjs" );
+const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
@@ -12,6 +13,24 @@ const capitalizeNames = ( name ) => {
     .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );
   return titleCaseName;
+};
+
+const addARCameraFiles = () => {
+  RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+    .then( ( result ) => {
+      console.log( result, "model in AR camera files" );
+    } ).catch( ( error ) => {
+      console.log( error, "err in AR camera files" );
+    } );
+
+  RNFS.readdir( RNFS.DocumentDirectoryPath ).then( ( result ) => console.log( result, "what's in the documents folder" ) );
+
+  RNFS.copyFileAssets( "camera/taxonomy_data.csv", `${RNFS.DocumentDirectoryPath}/taxonomy_data.csv` )
+    .then( ( result ) => {
+      console.log( result, "taxonomy in AR camera files" );
+    } ).catch( ( error ) => {
+      console.log( error, "err in AR camera files" );
+    } );
 };
 
 const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
@@ -142,6 +161,7 @@ const fetchObservationData = () => {
 };
 
 export {
+  addARCameraFiles,
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,

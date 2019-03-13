@@ -11,7 +11,7 @@ export default StyleSheet.create( {
   },
   camera: {
     width,
-    height,
+    height: height + 200,
     zIndex: -2
   },
   header: {

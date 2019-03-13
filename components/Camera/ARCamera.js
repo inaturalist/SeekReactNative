@@ -5,12 +5,13 @@ import {
   Image,
   TouchableOpacity,
   View,
-  PermissionsAndroid,
+  // PermissionsAndroid,
   Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import INatCamera from "../../INatCamera";
+import RNFS from "react-native-fs";
 
+import INatCamera from "../../INatCamera";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
@@ -30,20 +31,20 @@ class ARCamera extends Component<Props> {
     };
   }
 
-  requestPermissions = async () => {
-    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+  // requestPermissions = async () => {
+  //   const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
 
-    try {
-      const granted = await PermissionsAndroid.request( retrieve );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        console.log( granted, "granted" );
-      } else {
-        console.log( "permission denied" );
-      }
-    } catch ( err ) {
-      console.log( err, "permission denied" );
-    }
-  }
+  //   try {
+  //     const granted = await PermissionsAndroid.request( retrieve );
+  //     if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+  //       console.log( granted, "granted" );
+  //     } else {
+  //       console.log( "permission denied" );
+  //     }
+  //   } catch ( err ) {
+  //     console.log( err, "permission denied" );
+  //   }
+  // }
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
@@ -125,7 +126,7 @@ class ARCamera extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <NavigationEvents onWillFocus={() => this.requestPermissions()} />
+        {/* <NavigationEvents onWillFocus={() => this.requestPermissions()} /> */}
         <View style={styles.header}>
           {rankToRender ? (
             <View style={styles.greenButton}>
@@ -173,8 +174,8 @@ class ARCamera extends Component<Props> {
           onCameraPermissionMissing={this.onCameraPermissionMissing}
           onClassifierError={this.onClassifierError}
           onDeviceNotSupported={this.onDeviceNotSupported}
-          modelPath="/sdcard/Download/optimized_model.tflite"
-          taxonomyPath="/sdcard/Download/taxonomy_data.csv"
+          modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
+          taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy_data.csv`}
           taxaDetectionInterval="5000"
           style={styles.camera}
         />

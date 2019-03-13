@@ -35,13 +35,13 @@ const recalculateBadges = () => {
 };
 
 const setupBadges = () => {
-  Alert.alert( "setting up badges" );
+  // Alert.alert( "setting up badges" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
-          Alert.alert( badgeType, "badge type" );
+          // Alert.alert( badgeType, "badge type" );
           const badges = badgesDict.default[badgeType];
           // Alert.alert( JSON.stringify( badges ), "badges" );
 
@@ -59,7 +59,7 @@ const setupBadges = () => {
         } );
       } );
     } ).catch( ( err ) => {
-      Alert.alert( "[DEBUG] Failed to open realm in setup badges, error: ", JSON.stringify( err ) );
+      // Alert.alert( "[DEBUG] Failed to open realm in setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 

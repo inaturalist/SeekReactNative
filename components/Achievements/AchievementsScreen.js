@@ -275,7 +275,7 @@ class AchievementsScreen extends Component<Props> {
               nextLevelCount={nextLevelCount}
               toggleLevelModal={this.toggleLevelModal}
             />
-            {Alert.alert( JSON.stringify( speciesBadges ) )}
+            {/* {Alert.alert( JSON.stringify( speciesBadges ) )} */}
             <SpeciesBadges speciesBadges={speciesBadges} />
             {/* <View style={styles.secondTextContainer}>
               <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />

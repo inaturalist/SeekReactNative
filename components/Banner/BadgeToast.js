@@ -23,11 +23,9 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
     onPress={() => navigation.navigate( "Badges" )}
   >
     <View style={styles.row}>
-      <View style={styles.textContainer}>
+      <View>
         <Text style={styles.headerText}>
           {i18n.t( badge.name ).toLocaleUpperCase()}
-          {" "}
-          {i18n.t( "banner.badge" ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.description}>
           {i18n.t( "badges.you_found" )}

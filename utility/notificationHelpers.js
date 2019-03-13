@@ -15,7 +15,7 @@ const createNotification = ( type, index ) => {
           message: newNotification.message,
           iconName: newNotification.iconName,
           nextScreen: newNotification.nextScreen,
-          challengeIndex: type === "challengeProgress" ? index : null,
+          challengeIndex: ( type === "challengeProgress" || type === "challengeCompleted" ) ? index : null,
           index: notifications.length,
           seen: false
         } );

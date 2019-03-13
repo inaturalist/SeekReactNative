@@ -68,8 +68,6 @@ static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
     }
   }
 
-  
-  
   // update the user defaults
   [[NSUserDefaults standardUserDefaults] setBool:YES
                                           forKey:hasMigratedRealmDatabaseFromContainer];

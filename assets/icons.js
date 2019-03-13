@@ -2,7 +2,7 @@ const icons = {
   birdTeal: require( "./icons/icon-inaturalist-teal.png" ),
   completed: require( "./icons/icon-completed.png" ),
   checklist: require( "./icons/icon-checklist.png" ),
-  edit: require( "./icons/icon-editlocation.png" ),
+  filter: require( "./icons/icon-filter.png" ),
   error: require( "./icons/icon-error.png" ),
   internet: require( "./icons/icon-internet.png"),
   indicator: require( "./icons/icon-locationindicator.png" ),
@@ -16,6 +16,8 @@ const icons = {
   cameraHelp: require( "./icons/icon-help.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
+  arCameraButton: require( "./icons/CameraButton.png" ),
+  arCameraGreen: require( "./icons/CameraButton-Species.png" ),
   backButton: require( "./icons/back.png" ),
   backButtonGreen: require( "./icons/icon-back-green.png" ),
   badgePlaceholder: require( "./icons/badge-placeholder.png" ),
@@ -33,7 +35,12 @@ const icons = {
   closeGreen: require( "./icons/icon-close-green.png" ),
   closeWhite: require( "./icons/icon-close-white.png" ),
   closeModal: require( "./icons/icon-close-modal.png" ),
-  titleBanner: require( "./icons/img-titlebanner.png" )
+  titleBanner: require( "./icons/img-titlebanner.png" ),
+  swipeLeft: require( "./icons/img-swipearrow-left.png" ),
+  swipeRight: require( "./icons/img-swipearrow-right.png" ),
+  taxonomyCircle: require( "./icons/img-taxonomycircle.png" ),
+  onboarding1: require( "./onboarding/img-onboarding-1.png" ),
+  onboarding2: require( "./onboarding/img-onboarding-2.png" )
 };
 
 export default icons;

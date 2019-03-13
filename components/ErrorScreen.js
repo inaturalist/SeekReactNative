@@ -14,7 +14,7 @@ type Props = {
 const ErrorScreen = ( { error, collection }: Props ) => (
   <View style={styles.container}>
     {!collection ? <Text style={styles.errorTitle}>Bummer</Text> : null}
-    <Text style={[styles.error, collection && { color: colors.darkBlue }]}>{error}</Text>
+    <Text style={[styles.error, collection && { color: "#37535e" }]}>{error}</Text>
   </View>
 );
 

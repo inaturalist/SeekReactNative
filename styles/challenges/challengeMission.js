@@ -61,7 +61,7 @@ export default StyleSheet.create( {
   },
   greenText: {
     marginTop: 4,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
     lineHeight: 21,
     color: colors.seekForestGreen

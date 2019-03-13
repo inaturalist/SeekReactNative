@@ -15,7 +15,7 @@ const notifications = {
     title: "notifications.challenge_completed",
     message: "notifications.view_challenges",
     iconName: "badgePlaceholder",
-    nextScreen: "Challenges"
+    nextScreen: "ChallengeDetails"
   }
 };
 

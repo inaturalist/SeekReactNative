@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
@@ -6,6 +6,8 @@ import {
   margins,
   padding
 } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -40,13 +42,6 @@ export default StyleSheet.create( {
     marginHorizontal: 23,
     marginTop: 15,
     marginBottom: 15
-  },
-  locationText: {
-    color: colors.white,
-    fontFamily: fonts.playful,
-    fontSize: fontSize.mediumHeader,
-    marginLeft: margins.medium,
-    marginTop: margins.medium
   },
   mapContainer: {
     flexGrow: 1
@@ -92,22 +87,22 @@ export default StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    height: 86
+    height: height > 570 ? 130 : 86
   },
   button: {
     backgroundColor: colors.seekForestGreen,
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 22,
-    marginBottom: margins.medium,
-    marginTop: margins.medium,
+    marginBottom: 15,
+    marginTop: 15,
     height: 46,
     borderRadius: 40
   },
   buttonText: {
     paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white,
     letterSpacing: 0.7
   },
@@ -121,8 +116,16 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 37,
     borderRadius: 40,
-    paddingLeft: padding.extraLarge,
-    fontFamily: fonts.default,
+    paddingLeft: 20,
+    fontFamily: fonts.medium,
     fontSize: 15
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

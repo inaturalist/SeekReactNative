@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -19,7 +19,7 @@ export default StyleSheet.create( {
   },
   photoContainer: {
     height: 250,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.black
   },
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
@@ -38,9 +38,12 @@ export default StyleSheet.create( {
     marginTop: 20,
     marginHorizontal: 28
   },
+  secondTextContainer: {
+    marginHorizontal: 28
+  },
   commonNameText: {
     fontSize: 30,
-    lineHeight: 35,
+    lineHeight: 31,
     letterSpacing: 0.3,
     color: colors.black,
     fontFamily: fonts.book
@@ -53,8 +56,8 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   headerText: {
-    marginTop: 35,
-    marginBottom: 12,
+    marginTop: 45,
+    marginBottom: 11,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -66,78 +69,14 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  stats: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  secondHeaderText: {
-    textAlign: "center",
-    marginHorizontal: 23,
-    fontSize: 18,
-    fontFamily: fonts.default,
-    color: colors.black,
-    lineHeight: 24,
-    letterSpacing: 1.0
-  },
-  number: {
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 22,
-    fontFamily: fonts.light,
-    color: colors.black
-  },
   row: {
-    marginTop: 20,
+    marginTop: 26,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
   },
   checkmark: {
     marginRight: 10
-  },
-  greenButtonContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  greenButton: {
-    flexDirection: "row",
-    backgroundColor: colors.seekiNatGreen,
-    borderRadius: 6,
-    paddingHorizontal: 9,
-    paddingTop: 6,
-    paddingBottom: 4,
-    marginRight: 10,
-    marginBottom: 7,
-    alignSelf: "flex-start"
-  },
-  greenButtonText: {
-    fontSize: 18,
-    fontFamily: fonts.semibold,
-    color: colors.white,
-    letterSpacing: 1.0
-  },
-  taxonomyHeader: {
-    fontSize: 16,
-    fontFamily: fonts.semibold,
-    color: colors.black,
-    lineHeight: 21
-  },
-  taxonomyText: {
-    maxWidth: 200,
-    fontSize: 16,
-    fontFamily: fonts.book,
-    color: colors.black,
-    lineHeight: 21
-  },
-  taxonomyRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  bullets: {
-    color: colors.seekiNatGreen,
-    fontSize: 38,
-    marginRight: 16
   },
   loading: {
     justifyContent: "center",
@@ -189,5 +128,21 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPadding,
     fontSize: 18,
     color: colors.white
+  },
+  leftArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    left: 5
+  },
+  rightArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    right: 5
+  },
+  bottomPadding: {
+    height: Platform.OS === "android" ? 17 : 60,
+    backgroundColor: colors.seekForestGreen
   }
 } );

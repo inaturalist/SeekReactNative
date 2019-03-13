@@ -116,7 +116,7 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 10
+        versionCode 11
         versionName "2.0.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -162,7 +162,7 @@ android {
 }
 
 dependencies {
-    implementation project(':rn-fetch-blob')
+    compile project(':react-native-fs')
     implementation project(":inatcamera")
     implementation project(':react-native-open-settings')
     implementation project(':react-native-linear-gradient')

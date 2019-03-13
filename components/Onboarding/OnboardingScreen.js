@@ -9,6 +9,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/onboarding";
 import Swiper from "./Swiper";
 import logoImages from "../../assets/logos";
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any
@@ -19,8 +20,8 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     <View style={styles.carousel}>
       <View style={styles.imageContainer}>
         <Image
-          source={require( "../../assets/onboarding/img-onboarding1.png" )}
-          style={styles.image}
+          source={icons.onboarding1}
+          style={styles.image1}
         />
       </View>
       <View style={styles.textContainer}>
@@ -30,7 +31,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
     <View style={styles.carousel}>
       <View style={styles.imageContainer}>
         <Image
-          source={require( "../../assets/onboarding/img-onboarding2.png" )}
+          source={icons.onboarding2}
           style={styles.image}
         />
       </View>

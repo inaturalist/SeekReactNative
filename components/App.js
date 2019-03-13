@@ -5,12 +5,13 @@ import i18n from "../i18n";
 import RootStack from "./Navigation";
 import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
-
+// import { addARCameraFiles } from "../utility/helpers";
 
 class App extends Component {
   async componentWillMount() {
     await setupBadges();
     await setupChallenges();
+    // await addARCameraFiles();
     RNLanguages.addEventListener( "change", this.onLanguagesChange );
   }
 

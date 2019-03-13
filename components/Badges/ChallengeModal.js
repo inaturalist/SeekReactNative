@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ImageBackground
 } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/badges/challengeBadge";
 import i18n from "../../i18n";
@@ -21,9 +22,11 @@ type Props = {
 
 const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <SafeAreaView style={styles.safeView}>
-    {console.log( challenge, "challenge in modal" )}
     <View style={styles.container}>
-      <View style={styles.header}>
+      <LinearGradient
+          style={styles.header}
+          colors={["#67c5ca", "#3ca2ab"]}
+      >
         <Image
           source={badges[challenge.earnedIconName]}
           style={styles.image}
@@ -35,7 +38,7 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
             {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
           </Text>
         </ImageBackground>
-      </View>
+      </LinearGradient>
       <Text style={styles.headerText}>
         {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
       </Text>
@@ -45,6 +48,7 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
       <View style={styles.center}>
         <Image source={logos.wwfop} style={styles.logo} />
       </View>
+      <View style={{ marginBottom: 30 }} />
     </View>
     <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
       <Image source={icons.closeModal} />

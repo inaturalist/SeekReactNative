@@ -26,52 +26,95 @@ export default StyleSheet.create( {
   },
   challengeContainer: {
     backgroundColor: colors.darkGray,
-    alignItems: "center",
     marginTop: 21,
-    height: 305
+    height: 332
+  },
+  textContainer: {
+    marginHorizontal: 32
   },
   challengeHeader: {
-    textAlign: "center",
-    marginTop: 22,
-    marginLeft: 22,
-    marginRight: 22,
+    marginTop: 32,
     fontFamily: fonts.light,
-    fontSize: 22,
+    fontSize: 18,
     color: colors.white,
-    letterSpacing: 1.16
+    letterSpacing: 0.78
+  },
+  challengeName: {
+    fontFamily: fonts.semibold,
+    fontSize: 23,
+    color: colors.white,
+    letterSpacing: 1.0
+  },
+  centeredContent: {
+    alignItems: "center"
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-around",
-    marginTop: 31,
-    marginBottom: 31
+    justifyContent: "space-between",
+    marginTop: 14,
+    marginBottom: 28,
+    marginHorizontal: 32
   },
   text: {
     maxWidth: 165,
     color: colors.white,
-    fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
-    lineHeight: 20,
-    marginHorizontal: 16
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 24
   },
   greenButton: {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
-    width: 254,
     height: 46,
-    marginBottom: 21
+    marginBottom: 14
   },
   buttonText: {
     paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
+    paddingHorizontal: 33,
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.0,
     color: colors.white
   },
   viewText: {
     fontFamily: fonts.book,
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    color: colors.white,
+    fontSize: 16
+  },
+  noChallengeContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noChallengeRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "nowrap"
+  },
+  noChallengeTextContainer: {
+    marginLeft: 30,
+    justifyContent: "center"
+  },
+  noChallengeText: {
+    width: 229,
+    textAlign: "center",
+    fontFamily: fonts.medium,
+    color: colors.errorGray,
+    fontSize: 19,
+    lineHeight: 24
+  },
+  lightText: {
+    marginTop: 10,
+    width: 204,
+    textAlign: "center",
+    fontFamily: fonts.light,
+    color: colors.errorGray,
+    fontSize: 16,
+    lineHeight: 18
   }
 } );

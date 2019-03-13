@@ -6,8 +6,8 @@ import {
 
 export default StyleSheet.create( {
   banner: {
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 40,
+    marginBottom: 32,
     paddingTop: Platform.OS === "android" ? 5 : 7,
     width: 284,
     height: 48

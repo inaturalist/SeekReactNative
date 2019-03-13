@@ -8,11 +8,11 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
-// import LinearGradient from "react-native-linear-gradient";
 
 import realmConfig from "../../models";
 import styles from "../../styles/home/footer";
 import icons from "../../assets/icons";
+import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   navigation: any
@@ -52,7 +52,7 @@ class Footer extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <ImageBackground source={icons.navbarShadow} style={styles.container}>
+      <ImageBackground source={backgrounds.navBar} style={styles.container}>
         <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
         <View style={styles.navbar}>
           <TouchableOpacity

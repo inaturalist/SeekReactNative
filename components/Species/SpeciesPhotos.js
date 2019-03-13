@@ -41,8 +41,9 @@ const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
           <TouchableOpacity
             style={styles.ccButton}
             onPress={() => Alert.alert(
-              "License",
-              photo.photo.attribution
+              i18n.t( "species_detail.license" ),
+              photo.photo.attribution,
+              [{ text: i18n.t( "species_detail.got_it" ) }]
             )}
           >
             <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>

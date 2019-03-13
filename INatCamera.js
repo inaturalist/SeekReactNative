@@ -7,7 +7,6 @@ const INatCamera = requireNativeComponent( "RCTINatCameraView", {
     taxaDetectionInterval: PropTypes.string,
     modelPath: PropTypes.string,
     taxonomyPath: PropTypes.string,
-    modelSize: PropTypes.string,
     ...ViewPropTypes
   }
 } );

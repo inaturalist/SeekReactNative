@@ -23,10 +23,11 @@ import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
+import NoChallenges from "./NoChallenges";
 import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
+import { checkIfCardShown, fetchObservationData, addARCameraFiles } from "../../utility/helpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -78,6 +79,10 @@ class HomeScreen extends Component<Props> {
         location: i18n.t( "species_nearby.no_location" )
       } );
     }
+  }
+
+  setChallenge( challenge ) {
+    this.setState( { challenge } );
   }
 
   getGeolocation() {
@@ -223,10 +228,13 @@ class HomeScreen extends Component<Props> {
   fetchLatestChallenge() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
-        this.setState( {
-          challenge: challenges[0]
-        } );
+        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
+        if ( incompleteChallenges.length > 0 ) {
+          const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
+          this.setChallenge( latestChallenge[0] );
+        } else {
+          this.setChallenge( null );
+        }
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -281,9 +289,11 @@ class HomeScreen extends Component<Props> {
                 this.fetchUserLocation();
                 this.fetchLatestChallenge();
                 fetchObservationData();
+                addARCameraFiles();
               }}
             />
             <ScrollView>
+              {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
                 visible={modalVisible}
                 onRequestClose={() => this.toggleLocationPicker()}
@@ -311,7 +321,10 @@ class HomeScreen extends Component<Props> {
               { isFirstLaunch ? <CardPadding /> : null }
               { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <CardPadding />
-              { challenge ? <Challenges navigation={navigation} challenge={challenge} /> : null}
+              { challenge
+                ? <Challenges navigation={navigation} challenge={challenge} />
+                : <NoChallenges navigation={navigation} />
+              }
               <Padding />
             </ScrollView>
           </View>

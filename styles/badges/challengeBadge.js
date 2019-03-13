@@ -6,7 +6,6 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
     borderRadius: 40,
     backgroundColor: colors.white
   },
@@ -20,22 +19,23 @@ export default StyleSheet.create( {
   image: {
     marginTop: 25,
     marginBottom: 35,
-    height: 183,
-    width: 183
+    height: 158,
+    width: 140
   },
   headerText: {
-    marginHorizontal: 27,
-    marginTop: 16,
+    marginHorizontal: 24,
+    marginTop: 24,
     textAlign: "center",
-    fontSize: 19,
+    fontSize: 18,
     fontFamily: fonts.semibold,
-    color: "#4a4a4a",
+    color: colors.seekForestGreen,
+    letterSpacing: 1.0,
     lineHeight: 24
   },
   text: {
     textAlign: "center",
-    marginHorizontal: 27,
-    marginTop: 16,
+    marginHorizontal: 24,
+    marginTop: 18,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
@@ -48,7 +48,8 @@ export default StyleSheet.create( {
   },
   logo: {
     height: 70,
-    width: 209
+    width: 209,
+    resizeMode: "contain"
   },
   backButton: {
     padding: 10,

@@ -2,86 +2,115 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  fontSize,
-  padding
+  fontSize
 } from "../global";
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    height: 356
+    height: 422
   },
   header: {
-    backgroundColor: colors.white,
-    borderRadius: 10,
     marginTop: 21,
-    marginLeft: 22,
-    justifyContent: "center",
-    alignItems: "center",
-    height: 39,
-    width: 185
+    marginLeft: 22
   },
   headerText: {
-    paddingTop: padding.iOSPadding,
     fontSize: 19,
     fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
+    color: colors.white,
     letterSpacing: 1.12
   },
   buttonContainer: {
-    marginTop: 22,
-    marginLeft: 22
+    marginTop: 30,
+    marginLeft: 22,
+    marginBottom: 15
   },
   buttonRow: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "flex-start"
+    marginBottom: 15
   },
-  locationPicker: {
+  whiteButton: {
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    justifyContent: "center",
     paddingHorizontal: 9,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
+    height: 29
   },
   image: {
     marginRight: 13,
-    marginBottom: Platform.OS === "ios" ? 7 : 0
+    width: 16,
+    height: 21,
+    resizeMode: "contain"
   },
-  locationText: {
-    fontFamily: fonts.book,
-    fontSize: 26,
-    color: colors.white
+  buttonText: {
+    paddingTop: Platform.OS === "ios" ? 5 : 0,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
   },
-  editImage: {
-    marginLeft: 13,
-    marginBottom: 6
+  secondButtonText: {
+    backgroundColor: colors.white,
+    paddingHorizontal: 9,
+    height: 29,
+    borderRadius: 6,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
+  },
+  androidSecondButtonText: {
+    textAlign: "left",
+    paddingHorizontal: 9,
+    width: 140,
+    height: 29,
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    paddingTop: 5,
+    paddingBottom: 2,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
   },
   speciesNearbyContainer: {
-    marginTop: 16
+    backgroundColor: "#2a7353",
+    height: 223
+  },
+  similarSpeciesContainer: {
+    backgroundColor: colors.seekForestGreen,
+    height: 223
+  },
+  similarSpeciesList: {
+    marginTop: 20,
+    paddingLeft: 20
   },
   taxonList: {
-    paddingLeft: 20,
-    alignItems: "center",
-    justifyContent: "center"
+    marginTop: 29,
+    paddingLeft: 20
+  },
+  noTaxon: {
+    marginTop: 71,
+    marginHorizontal: 27
   },
   gridCell: {
-    width: 105,
-    paddingHorizontal: padding.medium,
+    width: 108,
+    marginHorizontal: 10,
     alignItems: "center",
     justifyContent: "center"
   },
   cellImage: {
-    width: 90,
-    height: 90,
-    borderRadius: 90 / 2
+    width: 108,
+    height: 108,
+    borderRadius: 108 / 2
   },
   cellTitle: {
-    height: 76,
-    width: 90,
-    paddingTop: 10,
+    height: 92,
+    width: 108,
+    paddingTop: 15,
     justifyContent: "center",
     flexDirection: "row",
     flexWrap: "wrap"
@@ -89,9 +118,9 @@ export default StyleSheet.create( {
   cellTitleText: {
     textAlign: "center",
     color: colors.white,
-    fontFamily: fonts.default,
-    lineHeight: 17,
-    fontSize: fontSize.smallText
+    fontFamily: fonts.medium,
+    lineHeight: 21,
+    fontSize: 16
   },
   textContainer: {
     marginLeft: 22,
@@ -102,16 +131,11 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   text: {
-    fontFamily: fonts.default,
-    fontSize: fontSize.buttonText
-  },
-  error: {
-    backgroundColor: colors.errorGray,
-    paddingTop: 32,
-    paddingBottom: 32
+    fontFamily: fonts.medium,
+    fontSize: 18
   },
   loading: {
-    paddingTop: 32,
-    paddingBottom: 32
+    alignItems: "center",
+    justifyContent: "center"
   }
 } );

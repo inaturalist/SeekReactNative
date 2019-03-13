@@ -15,8 +15,8 @@ import inatjs from "inaturalistjs";
 import styles from "../../styles/menu/iNatStats";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import backgrounds from "../../assets/backgrounds";
 import logos from "../../assets/logos";
-import StatsMap from "./StatsMap";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import { getObservationData, capitalizeNames } from "../../utility/helpers";
@@ -122,6 +122,7 @@ class iNatStatsScreen extends Component<Props> {
             <View style={styles.header}>
               <TouchableOpacity
                 onPress={() => navigation.goBack()}
+                style={{ padding: 5 }}
               >
                 <Image
                   source={icons.backButtonGreen}
@@ -131,7 +132,7 @@ class iNatStatsScreen extends Component<Props> {
               <Image style={styles.logo} source={logos.iNat} />
               <View />
             </View>
-            <StatsMap />
+            <Image source={backgrounds.heatMap} />
             <View style={styles.missionContainer}>
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}

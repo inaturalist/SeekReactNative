@@ -5,7 +5,7 @@ import {
   FlatList,
   Text,
   View,
-  Platform
+  Alert
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -21,7 +21,9 @@ type Props = {
 
 const ObservationList = ( { observations, id, navigation }: Props ) => (
   <View style={styles.secondTextContainer}>
-    <Text style={styles.secondHeaderText}>{i18n.t( taxaIds[id] ).toLocaleUpperCase()}</Text>
+    <Text style={styles.secondHeaderText}>
+      {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+    </Text>
     {observations.length > 0 ? (
       <FlatList
         data={observations}
@@ -32,7 +34,9 @@ const ObservationList = ( { observations, id, navigation }: Props ) => (
       />
     ) : (
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}</Text>
+        <Text style={styles.text}>
+          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+        </Text>
       </View>
     )}
   </View>

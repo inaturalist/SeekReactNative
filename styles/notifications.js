@@ -40,7 +40,7 @@ export default StyleSheet.create( {
   },
   titleText: {
     maxWidth: 232,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
     marginBottom: 5,
     lineHeight: 21
@@ -66,5 +66,26 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  noNotifications: {
+    marginHorizontal: 28,
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noNotificationsHeader: {
+    marginHorizontal: 48,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    lineHeight: 24,
+    letterSpacing: 1.0,
+    color: colors.seekForestGreen
+  },
+  noNotificationsText: {
+    marginTop: 24,
+    textAlign: "center",
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21
   }
 } );

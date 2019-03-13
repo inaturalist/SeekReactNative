@@ -1,92 +1,206 @@
+// @flow
+
 import React, { Component } from "react";
 import {
-  StyleSheet,
-  Text,
+  Image,
+  TouchableOpacity,
   View,
-  Alert
+  PermissionsAndroid,
+  Text
 } from "react-native";
+import { NavigationEvents } from "react-navigation";
+import RNFS from "react-native-fs";
+
 import INatCamera from "../../INatCamera";
+import LoadingWheel from "../LoadingWheel";
+import i18n from "../../i18n";
+import styles from "../../styles/camera/arCamera";
+import icons from "../../assets/icons";
+import rankDict from "../../utility/rankDict";
 
-const styles = StyleSheet.create( {
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  camera: {
-    width: "100%",
-    height: 450,
-    backgroundColor: "black"
-  },
-  predictions: {
-    margin: 10,
-    fontSize: 10,
-    fontFamily: "sans-serif-condensed",
-    color: "black"
-  }
-} );
+type Props = {
+  navigation: any
+}
 
-class ARCamera extends Component {
+class ARCamera extends Component<Props> {
   constructor() {
     super();
 
     this.state = {
-      content: null
+      ranks: {},
+      rankToRender: null,
+      loading: true
     };
+  }
+
+  setLoading( loading ) {
+    this.setState( { loading } );
+  }
+
+  requestPermissions = async () => {
+    const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+
+    try {
+      const granted = await PermissionsAndroid.request( camera );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        // console.log( granted, "granted" );
+      } else {
+        // console.log( "permission denied" );
+      }
+    } catch ( err ) {
+      // console.log( err, "permission denied" );
+    }
   }
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
     console.log( predictions, "predictions" );
 
-    this.setState( previousState => (
-      { content: JSON.stringify( predictions ) }
-    ) )
+    if ( predictions ) {
+      this.setLoading( false );
+    }
+
+    if ( predictions.kingdom ) {
+      this.setState( { 
+        ranks: {
+          kingdom: predictions.kingdom
+        },
+        rankToRender: "kingdom"
+       } );
+    } else if ( predictions.phylum ) {
+      this.setState( { 
+        ranks: {
+          phylum: predictions.phylum
+        },
+        rankToRender: "phylum"
+       } );
+    } else if ( predictions.class ) {
+      this.setState( { 
+        ranks: {
+          class: predictions.class
+        },
+        rankToRender: "class"
+       } );
+    } else if ( predictions.order ) {
+      this.setState( { 
+        ranks: {
+          order: predictions.order
+        },
+        rankToRender: "order"
+       } );
+    } else if ( predictions.family ) {
+      this.setState( { 
+        ranks: {
+          family: predictions.family
+        },
+        rankToRender: "family"
+       } );
+    } else if ( predictions.genus ) {
+      this.setState( { 
+        ranks: {
+          genus: predictions.genus
+        },
+        rankToRender: "genus"
+       } );
+    } else if ( predictions.species ) {
+      // {console.log( predictions.species[0].name, "predictions" )}
+      this.setState( { 
+        ranks: {
+          species: predictions.species
+        },
+        rankToRender: "species"
+       } );
+    }
   }
 
   onCameraError = event => {
-    Alert.alert( `Camera error: ${event.nativeEvent.error}` );
+    console.log( `Camera error: ${event.nativeEvent.error}` );
   }
 
   onCameraPermissionMissing = event => {
-    Alert.alert( `Missing camera permission` )
+    console.log( `Missing camera permission` )
   }
 
   onClassifierError = event => {
-    Alert.alert( `Classifier error: ${event.nativeEvent.error}` )
+    console.log( `Classifier error: ${event.nativeEvent.error}` )
   }
 
   onDeviceNotSupported = event => {
-    Alert.alert( `Device not supported, reason: ${event.nativeEvent.reason}` )
+    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` )
   }
 
   render() {
-    const { content } = this.state;
+    const { ranks, rankToRender, loading } = this.state;
+    const { navigation } = this.props;
+
+    console.log( rankToRender, "rank to render" );
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>iNaturalist Native Camera Demo</Text>
-        {/* <INatCamera
+        <NavigationEvents onWillFocus={() => this.requestPermissions()} />
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.navigate( "Main" )}
+        >
+          <Image source={icons.closeWhite} />
+        </TouchableOpacity>
+        <View style={styles.header}>
+          {rankToRender ? (
+            <View style={styles.greenButton}>
+              <Text style={styles.greenButtonText}>
+                {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
+              </Text>
+            </View>
+          ) : null}
+          {rankToRender ? (
+            <Text style={styles.predictions}>
+              {ranks[rankToRender][0].name}
+              {/* {console.log( ranks[rankToRender][0].name )} */}
+            </Text>
+          ) : null}
+          {ranks && rankToRender ? (
+            <View style={styles.dotRow}>
+              <View style={ranks.kingdom ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.phylum ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.class ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.order ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.family ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.genus ? styles.greenDot : styles.whiteDot} />
+              <View style={ranks.species ? styles.greenDot : styles.whiteDot} />
+            </View>
+          ) : null}
+        </View>
+        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
+        <TouchableOpacity
+          onPress={() => console.log( "clicked shutter button" )}
+          style={styles.shutter}
+        >
+          {ranks && ranks.species
+            ? <Image source={icons.arCameraGreen} />
+            : <Image source={icons.arCameraButton} />}
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "CameraHelp" )}
+          style={styles.help}
+        >
+          <Image source={icons.cameraHelp} />
+        </TouchableOpacity>
+        { loading ? (
+          <View style={styles.loading}>
+            <LoadingWheel color="white" />
+          </View>
+        ) : null}
+        <INatCamera
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
           onCameraPermissionMissing={this.onCameraPermissionMissing}
           onClassifierError={this.onClassifierError}
           onDeviceNotSupported={this.onDeviceNotSupported}
-          modelPath="../../optimized_model.tflite"
-          modelSize="24875"
-          taxonomyPath="../../taxonomy_data.csv"
-          taxaDetectionInterval="2000"
+          modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
+          taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy_data.csv`}
+          taxaDetectionInterval="80"
           style={styles.camera}
-        /> */}
-        <Text style={styles.predictions}>
-          {content}
-        </Text>
+        />
       </View>
     );
   }

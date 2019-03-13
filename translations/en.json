@@ -8,7 +8,8 @@
     "location_error": "In order to show you nearby species, we need to use your location.",
     "enable_location": "Enable location in settings",
     "internet_error": "We need the internet to generate nearby species. Tap to try again.",
-    "no_location": "No Location"
+    "no_location": "No Location",
+    "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter."
   },
   "get_started": {
     "header": "Get started",
@@ -19,8 +20,9 @@
   "challenges_card": {
     "header": "Challenges",
     "april": "April 2019: Connectivity",
-    "join": "Join the global observation challenge and follow along with Our Planet on Netflix!",
+    "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
+    "continue_challenge": "Continue challenge",
     "view_all": "View all challenges"
   },
   "notifications": {
@@ -34,7 +36,9 @@
     "observation_identified": "Your observation was identified to species on iNaturalist!",
     "badges_updated": "Thanks for helping improve our model! Your badges may have been updated.",
     "challenge_completed": "Congrats! You completed a challenge",
-    "view_challenges": "View challenge"
+    "view_challenges": "View challenge",
+    "none": "You don’t have any notifications yet!",
+    "about": "Here, you’ll be notified about new challenges as they become available, updates to Seek, and other relevant information."
   },
   "login": {
     "log_in": "Log in with iNaturalist",
@@ -93,15 +97,16 @@
     "settings": "Settings"
   },
   "onboarding": {
-    "onboarding_1": "Take a photo of anything living and Seek will help you identify it!",
-    "onboarding_2": "Earn badges for seeing different species",
+    "onboarding_1": "Use Seek’s Camera to learn about the organisms all around you",
+    "onboarding_2": "Earn badges for seeing different species all around you",
     "onboarding_3": "Participate in global challenges with Our Planet and WWF",
     "skip": "Skip for now",
     "continue": "Continue"
   },
   "location_picker": {
     "species_nearby": "Species nearby",
-    "button": "Search near location"
+    "button": "Search near location",
+    "undefined": "Undefined location"
   },
   "taxon_picker": {
     "all": "All Species",
@@ -114,7 +119,8 @@
     "birds": "birds",
     "insects": "insects",
     "mollusks": "mollusks",
-    "mammals": "mammals"
+    "mammals": "mammals",
+    "other": "other"
   },
   "challenges": {
     "header": "Challenges",
@@ -144,7 +150,7 @@
     "mission_5_may": "Find 3 different fungi",
     "may_description": "From the deepest jungle to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
     "congrats": "You completed the Our Planet Challenge for {{month}}!",
-    "thanks": "Thanks for participating! Follow along with the journey on Netflix’s Our Planet.",
+    "thanks": "Thanks for participating! We can all give nature a helping hand. Follow along with the journey on Netflix’s Our Planet and learn more at ourplanet.com.",
     "no_completed_challenges": "Your completed challenges will appear here.",
     "no_challenges_in_progress": "Start a new challenge below to earn badges!",
     "no_new_challenges_header": "You have no new challenges.",
@@ -166,7 +172,7 @@
   },
   "results": {
     "observed_species": "You observed a new Species!",
-    "learn_more": "Learn more about this species, where it’s found, and other facts about it!",
+    "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
     "view_species": "View Species",
     "back": "Back to Camera",
     "no_identification": "We weren’t able to identify this photo",
@@ -189,8 +195,16 @@
   "camera": {
     "label": "Camera",
     "on": "on",
-    "off": "off"
-  },
+    "off": "off",
+    "scan": "Keep scanning the environment for organisms to identify!",
+    "kingdom": "kingdom",
+    "phylum": "phylum",
+    "class": "class",
+    "order": "order",
+    "family": "family",
+    "genus": "genus",
+    "species": "species"
+    },
   "gallery": {
     "label": "Photos",
     "choose_photo": "Choose a photo"
@@ -213,13 +227,27 @@
     "identify": "Identify this photo?",
     "button": "Identify Photo"
   },
-  "badges": { 
+  "levels": {
+    "tadpole": "Tadpole",
+    "cub": "Cub",
+    "tracker": "Tracker",
+    "surveyor": "Surveyor",
+    "naturalist": "Naturalist",
+    "seeker": "Seeker",
+    "explorer": "Explorer",
+    "adventurer": "Adventurer",
+    "biologist": "Biologist"
+  },
+  "badges": {
+    "your_level": "Your Level",
+    "explanation": "Observe more total species to raise your level, find organisms of specific groups to earn species badges, and participate in challenges to earn challenge badges!",
+    "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_species": "Observe",
     "species_badges": "Species Badges",
     "challenge_badges": "Challenge Badges",
-    "observed": "Species Observed",
-    "earned": "Badges Earned",
+    "observed": "Species\nObserved",
+    "earned": "Badges\nEarned",
     "you_found": "You found",
     "bird_1": "1 bird!",
     "bird_5": "5 birds!",
@@ -251,36 +279,36 @@
     "plant_1": "1 plant!",
     "plant_5": "5 plants!",
     "plant_20": "20 plants!",
-    "name_bird_1": "Bronze Toucan",
-    "name_bird_5": "Silver Toucan",
-    "name_bird_15": "Keel-billed Toucan",
-    "name_amphibian_1": "Bronze Dart Frog",
-    "name_amphibian_5": "Silver Dart Frog",
-    "name_amphibian_15": "Gold Dart Frog",
-    "name_reptile_1": "Bronze Crocodile",
-    "name_reptile_5": "Silver Crocodile",
-    "name_reptile_15": "Gold Crocodile",
-    "name_mammal_1": "Bronze Giraffe",
-    "name_mammal_5": "Silver Giraffe",
-    "name_mammal_15": "Gold Giraffe",
-    "name_fish_1": "Bronze Mola",
-    "name_fish_5": "Silver Mola",
-    "name_fish_15": "Gold Mola",
-    "name_mollusk_1": "Bronze Snail",
-    "name_mollusk_5": "Silver Snail",
-    "name_mollusk_15": "Gold Snail",
-    "name_insect_1": "Bronze Beetle",
-    "name_insect_5": "Silver Beetle",
-    "name_insect_15": "Gold Beetle",
-    "name_arachnid_1": "Bronze Spider",
-    "name_arachnid_5": "Silver Spider",
-    "name_arachnid_15": "Gold Spider",
-    "name_fungi_1": "Bronze Mushroom",
-    "name_fungi_5": "Silver Mushroom",
-    "name_fungi_15": "Gold Mushroom",
-    "name_plant_1": "Bronze Orchid",
-    "name_plant_5": "Silver Orchid",
-    "name_plant_20": "Gold Orchid",
+    "name_bird_1": "Bronze Bird Badge",
+    "name_bird_5": "Silver Bird Badge",
+    "name_bird_15": "Gold Bird Badge",
+    "name_amphibian_1": "Bronze Amphibian Badge",
+    "name_amphibian_5": "Silver Amphibian Badge",
+    "name_amphibian_15": "Gold Amphibian Badge",
+    "name_reptile_1": "Bronze Reptile Badge",
+    "name_reptile_5": "Silver Reptile Badge",
+    "name_reptile_15": "Gold Reptile Badge",
+    "name_mammal_1": "Bronze Mammal Badge",
+    "name_mammal_5": "Silver Mammal Badge",
+    "name_mammal_15": "Gold Mammal Badge",
+    "name_fish_1": "Bronze Fish Badge",
+    "name_fish_5": "Silver Fish Badge",
+    "name_fish_15": "Gold Fish Badge",
+    "name_mollusk_1": "Bronze Mollusk Badge",
+    "name_mollusk_5": "Silver Mollusk Badge",
+    "name_mollusk_15": "Gold Mollusk Badge",
+    "name_insect_1": "Bronze Insect Badge",
+    "name_insect_5": "Silver Insect Badge",
+    "name_insect_15": "Gold Insect Badge",
+    "name_arachnid_1": "Bronze Arachnid Badge",
+    "name_arachnid_5": "Silver Arachnid Badge",
+    "name_arachnid_15": "Gold Arachnid Badge",
+    "name_fungi_1": "Bronze Fungi Badge",
+    "name_fungi_5": "Silver Fungi Badge",
+    "name_fungi_15": "Gold Fungi Badge",
+    "name_plant_1": "Bronze Plant Badge",
+    "name_plant_5": "Silver Plant Badge",
+    "name_plant_20": "Gold Plant Badge",
     "to_earn": "To earn this badge:"
   },
   "observations": {
@@ -291,6 +319,7 @@
     "not_seen": "You haven’t observed any {{iconicTaxon}} yet!"
   },
   "species_detail": {
+    "near": "Near",
     "about": "About",
     "range_map": "Range map",
     "view_map": "View range map",
@@ -298,7 +327,7 @@
     "license": "License",
     "taxonomy": "Taxonomy",
     "inat_obs": "iNaturalist Observations",
-    "monthly_obs": "Observations by month",
+    "monthly_obs": "Seasonality",
     "worldwide": "Worldwide",
     "seen_on": "You observed it on {{date}}",
     "endangered": "Endangered",
@@ -306,6 +335,12 @@
     "native": "Native",
     "threatened": "Threatened",
     "introduced": "Introduced",
+    "endangered_about": "This species is in danger of going extinct throughout all or a significant portion of its range",
+    "endemic_about": "This species naturally occurs in this area and isn’t found anywhere else",
+    "native_about": "This species naturally occurs in this area and was not brought here by humans",
+    "threatened_about": "This species is likely to become in danger of extinction in the future",
+    "introduced_about": "This species was brought to this area by humans, and doesn’t naturally occur here",
+    "got_it": "Got it!",
     "wikipedia": "{{about}}\n\nSource: Wikipedia",
     "similar": "Similar Species",
     "plant": "plant",
@@ -318,7 +353,8 @@
     "insect": "insect",
     "mollusk": "mollusk",
     "mammal": "mammal",
-    "species_saved": "This species is saved to your observations."
+    "species_saved": "This species is saved to your observations.",
+    "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them."
   },
   "about": {
     "header": "About",

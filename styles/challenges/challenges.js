@@ -50,7 +50,7 @@ export default StyleSheet.create( {
     width: 150
   },
   titleText: {
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
     marginBottom: 5,
     lineHeight: 21,
@@ -91,7 +91,7 @@ export default StyleSheet.create( {
   noChallengeText: {
     width: 229,
     textAlign: "center",
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     color: colors.errorGray,
     fontSize: 19,
     lineHeight: 24

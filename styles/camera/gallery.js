@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet, Platform } from "react-native";
 import { colors, padding, fonts } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -9,14 +9,11 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 60,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-around"
+    height: 54
   },
   headerText: {
-    paddingTop: padding.iOSPadding,
+    alignSelf: "center",
+    paddingTop: Platform.OS === "ios" ? 3 : 0,
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -37,15 +34,19 @@ export default StyleSheet.create( {
     flexDirection: "row"
   },
   button: {
-    paddingHorizontal: padding.extraSmall,
-    paddingTop: padding.small
+    paddingHorizontal: 1,
+    paddingTop: 2
   },
   image: {
     width: width / 4 - 2,
     height: width / 4 - 2
   },
   backButton: {
-    padding: 10
+    top: 19,
+    left: 23
+  },
+  buttonImage: {
+    padding: 5
   },
   safeView: {
     flex: 1

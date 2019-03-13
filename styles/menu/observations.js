@@ -32,23 +32,26 @@ export default StyleSheet.create( {
     color: colors.black,
     textAlign: "center"
   },
+  noSpecies: {
+    marginHorizontal: 28,
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   noSpeciesHeaderText: {
-    marginTop: height / 5,
-    textAlign: "center",
+    marginHorizontal: 48,
+    fontFamily: fonts.semibold,
     fontSize: 18,
     lineHeight: 24,
-    maxWidth: 279,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
+    letterSpacing: 1.0,
+    color: colors.seekForestGreen
   },
   noSpeciesText: {
-    marginTop: 25,
-    fontSize: 16,
+    marginTop: 24,
+    textAlign: "center",
     fontFamily: fonts.book,
-    lineHeight: 21,
-    color: colors.black,
-    textAlign: "center"
+    fontSize: 16,
+    lineHeight: 21
   },
   greenButton: {
     marginTop: 25,
@@ -63,7 +66,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
     paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white
   },
   secondTextContainer: {

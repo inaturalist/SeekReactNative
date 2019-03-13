@@ -5,7 +5,7 @@ import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
 
-import { colors, fonts } from "../../styles/global";
+import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 
 type Props = {
@@ -52,8 +52,7 @@ const SpeciesChart = ( { data }: Props ) => {
             contentInset={styles.xAxisWidth}
             svg={{
               fontSize: 18,
-              fill: colors.seekTeal,
-              fontFamily: fonts.default
+              fill: colors.seekTeal
             }}
           />
         </View>

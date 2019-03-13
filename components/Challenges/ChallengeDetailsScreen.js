@@ -22,6 +22,7 @@ import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../Badges/ChallengeModal";
 import Footer from "./ChallengeFooter";
+import Padding from "../Padding";
 import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
@@ -162,10 +163,9 @@ class ChallengeDetailsScreen extends Component<Props> {
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}
               >
-                <Image source={icons.backButton} />
+                <Image source={icons.backButton} style={styles.image} />
               </TouchableOpacity>
               <Image style={styles.logo} source={logos.op} />
-              <View />
             </View>
             <View style={styles.challengeContainer}>
               <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
@@ -199,6 +199,7 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>
             </View>
+            <Padding />
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

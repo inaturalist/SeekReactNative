@@ -21,6 +21,11 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     alignItems: "center"
   },
+  levelImage: {
+    width: 117,
+    height: 117,
+    resizeMode: "contain"
+  },
   textContainer: {
     width: 167,
     marginLeft: 24
@@ -31,8 +36,15 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
+  lightText: {
+    marginBottom: 10,
+    fontFamily: fonts.light,
+    color: colors.white,
+    letterSpacing: 0.78,
+    fontSize: 18
+  },
   text: {
-    marginTop: 10,
+    marginTop: 7,
     fontFamily: fonts.book,
     color: colors.white,
     lineHeight: 21,
@@ -55,15 +67,13 @@ export default StyleSheet.create( {
   gridCell: {
     width: width / 4,
     height: width / 4,
-    marginHorizontal: 3,
-    marginBottom: 12
+    marginHorizontal: 6
   },
   stats: {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
   secondHeaderText: {
-    maxWidth: 96,
     textAlign: "center",
     marginHorizontal: 23,
     fontSize: 18,
@@ -81,10 +91,29 @@ export default StyleSheet.create( {
   },
   safeViewTop: {
     flex: 0,
-    backgroundColor: "#22784d"
+    backgroundColor: colors.seekForestGreen
   },
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  iosSpacer: {
+    backgroundColor: "#22784d",
+    height: 1000,
+    position: "absolute",
+    top: -1000,
+    left: 0,
+    right: 0
+  },
+  darkText: {
+    marginTop: 32,
+    marginBottom: 17,
+    marginLeft: 24,
+    marginRight: 24,
+    textAlign: "center",
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.book,
+    color: colors.black
   }
 } );

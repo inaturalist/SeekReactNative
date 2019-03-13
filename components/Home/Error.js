@@ -5,13 +5,15 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/error";
 import icons from "../../assets/icons";
+import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   error: string,
@@ -26,7 +28,7 @@ const Error = ( {
   latitude,
   longitude
 }: Props ) => (
-  <View style={styles.textContainer}>
+  <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
     { error === "location" ? (
       <View style={styles.row}>
         <Image source={icons.error} />
@@ -50,7 +52,7 @@ const Error = ( {
         <Text style={styles.buttonText}>{i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}</Text>
       </TouchableOpacity>
     ) : null}
-  </View>
+  </ImageBackground>
 );
 
 export default Error;

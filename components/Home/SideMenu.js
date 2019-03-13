@@ -48,7 +48,6 @@ class SideMenu extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <TouchableOpacity
-          style={styles.row}
           onPress={() => this.navigateTo( "Main" )}
         >
           <Image

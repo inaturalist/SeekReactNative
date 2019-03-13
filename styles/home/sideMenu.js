@@ -12,6 +12,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   logo: {
+    alignSelf: "center",
     marginTop: 25,
     width: ( width / 2 ) * 1.5,
     height: 79,
@@ -22,7 +23,7 @@ export default StyleSheet.create( {
     alignItems: "flex-start"
   },
   image: {
-    marginLeft: 34,
+    marginLeft: 26,
     marginRight: 23,
     width: 25,
     height: 25,

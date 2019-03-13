@@ -8,7 +8,8 @@ import {
   FlatList,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -27,6 +28,7 @@ import LevelModal from "./LevelModal";
 import BadgeModal from "./BadgeModal";
 import ChallengeModal from "./ChallengeModal";
 import ChallengeUnearnedModal from "./ChallengeUnearnedModal";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -76,8 +78,10 @@ class BadgesScreen extends Component<Props> {
           speciesBadges.push( sorted[0] );
         } );
 
+        const allLevels = badges.filtered( "iconicTaxonName == null" );
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "count", true );
+        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" );
+        console.log( nextLevel, "next" );
 
         speciesBadges.sort( ( a, b ) => {
           if ( a.index < b.index ) {
@@ -95,12 +99,12 @@ class BadgesScreen extends Component<Props> {
 
         this.setState( {
           speciesBadges,
-          level: levelsEarned.length > 0 ? levelsEarned[0] : nextLevel[0],
+          level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
           badgesEarned
         } );
       } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+        // Alert.alert( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
@@ -259,10 +263,11 @@ class BadgesScreen extends Component<Props> {
                 toggleChallengeModal={this.toggleChallengeModal}
               />
             )
-            
             }
           </Modal>
+          <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
           <ScrollView>
+            {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
             <LinearGradient
               colors={["#22784d", "#38976d"]}
               style={styles.header}
@@ -272,10 +277,11 @@ class BadgesScreen extends Component<Props> {
                   <TouchableOpacity
                     onPress={() => this.toggleLevelModal()}
                   >
-                    <Image source={badgeImages[level.earnedIconName]} />
+                    <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
                   </TouchableOpacity>
                   <View style={styles.textContainer}>
-                    <Text style={styles.headerText}>{level.name.toLocaleUpperCase()}</Text>
+                    <Text style={styles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</Text>
+                    <Text style={styles.headerText}>{i18n.t( level.name ).toLocaleUpperCase()}</Text>
                     <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
                   </View>
                 </View>
@@ -288,7 +294,7 @@ class BadgesScreen extends Component<Props> {
             {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}
             {this.renderBadgesRow( speciesBadges.slice( 5, 8 ) )}
             {this.renderBadgesRow( speciesBadges.slice( 8, 10 ) )}
-            <View style={{ marginTop: 25 }} />
+            <View style={{ marginTop: 12 }} />
             <View style={styles.secondTextContainer}>
               <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
               <FlatList
@@ -308,8 +314,8 @@ class BadgesScreen extends Component<Props> {
                       style={styles.gridCell}
                       onPress={() => {
                         // if ( item.percentComplete === 100 ) {
-                          this.toggleChallengeModal();
-                          this.setChallenge( item );
+                        this.toggleChallengeModal();
+                        this.setChallenge( item );
                         // }
                       }}
                     >
@@ -321,7 +327,7 @@ class BadgesScreen extends Component<Props> {
                   );
                 }}
               />
-              <View style={{ marginTop: 40 }} />
+              <View style={{ marginTop: 42 }} />
               <View style={styles.stats}>
                 <View>
                   <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
@@ -331,6 +337,9 @@ class BadgesScreen extends Component<Props> {
                   <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
                   <Text style={styles.number}>{badgesEarned}</Text>
                 </View>
+              </View>
+              <View>
+                <Text style={styles.darkText}>{i18n.t( "badges.explanation" )}</Text>
               </View>
             </View>
             <Padding />

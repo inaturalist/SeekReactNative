@@ -27,9 +27,7 @@ const GreenHeader = ( { header, navigation }: Props ) => (
         style={styles.image}
       />
     </TouchableOpacity>
-    <View style={styles.textContainer}>
-      <Text style={styles.text}>{header.toLocaleUpperCase()}</Text>
-    </View>
+    <Text style={styles.text}>{header.toLocaleUpperCase()}</Text>
   </View>
 );
 

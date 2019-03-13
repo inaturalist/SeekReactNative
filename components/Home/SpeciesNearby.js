@@ -88,6 +88,12 @@ const SpeciesNearby = ( {
         )}
       />
     );
+  } else {
+    species = (
+      <View style={styles.noTaxon}>
+        <Text style={styles.cellTitleText}>{i18n.t( "species_nearby.no_species" )}</Text>
+      </View>
+    );
   }
 
   return (
@@ -98,26 +104,25 @@ const SpeciesNearby = ( {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonRow}
+          onPress={() => toggleLocationPicker()}
+        >
+          <Image source={icons.locationWhite} style={styles.image} />
+          <View style={styles.whiteButton}>
+            {location
+              ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
+              : null
+            }
+          </View>
+        </TouchableOpacity>
         <View style={styles.buttonRow}>
-          <TouchableOpacity
-            style={styles.locationPicker}
-            onPress={() => toggleLocationPicker()}
-          >
-            <Image source={icons.locationWhite} style={styles.image} />
-            <Text style={styles.locationText}>
-              {location}
-            </Text>
-            {!error ? <Image source={icons.edit} style={styles.editImage} /> : null}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonRow}>
+          <Image source={icons.filter} style={styles.image} />
           <TaxonPicker updateTaxaType={updateTaxaType} />
-          <Image source={icons.caret} />
         </View>
       </View>
       <View style={[
         styles.speciesNearbyContainer,
-        error && styles.error,
         loading && styles.loading
       ]}
       >

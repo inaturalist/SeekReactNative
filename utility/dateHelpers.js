@@ -29,6 +29,7 @@ const requiresParent = ( birthday ) => {
 };
 
 const seenBeforeSeekV2 = ( seenDate ) => {
+  // const apr5 = new Date( 2019, 3, 5 );
   const apr5 = moment( "20190405" ).format( "YYYY-MM-DD" );
   if ( moment( seenDate ).isBefore( apr5 ) ) {
     return true;

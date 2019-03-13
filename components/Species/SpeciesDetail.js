@@ -126,7 +126,7 @@ class SpeciesDetail extends Component<Props> {
 
         if ( seenTaxa[0] ) {
           seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          if ( !seenBeforeSeekV2( seenDate ) ) {
+          if ( !seenBeforeSeekV2( moment( seenDate ) ) ) {
             userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
           } else {
             userPhoto = null;

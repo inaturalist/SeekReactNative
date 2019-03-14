@@ -34,7 +34,7 @@ const LevelHeader = ( { level, nextLevelCount, toggleLevelModal }: Props ) => (
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <Text style={styles.lightText}>{i18n.t( "badges.your_level" ).toLocaleUpperCase()}</Text>
-          <Text style={styles.headerText}>{i18n.t( level.name ).toLocaleUpperCase()}</Text>
+          <Text style={styles.headerText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
           <Text style={styles.text}>{i18n.t( "badges.observe", { number: nextLevelCount } )}</Text>
         </View>
       </View>

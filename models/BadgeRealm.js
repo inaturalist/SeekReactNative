@@ -4,6 +4,7 @@ BadgeRealm.schema = {
   primaryKey: "name",
   properties: {
     name: { type: "string", default: "" },
+    intlName: { type: "string", default: "" },
     earned: { type: "bool", default: false },
     earnedDate: "date?",
     iconicTaxonName: "string?",

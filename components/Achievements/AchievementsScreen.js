@@ -63,6 +63,7 @@ class AchievementsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
+        Alert.alert( JSON.stringify( badges ), "badges on achievement screen" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );

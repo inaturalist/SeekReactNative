@@ -19,7 +19,7 @@ import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 
 type Props = {
-  speciesBadges: Object
+  speciesBadges: Array<Object>
 }
 
 class SpeciesBadges extends Component<Props> {
@@ -41,6 +41,7 @@ class SpeciesBadges extends Component<Props> {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
+        // Alert.alert( JSON.stringify( badges, "badge in fetch" ) );
 
         this.setState( {
           iconicTaxonBadges: badges,
@@ -88,26 +89,30 @@ class SpeciesBadges extends Component<Props> {
 
   render() {
     const { speciesBadges } = this.props;
+    console.log( speciesBadges, "species badges" );
     const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
+    // Alert.alert( JSON.stringify( iconicTaxonBadges ) );
 
     return (
       <View style={styles.secondTextContainer}>
-        <Modal
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            paddingTop: 20,
-            paddingBottom: 70
-          }}
-          isVisible={showBadgeModal}
-          onBackdropPress={() => this.toggleBadgeModal()}
-        >
-          <BadgeModal
-            badges={iconicTaxonBadges}
-            iconicSpeciesCount={iconicSpeciesCount}
-            toggleBadgeModal={this.toggleBadgeModal}
-          />
-        </Modal>
+        { iconicTaxonBadges.length > 0 ? (
+          <Modal
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+              paddingTop: 20,
+              paddingBottom: 70
+            }}
+            isVisible={showBadgeModal}
+            onBackdropPress={() => this.toggleBadgeModal()}
+          >
+            <BadgeModal
+              badges={iconicTaxonBadges}
+              iconicSpeciesCount={iconicSpeciesCount}
+              toggleBadgeModal={this.toggleBadgeModal}
+            />
+          </Modal>
+        ) : null}
         <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
         {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
         {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}

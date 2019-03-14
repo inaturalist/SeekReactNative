@@ -35,31 +35,37 @@ const recalculateBadges = () => {
 };
 
 const setupBadges = () => {
-  // Alert.alert( "setting up badges" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
-          Alert.alert( badgeType, "badge type" );
+          // Alert.alert( badgeType, "badge type" );
           const badges = badgesDict.default[badgeType];
           // Alert.alert( JSON.stringify( badges ), "badges" );
 
-          const badge = realm.create( "BadgeRealm", {
-            name: badges.name,
-            iconicTaxonName: badges.iconicTaxonName,
-            iconicTaxonId: badges.iconicTaxonId,
-            count: badges.count,
-            earnedIconName: badges.earnedIconName,
-            unearnedIconName: badges.unearnedIconName,
-            infoText: badges.infoText,
-            index: badges.index,
-            earned: badges.name === "levels.tadpole" || false
-          } );
+          try {
+            const badge = realm.create( "BadgeRealm", {
+              name: badges.name,
+              intlName: badges.intlName,
+              iconicTaxonName: badges.iconicTaxonName,
+              iconicTaxonId: badges.iconicTaxonId,
+              count: badges.count,
+              earnedIconName: badges.earnedIconName,
+              unearnedIconName: badges.unearnedIconName,
+              infoText: badges.infoText,
+              index: badges.index
+              // earned: badges.earned
+            }, true );
+            // Alert.alert( JSON.stringify( badge ), "created badge" );
+          } catch ( e ) {
+            // const badges = realm.objects( "BadgeRealm" )
+            Alert.alert( "error creating data", e );
+          }
         } );
       } );
     } ).catch( ( err ) => {
-      // Alert.alert( "[DEBUG] Failed to open realm in setup badges, error: ", JSON.stringify( err ) );
+      Alert.alert( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 

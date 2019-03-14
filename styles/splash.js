@@ -1,8 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "./global";
 
 const { width } = Dimensions.get( "screen" );

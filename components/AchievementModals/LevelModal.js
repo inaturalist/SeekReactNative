@@ -33,7 +33,7 @@ const LevelModal = ( { level, toggleLevelModal }: Props ) => (
             source={badgeImages[level.earnedIconName]}
             style={styles.image}
           />
-          <Text style={styles.nameText}>{i18n.t( level.name ).toLocaleUpperCase()}</Text>
+          <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
         </LinearGradient>
         <Text style={styles.text}>{i18n.t( "banner.number_species", { number: level.count } )}</Text>
       </View>

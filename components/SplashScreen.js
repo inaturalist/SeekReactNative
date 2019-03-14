@@ -13,7 +13,6 @@ import styles from "../styles/splash";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch } from "../utility/helpers";
-import { setupBadges } from "../utility/badgeHelpers";
 
 type Props = {
   navigation: any
@@ -31,9 +30,6 @@ class SplashScreen extends Component<Props> {
 
   async componentWillMount() {
     const isFirstLaunch = await checkIfFirstLaunch();
-    // if ( isFirstLaunch ) {
-    //   await setupBadges();
-    // }
     this.setState( {
       isFirstLaunch,
       hasCheckedAsyncStorage: true

@@ -92,7 +92,7 @@ class BadgeModal extends Component<Props> {
     return (
       <SafeAreaView style={styles.safeView}>
         <View style={styles.container}>
-          <BannerHeader text={badges[0].iconicTaxonName.toLocaleUpperCase()} />
+          <BannerHeader text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()} />
           <ScrollView
             horizontal
             pagingEnabled

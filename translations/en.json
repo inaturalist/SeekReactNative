@@ -7,7 +7,7 @@
     "header": "Species nearby",
     "location_error": "In order to show you nearby species, we need to use your location.",
     "enable_location": "Enable location in settings",
-    "internet_error": "We need the internet to generate nearby species. Tap to try again.",
+    "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",
     "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter."
   },
@@ -98,7 +98,7 @@
   },
   "onboarding": {
     "onboarding_1": "Use Seek’s Camera to learn about the organisms all around you",
-    "onboarding_2": "Earn badges for seeing different species all around you",
+    "onboarding_2": "Earn badges for observing different types of species",
     "onboarding_3": "Participate in global challenges with Our Planet and WWF",
     "skip": "Skip for now",
     "continue": "Continue"
@@ -171,7 +171,7 @@
     "thanks": "The iNaturalist community is made up of people just like you! Join the community and add your own observations at inaturalist.org!"
   },
   "results": {
-    "observed_species": "You observed a new Species!",
+    "observed_species": "You observed a new species!",
     "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
     "view_species": "View Species",
     "back": "Back to Camera",
@@ -182,7 +182,7 @@
     "believe": "We believe this is a member of",
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}",
-    "post_inat": "Soon, you'll be able to help train Seek to identify this species by posting to iNaturalist!",
+    "post_inat": "Soon, you'll be able to help train Seek by posting directly to iNaturalist from within the app!",
     "flag": "Flag identification",
     "incorrect": "Are you confident that this identification is incorrect?",
     "yes": "yes",
@@ -195,7 +195,7 @@
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
-    "number_species": "You’ve seen {{number}} species! You’re truly a naturalist at heart."
+    "number_species": "You’ve seen {{number}} species!"
   },
   "camera": {
     "label": "Camera",
@@ -209,7 +209,10 @@
     "family": "family",
     "genus": "genus",
     "species": "species",
-    "loading": "Seek's Camera is loading..."
+    "loading": "Seek's Camera is loading...",
+    "error_camera": "We need access to the camera to help you identify species!",
+    "error_gallery": "We need access to your camera roll to save photos you take!",
+    "permissions": "Enable permissions in settings"
     },
   "gallery": {
     "label": "Photos",
@@ -221,9 +224,9 @@
     "explanation_1": "Each dot on the Seek Camera represents a taxonomic level, from kingdom down to species. This system is how scientists classify living things.",
     "explanation_2": "Point the camera at living things around you, and take a picture once the meter fills up to species.",
     "header_1": "How does it work?",
-    "how_works": "Seek’s identification model works directly using the tree of life.\n\nEach dot on the identification bar represents a taxonomic level on the Tree of Life. As Seek is able to confidently identify the species you’re looking at at each level, it will add another dot to the bar. When the organism is identified to species, take a photo!",
+    "how_works": "Seek’s identification model works directly using the tree of life.\n\nEach dot on the identification bar represents a taxonomic level on the tree of life. As Seek is able to confidently identify the species you’re looking at at each level, it will add another dot to the bar. When the organism is identified to species, take a photo!",
     "header_2": "Tips and Tricks",
-    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles till you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better! Soon, you'll be able to post to iNaturalist from within Seek.",
+    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better! Soon, you'll be able to post to iNaturalist from within Seek.",
     "header_3": "Remember",
     "tip_1": "Always be aware of your surroundings and stay safe!",
     "tip_2": "Don’t eat anything you find in the wild.",

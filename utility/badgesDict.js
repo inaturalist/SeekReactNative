@@ -6,8 +6,8 @@ const badges = {
     count: 0,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-0",
-    index: 0
-    // earned: true
+    index: 0,
+    earned: true
   },
   cub: {
     infoText: "",
@@ -171,7 +171,7 @@ const badges = {
   },
   fungi1: {
     infoText: "badges.fungi_1",
-    name: "1st Fungi",
+    name: "1st Fungus",
     intlName: "badges.name_fungi_1",
     iconicTaxonName: "taxon_picker.fungi",
     iconicTaxonId: 47170,
@@ -281,7 +281,7 @@ const badges = {
   },
   fungi5: {
     infoText: "badges.fungi_5",
-    name: "5th Fungi",
+    name: "5th Fungus",
     intlName: "badges.name_fungi_5",
     iconicTaxonName: "taxon_picker.fungi",
     iconicTaxonId: 47170,
@@ -391,7 +391,7 @@ const badges = {
   },
   fungi15: {
     infoText: "badges.fungi_15",
-    name: "25th Fungi",
+    name: "25th Fungus",
     intlName: "badges.name_fungi_15",
     iconicTaxonName: "taxon_picker.fungi",
     iconicTaxonId: 47170,

@@ -38,10 +38,10 @@ class SpeciesBadges extends Component<Props> {
   fetchBadgesByIconicId( taxaId ) {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
+        const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
-        // Alert.alert( JSON.stringify( badges, "badge in fetch" ) );
+        // Alert.alert( JSON.stringify( badges, "badge iconic" ) );
 
         this.setState( {
           iconicTaxonBadges: badges,
@@ -89,7 +89,7 @@ class SpeciesBadges extends Component<Props> {
 
   render() {
     const { speciesBadges } = this.props;
-    console.log( speciesBadges, "species badges" );
+    // console.log( speciesBadges, "species badges" );
     const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
     // Alert.alert( JSON.stringify( iconicTaxonBadges ) );
 

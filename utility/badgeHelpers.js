@@ -54,8 +54,8 @@ const setupBadges = () => {
               earnedIconName: badges.earnedIconName,
               unearnedIconName: badges.unearnedIconName,
               infoText: badges.infoText,
-              index: badges.index
-              // earned: badges.earned
+              index: badges.index,
+              earned: badges.earned
             }, true );
             // Alert.alert( JSON.stringify( badge ), "created badge" );
           } catch ( e ) {

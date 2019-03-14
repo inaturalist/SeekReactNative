@@ -63,7 +63,6 @@ class AchievementsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
-        Alert.alert( JSON.stringify( badges ), "badges on achievement screen" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
@@ -76,9 +75,9 @@ class AchievementsScreen extends Component<Props> {
           speciesBadges.push( sorted[0] );
         } );
 
-        const allLevels = badges.filtered( "iconicTaxonName == null" );
+        const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
-        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" );
+        const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
 
         speciesBadges.sort( ( a, b ) => {
           if ( a.index < b.index ) {

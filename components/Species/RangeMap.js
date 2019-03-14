@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, SafeAreaView } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 
 import i18n from "../../i18n";
@@ -17,26 +17,29 @@ const RangeMap = ( { navigation }: Props ) => {
 
   return (
     <View style={styles.container}>
-      <GreenHeader header={i18n.t( "species_detail.range_map" )} navigation={navigation} />
-      {region.latitude ? (
-        <MapView
-          region={region}
-          provider={PROVIDER_DEFAULT}
-          style={styles.map}
-          zoomEnabled
-          maxZoomLevel={7}
-        >
-          <UrlTile
-            urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}`}
-          />
-          <Marker
-            coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+      <SafeAreaView style={styles.safeViewTop} />
+      <SafeAreaView style={styles.safeView}>
+        <GreenHeader header={i18n.t( "species_detail.range_map" )} navigation={navigation} />
+        {region.latitude ? (
+          <MapView
+            region={region}
+            provider={PROVIDER_DEFAULT}
+            style={styles.map}
+            zoomEnabled
+            maxZoomLevel={7}
           >
-            <Image source={icons.locationPin} />
-          </Marker>
+            <UrlTile
+              urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}`}
+            />
+            <Marker
+              coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+            >
+              <Image source={icons.locationPin} />
+            </Marker>
 
-        </MapView>
-      ) : null}
+          </MapView>
+        ) : null}
+      </SafeAreaView>
     </View>
   );
 };

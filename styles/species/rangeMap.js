@@ -13,6 +13,14 @@ export default StyleSheet.create( {
   map: {
     width,
     height: height - 75
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
   // userLocation: {
   //   zIndex: 1,

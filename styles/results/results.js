@@ -70,7 +70,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     color: colors.white,
-    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : 0,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
     letterSpacing: 1.0
   },
   backButton: {

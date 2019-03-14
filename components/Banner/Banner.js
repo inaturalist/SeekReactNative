@@ -116,18 +116,22 @@ class Banner extends Component<Props> {
   }
 
   showToasts() {
+    const entranceSpeed = 500;
+    const exitSpeed = 1000;
+    const displayTime = 3000;
+
     const badgeToast = [
       Animated.timing(
         this.animatedBadge, {
           toValue: 0,
-          duration: 1000
+          duration: entranceSpeed
         }
       ),
       Animated.timing(
         this.animatedBadge, {
           toValue: height > 570 ? -170 : -120,
-          delay: 2000,
-          duration: 2000
+          delay: displayTime,
+          duration: exitSpeed
         }
       )];
 
@@ -135,14 +139,14 @@ class Banner extends Component<Props> {
       Animated.timing(
         this.animatedChallenge, {
           toValue: 0,
-          duration: 1000
+          duration: entranceSpeed
         }
       ),
       Animated.timing(
         this.animatedChallenge, {
           toValue: height > 570 ? -180 : -130,
-          delay: 2000,
-          duration: 2000
+          delay: displayTime,
+          duration: exitSpeed
         }
       )
     ];

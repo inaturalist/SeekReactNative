@@ -70,7 +70,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
     height: 46,
-    marginBottom: 14
+    marginBottom: 19
   },
   buttonText: {
     paddingTop: padding.iOSPadding,

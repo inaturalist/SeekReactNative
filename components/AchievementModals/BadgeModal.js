@@ -76,7 +76,7 @@ class BadgeModal extends Component<Props> {
             </ImageBackground>
           )}
           {badge.earned
-            ? <Text style={styles.headerText}>{i18n.t( badge.name ).toLocaleUpperCase()}</Text>
+            ? <Text style={styles.headerText}>{i18n.t( badge.intlName ).toLocaleUpperCase()}</Text>
             : <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
           }
           <Text style={styles.nameText}>

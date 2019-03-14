@@ -8,9 +8,13 @@ import {
   TouchableOpacity,
   Alert
 } from "react-native";
+import Realm from "realm";
+import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
+import realmConfig from "../../models";
 import BannerHeader from "./BannerHeader";
+import BadgeModal from "../AchievementModals/BadgeModal";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 
@@ -19,6 +23,39 @@ type Props = {
 }
 
 class SpeciesBadges extends Component<Props> {
+  constructor() {
+    super();
+
+    this.state = {
+      showBadgeModal: false,
+      iconicTaxonBadges: [],
+      iconicSpeciesCount: null
+    };
+
+    this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
+  }
+
+  fetchBadgesByIconicId( taxaId ) {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
+        const collectedTaxa = realm.objects( "TaxonRealm" );
+        const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
+
+        this.setState( {
+          iconicTaxonBadges: badges,
+          iconicSpeciesCount: collection
+        }, () => this.toggleBadgeModal() );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
+  toggleBadgeModal() {
+    const { showBadgeModal } = this.state;
+    this.setState( { showBadgeModal: !showBadgeModal } );
+  }
+
   renderBadgesRow( data ) {
     return (
       <FlatList
@@ -51,9 +88,26 @@ class SpeciesBadges extends Component<Props> {
 
   render() {
     const { speciesBadges } = this.props;
+    const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
 
     return (
       <View style={styles.secondTextContainer}>
+        <Modal
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            paddingTop: 20,
+            paddingBottom: 70
+          }}
+          isVisible={showBadgeModal}
+          onBackdropPress={() => this.toggleBadgeModal()}
+        >
+          <BadgeModal
+            badges={iconicTaxonBadges}
+            iconicSpeciesCount={iconicSpeciesCount}
+            toggleBadgeModal={this.toggleBadgeModal}
+          />
+        </Modal>
         <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
         {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
         {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}

@@ -27,7 +27,6 @@ import LevelHeader from "./LevelHeader";
 import BannerHeader from "./BannerHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import LevelModal from "../AchievementModals/LevelModal";
-import BadgeModal from "../AchievementModals/BadgeModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
 import GreenHeader from "../GreenHeader";
@@ -48,15 +47,11 @@ class AchievementsScreen extends Component<Props> {
       badgesEarned: null,
       speciesCount: null,
       showLevelModal: false,
-      showBadgeModal: false,
       showChallengeModal: false,
-      iconicTaxonBadges: [],
-      iconicSpeciesCount: null,
       selectedChallenge: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
-    this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
@@ -83,7 +78,6 @@ class AchievementsScreen extends Component<Props> {
         const allLevels = badges.filtered( "iconicTaxonName == null" );
         const levelsEarned = badges.filtered( "iconicTaxonName == null AND earned == true" ).sorted( "count", true );
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" );
-        console.log( nextLevel, "next" );
 
         speciesBadges.sort( ( a, b ) => {
           if ( a.index < b.index ) {
@@ -107,22 +101,6 @@ class AchievementsScreen extends Component<Props> {
         } );
       } ).catch( () => {
         // Alert.alert( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-  }
-
-  fetchBadgesByIconicId( taxaId ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` );
-        const collectedTaxa = realm.objects( "TaxonRealm" );
-        const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
-
-        this.setState( {
-          iconicTaxonBadges: badges,
-          iconicSpeciesCount: collection
-        }, () => this.toggleBadgeModal() );
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
@@ -151,45 +129,10 @@ class AchievementsScreen extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  toggleBadgeModal() {
-    const { showBadgeModal } = this.state;
-    this.setState( { showBadgeModal: !showBadgeModal } );
-  }
-
   toggleChallengeModal() {
     const { showChallengeModal } = this.state;
     this.setState( { showChallengeModal: !showChallengeModal } );
   }
-
-  // renderBadgesRow( data ) {
-  //   return (
-  //     <FlatList
-  //       data={data}
-  //       contentContainerStyle={styles.badgesContainer}
-  //       keyExtractor={badge => badge.name}
-  //       numColumns={3}
-  //       renderItem={( { item } ) => {
-  //         let badgeIcon;
-  //         if ( item.earned ) {
-  //           badgeIcon = badgeImages[item.earnedIconName];
-  //         } else {
-  //           badgeIcon = badgeImages[item.unearnedIconName];
-  //         }
-  //         return (
-  //           <TouchableOpacity
-  //             style={styles.gridCell}
-  //             onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
-  //           >
-  //             <Image
-  //               source={badgeIcon}
-  //               style={styles.badgeIcon}
-  //             />
-  //           </TouchableOpacity>
-  //         );
-  //       }}
-  //     />
-  //   );
-  // }
 
   render() {
     const {
@@ -200,10 +143,7 @@ class AchievementsScreen extends Component<Props> {
       badgesEarned,
       speciesCount,
       showLevelModal,
-      showBadgeModal,
       showChallengeModal,
-      iconicTaxonBadges,
-      iconicSpeciesCount,
       selectedChallenge
     } = this.state;
     const { navigation } = this.props;
@@ -228,24 +168,6 @@ class AchievementsScreen extends Component<Props> {
             <LevelModal
               level={level}
               toggleLevelModal={this.toggleLevelModal}
-            />
-          </Modal>
-          <Modal
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              paddingTop: 20,
-              paddingBottom: 70
-            }}
-            isVisible={showBadgeModal}
-            // onSwipe={() => this.toggleBadgeModal()}
-            onBackdropPress={() => this.toggleBadgeModal()}
-            // swipeDirection="down"
-          >
-            <BadgeModal
-              badges={iconicTaxonBadges}
-              iconicSpeciesCount={iconicSpeciesCount}
-              toggleBadgeModal={this.toggleBadgeModal}
             />
           </Modal>
           <Modal
@@ -275,16 +197,7 @@ class AchievementsScreen extends Component<Props> {
               nextLevelCount={nextLevelCount}
               toggleLevelModal={this.toggleLevelModal}
             />
-            {/* {Alert.alert( JSON.stringify( speciesBadges ) )} */}
             <SpeciesBadges speciesBadges={speciesBadges} />
-            {/* <View style={styles.secondTextContainer}>
-              <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
-            </View>
-            {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
-            {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}
-            {this.renderBadgesRow( speciesBadges.slice( 5, 8 ) )}
-            {this.renderBadgesRow( speciesBadges.slice( 8, 10 ) )}
-            <View style={{ marginTop: 12 }} /> */}
             <View style={styles.secondTextContainer}>
               <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
               <FlatList

@@ -41,7 +41,7 @@ const setupBadges = () => {
       realm.write( () => {
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
-          // Alert.alert( badgeType, "badge type" );
+          Alert.alert( badgeType, "badge type" );
           const badges = badgesDict.default[badgeType];
           // Alert.alert( JSON.stringify( badges ), "badges" );
 

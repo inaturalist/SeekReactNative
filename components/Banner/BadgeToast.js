@@ -25,7 +25,7 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
     <View style={styles.row}>
       <View>
         <Text style={styles.headerText}>
-          {i18n.t( badge.name ).toLocaleUpperCase()}
+          {i18n.t( badge.intlName ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.description}>
           {i18n.t( "badges.you_found" )}

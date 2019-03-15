@@ -126,7 +126,7 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned, levelsEarned } = this.state;
+    const { badgesEarned } = this.state;
 
     recalculateBadges();
 
@@ -135,16 +135,8 @@ class MatchScreen extends Component<Props> {
         const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
         const badges = earnedBadges.sorted( "earnedDate", true );
 
-        const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
-        const newestLevels = earnedLevels.sorted( "earnedDate", true );
-        console.log( newestLevels, "newest levels" );
-
         if ( badgesEarned < earnedBadges.length ) {
           this.setLatestBadge( badges[0] );
-        }
-
-        if ( levelsEarned < earnedLevels.length ) {
-          this.setLatestLevel( newestLevels[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
@@ -161,7 +153,6 @@ class MatchScreen extends Component<Props> {
 
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
-        console.log( newestLevels, "newest levels in separate level check" );
 
         if ( levelsEarned < earnedLevels.length ) {
           this.setLatestLevel( newestLevels[0] );

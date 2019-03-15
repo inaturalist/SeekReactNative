@@ -22,7 +22,7 @@ const ChallengeToast = ( { navigation, challenge }: Props ) => (
     onPress={() => navigation.navigate( "Challenges" )}
   >
     <View style={styles.row}>
-      <View style={styles.textContainer}>
+      <View>
         <Text style={styles.headerText}>
           {i18n.t( challenge.name ).toLocaleUpperCase()}
         </Text>
@@ -31,7 +31,9 @@ const ChallengeToast = ( { navigation, challenge }: Props ) => (
         </Text>
         <Text style={styles.view}>{i18n.t( "banner.challenge_view" )}</Text>
       </View>
-      <PercentCircle challenge={challenge} />
+      <View style={styles.progress}>
+        <PercentCircle challenge={challenge} />
+      </View>
     </View>
   </TouchableOpacity>
 );

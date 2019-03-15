@@ -27,7 +27,7 @@ import NoChallenges from "./NoChallenges";
 import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, fetchObservationData, addARCameraFiles } from "../../utility/helpers";
+import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -286,7 +286,6 @@ class HomeScreen extends Component<Props> {
                 this.checkInternetConnection();
                 this.fetchUserLocation();
                 this.fetchLatestChallenge();
-                fetchObservationData();
                 addARCameraFiles();
               }}
             />

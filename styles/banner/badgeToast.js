@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { fonts, colors, padding } from "../global";
+import { fonts, colors } from "../global";
 
 export default StyleSheet.create( {
   topContainer: {
@@ -26,8 +26,8 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   headerText: {
+    marginTop: 10,
     fontSize: 18,
-    lineHeight: 24,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.0
@@ -43,7 +43,6 @@ export default StyleSheet.create( {
     marginTop: 8,
     fontFamily: fonts.light,
     fontSize: 14,
-    lineHeight: 21,
     color: colors.black
   },
   image: {
@@ -51,5 +50,11 @@ export default StyleSheet.create( {
     height: 75,
     resizeMode: "contain",
     marginRight: 17
+  },
+  progress: {
+    width: 59,
+    height: 59,
+    resizeMode: "contain",
+    marginRight: 24
   }
 } );

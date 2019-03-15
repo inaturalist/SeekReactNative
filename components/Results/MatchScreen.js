@@ -54,7 +54,8 @@ class MatchScreen extends Component<Props> {
       showChallengeModal: false,
       newestLevel: null,
       challenge: null,
-      incompleteChallenge: null
+      incompleteChallenge: null,
+      navigationPath: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -68,6 +69,10 @@ class MatchScreen extends Component<Props> {
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
     this.setLevelsEarned( levelsEarned );
+  }
+
+  setNavigationPath( navigationPath ) {
+    this.setState( { navigationPath } );
   }
 
   setBadgesEarned( badgesEarned ) {
@@ -96,17 +101,15 @@ class MatchScreen extends Component<Props> {
 
   setLatestChallenge( challenge ) {
     this.setState( { challenge } );
-    // this.toggleChallengeModal();
     createNotification( "challengeCompleted", challenge.index );
   }
 
   setLatestLevel( newestLevel ) {
     this.setState( { newestLevel } );
-    // this.toggleLevelModal();
   }
 
   showChallengeInProgress( incompleteChallenge ) {
-    // this.checkForNewBadges();
+    this.checkForNewLevels();
     this.setState( { incompleteChallenge } );
   }
 
@@ -148,6 +151,26 @@ class MatchScreen extends Component<Props> {
       } );
   }
 
+  checkForNewLevels() {
+    const { levelsEarned } = this.state;
+
+    recalculateBadges();
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+
+        const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
+        const newestLevels = earnedLevels.sorted( "earnedDate", true );
+        console.log( newestLevels, "newest levels in separate level check" );
+
+        if ( levelsEarned < earnedLevels.length ) {
+          this.setLatestLevel( newestLevels[0] );
+        }
+      } ).catch( ( e ) => {
+        console.log( e, "error" );
+      } );
+  }
+
   checkForChallengesCompleted() {
     const { challengesCompleted } = this.state;
 
@@ -168,6 +191,23 @@ class MatchScreen extends Component<Props> {
       } );
   }
 
+  navigateTo() {
+    const { navigationPath } = this.state;
+    const { navigation, taxaId, taxaName } = this.props;
+
+    if ( navigationPath === "Camera" ) {
+      navigation.navigate( "Camera" );
+    } else if ( navigationPath === "Species" ) {
+      navigation.push( "Species", {
+        id: taxaId,
+        commonName: taxaName,
+        scientificName: null
+      } );
+    } else if ( navigationPath === "Back" ) {
+      navigation.goBack();
+    }
+  }
+
 
   checkModals() {
     const { challenge, newestLevel } = this.state;
@@ -176,13 +216,14 @@ class MatchScreen extends Component<Props> {
       this.toggleChallengeModal();
     } else if ( newestLevel ) {
       this.toggleLevelModal();
+    } else {
+      this.navigateTo();
     }
   }
 
   render() {
     const {
       taxaName,
-      taxaId,
       speciesSeenImage,
       userImage,
       navigation
@@ -207,7 +248,10 @@ class MatchScreen extends Component<Props> {
             onSwipe={() => this.toggleChallengeModal()}
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
-            onModalHide={() => this.checkModals()}
+            onModalHide={() => {
+              this.setState( { challenge: null } );
+              this.checkModals();
+            }}
           >
             <ChallengeModal
               challenge={challenge}
@@ -219,7 +263,7 @@ class MatchScreen extends Component<Props> {
             onSwipe={() => this.toggleLevelModal()}
             onBackdropPress={() => this.toggleLevelModal()}
             swipeDirection="down"
-            onModalHide={() => console.log( "modal hidden" )}
+            onModalHide={() => this.navigateTo()}
           >
             <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
           </Modal>
@@ -230,8 +274,8 @@ class MatchScreen extends Component<Props> {
             >
               <TouchableOpacity
                 onPress={() => {
+                  this.setNavigationPath( "Back" );
                   this.checkModals();
-                  navigation.goBack();
                 }}
                 style={styles.buttonContainer}
               >
@@ -258,12 +302,8 @@ class MatchScreen extends Component<Props> {
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => {
+                  this.setNavigationPath( "Species" );
                   this.checkModals();
-                  navigation.push( "Species", {
-                    id: taxaId,
-                    commonName: taxaName,
-                    scientificName: null
-                  } );
                 }}
               >
                 <Text
@@ -275,8 +315,8 @@ class MatchScreen extends Component<Props> {
               <TouchableOpacity
                 style={styles.link}
                 onPress={() => {
+                  this.setNavigationPath( "Camera" );
                   this.checkModals();
-                  navigation.navigate( "Camera" );
                 }}
               >
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>

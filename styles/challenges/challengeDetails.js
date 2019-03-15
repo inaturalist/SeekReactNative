@@ -122,7 +122,7 @@ export default StyleSheet.create( {
   buttonText: {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
+    paddingTop: 7,
     fontSize: 18,
     color: colors.white
   },

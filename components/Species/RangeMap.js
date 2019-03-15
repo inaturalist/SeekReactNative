@@ -29,7 +29,7 @@ const RangeMap = ( { navigation }: Props ) => {
             maxZoomLevel={7}
           >
             <UrlTile
-              urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}`}
+              urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
             />
             <Marker
               coordinate={{ latitude: region.latitude, longitude: region.longitude }}

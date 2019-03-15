@@ -9,6 +9,7 @@ import MapView, {
 
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
+import { colors } from "../../styles/global";
 
 type Props = {
   region: Object,
@@ -33,7 +34,7 @@ const LocationMap = ( {
         maxZoomLevel={7}
       >
         <UrlTile
-          urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}`}
+          urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
         />
         {error ? null : (
           <Marker

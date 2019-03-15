@@ -10,8 +10,8 @@ const { height } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any,
-  badge: Object,
-  incompleteChallenge: Object
+  badge: ?Object,
+  incompleteChallenge: ?Object
 }
 
 class Toasts extends Component<Props> {
@@ -23,7 +23,6 @@ class Toasts extends Component<Props> {
   }
 
   componentDidUpdate( prevProps ) {
-    console.log( "component did update" );
     const { badge, incompleteChallenge } = this.props;
     if ( prevProps.badge !== badge ) {
       this.showToasts();
@@ -34,8 +33,9 @@ class Toasts extends Component<Props> {
   }
 
   showToasts() {
-    console.log( "showing toasts" );
-    const entranceSpeed = 500;
+    const { badge, incompleteChallenge } = this.props;
+
+    const entranceSpeed = 700;
     const exitSpeed = 1000;
     const displayTime = 3000;
 
@@ -70,12 +70,19 @@ class Toasts extends Component<Props> {
       )
     ];
 
-    Animated.sequence( [
-      badgeToast[0],
-      badgeToast[1],
-      challengeToast[0],
-      challengeToast[1]
-    ] ).start();
+    if ( incompleteChallenge && !badge ) {
+      Animated.sequence( [
+        challengeToast[0],
+        challengeToast[1]
+      ] ).start();
+    } else {
+      Animated.sequence( [
+        badgeToast[0],
+        badgeToast[1],
+        challengeToast[0],
+        challengeToast[1]
+      ] ).start();
+    }
   }
 
   render() {

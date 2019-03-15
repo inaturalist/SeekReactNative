@@ -17,7 +17,7 @@ import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import styles from "../../styles/results/results";
 import icons from "../../assets/icons";
-import Banner from "../Banner/Toasts";
+import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
@@ -134,6 +134,7 @@ class MatchScreen extends Component<Props> {
 
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
+        console.log( newestLevels, "newest levels" );
 
         if ( badgesEarned < earnedBadges.length ) {
           this.setLatestBadge( badges[0] );
@@ -142,7 +143,6 @@ class MatchScreen extends Component<Props> {
         if ( levelsEarned < earnedLevels.length ) {
           this.setLatestLevel( newestLevels[0] );
         }
-        this.showToasts();
       } ).catch( ( e ) => {
         console.log( e, "error" );
       } );
@@ -163,7 +163,6 @@ class MatchScreen extends Component<Props> {
         } else if ( incompleteChallenges.length > 0 ) {
           this.showChallengeInProgress( incompleteChallenges[0] );
         }
-        this.showToasts();
       } ).catch( ( e ) => {
         console.log( e, "error" );
       } );

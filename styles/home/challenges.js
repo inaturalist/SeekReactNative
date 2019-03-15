@@ -1,9 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize,
-  padding
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
@@ -73,7 +71,7 @@ export default StyleSheet.create( {
     marginBottom: 19
   },
   buttonText: {
-    paddingTop: 7,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
     fontSize: 18,
     paddingHorizontal: 33,
     fontFamily: fonts.semibold,

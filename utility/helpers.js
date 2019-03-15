@@ -119,55 +119,11 @@ const checkIfCardShown = async () => {
   }
 };
 
-const setTotalObservations = ( total ) => {
-  AsyncStorage.setItem( "total_observations", total );
-};
-
-const setTotalObservers = ( total ) => {
-  AsyncStorage.setItem( "total_observers", total );
-};
-
-const fetchTotalObservations = () => {
-  inatjs.observations.fetch().then( ( response ) => {
-    setTotalObservations( response.total_results.toString() );
-  } ).catch( ( error ) => {
-    // console.log( "can't set observations:", error );
-  } );
-};
-
-const fetchTotalObservers = () => {
-  inatjs.observations.observers().then( ( response ) => {
-    setTotalObservers( response.total_results.toString() );
-  } ).catch( ( error ) => {
-    // console.log( "can't set observers:", error );
-  } );
-};
-
-const getObservationData = async () => {
-  try {
-    const observations = await AsyncStorage.getItem( "total_observations" );
-    const observers = await AsyncStorage.getItem( "total_observers" );
-    return {
-      observations: Number( observations ),
-      observers: Number( observers )
-    };
-  } catch ( error ) {
-    return ( error );
-  }
-};
-
-const fetchObservationData = () => {
-  fetchTotalObservations();
-  fetchTotalObservers();
-};
-
 export {
   addARCameraFiles,
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
   checkIfFirstLaunch,
-  checkIfCardShown,
-  fetchObservationData,
-  getObservationData
+  checkIfCardShown
 };

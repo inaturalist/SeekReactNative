@@ -127,5 +127,11 @@ export default StyleSheet.create( {
   },
   photoContainer: {
     height: 251
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

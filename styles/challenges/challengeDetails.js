@@ -131,5 +131,11 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     textDecorationLine: "underline"
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

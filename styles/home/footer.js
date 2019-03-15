@@ -26,5 +26,11 @@ export default StyleSheet.create( {
     paddingRight: 10,
     paddingTop: 10,
     paddingBottom: 10
+  },
+  touchable: {
+    left: 30,
+    right: 30,
+    top: 21,
+    bottom: 21
   }
 } );

@@ -19,6 +19,7 @@ type Props = {
 const GreenHeader = ( { header, navigation }: Props ) => (
   <View style={styles.container}>
     <TouchableOpacity
+      hitSlop={styles.touchable}
       style={styles.backButton}
       onPress={() => navigation.goBack()}
     >

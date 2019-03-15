@@ -356,7 +356,10 @@ class SpeciesDetail extends Component<Props> {
               </ScrollView>
             )}
             <View style={styles.backButton}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
+              <TouchableOpacity
+                onPress={() => navigation.goBack()}
+                hitSlop={styles.touchable}
+              >
                 <Image source={icons.backButton} />
               </TouchableOpacity>
             </View>

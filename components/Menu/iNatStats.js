@@ -19,7 +19,7 @@ import backgrounds from "../../assets/backgrounds";
 import logos from "../../assets/logos";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
-import { getObservationData, capitalizeNames } from "../../utility/helpers";
+import { capitalizeNames } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";
 
 type Props = {
@@ -31,20 +31,11 @@ class iNatStatsScreen extends Component<Props> {
     super();
 
     this.state = {
-      observations: null,
-      observers: null,
+      observations: i18n.toNumber( 16824100, { precision: 0 } ),
+      observers: i18n.toNumber( 451400, { precision: 0 } ),
       photos: [],
       loading: true
     };
-  }
-
-  async setObservationData() {
-    const data = await getObservationData();
-    const { observations, observers } = data;
-    this.setState( {
-      observations: i18n.toNumber( observations, { precision: 0 } ),
-      observers: i18n.toNumber( observers, { precision: 0 } )
-    } );
   }
 
   fetchProjectPhotos() {
@@ -113,7 +104,6 @@ class iNatStatsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.setObservationData();
             this.fetchProjectPhotos();
           }}
         />
@@ -121,6 +111,7 @@ class iNatStatsScreen extends Component<Props> {
           <ScrollView>
             <View style={styles.header}>
               <TouchableOpacity
+                hitSlop={styles.touchable}
                 onPress={() => navigation.goBack()}
                 style={{ padding: 5 }}
               >
@@ -140,12 +131,14 @@ class iNatStatsScreen extends Component<Props> {
               <Image source={logos.bird} style={styles.iNatLogo} />
               <Text style={styles.numberText}>
                 {observations}
+                {"+"}
               </Text>
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.numberText}>
                 {observers}
+                {"+"}
               </Text>
               <Text style={styles.missionHeaderText}>
                 {i18n.t( "inat_stats.seek_data" )}

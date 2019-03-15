@@ -56,6 +56,7 @@ class Footer extends Component<Props> {
         <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
         <View style={styles.navbar}>
           <TouchableOpacity
+            hitSlop={styles.touchable}
             style={styles.button}
             onPress={() => navigation.openDrawer()}
           >
@@ -65,6 +66,7 @@ class Footer extends Component<Props> {
             <Image source={icons.cameraGreen} style={styles.cameraImage} />
           </TouchableOpacity>
           <TouchableOpacity
+            hitSlop={styles.touchable}
             style={styles.button}
             onPress={() => {
               if ( navigation.state.routeName !== "Notifications" ) {

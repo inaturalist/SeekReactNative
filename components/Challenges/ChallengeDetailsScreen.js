@@ -160,6 +160,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <ScrollView>
             <View style={styles.header}>
               <TouchableOpacity
+                hitSlop={styles.touchable}
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}
               >

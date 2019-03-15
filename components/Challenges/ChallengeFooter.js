@@ -20,6 +20,7 @@ const Footer = ( { navigation }: Props ) => (
   <ImageBackground source={backgrounds.navBar} style={styles.container}>
     <View style={styles.navbar}>
       <TouchableOpacity
+        hitSlop={styles.touchable}
         style={styles.button}
         onPress={() => navigation.openDrawer()}
       >
@@ -29,6 +30,7 @@ const Footer = ( { navigation }: Props ) => (
         <Image source={icons.cameraGreen} style={styles.cameraImage} />
       </TouchableOpacity>
       <TouchableOpacity
+        hitSlop={styles.touchable}
         style={styles.button}
         onPress={() => {
           if ( navigation.state.routeName !== "iNatStats" ) {

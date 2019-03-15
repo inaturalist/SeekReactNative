@@ -11,11 +11,10 @@ export default StyleSheet.create( {
     flex: 1
   },
   backButton: {
-    padding: 5,
     zIndex: 1,
     position: "absolute",
-    left: 20,
-    top: 40
+    left: 23,
+    top: 28
   },
   photoContainer: {
     height: 250,
@@ -144,5 +143,11 @@ export default StyleSheet.create( {
   bottomPadding: {
     height: Platform.OS === "android" ? 17 : 60,
     backgroundColor: colors.seekForestGreen
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

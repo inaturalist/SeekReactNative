@@ -19,5 +19,11 @@ export default StyleSheet.create( {
     color: colors.white,
     letterSpacing: 1.0,
     fontFamily: fonts.semibold
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

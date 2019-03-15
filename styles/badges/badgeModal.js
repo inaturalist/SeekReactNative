@@ -8,7 +8,7 @@ const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    height: 530,
+    height: 525,
     alignItems: "center",
     borderRadius: 40,
     backgroundColor: colors.white

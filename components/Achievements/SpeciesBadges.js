@@ -5,8 +5,7 @@ import {
   View,
   Image,
   FlatList,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -41,7 +40,6 @@ class SpeciesBadges extends Component<Props> {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
-        // Alert.alert( JSON.stringify( badges, "badge iconic" ) );
 
         this.setState( {
           iconicTaxonBadges: badges,
@@ -89,9 +87,7 @@ class SpeciesBadges extends Component<Props> {
 
   render() {
     const { speciesBadges } = this.props;
-    // console.log( speciesBadges, "species badges" );
     const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
-    // Alert.alert( JSON.stringify( iconicTaxonBadges ) );
 
     return (
       <View style={styles.secondTextContainer}>
@@ -99,9 +95,7 @@ class SpeciesBadges extends Component<Props> {
           <Modal
             style={{
               justifyContent: "center",
-              alignItems: "center",
-              paddingTop: 20,
-              paddingBottom: 70
+              alignItems: "center"
             }}
             isVisible={showBadgeModal}
             onBackdropPress={() => this.toggleBadgeModal()}

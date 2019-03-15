@@ -73,7 +73,7 @@ export default StyleSheet.create( {
     marginBottom: 19
   },
   buttonText: {
-    paddingTop: padding.iOSPadding,
+    paddingTop: 7,
     fontSize: 18,
     paddingHorizontal: 33,
     fontFamily: fonts.semibold,

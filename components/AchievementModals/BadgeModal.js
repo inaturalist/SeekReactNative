@@ -63,7 +63,6 @@ class BadgeModal extends Component<Props> {
           key={`badge${badge}${i}`}
           style={styles.carousel}
         >
-          {console.log( badgeImages, "badge image" )}
           {badge.earned ? (
             <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
           ) : (

@@ -54,7 +54,7 @@ class ARCamera extends Component<Props> {
 
   onTaxaDetected = event => {
     let predictions = Object.assign( {}, event.nativeEvent );
-    console.log( predictions, "predictions" );
+    // console.log( predictions, "predictions" );
 
     if ( predictions ) {
       this.setLoading( false );
@@ -133,7 +133,7 @@ class ARCamera extends Component<Props> {
     const { ranks, rankToRender, loading } = this.state;
     const { navigation } = this.props;
 
-    console.log( rankToRender, "rank to render" );
+    // console.log( rankToRender, "rank to render" );
 
     return (
       <View style={styles.container}>

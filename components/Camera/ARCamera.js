@@ -11,7 +11,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 
-import INatCamera from "../../INatCamera";
+import INatCamera from "react-native-inat-camera";
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";

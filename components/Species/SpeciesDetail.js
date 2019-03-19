@@ -33,6 +33,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 // import LoadingWheel from "../LoadingWheel";
 import INatObs from "./INatObs";
+import Padding from "../Padding";
 
 type Props = {
   navigation: any
@@ -359,22 +360,6 @@ class SpeciesDetail extends Component<Props> {
                 seenDate={seenDate}
                 checkInternetConnection={this.checkInternetConnection}
               />
-              // <View>
-              //   <TouchableOpacity
-              //     style={styles.errorContainer}
-              //     onPress={() => this.checkInternetConnection()}
-              //   >
-              //     <View style={styles.errorRow}>
-              //       <Image source={icons.internet} />
-              //       <Text style={styles.errorText}>{i18n.t( "species_nearby.internet_error" )}</Text>
-              //     </View>
-              //   </TouchableOpacity>
-              //   {seenDate ? (
-              //     <View style={styles.textContainer}>
-              //       <Text style={[styles.text, { textAlign: "center" }]}>{i18n.t( "species_detail.species_saved" )}</Text>
-              //     </View>
-              //   ) : null}
-              // </View>
             ) : (
               <View style={styles.secondTextContainer}>
                 {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
@@ -386,30 +371,43 @@ class SpeciesDetail extends Component<Props> {
                 ) : null}
                 <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
                 <Text style={styles.text}>{about}</Text>
-                <SpeciesMap
-                  navigation={navigation}
-                  region={region}
-                  id={id}
-                  error={error}
-                />
-                <SpeciesTaxonomy ancestors={ancestors} />
-                <INatObs
-                  location={location}
-                  nearbySpeciesCount={nearbySpeciesCount}
-                  timesSeen={timesSeen}
-                  navigation={navigation}
-                />
-                {observationsByMonth.length > 0
-                  ? <SpeciesChart data={observationsByMonth} />
-                  : null}
+                {id !== 43584 ? (
+                  <View>
+                    <SpeciesMap
+                      navigation={navigation}
+                      region={region}
+                      id={id}
+                      error={error}
+                    />
+                    <SpeciesTaxonomy ancestors={ancestors} />
+                    <INatObs
+                      location={location}
+                      nearbySpeciesCount={nearbySpeciesCount}
+                      timesSeen={timesSeen}
+                      navigation={navigation}
+                    />
+                    {observationsByMonth.length > 0
+                      ? <SpeciesChart data={observationsByMonth} />
+                      : null}
+                  </View>
+                ) : (
+                  <View>
+                    <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+                    <Padding />
+                  </View>
+                )}
               </View>
             ) }
-            <SimilarSpecies
-              navigation={navigation}
-              taxa={similarSpecies}
-              loading={loadingSpecies}
-            />
-            <View style={styles.bottomPadding} />
+            {id !== 43584 ? (
+              <View>
+                <SimilarSpecies
+                  navigation={navigation}
+                  taxa={similarSpecies}
+                  loading={loadingSpecies}
+                />
+                <View style={styles.bottomPadding} />
+              </View>
+            ) : null}
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

@@ -110,5 +110,13 @@ export default StyleSheet.create( {
     right: 23,
     top: 23,
     bottom: 23
+  },
+  humanText: {
+    textAlign: "center",
+    marginTop: 45,
+    color: colors.black,
+    fontSize: 16,
+    lineHeight: 21,
+    fontFamily: fonts.bookItalic
   }
 } );

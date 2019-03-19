@@ -24,26 +24,29 @@ const INatObs = ( {
   timesSeen,
   navigation
 }: Props ) => (
-  <View style={styles.stats}>
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => navigation.navigate( "iNatStats" )}
-    >
-      <Image source={logos.bird} style={styles.image} />
-    </TouchableOpacity>
-    <View style={styles.textContainer}>
-      <Text style={styles.secondHeaderText}>
-        {i18n.t( "species_detail.near" )}
-        {" "}
-        {location}
-      </Text>
-      <Text style={styles.number}>
-        {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
-      </Text>
-      <Text style={[styles.secondHeaderText, { marginTop: 28 }]}>{i18n.t( "species_detail.worldwide" )}</Text>
-      <Text style={styles.number}>
-        {i18n.toNumber( timesSeen, { precision: 0 } )}
-      </Text>
+  <View>
+    <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
+    <View style={styles.stats}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate( "iNatStats" )}
+      >
+        <Image source={logos.bird} style={styles.image} />
+      </TouchableOpacity>
+      <View style={styles.textContainer}>
+        <Text style={styles.secondHeaderText}>
+          {i18n.t( "species_detail.near" )}
+          {" "}
+          {location}
+        </Text>
+        <Text style={styles.number}>
+          {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
+        </Text>
+        <Text style={[styles.secondHeaderText, { marginTop: 28 }]}>{i18n.t( "species_detail.worldwide" )}</Text>
+        <Text style={styles.number}>
+          {i18n.toNumber( timesSeen, { precision: 0 } )}
+        </Text>
+      </View>
     </View>
   </View>
 );

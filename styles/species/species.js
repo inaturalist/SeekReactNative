@@ -10,16 +10,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  backButton: {
-    zIndex: 1,
-    position: "absolute",
-    left: 23,
-    top: 28
-  },
-  photoContainer: {
-    height: 250,
-    backgroundColor: colors.black
-  },
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
     justifyContent: "center",
@@ -81,28 +71,28 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
-  errorContainer: {
-    marginTop: 15,
-    height: 109,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#102b1f"
-  },
-  errorRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-between"
-  },
-  errorText: {
-    textAlign: "center",
-    color: colors.white,
-    maxWidth: 245,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24,
-    marginLeft: 12
-  },
+  // errorContainer: {
+  //   marginTop: 15,
+  //   height: 109,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   backgroundColor: "#102b1f"
+  // },
+  // errorRow: {
+  //   flexDirection: "row",
+  //   flexWrap: "nowrap",
+  //   alignItems: "center",
+  //   justifyContent: "space-between"
+  // },
+  // errorText: {
+  //   textAlign: "center",
+  //   color: colors.white,
+  //   maxWidth: 245,
+  //   fontFamily: fonts.book,
+  //   fontSize: 16,
+  //   lineHeight: 24,
+  //   marginLeft: 12
+  // },
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.seekForestGreen
@@ -110,35 +100,6 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
-  },
-  darkGreenButton: {
-    marginTop: 20,
-    alignSelf: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    width: "100%",
-    height: 46
-  },
-  darkGreenButtonText: {
-    textAlign: "center",
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
-    fontSize: 18,
-    color: colors.white
-  },
-  leftArrow: {
-    zIndex: 1,
-    position: "absolute",
-    top: 120,
-    left: 5
-  },
-  rightArrow: {
-    zIndex: 1,
-    position: "absolute",
-    top: 120,
-    right: 5
   },
   bottomPadding: {
     height: Platform.OS === "android" ? 17 : 60,

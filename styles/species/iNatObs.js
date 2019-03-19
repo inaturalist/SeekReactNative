@@ -9,6 +9,14 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginTop: 23
   },
+  headerText: {
+    marginTop: 45,
+    marginBottom: 11,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
+  },
   button: {
     padding: 10
   },

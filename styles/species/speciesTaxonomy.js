@@ -11,6 +11,14 @@ export default StyleSheet.create( {
     color: colors.black,
     lineHeight: 21
   },
+  headerText: {
+    marginTop: 45,
+    marginBottom: 11,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
+  },
   taxonomyText: {
     maxWidth: 200,
     fontSize: 16,

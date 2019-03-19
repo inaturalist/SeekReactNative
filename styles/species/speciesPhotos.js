@@ -1,9 +1,7 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  padding,
-  fonts,
-  fontSize
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -32,5 +30,31 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 16,
     color: colors.white
+  },
+  backButton: {
+    zIndex: 1,
+    position: "absolute",
+    left: 23,
+    top: 28
+  },
+  photoContainer: {
+    height: 250,
+    backgroundColor: colors.black
+  },
+  loading: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  leftArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    left: 5
+  },
+  rightArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 120,
+    right: 5
   }
 } );

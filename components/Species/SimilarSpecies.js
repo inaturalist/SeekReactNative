@@ -7,6 +7,8 @@ import {
   Image
 } from "react-native";
 
+import i18n from "../../i18n";
+import { fonts, colors } from "../../styles/global";
 import styles from "../../styles/home/speciesNearby";
 import { capitalizeNames } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";
@@ -63,12 +65,26 @@ const SimilarSpecies = ( {
   }
 
   return (
-    <View style={[
-      styles.similarSpeciesContainer,
-      loading && styles.loading
-    ]}
-    >
-      {species}
+    <View>
+      <Text style={{
+        marginTop: 45,
+        marginLeft: 28,
+        marginBottom: 11,
+        fontSize: 19,
+        fontFamily: fonts.semibold,
+        color: colors.seekForestGreen,
+        letterSpacing: 1.12
+      }}
+      >
+        {i18n.t( "species_detail.similar" ).toLocaleUpperCase()}
+      </Text>
+      <View style={[
+        styles.similarSpeciesContainer,
+        loading && styles.loading
+      ]}
+      >
+        {species}
+      </View>
     </View>
   );
 };

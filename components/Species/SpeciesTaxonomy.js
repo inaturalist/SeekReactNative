@@ -5,6 +5,7 @@ import { View, Text, Image } from "react-native";
 import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
 
 type Props = {
   ancestors: Array<Object>
@@ -44,7 +45,11 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   }
 
   return (
-    taxonomy
+    <View>
+      <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
+      {taxonomy}
+    </View>
+    // taxonomy
   );
 };
 

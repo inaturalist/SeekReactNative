@@ -25,6 +25,7 @@
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.0.12",
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
+    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
     "react-native-languages": "^3.0.1",
     "react-native-linear-gradient": "^2.5.3",

@@ -41,6 +41,7 @@ const LocationMap = ( {
           rotateEnabled={false}
           scrollEnabled={false}
           maxZoomLevel={7}
+          onPress={() => navigation.navigate( "RangeMap", { region, id } )}
         >
           <UrlTile
             urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}

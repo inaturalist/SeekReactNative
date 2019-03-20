@@ -26,7 +26,7 @@ const RangeMap = ( { navigation }: Props ) => {
             provider={PROVIDER_DEFAULT}
             style={styles.map}
             zoomEnabled
-            maxZoomLevel={7}
+            // maxZoomLevel={7}
           >
             <UrlTile
               urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}

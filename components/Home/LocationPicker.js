@@ -126,6 +126,7 @@ class LocationPicker extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <View style={styles.header}>
             <TouchableOpacity
+              hitSlop={styles.touchable}
               style={styles.backButton}
               onPress={() => toggleLocationPicker()}
             >

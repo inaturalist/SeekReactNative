@@ -1,0 +1,209 @@
+{
+  "splash": {
+      "presents": "apresenta",
+      "initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society"
+  },
+  "species_nearby": {
+      "header": "Espécies da região",
+      "location_error": "Para mostrar as espécies da sua região, precisamos usar a sua localização.",
+      "enable_location": "Habilitar localização nas configurações",
+      "internet_error": "Precisamos da internet para gerar as espécies da sua região. Toque para tentar novamente.",
+      "no_location": "Nenhuma localização"
+  },
+  "get_started": {
+      "header": "Iniciar",
+      "tip_1": "Verificar espécies normalmente avistadas perto de você na seção “Espécies da região”, acima. Pesquisar por local ou grupo taxonômico específico!",
+      "tip_2": "Tire uma foto de uma planta, um animal ou qualquer ser vivo usando a nossa câmera e a Seek ajudará você a identificá-lo!",
+      "tip_3": "Aceite um desafio patrocinado pela série Nosso Planeta e pela WWF e encontre espécies na comunidade mundial da Seek!"
+  },
+  "challenges_card": {
+      "header": "Desafios",
+      "april": "Abril de 2019: Conectividade",
+      "join": "Entre no desafio da observação global e acompanhe na Nosso Planeta, na Netflix!",
+      "take_challenge": "Aceitar o desafio",
+      "view_all": "Exibir todos os desafios"
+  },
+  "notifications": {
+      "header": "Notificações",
+      "learn_more": "Saiba mais sobre o iNaturalist",
+      "earned_badges": "Você ganhou vários distintivos! Talvez você gosta do iNaturalist!",
+      "new_challenge": "Há um novo desafio da Nosso Planeta e WWF!",
+      "check_out": "Confira agora!",
+      "almost_finished": "Você está quase terminando o seu desafio!",
+      "view_progress": "Exibir o seu progresso",
+      "observation_identified": "A sua observação foi identificada com espécies no iNaturalist!",
+      "badges_updated": "Obrigado por ajudar a melhorar o nosso modelo! Os seus distintivos foram atualizados."
+  },
+  "login": {
+      "log_in": "Entrar com o iNaturalist",
+      "sign_up": "Inscreva-se no iNaturalist",
+      "about": "Ao entrar no iNaturalist, você pode sincronizar as suas observações em todos os dispositivos e publicar posts para a comunidade on-line.",
+      "skip_login": "Continue sem se inscrever"
+  },
+  "inat_signup": {
+      "welcome": "Seja bem-vindo à Seek!",
+      "explore": "Vamos nos divertir explorando junto com você!",
+      "enter_birthday": "Insira a sua data de nascimento",
+      "permission": "É necessário que você tenha pelo menos 13 anos de idade para criar uma conta.",
+      "privacy": "Política de privacidade",
+      "continue": "Continuar",
+      "need_permission": "Precisamos da autorização de um dos seus pais.",
+      "enter_email": "Insira o e-mail do seu pai ou da sua mãe e-mail",
+      "send_email": "Enviar e-mail",
+      "parent_email": "O e-mail do seu pai ou da sua mãe",
+      "under_13": "Como você ainda não tem 13 anos, precisamos da autorização de um dos seus pais para criar uma conta para você.",
+      "sign_up": "Inscrever-se",
+      "sign_up_inat": "Inscreva-se no iNaturalist",
+      "next": "Avançar",
+      "email": "E-mail",
+      "username": "nome de usuário",
+      "password": "senha",
+      "release_photos": "Sim, licenciar as minhas fotos para que os cientistas possam usar as minhas fotos!",
+      "data_usage": "A Seek usa dados para melhorar os nossos modelos de identificação.",
+      "create_account": "Criar a minha conta",
+      "thanks": "Obrigado!",
+      "parent_instructions": "Você enviou um e-mail com instruções para o seu pai ou a sua mãe.",
+      "continue_no_log_in": "Continuar sem entrar"
+  },
+  "inat_login": {
+      "log_in_with_inat": "Entrar com a sua conta no iNaturalist",
+      "username": "Nome de usuário",
+      "password": "Senha",
+      "forgot_password": "Esqueceu a sua senha?",
+      "log_in": "Entrar",
+      "email": "E-mail",
+      "no_worries": "Não tem problema. Enviaremos instruções de redefinição de senha para o seu e-mail.",
+      "reset": "Redefinir minha senha",
+      "check_email": "Verifique o seu e-mail!",
+      "reset_instructions": "Já enviamos instruções de redefinição de senha para o seu e-mail.",
+      "return_login": "Voltar à página de login."
+  },
+  "privacy": {
+      "header": "Política de privacidade"
+  },
+  "menu": {
+      "home": "Página inicial",
+      "profile": "Perfil e distintivos",
+      "challenges": "Desafios",
+      "observations": "Observações",
+      "inat": "iNaturalist",
+      "about": "Sobre"
+  },
+  "onboarding": {
+      "onboarding_1": "Tire uma foto de qualquer ser vivo e a Seek ajudará você a identificá-lo!",
+      "onboarding_2": "Ganhe distintivos para ver espécies diferentes",
+      "onboarding_3": "Participe de desafios globais com a Nosso Planeta e a WWF",
+      "skip": "Ignorar por enquanto",
+      "continue": "Continuar"
+  },
+  "location_picker": {
+      "species_nearby": "Espécies da região",
+      "button": "Pesquisar na região"
+  },
+  "taxon_picker": {
+      "all": "Todas as espécies",
+      "plants": "plantas",
+      "amphibians": "anfíbios",
+      "fungi": "fungos",
+      "fish": "peixes",
+      "reptiles": "répteis",
+      "arachnids": "aracnídeos",
+      "birds": "pássaros",
+      "insects": "insetos",
+      "mollusks": "moluscos",
+      "mammals": "mamíferos"
+  },
+  "challenges": {
+      "header": "Desafios",
+      "in_progress": "Em progresso",
+      "not_started": "Não iniciado",
+      "completed": "Concluído",
+      "connectivity": "Desafio de conectividade",
+      "biodiversity": "Desafio de biodiversidade",
+      "productivity": "Desafio de produtividade e comunidade",
+      "op": "Nosso Planeta",
+      "start_now": "Iniciar agora",
+      "april_2019": "Apr-19",
+      "may_2019": "May-19",
+      "june_2019": "Jun-19",
+      "mission_1_april": "Encontre 20 novas espécies!",
+      "mission_2_april": "Encontre 2 novas espécies de libélulas!",
+      "april_description": "Não estamos sós em nosso planeta! A vida silvestre está sempre à nossa volta, mesmo quando não a percebemos. Em casa, nos jardins, centros urbanos e cidades, há mundos ocultos a ser descobertos. Procure dentro de casa e em torno dela e você poderá se surpreender pela quantidade de vizinhos silvestres que encontrará.\\n\\nProcure plantas, fungos, insetos, pássaros e outros animais. Preste atenção em sinais de formas de vida menos evidentes: fezes, pelo, ninhos, rastros e teias podem sinalizar outras criaturas com as quais compartilhamos a nossa casa.",
+      "start_challenge": "Iniciar o desafio",
+      "open_camera": "Abrir câmera",
+      "view_badge": "Exibir distintivo",
+      "your_mission": "A sua missão",
+      "mission_1_may": "Encontre 2 mamíferos diferentes",
+      "mission_2_may": "Encontre 4 pássaros diferentes",
+      "mission_3_may": "Encontre 3 anfíbios diferentes",
+      "mission_4_may": "Encontre 5 plantas diferentes",
+      "mission_5_may": "Encontre 3 fungos diferentes",
+      "may_description": "Da floresta mais profunda ao menor parque, compartilhamos o planeta com uma incrível variedade de seres vivos, cada um deles adaptado ao ambiente específico em que vive. Procure um ponto de acesso natural na sua região e veja quantos tipos diferentes de seres vivos você consegue encontrar. Nessa jornada, você aprenderá quais são as características que diferenciam cada um desses grupos de organismos!",
+      "congrats": "Parabéns! Você concluiu o Desafio da Nosso Planeta de {{month}}!",
+      "thanks": "Obrigado por participar! Acompanhe a jornada na Nosso Planeta, na Netflix.",
+      "no_completed_challenges": "Os seus desafios concluídos serão exibidos aqui.",
+      "no_challenges_in_progress": "Inicie um novo desafio abaixo para ganhar distintivos!",
+      "no_new_challenges_header": "Você não tem nenhum novo desafio.",
+      "no_new_challenges": "Nós o avisaremos quando novos desafios estiverem disponíveis.",
+      "completed_all": "Você concluiu todos os desafios disponíveis!",
+      "number_observed": "{{number}} observados até o momento"
+  },
+  "inat_stats": {
+      "global_observations": "Observações globais",
+      "naturalists_worldwide": "Naturalistas no mundo",
+      "seek_data": "A Seek obtém dados do iNaturalist.",
+      "about_inat": "O iNaturalist é a maior comunidade de naturalistas do mundo. Os usuários carregam fotos de espécies de todo o globo terrestre, e a nossa comunidade trabalha em conjunto para identificá-las. São esses dados que usamos para treinar a inteligência artificial de identificação, exibir dados de mapeamento e gerar dados de observação de regiões na Seek.",
+      "contribute": "Interessado em contribuir para a ciência dos cidadãos em uma comunidade global de naturalistas?",
+      "join": "Participe do iNaturalist",
+      "by": "com"
+  },
+  "results": {
+      "observed_species": "Você observou uma nova espécie!",
+      "learn_more": "Saiba mais sobre essa espécie, onde foi encontrada e outros fatos relacionados a ela!",
+      "view_species": "Exibir espécie",
+      "back": "Voltar para a câmera de realidade aumentada",
+      "no_identification": "Não conseguimos identificar essa foto",
+      "sorry": "Desculpe. A Seek ainda está aprendendo!\\n\\nTente outro ângulo ou zoom. Você também pode tentar obter uma imagem mais nítida do organismo.",
+      "take_photo": "Tire outra foto",
+      "common_ancestor": "Mas não conseguimos identificar a espécie exata.\\n\\nTente outro ângulo ou zoom. Você também pode tentar obter uma imagem mais nítida do organismo.",
+      "believe": "Acreditamos que se trata de um membro do",
+      "resighted": "Você reavistou uma espécie!",
+      "date_observed": "Você a observou pela primeira vez em:"
+  },
+  "{{seenDate}}": {
+      "": ""
+  },
+  "banner": {
+      "number_seen": "Você viu {{number}} {{taxaType}}!",
+      "view": "Exibir distintivo",
+      "badge": "Distintivo",
+      "species": "espécie"
+  },
+  "camera": {
+      "label": "Câmera",
+      "on": "ligada",
+      "off": "desligada"
+  },
+  "gallery": {
+      "label": "Fotos",
+      "choose_photo": "Escolha uma foto"
+  },
+  "camera_help": {
+      "title": "Câmera da Seek",
+      "header": "Preencha os círculos verdes e tire uma foto!",
+      "explanation": "Quando todos os pontos estão preenchidos, a Seek está segura de poder identificar o organismo como pertencente a uma espécie!\\n\\n Colete observações tirando fotos identificadas com o maior número possível de espécies de plantas, animais e fungos!",
+      "header_1": "Está funcionando bem?",
+      "how_works": "O modelo de identificação da Seek funciona diretamente usando a Árvore da vida.\\n\\nCada ponto da barra de identificação representa um nível taxonômico na Árvore da vida. Na medida em que consegue identificar com certeza as espécies exibidas em cada nível, a Seek acrescenta mais um ponto à barra. Quando o organismo for identificado com uma espécie, tire a foto!",
+      "header_2": "Dicas e truques",
+      "tips": "A Seek é melhor na identificação de fotos com boa iluminação e imagem nítida da espécie. Tente diferentes ângulos até obter uma boa foto.\\n\\nA Seek ainda está aprendendo. Assim, se parecer que há uma dificuldade no preenchimento dos pontos, provavelmente é porque você está vendo uma espécie que não é comum no banco de dados do iNaturalist. Você pode publicar observações no iNaturalist para ajudar a Seek a aprender a identificar melhor!",
+      "header_3": "Lembre-se:",
+      "tip_1": "Esteja sempre atento ao ambiente à sua volta e permaneça seguro!",
+      "tip_2": "Não coma nada que encontrar em áreas silvestres.",
+      "tip_3": "Não invada áreas de entrada proibida.",
+      "tip_4": "Respeite outros seres vivos não os perturbando nem tocando. Alguns deles podem picar ou morder."
+  },
+  "confirm": {
+      "identify": "Identificar esta foto?",
+      "button": "Identificar foto"
+  }
+}

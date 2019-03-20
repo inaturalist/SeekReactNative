@@ -1,0 +1,209 @@
+{
+  "splash": {
+      "presents": "呈現",
+      "initiative": "iNaturalist 為加州科學院與國家地理學會合作的專案"
+  },
+  "species_nearby": {
+      "header": "附近物種",
+      "location_error": "為顯示你附近的物種，我們必須使用你的位置資訊。",
+      "enable_location": "在設定中開啟位置資訊",
+      "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
+      "no_location": "沒有位置資訊"
+  },
+  "get_started": {
+      "header": "開始",
+      "tip_1": "請在上方「附近物種」選項中查看你附近常見的物種。請用位置資訊或特定分類進行搜尋！",
+      "tip_2": "利用我們的相機拍攝一植物、動物，或任何生物照片，Seek就會幫助你加以辨識！",
+      "tip_3": "接受Our Planet及WWF所贊助的挑戰，並與全球Seek社群共同尋找物種！"
+  },
+  "challenges_card": {
+      "header": "挑戰",
+      "april": "2019年4月：連線",
+      "join": "參加全球觀察挑戰並在Netflix上跟大家一起追蹤！",
+      "take_challenge": "參加挑戰",
+      "view_all": "查看所有挑戰"
+  },
+  "notifications": {
+      "header": "通知",
+      "learn_more": "學習有關iNaturalist的更多資訊",
+      "earned_badges": "你已經獲得許多徽章！你可能會喜歡iNaturalist！",
+      "new_challenge": "有來自Our Planet及WWF的新挑戰！",
+      "check_out": "立刻查看！",
+      "almost_finished": "你快要完成你的挑戰了！",
+      "view_progress": "檢視你的進度",
+      "observation_identified": "你的觀察已在iNaturalist上經物種辨識！",
+      "badges_updated": "感謝你改善我們的模型！你的徽章或許已經更新。"
+  },
+  "login": {
+      "log_in": "利用iNaturalist帳號登入",
+      "sign_up": "註冊iNaturalist帳號",
+      "about": "登入iNaturalist，你可以在不同裝置上同步你的觀察並且在線上社群中貼文。",
+      "skip_login": "不登入直接繼續"
+  },
+  "inat_signup": {
+      "welcome": "歡迎來到Seek！",
+      "explore": "與你一起探索讓我們雀躍無比！",
+      "enter_birthday": "請輸入你的生日",
+      "permission": "你必須至少滿13歲方可建立帳戶。",
+      "privacy": "隱私政策",
+      "continue": "繼續",
+      "need_permission": "我們需要你家長的許可。",
+      "enter_email": "請輸入你家長的電子郵件信箱",
+      "send_email": "送出電子郵件",
+      "parent_email": "你家長的電子郵件信箱",
+      "under_13": "因為你未滿13歲，我們在為你建立帳戶前需要取得你家長的同意。",
+      "sign_up": "註冊",
+      "sign_up_inat": "註冊iNaturalist帳號",
+      "next": "下一步",
+      "email": "電子郵件信箱",
+      "username": "使用者名稱",
+      "password": "密碼",
+      "release_photos": "是，授權我的資料以利科學家使用！",
+      "data_usage": "Seek利用你的資料協助改善我們的辨識模型。",
+      "create_account": "建立我的帳戶",
+      "thanks": "謝謝你！",
+      "parent_instructions": "我們已將附有說明的電子郵件寄給你的家長。",
+      "continue_no_log_in": "不登入直接繼續"
+  },
+  "inat_login": {
+      "log_in_with_inat": "利用你的iNaturalist帳戶登入",
+      "username": "使用者名稱",
+      "password": "密碼",
+      "forgot_password": "忘記你的密碼了嗎？",
+      "log_in": "登入",
+      "email": "電子郵件信箱",
+      "no_worries": "不用擔心。我們會把重設密碼的指示送到你的電子郵件信箱中。",
+      "reset": "重設我的密碼",
+      "check_email": "檢查你的電子郵件！",
+      "reset_instructions": "我們已把重設密碼的指示送到你的電子郵件信箱中。",
+      "return_login": "回到登入畫面"
+  },
+  "privacy": {
+      "header": "隱私政策"
+  },
+  "menu": {
+      "home": "首頁",
+      "profile": "帳號資訊與徽章",
+      "challenges": "挑戰",
+      "observations": "觀察",
+      "inat": "iNaturalist",
+      "about": "關於"
+  },
+  "onboarding": {
+      "onboarding_1": "拍攝任何生物照片，Seek就會幫助你加以辨識！",
+      "onboarding_2": "觀察不同物種以獲取徽章",
+      "onboarding_3": "與Our Planet及WWF一起參與全球挑戰。",
+      "skip": "先跳過",
+      "continue": "繼續"
+  },
+  "location_picker": {
+      "species_nearby": "附近物種",
+      "button": "搜尋附近位置"
+  },
+  "taxon_picker": {
+      "all": "所有物種",
+      "plants": "植物",
+      "amphibians": "兩棲動物",
+      "fungi": "菌類",
+      "fish": "魚類",
+      "reptiles": "爬蟲類",
+      "arachnids": "蜘蛛類",
+      "birds": "鳥類",
+      "insects": "昆蟲類",
+      "mollusks": "軟體動物",
+      "mammals": "哺乳類"
+  },
+  "challenges": {
+      "header": "挑戰",
+      "in_progress": "進行中",
+      "not_started": "未開始",
+      "completed": "已完成",
+      "connectivity": "連線挑戰",
+      "biodiversity": "生物多樣性挑戰",
+      "productivity": "生產力與社群挑戰",
+      "op": "Our Planet",
+      "start_now": "立刻開始",
+      "april_2019": "Apr-19",
+      "may_2019": "May-19",
+      "june_2019": "Jun-19",
+      "mission_1_april": "尋找20種新物種！",
+      "mission_2_april": "尋找2種不同的蜻蜓物種！",
+      "april_description": "我們在這行星上並不孤單！不論有沒有注意到，野生生物就在我們的週遭。在我們家裡、花園、城鎮中都隱藏著微觀世界等著我們去發覺。在你家內外四處尋找，你可能會驚奇的發現很多野生鄰居。\\n\\n搜尋植物、菌類、昆蟲、鳥類與動物。更小心注意有沒有更神秘的生物的糞便、毛髮、巢穴、蹤跡以及殘網，這些都可能是跟你共享一個家的生物留下的提示。",
+      "start_challenge": "開始挑戰",
+      "open_camera": "開啟相機",
+      "view_badge": "檢視徽章",
+      "your_mission": "你的任務",
+      "mission_1_may": "找到2種不同哺乳類動物",
+      "mission_2_may": "找到4種不同鳥類",
+      "mission_3_may": "找到3種不同兩棲動物",
+      "mission_4_may": "找到5種不同植物",
+      "mission_5_may": "找到3種不同菌類",
+      "may_description": "從叢林的最深處到最小的公園內，我們都跟令人驚豔的豐富生物共同分享這顆行星；每一種生物都針對他們所生存的環境做出了不同的適應。尋找當地的生物熱點，並且看看你能找到多少種不同的生物。一路上，你會學到這些不同有機物之間的什麼特色，讓它們截然不同！",
+      "congrats": "恭喜你！你已經完成我們{{月份}}的Our Planet挑戰！",
+      "thanks": "感謝你的參與！歡迎收看Netflix的Our Planet一起尋跡察看進度。",
+      "no_completed_challenges": "你已經完成的挑戰將顯示於此。",
+      "no_challenges_in_progress": "開始下方的新挑戰以獲取徽章！",
+      "no_new_challenges_header": "你沒有新的挑戰。",
+      "no_new_challenges": "當新的挑戰出現時，我們將會通知你。",
+      "completed_all": "你已經完成了所有現有的挑戰！",
+      "number_observed": "目前觀察{{數字}}次"
+  },
+  "inat_stats": {
+      "global_observations": "全球觀察次數",
+      "naturalists_worldwide": "全球自然學家",
+      "seek_data": "Seek自iNaturalist獲取其資料。",
+      "about_inat": "iNaturalist是全球最大自然學家社群。使用者上傳全球物種照片，然後由整個社群合作加以辨識。我們用這些資料訓練辨識人工智慧、顯示地圖資料，以及生成Seek內的附近觀察資料。",
+      "contribute": "你有興趣對全球自然學家社群進行公民科學貢獻嗎？",
+      "join": "加入iNaturalist",
+      "by": "由"
+  },
+  "results": {
+      "observed_species": "你已觀察到新的物種！",
+      "learn_more": "更加深入了解本物種，其棲息/生長地以及其他資訊！",
+      "view_species": "檢視物種",
+      "back": "回到AR相機",
+      "no_identification": "我們無法辨識本照片",
+      "sorry": "很抱歉，Seek還在成長！\\n\\n你可以嘗試拍攝不同角度、近拍，或者照出本有機物更清晰的照片。",
+      "take_photo": "再拍一張照片",
+      "common_ancestor": "可是我們無法辨識正確的物種。\\n\\n你可以嘗試拍攝不同角度、近拍，或者照出本有機物更清晰的照片。",
+      "believe": "我們認為這物種屬於",
+      "resighted": "你再度觀察到一個物種！",
+      "date_observed": "你第一次觀察到這物種是在："
+  },
+  "{{seenDate}}": {
+      "": ""
+  },
+  "banner": {
+      "number_seen": "你已經觀察到{{分類類型}}{{數字}}次！",
+      "view": "檢視徽章",
+      "badge": "徽章",
+      "species": "物種"
+  },
+  "camera": {
+      "label": "相機",
+      "on": "開啟",
+      "off": "關閉"
+  },
+  "gallery": {
+      "label": "照片",
+      "choose_photo": "選擇一張照片"
+  },
+  "camera_help": {
+      "title": "Seek的相機",
+      "header": "將綠色圓圈填滿，然後拍攝照片！",
+      "explanation": "所有的點都填滿後，就表示Seek對於辨識這個物種很有信心！\\\\盡你可能拍攝更多的植物、動物與菌類照片，以蒐集觀察數量！",
+      "header_1": "運作原理是什麼？",
+      "how_works": "Seek的辨識模型直接使用Tree of Life生命之樹。\\n\\n每個辨識條上的圓點都代表生命之樹上的分類等級。由於Seek可以充滿信心的辨識你正在觀察的物種的每個分類層級，辨識條上的圓點就會逐漸被填滿。當生物體可以辨識到物種時，就拍張照！",
+      "header_2": "訣竅",
+      "tips": "Seek最擅長辨識光線充足，物種清晰的照片。所以不妨多嘗試幾個角度，直到你得到最完美的照片為止。\\n\\nSeek還在學習中，所以如果辨識條上的圓點無法全部填滿，你觀察到的物種大概不是iNaturalist資料庫中常見的物種。你可以把觀察貼到iNaturalist中幫助Seek學習辨識的更好！",
+      "header_3": "要記得",
+      "tip_1": "不要忘記注意自己所在的環境，並且保持安全！",
+      "tip_2": "不要吃在野外找到的任何東西。",
+      "tip_3": "不要進入別人的私有地。",
+      "tip_4": "尊重其他生物，不要加以騷擾或觸摸。有些生物可能會叮咬攻擊者。"
+  },
+  "confirm": {
+      "identify": "辨識這張照片？",
+      "button": "辨識照片"
+  }
+}

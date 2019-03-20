@@ -1,8 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
@@ -16,7 +15,7 @@ export default StyleSheet.create( {
     height: 40
   },
   iconicTaxaText: {
-    paddingTop: padding.iOSPadding,
+    paddingTop: 7,
     marginLeft: 28,
     color: colors.white,
     fontSize: 19,
@@ -24,13 +23,13 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   textContainer: {
-    marginTop: 20,
     marginHorizontal: 28
   },
   secondTextContainer: {
     marginHorizontal: 28
   },
   commonNameText: {
+    marginTop: 23,
     fontSize: 30,
     lineHeight: 31,
     letterSpacing: 0.3,

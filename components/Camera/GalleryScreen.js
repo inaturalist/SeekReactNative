@@ -209,7 +209,7 @@ class GalleryScreen extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => this.checkPermissions()}
           />
-          <StatusBar hidden />
+          <StatusBar barStyle="dark-content" />
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}

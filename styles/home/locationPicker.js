@@ -2,8 +2,6 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  fontSize,
-  margins,
   padding
 } from "../global";
 
@@ -14,8 +12,14 @@ export default StyleSheet.create( {
     flex: 1
   },
   backButton: {
-    top: 38,
+    top: 28,
     left: 23
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   },
   image: {
     padding: 5
@@ -24,7 +28,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen
   },
   textContainer: {
-    top: 16,
+    top: 10,
     alignSelf: "center"
   },
   headerText: {
@@ -87,7 +91,7 @@ export default StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    height: height > 570 ? 130 : 86
+    height: height > 670 ? 130 : 86
   },
   button: {
     backgroundColor: colors.seekForestGreen,
@@ -115,6 +119,7 @@ export default StyleSheet.create( {
     width: "91%",
     backgroundColor: colors.white,
     height: 37,
+    paddingTop: 3,
     borderRadius: 40,
     paddingLeft: 20,
     fontFamily: fonts.medium,

@@ -93,10 +93,6 @@ class MatchScreen extends Component<Props> {
 
   setLatestBadge( badge ) {
     this.setState( { badge } );
-
-    if ( badge.count > 1 ) {
-      createNotification( "badgeEarned" );
-    }
   }
 
   setLatestChallenge( challenge ) {
@@ -146,7 +142,7 @@ class MatchScreen extends Component<Props> {
   checkForNewLevels() {
     const { levelsEarned } = this.state;
 
-    recalculateBadges();
+    // recalculateBadges();
 
     Realm.open( realmConfig )
       .then( ( realm ) => {

@@ -46,7 +46,7 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   buttonText: {
-    paddingTop: Platform.OS === "ios" ? 5 : 0,
+    paddingTop: Platform.OS === "ios" ? 6 : 0,
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
@@ -54,6 +54,7 @@ export default StyleSheet.create( {
   },
   secondButtonText: {
     backgroundColor: colors.white,
+    paddingTop: 3,
     paddingHorizontal: 9,
     height: 29,
     borderRadius: 6,
@@ -69,7 +70,7 @@ export default StyleSheet.create( {
     height: 29,
     backgroundColor: colors.white,
     borderRadius: 6,
-    paddingTop: 5,
+    paddingTop: 6,
     paddingBottom: 2,
     fontSize: 19,
     fontFamily: fonts.semibold,
@@ -78,7 +79,7 @@ export default StyleSheet.create( {
   },
   speciesNearbyContainer: {
     backgroundColor: "#2a7353",
-    height: 223
+    height: 231
   },
   similarSpeciesContainer: {
     backgroundColor: colors.seekForestGreen,

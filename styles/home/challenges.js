@@ -68,7 +68,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
     height: 46,
-    marginBottom: 19
+    marginBottom: 14
   },
   buttonText: {
     paddingTop: Platform.OS === "ios" ? 7 : 0,

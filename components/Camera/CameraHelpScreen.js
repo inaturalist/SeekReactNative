@@ -6,7 +6,8 @@ import {
   Text,
   View,
   FlatList,
-  SafeAreaView
+  SafeAreaView,
+  StatusBar
 } from "react-native";
 
 import styles from "../../styles/camera/help";
@@ -30,6 +31,7 @@ const CameraHelpScreen = ( { navigation }: Props ) => {
     <View style={styles.container}>
       <SafeAreaView style={styles.safeViewTop} />
       <SafeAreaView style={styles.safeView}>
+        <StatusBar barStyle="light-content" />
         <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
         <ScrollView>
           <View style={styles.header}>

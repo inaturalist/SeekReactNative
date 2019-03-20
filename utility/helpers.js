@@ -30,6 +30,8 @@ const addARCameraFiles = () => {
         console.log( error, "err in AR camera files" );
       } );
   }
+  //   RNFS.copyFile( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+  // }
   // RNFS.readdir( RNFS.DocumentDirectoryPath ).then( ( result ) => console.log( result, "what's in the documents folder" ) );
 };
 

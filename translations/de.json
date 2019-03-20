@@ -1,0 +1,209 @@
+{
+  "splash": {
+      "presents": "präsentiert",
+      "initiative": "iNaturalist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society"
+  },
+  "species_nearby": {
+      "header": "Arten in der Nähe",
+      "location_error": "Um Ihnen Arten in der Nähe anzeigen zu können, benötigen wir Ihren Standort.",
+      "enable_location": "Standort in den Einstellungen aktivieren",
+      "internet_error": "Um Arten in der Nähe zu generieren, benötigen wir das Internet. Tippen Sie, um es erneut zu versuchen.",
+      "no_location": "Kein Standort"
+  },
+  "get_started": {
+      "header": "Erste Schritte",
+      "tip_1": "Oben im Abschnitt „Arten in der Nähe“ erfahren Sie, welche Arten in der Nähe häufig beobachtet wurden. Suchen Sie anhand des Standorts oder bestimmter Taxa!",
+      "tip_2": "Fotografieren Sie mit Ihrer Kamera eine Pflanze, ein Tier oder einen beliebigen lebenden Organismus, und identifizieren Sie ihn mit Seek!",
+      "tip_3": "Nehmen Sie eine von „Unser Planet“ und dem WWF gesponserte Herausforderung an, und finden Sie mit der weltweiten Seek-Community Arten!"
+  },
+  "challenges_card": {
+      "header": "Herausforderungen",
+      "april": "April 2019: Verbindung",
+      "join": "Nehmen Sie an der weltweiten Beobachtungsherausforderung teil, und verfolgen Sie „Unser Planet“ bei Netflix!",
+      "take_challenge": "Herausforderung annehmen",
+      "view_all": "Alle Herausforderungen anzeigen"
+  },
+  "notifications": {
+      "header": "Benachrichtigungen",
+      "learn_more": "Mehr erfahren über iNaturalist",
+      "earned_badges": "Sie haben viele Auszeichnungen gesammelt! iNaturalist könnte Sie interessieren!",
+      "new_challenge": "Es gibt eine neue Herausforderung von „Unser Planet“ und dem WWF!",
+      "check_out": "Sehen Sie sich jetzt an!",
+      "almost_finished": "Sie haben die Herausforderung beinahe abgeschlossen!",
+      "view_progress": "Fortschritt anzeigen",
+      "observation_identified": "Ihre Beobachtung konnte als in iNaturalist als Art identifiziert werden!",
+      "badges_updated": "Danke für Ihren Beitrag zur Verbesserung unseres Modells! Ihre Auszeichnungen wurden möglicherweise aktualisiert."
+  },
+  "login": {
+      "log_in": "Bei iNaturalist anmelden",
+      "sign_up": "Bei iNaturalist registrieren",
+      "about": "Indem Sie sich bei iNaturalist anmelden, können Sie Ihre Beobachtungen geräteübergreifend synchronisieren und in der Online-Community teilen.",
+      "skip_login": "Mit der Anmeldung fortfahren"
+  },
+  "inat_signup": {
+      "welcome": "Willkommen bei Seek!",
+      "explore": "Wir freuen uns, mit Ihnen Entdeckungen zu machen!",
+      "enter_birthday": "Geben Sie Ihr Geburtsdatum ein",
+      "permission": "Sie müssen mindestens 13 Jahre alt sein, um ein Konto zu erstellen.",
+      "privacy": "Datenschutzrichtlinie",
+      "continue": "Fortfahren",
+      "need_permission": "Wir benötigen die Zustimmung deiner Eltern.",
+      "enter_email": "Gib die E-Mail-Adresse deiner Eltern an",
+      "send_email": "E-Mail senden",
+      "parent_email": "E-Mail-Adresse der Eltern",
+      "under_13": "Da du jünger als 13 Jahre bist, benötigen wir vor dem Erstellen eines Kontos die Zustimmung Deiner Eltern.",
+      "sign_up": "Anmelden",
+      "sign_up_inat": "Bei iNaturalist registrieren",
+      "next": "Weiter",
+      "email": "E-Mail-Adresse",
+      "username": "Benutzername",
+      "password": "Kennwort",
+      "release_photos": "Ja, lizenzieren Sie meine Fotos, damit Wissenschaftler meine Daten verwenden können!",
+      "data_usage": "Seek verwendet Ihre Daten zur Verbesserung des Identifizierungsmodells.",
+      "create_account": "Mein Konto erstellen",
+      "thanks": "Vielen Dank!",
+      "parent_instructions": "Wir haben Deinen Eltern eine E-Mail mit einer Anleitung zugesandt.",
+      "continue_no_log_in": "Mit der Anmeldung fortfahren"
+  },
+  "inat_login": {
+      "log_in_with_inat": "Beim iNaturalist-Konto anmelden",
+      "username": "Benutzername",
+      "password": "Kennwort",
+      "forgot_password": "Kennwort vergessen?",
+      "log_in": "Anmelden",
+      "email": "E-Mail-Adresse",
+      "no_worries": "Keine Sorge. Wir senden eine Anleitung zum Zurücksetzen des Kontos an Ihre E-Mail-Adresse.",
+      "reset": "Kennwort zurücksetzen",
+      "check_email": "Prüfen Sie Ihren Posteingang!",
+      "reset_instructions": "Wir haben eine Anleitung zum Zurücksetzen des Kontos an Ihre E-Mail-Adresse gesendet.",
+      "return_login": "Zurück zur Anmeldung"
+  },
+  "privacy": {
+      "header": "Datenschutzrichtlinie"
+  },
+  "menu": {
+      "home": "Startseite",
+      "profile": "Profile und Auszeichnungen",
+      "challenges": "Herausforderungen",
+      "observations": "Beobachtungen",
+      "inat": "iNaturalist",
+      "about": "Info"
+  },
+  "onboarding": {
+      "onboarding_1": "Fotografieren Sie einen beliebigen lebenden Organismus, und Seek hilft Ihnen bei der Identifizierung!",
+      "onboarding_2": "Erhalten Sie Auszeichnungen für das Entdecken verschiedener Arten",
+      "onboarding_3": "Nehmen Sie an weltweiten Herausforderungen von „Unser Planet“ und dem WWF teil",
+      "skip": "Später erinnern",
+      "continue": "Fortfahren"
+  },
+  "location_picker": {
+      "species_nearby": "Arten in der näheren Umgebung",
+      "button": "Neuen Standort suchen"
+  },
+  "taxon_picker": {
+      "all": "Alle Arten",
+      "plants": "Pflanzen",
+      "amphibians": "Amphibien",
+      "fungi": "Pilze",
+      "fish": "Fische",
+      "reptiles": "Reptilien",
+      "arachnids": "Spinnen",
+      "birds": "Vögel",
+      "insects": "Insekten",
+      "mollusks": "Weichtiere",
+      "mammals": "Säugetiere"
+  },
+  "challenges": {
+      "header": "Herausforderungen",
+      "in_progress": "Läuft",
+      "not_started": "Nicht begonnen",
+      "completed": "Abgeschlossen",
+      "connectivity": "Verbindungsherausforderung",
+      "biodiversity": "Biodiversitätsherausforderung",
+      "productivity": "Produktivitäts- und Community-Herausforderung",
+      "op": "Unser Planet",
+      "start_now": "Jetzt beginnen",
+      "april_2019": "Apr-19",
+      "may_2019": "May-19",
+      "june_2019": "Jun-19",
+      "mission_1_april": "Finden Sie 20 neue Arten!",
+      "mission_2_april": "Finden Sie 2 verschiedene Libellenarten!",
+      "april_description": "Wir sind nicht allein auf unserem Planeten! Die Tierwelt umgibt uns immer – auch wenn wir sie nicht wahrnehmen. Zuhause, im Garten, auf dem Dorf und in der Stadt gibt es Welten zu entdecken. Suchen Sie in und rund um Ihr Zuhause, und Sie werden überrascht sein, wie viele wilde Nachbarn Sie entdecken.\\n\\nSuchen Sie nach Pflanzen, Pilzen, Käfern, Vögeln und Tieren. Achten Sie auf Zeichen für scheue Lebewesen – Häufchen, Haare, Nester, Spuren und Netze sind Hinweise für andere Kreaturen, die mit Ihnen das Zuhause teilen.",
+      "start_challenge": "Herausforderung beginnen",
+      "open_camera": "Kamera öffnen",
+      "view_badge": "Auszeichnung anzeigen",
+      "your_mission": "Ihre Mission",
+      "mission_1_may": "Finden Sie 2 verschiedene Säugetiere",
+      "mission_2_may": "Finden Sie 4 verschiedene Vögel",
+      "mission_3_may": "Finden Sie 3 verschiedene Amphibien",
+      "mission_4_may": "Finden Sie 5 verschiedene Pflanzen",
+      "mission_5_may": "Finden Sie 3 verschiedene Pilze",
+      "may_description": "Vom tiefsten Dschungel bis zum kleinsten Park: Wir teilen unseren Planeten mit einer unglaublichen Vielfalt an Lebewesen, die sich an ihre jeweilige Umgebung angepasst haben. Gehen Sie hinaus in die Natur, und versuchen Sie in Ihrer Nähe so viele Lebewesen wie möglich zu entdecken. Dabei werden Sie erfahren, welche Merkmale diese unterschiedlichen Arten von Organismen unterscheiden!",
+      "congrats": "Glückwunsch! Sie haben die „Unser Planet“-Herausforderung für {{month}} abgeschlossen!",
+      "thanks": "Vielen Dank für Ihre Teilnahme! Setzen Sie Ihre Reise mit „Unser Planet“ auf Netflix fort.",
+      "no_completed_challenges": "Ihre abgeschlossenen Herausforderungen werden hier angezeigt.",
+      "no_challenges_in_progress": "Beginnen Sie unten eine neue Herausforderung, um Auszeichnungen zu sammeln!",
+      "no_new_challenges_header": "Sie verfügen über keine neuen Herausforderungen.",
+      "no_new_challenges": "Wir teilen Ihnen mit, wenn es neue Herausforderungen gibt.",
+      "completed_all": "Sie haben alle verfügbaren Herausforderungen abgeschlossen!",
+      "number_observed": "Bislang {{number}} beobachtet"
+  },
+  "inat_stats": {
+      "global_observations": "Weltweite Beobachten",
+      "naturalists_worldwide": "Naturalisten in aller Welt",
+      "seek_data": "Seek bezieht seine Daten von iNaturalist.",
+      "about_inat": "iNaturalist ist die weltweit größte Naturalisten-Community. Die Benutzer laden Fotos von Arten in aller Welt hoch, und unsere Community arbeitet zusammen, um sie zu identifizieren. Anhand dieser Daten lernt die KI, werden Kartendaten angezeigt, und in Seek Beobachtungen in der Nähe generiert.",
+      "contribute": "Möchten Sie gemeinsam mit einer weltweiten Community von Naturalisten zur zur Citizen Science beitragen?",
+      "join": "iNaturalist beitreten",
+      "by": "von"
+  },
+  "results": {
+      "observed_species": "Sie haben eine neue Art beobachtet!",
+      "learn_more": "Erfahren Sie mehr über diese Art, z. B. wo man sie antreffen kann sowie weitere interessante Fakten!",
+      "view_species": "Art anzeigen",
+      "back": "Zurück zur AR-Kamera",
+      "no_identification": "Wir konnten dieses Foto nicht identifizieren.",
+      "sorry": "Das tut uns leid, aber Seek ist immer noch am Lernen!\\n\\nSie können es aus einem anderen Winkel versuchen oder das Bild vergrößern. Oder versuchen Sie, eine deutlicher Aufnahme des Lebewesens zu machen.",
+      "take_photo": "Weiteres Foto aufnehmen",
+      "common_ancestor": "Wir konnten die genaue Art nicht ermitteln.\\n\\nSie können es aus einem anderen Winkel versuchen oder das Bild vergrößern. Oder versuchen Sie, eine deutlicher Aufnahme des Lebewesens zu machen.",
+      "believe": "Wir vermuten, es gehört zu",
+      "resighted": "Sie haben eine Art erneut beobachtet!",
+      "date_observed": "Sie haben Sie erstmals beobachtet am:"
+  },
+  "{{seenDate}}": {
+      "": ""
+  },
+  "banner": {
+      "number_seen": "Sie haben {{number}} {{taxaType}} gesehen!",
+      "view": "Auszeichnung anzeigen",
+      "badge": "Auszeichnung",
+      "species": "Art"
+  },
+  "camera": {
+      "label": "Kamera",
+      "on": "ein",
+      "off": "aus"
+  },
+  "gallery": {
+      "label": "Fotos",
+      "choose_photo": "Foto auswählen"
+  },
+  "camera_help": {
+      "title": "Seek-Kamera",
+      "header": "Füllen Sie alle grünen Kreise aus, und machen Sie anschließend ein Foto!",
+      "explanation": "Wenn alle Punkte ausgefüllt sind, geht Seek davon aus, dass das Lebenswesen als Art erkannt werden kann!\\n\\n Sammeln Sie Beobachtungen, indem Sie Fotos von so vielen Pflanzen-, Tier- und Pilzarten aufnehmen, wie Sie können!",
+      "header_1": "Wie funktioniert das?",
+      "how_works": "Das Identifizierungsmodell von Seek beruht direkt auf dem Lebensbaum.\\n\\nJeder Punkt in der Identifizierungsleiste entspricht einer taxonomischen Ebene des Lebensbaums. Wenn Seek die von Ihnen beobachtete Art auf den einzelnen Ebenen eindeutig identifizieren kann, fügt es der Leiste einen weiteren Punkt hinzu. Nehmen Sie ein Foto auf, wenn der Organismus als Art identifiziert wurde!",
+      "header_2": "Tipps und Tricks",
+      "tips": "Seek kann Fotos am besten identifizieren, wenn gute Lichtbedingungen herrschen, und wenn die Art deutlich zu erkennen ist. Probieren Sie daher verschiedene Winkel aus, bis Sie den richtigen Augenblick erwischen.\\n\\nSeek ist nach wie vor am Lernen. Wenn also nicht alle Punkte ausgefüllt werden, haben Sie es möglicherweise mit einer Art zu tun, die in der iNaturalist-Datenbank nicht allzu häufig vorhanden ist. Sie können Ihre Beobachtungen in iNaturalist teilen, um Seek dabei zu helfen, besser identifizieren zu können!",
+      "header_3": "Denken Sie daran",
+      "tip_1": "Achten Sie stets auf die Umgebung und Ihre Sicherheit!",
+      "tip_2": "Essen Sie nichts, was Sie in der Natur gefunden haben.",
+      "tip_3": "Werden Sie nicht übergriffig.",
+      "tip_4": "Respektieren Sie andere Lebenswesen, indem Sie diese weder belästigen noch berühren. Einige können stechen oder beißen."
+  },
+  "confirm": {
+      "identify": "Dieses Foto identifizieren?",
+      "button": "Foto identifizieren"
+  }
+}

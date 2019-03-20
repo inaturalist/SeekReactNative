@@ -28,7 +28,7 @@ const INatObs = ( {
     <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
     <View style={styles.stats}>
       <TouchableOpacity
-        style={styles.button}
+        hitSlop={styles.touchable}
         onPress={() => navigation.navigate( "iNatStats" )}
       >
         <Image source={logos.bird} style={styles.image} />

@@ -82,7 +82,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     marginLeft: 36,
     marginTop: 21,
-    marginBottom: 21
+    marginBottom: 28
   },
   row: {
     flexDirection: "row",
@@ -114,8 +114,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
     width: "80%",
-    height: 46,
-    marginBottom: 37
+    height: 46
   },
   buttonText: {
     fontFamily: fonts.semibold,

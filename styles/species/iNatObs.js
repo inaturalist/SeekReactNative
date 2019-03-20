@@ -17,16 +17,13 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
-  button: {
-    padding: 10
-  },
   image: {
     height: 65,
     width: 81,
     resizeMode: "contain"
   },
   textContainer: {
-    marginLeft: 22
+    marginLeft: 32
   },
   secondHeaderText: {
     fontSize: 19,
@@ -40,5 +37,11 @@ export default StyleSheet.create( {
     fontSize: 20,
     fontFamily: fonts.light,
     color: colors.black
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

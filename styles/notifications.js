@@ -13,7 +13,7 @@ export default StyleSheet.create( {
     flexGrow: 1
   },
   cardContainer: {
-    height: 128,
+    height: 123,
     justifyContent: "center",
     alignItems: "flex-start"
   },

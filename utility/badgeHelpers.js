@@ -11,6 +11,10 @@ const recalculateBadges = () => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
       const { length } = collectedTaxa;
 
+      if ( length === 1 || length === 2 || length === 3 ) { // just for testing
+        createNotification( "badgeEarned" );
+      }
+
       if ( length === 50 || length === 100 || length === 150 ) {
         createNotification( "badgeEarned" );
       }

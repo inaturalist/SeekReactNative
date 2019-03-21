@@ -59,6 +59,8 @@ const recalculateChallenges = () => {
             const percentComplete = calculatePercent( numberSeen, challenge.totalSpecies );
             if ( percentComplete === 100 ) {
               challenge.completedDate = new Date();
+            } else if ( percentComplete > 5 ) { // just for testing
+              createNotification( "challengeProgress", index );
             } else if ( percentComplete >= 75 && prevPercent < 75 ) {
               createNotification( "challengeProgress", index );
             }

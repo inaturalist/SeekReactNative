@@ -10,7 +10,7 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/notifications";
-import icons from "../../assets/icons";
+import notifications from "../../assets/notifications";
 
 type Props = {
   navigation: any,
@@ -28,14 +28,12 @@ const NotificationCard = ( { navigation, item }: Props ) => {
   }
 
   return (
-    <View style={[styles.cardContainer, item.seen === false && styles.greenContainer]}>
+    <View style={styles.cardContainer}>
       <TouchableOpacity
         style={styles.card}
         onPress={() => navigation.navigate( item.nextScreen, { index } )}
       >
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={icons[item.iconName]} />
-        </View>
+        <Image style={styles.image} source={notifications[item.iconName]} />
         <View style={styles.textContainer}>
           <Text style={styles.titleText}>
             {i18n.t( item.title )}
@@ -44,6 +42,7 @@ const NotificationCard = ( { navigation, item }: Props ) => {
             {i18n.t( item.message )}
           </Text>
         </View>
+        {item.seen === false ? <View style={styles.greenDot} /> : null}
       </TouchableOpacity>
       <View style={styles.divider} />
     </View>

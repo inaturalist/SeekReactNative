@@ -3,8 +3,8 @@ package org.inaturalist.seek;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.rnfs.RNFSPackage;
 import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
+import com.rnfs.RNFSPackage;
 import io.realm.react.RealmReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
@@ -15,7 +15,6 @@ import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
-import org.reactnative.camera.RNCameraPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -37,8 +36,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNFSPackage(),
             new INatCameraViewPackage(),
+            new RNFSPackage(),
             new RealmReactPackage(),
             new VectorIconsPackage(),
             new SvgPackage(),
@@ -48,8 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNLanguagesPackage(),
             new ImageResizerPackage(),
             new RNGestureHandlerPackage(),
-            new RNGeocoderPackage(),
-            new RNCameraPackage()
+            new RNGeocoderPackage()
       );
     }
 

@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   View,
   PermissionsAndroid,
-  Text
+  Text,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
@@ -16,7 +17,8 @@ import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
-import rankDict from "../../utility/rankDict";
+// import rankDict from "../../utility/rankDict";
+import ARCameraHeader from "./ARCameraHeader";
 
 type Props = {
   navigation: any
@@ -52,88 +54,84 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onTaxaDetected = event => {
-    let predictions = Object.assign( {}, event.nativeEvent );
-    // console.log( predictions, "predictions" );
+  onTaxaDetected = ( event ) => {
+    const predictions = Object.assign( {}, event.nativeEvent );
 
     if ( predictions ) {
       this.setLoading( false );
     }
 
     if ( predictions.kingdom ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           kingdom: predictions.kingdom
         },
         rankToRender: "kingdom"
-       } );
+      } );
     } else if ( predictions.phylum ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           phylum: predictions.phylum
         },
         rankToRender: "phylum"
-       } );
+      } );
     } else if ( predictions.class ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           class: predictions.class
         },
         rankToRender: "class"
-       } );
+      } );
     } else if ( predictions.order ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           order: predictions.order
         },
         rankToRender: "order"
-       } );
+      } );
     } else if ( predictions.family ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           family: predictions.family
         },
         rankToRender: "family"
-       } );
+      } );
     } else if ( predictions.genus ) {
-      this.setState( { 
+      this.setState( {
         ranks: {
           genus: predictions.genus
         },
         rankToRender: "genus"
-       } );
+      } );
     } else if ( predictions.species ) {
-      // {console.log( predictions.species[0].name, "predictions" )}
-      this.setState( { 
+      this.setState( {
         ranks: {
           species: predictions.species
         },
         rankToRender: "species"
-       } );
+      } );
     }
   }
 
-  onCameraError = event => {
+  onCameraError = ( event ) => {
     console.log( `Camera error: ${event.nativeEvent.error}` );
   }
 
-  onCameraPermissionMissing = event => {
-    console.log( `Missing camera permission` )
+  onCameraPermissionMissing = () => {
+    console.log( "Missing camera permission" );
   }
 
-  onClassifierError = event => {
-    console.log( `Classifier error: ${event.nativeEvent.error}` )
+  onClassifierError = ( event ) => {
+    console.log( `Classifier error: ${event.nativeEvent.error}` );
   }
 
-  onDeviceNotSupported = event => {
-    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` )
+  onDeviceNotSupported = ( event ) => {
+    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
   render() {
     const { ranks, rankToRender, loading } = this.state;
     const { navigation } = this.props;
-
-    // console.log( rankToRender, "rank to render" );
 
     return (
       <View style={styles.container}>
@@ -144,32 +142,10 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        <View style={styles.header}>
-          {rankToRender ? (
-            <View style={styles.greenButton}>
-              <Text style={styles.greenButtonText}>
-                {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
-              </Text>
-            </View>
-          ) : null}
-          {rankToRender ? (
-            <Text style={styles.predictions}>
-              {ranks[rankToRender][0].name}
-              {/* {console.log( ranks[rankToRender][0].name )} */}
-            </Text>
-          ) : null}
-          {ranks && rankToRender ? (
-            <View style={styles.dotRow}>
-              <View style={ranks.kingdom ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.phylum ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.class ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.order ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.family ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.genus ? styles.greenDot : styles.whiteDot} />
-              <View style={ranks.species ? styles.greenDot : styles.whiteDot} />
-            </View>
-          ) : null}
-        </View>
+        <ARCameraHeader
+          ranks={ranks}
+          rankToRender={rankToRender}
+        />
         <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
         <TouchableOpacity
           onPress={() => console.log( "clicked shutter button" )}
@@ -198,7 +174,7 @@ class ARCamera extends Component<Props> {
           onDeviceNotSupported={this.onDeviceNotSupported}
           modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
           taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy_data.csv`}
-          taxaDetectionInterval="80"
+          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
           style={styles.camera}
         />
       </View>

@@ -16,11 +16,11 @@ export default StyleSheet.create( {
   },
   header: {
     position: "absolute",
-    top: 40
+    top: height > 670 ? 80 : 40
   },
   backButton: {
     position: "absolute",
-    top: 19,
+    top: height > 670 ? 49 : 19,
     left: 23
   },
   greenButton: {

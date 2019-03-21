@@ -1,4 +1,3 @@
-import { Platform } from "react-native";
 import {
   createStackNavigator,
   createMaterialTopTabNavigator,
@@ -12,7 +11,6 @@ import i18n from "../i18n";
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import ARCamera from "./Camera/ARCamera";
-import Camera from "./Camera/Camera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
@@ -21,6 +19,13 @@ import MyObservations from "./Observations/MyObservations";
 import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./Menu/AboutScreen";
 import SideMenu from "./Home/SideMenu";
+import OnboardingScreen from "./Onboarding/OnboardingScreen";
+import NotificationsScreen from "./Notifications/Notifications";
+import ChallengeScreen from "./Challenges/ChallengeScreen";
+import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
+import iNatStatsScreen from "./Menu/iNatStats";
+import CameraHelpScreen from "./Camera/CameraHelpScreen";
+// import Camera from "./Camera/Camera";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 // import iNatLoginScreen from "./Login/iNatLoginScreen";
@@ -32,12 +37,6 @@ import SideMenu from "./Home/SideMenu";
 // import SignUpScreen2 from "./Login/SignUpScreen-2";
 // import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 // import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
-import OnboardingScreen from "./Onboarding/OnboardingScreen";
-import NotificationsScreen from "./Notifications/Notifications";
-import ChallengeScreen from "./Challenges/ChallengeScreen";
-import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
-import iNatStatsScreen from "./Menu/iNatStats";
-import CameraHelpScreen from "./Camera/CameraHelpScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const prevScene = scenes[scenes.length - 2];

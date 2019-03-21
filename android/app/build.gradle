@@ -162,8 +162,8 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-fs')
-    implementation project(":inatcamera")
+    implementation project(':react-native-inat-camera')
+    implementation project(':react-native-fs')
     implementation project(':react-native-open-settings')
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-languages')
@@ -174,7 +174,6 @@ dependencies {
     implementation project(':react-native-maps')
     implementation project(':react-native-image-resizer')
     implementation project(':react-native-geocoder')
-    implementation project(':react-native-camera')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation("com.android.support:appcompat-v7:28.0.0")
     // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

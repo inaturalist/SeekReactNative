@@ -233,7 +233,8 @@ class SpeciesDetail extends Component<Props> {
     const { id } = this.state;
     const params = {
       taxon_id: id,
-      without_taxon_id: 43584
+      without_taxon_id: 43584,
+      locale: i18n.currentLocale()
     };
 
     inatjs.identifications.similar_species( params ).then( ( response ) => {

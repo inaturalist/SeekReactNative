@@ -70,7 +70,7 @@ const SpeciesNearby = ( {
             <TouchableOpacity
               onPress={ () => navigation.push( "Species", {
                 id: item.id,
-                commonName: capitalizeNames( item.preferred_common_name ),
+                commonName: capitalizeNames( item.preferred_common_name || item.name ),
                 scientificName: item.name
               } ) }
             >

@@ -197,7 +197,8 @@ class HomeScreen extends Component<Props> {
       hrank: "species",
       include_only_vision_taxa: true,
       not_in_list_id: 945029,
-      month: getPreviousAndNextMonth()
+      month: getPreviousAndNextMonth(),
+      locale: i18n.currentLocale()
     };
 
     if ( taxonIds[taxaType] ) {

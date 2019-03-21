@@ -96,5 +96,11 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 25,
     color: colors.black
+  },
+  arrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 204,
+    right: 27
   }
 } );

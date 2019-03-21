@@ -38,6 +38,7 @@ const icons = {
   titleBanner: require( "./icons/img-titlebanner.png" ),
   swipeLeft: require( "./icons/img-swipearrow-left.png" ),
   swipeRight: require( "./icons/img-swipearrow-right.png" ),
+  badgeSwipeRight: require( "./icons/img-badgeswipearrow-right.png" ),
   taxonomyCircle: require( "./icons/img-taxonomycircle.png" ),
   onboarding1: require( "./onboarding/img-onboarding-1.png" ),
   onboarding2: require( "./onboarding/img-onboarding-2.png" ),

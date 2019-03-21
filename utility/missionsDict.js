@@ -1,6 +1,6 @@
 const missions = {
   0: {
-    all: 4 // change this back to 20 before launch
+    all: 10
   },
   1: {
     mammals: 2,

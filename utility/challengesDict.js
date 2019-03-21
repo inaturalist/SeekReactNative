@@ -3,7 +3,7 @@ const challenges = {
     name: "challenges.connectivity",
     month: "challenges.april_2019",
     description: "challenges.april_description",
-    totalSpecies: 4, // change this back to 20 before release
+    totalSpecies: 10,
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],

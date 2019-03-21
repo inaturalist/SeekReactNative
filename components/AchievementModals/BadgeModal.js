@@ -100,6 +100,7 @@ class BadgeModal extends Component<Props> {
           >
             {badgeList}
           </ScrollView>
+          <Image source={icons.badgeSwipeRight} style={styles.arrow} />
           <View style={styles.row}>
             <TouchableOpacity onPress={this.scrollToB}>
               <Image

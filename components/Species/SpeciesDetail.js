@@ -365,12 +365,12 @@ class SpeciesDetail extends Component<Props> {
               <View style={styles.secondTextContainer}>
                 {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
                 {seenDate ? (
-                  <View style={styles.row}>
+                  <View style={[styles.row, showGreenButtons.includes( true ) && { marginTop: 21 }]}>
                     <Image source={icons.checklist} style={styles.checkmark} />
                     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
                   </View>
                 ) : null}
-                <Text style={styles.headerText}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+                <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
                 <Text style={styles.text}>{about}</Text>
                 {id !== 43584 ? (
                   <View>

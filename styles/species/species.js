@@ -58,7 +58,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   row: {
-    marginTop: 26,
+    marginTop: 28,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
@@ -70,28 +70,6 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
-  // errorContainer: {
-  //   marginTop: 15,
-  //   height: 109,
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   backgroundColor: "#102b1f"
-  // },
-  // errorRow: {
-  //   flexDirection: "row",
-  //   flexWrap: "nowrap",
-  //   alignItems: "center",
-  //   justifyContent: "space-between"
-  // },
-  // errorText: {
-  //   textAlign: "center",
-  //   color: colors.white,
-  //   maxWidth: 245,
-  //   fontFamily: fonts.book,
-  //   fontSize: 16,
-  //   lineHeight: 24,
-  //   marginLeft: 12
-  // },
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.seekForestGreen

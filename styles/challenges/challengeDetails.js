@@ -1,8 +1,10 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -27,9 +29,12 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "transparent"
   },
+  challengeBackground: {
+    height: 405,
+    width
+  },
   header: {
-    height: 85,
-    backgroundColor: colors.darkGray
+    height: 85
   },
   logo: {
     alignSelf: "center",
@@ -51,7 +56,6 @@ export default StyleSheet.create( {
     height: 315,
     alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: colors.darkGray,
     marginBottom: 10
   },
   descriptionContainer: {

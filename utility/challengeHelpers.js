@@ -104,6 +104,8 @@ const setupChallenges = () => {
             month: challenges.month,
             description: challenges.description,
             totalSpecies: challenges.totalSpecies,
+            homeBackgroundName: challenges.homeBackgroundName,
+            backgroundName: challenges.backgroundName,
             unearnedIconName: challenges.unearnedIconName,
             earnedIconName: challenges.earnedIconName,
             missions: challenges.missions,

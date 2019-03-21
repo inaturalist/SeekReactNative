@@ -5,7 +5,7 @@ import {
   View,
   Text,
   Image,
-  // Modal,
+  ImageBackground,
   TouchableOpacity,
   ScrollView,
   SafeAreaView
@@ -19,6 +19,7 @@ import i18n from "../../i18n";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
+import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import Footer from "./ChallengeFooter";
@@ -77,6 +78,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             earnedIconName: challenge.earnedIconName,
             started: challenge.started,
             percentComplete: challenge.percentComplete,
+            backgroundName: challenge.backgroundName,
             index: challenge.index
           },
           missions,
@@ -158,29 +160,34 @@ class ChallengeDetailsScreen extends Component<Props> {
             />
           </Modal>
           <ScrollView>
-            <View style={styles.header}>
-              <TouchableOpacity
-                hitSlop={styles.touchable}
-                style={styles.backButton}
-                onPress={() => navigation.goBack()}
-              >
-                <Image source={icons.backButton} style={styles.image} />
-              </TouchableOpacity>
-              <Image style={styles.logo} source={logos.op} />
-            </View>
-            <View style={styles.challengeContainer}>
-              <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
-              <Text style={styles.challengeName}>{challenge.name}</Text>
-              <View style={styles.leftRow}>
-                {challenge.percentComplete === 100
-                  ? <Image source={icons.badgePlaceholder} />
-                  : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
-                }
-                
-                <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+            <ImageBackground
+              source={backgrounds[challenge.backgroundName]}
+              style={styles.challengeBackground}
+            >
+              <View style={styles.header}>
+                <TouchableOpacity
+                  hitSlop={styles.touchable}
+                  style={styles.backButton}
+                  onPress={() => navigation.goBack()}
+                >
+                  <Image source={icons.backButton} style={styles.image} />
+                </TouchableOpacity>
+                <Image style={styles.logo} source={logos.op} />
               </View>
-              {button}
-            </View>
+              <View style={styles.challengeContainer}>
+                <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
+                <Text style={styles.challengeName}>{challenge.name}</Text>
+                <View style={styles.leftRow}>
+                  {challenge.percentComplete === 100
+                    ? <Image source={icons.badgePlaceholder} />
+                    : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
+                  }
+                  
+                  <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+                </View>
+                {button}
+              </View>
+            </ImageBackground>
             <View style={styles.missionContainer}>
               {challengeStarted ? (
                 <ChallengeMissionCard

@@ -5,12 +5,14 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/challenges";
 import logos from "../../assets/logos";
+import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   navigation: any,
@@ -29,7 +31,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.challengeContainer}>
+      <ImageBackground source={backgrounds[challenge.homeBackgroundName]} style={styles.challengeContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.challengeHeader}>
             {i18n.t( challenge.month ).toLocaleUpperCase()}
@@ -58,7 +60,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
             <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     </View>
   </View>
 );

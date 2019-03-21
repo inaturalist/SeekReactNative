@@ -4,6 +4,8 @@ const challenges = {
     month: "challenges.april_2019",
     description: "challenges.april_description",
     totalSpecies: 10,
+    homeBackgroundName: "img-homechallenge-april",
+    backgroundName: "img-challengedetail-april",
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
@@ -15,6 +17,8 @@ const challenges = {
     month: "challenges.may_2019",
     description: "challenges.may_description",
     totalSpecies: 17,
+    homeBackgroundName: "img-homechallenge-may",
+    backgroundName: "img-challengedetail-may",
     unearnedIconName: "badge_empty",
     earnedIconName: "",
     missions: [

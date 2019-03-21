@@ -7,6 +7,8 @@ ChallengeRealm.schema = {
     month: { type: "string", default: "" },
     description: { type: "string", default: "" },
     totalSpecies: { type: "int", default: 0 },
+    homeBackgroundName: "string?",
+    backgroundName: "string?",
     unearnedIconName: "string?",
     earnedIconName: "string?",
     missions: { type: "string[]" },

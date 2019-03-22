@@ -42,29 +42,33 @@ const ConfirmScreen = ( {
       <View />
     </View>
     <View style={styles.imageContainer}>
-      {loading && photoConfirmed ? <LoadingWheel /> : null}
+      {loading && photoConfirmed ? (
+        // <View style={styles.loading}>
+        <LoadingWheel color="white" />
+        // </View>
+      ) : null}
       <Image
         source={{ uri: image.uri }}
         style={styles.image}
       />
-      <View style={styles.footer}>
-        {!photoConfirmed ? (
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => confirmPhoto()}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
-        ) : (
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>
-              {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-        )}
-      </View>
+    </View>
+    <View style={styles.footer}>
+      {!photoConfirmed ? (
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => confirmPhoto()}
+        >
+          <Text style={styles.buttonText}>
+            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
+      ) : (
+        <View style={styles.lightButton}>
+          <Text style={styles.buttonText}>
+            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+          </Text>
+        </View>
+      )}
     </View>
   </View>
 );

@@ -7,12 +7,14 @@ import {
   View,
   PermissionsAndroid,
   Text,
-  Platform
+  Platform,
+  NativeModules
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 
 import INatCamera from "react-native-inat-camera";
+
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
@@ -129,6 +131,20 @@ class ARCamera extends Component<Props> {
     console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
+  takePicture = async () => {
+    if (Platform.OS === "ios") {
+      var CameraManager = NativeModules.INatCameraViewManager;
+      if (CameraManager) {
+        try {
+          var photo = await CameraManager.takePictureAsync();
+          console.log("photo uri is " + photo.uri);
+        } catch (e) {
+          console.log("error taking picture " + e);
+        }
+      }
+    }
+  }
+
   render() {
     const { ranks, rankToRender, loading } = this.state;
     const { navigation } = this.props;
@@ -148,7 +164,7 @@ class ARCamera extends Component<Props> {
         />
         <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
         <TouchableOpacity
-          onPress={() => console.log( "clicked shutter button" )}
+          onPress={() => this.takePicture()}
           style={styles.shutter}
         >
           {ranks && ranks.species

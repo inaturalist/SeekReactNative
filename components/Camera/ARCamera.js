@@ -138,6 +138,7 @@ class ARCamera extends Component<Props> {
         try {
           var photo = await CameraManager.takePictureAsync();
           console.log("photo uri is " + photo.uri);
+          console.log("photo is ", photo);
         } catch (e) {
           console.log("error taking picture " + e);
         }

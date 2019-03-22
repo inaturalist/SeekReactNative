@@ -57,9 +57,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         style={styles.card}
         onPress={() => navigation.navigate( "ChallengeDetails", { index: item.index } )}
       >
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={item.iconName} />
-        </View>
+        <Image style={styles.image} source={item.iconName} />
         <View style={styles.textContainer}>
           <Text style={styles.titleText}>
             {item.name}
@@ -72,7 +70,6 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         </View>
         {rightIcon}
       </TouchableOpacity>
-      <View style={styles.divider} />
     </View>
   );
 };

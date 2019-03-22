@@ -14,7 +14,7 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   header: {
-    marginTop: 21,
+    marginTop: 26,
     marginLeft: 22,
     marginBottom: 10
   },
@@ -36,11 +36,11 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     alignItems: "center"
   },
-  imageContainer: {
-    marginRight: 20
-  },
   image: {
-    marginRight: 5
+    marginRight: 20,
+    width: 68,
+    height: 68,
+    resizeMode: "contain"
   },
   textContainer: {
     flexDirection: "column",
@@ -52,7 +52,7 @@ export default StyleSheet.create( {
   titleText: {
     fontFamily: fonts.medium,
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 1,
     lineHeight: 21,
     color: colors.seekTeal
   },
@@ -71,11 +71,11 @@ export default StyleSheet.create( {
     textAlign: "center",
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 17
   },
   noChallengeContainer: {
-    marginTop: 20,
+    height: 121,
     alignItems: "center",
     justifyContent: "center"
   },
@@ -92,7 +92,7 @@ export default StyleSheet.create( {
     width: 229,
     textAlign: "center",
     fontFamily: fonts.medium,
-    color: colors.errorGray,
+    color: colors.black,
     fontSize: 19,
     lineHeight: 24
   },

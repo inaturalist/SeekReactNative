@@ -34,12 +34,12 @@ const ARCameraHeader = ( {
     ) : null}
     {ranks && rankToRender ? (
       <View style={styles.dotRow}>
-        <View style={ranks.kingdom||ranks.phylum||ranks.class||ranks.order||ranks.family||ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.phylum||ranks.class||ranks.order||ranks.family||ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.class||ranks.order||ranks.family||ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.order||ranks.family||ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.family||ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.genus||ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.kingdom || ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
+        <View style={ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
         <View style={ranks.species ? styles.greenDot : styles.whiteDot} />
       </View>
     ) : null}

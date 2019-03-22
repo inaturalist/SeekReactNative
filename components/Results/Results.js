@@ -139,17 +139,24 @@ class Results extends Component<Props> {
     } );
   }
 
+  setARCameraVisionResults( predictions ) {
+    Alert.alert( JSON.stringify( predictions, "predictions" ) );
+  }
+
   fetchScore( params ) {
     const { predictions } = this.state;
-    Alert.alert( JSON.stringify( predictions, "predictions" ) );
+
     const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
-        // console.log( match.combined_score, "match score" );
-        this.setOnlineVisionResults( match, commonAncestor );
+        if ( predictions.length > 0 ) {
+          this.setARCameraVisionResults( predictions );
+        } else {
+          this.setOnlineVisionResults( match, commonAncestor );
+        }
       } )
       .catch( ( err ) => {
         console.log( err, "error fetching computer vision results" );

@@ -47,9 +47,7 @@ const setupBadges = () => {
       realm.write( () => {
         const dict = Object.keys( badgesDict.default );
         dict.forEach( ( badgeType ) => {
-          // Alert.alert( badgeType, "badge type" );
           const badges = badgesDict.default[badgeType];
-          // Alert.alert( JSON.stringify( badges ), "badges" );
 
           try {
             const badge = realm.create( "BadgeRealm", {
@@ -64,15 +62,13 @@ const setupBadges = () => {
               index: badges.index,
               earned: badges.earned
             }, true );
-            // Alert.alert( JSON.stringify( badge ), "created badge" );
           } catch ( e ) {
-            // const badges = realm.objects( "BadgeRealm" )
-            Alert.alert( "error creating data", e );
+            // console.log( "error creating data", e );
           }
         } );
       } );
     } ).catch( ( err ) => {
-      Alert.alert( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
+      // console.log( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 

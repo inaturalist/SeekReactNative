@@ -6,7 +6,8 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 
 import i18n from "../../i18n";

@@ -152,7 +152,6 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id, params ).then( ( response ) => {
       const taxa = response.results[0];
-      Alert.alert( JSON.stringify( taxa ) );
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
       const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];

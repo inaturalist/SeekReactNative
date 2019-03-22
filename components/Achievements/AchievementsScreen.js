@@ -100,7 +100,7 @@ class AchievementsScreen extends Component<Props> {
           badgesEarned
         } );
       } ).catch( () => {
-        // Alert.alert( "[DEBUG] Failed to open realm, error: ", err );
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 

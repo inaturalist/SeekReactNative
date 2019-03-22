@@ -158,8 +158,6 @@ class ARCamera extends Component<Props> {
           const photo = await CameraManager.takePictureAsync();
           this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
-          // Alert.alert( "photo uri is ", photo.uri );
-          // Alert.alert( "photo is ", JSON.stringify( photo ) );
         } catch ( e ) {
           console.log( "error taking picture ", e );
         }

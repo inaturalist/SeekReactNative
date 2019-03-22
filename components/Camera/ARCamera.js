@@ -8,7 +8,9 @@ import {
   PermissionsAndroid,
   Text,
   Platform,
-  NativeModules
+  NativeModules,
+  Alert,
+  CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
@@ -19,7 +21,6 @@ import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
-// import rankDict from "../../utility/rankDict";
 import ARCameraHeader from "./ARCameraHeader";
 
 type Props = {
@@ -33,8 +34,13 @@ class ARCamera extends Component<Props> {
     this.state = {
       ranks: {},
       rankToRender: null,
-      loading: true
+      loading: true,
+      predictions: []
     };
+  }
+
+  setImagePredictions( predictions ) {
+    this.setState( { predictions } );
   }
 
   setLoading( loading ) {
@@ -131,19 +137,55 @@ class ARCamera extends Component<Props> {
     console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
+  getCameraCaptureFromGallery() {
+    CameraRoll.getPhotos( {
+      first: 1,
+      assetType: "Photos"
+    } ).then( ( results ) => {
+      const photo = results.edges[0].node;
+      this.navigateToResults( photo );
+    } ).catch( ( err ) => {
+      console.log( err, "error getting photo from gallery" );
+    } );
+  }
+
   takePicture = async () => {
-    if (Platform.OS === "ios") {
-      var CameraManager = NativeModules.INatCameraViewManager;
-      if (CameraManager) {
+    this.setLoading( true );
+    if ( Platform.OS === "ios" ) {
+      const CameraManager = NativeModules.INatCameraViewManager;
+      if ( CameraManager ) {
         try {
-          var photo = await CameraManager.takePictureAsync();
-          console.log("photo uri is " + photo.uri);
-          console.log("photo is ", photo);
-        } catch (e) {
-          console.log("error taking picture " + e);
+          const photo = await CameraManager.takePictureAsync();
+          this.setImagePredictions( photo.predictions );
+          this.savePhotoToGallery( photo );
+          // Alert.alert( "photo uri is ", photo.uri );
+          // Alert.alert( "photo is ", JSON.stringify( photo ) );
+        } catch ( e ) {
+          console.log( "error taking picture ", e );
         }
       }
     }
+  }
+
+  savePhotoToGallery( photo ) {
+    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
+      .then( () => this.getCameraCaptureFromGallery() )
+      .catch( ( err ) => {
+        console.log( err, "error getting photo from gallery" );
+      } );
+  }
+
+  navigateToResults( photo ) {
+    const { predictions } = this.state;
+    const { navigation } = this.props;
+
+    navigation.push( "Results", {
+      image: photo.image,
+      time: photo.timestamp,
+      latitude: null,
+      longitude: null,
+      predictions
+    } );
   }
 
   render() {

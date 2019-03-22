@@ -136,14 +136,16 @@ class GalleryScreen extends Component<Props> {
           image: imageClicked,
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude )
+          longitude: truncateCoordinates( location.longitude ),
+          predictions: null
         } );
       } else {
         navigation.push( "Results", {
           image: imageClicked,
           time: timestamp,
           latitude: userLocation.latitude,
-          longitude: userLocation.longitude
+          longitude: userLocation.longitude,
+          predictions: null
         } );
       }
     } else {
@@ -151,7 +153,8 @@ class GalleryScreen extends Component<Props> {
         image: imageClicked,
         time: timestamp,
         latitude: userLocation.latitude,
-        longitude: userLocation.longitude
+        longitude: userLocation.longitude,
+        predictions: null
       } );
     }
   }

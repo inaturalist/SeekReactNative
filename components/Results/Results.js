@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -41,10 +42,12 @@ class Results extends Component<Props> {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      predictions
     } = navigation.state.params;
 
     this.state = {
+      predictions,
       image,
       time,
       latitude,
@@ -124,23 +127,29 @@ class Results extends Component<Props> {
     return token;
   }
 
+  setOnlineVisionResults( match, commonAncestor ) {
+    this.setState( {
+      observation: match,
+      taxaId: match.taxon.id,
+      taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
+      speciesSeenImage: match.taxon.default_photo.medium_url,
+      commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
+    }, () => {
+      this.checkForMatch( match.combined_score );
+    } );
+  }
+
   fetchScore( params ) {
+    const { predictions } = this.state;
+    Alert.alert( JSON.stringify( predictions, "predictions" ) );
     const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
-        console.log( match.combined_score, "match score" );
-        this.setState( {
-          observation: match,
-          taxaId: match.taxon.id,
-          taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
-          speciesSeenImage: match.taxon.default_photo.medium_url,
-          commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
-        }, () => {
-          this.checkForMatch( match.combined_score );
-        } );
+        // console.log( match.combined_score, "match score" );
+        this.setOnlineVisionResults( match, commonAncestor );
       } )
       .catch( ( err ) => {
         console.log( err, "error fetching computer vision results" );

@@ -7,7 +7,7 @@ import {
   ScrollView,
   Text,
   NetInfo,
-  // TouchableOpacity,
+  Alert,
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -146,8 +146,13 @@ class SpeciesDetail extends Component<Props> {
   fetchTaxonDetails() {
     const { id, scientificName, commonName } = this.state;
 
-    inatjs.taxa.fetch( id ).then( ( response ) => {
+    const params = {
+      locale: i18n.currentLocale()
+    };
+
+    inatjs.taxa.fetch( id, params ).then( ( response ) => {
       const taxa = response.results[0];
+      Alert.alert( JSON.stringify( taxa ) );
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
       const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
@@ -174,7 +179,7 @@ class SpeciesDetail extends Component<Props> {
       this.setState( {
         scientificName: taxa.name,
         photos,
-        about: i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ),
+        about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,
         taxaType: taxa.iconic_taxon_name,
         ancestors,
@@ -370,8 +375,12 @@ class SpeciesDetail extends Component<Props> {
                     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
                   </View>
                 ) : null}
-                <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.text}>{about}</Text>
+                {about ? (
+                  <View>
+                    <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+                    <Text style={styles.text}>{about}</Text>
+                  </View>
+                ) : null}
                 {id !== 43584 ? (
                   <View>
                     <SpeciesMap

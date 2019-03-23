@@ -16,6 +16,7 @@ import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import Permissions from "react-native-permissions";
+import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -51,12 +52,14 @@ class HomeScreen extends Component<Props> {
       modalVisible: false,
       error: null,
       isFirstLaunch: false,
-      challenge: null
+      challenge: null,
+      showGetStartedModal: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
   }
 
@@ -117,9 +120,18 @@ class HomeScreen extends Component<Props> {
     }
   }
 
+  toggleGetStartedModal() {
+    const { showGetStartedModal } = this.state;
+    this.setState( { showGetStartedModal: !showGetStartedModal } );
+  }
+
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
-    this.setState( { isFirstLaunch } );
+    this.setState( { isFirstLaunch }, () => {
+      // if ( isFirstLaunch ) {
+        this.toggleGetStartedModal();
+      // }
+    } );
   }
 
   updateTaxaType( taxaType ) {
@@ -271,7 +283,8 @@ class HomeScreen extends Component<Props> {
       modalVisible,
       error,
       isFirstLaunch,
-      challenge
+      challenge,
+      showGetStartedModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -290,6 +303,14 @@ class HomeScreen extends Component<Props> {
                 addARCameraFiles();
               }}
             />
+            <RNModal
+              isVisible={showGetStartedModal}
+              onBackdropPress={() => this.toggleGetStartedModal()}
+            >
+              <GetStarted
+                toggleGetStartedModal={this.toggleGetStartedModal}
+              />
+            </RNModal>
             <ScrollView>
               {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
@@ -316,8 +337,6 @@ class HomeScreen extends Component<Props> {
                 error={error}
                 checkRealmForSpecies={this.checkRealmForSpecies}
               />
-              { isFirstLaunch ? <CardPadding /> : null }
-              { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <CardPadding />
               { challenge
                 ? <Challenges navigation={navigation} challenge={challenge} />

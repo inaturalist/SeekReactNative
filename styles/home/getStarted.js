@@ -1,47 +1,63 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    flex: 1
-  },
-  header: {
-    marginTop: 21,
-    marginLeft: 22
+    backgroundColor: colors.white,
+    borderRadius: 40,
+    height: 453
   },
   headerText: {
+    marginTop: 30,
+    textAlign: "center",
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
-  textContainer: {
-    width: 310,
-    marginHorizontal: 22,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 21
+  contentContainer: {
+    marginTop: 10,
+    marginHorizontal: 29
   },
-  buttonRow: {
+  row: {
+    height: 100,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 14
+    alignItems: "center"
   },
   image: {
-    width: 56,
-    height: 56
+    width: 68,
+    height: 68,
+    resizeMode: "contain",
+    marginRight: 24
+  },
+  textContainer: {
+    width: 194
   },
   text: {
-    maxWidth: 245,
+    maxWidth: 194,
     fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 20,
-    marginHorizontal: 12
+    fontSize: 16,
+    lineHeight: 21
+  },
+  button: {
+    backgroundColor: colors.seekForestGreen,
+    width: 292,
+    height: 46,
+    marginTop: 21,
+    marginBottom: 21,
+    borderRadius: 40,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  buttonText: {
+    fontFamily: fonts.semibold,
+    paddingTop: Platform.OS === "ios" ? 5 : 0,
+    fontSize: 18,
+    color: colors.white,
+    letterSpacing: 1.0
   }
 } );

@@ -13,38 +13,45 @@ import styles from "../../styles/home/getStarted";
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any
+  toggleGetStartedModal: Function
 }
 
-const GetStarted = ( { navigation }: Props ) => (
+const GetStarted = ( { toggleGetStartedModal }: Props ) => (
   <View style={styles.container}>
-    <View style={styles.header}>
-      <Text style={styles.headerText}>
-        {i18n.t( "get_started.header" ).toLocaleUpperCase()}
-      </Text>
-    </View>
-    <View style={styles.textContainer}>
-      <View style={styles.buttonRow}>
+    <Text style={styles.headerText}>
+      {i18n.t( "get_started.header" ).toLocaleUpperCase()}
+    </Text>
+    <View style={styles.contentContainer}>
+      <View style={styles.row}>
         <Image source={icons.cameraGreen} style={styles.image} />
-        <Text style={styles.text}>
-          {i18n.t( "get_started.tip_1" )}
-        </Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_1" )}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.row}>
+        <Image source={icons.speciesNearby} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_2" )}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.row}>
+        <Image source={icons.birdBadge} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {i18n.t( "get_started.tip_3" )}
+          </Text>
+        </View>
       </View>
       <TouchableOpacity
-        onPress={() => navigation.navigate( "Camera" )}
-        style={styles.buttonRow}
+        onPress={() => toggleGetStartedModal()}
+        style={styles.button}
       >
-        <Image source={icons.cameraGreen} style={styles.image} />
-        <Text style={styles.text}>
-          {i18n.t( "get_started.tip_2" )}
-        </Text>
+        <Text style={styles.buttonText}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
       </TouchableOpacity>
-      <View style={styles.buttonRow}>
-        <Image source={icons.cameraGreen} style={styles.image} />
-        <Text style={styles.text}>
-          {i18n.t( "get_started.tip_3" )}
-        </Text>
-      </View>
     </View>
   </View>
 );

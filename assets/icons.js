@@ -43,7 +43,9 @@ const icons = {
   onboarding1: require( "./onboarding/img-onboarding-1.png" ),
   onboarding2: require( "./onboarding/img-onboarding-2.png" ),
   cameraHelpTree: require( "./icons/img-camerahelp-tree.png" ),
-  cameraHelpTop: require( "./icons/img-camerahelp-taxonomy.png" )
+  cameraHelpTop: require( "./icons/img-camerahelp-taxonomy.png" ),
+  birdBadge: require( "./icons/img-birdbadge.png" ),
+  speciesNearby: require( "./icons/img-speciesnearby.png" )
 };
 
 export default icons;

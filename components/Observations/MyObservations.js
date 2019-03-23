@@ -42,7 +42,6 @@ class MyObservations extends Component<Props> {
         const observations = [];
         
         const species = realm.objects( "ObservationRealm" );
-        Alert.alert( JSON.stringify( species ), "observs" );
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {
@@ -94,35 +93,43 @@ class MyObservations extends Component<Props> {
       iconicTaxonList.push( list );
     } );
 
+    let content;
+
+    if ( loading ) {
+      content = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel color="black" />
+        </View>
+      );
+    } else if ( observations.length > 0 ) {
+      content = (
+        <ScrollView>
+          {iconicTaxonList}
+          <Padding />
+        </ScrollView>
+      );
+    } else {
+      content = (
+        <View style={styles.noSpecies}>
+          <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Camera" )}
+            style={styles.greenButton}
+          >
+            <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents onDidFocus={() => this.fetchObservations()} />
           <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
-          {observations.length > 0
-            ? (
-              <ScrollView>
-                {loading ? (
-                  <View style={styles.loadingWheel}>
-                    <LoadingWheel color="black" />
-                  </View>
-                ) : iconicTaxonList
-                }
-                <Padding />
-              </ScrollView>
-            ) : (
-              <View style={styles.noSpecies}>
-                <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "Camera" )}
-                  style={styles.greenButton}
-                >
-                  <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
+          {content}
           <Footer navigation={navigation} />
         </SafeAreaView>
       </View>

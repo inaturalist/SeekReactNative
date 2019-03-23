@@ -79,8 +79,8 @@ class Results extends Component<Props> {
 
   setLocation( location ) {
     this.setState( {
-      latitude: location.latitude,
-      longitude: location.longitude
+      latitude: Number( location.latitude ),
+      longitude: Number( location.longitude )
     }, () => {
       this.checkOnlineOrOfflineVision();
     } );
@@ -126,7 +126,7 @@ class Results extends Component<Props> {
   setARCameraVisionResults() {
     const { predictions } = this.state;
     const species = predictions.find( leaf => leaf.rank === 10 );
-    Alert.alert( JSON.stringify( species ), "species" );
+    // Alert.alert( JSON.stringify( species ), "species" );
 
     if ( species && species.score > 0.9 ) {
       this.setState( {
@@ -183,7 +183,7 @@ class Results extends Component<Props> {
       this.setState( {
         observation: {
           taxon: {
-            default_photo: taxa.default_photo.medium_url,
+            default_photo: taxa.default_photo,
             id: Number( taxaId ),
             name: taxa.name,
             preferred_common_name: taxa.preferred_common_name,
@@ -210,10 +210,10 @@ class Results extends Component<Props> {
   checkForCommonAncestor() {
     const { predictions } = this.state;
     const reversePredictions = predictions.reverse();
-    Alert.alert( JSON.stringify( reversePredictions ), "reverse" );
+    // Alert.alert( JSON.stringify( reversePredictions ), "reverse" );
     const ancestor = reversePredictions.find( leaf => leaf.score > 0.9 );
 
-    Alert.alert( JSON.stringify( ancestor ), "ancestor" );
+    // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
 
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );
@@ -275,9 +275,9 @@ class Results extends Component<Props> {
       image
     } = this.state;
 
-    Alert.alert( "obs being added", JSON.stringify( observation ) );
+    // Alert.alert( "obs being added", JSON.stringify( observation ) );
 
-    addToCollection( observation, Number( latitude ), Number( longitude ), image );
+    addToCollection( observation, latitude, longitude, image );
   }
 
   checkForOnlineVisionMatch( score ) {

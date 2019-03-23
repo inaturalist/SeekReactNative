@@ -17,7 +17,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
-import ErrorScreen from "../ErrorScreen";
+import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
@@ -171,7 +171,7 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <ErrorScreen error={error} collection />;
+      gallery = <ErrorScreen error={i18n.t( "camera.error_gallery" )} />;
     } else if ( loading ) {
       gallery = (
         <View style={styles.loadingWheel}>

@@ -36,7 +36,8 @@ class ARCamera extends Component<Props> {
       rankToRender: null,
       loading: true,
       predictions: [],
-      pictureTaken: false
+      pictureTaken: false,
+      error: null
     };
   }
 
@@ -52,24 +53,12 @@ class ARCamera extends Component<Props> {
     this.setState( { loading } );
   }
 
-  requestPermissions = async () => {
-    const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
-
-    try {
-      const granted = await PermissionsAndroid.request( camera );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        // console.log( granted, "granted" );
-      } else {
-        // console.log( "permission denied" );
-      }
-    } catch ( err ) {
-      // console.log( err, "permission denied" );
-    }
+  setError( error ) {
+    this.setState( { error } );
   }
 
   onTaxaDetected = ( event ) => {
     const predictions = Object.assign( {}, event.nativeEvent );
-
     if ( predictions ) {
       this.setLoading( false );
     }
@@ -131,7 +120,7 @@ class ARCamera extends Component<Props> {
   }
 
   onCameraPermissionMissing = () => {
-    console.log( "Missing camera permission" );
+    this.setError( "permissions" );
   }
 
   onClassifierError = ( event ) => {
@@ -150,8 +139,23 @@ class ARCamera extends Component<Props> {
       const photo = results.edges[0].node;
       this.navigateToResults( photo );
     } ).catch( ( err ) => {
-      console.log( err, "error getting photo from gallery" );
+      this.setError( "permissions" );
     } );
+  }
+
+  requestPermissions = async () => {
+    const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+
+    try {
+      const granted = await PermissionsAndroid.request( camera );
+      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        // console.log( granted, "granted" );
+      } else {
+        this.setError( "permissions" );
+      }
+    } catch ( e ) {
+      this.setError( "permissions" );
+    }
   }
 
   takePicture = async () => {
@@ -196,12 +200,32 @@ class ARCamera extends Component<Props> {
       ranks,
       rankToRender,
       loading,
-      pictureTaken
+      pictureTaken,
+      error
     } = this.state;
     const { navigation } = this.props;
 
+    let center;
+
+    if ( error === "permissions" ) {
+      center = (
+        <View style={styles.loading}>
+          <Text style={styles.errorText}>{i18n.t( "camera.error_camera" )}</Text>
+        </View>
+      );
+    } else if ( loading ) {
+      center = (
+        <View style={styles.loading}>
+          <LoadingWheel color="white" />
+        </View>
+      );
+    } else {
+      center = null;
+    }
+
     return (
       <View style={styles.container}>
+        {center}
         <NavigationEvents
           onWillFocus={() => this.requestPermissions()}
           onWillBlur={() => this.setPictureTaken( false )}
@@ -216,7 +240,7 @@ class ARCamera extends Component<Props> {
           ranks={ranks}
           rankToRender={rankToRender}
         />
-        <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
+        {!error ? <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text> : null}
         {!pictureTaken ? (
           <TouchableOpacity
             onPress={() => {
@@ -236,16 +260,13 @@ class ARCamera extends Component<Props> {
               : <Image source={icons.arCameraButton} />}
           </View>
         )}
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "CameraHelp" )}
-          style={styles.help}
-        >
-          <Image source={icons.cameraHelp} />
-        </TouchableOpacity>
-        { loading ? (
-          <View style={styles.loading}>
-            <LoadingWheel color="white" />
-          </View>
+        {!error ? (
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "CameraHelp" )}
+            style={styles.help}
+          >
+            <Image source={icons.cameraHelp} />
+          </TouchableOpacity>
         ) : null}
         <INatCamera
           onTaxaDetected={this.onTaxaDetected}

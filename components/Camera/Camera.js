@@ -15,7 +15,7 @@
 // import { NavigationEvents } from "react-navigation";
 
 // import styles from "../../styles/camera/camera";
-// import ErrorScreen from "../ErrorScreen";
+// import ErrorScreen from "./ErrorScreen";
 // import LoadingWheel from "../LoadingWheel";
 // import CameraTopNav from "./CameraTopNav";
 // import { getLatAndLng } from "../../utility/locationHelpers";

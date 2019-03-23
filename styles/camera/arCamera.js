@@ -96,6 +96,14 @@ export default StyleSheet.create( {
   },
   loading: {
     position: "absolute",
-    top: 300
+    top: height / 2 - 50
+  },
+  errorText: {
+    textAlign: "center",
+    marginHorizontal: 41,
+    fontSize: 19,
+    lineHeight: 24,
+    fontFamily: fonts.medium,
+    color: colors.white
   }
 } );

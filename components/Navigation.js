@@ -4,7 +4,7 @@ import {
   createDrawerNavigator,
   createAppContainer
 } from "react-navigation";
-import { fadeIn, fromLeft } from "react-navigation-transitions";
+import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
 import i18n from "../i18n";
@@ -39,15 +39,14 @@ import CameraHelpScreen from "./Camera/CameraHelpScreen";
 // import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
-  const prevScene = scenes[scenes.length - 2];
   const nextScene = scenes[scenes.length - 1];
-  // Custom transitions go there
-  if ( prevScene
-    && prevScene.route.routeName === "Home"
-    && nextScene.route.routeName === "Main" ) {
-    return fadeIn( 2000 );
-  }
-  return fromLeft();
+
+  if ( nextScene.route.routeName === "Notifications" ) {
+    return fromRight();
+  } else if ( nextScene.route.routeName === "Camera" ) {
+    return fromBottom( 100 );
+  };
+  return fadeIn();
 };
 
 const CameraNav = createMaterialTopTabNavigator( {
@@ -76,7 +75,7 @@ const CameraNav = createMaterialTopTabNavigator( {
 
 const StackNavigatorConfig = {
   headerMode: "none",
-  transitionConfig: nav => handleCustomTransition( nav )
+  transitionConfig: () => fadeIn()
 };
 
 const DrawerNavigatorConfig = {
@@ -164,6 +163,8 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   }
+}, {
+  transitionConfig: nav => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {

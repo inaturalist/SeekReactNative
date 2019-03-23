@@ -91,6 +91,7 @@ class Results extends Component<Props> {
   }
 
   setLoading( loading ) {
+    Alert.alert( "setting loading" );
     this.setState( { loading } );
   }
 
@@ -102,6 +103,12 @@ class Results extends Component<Props> {
     this.setState( { match } );
   }
 
+  setCommonAncestor( ancestor ) {
+    this.setState( {
+      commonAncestor: ancestor.name
+    } );
+  }
+
   setOnlineVisionResults( match, commonAncestor ) {
     this.setState( {
       observation: match,
@@ -110,7 +117,8 @@ class Results extends Component<Props> {
       speciesSeenImage: match.taxon.default_photo.medium_url,
       commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
     }, () => {
-      this.checkForMatch( match.combined_score );
+      this.checkDateSpeciesSeen( match.taxon.id );
+      this.checkForOnlineVisionMatch( match.combined_score );
     } );
   }
 
@@ -124,8 +132,12 @@ class Results extends Component<Props> {
         observation: species,
         taxaId: species.taxon_id,
         taxaName: species.name
-      }, () => this.fetchAdditionalTaxaInfo() );
+      }, () => {
+        this.checkDateSpeciesSeen( species.taxon_id );
+        this.fetchAdditionalTaxaInfo();
+      } );
     } else {
+      this.setMatch( false );
       this.checkForCommonAncestor();
     }
   }
@@ -138,24 +150,14 @@ class Results extends Component<Props> {
       longitude
     } = this.state;
 
+    Alert.alert( "getting params w user image", JSON.stringify( userImage ) );
+
     const params = flattenUploadParameters( userImage, time, latitude, longitude );
     this.fetchScore( params );
   }
 
-  fetchAdditionalTaxaInfo() {
-    const { taxaId } = this.state;
-
-    inatjs.taxa.fetch( taxaId ).then( ( response ) => {
-      const taxa = response.results[0];
-      Alert.alert( JSON.stringify( taxa ), "taxa being fetched" );
-    } ).catch( () => {
-      // console.log( err, "error fetching taxon details" );
-    } );
-  }
-
   checkOnlineOrOfflineVision() {
     const { predictions } = this.state;
-    this.resizeImage();
 
     if ( predictions && predictions.length > 0 ) {
       this.setARCameraVisionResults();
@@ -164,22 +166,44 @@ class Results extends Component<Props> {
     }
   }
 
+  showMatch() {
+    this.addObservation();
+    this.setMatch( true );
+    this.setLoading( false );
+  }
+
+  fetchAdditionalTaxaInfo() {
+    const { taxaId } = this.state;
+
+    inatjs.taxa.fetch( taxaId ).then( ( response ) => {
+      const taxa = response.results[0];
+      // Alert.alert( JSON.stringify( taxa.taxon_photos[0].medium_url ), "photo" );
+      this.setState( {
+        speciesSeenImage: taxa.taxon_photos[0].medium_url || null
+      }, () => this.showMatch() );
+    } ).catch( () => {
+      // console.log( err, "error fetching taxon details" );
+    } );
+  }
+
   checkForCommonAncestor() {
     const { predictions } = this.state;
     predictions.reverse();
     Alert.alert( JSON.stringify( predictions ), "ancestor predictions" );
     const ancestor = predictions.find( leaf => ( leaf.score > 0.9 && leaf.rank !== 100 ) );
     if ( ancestor ) {
+      this.setCommonAncestor();
+      this.setLoading( false );
       Alert.alert( "found an ancestor" );
     } else {
       Alert.alert( "no common ancestor" );
-      this.setMatch( false );
       this.setLoading( false );
     }
   }
 
   resizeImage() {
     const { image } = this.state;
+    Alert.alert( JSON.stringify( image ), "image from gallery" );
 
     ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
       .then( ( { uri } ) => {
@@ -188,9 +212,11 @@ class Results extends Component<Props> {
           const uriParts = uri.split( "://" );
           userImage = uriParts[uriParts.length - 1];
           this.setImageUri( userImage );
+          this.checkOnlineOrOfflineVision();
         } else {
           userImage = uri;
           this.setImageUri( userImage );
+          this.checkOnlineOrOfflineVision();
         }
       } ).catch( ( err ) => {
         console.log( err, "couldn't resize image" );
@@ -209,6 +235,7 @@ class Results extends Component<Props> {
 
   fetchScore( params ) {
     const token = this.createJwtToken();
+    Alert.alert( "fetching score" );
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
@@ -221,20 +248,20 @@ class Results extends Component<Props> {
       } );
   }
 
-  async checkForMatch( score, prediction ) {
-    // Alert.alert( "checking for match" );
+  addObservation() {
     const {
       latitude,
       longitude,
       observation,
-      image,
-      taxaId
+      image
     } = this.state;
 
-    if ( score > 97 || prediction > 0.9 ) {
-      this.checkDateSpeciesSeen( taxaId );
-      this.setMatch( true );
-      addToCollection( observation, latitude, longitude, image );
+    addToCollection( observation, latitude, longitude, image );
+  }
+
+  checkForOnlineVisionMatch( score ) {
+    if ( score > 97 ) {
+      this.showMatch();
     } else {
       this.setMatch( false );
     }
@@ -321,6 +348,7 @@ class Results extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
+            this.resizeImage();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();
           }}

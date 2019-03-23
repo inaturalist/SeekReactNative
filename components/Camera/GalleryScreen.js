@@ -137,7 +137,7 @@ class GalleryScreen extends Component<Props> {
           time: timestamp,
           latitude: truncateCoordinates( location.latitude ),
           longitude: truncateCoordinates( location.longitude ),
-          predictions: null
+          predictions: []
         } );
       } else {
         navigation.push( "Results", {
@@ -145,7 +145,7 @@ class GalleryScreen extends Component<Props> {
           time: timestamp,
           latitude: userLocation.latitude,
           longitude: userLocation.longitude,
-          predictions: null
+          predictions: []
         } );
       }
     } else {
@@ -154,7 +154,7 @@ class GalleryScreen extends Component<Props> {
         time: timestamp,
         latitude: userLocation.latitude,
         longitude: userLocation.longitude,
-        predictions: null
+        predictions: []
       } );
     }
   }

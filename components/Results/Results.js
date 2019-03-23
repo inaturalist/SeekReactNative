@@ -91,7 +91,7 @@ class Results extends Component<Props> {
   }
 
   setLoading( loading ) {
-    Alert.alert( "setting loading" );
+    Alert.alert( "setting loading", JSON.stringify( loading ) );
     this.setState( { loading } );
   }
 
@@ -166,8 +166,8 @@ class Results extends Component<Props> {
     }
   }
 
-  showMatch() {
-    this.addObservation();
+  async showMatch() {
+    await this.addObservation();
     this.setMatch( true );
     this.setLoading( false );
   }
@@ -256,10 +256,13 @@ class Results extends Component<Props> {
       image
     } = this.state;
 
+    Alert.alert( "obs being added", JSON.stringify( observation ) );
+
     addToCollection( observation, latitude, longitude, image );
   }
 
   checkForOnlineVisionMatch( score ) {
+    Alert.alert( JSON.stringify( score ), "score" );
     if ( score > 97 ) {
       this.showMatch();
     } else {

@@ -26,7 +26,7 @@ const ObservationCard = ( { navigation, item }: Props ) => (
       scientificName: item.taxon.name
     } )}
   >
-    <Image style={styles.image} source={{ uri: item.taxon.defaultPhoto.mediumUrl }} />
+    <Image style={styles.image} source={{ uri: item.taxon.defaultPhoto.squareUrl }} />
     <View style={styles.speciesNameContainer}>
       <Text style={styles.commonNameText}>{capitalizeNames( item.taxon.preferredCommonName )}</Text>
       <Text style={styles.scientificNameText}>{item.taxon.name}</Text>

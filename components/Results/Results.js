@@ -103,10 +103,13 @@ class Results extends Component<Props> {
     this.setState( { match } );
   }
 
-  setCommonAncestor( ancestor ) {
+  setCommonAncestor( ancestor, speciesSeenImage ) {
+    Alert.alert( JSON.stringify( ancestor.taxon_id ), "set common ancestor" );
     this.setState( {
-      commonAncestor: ancestor.name
-    } );
+      commonAncestor: ancestor.name,
+      taxaId: ancestor.taxon_id,
+      speciesSeenImage
+    }, () => this.showNoMatch() );
   }
 
   setOnlineVisionResults( match, commonAncestor ) {
@@ -125,11 +128,10 @@ class Results extends Component<Props> {
   setARCameraVisionResults() {
     const { predictions } = this.state;
     const species = predictions.find( leaf => leaf.rank === 10 );
-    Alert.alert( JSON.stringify( species ), "species" );
+    // Alert.alert( JSON.stringify( species ), "species" );
 
     if ( species && species.score > 0.9 ) {
       this.setState( {
-        observation: species,
         taxaId: species.taxon_id,
         taxaName: species.name
       }, () => {
@@ -149,8 +151,6 @@ class Results extends Component<Props> {
       latitude,
       longitude
     } = this.state;
-
-    Alert.alert( "getting params w user image", JSON.stringify( userImage ) );
 
     const params = flattenUploadParameters( userImage, time, latitude, longitude );
     this.fetchScore( params );
@@ -172,15 +172,38 @@ class Results extends Component<Props> {
     this.setLoading( false );
   }
 
+  showNoMatch() {
+    this.setMatch( false );
+    this.setLoading( false );
+  }
+
   fetchAdditionalTaxaInfo() {
     const { taxaId } = this.state;
 
     inatjs.taxa.fetch( taxaId ).then( ( response ) => {
       const taxa = response.results[0];
-      // Alert.alert( JSON.stringify( taxa.taxon_photos[0].medium_url ), "photo" );
       this.setState( {
-        speciesSeenImage: taxa.taxon_photos[0].medium_url || null
+        observation: {
+          taxon: {
+            default_photo: taxa.default_photo.medium_url,
+            id: taxaId,
+            name: taxa.name,
+            preferred_common_name: taxa.preferred_common_name,
+            iconic_taxon_id: taxa.iconic_taxon_id
+          }
+        },
+        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
       }, () => this.showMatch() );
+    } ).catch( () => {
+      // console.log( err, "error fetching taxon details" );
+    } );
+  }
+
+  fetchAdditionalAncestorInfo( ancestor ) {
+    inatjs.taxa.fetch( ancestor.taxon_id ).then( ( response ) => {
+      const taxa = response.results[0];
+      const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
+      this.setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
     } );
@@ -188,22 +211,19 @@ class Results extends Component<Props> {
 
   checkForCommonAncestor() {
     const { predictions } = this.state;
-    predictions.reverse();
-    Alert.alert( JSON.stringify( predictions ), "ancestor predictions" );
-    const ancestor = predictions.find( leaf => ( leaf.score > 0.9 && leaf.rank !== 100 ) );
-    if ( ancestor ) {
-      this.setCommonAncestor();
-      this.setLoading( false );
-      Alert.alert( "found an ancestor" );
+    const reversePredictions = predictions.reverse();
+    // Alert.alert( JSON.stringify( reversePredictions ), "reversePredictions" );
+    const ancestor = reversePredictions.find( leaf => leaf.score > 0.9 );
+    // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
+    if ( ancestor && ancestor.rank !== 100 ) {
+      this.fetchAdditionalAncestorInfo( ancestor );
     } else {
-      Alert.alert( "no common ancestor" );
-      this.setLoading( false );
+      this.showNoMatch();
     }
   }
 
   resizeImage() {
     const { image } = this.state;
-    Alert.alert( JSON.stringify( image ), "image from gallery" );
 
     ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
       .then( ( { uri } ) => {
@@ -262,13 +282,11 @@ class Results extends Component<Props> {
   }
 
   checkForOnlineVisionMatch( score ) {
-    Alert.alert( JSON.stringify( score ), "score" );
     if ( score > 97 ) {
       this.showMatch();
     } else {
-      this.setMatch( false );
+      this.showNoMatch();
     }
-    this.setLoading( false );
   }
 
   checkDateSpeciesSeen( taxaId ) {
@@ -276,8 +294,7 @@ class Results extends Component<Props> {
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
-          const observations = realm.objects( "ObservationRealm" );
-          const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
+          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
           this.setSeenDate( seenDate );
         }

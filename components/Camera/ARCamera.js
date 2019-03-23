@@ -156,6 +156,7 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
+          Alert.alert( JSON.stringify( photo.predictions, "predict in AR CAM" ) );
           this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } catch ( e ) {

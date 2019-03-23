@@ -6,7 +6,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -41,6 +42,7 @@ class MyObservations extends Component<Props> {
         const observations = [];
         
         const species = realm.objects( "ObservationRealm" );
+        Alert.alert( JSON.stringify( species ), "observs" );
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {

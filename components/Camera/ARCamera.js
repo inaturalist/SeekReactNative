@@ -116,7 +116,7 @@ class ARCamera extends Component<Props> {
   }
 
   onCameraError = ( event ) => {
-    console.log( `Camera error: ${event.nativeEvent.error}` );
+    this.setError( `Camera error: ${event.nativeEvent.error}` );
   }
 
   onCameraPermissionMissing = () => {
@@ -124,11 +124,11 @@ class ARCamera extends Component<Props> {
   }
 
   onClassifierError = ( event ) => {
-    console.log( `Classifier error: ${event.nativeEvent.error}` );
+    this.setError( `Classifier error: ${event.nativeEvent.error}` );
   }
 
   onDeviceNotSupported = ( event ) => {
-    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
+    this.setError( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
   getCameraCaptureFromGallery() {
@@ -138,23 +138,25 @@ class ARCamera extends Component<Props> {
     } ).then( ( results ) => {
       const photo = results.edges[0].node;
       this.navigateToResults( photo );
-    } ).catch( ( err ) => {
-      this.setError( "permissions" );
+    } ).catch( () => {
+      // this.setError( "permissions" );
     } );
   }
 
   requestPermissions = async () => {
-    const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+    if ( Platform.OS === "android" ) {
+      const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
 
-    try {
-      const granted = await PermissionsAndroid.request( camera );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        // console.log( granted, "granted" );
-      } else {
+      try {
+        const granted = await PermissionsAndroid.request( camera );
+        if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+          // console.log( granted, "granted" );
+        } else {
+          this.setError( "permissions" );
+        }
+      } catch ( e ) {
         this.setError( "permissions" );
       }
-    } catch ( e ) {
-      this.setError( "permissions" );
     }
   }
 
@@ -228,7 +230,10 @@ class ARCamera extends Component<Props> {
         {center}
         <NavigationEvents
           onWillFocus={() => this.requestPermissions()}
-          onWillBlur={() => this.setPictureTaken( false )}
+          onWillBlur={() => {
+            this.setError( null );
+            this.setPictureTaken( false );
+          }}
         />
         <TouchableOpacity
           style={styles.backButton}

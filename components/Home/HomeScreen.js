@@ -128,9 +128,9 @@ class HomeScreen extends Component<Props> {
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     this.setState( { isFirstLaunch }, () => {
-      // if ( isFirstLaunch ) {
+      if ( isFirstLaunch ) {
         this.toggleGetStartedModal();
-      // }
+      }
     } );
   }
 

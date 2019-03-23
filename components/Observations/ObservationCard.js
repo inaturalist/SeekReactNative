@@ -17,21 +17,33 @@ type Props = {
 }
 
 
-const ObservationCard = ( { navigation, item }: Props ) => (
-  <TouchableOpacity
-    style={styles.card}
-    onPress={ () => navigation.push( "Species", {
-      id: item.taxon.id,
-      commonName: capitalizeNames( item.taxon.preferredCommonName ),
-      scientificName: item.taxon.name
-    } )}
-  >
-    <Image style={styles.image} source={{ uri: item.taxon.defaultPhoto.squareUrl }} />
-    <View style={styles.speciesNameContainer}>
-      <Text style={styles.commonNameText}>{capitalizeNames( item.taxon.preferredCommonName )}</Text>
-      <Text style={styles.scientificNameText}>{item.taxon.name}</Text>
-    </View>
-  </TouchableOpacity>
-);
+const ObservationCard = ( { navigation, item }: Props ) => {
+  let photoUri;
+
+  if ( item.taxon.defaultPhoto.squareUrl ) {
+    photoUri = item.taxon.defaultPhoto.squareUrl;
+  } else {
+    photoUri = item.taxon.defaultPhoto.mediumUrl;
+  }
+
+  return (
+    <TouchableOpacity
+      style={styles.card}
+      onPress={ () => navigation.push( "Species", {
+        id: item.taxon.id,
+        commonName: capitalizeNames( item.taxon.preferredCommonName ),
+        scientificName: item.taxon.name
+      } )}
+    >
+      <Image style={styles.image} source={{ uri: photoUri }} />
+      <View style={styles.speciesNameContainer}>
+        <Text style={styles.commonNameText}>
+          {capitalizeNames( item.taxon.preferredCommonName )}
+        </Text>
+        <Text style={styles.scientificNameText}>{item.taxon.name}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export default ObservationCard;

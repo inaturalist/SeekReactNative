@@ -50,6 +50,7 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image ) => {
+  Alert.alert( latitude, longitude, image, "other info in add collection" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {

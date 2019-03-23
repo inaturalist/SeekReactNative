@@ -91,7 +91,6 @@ class Results extends Component<Props> {
   }
 
   setLoading( loading ) {
-    Alert.alert( "setting loading", JSON.stringify( loading ) );
     this.setState( { loading } );
   }
 
@@ -104,7 +103,6 @@ class Results extends Component<Props> {
   }
 
   setCommonAncestor( ancestor, speciesSeenImage ) {
-    Alert.alert( JSON.stringify( ancestor.taxon_id ), "set common ancestor" );
     this.setState( {
       commonAncestor: ancestor.name,
       taxaId: ancestor.taxon_id,
@@ -186,7 +184,7 @@ class Results extends Component<Props> {
         observation: {
           taxon: {
             default_photo: taxa.default_photo.medium_url,
-            id: taxaId,
+            id: Number( taxaId ),
             name: taxa.name,
             preferred_common_name: taxa.preferred_common_name,
             iconic_taxon_id: taxa.iconic_taxon_id
@@ -212,9 +210,8 @@ class Results extends Component<Props> {
   checkForCommonAncestor() {
     const { predictions } = this.state;
     const reversePredictions = predictions.reverse();
-    // Alert.alert( JSON.stringify( reversePredictions ), "reversePredictions" );
     const ancestor = reversePredictions.find( leaf => leaf.score > 0.9 );
-    // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
+
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );
     } else {
@@ -255,7 +252,6 @@ class Results extends Component<Props> {
 
   fetchScore( params ) {
     const token = this.createJwtToken();
-    Alert.alert( "fetching score" );
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
@@ -278,7 +274,7 @@ class Results extends Component<Props> {
 
     Alert.alert( "obs being added", JSON.stringify( observation ) );
 
-    addToCollection( observation, latitude, longitude, image );
+    addToCollection( observation, Number( latitude ), Number( longitude ), image );
   }
 
   checkForOnlineVisionMatch( score ) {

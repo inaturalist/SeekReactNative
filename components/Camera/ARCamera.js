@@ -35,8 +35,13 @@ class ARCamera extends Component<Props> {
       ranks: {},
       rankToRender: null,
       loading: true,
-      predictions: []
+      predictions: [],
+      pictureTaken: false
     };
+  }
+
+  setPictureTaken( pictureTaken ) {
+    this.setState( { pictureTaken } );
   }
 
   setImagePredictions( predictions ) {
@@ -156,7 +161,6 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          Alert.alert( JSON.stringify( photo.predictions, "predict in AR CAM" ) );
           this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } catch ( e ) {
@@ -188,12 +192,20 @@ class ARCamera extends Component<Props> {
   }
 
   render() {
-    const { ranks, rankToRender, loading } = this.state;
+    const {
+      ranks,
+      rankToRender,
+      loading,
+      pictureTaken
+    } = this.state;
     const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
-        <NavigationEvents onWillFocus={() => this.requestPermissions()} />
+        <NavigationEvents
+          onWillFocus={() => this.requestPermissions()}
+          onWillBlur={() => this.setPictureTaken( false )}
+        />
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.navigate( "Main" )}
@@ -205,14 +217,25 @@ class ARCamera extends Component<Props> {
           rankToRender={rankToRender}
         />
         <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>
-        <TouchableOpacity
-          onPress={() => this.takePicture()}
-          style={styles.shutter}
-        >
-          {ranks && ranks.species
-            ? <Image source={icons.arCameraGreen} />
-            : <Image source={icons.arCameraButton} />}
-        </TouchableOpacity>
+        {!pictureTaken ? (
+          <TouchableOpacity
+            onPress={() => {
+              this.setPictureTaken( true );
+              this.takePicture();
+            }}
+            style={styles.shutter}
+          >
+            {ranks && ranks.species
+              ? <Image source={icons.arCameraGreen} />
+              : <Image source={icons.arCameraButton} />}
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.shutter}>
+            {ranks && ranks.species
+              ? <Image source={icons.arCameraGreen} />
+              : <Image source={icons.arCameraButton} />}
+          </View>
+        )}
         <TouchableOpacity
           onPress={() => navigation.navigate( "CameraHelp" )}
           style={styles.help}

@@ -239,7 +239,7 @@ class Results extends Component<Props> {
           this.checkOnlineOrOfflineVision();
         }
       } ).catch( ( err ) => {
-        console.log( err, "couldn't resize image" );
+        // console.log( err, "couldn't resize image" );
       } );
   }
 
@@ -263,7 +263,7 @@ class Results extends Component<Props> {
         this.setOnlineVisionResults( match, commonAncestor );
       } )
       .catch( ( err ) => {
-        console.log( err, "error fetching computer vision results" );
+        // console.log( err, "error fetching computer vision results" );
       } );
   }
 
@@ -298,7 +298,7 @@ class Results extends Component<Props> {
           this.setSeenDate( seenDate );
         }
       } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to check date species seen: ", err );
+        // console.log( "[DEBUG] Failed to check date species seen: ", err );
       } );
   }
 

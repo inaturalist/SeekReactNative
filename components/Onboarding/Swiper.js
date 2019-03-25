@@ -69,7 +69,6 @@ class Swiper extends Component<Props> {
   }
 
   updateIndex = ( offset ) => {
-    console.log( offset, "offset", width, "width" );
     const state = this.state;
     const diff = offset - this.internals.offset;
     const step = state.width;

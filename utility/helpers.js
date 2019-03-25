@@ -18,16 +18,16 @@ const addARCameraFiles = () => {
   if ( Platform.OS === "android" ) {
     RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
       .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
+        // console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
+        // console.log( error, "err in AR camera files" );
       } );
 
     RNFS.copyFileAssets( "camera/taxonomy_data.csv", `${RNFS.DocumentDirectoryPath}/taxonomy_data.csv` )
       .then( ( result ) => {
-        console.log( result, "taxonomy in AR camera files" );
+        // console.log( result, "taxonomy in AR camera files" );
       } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
+        // console.log( error, "err in AR camera files" );
       } );
   }
   //   RNFS.copyFile( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )

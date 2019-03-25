@@ -219,7 +219,7 @@
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
-    "number_species": "You’ve seen {{number}} species!"
+    "number_seen": "You’ve seen {{number}} species!"
   },
   "camera": {
     "label": "Camera",

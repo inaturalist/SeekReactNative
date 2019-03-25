@@ -35,7 +35,7 @@ const LevelModal = ( { level, toggleLevelModal }: Props ) => (
           />
           <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
         </LinearGradient>
-        <Text style={styles.text}>{i18n.t( "banner.number_species", { number: level.count } )}</Text>
+        <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: level.count } )}</Text>
       </View>
       <TouchableOpacity style={styles.backButton} onPress={() => toggleLevelModal()}>
         <Image source={icons.closeModal} />

@@ -9,7 +9,7 @@ import {
   Text,
   Platform,
   NativeModules,
-  Alert,
+  // Alert,
   CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -37,7 +37,8 @@ class ARCamera extends Component<Props> {
       loading: true,
       predictions: [],
       pictureTaken: false,
-      error: null
+      error: null,
+      resumeHidden: true
     };
   }
 
@@ -160,6 +161,18 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  togglePreview() {
+    const { resumeHidden } = this.state;
+
+    this.setState( { resumeHidden: !resumeHidden } );
+  }
+
+  onResumePreview = () => {
+    console.log( "Resuming preview" );
+    this.refs.camera.resumePreview();
+    this.togglePreview();
+  }
+
   takePicture = async () => {
     this.setLoading( true );
     if ( Platform.OS === "ios" ) {
@@ -172,6 +185,17 @@ class ARCamera extends Component<Props> {
         } catch ( e ) {
           console.log( "error taking picture ", e );
         }
+      }
+    } else if ( Platform.OS === "android" ) {
+      if ( this.camera ) {
+        this.camera.takePictureAsync( {
+          pauseAfterCapture: true
+        } ).then( ( path ) => {
+          console.log( "Took photo - ", path );
+          this.togglePreview();
+        } ).catch( ( err ) => {
+          console.log( err, "Error taking photo" );
+        } );
       }
     }
   }
@@ -274,6 +298,10 @@ class ARCamera extends Component<Props> {
           </TouchableOpacity>
         ) : null}
         <INatCamera
+          ref={( ref ) => {
+            this.camera = ref;
+          }}
+          // ref="camera"
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
           onCameraPermissionMissing={this.onCameraPermissionMissing}

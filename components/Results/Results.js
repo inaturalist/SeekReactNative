@@ -128,7 +128,7 @@ class Results extends Component<Props> {
     const species = predictions.find( leaf => leaf.rank === 10 );
     // Alert.alert( JSON.stringify( species ), "species" );
 
-    if ( species && species.score > 0.9 ) {
+    if ( species && species.score > 0.8 ) {
       this.setState( {
         taxaId: species.taxon_id,
         taxaName: species.name

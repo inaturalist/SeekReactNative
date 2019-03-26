@@ -161,12 +161,6 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  togglePreview() {
-    const { resumeHidden } = this.state;
-
-    this.setState( { resumeHidden: !resumeHidden } );
-  }
-
   onResumePreview = () => {
     console.log( "Resuming preview" );
     this.camera.resumePreview();
@@ -191,6 +185,7 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
+          console.log( photo, "photo in android" );
           this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
           this.togglePreview();
@@ -199,6 +194,12 @@ class ARCamera extends Component<Props> {
         } );
       }
     }
+  }
+
+  togglePreview() {
+    const { resumeHidden } = this.state;
+
+    this.setState( { resumeHidden: !resumeHidden } );
   }
 
   savePhotoToGallery( photo ) {
@@ -311,6 +312,7 @@ class ARCamera extends Component<Props> {
           modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
           taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy_data.csv`}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+          confidenceThreshold={Platform.OS === "ios" ? 0.8 : null}
           style={styles.camera}
         />
       </View>

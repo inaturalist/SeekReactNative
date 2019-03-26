@@ -1,14 +1,16 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { height } = Dimensions.get( "window" );
+
 export default StyleSheet.create( {
   container: {
     backgroundColor: colors.white,
     borderRadius: 40,
-    height: 453
+    height: height > 570 ? 453 : 490
   },
   headerText: {
     marginTop: 30,
@@ -19,11 +21,11 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   contentContainer: {
-    marginTop: 10,
+    marginTop: height > 570 ? 10 : 0,
     marginHorizontal: 29
   },
   row: {
-    height: 100,
+    height: height > 570 ? 100 : 120,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
@@ -38,16 +40,16 @@ export default StyleSheet.create( {
     width: 194
   },
   text: {
-    maxWidth: 194,
+    maxWidth: height > 570 ? 194 : 150,
     fontFamily: fonts.book,
-    fontSize: 16,
+    fontSize: height > 570 ? 16 : 14,
     lineHeight: 21
   },
   button: {
     backgroundColor: colors.seekForestGreen,
-    width: 292,
+    width: height > 570 ? 292 : 230,
     height: 46,
-    marginTop: 21,
+    marginTop: height > 570 ? 21 : 10,
     marginBottom: 21,
     borderRadius: 40,
     alignItems: "center",

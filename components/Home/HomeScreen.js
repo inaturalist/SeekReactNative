@@ -51,7 +51,6 @@ class HomeScreen extends Component<Props> {
       loading: false,
       modalVisible: false,
       error: null,
-      isFirstLaunch: false,
       challenge: null,
       showGetStartedModal: false
     };
@@ -127,11 +126,9 @@ class HomeScreen extends Component<Props> {
 
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
-    this.setState( { isFirstLaunch }, () => {
-      if ( isFirstLaunch ) {
-        this.toggleGetStartedModal();
-      }
-    } );
+    if ( isFirstLaunch ) {
+      this.toggleGetStartedModal();
+    }
   }
 
   updateTaxaType( taxaType ) {
@@ -282,7 +279,6 @@ class HomeScreen extends Component<Props> {
       taxa,
       modalVisible,
       error,
-      isFirstLaunch,
       challenge,
       showGetStartedModal
     } = this.state;

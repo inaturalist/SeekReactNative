@@ -59,6 +59,8 @@ class ARCamera extends Component<Props> {
   }
 
   onTaxaDetected = ( event ) => {
+    this.resetPredictions();
+
     const predictions = Object.assign( {}, event.nativeEvent );
     if ( predictions ) {
       this.setLoading( false );
@@ -196,6 +198,13 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  resetPredictions() {
+    this.setState( {
+      ranks: {},
+      rankToRender: null
+    } );
+  }
+
   togglePreview() {
     const { resumeHidden } = this.state;
 
@@ -303,7 +312,6 @@ class ARCamera extends Component<Props> {
           ref={( ref ) => {
             this.camera = ref;
           }}
-          // ref="camera"
           onTaxaDetected={this.onTaxaDetected}
           onCameraError={this.onCameraError}
           onCameraPermissionMissing={this.onCameraPermissionMissing}

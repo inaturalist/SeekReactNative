@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   Platform
+  // Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -130,10 +131,10 @@ class Results extends Component<Props> {
 
     if ( species && species.score > 0.8 ) {
       this.setState( {
-        taxaId: species.taxon_id,
+        taxaId: Number( species.taxon_id ),
         taxaName: species.name
       }, () => {
-        this.checkDateSpeciesSeen( species.taxon_id );
+        this.checkDateSpeciesSeen( Number( species.taxon_id ) );
         this.fetchAdditionalTaxaInfo();
       } );
     } else {
@@ -300,7 +301,7 @@ class Results extends Component<Props> {
           this.setSeenDate( seenDate );
         }
       } ).catch( ( err ) => {
-        // console.log( "[DEBUG] Failed to check date species seen: ", err );
+        // Alert.alert( "[DEBUG] Failed to check date species seen: ", err );
       } );
   }
 

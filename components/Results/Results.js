@@ -213,7 +213,7 @@ class Results extends Component<Props> {
     const { predictions } = this.state;
     const reversePredictions = predictions.reverse();
     // Alert.alert( JSON.stringify( reversePredictions ), "reverse" );
-    const ancestor = reversePredictions.find( leaf => leaf.score > 0.9 );
+    const ancestor = reversePredictions.find( leaf => leaf.score > 0.8 );
 
     // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
 

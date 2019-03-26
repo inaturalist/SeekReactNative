@@ -123,7 +123,7 @@ class iNatStatsScreen extends Component<Props> {
               <Image style={styles.logo} source={logos.iNat} />
               <View />
             </View>
-            <Image source={backgrounds.heatMap} />
+            <Image source={backgrounds.heatMap} style={styles.heatMap} />
             <View style={styles.missionContainer}>
               <Text style={styles.forestGreenText}>
                 {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}

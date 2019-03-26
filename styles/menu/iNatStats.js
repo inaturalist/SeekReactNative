@@ -101,14 +101,11 @@ export default StyleSheet.create( {
     fontSize: 22,
     color: colors.white
   },
-  mapContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  map: {
+  heatMap: {
     width,
-    height: 227
+    height: 227,
+    resizeMode: "cover",
+    overflow: "hidden"
   },
   image: {
     width,

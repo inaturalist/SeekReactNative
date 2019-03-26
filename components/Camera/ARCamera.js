@@ -190,8 +190,9 @@ class ARCamera extends Component<Props> {
       if ( this.camera ) {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
-        } ).then( ( path ) => {
-          console.log( "Took photo - ", path );
+        } ).then( ( photo ) => {
+          this.setImagePredictions( photo.predictions );
+          this.savePhotoToGallery( photo );
           this.togglePreview();
         } ).catch( ( err ) => {
           console.log( err, "Error taking photo" );

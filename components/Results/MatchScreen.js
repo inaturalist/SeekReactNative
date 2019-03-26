@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -183,8 +182,6 @@ class MatchScreen extends Component<Props> {
     const { navigationPath } = this.state;
     const { navigation, taxaId, taxaName } = this.props;
 
-    Alert.alert( navigationPath, "nav path" );
-
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
@@ -202,14 +199,11 @@ class MatchScreen extends Component<Props> {
   checkModals() {
     const { challenge, newestLevel } = this.state;
 
-    Alert.alert( "checking modals" );
-
     if ( challenge ) {
       this.toggleChallengeModal();
     } else if ( newestLevel ) {
       this.toggleLevelModal();
     } else {
-      Alert.alert( "navigating to" );
       this.navigateTo();
     }
   }

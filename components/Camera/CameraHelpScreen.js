@@ -37,7 +37,7 @@ const CameraHelpScreen = ( { navigation }: Props ) => {
         <StatusBar barStyle="light-content" />
         <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
         <ScrollView>
-          <Image source={icons.cameraHelpTop} />
+          <Image style={styles.topImage} source={icons.cameraHelpTop} />
           <View style={styles.textContainer}>
             <Text style={styles.text}>{i18n.t( "camera_help.explanation_1" )}</Text>
             <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>

@@ -1,5 +1,7 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { colors, fonts } from "../global";
+
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -13,6 +15,12 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.12
+  },
+  topImage: {
+    width,
+    height: 180,
+    resizeMode: "cover",
+    overflow: "hidden"
   },
   textContainer: {
     marginTop: 20,
@@ -33,7 +41,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   tipContainer: {
-    width: 260
+    width: height > 570 ? 260 : 230
   },
   tips: {
     flexDirection: "row",
@@ -45,7 +53,7 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   howText: {
-    width: 192,
+    width: height > 570 ? 192 : 140,
     marginRight: 36
   },
   safeViewTop: {

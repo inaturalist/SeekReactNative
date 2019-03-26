@@ -169,7 +169,7 @@ class ARCamera extends Component<Props> {
 
   onResumePreview = () => {
     console.log( "Resuming preview" );
-    this.refs.camera.resumePreview();
+    this.camera.resumePreview();
     this.togglePreview();
   }
 

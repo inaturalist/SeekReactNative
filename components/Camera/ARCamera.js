@@ -188,14 +188,16 @@ class ARCamera extends Component<Props> {
       }
     } else if ( Platform.OS === "android" ) {
       if ( this.camera ) {
-        this.camera.takePictureAsync( {
-          pauseAfterCapture: true
-        } ).then( ( path ) => {
-          console.log( "Took photo - ", path );
-          this.togglePreview();
-        } ).catch( ( err ) => {
-          console.log( err, "Error taking photo" );
-        } );
+        try {
+          const photo = await camera.takePictureAsync( {
+            pauseAfterCapture: true
+          } );
+
+          this.setImagePredictions( photo.predictions );
+          // TODO - save image to Android's photo gallery
+        } catch ( e ) {
+          console.log( "error taking picture ", e );
+        }
       }
     }
   }

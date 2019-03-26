@@ -34,12 +34,12 @@ export default StyleSheet.create( {
   },
   image1: {
     width: 256,
-    height: 304,
+    height: height > 570 ? 304 : 250,
     resizeMode: "contain"
   },
   image: {
     width: 297,
-    height: 268,
+    height: height > 570 ? 268 : 250,
     resizeMode: "contain"
   },
   textContainer: {
@@ -54,7 +54,7 @@ export default StyleSheet.create( {
   },
   text: {
     maxWidth: 292,
-    fontSize: 19,
+    fontSize: height > 570 ? 19 : 16,
     textAlign: "center",
     color: colors.white,
     lineHeight: 24,

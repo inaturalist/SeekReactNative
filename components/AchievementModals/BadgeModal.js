@@ -91,11 +91,14 @@ class BadgeModal extends Component<Props> {
     return (
       <SafeAreaView style={styles.safeView}>
         <View style={styles.container}>
-          <BannerHeader text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()} />
+          <BannerHeader
+            text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+            modal
+          />
           <ScrollView
             horizontal
             pagingEnabled
-            snapToInterval={interval}
+            // snapToInterval={interval}
             showsHorizontalScrollIndicator={false}
           >
             {badgeList}

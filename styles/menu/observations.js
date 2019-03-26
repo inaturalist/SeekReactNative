@@ -39,7 +39,8 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   noSpeciesHeaderText: {
-    marginHorizontal: 48,
+    textAlign: "center",
+    maxWidth: 279,
     fontFamily: fonts.semibold,
     fontSize: 18,
     lineHeight: 24,

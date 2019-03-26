@@ -11,7 +11,7 @@ import {
 import moment from "moment";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/badgeModal";
+import styles from "../../styles/badges/unearnedChallengeBadge";
 import BannerHeader from "../Achievements/BannerHeader";
 import icons from "../../assets/icons";
 import badgeImages from "../../assets/badges";
@@ -24,7 +24,10 @@ type Props = {
 const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <SafeAreaView style={styles.safeView}>
     <View style={styles.container}>
-      <BannerHeader text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`} />
+      <BannerHeader
+        text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
+        modal
+      />
       <Image
         source={badgeImages[challenge.unearnedIconName]}
         style={[styles.image, styles.imageStyle]}

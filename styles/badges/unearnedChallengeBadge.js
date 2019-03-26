@@ -4,17 +4,13 @@ import {
   fonts
 } from "../global";
 
-const { width, height } = Dimensions.get( "window" );
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    height: height > 570 ? 525 : 475,
+    alignItems: "center",
     borderRadius: 40,
     backgroundColor: colors.white
-  },
-  carousel: {
-    alignItems: "center",
-    width: width - ( width * 0.1 )
   },
   image: {
     marginBottom: 25,
@@ -24,18 +20,6 @@ export default StyleSheet.create( {
   },
   imageStyle: {
     resizeMode: "contain"
-  },
-  row: {
-    marginTop: 0,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    marginBottom: 47
-  },
-  smallImage: {
-    height: 57,
-    width: 57,
-    resizeMode: "contain",
-    marginHorizontal: 20
   },
   headerText: {
     marginHorizontal: 27,
@@ -57,16 +41,22 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   nameText: {
+    marginTop: 6,
     marginHorizontal: 27,
     textAlign: "center",
     fontFamily: fonts.book,
     fontSize: 16,
+    lineHeight: 21,
     color: colors.black
   },
-  arrow: {
-    zIndex: 1,
-    position: "absolute",
-    top: 198,
-    right: 27
+  italicText: {
+    marginTop: 16,
+    marginBottom: 16,
+    marginHorizontal: 27,
+    textAlign: "center",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 25,
+    color: colors.black
   }
 } );

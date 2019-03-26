@@ -22,7 +22,8 @@ export default StyleSheet.create( {
   },
   contentContainer: {
     marginTop: height > 570 ? 10 : 0,
-    marginHorizontal: 29
+    marginHorizontal: 29,
+    alignItems: "center"
   },
   row: {
     height: height > 570 ? 100 : 120,

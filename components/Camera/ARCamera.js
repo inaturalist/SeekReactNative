@@ -276,10 +276,12 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        <ARCameraHeader
-          ranks={ranks}
-          rankToRender={rankToRender}
-        />
+        {( rankToRender !== "kingdom" && rankToRender !== "phylum" ) ? (
+          <ARCameraHeader
+            ranks={ranks}
+            rankToRender={rankToRender}
+          />
+        ) : null}
         {!error ? <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text> : null}
         {!pictureTaken ? (
           <TouchableOpacity

@@ -162,7 +162,7 @@
         "common_ancestor": " ´†Mais nous n'avons pas pu identifier l'espËce exacte. Vous pouvez essayer un autre angle un agrandissement ou un clichÈ plus net de l'organisme.†ª;",
         "believe": " Nous croyons qu'il s'agit d'un nouveau membre de;",
         "resighted": " Vous avez rÈobservÈ une espËce†!;",
-        "date_observed": " Vous l'avez observÈe la premiËre fois le†:;"
+        "date_observed": " Vous l'avez observÈe la premiËre fois le†:\n{{seenDate}};"
     },
     "banner": {
         "challenge_progress": "Vous avez trouvé une autre espèce !",

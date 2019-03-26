@@ -162,7 +162,7 @@
         "common_ancestor": "Wir konnten die genaue Art nicht ermitteln.\\n\\nSie kˆnnen es aus einem anderen Winkel versuchen oder das Bild vergrˆﬂern. Oder versuchen Sie, eine deutlicher Aufnahme des Lebewesens zu machen.",
         "believe": "Wir vermuten, es gehˆrt zu",
         "resighted": "Sie haben eine Art erneut beobachtet!",
-        "date_observed": "Sie haben Sie erstmals beobachtet am:"
+        "date_observed": "Sie haben Sie erstmals beobachtet am:\n{{seenDate}}"
     },
     "banner": {
         "challenge_progress": "Sie haben eine andere Spezies gefunden.",
@@ -251,9 +251,6 @@
     },
     "privacy": {
         "header": "Datenschutzrichtlinie"
-    },
-    "{{seenDate}}": {
-        "": ""
     },
     "gallery": {
         "label": "Fotos",
@@ -348,7 +345,7 @@
         "no_obs": "Sie haben noch keine Beobachtungen!",
         "help": "Machen Sie ein Foto von einer Pflanze, einem Tier oder irgendetwas Lebendem mit unserer Kamera, und unser KI-Modell wird Ihnen helfen, es zu identifizieren!",
         "open_camera": "Kamera öffnen",
-        "not_seen": "Sie haben noch kein {{symbolhaftes Taxon}}} beobachtet!"
+        "not_seen": "Sie haben noch kein {{iconicTaxon}}} beobachtet!"
     },
     "species_detail": {
         "near": "In der Nähe",
@@ -377,7 +374,7 @@
         "threatened_about": "Diese Art dürfte in Zukunft vom Aussterben bedroht sein.",
         "introduced_about": "Diese Art wurde vom Menschen in dieses Gebiet gebracht und kommt hier nicht natürlich vor.",
         "got_it": "Verstanden!",
-        "wikipedia": "{{über}} Quelle: Wikipedia",
+        "wikipedia": "{{about}} Quelle: Wikipedia",
         "similar": "Ähnliche Arten",
         "similar_about": "Organismen, die häufig als diese Art falsch identifiziert wurden.",
         "plant": "Pflanze ",

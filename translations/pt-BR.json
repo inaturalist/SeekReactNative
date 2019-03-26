@@ -1,44 +1,83 @@
 {
     "species_nearby": {
-        "internet_error": "Precisamos da internet para gerar as espécies da sua região. Toque para tentar novamente.",
-        "no_species": "Aparentemente, não foram observadas muitas espécies na região! Tente alterar sua localização ou ampliar o filtro de espécies."
+        "internet_error": "Precisamos da internet para gerar as espÈcies da sua regi„o. Toque para tentar novamente.",
+        "no_species": "Aparentemente, não foram observadas muitas espécies na região! Tente alterar sua localização ou ampliar o filtro de espécies.",
+        "header": "EspÈcies da regi„o",
+        "location_error": "Para mostrar as espÈcies da sua regi„o, precisamos usar a sua localizaÁ„o.",
+        "enable_location": "Habilitar localizaÁ„o nas configuraÁıes",
+        "no_location": "Nenhuma localizaÁ„o"
     },
     "get_started": {
-        "tip_1": "Tire foto com a Câmera da Seek para identificar seres vivos à sua volta.",
-        "tip_2": "Saiba mais sobre as espécies que foram observadas à sua volta com Espécies da região.",
-        "tip_3": "Ganhe distintivos e suba de nível ao identificar diferentes tipos de espécies e participar de desafios."
+        "tip_1": "Verificar espÈcies normalmente avistadas perto de vocÍ na seÁ„o ìEspÈcies da regi„oî, acima. Pesquisar por local ou grupo taxonÙmico especÌfico!",
+        "tip_2": "Tire uma foto de uma planta, um animal ou qualquer ser vivo usando a nossa c‚mera e a Seek ajudar· vocÍ a identific·-lo!",
+        "tip_3": "Aceite um desafio patrocinado pela sÈrie Nosso Planeta e pela WWF e encontre espÈcies na comunidade mundial da Seek!",
+        "header": "Iniciar"
     },
     "challenges_card": {
-        "join": "Adicione observações com a Câmera da Seek para ganhar o distintivo da Our Planet!",
-        "continue_challenge": "Continuar desafio"
+        "join": "Entre no desafio da observaÁ„o global e acompanhe na Nosso Planeta, na Netflix!",
+        "continue_challenge": "Continuar desafio",
+        "header": "Desafios",
+        "april": "Abril de 2019: Conectividade",
+        "take_challenge": "Aceitar o desafio",
+        "view_all": "Exibir todos os desafios"
     },
     "notifications": {
         "challenge_completed": "Parabéns! Você concluiu um desafio",
         "view_challenges": "Exibir desafio",
         "none": "Você ainda não tem nenhuma notificação!",
-        "about": "Aqui, você será notificado sobre novos desafios à medida que eles estiverem disponíveis, atualizações da Seek e outras informações relevantes."
+        "about": "Aqui, você será notificado sobre novos desafios à medida que eles estiverem disponíveis, atualizações da Seek e outras informações relevantes.",
+        "header": "NotificaÁıes",
+        "learn_more": "Saiba mais sobre o iNaturalist",
+        "earned_badges": "VocÍ ganhou v·rios distintivos! Talvez vocÍ gosta do iNaturalist!",
+        "new_challenge": "H· um novo desafio da Nosso Planeta e WWF!",
+        "check_out": "Confira agora!",
+        "almost_finished": "VocÍ est· quase terminando o seu desafio!",
+        "view_progress": "Exibir o seu progresso",
+        "observation_identified": "A sua observaÁ„o foi identificada com espÈcies no iNaturalist!",
+        "badges_updated": "Obrigado por ajudar a melhorar o nosso modelo! Os seus distintivos foram atualizados."
     },
     "menu": {
         "achievements": "Conquistas",
-        "observations": "Minhas observações",
-        "settings": "Configurações"
+        "observations": "ObservaÁıes",
+        "settings": "Configurações",
+        "home": "P·gina inicial",
+        "profile": "Perfil e distintivos",
+        "challenges": "Desafios",
+        "inat": "iNaturalist",
+        "about": "Sobre"
     },
     "onboarding": {
-        "onboarding_1": "Utilize a Câmera da Seek para saber mais sobre os organismos à sua volta",
-        "onboarding_2": "Ganhe distintivos por observar diferentes tipos de espécies"
+        "onboarding_1": "Tire uma foto de qualquer ser vivo e a Seek ajudar· vocÍ a identific·-lo!",
+        "onboarding_2": "Ganhe distintivos para ver espÈcies diferentes",
+        "onboarding_3": "Participe de desafios globais com a Nosso Planeta e a WWF",
+        "skip": "Ignorar por enquanto",
+        "continue": "Continuar"
     },
     "location_picker": {
-        "undefined": "Localização indefinida"
+        "undefined": "Localização indefinida",
+        "species_nearby": "EspÈcies da regi„o",
+        "button": "Pesquisar na regi„o"
     },
     "taxon_picker": {
-        "other": "Outro"
+        "other": "Outro",
+        "all": "Todas as espÈcies",
+        "plants": "plantas",
+        "amphibians": "anfÌbios",
+        "fungi": "fungos",
+        "fish": "peixes",
+        "reptiles": "rÈpteis",
+        "arachnids": "aracnÌdeos",
+        "birds": "p·ssaros",
+        "insects": "insetos",
+        "mollusks": "moluscos",
+        "mammals": "mamÌferos"
     },
     "challenges": {
         "challenge": "Desafio",
         "badge": "Distintivo",
-        "thanks": "Obrigado por participar! Todos podemos dar uma mãozinha à natureza. Acompanhe a jornada na série Nosso Planeta, na Netflix, e saiba mais em ourplanet.com.",
-        "how_to": "Participe do Desafio da série Nosso Planeta de {{mês}}!",
-        "released": "O desafio será lançado em {{data}}.",
+        "thanks": "Obrigado por participar! Acompanhe a jornada na Nosso Planeta, na Netflix.",
+        "how_to": "Participe do Desafio da série Nosso Planeta de {{month}}!",
+        "released": "O desafio será lançado em {{date}}.",
         "get_involved": "Envolva-se",
         "action_april": "Verifique se você mora perto de uma cidade que faça parte do Desafio Cidade Natureza e, em caso afirmativo, procure atividades de gravação e identificação de vida silvestre em ambiente urbano!",
         "action_may": "Seja voluntário em grupos locais que ajudam a manter as áreas verdes da cidade.",
@@ -60,15 +99,99 @@
         "mission_1_august": "Encontre 10 insetos diferentes",
         "mission_1_september": "Encontre quaisquer 10 espécies diferentes de: libélulas, anfíbios, peixes, patos, musgos, samambaia, ninfeias, bolbos ou taboas",
         "mission_1_october": "Encontre 5 aves",
-        "mission_1_november": "Encontre 20 plantas"
-    },
-    "": {
-        "": "Os mares cobrem vastas áreas do nosso planeta e, sem a tecnologia moderna, os seres humanos teriam grandes dificuldades em cruzar essas grandes extensões. Muitas espécies de aves, no entanto, fazem exatamente isso todos os anos. Milhões de aves migram de um país para outro para escapar do clima frio e encontrar alimento. Manter um registro de quando a vida silvestre migra pode nos ajudar a compreender como as mudanças climáticas estão afetando o mundo natural. Procure aves que visitam a sua região e descubra onde elas passam a maior do tempo. "
+        "mission_1_november": "Encontre 20 plantas",
+        "header": "Desafios",
+        "in_progress": "Em progresso",
+        "not_started": "N„o iniciado",
+        "completed": "ConcluÌdo",
+        "connectivity": "Desafio de conectividade",
+        "biodiversity": "Desafio de biodiversidade",
+        "productivity": "Desafio de produtividade e comunidade",
+        "op": "Nosso Planeta",
+        "start_now": "Iniciar agora",
+        "april_2019": "Apr-19",
+        "may_2019": "May-19",
+        "june_2019": "Jun-19",
+        "mission_1_april": "Encontre 20 novas espÈcies!",
+        "mission_2_april": "Encontre 2 novas espÈcies de libÈlulas!",
+        "april_description": "N„o estamos sÛs em nosso planeta! A vida silvestre est· sempre ‡ nossa volta, mesmo quando n„o a percebemos. Em casa, nos jardins, centros urbanos e cidades, h· mundos ocultos a ser descobertos. Procure dentro de casa e em torno dela e vocÍ poder· se surpreender pela quantidade de vizinhos silvestres que encontrar·.\\n\\nProcure plantas, fungos, insetos, p·ssaros e outros animais. Preste atenÁ„o em sinais de formas de vida menos evidentes: fezes, pelo, ninhos, rastros e teias podem sinalizar outras criaturas com as quais compartilhamos a nossa casa.",
+        "start_challenge": "Iniciar o desafio",
+        "open_camera": "Abrir c‚mera",
+        "view_badge": "Exibir distintivo",
+        "your_mission": "A sua miss„o",
+        "mission_1_may": "Encontre 2 mamÌferos diferentes",
+        "mission_2_may": "Encontre 4 p·ssaros diferentes",
+        "mission_3_may": "Encontre 3 anfÌbios diferentes",
+        "mission_4_may": "Encontre 5 plantas diferentes",
+        "mission_5_may": "Encontre 3 fungos diferentes",
+        "may_description": "Da floresta mais profunda ao menor parque, compartilhamos o planeta com uma incrÌvel variedade de seres vivos, cada um deles adaptado ao ambiente especÌfico em que vive. Procure um ponto de acesso natural na sua regi„o e veja quantos tipos diferentes de seres vivos vocÍ consegue encontrar. Nessa jornada, vocÍ aprender· quais s„o as caracterÌsticas que diferenciam cada um desses grupos de organismos!",
+        "congrats": "ParabÈns! VocÍ concluiu o Desafio da Nosso Planeta de {{month}}!",
+        "no_completed_challenges": "Os seus desafios concluÌdos ser„o exibidos aqui.",
+        "no_challenges_in_progress": "Inicie um novo desafio abaixo para ganhar distintivos!",
+        "no_new_challenges_header": "VocÍ n„o tem nenhum novo desafio.",
+        "no_new_challenges": "NÛs o avisaremos quando novos desafios estiverem disponÌveis.",
+        "completed_all": "VocÍ concluiu todos os desafios disponÌveis!",
+        "number_observed": "{{number}} observados atÈ o momento"
     },
     "inat_stats": {
-        "about_inat": "O iNaturalist é a maior comunidade de naturalistas do mundo. Os usuários carregam fotos de organismos de todo o globo terrestre, e a nossa comunidade trabalha em conjunto para identificá-las. Essas observações são o que usamos para treinar o nosso modelo de identificação, exibir mapas de cobertura e gerar a observação de regiões na Seek.",
+        "about_inat": "O iNaturalist È a maior comunidade de naturalistas do mundo. Os usu·rios carregam fotos de espÈcies de todo o globo terrestre, e a nossa comunidade trabalha em conjunto para identific·-las. S„o esses dados que usamos para treinar a inteligÍncia artificial de identificaÁ„o, exibir dados de mapeamento e gerar dados de observaÁ„o de regiıes na Seek.",
+        "global_observations": "ObservaÁıes globais",
+        "naturalists_worldwide": "Naturalistas no mundo",
+        "seek_data": "A Seek obtÈm dados do iNaturalist.",
+        "contribute": "Interessado em contribuir para a ciÍncia dos cidad„os em uma comunidade global de naturalistas?",
         "join": "Participe do iNaturalist",
         "thanks": "A comunidade do iNaturalist é formada por pessoas como você! Participe da comunidade e acrescente as suas próprias observações em inaturalist.org!"
+    },
+    "splash": {
+        "presents": "apresenta",
+        "initiative": "O iNaturalist È uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society"
+    },
+    "login": {
+        "log_in": "Entrar com o iNaturalist",
+        "sign_up": "Inscreva-se no iNaturalist",
+        "about": "Ao entrar no iNaturalist, vocÍ pode sincronizar as suas observaÁıes em todos os dispositivos e publicar posts para a comunidade on-line.",
+        "skip_login": "Continue sem se inscrever"
+    },
+    "inat_signup": {
+        "welcome": "Seja bem-vindo ‡ Seek!",
+        "explore": "Vamos nos divertir explorando junto com vocÍ!",
+        "enter_birthday": "Insira a sua data de nascimento",
+        "permission": "… necess·rio que vocÍ tenha pelo menos 13 anos de idade para criar uma conta.",
+        "privacy": "PolÌtica de privacidade",
+        "continue": "Continuar",
+        "need_permission": "Precisamos da autorizaÁ„o de um dos seus pais.",
+        "enter_email": "Insira o e-mail do seu pai ou da sua m„e e-mail",
+        "send_email": "Enviar e-mail",
+        "parent_email": "O e-mail do seu pai ou da sua m„e",
+        "under_13": "Como vocÍ ainda n„o tem 13 anos, precisamos da autorizaÁ„o de um dos seus pais para criar uma conta para vocÍ.",
+        "sign_up": "Inscrever-se",
+        "sign_up_inat": "Inscreva-se no iNaturalist",
+        "next": "AvanÁar",
+        "email": "E-mail",
+        "username": "nome de usu·rio",
+        "password": "senha",
+        "release_photos": "Sim, licenciar as minhas fotos para que os cientistas possam usar as minhas fotos!",
+        "data_usage": "A Seek usa dados para melhorar os nossos modelos de identificaÁ„o.",
+        "create_account": "Criar a minha conta",
+        "thanks": "Obrigado!",
+        "parent_instructions": "VocÍ enviou um e-mail com instruÁıes para o seu pai ou a sua m„e.",
+        "continue_no_log_in": "Continuar sem entrar"
+    },
+    "inat_login": {
+        "log_in_with_inat": "Entrar com a sua conta no iNaturalist",
+        "username": "Nome de usu·rio",
+        "password": "Senha",
+        "forgot_password": "Esqueceu a sua senha?",
+        "log_in": "Entrar",
+        "email": "E-mail",
+        "no_worries": "N„o tem problema. Enviaremos instruÁıes de redefiniÁ„o de senha para o seu e-mail.",
+        "reset": "Redefinir minha senha",
+        "check_email": "Verifique o seu e-mail!",
+        "reset_instructions": "J· enviamos instruÁıes de redefiniÁ„o de senha para o seu e-mail.",
+        "return_login": "Voltar ‡ p·gina de login."
+    },
+    "privacy": {
+        "header": "PolÌtica de privacidade"
     },
     "results": {
         "observed_species": "Você observou uma nova espécie!",
@@ -121,7 +244,7 @@
         "your_level": "O seu nível",
         "explanation": "Observe mais espécies no total para subir de nível, encontrar organismos de grupos específicos para ganhar distintivos de espécies e participar de desafios para ganhar distintivos de desafio!",
         "achievements": "Conquistas",
-        "observe": "Observe {{ número}} espécies para passar para o próximo nível!",
+        "observe": "Observe {{number}} espécies para passar para o próximo nível!",
         "observe_species": "Observe",
         "species_badges": "Distintivos de espécies",
         "challenge_badges": "Distintivos de desafio",
@@ -212,7 +335,7 @@
         "monthly_obs": "Sazonalidade",
         "monthly_obs_about": "Observações desse organismo no mundo, por mês.",
         "worldwide": "No mundo inteiro",
-        "seen_on": "Você observou em {{data}}",
+        "seen_on": "Você observou em {{date}}",
         "endangered": "Ameaçada de extinção",
         "endemic": "Endêmica",
         "native": "Nativa",

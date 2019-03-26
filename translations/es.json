@@ -162,7 +162,7 @@
         "common_ancestor": "Pero no pudimos identificar la especie exacta.\\n\\nPuedes intentar un ·ngulo diferente, acercar, o intentar obtener una imagen m·s clara del organismo.",
         "believe": "Creemos que este es un miembro de",
         "resighted": "°Has vuelto a ver una especie!",
-        "date_observed": "La observaste primero el:"
+        "date_observed": "La observaste primero el:\n{{seenDate}}"
     },
     "banner": {
         "challenge_progress": "¡Has encontrado otra especie!",

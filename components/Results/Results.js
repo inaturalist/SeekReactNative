@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -13,6 +12,7 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import AncestorScreen from "./AncestorScreen";
@@ -151,6 +151,8 @@ class Results extends Component<Props> {
     } = this.state;
 
     const params = flattenUploadParameters( userImage, time, latitude, longitude );
+    params.locale = i18n.currentLocale();
+
     this.fetchScore( params );
   }
 

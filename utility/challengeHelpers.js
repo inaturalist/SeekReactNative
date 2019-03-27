@@ -6,7 +6,7 @@ const taxonDict = require( "./taxonDict" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
-// const { checkIfChallengeAvailable } = require( "./dateHelpers" );
+const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
@@ -96,23 +96,23 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
-          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          // if ( isAvailable ) {
-          const challenge = realm.create( "ChallengeRealm", {
-            name: challenges.name,
-            month: challenges.month,
-            description: challenges.description,
-            totalSpecies: challenges.totalSpecies,
-            homeBackgroundName: challenges.homeBackgroundName,
-            backgroundName: challenges.backgroundName,
-            unearnedIconName: challenges.unearnedIconName,
-            earnedIconName: challenges.earnedIconName,
-            missions: challenges.missions,
-            availableDate: challenges.availableDate,
-            index: challenges.index
-          }, true );
-          // }
+          if ( isAvailable ) {
+            const challenge = realm.create( "ChallengeRealm", {
+              name: challenges.name,
+              month: challenges.month,
+              description: challenges.description,
+              totalSpecies: challenges.totalSpecies,
+              homeBackgroundName: challenges.homeBackgroundName,
+              backgroundName: challenges.backgroundName,
+              unearnedIconName: challenges.unearnedIconName,
+              earnedIconName: challenges.earnedIconName,
+              missions: challenges.missions,
+              availableDate: challenges.availableDate,
+              index: challenges.index
+            }, true );
+          }
         } );
       } );
     } ).catch( ( err ) => {

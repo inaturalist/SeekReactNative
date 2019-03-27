@@ -319,8 +319,8 @@ class ARCamera extends Component<Props> {
           onCameraPermissionMissing={this.onCameraPermissionMissing}
           onClassifierError={this.onClassifierError}
           onDeviceNotSupported={this.onDeviceNotSupported}
-          modelPath={`${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-          taxonomyPath={`${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
+          modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
+          taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
           confidenceThreshold={Platform.OS === "ios" ? 0.8 : null}
           style={styles.camera}

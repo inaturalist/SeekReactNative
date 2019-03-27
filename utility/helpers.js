@@ -29,20 +29,20 @@ const addARCameraFiles = () => {
       } ).catch( ( error ) => {
         // console.log( error, "err in AR camera files" );
       } );
-    // } else if ( Platform.OS === "ios" ) {
-    //   RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
-    //     .then( ( result ) => {
-    //       // console.log( result, "model in AR camera files" );
-    //     } ).catch( ( error ) => {
-    //       // Alert.alert( error, "err in AR camera files" );
-    //     } );
+  } else if ( Platform.OS === "ios" ) {
+    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+      .then( ( result ) => {
+        // console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        // Alert.alert( error, "err in AR camera files" );
+      } );
 
-    //   RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
-    //     .then( ( result ) => {
-    //       // console.log( result, "model in AR camera files" );
-    //     } ).catch( ( error ) => {
-    //       // console.log( error, "err in AR camera files" );
-    //     } );
+    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
+      .then( ( result ) => {
+        // console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        // console.log( error, "err in AR camera files" );
+      } );
   }
 };
 

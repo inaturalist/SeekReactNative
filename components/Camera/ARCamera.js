@@ -181,10 +181,10 @@ class ARCamera extends Component<Props> {
           this.savePhotoToGallery( photo );
           this.togglePreview();
         } else {
-          this.setError( "permissions" );
+          this.setError( "cameraRoll" );
         }
       } catch ( e ) {
-        this.setError( "permissions" );
+        this.setError( "cameraRoll" );
       }
     }
   }
@@ -270,6 +270,12 @@ class ARCamera extends Component<Props> {
       center = (
         <View style={styles.loading}>
           <Text style={styles.errorText}>{i18n.t( "camera.error_camera" )}</Text>
+        </View>
+      );
+    } else if ( error === "cameraRoll" ) {
+      center = (
+        <View style={styles.loading}>
+          <Text style={styles.errorText}>{i18n.t( "camera.error_gallery" )}</Text>
         </View>
       );
     } else if ( loading ) {

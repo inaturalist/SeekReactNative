@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   View,
   Platform
-  // Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -126,9 +125,8 @@ class Results extends Component<Props> {
 
   setARCameraVisionResults() {
     const { predictions } = this.state;
-    console.log( predictions, "predictions android" );
     const species = predictions.find( leaf => leaf.rank === 10 );
-    // Alert.alert( JSON.stringify( species ), "species" );
+    // console.log( species, "species android" );
 
     if ( species && species.score > 0.8 ) {
       this.setState( {
@@ -184,6 +182,7 @@ class Results extends Component<Props> {
 
     inatjs.taxa.fetch( taxaId ).then( ( response ) => {
       const taxa = response.results[0];
+
       this.setState( {
         observation: {
           taxon: {
@@ -216,7 +215,7 @@ class Results extends Component<Props> {
     const reversePredictions = predictions.reverse();
     // Alert.alert( JSON.stringify( reversePredictions ), "reverse" );
     const ancestor = reversePredictions.find( leaf => leaf.score > 0.8 );
-
+    // console.log( ancestor, "ancestor android" );
     // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
 
     if ( ancestor && ancestor.rank !== 100 ) {
@@ -278,8 +277,6 @@ class Results extends Component<Props> {
       observation,
       image
     } = this.state;
-
-    // Alert.alert( "obs being added", JSON.stringify( observation ) );
 
     addToCollection( observation, latitude, longitude, image );
   }

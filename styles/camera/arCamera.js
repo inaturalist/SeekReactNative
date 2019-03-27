@@ -105,5 +105,11 @@ export default StyleSheet.create( {
     lineHeight: 24,
     fontFamily: fonts.medium,
     color: colors.white
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

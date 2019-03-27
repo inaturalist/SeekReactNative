@@ -9,7 +9,6 @@ import {
   Text,
   Platform,
   NativeModules,
-  Alert,
   CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -66,6 +65,7 @@ class ARCamera extends Component<Props> {
     this.resetPredictions();
 
     const predictions = Object.assign( {}, event.nativeEvent );
+    console.log( predictions, "predictions" );
     if ( predictions ) {
       this.setLoading( false );
     }
@@ -85,8 +85,6 @@ class ARCamera extends Component<Props> {
         rankToRender: "phylum"
       } );
     } else if ( predictions.class ) {
-      // Alert.alert( JSON.stringify( predictions ) );
-      // console.log( predictions, "predictions in class" );
       this.setState( {
         ranks: {
           class: predictions.class
@@ -137,7 +135,6 @@ class ARCamera extends Component<Props> {
   }
 
   onDeviceNotSupported = ( event ) => {
-    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
     this.setError( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
@@ -188,7 +185,7 @@ class ARCamera extends Component<Props> {
           this.setError( "cameraRoll" );
         }
       } catch ( e ) {
-        this.setError( "cameraRoll" );
+        this.setError( null );
       }
     }
   }
@@ -305,6 +302,7 @@ class ARCamera extends Component<Props> {
         />
         <TouchableOpacity
           style={styles.backButton}
+          hitSlop={styles.touchable}
           onPress={() => navigation.navigate( "Main" )}
         >
           <Image source={icons.closeWhite} />

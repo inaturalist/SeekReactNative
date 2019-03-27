@@ -30,8 +30,7 @@ const ARCameraHeader = ( {
     ) : null}
     {rankToRender ? (
       <Text style={styles.predictions}>
-        {Platform.OS === "android" ? ranks[rankToRender].name : null}
-        {Platform.OS === "ios" ? ranks[rankToRender][0].name : null}
+        {ranks[rankToRender][0].name}
       </Text>
     ) : null}
     {ranks && rankToRender ? (

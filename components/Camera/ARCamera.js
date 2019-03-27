@@ -149,7 +149,7 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  requestPermissions = async () => {
+  requestCameraPermissions = async () => {
     if ( Platform.OS === "android" ) {
       const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
 
@@ -166,8 +166,30 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  requestCameraRollPermissions = async ( photo ) => {
+    if ( Platform.OS === "android" ) {
+      const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+      const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+
+      try {
+        const granted = await PermissionsAndroid.requestMultiple( [
+          save,
+          retrieve
+        ] );
+        if ( granted[save] === PermissionsAndroid.RESULTS.GRANTED ) {
+          this.setImagePredictions( photo.predictions );
+          this.savePhotoToGallery( photo );
+          this.togglePreview();
+        } else {
+          this.setError( "permissions" );
+        }
+      } catch ( e ) {
+        this.setError( "permissions" );
+      }
+    }
+  }
+
   onResumePreview = () => {
-    console.log( "Resuming preview" );
     this.camera.resumePreview();
     this.togglePreview();
   }
@@ -190,10 +212,7 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          console.log( photo, "photo in android" );
-          this.setImagePredictions( photo.predictions );
-          this.savePhotoToGallery( photo );
-          this.togglePreview();
+          this.requestCameraRollPermissions( photo );
         } ).catch( ( err ) => {
           console.log( err, "Error taking photo" );
         } );
@@ -267,7 +286,7 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         {center}
         <NavigationEvents
-          onWillFocus={() => this.requestPermissions()}
+          onWillFocus={() => this.requestCameraPermissions()}
           onWillBlur={() => {
             this.setError( null );
             this.setPictureTaken( false );

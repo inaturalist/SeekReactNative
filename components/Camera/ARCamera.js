@@ -38,8 +38,12 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
-      resumeHidden: true
+      focusedScreen: false
     };
+  }
+
+  setFocusedScreen( focusedScreen ) {
+    this.setState( { focusedScreen } );
   }
 
   setPictureTaken( pictureTaken ) {
@@ -190,8 +194,9 @@ class ARCamera extends Component<Props> {
   }
 
   onResumePreview = () => {
-    this.camera.resumePreview();
-    this.togglePreview();
+    if ( this.camera ) {
+      this.camera.resumePreview();
+    }
   }
 
   takePicture = async () => {
@@ -227,12 +232,6 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  togglePreview() {
-    const { resumeHidden } = this.state;
-
-    this.setState( { resumeHidden: !resumeHidden } );
-  }
-
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( () => this.getCameraCaptureFromGallery() )
@@ -260,7 +259,8 @@ class ARCamera extends Component<Props> {
       rankToRender,
       loading,
       pictureTaken,
-      error
+      error,
+      focusedScreen
     } = this.state;
     const { navigation } = this.props;
 
@@ -292,10 +292,15 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         {center}
         <NavigationEvents
-          onWillFocus={() => this.requestCameraPermissions()}
+          onWillFocus={() => {
+            this.requestCameraPermissions();
+            this.onResumePreview();
+            this.setFocusedScreen( true );
+          }}
           onWillBlur={() => {
             this.setError( null );
             this.setPictureTaken( false );
+            this.setFocusedScreen( false );
           }}
         />
         <TouchableOpacity
@@ -338,21 +343,23 @@ class ARCamera extends Component<Props> {
             <Image source={icons.cameraHelp} />
           </TouchableOpacity>
         ) : null}
-        <INatCamera
-          ref={( ref ) => {
-            this.camera = ref;
-          }}
-          onTaxaDetected={this.onTaxaDetected}
-          onCameraError={this.onCameraError}
-          onCameraPermissionMissing={this.onCameraPermissionMissing}
-          onClassifierError={this.onClassifierError}
-          onDeviceNotSupported={this.onDeviceNotSupported}
-          modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-          taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
-          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-          confidenceThreshold={Platform.OS === "ios" ? 0.8 : "0.8"}
-          style={styles.camera}
-        />
+        {focusedScreen ? (
+          <INatCamera
+            ref={( ref ) => {
+              this.camera = ref;
+            }}
+            onTaxaDetected={this.onTaxaDetected}
+            onCameraError={this.onCameraError}
+            onCameraPermissionMissing={this.onCameraPermissionMissing}
+            onClassifierError={this.onClassifierError}
+            onDeviceNotSupported={this.onDeviceNotSupported}
+            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
+            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
+            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+            confidenceThreshold={Platform.OS === "ios" ? 0.8 : "0.8"}
+            style={styles.camera}
+          />
+        ) : null}
       </View>
     );
   }

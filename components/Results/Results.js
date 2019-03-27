@@ -126,6 +126,7 @@ class Results extends Component<Props> {
 
   setARCameraVisionResults() {
     const { predictions } = this.state;
+    console.log( predictions, "predictions android" );
     const species = predictions.find( leaf => leaf.rank === 10 );
     // Alert.alert( JSON.stringify( species ), "species" );
 

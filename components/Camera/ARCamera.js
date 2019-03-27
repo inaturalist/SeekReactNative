@@ -9,7 +9,7 @@ import {
   Text,
   Platform,
   NativeModules,
-  // Alert,
+  Alert,
   CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -81,6 +81,8 @@ class ARCamera extends Component<Props> {
         rankToRender: "phylum"
       } );
     } else if ( predictions.class ) {
+      // Alert.alert( JSON.stringify( predictions ) );
+      // console.log( predictions, "predictions in class" );
       this.setState( {
         ranks: {
           class: predictions.class
@@ -131,6 +133,7 @@ class ARCamera extends Component<Props> {
   }
 
   onDeviceNotSupported = ( event ) => {
+    console.log( `Device not supported, reason: ${event.nativeEvent.reason}` );
     this.setError( `Device not supported, reason: ${event.nativeEvent.reason}` );
   }
 
@@ -322,7 +325,7 @@ class ARCamera extends Component<Props> {
           modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
           taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-          confidenceThreshold={Platform.OS === "ios" ? 0.8 : null}
+          confidenceThreshold={Platform.OS === "ios" ? 0.8 : "0.8"}
           style={styles.camera}
         />
       </View>

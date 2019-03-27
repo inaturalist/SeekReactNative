@@ -3,7 +3,8 @@
 import React from "react";
 import {
   View,
-  Text
+  Text,
+  Platform
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -29,7 +30,8 @@ const ARCameraHeader = ( {
     ) : null}
     {rankToRender ? (
       <Text style={styles.predictions}>
-        {ranks[rankToRender][0].name}
+        {Platform.OS === "android" ? ranks[rankToRender].name : null}
+        {Platform.OS === "ios" ? ranks[rankToRender][0].name : null}
       </Text>
     ) : null}
     {ranks && rankToRender ? (

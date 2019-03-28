@@ -36,46 +36,46 @@ const badges = {
     earnedIconName: "levelbadge-30",
     index: 3
   },
-  naturalist: {
+  seeker: {
     infoText: "",
-    name: "Naturalist",
-    intlName: "levels.naturalist",
+    name: "Seeker",
+    intlName: "levels.seeker",
     count: 50,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-50",
     index: 4
   },
-  seeker: {
+  biologist: {
     infoText: "",
-    name: "Seeker",
-    intlName: "levels.seeker",
+    name: "Biologist",
+    intlName: "levels.biologist",
     count: 75,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-75",
     index: 5
   },
-  explorer: {
+  naturalist: {
     infoText: "",
-    name: "Explorer",
-    intlName: "levels.explorer",
+    name: "Naturalist",
+    intlName: "levels.naturalist",
     count: 100,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-100",
     index: 6
   },
-  adventurer: {
+  explorer: {
     infoText: "",
-    name: "Adventurer",
-    intlName: "levels.adventurer",
+    name: "Explorer",
+    intlName: "levels.explorer",
     count: 125,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-125",
     index: 7
   },
-  biologist: {
+  adventurer: {
     infoText: "",
-    name: "Biologist",
-    intlName: "levels.biologist",
+    name: "Adventurer",
+    intlName: "levels.adventurer",
     count: 150,
     unearnedIconName: "badge_empty",
     earnedIconName: "levelbadge-150",

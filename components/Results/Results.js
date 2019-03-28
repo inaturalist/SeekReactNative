@@ -126,7 +126,6 @@ class Results extends Component<Props> {
   setARCameraVisionResults() {
     const { predictions } = this.state;
     const species = predictions.find( leaf => leaf.rank === 10 );
-    // console.log( species, "species android" );
 
     if ( species && species.score > 0.8 ) {
       this.setState( {
@@ -213,10 +212,8 @@ class Results extends Component<Props> {
   checkForCommonAncestor() {
     const { predictions } = this.state;
     const reversePredictions = predictions.reverse();
-    // Alert.alert( JSON.stringify( reversePredictions ), "reverse" );
+
     const ancestor = reversePredictions.find( leaf => leaf.score > 0.8 );
-    // console.log( ancestor, "ancestor android" );
-    // Alert.alert( JSON.stringify( ancestor ), "ancestor" );
 
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );

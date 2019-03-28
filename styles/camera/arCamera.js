@@ -100,14 +100,14 @@ export default StyleSheet.create( {
     position: "absolute",
     top: height / 2 - 50
   },
-  errorText: {
-    textAlign: "center",
-    marginHorizontal: 41,
-    fontSize: 19,
-    lineHeight: 24,
-    fontFamily: fonts.medium,
-    color: colors.white
-  },
+  // errorText: {
+  //   textAlign: "center",
+  //   marginHorizontal: 41,
+  //   fontSize: 19,
+  //   lineHeight: 24,
+  //   fontFamily: fonts.medium,
+  //   color: colors.white
+  // },
   touchable: {
     left: 23,
     right: 23,

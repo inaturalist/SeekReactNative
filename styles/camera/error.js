@@ -1,16 +1,21 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
+  galleryError: {
     flex: 1,
     backgroundColor: colors.black,
     alignItems: "center",
     justifyContent: "center"
+  },
+  cameraError: {
+    position: "absolute",
+    top: height / 2 - 50
   },
   errorText: {
     textAlign: "center",

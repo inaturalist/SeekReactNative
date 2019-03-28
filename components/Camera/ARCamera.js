@@ -16,6 +16,7 @@ import RNFS from "react-native-fs";
 
 import INatCamera from "react-native-inat-camera";
 
+import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
@@ -58,6 +59,7 @@ class ARCamera extends Component<Props> {
   }
 
   setError( error ) {
+    this.setLoading( false );
     this.setState( { error } );
   }
 
@@ -123,7 +125,7 @@ class ARCamera extends Component<Props> {
   }
 
   onCameraError = ( event ) => {
-    this.setError( `Camera error: ${event.nativeEvent.error}` );
+    this.setError( "camera" );
   }
 
   onCameraPermissionMissing = () => {
@@ -131,11 +133,11 @@ class ARCamera extends Component<Props> {
   }
 
   onClassifierError = ( event ) => {
-    this.setError( `Classifier error: ${event.nativeEvent.error}` );
+    this.setError( "classifier" );
   }
 
   onDeviceNotSupported = ( event ) => {
-    this.setError( `Device not supported, reason: ${event.nativeEvent.reason}` );
+    this.setError( "device" );
   }
 
   getCameraCaptureFromGallery() {
@@ -206,7 +208,7 @@ class ARCamera extends Component<Props> {
           this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } catch ( e ) {
-          console.log( "error taking picture ", e );
+          this.setError( "save" );
         }
       }
     } else if ( Platform.OS === "android" ) {
@@ -215,8 +217,8 @@ class ARCamera extends Component<Props> {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
           this.requestCameraRollPermissions( photo );
-        } ).catch( ( err ) => {
-          console.log( err, "Error taking photo" );
+        } ).catch( () => {
+          this.setError( "save" );
         } );
       }
     }
@@ -232,8 +234,8 @@ class ARCamera extends Component<Props> {
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( () => this.getCameraCaptureFromGallery() )
-      .catch( ( err ) => {
-        console.log( err, "error getting photo from gallery" );
+      .catch( () => {
+        this.setError( "fetch" );
       } );
   }
 
@@ -264,17 +266,19 @@ class ARCamera extends Component<Props> {
     let center;
 
     if ( error === "permissions" ) {
-      center = (
-        <View style={styles.loading}>
-          <Text style={styles.errorText}>{i18n.t( "camera.error_camera" )}</Text>
-        </View>
-      );
+      center = <ErrorScreen errorText={i18n.t( "camera.error_camera" )} camera />;
     } else if ( error === "cameraRoll" ) {
-      center = (
-        <View style={styles.loading}>
-          <Text style={styles.errorText}>{i18n.t( "camera.error_gallery" )}</Text>
-        </View>
-      );
+      center = <ErrorScreen errorText={i18n.t( "camera.error_gallery" )} camera />;
+    } else if ( error === "camera" ) {
+      center = <ErrorScreen errorText={i18n.t( "camera.error_old_camera" )} camera />;
+    } else if ( error === "classifier" ) {
+      center = <ErrorScreen errorText={i18n.t( "camera.error_classifier" )} camera />;
+    } else if ( error === "device" ) {
+      center = <ErrorScreen errorText={i18n.t( "camera.device_support" )} camera />;
+    } else if ( error === "save" ) {
+      center = <ErrorScreen errorText={i18n.t( "camera.error_saving_photos" )} camera />;
+    } else if ( error === "fetch" ) {
+      center = <ErrorScreen errorText={i18n.t( "camera.error_fetching_photos" )} camera />;
     } else if ( loading ) {
       center = (
         <View style={styles.loading}>

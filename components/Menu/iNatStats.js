@@ -41,7 +41,8 @@ class iNatStatsScreen extends Component<Props> {
   fetchProjectPhotos() {
     const params = {
       project_id: 29905,
-      photos: true
+      photos: true,
+      locale: i18n.currentLocale()
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {
@@ -49,12 +50,15 @@ class iNatStatsScreen extends Component<Props> {
       const photos = [];
 
       taxa.forEach( ( photo ) => {
-        if ( photo.defaultPhoto.license_code && photo.defaultPhoto.license_code !== "cc0" ) {
-          photos.push( {
-            photoUrl: photo.defaultPhoto.medium_url,
-            commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
-            attribution: photo.defaultPhoto.attribution
-          } );
+        const { defaultPhoto } = photo;
+        if ( defaultPhoto.license_code && defaultPhoto.license_code !== "cc0" ) {
+          if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
+            photos.push( {
+              photoUrl: defaultPhoto.medium_url,
+              commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
+              attribution: defaultPhoto.attribution
+            } );
+          }
         }
       } );
 
@@ -154,15 +158,19 @@ class iNatStatsScreen extends Component<Props> {
                 <LoadingWheel color="black" />
               </View>
             ) : (
-              <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator
-                pagingEnabled
-                indicatorStyle="white"
-                contentContainerStyle={styles.photoContainer}
-              >
-                {photoList}
-              </ScrollView>
+              <View>
+                <ScrollView
+                  horizontal
+                  showsHorizontalScrollIndicator
+                  pagingEnabled
+                  indicatorStyle="white"
+                  contentContainerStyle={styles.photoContainer}
+                >
+                  {photoList}
+                </ScrollView>
+                <Image source={icons.swipeLeft} style={styles.leftArrow} />
+                <Image source={icons.swipeRight} style={styles.rightArrow} />
+              </View>
             )}
             <Text style={styles.italicText}>
               {i18n.t( "inat_stats.thanks" )}

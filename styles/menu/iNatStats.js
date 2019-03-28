@@ -60,7 +60,7 @@ export default StyleSheet.create( {
   missionContainer: {
     alignItems: "flex-start",
     marginTop: 21,
-    marginBottom: 40,
+    marginBottom: 46,
     backgroundColor: colors.white,
     marginHorizontal: 27
   },
@@ -80,7 +80,7 @@ export default StyleSheet.create( {
   italicText: {
     marginHorizontal: 27,
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 33,
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 16,
@@ -109,8 +109,8 @@ export default StyleSheet.create( {
   },
   image: {
     width,
-    height: 186,
-    resizeMode: "contain"
+    height: 286,
+    resizeMode: "cover"
   },
   caption: {
     marginTop: 20,
@@ -123,12 +123,24 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   photoContainer: {
-    height: 251
+    height: 350
   },
   touchable: {
     left: 23,
     right: 23,
     top: 23,
     bottom: 23
+  },
+  leftArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 137,
+    left: 5
+  },
+  rightArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 137,
+    right: 5
   }
 } );

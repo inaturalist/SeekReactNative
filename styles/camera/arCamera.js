@@ -52,6 +52,9 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
+  dots: {
+    marginHorizontal: width / 27
+  },
   whiteDot: {
     marginHorizontal: 18,
     backgroundColor: colors.white,

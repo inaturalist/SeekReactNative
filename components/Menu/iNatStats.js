@@ -45,6 +45,7 @@ class iNatStatsScreen extends Component<Props> {
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {
+      console.log( results, "results" );
       const taxa = results.map( r => r.taxon );
       const photos = [];
 

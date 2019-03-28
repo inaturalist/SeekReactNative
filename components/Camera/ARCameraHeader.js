@@ -4,11 +4,12 @@ import React from "react";
 import {
   View,
   Text,
-  Platform
+  Image
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
+import icons from "../../assets/icons";
 import rankDict from "../../utility/rankDict";
 
 type Props = {
@@ -35,13 +36,34 @@ const ARCameraHeader = ( {
     ) : null}
     {ranks && rankToRender ? (
       <View style={styles.dotRow}>
-        <View style={ranks.kingdom || ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.order || ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.family || ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.genus || ranks.species ? styles.greenDot : styles.whiteDot} />
-        <View style={ranks.species ? styles.greenDot : styles.whiteDot} />
+        <Image
+          source={ranks.kingdom || ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
+        <Image
+          source={ranks.species ? icons.greenDot : icons.whiteDot}
+          style={styles.dots}
+        />
       </View>
     ) : null}
   </View>

@@ -46,7 +46,9 @@ const icons = {
   cameraHelpTop: require( "./icons/img-camerahelp-taxonomy.png" ),
   birdBadge: require( "./icons/img-birdbadge.png" ),
   speciesNearby: require( "./icons/img-speciesnearby.png" ),
-  sectionExplanation: require( "./icons/icon-sectionexplanation.png" )
+  sectionExplanation: require( "./icons/icon-sectionexplanation.png" ),
+  greenDot: require( "./icons/GreenCircle-square.png" ),
+  whiteDot: require( "./icons/WhiteCircle-square.png" )
 };
 
 export default icons;

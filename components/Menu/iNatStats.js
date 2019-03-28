@@ -19,7 +19,7 @@ import backgrounds from "../../assets/backgrounds";
 import logos from "../../assets/logos";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
-import { capitalizeNames } from "../../utility/helpers";
+import { capitalizeNames, shuffleList } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";
 
 type Props = {
@@ -45,20 +45,21 @@ class iNatStatsScreen extends Component<Props> {
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {
-      console.log( results, "results" );
       const taxa = results.map( r => r.taxon );
       const photos = [];
 
       taxa.forEach( ( photo ) => {
-        photos.push( {
-          photoUrl: photo.defaultPhoto.medium_url,
-          commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
-          attribution: photo.defaultPhoto.attribution
-        } );
+        if ( photo.defaultPhoto.license_code && photo.defaultPhoto.license_code !== "cc0" ) {
+          photos.push( {
+            photoUrl: photo.defaultPhoto.medium_url,
+            commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
+            attribution: photo.defaultPhoto.attribution
+          } );
+        }
       } );
 
       this.setState( {
-        photos,
+        photos: shuffleList( photos ),
         loading: false
       } );
     } ).catch( ( error ) => {

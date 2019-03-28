@@ -93,6 +93,17 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
     } );
 };
 
+const shuffleList = ( list ) => {
+  const newList = list;
+
+  for ( let i = list.length - 1; i > 0; i -= 1 ) {
+    const j = Math.floor( Math.random() * ( i + 1 ) );
+    [newList[i], newList[j]] = [list[j], list[i]];
+  }
+
+  return newList;
+};
+
 const HAS_LAUNCHED = "has_launched";
 
 const setAppLaunched = () => {
@@ -137,5 +148,6 @@ export {
   capitalizeNames,
   flattenUploadParameters,
   checkIfFirstLaunch,
-  checkIfCardShown
+  checkIfCardShown,
+  shuffleList
 };

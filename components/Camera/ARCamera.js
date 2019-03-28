@@ -67,7 +67,7 @@ class ARCamera extends Component<Props> {
     this.resetPredictions();
 
     const predictions = Object.assign( {}, event.nativeEvent );
-    console.log( predictions, "predictions" );
+
     if ( predictions ) {
       this.setLoading( false );
     }

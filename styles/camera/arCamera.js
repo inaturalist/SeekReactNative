@@ -55,24 +55,6 @@ export default StyleSheet.create( {
   dots: {
     marginHorizontal: width / 27
   },
-  whiteDot: {
-    marginHorizontal: 18,
-    backgroundColor: colors.white,
-    borderRadius: 8 / 2,
-    width: 4,
-    height: 4,
-    borderWidth: 4,
-    borderColor: "transparent"
-  },
-  greenDot: {
-    marginHorizontal: 18,
-    backgroundColor: colors.seekGreen,
-    borderWidth: 1,
-    borderRadius: 10 / 2,
-    borderColor: colors.white,
-    width: 10,
-    height: 10
-  },
   safeView: {
     flex: 1,
     backgroundColor: colors.black

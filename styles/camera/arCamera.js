@@ -55,9 +55,11 @@ export default StyleSheet.create( {
   whiteDot: {
     marginHorizontal: 18,
     backgroundColor: colors.white,
-    borderRadius: 4 / 2,
+    borderRadius: 8 / 2,
     width: 4,
-    height: 4
+    height: 4,
+    borderWidth: 4,
+    borderColor: "transparent"
   },
   greenDot: {
     marginHorizontal: 18,

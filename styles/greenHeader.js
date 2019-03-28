@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors, fonts } from "./global";
 
 export default StyleSheet.create( {
@@ -10,10 +10,8 @@ export default StyleSheet.create( {
     top: 18,
     left: 23
   },
-  image: {
-    padding: 5
-  },
   text: {
+    top: Platform.OS === "android" ? -4 : null,
     alignSelf: "center",
     fontSize: 18,
     color: colors.white,

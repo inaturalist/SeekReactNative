@@ -23,10 +23,7 @@ const GreenHeader = ( { header, navigation }: Props ) => (
       style={styles.backButton}
       onPress={() => navigation.goBack()}
     >
-      <Image
-        source={icons.backButton}
-        style={styles.image}
-      />
+      <Image source={icons.backButton} />
     </TouchableOpacity>
     <Text style={styles.text}>{header.toLocaleUpperCase()}</Text>
   </View>

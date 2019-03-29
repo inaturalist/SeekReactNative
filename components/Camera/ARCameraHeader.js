@@ -13,11 +13,13 @@ import icons from "../../assets/icons";
 import rankDict from "../../utility/rankDict";
 
 type Props = {
+  commonName: string,
   ranks: Object,
   rankToRender: string
 }
 
 const ARCameraHeader = ( {
+  commonName,
   ranks,
   rankToRender
 }: Props ) => (
@@ -31,7 +33,7 @@ const ARCameraHeader = ( {
     ) : null}
     {rankToRender ? (
       <Text style={styles.predictions}>
-        {ranks[rankToRender][0].name}
+        {commonName || ranks[rankToRender][0].name}
       </Text>
     ) : null}
     {ranks && rankToRender ? (

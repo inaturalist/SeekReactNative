@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
 import com.rnfs.RNFSPackage;
 import io.realm.react.RealmReactPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.horcrux.svg.SvgPackage;
 import com.opensettings.OpenSettingsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
@@ -39,7 +38,6 @@ public class MainApplication extends Application implements ReactApplication {
             new INatCameraViewPackage(),
             new RNFSPackage(),
             new RealmReactPackage(),
-            new VectorIconsPackage(),
             new SvgPackage(),
             new OpenSettingsPackage(),
             new MapsPackage(),

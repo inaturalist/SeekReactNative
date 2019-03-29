@@ -20,7 +20,6 @@ import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
-import CardPadding from "../Home/CardPadding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 

@@ -12,10 +12,12 @@ import {
   CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import Realm from "realm";
 import RNFS from "react-native-fs";
 
 import INatCamera from "react-native-inat-camera";
 
+import realmConfig from "../../models/index";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
@@ -38,8 +40,15 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
-      focusedScreen: false
+      focusedScreen: false,
+      taxonId: null,
+      commonName: null
     };
+  }
+
+
+  setCommonName( commonName ) {
+    this.setState( { commonName } );
   }
 
   setFocusedScreen( focusedScreen ) {
@@ -77,49 +86,56 @@ class ARCamera extends Component<Props> {
         ranks: {
           kingdom: predictions.kingdom
         },
-        rankToRender: "kingdom"
+        rankToRender: "kingdom",
+        taxonId: predictions.kingdom.taxon_id
       } );
     } else if ( predictions.phylum ) {
       this.setState( {
         ranks: {
           phylum: predictions.phylum
         },
-        rankToRender: "phylum"
+        rankToRender: "phylum",
+        taxonId: predictions.phylum.taxon_id
       } );
     } else if ( predictions.class ) {
       this.setState( {
         ranks: {
           class: predictions.class
         },
-        rankToRender: "class"
+        rankToRender: "class",
+        taxonId: predictions.class.taxon_id
       } );
     } else if ( predictions.order ) {
       this.setState( {
         ranks: {
           order: predictions.order
         },
-        rankToRender: "order"
+        rankToRender: "order",
+        taxonId: predictions.order.taxon_id
       } );
     } else if ( predictions.family ) {
       this.setState( {
         ranks: {
           family: predictions.family
         },
-        rankToRender: "family"
+        rankToRender: "family",
+        taxonId: predictions.family.taxon_id
       } );
     } else if ( predictions.genus ) {
       this.setState( {
         ranks: {
           genus: predictions.genus
         },
-        rankToRender: "genus"
+        rankToRender: "genus",
+        taxonId: predictions.genus.taxon_id
       } );
     } else if ( predictions.species ) {
       this.setState( {
         ranks: {
           species: predictions.species
         },
-        rankToRender: "species"
+        rankToRender: "species",
+        taxonId: predictions.species.taxon_id
       } );
     }
   }
@@ -224,10 +240,29 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  fetchCommonNameByLocale() {
+    const { taxonId } = this.state;
+    const locale = i18n.currentLocale();
+
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const commonNames = realm.objects( "CommonNamesRealm" );
+        const localizedCommonName = commonNames.filtered( `taxonId == ${taxonId} AND locale == ${locale}` );
+
+        if ( localizedCommonName ) {
+          this.setCommonName( localizedCommonName );
+        }
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  }
+
   resetPredictions() {
     this.setState( {
       ranks: {},
-      rankToRender: null
+      rankToRender: null,
+      commonName: null,
+      taxonId: null
     } );
   }
 
@@ -259,7 +294,8 @@ class ARCamera extends Component<Props> {
       loading,
       pictureTaken,
       error,
-      focusedScreen
+      focusedScreen,
+      commonName
     } = this.state;
     const { navigation } = this.props;
 
@@ -313,6 +349,7 @@ class ARCamera extends Component<Props> {
         </TouchableOpacity>
         {( rankToRender !== "kingdom" && rankToRender !== "phylum" ) ? (
           <ARCameraHeader
+            commonName={commonName}
             ranks={ranks}
             rankToRender={rankToRender}
           />

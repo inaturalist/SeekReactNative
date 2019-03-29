@@ -57,7 +57,7 @@ const AboutScreen = ( { navigation }: Props ) => (
         <View style={styles.block}>
           <Text style={styles.greenText}>
             {i18n.t( "about.version" ).toLocaleUpperCase()}
-            {" 2.0.0 (12)"}
+            {" 2.0.0 (13)"}
           </Text>
         </View>
         <Padding />

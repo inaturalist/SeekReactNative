@@ -4,6 +4,7 @@ import TaxonRealm from "./TaxonRealm";
 import PhotoRealm from "./PhotoRealm";
 import ChallengeRealm from "./ChallengeRealm";
 import NotificationRealm from "./NotificationRealm";
+import CommonNamesRealm from "./CommonNamesRealm";
 
 export default {
   schema: [
@@ -12,7 +13,8 @@ export default {
     TaxonRealm,
     PhotoRealm,
     ChallengeRealm,
-    NotificationRealm
+    NotificationRealm,
+    CommonNamesRealm
   ],
   schemaVersion: 5,
   path: "db.realm"

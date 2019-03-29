@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -74,8 +75,6 @@ class Results extends Component<Props> {
     if ( !latitude || !longitude ) {
       const location = await getLatAndLng();
       this.setLocation( location );
-    } else {
-      this.checkOnlineOrOfflineVision();
     }
   }
 
@@ -83,13 +82,11 @@ class Results extends Component<Props> {
     this.setState( {
       latitude: Number( location.latitude ),
       longitude: Number( location.longitude )
-    }, () => {
-      this.checkOnlineOrOfflineVision();
     } );
   }
 
   setImageUri( uri ) {
-    this.setState( { userImage: uri } );
+    this.setState( { userImage: uri }, () => this.checkOnlineOrOfflineVision() );
   }
 
   setLoading( loading ) {
@@ -268,8 +265,7 @@ class Results extends Component<Props> {
         const match = response.results[0];
         const commonAncestor = response.common_ancestor;
         this.setOnlineVisionResults( match, commonAncestor );
-      } )
-      .catch( () => {
+      } ).catch( () => {
         this.setError( "onlineVision" );
       } );
   }

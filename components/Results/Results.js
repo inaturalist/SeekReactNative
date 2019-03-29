@@ -14,6 +14,7 @@ import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
+import ErrorScreen from "./Error";
 import ConfirmScreen from "./ConfirmScreen";
 import AncestorScreen from "./AncestorScreen";
 import MatchScreen from "./MatchScreen";
@@ -61,7 +62,8 @@ class Results extends Component<Props> {
       match: null,
       seenDate: null,
       loading: true,
-      photoConfirmed: false
+      photoConfirmed: false,
+      error: null
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -102,6 +104,11 @@ class Results extends Component<Props> {
     this.setState( { match } );
   }
 
+  setError( error ) {
+    this.setLoading( false );
+    this.setState( { error } );
+  }
+
   setCommonAncestor( ancestor, speciesSeenImage ) {
     this.setState( {
       commonAncestor: ancestor.name,
@@ -129,8 +136,7 @@ class Results extends Component<Props> {
 
     if ( species && species.score > 0.8 ) {
       this.setState( {
-        taxaId: Number( species.taxon_id ),
-        taxaName: species.name
+        taxaId: Number( species.taxon_id )
       }, () => {
         this.checkDateSpeciesSeen( Number( species.taxon_id ) );
         this.fetchAdditionalTaxaInfo();
@@ -183,6 +189,7 @@ class Results extends Component<Props> {
       const taxa = response.results[0];
 
       this.setState( {
+        taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
         observation: {
           taxon: {
             default_photo: taxa.default_photo,
@@ -195,7 +202,7 @@ class Results extends Component<Props> {
         speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
       }, () => this.showMatch() );
     } ).catch( () => {
-      // console.log( err, "error fetching taxon details" );
+      this.setError( "taxaInfo" );
     } );
   }
 
@@ -205,7 +212,7 @@ class Results extends Component<Props> {
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
       this.setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
-      // console.log( err, "error fetching taxon details" );
+      this.setError( "ancestorInfo" );
     } );
   }
 
@@ -238,8 +245,8 @@ class Results extends Component<Props> {
           this.setImageUri( userImage );
           this.checkOnlineOrOfflineVision();
         }
-      } ).catch( ( err ) => {
-        // console.log( err, "couldn't resize image" );
+      } ).catch( () => {
+        this.setError( "image" );
       } );
   }
 
@@ -262,8 +269,8 @@ class Results extends Component<Props> {
         const commonAncestor = response.common_ancestor;
         this.setOnlineVisionResults( match, commonAncestor );
       } )
-      .catch( ( err ) => {
-        // console.log( err, "error fetching computer vision results" );
+      .catch( () => {
+        this.setError( "onlineVision" );
       } );
   }
 
@@ -295,8 +302,8 @@ class Results extends Component<Props> {
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
           this.setSeenDate( seenDate );
         }
-      } ).catch( ( err ) => {
-        // Alert.alert( "[DEBUG] Failed to check date species seen: ", err );
+      } ).catch( () => {
+        this.setSeenDate( null );
       } );
   }
 
@@ -315,13 +322,22 @@ class Results extends Component<Props> {
       seenDate,
       loading,
       image,
-      photoConfirmed
+      photoConfirmed,
+      error
     } = this.state;
     const { navigation } = this.props;
 
     let resultScreen;
 
-    if ( seenDate ) {
+    if ( error === "onlineVision" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_server" )} navigation={navigation} />;
+    } else if ( error === "image" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_image" )} navigation={navigation} />;
+    } else if ( error === "taxaInfo" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_species" )} navigation={navigation} />;
+    } else if ( error === "ancestorInfo" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_ancestor" )} navigation={navigation} />;
+    } else if ( seenDate ) {
       resultScreen = (
         <AlreadySeenScreen
           navigation={navigation}

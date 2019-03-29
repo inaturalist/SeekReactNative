@@ -210,7 +210,11 @@
     "flag": "Flag identification",
     "incorrect": "Are you confident that this identification is incorrect?",
     "yes": "yes",
-    "no": "no"
+    "no": "no",
+    "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
+    "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
+    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
+    "error_ancestor": "Sorry, we couldn't fetch taxonomy data for this image. Please check your internet connection and try again."
   },
   "banner": {
     "view": "View badge",

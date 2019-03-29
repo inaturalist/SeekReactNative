@@ -358,7 +358,7 @@ class ARCamera extends Component<Props> {
             modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
             taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
             taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            confidenceThreshold={Platform.OS === "ios" ? 0.8 : "0.8"}
+            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
             style={styles.camera}
           />
         ) : null}

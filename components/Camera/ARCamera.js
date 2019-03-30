@@ -42,7 +42,6 @@ class ARCamera extends Component<Props> {
       pictureTaken: false,
       error: null,
       focusedScreen: false,
-      taxonId: null,
       commonName: null
     };
   }
@@ -97,8 +96,7 @@ class ARCamera extends Component<Props> {
                 [rank]: [prediction]
               },
               commonName: commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null,
-              rankToRender: rank,
-              taxonId: prediction.taxon_id
+              rankToRender: rank
             } );
           } ).catch( ( err ) => {
             console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -214,8 +212,7 @@ class ARCamera extends Component<Props> {
     this.setState( {
       ranks: {},
       rankToRender: null,
-      commonName: null,
-      taxonId: null
+      commonName: null
     } );
   }
 
@@ -300,13 +297,11 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        {( rankToRender !== "kingdom" && rankToRender !== "phylum" ) ? (
-          <ARCameraHeader
-            commonName={commonName}
-            ranks={ranks}
-            rankToRender={rankToRender}
-          />
-        ) : null}
+        <ARCameraHeader
+          commonName={commonName}
+          ranks={ranks}
+          rankToRender={rankToRender}
+        />
         {!error ? <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text> : null}
         {!pictureTaken ? (
           <TouchableOpacity

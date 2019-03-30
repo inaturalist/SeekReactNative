@@ -63,3 +63,4 @@ taxonomy_data.csv
 *.tflite
 taxonomy.json
 *.mlmodel
+utility/common-names.json

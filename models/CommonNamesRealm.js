@@ -1,11 +1,10 @@
 class CommonNamesRealm {}
 CommonNamesRealm.schema = {
   name: "CommonNamesRealm",
-  primaryKey: "taxonId",
   properties: {
-    taxonId: { type: "int", default: 0 },
-    locale: { type: "string", default: "" },
-    name: { type: "string?", default: "" }
+    taxon_id: "int",
+    locale: "string",
+    name: "string"
   }
 };
 

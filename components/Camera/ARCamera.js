@@ -24,6 +24,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
+import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -45,7 +46,6 @@ class ARCamera extends Component<Props> {
       commonName: null
     };
   }
-
 
   setCommonName( commonName ) {
     this.setState( { commonName } );
@@ -73,70 +73,40 @@ class ARCamera extends Component<Props> {
   }
 
   onTaxaDetected = ( event ) => {
-    this.resetPredictions();
-
     const predictions = Object.assign( {}, event.nativeEvent );
 
     if ( predictions ) {
       this.setLoading( false );
     }
-
-    if ( predictions.kingdom ) {
-      this.setState( {
-        ranks: {
-          kingdom: predictions.kingdom
-        },
-        rankToRender: "kingdom",
-        taxonId: predictions.kingdom.taxon_id
-      } );
-    } else if ( predictions.phylum ) {
-      this.setState( {
-        ranks: {
-          phylum: predictions.phylum
-        },
-        rankToRender: "phylum",
-        taxonId: predictions.phylum.taxon_id
-      } );
-    } else if ( predictions.class ) {
-      this.setState( {
-        ranks: {
-          class: predictions.class
-        },
-        rankToRender: "class",
-        taxonId: predictions.class.taxon_id
-      } );
-    } else if ( predictions.order ) {
-      this.setState( {
-        ranks: {
-          order: predictions.order
-        },
-        rankToRender: "order",
-        taxonId: predictions.order.taxon_id
-      } );
-    } else if ( predictions.family ) {
-      this.setState( {
-        ranks: {
-          family: predictions.family
-        },
-        rankToRender: "family",
-        taxonId: predictions.family.taxon_id
-      } );
-    } else if ( predictions.genus ) {
-      this.setState( {
-        ranks: {
-          genus: predictions.genus
-        },
-        rankToRender: "genus",
-        taxonId: predictions.genus.taxon_id
-      } );
-    } else if ( predictions.species ) {
-      this.setState( {
-        ranks: {
-          species: predictions.species
-        },
-        rankToRender: "species",
-        taxonId: predictions.species.taxon_id
-      } );
+    let predictionSet = false;
+    // not looking at kingdom or phylum as we are currently not displaying results for those ranks
+    ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
+      // skip this block if a prediction state has already been set
+      if ( predictionSet ) { return; }
+      if ( predictions[rank] ) {
+        predictionSet = true;
+        Realm.open( realmConfig )
+          .then( ( realm ) => {
+            const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
+            const prediction = predictions[rank][0];
+            // look up common names for the predicted taxon in the current locale
+            const commonNames = realm.objects( "CommonNamesRealm" )
+              .filtered( `taxon_id == ${prediction.taxon_id} and locale == '${searchLocale}'` );
+            this.setState( {
+              ranks: {
+                [rank]: [prediction]
+              },
+              commonName: commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null,
+              rankToRender: rank,
+              taxonId: prediction.taxon_id
+            } );
+          } ).catch( ( err ) => {
+            console.log( "[DEBUG] Failed to open realm, error: ", err );
+          } );
+      }
+    } );
+    if ( !predictionSet ) {
+      this.resetPredictions( );
     }
   }
 
@@ -238,23 +208,6 @@ class ARCamera extends Component<Props> {
         } );
       }
     }
-  }
-
-  fetchCommonNameByLocale() {
-    const { taxonId } = this.state;
-    const locale = i18n.currentLocale();
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const commonNames = realm.objects( "CommonNamesRealm" );
-        const localizedCommonName = commonNames.filtered( `taxonId == ${taxonId} AND locale == ${locale}` );
-
-        if ( localizedCommonName ) {
-          this.setCommonName( localizedCommonName );
-        }
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
   }
 
   resetPredictions() {

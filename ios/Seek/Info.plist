@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>14</string>
+	<string>16</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -39,6 +39,10 @@
 	<string>We use react-native-permissions library to deliver you the right error messages.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use the camera so you can get identifications of your nature photos.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use your location to suggest plants and animals to find near you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to suggest plants and animals to find near you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to suggest plants and animals to find near you.</string>
 	<key>NSMicrophoneUsageDescription</key>

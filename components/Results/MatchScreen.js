@@ -146,7 +146,6 @@ class MatchScreen extends Component<Props> {
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
 

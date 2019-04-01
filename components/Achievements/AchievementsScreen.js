@@ -64,6 +64,7 @@ class AchievementsScreen extends Component<Props> {
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
+        Alert.alert( JSON.stringify( badgesEarned ), "badges earned" );
 
         const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 

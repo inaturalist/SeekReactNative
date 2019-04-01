@@ -42,6 +42,7 @@ class MyObservations extends Component<Props> {
         const observations = [];
         
         const species = realm.objects( "ObservationRealm" );
+        Alert.alert( JSON.stringify( species ), "species" );
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {

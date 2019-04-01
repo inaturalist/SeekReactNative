@@ -5,7 +5,6 @@ import NotificationRealm from "./NotificationRealm";
 import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
 import TaxonRealm from "./TaxonRealm";
-// import badgesDict from "../utility/badgesDict";
 
 export default {
   schema: [
@@ -17,15 +16,6 @@ export default {
     PhotoRealm,
     TaxonRealm
   ],
-  schemaVersion: 5,
-  // migration: ( oldRealm, newRealm ) => {
-  //   if ( oldRealm.schemaVersion < 5 ) {
-  //     const newBadges = newRealm.objects( "BadgeRealm" );
-
-  //     for ( let i = 0; i < newBadges.length; i += 1 ) {
-  //       newBadges[i].name = badgesDict
-  //     }
-  //   }
-  // },
+  schemaVersion: 6,
   path: "db.realm"
 };

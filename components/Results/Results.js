@@ -140,7 +140,6 @@ class Results extends Component<Props> {
         this.fetchAdditionalTaxaInfo();
       } );
     } else {
-      this.setMatch( false );
       this.checkForCommonAncestor();
     }
   }

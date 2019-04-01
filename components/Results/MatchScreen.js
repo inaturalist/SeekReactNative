@@ -142,8 +142,6 @@ class MatchScreen extends Component<Props> {
   checkForNewLevels() {
     const { levelsEarned } = this.state;
 
-    // recalculateBadges();
-
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );

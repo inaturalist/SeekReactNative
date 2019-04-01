@@ -179,7 +179,7 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Text style={styles.challengeName}>{challenge.name}</Text>
                 <View style={styles.leftRow}>
                   {challenge.percentComplete === 100
-                    ? <Image source={icons.badgePlaceholder} />
+                    ? <Image source={challenge.earnedIconName} />
                     : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
                   }
                   

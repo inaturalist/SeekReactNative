@@ -1,5 +1,5 @@
 const Realm = require( "realm" );
-const { AsyncStorage, Alert } = require( "react-native" );
+const { AsyncStorage } = require( "react-native" );
 const { createNotification } = require( "./notificationHelpers" );
 
 const realmConfig = require( "../models/index" );

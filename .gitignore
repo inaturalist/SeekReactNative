@@ -64,3 +64,4 @@ taxonomy_data.csv
 taxonomy.json
 *.mlmodel
 utility/common-names.json
+utility/commonNames/*

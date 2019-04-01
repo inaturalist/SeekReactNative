@@ -49,6 +49,7 @@ class Results extends Component<Props> {
     } = navigation.state.params;
 
     this.state = {
+      threshold: 0.7,
       predictions,
       image,
       time,
@@ -128,10 +129,10 @@ class Results extends Component<Props> {
   }
 
   setARCameraVisionResults() {
-    const { predictions } = this.state;
+    const { predictions, threshold } = this.state;
     const species = predictions.find( leaf => leaf.rank === 10 );
 
-    if ( species && species.score > 0.8 ) {
+    if ( species && species.score > threshold ) {
       this.setState( {
         taxaId: Number( species.taxon_id )
       }, () => {
@@ -214,10 +215,10 @@ class Results extends Component<Props> {
   }
 
   checkForCommonAncestor() {
-    const { predictions } = this.state;
+    const { predictions, threshold } = this.state;
     const reversePredictions = predictions.reverse();
 
-    const ancestor = reversePredictions.find( leaf => leaf.score > 0.8 );
+    const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );

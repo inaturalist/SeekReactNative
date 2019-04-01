@@ -166,6 +166,7 @@ class AchievementsScreen extends Component<Props> {
             swipeDirection="down"
           >
             <LevelModal
+              speciesCount={speciesCount}
               level={level}
               toggleLevelModal={this.toggleLevelModal}
             />

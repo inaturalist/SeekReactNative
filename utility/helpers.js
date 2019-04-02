@@ -1,3 +1,5 @@
+import i18n from "../i18n";
+
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
@@ -142,11 +144,28 @@ const checkIfCardShown = async () => {
   }
 };
 
+const getTaxonCommonName = taxonID => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
+        // look up common names for predicted taxon in the current locale
+        const commonNames = realm.objects( "CommonNamesRealm" )
+          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
+        resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        resolve( );
+      } );
+  } )
+);
+
 export {
   addARCameraFiles,
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
+  getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
   shuffleList

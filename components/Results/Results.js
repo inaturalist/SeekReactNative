@@ -126,7 +126,7 @@ class Results extends Component<Props> {
       speciesSeenImage: match.taxon.default_photo.medium_url,
       commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
     }, () => {
-      this.checkDateSpeciesSeen( match.taxon.id );
+      // this.checkDateSpeciesSeen( match.taxon.id );
       this.checkForOnlineVisionMatch( match.combined_score );
     } );
   }
@@ -285,7 +285,9 @@ class Results extends Component<Props> {
   }
 
   checkForOnlineVisionMatch( score ) {
+    const { taxaId } = this.state;
     if ( score > 97 ) {
+      this.checkDateSpeciesSeen( taxaId );
       this.showMatch();
     } else {
       this.showNoMatch();

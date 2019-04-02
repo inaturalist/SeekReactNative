@@ -32,6 +32,12 @@
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="@string/gmaps_api_key"/>
+
+      <!--
+        Apparently this is required for Google Maps in Android 9:
+        https://stackoverflow.com/questions/50782806/android-google-maps-java-lang-noclassdeffounderror-failed-resolution-of-lorg-a
+      -->
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     </application>
 
 </manifest>

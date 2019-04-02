@@ -23,9 +23,10 @@ import NoMatchScreen from "./NoMatchScreen";
 import config from "../../config";
 import styles from "../../styles/results/results";
 import {
+  addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  addToCollection
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
@@ -108,11 +109,13 @@ class Results extends Component<Props> {
   }
 
   setCommonAncestor( ancestor, speciesSeenImage ) {
-    this.setState( {
-      commonAncestor: ancestor.name,
-      taxaId: ancestor.taxon_id,
-      speciesSeenImage
-    }, () => this.showNoMatch() );
+    getTaxonCommonName( ancestor.taxon_id ).then( commonName => {
+      this.setState( {
+        commonAncestor: commonName || ancestor.name,
+        taxaId: ancestor.taxon_id,
+        speciesSeenImage
+      }, () => this.showNoMatch() );
+    } );
   }
 
   setOnlineVisionResults( match, commonAncestor ) {

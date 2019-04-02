@@ -209,7 +209,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchHistogram() {
-    const { id, observationsByMonth } = this.state;
+    const { id } = this.state;
 
     const params = {
       date_field: "observed",
@@ -219,6 +219,7 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.observations.histogram( params ).then( ( response ) => {
       const countsByMonth = response.results.month_of_year;
+      const observationsByMonth = [];
 
       for ( let i = 1; i <= 12; i += 1 ) {
         observationsByMonth.push( {

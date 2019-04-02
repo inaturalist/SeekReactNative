@@ -124,7 +124,7 @@ class Results extends Component<Props> {
       taxaId: match.taxon.id,
       taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
       speciesSeenImage: match.taxon.default_photo.medium_url,
-      commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
+      commonAncestor: commonAncestor ? commonAncestor.taxon.preferred_common_name : null
     }, () => {
       // this.checkDateSpeciesSeen( match.taxon.id );
       this.checkForOnlineVisionMatch( match.combined_score );

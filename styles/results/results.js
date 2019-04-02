@@ -74,8 +74,7 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   backButton: {
-    marginLeft: 20,
-    marginHorizontal: 10
+    left: 18
   },
   linkText: {
     fontFamily: fonts.book,
@@ -92,5 +91,11 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

@@ -257,6 +257,7 @@ class MatchScreen extends Component<Props> {
                   this.setNavigationPath( "Back" );
                 }}
                 style={styles.buttonContainer}
+                hitSlop={styles.touchable}
               >
                 <Image
                   source={icons.backButton}

@@ -56,6 +56,7 @@ class NotificationsScreen extends Component<Props> {
             onWillBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
+          <View style={{ marginTop: 15 }} />
           {notifications.length > 0
             ? (
               <FlatList

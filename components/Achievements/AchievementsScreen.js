@@ -30,6 +30,7 @@ import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
 import GreenHeader from "../GreenHeader";
+import { recalculateBadges } from "../../utility/badgeHelpers";
 
 type Props = {
   navigation: any
@@ -60,6 +61,8 @@ class AchievementsScreen extends Component<Props> {
   }
 
   fetchBadges() {
+    recalculateBadges();
+
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );

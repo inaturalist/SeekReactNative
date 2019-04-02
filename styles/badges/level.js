@@ -33,6 +33,7 @@ export default StyleSheet.create( {
     height: 213
   },
   nameText: {
+    marginTop: 10,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 23,

@@ -24,8 +24,8 @@ const ChallengeModal = ( { toggleChallengeModal, challenge }: Props ) => (
   <SafeAreaView style={styles.safeView}>
     <View style={styles.container}>
       <LinearGradient
-          style={styles.header}
-          colors={["#67c5ca", "#3ca2ab"]}
+        style={styles.header}
+        colors={["#67c5ca", "#3ca2ab"]}
       >
         <Image
           source={badges[challenge.earnedIconName]}

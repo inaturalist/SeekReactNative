@@ -72,7 +72,7 @@ class MatchScreen extends Component<Props> {
   }
 
   setNavigationPath( navigationPath ) {
-    this.setState( { navigationPath } );
+    this.setState( { navigationPath }, () => this.checkModals() );
   }
 
   setBadgesEarned( badgesEarned ) {
@@ -196,12 +196,12 @@ class MatchScreen extends Component<Props> {
   checkModals() {
     const { challenge, newestLevel } = this.state;
 
-    if ( challenge ) {
+    if ( !challenge && !newestLevel ) {
+      this.navigateTo();
+    } else if ( challenge ) {
       this.toggleChallengeModal();
     } else if ( newestLevel ) {
       this.toggleLevelModal();
-    } else {
-      this.navigateTo();
     }
   }
 
@@ -259,7 +259,6 @@ class MatchScreen extends Component<Props> {
               <TouchableOpacity
                 onPress={() => {
                   this.setNavigationPath( "Back" );
-                  this.checkModals();
                 }}
                 style={styles.buttonContainer}
               >
@@ -287,7 +286,6 @@ class MatchScreen extends Component<Props> {
                 style={styles.button}
                 onPress={() => {
                   this.setNavigationPath( "Species" );
-                  this.checkModals();
                 }}
               >
                 <Text
@@ -300,7 +298,6 @@ class MatchScreen extends Component<Props> {
                 style={styles.link}
                 onPress={() => {
                   this.setNavigationPath( "Camera" );
-                  this.checkModals();
                 }}
               >
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>

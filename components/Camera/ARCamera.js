@@ -9,7 +9,8 @@ import {
   Text,
   Platform,
   NativeModules,
-  CameraRoll
+  CameraRoll,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
@@ -120,10 +121,16 @@ class ARCamera extends Component<Props> {
       first: 1,
       assetType: "Photos"
     } ).then( ( results ) => {
-      const photo = results.edges[0].node;
-      this.navigateToResults( photo );
+      let photo;
+
+      if ( results.edges[0] ) {
+        photo = results.edges[0].node;
+        this.navigateToResults( photo );
+      } else {
+        this.setError( "fetch" );
+      }
     } ).catch( () => {
-      // this.setError( "permissions" );
+      this.setError( "fetch" );
     } );
   }
 
@@ -211,7 +218,7 @@ class ARCamera extends Component<Props> {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( () => this.getCameraCaptureFromGallery() )
       .catch( () => {
-        this.setError( "fetch" );
+        this.setError( "save" );
       } );
   }
 
@@ -219,7 +226,7 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.push( "Results", {
+    navigation.navigate( "Results", {
       image: photo.image,
       time: photo.timestamp,
       latitude: null,

@@ -109,7 +109,7 @@ class Results extends Component<Props> {
   }
 
   setCommonAncestor( ancestor, speciesSeenImage ) {
-    getTaxonCommonName( ancestor.taxon_id ).then( commonName => {
+    getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
       this.setState( {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,

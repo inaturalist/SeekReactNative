@@ -105,7 +105,6 @@ class MatchScreen extends Component<Props> {
   }
 
   showChallengeInProgress( incompleteChallenge ) {
-    this.checkForNewLevels();
     this.setState( { incompleteChallenge } );
   }
 
@@ -122,7 +121,7 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned } = this.state;
+    const { badgesEarned, levelsEarned } = this.state;
 
     recalculateBadges();
 
@@ -131,24 +130,15 @@ class MatchScreen extends Component<Props> {
         const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
         const badges = earnedBadges.sorted( "earnedDate", true );
 
-        if ( badgesEarned < earnedBadges.length ) {
-          this.setLatestBadge( badges[0] );
-        }
-      } ).catch( ( e ) => {
-        console.log( e, "error" );
-      } );
-  }
-
-  checkForNewLevels() {
-    const { levelsEarned } = this.state;
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
 
         if ( levelsEarned < earnedLevels.length ) {
           this.setLatestLevel( newestLevels[0] );
+        }
+
+        if ( badgesEarned < earnedBadges.length ) {
+          this.setLatestBadge( badges[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );

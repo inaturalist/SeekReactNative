@@ -34,5 +34,8 @@ export default StyleSheet.create( {
   },
   bullets: {
     marginRight: 16
+  },
+  italicText: {
+    fontFamily: fonts.boldItalic
   }
 } );

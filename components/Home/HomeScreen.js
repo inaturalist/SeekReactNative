@@ -29,6 +29,7 @@ import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
+import { recalculateBadges } from "../../utility/badgeHelpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -127,6 +128,7 @@ class HomeScreen extends Component<Props> {
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     if ( isFirstLaunch ) {
+      recalculateBadges();
       this.toggleGetStartedModal();
     }
   }

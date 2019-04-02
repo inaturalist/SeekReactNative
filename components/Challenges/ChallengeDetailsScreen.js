@@ -8,7 +8,8 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -73,7 +74,7 @@ class ChallengeDetailsScreen extends Component<Props> {
         this.setState( {
           challenge: {
             month: challenge.month,
-            name: i18n.t( challenge.name ).toLocaleUpperCase(),
+            name: challenge.name,
             description: i18n.t( challenge.description ),
             earnedIconName: challenge.earnedIconName,
             started: challenge.started,
@@ -176,10 +177,10 @@ class ChallengeDetailsScreen extends Component<Props> {
               </View>
               <View style={styles.challengeContainer}>
                 <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
-                <Text style={styles.challengeName}>{challenge.name}</Text>
+                <Text style={styles.challengeName}>{i18n.t( challenge.name ).toLocaleUpperCase()}</Text>
                 <View style={styles.leftRow}>
                   {challenge.percentComplete === 100
-                    ? <Image source={challenge.earnedIconName} />
+                    ? <Image source={badges[challenge.earnedIconName]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
                     : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
                   }
                   

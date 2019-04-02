@@ -1,7 +1,7 @@
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage, Platform, Alert } = require( "react-native" );
+const { AsyncStorage, Platform } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );

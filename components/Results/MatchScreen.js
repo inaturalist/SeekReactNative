@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -121,7 +122,7 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned, levelsEarned } = this.state;
+    const { badgesEarned } = this.state;
 
     recalculateBadges();
 
@@ -130,15 +131,16 @@ class MatchScreen extends Component<Props> {
         const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
         const badges = earnedBadges.sorted( "earnedDate", true );
 
+        const speciesCount = realm.objects( "ObservationRealm" ).length;
         const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
         const newestLevels = earnedLevels.sorted( "earnedDate", true );
 
-        if ( levelsEarned < earnedLevels.length ) {
-          this.setLatestLevel( newestLevels[0] );
-        }
-
         if ( badgesEarned < earnedBadges.length ) {
           this.setLatestBadge( badges[0] );
+        }
+
+        if ( speciesCount === newestLevels[0].count ) {
+          this.setLatestLevel( newestLevels[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
@@ -239,7 +241,11 @@ class MatchScreen extends Component<Props> {
             swipeDirection="down"
             onModalHide={() => this.navigateTo()}
           >
-            <LevelModal level={newestLevel} toggleLevelModal={this.toggleLevelModal} />
+            <LevelModal
+              level={newestLevel}
+              toggleLevelModal={this.toggleLevelModal}
+              speciesCount={newestLevel ? newestLevel.count : 0}
+            />
           </Modal>
           <ScrollView>
             <LinearGradient

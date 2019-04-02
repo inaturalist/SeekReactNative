@@ -119,7 +119,8 @@ class ARCamera extends Component<Props> {
   getCameraCaptureFromGallery() {
     CameraRoll.getPhotos( {
       first: 1,
-      assetType: "Photos"
+      assetType: "All"
+      // assetType: "Photos"
     } ).then( ( results ) => {
       let photo;
 
@@ -226,7 +227,7 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.navigate( "Results", {
+    navigation.push( "Results", {
       image: photo.image,
       time: photo.timestamp,
       latitude: null,

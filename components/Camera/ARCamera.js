@@ -12,19 +12,17 @@ import {
   CameraRoll
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import Realm from "realm";
 import RNFS from "react-native-fs";
 
 import INatCamera from "react-native-inat-camera";
 
-import realmConfig from "../../models/index";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
-import { capitalizeNames } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -84,23 +82,16 @@ class ARCamera extends Component<Props> {
       if ( predictionSet ) { return; }
       if ( predictions[rank] ) {
         predictionSet = true;
-        Realm.open( realmConfig )
-          .then( ( realm ) => {
-            const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
-            const prediction = predictions[rank][0];
-            // look up common names for the predicted taxon in the current locale
-            const commonNames = realm.objects( "CommonNamesRealm" )
-              .filtered( `taxon_id == ${prediction.taxon_id} and locale == '${searchLocale}'` );
-            this.setState( {
-              ranks: {
-                [rank]: [prediction]
-              },
-              commonName: commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null,
-              rankToRender: rank
-            } );
-          } ).catch( ( err ) => {
-            console.log( "[DEBUG] Failed to open realm, error: ", err );
+        const prediction = predictions[rank][0];
+        getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+          this.setState( {
+            ranks: {
+              [rank]: [prediction]
+            },
+            commonName,
+            rankToRender: rank
           } );
+        } );
       }
     } );
     if ( !predictionSet ) {

@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -129,6 +128,7 @@ class Results extends Component<Props> {
         || commonAncestor.taxon.name )
         : null
     }, () => {
+      this.checkDateSpeciesSeen( match.taxon.id );
       this.checkForOnlineVisionMatch( match.combined_score );
     } );
   }
@@ -286,11 +286,7 @@ class Results extends Component<Props> {
     addToCollection( observation, latitude, longitude, image );
   }
 
-  async checkForOnlineVisionMatch( score ) {
-    const { taxaId } = this.state;
-
-    await this.checkDateSpeciesSeen( taxaId );
-
+  checkForOnlineVisionMatch( score ) {
     if ( score > 97 ) {
       this.showMatch();
     } else {
@@ -353,7 +349,7 @@ class Results extends Component<Props> {
           seenDate={seenDate}
         />
       );
-    } else if ( match && taxaName && !seenDate ) {
+    } else if ( match && taxaName ) {
       resultScreen = (
         <MatchScreen
           navigation={navigation}

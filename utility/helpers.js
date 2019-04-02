@@ -74,7 +74,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         }
         const taxon = realm.create( "TaxonRealm", {
           id: observation.taxon.id,
-          name: capitalizeNames( observation.taxon.name ),
+          name: observation.taxon.name,
           preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
           iconicTaxonId: observation.taxon.iconic_taxon_id,
           defaultPhoto

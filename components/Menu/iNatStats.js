@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  StatusBar,
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -114,6 +115,7 @@ class iNatStatsScreen extends Component<Props> {
           }}
         />
         <SafeAreaView style={styles.safeView}>
+          <StatusBar barStyle="dark-content" />
           <ScrollView>
             <View style={styles.header}>
               <TouchableOpacity

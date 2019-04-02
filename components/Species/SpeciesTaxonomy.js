@@ -49,7 +49,6 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
       <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
       {taxonomy}
     </View>
-    // taxonomy
   );
 };
 

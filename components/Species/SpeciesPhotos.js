@@ -84,14 +84,13 @@ const SpeciesPhotos = ( {
             : null}
         </ScrollView>
       )}
-      <View style={styles.backButton}>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          hitSlop={styles.touchable}
-        >
-          <Image source={icons.backButton} />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        hitSlop={styles.touchable}
+        style={styles.backButton}
+      >
+        <Image source={icons.backButton} />
+      </TouchableOpacity>
       <Image source={icons.swipeLeft} style={styles.leftArrow} />
       <Image source={icons.swipeRight} style={styles.rightArrow} />
     </View>

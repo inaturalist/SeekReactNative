@@ -48,5 +48,10 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  image: {
+    width: 300,
+    height: 51,
+    resizeMode: "contain"
   }
 } );

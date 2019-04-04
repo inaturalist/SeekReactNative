@@ -68,7 +68,7 @@ const AlreadySeenScreen = ( {
           <Text style={styles.text}>{i18n.t( "results.date_observed", { seenDate } )}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.push( "Species", {
+            onPress={() => navigation.navigate( "Species", {
               id: taxaId,
               commonName: taxaName,
               scientificName: null

@@ -55,7 +55,7 @@ const MatchScreen = ( {
           <Text style={styles.text}>{i18n.t( "results.sorry" )}</Text>
           <TouchableOpacity
             style={[styles.button, styles.buttonGray]}
-            onPress={() => navigation.push( "Camera" )}
+            onPress={() => navigation.navigate( "Camera" )}
           >
             <Text style={styles.buttonText}>
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}

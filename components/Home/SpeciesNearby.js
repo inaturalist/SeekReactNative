@@ -68,7 +68,7 @@ const SpeciesNearby = ( {
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity
-              onPress={ () => navigation.push( "Species", {
+              onPress={ () => navigation.navigate( "Species", {
                 id: item.id,
                 commonName: capitalizeNames( item.preferred_common_name || item.name ),
                 scientificName: item.name

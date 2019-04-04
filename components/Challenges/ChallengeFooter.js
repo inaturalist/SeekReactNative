@@ -34,7 +34,7 @@ const Footer = ( { navigation }: Props ) => (
         style={styles.button}
         onPress={() => {
           if ( navigation.state.routeName !== "iNatStats" ) {
-            navigation.push( "iNatStats" );
+            navigation.navigate( "iNatStats" );
           }
         }}
       >

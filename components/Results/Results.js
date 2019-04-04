@@ -269,11 +269,10 @@ class Results extends Component<Props> {
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
         const species = response.results[0];
-        this.checkDateSpeciesSeen( species.taxon.id );
-
         const commonAncestor = response.common_ancestor;
 
         if ( species.combined_score > 97 ) {
+          this.checkDateSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
           this.setOnlineVisionAncestorResults( commonAncestor );

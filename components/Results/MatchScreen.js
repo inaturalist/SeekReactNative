@@ -175,7 +175,7 @@ class MatchScreen extends Component<Props> {
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
-      navigation.push( "Species", {
+      navigation.navigate( "Species", {
         id: taxaId,
         commonName: taxaName,
         scientificName: null

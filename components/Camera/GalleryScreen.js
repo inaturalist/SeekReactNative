@@ -126,36 +126,29 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  async selectImage( imageClicked, timestamp, location ) {
+  navigateToResults( image, time, latitude, longitude ) {
     const { navigation } = this.props;
+
+    navigation.push( "Results", {
+      image,
+      time,
+      latitude,
+      longitude,
+      predictions: []
+    } );
+  }
+
+  async selectImage( imageClicked, timestamp, location ) {
     const userLocation = await getLatAndLng();
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        navigation.push( "Results", {
-          image: imageClicked,
-          time: timestamp,
-          latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude ),
-          predictions: []
-        } );
+        this.navigateToResults( imageClicked, timestamp, truncateCoordinates( location.latitude ), truncateCoordinates( location.longitude ) );
       } else {
-        navigation.push( "Results", {
-          image: imageClicked,
-          time: timestamp,
-          latitude: userLocation.latitude,
-          longitude: userLocation.longitude,
-          predictions: []
-        } );
+        this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
       }
     } else {
-      navigation.push( "Results", {
-        image: imageClicked,
-        time: timestamp,
-        latitude: userLocation.latitude,
-        longitude: userLocation.longitude,
-        predictions: []
-      } );
+      this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
     }
   }
 

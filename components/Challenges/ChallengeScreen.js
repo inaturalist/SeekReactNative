@@ -62,7 +62,7 @@ class ChallengeScreen extends Component<Props> {
           challengesStarted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
+            iconName: badges[challenge.earnedIconName],
             started: challenge.started,
             totalSpecies: challenge.totalSpecies,
             percentComplete: challenge.percentComplete,

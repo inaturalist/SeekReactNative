@@ -117,20 +117,24 @@ class Results extends Component<Props> {
     } );
   }
 
-  setOnlineVisionResults( match, commonAncestor ) {
+  setOnlineVisionSpeciesResults( species ) {
+    console.log( "fetching species results" );
     this.setState( {
-      observation: match,
-      taxaId: match.taxon.id,
-      taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
-      speciesSeenImage: match.taxon.default_photo.medium_url,
+      observation: species,
+      taxaId: species.taxon.id,
+      taxaName: capitalizeNames( species.taxon.preferred_common_name || species.taxon.name ),
+      speciesSeenImage: species.taxon.default_photo.medium_url
+    }, () => this.showMatch() );
+  }
+
+  setOnlineVisionAncestorResults( commonAncestor ) {
+    this.setState( {
       commonAncestor: commonAncestor
         ? capitalizeNames( commonAncestor.taxon.preferred_common_name
         || commonAncestor.taxon.name )
-        : null
-    }, () => {
-      this.checkDateSpeciesSeen( match.taxon.id );
-      this.checkForOnlineVisionMatch( match.combined_score );
-    } );
+        : null,
+      speciesSeenImage: commonAncestor.taxon.default_photo.medium_url
+    }, () => this.showNoMatch() );
   }
 
   setARCameraVisionResults() {
@@ -241,11 +245,9 @@ class Results extends Component<Props> {
           const uriParts = uri.split( "://" );
           userImage = uriParts[uriParts.length - 1];
           this.setImageUri( userImage );
-          this.checkOnlineOrOfflineVision();
         } else {
           userImage = uri;
           this.setImageUri( userImage );
-          this.checkOnlineOrOfflineVision();
         }
       } ).catch( () => {
         this.setError( "image" );
@@ -267,9 +269,19 @@ class Results extends Component<Props> {
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
-        const match = response.results[0];
+        const species = response.results[0];
+        this.checkDateSpeciesSeen( species.taxon.id );
+
         const commonAncestor = response.common_ancestor;
-        this.setOnlineVisionResults( match, commonAncestor );
+        console.log( species.combined_score, "score of species" );
+
+        if ( species.combined_score > 97 ) {
+          this.setOnlineVisionSpeciesResults( species );
+        } else if ( commonAncestor ) {
+          this.setOnlineVisionAncestorResults( commonAncestor );
+        } else {
+          this.showNoMatch();
+        }
       } ).catch( () => {
         this.setError( "onlineVision" );
       } );
@@ -286,22 +298,18 @@ class Results extends Component<Props> {
     addToCollection( observation, latitude, longitude, image );
   }
 
-  checkForOnlineVisionMatch( score ) {
-    if ( score > 97 ) {
-      this.showMatch();
-    } else {
-      this.showNoMatch();
-    }
-  }
-
   checkDateSpeciesSeen( taxaId ) {
+    console.log( "checking seen date" );
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
           const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          console.log( seenDate, "seen date" );
           this.setSeenDate( seenDate );
+        } else {
+          this.setSeenDate( null );
         }
       } ).catch( () => {
         this.setSeenDate( null );

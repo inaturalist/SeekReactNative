@@ -132,14 +132,15 @@ class MatchScreen extends Component<Props> {
         const badges = earnedBadges.sorted( "earnedDate", true );
 
         const speciesCount = realm.objects( "ObservationRealm" ).length;
-        const earnedLevels = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName == null" );
-        const newestLevels = earnedLevels.sorted( "earnedDate", true );
+        const newestLevels = realm.objects( "BadgeRealm" )
+          .filtered( "earned == true AND iconicTaxonName == null" )
+          .sorted( "earnedDate", true );
 
         if ( badgesEarned < earnedBadges.length ) {
           this.setLatestBadge( badges[0] );
         }
 
-        if ( speciesCount === newestLevels[0].count ) {
+        if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
           this.setLatestLevel( newestLevels[0] );
         }
       } ).catch( ( e ) => {

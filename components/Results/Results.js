@@ -118,7 +118,6 @@ class Results extends Component<Props> {
   }
 
   setOnlineVisionSpeciesResults( species ) {
-    console.log( "fetching species results" );
     this.setState( {
       observation: species,
       taxaId: species.taxon.id,
@@ -273,7 +272,6 @@ class Results extends Component<Props> {
         this.checkDateSpeciesSeen( species.taxon.id );
 
         const commonAncestor = response.common_ancestor;
-        console.log( species.combined_score, "score of species" );
 
         if ( species.combined_score > 97 ) {
           this.setOnlineVisionSpeciesResults( species );
@@ -299,14 +297,12 @@ class Results extends Component<Props> {
   }
 
   checkDateSpeciesSeen( taxaId ) {
-    console.log( "checking seen date" );
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
           const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          console.log( seenDate, "seen date" );
           this.setSeenDate( seenDate );
         } else {
           this.setSeenDate( null );

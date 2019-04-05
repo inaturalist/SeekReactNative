@@ -10,7 +10,7 @@ Seek is an app built for iOS and Android.
 4. Go to `android/app/src/main/res/values` and rename config.xml.example to config.xml (and change its values to match your API keys)
 5. Rename config.example.js to config.js and change the JWT secret.
 6. Add AR Camera model files to the project. On Android, these files are named `optimized_model.tflite` and `taxonomy_data.csv`, and they should be placed in a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`). On iOS, these files are named `optimized_model.mlmodel` and `taxonomy.json` and should be added to the Resources folder in XCode. 
-7. Add `common-names.json`to `Seek/utility` to allow the AR camera to load common names in localized languages. 
+7. Add 6 common names files to `Seek/utility/commonNames` to allow the AR camera to load common names in localized languages. These files are titled `commonNamesDict-0.js` to `commonNamesDict-5.js`.
 
 ## Troubleshooting
 

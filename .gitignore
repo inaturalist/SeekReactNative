@@ -60,6 +60,7 @@ buck-out/
 # config
 config.js
 taxonomy_data.csv
+taxonomy.csv
 *.tflite
 taxonomy.json
 *.mlmodel

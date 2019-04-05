@@ -3,31 +3,12 @@ import { StyleSheet } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
-import { colors, fonts } from "../../styles/global";
+import styles from "../../styles/home/speciesNearby";
 import { capitalizeNames } from "../../utility/helpers";
 
 const pickerSelectStyles = StyleSheet.create( {
-  inputIOS: {
-    borderRadius: 7,
-    paddingRight: 10,
-    paddingLeft: 11,
-    fontFamily: fonts.light,
-    marginLeft: 25,
-    fontSize: 18,
-    color: colors.white,
-    textAlign: "center"
-  },
-  inputAndroid: {
-    fontFamily: fonts.light,
-    borderRadius: 7,
-    paddingRight: 10,
-    paddingLeft: 11,
-    textAlign: "center",
-    paddingBottom: 8,
-    marginLeft: 25,
-    fontSize: 18,
-    color: colors.white
-  }
+  inputIOS: styles.secondButtonText,
+  inputAndroid: styles.androidSecondButtonText
 } );
 
 type Props = {
@@ -44,56 +25,63 @@ class TaxonPicker extends Component<Props> {
       taxonType: null,
       types: [
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.all" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.all" ).toLocaleUpperCase() ),
           value: "all"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.plants" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.plants" ).toLocaleUpperCase() ),
           value: "plants"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.amphibians" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.amphibians" ).toLocaleUpperCase() ),
           value: "amphibians"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.fungi" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.fungi" ).toLocaleUpperCase() ),
           value: "fungi"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.fish" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.fish" ).toLocaleUpperCase() ),
           value: "fish"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.reptiles" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.reptiles" ).toLocaleUpperCase() ),
           value: "reptiles"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.arachnids" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.arachnids" ).toLocaleUpperCase() ),
           value: "arachnids"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.birds" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.birds" ).toLocaleUpperCase() ),
           value: "birds"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.insects" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.insects" ).toLocaleUpperCase() ),
           value: "insects"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.mollusks" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.mollusks" ).toLocaleUpperCase() ),
           value: "mollusks"
         },
         {
-          label: capitalizeNames( i18n.t( "taxon_picker.mammals" ) ),
+          label: capitalizeNames( i18n.t( "taxon_picker.mammals" ).toLocaleUpperCase() ),
           value: "mammals"
         }
       ]
     };
   }
 
+  setTaxonType( taxonType ) {
+    const { updateTaxaType } = this.props;
+
+    this.setState( { taxonType } );
+    updateTaxaType( taxonType );
+  }
+
   render() {
     const { types, taxonType } = this.state;
-    const { updateTaxaType } = this.props;
+    
 
     return (
       <RNPickerSelect
@@ -101,16 +89,12 @@ class TaxonPicker extends Component<Props> {
         hideIcon
         items={types}
         onValueChange={( value ) => {
-          this.setState( {
-            taxonType: value
-          }, () => updateTaxaType( value ) );
+          this.setTaxonType( value );
         }}
-        onUpArrow={() => {
-          this.inputRefs.picker.togglePicker();
-        }}
-        onDownArrow={() => {
-          this.inputRefs.company.focus();
-        }}
+        // onDonePress={( value ) => {
+        //   this.setTaxonType( value );
+        //   updateTaxaType( value );
+        // }}
         style={{ ...pickerSelectStyles }}
         value={taxonType}
         ref={( el ) => {

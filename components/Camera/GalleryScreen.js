@@ -15,16 +15,14 @@ import {
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import BackIcon from "react-native-vector-icons/AntDesign";
 
 import i18n from "../../i18n";
-import ErrorScreen from "../ErrorScreen";
+import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
-
-const backIcon = ( <BackIcon name="close" size={23} color={colors.seekForestGreen} /> );
+import icons from "../../assets/icons";
 
 type Props = {
   navigation: any
@@ -128,33 +126,29 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  async selectImage( imageClicked, timestamp, location ) {
+  navigateToResults( image, time, latitude, longitude ) {
     const { navigation } = this.props;
+
+    navigation.push( "Results", {
+      image,
+      time,
+      latitude,
+      longitude,
+      predictions: []
+    } );
+  }
+
+  async selectImage( imageClicked, timestamp, location ) {
     const userLocation = await getLatAndLng();
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        navigation.push( "Results", {
-          image: imageClicked,
-          time: timestamp,
-          latitude: truncateCoordinates( location.latitude ),
-          longitude: truncateCoordinates( location.longitude )
-        } );
+        this.navigateToResults( imageClicked, timestamp, truncateCoordinates( location.latitude ), truncateCoordinates( location.longitude ) );
       } else {
-        navigation.push( "Results", {
-          image: imageClicked,
-          time: timestamp,
-          latitude: userLocation.latitude,
-          longitude: userLocation.longitude
-        } );
+        this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
       }
     } else {
-      navigation.push( "Results", {
-        image: imageClicked,
-        time: timestamp,
-        latitude: userLocation.latitude,
-        longitude: userLocation.longitude
-      } );
+      this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
     }
   }
 
@@ -170,7 +164,7 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <ErrorScreen error={error} collection />;
+      gallery = <ErrorScreen error={i18n.t( "camera.error_gallery" )} />;
     } else if ( loading ) {
       gallery = (
         <View style={styles.loadingWheel}>
@@ -211,16 +205,15 @@ class GalleryScreen extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => this.checkPermissions()}
           />
-          <StatusBar hidden />
+          <StatusBar barStyle="dark-content" />
           <View style={styles.header}>
             <TouchableOpacity
               style={styles.backButton}
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.navigate( "Main" )}
             >
-              <Text>{backIcon}</Text>
+              <Image source={icons.closeGreen} style={styles.buttonImage} />
             </TouchableOpacity>
             <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
-            <View />
           </View>
           <View style={styles.galleryContainer}>
             {gallery}

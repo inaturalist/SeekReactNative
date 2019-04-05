@@ -1,11 +1,12 @@
 // @flow
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
 
-import { colors, fonts } from "../../styles/global";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 
 type Props = {
@@ -31,33 +32,35 @@ const SpeciesChart = ( { data }: Props ) => {
   };
 
   return (
-    <View style={styles.container}>
-      {data.length > 0 ? (
-        <View style={styles.chartRow}>
-          <LineChart
-            style={styles.chart}
-            data={data}
-            yAccessor={ ( { item } ) => item.count }
-            xAccessor={( { item } ) => item.month }
-            svg={{ stroke: colors.seekForestGreen }}
-            contentInset={styles.chartInset}
-          >
-            <Decorator />
-          </LineChart>
-          <XAxis
-            style={styles.xAxis}
-            data={data}
-            xAccessor={( { item } ) => item.month }
-            formatLabel={value => formatXAxis( value - 1 )}
-            contentInset={styles.xAxisWidth}
-            svg={{
-              fontSize: 18,
-              fill: colors.seekTeal,
-              fontFamily: fonts.default
-            }}
-          />
-        </View>
-      ) : null}
+    <View>
+      <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
+      <View style={styles.container}>
+        {data.length > 0 ? (
+          <View style={styles.chartRow}>
+            <LineChart
+              style={styles.chart}
+              data={data}
+              yAccessor={ ( { item } ) => item.count }
+              xAccessor={( { item } ) => item.month }
+              svg={{ stroke: colors.seekForestGreen }}
+              contentInset={styles.chartInset}
+            >
+              <Decorator />
+            </LineChart>
+            <XAxis
+              style={styles.xAxis}
+              data={data}
+              xAccessor={( { item } ) => item.month }
+              formatLabel={value => formatXAxis( value - 1 )}
+              contentInset={styles.xAxisWidth}
+              svg={{
+                fontSize: 18,
+                fill: colors.seekTeal
+              }}
+            />
+          </View>
+        ) : null}
+      </View>
     </View>
   );
 };

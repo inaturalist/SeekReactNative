@@ -1,9 +1,11 @@
 // @flow
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 
 import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/species/speciesTaxonomy";
+import icons from "../../assets/icons";
+import i18n from "../../i18n";
 
 type Props = {
   ancestors: Array<Object>
@@ -19,11 +21,11 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
         <View key={`taxon-${ancestor.rank}${i}`} style={{ marginLeft: margin }}>
           {ancestor.preferred_common_name ? (
             <View style={styles.taxonomyRow}>
-              <Text style={styles.bullets}>&#8226;</Text>
+              <Image source={icons.taxonomyCircle} style={styles.bullets} />
               <View>
                 <Text style={styles.taxonomyHeader}>
-                  {capitalizeNames( ancestor.rank )}
-                  {" "}
+                  {ancestor.rank !== "species" ? capitalizeNames( ancestor.rank ) : null}
+                  {ancestor.rank !== "species" ? " " : null}
                   {ancestor.name}
                 </Text>
                 <Text numOfLines={1} style={styles.taxonomyText}>
@@ -43,7 +45,10 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   }
 
   return (
-    taxonomy
+    <View>
+      <Text style={styles.headerText}>{i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}</Text>
+      {taxonomy}
+    </View>
   );
 };
 

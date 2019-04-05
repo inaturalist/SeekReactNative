@@ -37,7 +37,7 @@ export default StyleSheet.create( {
   },
   text: {
     textAlign: "center",
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 17,
     color: colors.white
   },
@@ -50,7 +50,7 @@ export default StyleSheet.create( {
     marginBottom: 5
   },
   leftText: {
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
     color: colors.white
   },

@@ -13,18 +13,6 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
-  header: {
-    height: 75,
-    backgroundColor: colors.seekForestGreen,
-    alignItems: "center"
-  },
-  headerText: {
-    marginTop: 35,
-    fontSize: 18,
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
-  },
   secondHeaderText: {
     marginTop: 32,
     marginBottom: 10,
@@ -44,23 +32,27 @@ export default StyleSheet.create( {
     color: colors.black,
     textAlign: "center"
   },
+  noSpecies: {
+    marginHorizontal: 28,
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   noSpeciesHeaderText: {
-    marginTop: height / 5,
     textAlign: "center",
+    maxWidth: 279,
+    fontFamily: fonts.semibold,
     fontSize: 18,
     lineHeight: 24,
-    maxWidth: 279,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
+    letterSpacing: 1.0,
+    color: colors.seekForestGreen
   },
   noSpeciesText: {
-    marginTop: 25,
-    fontSize: 16,
+    marginTop: 24,
+    textAlign: "center",
     fontFamily: fonts.book,
-    lineHeight: 21,
-    color: colors.black,
-    textAlign: "center"
+    fontSize: 16,
+    lineHeight: 21
   },
   greenButton: {
     marginTop: 25,
@@ -75,7 +67,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
     paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white
   },
   secondTextContainer: {
@@ -111,6 +103,11 @@ export default StyleSheet.create( {
     color: colors.black,
     fontSize: 16,
     lineHeight: 21
+  },
+  loadingWheel: {
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
   safeViewTop: {
     flex: 0,

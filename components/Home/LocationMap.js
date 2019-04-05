@@ -19,14 +19,16 @@ const LocationMap = ( {
   returnToUserLocation
 }: Props ) => (
   <View style={{ flex: 1 }}>
-    <MapView
-      provider={PROVIDER_DEFAULT}
-      style={styles.map}
-      region={region}
-      onRegionChangeComplete={region => onRegionChange( region )}
-    />
+    {region.latitude ? (
+      <MapView
+        provider={PROVIDER_DEFAULT}
+        style={styles.map}
+        region={region}
+        onRegionChangeComplete={region => onRegionChange( region )}
+      />
+    ) : null}
     <View pointerEvents="none" style={styles.markerFixed}>
-      <View style={styles.markerCircle} />
+      <Image style={styles.markerPin} source={icons.locationPin} />
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight

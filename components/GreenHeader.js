@@ -19,18 +19,13 @@ type Props = {
 const GreenHeader = ( { header, navigation }: Props ) => (
   <View style={styles.container}>
     <TouchableOpacity
+      hitSlop={styles.touchable}
       style={styles.backButton}
       onPress={() => navigation.goBack()}
     >
-      <Image
-        source={icons.backButton}
-        style={styles.image}
-      />
+      <Image source={icons.backButton} />
     </TouchableOpacity>
-    <View style={styles.textContainer}>
-      <Text style={styles.text}>{header}</Text>
-    </View>
-    <View />
+    <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
   </View>
 );
 

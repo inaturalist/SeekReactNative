@@ -2,18 +2,18 @@ package org.inaturalist.seek;
 
 import android.app.Application;
 
-import io.realm.react.RealmReactPackage;
 import com.facebook.react.ReactApplication;
+import org.inaturalist.inatcamera.nativecamera.INatCameraViewPackage;
+import com.rnfs.RNFSPackage;
+import io.realm.react.RealmReactPackage;
+import com.horcrux.svg.SvgPackage;
+import com.opensettings.OpenSettingsPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
-import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
-import com.horcrux.svg.SvgPackage;
-import com.airbnb.android.react.maps.MapsPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
-import org.reactnative.camera.RNCameraPackage;
-import com.opensettings.OpenSettingsPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -35,17 +35,17 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new LinearGradientPackage(),
-            new RNLanguagesPackage(),
-            new RNGestureHandlerPackage(),
-            new VectorIconsPackage(),
+            new INatCameraViewPackage(),
+            new RNFSPackage(),
             new RealmReactPackage(),
             new SvgPackage(),
+            new OpenSettingsPackage(),
             new MapsPackage(),
+            new LinearGradientPackage(),
+            new RNLanguagesPackage(),
             new ImageResizerPackage(),
-            new RNGeocoderPackage(),
-            new RNCameraPackage(),
-            new OpenSettingsPackage()
+            new RNGestureHandlerPackage(),
+            new RNGeocoderPackage()
       );
     }
 

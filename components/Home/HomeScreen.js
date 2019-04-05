@@ -16,6 +16,7 @@ import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import Permissions from "react-native-permissions";
+import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -23,10 +24,12 @@ import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
+import NoChallenges from "./NoChallenges";
 import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, fetchObservationData } from "../../utility/helpers";
+import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
+import { recalculateBadges } from "../../utility/badgeHelpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -48,15 +51,15 @@ class HomeScreen extends Component<Props> {
       taxaType: "all",
       loading: false,
       modalVisible: false,
-      notifications: false,
       error: null,
-      isFirstLaunch: false,
-      challenge: null
+      challenge: null,
+      showGetStartedModal: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
     this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
   }
 
@@ -79,6 +82,10 @@ class HomeScreen extends Component<Props> {
         location: i18n.t( "species_nearby.no_location" )
       } );
     }
+  }
+
+  setChallenge( challenge ) {
+    this.setState( { challenge } );
   }
 
   getGeolocation() {
@@ -113,11 +120,17 @@ class HomeScreen extends Component<Props> {
     }
   }
 
+  toggleGetStartedModal() {
+    const { showGetStartedModal } = this.state;
+    this.setState( { showGetStartedModal: !showGetStartedModal } );
+  }
+
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
-    this.setState( {
-      isFirstLaunch
-    } );
+    if ( isFirstLaunch ) {
+      recalculateBadges();
+      this.toggleGetStartedModal();
+    }
   }
 
   updateTaxaType( taxaType ) {
@@ -195,7 +208,8 @@ class HomeScreen extends Component<Props> {
       hrank: "species",
       include_only_vision_taxa: true,
       not_in_list_id: 945029,
-      month: getPreviousAndNextMonth()
+      month: getPreviousAndNextMonth(),
+      locale: i18n.currentLocale()
     };
 
     if ( taxonIds[taxaType] ) {
@@ -224,10 +238,13 @@ class HomeScreen extends Component<Props> {
   fetchLatestChallenge() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
-        this.setState( {
-          challenge: challenges[0]
-        } );
+        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
+        if ( incompleteChallenges.length > 0 ) {
+          const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
+          this.setChallenge( latestChallenge[0] );
+        } else {
+          this.setChallenge( null );
+        }
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -263,10 +280,9 @@ class HomeScreen extends Component<Props> {
       loading,
       taxa,
       modalVisible,
-      notifications,
       error,
-      isFirstLaunch,
-      challenge
+      challenge,
+      showGetStartedModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -282,10 +298,19 @@ class HomeScreen extends Component<Props> {
                 this.checkInternetConnection();
                 this.fetchUserLocation();
                 this.fetchLatestChallenge();
-                fetchObservationData();
+                addARCameraFiles();
               }}
             />
+            <RNModal
+              isVisible={showGetStartedModal}
+              onBackdropPress={() => this.toggleGetStartedModal()}
+            >
+              <GetStarted
+                toggleGetStartedModal={this.toggleGetStartedModal}
+              />
+            </RNModal>
             <ScrollView>
+              {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
                 visible={modalVisible}
                 onRequestClose={() => this.toggleLocationPicker()}
@@ -295,6 +320,7 @@ class HomeScreen extends Component<Props> {
                   longitude={longitude}
                   location={location}
                   updateLocation={this.updateLocation}
+                  toggleLocationPicker={this.toggleLocationPicker}
                 />
               </Modal>
               <SpeciesNearby
@@ -309,17 +335,15 @@ class HomeScreen extends Component<Props> {
                 error={error}
                 checkRealmForSpecies={this.checkRealmForSpecies}
               />
-              { isFirstLaunch ? <CardPadding /> : null }
-              { isFirstLaunch ? <GetStarted navigation={navigation} /> : null }
               <CardPadding />
-              { challenge ? <Challenges navigation={navigation} challenge={challenge} /> : null}
+              { challenge
+                ? <Challenges navigation={navigation} challenge={challenge} />
+                : <NoChallenges navigation={navigation} />
+              }
               <Padding />
             </ScrollView>
           </View>
-          <Footer
-            navigation={navigation}
-            notifications={notifications}
-          />
+          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

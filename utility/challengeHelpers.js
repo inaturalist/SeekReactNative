@@ -6,9 +6,11 @@ const taxonDict = require( "./taxonDict" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
-// const { checkIfChallengeAvailable } = require( "./dateHelpers" );
+const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
+
+const getSum = ( total, currentValue ) => total + currentValue;
 
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
@@ -24,6 +26,9 @@ const recalculateChallenges = () => {
             seenAfterChallengeStart.push( observation );
           }
         } );
+        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
+        let prevNumberSeen = observationsList.reduce( getSum );
+        const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
         realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
@@ -54,7 +59,7 @@ const recalculateChallenges = () => {
             const percentComplete = calculatePercent( numberSeen, challenge.totalSpecies );
             if ( percentComplete === 100 ) {
               challenge.completedDate = new Date();
-            } else if ( percentComplete > 50 ) { // change this to 50% later
+            } else if ( percentComplete >= 75 && prevPercent < 75 ) {
               createNotification( "challengeProgress", index );
             }
             challenge.percentComplete = percentComplete;
@@ -91,21 +96,23 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
-          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          // if ( isAvailable ) {
-          const challenge = realm.create( "ChallengeRealm", {
-            name: challenges.name,
-            month: challenges.month,
-            description: challenges.description,
-            totalSpecies: challenges.totalSpecies,
-            unearnedIconName: challenges.unearnedIconName,
-            earnedIconName: challenges.earnedIconName,
-            missions: challenges.missions,
-            availableDate: challenges.availableDate,
-            index: challenges.index
-          }, true );
-          // }
+          if ( isAvailable ) {
+            const challenge = realm.create( "ChallengeRealm", {
+              name: challenges.name,
+              month: challenges.month,
+              description: challenges.description,
+              totalSpecies: challenges.totalSpecies,
+              homeBackgroundName: challenges.homeBackgroundName,
+              backgroundName: challenges.backgroundName,
+              unearnedIconName: challenges.unearnedIconName,
+              earnedIconName: challenges.earnedIconName,
+              missions: challenges.missions,
+              availableDate: challenges.availableDate,
+              index: challenges.index
+            }, true );
+          }
         } );
       } );
     } ).catch( ( err ) => {

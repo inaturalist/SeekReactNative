@@ -18,6 +18,8 @@ import ObservationList from "./ObservationList";
 import Padding from "../Padding";
 import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
+import LoadingWheel from "../LoadingWheel";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -28,7 +30,8 @@ class MyObservations extends Component<Props> {
     super();
 
     this.state = {
-      observations: []
+      observations: [],
+      loading: true
     };
   }
 
@@ -49,6 +52,17 @@ class MyObservations extends Component<Props> {
           } );
         } );
 
+        // species.forEach( ( speciesSeen ) => {
+        //   const { iconicTaxonId } = speciesSeen.taxon;
+        //   if ( !taxaIdList.includes( iconicTaxonId ) ) {
+        //     observations.id[1].push( {
+        //       speciesSeen
+        //     } );
+        //   }
+        // } );
+
+        // console.log( observations, "obs" );
+
         observations.sort( ( a, b ) => {
           if ( a.speciesSeen.length > b.speciesSeen.length ) {
             return -1;
@@ -57,7 +71,8 @@ class MyObservations extends Component<Props> {
         } );
 
         this.setState( {
-          observations: species.length > 0 ? observations : species
+          observations: species.length > 0 ? observations : species,
+          loading: false
         } );
       } )
       .catch( () => {
@@ -66,43 +81,54 @@ class MyObservations extends Component<Props> {
   }
 
   render() {
-    const { observations } = this.state;
+    const { observations, loading } = this.state;
     const { navigation } = this.props;
 
     const iconicTaxonList = [];
 
     observations.forEach( ( iconicTaxon ) => {
-      console.log( iconicTaxon, "iconictaxon" );
       const list = <ObservationList observations={iconicTaxon.speciesSeen} id={iconicTaxon.id} navigation={navigation} />;
 
       iconicTaxonList.push( list );
     } );
+
+    let content;
+
+    if ( loading ) {
+      content = (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel color="black" />
+        </View>
+      );
+    } else if ( observations.length > 0 ) {
+      content = (
+        <ScrollView>
+          {iconicTaxonList}
+          <Padding />
+        </ScrollView>
+      );
+    } else {
+      content = (
+        <View style={styles.noSpecies}>
+          <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Camera" )}
+            style={styles.greenButton}
+          >
+            <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
 
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents onDidFocus={() => this.fetchObservations()} />
-          <View style={styles.header}>
-            <Text style={styles.headerText}>
-              {i18n.t( "observations.header" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <ScrollView>
-            {observations.length > 0 ? iconicTaxonList : (
-              <View style={styles.textContainer}>
-                <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "Camera" )}
-                  style={styles.greenButton}
-                >
-                  <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-            <Padding />
-          </ScrollView>
+          <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
+          {content}
           <Footer navigation={navigation} />
         </SafeAreaView>
       </View>

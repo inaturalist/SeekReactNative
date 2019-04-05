@@ -13,34 +13,34 @@ export default StyleSheet.create( {
     flexGrow: 1
   },
   cardContainer: {
-    height: 118,
+    height: 123,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "flex-start"
   },
   card: {
-    marginHorizontal: 20,
+    marginHorizontal: 24,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-around",
     alignItems: "center"
   },
-  imageContainer: {
-    marginRight: 20
-  },
   image: {
-    marginRight: 5
+    marginRight: 5,
+    height: 63,
+    width: 63,
+    resizeMode: "contain"
   },
   textContainer: {
+    marginLeft: 22,
+    width: 214,
     flexDirection: "column",
     alignItems: "flex-start",
-    justifyContent: "center",
-    height: 96
+    justifyContent: "center"
   },
   titleText: {
-    maxWidth: 232,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     fontSize: 16,
-    marginBottom: 5,
+    marginBottom: 6,
     lineHeight: 21
   },
   messageText: {
@@ -50,11 +50,47 @@ export default StyleSheet.create( {
     fontSize: 14,
     lineHeight: 21
   },
+  greenDot: {
+    height: 11,
+    width: 11,
+    borderRadius: 11 / 2,
+    backgroundColor: colors.seekiNatGreen
+  },
   divider: {
     backgroundColor: colors.dividerGray,
     height: 1,
-    marginTop: 10,
-    marginHorizontal: 27,
+    marginTop: 26,
+    marginHorizontal: 23,
     width: "85%"
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
+  noNotifications: {
+    marginHorizontal: 28,
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  noNotificationsHeader: {
+    textAlign: "center",
+    maxWidth: 279,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    lineHeight: 24,
+    letterSpacing: 1.0,
+    color: colors.seekForestGreen
+  },
+  noNotificationsText: {
+    marginTop: 24,
+    textAlign: "center",
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21
   }
 } );

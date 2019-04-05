@@ -1,5 +1,6 @@
 const Realm = require( "realm" );
 const { AsyncStorage } = require( "react-native" );
+const { createNotification } = require( "./notificationHelpers" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );
@@ -8,6 +9,12 @@ const recalculateBadges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
+      const { length } = collectedTaxa;
+
+      if ( length === 50 || length === 100 || length === 150 ) {
+        createNotification( "badgeEarned" );
+      }
+
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
 
       unearnedBadges.forEach( ( badge ) => {
@@ -42,20 +49,26 @@ const setupBadges = () => {
         dict.forEach( ( badgeType ) => {
           const badges = badgesDict.default[badgeType];
 
-          const badge = realm.create( "BadgeRealm", {
-            name: badges.name,
-            iconicTaxonName: badges.iconicTaxonName,
-            iconicTaxonId: badges.iconicTaxonId,
-            count: badges.count,
-            earnedIconName: badges.earnedIconName,
-            unearnedIconName: badges.unearnedIconName,
-            infoText: badges.infoText,
-            index: badges.index
-          }, true );
+          try {
+            const badge = realm.create( "BadgeRealm", {
+              name: badges.name,
+              intlName: badges.intlName,
+              iconicTaxonName: badges.iconicTaxonName,
+              iconicTaxonId: badges.iconicTaxonId,
+              count: badges.count,
+              earnedIconName: badges.earnedIconName,
+              unearnedIconName: badges.unearnedIconName,
+              infoText: badges.infoText,
+              index: badges.index,
+              earned: badges.earned
+            }, true );
+          } catch ( e ) {
+            // console.log( "error creating data", e );
+          }
         } );
       } );
     } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to open realm in setup badges, error: ", err );
+      // console.log( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 

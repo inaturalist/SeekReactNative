@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
@@ -10,7 +9,7 @@ export default StyleSheet.create( {
     height: 59
   },
   circleText: {
-    paddingTop: padding.iOSPadding,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
     fontFamily: fonts.book,
     fontSize: 20
   }

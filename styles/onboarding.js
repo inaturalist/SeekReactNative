@@ -1,17 +1,18 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "./global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1
   },
   carousel: {
-    marginTop: 40
+    marginTop: 20
   },
   banner: {
     height: 150,
@@ -28,13 +29,17 @@ export default StyleSheet.create( {
     shadowRadius: 1
   },
   imageContainer: {
-    justifyContent: "center",
     alignItems: "center",
     marginHorizontal: 22
   },
+  image1: {
+    width: 256,
+    height: height > 570 ? 304 : 250,
+    resizeMode: "contain"
+  },
   image: {
-    width: 293,
-    height: 232,
+    width: 297,
+    height: height > 570 ? 268 : 250,
     resizeMode: "contain"
   },
   textContainer: {
@@ -42,53 +47,75 @@ export default StyleSheet.create( {
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 22,
-    marginTop: 21
+    marginLeft: 42,
+    marginRight: 42,
+    marginTop: 29,
+    marginBottom: 57
   },
   text: {
-    fontSize: 20,
+    maxWidth: 292,
+    fontSize: height > 570 ? 19 : 16,
     textAlign: "center",
     color: colors.white,
-    lineHeight: 35,
-    fontFamily: fonts.semibold
+    lineHeight: 24,
+    fontFamily: fonts.medium
   },
   buttonContainer: {
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 52
+    marginBottom: height > 670 ? 94 : 34
+  },
+  button: {
+    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
+    justifyContent: "center",
+    borderRadius: 34,
+    width: 293,
+    height: 50,
+    backgroundColor: colors.seekForestGreen
   },
   skip: {
-    fontSize: 19,
+    fontSize: 18,
     textAlign: "center",
     color: colors.white,
-    fontFamily: fonts.light,
+    fontFamily: fonts.semibold,
+    letterSpacing: 1.0
+  },
+  skipText: {
+    marginBottom: 30,
+    fontSize: 16,
+    textAlign: "center",
+    color: colors.white,
+    fontFamily: fonts.book,
     textDecorationLine: "underline"
   },
   contentContainer: {
     width,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 50
+    justifyContent: "flex-end",
+    paddingBottom: 57
   },
   pagination: {
     position: "absolute",
-    bottom: 130,
+    bottom: height > 670 ? 190 : 130,
     left: 0,
     right: 0,
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "flex-end"
+    alignItems: "center"
   },
   dot: {
-    backgroundColor: colors.darkGray,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    backgroundColor: "#393939",
+    width: 6,
+    height: 6,
+    borderRadius: 6 / 2,
     marginHorizontal: 16,
     marginTop: 3,
     marginBottom: 3
   },
   activeDot: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    width: 10,
+    height: 10,
+    borderRadius: 10 / 2
   }
 } );

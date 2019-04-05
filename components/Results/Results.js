@@ -12,7 +12,9 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
 import realmConfig from "../../models";
+import ErrorScreen from "./Error";
 import ConfirmScreen from "./ConfirmScreen";
 import AncestorScreen from "./AncestorScreen";
 import MatchScreen from "./MatchScreen";
@@ -20,9 +22,10 @@ import NoMatchScreen from "./NoMatchScreen";
 import config from "../../config";
 import styles from "../../styles/results/results";
 import {
+  addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  addToCollection
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
@@ -41,10 +44,13 @@ class Results extends Component<Props> {
       image,
       time,
       latitude,
-      longitude
+      longitude,
+      predictions
     } = navigation.state.params;
 
     this.state = {
+      threshold: 0.7,
+      predictions,
       image,
       time,
       latitude,
@@ -58,27 +64,178 @@ class Results extends Component<Props> {
       match: null,
       seenDate: null,
       loading: true,
-      photoConfirmed: false
+      photoConfirmed: false,
+      error: null
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
   }
 
+  async getLocation() {
+    const { latitude, longitude } = this.state;
+    if ( !latitude || !longitude ) {
+      const location = await getLatAndLng();
+      this.setLocation( location );
+    }
+  }
+
+  setLocation( location ) {
+    this.setState( {
+      latitude: Number( location.latitude ),
+      longitude: Number( location.longitude )
+    } );
+  }
+
   setImageUri( uri ) {
-    this.setState( { userImage: uri } );
+    this.setState( { userImage: uri }, () => this.checkOnlineOrOfflineVision() );
   }
 
-  setLoading() {
-    this.setState( { loading: false } );
+  setLoading( loading ) {
+    this.setState( { loading } );
   }
 
-  resizeImage() {
+  setSeenDate( seenDate ) {
+    this.setState( { seenDate } );
+  }
+
+  setMatch( match ) {
+    this.setState( { match } );
+  }
+
+  setError( error ) {
+    this.setLoading( false );
+    this.setState( { error } );
+  }
+
+  setCommonAncestor( ancestor, speciesSeenImage ) {
+    getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+      this.setState( {
+        commonAncestor: commonName || ancestor.name,
+        taxaId: ancestor.taxon_id,
+        speciesSeenImage
+      }, () => this.showNoMatch() );
+    } );
+  }
+
+  setOnlineVisionSpeciesResults( species ) {
+    this.setState( {
+      observation: species,
+      taxaId: species.taxon.id,
+      taxaName: capitalizeNames( species.taxon.preferred_common_name || species.taxon.name ),
+      speciesSeenImage: species.taxon.default_photo.medium_url
+    }, () => this.showMatch() );
+  }
+
+  setOnlineVisionAncestorResults( commonAncestor ) {
+    this.setState( {
+      commonAncestor: commonAncestor
+        ? capitalizeNames( commonAncestor.taxon.preferred_common_name
+        || commonAncestor.taxon.name )
+        : null,
+      speciesSeenImage: commonAncestor.taxon.default_photo.medium_url
+    }, () => this.showNoMatch() );
+  }
+
+  setARCameraVisionResults() {
+    const { predictions, threshold } = this.state;
+    const species = predictions.find( leaf => leaf.rank === 10 );
+
+    if ( species && species.score > threshold ) {
+      this.setState( {
+        taxaId: Number( species.taxon_id )
+      }, () => {
+        this.checkDateSpeciesSeen( Number( species.taxon_id ) );
+        this.fetchAdditionalTaxaInfo();
+      } );
+    } else {
+      this.checkForCommonAncestor();
+    }
+  }
+
+  getParamsForOnlineVision() {
     const {
-      image,
+      userImage,
       time,
       latitude,
       longitude
     } = this.state;
+
+    const params = flattenUploadParameters( userImage, time, latitude, longitude );
+    params.locale = i18n.currentLocale();
+
+    this.fetchScore( params );
+  }
+
+  checkOnlineOrOfflineVision() {
+    const { predictions } = this.state;
+
+    if ( predictions && predictions.length > 0 ) {
+      this.setARCameraVisionResults();
+    } else {
+      this.getParamsForOnlineVision();
+    }
+  }
+
+  async showMatch() {
+    await this.addObservation();
+    this.setMatch( true );
+    this.setLoading( false );
+  }
+
+  showNoMatch() {
+    this.setMatch( false );
+    this.setLoading( false );
+  }
+
+  fetchAdditionalTaxaInfo() {
+    const { taxaId } = this.state;
+
+    inatjs.taxa.fetch( taxaId ).then( ( response ) => {
+      const taxa = response.results[0];
+
+      this.setState( {
+        taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
+        observation: {
+          taxon: {
+            default_photo: taxa.default_photo,
+            id: Number( taxaId ),
+            name: taxa.name,
+            preferred_common_name: taxa.preferred_common_name,
+            iconic_taxon_id: taxa.iconic_taxon_id
+          }
+        },
+        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
+      }, () => this.showMatch() );
+    } ).catch( () => {
+      this.setError( "taxaInfo" );
+    } );
+  }
+
+  fetchAdditionalAncestorInfo( ancestor ) {
+    inatjs.taxa.fetch( ancestor.taxon_id ).then( ( response ) => {
+      const taxa = response.results[0];
+      const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
+      this.setCommonAncestor( ancestor, speciesSeenImage );
+    } ).catch( () => {
+      this.setError( "ancestorInfo" );
+    } );
+  }
+
+  checkForCommonAncestor() {
+    const { predictions, threshold } = this.state;
+    const reversePredictions = predictions.reverse();
+
+    const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
+
+    if ( ancestor && ancestor.rank !== 100 ) {
+      this.fetchAdditionalAncestorInfo( ancestor );
+    } else {
+      this.showNoMatch();
+    }
+  }
+
+  resizeImage() {
+    const { image } = this.state;
 
     ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
       .then( ( { uri } ) => {
@@ -91,10 +248,8 @@ class Results extends Component<Props> {
           userImage = uri;
           this.setImageUri( userImage );
         }
-        const params = flattenUploadParameters( userImage, time, latitude, longitude );
-        this.fetchScore( params );
-      } ).catch( ( err ) => {
-        console.log( err, "couldn't resize image" );
+      } ).catch( () => {
+        this.setError( "image" );
       } );
   }
 
@@ -113,46 +268,31 @@ class Results extends Component<Props> {
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
-        const match = response.results[0];
+        const species = response.results[0];
         const commonAncestor = response.common_ancestor;
-        console.log( match, "match" );
-        this.setState( {
-          observation: match,
-          taxaId: match.taxon.id,
-          taxaName: capitalizeNames( match.taxon.preferred_common_name || match.taxon.name ),
-          speciesSeenImage: match.taxon.default_photo.medium_url,
-          commonAncestor: commonAncestor ? commonAncestor.taxon.name : null
-        }, () => {
-          this.checkForMatch( match.combined_score );
-        } );
-      } )
-      .catch( ( err ) => {
-        console.log( err, "error fetching computer vision results" );
+
+        if ( species.combined_score > 97 ) {
+          this.checkDateSpeciesSeen( species.taxon.id );
+          this.setOnlineVisionSpeciesResults( species );
+        } else if ( commonAncestor ) {
+          this.setOnlineVisionAncestorResults( commonAncestor );
+        } else {
+          this.showNoMatch();
+        }
+      } ).catch( () => {
+        this.setError( "onlineVision" );
       } );
   }
 
-  async checkForMatch( score ) {
+  addObservation() {
     const {
       latitude,
       longitude,
       observation,
-      image,
-      taxaId
+      image
     } = this.state;
 
-    if ( score > 97 ) {
-      this.checkDateSpeciesSeen( taxaId );
-      this.setState( { match: true } );
-      if ( !latitude || !longitude ) {
-        const location = await getLatAndLng();
-        addToCollection( observation, location.latitude, location.longitude, image );
-      } else {
-        addToCollection( observation, latitude, longitude, image );
-      }
-    } else {
-      this.setState( { match: false } );
-    }
-    this.setLoading();
+    addToCollection( observation, latitude, longitude, image );
   }
 
   checkDateSpeciesSeen( taxaId ) {
@@ -160,22 +300,19 @@ class Results extends Component<Props> {
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
-          const observations = realm.objects( "ObservationRealm" );
-          const seenTaxa = observations.filtered( `taxon.id == ${taxaId}` );
+          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          this.setState( {
-            seenDate
-          } );
+          this.setSeenDate( seenDate );
+        } else {
+          this.setSeenDate( null );
         }
-      } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to check date species seen: ", err );
+      } ).catch( () => {
+        this.setSeenDate( null );
       } );
   }
 
   confirmPhoto() {
-    this.setState( {
-      photoConfirmed: true
-    } );
+    this.setState( { photoConfirmed: true } );
   }
 
   render() {
@@ -189,13 +326,22 @@ class Results extends Component<Props> {
       seenDate,
       loading,
       image,
-      photoConfirmed
+      photoConfirmed,
+      error
     } = this.state;
     const { navigation } = this.props;
 
     let resultScreen;
 
-    if ( seenDate ) {
+    if ( error === "onlineVision" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_server" )} navigation={navigation} />;
+    } else if ( error === "image" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_image" )} navigation={navigation} />;
+    } else if ( error === "taxaInfo" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_species" )} navigation={navigation} />;
+    } else if ( error === "ancestorInfo" ) {
+      resultScreen = <ErrorScreen error={i18n.t( "results.error_ancestor" )} navigation={navigation} />;
+    } else if ( seenDate ) {
       resultScreen = (
         <AlreadySeenScreen
           navigation={navigation}
@@ -238,6 +384,7 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.getLocation();
             this.resizeImage();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();

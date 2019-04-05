@@ -1,33 +1,51 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  fontSize,
-  margins,
   padding
 } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1
   },
+  backButton: {
+    top: 28,
+    left: 23
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
+  },
+  image: {
+    padding: 5
+  },
   header: {
-    backgroundColor: colors.seekForestGreen,
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: colors.seekForestGreen
+  },
+  textContainer: {
+    top: 10,
+    alignSelf: "center"
   },
   headerText: {
-    marginTop: 40,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white,
-    fontFamily: fonts.semibold
+    letterSpacing: 1.0,
+    fontFamily: fonts.semibold,
+    marginBottom: 16
   },
-  locationText: {
-    color: colors.white,
-    fontFamily: fonts.playful,
-    fontSize: fontSize.mediumHeader,
-    marginLeft: margins.medium,
-    marginTop: margins.medium
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginHorizontal: 23,
+    marginTop: 15,
+    marginBottom: 15
   },
   mapContainer: {
     flexGrow: 1
@@ -44,21 +62,25 @@ export default StyleSheet.create( {
     justifyContent: "center",
     alignItems: "center"
   },
-  markerCircle: {
-    backgroundColor: colors.blue,
-    borderWidth: 3,
-    borderRadius: 100,
-    borderColor: colors.white,
-    width: 20,
-    height: 20
+  markerPin: {
+    width: 23,
+    height: 33,
+    position: "absolute"
+  },
+  greenCircle: {
+    width: 281,
+    height: 281,
+    backgroundColor: colors.seekGreen,
+    opacity: 0.33,
+    borderRadius: 281 / 2
   },
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"
   },
   locationIcon: {
-    marginRight: margins.medium,
-    marginBottom: margins.large,
+    marginRight: 19,
+    marginBottom: 19,
     backgroundColor: colors.white,
     width: 50,
     height: 50,
@@ -69,22 +91,22 @@ export default StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    height: 86
+    height: height > 670 ? 130 : 86
   },
   button: {
     backgroundColor: colors.seekForestGreen,
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 22,
-    marginBottom: margins.medium,
-    marginTop: margins.medium,
+    marginBottom: 15,
+    marginTop: 15,
     height: 46,
     borderRadius: 40
   },
   buttonText: {
     paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
-    fontSize: fontSize.buttonText,
+    fontSize: 18,
     color: colors.white,
     letterSpacing: 0.7
   },
@@ -94,12 +116,21 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   inputField: {
-    width: "87%",
+    width: "91%",
     backgroundColor: colors.white,
     height: 37,
+    paddingTop: 3,
     borderRadius: 40,
-    paddingLeft: padding.extraLarge,
-    marginTop: margins.medium,
-    marginBottom: margins.medium
+    paddingLeft: 20,
+    fontFamily: fonts.medium,
+    fontSize: 15
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
   }
 } );

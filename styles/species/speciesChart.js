@@ -1,10 +1,18 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   container: {
     height: 150,
     flexDirection: "row"
+  },
+  headerText: {
+    marginTop: 45,
+    marginBottom: 11,
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
   },
   chartRow: {
     flex: 1

@@ -1,11 +1,15 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { width } = Dimensions.get( "window" );
+
 export default StyleSheet.create( {
-  textContainer: {
+  background: {
+    width,
+    height: 223,
     alignItems: "center",
     justifyContent: "center"
   },

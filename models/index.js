@@ -1,18 +1,21 @@
-import ObservationRealm from "./ObservationRealm";
 import BadgeRealm from "./BadgeRealm";
-import TaxonRealm from "./TaxonRealm";
-import PhotoRealm from "./PhotoRealm";
 import ChallengeRealm from "./ChallengeRealm";
+import CommonNamesRealm from "./CommonNamesRealm";
 import NotificationRealm from "./NotificationRealm";
+import ObservationRealm from "./ObservationRealm";
+import PhotoRealm from "./PhotoRealm";
+import TaxonRealm from "./TaxonRealm";
 
 export default {
   schema: [
     BadgeRealm,
-    ObservationRealm,
-    TaxonRealm,
-    PhotoRealm,
     ChallengeRealm,
-    NotificationRealm
+    CommonNamesRealm,
+    NotificationRealm,
+    ObservationRealm,
+    PhotoRealm,
+    TaxonRealm
   ],
+  schemaVersion: 6,
   path: "db.realm"
 };

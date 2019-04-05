@@ -21,26 +21,24 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
-    paddingTop: 20,
-    paddingBottom: 20,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center",
+    height: 55,
+    marginBottom: 30,
     backgroundColor: colors.white
   },
   logo: {
-    marginTop: 30,
-    marginRight: 10
+    alignSelf: "center",
+    width: 175,
+    height: 34,
+    resizeMode: "contain"
   },
   backButton: {
-    marginLeft: 20,
-    marginHorizontal: 10
+    top: 18,
+    left: 23
   },
   iNatLogo: {
     position: "absolute",
-    right: 10,
-    top: 30,
+    top: 5,
+    right: -5,
     height: height > 570 ? 65 : 45,
     width: height > 570 ? 81 : 61,
     resizeMode: "contain"
@@ -49,27 +47,28 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 30,
-    marginBottom: 5
+    marginBottom: 26
   },
   forestGreenText: {
     color: colors.seekForestGreen,
-    fontFamily: fonts.default,
-    fontSize: 16,
-    marginBottom: 20
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginBottom: 7
   },
   missionContainer: {
     alignItems: "flex-start",
     marginTop: 21,
-    marginBottom: 40,
+    marginBottom: 46,
     backgroundColor: colors.white,
-    marginHorizontal: 36
+    marginHorizontal: 27
   },
   missionHeaderText: {
     color: colors.black,
     fontFamily: fonts.semibold,
     fontSize: 19,
     lineHeight: 24,
-    marginTop: 20,
     marginBottom: 10
   },
   missionText: {
@@ -79,8 +78,9 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   italicText: {
+    marginHorizontal: 27,
     textAlign: "center",
-    marginTop: 20,
+    marginTop: 33,
     color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 16,
@@ -101,19 +101,16 @@ export default StyleSheet.create( {
     fontSize: 22,
     color: colors.white
   },
-  mapContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  map: {
+  heatMap: {
     width,
-    height: 227
+    height: 227,
+    resizeMode: "cover",
+    overflow: "hidden"
   },
   image: {
     width,
-    height: 186,
-    resizeMode: "contain"
+    height: 286,
+    resizeMode: "cover"
   },
   caption: {
     marginTop: 20,
@@ -126,6 +123,24 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   photoContainer: {
-    height: 251
+    height: 350
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
+  },
+  leftArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 137,
+    left: 5
+  },
+  rightArrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 137,
+    right: 5
   }
 } );

@@ -5,11 +5,7 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1
-  },
   container: {
-    flex: 1,
     borderRadius: 40,
     backgroundColor: colors.white
   },
@@ -22,23 +18,24 @@ export default StyleSheet.create( {
   },
   image: {
     marginTop: 25,
-    marginBottom: 25,
-    height: 183,
-    width: 183
+    marginBottom: 35,
+    height: 158,
+    width: 140
   },
   headerText: {
-    marginHorizontal: 27,
-    marginTop: 16,
+    marginHorizontal: 24,
+    marginTop: 24,
     textAlign: "center",
-    fontSize: 19,
+    fontSize: 18,
     fontFamily: fonts.semibold,
-    color: "#4a4a4a",
+    color: colors.seekForestGreen,
+    letterSpacing: 1.0,
     lineHeight: 24
   },
   text: {
     textAlign: "center",
-    marginHorizontal: 27,
-    marginTop: 16,
+    marginHorizontal: 24,
+    marginTop: 18,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
@@ -51,12 +48,33 @@ export default StyleSheet.create( {
   },
   logo: {
     height: 70,
-    width: 209
+    width: 209,
+    resizeMode: "contain"
   },
   backButton: {
     padding: 10,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 4
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
+  banner: {
+    zIndex: 1,
+    position: "absolute",
+    bottom: 20,
+    paddingTop: 10,
+    width: 284,
+    height: 48
+  },
+  bannerText: {
+    textAlign: "center",
+    fontSize: 15,
+    fontFamily: fonts.semibold,
+    color: colors.white,
+    letterSpacing: 0.42,
+    lineHeight: 34
   }
 } );

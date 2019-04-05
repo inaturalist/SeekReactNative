@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { colors, fonts, padding } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -9,37 +9,45 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 60,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-around"
+    height: 62
   },
   headerText: {
-    paddingTop: padding.iOSPadding,
+    alignSelf: "center",
     fontSize: 18,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
     letterSpacing: 1.0
   },
   imageContainer: {
-    flexDirection: "column",
+    backgroundColor: colors.black,
+    alignItems: "center",
     justifyContent: "center"
   },
   image: {
     width,
-    height: width
+    height: height / 3 * 2,
+    resizeMode: "contain"
   },
   footer: {
     alignItems: "center",
-    marginTop: 50
+    marginTop: 20
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
+    marginHorizontal: 23,
     backgroundColor: colors.seekForestGreen,
     borderRadius: 24,
-    width: "80%",
+    width: "85%",
+    height: 46
+  },
+  lightButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 23,
+    backgroundColor: "#38976d33",
+    borderRadius: 24,
+    width: "85%",
     height: 46
   },
   buttonText: {
@@ -50,7 +58,15 @@ export default StyleSheet.create( {
     color: colors.white
   },
   backButton: {
-    padding: 10
+    top: 19,
+    left: 23
+  },
+  buttonImage: {
+    padding: 5
+  },
+  loading: {
+    alignItems: "center",
+    justifyContent: "center"
   },
   safeViewTop: {
     flex: 0,

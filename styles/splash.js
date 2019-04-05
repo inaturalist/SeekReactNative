@@ -1,8 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "./global";
 
 const { width } = Dimensions.get( "screen" );
@@ -34,20 +33,21 @@ export default StyleSheet.create( {
   },
   image: {
     width: 202,
-    height: 80
+    height: 80,
+    resizeMode: "contain"
   },
   headerText: {
     marginTop: 20,
     fontFamily: fonts.book,
-    fontSize: fontSize.header,
+    fontSize: 18,
     color: colors.white,
-    letterSpacing: 5
+    letterSpacing: 5.62
   },
   text: {
     fontSize: 17,
     textAlign: "center",
     color: colors.white,
-    fontFamily: fonts.default,
+    fontFamily: fonts.medium,
     marginHorizontal: 35
   },
   logo: {

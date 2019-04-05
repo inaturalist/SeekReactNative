@@ -2,20 +2,20 @@ const notifications = {
   challengeProgress: {
     title: "notifications.almost_finished",
     message: "notifications.view_progress",
-    iconName: "badgePlaceholder",
+    iconName: "badge_empty",
     nextScreen: "ChallengeDetails"
   },
   badgeEarned: {
     title: "notifications.earned_badges",
     message: "notifications.learn_more",
-    iconName: "badgePlaceholder",
+    iconName: "bird",
     nextScreen: "iNatStats"
   },
   challengeCompleted: {
     title: "notifications.challenge_completed",
     message: "notifications.view_challenges",
-    iconName: "badgePlaceholder",
-    nextScreen: "Challenges"
+    iconName: "op",
+    nextScreen: "ChallengeDetails"
   }
 };
 

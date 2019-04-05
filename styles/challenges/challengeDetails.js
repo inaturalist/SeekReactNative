@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize,
-  padding
+  fonts
 } from "../global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -29,30 +29,33 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "transparent"
   },
+  challengeBackground: {
+    height: 405,
+    width
+  },
   header: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: colors.darkGray
+    height: 85
   },
   logo: {
-    marginTop: 30,
-    marginRight: 20
+    alignSelf: "center",
+    height: 58,
+    width: 116,
+    resizeMode: "contain"
   },
   backButton: {
-    padding: 10,
-    marginTop: 20,
-    marginLeft: 20
+    top: 18,
+    marginLeft: 23
+  },
+  image: {
+    padding: 5
   },
   missionContainer: {
     flex: 1
   },
   challengeContainer: {
-    height: 320,
-    alignItems: "center",
+    height: 315,
+    alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: colors.darkGray,
     marginBottom: 10
   },
   descriptionContainer: {
@@ -78,6 +81,13 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     color: colors.white
   },
+  leftRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginLeft: 36,
+    marginTop: 21,
+    marginBottom: 28
+  },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -85,7 +95,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 36,
     marginTop: 21,
-    marginBottom: 21
+    marginBottom: 23
   },
   text: {
     maxWidth: 183,
@@ -93,7 +103,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 16,
     lineHeight: 25,
-    marginLeft: 16
+    marginLeft: 26
   },
   descriptionText: {
     color: colors.black,
@@ -102,6 +112,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   greenButton: {
+    marginLeft: 36,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekGreen,
@@ -112,15 +123,20 @@ export default StyleSheet.create( {
   buttonText: {
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
-    fontSize: fontSize.buttonText,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
+    fontSize: 18,
     color: colors.white
   },
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,
-    fontSize: 18,
-    textDecorationLine: "underline",
-    marginBottom: 50
+    fontSize: 16,
+    textDecorationLine: "underline"
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

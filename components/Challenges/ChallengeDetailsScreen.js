@@ -5,10 +5,11 @@ import {
   View,
   Text,
   Image,
-  // Modal,
+  ImageBackground,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -16,11 +17,14 @@ import Modal from "react-native-modal";
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
+import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import logos from "../../assets/logos";
+import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeModal from "../Badges/ChallengeModal";
+import ChallengeModal from "../AchievementModals/ChallengeModal";
 import Footer from "./ChallengeFooter";
+import Padding from "../Padding";
 import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
@@ -70,11 +74,12 @@ class ChallengeDetailsScreen extends Component<Props> {
         this.setState( {
           challenge: {
             month: challenge.month,
-            name: i18n.t( challenge.name ).toLocaleUpperCase(),
+            name: challenge.name,
             description: i18n.t( challenge.description ),
             earnedIconName: challenge.earnedIconName,
             started: challenge.started,
             percentComplete: challenge.percentComplete,
+            backgroundName: challenge.backgroundName,
             index: challenge.index
           },
           missions,
@@ -156,25 +161,34 @@ class ChallengeDetailsScreen extends Component<Props> {
             />
           </Modal>
           <ScrollView>
-            <View style={styles.header}>
-              <TouchableOpacity
-                style={styles.backButton}
-                onPress={() => navigation.goBack()}
-              >
-                <Image source={icons.backButton} />
-              </TouchableOpacity>
-              <Image style={styles.logo} source={logos.op} />
-              <View />
-            </View>
-            <View style={styles.challengeContainer}>
-              <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
-              <Text style={styles.challengeName}>{challenge.name}</Text>
-              <View style={styles.row}>
-                <Image source={icons.badgePlaceholder} />
-                <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+            <ImageBackground
+              source={backgrounds[challenge.backgroundName]}
+              style={styles.challengeBackground}
+            >
+              <View style={styles.header}>
+                <TouchableOpacity
+                  hitSlop={styles.touchable}
+                  style={styles.backButton}
+                  onPress={() => navigation.goBack()}
+                >
+                  <Image source={icons.backButton} style={styles.image} />
+                </TouchableOpacity>
+                <Image style={styles.logo} source={logos.op} />
               </View>
-              {button}
-            </View>
+              <View style={styles.challengeContainer}>
+                <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
+                <Text style={styles.challengeName}>{i18n.t( challenge.name ).toLocaleUpperCase()}</Text>
+                <View style={styles.leftRow}>
+                  {challenge.percentComplete === 100
+                    ? <Image source={badges[challenge.earnedIconName]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
+                    : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
+                  }
+                  
+                  <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+                </View>
+                {button}
+              </View>
+            </ImageBackground>
             <View style={styles.missionContainer}>
               {challengeStarted ? (
                 <ChallengeMissionCard
@@ -194,6 +208,7 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>
             </View>
+            <Padding />
           </ScrollView>
           <Footer navigation={navigation} />
         </SafeAreaView>

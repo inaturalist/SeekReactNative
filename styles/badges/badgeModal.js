@@ -4,24 +4,14 @@ import {
   fonts
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1
-  },
   container: {
+    height: height > 570 ? 525 : 475,
     alignItems: "center",
-    justifyContent: "center",
     borderRadius: 40,
     backgroundColor: colors.white
-  },
-  header: {
-    backgroundColor: colors.seekTeal,
-    alignItems: "center",
-    justifyContent: "center",
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
   },
   carousel: {
     alignItems: "center",
@@ -37,7 +27,7 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   row: {
-    marginTop: 20,
+    marginTop: 0,
     flexDirection: "row",
     flexWrap: "nowrap",
     marginBottom: 47
@@ -58,27 +48,26 @@ export default StyleSheet.create( {
     letterSpacing: 1.12,
     lineHeight: 24
   },
-  text: {
-    textAlign: "center",
-    marginHorizontal: 27,
-    marginTop: 16,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black
-  },
-  center: {
-    marginTop: 10,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  logo: {
-    height: 70,
-    width: 209
-  },
   backButton: {
     padding: 10,
     alignItems: "center",
     justifyContent: "center"
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
+  nameText: {
+    marginHorizontal: 27,
+    textAlign: "center",
+    fontFamily: fonts.book,
+    fontSize: 16,
+    color: colors.black
+  },
+  arrow: {
+    zIndex: 1,
+    position: "absolute",
+    top: 198,
+    right: 27
   }
 } );

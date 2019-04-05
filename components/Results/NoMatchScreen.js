@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -26,42 +27,45 @@ const MatchScreen = ( {
   navigation
 }: Props ) => (
   <View style={styles.container}>
-    <ScrollView>
-      <LinearGradient
-        colors={["#404040", "#5e5e5e"]}
-        style={styles.header}
-      >
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.buttonContainer}
+    <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
+    <SafeAreaView style={styles.safeView}>
+      <ScrollView>
+        <LinearGradient
+          colors={["#404040", "#5e5e5e"]}
+          style={styles.header}
         >
-          <Image
-            source={icons.backButton}
-            style={styles.backButton}
-          />
-        </TouchableOpacity>
-        <View style={styles.imageContainer}>
-          <Image
-            style={styles.imageCell}
-            source={{ uri: userImage }}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.buttonContainer}
+          >
+            <Image
+              source={icons.backButton}
+              style={styles.backButton}
+            />
+          </TouchableOpacity>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.imageCell}
+              source={{ uri: userImage }}
+            />
+          </View>
+        </LinearGradient>
+        <View style={styles.textContainer}>
+          <Text style={styles.headerText}>{i18n.t( "results.no_identification" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.text}>{i18n.t( "results.sorry" )}</Text>
+          <TouchableOpacity
+            style={[styles.button, styles.buttonGray]}
+            onPress={() => navigation.navigate( "Camera" )}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
         </View>
-      </LinearGradient>
-      <View style={styles.textContainer}>
-        <Text style={styles.headerText}>{i18n.t( "results.no_identification" ).toLocaleUpperCase()}</Text>
-        <Text style={styles.text}>{i18n.t( "results.sorry" )}</Text>
-        <TouchableOpacity
-          style={[styles.button, styles.buttonGray]}
-          onPress={() => navigation.push( "Camera" )}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <Padding />
-    </ScrollView>
-    <Footer navigation={navigation} />
+        <Padding />
+      </ScrollView>
+      <Footer navigation={navigation} />
+    </SafeAreaView>
   </View>
 );
 

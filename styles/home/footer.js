@@ -4,7 +4,8 @@ import { colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    justifyContent: "center"
+    height: 74,
+    justifyContent: "flex-end"
   },
   navbar: {
     backgroundColor: colors.white,
@@ -20,10 +21,16 @@ export default StyleSheet.create( {
     height: Platform.OS === "android" ? 84 : 94
   },
   button: {
-    marginHorizontal: 15,
-    paddingLeft: 5,
-    paddingRight: 5,
-    paddingTop: 5,
-    paddingBottom: 5
+    marginHorizontal: 26,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  touchable: {
+    left: 30,
+    right: 30,
+    top: 21,
+    bottom: 21
   }
 } );

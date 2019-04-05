@@ -1,27 +1,27 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors, fonts } from "./global";
 
 export default StyleSheet.create( {
   container: {
-    height: 88,
+    height: 55,
     backgroundColor: colors.seekForestGreen
   },
   backButton: {
-    top: 48,
+    top: 18,
     left: 23
   },
-  image: {
-    padding: 5
-  },
-  textContainer: {
-    top: 26,
-    alignSelf: "center"
-  },
   text: {
-    fontSize: 22,
-    lineHeight: 30,
+    top: Platform.OS === "android" ? -4 : null,
+    alignSelf: "center",
+    fontSize: 18,
     color: colors.white,
-    fontFamily: fonts.semibold,
-    marginBottom: 5
+    letterSpacing: 1.0,
+    fontFamily: fonts.semibold
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

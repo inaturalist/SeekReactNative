@@ -1,18 +1,31 @@
-import { createStackNavigator, createMaterialTopTabNavigator, createDrawerNavigator } from "react-navigation";
-import { fadeIn, fromLeft } from "react-navigation-transitions";
+import {
+  createStackNavigator,
+  createMaterialTopTabNavigator,
+  createDrawerNavigator,
+  createAppContainer
+} from "react-navigation";
+import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
 import i18n from "../i18n";
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
-import Camera from "./Camera/Camera";
+import ARCamera from "./Camera/ARCamera";
 import Gallery from "./Camera/GalleryScreen";
 import Results from "./Results/Results";
 import SpeciesDetail from "./Species/SpeciesDetail";
+import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
-import BadgesScreen from "./Badges/BadgesScreen";
+import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./Menu/AboutScreen";
 import SideMenu from "./Home/SideMenu";
+import OnboardingScreen from "./Onboarding/OnboardingScreen";
+import NotificationsScreen from "./Notifications/Notifications";
+import ChallengeScreen from "./Challenges/ChallengeScreen";
+import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
+import iNatStatsScreen from "./Menu/iNatStats";
+import CameraHelpScreen from "./Camera/CameraHelpScreen";
+// import Camera from "./Camera/Camera";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 // import iNatLoginScreen from "./Login/iNatLoginScreen";
@@ -24,28 +37,21 @@ import SideMenu from "./Home/SideMenu";
 // import SignUpScreen2 from "./Login/SignUpScreen-2";
 // import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
 // import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
-import OnboardingScreen from "./Onboarding/OnboardingScreen";
-import NotificationsScreen from "./Notifications/Notifications";
-import ChallengeScreen from "./Challenges/ChallengeScreen";
-import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
-import iNatStatsScreen from "./Menu/iNatStats";
-import CameraHelpScreen from "./Camera/CameraHelpScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
-  const prevScene = scenes[scenes.length - 2];
   const nextScene = scenes[scenes.length - 1];
-  // Custom transitions go there
-  if ( prevScene
-    && prevScene.route.routeName === "Home"
-    && nextScene.route.routeName === "Main" ) {
-    return fadeIn( 2000 );
-  }
-  return fromLeft();
+
+  if ( nextScene.route.routeName === "Notifications" ) {
+    return fromRight();
+  } else if ( nextScene.route.routeName === "Camera" ) {
+    return fromBottom( 100 );
+  };
+  return fadeIn();
 };
 
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
-    screen: Camera,
+    screen: ARCamera,
     navigationOptions: () => ( {
       title: i18n.t( "camera.label" ).toLocaleUpperCase()
     } )
@@ -68,12 +74,13 @@ const CameraNav = createMaterialTopTabNavigator( {
 } );
 
 const StackNavigatorConfig = {
-  headerMode: "screen",
-  transitionConfig: nav => handleCustomTransition( nav )
+  headerMode: "none",
+  transitionConfig: () => fadeIn()
 };
 
 const DrawerNavigatorConfig = {
-  contentComponent: SideMenu
+  contentComponent: SideMenu,
+  headerMode: "none"
 };
 
 const MainStack = createStackNavigator( {
@@ -132,6 +139,12 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   },
+  RangeMap: {
+    screen: RangeMap,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
   MyObservations: {
     screen: MyObservations,
     navigationOptions: () => ( {
@@ -139,7 +152,7 @@ const MainStack = createStackNavigator( {
     } )
   },
   Badges: {
-    screen: BadgesScreen,
+    screen: AchievementsScreen,
     navigationOptions: () => ( {
       header: null
     } )
@@ -150,6 +163,8 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   }
+}, {
+  transitionConfig: nav => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {
@@ -241,29 +256,19 @@ const MenuDrawerNav = createDrawerNavigator( {
 
 const RootStack = createStackNavigator( {
   Home: {
-    screen: SplashScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: SplashScreen
   },
   Onboarding: {
-    screen: OnboardingScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: OnboardingScreen
   },
   // Login: {
-  //   screen: LoginStack,
-  //   navigationOptions: () => ( {
-  //     header: null
-  //   } )
+  //   screen: LoginStack
   // },
   Main: {
-    screen: MenuDrawerNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: MenuDrawerNav
   }
 }, StackNavigatorConfig );
 
-export default RootStack;
+const App = createAppContainer( RootStack );
+
+export default App;

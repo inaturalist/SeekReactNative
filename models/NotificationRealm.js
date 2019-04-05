@@ -8,7 +8,8 @@ NotificationRealm.schema = {
     iconName: "string?",
     nextScreen: { type: "string", default: "" },
     challengeIndex: { type: "int?", default: 0 },
-    index: { type: "int", default: 0 }
+    index: { type: "int", default: 0 },
+    seen: { type: "bool", default: false }
   }
 };
 

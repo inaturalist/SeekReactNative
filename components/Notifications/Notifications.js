@@ -3,7 +3,9 @@
 import React, { Component } from "react";
 import {
   FlatList,
-  View
+  View,
+  SafeAreaView,
+  Text
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -14,6 +16,7 @@ import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import Footer from "../Home/Footer";
 import GreenHeader from "../GreenHeader";
+import { updateNotifications } from "../../utility/notificationHelpers";
 
 type Props = {
   navigation: any
@@ -32,8 +35,10 @@ class NotificationsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
-        this.setState( { notifications } );
-      } ).catch( ( err ) => {
+        this.setState( {
+          notifications
+        } );
+      } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
@@ -44,19 +49,36 @@ class NotificationsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => this.fetchNotifications()}
-        />
-        <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
-        <FlatList
-          data={notifications}
-          style={styles.notificationsContainer}
-          keyExtractor={( item, i ) => `${item}${i}`}
-          renderItem={( { item } ) => (
-            <NotificationCard item={item} navigation={navigation} />
-          )}
-        />
-        <Footer navigation={navigation} />
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => this.fetchNotifications()}
+            onWillBlur={() => updateNotifications()}
+          />
+          <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
+          <View style={{ marginTop: 15 }} />
+          {notifications.length > 0
+            ? (
+              <FlatList
+                data={notifications}
+                style={styles.notificationsContainer}
+                keyExtractor={( item, i ) => `${item}${i}`}
+                renderItem={( { item } ) => (
+                  <NotificationCard item={item} navigation={navigation} />
+                )}
+              />
+            ) : (
+              <View style={styles.noNotifications}>
+                <Text style={styles.noNotificationsHeader}>
+                  {i18n.t( "notifications.none" ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.noNotificationsText}>
+                  {i18n.t( "notifications.about" )}
+                </Text>
+              </View>
+            )}
+          <Footer navigation={navigation} />
+        </SafeAreaView>
       </View>
     );
   }

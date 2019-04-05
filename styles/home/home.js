@@ -13,5 +13,13 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  iosSpacer: {
+    backgroundColor: colors.seekForestGreen,
+    height: 1000,
+    position: "absolute",
+    top: -1000,
+    left: 0,
+    right: 0
   }
 } );

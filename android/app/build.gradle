@@ -116,8 +116,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 9
-        versionName "2.0.0"
+        versionCode 20
+        versionName "2.0.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -162,20 +162,31 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-inat-camera')
+    implementation project(':react-native-fs')
     implementation project(':react-native-open-settings')
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-languages')
     implementation project(':react-native-gesture-handler')
-    implementation project(':react-native-vector-icons')
     implementation project(':realm')
     implementation project(':react-native-svg')
-    implementation project(':react-native-maps')
+    implementation ( project(':react-native-maps') ) {
+      exclude group: 'com.google.android.gms', module: 'play-services-base'
+      exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
     implementation project(':react-native-image-resizer')
     implementation project(':react-native-geocoder')
-    implementation project(':react-native-camera')
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation("com.android.support:appcompat-v7:28.0.0")
+    implementation("com.android.support:support-v4:28.0.0")
+    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    compile ("com.google.android.gms:play-services-base:10.2.1") {
+      force = true;
+    }
+    compile ("com.google.android.gms:play-services-maps:10.2.1") {
+      force = true;
+    }
 }
 
 // Run this once to be able to run the application with BUCK

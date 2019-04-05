@@ -5,13 +5,18 @@ import {
   ScrollView,
   Text,
   View,
-  FlatList
+  FlatList,
+  SafeAreaView,
+  StatusBar,
+  Image
 } from "react-native";
 
 import styles from "../../styles/camera/help";
 import i18n from "../../i18n";
 import Footer from "../Challenges/ChallengeFooter";
 import GreenHeader from "../GreenHeader";
+import icons from "../../assets/icons";
+import Padding from "../Padding";
 
 type Props = {
   navigation: any
@@ -27,32 +32,44 @@ const CameraHelpScreen = ( { navigation }: Props ) => {
 
   return (
     <View style={styles.container}>
-      <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
-      <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>{i18n.t( "camera_help.explanation" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</Text>
-          <Text style={styles.text}>{i18n.t( "camera_help.how_works" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
-          <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
-          <FlatList
-            data={tips}
-            scrollEnabled={false}
-            keyExtractor={( item, index ) => `${item}${index}`}
-            renderItem={( { item } ) => (
-              <View style={styles.tips}>
-                <Text style={styles.bullets}>&#8226;</Text>
-                <Text style={styles.text}>{item}</Text>
+      <SafeAreaView style={styles.safeViewTop} />
+      <SafeAreaView style={styles.safeView}>
+        <StatusBar barStyle="light-content" />
+        <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
+        <ScrollView>
+          <Image style={styles.topImage} source={icons.cameraHelpTop} />
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>{i18n.t( "camera_help.explanation_1" )}</Text>
+            <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>
+            <Text style={styles.text}>{i18n.t( "camera_help.explanation_2" )}</Text>
+            <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</Text>
+            <View style={styles.row}>
+              <View style={styles.howText}>
+                <Text style={styles.text}>{i18n.t( "camera_help.how_works" )}</Text>
               </View>
-            )}
-          />
-        </View>
-      </ScrollView>
-      <Footer navigation={navigation} />
+              <Image source={icons.cameraHelpTree} />
+            </View>
+            <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
+            <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
+            <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
+            <FlatList
+              data={tips}
+              scrollEnabled={false}
+              keyExtractor={( item, index ) => `${item}${index}`}
+              renderItem={( { item } ) => (
+                <View style={styles.tips}>
+                  <Text style={styles.bullets}>&#8226;</Text>
+                  <View style={styles.tipContainer}>
+                    <Text style={styles.text}>{item}</Text>
+                  </View>
+                </View>
+              )}
+            />
+          </View>
+          <Padding />
+        </ScrollView>
+        <Footer navigation={navigation} />
+      </SafeAreaView>
     </View>
   );
 };

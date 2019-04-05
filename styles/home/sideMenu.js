@@ -1,39 +1,45 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
-import { colors, fonts } from "../global";
+import { colors, fonts, padding } from "../global";
+
+const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    justifyContent: "flex-start"
+    flexDirection: "column",
+    justifyContent: "space-between"
   },
   logo: {
-    marginHorizontal: 34,
-    width: 223,
+    alignSelf: "center",
+    marginTop: 25,
+    width: ( width / 2 ) * 1.5,
     height: 79,
     resizeMode: "contain"
   },
   textContainer: {
-    alignItems: "flex-start",
-    justifyContent: "space-around"
+    marginBottom: ( height / 11 ) * 1.5,
+    alignItems: "flex-start"
   },
   image: {
-    marginLeft: 34,
+    marginLeft: 26,
     marginRight: 23,
     width: 25,
     height: 25,
     resizeMode: "contain"
   },
   row: {
-    marginBottom: 18,
-    marginTop: 18,
+    height: height / 11,
+    // height: ( width > 350 ) ? 75 : 45,
+    width: 300,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap"
   },
   text: {
+    paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,

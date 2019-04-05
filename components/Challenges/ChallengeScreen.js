@@ -16,10 +16,10 @@ import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challenges";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
-import CardPadding from "../Home/CardPadding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 
@@ -52,7 +52,7 @@ class ChallengeScreen extends Component<Props> {
           challengesNotStarted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
+            iconName: badges.badge_empty,
             started: challenge.started,
             index: challenge.index
           } );
@@ -62,7 +62,7 @@ class ChallengeScreen extends Component<Props> {
           challengesStarted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
+            iconName: badges[challenge.earnedIconName],
             started: challenge.started,
             totalSpecies: challenge.totalSpecies,
             percentComplete: challenge.percentComplete,
@@ -71,10 +71,10 @@ class ChallengeScreen extends Component<Props> {
         } );
 
         completed.forEach( ( challenge ) => {
-          challengesStarted.push( {
+          challengesCompleted.push( {
             name: i18n.t( challenge.name ),
             month: i18n.t( challenge.month ),
-            iconName: icons.badgePlaceholder,
+            iconName: badges[challenge.earnedIconName],
             started: challenge.started,
             totalSpecies: challenge.totalSpecies,
             percentComplete: challenge.percentComplete,
@@ -104,16 +104,19 @@ class ChallengeScreen extends Component<Props> {
           </Text>
         </View>
         {challengesStarted.length > 0 ? (
-          <FlatList
-            data={challengesStarted}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <ChallengeProgressCard
-                item={item}
-                navigation={navigation}
-              />
-            )}
-          />
+          <View>
+            <FlatList
+              data={challengesStarted}
+              keyExtractor={( item, i ) => `${item}${i}`}
+              renderItem={( { item } ) => (
+                <ChallengeProgressCard
+                  item={item}
+                  navigation={navigation}
+                />
+              )}
+            />
+            <View style={{ marginTop: 23 }} />
+          </View>
         ) : (
           <View style={styles.noChallengeContainer}>
             <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_challenges_in_progress" )}</Text>
@@ -135,17 +138,20 @@ class ChallengeScreen extends Component<Props> {
           </Text>
         </View>
         {challengesNotStarted.length > 0 ? (
-          <FlatList
-            data={challengesNotStarted}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <ChallengeProgressCard
-                item={item}
-                navigation={navigation}
-                fetchChallenges={this.fetchChallenges}
-              />
-            )}
-          />
+          <View>
+            <FlatList
+              data={challengesNotStarted}
+              keyExtractor={( item, i ) => `${item}${i}`}
+              renderItem={( { item } ) => (
+                <ChallengeProgressCard
+                  item={item}
+                  navigation={navigation}
+                  fetchChallenges={this.fetchChallenges}
+                />
+              )}
+            />
+            <View style={{ marginTop: 23 }} />
+          </View>
         ) : (
           <View style={styles.noChallengeContainer}>
             <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_new_challenges_header" )}</Text>
@@ -206,7 +212,8 @@ class ChallengeScreen extends Component<Props> {
               }}
             />
             {noChallenges ? (
-              <View style={styles.noChallengeContainer}>
+              <View style={[styles.noChallengeContainer, { height: 170 }]}>
+                {/* <View style={{ marginTop: 39 }} /> */}
                 <View style={styles.noChallengeRow}>
                   <Image source={icons.completed} />
                   <View style={styles.noChallengeTextContainer}>
@@ -217,9 +224,9 @@ class ChallengeScreen extends Component<Props> {
               </View>
             ) : null}
             {noChallenges ? null : this.renderChallengesStarted()}
-            {noChallenges ? null : <CardPadding />}
+            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {noChallenges ? null : this.renderChallengesNotStarted()}
-            {noChallenges ? null : <CardPadding />}
+            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {this.renderChallengesCompleted()}
             <Padding />
           </ScrollView>

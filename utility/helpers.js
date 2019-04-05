@@ -1,19 +1,51 @@
+import i18n from "../i18n";
+
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage } = require( "react-native" );
-const inatjs = require( "inaturalistjs" );
+const { AsyncStorage, Platform } = require( "react-native" );
+const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
-const { recalculateBadges } = require( "./badgeHelpers" );
-const { recalculateChallenges } = require( "./challengeHelpers" );
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
     .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );
   return titleCaseName;
+};
+
+const addARCameraFiles = () => {
+  if ( Platform.OS === "android" ) {
+    RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+      .then( ( result ) => {
+        // console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        // console.log( error, "err in AR camera files" );
+      } );
+
+    RNFS.copyFileAssets( "camera/taxonomy.csv", `${RNFS.DocumentDirectoryPath}/taxonomy.csv` )
+      .then( ( result ) => {
+        // console.log( result, "taxonomy in AR camera files" );
+      } ).catch( ( error ) => {
+        // console.log( error, "err in AR camera files" );
+      } );
+  } else if ( Platform.OS === "ios" ) {
+    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+      .then( ( result ) => {
+        // console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        // Alert.alert( error, "err in AR camera files" );
+      } );
+
+    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
+      .then( ( result ) => {
+        // console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        // console.log( error, "err in AR camera files" );
+      } );
+  }
 };
 
 const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
@@ -44,7 +76,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         }
         const taxon = realm.create( "TaxonRealm", {
           id: observation.taxon.id,
-          name: capitalizeNames( observation.taxon.name ),
+          name: observation.taxon.name,
           preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
           iconicTaxonId: observation.taxon.iconic_taxon_id,
           defaultPhoto
@@ -58,11 +90,20 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );
-      // recalculateBadges();
-      // recalculateChallenges();
     } ).catch( ( e ) => {
-      console.log( "Error adding photos to collection: ", e );
+      // Alert.alert( "Error adding photos to collection: ", JSON.stringify( e ) );
     } );
+};
+
+const shuffleList = ( list ) => {
+  const newList = list;
+
+  for ( let i = list.length - 1; i > 0; i -= 1 ) {
+    const j = Math.floor( Math.random() * ( i + 1 ) );
+    [newList[i], newList[j]] = [list[j], list[i]];
+  }
+
+  return newList;
 };
 
 const HAS_LAUNCHED = "has_launched";
@@ -103,54 +144,29 @@ const checkIfCardShown = async () => {
   }
 };
 
-const setTotalObservations = ( total ) => {
-  AsyncStorage.setItem( "total_observations", total );
-};
-
-const setTotalObservers = ( total ) => {
-  AsyncStorage.setItem( "total_observers", total );
-};
-
-const fetchTotalObservations = () => {
-  inatjs.observations.fetch().then( ( response ) => {
-    setTotalObservations( response.total_results.toString() );
-  } ).catch( ( error ) => {
-    // console.log( "can't set observations:", error );
-  } );
-};
-
-const fetchTotalObservers = () => {
-  inatjs.observations.observers().then( ( response ) => {
-    setTotalObservers( response.total_results.toString() );
-  } ).catch( ( error ) => {
-    // console.log( "can't set observers:", error );
-  } );
-};
-
-const getObservationData = async () => {
-  try {
-    const observations = await AsyncStorage.getItem( "total_observations" );
-    const observers = await AsyncStorage.getItem( "total_observers" );
-    return {
-      observations: Number( observations ),
-      observers: Number( observers )
-    };
-  } catch ( error ) {
-    return ( error );
-  }
-};
-
-const fetchObservationData = () => {
-  fetchTotalObservations();
-  fetchTotalObservers();
-};
+const getTaxonCommonName = taxonID => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
+        // look up common names for predicted taxon in the current locale
+        const commonNames = realm.objects( "CommonNamesRealm" )
+          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
+        resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
+        resolve( );
+      } );
+  } )
+);
 
 export {
+  addARCameraFiles,
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
+  getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
-  fetchObservationData,
-  getObservationData
+  shuffleList
 };

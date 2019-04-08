@@ -25,7 +25,6 @@ import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
-// import Camera from "./Camera/Camera";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 // import iNatLoginScreen from "./Login/iNatLoginScreen";
@@ -96,18 +95,6 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   },
-  // Challenges: {
-  //   screen: ChallengeScreen,
-  //   navigationOptions: () => ( {
-  //     header: null
-  //   } )
-  // },
-  // ChallengeDetails: {
-  //   screen: ChallengeDetailsScreen,
-  //   navigationOptions: () => ( {
-  //     header: null
-  //   } )
-  // },
   Camera: {
     screen: CameraNav,
     navigationOptions: () => ( {

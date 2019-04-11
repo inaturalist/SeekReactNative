@@ -15,6 +15,7 @@ import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
+import logos from "../../assets/logos";
 
 type Props = {
   taxa: Array,

@@ -245,6 +245,9 @@ class SpeciesDetail extends Component<Props> {
     inatjs.identifications.similar_species( params ).then( ( response ) => {
       const shortenedList = response.results.slice( 0, 20 );
       const taxa = shortenedList.map( r => r.taxon );
+      console.log( taxa.length, "taxa all" );
+      taxa.filter( item => item.default_photo.medium_url !== null );
+      console.log( taxa.length, "taxa with photos" );
       this.setState( {
         similarSpecies: taxa,
         loadingSpecies: false
@@ -265,8 +268,8 @@ class SpeciesDetail extends Component<Props> {
       taxon_id: id
     };
 
-    inatjs.observations.search( params ).then( ( response ) => {
-      const { taxon } = response.results[0];
+    inatjs.observations.search( params ).then( ( { results } ) => {
+      const { taxon } = results[0];
       if ( taxon ) {
         const stats = {
           threatened: taxon.threatened,

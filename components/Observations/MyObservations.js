@@ -39,29 +39,33 @@ class MyObservations extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = [];
-        
+
         const species = realm.objects( "ObservationRealm" );
         const taxaIdList = Object.keys( taxaIds );
 
+        let speciesSeen = [];
+
         taxaIdList.forEach( ( id ) => {
-          const speciesSeen = realm.objects( "ObservationRealm" ).filtered( `taxon.iconicTaxonId == ${id}` );
+          const filtered = species.filtered( `taxon.iconicTaxonId == ${id}` );
+
+          filtered.forEach( ( taxon ) => {
+            const { defaultPhoto, preferredCommonName } = taxon.taxon;
+            const { mediumUrl, squareUrl } = defaultPhoto;
+
+            if ( defaultPhoto !== null && preferredCommonName !== null ) {
+              if ( mediumUrl !== null && squareUrl !== null ) {
+                speciesSeen.push( taxon );
+              }
+            }
+          } );
 
           observations.push( {
             id,
             speciesSeen
           } );
+
+          speciesSeen = [];
         } );
-
-        // species.forEach( ( speciesSeen ) => {
-        //   const { iconicTaxonId } = speciesSeen.taxon;
-        //   if ( !taxaIdList.includes( iconicTaxonId ) ) {
-        //     observations.id[1].push( {
-        //       speciesSeen
-        //     } );
-        //   }
-        // } );
-
-        // console.log( observations, "obs" );
 
         observations.sort( ( a, b ) => {
           if ( a.speciesSeen.length > b.speciesSeen.length ) {
@@ -71,7 +75,7 @@ class MyObservations extends Component<Props> {
         } );
 
         this.setState( {
-          observations: species.length > 0 ? observations : species,
+          observations: species.length > 0 ? observations : [],
           loading: false
         } );
       } )

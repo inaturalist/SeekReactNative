@@ -25,7 +25,6 @@ import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
-// import Camera from "./Camera/Camera";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 // import iNatLoginScreen from "./Login/iNatLoginScreen";
@@ -96,24 +95,6 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   },
-  Challenges: {
-    screen: ChallengeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  ChallengeDetails: {
-    screen: ChallengeDetailsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
-  iNatStats: {
-    screen: iNatStatsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
-  },
   Camera: {
     screen: CameraNav,
     navigationOptions: () => ( {
@@ -144,9 +125,32 @@ const MainStack = createStackNavigator( {
     navigationOptions: () => ( {
       header: null
     } )
+  }
+}, {
+  transitionConfig: nav => handleCustomTransition( nav )
+} );
+
+const MenuDrawerNav = createDrawerNavigator( {
+  Main: {
+    screen: MainStack,
+    navigationOptions: () => ( {
+      header: null
+    } )
   },
-  MyObservations: {
-    screen: MyObservations,
+  iNatStats: {
+    screen: iNatStatsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Challenges: {
+    screen: ChallengeScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  ChallengeDetails: {
+    screen: ChallengeDetailsScreen,
     navigationOptions: () => ( {
       header: null
     } )
@@ -157,19 +161,14 @@ const MainStack = createStackNavigator( {
       header: null
     } )
   },
-  About: {
-    screen: AboutScreen,
+  MyObservations: {
+    screen: MyObservations,
     navigationOptions: () => ( {
       header: null
     } )
-  }
-}, {
-  transitionConfig: nav => handleCustomTransition( nav )
-} );
-
-const MenuDrawerNav = createDrawerNavigator( {
-  Main: {
-    screen: MainStack,
+  },
+  About: {
+    screen: AboutScreen,
     navigationOptions: () => ( {
       header: null
     } )

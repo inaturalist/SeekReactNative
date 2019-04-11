@@ -1,7 +1,12 @@
 const Geocoder = require( "react-native-geocoder" );
 const { AsyncStorage } = require( "react-native" );
 
-const truncateCoordinates = coordinate => Number( coordinate.toFixed( 2 ) );
+const truncateCoordinates = ( coordinate ) => {
+  if ( !coordinate ) {
+    return null;
+  }
+  return Number( coordinate.toFixed( 2 ) );
+};
 
 const reverseGeocodeLocation = ( latitude, longitude ) => {
   Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )

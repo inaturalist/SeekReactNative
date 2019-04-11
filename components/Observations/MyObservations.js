@@ -20,6 +20,7 @@ import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
+// import { createFakeObservations } from "../../utility/test";
 
 type Props = {
   navigation: any
@@ -36,18 +37,26 @@ class MyObservations extends Component<Props> {
   }
 
   fetchObservations() {
+    // createFakeObservations();
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = [];
-        
+
         const species = realm.objects( "ObservationRealm" );
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {
-          const speciesSeen = realm.objects( "ObservationRealm" )
-            .filtered( `taxon.iconicTaxonId == ${id}` )
-            .sorted( "taxon.preferredCommonName != null AND taxon.defaultPhoto.squareUrl != null AND taxon.defaultPhoto.mediumUrl != null AND taxon.defaultPhoto != null" );
-          console.log( speciesSeen, "species seen" );
+          const speciesSeen = [];
+          species.filtered( `taxon.iconicTaxonId == ${id} AND taxon.preferredCommonName != null` );
+
+          species.forEach( ( taxon ) => {
+            const { defaultPhoto } = taxon.taxon;
+            const { mediumUrl, squareUrl } = defaultPhoto;
+
+            if ( defaultPhoto && mediumUrl !== null && squareUrl !== null ) {
+              speciesSeen.push( taxon );
+            }
+          } );
 
           observations.push( {
             id,

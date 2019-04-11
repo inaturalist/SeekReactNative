@@ -75,17 +75,10 @@ const SpeciesNearby = ( {
                 scientificName: item.name
               } ) }
             >
-              { item.default_photo ? (
-                <Image
-                  style={styles.cellImage}
-                  source={{ uri: item.default_photo.medium_url }}
-                />
-              ) : (
-                <Image
-                  style={styles.cellImage}
-                  source={logos.bird}
-                />
-              )}
+              <Image
+                style={styles.cellImage}
+                source={{ uri: item.default_photo.medium_url }}
+              />
               <View style={styles.cellTitle}>
                 <Text numberOfLines={3} style={styles.cellTitleText}>
                   {capitalizeNames( item.preferred_common_name || item.name )}

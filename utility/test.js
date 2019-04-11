@@ -26,6 +26,25 @@ const createFakeObservations = () => {
   }
 };
 
+const createFakePhotos = () => {
+  const taxa = [];
+
+  for ( let i = 0; i < 5; i += 1 ) {
+    const taxon = {
+      name: "Claytonia perfoliata",
+      id: 52994,
+      default_photo: {
+        medium_url: null
+        // medium_url: "https://static.inaturalist.org/photos/12032138/medium.jpg?1545702747",
+      },
+      preferred_common_name: "miner\"s lettuce"
+    };
+    taxa.push( taxon );
+  }
+  return taxa;
+};
+
 export {
-  createFakeObservations
+  createFakeObservations,
+  createFakePhotos
 };

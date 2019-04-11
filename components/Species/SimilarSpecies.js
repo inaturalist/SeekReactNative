@@ -12,7 +12,6 @@ import { fonts, colors } from "../../styles/global";
 import styles from "../../styles/home/speciesNearby";
 import { capitalizeNames } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";
-import logos from "../../assets/logos";
 
 type Props = {
   taxa: Array,
@@ -49,17 +48,10 @@ const SimilarSpecies = ( {
                 scientificName: item.name
               } ) }
             >
-              { item.default_photo ? (
-                <Image
-                  style={styles.cellImage}
-                  source={{ uri: item.default_photo.medium_url }}
-                />
-              ) : (
-                <Image
-                  style={styles.cellImage}
-                  source={logos.bird}
-                />
-              )}
+              <Image
+                style={styles.cellImage}
+                source={{ uri: item.default_photo.medium_url }}
+              />
               <View style={styles.cellTitle}>
                 <Text numberOfLines={3} style={styles.cellTitleText}>
                   {capitalizeNames( item.preferred_common_name || item.name )}

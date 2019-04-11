@@ -10,7 +10,8 @@ import {
   Platform,
   NativeModules,
   CameraRoll,
-  Alert
+  Alert,
+  BackHandler
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
@@ -43,6 +44,7 @@ class ARCamera extends Component<Props> {
       focusedScreen: false,
       commonName: null
     };
+    this.backHandler = null;
   }
 
   setCommonName( commonName ) {
@@ -236,6 +238,29 @@ class ARCamera extends Component<Props> {
     } );
   }
 
+
+  async closeCamera() {
+    if ( Platform.OS === "android" ) {
+      if ( this.camera ) {
+        await this.camera.stopCamera();
+      }
+    }
+
+    this.props.navigation.navigate( "Main" );
+  }
+
+  componentDidMount() {
+    if ( Platform.OS === "android" ) {
+      this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => { this.closeCamera(); return true; });
+    }
+  }
+
+  componentWillUnmount() {
+    if ( Platform.OS === "android" ) {
+      this.backHandler.remove();
+    }
+  }
+
   render() {
     const {
       ranks,
@@ -292,7 +317,7 @@ class ARCamera extends Component<Props> {
         <TouchableOpacity
           style={styles.backButton}
           hitSlop={styles.touchable}
-          onPress={() => navigation.navigate( "Main" )}
+          onPress={() => this.closeCamera() }
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>

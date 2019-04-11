@@ -77,7 +77,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         const taxon = realm.create( "TaxonRealm", {
           id: observation.taxon.id,
           name: observation.taxon.name,
-          preferredCommonName: capitalizeNames( observation.taxon.preferred_common_name ),
+          preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
           iconicTaxonId: observation.taxon.iconic_taxon_id,
           defaultPhoto
         } );
@@ -91,7 +91,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         } );
       } );
     } ).catch( ( e ) => {
-      // Alert.alert( "Error adding photos to collection: ", JSON.stringify( e ) );
+      console.log( e, "error adding to collection" );
     } );
 };
 

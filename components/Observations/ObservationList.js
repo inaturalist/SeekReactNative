@@ -2,10 +2,10 @@
 
 import React from "react";
 import {
+  SectionList,
   FlatList,
   Text,
-  View,
-  Alert
+  View
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -28,6 +28,7 @@ const ObservationList = ( { observations, id, navigation }: Props ) => (
       <FlatList
         data={observations}
         keyExtractor={item => `${item.taxon.name}-${item.taxon.id}`.toString()}
+        initialNumToRender={7}
         renderItem={( { item } ) => (
           <ObservationCard item={item} navigation={navigation} />
         ) }

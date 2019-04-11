@@ -9,7 +9,6 @@ import {
 } from "react-native";
 
 import styles from "../../styles/menu/observations";
-import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any,
@@ -31,14 +30,14 @@ const ObservationCard = ( { navigation, item }: Props ) => {
       style={styles.card}
       onPress={ () => navigation.navigate( "Species", {
         id: item.taxon.id,
-        commonName: capitalizeNames( item.taxon.preferredCommonName ),
+        commonName: item.taxon.preferredCommonName,
         scientificName: item.taxon.name
       } )}
     >
       <Image style={styles.image} source={{ uri: photoUri }} />
       <View style={styles.speciesNameContainer}>
         <Text style={styles.commonNameText}>
-          {capitalizeNames( item.taxon.preferredCommonName )}
+          {item.taxon.preferredCommonName}
         </Text>
         <Text style={styles.scientificNameText}>{item.taxon.name}</Text>
       </View>

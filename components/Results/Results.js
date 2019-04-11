@@ -118,21 +118,26 @@ class Results extends Component<Props> {
   }
 
   setOnlineVisionSpeciesResults( species ) {
+    const { taxon } = species;
+    const photo = taxon.default_photo;
+
     this.setState( {
       observation: species,
-      taxaId: species.taxon.id,
-      taxaName: capitalizeNames( species.taxon.preferred_common_name || species.taxon.name ),
-      speciesSeenImage: species.taxon.default_photo.medium_url
+      taxaId: taxon.id,
+      taxaName: capitalizeNames( taxon.preferred_common_name || taxon.name ),
+      speciesSeenImage: photo ? photo.medium_url : null
     }, () => this.showMatch() );
   }
 
   setOnlineVisionAncestorResults( commonAncestor ) {
+    const { taxon } = commonAncestor;
+    const photo = taxon.default_photo;
+
     this.setState( {
       commonAncestor: commonAncestor
-        ? capitalizeNames( commonAncestor.taxon.preferred_common_name
-        || commonAncestor.taxon.name )
+        ? capitalizeNames( taxon.preferred_common_name || taxon.name )
         : null,
-      speciesSeenImage: commonAncestor.taxon.default_photo.medium_url
+      speciesSeenImage: photo ? photo.medium_url : null
     }, () => this.showNoMatch() );
   }
 

@@ -15,6 +15,7 @@ import TaxonPicker from "./TaxonPicker";
 import { capitalizeNames } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
+import logos from "../../assets/logos";
 
 type Props = {
   taxa: Array,
@@ -74,10 +75,17 @@ const SpeciesNearby = ( {
                 scientificName: item.name
               } ) }
             >
-              <Image
-                style={styles.cellImage}
-                source={{ uri: item.default_photo.medium_url }}
-              />
+              { item.default_photo ? (
+                <Image
+                  style={styles.cellImage}
+                  source={{ uri: item.default_photo.medium_url }}
+                />
+              ) : (
+                <Image
+                  style={styles.cellImage}
+                  source={logos.bird}
+                />
+              )}
               <View style={styles.cellTitle}>
                 <Text numberOfLines={3} style={styles.cellTitleText}>
                   {capitalizeNames( item.preferred_common_name || item.name )}

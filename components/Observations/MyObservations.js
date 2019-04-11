@@ -44,24 +44,16 @@ class MyObservations extends Component<Props> {
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {
-          const speciesSeen = realm.objects( "ObservationRealm" ).filtered( `taxon.iconicTaxonId == ${id}` );
+          const speciesSeen = realm.objects( "ObservationRealm" )
+            .filtered( `taxon.iconicTaxonId == ${id}` )
+            .sorted( "taxon.preferredCommonName != null AND taxon.defaultPhoto.squareUrl != null AND taxon.defaultPhoto.mediumUrl != null AND taxon.defaultPhoto != null" );
+          console.log( speciesSeen, "species seen" );
 
           observations.push( {
             id,
             speciesSeen
           } );
         } );
-
-        // species.forEach( ( speciesSeen ) => {
-        //   const { iconicTaxonId } = speciesSeen.taxon;
-        //   if ( !taxaIdList.includes( iconicTaxonId ) ) {
-        //     observations.id[1].push( {
-        //       speciesSeen
-        //     } );
-        //   }
-        // } );
-
-        // console.log( observations, "obs" );
 
         observations.sort( ( a, b ) => {
           if ( a.speciesSeen.length > b.speciesSeen.length ) {

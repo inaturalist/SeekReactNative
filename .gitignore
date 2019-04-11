@@ -59,8 +59,8 @@ buck-out/
 
 # config
 config.js
-android/app/src/main/assets/camera/config/taxonomy.csv
-android/app/src/main/assets/camera/config/taxonomy_data.csv
+taxonomy_data.csv
+taxonomy.csv
 *.tflite
 taxonomy.json
 *.mlmodel

@@ -65,7 +65,6 @@ class MyObservations extends Component<Props> {
           } );
 
           speciesSeen = [];
-          console.log( speciesSeen, "seen 2" );
         } );
 
         observations.sort( ( a, b ) => {

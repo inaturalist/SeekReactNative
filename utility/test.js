@@ -3,7 +3,7 @@ const faker = require( "faker" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
-  for ( let i = 0; i < 20; i += 1 ) {
+  for ( let i = 0; i < 3; i += 1 ) {
     const latitude = Number( faker.address.latitude() );
     const longitude = Number( faker.address.longitude() );
 

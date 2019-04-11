@@ -20,7 +20,6 @@ import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
-// import { createFakeObservations } from "../../utility/test";
 
 type Props = {
   navigation: any
@@ -37,7 +36,6 @@ class MyObservations extends Component<Props> {
   }
 
   fetchObservations() {
-    // createFakeObservations();
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = [];
@@ -45,16 +43,19 @@ class MyObservations extends Component<Props> {
         const species = realm.objects( "ObservationRealm" );
         const taxaIdList = Object.keys( taxaIds );
 
-        taxaIdList.forEach( ( id ) => {
-          const speciesSeen = [];
-          species.filtered( `taxon.iconicTaxonId == ${id} AND taxon.preferredCommonName != null` );
+        let speciesSeen = [];
 
-          species.forEach( ( taxon ) => {
-            const { defaultPhoto } = taxon.taxon;
+        taxaIdList.forEach( ( id ) => {
+          const filtered = species.filtered( `taxon.iconicTaxonId == ${id}` );
+
+          filtered.forEach( ( taxon ) => {
+            const { defaultPhoto, preferredCommonName } = taxon.taxon;
             const { mediumUrl, squareUrl } = defaultPhoto;
 
-            if ( defaultPhoto && mediumUrl !== null && squareUrl !== null ) {
-              speciesSeen.push( taxon );
+            if ( defaultPhoto !== null && preferredCommonName !== null ) {
+              if ( mediumUrl !== null && squareUrl !== null ) {
+                speciesSeen.push( taxon );
+              }
             }
           } );
 
@@ -62,6 +63,9 @@ class MyObservations extends Component<Props> {
             id,
             speciesSeen
           } );
+
+          speciesSeen = [];
+          console.log( speciesSeen, "seen 2" );
         } );
 
         observations.sort( ( a, b ) => {
@@ -72,7 +76,7 @@ class MyObservations extends Component<Props> {
         } );
 
         this.setState( {
-          observations: species.length > 0 ? observations : species,
+          observations: species.length > 0 ? observations : [],
           loading: false
         } );
       } )

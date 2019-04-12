@@ -11,6 +11,7 @@
 #import <React/RCTRootView.h>
 
 static NSString *hasMigratedRealmDatabaseFromContainer = @"HasMigratedRealmDatabaseFromContainer";
+static NSString *hasMigratedPhotosFromContainer = @"HasMigratedPhotosFromContainer";
 static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
 
 @implementation AppDelegate
@@ -19,6 +20,10 @@ static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
 {
   if (![[NSUserDefaults standardUserDefaults] boolForKey:hasMigratedRealmDatabaseFromContainer]) {
     [self migrateRealmDatabaseFromSharedContainer];
+  }
+  
+  if (![[NSUserDefaults standardUserDefaults] boolForKey:hasMigratedPhotosFromContainer]) {
+    [self migratePhotosFromSharedContainer];
   }
   
   NSURL *jsCodeLocation;
@@ -73,5 +78,64 @@ static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
                                           forKey:hasMigratedRealmDatabaseFromContainer];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+- (void)migratePhotosFromSharedContainer {
+  // fm lets us do operations on the filesystem
+  NSFileManager *fm = [NSFileManager defaultManager];
+  // base url for the shared container
+  NSURL *containerUrl = [fm containerURLForSecurityApplicationGroupIdentifier:appGroupId];
+  if (containerUrl) {
+    // url for the photo directory in the container
+    NSURL *containerPhotoBaseUrl = [containerUrl URLByAppendingPathComponent:@"large"];
+    NSString *containerPhotoBasePath = [containerPhotoBaseUrl path];
+    
+    // documents directory for photos
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *documentPhotoBasePath = [documentsPath stringByAppendingPathComponent:@"large"];
+    if (![fm fileExistsAtPath:documentPhotoBasePath]) {
+      NSError *mkdirError = nil;
+      [fm createDirectoryAtPath:documentPhotoBasePath
+    withIntermediateDirectories:NO
+                     attributes:nil
+                          error:&mkdirError];
+      if (mkdirError) {
+        NSLog(@"error creating large directory: %@", mkdirError.localizedDescription);
+        return;
+      }
+    }
+    
+    NSError *fileScanError = nil;
+    NSArray *contents = [fm contentsOfDirectoryAtPath:containerPhotoBasePath
+                                                error:&fileScanError];
+    if (fileScanError) {
+      NSLog(@"error scanning filesystem: %@", fileScanError.localizedDescription);
+      return;
+    }
+    
+    for (NSString *containerPhoto in contents) {
+      NSString *containerPhotoPath = [containerPhotoBasePath stringByAppendingPathComponent:containerPhoto];
+      NSString *documentPhotoPath = [documentPhotoBasePath stringByAppendingPathComponent:containerPhoto];
+      
+      NSError *moveError = nil;
+      [fm moveItemAtPath:containerPhotoPath
+                  toPath:documentPhotoPath
+                   error:&moveError];
+      if (moveError) {
+        NSLog(@"error moving photo file: %@", moveError.localizedDescription);
+        return;
+      }
+    }
+    
+    // update the user defaults
+    [[NSUserDefaults standardUserDefaults] setBool:YES
+                                            forKey:hasMigratedPhotosFromContainer];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+  }
+}
+
+
+
+
 
 @end

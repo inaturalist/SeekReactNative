@@ -3,22 +3,24 @@ const faker = require( "faker" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
-  for ( let i = 0; i < 3; i += 1 ) {
+  for ( let i = 0; i < 2; i += 1 ) {
     const latitude = Number( faker.address.latitude() );
     const longitude = Number( faker.address.longitude() );
 
     const image = {
-      uri: "content://media/external/images/media/8153"
+      uri: null
+      // uri: "content://media/external/images/media/8153"
     };
 
     const observation = {
       taxon: {
         name: faker.name.findName(),
         id: faker.random.number(),
-        preferred_common_name: faker.name.findName(),
-        iconic_taxon_id: 3,
+        preferred_common_name: null,
+        iconic_taxon_id: 40151,
         default_photo: {
-          medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"
+          medium_url: null
+          // medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"
         }
       }
     };

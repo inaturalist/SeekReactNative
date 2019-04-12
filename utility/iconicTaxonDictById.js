@@ -8,7 +8,8 @@ const iconicTaxaNamesById = {
   3: "taxon_picker.birds",
   47158: "taxon_picker.insects",
   47115: "taxon_picker.mollusks",
-  40151: "taxon_picker.mammals"
+  40151: "taxon_picker.mammals",
+  1: "taxon_picker.other"
 };
 
 export default iconicTaxaNamesById;

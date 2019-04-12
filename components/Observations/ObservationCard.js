@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/menu/observations";
+import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   navigation: any,
@@ -17,29 +18,38 @@ type Props = {
 
 
 const ObservationCard = ( { navigation, item }: Props ) => {
-  let photoUri;
+  const { taxon } = item;
+  const { defaultPhoto } = taxon;
+  let photo;
 
-  if ( item.taxon.defaultPhoto.squareUrl ) {
-    photoUri = item.taxon.defaultPhoto.squareUrl;
+  if ( defaultPhoto ) {
+    if ( defaultPhoto.squareUrl ) {
+      photo = { uri: defaultPhoto.squareUrl };
+    } else if ( defaultPhoto.mediumUrl ) {
+      photo = { uri: defaultPhoto.mediumUrl };
+    } else if ( taxon.iconicTaxonId ) {
+      photo = iconicTaxa[taxon.iconicTaxonId];
+    }
   } else {
-    photoUri = item.taxon.defaultPhoto.mediumUrl;
+    photo = iconicTaxa[taxon.iconicTaxonId];
   }
+
 
   return (
     <TouchableOpacity
       style={styles.card}
       onPress={ () => navigation.navigate( "Species", {
-        id: item.taxon.id,
-        commonName: item.taxon.preferredCommonName,
-        scientificName: item.taxon.name
+        id: taxon.id,
+        commonName: taxon.preferredCommonName,
+        scientificName: taxon.name
       } )}
     >
-      <Image style={styles.image} source={{ uri: photoUri }} />
+      <Image style={styles.image} source={photo} />
       <View style={styles.speciesNameContainer}>
         <Text style={styles.commonNameText}>
-          {item.taxon.preferredCommonName}
+          {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name}
         </Text>
-        <Text style={styles.scientificNameText}>{item.taxon.name}</Text>
+        <Text style={styles.scientificNameText}>{taxon.name}</Text>
       </View>
     </TouchableOpacity>
   );

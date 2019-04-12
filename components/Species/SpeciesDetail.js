@@ -305,6 +305,7 @@ class SpeciesDetail extends Component<Props> {
 
   fetchiNatData() {
     const { error } = this.state;
+    this.setLoading( true );
     if ( !error ) {
       this.fetchSpeciesId();
       this.fetchUserLocation();
@@ -320,7 +321,6 @@ class SpeciesDetail extends Component<Props> {
         if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
           this.setError( "internet" );
           this.fetchSpeciesId();
-          // this.checkIfSpeciesSeen();
         }
         this.setError( null );
       } ).catch( ( err ) => {

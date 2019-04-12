@@ -3,9 +3,7 @@
 import React, { Component } from "react";
 import {
   ScrollView,
-  Text,
   View,
-  TouchableOpacity,
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -20,6 +18,7 @@ import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
+import NoObservations from "./NoObservations";
 
 type Props = {
   navigation: any
@@ -43,32 +42,17 @@ class MyObservations extends Component<Props> {
         const species = realm.objects( "ObservationRealm" );
         const taxaIdList = Object.keys( taxaIds );
 
-        let speciesSeen = [];
-
         taxaIdList.forEach( ( id ) => {
-          const filtered = species.filtered( `taxon.iconicTaxonId == ${id}` );
-
-          filtered.forEach( ( taxon ) => {
-            const { defaultPhoto, preferredCommonName } = taxon.taxon;
-            const { mediumUrl, squareUrl } = defaultPhoto;
-
-            if ( defaultPhoto !== null && preferredCommonName !== null ) {
-              if ( mediumUrl !== null && squareUrl !== null ) {
-                speciesSeen.push( taxon );
-              }
-            }
-          } );
+          const iconicTaxonSeen = species.filtered( `taxon.iconicTaxonId == ${id}` );
 
           observations.push( {
             id,
-            speciesSeen
+            iconicTaxonSeen
           } );
-
-          speciesSeen = [];
         } );
 
         observations.sort( ( a, b ) => {
-          if ( a.speciesSeen.length > b.speciesSeen.length ) {
+          if ( a.iconicTaxonSeen.length > b.iconicTaxonSeen.length ) {
             return -1;
           }
           return 1;
@@ -91,7 +75,13 @@ class MyObservations extends Component<Props> {
     const iconicTaxonList = [];
 
     observations.forEach( ( iconicTaxon ) => {
-      const list = <ObservationList observations={iconicTaxon.speciesSeen} id={iconicTaxon.id} navigation={navigation} />;
+      const list = (
+        <ObservationList
+          observations={iconicTaxon.iconicTaxonSeen}
+          id={iconicTaxon.id}
+          navigation={navigation}
+        />
+      );
 
       iconicTaxonList.push( list );
     } );
@@ -112,18 +102,7 @@ class MyObservations extends Component<Props> {
         </ScrollView>
       );
     } else {
-      content = (
-        <View style={styles.noSpecies}>
-          <Text style={styles.noSpeciesHeaderText}>{i18n.t( "observations.no_obs" ).toLocaleUpperCase()}</Text>
-          <Text style={styles.noSpeciesText}>{i18n.t( "observations.help" )}</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "Camera" )}
-            style={styles.greenButton}
-          >
-            <Text style={styles.buttonText}>{i18n.t( "observations.open_camera" ).toLocaleUpperCase()}</Text>
-          </TouchableOpacity>
-        </View>
-      );
+      content = <NoObservations navigation={navigation} />;
     }
 
     return (

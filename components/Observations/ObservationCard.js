@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/menu/observations";
+import { setSpeciesId } from "../../utility/helpers";
 
 type Props = {
   navigation: any,
@@ -28,11 +29,18 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={ () => navigation.navigate( "Species", {
-        id: item.taxon.id,
-        commonName: item.taxon.preferredCommonName,
-        scientificName: item.taxon.name
-      } )}
+      onPress={ () => {
+        setSpeciesId( item.taxon.id );
+        navigation.navigate( "Species", {
+          id: null,
+          commonName: null,
+          scientificName: null
+        } );
+        // navigation.navigate( "Species", {
+        // id: item.taxon.id,
+        // commonName: item.taxon.preferredCommonName,
+        // scientificName: item.taxon.name
+      }}
     >
       <Image style={styles.image} source={{ uri: photoUri }} />
       <View style={styles.speciesNameContainer}>

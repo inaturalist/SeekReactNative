@@ -7,7 +7,6 @@ import {
   ScrollView,
   Text,
   NetInfo,
-  Alert,
   SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -31,9 +30,9 @@ import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
-// import LoadingWheel from "../LoadingWheel";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
+import { getSpeciesId } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -86,6 +85,19 @@ class SpeciesDetail extends Component<Props> {
 
   setTaxonStats( stats ) {
     this.setState( { stats } );
+  }
+
+  async fetchSpeciesId() {
+    const id = await getSpeciesId();
+    console.log( id, "id" );
+    this.setState( {
+      id
+    }, () => {
+      this.checkIfSpeciesSeen();
+      this.fetchTaxonDetails();
+      this.fetchHistogram();
+      this.fetchSimilarSpecies();
+    } );
   }
 
   async fetchUserLocation() {
@@ -176,6 +188,7 @@ class SpeciesDetail extends Component<Props> {
       } );
 
       this.setState( {
+        commonName: taxa.preferred_common_name,
         scientificName: taxa.name,
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
@@ -245,11 +258,15 @@ class SpeciesDetail extends Component<Props> {
     inatjs.identifications.similar_species( params ).then( ( response ) => {
       const shortenedList = response.results.slice( 0, 20 );
       const taxa = shortenedList.map( r => r.taxon );
-      console.log( taxa.length, "taxa all" );
-      taxa.filter( item => item.default_photo.medium_url !== null );
-      console.log( taxa.length, "taxa with photos" );
+      const taxaWithPhotos = [];
+      taxa.forEach( ( taxon ) => {
+        if ( taxon.default_photo && taxon.default_photo.medium_url ) {
+          taxaWithPhotos.push( taxon );
+        }
+      } );
+
       this.setState( {
-        similarSpecies: taxa,
+        similarSpecies: taxaWithPhotos,
         loadingSpecies: false
       } );
     } ).catch( ( err ) => {
@@ -287,11 +304,8 @@ class SpeciesDetail extends Component<Props> {
   fetchiNatData() {
     const { error } = this.state;
     if ( !error ) {
-      this.checkIfSpeciesSeen();
+      this.fetchSpeciesId();
       this.fetchUserLocation();
-      this.fetchTaxonDetails();
-      this.fetchHistogram();
-      this.fetchSimilarSpecies();
     }
   }
 
@@ -300,7 +314,8 @@ class SpeciesDetail extends Component<Props> {
       .then( ( connectionInfo ) => {
         if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
           this.setError( "internet" );
-          this.checkIfSpeciesSeen();
+          this.fetchSpeciesId();
+          // this.checkIfSpeciesSeen();
         }
         this.setError( null );
       } ).catch( ( err ) => {

@@ -19,7 +19,6 @@ import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
-import { createFakeObservations } from "../../utility/test";
 
 type Props = {
   navigation: any
@@ -36,8 +35,6 @@ class MyObservations extends Component<Props> {
   }
 
   fetchObservations() {
-    // createFakeObservations();
-
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = [];

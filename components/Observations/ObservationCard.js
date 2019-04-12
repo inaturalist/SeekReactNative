@@ -38,7 +38,7 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={ () => navigation.navigate( "Species", {
+      onPress={ () => navigation.push( "Species", {
         id: taxon.id,
         commonName: taxon.preferredCommonName,
         scientificName: taxon.name

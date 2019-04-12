@@ -16,13 +16,15 @@ import LoadingWheel from "../LoadingWheel";
 type Props = {
   taxa: Array,
   navigation: any,
-  loading: boolean
+  loading: boolean,
+  fetchiNatData: Function
 }
 
 const SimilarSpecies = ( {
   taxa,
   navigation,
-  loading
+  loading,
+  fetchiNatData
 }: Props ) => {
   let species;
 
@@ -44,11 +46,7 @@ const SimilarSpecies = ( {
             <TouchableOpacity
               onPress={ () => {
                 setSpeciesId( item.id );
-                navigation.push( "Species", {
-                  id: null,
-                  commonName: null,
-                  scientificName: null
-                } );
+                fetchiNatData();
               }}
             >
               <Image

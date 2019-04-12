@@ -32,7 +32,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
-import { getSpeciesId } from "../../utility/helpers";
+import { getSpeciesId, capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -65,6 +65,8 @@ class SpeciesDetail extends Component<Props> {
       loading: true,
       loadingSpecies: true
     };
+
+    this.fetchiNatData = this.fetchiNatData.bind( this );
   }
 
   setError( error ) {
@@ -188,7 +190,7 @@ class SpeciesDetail extends Component<Props> {
       } );
 
       this.setState( {
-        commonName: taxa.preferred_common_name,
+        commonName: capitalizeNames( taxa.preferred_common_name ),
         scientificName: taxa.name,
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
@@ -307,6 +309,9 @@ class SpeciesDetail extends Component<Props> {
       this.fetchSpeciesId();
       this.fetchUserLocation();
     }
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: true
+    } );
   }
 
   checkInternetConnection() {
@@ -360,7 +365,9 @@ class SpeciesDetail extends Component<Props> {
               this.fetchiNatData();
             }}
           />
-          <ScrollView>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+          >
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}
@@ -432,6 +439,7 @@ class SpeciesDetail extends Component<Props> {
                   navigation={navigation}
                   taxa={similarSpecies}
                   loading={loadingSpecies}
+                  fetchiNatData={this.fetchiNatData}
                 />
                 <View style={styles.bottomPadding} />
               </View>

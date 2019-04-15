@@ -15,14 +15,12 @@ import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   taxa: Array,
-  navigation: any,
   loading: boolean,
   fetchiNatData: Function
 }
 
 const SimilarSpecies = ( {
   taxa,
-  navigation,
   loading,
   fetchiNatData
 }: Props ) => {
@@ -46,7 +44,7 @@ const SimilarSpecies = ( {
             <TouchableOpacity
               onPress={ () => {
                 setSpeciesId( item.id );
-                fetchiNatData();
+                fetchiNatData( "similarSpecies" );
               }}
             >
               <Image

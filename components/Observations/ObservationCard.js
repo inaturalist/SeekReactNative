@@ -31,15 +31,7 @@ const ObservationCard = ( { navigation, item }: Props ) => {
       style={styles.card}
       onPress={ () => {
         setSpeciesId( item.taxon.id );
-        navigation.navigate( "Species", {
-          id: null,
-          commonName: null,
-          scientificName: null
-        } );
-        // navigation.navigate( "Species", {
-        // id: item.taxon.id,
-        // commonName: item.taxon.preferredCommonName,
-        // scientificName: item.taxon.name
+        navigation.navigate( "Species" );
       }}
     >
       <Image style={styles.image} source={{ uri: photoUri }} />

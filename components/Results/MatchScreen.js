@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -32,6 +31,7 @@ import {
   recalculateChallenges,
   getChallengesCompleted
 } from "../../utility/challengeHelpers";
+import { setSpeciesId } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
 type Props = {
@@ -170,16 +170,13 @@ class MatchScreen extends Component<Props> {
 
   navigateTo() {
     const { navigationPath } = this.state;
-    const { navigation, taxaId, taxaName } = this.props;
+    const { navigation, taxaId } = this.props;
 
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
-      navigation.navigate( "Species", {
-        id: taxaId,
-        commonName: taxaName,
-        scientificName: null
-      } );
+      setSpeciesId( taxaId );
+      navigation.navigate( "Species" );
     } else if ( navigationPath === "Back" ) {
       navigation.goBack();
     }

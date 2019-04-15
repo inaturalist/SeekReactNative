@@ -12,10 +12,9 @@ import styles from "../../styles/home/speciesNearby";
 import LoadingWheel from "../LoadingWheel";
 import Error from "./Error";
 import TaxonPicker from "./TaxonPicker";
-import { capitalizeNames } from "../../utility/helpers";
+import { capitalizeNames, setSpeciesId } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
-import logos from "../../assets/logos";
 
 type Props = {
   taxa: Array,
@@ -69,11 +68,10 @@ const SpeciesNearby = ( {
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity
-              onPress={ () => navigation.navigate( "Species", {
-                id: item.id,
-                commonName: capitalizeNames( item.preferred_common_name || item.name ),
-                scientificName: item.name
-              } ) }
+              onPress={ () => {
+                setSpeciesId( item.id );
+                navigation.navigate( "Species" );
+              }}
             >
               <Image
                 style={styles.cellImage}

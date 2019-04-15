@@ -39,17 +39,15 @@ type Props = {
 }
 
 class SpeciesDetail extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
-    const { id, commonName, scientificName } = navigation.state.params;
-
     this.state = {
-      id,
+      id: null,
       location: null,
       photos: [],
-      commonName,
-      scientificName,
+      commonName: null,
+      scientificName: null,
       about: null,
       seenDate: null,
       timesSeen: null,
@@ -89,9 +87,31 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { stats } );
   }
 
+  resetState() {
+    this.setState( {
+      location: null,
+      photos: [],
+      commonName: null,
+      scientificName: null,
+      about: null,
+      seenDate: null,
+      timesSeen: null,
+      taxaType: null,
+      region: {},
+      observationsByMonth: [],
+      nearbySpeciesCount: null,
+      error: null,
+      userPhoto: null,
+      stats: {},
+      similarSpecies: [],
+      ancestors: [],
+      loading: true,
+      loadingSpecies: true
+    } );
+  }
+
   async fetchSpeciesId() {
     const id = await getSpeciesId();
-    console.log( id, "id" );
     this.setState( {
       id
     }, () => {
@@ -303,9 +323,12 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchiNatData() {
+  fetchiNatData( screen ) {
     const { error } = this.state;
     this.setLoading( true );
+    if ( screen === "similarSpecies" ) {
+      this.resetState();
+    }
     if ( !error ) {
       this.fetchSpeciesId();
       this.fetchUserLocation();
@@ -364,6 +387,7 @@ class SpeciesDetail extends Component<Props> {
               this.checkInternetConnection();
               this.fetchiNatData();
             }}
+            onWillBlur={() => this.resetState()}
           />
           <ScrollView
             ref={( ref ) => { this.scrollView = ref; }}
@@ -395,7 +419,11 @@ class SpeciesDetail extends Component<Props> {
               <View style={styles.secondTextContainer}>
                 {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
                 {seenDate ? (
-                  <View style={[styles.row, showGreenButtons.includes( true ) && { marginTop: 21 }]}>
+                  <View style={[
+                    styles.row,
+                    showGreenButtons.includes( true ) && { marginTop: 21 }
+                  ]}
+                  >
                     <Image source={icons.checklist} style={styles.checkmark} />
                     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
                   </View>
@@ -436,10 +464,10 @@ class SpeciesDetail extends Component<Props> {
             {id !== 43584 ? (
               <View>
                 <SimilarSpecies
-                  navigation={navigation}
                   taxa={similarSpecies}
                   loading={loadingSpecies}
                   fetchiNatData={this.fetchiNatData}
+                  setSimilarSpecies={this.setSimilarSpecies}
                 />
                 <View style={styles.bottomPadding} />
               </View>

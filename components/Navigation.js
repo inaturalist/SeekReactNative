@@ -42,9 +42,10 @@ const handleCustomTransition = ( { scenes } ) => {
 
   if ( nextScene.route.routeName === "Notifications" ) {
     return fromRight();
-  } else if ( nextScene.route.routeName === "Camera" ) {
+  }
+  if ( nextScene.route.routeName === "Camera" ) {
     return fromBottom( 100 );
-  };
+  }
   return fadeIn();
 };
 

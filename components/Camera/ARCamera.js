@@ -229,7 +229,7 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.push( "Results", {
+    navigation.navigate( "Results", {
       image: photo.image,
       time: photo.timestamp,
       latitude: null,
@@ -240,22 +240,26 @@ class ARCamera extends Component<Props> {
 
 
   async closeCamera() {
+    const { navigation } = this.props;
     if ( Platform.OS === "android" ) {
       if ( this.camera ) {
         await this.camera.stopCamera();
       }
     }
 
-    this.props.navigation.navigate( "Main" );
+    navigation.navigate( "Main" );
   }
 
-  componentDidMount() {
+  addListenerForAndroid() {
     if ( Platform.OS === "android" ) {
-      this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => { this.closeCamera(); return true; });
+      this.backHandler = BackHandler.addEventListener( "hardwareBackPress", () => {
+        this.closeCamera();
+        return true;
+      } );
     }
   }
 
-  componentWillUnmount() {
+  closeCameraAndroid() {
     if ( Platform.OS === "android" ) {
       this.backHandler.remove();
     }

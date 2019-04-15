@@ -1,5 +1,6 @@
 const faker = require( "faker" );
 
+const { createNotification } = require( "./notificationHelpers" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
@@ -44,7 +45,15 @@ const createFakePhotos = () => {
   return taxa;
 };
 
+const createFakeNotifications = () => {
+  // createNotification( "challengeProgress", 0 );
+  createNotification( "badgeEarned" );
+  // createNotification( "badgeEarned" );
+  // createNotification( "challengeCompleted", 0 );
+};
+
 export {
   createFakeObservations,
-  createFakePhotos
+  createFakePhotos,
+  createFakeNotifications
 };

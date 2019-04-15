@@ -53,7 +53,7 @@ class NotificationsScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => this.fetchNotifications()}
-            onWillBlur={() => updateNotifications()}
+            onDidBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
           <View style={{ marginTop: 15 }} />

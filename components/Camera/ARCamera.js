@@ -238,7 +238,6 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-
   async closeCamera() {
     const { navigation } = this.props;
     if ( Platform.OS === "android" ) {
@@ -311,11 +310,13 @@ class ARCamera extends Component<Props> {
             this.requestCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );
+            this.addListenerForAndroid();
           }}
           onWillBlur={() => {
             this.setError( null );
             this.setPictureTaken( false );
             this.setFocusedScreen( false );
+            this.closeCameraAndroid();
           }}
         />
         <TouchableOpacity

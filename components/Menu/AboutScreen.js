@@ -22,7 +22,7 @@ type Props = {
 
 const AboutScreen = ( { navigation }: Props ) => {
   const version = "2.0.1";
-  const buildNumber = 21;
+  const buildNumber = 22;
 
   return (
     <View style={styles.container}>

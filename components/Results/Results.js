@@ -195,6 +195,8 @@ class Results extends Component<Props> {
   fetchAdditionalTaxaInfo() {
     const { taxaId } = this.state;
 
+    // getTaxonCommonName( taxaId ).then( ( commonName ) => {
+
     inatjs.taxa.fetch( taxaId ).then( ( response ) => {
       const taxa = response.results[0];
 

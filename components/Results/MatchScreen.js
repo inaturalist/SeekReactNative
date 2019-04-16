@@ -251,18 +251,13 @@ class MatchScreen extends Component<Props> {
               style={styles.header}
             >
               <TouchableOpacity
-                onPress={() => {
-                  this.setNavigationPath( "Back" );
-                }}
-                style={styles.buttonContainer}
+                onPress={() => this.setNavigationPath( "Back" )}
                 hitSlop={styles.touchable}
+                style={styles.backButton}
               >
-                <Image
-                  source={icons.backButton}
-                  style={styles.backButton}
-                />
+                <Image source={icons.backButton} />
               </TouchableOpacity>
-              <View style={styles.imageContainer}>
+              <View style={[styles.imageContainer, styles.buttonContainer]}>
                 <Image
                   style={styles.imageCell}
                   source={{ uri: userImage }}

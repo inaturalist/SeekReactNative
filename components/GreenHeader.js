@@ -3,13 +3,11 @@
 import React from "react";
 import {
   View,
-  Text,
-  TouchableOpacity,
-  Image
+  Text
 } from "react-native";
 
 import styles from "../styles/greenHeader";
-import icons from "../assets/icons";
+import BackArrow from "./BackArrow";
 
 type Props = {
   header: string,
@@ -18,13 +16,7 @@ type Props = {
 
 const GreenHeader = ( { header, navigation }: Props ) => (
   <View style={styles.container}>
-    <TouchableOpacity
-      hitSlop={styles.touchable}
-      style={styles.backButton}
-      onPress={() => navigation.goBack()}
-    >
-      <Image source={icons.backButton} />
-    </TouchableOpacity>
+    <BackArrow navigation={navigation} />
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
   </View>
 );

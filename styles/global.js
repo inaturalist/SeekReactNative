@@ -26,3 +26,10 @@ export const fonts = {
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0
 };
+
+export const touchable = {
+  left: 23,
+  right: 23,
+  top: 23,
+  bottom: 23
+};

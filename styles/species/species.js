@@ -1,7 +1,8 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  touchable
 } from "../global";
 
 export default StyleSheet.create( {
@@ -82,12 +83,7 @@ export default StyleSheet.create( {
     height: Platform.OS === "android" ? 17 : 60,
     backgroundColor: colors.seekForestGreen
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  },
+  touchable,
   humanText: {
     textAlign: "center",
     marginTop: 45,

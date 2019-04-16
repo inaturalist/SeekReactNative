@@ -1,5 +1,10 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts, padding } from "../global";
+import {
+  colors,
+  fonts,
+  padding,
+  touchable
+} from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -7,7 +12,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   header: {
-    height: 196,
+    height: 186,
     overflow: "visible"
   },
   buttonContainer: {
@@ -74,7 +79,8 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   backButton: {
-    left: 18
+    top: 18,
+    left: 23
   },
   linkText: {
     fontFamily: fonts.book,
@@ -92,10 +98,5 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "transparent"
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  }
+  touchable
 } );

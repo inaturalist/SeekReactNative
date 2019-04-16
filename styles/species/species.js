@@ -16,7 +16,7 @@ export default StyleSheet.create( {
     height: 40
   },
   iconicTaxaText: {
-    paddingTop: 7,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
     marginLeft: 28,
     color: colors.white,
     fontSize: 19,

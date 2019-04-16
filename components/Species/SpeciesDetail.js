@@ -179,7 +179,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchTaxonDetails() {
-    const { id, scientificName, commonName } = this.state;
+    const { id } = this.state;
 
     const params = {
       locale: i18n.currentLocale()
@@ -187,6 +187,8 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id, params ).then( ( response ) => {
       const taxa = response.results[0];
+      const commonName = capitalizeNames( taxa.preferred_common_name || taxa.name );
+      const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
       const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
@@ -211,8 +213,8 @@ class SpeciesDetail extends Component<Props> {
       } );
 
       this.setState( {
-        commonName: capitalizeNames( taxa.preferred_common_name ),
-        scientificName: taxa.name,
+        commonName,
+        scientificName,
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,

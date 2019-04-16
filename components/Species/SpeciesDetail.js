@@ -7,8 +7,8 @@ import {
   ScrollView,
   Text,
   NetInfo,
-  Alert,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -31,26 +31,24 @@ import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
-// import LoadingWheel from "../LoadingWheel";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
+import { getSpeciesId, capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   navigation: any
 }
 
 class SpeciesDetail extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
-    const { id, commonName, scientificName } = navigation.state.params;
-
     this.state = {
-      id,
+      id: null,
       location: null,
       photos: [],
-      commonName,
-      scientificName,
+      commonName: null,
+      scientificName: null,
       about: null,
       seenDate: null,
       timesSeen: null,
@@ -66,6 +64,8 @@ class SpeciesDetail extends Component<Props> {
       loading: true,
       loadingSpecies: true
     };
+
+    this.fetchiNatData = this.fetchiNatData.bind( this );
   }
 
   setError( error ) {
@@ -86,6 +86,41 @@ class SpeciesDetail extends Component<Props> {
 
   setTaxonStats( stats ) {
     this.setState( { stats } );
+  }
+
+  resetState() {
+    this.setState( {
+      location: null,
+      photos: [],
+      commonName: null,
+      scientificName: null,
+      about: null,
+      seenDate: null,
+      timesSeen: null,
+      taxaType: null,
+      region: {},
+      observationsByMonth: [],
+      nearbySpeciesCount: null,
+      error: null,
+      userPhoto: null,
+      stats: {},
+      similarSpecies: [],
+      ancestors: [],
+      loading: true,
+      loadingSpecies: true
+    } );
+  }
+
+  async fetchSpeciesId() {
+    const id = await getSpeciesId();
+    this.setState( {
+      id
+    }, () => {
+      this.checkIfSpeciesSeen();
+      this.fetchTaxonDetails();
+      this.fetchHistogram();
+      this.fetchSimilarSpecies();
+    } );
   }
 
   async fetchUserLocation() {
@@ -176,6 +211,7 @@ class SpeciesDetail extends Component<Props> {
       } );
 
       this.setState( {
+        commonName: capitalizeNames( taxa.preferred_common_name ),
         scientificName: taxa.name,
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
@@ -245,11 +281,15 @@ class SpeciesDetail extends Component<Props> {
     inatjs.identifications.similar_species( params ).then( ( response ) => {
       const shortenedList = response.results.slice( 0, 20 );
       const taxa = shortenedList.map( r => r.taxon );
-      console.log( taxa.length, "taxa all" );
-      taxa.filter( item => item.default_photo.medium_url !== null );
-      console.log( taxa.length, "taxa with photos" );
+      const taxaWithPhotos = [];
+      taxa.forEach( ( taxon ) => {
+        if ( taxon.default_photo && taxon.default_photo.medium_url ) {
+          taxaWithPhotos.push( taxon );
+        }
+      } );
+
       this.setState( {
-        similarSpecies: taxa,
+        similarSpecies: taxaWithPhotos,
         loadingSpecies: false
       } );
     } ).catch( ( err ) => {
@@ -284,15 +324,19 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchiNatData() {
+  fetchiNatData( screen ) {
     const { error } = this.state;
-    if ( !error ) {
-      this.checkIfSpeciesSeen();
-      this.fetchUserLocation();
-      this.fetchTaxonDetails();
-      this.fetchHistogram();
-      this.fetchSimilarSpecies();
+    this.setLoading( true );
+    if ( screen === "similarSpecies" ) {
+      this.resetState();
     }
+    if ( !error ) {
+      this.fetchSpeciesId();
+      this.fetchUserLocation();
+    }
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
   }
 
   checkInternetConnection() {
@@ -300,7 +344,7 @@ class SpeciesDetail extends Component<Props> {
       .then( ( connectionInfo ) => {
         if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
           this.setError( "internet" );
-          this.checkIfSpeciesSeen();
+          this.fetchSpeciesId();
         }
         this.setError( null );
       } ).catch( ( err ) => {
@@ -344,8 +388,11 @@ class SpeciesDetail extends Component<Props> {
               this.checkInternetConnection();
               this.fetchiNatData();
             }}
+            onWillBlur={() => this.resetState()}
           />
-          <ScrollView>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+          >
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}
@@ -373,7 +420,11 @@ class SpeciesDetail extends Component<Props> {
               <View style={styles.secondTextContainer}>
                 {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
                 {seenDate ? (
-                  <View style={[styles.row, showGreenButtons.includes( true ) && { marginTop: 21 }]}>
+                  <View style={[
+                    styles.row,
+                    showGreenButtons.includes( true ) && { marginTop: 21 }
+                  ]}
+                  >
                     <Image source={icons.checklist} style={styles.checkmark} />
                     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
                   </View>
@@ -414,9 +465,10 @@ class SpeciesDetail extends Component<Props> {
             {id !== 43584 ? (
               <View>
                 <SimilarSpecies
-                  navigation={navigation}
                   taxa={similarSpecies}
                   loading={loadingSpecies}
+                  fetchiNatData={this.fetchiNatData}
+                  setSimilarSpecies={this.setSimilarSpecies}
                 />
                 <View style={styles.bottomPadding} />
               </View>

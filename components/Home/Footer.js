@@ -70,7 +70,7 @@ class Footer extends Component<Props> {
             style={styles.button}
             onPress={() => {
               if ( navigation.state.routeName !== "Notifications" ) {
-                navigation.push( "Notifications" );
+                navigation.navigate( "Notifications" );
               }
             }}
           >

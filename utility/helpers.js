@@ -160,6 +160,19 @@ const getTaxonCommonName = taxonID => (
   } )
 );
 
+const setSpeciesId = ( id ) => {
+  AsyncStorage.setItem( "id", id.toString() );
+};
+
+const getSpeciesId = async () => {
+  try {
+    const id = await AsyncStorage.getItem( "id" );
+    return Number( id );
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -168,5 +181,7 @@ export {
   getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
-  shuffleList
+  shuffleList,
+  setSpeciesId,
+  getSpeciesId
 };

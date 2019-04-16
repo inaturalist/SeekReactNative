@@ -16,6 +16,7 @@ import icons from "../../assets/icons";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
+import { setSpeciesId } from "../../utility/helpers";
 
 type Props = {
   speciesSeenImage: string,
@@ -68,12 +69,10 @@ const AlreadySeenScreen = ( {
           <Text style={styles.text}>{i18n.t( "results.date_observed", { seenDate } )}</Text>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate( "Species", {
-              id: taxaId,
-              commonName: taxaName,
-              scientificName: null
-            } )
-            }
+            onPress={() => {
+              setSpeciesId( taxaId );
+              navigation.navigate( "Species" );
+            }}
           >
             <Text
               style={styles.buttonText}

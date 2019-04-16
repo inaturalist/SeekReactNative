@@ -229,7 +229,7 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.push( "Results", {
+    navigation.navigate( "Results", {
       image: photo.image,
       time: photo.timestamp,
       latitude: null,

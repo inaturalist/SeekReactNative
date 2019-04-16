@@ -56,7 +56,7 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   dots: {
-    marginHorizontal: width / 27
+    marginHorizontal: width / 32
   },
   safeView: {
     flex: 1,

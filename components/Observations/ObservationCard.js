@@ -24,10 +24,10 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   let photo;
 
   if ( defaultPhoto ) {
-    if ( defaultPhoto.squareUrl ) {
-      photo = { uri: defaultPhoto.squareUrl };
-    } else if ( defaultPhoto.mediumUrl ) {
+    if ( defaultPhoto.mediumUrl ) {
       photo = { uri: defaultPhoto.mediumUrl };
+    } else if ( defaultPhoto.squareUrl ) {
+      photo = { uri: defaultPhoto.squareUrl };
     } else if ( taxon.iconicTaxonId ) {
       photo = iconicTaxa[taxon.iconicTaxonId];
     }

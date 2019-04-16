@@ -195,9 +195,11 @@ class Results extends Component<Props> {
   fetchAdditionalTaxaInfo() {
     const { taxaId } = this.state;
 
-    // getTaxonCommonName( taxaId ).then( ( commonName ) => {
+    const params = {
+      locale: i18n.currentLocale()
+    };
 
-    inatjs.taxa.fetch( taxaId ).then( ( response ) => {
+    inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
       const taxa = response.results[0];
 
       this.setState( {

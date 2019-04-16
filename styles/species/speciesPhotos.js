@@ -56,5 +56,11 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 120,
     right: 5
+  },
+  touchable: {
+    left: 23,
+    right: 23,
+    top: 23,
+    bottom: 23
   }
 } );

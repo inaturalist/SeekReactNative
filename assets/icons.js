@@ -13,7 +13,7 @@ const icons = {
   hamburger: require( "./navbar/Menu.png"),
   notifications: require( "./navbar/Notifications.png"),
   notificationsInactive: require( "./navbar/Notifications-inactive.png"),
-  cameraHelp: require( "./icons/icon-help.png"),
+  cameraHelp: require( "./icons/icon-help-shadow.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
   arCameraButton: require( "./icons/CameraButton.png" ),

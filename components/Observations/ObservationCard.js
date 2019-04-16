@@ -5,8 +5,10 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  View
+  View,
+  Platform
 } from "react-native";
+import RNFS from "react-native-fs";
 
 import styles from "../../styles/menu/observations";
 import { setSpeciesId } from "../../utility/helpers";
@@ -22,10 +24,13 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   const { taxon } = item;
   const { defaultPhoto } = taxon;
   let photo;
+  const seekV1Photo = Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/large/${item.uuidString}` : null;
 
   if ( defaultPhoto ) {
     if ( defaultPhoto.mediumUrl ) {
       photo = { uri: defaultPhoto.mediumUrl };
+    } else if ( seekV1Photo ) {
+      photo = { uri: seekV1Photo };
     } else if ( defaultPhoto.squareUrl ) {
       photo = { uri: defaultPhoto.squareUrl };
     } else if ( taxon.iconicTaxonId ) {

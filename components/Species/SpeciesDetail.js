@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   NetInfo,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -334,7 +335,7 @@ class SpeciesDetail extends Component<Props> {
       this.fetchUserLocation();
     }
     this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: true
+      x: 0, y: 0, animated: Platform.OS === "android"
     } );
   }
 

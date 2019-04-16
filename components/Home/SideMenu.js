@@ -19,28 +19,10 @@ type Props = {
 }
 
 class SideMenu extends Component<Props> {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     lastRoute: "Main"
-  //   };
-  // }
-
-  // setLastRoute( route ) {
-  //   this.setState( { lastRoute: route } );
-  // }
-
   navigateTo( route ) {
-    // const { lastRoute } = this.state;
     const { navigation } = this.props;
 
-    // if ( route !== lastRoute ) {
     navigation.navigate( route );
-    // } else {
-    //   navigation.closeDrawer();
-    // }
-    // this.setLastRoute( route );
   }
 
   render() {
@@ -115,16 +97,6 @@ class SideMenu extends Component<Props> {
               {i18n.t( "menu.about" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          {/* <View style={styles.divider} /> */}
-          {/* <TouchableOpacity
-            style={styles.row}
-            onPress={() => this.navigateTo( "Onboarding" )}
-          >
-            <Image source={icons.menuSettings} style={styles.image} />
-            <Text style={styles.text}>
-              ONBOARDING
-            </Text>
-          </TouchableOpacity> */}
         </View>
       </View>
     );

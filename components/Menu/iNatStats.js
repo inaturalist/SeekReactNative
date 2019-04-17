@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -43,12 +44,16 @@ class iNatStatsScreen extends Component<Props> {
     const params = {
       project_id: 29905,
       photos: true,
+      quality_grade: "research",
+      lrank: "species",
+      hrank: "species",
       locale: i18n.currentLocale()
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {
       const taxa = results.map( r => r.taxon );
       const photos = [];
+      Alert.alert( JSON.stringify( taxa ), "taxa" );
 
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;

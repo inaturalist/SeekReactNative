@@ -24,7 +24,18 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   const { taxon } = item;
   const { defaultPhoto } = taxon;
   let photo;
-  const seekV1Photo = Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/large/${item.uuidString}` : null;
+
+  let seekV1Photo;
+
+  if ( Platform.OS === "ios" ) {
+    RNFS.readdir( `${RNFS.DocumentDirectoryPath}/large` ).then( ( result ) => {
+      result.forEach( ( path ) => {
+        if ( path === item.uuidString ) {
+          seekV1Photo = `${RNFS.DocumentDirectoryPath}/large/${result}`;
+        }
+      } );
+    } );
+  }
 
   if ( defaultPhoto ) {
     if ( defaultPhoto.mediumUrl ) {
@@ -39,7 +50,6 @@ const ObservationCard = ( { navigation, item }: Props ) => {
   } else {
     photo = iconicTaxa[taxon.iconicTaxonId];
   }
-
 
   return (
     <TouchableOpacity

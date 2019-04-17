@@ -7,6 +7,7 @@ import {
   Text,
   View
 } from "react-native";
+import { NavigationActions } from "react-navigation";
 
 import i18n from "../i18n";
 import styles from "../styles/splash";
@@ -37,19 +38,26 @@ class SplashScreen extends Component<Props> {
   }
 
   transitionScreen() {
-    const { navigation } = this.props;
     const { isFirstLaunch, hasCheckedAsyncStorage } = this.state;
 
     if ( !hasCheckedAsyncStorage ) {
       return null;
     }
-    // fade this screen out if possible
+
     if ( isFirstLaunch ) {
-      setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+      this.resetRouter( "Onboarding" );
     } else {
-      setTimeout( () => navigation.navigate( "Main" ), 2000 );
+      this.resetRouter( "Main" );
     }
     return null;
+  }
+
+  resetRouter( routeName ) {
+    const { navigation } = this.props;
+
+    setTimeout( () => navigation.reset( [
+      NavigationActions.navigate( { routeName } )
+    ], 0 ), 2000 );
   }
 
   render() {

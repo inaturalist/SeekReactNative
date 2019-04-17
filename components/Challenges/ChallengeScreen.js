@@ -22,6 +22,7 @@ import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
+import { createFakeObservations } from "../../utility/test";
 
 type Props = {
   navigation: any
@@ -39,6 +40,7 @@ class ChallengeScreen extends Component<Props> {
   }
 
   fetchChallenges() {
+    // createFakeObservations();
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challengesNotStarted = [];

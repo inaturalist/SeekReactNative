@@ -18,7 +18,7 @@ const createFakeObservations = () => {
         name: faker.name.findName(),
         id: faker.random.number(),
         preferred_common_name: null,
-        iconic_taxon_id: 40151,
+        iconic_taxon_id: 47178,
         default_photo: {
           medium_url: null
           // medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"

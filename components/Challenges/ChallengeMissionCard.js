@@ -20,7 +20,8 @@ type Props = {
 };
 
 const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
-  const missionNumbers = Object.keys( missionsDict[challenge.index] ).map( mission => missionsDict[challenge.index][mission] );
+  const missionNumbers = Object.keys( missionsDict[challenge.index] )
+    .map( mission => missionsDict[challenge.index][mission] );
 
   return (
     <View style={styles.container}>

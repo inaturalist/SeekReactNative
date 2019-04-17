@@ -53,7 +53,6 @@ class iNatStatsScreen extends Component<Props> {
     inatjs.observations.search( params ).then( ( { results } ) => {
       const taxa = results.map( r => r.taxon );
       const photos = [];
-      Alert.alert( JSON.stringify( taxa ), "taxa" );
 
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;

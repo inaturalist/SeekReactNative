@@ -43,7 +43,9 @@ class MyObservations extends Component<Props> {
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {
-          const iconicTaxonSeen = species.filtered( `taxon.iconicTaxonId == ${id}` );
+          const iconicTaxonSeen = species
+            .filtered( `taxon.iconicTaxonId == ${id}` )
+            .sorted( "date", true );
 
           observations.push( {
             id,

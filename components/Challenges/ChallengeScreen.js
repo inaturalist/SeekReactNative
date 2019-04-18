@@ -40,7 +40,7 @@ class ChallengeScreen extends Component<Props> {
   }
 
   fetchChallenges() {
-    // createFakeObservations();
+    createFakeObservations();
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challengesNotStarted = [];

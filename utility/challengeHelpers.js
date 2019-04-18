@@ -20,6 +20,11 @@ const recalculateChallenges = () => {
 
       incompleteChallenges.forEach( ( challenge ) => {
         const { startedDate } = challenge;
+
+        if ( !startedDate ) {
+          challenge.startedDate = new Date();
+        }
+
         const seenTaxa = [];
         const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
 

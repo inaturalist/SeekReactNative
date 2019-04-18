@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import RNFS from "react-native-fs";
 
+import { setSpeciesId } from "../../utility/helpers";
 import styles from "../../styles/menu/observations";
 import iconicTaxa from "../../assets/iconicTaxa";
 
@@ -40,7 +41,7 @@ class ObservationCard extends Component<Props> {
     const { taxon } = item;
     const { defaultPhoto } = taxon;
 
-    if ( Platform.OS === "ios" && `${RNFS.DocumentDirectoryPath}/large` ) {
+    if ( Platform.OS === "ios" && RNFS.exists( `${RNFS.DocumentDirectoryPath}/large` ) ) {
       RNFS.readdir( `${RNFS.DocumentDirectoryPath}/large` ).then( ( result ) => {
         result.forEach( ( path ) => {
           if ( path === item.uuidString ) {
@@ -48,6 +49,8 @@ class ObservationCard extends Component<Props> {
             this.setPhoto( { uri: photoPath } );
           }
         } );
+      } ).catch( ( err ) => {
+        console.log( err, "file directory does not exist" );
       } );
     }
 
@@ -72,11 +75,10 @@ class ObservationCard extends Component<Props> {
     return (
       <TouchableOpacity
         style={styles.card}
-        onPress={ () => navigation.push( "Species", {
-          id: taxon.id,
-          commonName: taxon.preferredCommonName,
-          scientificName: taxon.name
-        } )}
+        onPress={() => {
+          setSpeciesId( item.taxon.id );
+          navigation.navigate( "Species" );
+        }}
       >
         <Image style={styles.image} source={photo} />
         <View style={styles.speciesNameContainer}>

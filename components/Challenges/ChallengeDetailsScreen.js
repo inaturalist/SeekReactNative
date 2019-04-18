@@ -8,11 +8,11 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
@@ -25,31 +25,36 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
-import { startChallenge } from "../../utility/challengeHelpers";
+import { startChallenge, getChallengeIndex } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
 }
 
 class ChallengeDetailsScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const { index } = navigation.state.params;
 
     this.state = {
       challenge: {},
       missions: {},
       challengeStarted: false,
       showChallengeModal: false,
-      index
+      index: null
     };
 
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  componentDidMount() {
-    this.fetchChallengeDetails();
+  resetIndex() {
+    this.setState( { index: null } );
+  }
+
+  async fetchChallengeIndex() {
+    const index = await getChallengeIndex();
+    this.setState( { index }, () => {
+      this.fetchChallengeDetails();
+    } );
   }
 
   fetchChallengeDetails() {
@@ -149,6 +154,10 @@ class ChallengeDetailsScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => this.fetchChallengeIndex()}
+            onWillBlur={() => this.resetIndex()}
+          />
           <Modal
             isVisible={showChallengeModal}
             onSwipe={() => this.toggleChallengeModal()}

@@ -11,6 +11,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import notifications from "../../assets/notifications";
+import { setChallengeIndex } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any,
@@ -18,19 +19,15 @@ type Props = {
 }
 
 const NotificationCard = ( { navigation, item }: Props ) => {
-  let index;
-
   if ( item.nextScreen === "ChallengeDetails" ) {
-    index = item.challengeIndex;
-  } else {
-    index = null;
+    setChallengeIndex( item.challengeIndex );
   }
 
   return (
     <View style={styles.cardContainer}>
       <TouchableOpacity
         style={styles.card}
-        onPress={() => navigation.navigate( item.nextScreen, { index } )}
+        onPress={() => navigation.navigate( item.nextScreen )}
       >
         <Image style={styles.image} source={notifications[item.iconName]} />
         <View style={styles.textContainer}>

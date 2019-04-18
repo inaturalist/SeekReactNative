@@ -142,6 +142,10 @@ const setChallengesCompleted = ( challenges ) => {
   AsyncStorage.setItem( "challengesCompleted", challenges );
 };
 
+const setChallengeIndex = ( index ) => {
+  AsyncStorage.setItem( "index", index.toString() );
+};
+
 const checkNumberOfChallengesCompleted = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -162,11 +166,22 @@ const getChallengesCompleted = async () => {
   }
 };
 
+const getChallengeIndex = async () => {
+  try {
+    const index = await AsyncStorage.getItem( "index" );
+    return Number( index );
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
   startChallenge,
   setupChallenges,
   checkNumberOfChallengesCompleted,
-  getChallengesCompleted
+  getChallengesCompleted,
+  setChallengeIndex,
+  getChallengeIndex
 };

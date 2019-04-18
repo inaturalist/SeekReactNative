@@ -32,10 +32,7 @@ const recalculateChallenges = () => {
         const obsList = Object.keys( challenge.numbersObserved )
           .map( number => challenge.numbersObserved[number] );
 
-        console.log( obsList, "obsList" );
-
         const prevNumberSeen = obsList.length > 0 ? obsList.reduce( getSum ) : 0;
-        console.log( prevNumberSeen, "prev numb" );
         const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
 
         realm.write( () => {
@@ -46,14 +43,11 @@ const recalculateChallenges = () => {
           const challengeMonth = missionsDict.default[index];
 
           Object.keys( challengeMonth ).forEach( ( mission ) => {
-            console.log( challengeMonth, mission, "month and mission" );
             const { number, types } = challengeMonth[mission];
-            console.log( number, types, "types" );
 
             let count = 0;
 
             types.forEach( ( taxa ) => {
-              console.log( taxa, "taxa" );
               let taxaPerMission;
 
               if ( taxa === "all" ) {

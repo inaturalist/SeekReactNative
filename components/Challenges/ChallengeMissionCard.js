@@ -36,7 +36,7 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
           renderItem={( { item, index } ) => (
             <View style={styles.row}>
               <View style={styles.leftItem}>
-                {missionNumbers[index] === item.observations
+                {missionNumbers[index].number === item.observations
                   ? <Image source={icons.checklist} style={styles.checklist} />
                   : <Text style={styles.bullets}>&#8226;</Text>
                 }

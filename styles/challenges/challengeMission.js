@@ -50,6 +50,7 @@ export default StyleSheet.create( {
     marginTop: 20
   },
   missionText: {
+    width: 205,
     marginLeft: 10
   },
   text: {

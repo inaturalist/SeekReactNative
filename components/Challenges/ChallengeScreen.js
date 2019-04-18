@@ -22,7 +22,6 @@ import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
-import { createFakeObservations } from "../../utility/test";
 
 type Props = {
   navigation: any
@@ -40,7 +39,6 @@ class ChallengeScreen extends Component<Props> {
   }
 
   fetchChallenges() {
-    createFakeObservations();
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challengesNotStarted = [];
@@ -215,7 +213,6 @@ class ChallengeScreen extends Component<Props> {
             />
             {noChallenges ? (
               <View style={[styles.noChallengeContainer, { height: 170 }]}>
-                {/* <View style={{ marginTop: 39 }} /> */}
                 <View style={styles.noChallengeRow}>
                   <Image source={icons.completed} />
                   <View style={styles.noChallengeTextContainer}>
@@ -226,9 +223,7 @@ class ChallengeScreen extends Component<Props> {
               </View>
             ) : null}
             {noChallenges ? null : this.renderChallengesStarted()}
-            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {noChallenges ? null : this.renderChallengesNotStarted()}
-            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {this.renderChallengesCompleted()}
             <Padding />
           </ScrollView>

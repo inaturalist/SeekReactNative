@@ -25,7 +25,7 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
-import { startChallenge, getChallengeIndex } from "../../utility/challengeHelpers";
+import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
@@ -46,8 +46,14 @@ class ChallengeDetailsScreen extends Component<Props> {
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  resetIndex() {
-    this.setState( { index: null } );
+  resetState() {
+    this.setState( {
+      challenge: {},
+      missions: {},
+      challengeStarted: false,
+      showChallengeModal: false,
+      index: null
+    } );
   }
 
   async fetchChallengeIndex() {
@@ -155,8 +161,11 @@ class ChallengeDetailsScreen extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => this.fetchChallengeIndex()}
-            onWillBlur={() => this.resetIndex()}
+            onWillFocus={() => {
+              recalculateChallenges();
+              this.fetchChallengeIndex();
+            }}
+            onWillBlur={() => this.resetState()}
           />
           <Modal
             isVisible={showChallengeModal}

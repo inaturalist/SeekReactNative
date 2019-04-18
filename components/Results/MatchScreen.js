@@ -21,11 +21,9 @@ import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
-import { createNotification } from "../../utility/notificationHelpers";
 import {
   recalculateBadges,
-  getBadgesEarned,
-  getLevelsEarned
+  getBadgesEarned
 } from "../../utility/badgeHelpers";
 import {
   recalculateChallenges,
@@ -48,7 +46,6 @@ class MatchScreen extends Component<Props> {
 
     this.state = {
       badgesEarned: 0,
-      levelsEarned: 0,
       challengesCompleted: 0,
       badge: null,
       showLevelModal: false,
@@ -66,10 +63,8 @@ class MatchScreen extends Component<Props> {
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
-    const levelsEarned = await getLevelsEarned();
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
-    this.setLevelsEarned( levelsEarned );
   }
 
   setNavigationPath( navigationPath ) {
@@ -88,17 +83,12 @@ class MatchScreen extends Component<Props> {
     }, () => this.checkForChallengesCompleted() );
   }
 
-  setLevelsEarned( levelsEarned ) {
-    this.setState( { levelsEarned } );
-  }
-
   setLatestBadge( badge ) {
     this.setState( { badge } );
   }
 
   setLatestChallenge( challenge ) {
     this.setState( { challenge } );
-    createNotification( "challengeCompleted", challenge.index );
   }
 
   setLatestLevel( newestLevel ) {

@@ -40,10 +40,11 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
       <TouchableOpacity
         style={styles.startButton}
         onPress={() => {
+          setChallengeIndex( item.index );
           startChallenge( item.index );
           fetchChallenges();
           recalculateChallenges();
-          navigation.navigate( "ChallengeDetails", { index: item.index } );
+          navigation.navigate( "ChallengeDetails" );
         }}
       >
         <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>

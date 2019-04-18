@@ -78,8 +78,9 @@ const recalculateChallenges = () => {
 
           if ( percentComplete === 100 ) {
             challenge.completedDate = new Date();
+            createNotification( "challengeCompleted", challenge.index );
           } else if ( percentComplete >= 75 && prevPercent < 75 ) {
-            createNotification( "challengeProgress", index );
+            createNotification( "challengeProgress", challenge.index );
           }
           challenge.percentComplete = percentComplete;
         } );

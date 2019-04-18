@@ -5,7 +5,8 @@ import {
   FlatList,
   View,
   SafeAreaView,
-  Text
+  Text,
+  Alert
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";

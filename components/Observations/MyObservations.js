@@ -114,7 +114,7 @@ class MyObservations extends Component<Props> {
           <NavigationEvents onDidFocus={() => this.fetchObservations()} />
           <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
           {content}
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

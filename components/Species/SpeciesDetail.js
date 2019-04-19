@@ -476,7 +476,7 @@ class SpeciesDetail extends Component<Props> {
               </View>
             ) : null}
           </ScrollView>
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

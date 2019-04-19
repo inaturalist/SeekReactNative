@@ -228,7 +228,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             </View>
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

@@ -78,7 +78,7 @@ class NotificationsScreen extends Component<Props> {
                 </Text>
               </View>
             )}
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

@@ -66,10 +66,10 @@ const AboutScreen = ( { navigation }: Props ) => {
           </View>
           <Padding />
         </ScrollView>
-        <Footer navigation={navigation} />
+        {/* <Footer navigation={navigation} /> */}
       </SafeAreaView>
     </View>
   );
-}
+};
 
 export default AboutScreen;

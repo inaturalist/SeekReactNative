@@ -343,7 +343,7 @@ class HomeScreen extends Component<Props> {
               <Padding />
             </ScrollView>
           </View>
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

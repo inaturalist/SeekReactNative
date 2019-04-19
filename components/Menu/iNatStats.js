@@ -189,7 +189,7 @@ class iNatStatsScreen extends Component<Props> {
             </TouchableOpacity> */}
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

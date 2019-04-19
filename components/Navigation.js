@@ -2,7 +2,8 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator,
   createDrawerNavigator,
-  createAppContainer
+  createAppContainer,
+  createBottomTabNavigator
 } from "react-navigation";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
@@ -25,6 +26,8 @@ import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./Menu/iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
+import Footer from "./Home/Footer";
+import ChallengeFooter from "./Challenges/ChallengeFooter";
 // import LoginScreen from "./Login/LoginScreen";
 // import AgeVerifyScreen from "./Login/AgeVerifyScreen";
 // import iNatLoginScreen from "./Login/iNatLoginScreen";
@@ -49,6 +52,35 @@ const handleCustomTransition = ( { scenes } ) => {
   return fadeIn();
 };
 
+const CameraNavigatorConfig = {
+  initialRouteName: "CAMERA",
+  tabBarPosition: "bottom",
+  tabBarOptions: {
+    scrollEnabled: true,
+    labelStyle: styles.cameraTabLabel,
+    style: styles.cameraTab,
+    indicatorStyle: styles.indicator
+  }
+};
+
+const StackNavigatorConfig = {
+  headerMode: "none",
+  transitionConfig: () => fadeIn()
+};
+
+const DrawerNavigatorConfig = {
+  contentComponent: SideMenu,
+  headerMode: "none"
+};
+
+const FooterTabConfig = {
+  tabBarComponent: Footer
+};
+
+const ChallengeFooterTabConfig = {
+  tabBarComponent: ChallengeFooter
+};
+
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
     screen: ARCamera,
@@ -62,36 +94,89 @@ const CameraNav = createMaterialTopTabNavigator( {
       title: i18n.t( "gallery.label" ).toLocaleUpperCase()
     } )
   }
-}, {
-  initialRouteName: "CAMERA",
-  tabBarPosition: "bottom",
-  tabBarOptions: {
-    scrollEnabled: true,
-    labelStyle: styles.cameraTabLabel,
-    style: styles.cameraTab,
-    indicatorStyle: styles.indicator
+}, CameraNavigatorConfig );
+
+const ChallengeFooterTabNav = createBottomTabNavigator( {
+  Challenges: {
+    screen: ChallengeScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  ChallengeDetails: {
+    screen: ChallengeDetailsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
   }
-} );
+}, ChallengeFooterTabConfig );
 
-const StackNavigatorConfig = {
-  headerMode: "none",
-  transitionConfig: () => fadeIn()
-};
-
-const DrawerNavigatorConfig = {
-  contentComponent: SideMenu,
-  headerMode: "none"
-};
-
-const MainStack = createStackNavigator( {
+const FooterTabNav = createBottomTabNavigator( {
   Main: {
     screen: HomeScreen,
     navigationOptions: () => ( {
       header: null
     } )
   },
+  CameraHelp: {
+    screen: CameraHelpScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
   Notifications: {
     screen: NotificationsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  iNatStats: {
+    screen: iNatStatsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Badges: {
+    screen: AchievementsScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  MyObservations: {
+    screen: MyObservations,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  About: {
+    screen: AboutScreen,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  Species: {
+    screen: SpeciesDetail,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  RangeMap: {
+    screen: RangeMap,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  }
+}, FooterTabConfig );
+
+const MainStack = createStackNavigator( {
+  Footer: {
+    screen: FooterTabNav,
+    navigationOptions: () => ( {
+      header: null
+    } )
+  },
+  ChallengeFooter: {
+    screen: ChallengeFooterTabNav,
     navigationOptions: () => ( {
       header: null
     } )

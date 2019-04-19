@@ -227,7 +227,7 @@ class ChallengeScreen extends Component<Props> {
             {this.renderChallengesCompleted()}
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
+          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

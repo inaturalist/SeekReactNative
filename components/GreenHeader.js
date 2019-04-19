@@ -8,15 +8,20 @@ import {
 
 import styles from "../styles/greenHeader";
 import BackArrow from "./BackArrow";
+import CustomBackArrow from "./CustomBackArrow";
 
 type Props = {
   header: string,
-  navigation: any
+  navigation: any,
+  route: string
 }
 
-const GreenHeader = ( { header, navigation }: Props ) => (
+const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
-    <BackArrow navigation={navigation} />
+    {route
+      ? <CustomBackArrow navigation={navigation} route={route} />
+      : <BackArrow navigation={navigation} />
+    }
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
   </View>
 );

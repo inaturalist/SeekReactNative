@@ -203,7 +203,11 @@ class ChallengeScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <GreenHeader navigation={navigation} header={i18n.t( "challenges.header" )} />
+          <GreenHeader
+            navigation={navigation}
+            header={i18n.t( "challenges.header" )}
+            route="Main"
+          />
           <ScrollView contentContainerStyle={styles.column}>
             <NavigationEvents
               onWillFocus={ () => {

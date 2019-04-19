@@ -35,7 +35,11 @@ const CameraHelpScreen = ( { navigation }: Props ) => {
       <SafeAreaView style={styles.safeViewTop} />
       <SafeAreaView style={styles.safeView}>
         <StatusBar barStyle="light-content" />
-        <GreenHeader navigation={navigation} header={i18n.t( "camera_help.title" )} />
+        <GreenHeader
+          navigation={navigation}
+          header={i18n.t( "camera_help.title" )}
+          route="Camera"
+        />
         <ScrollView>
           <Image style={styles.topImage} source={icons.cameraHelpTop} />
           <View style={styles.textContainer}>

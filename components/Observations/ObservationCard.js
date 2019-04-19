@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import RNFS from "react-native-fs";
 
-import { setSpeciesId } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 import styles from "../../styles/menu/observations";
 import iconicTaxa from "../../assets/iconicTaxa";
 
@@ -77,6 +77,7 @@ class ObservationCard extends Component<Props> {
         style={styles.card}
         onPress={() => {
           setSpeciesId( item.taxon.id );
+          setRoute( "MyObservations" );
           navigation.navigate( "Species" );
         }}
       >

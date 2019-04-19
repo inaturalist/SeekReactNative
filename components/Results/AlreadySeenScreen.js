@@ -16,7 +16,7 @@ import BackArrow from "../BackArrow";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
-import { setSpeciesId } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 
 type Props = {
   speciesSeenImage: string,
@@ -63,6 +63,7 @@ const AlreadySeenScreen = ( {
             style={styles.button}
             onPress={() => {
               setSpeciesId( taxaId );
+              setRoute( "Camera" );
               navigation.navigate( "Species" );
             }}
           >

@@ -18,14 +18,16 @@ type Props = {
   navigation: any,
   photos: Array<Object>,
   userPhoto: string,
-  loading: boolean
+  loading: boolean,
+  route: string
 };
 
 const SpeciesPhotos = ( {
   photos,
   userPhoto,
   loading,
-  navigation
+  navigation,
+  route
 }: Props ) => {
   const photoList = [];
 
@@ -85,7 +87,7 @@ const SpeciesPhotos = ( {
         </ScrollView>
       )}
       <TouchableOpacity
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate( route )}
         hitSlop={styles.touchable}
         style={styles.backButton}
       >

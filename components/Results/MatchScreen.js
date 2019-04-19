@@ -29,7 +29,7 @@ import {
   recalculateChallenges,
   getChallengesCompleted
 } from "../../utility/challengeHelpers";
-import { setSpeciesId } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
 type Props = {
@@ -166,6 +166,7 @@ class MatchScreen extends Component<Props> {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
       setSpeciesId( taxaId );
+      setRoute( "Camera" );
       navigation.navigate( "Species" );
     } else if ( navigationPath === "Back" ) {
       navigation.goBack();

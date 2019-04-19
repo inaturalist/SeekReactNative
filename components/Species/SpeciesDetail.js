@@ -33,7 +33,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
-import { getSpeciesId, capitalizeNames } from "../../utility/helpers";
+import { getSpeciesId, capitalizeNames, getRoute } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -62,7 +62,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loading: true,
-      loadingSpecies: true
+      loadingSpecies: true,
+      route: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -107,7 +108,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loading: true,
-      loadingSpecies: true
+      loadingSpecies: true,
+      route: null
     } );
   }
 
@@ -121,6 +123,11 @@ class SpeciesDetail extends Component<Props> {
       this.fetchHistogram();
       this.fetchSimilarSpecies();
     } );
+  }
+
+  async fetchRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
   }
 
   async fetchUserLocation() {
@@ -334,6 +341,7 @@ class SpeciesDetail extends Component<Props> {
     }
     if ( !error ) {
       this.fetchSpeciesId();
+      this.fetchRoute();
       this.fetchUserLocation();
     }
     this.scrollView.scrollTo( {
@@ -374,7 +382,8 @@ class SpeciesDetail extends Component<Props> {
       ancestors,
       stats,
       loading,
-      loadingSpecies
+      loadingSpecies,
+      route
     } = this.state;
 
     const { navigation } = this.props;
@@ -400,6 +409,7 @@ class SpeciesDetail extends Component<Props> {
               photos={photos}
               userPhoto={userPhoto}
               loading={loading}
+              route={route}
             />
             {taxaType && iconicTaxaNames[taxaType]
               ? (

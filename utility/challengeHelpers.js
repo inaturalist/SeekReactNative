@@ -2,7 +2,7 @@ const { AsyncStorage } = require( "react-native" );
 const Realm = require( "realm" );
 
 const { createNotification } = require( "./notificationHelpers" );
-const taxonDict = require( "./taxonDict" );
+const taxonDict = require( "./taxonDictForMissions" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );

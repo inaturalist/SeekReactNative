@@ -52,6 +52,10 @@ const handleCustomTransition = ( { scenes } ) => {
   return fadeIn();
 };
 
+const noHeader = {
+  header: null
+};
+
 const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
@@ -98,119 +102,71 @@ const CameraNav = createMaterialTopTabNavigator( {
 
 const ChallengeFooterTabNav = createBottomTabNavigator( {
   Challenges: {
-    screen: ChallengeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: ChallengeScreen
   },
   ChallengeDetails: {
-    screen: ChallengeDetailsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: ChallengeDetailsScreen
   }
 }, ChallengeFooterTabConfig );
 
 const FooterTabNav = createBottomTabNavigator( {
   Main: {
-    screen: HomeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: HomeScreen
   },
   CameraHelp: {
-    screen: CameraHelpScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: CameraHelpScreen
   },
   Notifications: {
-    screen: NotificationsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: NotificationsScreen
   },
   iNatStats: {
-    screen: iNatStatsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: iNatStatsScreen
   },
   Badges: {
-    screen: AchievementsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: AchievementsScreen
   },
   MyObservations: {
-    screen: MyObservations,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: MyObservations
   },
   About: {
-    screen: AboutScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: AboutScreen
   },
   Species: {
-    screen: SpeciesDetail,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: SpeciesDetail
   },
   RangeMap: {
-    screen: RangeMap,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: RangeMap
   }
 }, FooterTabConfig );
 
 const MainStack = createStackNavigator( {
   Footer: {
     screen: FooterTabNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   },
   ChallengeFooter: {
     screen: ChallengeFooterTabNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   },
   Camera: {
     screen: CameraNav,
-    navigationOptions: () => ( {
-      header: null,
-      mode: "modal"
-    } )
+    navigationOptions: () => noHeader
   },
   CameraHelp: {
     screen: CameraHelpScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   },
   Results: {
     screen: Results,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   },
   Species: {
     screen: SpeciesDetail,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   },
   RangeMap: {
     screen: RangeMap,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    navigationOptions: () => noHeader
   }
 }, {
   transitionConfig: nav => handleCustomTransition( nav )
@@ -218,46 +174,25 @@ const MainStack = createStackNavigator( {
 
 const MenuDrawerNav = createDrawerNavigator( {
   Main: {
-    screen: MainStack,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: MainStack
   },
   iNatStats: {
-    screen: iNatStatsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: iNatStatsScreen
   },
   Challenges: {
-    screen: ChallengeScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: ChallengeScreen
   },
   ChallengeDetails: {
-    screen: ChallengeDetailsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: ChallengeDetailsScreen
   },
   Badges: {
-    screen: AchievementsScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: AchievementsScreen
   },
   MyObservations: {
-    screen: MyObservations,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: MyObservations
   },
   About: {
-    screen: AboutScreen,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: AboutScreen
   }
 }, DrawerNavigatorConfig );
 

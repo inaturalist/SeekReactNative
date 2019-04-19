@@ -120,8 +120,9 @@ class AchievementsScreen extends Component<Props> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" );
-        this.setState( { challengeBadges: challenges } );
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( [["percentComplete", true], ["availableDate", true]] );
+        const challengeBadges = challenges.slice( 0, 3 );
+        this.setState( { challengeBadges } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

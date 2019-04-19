@@ -18,13 +18,13 @@ import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
 import AchievementsScreen from "./Achievements/AchievementsScreen";
-import AboutScreen from "./Menu/AboutScreen";
+import AboutScreen from "./AboutScreen";
 import SideMenu from "./Home/SideMenu";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Notifications/Notifications";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
-import iNatStatsScreen from "./Menu/iNatStats";
+import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
@@ -155,10 +155,6 @@ const MainStack = createStackNavigator( {
   },
   Results: {
     screen: Results,
-    navigationOptions: () => noHeader
-  },
-  Species: {
-    screen: SpeciesDetail,
     navigationOptions: () => noHeader
   },
   RangeMap: {

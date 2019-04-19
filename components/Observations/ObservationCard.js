@@ -11,7 +11,7 @@ import {
 import RNFS from "react-native-fs";
 
 import { setSpeciesId, setRoute } from "../../utility/helpers";
-import styles from "../../styles/menu/observations";
+import styles from "../../styles/observations";
 import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {

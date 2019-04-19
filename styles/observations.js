@@ -3,7 +3,7 @@ import {
   colors,
   fonts,
   padding
-} from "../global";
+} from "./global";
 
 export default StyleSheet.create( {
   container: {

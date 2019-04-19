@@ -20,7 +20,6 @@ import i18n from "../../i18n";
 import { seenBeforeSeekV2 } from "../../utility/dateHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
-import Footer from "../Home/Footer";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -486,7 +485,6 @@ class SpeciesDetail extends Component<Props> {
               </View>
             ) : null}
           </ScrollView>
-          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

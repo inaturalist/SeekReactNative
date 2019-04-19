@@ -4,17 +4,17 @@ import React, { Component } from "react";
 import {
   ScrollView,
   View,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
-import styles from "../../styles/menu/observations";
+import styles from "../../styles/observations";
 import ObservationList from "./ObservationList";
 import Padding from "../Padding";
-import Footer from "../Home/Footer";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
@@ -32,6 +32,14 @@ class MyObservations extends Component<Props> {
       observations: [],
       loading: true
     };
+  }
+
+  scrollToTop() {
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   fetchObservations() {
@@ -98,7 +106,7 @@ class MyObservations extends Component<Props> {
       );
     } else if ( observations.length > 0 ) {
       content = (
-        <ScrollView>
+        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           {iconicTaxonList}
           <Padding />
         </ScrollView>
@@ -111,10 +119,14 @@ class MyObservations extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <NavigationEvents onDidFocus={() => this.fetchObservations()} />
+          <NavigationEvents
+            onDidFocus={() => {
+              this.scrollToTop();
+              this.fetchObservations();
+            }}
+          />
           <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
           {content}
-          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

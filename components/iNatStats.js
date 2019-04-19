@@ -14,15 +14,14 @@ import {
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 
-import styles from "../../styles/menu/iNatStats";
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import backgrounds from "../../assets/backgrounds";
-import logos from "../../assets/logos";
-import Footer from "../Home/Footer";
-import Padding from "../Padding";
-import { capitalizeNames, shuffleList } from "../../utility/helpers";
-import LoadingWheel from "../LoadingWheel";
+import styles from "../styles/iNatStats";
+import i18n from "../i18n";
+import icons from "../assets/icons";
+import backgrounds from "../assets/backgrounds";
+import logos from "../assets/logos";
+import Padding from "./Padding";
+import { capitalizeNames, shuffleList } from "../utility/helpers";
+import LoadingWheel from "./LoadingWheel";
 
 type Props = {
   navigation: any
@@ -66,7 +65,9 @@ class iNatStatsScreen extends Component<Props> {
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
             photos.push( {
               photoUrl: defaultPhoto.medium_url,
-              commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
+              commonName: photo.preferred_common_name
+                ? capitalizeNames( photo.preferred_common_name )
+                : capitalizeNames( photo.iconic_taxon_name ),
               attribution: defaultPhoto.attribution
             } );
           }
@@ -198,7 +199,6 @@ class iNatStatsScreen extends Component<Props> {
             </TouchableOpacity> */}
             <Padding />
           </ScrollView>
-          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

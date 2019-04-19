@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/menu/observations";
+import styles from "../../styles/observations";
 
 type Props = {
   navigation: any

@@ -4,7 +4,7 @@ import {
   fonts,
   padding,
   touchable
-} from "../global";
+} from "./global";
 
 const { width, height } = Dimensions.get( "window" );
 

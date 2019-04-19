@@ -33,8 +33,8 @@ class NotificationsScreen extends Component<Props> {
 
   scrollToTop() {
     if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
+      this.scrollView.scrollToOffset( {
+        y: 0, animated: Platform.OS === "android"
       } );
     }
   }
@@ -60,10 +60,8 @@ class NotificationsScreen extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => {
-              this.scrollToTop();
-              this.fetchNotifications();
-            }}
+            onWillFocus={() => this.fetchNotifications()}
+            onDidFocus={() => this.scrollToTop()}
             onDidBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />

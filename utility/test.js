@@ -61,10 +61,10 @@ const createFakePhotos = () => {
 };
 
 const createFakeNotifications = () => {
-  // createNotification( "challengeProgress", 0 );
+  createNotification( "challengeProgress", 0 );
   createNotification( "badgeEarned" );
-  // createNotification( "badgeEarned" );
-  // createNotification( "challengeCompleted", 0 );
+  createNotification( "badgeEarned" );
+  createNotification( "challengeCompleted", 0 );
 };
 
 export {

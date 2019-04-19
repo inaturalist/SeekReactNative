@@ -25,7 +25,6 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import NoChallenges from "./NoChallenges";
-import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
@@ -103,6 +102,37 @@ class HomeScreen extends Component<Props> {
     }, () => {
       this.checkInternetConnection();
     } );
+  }
+
+  setParamsForSpeciesNearby( lat, lng ) {
+    const { taxaType } = this.state;
+    this.setLoading( true );
+    this.checkInternetConnection();
+    if ( !lat || !lng ) {
+      this.fetchUserLocation();
+    }
+
+    const params = {
+      verifiable: true,
+      photos: true,
+      per_page: 20,
+      lat,
+      lng,
+      radius: 50,
+      threatened: false,
+      oauth_application_id: "2,3",
+      hrank: "species",
+      include_only_vision_taxa: true,
+      not_in_list_id: 945029,
+      month: getPreviousAndNextMonth(),
+      locale: i18n.currentLocale()
+    };
+
+    if ( taxonIds[taxaType] ) {
+      params.taxon_id = taxonIds[taxaType];
+    }
+
+    this.fetchSpeciesNearby( params );
   }
 
   requestAndroidPermissions = async () => {
@@ -186,37 +216,6 @@ class HomeScreen extends Component<Props> {
         this.setError( null );
       }
     } ).catch( () => this.setError( null ) );
-  }
-
-  setParamsForSpeciesNearby( lat, lng ) {
-    const { taxaType } = this.state;
-    this.setLoading( true );
-    this.checkInternetConnection();
-    if ( !lat || !lng ) {
-      this.fetchUserLocation();
-    }
-
-    const params = {
-      verifiable: true,
-      photos: true,
-      per_page: 20,
-      lat,
-      lng,
-      radius: 50,
-      threatened: false,
-      oauth_application_id: "2,3",
-      hrank: "species",
-      include_only_vision_taxa: true,
-      not_in_list_id: 945029,
-      month: getPreviousAndNextMonth(),
-      locale: i18n.currentLocale()
-    };
-
-    if ( taxonIds[taxaType] ) {
-      params.taxon_id = taxonIds[taxaType];
-    }
-
-    this.fetchSpeciesNearby( params );
   }
 
   fetchSpeciesNearby( params ) {
@@ -345,7 +344,6 @@ class HomeScreen extends Component<Props> {
               <Padding />
             </ScrollView>
           </View>
-          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

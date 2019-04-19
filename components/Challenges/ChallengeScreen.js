@@ -18,7 +18,6 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
@@ -231,7 +230,6 @@ class ChallengeScreen extends Component<Props> {
             {this.renderChallengesCompleted()}
             <Padding />
           </ScrollView>
-          {/* <Footer navigation={navigation} /> */}
         </SafeAreaView>
       </View>
     );

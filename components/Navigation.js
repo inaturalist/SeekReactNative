@@ -149,10 +149,6 @@ const MainStack = createStackNavigator( {
     screen: CameraNav,
     navigationOptions: () => noHeader
   },
-  CameraHelp: {
-    screen: CameraHelpScreen,
-    navigationOptions: () => noHeader
-  },
   Results: {
     screen: Results,
     navigationOptions: () => noHeader

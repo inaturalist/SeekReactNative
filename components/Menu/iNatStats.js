@@ -9,7 +9,7 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -38,6 +38,12 @@ class iNatStatsScreen extends Component<Props> {
       photos: [],
       loading: true
     };
+  }
+
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
   }
 
   fetchProjectPhotos() {
@@ -115,12 +121,15 @@ class iNatStatsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.scrollToTop();
             this.fetchProjectPhotos();
           }}
         />
         <SafeAreaView style={styles.safeView}>
           <StatusBar barStyle="dark-content" />
-          <ScrollView>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+          >
             <View style={styles.header}>
               <TouchableOpacity
                 hitSlop={styles.touchable}

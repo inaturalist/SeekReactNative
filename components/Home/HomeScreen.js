@@ -272,6 +272,12 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
+  }
+
   render() {
     const {
       location,
@@ -294,6 +300,7 @@ class HomeScreen extends Component<Props> {
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
+                this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.checkInternetConnection();
                 this.fetchUserLocation();
@@ -309,7 +316,9 @@ class HomeScreen extends Component<Props> {
                 toggleGetStartedModal={this.toggleGetStartedModal}
               />
             </RNModal>
-            <ScrollView>
+            <ScrollView
+              ref={( ref ) => { this.scrollView = ref; }}
+            >
               {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
                 visible={modalVisible}

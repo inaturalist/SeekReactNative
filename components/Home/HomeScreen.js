@@ -60,7 +60,7 @@ class HomeScreen extends Component<Props> {
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
-    this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
+    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
   }
 
   setLoading( loading ) {
@@ -99,7 +99,7 @@ class HomeScreen extends Component<Props> {
       this.setState( {
         latitude,
         longitude
-      }, () => this.checkRealmForSpecies( latitude, longitude ) );
+      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
     }, () => {
       this.checkInternetConnection();
     } );
@@ -138,7 +138,7 @@ class HomeScreen extends Component<Props> {
     this.setLoading( true );
     this.setState( {
       taxaType
-    }, () => this.checkRealmForSpecies( latitude, longitude ) );
+    }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
   }
 
   fetchUserLocation() {
@@ -151,7 +151,7 @@ class HomeScreen extends Component<Props> {
         this.getGeolocation();
       }
     } else {
-      this.checkRealmForSpecies( latitude, longitude );
+      this.setParamsForSpeciesNearby( latitude, longitude );
     }
   }
 
@@ -188,7 +188,7 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
-  checkRealmForSpecies( lat, lng ) {
+  setParamsForSpeciesNearby( lat, lng ) {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
@@ -216,14 +216,7 @@ class HomeScreen extends Component<Props> {
       params.taxon_id = taxonIds[taxaType];
     }
 
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        params.without_taxon_id = existingTaxonIds.join( "," );
-        this.fetchSpeciesNearby( params );
-      } ).catch( () => {
-        this.fetchSpeciesNearby( params );
-      } );
+    this.fetchSpeciesNearby( params );
   }
 
   fetchSpeciesNearby( params ) {
@@ -268,7 +261,7 @@ class HomeScreen extends Component<Props> {
       location
     }, () => {
       this.toggleLocationPicker();
-      this.checkRealmForSpecies( latitude, longitude );
+      this.setParamsForSpeciesNearby( latitude, longitude );
     } );
   }
 
@@ -342,7 +335,7 @@ class HomeScreen extends Component<Props> {
                 updateTaxaType={this.updateTaxaType}
                 toggleLocationPicker={this.toggleLocationPicker}
                 error={error}
-                checkRealmForSpecies={this.checkRealmForSpecies}
+                setParamsForSpeciesNearby={this.setParamsForSpeciesNearby}
               />
               <CardPadding />
               { challenge

@@ -17,14 +17,14 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   error: string,
-  checkRealmForSpecies: Function,
+  setParamsForSpeciesNearby: Function,
   latitude: string,
   longitude: string
 }
 
 const Error = ( {
   error,
-  checkRealmForSpecies,
+  setParamsForSpeciesNearby,
   latitude,
   longitude
 }: Props ) => (
@@ -36,7 +36,7 @@ const Error = ( {
       </View>
     ) : (
       <TouchableOpacity
-        onPress={() => checkRealmForSpecies( latitude, longitude )}
+        onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
       >
         <View style={styles.row}>
           <Image source={icons.internet} />

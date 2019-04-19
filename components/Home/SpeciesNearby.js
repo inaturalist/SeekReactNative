@@ -25,7 +25,7 @@ type Props = {
   longitude: number,
   updateTaxaType: Function,
   toggleLocationPicker: Function,
-  checkRealmForSpecies: Function,
+  setParamsForSpeciesNearby: Function,
   error: string
 }
 
@@ -38,7 +38,7 @@ const SpeciesNearby = ( {
   longitude,
   updateTaxaType,
   toggleLocationPicker,
-  checkRealmForSpecies,
+  setParamsForSpeciesNearby,
   error
 }: Props ) => {
   let species;
@@ -51,7 +51,7 @@ const SpeciesNearby = ( {
     species = (
       <Error
         error={error}
-        checkRealmForSpecies={checkRealmForSpecies}
+        setParamsForSpeciesNearby={setParamsForSpeciesNearby}
         latitude={latitude}
         longitude={longitude}
       />

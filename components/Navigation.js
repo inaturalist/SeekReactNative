@@ -133,9 +133,6 @@ const FooterTabNav = createBottomTabNavigator( {
   },
   Species: {
     screen: SpeciesDetail
-  },
-  RangeMap: {
-    screen: RangeMap
   }
 }, FooterTabConfig );
 

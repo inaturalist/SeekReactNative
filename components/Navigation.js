@@ -30,14 +30,14 @@ import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
 import LoginOrSignupScreen from "./LoginOrSignupScreen";
 import LoginScreen from "./Login/LoginScreen";
-import AgeVerifyScreen from "./Signup/AgeVerifyScreen";
-import CheckEmailScreen from "./Login/CheckEmailScreen";
-import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import LoginSuccessScreen from "./Login/LoginSuccessScreen";
+import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
+import PasswordEmailScreen from "./Login/PasswordEmailScreen";
+import AgeVerifyScreen from "./Signup/AgeVerifyScreen";
 import ParentalConsentScreen from "./Signup/ParentalConsentScreen";
-import SignUpScreen from "./Signup/SignUpScreen-1";
-import SignUpScreen2 from "./Signup/SignUpScreen-2";
 import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
+import LicensePhotosScreen from "./Signup/LicensePhotosScreen";
+import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
@@ -202,8 +202,8 @@ const LoginStack = createStackNavigator( {
     screen: ForgotPasswordScreen,
     navigationOptions: () => noHeader
   },
-  CheckEmail: {
-    screen: CheckEmailScreen,
+  PasswordEmail: {
+    screen: PasswordEmailScreen,
     navigationOptions: () => noHeader
   },
   ParentCheckEmail: {
@@ -218,12 +218,12 @@ const LoginStack = createStackNavigator( {
     screen: ParentalConsentScreen,
     navigationOptions: () => noHeader
   },
-  Signup: {
-    screen: SignUpScreen,
+  LicensePhotos: {
+    screen: LicensePhotosScreen,
     navigationOptions: () => noHeader
   },
-  Signup2: {
-    screen: SignUpScreen2,
+  Signup: {
+    screen: SignUpScreen,
     navigationOptions: () => noHeader
   },
   Privacy: {

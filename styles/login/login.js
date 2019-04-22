@@ -1,8 +1,6 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 import { fonts, colors, padding } from "../global";
-
-const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -19,6 +17,15 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     justifyContent: "center"
+  },
+  greenHeaderText: {
+    marginTop: 22,
+    textAlign: "center",
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 23,
+    lineHeight: 30,
+    letterSpacing: 1.0
   },
   inputField: {
     width: 307,
@@ -58,8 +65,12 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
-  keyboardHeaderText: {
-    marginTop: ( width > 350 ) ? 50 : 20
+  header: {
+    textAlign: "center",
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24
   },
   secondHeaderTextContainer: {
     marginTop: 11,
@@ -109,11 +120,6 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     textDecorationLine: "underline"
   },
-  darkText: {
-    color: colors.black,
-    fontSize: 20,
-    textAlign: "center"
-  },
   datePickerContainer: {
     marginTop: Platform.OS === "android" ? 40 : null,
     marginBottom: Platform.OS === "android" ? 60 : null,
@@ -135,24 +141,5 @@ export default StyleSheet.create( {
     fontSize: 19,
     color: colors.white,
     lineHeight: 24
-  },
-  keyboardSecondHeaderText: {
-    fontSize: ( width > 350 ) ? 22 : 20,
-    lineHeight: ( width > 350 ) ? 30 : 28
-  },
-  licenseText: {
-    fontFamily: fonts.book,
-    fontSize: 17,
-    lineHeight: 23,
-    color: colors.white
-  },
-  row: {
-    marginTop: 30,
-    marginBottom: 30,
-    marginHorizontal: 40,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
   }
 } );

@@ -64,7 +64,7 @@ class AgeVerifyScreen extends Component<Props> {
     if ( requiresParent( chosenDate ) ) {
       navigation.navigate( "Parent" );
     } else {
-      navigation.navigate( "Signup" );
+      navigation.navigate( "LicensePhotos" );
     }
   }
 

@@ -70,9 +70,6 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textDecorationLine: "underline"
   },
-  keyboardHeaderText: {
-    marginTop: ( width > 350 ) ? 50 : 20
-  },
   text: {
     marginHorizontal: 38,
     marginTop: 20,
@@ -87,6 +84,7 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     alignSelf: "flex-start",
     marginLeft: 39,
+    marginTop: 16,
     marginBottom: 8
   },
   leftText: {
@@ -96,24 +94,10 @@ export default StyleSheet.create( {
     lineHeight: 24,
     color: colors.seekForestGreen
   },
-  rightTextContainer: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignSelf: "flex-end",
-    marginRight: 25,
-    marginTop: 10,
-    marginBottom: 10
-  },
   textLink: {
     marginTop: 30,
     fontFamily: fonts.book,
     fontSize: 19,
-    color: colors.white,
-    textDecorationLine: "underline"
-  },
-  forgotPasswordText: {
-    fontFamily: fonts.book,
-    fontSize: 16,
     color: colors.white,
     textDecorationLine: "underline"
   },
@@ -144,23 +128,21 @@ export default StyleSheet.create( {
     color: colors.white,
     lineHeight: 30
   },
-  keyboardSecondHeaderText: {
-    fontSize: ( width > 350 ) ? 22 : 20,
-    lineHeight: ( width > 350 ) ? 30 : 28
-  },
-  licenseText: {
-    fontFamily: fonts.book,
-    fontSize: 17,
-    lineHeight: 23,
-    color: colors.white
-  },
   row: {
-    marginTop: 30,
-    marginBottom: 30,
-    marginHorizontal: 40,
+    marginTop: 35,
+    marginBottom: 104,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: "center"
+  },
+  licenseText: {
+    maxWidth: 253,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    color: colors.black
+  },
+  checkBox: {
+    marginRight: 18
   }
 } );

@@ -28,16 +28,16 @@ import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
-import LoginScreen from "./Login/LoginScreen";
-import AgeVerifyScreen from "./Login/AgeVerifyScreen";
+import LoginScreen from "./LoginOrSignupScreen";
+import AgeVerifyScreen from "./Signup/AgeVerifyScreen";
 import iNatLoginScreen from "./Login/iNatLoginScreen";
 import CheckEmailScreen from "./Login/CheckEmailScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
 import WelcomeScreen from "./Login/WelcomeScreen";
-import ParentalConsentScreen from "./Login/ParentalConsentScreen";
-import SignUpScreen from "./Login/SignUpScreen-1";
-import SignUpScreen2 from "./Login/SignUpScreen-2";
-import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
+import ParentalConsentScreen from "./Signup/ParentalConsentScreen";
+import SignUpScreen from "./Signup/SignUpScreen-1";
+import SignUpScreen2 from "./Signup/SignUpScreen-2";
+import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 
 const handleCustomTransition = ( { scenes } ) => {

@@ -9,16 +9,16 @@ import {
   ImageBackground
 } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/login/login";
-import logoImages from "../../assets/logos";
-import backgrounds from "../../assets/backgrounds";
+import i18n from "../i18n";
+import styles from "../styles/loginOrSignup";
+import logoImages from "../assets/logos";
+import backgrounds from "../assets/backgrounds";
 
 type Props = {
   navigation: any
 }
 
-const LoginScreen = ( { navigation }: Props ) => (
+const LoginOrSignupScreen = ( { navigation }: Props ) => (
   <ImageBackground
     style={styles.container}
     source={backgrounds.splash}
@@ -26,19 +26,19 @@ const LoginScreen = ( { navigation }: Props ) => (
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.buttonContainer}>
       <TouchableOpacity
-        style={[styles.greenButton, { marginBottom: 25 }]}
+        style={styles.whiteButton}
         onPress={() => navigation.navigate( "iNatLogin" )}
       >
         <Text style={styles.buttonText}>
-          {i18n.t( "login.log_in" )}
+          {i18n.t( "login.log_in" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.greenButton, { marginBottom: 25 }]}
+        style={styles.whiteButton}
         onPress={() => navigation.navigate( "Age" )}
       >
         <Text style={styles.buttonText}>
-          {i18n.t( "login.sign_up" )}
+          {i18n.t( "login.sign_up" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
     </View>
@@ -48,12 +48,10 @@ const LoginScreen = ( { navigation }: Props ) => (
     >
       {i18n.t( "login.skip_login" )}
     </Text>
-    <View style={styles.aboutTextContainer}>
-      <Text style={styles.text}>
-        {i18n.t( "login.about" )}
-      </Text>
-    </View>
+    <Text style={styles.text}>
+      {i18n.t( "login.about" )}
+    </Text>
   </ImageBackground>
 );
 
-export default LoginScreen;
+export default LoginOrSignupScreen;

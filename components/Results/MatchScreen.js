@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -27,7 +28,9 @@ import {
 } from "../../utility/badgeHelpers";
 import {
   recalculateChallenges,
-  getChallengesCompleted
+  getChallengesCompleted,
+  setChallengeProgress,
+  getChallengeProgress
 } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
@@ -65,6 +68,7 @@ class MatchScreen extends Component<Props> {
     const challengesCompleted = await getChallengesCompleted();
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
+    recalculateChallenges();
   }
 
   setNavigationPath( navigationPath ) {
@@ -96,7 +100,7 @@ class MatchScreen extends Component<Props> {
   }
 
   showChallengeInProgress( incompleteChallenge ) {
-    this.setState( { incompleteChallenge } );
+    this.setState( { incompleteChallenge }, () => setChallengeProgress( null ) );
   }
 
   toggleChallengeModal() {
@@ -138,20 +142,26 @@ class MatchScreen extends Component<Props> {
       } );
   }
 
-  checkForChallengesCompleted() {
+  async checkForChallengesCompleted() {
     const { challengesCompleted } = this.state;
 
-    recalculateChallenges();
+    const index = await getChallengeProgress();
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
-        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
+        const challenges = realm.objects( "ChallengeRealm" )
+          .filtered( "started == true AND percentComplete == 100" )
+          .sorted( "completedDate", true );
+
+        if ( index ) {
+          Alert.alert( JSON.stringify( index ), "index" );
+          const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+          Alert.alert( JSON.stringify( incompleteChallenges[0] ), "incomplete" );
+          this.showChallengeInProgress( incompleteChallenges[0] );
+        }
 
         if ( challenges.length > challengesCompleted ) {
           this.setLatestChallenge( challenges[0] );
-        } else if ( incompleteChallenges.length > 0 ) {
-          this.showChallengeInProgress( incompleteChallenges[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );

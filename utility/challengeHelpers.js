@@ -12,6 +12,11 @@ const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
 const getSum = ( total, currentValue ) => total + currentValue;
 
+const setChallengeProgress = ( index ) => {
+  const value = index ? index.toString() : "none";
+  AsyncStorage.setItem( "challengeProgress", value );
+};
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -82,6 +87,11 @@ const recalculateChallenges = () => {
           } else if ( percentComplete >= 75 && prevPercent < 75 ) {
             createNotification( "challengeProgress", challenge.index );
           }
+
+          if ( prevPercent < percentComplete ) {
+            setChallengeProgress( challenge.index );
+          }
+
           challenge.percentComplete = percentComplete;
         } );
       } );
@@ -115,9 +125,9 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
-          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          if ( isAvailable ) {
+          // if ( isAvailable ) {
             const challenge = realm.create( "ChallengeRealm", {
               name: challenges.name,
               month: challenges.month,
@@ -131,7 +141,7 @@ const setupChallenges = () => {
               availableDate: challenges.availableDate,
               index: challenges.index
             }, true );
-          }
+          // }
         } );
       } );
     } ).catch( ( err ) => {
@@ -141,10 +151,6 @@ const setupChallenges = () => {
 
 const setChallengesCompleted = ( challenges ) => {
   AsyncStorage.setItem( "challengesCompleted", challenges );
-};
-
-const setChallengeIndex = ( index ) => {
-  AsyncStorage.setItem( "index", index.toString() );
 };
 
 const checkNumberOfChallengesCompleted = () => {
@@ -167,10 +173,25 @@ const getChallengesCompleted = async () => {
   }
 };
 
+const setChallengeIndex = ( index ) => {
+  AsyncStorage.setItem( "index", index.toString() );
+};
+
 const getChallengeIndex = async () => {
   try {
     const index = await AsyncStorage.getItem( "index" );
-    return Number( index );
+    if ( index !== "none" ) {
+      return Number( index );
+    }
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
+const getChallengeProgress = async () => {
+  try {
+    const index = await AsyncStorage.getItem( "challengeProgress" );
+    return Number( index ) || null;
   } catch ( error ) {
     return ( error );
   }
@@ -184,5 +205,7 @@ export {
   checkNumberOfChallengesCompleted,
   getChallengesCompleted,
   setChallengeIndex,
-  getChallengeIndex
+  getChallengeIndex,
+  setChallengeProgress,
+  getChallengeProgress
 };

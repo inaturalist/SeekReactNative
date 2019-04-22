@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/login/login";
+import styles from "../../styles/signup/signup";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {

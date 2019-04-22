@@ -16,7 +16,7 @@ type Props = {
 
 const Button = ( { navigation, index }: Props ) => (
   <TouchableOpacity
-    onPress={() => navigation.navigate( "Main" )}
+    onPress={() => navigation.navigate( "Login" )}
   >
     <View style={styles.buttonContainer}>
       { index === 2

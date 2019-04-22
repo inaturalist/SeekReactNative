@@ -43,7 +43,7 @@
   "login": {
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up for iNaturalist",
-    "about": "By logging in to iNaturalist, you can sync your observations across devices and post to the online community.",
+    "about": " By logging in with iNaturalist, you can post observations to the online community through Seek.",
     "skip_login": "Continue without signing in"
   },
   "inat_signup": {

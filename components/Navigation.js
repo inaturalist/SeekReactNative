@@ -28,17 +28,17 @@ import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
-// import LoginScreen from "./Login/LoginScreen";
-// import AgeVerifyScreen from "./Login/AgeVerifyScreen";
-// import iNatLoginScreen from "./Login/iNatLoginScreen";
-// import CheckEmailScreen from "./Login/CheckEmailScreen";
-// import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
-// import WelcomeScreen from "./Login/WelcomeScreen";
-// import ParentalConsentScreen from "./Login/ParentalConsentScreen";
-// import SignUpScreen from "./Login/SignUpScreen-1";
-// import SignUpScreen2 from "./Login/SignUpScreen-2";
-// import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
-// import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import LoginScreen from "./Login/LoginScreen";
+import AgeVerifyScreen from "./Login/AgeVerifyScreen";
+import iNatLoginScreen from "./Login/iNatLoginScreen";
+import CheckEmailScreen from "./Login/CheckEmailScreen";
+import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
+import WelcomeScreen from "./Login/WelcomeScreen";
+import ParentalConsentScreen from "./Login/ParentalConsentScreen";
+import SignUpScreen from "./Login/SignUpScreen-1";
+import SignUpScreen2 from "./Login/SignUpScreen-2";
+import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
+import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
@@ -185,83 +185,52 @@ const MenuDrawerNav = createDrawerNavigator( {
   }
 }, DrawerNavigatorConfig );
 
-// const LoginStack = createStackNavigator( {
-//   Login: {
-//     screen: LoginScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Age: {
-//     screen: AgeVerifyScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   iNatLogin: {
-//     screen: iNatLoginScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Forgot: {
-//     screen: ForgotPasswordScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   CheckEmail: {
-//     screen: CheckEmailScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   ParentCheckEmail: {
-//     screen: ParentCheckEmailScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Welcome: {
-//     screen: WelcomeScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Parent: {
-//     screen: ParentalConsentScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Signup: {
-//     screen: SignUpScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Signup2: {
-//     screen: SignUpScreen2,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Privacy: {
-//     screen: PrivacyPolicyScreen,
-//     navigationOptions: () => ( {
-//       title: i18n.t( "privacy.header" ),
-//       headerStyle: styles.greenHeader,
-//       headerTitleStyle: styles.whiteHeaderTitle,
-//       headerBackImage: backButton
-//     } )
-//   }
-// } );
+const LoginStack = createStackNavigator( {
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: () => noHeader
+  },
+  Age: {
+    screen: AgeVerifyScreen,
+    navigationOptions: () => noHeader
+  },
+  iNatLogin: {
+    screen: iNatLoginScreen,
+    navigationOptions: () => noHeader
+  },
+  Forgot: {
+    screen: ForgotPasswordScreen,
+    navigationOptions: () => noHeader
+  },
+  CheckEmail: {
+    screen: CheckEmailScreen,
+    navigationOptions: () => noHeader
+  },
+  ParentCheckEmail: {
+    screen: ParentCheckEmailScreen,
+    navigationOptions: () => noHeader
+  },
+  Welcome: {
+    screen: WelcomeScreen,
+    navigationOptions: () => noHeader
+  },
+  Parent: {
+    screen: ParentalConsentScreen,
+    navigationOptions: () => noHeader
+  },
+  Signup: {
+    screen: SignUpScreen,
+    navigationOptions: () => noHeader
+  },
+  Signup2: {
+    screen: SignUpScreen2,
+    navigationOptions: () => noHeader
+  },
+  Privacy: {
+    screen: PrivacyPolicyScreen,
+    navigationOptions: () => noHeader
+  }
+} );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -270,9 +239,9 @@ const RootStack = createStackNavigator( {
   Onboarding: {
     screen: OnboardingScreen
   },
-  // Login: {
-  //   screen: LoginStack
-  // },
+  Login: {
+    screen: LoginStack
+  },
   Main: {
     screen: MenuDrawerNav
   }

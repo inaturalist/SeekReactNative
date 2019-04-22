@@ -13,7 +13,7 @@ import {
 import Checkbox from "react-native-check-box";
 
 import i18n from "../../i18n";
-import styles from "../../styles/login/login";
+import styles from "../../styles/signup/signup";
 import backgrounds from "../../assets/backgrounds";
 import { colors } from "../../styles/global";
 

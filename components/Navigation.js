@@ -28,12 +28,12 @@ import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
-import LoginScreen from "./LoginOrSignupScreen";
+import LoginOrSignupScreen from "./LoginOrSignupScreen";
+import LoginScreen from "./Login/LoginScreen";
 import AgeVerifyScreen from "./Signup/AgeVerifyScreen";
-import iNatLoginScreen from "./Login/iNatLoginScreen";
 import CheckEmailScreen from "./Login/CheckEmailScreen";
 import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
-import WelcomeScreen from "./Login/WelcomeScreen";
+import LoginSuccessScreen from "./Login/LoginSuccessScreen";
 import ParentalConsentScreen from "./Signup/ParentalConsentScreen";
 import SignUpScreen from "./Signup/SignUpScreen-1";
 import SignUpScreen2 from "./Signup/SignUpScreen-2";
@@ -186,16 +186,16 @@ const MenuDrawerNav = createDrawerNavigator( {
 }, DrawerNavigatorConfig );
 
 const LoginStack = createStackNavigator( {
-  Login: {
-    screen: LoginScreen,
+  LoginOrSignup: {
+    screen: LoginOrSignupScreen,
     navigationOptions: () => noHeader
   },
   Age: {
     screen: AgeVerifyScreen,
     navigationOptions: () => noHeader
   },
-  iNatLogin: {
-    screen: iNatLoginScreen,
+  Login: {
+    screen: LoginScreen,
     navigationOptions: () => noHeader
   },
   Forgot: {
@@ -210,8 +210,8 @@ const LoginStack = createStackNavigator( {
     screen: ParentCheckEmailScreen,
     navigationOptions: () => noHeader
   },
-  Welcome: {
-    screen: WelcomeScreen,
+  LoginSuccess: {
+    screen: LoginSuccessScreen,
     navigationOptions: () => noHeader
   },
   Parent: {

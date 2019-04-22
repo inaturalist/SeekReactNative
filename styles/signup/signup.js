@@ -44,40 +44,49 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     color: colors.white
   },
-  image: {
-    width: 264,
-    height: 264,
-    resizeMode: "contain",
-    marginTop: 36,
-    marginBottom: 44
+  header: {
+    // marginTop: 83,
+    textAlign: "center",
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24
   },
   headerText: {
+    marginTop: 22,
     textAlign: "center",
-    color: colors.white,
+    color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 23,
+    lineHeight: 30,
     letterSpacing: 1.0
+  },
+  privacy: {
+    marginTop: 22,
+    textAlign: "center",
+    color: colors.seekForestGreen,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textDecorationLine: "underline"
   },
   keyboardHeaderText: {
     marginTop: ( width > 350 ) ? 50 : 20
   },
-  secondHeaderTextContainer: {
-    marginTop: 11,
-    marginHorizontal: 25
-  },
   text: {
+    marginHorizontal: 38,
+    marginTop: 20,
     textAlign: "center",
     fontFamily: fonts.medium,
-    fontSize: 17,
-    lineHeight: 19,
-    color: colors.white
+    fontSize: 16,
+    color: colors.black,
+    lineHeight: 21
   },
   leftTextContainer: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignSelf: "flex-start",
     marginLeft: 39,
-    marginTop: 16,
     marginBottom: 8
   },
   leftText: {
@@ -91,9 +100,9 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignSelf: "flex-end",
-    marginRight: 41,
-    marginTop: 11,
-    marginBottom: 51
+    marginRight: 25,
+    marginTop: 10,
+    marginBottom: 10
   },
   textLink: {
     marginTop: 30,
@@ -105,8 +114,7 @@ export default StyleSheet.create( {
   forgotPasswordText: {
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21,
-    color: colors.seekForestGreen,
+    color: colors.white,
     textDecorationLine: "underline"
   },
   darkText: {
@@ -118,7 +126,7 @@ export default StyleSheet.create( {
     marginTop: Platform.OS === "android" ? 40 : null,
     marginBottom: Platform.OS === "android" ? 60 : null,
     alignItems: Platform.OS === "android" ? "center" : null,
-    flex: Platform.OS === "ios" ? 1 : null,
+    // flex: Platform.OS === "ios" ? 1 : null,
     justifyContent: "center"
   },
   datePickerInputField: {
@@ -131,10 +139,10 @@ export default StyleSheet.create( {
   },
   secondHeaderText: {
     textAlign: "center",
-    fontFamily: fonts.medium,
-    fontSize: 19,
+    fontFamily: fonts.book,
+    fontSize: 22,
     color: colors.white,
-    lineHeight: 24
+    lineHeight: 30
   },
   keyboardSecondHeaderText: {
     fontSize: ( width > 350 ) ? 22 : 20,

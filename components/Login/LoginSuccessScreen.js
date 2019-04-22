@@ -4,39 +4,45 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import { colors } from "../../styles/global";
+import badges from "../../assets/badges";
 
 type Props = {
   navigation: any
 }
 
-const WelcomeScreen = ( { navigation }: Props ) => (
+const LoginSuccessScreen = ( { navigation }: Props ) => (
   <LinearGradient
     style={styles.container}
-    colors={[colors.seekGreen, colors.seekTeal]}
+    colors={["#50c49c", "#1b6537"]}
   >
-    <Text style={styles.headerText}>{i18n.t( "inat_signup.welcome" )}</Text>
+    <Text style={styles.headerText}>
+      {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
+    </Text>
     <View style={styles.secondHeaderTextContainer}>
       <Text style={styles.secondHeaderText}>{i18n.t( "inat_signup.explore" )}</Text>
     </View>
-    <View style={{ flexGrow: 1 }} />
+    <Image
+      source={badges["levelbadge-0"]}
+      style={styles.image}
+    />
     <TouchableOpacity
       style={styles.greenButton}
       onPress={() => navigation.navigate( "Main" )}
     >
-      <Text style={styles.buttonText}>{i18n.t( "inat_signup.continue" )}</Text>
+      <Text style={styles.buttonText}>
+        {i18n.t( "inat_signup.continue" ).toLocaleUpperCase()}
+      </Text>
     </TouchableOpacity>
-    <View style={styles.aboutTextContainer}>
-      <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
-    </View>
+    <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
     <Text
-      style={[styles.textLink, { fontSize: 17, marginBottom: 37 }]}
+      style={styles.textLink}
       onPress={() => navigation.navigate( "Privacy" )}
     >
       {i18n.t( "inat_signup.privacy" )}
@@ -44,4 +50,4 @@ const WelcomeScreen = ( { navigation }: Props ) => (
   </LinearGradient>
 );
 
-export default WelcomeScreen;
+export default LoginSuccessScreen;

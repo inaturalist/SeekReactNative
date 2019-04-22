@@ -27,7 +27,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     <View style={styles.buttonContainer}>
       <TouchableOpacity
         style={styles.whiteButton}
-        onPress={() => navigation.navigate( "iNatLogin" )}
+        onPress={() => navigation.navigate( "Login" )}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "login.log_in" ).toLocaleUpperCase()}

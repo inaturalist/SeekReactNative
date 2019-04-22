@@ -7,15 +7,15 @@ import {
   TouchableOpacity,
   DatePickerIOS,
   DatePickerAndroid,
-  Platform
+  Platform,
+  SafeAreaView
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import moment from "moment";
 
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
-import styles from "../../styles/login/login";
-import { colors } from "../../styles/global";
+import styles from "../../styles/signup/signup";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   navigation: any
@@ -32,10 +32,8 @@ class AgeVerifyScreen extends Component<Props> {
     this.setDate = this.setDate.bind( this );
   }
 
-  setDate( newDate ) {
-    this.setState( {
-      chosenDate: newDate
-    } );
+  setDate( chosenDate ) {
+    this.setState( { chosenDate } );
   }
 
   async setDateAndroid() {
@@ -75,54 +73,54 @@ class AgeVerifyScreen extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <LinearGradient
-        style={{ flex: 1 }}
-        colors={[colors.seekGreen, colors.seekTeal]}
-      >
-        <View style={styles.container}>
-          <Text style={styles.headerText}>
+      <View style={styles.container}>
+        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView style={styles.safeView}>
+          <GreenHeader
+            navigation={navigation}
+            header={i18n.t( "login.sign_up" )}
+          />
+          <Text style={styles.header}>
             {i18n.t( "inat_signup.enter_birthday" )}
           </Text>
-          <View style={styles.secondHeaderTextContainer}>
-            <Text style={styles.secondHeaderText}>
-              {i18n.t( "inat_signup.permission" )}
+          <Text style={styles.text}>
+            {i18n.t( "inat_signup.permission" )}
+          </Text>
+          <View style={styles.datePickerContainer}>
+            { Platform.OS === "ios" ? (
+              <DatePickerIOS
+                date={chosenDate}
+                maximumDate={new Date()}
+                mode="date"
+                onDateChange={this.setDate}
+              />
+            ) : (
+              <TouchableOpacity
+                style={styles.datePickerInputField}
+                onPress={() => this.setDateAndroid()}
+              >
+                <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+          <View style={styles.innerContainer}>
+            <TouchableOpacity
+              style={styles.greenButton}
+              onPress={() => this.submit()}
+            >
+              <Text style={styles.buttonText}>
+                {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+              </Text>
+            </TouchableOpacity>
+            <Text
+              style={styles.privacy}
+              onPress={() => navigation.navigate( "Privacy" )}
+            >
+              {i18n.t( "inat_signup.privacy" )}
             </Text>
           </View>
-        </View>
-        <View style={styles.datePickerContainer}>
-          { Platform.OS === "ios" ? (
-            <DatePickerIOS
-              date={chosenDate}
-              maximumDate={new Date()}
-              mode="date"
-              onDateChange={this.setDate}
-            />
-          ) : (
-            <TouchableOpacity
-              style={styles.datePickerInputField}
-              onPress={() => this.setDateAndroid()}
-            >
-              <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
-            </TouchableOpacity>
-          )}
-        </View>
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.greenButton}
-            onPress={() => this.submit()}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_signup.continue" )}
-            </Text>
-          </TouchableOpacity>
-          <Text
-            style={[styles.textLink, { fontSize: 17 }]}
-            onPress={() => navigation.navigate( "Privacy" )}
-          >
-            {i18n.t( "inat_signup.privacy" )}
-          </Text>
-        </View>
-      </LinearGradient>
+        </SafeAreaView>
+      </View>
     );
   }
 }

@@ -53,8 +53,8 @@ class Footer extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <ImageBackground source={backgrounds.navBar} style={styles.container}>
-        <SafeAreaView>
+      <SafeAreaView>
+        <ImageBackground source={backgrounds.navBar} style={styles.container}>
           <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
           <View style={styles.navbar}>
             <TouchableOpacity
@@ -82,8 +82,8 @@ class Footer extends Component<Props> {
               }
             </TouchableOpacity>
           </View>
-        </SafeAreaView>
-      </ImageBackground>
+        </ImageBackground>
+      </SafeAreaView>
     );
   }
 }

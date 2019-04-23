@@ -18,8 +18,8 @@ type Props = {
 }
 
 const Footer = ( { navigation }: Props ) => (
-  <ImageBackground source={backgrounds.navBar} style={styles.container}>
-    <SafeAreaView>
+  <SafeAreaView>
+    <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={styles.navbar}>
         <TouchableOpacity
           hitSlop={styles.touchable}
@@ -43,8 +43,8 @@ const Footer = ( { navigation }: Props ) => (
           <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
-  </ImageBackground>
+    </ImageBackground>
+  </SafeAreaView>
 );
 
 export default Footer;

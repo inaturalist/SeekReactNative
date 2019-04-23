@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -25,7 +26,8 @@ import {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName
+  getTaxonCommonName,
+  checkIsLoggedIn
 } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
@@ -65,7 +67,8 @@ class Results extends Component<Props> {
       seenDate: null,
       loading: true,
       photoConfirmed: false,
-      error: null
+      error: null,
+      isLoggedIn: false
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -79,11 +82,26 @@ class Results extends Component<Props> {
     }
   }
 
+  async getLoggedIn() {
+    let isLoggedIn;
+    const login = await checkIsLoggedIn();
+    if ( login === "true" ) {
+      isLoggedIn = true;
+    } else {
+      isLoggedIn = false;
+    }
+    this.setLoggedIn( isLoggedIn );
+  }
+
   setLocation( location ) {
     this.setState( {
       latitude: Number( location.latitude ),
       longitude: Number( location.longitude )
     } );
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   setImageUri( uri ) {
@@ -336,7 +354,8 @@ class Results extends Component<Props> {
       loading,
       image,
       photoConfirmed,
-      error
+      error,
+      isLoggedIn
     } = this.state;
     const { navigation } = this.props;
 
@@ -369,6 +388,7 @@ class Results extends Component<Props> {
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
+          isLoggedIn={isLoggedIn}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -378,6 +398,7 @@ class Results extends Component<Props> {
           userImage={userImage}
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
+          isLoggedIn={isLoggedIn}
         />
       );
     } else {
@@ -385,6 +406,7 @@ class Results extends Component<Props> {
         <NoMatchScreen
           navigation={navigation}
           userImage={userImage}
+          isLoggedIn={isLoggedIn}
         />
       );
     }
@@ -393,6 +415,7 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
             checkNumberOfBadgesEarned();

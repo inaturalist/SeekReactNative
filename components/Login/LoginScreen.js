@@ -14,6 +14,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../GreenHeader";
+import { setIsLoggedIn } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -32,6 +33,7 @@ class LoginScreen extends Component<Props> {
   submit() {
     const { navigation } = this.props;
     // if user successfully logs in...
+    setIsLoggedIn( true );
     navigation.navigate( "LoginSuccess" );
   }
 

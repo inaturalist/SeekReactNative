@@ -20,12 +20,14 @@ import PostToiNat from "./PostToiNat";
 
 type Props = {
   userImage: string,
-  navigation: any
+  navigation: any,
+  isLoggedIn: boolean
 }
 
 const MatchScreen = ( {
   userImage,
-  navigation
+  navigation,
+  isLoggedIn
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
@@ -54,7 +56,10 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          <PostToiNat navigation={navigation} color="#5e5e5e" />
+          {isLoggedIn
+            ? <PostToiNat navigation={navigation} color="#5e5e5e" />
+            : null
+          }
         </View>
         <Padding />
       </ScrollView>

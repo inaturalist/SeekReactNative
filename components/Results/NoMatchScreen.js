@@ -16,6 +16,7 @@ import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
 import BackArrow from "../BackArrow";
+import PostToiNat from "./PostToiNat";
 
 type Props = {
   userImage: string,
@@ -53,6 +54,7 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
+          <PostToiNat navigation={navigation} color="#5e5e5e" />
         </View>
         <Padding />
       </ScrollView>

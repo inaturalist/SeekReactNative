@@ -16,10 +16,12 @@ import Realm from "realm";
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import styles from "../../styles/results/results";
+import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
+import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import {
   recalculateBadges,
@@ -313,6 +315,8 @@ class MatchScreen extends Component<Props> {
               >
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
+              <View style={{ marginBottom: 28 }} />
+              <PostToiNat navigation={navigation} color={colors.seekForestGreen} />
             </View>
             <Padding />
           </ScrollView>

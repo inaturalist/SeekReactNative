@@ -68,8 +68,36 @@ class AgeVerifyScreen extends Component<Props> {
     }
   }
 
-  render() {
+  renderiOSDatePicker() {
     const { chosenDate } = this.state;
+
+    return (
+      <DatePickerIOS
+        date={chosenDate}
+        maximumDate={new Date()}
+        mode="date"
+        onDateChange={this.setDate}
+        locale={i18n.currentLocale()}
+      />
+    );
+  }
+
+  renderAndroidDatePicker() {
+    const { chosenDate } = this.state;
+
+    return (
+      <View style={styles.datePickerContainer}>
+        <TouchableOpacity
+          style={styles.datePickerInputField}
+          onPress={() => this.setDateAndroid()}
+        >
+          <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  render() {
     const { navigation } = this.props;
 
     return (
@@ -86,23 +114,9 @@ class AgeVerifyScreen extends Component<Props> {
           <Text style={styles.text}>
             {i18n.t( "inat_signup.permission" )}
           </Text>
-          <View style={styles.datePickerContainer}>
-            { Platform.OS === "ios" ? (
-              <DatePickerIOS
-                date={chosenDate}
-                maximumDate={new Date()}
-                mode="date"
-                onDateChange={this.setDate}
-              />
-            ) : (
-              <TouchableOpacity
-                style={styles.datePickerInputField}
-                onPress={() => this.setDateAndroid()}
-              >
-                <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
-              </TouchableOpacity>
-            )}
-          </View>
+          { Platform.OS === "ios"
+            ? this.renderiOSDatePicker()
+            : this.renderAndroidDatePicker()}
           <View style={styles.innerContainer}>
             <TouchableOpacity
               style={styles.greenButton}

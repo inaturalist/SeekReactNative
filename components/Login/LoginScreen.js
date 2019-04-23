@@ -6,7 +6,9 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -45,7 +47,11 @@ class LoginScreen extends Component<Props> {
             header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <View style={[styles.innerContainer, { marginTop: 46 }]}>
+          <KeyboardAvoidingView
+            contentContainerStyle={[styles.innerContainer, Platform.OS === "ios" && { marginTop: 46 }]}
+            behavior="position"
+            enabled
+          >
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
@@ -55,7 +61,8 @@ class LoginScreen extends Component<Props> {
               style={styles.inputField}
               onChangeText={ value => this.setState( { username: value } )}
               value={username}
-              placeholder="username"
+              placeholder={i18n.t( "inat_login.username" )}
+              keyboardType="visible-password" // adding this to turn off autosuggestions on Android
               textContentType="username"
               autoFocus
             />
@@ -89,7 +96,7 @@ class LoginScreen extends Component<Props> {
                 {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-          </View>
+          </KeyboardAvoidingView>
         </SafeAreaView>
       </View>
     );

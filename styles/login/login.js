@@ -104,7 +104,7 @@ export default StyleSheet.create( {
     alignSelf: "flex-end",
     marginRight: 41,
     marginTop: 11,
-    marginBottom: 51
+    marginBottom: Platform.OS === "ios" ? 51 : 11
   },
   textLink: {
     marginTop: 30,

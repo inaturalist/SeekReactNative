@@ -65,7 +65,7 @@ class ParentalConsentScreen extends Component<Props> {
               value={email}
               placeholder="email address"
               textContentType="emailAddress"
-              keyboardType="email-address"
+              keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus
             />
             <TouchableOpacity

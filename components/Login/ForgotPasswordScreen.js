@@ -6,7 +6,9 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  SafeAreaView
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -31,7 +33,7 @@ class ForgotPasswordScreen extends Component<Props> {
     // try to log into iNat
     // if log in succeeds, navigate to Main
     // else, have a failure state / try again / forgot password prompt
-    navigation.navigate( "CheckEmail" );
+    navigation.navigate( "PasswordEmail" );
   }
 
   render() {
@@ -46,7 +48,11 @@ class ForgotPasswordScreen extends Component<Props> {
             header={i18n.t( "inat_login.forgot_password" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <View style={[styles.innerContainer, { marginTop: 59 }]}>
+          <KeyboardAvoidingView
+            contentContainerStyle={[styles.innerContainer, Platform.OS === "ios" && { marginTop: 59 }]}
+            behavior="position"
+            enabled
+          >
             <Text style={styles.header}>
               {i18n.t( "inat_login.no_worries" )}
             </Text>
@@ -61,18 +67,22 @@ class ForgotPasswordScreen extends Component<Props> {
               value={email}
               placeholder="email address"
               textContentType="emailAddress"
-              keyboardType="email-address"
+              keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus
             />
             <TouchableOpacity
-              style={[styles.greenButton, { marginTop: 92 }]}
+              style={[
+                styles.greenButton,
+                Platform.OS === "ios" && { marginTop: 92 },
+                Platform.OS === "android" && { marginTop: 52 }
+              ]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-          </View>
+          </KeyboardAvoidingView>
         </SafeAreaView>
       </View>
     );

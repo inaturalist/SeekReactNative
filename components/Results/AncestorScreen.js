@@ -23,14 +23,16 @@ type Props = {
   speciesSeenImage: string,
   commonAncestor: string,
   userImage: string,
-  navigation: any
+  navigation: any,
+  isLoggedIn: boolean
 }
 
 const MatchScreen = ( {
   commonAncestor,
   speciesSeenImage,
   userImage,
-  navigation
+  navigation,
+  isLoggedIn
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#175f67" }} />
@@ -64,7 +66,10 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          <PostToiNat navigation={navigation} color={colors.seekTeal} />
+          {isLoggedIn
+            ? <PostToiNat navigation={navigation} color={colors.seekTeal} />
+            : null
+          } 
         </View>
         <Padding />
       </ScrollView>

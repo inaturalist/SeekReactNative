@@ -42,7 +42,8 @@ type Props = {
   taxaName: string,
   taxaId: number,
   userImage: string,
-  navigation: any
+  navigation: any,
+  isLoggedIn: boolean
 }
 
 class MatchScreen extends Component<Props> {
@@ -203,7 +204,8 @@ class MatchScreen extends Component<Props> {
       taxaName,
       speciesSeenImage,
       userImage,
-      navigation
+      navigation,
+      isLoggedIn
     } = this.props;
 
     const {
@@ -296,7 +298,10 @@ class MatchScreen extends Component<Props> {
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
               <View style={{ marginBottom: 28 }} />
-              <PostToiNat navigation={navigation} color={colors.seekForestGreen} />
+              {isLoggedIn
+                ? <PostToiNat navigation={navigation} color={colors.seekForestGreen} />
+                : null
+              }
             </View>
             <Padding />
           </ScrollView>

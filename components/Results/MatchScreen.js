@@ -56,7 +56,8 @@ class MatchScreen extends Component<Props> {
       newestLevel: null,
       challenge: null,
       incompleteChallenge: null,
-      navigationPath: null
+      navigationPath: null,
+      challengeProgressIndex: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -66,13 +67,19 @@ class MatchScreen extends Component<Props> {
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
+    const index = await getChallengeProgress();
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
+    this.setChallengeProgressIndex( index );
     recalculateChallenges();
   }
 
   setNavigationPath( navigationPath ) {
     this.setState( { navigationPath }, () => this.checkModals() );
+  }
+
+  setChallengeProgressIndex( challengeProgressIndex ) {
+    this.setState( { challengeProgressIndex } );
   }
 
   setBadgesEarned( badgesEarned ) {
@@ -142,10 +149,8 @@ class MatchScreen extends Component<Props> {
       } );
   }
 
-  async checkForChallengesCompleted() {
-    const { challengesCompleted } = this.state;
-
-    const index = await getChallengeProgress();
+  checkForChallengesCompleted() {
+    const { challengesCompleted, challengeProgressIndex } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
@@ -153,10 +158,10 @@ class MatchScreen extends Component<Props> {
           .filtered( "started == true AND percentComplete == 100" )
           .sorted( "completedDate", true );
 
-        if ( index ) {
-          Alert.alert( JSON.stringify( index ), "index" );
-          const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
-          Alert.alert( JSON.stringify( incompleteChallenges[0] ), "incomplete" );
+        if ( challengeProgressIndex !== "none" ) {
+          const incompleteChallenges = realm.objects( "ChallengeRealm" )
+            .filtered( `index == ${Number( challengeProgressIndex )}` );
+
           this.showChallengeInProgress( incompleteChallenges[0] );
         }
 

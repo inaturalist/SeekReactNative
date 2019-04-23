@@ -5,7 +5,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -22,31 +23,38 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
     style={styles.container}
     colors={["#50c49c", "#1b6537"]}
   >
-    <Text style={styles.headerText}>
-      {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
-    </Text>
-    <View style={styles.secondHeaderTextContainer}>
-      <Text style={styles.secondHeaderText}>{i18n.t( "inat_signup.explore" )}</Text>
-    </View>
-    <Image
-      source={badges["levelbadge-0"]}
-      style={styles.image}
-    />
-    <TouchableOpacity
-      style={styles.greenButton}
-      onPress={() => navigation.navigate( "Main" )}
-    >
-      <Text style={styles.buttonText}>
-        {i18n.t( "inat_signup.continue" ).toLocaleUpperCase()}
-      </Text>
-    </TouchableOpacity>
-    <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
-    <Text
-      style={styles.textLink}
-      onPress={() => navigation.navigate( "Privacy" )}
-    >
-      {i18n.t( "inat_signup.privacy" )}
-    </Text>
+    <SafeAreaView style={[styles.safeViewTop, { backgroundColor: "#50c49c" }]} />
+    <SafeAreaView style={styles.safeView}>
+      <View style={styles.innerContainer}>
+        <View style={{ marginTop: 67 }} />
+        <Text style={styles.headerText}>
+          {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
+        </Text>
+        <View style={styles.secondHeaderTextContainer}>
+          <Text style={styles.secondHeaderText}>{i18n.t( "inat_signup.explore" )}</Text>
+        </View>
+        <Image
+          source={badges["levelbadge-0"]}
+          style={styles.image}
+        />
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => navigation.navigate( "Main" )}
+        >
+          <Text style={styles.buttonText}>
+            {i18n.t( "inat_signup.continue" ).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
+        <View style={{ marginTop: 20 }} />
+        <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
+        <Text
+          style={styles.textLink}
+          onPress={() => navigation.navigate( "Privacy" )}
+        >
+          {i18n.t( "inat_signup.privacy" )}
+        </Text>
+      </View>
+    </SafeAreaView>
   </LinearGradient>
 );
 

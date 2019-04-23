@@ -94,13 +94,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     color: colors.seekForestGreen
   },
-  textLink: {
-    marginTop: 30,
-    fontFamily: fonts.book,
-    fontSize: 19,
-    color: colors.white,
-    textDecorationLine: "underline"
-  },
   darkText: {
     color: colors.black,
     fontSize: 20,

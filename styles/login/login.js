@@ -107,7 +107,7 @@ export default StyleSheet.create( {
     marginBottom: Platform.OS === "ios" ? 51 : 11
   },
   textLink: {
-    marginTop: 30,
+    marginTop: 21,
     fontFamily: fonts.book,
     fontSize: 19,
     color: colors.white,

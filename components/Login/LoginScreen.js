@@ -62,7 +62,7 @@ class LoginScreen extends Component<Props> {
               onChangeText={ value => this.setState( { username: value } )}
               value={username}
               placeholder={i18n.t( "inat_login.username" )}
-              keyboardType="visible-password" // adding this to turn off autosuggestions on Android
+              keyboardType={Platform.OS === "android" ? "visible-password" : "default"} // adding this to turn off autosuggestions on Android
               textContentType="username"
               autoFocus
             />

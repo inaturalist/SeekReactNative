@@ -12,10 +12,12 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/results/results";
+import { colors } from "../../styles/global";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
 import BackArrow from "../BackArrow";
+import PostToiNat from "./PostToiNat";
 
 type Props = {
   speciesSeenImage: string,
@@ -62,6 +64,7 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
+          <PostToiNat navigation={navigation} color={colors.seekTeal} />
         </View>
         <Padding />
       </ScrollView>

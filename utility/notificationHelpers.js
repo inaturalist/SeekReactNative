@@ -3,7 +3,7 @@ const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 const notificationDict = require( "./notificationDict" );
 
-const createNotification = ( type, index ) => {
+const createNotification = ( type, challengeIndex ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const notifications = realm.objects( "NotificationRealm" );
@@ -15,7 +15,7 @@ const createNotification = ( type, index ) => {
           message: newNotification.message,
           iconName: newNotification.iconName,
           nextScreen: newNotification.nextScreen,
-          challengeIndex: index || null,
+          challengeIndex,
           index: notifications.length,
           seen: false
         } );

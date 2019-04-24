@@ -8,7 +8,7 @@ const missions = {
   1: {
     0: {
       number: 4,
-      types: ["mammals", "reptiles", "amphibians", "fish"]
+      types: ["birds", "mammals", "reptiles", "amphibians", "fish"]
     },
     1: {
       number: 4,

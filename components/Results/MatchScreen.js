@@ -29,7 +29,6 @@ import {
 import {
   recalculateChallenges,
   getChallengesCompleted,
-  setChallengeProgress,
   getChallengeProgress
 } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
@@ -67,11 +66,15 @@ class MatchScreen extends Component<Props> {
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
-    const index = await getChallengeProgress();
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
-    this.setChallengeProgressIndex( index );
     recalculateChallenges();
+    const index = await getChallengeProgress();
+    this.setChallengeProgressIndex( index );
+  }
+
+  componentWillUnmount() {
+    this.resetState();
   }
 
   setNavigationPath( navigationPath ) {
@@ -79,7 +82,7 @@ class MatchScreen extends Component<Props> {
   }
 
   setChallengeProgressIndex( challengeProgressIndex ) {
-    this.setState( { challengeProgressIndex } );
+    this.setState( { challengeProgressIndex }, () => this.checkForChallengesCompleted() );
   }
 
   setBadgesEarned( badgesEarned ) {
@@ -89,9 +92,7 @@ class MatchScreen extends Component<Props> {
   }
 
   setChallengesCompleted( challengesCompleted ) {
-    this.setState( {
-      challengesCompleted
-    }, () => this.checkForChallengesCompleted() );
+    this.setState( { challengesCompleted } );
   }
 
   setLatestBadge( badge ) {
@@ -106,8 +107,23 @@ class MatchScreen extends Component<Props> {
     this.setState( { newestLevel } );
   }
 
+  resetState() {
+    this.setState( {
+      badgesEarned: 0,
+      challengesCompleted: 0,
+      badge: null,
+      showLevelModal: false,
+      showChallengeModal: false,
+      newestLevel: null,
+      challenge: null,
+      incompleteChallenge: null,
+      navigationPath: null,
+      challengeProgressIndex: null
+    } );
+  }
+
   showChallengeInProgress( incompleteChallenge ) {
-    this.setState( { incompleteChallenge }, () => setChallengeProgress( null ) );
+    this.setState( { incompleteChallenge } );
   }
 
   toggleChallengeModal() {

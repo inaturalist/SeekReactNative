@@ -32,7 +32,10 @@ const Challenges = ( { navigation, challenge }: Props ) => (
           </Text>
         </TouchableOpacity>
       </View>
-      <ImageBackground source={backgrounds[challenge.homeBackgroundName]} style={styles.challengeContainer}>
+      <ImageBackground
+        source={backgrounds[challenge.homeBackgroundName]}
+        style={styles.challengeContainer}
+      >
         <View style={styles.textContainer}>
           <Text style={styles.challengeHeader}>
             {i18n.t( challenge.month ).toLocaleUpperCase()}

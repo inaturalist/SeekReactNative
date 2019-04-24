@@ -5,6 +5,7 @@ import { Animated, View, Dimensions } from "react-native";
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
 import styles from "../../styles/banner/badgeToast";
+import { setChallengeProgress } from "../../utility/challengeHelpers";
 
 const { height } = Dimensions.get( "window" );
 
@@ -30,6 +31,10 @@ class Toasts extends Component<Props> {
     if ( prevProps.incompleteChallenge !== incompleteChallenge ) {
       this.showToasts();
     }
+  }
+
+  componentWillUnmount() {
+    setChallengeProgress();
   }
 
   showToasts() {

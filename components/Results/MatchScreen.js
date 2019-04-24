@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -176,7 +175,7 @@ class MatchScreen extends Component<Props> {
 
         if ( challengeProgressIndex !== "none" ) {
           const incompleteChallenges = realm.objects( "ChallengeRealm" )
-            .filtered( `index == ${Number( challengeProgressIndex )}` );
+            .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 
           this.showChallengeInProgress( incompleteChallenges[0] );
         }

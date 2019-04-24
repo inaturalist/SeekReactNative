@@ -208,6 +208,7 @@ class GalleryScreen extends Component<Props> {
           <StatusBar barStyle="dark-content" />
           <View style={styles.header}>
             <TouchableOpacity
+              hitSlop={styles.touchable}
               style={styles.backButton}
               onPress={() => navigation.navigate( "Main" )}
             >

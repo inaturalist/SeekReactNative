@@ -13,12 +13,25 @@ const createFakeObservations = () => {
       // uri: "content://media/external/images/media/8153"
     };
 
+    const taxonIds = {
+      birds: 3,
+      amphibians: 20978,
+      reptiles: 26036,
+      mammals: 40151,
+      fish: 47178,
+      mollusks: 47115,
+      insects: 47158,
+      arachnids: 47119,
+      fungi: 47170,
+      plants: 47126
+    };
+
     const observation = {
       taxon: {
         name: faker.name.findName(),
         id: faker.random.number(),
         preferred_common_name: null,
-        iconic_taxon_id: 40151,
+        iconic_taxon_id: taxonIds.arachnids,
         default_photo: {
           medium_url: null
           // medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"
@@ -48,10 +61,10 @@ const createFakePhotos = () => {
 };
 
 const createFakeNotifications = () => {
-  // createNotification( "challengeProgress", 0 );
+  createNotification( "challengeProgress", 0 );
   createNotification( "badgeEarned" );
-  // createNotification( "badgeEarned" );
-  // createNotification( "challengeCompleted", 0 );
+  createNotification( "badgeEarned" );
+  createNotification( "challengeCompleted", 0 );
 };
 
 export {

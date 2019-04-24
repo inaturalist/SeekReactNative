@@ -2,14 +2,13 @@
 
 import React from "react";
 import {
-  SectionList,
   FlatList,
   Text,
   View
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/menu/observations";
+import styles from "../../styles/observations";
 import ObservationCard from "./ObservationCard";
 import taxaIds from "../../utility/iconicTaxonDictById";
 

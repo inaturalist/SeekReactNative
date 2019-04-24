@@ -5,7 +5,8 @@ import {
   FlatList,
   View,
   SafeAreaView,
-  Text
+  Text,
+  Platform
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -14,7 +15,6 @@ import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
-import Footer from "../Home/Footer";
 import GreenHeader from "../GreenHeader";
 import { updateNotifications } from "../../utility/notificationHelpers";
 
@@ -29,6 +29,14 @@ class NotificationsScreen extends Component<Props> {
     this.state = {
       notifications: []
     };
+  }
+
+  scrollToTop() {
+    if ( this.scrollView ) {
+      this.scrollView.scrollToOffset( {
+        y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   fetchNotifications() {
@@ -53,6 +61,7 @@ class NotificationsScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => this.fetchNotifications()}
+            onDidFocus={() => this.scrollToTop()}
             onDidBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
@@ -60,6 +69,7 @@ class NotificationsScreen extends Component<Props> {
           {notifications.length > 0
             ? (
               <FlatList
+                ref={( ref ) => { this.scrollView = ref; }}
                 data={notifications}
                 style={styles.notificationsContainer}
                 keyExtractor={( item, i ) => `${item}${i}`}
@@ -77,7 +87,6 @@ class NotificationsScreen extends Component<Props> {
                 </Text>
               </View>
             )}
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

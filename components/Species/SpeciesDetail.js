@@ -15,12 +15,11 @@ import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
 import Geocoder from "react-native-geocoder";
+import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { seenBeforeSeekV2 } from "../../utility/dateHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
-import Footer from "../Home/Footer";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -33,7 +32,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
-import { getSpeciesId, capitalizeNames } from "../../utility/helpers";
+import { getSpeciesId, capitalizeNames, getRoute } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -62,7 +61,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loading: true,
-      loadingSpecies: true
+      loadingSpecies: true,
+      route: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -88,29 +88,6 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { stats } );
   }
 
-  resetState() {
-    this.setState( {
-      location: null,
-      photos: [],
-      commonName: null,
-      scientificName: null,
-      about: null,
-      seenDate: null,
-      timesSeen: null,
-      taxaType: null,
-      region: {},
-      observationsByMonth: [],
-      nearbySpeciesCount: null,
-      error: null,
-      userPhoto: null,
-      stats: {},
-      similarSpecies: [],
-      ancestors: [],
-      loading: true,
-      loadingSpecies: true
-    } );
-  }
-
   async fetchSpeciesId() {
     const id = await getSpeciesId();
     this.setState( {
@@ -121,6 +98,11 @@ class SpeciesDetail extends Component<Props> {
       this.fetchHistogram();
       this.fetchSimilarSpecies();
     } );
+  }
+
+  async fetchRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
   }
 
   async fetchUserLocation() {
@@ -150,36 +132,78 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  setUserPhoto( seenTaxa ) {
+    const { taxon } = seenTaxa;
+    const { defaultPhoto } = taxon;
+
+    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
+      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+    } else {
+      this.setState( { userPhoto: null } );
+    }
+  }
+
+  resetState() {
+    this.setState( {
+      location: null,
+      photos: [],
+      commonName: null,
+      scientificName: null,
+      about: null,
+      seenDate: null,
+      timesSeen: null,
+      taxaType: null,
+      region: {},
+      observationsByMonth: [],
+      nearbySpeciesCount: null,
+      error: null,
+      userPhoto: null,
+      stats: {},
+      similarSpecies: [],
+      ancestors: [],
+      loading: true,
+      loadingSpecies: true,
+      route: null
+    } );
+  }
+
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
-        const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-        let seenDate;
+        const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
+
         let userPhoto;
+        const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
 
-        if ( seenTaxa[0] ) {
-          seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          if ( !seenBeforeSeekV2( moment( seenDate ) ) ) {
-            userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
-          } else {
-            userPhoto = null;
+        const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+
+        if ( seenTaxa ) {
+          if ( Platform.OS === "ios" && seekv1Photos ) {
+            const photoPath = `${seekv1Photos}/${seenTaxa.uuidString}`;
+            if ( !RNFS.exists( photoPath ) ) {
+              this.setUserPhoto( seenTaxa );
+            } else {
+              RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+                userPhoto = `data:image/jpeg;base64,${encodedData}`;
+                this.setState( { userPhoto } );
+              } ).catch( () => {
+                this.setUserPhoto( seenTaxa );
+              } );
+            }
           }
-
-          this.setState( {
-            seenDate,
-            userPhoto
-          } );
         }
+
+        this.setState( { seenDate } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
   fetchTaxonDetails() {
-    const { id, scientificName, commonName } = this.state;
+    const { id } = this.state;
 
     const params = {
       locale: i18n.currentLocale()
@@ -187,6 +211,8 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.taxa.fetch( id, params ).then( ( response ) => {
       const taxa = response.results[0];
+      const commonName = capitalizeNames( taxa.preferred_common_name || taxa.name );
+      const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
       const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
@@ -211,8 +237,8 @@ class SpeciesDetail extends Component<Props> {
       } );
 
       this.setState( {
-        commonName: capitalizeNames( taxa.preferred_common_name ),
-        scientificName: taxa.name,
+        commonName,
+        scientificName,
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,
@@ -332,6 +358,7 @@ class SpeciesDetail extends Component<Props> {
     }
     if ( !error ) {
       this.fetchSpeciesId();
+      this.fetchRoute();
       this.fetchUserLocation();
     }
     this.scrollView.scrollTo( {
@@ -372,7 +399,8 @@ class SpeciesDetail extends Component<Props> {
       ancestors,
       stats,
       loading,
-      loadingSpecies
+      loadingSpecies,
+      route
     } = this.state;
 
     const { navigation } = this.props;
@@ -398,6 +426,7 @@ class SpeciesDetail extends Component<Props> {
               photos={photos}
               userPhoto={userPhoto}
               loading={loading}
+              route={route}
             />
             {taxaType && iconicTaxaNames[taxaType]
               ? (
@@ -474,7 +503,6 @@ class SpeciesDetail extends Component<Props> {
               </View>
             ) : null}
           </ScrollView>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

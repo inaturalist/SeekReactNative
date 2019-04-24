@@ -40,7 +40,8 @@ const badges = {
   badge_mollusk_3: require( "./badges/species/badge_mollusk_3.png" ),
   badge_plant_3: require( "./badges/species/badge_plant_3.png" ),
   badge_reptile_3: require( "./badges/species/badge_reptile_3.png" ),
-  badge_ourplanet_april: require( "./badges/challenges/badge_ourplanet_april.png" )
+  badge_ourplanet_april: require( "./badges/challenges/badge_ourplanet_april.png" ),
+  badge_ourplanet_may: require( "./badges/challenges/badge_ourplanet_may.png" )
 };
 
 export default badges;

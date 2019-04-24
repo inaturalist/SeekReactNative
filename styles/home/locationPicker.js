@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding
+  padding,
+  touchable
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -15,12 +16,7 @@ export default StyleSheet.create( {
     top: 28,
     left: 23
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  },
+  touchable,
   image: {
     padding: 5
   },

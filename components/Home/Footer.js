@@ -4,7 +4,8 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground
+  ImageBackground,
+  SafeAreaView
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -52,35 +53,37 @@ class Footer extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <ImageBackground source={backgrounds.navBar} style={styles.container}>
-        <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
-        <View style={styles.navbar}>
-          <TouchableOpacity
-            hitSlop={styles.touchable}
-            style={styles.button}
-            onPress={() => navigation.openDrawer()}
-          >
-            <Image source={icons.hamburger} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
-            <Image source={icons.cameraGreen} style={styles.cameraImage} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            hitSlop={styles.touchable}
-            style={styles.button}
-            onPress={() => {
-              if ( navigation.state.routeName !== "Notifications" ) {
-                navigation.navigate( "Notifications" );
+      <SafeAreaView>
+        <ImageBackground source={backgrounds.navBar} style={styles.container}>
+          <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
+          <View style={styles.navbar}>
+            <TouchableOpacity
+              hitSlop={styles.touchable}
+              style={styles.button}
+              onPress={() => navigation.openDrawer()}
+            >
+              <Image source={icons.hamburger} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+              <Image source={icons.cameraGreen} style={styles.cameraImage} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              hitSlop={styles.touchable}
+              style={styles.button}
+              onPress={() => {
+                if ( navigation.state.routeName !== "Notifications" ) {
+                  navigation.navigate( "Notifications" );
+                }
+              }}
+            >
+              {notifications
+                ? <Image source={icons.notifications} />
+                : <Image source={icons.notificationsInactive} />
               }
-            }}
-          >
-            {notifications
-              ? <Image source={icons.notifications} />
-              : <Image source={icons.notificationsInactive} />
-            }
-          </TouchableOpacity>
-        </View>
-      </ImageBackground>
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
+      </SafeAreaView>
     );
   }
 }

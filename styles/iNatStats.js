@@ -2,8 +2,9 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding
-} from "../global";
+  padding,
+  touchable
+} from "./global";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -125,12 +126,7 @@ export default StyleSheet.create( {
   photoContainer: {
     height: 350
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  },
+  touchable,
   leftArrow: {
     zIndex: 1,
     position: "absolute",

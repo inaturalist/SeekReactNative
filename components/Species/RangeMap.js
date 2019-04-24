@@ -19,14 +19,17 @@ const RangeMap = ( { navigation }: Props ) => {
     <View style={styles.container}>
       <SafeAreaView style={styles.safeViewTop} />
       <SafeAreaView style={styles.safeView}>
-        <GreenHeader header={i18n.t( "species_detail.range_map" )} navigation={navigation} />
+        <GreenHeader
+          header={i18n.t( "species_detail.range_map" )}
+          navigation={navigation}
+          route="Species"
+        />
         {region.latitude ? (
           <MapView
             region={region}
             provider={PROVIDER_DEFAULT}
             style={styles.map}
             zoomEnabled
-            // maxZoomLevel={7}
           >
             <UrlTile
               urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}

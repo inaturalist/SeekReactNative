@@ -5,8 +5,10 @@ import {
   Image,
   ImageBackground,
   Text,
-  View
+  View,
+  Platform
 } from "react-native";
+import { NavigationActions } from "react-navigation";
 
 import i18n from "../i18n";
 import styles from "../styles/splash";
@@ -28,7 +30,7 @@ class SplashScreen extends Component<Props> {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const isFirstLaunch = await checkIfFirstLaunch();
     this.setState( {
       isFirstLaunch,
@@ -37,19 +39,28 @@ class SplashScreen extends Component<Props> {
   }
 
   transitionScreen() {
-    const { navigation } = this.props;
     const { isFirstLaunch, hasCheckedAsyncStorage } = this.state;
+
+    const splashTimer = Platform.OS === "android" ? 2000 : 3000;
 
     if ( !hasCheckedAsyncStorage ) {
       return null;
     }
-    // fade this screen out if possible
+
     if ( isFirstLaunch ) {
-      setTimeout( () => navigation.navigate( "Onboarding" ), 2000 );
+      setTimeout( () => this.resetRouter( "Onboarding" ), splashTimer );
     } else {
-      setTimeout( () => navigation.navigate( "Main" ), 2000 );
+      setTimeout( () => this.resetRouter( "Main" ), splashTimer );
     }
     return null;
+  }
+
+  resetRouter( routeName ) {
+    const { navigation } = this.props;
+
+    navigation.reset( [
+      NavigationActions.navigate( { routeName } )
+    ], 0 );
   }
 
   render() {

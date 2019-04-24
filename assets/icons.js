@@ -13,14 +13,13 @@ const icons = {
   hamburger: require( "./navbar/Menu.png"),
   notifications: require( "./navbar/Notifications.png"),
   notificationsInactive: require( "./navbar/Notifications-inactive.png"),
-  cameraHelp: require( "./icons/icon-help.png"),
+  cameraHelp: require( "./icons/icon-help-shadow.png"),
   cameraWhite: require( "./navbar/Camera.png"),
   cameraGreen: require( "./navbar/icon-camerabutton.png"),
   arCameraButton: require( "./icons/CameraButton.png" ),
   arCameraGreen: require( "./icons/CameraButton-Species.png" ),
   backButton: require( "./icons/back.png" ),
   backButtonGreen: require( "./icons/icon-back-green.png" ),
-  badgePlaceholder: require( "./icons/badge-placeholder.png" ),
   badgeBanner: require( "./icons/img-badgebanner.png" ),
   menuHome: require( "./icons/icon-menu-home.png" ),
   menuAchievements: require( "./icons/icon-menu-achievements.png" ),
@@ -47,8 +46,8 @@ const icons = {
   birdBadge: require( "./icons/img-birdbadge.png" ),
   speciesNearby: require( "./icons/img-speciesnearby.png" ),
   sectionExplanation: require( "./icons/icon-sectionexplanation.png" ),
-  greenDot: require( "./icons/GreenCircle-square.png" ),
-  whiteDot: require( "./icons/WhiteCircle-square.png" )
+  greenDot: require( "./icons/GreenCircle-square-shadow.png" ),
+  whiteDot: require( "./icons/WhiteCircle-square-shadow.png" )
 };
 
 export default icons;

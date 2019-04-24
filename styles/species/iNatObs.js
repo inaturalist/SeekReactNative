@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, touchable } from "../global";
 
 export default StyleSheet.create( {
   stats: {
@@ -38,10 +38,5 @@ export default StyleSheet.create( {
     fontFamily: fonts.light,
     color: colors.black
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  }
+  touchable
 } );

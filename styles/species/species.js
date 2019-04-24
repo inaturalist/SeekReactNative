@@ -1,7 +1,8 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  touchable
 } from "../global";
 
 export default StyleSheet.create( {
@@ -15,7 +16,7 @@ export default StyleSheet.create( {
     height: 40
   },
   iconicTaxaText: {
-    paddingTop: 7,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
     marginLeft: 28,
     color: colors.white,
     fontSize: 19,
@@ -82,12 +83,7 @@ export default StyleSheet.create( {
     height: Platform.OS === "android" ? 17 : 60,
     backgroundColor: colors.seekForestGreen
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  },
+  touchable,
   humanText: {
     textAlign: "center",
     marginTop: 45,

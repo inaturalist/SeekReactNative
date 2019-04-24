@@ -12,11 +12,11 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/results/results";
-import icons from "../../assets/icons";
+import BackArrow from "../BackArrow";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
-import { setSpeciesId } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 
 type Props = {
   speciesSeenImage: string,
@@ -43,16 +43,8 @@ const AlreadySeenScreen = ( {
           colors={["#22784d", "#38976d"]}
           style={styles.header}
         >
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.buttonContainer}
-          >
-            <Image
-              source={icons.backButton}
-              style={styles.backButton}
-            />
-          </TouchableOpacity>
-          <View style={styles.imageContainer}>
+          <BackArrow navigation={navigation} />
+          <View style={[styles.imageContainer, styles.buttonContainer]}>
             <Image
               style={styles.imageCell}
               source={{ uri: userImage }}
@@ -71,6 +63,7 @@ const AlreadySeenScreen = ( {
             style={styles.button}
             onPress={() => {
               setSpeciesId( taxaId );
+              setRoute( "Camera" );
               navigation.navigate( "Species" );
             }}
           >

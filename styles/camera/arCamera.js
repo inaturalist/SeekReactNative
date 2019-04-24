@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, touchable } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -44,7 +44,10 @@ export default StyleSheet.create( {
     margin: 23,
     fontSize: 20,
     fontFamily: fonts.semibold,
-    color: colors.white
+    color: colors.white,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 3
   },
   dotRow: {
     flexDirection: "row",
@@ -53,7 +56,7 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   dots: {
-    marginHorizontal: width / 27
+    marginHorizontal: width / 32
   },
   safeView: {
     flex: 1,
@@ -68,7 +71,10 @@ export default StyleSheet.create( {
     margin: 20,
     lineHeight: 21,
     fontFamily: fonts.semibold,
-    maxWidth: 293
+    maxWidth: 293,
+    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 3
   },
   shutter: {
     zIndex: 1,
@@ -93,10 +99,5 @@ export default StyleSheet.create( {
   //   fontFamily: fonts.medium,
   //   color: colors.white
   // },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  }
+  touchable
 } );

@@ -21,17 +21,16 @@ import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
-import { createNotification } from "../../utility/notificationHelpers";
 import {
   recalculateBadges,
-  getBadgesEarned,
-  getLevelsEarned
+  getBadgesEarned
 } from "../../utility/badgeHelpers";
 import {
   recalculateChallenges,
-  getChallengesCompleted
+  getChallengesCompleted,
+  getChallengeProgress
 } from "../../utility/challengeHelpers";
-import { setSpeciesId } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
 type Props = {
@@ -48,7 +47,6 @@ class MatchScreen extends Component<Props> {
 
     this.state = {
       badgesEarned: 0,
-      levelsEarned: 0,
       challengesCompleted: 0,
       badge: null,
       showLevelModal: false,
@@ -56,7 +54,8 @@ class MatchScreen extends Component<Props> {
       newestLevel: null,
       challenge: null,
       incompleteChallenge: null,
-      navigationPath: null
+      navigationPath: null,
+      challengeProgressIndex: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -66,14 +65,23 @@ class MatchScreen extends Component<Props> {
   async componentWillMount() {
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
-    const levelsEarned = await getLevelsEarned();
     this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
-    this.setLevelsEarned( levelsEarned );
+    recalculateChallenges();
+    const index = await getChallengeProgress();
+    this.setChallengeProgressIndex( index );
+  }
+
+  componentWillUnmount() {
+    this.resetState();
   }
 
   setNavigationPath( navigationPath ) {
     this.setState( { navigationPath }, () => this.checkModals() );
+  }
+
+  setChallengeProgressIndex( challengeProgressIndex ) {
+    this.setState( { challengeProgressIndex }, () => this.checkForChallengesCompleted() );
   }
 
   setBadgesEarned( badgesEarned ) {
@@ -83,13 +91,7 @@ class MatchScreen extends Component<Props> {
   }
 
   setChallengesCompleted( challengesCompleted ) {
-    this.setState( {
-      challengesCompleted
-    }, () => this.checkForChallengesCompleted() );
-  }
-
-  setLevelsEarned( levelsEarned ) {
-    this.setState( { levelsEarned } );
+    this.setState( { challengesCompleted } );
   }
 
   setLatestBadge( badge ) {
@@ -98,11 +100,25 @@ class MatchScreen extends Component<Props> {
 
   setLatestChallenge( challenge ) {
     this.setState( { challenge } );
-    createNotification( "challengeCompleted", challenge.index );
   }
 
   setLatestLevel( newestLevel ) {
     this.setState( { newestLevel } );
+  }
+
+  resetState() {
+    this.setState( {
+      badgesEarned: 0,
+      challengesCompleted: 0,
+      badge: null,
+      showLevelModal: false,
+      showChallengeModal: false,
+      newestLevel: null,
+      challenge: null,
+      incompleteChallenge: null,
+      navigationPath: null,
+      challengeProgressIndex: null
+    } );
   }
 
   showChallengeInProgress( incompleteChallenge ) {
@@ -149,19 +165,23 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForChallengesCompleted() {
-    const { challengesCompleted } = this.state;
-
-    recalculateChallenges();
+    const { challengesCompleted, challengeProgressIndex } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
-        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
+        const challenges = realm.objects( "ChallengeRealm" )
+          .filtered( "started == true AND percentComplete == 100" )
+          .sorted( "completedDate", true );
+
+        if ( challengeProgressIndex !== "none" ) {
+          const incompleteChallenges = realm.objects( "ChallengeRealm" )
+            .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
+
+          this.showChallengeInProgress( incompleteChallenges[0] );
+        }
 
         if ( challenges.length > challengesCompleted ) {
           this.setLatestChallenge( challenges[0] );
-        } else if ( incompleteChallenges.length > 0 ) {
-          this.showChallengeInProgress( incompleteChallenges[0] );
         }
       } ).catch( ( e ) => {
         console.log( e, "error" );
@@ -176,6 +196,7 @@ class MatchScreen extends Component<Props> {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
       setSpeciesId( taxaId );
+      setRoute( "Camera" );
       navigation.navigate( "Species" );
     } else if ( navigationPath === "Back" ) {
       navigation.goBack();
@@ -251,18 +272,13 @@ class MatchScreen extends Component<Props> {
               style={styles.header}
             >
               <TouchableOpacity
-                onPress={() => {
-                  this.setNavigationPath( "Back" );
-                }}
-                style={styles.buttonContainer}
+                onPress={() => this.setNavigationPath( "Back" )}
                 hitSlop={styles.touchable}
+                style={styles.backButton}
               >
-                <Image
-                  source={icons.backButton}
-                  style={styles.backButton}
-                />
+                <Image source={icons.backButton} />
               </TouchableOpacity>
-              <View style={styles.imageContainer}>
+              <View style={[styles.imageContainer, styles.buttonContainer]}>
                 <Image
                   style={styles.imageCell}
                   source={{ uri: userImage }}

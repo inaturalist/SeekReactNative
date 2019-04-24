@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -21,7 +20,6 @@ import badgeImages from "../../assets/badges";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
-import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import LevelHeader from "./LevelHeader";
 import BannerHeader from "./BannerHeader";
@@ -58,6 +56,12 @@ class AchievementsScreen extends Component<Props> {
 
   setChallenge( challenge ) {
     this.setState( { selectedChallenge: challenge } );
+  }
+
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
   }
 
   fetchBadges() {
@@ -120,8 +124,9 @@ class AchievementsScreen extends Component<Props> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" );
-        this.setState( { challengeBadges: challenges } );
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( [["percentComplete", true], ["availableDate", true]] );
+        const challengeBadges = challenges.slice( 0, 3 );
+        this.setState( { challengeBadges } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -157,6 +162,7 @@ class AchievementsScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => {
+              this.scrollToTop();
               this.fetchBadges();
               this.fetchChallenges();
               this.fetchSpeciesCount();
@@ -194,7 +200,7 @@ class AchievementsScreen extends Component<Props> {
             }
           </Modal>
           <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
-          <ScrollView>
+          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
             {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
             <LevelHeader
               level={level}
@@ -249,7 +255,6 @@ class AchievementsScreen extends Component<Props> {
             </View>
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

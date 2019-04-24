@@ -1,7 +1,8 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  touchable
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
@@ -133,10 +134,5 @@ export default StyleSheet.create( {
     fontSize: 16,
     textDecorationLine: "underline"
   },
-  touchable: {
-    left: 23,
-    right: 23,
-    top: 23,
-    bottom: 23
-  }
+  touchable
 } );

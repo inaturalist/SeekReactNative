@@ -2,7 +2,7 @@ const { AsyncStorage } = require( "react-native" );
 const Realm = require( "realm" );
 
 const { createNotification } = require( "./notificationHelpers" );
-const taxonDict = require( "./taxonDict" );
+const taxonDict = require( "./taxonDictForMissions" );
 const missionsDict = require( "./missionsDict" );
 const realmConfig = require( "../models/index" );
 const challengesDict = require( "./challengesDict" );
@@ -12,58 +12,87 @@ const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
 const getSum = ( total, currentValue ) => total + currentValue;
 
+const setChallengeProgress = ( index ) => {
+  const value = index ? index.toString() : "none";
+  AsyncStorage.setItem( "challengeProgress", value );
+};
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
-      const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND started == true" );
+      const incompleteChallenges = realm.objects( "ChallengeRealm" )
+        .filtered( "percentComplete != 100 AND started == true" )
+        .sorted( "index", false );
 
       incompleteChallenges.forEach( ( challenge ) => {
         const { startedDate } = challenge;
-        const seenAfterChallengeStart = [];
+
+        if ( !startedDate ) {
+          challenge.startedDate = new Date();
+        }
+
+        const seenTaxa = [];
         const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
+
         observations.forEach( ( observation ) => {
           if ( observation.date >= startedDate ) {
-            seenAfterChallengeStart.push( observation );
+            seenTaxa.push( observation );
           }
         } );
-        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
-        let prevNumberSeen = observationsList.reduce( getSum );
+
+        const obsList = Object.keys( challenge.numbersObserved )
+          .map( number => challenge.numbersObserved[number] );
+
+        const prevNumberSeen = obsList.length > 0 ? obsList.reduce( getSum ) : 0;
         const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
+
         realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
-          let numberSeen = 0;
+          let totalSeen = 0;
           const { index } = challenge;
-          const mission = missionsDict.default[index];
+          const challengeMonth = missionsDict.default[index];
 
-          Object.keys( mission ).forEach( ( taxa ) => {
-            if ( taxa === "all" ) {
-              if ( seenAfterChallengeStart.length <= mission[taxa] ) {
-                challenge.numbersObserved.push( seenAfterChallengeStart.length );
-                numberSeen += seenAfterChallengeStart.length;
+          Object.keys( challengeMonth ).forEach( ( mission ) => {
+            const { number, types } = challengeMonth[mission];
+
+            let count = 0;
+
+            types.forEach( ( taxa ) => {
+              let taxaPerMission;
+
+              if ( taxa === "all" ) {
+                taxaPerMission = seenTaxa.length;
               } else {
-                challenge.numbersObserved.push( mission[taxa] );
-                numberSeen += mission[taxa];
+                const taxaId = taxonDict.default[taxa];
+                const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
+                taxaPerMission = taxaTypeSeen.length;
               }
+              count += taxaPerMission;
+            } );
+
+            if ( count <= number ) {
+              challenge.numbersObserved.push( count );
+              totalSeen += count;
             } else {
-              const taxaId = taxonDict.default[taxa];
-              const taxaSeenAfterChallengeStart = seenAfterChallengeStart.filter( t => t.taxon.iconicTaxonId === taxaId );
-              if ( taxaSeenAfterChallengeStart.length <= mission[taxa] ) {
-                challenge.numbersObserved.push( taxaSeenAfterChallengeStart.length );
-                numberSeen += taxaSeenAfterChallengeStart.length;
-              } else {
-                challenge.numbersObserved.push( mission[taxa] );
-                numberSeen += mission[taxa];
-              }
+              challenge.numbersObserved.push( number );
+              totalSeen += number;
             }
-            const percentComplete = calculatePercent( numberSeen, challenge.totalSpecies );
-            if ( percentComplete === 100 ) {
-              challenge.completedDate = new Date();
-            } else if ( percentComplete >= 75 && prevPercent < 75 ) {
-              createNotification( "challengeProgress", index );
-            }
-            challenge.percentComplete = percentComplete;
           } );
+
+          const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+          challenge.percentComplete = percentComplete;
+
+          if ( percentComplete === 100 ) {
+            challenge.completedDate = new Date();
+            createNotification( "challengeCompleted", challenge.index );
+          } else if ( percentComplete >= 75 && prevPercent < 75 ) {
+            createNotification( "challengeProgress", challenge.index );
+          }
+
+          if ( prevPercent < percentComplete ) {
+            setChallengeProgress( challenge.index );
+          }
         } );
       } );
     } ).catch( ( err ) => {
@@ -144,11 +173,43 @@ const getChallengesCompleted = async () => {
   }
 };
 
+const setChallengeIndex = ( index ) => {
+  AsyncStorage.setItem( "index", index.toString() );
+};
+
+const getChallengeIndex = async () => {
+  try {
+    const index = await AsyncStorage.getItem( "index" );
+    if ( index !== "none" ) {
+      return Number( index );
+    }
+    return null;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
+const getChallengeProgress = async () => {
+  try {
+    const index = await AsyncStorage.getItem( "challengeProgress" );
+    if ( index !== "none" ) {
+      return Number( index );
+    }
+    return null;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
   startChallenge,
   setupChallenges,
   checkNumberOfChallengesCompleted,
-  getChallengesCompleted
+  getChallengesCompleted,
+  setChallengeIndex,
+  getChallengeIndex,
+  setChallengeProgress,
+  getChallengeProgress
 };

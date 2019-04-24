@@ -3,28 +3,25 @@
 import React from "react";
 import {
   View,
-  Text,
-  TouchableOpacity,
-  Image
+  Text
 } from "react-native";
 
 import styles from "../styles/greenHeader";
-import icons from "../assets/icons";
+import BackArrow from "./BackArrow";
+import CustomBackArrow from "./CustomBackArrow";
 
 type Props = {
   header: string,
-  navigation: any
+  navigation: any,
+  route: string
 }
 
-const GreenHeader = ( { header, navigation }: Props ) => (
+const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
-    <TouchableOpacity
-      hitSlop={styles.touchable}
-      style={styles.backButton}
-      onPress={() => navigation.goBack()}
-    >
-      <Image source={icons.backButton} />
-    </TouchableOpacity>
+    {route
+      ? <CustomBackArrow navigation={navigation} route={route} />
+      : <BackArrow navigation={navigation} />
+    }
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
   </View>
 );

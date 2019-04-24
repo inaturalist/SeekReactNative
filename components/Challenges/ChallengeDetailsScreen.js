@@ -8,11 +8,11 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
+import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
@@ -23,33 +23,43 @@ import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
-import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
-import { startChallenge } from "../../utility/challengeHelpers";
+import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
   navigation: any
 }
 
 class ChallengeDetailsScreen extends Component<Props> {
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
-
-    const { index } = navigation.state.params;
 
     this.state = {
       challenge: {},
       missions: {},
       challengeStarted: false,
       showChallengeModal: false,
-      index
+      index: null
     };
 
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  componentDidMount() {
-    this.fetchChallengeDetails();
+  resetState() {
+    this.setState( {
+      challenge: {},
+      missions: {},
+      challengeStarted: false,
+      showChallengeModal: false,
+      index: null
+    } );
+  }
+
+  async fetchChallengeIndex() {
+    const index = await getChallengeIndex();
+    this.setState( { index }, () => {
+      this.fetchChallengeDetails();
+    } );
   }
 
   fetchChallengeDetails() {
@@ -149,6 +159,13 @@ class ChallengeDetailsScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => {
+              recalculateChallenges();
+              this.fetchChallengeIndex();
+            }}
+            onWillBlur={() => this.resetState()}
+          />
           <Modal
             isVisible={showChallengeModal}
             onSwipe={() => this.toggleChallengeModal()}
@@ -176,14 +193,17 @@ class ChallengeDetailsScreen extends Component<Props> {
                 <Image style={styles.logo} source={logos.op} />
               </View>
               <View style={styles.challengeContainer}>
-                <Text style={styles.challengeHeader}>{i18n.t( challenge.month ).toLocaleUpperCase()}</Text>
-                <Text style={styles.challengeName}>{i18n.t( challenge.name ).toLocaleUpperCase()}</Text>
+                <Text style={styles.challengeHeader}>
+                  {i18n.t( challenge.month ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.challengeName}>
+                  {i18n.t( challenge.name ).toLocaleUpperCase()}
+                </Text>
                 <View style={styles.leftRow}>
                   {challenge.percentComplete === 100
                     ? <Image source={badges[challenge.earnedIconName]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
                     : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
                   }
-                  
                   <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
                 </View>
                 {button}
@@ -210,7 +230,6 @@ class ChallengeDetailsScreen extends Component<Props> {
             </View>
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

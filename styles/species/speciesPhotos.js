@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  touchable
 } from "../global";
 
 const { width } = Dimensions.get( "screen" );
@@ -56,5 +57,6 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 120,
     right: 5
-  }
+  },
+  touchable
 } );

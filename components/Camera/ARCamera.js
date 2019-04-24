@@ -10,12 +10,10 @@ import {
   Platform,
   NativeModules,
   CameraRoll,
-  Alert,
   BackHandler
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
-
 import INatCamera from "react-native-inat-camera";
 
 import ErrorScreen from "./ErrorScreen";

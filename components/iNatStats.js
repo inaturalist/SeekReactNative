@@ -8,20 +8,20 @@ import {
   TouchableOpacity,
   ScrollView,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 
-import styles from "../../styles/menu/iNatStats";
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import backgrounds from "../../assets/backgrounds";
-import logos from "../../assets/logos";
-import Footer from "../Home/Footer";
-import Padding from "../Padding";
-import { capitalizeNames, shuffleList } from "../../utility/helpers";
-import LoadingWheel from "../LoadingWheel";
+import styles from "../styles/iNatStats";
+import i18n from "../i18n";
+import icons from "../assets/icons";
+import backgrounds from "../assets/backgrounds";
+import logos from "../assets/logos";
+import Padding from "./Padding";
+import { capitalizeNames, shuffleList } from "../utility/helpers";
+import LoadingWheel from "./LoadingWheel";
 
 type Props = {
   navigation: any
@@ -39,10 +39,19 @@ class iNatStatsScreen extends Component<Props> {
     };
   }
 
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
+  }
+
   fetchProjectPhotos() {
     const params = {
       project_id: 29905,
       photos: true,
+      quality_grade: "research",
+      lrank: "species",
+      hrank: "species",
       locale: i18n.currentLocale()
     };
 
@@ -56,7 +65,9 @@ class iNatStatsScreen extends Component<Props> {
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
             photos.push( {
               photoUrl: defaultPhoto.medium_url,
-              commonName: photo.preferred_common_name ? capitalizeNames( photo.preferred_common_name ) : capitalizeNames( photo.iconic_taxon_name ),
+              commonName: photo.preferred_common_name
+                ? capitalizeNames( photo.preferred_common_name )
+                : capitalizeNames( photo.iconic_taxon_name ),
               attribution: defaultPhoto.attribution
             } );
           }
@@ -111,12 +122,15 @@ class iNatStatsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.scrollToTop();
             this.fetchProjectPhotos();
           }}
         />
         <SafeAreaView style={styles.safeView}>
           <StatusBar barStyle="dark-content" />
-          <ScrollView>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+          >
             <View style={styles.header}>
               <TouchableOpacity
                 hitSlop={styles.touchable}
@@ -185,7 +199,6 @@ class iNatStatsScreen extends Component<Props> {
             </TouchableOpacity> */}
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

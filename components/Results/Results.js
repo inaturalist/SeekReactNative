@@ -195,7 +195,11 @@ class Results extends Component<Props> {
   fetchAdditionalTaxaInfo() {
     const { taxaId } = this.state;
 
-    inatjs.taxa.fetch( taxaId ).then( ( response ) => {
+    const params = {
+      locale: i18n.currentLocale()
+    };
+
+    inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
       const taxa = response.results[0];
 
       this.setState( {

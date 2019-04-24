@@ -12,7 +12,7 @@ import styles from "../../styles/home/speciesNearby";
 import LoadingWheel from "../LoadingWheel";
 import Error from "./Error";
 import TaxonPicker from "./TaxonPicker";
-import { capitalizeNames, setSpeciesId } from "../../utility/helpers";
+import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
 
@@ -25,7 +25,7 @@ type Props = {
   longitude: number,
   updateTaxaType: Function,
   toggleLocationPicker: Function,
-  checkRealmForSpecies: Function,
+  setParamsForSpeciesNearby: Function,
   error: string
 }
 
@@ -38,7 +38,7 @@ const SpeciesNearby = ( {
   longitude,
   updateTaxaType,
   toggleLocationPicker,
-  checkRealmForSpecies,
+  setParamsForSpeciesNearby,
   error
 }: Props ) => {
   let species;
@@ -51,7 +51,7 @@ const SpeciesNearby = ( {
     species = (
       <Error
         error={error}
-        checkRealmForSpecies={checkRealmForSpecies}
+        setParamsForSpeciesNearby={setParamsForSpeciesNearby}
         latitude={latitude}
         longitude={longitude}
       />
@@ -70,6 +70,7 @@ const SpeciesNearby = ( {
             <TouchableOpacity
               onPress={ () => {
                 setSpeciesId( item.id );
+                setRoute( "Main" );
                 navigation.navigate( "Species" );
               }}
             >

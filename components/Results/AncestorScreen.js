@@ -12,10 +12,10 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/results/results";
-import icons from "../../assets/icons";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
+import BackArrow from "../BackArrow";
 
 type Props = {
   speciesSeenImage: string,
@@ -38,16 +38,8 @@ const MatchScreen = ( {
           colors={["#175f67", "#297f87"]}
           style={styles.header}
         >
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.buttonContainer}
-          >
-            <Image
-              source={icons.backButton}
-              style={styles.backButton}
-            />
-          </TouchableOpacity>
-          <View style={styles.imageContainer}>
+          <BackArrow navigation={navigation} />
+          <View style={[styles.imageContainer, styles.buttonContainer]}>
             <Image
               style={styles.imageCell}
               source={{ uri: userImage }}

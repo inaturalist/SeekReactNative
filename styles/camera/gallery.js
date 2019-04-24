@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, touchable } from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
@@ -54,5 +54,6 @@ export default StyleSheet.create( {
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.white
-  }
+  },
+  touchable
 } );

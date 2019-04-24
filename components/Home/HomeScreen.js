@@ -25,7 +25,6 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import Challenges from "./Challenges";
 import NoChallenges from "./NoChallenges";
-import Footer from "./Footer";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
@@ -60,7 +59,7 @@ class HomeScreen extends Component<Props> {
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
-    this.checkRealmForSpecies = this.checkRealmForSpecies.bind( this );
+    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
   }
 
   setLoading( loading ) {
@@ -99,10 +98,41 @@ class HomeScreen extends Component<Props> {
       this.setState( {
         latitude,
         longitude
-      }, () => this.checkRealmForSpecies( latitude, longitude ) );
+      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
     }, () => {
       this.checkInternetConnection();
     } );
+  }
+
+  setParamsForSpeciesNearby( lat, lng ) {
+    const { taxaType } = this.state;
+    this.setLoading( true );
+    this.checkInternetConnection();
+    if ( !lat || !lng ) {
+      this.fetchUserLocation();
+    }
+
+    const params = {
+      verifiable: true,
+      photos: true,
+      per_page: 20,
+      lat,
+      lng,
+      radius: 50,
+      threatened: false,
+      oauth_application_id: "2,3",
+      hrank: "species",
+      include_only_vision_taxa: true,
+      not_in_list_id: 945029,
+      month: getPreviousAndNextMonth(),
+      locale: i18n.currentLocale()
+    };
+
+    if ( taxonIds[taxaType] ) {
+      params.taxon_id = taxonIds[taxaType];
+    }
+
+    this.fetchSpeciesNearby( params );
   }
 
   requestAndroidPermissions = async () => {
@@ -138,7 +168,7 @@ class HomeScreen extends Component<Props> {
     this.setLoading( true );
     this.setState( {
       taxaType
-    }, () => this.checkRealmForSpecies( latitude, longitude ) );
+    }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
   }
 
   fetchUserLocation() {
@@ -151,7 +181,7 @@ class HomeScreen extends Component<Props> {
         this.getGeolocation();
       }
     } else {
-      this.checkRealmForSpecies( latitude, longitude );
+      this.setParamsForSpeciesNearby( latitude, longitude );
     }
   }
 
@@ -186,44 +216,6 @@ class HomeScreen extends Component<Props> {
         this.setError( null );
       }
     } ).catch( () => this.setError( null ) );
-  }
-
-  checkRealmForSpecies( lat, lng ) {
-    const { taxaType } = this.state;
-    this.setLoading( true );
-    this.checkInternetConnection();
-    if ( !lat || !lng ) {
-      this.fetchUserLocation();
-    }
-
-    const params = {
-      verifiable: true,
-      photos: true,
-      per_page: 20,
-      lat,
-      lng,
-      radius: 50,
-      threatened: false,
-      oauth_application_id: "2,3",
-      hrank: "species",
-      include_only_vision_taxa: true,
-      not_in_list_id: 945029,
-      month: getPreviousAndNextMonth(),
-      locale: i18n.currentLocale()
-    };
-
-    if ( taxonIds[taxaType] ) {
-      params.taxon_id = taxonIds[taxaType];
-    }
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const existingTaxonIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        params.without_taxon_id = existingTaxonIds.join( "," );
-        this.fetchSpeciesNearby( params );
-      } ).catch( () => {
-        this.fetchSpeciesNearby( params );
-      } );
   }
 
   fetchSpeciesNearby( params ) {
@@ -268,7 +260,13 @@ class HomeScreen extends Component<Props> {
       location
     }, () => {
       this.toggleLocationPicker();
-      this.checkRealmForSpecies( latitude, longitude );
+      this.setParamsForSpeciesNearby( latitude, longitude );
+    } );
+  }
+
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
     } );
   }
 
@@ -294,6 +292,7 @@ class HomeScreen extends Component<Props> {
           <View style={styles.container}>
             <NavigationEvents
               onWillFocus={() => {
+                this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.checkInternetConnection();
                 this.fetchUserLocation();
@@ -309,7 +308,9 @@ class HomeScreen extends Component<Props> {
                 toggleGetStartedModal={this.toggleGetStartedModal}
               />
             </RNModal>
-            <ScrollView>
+            <ScrollView
+              ref={( ref ) => { this.scrollView = ref; }}
+            >
               {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
               <Modal
                 visible={modalVisible}
@@ -333,7 +334,7 @@ class HomeScreen extends Component<Props> {
                 updateTaxaType={this.updateTaxaType}
                 toggleLocationPicker={this.toggleLocationPicker}
                 error={error}
-                checkRealmForSpecies={this.checkRealmForSpecies}
+                setParamsForSpeciesNearby={this.setParamsForSpeciesNearby}
               />
               <CardPadding />
               { challenge
@@ -343,7 +344,6 @@ class HomeScreen extends Component<Props> {
               <Padding />
             </ScrollView>
           </View>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

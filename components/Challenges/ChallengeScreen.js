@@ -18,7 +18,6 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Footer from "./ChallengeFooter";
 import Padding from "../Padding";
 import GreenHeader from "../GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
@@ -203,7 +202,11 @@ class ChallengeScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <GreenHeader navigation={navigation} header={i18n.t( "challenges.header" )} />
+          <GreenHeader
+            navigation={navigation}
+            header={i18n.t( "challenges.header" )}
+            route="Main"
+          />
           <ScrollView contentContainerStyle={styles.column}>
             <NavigationEvents
               onWillFocus={ () => {
@@ -213,7 +216,6 @@ class ChallengeScreen extends Component<Props> {
             />
             {noChallenges ? (
               <View style={[styles.noChallengeContainer, { height: 170 }]}>
-                {/* <View style={{ marginTop: 39 }} /> */}
                 <View style={styles.noChallengeRow}>
                   <Image source={icons.completed} />
                   <View style={styles.noChallengeTextContainer}>
@@ -224,13 +226,10 @@ class ChallengeScreen extends Component<Props> {
               </View>
             ) : null}
             {noChallenges ? null : this.renderChallengesStarted()}
-            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {noChallenges ? null : this.renderChallengesNotStarted()}
-            {/* {noChallenges ? null : <View style={{ marginTop: 49 }} />} */}
             {this.renderChallengesCompleted()}
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
         </SafeAreaView>
       </View>
     );

@@ -173,6 +173,19 @@ const getSpeciesId = async () => {
   }
 };
 
+const setRoute = ( route ) => {
+  AsyncStorage.setItem( "route", route );
+};
+
+const getRoute = async () => {
+  try {
+    const route = await AsyncStorage.getItem( "route" );
+    return route;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -183,5 +196,7 @@ export {
   checkIfCardShown,
   shuffleList,
   setSpeciesId,
-  getSpeciesId
+  getSpeciesId,
+  setRoute,
+  getRoute
 };

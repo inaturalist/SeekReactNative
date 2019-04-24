@@ -56,8 +56,8 @@
     "need_permission": "We need your parents' permission.",
     "enter_email": "Please enter your parent's email",
     "send_email": "Send email",
-    "parent_email": "Parent's Email",
-    "under_13": "Because you’re under 13, we need to get your parent’s permission before making an account.",
+    "parent_email": "Parent or Guardian's Email",
+    "under_13": "Because you’re under 13, we need to get your parent or guardian’s permission before creating an account.",
     "sign_up": "Sign up",
     "sign_up_inat": "Sign up for iNaturalist",
     "next": "Next",
@@ -69,7 +69,7 @@
     "data_usage": "Seek uses your data to help improve our identification models.",
     "create_account": "Create my account",
     "thanks": "Thanks!",
-    "parent_instructions": "We sent your parent an email with instructions.",
+    "parent_instructions": "We sent your parent or guardian an email with instructions.",
     "continue_no_log_in": "Continue Without Logging In"
   },
   "inat_login": {

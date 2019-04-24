@@ -29,30 +29,37 @@ class ObservationCard extends Component<Props> {
   }
 
   componentWillMount() {
-    this.selectPhoto();
+    this.checkForSeekV1Photos();
   }
 
   setPhoto( photo ) {
     this.setState( { photo } );
   }
 
-  selectPhoto() {
+  checkForSeekV1Photos() {
     const { item } = this.props;
+
+    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+
+    if ( Platform.OS === "ios" && seekv1Photos ) {
+      const photoPath = `${seekv1Photos}/${item.uuidString}`;
+      if ( !RNFS.exists( photoPath ) ) {
+        this.checkForSeekV2Photos( item );
+      } else {
+        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.checkForSeekV2Photos( item );
+        } );
+      }
+    } else {
+      this.checkForSeekV2Photos( item );
+    }
+  }
+
+  checkForSeekV2Photos( item ) {
     const { taxon } = item;
     const { defaultPhoto } = taxon;
-
-    if ( Platform.OS === "ios" && RNFS.exists( `${RNFS.DocumentDirectoryPath}/large` ) ) {
-      RNFS.readdir( `${RNFS.DocumentDirectoryPath}/large` ).then( ( result ) => {
-        result.forEach( ( path ) => {
-          if ( path === item.uuidString ) {
-            const photoPath = `${RNFS.DocumentDirectoryPath}/large/${path}`;
-            this.setPhoto( { uri: photoPath } );
-          }
-        } );
-      } ).catch( ( err ) => {
-        console.log( err, "file directory does not exist" );
-      } );
-    }
 
     if ( defaultPhoto ) {
       if ( defaultPhoto.mediumUrl ) {

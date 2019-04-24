@@ -15,9 +15,9 @@ import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
 import Geocoder from "react-native-geocoder";
+import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { seenBeforeSeekV2 } from "../../utility/dateHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
@@ -88,30 +88,6 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { stats } );
   }
 
-  resetState() {
-    this.setState( {
-      location: null,
-      photos: [],
-      commonName: null,
-      scientificName: null,
-      about: null,
-      seenDate: null,
-      timesSeen: null,
-      taxaType: null,
-      region: {},
-      observationsByMonth: [],
-      nearbySpeciesCount: null,
-      error: null,
-      userPhoto: null,
-      stats: {},
-      similarSpecies: [],
-      ancestors: [],
-      loading: true,
-      loadingSpecies: true,
-      route: null
-    } );
-  }
-
   async fetchSpeciesId() {
     const id = await getSpeciesId();
     this.setState( {
@@ -156,29 +132,71 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  setUserPhoto( seenTaxa ) {
+    const { taxon } = seenTaxa;
+    const { defaultPhoto } = taxon;
+
+    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
+      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+    } else {
+      this.setState( { userPhoto: null } );
+    }
+  }
+
+  resetState() {
+    this.setState( {
+      location: null,
+      photos: [],
+      commonName: null,
+      scientificName: null,
+      about: null,
+      seenDate: null,
+      timesSeen: null,
+      taxaType: null,
+      region: {},
+      observationsByMonth: [],
+      nearbySpeciesCount: null,
+      error: null,
+      userPhoto: null,
+      stats: {},
+      similarSpecies: [],
+      ancestors: [],
+      loading: true,
+      loadingSpecies: true,
+      route: null
+    } );
+  }
+
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
-        const seenTaxa = observations.filtered( `taxon.id == ${id}` );
-        let seenDate;
+        const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
+
         let userPhoto;
+        const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
 
-        if ( seenTaxa[0] ) {
-          seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          if ( !seenBeforeSeekV2( moment( seenDate ) ) ) {
-            userPhoto = seenTaxa[0].taxon.defaultPhoto.mediumUrl;
-          } else {
-            userPhoto = null;
+        const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+
+        if ( seenTaxa ) {
+          if ( Platform.OS === "ios" && seekv1Photos ) {
+            const photoPath = `${seekv1Photos}/${seenTaxa.uuidString}`;
+            if ( !RNFS.exists( photoPath ) ) {
+              this.setUserPhoto( seenTaxa );
+            } else {
+              RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+                userPhoto = `data:image/jpeg;base64,${encodedData}`;
+                this.setState( { userPhoto } );
+              } ).catch( () => {
+                this.setUserPhoto( seenTaxa );
+              } );
+            }
           }
-
-          this.setState( {
-            seenDate,
-            userPhoto
-          } );
         }
+
+        this.setState( { seenDate } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

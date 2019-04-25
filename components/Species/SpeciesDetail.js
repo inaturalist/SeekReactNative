@@ -193,6 +193,8 @@ class SpeciesDetail extends Component<Props> {
                 this.setUserPhoto( seenTaxa );
               } );
             }
+          } else {
+            this.setUserPhoto( seenTaxa );
           }
         }
 

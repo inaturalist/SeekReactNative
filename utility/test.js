@@ -4,7 +4,7 @@ const { createNotification } = require( "./notificationHelpers" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
-  for ( let i = 0; i < 2; i += 1 ) {
+  for ( let i = 0; i < 400; i += 1 ) {
     const latitude = Number( faker.address.latitude() );
     const longitude = Number( faker.address.longitude() );
 
@@ -31,7 +31,7 @@ const createFakeObservations = () => {
         name: faker.name.findName(),
         id: faker.random.number(),
         preferred_common_name: null,
-        iconic_taxon_id: taxonIds.arachnids,
+        iconic_taxon_id: taxonIds.fungi,
         default_photo: {
           medium_url: null
           // medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"

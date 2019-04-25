@@ -173,7 +173,7 @@ class MatchScreen extends Component<Props> {
           .filtered( "started == true AND percentComplete == 100" )
           .sorted( "completedDate", true );
 
-        if ( challengeProgressIndex !== "none" ) {
+        if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
           const incompleteChallenges = realm.objects( "ChallengeRealm" )
             .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 

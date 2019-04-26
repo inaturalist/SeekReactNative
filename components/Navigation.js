@@ -39,6 +39,7 @@ import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "./Signup/LicensePhotosScreen";
 import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import PostScreen from "./PostToiNat/PostScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
@@ -156,7 +157,11 @@ const MainStack = createStackNavigator( {
   RangeMap: {
     screen: RangeMap,
     navigationOptions: () => noHeader
-  }
+  },
+  // Post: {
+  //   screen: PostScreen,
+  //   navigationOptions: () => noHeader
+  // }
 }, {
   transitionConfig: nav => handleCustomTransition( nav )
 } );
@@ -244,6 +249,10 @@ const RootStack = createStackNavigator( {
   },
   Main: {
     screen: MenuDrawerNav
+  },
+  Post: {
+    screen: PostScreen,
+    navigationOptions: () => noHeader
   }
 }, StackNavigatorConfig );
 

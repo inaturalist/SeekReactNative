@@ -16,6 +16,8 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import GeoprivacyPicker from "./GeoprivacyPicker";
+import CaptivePicker from "./CaptivePicker";
 
 type Props = {
   navigation: any
@@ -28,14 +30,25 @@ class PostScreen extends Component<Props> {
     this.state = {
       location: "2568 Oak St, San Francisco, CA",
       date: "Apr 5, 2019 at 5:11 PM",
-      captive: "no",
-      geoprivacy: "open",
+      captive: null,
+      geoprivacy: null,
       taxon: {
         preferredCommonName: "Cali Salamander",
         name: "Something longer",
         iconicTaxonId: 3
       }
     };
+
+    this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
+    this.updateCaptive = this.updateCaptive.bind( this );
+  }
+
+  updateGeoprivacy( geoprivacy ) {
+    this.setState( { geoprivacy } );
+  }
+
+  updateCaptive( captive ) {
+    this.setState( { captive } );
   }
 
   render() {
@@ -44,8 +57,7 @@ class PostScreen extends Component<Props> {
       taxon,
       date,
       location,
-      captive,
-      geoprivacy
+      captive
     } = this.state;
 
     return (
@@ -73,58 +85,42 @@ class PostScreen extends Component<Props> {
               </View>
             </View>
           </View>
-            <View style={styles.divider} />
-            <TouchableOpacity style={styles.thinCard}>
-              <Image style={styles.icon} source={icons.locationPin} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.date" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {date}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
-            </TouchableOpacity>
-            <View style={styles.divider} />
-            <TouchableOpacity style={styles.thinCard}>
-              <Image style={styles.icon} source={icons.locationPin} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.location" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {location}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
-            </TouchableOpacity>
-            <View style={styles.divider} />
-            <TouchableOpacity style={styles.thinCard}>
-              <Image style={styles.icon} source={icons.locationPin} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {geoprivacy}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
-            </TouchableOpacity>
-            <View style={styles.divider} />
-            <TouchableOpacity style={styles.thinCard}>
-              <Image style={styles.icon} source={icons.locationPin} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.captive" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {captive}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
-            </TouchableOpacity>
+          <View style={styles.divider} />
+          <TouchableOpacity
+            style={styles.thinCard}
+            onPress={() => console.log( "clicked" )}
+          >
+            <Image style={styles.icon} source={icons.locationPin} />
+            <View style={styles.row}>
+              <Text style={styles.greenText}>
+                {i18n.t( "posting.date" ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.text}>
+                {date}
+              </Text>
+            </View>
+            <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
+          </TouchableOpacity>
+          <View style={styles.divider} />
+          <TouchableOpacity
+            style={styles.thinCard}
+            onPress={() => console.log( "clicked" )}
+          >
+            <Image style={styles.icon} source={icons.locationPin} />
+            <View style={styles.row}>
+              <Text style={styles.greenText}>
+                {i18n.t( "posting.location" ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.text}>
+                {location}
+              </Text>
+            </View>
+            <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
+          </TouchableOpacity>
+          <View style={styles.divider} />
+          <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
+          <View style={styles.divider} />
+          <CaptivePicker updateCaptive={this.updateCaptive} />
           <View style={styles.divider} />
           <View style={styles.textContainer}>
             <TouchableOpacity

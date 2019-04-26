@@ -426,5 +426,24 @@
     "designed_by": "Designed & developed by the iNaturalist team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
     "version": "Version"
+  },
+  "posting": {
+    "header": "Post to iNaturalist",
+    "notes": "Add notes here",
+    "date": "date",
+    "at": "at",
+    "location": "location",
+    "no_location": "no location",
+    "geoprivacy": "geoprivacy",
+    "open": "open",
+    "obsured": "obsured",
+    "private": "private",
+    "yes": "yes",
+    "no": "no",
+    "captive": "captive/cultivated",
+    "what_seen": "What did you see?",
+    "id": "Seek's identification",
+    "edit_location": "Edit location",
+    "save_location": "Save location"
   }
 }

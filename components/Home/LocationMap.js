@@ -6,17 +6,20 @@ import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
 import styles from "../../styles/home/locationPicker";
 import icons from "../../assets/icons";
+import postingIcons from "../../assets/posting";
 
 type Props = {
   region: Object,
   onRegionChange: Function,
-  returnToUserLocation: Function
+  returnToUserLocation: Function,
+  posting: ?boolean
 }
 
 const LocationMap = ( {
   region,
   onRegionChange,
-  returnToUserLocation
+  returnToUserLocation,
+  posting
 }: Props ) => (
   <View style={{ flex: 1 }}>
     {region.latitude ? (
@@ -28,7 +31,10 @@ const LocationMap = ( {
       />
     ) : null}
     <View pointerEvents="none" style={styles.markerFixed}>
-      <Image style={styles.markerPin} source={icons.locationPin} />
+      {posting
+        ? <Image source={postingIcons.crosshair} />
+        : <Image style={styles.markerPin} source={icons.locationPin} />
+      }
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight

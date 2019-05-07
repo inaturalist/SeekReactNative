@@ -5,18 +5,18 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
-  Image,
-  SafeAreaView
+  SafeAreaView,
+  Image
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "../Home/LocationMap";
 import { getLatAndLng } from "../../utility/locationHelpers";
-import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
-import GreenHeader from "../GreenHeader";
+import headerStyles from "../../styles/greenHeader";
+import backStyles from "../../styles/backArrow";
+import icons from "../../assets/icons";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -26,7 +26,7 @@ type Props = {
   longitude: number,
   location: string,
   updateLocation: Function,
-  navigation: any
+  toggleLocationPicker: Function
 }
 
 class LocationPicker extends Component<Props> {
@@ -119,18 +119,28 @@ class LocationPicker extends Component<Props> {
 
   render() {
     const { region, location } = this.state;
-    const { updateLocation, navigation } = this.props;
+    const { updateLocation, toggleLocationPicker } = this.props;
 
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
-          <GreenHeader header={i18n.t( "posting.edit_location" )} navigation={navigation} />
+          <View style={headerStyles.container}>
+            <TouchableOpacity
+              hitSlop={backStyles.touchable}
+              style={backStyles.backButton}
+              onPress={() => toggleLocationPicker()}
+            >
+              <Image source={icons.backButton} />
+            </TouchableOpacity>
+            <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
+          </View>
           <View style={styles.mapContainer}>
             <LocationMap
               region={region}
               onRegionChange={this.onRegionChange}
               returnToUserLocation={this.returnToUserLocation}
+              posting
             />
           </View>
           <View style={styles.footer}>

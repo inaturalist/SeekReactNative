@@ -16,6 +16,7 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
+import posting from "../../assets/posting";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 
@@ -90,7 +91,7 @@ class PostScreen extends Component<Props> {
             style={styles.thinCard}
             onPress={() => console.log( "clicked" )}
           >
-            <Image style={styles.icon} source={icons.locationPin} />
+            <Image style={styles.icon} source={posting.date} />
             <View style={styles.row}>
               <Text style={styles.greenText}>
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
@@ -99,14 +100,14 @@ class PostScreen extends Component<Props> {
                 {date}
               </Text>
             </View>
-            <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
+            <Image style={styles.buttonIcon} source={posting.expand} />
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.thinCard}
             onPress={() => console.log( "clicked" )}
           >
-            <Image style={styles.icon} source={icons.locationPin} />
+            <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
             <View style={styles.row}>
               <Text style={styles.greenText}>
                 {i18n.t( "posting.location" ).toLocaleUpperCase()}
@@ -115,7 +116,7 @@ class PostScreen extends Component<Props> {
                 {location}
               </Text>
             </View>
-            <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
+            <Image style={styles.buttonIcon} source={posting.expand} />
           </TouchableOpacity>
           <View style={styles.divider} />
           <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />

@@ -7,16 +7,19 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Platform
+  Platform,
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import Geocoder from "react-native-geocoder";
 
 import styles from "../../styles/posting/postToiNat";
+import { getLatAndLng } from "../../utility/locationHelpers";
 import iconicTaxa from "../../assets/iconicTaxa";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
-import icons from "../../assets/icons";
 import posting from "../../assets/posting";
+import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 
@@ -29,7 +32,9 @@ class PostScreen extends Component<Props> {
     super();
 
     this.state = {
-      location: "2568 Oak St, San Francisco, CA",
+      latitude: 37.99,
+      longitude: -142.45,
+      location: null,
       date: "Apr 5, 2019 at 5:11 PM",
       captive: null,
       geoprivacy: null,
@@ -37,11 +42,50 @@ class PostScreen extends Component<Props> {
         preferredCommonName: "Cali Salamander",
         name: "Something longer",
         iconicTaxonId: 3
-      }
+      },
+      modalVisible: false,
+      error: null
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
     this.updateCaptive = this.updateCaptive.bind( this );
+    this.updateLocation = this.updateLocation.bind( this );
+    this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
+  }
+
+  async getLocation() {
+    const { latitude, longitude } = this.state;
+    if ( !latitude || !longitude ) {
+      const location = await getLatAndLng();
+      this.reverseGeocodeLocation( location.latitude, location.longitude );
+      this.setLatitude( location.latitude );
+      this.setLongitude( location.longitude );
+    }
+  }
+
+  setLatitude( latitude ) {
+    this.setState( { latitude } );
+  }
+
+  setLongitude( longitude ) {
+    this.setState( { longitude } );
+  }
+
+  setLocationUndefined() {
+    this.setState( { location: i18n.t( "location_picker.undefined" ) } );
+  }
+
+  setLocation( location ) {
+    this.setState( { location } );
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setLocation( locality || subAdminArea );
+    } ).catch( () => {
+      this.checkInternetConnection();
+    } );
   }
 
   updateGeoprivacy( geoprivacy ) {
@@ -52,21 +96,55 @@ class PostScreen extends Component<Props> {
     this.setState( { captive } );
   }
 
+  toggleLocationPicker() {
+    const { modalVisible, error } = this.state;
+
+    if ( !error ) {
+      this.setState( {
+        modalVisible: !modalVisible
+      } );
+    }
+  }
+
+  updateLocation( latitude, longitude, location ) {
+    this.setState( {
+      latitude,
+      longitude,
+      location
+    }, () => this.toggleLocationPicker() );
+  }
+
   render() {
     const { navigation } = this.props;
     const {
       taxon,
       date,
       location,
-      captive
+      captive,
+      latitude,
+      longitude,
+      modalVisible
     } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
+          <Modal
+            visible={modalVisible}
+            onRequestClose={() => this.toggleLocationPicker()}
+          >
+            <LocationPicker
+              latitude={latitude}
+              longitude={longitude}
+              location={location}
+              updateLocation={this.updateLocation}
+              toggleLocationPicker={this.toggleLocationPicker}
+            />
+          </Modal>
           <NavigationEvents
             onWillFocus={() => {
+              this.getLocation();
               // fetch user location without truncated coordinates
               // display current date
             }}
@@ -105,7 +183,7 @@ class PostScreen extends Component<Props> {
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.thinCard}
-            onPress={() => console.log( "clicked" )}
+            onPress={() => this.toggleLocationPicker()}
           >
             <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
             <View style={styles.row}>

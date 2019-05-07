@@ -7,11 +7,13 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Platform,
-  Modal
+  Modal,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
+import DateTimePicker from "react-native-modal-datetime-picker";
+import moment from "moment";
 
 import styles from "../../styles/posting/postToiNat";
 import { getLatAndLng } from "../../utility/locationHelpers";
@@ -35,7 +37,7 @@ class PostScreen extends Component<Props> {
       latitude: 37.99,
       longitude: -142.45,
       location: null,
-      date: "Apr 5, 2019 at 5:11 PM",
+      date: moment().format( "YYYY-MM-DD" ),
       captive: null,
       geoprivacy: null,
       taxon: {
@@ -44,6 +46,7 @@ class PostScreen extends Component<Props> {
         iconicTaxonId: 3
       },
       modalVisible: false,
+      isDateTimePickerVisible: false,
       error: null
     };
 
@@ -84,7 +87,7 @@ class PostScreen extends Component<Props> {
       const { locality, subAdminArea } = result[0];
       this.setLocation( locality || subAdminArea );
     } ).catch( () => {
-      this.checkInternetConnection();
+      console.log( "couldn't geocode location" );
     } );
   }
 
@@ -114,6 +117,19 @@ class PostScreen extends Component<Props> {
     }, () => this.toggleLocationPicker() );
   }
 
+  showDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: true } );
+  };
+
+  hideDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: false } );
+  };
+
+  handleDatePicked = ( date ) => {
+    this.setState( { date: JSON.stringify( date ) } );
+    this.hideDateTimePicker();
+  };
+
   render() {
     const { navigation } = this.props;
     const {
@@ -123,13 +139,22 @@ class PostScreen extends Component<Props> {
       captive,
       latitude,
       longitude,
-      modalVisible
+      modalVisible,
+      isDateTimePickerVisible
     } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
+          <DateTimePicker
+            isVisible={isDateTimePickerVisible}
+            onConfirm={() => this.handleDatePicked()}
+            onCancel={() => this.hideDateTimePicker()}
+            mode="datetime"
+            maximumDate={new Date()}
+            hideTitleContainerIOS
+          />
           <Modal
             visible={modalVisible}
             onRequestClose={() => this.toggleLocationPicker()}
@@ -167,7 +192,7 @@ class PostScreen extends Component<Props> {
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.thinCard}
-            onPress={() => console.log( "clicked" )}
+            onPress={() => this.showDateTimePicker()}
           >
             <Image style={styles.icon} source={posting.date} />
             <View style={styles.row}>

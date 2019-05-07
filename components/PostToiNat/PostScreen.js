@@ -8,7 +8,8 @@ import {
   View,
   SafeAreaView,
   Modal,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -37,7 +38,8 @@ class PostScreen extends Component<Props> {
       latitude: 37.99,
       longitude: -142.45,
       location: null,
-      date: moment().format( "YYYY-MM-DD" ),
+      date: "",
+      // date: moment().format( "YYYY-MM-DD" ),
       captive: null,
       geoprivacy: null,
       taxon: {
@@ -126,8 +128,11 @@ class PostScreen extends Component<Props> {
   };
 
   handleDatePicked = ( date ) => {
-    this.setState( { date: JSON.stringify( date ) } );
-    this.hideDateTimePicker();
+    if ( date ) {
+      this.setState( {
+        date: date.toString()
+      }, this.hideDateTimePicker() );
+    }
   };
 
   render() {
@@ -149,8 +154,8 @@ class PostScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <DateTimePicker
             isVisible={isDateTimePickerVisible}
-            onConfirm={() => this.handleDatePicked()}
-            onCancel={() => this.hideDateTimePicker()}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
             mode="datetime"
             maximumDate={new Date()}
             hideTitleContainerIOS

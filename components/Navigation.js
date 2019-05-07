@@ -157,7 +157,7 @@ const MainStack = createStackNavigator( {
   RangeMap: {
     screen: RangeMap,
     navigationOptions: () => noHeader
-  },
+  }
   // Post: {
   //   screen: PostScreen,
   //   navigationOptions: () => noHeader

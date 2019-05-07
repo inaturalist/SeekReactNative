@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/postToiNat";
+import styles from "../../styles/results/results";
 
 type Props = {
   navigation: any,
@@ -22,7 +22,7 @@ const PostToiNat = ( { navigation, color }: Props ) => (
     </Text>
     <TouchableOpacity
       style={[styles.button, { backgroundColor: color }]}
-      onPress={() => navigation.navigate( "Login" )}
+      onPress={() => navigation.navigate( "Post" )}
     >
       <Text style={styles.buttonText}>
         {i18n.t( "results.post" ).toLocaleUpperCase()}

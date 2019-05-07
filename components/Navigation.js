@@ -157,11 +157,11 @@ const MainStack = createStackNavigator( {
   RangeMap: {
     screen: RangeMap,
     navigationOptions: () => noHeader
+  },
+  Post: {
+    screen: PostScreen,
+    navigationOptions: () => noHeader
   }
-  // Post: {
-  //   screen: PostScreen,
-  //   navigationOptions: () => noHeader
-  // }
 }, {
   transitionConfig: nav => handleCustomTransition( nav )
 } );
@@ -249,11 +249,11 @@ const RootStack = createStackNavigator( {
   },
   Main: {
     screen: MenuDrawerNav
-  },
-  Post: {
-    screen: PostScreen,
-    navigationOptions: () => noHeader
   }
+  // Post: {
+  //   screen: PostScreen,
+  //   navigationOptions: () => noHeader
+  // }
 }, StackNavigatorConfig );
 
 const App = createAppContainer( RootStack );

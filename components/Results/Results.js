@@ -68,7 +68,8 @@ class Results extends Component<Props> {
       loading: true,
       photoConfirmed: false,
       error: null,
-      isLoggedIn: false
+      isLoggedIn: true
+      // isLoggedIn: false
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -415,7 +416,7 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLoggedIn();
+            // this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
             checkNumberOfBadgesEarned();

@@ -21,13 +21,19 @@ import PostToiNat from "./PostToiNat";
 type Props = {
   userImage: string,
   navigation: any,
-  isLoggedIn: boolean
+  isLoggedIn: boolean,
+  taxaName: string,
+  taxaId: number,
+  scientificName: string
 }
 
 const MatchScreen = ( {
   userImage,
   navigation,
-  isLoggedIn
+  isLoggedIn,
+  taxaName,
+  taxaId,
+  scientificName
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
@@ -57,8 +63,18 @@ const MatchScreen = ( {
             </Text>
           </TouchableOpacity>
           {isLoggedIn
-            ? <PostToiNat navigation={navigation} color="#5e5e5e" />
-            : null
+            ? (
+              <PostToiNat
+                navigation={navigation}
+                color="#5e5e5e"
+                taxaInfo={{
+                  taxaName,
+                  taxaId,
+                  userImage,
+                  scientificName
+                }}
+              />
+            ) : null
           }
         </View>
         <Padding />

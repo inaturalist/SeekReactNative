@@ -24,7 +24,9 @@ type Props = {
   commonAncestor: string,
   userImage: string,
   navigation: any,
-  isLoggedIn: boolean
+  isLoggedIn: boolean,
+  taxaId: number,
+  scientificName: string
 }
 
 const MatchScreen = ( {
@@ -32,7 +34,9 @@ const MatchScreen = ( {
   speciesSeenImage,
   userImage,
   navigation,
-  isLoggedIn
+  isLoggedIn,
+  taxaId,
+  scientificName
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#175f67" }} />
@@ -67,9 +71,19 @@ const MatchScreen = ( {
             </Text>
           </TouchableOpacity>
           {isLoggedIn
-            ? <PostToiNat navigation={navigation} color={colors.seekTeal} />
-            : null
-          } 
+            ? (
+              <PostToiNat
+                navigation={navigation}
+                color={colors.seekTeal}
+                taxaInfo={{
+                  taxaName: commonAncestor,
+                  taxaId,
+                  userImage,
+                  scientificName
+                }}
+              />
+            ) : null
+          }
         </View>
         <Padding />
       </ScrollView>

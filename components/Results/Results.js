@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -68,6 +67,7 @@ class Results extends Component<Props> {
       loading: true,
       photoConfirmed: false,
       error: null,
+      scientificName: null,
       isLoggedIn: true
       // isLoggedIn: false
     };
@@ -131,7 +131,8 @@ class Results extends Component<Props> {
       this.setState( {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,
-        speciesSeenImage
+        speciesSeenImage,
+        scientificName: ancestor.name
       }, () => this.showNoMatch() );
     } );
   }
@@ -144,6 +145,7 @@ class Results extends Component<Props> {
       observation: species,
       taxaId: taxon.id,
       taxaName: capitalizeNames( taxon.preferred_common_name || taxon.name ),
+      scientificName: taxon.name,
       speciesSeenImage: photo ? photo.medium_url : null
     }, () => this.showMatch() );
   }
@@ -156,7 +158,8 @@ class Results extends Component<Props> {
       commonAncestor: commonAncestor
         ? capitalizeNames( taxon.preferred_common_name || taxon.name )
         : null,
-      speciesSeenImage: photo ? photo.medium_url : null
+      speciesSeenImage: photo ? photo.medium_url : null,
+      scientificName: taxon.name
     }, () => this.showNoMatch() );
   }
 
@@ -223,6 +226,7 @@ class Results extends Component<Props> {
 
       this.setState( {
         taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
+        scientificName: taxa.name,
         observation: {
           taxon: {
             default_photo: taxa.default_photo,
@@ -356,7 +360,8 @@ class Results extends Component<Props> {
       image,
       photoConfirmed,
       error,
-      isLoggedIn
+      isLoggedIn,
+      scientificName
     } = this.state;
     const { navigation } = this.props;
 
@@ -390,6 +395,7 @@ class Results extends Component<Props> {
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
           isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -400,6 +406,8 @@ class Results extends Component<Props> {
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
           isLoggedIn={isLoggedIn}
+          taxaId={taxaId}
+          scientificName={scientificName}
         />
       );
     } else {
@@ -408,6 +416,7 @@ class Results extends Component<Props> {
           navigation={navigation}
           userImage={userImage}
           isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
         />
       );
     }

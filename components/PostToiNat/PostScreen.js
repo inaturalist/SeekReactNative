@@ -8,17 +8,16 @@ import {
   View,
   SafeAreaView,
   Modal,
-  Platform,
   Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
+import inatjs from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { getLatAndLng } from "../../utility/locationHelpers";
-import iconicTaxa from "../../assets/iconicTaxa";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -31,21 +30,28 @@ type Props = {
 };
 
 class PostScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
+    const {
+      taxaName,
+      taxaId,
+      userImage,
+      scientificName
+    } = navigation.state.params;
+
     this.state = {
-      latitude: 37.99,
-      longitude: -142.45,
+      latitude: null,
+      longitude: null,
       location: null,
-      date: "",
-      // date: moment().format( "YYYY-MM-DD" ),
+      date: moment().format( "YYYY-MM-DD" ),
       captive: null,
       geoprivacy: null,
       taxon: {
-        preferredCommonName: "Cali Salamander",
-        name: "Something longer",
-        iconicTaxonId: 3
+        preferredCommonName: taxaName,
+        name: scientificName,
+        taxaId,
+        userImage
       },
       modalVisible: false,
       isDateTimePickerVisible: false,
@@ -84,22 +90,21 @@ class PostScreen extends Component<Props> {
     this.setState( { location } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
-    } ).catch( () => {
-      console.log( "couldn't geocode location" );
-    } );
-  }
+  showDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: true } );
+  };
 
-  updateGeoprivacy( geoprivacy ) {
-    this.setState( { geoprivacy } );
-  }
+  hideDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: false } );
+  };
 
-  updateCaptive( captive ) {
-    this.setState( { captive } );
-  }
+  handleDatePicked = ( date ) => {
+    if ( date ) {
+      this.setState( {
+        date: date.toString()
+      }, this.hideDateTimePicker() );
+    }
+  };
 
   toggleLocationPicker() {
     const { modalVisible, error } = this.state;
@@ -119,21 +124,22 @@ class PostScreen extends Component<Props> {
     }, () => this.toggleLocationPicker() );
   }
 
-  showDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: true } );
-  };
+  updateGeoprivacy( geoprivacy ) {
+    this.setState( { geoprivacy } );
+  }
 
-  hideDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: false } );
-  };
+  updateCaptive( captive ) {
+    this.setState( { captive } );
+  }
 
-  handleDatePicked = ( date ) => {
-    if ( date ) {
-      this.setState( {
-        date: date.toString()
-      }, this.hideDateTimePicker() );
-    }
-  };
+  reverseGeocodeLocation( lat, lng ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setLocation( locality || subAdminArea );
+    } ).catch( () => {
+      console.log( "couldn't geocode location" );
+    } );
+  }
 
   render() {
     const { navigation } = this.props;
@@ -177,8 +183,6 @@ class PostScreen extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => {
               this.getLocation();
-              // fetch user location without truncated coordinates
-              // display current date
             }}
           />
           <GreenHeader
@@ -187,7 +191,7 @@ class PostScreen extends Component<Props> {
           />
           <View style={styles.textContainer}>
             <View style={styles.card}>
-              <Image style={styles.image} source={iconicTaxa[taxon.iconicTaxonId]} />
+              <Image style={styles.image} source={{ uri: taxon.userImage }} />
               <View style={styles.speciesNameContainer}>
                 <Text style={styles.commonNameText}>
                   {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name}

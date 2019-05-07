@@ -10,7 +10,7 @@ import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postToiNat";
-import icons from "../../assets/icons";
+import posting from "../../assets/posting";
 
 const pickerSelectStyles = StyleSheet.create( {
   inputIOS: styles.text,
@@ -57,7 +57,7 @@ class CaptivePicker extends Component<Props> {
         style={styles.thinCard}
         onPress={() => console.log( "clicked" )}
       >
-        <Image style={styles.icon} source={icons.locationPin} />
+        <Image style={styles.icon} source={posting.captive} />
         <View style={styles.row}>
           <Text style={styles.greenText}>
             {i18n.t( "posting.captive" ).toLocaleUpperCase()}
@@ -77,7 +77,7 @@ class CaptivePicker extends Component<Props> {
             useNativeAndroidPickerStyle={false}
           />
         </View>
-        <Image style={styles.buttonIcon} source={icons.backButtonGreen} />
+        <Image style={styles.buttonIcon} source={posting.expand} />
       </TouchableOpacity>
     );
   }

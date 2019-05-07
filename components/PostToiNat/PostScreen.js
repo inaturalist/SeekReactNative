@@ -159,6 +159,8 @@ class PostScreen extends Component<Props> {
             mode="datetime"
             maximumDate={new Date()}
             hideTitleContainerIOS
+            datePickerModeAndroid="spinner"
+            timePickerModeAndroid="spinner"
           />
           <Modal
             visible={modalVisible}

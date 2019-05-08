@@ -51,7 +51,7 @@ class SignUpScreen extends Component<Props> {
             header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <View style={[styles.innerContainer, { marginTop: 46 }]}>
+          <View style={[styles.innerContainer, styles.margin]}>
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
@@ -78,9 +78,8 @@ class SignUpScreen extends Component<Props> {
               placeholder="*********"
               textContentType="password"
             />
-            <View style={{ marginTop: 80 }} />
             <TouchableOpacity
-              style={styles.greenButton}
+              style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>

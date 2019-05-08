@@ -26,7 +26,7 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
     <SafeAreaView style={[styles.safeViewTop, { backgroundColor: "#50c49c" }]} />
     <SafeAreaView style={styles.safeView}>
       <View style={styles.innerContainer}>
-        <View style={{ marginTop: 67 }} />
+        <View style={styles.greenButtonMargin} />
         <Text style={styles.headerText}>
           {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
         </Text>

@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  KeyboardAvoidingView,
   Platform
 } from "react-native";
 

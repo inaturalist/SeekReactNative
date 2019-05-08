@@ -28,15 +28,15 @@ class CaptivePicker extends Component<Props> {
     this.inputRefs = {};
 
     this.state = {
-      captive: null,
+      captive: i18n.t( "posting.no" ),
       types: [
         {
           label: i18n.t( "posting.no" ),
-          value: "no"
+          value: i18n.t( "posting.no" )
         },
         {
           label: i18n.t( "posting.yes" ),
-          value: "yes"
+          value: i18n.t( "posting.yes" )
         }
       ]
     };
@@ -53,32 +53,36 @@ class CaptivePicker extends Component<Props> {
     const { types, captive } = this.state;
 
     return (
-      <TouchableOpacity
-        style={styles.thinCard}
-        onPress={() => console.log( "clicked" )}
+      <RNPickerSelect
+        placeholder={{}}
+        hideIcon
+        items={types}
+        onValueChange={( value ) => {
+          this.setCaptive( value );
+        }}
+        style={{ ...pickerSelectStyles }}
+        value={captive}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
+        useNativeAndroidPickerStyle={false}
       >
-        <Image style={styles.icon} source={posting.captive} />
-        <View style={styles.row}>
-          <Text style={styles.greenText}>
-            {i18n.t( "posting.captive" ).toLocaleUpperCase()}
-          </Text>
-          <RNPickerSelect
-            placeholder={{}}
-            hideIcon
-            items={types}
-            onValueChange={( value ) => {
-              this.setCaptive( value );
-            }}
-            style={{ ...pickerSelectStyles }}
-            value={captive}
-            ref={( el ) => {
-              this.inputRefs.picker2 = el;
-            }}
-            useNativeAndroidPickerStyle={false}
-          />
-        </View>
-        <Image style={styles.buttonIcon} source={posting.expand} />
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.thinCard}
+          onPress={() => console.log( "clicked" )}
+        >
+          <Image style={styles.icon} source={posting.captive} />
+          <View style={styles.row}>
+            <Text style={styles.greenText}>
+              {i18n.t( "posting.captive" ).toLocaleUpperCase()}
+            </Text>
+            <Text style={styles.text}>
+              {captive}
+            </Text>
+          </View>
+          <Image style={styles.buttonIcon} source={posting.expand} />
+        </TouchableOpacity>
+      </RNPickerSelect>
     );
   }
 }

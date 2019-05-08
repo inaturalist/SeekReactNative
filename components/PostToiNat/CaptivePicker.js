@@ -31,12 +31,12 @@ class CaptivePicker extends Component<Props> {
       captive: null,
       types: [
         {
-          label: i18n.t( "posting.yes" ),
-          value: "yes"
-        },
-        {
           label: i18n.t( "posting.no" ),
           value: "no"
+        },
+        {
+          label: i18n.t( "posting.yes" ),
+          value: "yes"
         }
       ]
     };

@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal,
-  Alert
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -88,7 +87,7 @@ class PostScreen extends Component<Props> {
 
   setLocation( location ) {
     this.setState( { location } );
-  }
+  } 
 
   showDateTimePicker = () => {
     this.setState( { isDateTimePickerVisible: true } );

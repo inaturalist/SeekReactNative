@@ -28,19 +28,19 @@ class GeoprivacyPicker extends Component<Props> {
     this.inputRefs = {};
 
     this.state = {
-      geoprivacy: null,
+      geoprivacy: i18n.t( "posting.open" ),
       types: [
         {
           label: i18n.t( "posting.open" ),
-          value: "open"
+          value: i18n.t( "posting.open" )
         },
         {
           label: i18n.t( "posting.obscured" ),
-          value: "obscured"
+          value: i18n.t( "posting.obscured" )
         },
         {
           label: i18n.t( "posting.private" ),
-          value: "private"
+          value: i18n.t( "posting.private" )
         }
       ]
     };
@@ -57,32 +57,35 @@ class GeoprivacyPicker extends Component<Props> {
     const { types, geoprivacy } = this.state;
 
     return (
-      <TouchableOpacity
-        style={styles.thinCard}
-        onPress={() => console.log( "clicked" )}
+      <RNPickerSelect
+        placeholder={{}}
+        hideIcon
+        items={types}
+        onValueChange={( value ) => {
+          this.setGeoprivacy( value );
+        }}
+        style={{ ...pickerSelectStyles }}
+        value={geoprivacy}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
+        useNativeAndroidPickerStyle={false}
       >
-        <Image style={styles.icon} source={posting.geoprivacy} />
-        <View style={styles.row}>
-          <Text style={styles.greenText}>
-            {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
-          </Text>
-          <RNPickerSelect
-            placeholder={{}}
-            hideIcon
-            items={types}
-            onValueChange={( value ) => {
-              this.setGeoprivacy( value );
-            }}
-            style={{ ...pickerSelectStyles }}
-            value={geoprivacy}
-            ref={( el ) => {
-              this.inputRefs.picker2 = el;
-            }}
-            useNativeAndroidPickerStyle={false}
-          />
-        </View>
-        <Image style={styles.buttonIcon} source={posting.expand} />
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.thinCard}
+        >
+          <Image style={styles.icon} source={posting.geoprivacy} />
+          <View style={styles.row}>
+            <Text style={styles.greenText}>
+              {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
+            </Text>
+            <Text style={styles.text}>
+              {geoprivacy}
+            </Text>
+          </View>
+          <Image style={styles.buttonIcon} source={posting.expand} />
+        </TouchableOpacity>
+      </RNPickerSelect>
     );
   }
 }

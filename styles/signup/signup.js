@@ -1,6 +1,8 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
 import { fonts, colors, padding } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -16,7 +18,8 @@ export default StyleSheet.create( {
   },
   innerContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    flex: ( Platform.OS === "android" || height > 320 ) ? null : 1
   },
   inputField: {
     width: 307,
@@ -51,12 +54,17 @@ export default StyleSheet.create( {
     color: colors.white
   },
   header: {
-    // marginTop: 83,
     textAlign: "center",
     color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 19,
     lineHeight: 24
+  },
+  margin: {
+    marginTop: ( Platform.OS === "android" || height > 320 ) ? 0 : 22
+  },
+  greenButtonMargin: {
+    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 58
   },
   headerText: {
     marginTop: 22,
@@ -75,6 +83,10 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     textDecorationLine: "underline"
+  },
+  keyboardText: {
+    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 20,
+    marginHorizontal: ( Platform.OS === "android" || height > 320 ) ? 24 : 28
   },
   text: {
     marginHorizontal: 38,
@@ -104,21 +116,6 @@ export default StyleSheet.create( {
     color: colors.black,
     fontSize: 20,
     textAlign: "center"
-  },
-  datePickerContainer: {
-    marginTop: Platform.OS === "android" ? 40 : null,
-    marginBottom: Platform.OS === "android" ? 60 : null,
-    alignItems: Platform.OS === "android" ? "center" : null,
-    // flex: Platform.OS === "ios" ? 1 : null,
-    justifyContent: "center"
-  },
-  datePickerInputField: {
-    width: 307,
-    textAlign: "center",
-    justifyContent: "center",
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40
   },
   secondHeaderText: {
     textAlign: "center",

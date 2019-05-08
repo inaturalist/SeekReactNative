@@ -120,21 +120,6 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     textDecorationLine: "underline"
   },
-  datePickerContainer: {
-    marginTop: Platform.OS === "android" ? 40 : null,
-    marginBottom: Platform.OS === "android" ? 60 : null,
-    alignItems: Platform.OS === "android" ? "center" : null,
-    flex: Platform.OS === "ios" ? 1 : null,
-    justifyContent: "center"
-  },
-  datePickerInputField: {
-    width: 307,
-    textAlign: "center",
-    justifyContent: "center",
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40
-  },
   secondHeaderText: {
     textAlign: "center",
     fontFamily: fonts.medium,

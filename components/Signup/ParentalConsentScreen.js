@@ -46,14 +46,14 @@ class ParentalConsentScreen extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
-          <Text style={styles.header}>
-            {i18n.t( "inat_signup.enter_email" )}
-          </Text>
-          <Text style={styles.text}>
-            {i18n.t( "inat_signup.under_13" )}
-          </Text>
-          <View style={{ marginTop: 22 }} />
-          <View style={styles.innerContainer}>
+          <View style={[styles.innerContainer, { flex: 1 }]}>
+            <Text style={styles.header}>
+              {i18n.t( "inat_signup.enter_email" )}
+            </Text>
+            <Text style={styles.text}>
+              {i18n.t( "inat_signup.under_13" )}
+            </Text>
+            <View style={{ marginTop: 22 }} />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()}

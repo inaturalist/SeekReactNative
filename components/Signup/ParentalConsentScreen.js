@@ -38,22 +38,18 @@ class ParentalConsentScreen extends Component<Props> {
     const { email } = this.state;
 
     return (
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "padding" : null}
-        enabled
-      >
+      <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
-          <View style={[styles.innerContainer, { flex: 1 }]}>
+          <View style={styles.innerContainer}>
             <Text style={styles.header}>
               {i18n.t( "inat_signup.enter_email" )}
             </Text>
-            <Text style={styles.text}>
+            <Text style={[styles.text, styles.keyboardText]}>
               {i18n.t( "inat_signup.under_13" )}
             </Text>
-            <View style={{ marginTop: 22 }} />
+            <View style={styles.margin} />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()}
@@ -67,9 +63,10 @@ class ParentalConsentScreen extends Component<Props> {
               textContentType="emailAddress"
               keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus
+              autoCorrect={false}
             />
             <TouchableOpacity
-              style={[styles.greenButton, { marginTop: 58 }]}
+              style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>
@@ -78,7 +75,7 @@ class ParentalConsentScreen extends Component<Props> {
             </TouchableOpacity>
           </View>
         </SafeAreaView>
-      </KeyboardAvoidingView>
+      </View>
     );
   }
 }

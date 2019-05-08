@@ -49,6 +49,7 @@ class ForgotPasswordScreen extends Component<Props> {
             navigation={navigation}
           />
           <View style={styles.innerContainer}>
+            <View style={styles.margin} />
             <Text style={styles.header}>
               {i18n.t( "inat_login.no_worries" )}
             </Text>

@@ -52,7 +52,6 @@ class LicensePhotosScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
           <View style={styles.innerContainer}>
-            <View style={{ marginTop: 49 }} />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_signup.email" ).toLocaleUpperCase()}
@@ -65,30 +64,29 @@ class LicensePhotosScreen extends Component<Props> {
               placeholder="email"
               textContentType="emailAddress"
               autoFocus
+              autoCorrect={false}
             />
-            <View style={{ marginHorizontal: 38 }}>
-              <View style={styles.row}>
-                <Checkbox
-                  style={styles.checkBox}
-                  onClick={() => this.toggleLicensePhotos()}
-                  isChecked={licensePhotos}
-                  checkBoxColor="#979797"
-                />
-                <View>
-                  <Text style={styles.licenseText}>
-                    {i18n.t( "inat_signup.release_photos" )}
-                  </Text>
-                  {/* <Text
-                    style={styles.privacy}
-                    onPress={() => navigation.navigate( "Privacy" )}
-                  >
-                    {i18n.t( "inat_signup.privacy" )}
-                  </Text> */}
-                </View>
+            <View style={[styles.row, styles.margin]}>
+              <Checkbox
+                style={styles.checkBox}
+                onClick={() => this.toggleLicensePhotos()}
+                isChecked={licensePhotos}
+                checkBoxColor="#979797"
+              />
+              <View>
+                <Text style={styles.licenseText}>
+                  {i18n.t( "inat_signup.release_photos" )}
+                </Text>
+                {/* <Text
+                  style={styles.privacy}
+                  onPress={() => navigation.navigate( "Privacy" )}
+                >
+                  {i18n.t( "inat_signup.privacy" )}
+                </Text> */}
               </View>
             </View>
             <TouchableOpacity
-              style={styles.greenButton}
+              style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>

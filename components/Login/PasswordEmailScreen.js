@@ -21,7 +21,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
     <SafeAreaView style={styles.safeViewTop} />
     <SafeAreaView style={styles.safeView}>
       <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
-      <View style={styles.innerContainer}>
+      <View style={[styles.innerContainer, styles.container]}>
         <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
         <Text style={[styles.secondHeaderText, {
           color: "black",

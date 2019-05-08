@@ -18,8 +18,8 @@ export default StyleSheet.create( {
   },
   innerContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    flex: ( Platform.OS === "android" || height > 320 ) ? null : 1
+    justifyContent: "center"
+    // flex: ( Platform.OS === "android" || height < 320 ) ? null : 1
   },
   inputField: {
     width: 307,
@@ -61,10 +61,10 @@ export default StyleSheet.create( {
     lineHeight: 24
   },
   margin: {
-    marginTop: ( Platform.OS === "android" || height > 320 ) ? 0 : 22
+    marginTop: ( Platform.OS === "android" || height < 320 ) ? 0 : 22
   },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 58
+    marginTop: ( Platform.OS === "android" || height < 320 ) ? 10 : 58
   },
   headerText: {
     marginTop: 22,
@@ -85,8 +85,8 @@ export default StyleSheet.create( {
     textDecorationLine: "underline"
   },
   keyboardText: {
-    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 20,
-    marginHorizontal: ( Platform.OS === "android" || height > 320 ) ? 24 : 28
+    marginTop: ( Platform.OS === "android" || height < 320 ) ? 10 : 20,
+    marginHorizontal: ( Platform.OS === "android" || height < 320 ) ? 24 : 28
   },
   text: {
     marginHorizontal: 38,
@@ -125,8 +125,6 @@ export default StyleSheet.create( {
     lineHeight: 30
   },
   row: {
-    marginTop: 35,
-    marginBottom: 104,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"

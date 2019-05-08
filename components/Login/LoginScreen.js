@@ -7,7 +7,6 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  KeyboardAvoidingView,
   Platform
 } from "react-native";
 
@@ -49,11 +48,7 @@ class LoginScreen extends Component<Props> {
             header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <KeyboardAvoidingView
-            contentContainerStyle={[styles.innerContainer, Platform.OS === "ios" && { marginTop: 46 }]}
-            behavior="position"
-            enabled
-          >
+          <View style={styles.innerContainer}>
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
                 {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
@@ -67,6 +62,7 @@ class LoginScreen extends Component<Props> {
               keyboardType={Platform.OS === "android" ? "visible-password" : "default"} // adding this to turn off autosuggestions on Android
               textContentType="username"
               autoFocus
+              autoCorrect={false}
             />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
@@ -91,14 +87,14 @@ class LoginScreen extends Component<Props> {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
-              style={styles.greenButton}
+              style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-          </KeyboardAvoidingView>
+          </View>
         </SafeAreaView>
       </View>
     );

@@ -48,11 +48,7 @@ class ForgotPasswordScreen extends Component<Props> {
             header={i18n.t( "inat_login.forgot_password" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <KeyboardAvoidingView
-            contentContainerStyle={[styles.innerContainer, Platform.OS === "ios" && { marginTop: 59 }]}
-            behavior="position"
-            enabled
-          >
+          <View style={styles.innerContainer}>
             <Text style={styles.header}>
               {i18n.t( "inat_login.no_worries" )}
             </Text>
@@ -71,18 +67,14 @@ class ForgotPasswordScreen extends Component<Props> {
               autoFocus
             />
             <TouchableOpacity
-              style={[
-                styles.greenButton,
-                Platform.OS === "ios" && { marginTop: 92 },
-                Platform.OS === "android" && { marginTop: 52 }
-              ]}
+              style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-          </KeyboardAvoidingView>
+          </View>
         </SafeAreaView>
       </View>
     );

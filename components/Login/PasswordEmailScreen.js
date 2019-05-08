@@ -22,7 +22,6 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
     <SafeAreaView style={styles.safeView}>
       <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
       <View style={styles.innerContainer}>
-        <View style={{ marginTop: 168 }} />
         <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
         <Text style={[styles.secondHeaderText, {
           color: "black",
@@ -34,7 +33,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
         </Text>
         <View style={{ marginTop: 51 }} />
         <TouchableOpacity
-          style={[styles.greenButton, { width: 340 }]}
+          style={styles.greenButton}
           onPress={() => navigation.navigate( "Login" )}
         >
           <Text style={styles.buttonText}>

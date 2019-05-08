@@ -19,7 +19,7 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     justifyContent: "center"
-    // flex: ( Platform.OS === "android" || height < 320 ) ? null : 1
+    // flex: ( Platform.OS === "android" || height < 570 ) ? null : 1
   },
   greenHeaderText: {
     marginTop: 22,
@@ -55,8 +55,8 @@ export default StyleSheet.create( {
     color: colors.white
   },
   image: {
-    width: 264,
-    height: 264,
+    width: height < 570 ? 150 : 264,
+    height: height < 570 ? 150 : 264,
     resizeMode: "contain",
     marginTop: 36,
     marginBottom: 44
@@ -109,10 +109,10 @@ export default StyleSheet.create( {
     marginTop: 11
   },
   margin: {
-    marginTop: ( Platform.OS === "android" || height < 320 ) ? 0 : 22
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 0 : 22
   },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height < 320 ) ? 10 : 58
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 58
   },
   textLink: {
     marginTop: 21,

@@ -11,6 +11,7 @@ import {
   SafeAreaView
 } from "react-native";
 import moment from "moment";
+import DateTimePicker from "react-native-modal-datetime-picker";
 
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
@@ -26,79 +27,41 @@ class AgeVerifyScreen extends Component<Props> {
     super();
 
     this.state = {
-      chosenDate: Platform.OS === "ios" ? new Date() : moment().format( "YYYY-MM-DD" )
+      date: moment().format( "YYYY-MM-DD" ),
+      isDateTimePickerVisible: false
     };
-
-    this.setDate = this.setDate.bind( this );
   }
 
-  setDate( chosenDate ) {
-    this.setState( { chosenDate } );
-  }
+  showDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: true } );
+  };
 
-  async setDateAndroid() {
-    try {
-      const {
-        action,
-        year,
-        month,
-        day
-      } = await DatePickerAndroid.open( {
-        date: new Date(),
-        maxDate: new Date(),
-        mode: "spinner"
-      } );
-      if ( action !== DatePickerAndroid.dismissedAction ) {
-        const userBirthday = moment( new Date( year, month, day ) ).format( "YYYY-MM-DD" );
-        this.setDate( userBirthday );
-      }
-    } catch ( { code, message } ) {
-      console.warn( "Cannot open date picker", message );
+  hideDateTimePicker = () => {
+    this.setState( { isDateTimePickerVisible: false } );
+  };
+
+  handleDatePicked = ( date ) => {
+    if ( date ) {
+      this.setState( {
+        date: moment( date ).format( "YYYY-MM-DD" )
+      }, this.hideDateTimePicker() );
     }
-  }
+  };
 
   submit() {
     const { navigation } = this.props;
-    const { chosenDate } = this.state;
+    const { date } = this.state;
 
-    if ( requiresParent( chosenDate ) ) {
+    if ( requiresParent( date ) ) {
       navigation.navigate( "Parent" );
     } else {
       navigation.navigate( "LicensePhotos" );
     }
   }
 
-  renderiOSDatePicker() {
-    const { chosenDate } = this.state;
-
-    return (
-      <DatePickerIOS
-        date={chosenDate}
-        maximumDate={new Date()}
-        mode="date"
-        onDateChange={this.setDate}
-        locale={i18n.currentLocale()}
-      />
-    );
-  }
-
-  renderAndroidDatePicker() {
-    const { chosenDate } = this.state;
-
-    return (
-      <View style={styles.datePickerContainer}>
-        <TouchableOpacity
-          style={styles.datePickerInputField}
-          onPress={() => this.setDateAndroid()}
-        >
-          <Text style={[styles.text, styles.darkText]}>{chosenDate}</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   render() {
     const { navigation } = this.props;
+    const { isDateTimePickerVisible, date } = this.state;
 
     return (
       <View style={styles.container}>
@@ -108,16 +71,30 @@ class AgeVerifyScreen extends Component<Props> {
             navigation={navigation}
             header={i18n.t( "login.sign_up" )}
           />
-          <Text style={styles.header}>
-            {i18n.t( "inat_signup.enter_birthday" )}
-          </Text>
-          <Text style={styles.text}>
-            {i18n.t( "inat_signup.permission" )}
-          </Text>
-          { Platform.OS === "ios"
-            ? this.renderiOSDatePicker()
-            : this.renderAndroidDatePicker()}
-          <View style={styles.innerContainer}>
+          <View style={[styles.innerContainer, { flex: 1 }]}>
+            <Text style={styles.header}>
+              {i18n.t( "inat_signup.enter_birthday" )}
+            </Text>
+            <Text style={styles.text}>
+              {i18n.t( "inat_signup.permission" )}
+            </Text>
+            <View style={{ marginBottom: 68 }} />
+            <TouchableOpacity
+              onPress={() => this.showDateTimePicker()}
+              style={styles.dateButton}
+            >
+              <Text style={styles.buttonText}>{date}</Text>
+            </TouchableOpacity>
+            <DateTimePicker
+              isVisible={isDateTimePickerVisible}
+              onConfirm={this.handleDatePicked}
+              onCancel={this.hideDateTimePicker}
+              maximumDate={new Date()}
+              hideTitleContainerIOS
+              datePickerModeAndroid="spinner"
+              timePickerModeAndroid="spinner"
+            />
+            <View style={{ marginBottom: 98 }} />
             <TouchableOpacity
               style={styles.greenButton}
               onPress={() => this.submit()}

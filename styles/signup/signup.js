@@ -1,8 +1,6 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 import { fonts, colors, padding } from "../global";
-
-const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -28,6 +26,14 @@ export default StyleSheet.create( {
     borderWidth: 1,
     borderColor: colors.darkGray,
     paddingLeft: 15
+  },
+  dateButton: {
+    backgroundColor: colors.seekForestGreen,
+    paddingHorizontal: 14,
+    height: 43,
+    borderRadius: 6,
+    justifyContent: "center",
+    alignItems: "center"
   },
   greenButton: {
     backgroundColor: colors.seekForestGreen,

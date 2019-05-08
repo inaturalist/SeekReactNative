@@ -18,8 +18,8 @@ export default StyleSheet.create( {
   },
   innerContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    flex: ( Platform.OS === "android" || height > 320 ) ? null : 1
+    justifyContent: "center"
+    // flex: ( Platform.OS === "android" || height < 320 ) ? null : 1
   },
   greenHeaderText: {
     marginTop: 22,
@@ -108,8 +108,11 @@ export default StyleSheet.create( {
     marginRight: 41,
     marginTop: 11
   },
+  margin: {
+    marginTop: ( Platform.OS === "android" || height < 320 ) ? 0 : 22
+  },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 58
+    marginTop: ( Platform.OS === "android" || height < 320 ) ? 10 : 58
   },
   textLink: {
     marginTop: 21,

@@ -42,6 +42,7 @@ class ParentalConsentScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
           <View style={styles.innerContainer}>
+            <View style={styles.margin} />
             <Text style={styles.header}>
               {i18n.t( "inat_signup.enter_email" )}
             </Text>

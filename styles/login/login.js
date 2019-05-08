@@ -1,6 +1,8 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
 import { fonts, colors, padding } from "../global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -16,7 +18,8 @@ export default StyleSheet.create( {
   },
   innerContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    flex: ( Platform.OS === "android" || height > 320 ) ? null : 1
   },
   greenHeaderText: {
     marginTop: 22,
@@ -103,8 +106,10 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     alignSelf: "flex-end",
     marginRight: 41,
-    marginTop: 11,
-    marginBottom: Platform.OS === "ios" ? 51 : 11
+    marginTop: 11
+  },
+  greenButtonMargin: {
+    marginTop: ( Platform.OS === "android" || height > 320 ) ? 10 : 58
   },
   textLink: {
     marginTop: 21,

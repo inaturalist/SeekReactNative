@@ -444,6 +444,7 @@
     "what_seen": "What did you see?",
     "id": "Seek's identification",
     "edit_location": "Edit location",
-    "save_location": "Save location"
+    "save_location": "Save location",
+    "unidentified": "Unidentified"
   }
 }

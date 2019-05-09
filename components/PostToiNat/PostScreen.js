@@ -47,8 +47,8 @@ class PostScreen extends Component<Props> {
       captive: null,
       geoprivacy: null,
       taxon: {
-        preferredCommonName: taxaName,
-        name: scientificName,
+        preferredCommonName: taxaName || i18n.t( "posting.unidentified" ),
+        name: scientificName || i18n.t( "posting.unidentified" ),
         taxaId,
         userImage
       },

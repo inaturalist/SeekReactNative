@@ -87,7 +87,7 @@ class PostScreen extends Component<Props> {
 
   setLocation( location ) {
     this.setState( { location } );
-  } 
+  }
 
   showDateTimePicker = () => {
     this.setState( { isDateTimePickerVisible: true } );

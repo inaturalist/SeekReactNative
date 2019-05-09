@@ -22,7 +22,8 @@ export default StyleSheet.create( {
     marginBottom: height < 570 ? 13 : 26
   },
   card: {
-    height: height < 570 ? 100 : 124,
+    height: height / 6,
+    // height: height < 570 ? 100 : 124,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
@@ -53,9 +54,10 @@ export default StyleSheet.create( {
     lineHeight: height < 570 ? 18 : 21
   },
   thinCard: {
+    height: height / 9,
     marginLeft: 27,
-    marginTop: height < 570 ? 13 : 18,
-    marginBottom: height < 570 ? 13 : 18,
+    // marginTop: height < 570 ? 13 : 18,
+    // marginBottom: height < 570 ? 13 : 18,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"

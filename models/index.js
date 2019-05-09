@@ -5,12 +5,14 @@ import NotificationRealm from "./NotificationRealm";
 import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
 import TaxonRealm from "./TaxonRealm";
+import LoginRealm from "./LoginRealm";
 
 export default {
   schema: [
     BadgeRealm,
     ChallengeRealm,
     CommonNamesRealm,
+    LoginRealm,
     NotificationRealm,
     ObservationRealm,
     PhotoRealm,

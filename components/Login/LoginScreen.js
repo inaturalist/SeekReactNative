@@ -7,13 +7,16 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../GreenHeader";
 import { setIsLoggedIn } from "../../utility/helpers";
+import { saveAccessToken } from "../../utility/loginHelpers";
+import config from "../../config";
 
 type Props = {
   navigation: any
@@ -25,8 +28,34 @@ class LoginScreen extends Component<Props> {
 
     this.state = {
       username: "",
-      password: "" // don't actually store in state, this is a placeholder
+      password: ""
     };
+  }
+
+  retrieveOAuthToken( username, password ) {
+    const params = {
+      client_id: config.appId,
+      client_secret: config.appSecret,
+      grant_type: "password",
+      username: "albulltest",
+      password: "seek123"
+    }
+
+    fetch( "https://www.inaturalist.org/oauth/token", {
+      method: "POST",
+      body: JSON.stringify( params ),
+      headers:{
+        "Content-Type": "application/json"
+      }
+    } )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const { access_token } = responseJson;
+        Alert.alert( access_token );
+        saveAccessToken( access_token );
+      } ).catch( ( error ) => {
+        console.error( error)
+      } ); 
   }
 
   submit() {
@@ -88,7 +117,7 @@ class LoginScreen extends Component<Props> {
             </View>
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.submit()}
+              onPress={() => this.retrieveOAuthToken( username, password )}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}

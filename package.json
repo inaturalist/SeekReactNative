@@ -16,7 +16,6 @@
     "i18n-js": "^3.1.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.22.2",
-    "prop-types": "^15.7.2",
     "react": "^16.6.1",
     "react-native": "^0.57.4",
     "react-native-check-box": "^2.1.7",

@@ -49,8 +49,8 @@ class PostScreen extends Component<Props> {
       captive: null,
       geoprivacy: null,
       taxon: {
-        preferredCommonName: taxaName || i18n.t( "posting.unidentified" ),
-        name: scientificName || i18n.t( "posting.unidentified" ),
+        preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
+        name: scientificName,
         taxaId,
         userImage
       },
@@ -255,7 +255,7 @@ class PostScreen extends Component<Props> {
                 <Text style={styles.commonNameText}>
                   {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name}
                 </Text>
-                <Text style={styles.text}>{taxon.name}</Text>
+                {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
               </View>
             </View>
           </View>

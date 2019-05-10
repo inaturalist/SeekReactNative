@@ -144,19 +144,6 @@ const checkIfCardShown = async () => {
   }
 };
 
-const setIsLoggedIn = ( loggedIn ) => {
-  AsyncStorage.setItem( "logged_in", loggedIn.toString() );
-};
-
-const checkIsLoggedIn = async () => {
-  try {
-    const isLoggedIn = await AsyncStorage.getItem( "logged_in" );
-    return isLoggedIn;
-  } catch ( error ) {
-    return false;
-  }
-};
-
 const getTaxonCommonName = taxonID => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig.default )
@@ -211,7 +198,5 @@ export {
   setSpeciesId,
   getSpeciesId,
   setRoute,
-  getRoute,
-  setIsLoggedIn,
-  checkIsLoggedIn
+  getRoute
 };

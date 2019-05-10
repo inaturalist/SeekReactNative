@@ -7,14 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../GreenHeader";
-import { setIsLoggedIn } from "../../utility/helpers";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 
@@ -28,8 +26,20 @@ class LoginScreen extends Component<Props> {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: false
     };
+  }
+
+  setError() {
+    this.setState( { error: true } );
+  }
+
+  resetForm() {
+    this.setState( {
+      username: "",
+      password: ""
+    } );
   }
 
   retrieveOAuthToken( username, password ) {
@@ -39,34 +49,34 @@ class LoginScreen extends Component<Props> {
       grant_type: "password",
       username: "albulltest",
       password: "seek123"
-    }
+    };
 
     fetch( "https://www.inaturalist.org/oauth/token", {
       method: "POST",
       body: JSON.stringify( params ),
-      headers:{
+      headers: {
         "Content-Type": "application/json"
       }
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const { access_token } = responseJson;
-        Alert.alert( access_token );
         saveAccessToken( access_token );
-      } ).catch( ( error ) => {
-        console.error( error)
-      } ); 
+        this.resetForm();
+        this.submitSuccess();
+      } ).catch( () => {
+        this.setError();
+      } );
   }
 
-  submit() {
+
+  submitSuccess() {
     const { navigation } = this.props;
-    // if user successfully logs in...
-    setIsLoggedIn( true );
     navigation.navigate( "LoginSuccess" );
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, error } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -115,6 +125,7 @@ class LoginScreen extends Component<Props> {
                 </Text>
               </TouchableOpacity>
             </View>
+            {error ? <Text>incorrect user name</Text> : null}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.retrieveOAuthToken( username, password )}

@@ -1,4 +1,4 @@
-const { AsyncStorage } = require( "react-native" );
+const { AsyncStorage, Alert } = require( "react-native" );
 const Realm = require( "realm" );
 
 const { createNotification } = require( "./notificationHelpers" );
@@ -17,33 +17,50 @@ const setChallengeProgress = ( index ) => {
   AsyncStorage.setItem( "challengeProgress", value );
 };
 
+const fetchIncompleteChallenges = ( realm ) => {
+  const incompleteChallenges = realm.objects( "ChallengeRealm" )
+    .filtered( "percentComplete != 100 AND started == true" );
+
+  incompleteChallenges.forEach( ( challenge ) => {
+    const { startedDate } = challenge;
+
+    if ( !startedDate ) {
+      challenge.startedDate = new Date();
+    }
+  } );
+  return incompleteChallenges;
+};
+
+const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
+  const { startedDate } = challenge;
+
+  const seenTaxa = [];
+  const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
+
+  observations.forEach( ( observation ) => {
+    if ( observation.date >= startedDate ) {
+      seenTaxa.push( observation );
+    }
+  } );
+  return seenTaxa;
+};
+
+const checkPrevNumberSeen = ( challenge ) => {
+  const obsList = Object.keys( challenge.numbersObserved )
+    .map( number => challenge.numbersObserved[number] );
+
+  const prevNumberSeen = obsList.length > 0 ? obsList.reduce( getSum ) : 0;
+  return prevNumberSeen;
+};
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
-      const incompleteChallenges = realm.objects( "ChallengeRealm" )
-        .filtered( "percentComplete != 100 AND started == true" )
-        .sorted( "index", false );
+      const incompleteChallenges = fetchIncompleteChallenges( realm );
 
       incompleteChallenges.forEach( ( challenge ) => {
-        const { startedDate } = challenge;
-
-        if ( !startedDate ) {
-          challenge.startedDate = new Date();
-        }
-
-        const seenTaxa = [];
-        const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
-
-        observations.forEach( ( observation ) => {
-          if ( observation.date >= startedDate ) {
-            seenTaxa.push( observation );
-          }
-        } );
-
-        const obsList = Object.keys( challenge.numbersObserved )
-          .map( number => challenge.numbersObserved[number] );
-
-        const prevNumberSeen = obsList.length > 0 ? obsList.reduce( getSum ) : 0;
+        const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
+        const prevNumberSeen = checkPrevNumberSeen( challenge );
         const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
 
         realm.write( () => {
@@ -66,9 +83,17 @@ const recalculateChallenges = () => {
               } else {
                 const taxaId = taxonDict.default[taxa];
                 const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
-                const ancestorTypeSeen = seenTaxa.filter( t => t.taxon.ancestorIds.includes( taxaId ) );
-                console.log( ancestorTypeSeen, "ancestor seen" );
-                // add check for ancestor ids here
+                // const taxaWithAncestors = seenTaxa.filter( t => t.taxon.ancestorIds.length > 0 );
+                // const matchingAncestors = [];
+                
+                // taxaWithAncestors.forEach( ( taxon ) => {
+                //   const { ancestorIds } = taxon.taxon;
+                //   const ancestors = Object.keys( ancestorIds ).map( id => ancestorIds[id] );
+                //   if ( ancestors.includes( taxaId ) ) {
+                //     matchingAncestors.push( ancestors );
+                //   }
+                // } );
+
                 taxaPerMission = taxaTypeSeen.length;
               }
               count += taxaPerMission;

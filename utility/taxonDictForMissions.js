@@ -9,7 +9,6 @@ const taxonIds = {
   arachnids: 47119,
   fungi: 47170,
   plants: 47126,
-  all: null,
   Orthoptera: 47651,
   Lepidoptera: 47157,
   Bovines: 568826,
@@ -53,7 +52,8 @@ const taxonIds = {
   Lemnoideae: 502646,
   Typhaceae: 48694,
   Polypodiopsida: 121943,
-  Bryophyta: 311249
+  Bryophyta: 311249,
+  all: null
 };
 
 export default taxonIds;

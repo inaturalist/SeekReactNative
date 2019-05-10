@@ -3,7 +3,7 @@ import i18n from "../i18n";
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage, Platform } = require( "react-native" );
+const { AsyncStorage, Platform, Alert } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
@@ -67,22 +67,19 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
     .then( ( realm ) => {
       realm.write( () => {
         let defaultPhoto;
-        const { taxon } = observation;
-        const p = taxon.default_photo;
+        const p = observation.taxon.default_photo;
         if ( image ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p.medium_url,
             mediumUrl: image.uri
           } );
         }
-        const newTaxon = realm.create( "TaxonRealm", {
-          id: taxon.id,
-          name: taxon.name,
-          preferredCommonName: taxon.preferred_common_name
-            ? capitalizeNames( taxon.preferred_common_name )
-            : null,
-          iconicTaxonId: taxon.iconic_taxon_id,
-          ancestorIds: taxon.ancestorIds,
+        const taxon = realm.create( "TaxonRealm", {
+          id: observation.taxon.id,
+          name: observation.taxon.name,
+          preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
+          iconicTaxonId: observation.taxon.iconic_taxon_id,
+          ancestorIds: observation.taxon.ancestor_ids,
           defaultPhoto
         } );
         const species = realm.create( "ObservationRealm", {

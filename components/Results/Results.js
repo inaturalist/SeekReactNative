@@ -230,7 +230,8 @@ class Results extends Component<Props> {
             id: Number( taxaId ),
             name: taxa.name,
             preferred_common_name: taxa.preferred_common_name,
-            iconic_taxon_id: taxa.iconic_taxon_id
+            iconic_taxon_id: taxa.iconic_taxon_id,
+            ancestor_ids: taxa.ancestor_ids
           }
         },
         speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null

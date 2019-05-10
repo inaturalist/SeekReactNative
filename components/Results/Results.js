@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -25,9 +26,10 @@ import {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName,
-  checkIsLoggedIn
+  getTaxonCommonName
+  // checkIsLoggedIn
 } from "../../utility/helpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
@@ -68,8 +70,7 @@ class Results extends Component<Props> {
       photoConfirmed: false,
       error: null,
       scientificName: null,
-      isLoggedIn: true
-      // isLoggedIn: false
+      isLoggedIn: false
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -84,14 +85,10 @@ class Results extends Component<Props> {
   }
 
   async getLoggedIn() {
-    let isLoggedIn;
-    const login = await checkIsLoggedIn();
-    if ( login === "true" ) {
-      isLoggedIn = true;
-    } else {
-      isLoggedIn = false;
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
     }
-    this.setLoggedIn( isLoggedIn );
   }
 
   setLocation( location ) {
@@ -425,7 +422,7 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            // this.getLoggedIn();
+            this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
             checkNumberOfBadgesEarned();

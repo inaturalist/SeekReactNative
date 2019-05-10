@@ -67,18 +67,22 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
     .then( ( realm ) => {
       realm.write( () => {
         let defaultPhoto;
-        const p = observation.taxon.default_photo;
+        const { taxon } = observation;
+        const p = taxon.default_photo;
         if ( image ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p.medium_url,
             mediumUrl: image.uri
           } );
         }
-        const taxon = realm.create( "TaxonRealm", {
-          id: observation.taxon.id,
-          name: observation.taxon.name,
-          preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
-          iconicTaxonId: observation.taxon.iconic_taxon_id,
+        const newTaxon = realm.create( "TaxonRealm", {
+          id: taxon.id,
+          name: taxon.name,
+          preferredCommonName: taxon.preferred_common_name
+            ? capitalizeNames( taxon.preferred_common_name )
+            : null,
+          iconicTaxonId: taxon.iconic_taxon_id,
+          ancestorIds: taxon.ancestorIds,
           defaultPhoto
         } );
         const species = realm.create( "ObservationRealm", {

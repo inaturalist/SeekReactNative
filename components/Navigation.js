@@ -43,13 +43,17 @@ import PostScreen from "./PostToiNat/PostScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
+  const { route } = nextScene;
 
-  if ( nextScene.route.routeName === "Notifications" ) {
-    return fromRight();
+  if ( route ) {
+    if ( route.routeName === "Notifications" ) {
+      return fromRight();
+    }
+    if ( route.routeName === "Camera" ) {
+      return fromBottom( 100 );
+    }
   }
-  if ( nextScene.route.routeName === "Camera" ) {
-    return fromBottom( 100 );
-  }
+
   return fadeIn();
 };
 

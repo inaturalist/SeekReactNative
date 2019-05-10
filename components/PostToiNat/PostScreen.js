@@ -17,6 +17,7 @@ import inatjs from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";

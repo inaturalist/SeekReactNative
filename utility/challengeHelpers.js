@@ -66,6 +66,9 @@ const recalculateChallenges = () => {
               } else {
                 const taxaId = taxonDict.default[taxa];
                 const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
+                const ancestorTypeSeen = seenTaxa.filter( t => t.taxon.ancestorIds.includes( taxaId ) );
+                console.log( ancestorTypeSeen, "ancestor seen" );
+                // add check for ancestor ids here
                 taxaPerMission = taxaTypeSeen.length;
               }
               count += taxaPerMission;

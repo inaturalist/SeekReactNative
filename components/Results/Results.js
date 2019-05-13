@@ -70,7 +70,8 @@ class Results extends Component<Props> {
       photoConfirmed: false,
       error: null,
       scientificName: null,
-      isLoggedIn: false
+      isLoggedIn: true // for beta test, since login isn't ready yet
+      // isLoggedIn: false
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );

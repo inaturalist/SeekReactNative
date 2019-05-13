@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -47,11 +48,14 @@ class LoginScreen extends Component<Props> {
       client_id: config.appId,
       client_secret: config.appSecret,
       grant_type: "password",
-      username: "albulltest",
+      username: "albullstagingtest",
       password: "seek123"
     };
 
-    fetch( "https://www.inaturalist.org/oauth/token", {
+    const site = "https://staging.inaturalist.org";
+    // const site = "https://www.inaturalist.org";
+
+    fetch( `${site}/oauth/token`, {
       method: "POST",
       body: JSON.stringify( params ),
       headers: {
@@ -60,11 +64,13 @@ class LoginScreen extends Component<Props> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
+        Alert.alert( JSON.stringify( responseJson ) );
         const { access_token } = responseJson;
         saveAccessToken( access_token );
         this.resetForm();
         this.submitSuccess();
-      } ).catch( () => {
+      } ).catch( ( err ) => {
+        Alert.alert( JSON.stringify( err ) );
         this.setError();
       } );
   }

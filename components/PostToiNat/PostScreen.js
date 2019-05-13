@@ -162,11 +162,14 @@ class PostScreen extends Component<Props> {
       "Content-Type": "application/json"
     };
 
+    const site = "https://staging.inaturalist.org";
+    // const site = "https://www.inaturalist.org";
+
     if ( token ) {
       headers.Authorization = `Bearer ${token}`;
     }
 
-    fetch( "https://www.inaturalist.org/users/api_token", { headers } )
+    fetch( `${site}/users/api_token`, { headers } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
         const { api_token } = responseJson;
@@ -188,27 +191,32 @@ class PostScreen extends Component<Props> {
     } = this.state;
 
     const params = {
-      species_guess: taxon.preferredCommonName,
-      observed_on: date,
-      taxon_id: taxon.taxaId,
-      geoprivacy,
-      captive,
-      placeGuess: location,
-      latitude,
-      longitude
+      observation: {
+        // add photo URI here
+        species_guess: taxon.preferredCommonName,
+        observed_on_string: date,
+        taxon_id: taxon.taxaId,
+        geoprivacy,
+        captive,
+        place_guess: location,
+        latitude, // use the non-truncated version
+        longitude, // use the non-truncated version
+        owners_identification_from_vision_requested: true // this shows that the id is recommended by computer vision
+      }
     };
 
-    Alert.alert( JSON.stringify( token ), "token in create obs" );
+    const options = { api_token: token, user_agent: "Seek" };
 
-    const options = { api_token: token };
-
+    Alert.alert( JSON.stringify( options ), "options" );
     inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
 
-    inatjs.observations.create( params, options ).then( ( result ) => {
-      Alert.alert( JSON.stringify( result ) );
-    } ).catch( ( error ) => {
-      Alert.alert( JSON.stringify( error ) );
-    } );
+    inatjs.observations.create( params, options )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        Alert.alert( responseJson );
+      } ).catch( ( error ) => {
+        Alert.alert( JSON.stringify( error ) );
+      } );
   }
 
   render() {

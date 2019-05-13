@@ -14,11 +14,11 @@ import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
-// import inatjs from "inaturalistjs";
+import inatjs from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { getLatAndLng } from "../../utility/locationHelpers";
-// import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -75,12 +75,12 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  // async getToken() {
-  //   const token = await fetchAccessToken();
-  //   if ( token ) {
-  //     this.fetchJSONWebToken( token );
-  //   }
-  // }
+  async getToken() {
+    const token = await fetchAccessToken();
+    if ( token ) {
+      this.fetchJSONWebToken( token );
+    }
+  }
 
   setLatitude( latitude ) {
     this.setState( { latitude } );
@@ -149,56 +149,67 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  // fetchJSONWebToken( token ) {
-  //   const headers = {
-  //     "Content-Type": "application/json"
-  //   };
+  setError() {
+    Alert.alert( "error" );
+  }
 
-  //   if ( token ) {
-  //     headers["Authorization"] = `Bearer Token ${token}`;
-  //   }
-  //   Alert.alert( token );
-  //   fetch( "https://www.inaturalist.org/users/api_token", { headers } )
-  //     // .then( response => response.json() )
-  //     .then( ( responseJson ) => {
-  //       Alert.alert( responseJson );
-  //     } ).catch( ( err ) => {
-  //       Alert.alert( "error fetching web token", JSON.stringify( err ) );
-  //     } );
-  //   // this.createObservation( token );
-  // }
+  setUnauthorized() {
+    Alert.alert( "user is not logged in" );
+  }
 
-  // createObservation() {
-  //   const {
-  //     geoprivacy,
-  //     captive,
-  //     location,
-  //     date,
-  //     taxon,
-  //     latitude,
-  //     longitude
-  //   } = this.state;
+  fetchJSONWebToken( token ) {
+    const headers = {
+      "Content-Type": "application/json"
+    };
 
-  //   const params = {
-  //     species_guess: taxon.preferredCommonName,
-  //     observed_on: date,
-  //     taxon_id: taxon.taxaId,
-  //     geoprivacy,
-  //     captive,
-  //     placeGuess: location,
-  //     latitude,
-  //     longitude
-  //   };
+    if ( token ) {
+      headers.Authorization = `Bearer ${token}`;
+    }
 
-  //   const token = this.fetchJSONWebToken();
+    fetch( "https://www.inaturalist.org/users/api_token", { headers } )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const { api_token } = responseJson;
+        this.createObservation( api_token );
+      } ).catch( () => {
+        this.setUnauthorized();
+      } );
+  }
 
-  //   var options = { api_token: token };
+  createObservation( token ) {
+    const {
+      geoprivacy,
+      captive,
+      location,
+      date,
+      taxon,
+      latitude,
+      longitude
+    } = this.state;
 
-  //   inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
-  //   inatjs.observations.create( params, options ).then( ( result ) => {
-  //     Alert.alert( result );
-  //   } );
-  // }
+    const params = {
+      species_guess: taxon.preferredCommonName,
+      observed_on: date,
+      taxon_id: taxon.taxaId,
+      geoprivacy,
+      captive,
+      placeGuess: location,
+      latitude,
+      longitude
+    };
+
+    Alert.alert( JSON.stringify( token ), "token in create obs" );
+
+    const options = { api_token: token };
+
+    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
+
+    inatjs.observations.create( params, options ).then( ( result ) => {
+      Alert.alert( JSON.stringify( result ) );
+    } ).catch( ( error ) => {
+      Alert.alert( JSON.stringify( error ) );
+    } );
+  }
 
   render() {
     const { navigation } = this.props;
@@ -241,7 +252,6 @@ class PostScreen extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => {
               this.getLocation();
-              // this.getToken();
             }}
           />
           <GreenHeader
@@ -299,7 +309,7 @@ class PostScreen extends Component<Props> {
           <View style={styles.textContainer}>
             <TouchableOpacity
               style={styles.greenButton}
-              onPress={() => console.log( "clicked" )}
+              onPress={() => this.getToken()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "posting.header" ).toLocaleUpperCase()}

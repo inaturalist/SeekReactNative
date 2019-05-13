@@ -150,7 +150,7 @@ class PostScreen extends Component<Props> {
   }
 
   // fetchJSONWebToken( token ) {
-  //   const headers = { 
+  //   const headers = {
   //     "Content-Type": "application/json"
   //   };
 

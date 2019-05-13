@@ -14,11 +14,11 @@ import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
-import inatjs from "inaturalistjs";
+// import inatjs from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { getLatAndLng } from "../../utility/locationHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
+// import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -75,12 +75,12 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  async getToken() {
-    const token = await fetchAccessToken();
-    if ( token ) {
-      this.fetchJSONWebToken( token );
-    }
-  }
+  // async getToken() {
+  //   const token = await fetchAccessToken();
+  //   if ( token ) {
+  //     this.fetchJSONWebToken( token );
+  //   }
+  // }
 
   setLatitude( latitude ) {
     this.setState( { latitude } );
@@ -149,56 +149,56 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  fetchJSONWebToken( token ) {
-    const headers = { 
-      "Content-Type": "application/json"
-    };
+  // fetchJSONWebToken( token ) {
+  //   const headers = { 
+  //     "Content-Type": "application/json"
+  //   };
 
-    if ( token ) {
-      headers["Authorization"] = `Bearer Token ${token}`;
-    }
-    Alert.alert( token );
-    fetch( "https://www.inaturalist.org/users/api_token", { headers } )
-      // .then( response => response.json() )
-      .then( ( responseJson ) => {
-        Alert.alert( responseJson );
-      } ).catch( ( err ) => {
-        Alert.alert( "error fetching web token", JSON.stringify( err ) );
-      } );
-    // this.createObservation( token );
-  }
+  //   if ( token ) {
+  //     headers["Authorization"] = `Bearer Token ${token}`;
+  //   }
+  //   Alert.alert( token );
+  //   fetch( "https://www.inaturalist.org/users/api_token", { headers } )
+  //     // .then( response => response.json() )
+  //     .then( ( responseJson ) => {
+  //       Alert.alert( responseJson );
+  //     } ).catch( ( err ) => {
+  //       Alert.alert( "error fetching web token", JSON.stringify( err ) );
+  //     } );
+  //   // this.createObservation( token );
+  // }
 
-  createObservation() {
-    const {
-      geoprivacy,
-      captive,
-      location,
-      date,
-      taxon,
-      latitude,
-      longitude
-    } = this.state;
+  // createObservation() {
+  //   const {
+  //     geoprivacy,
+  //     captive,
+  //     location,
+  //     date,
+  //     taxon,
+  //     latitude,
+  //     longitude
+  //   } = this.state;
 
-    const params = {
-      species_guess: taxon.preferredCommonName,
-      observed_on: date,
-      taxon_id: taxon.taxaId,
-      geoprivacy,
-      captive,
-      placeGuess: location,
-      latitude,
-      longitude
-    };
+  //   const params = {
+  //     species_guess: taxon.preferredCommonName,
+  //     observed_on: date,
+  //     taxon_id: taxon.taxaId,
+  //     geoprivacy,
+  //     captive,
+  //     placeGuess: location,
+  //     latitude,
+  //     longitude
+  //   };
 
-    const token = this.fetchJSONWebToken();
+  //   const token = this.fetchJSONWebToken();
 
-    var options = { api_token: token };
+  //   var options = { api_token: token };
 
-    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
-    inatjs.observations.create( params, options ).then( ( result ) => {
-      Alert.alert( result );
-    } );
-  }
+  //   inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
+  //   inatjs.observations.create( params, options ).then( ( result ) => {
+  //     Alert.alert( result );
+  //   } );
+  // }
 
   render() {
     const { navigation } = this.props;
@@ -241,7 +241,7 @@ class PostScreen extends Component<Props> {
           <NavigationEvents
             onWillFocus={() => {
               this.getLocation();
-              this.getToken();
+              // this.getToken();
             }}
           />
           <GreenHeader

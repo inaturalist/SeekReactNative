@@ -19,7 +19,7 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
+import { getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
@@ -138,17 +138,17 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  async selectImage( imageClicked, timestamp, location ) {
+  async selectImage( image, timestamp, location ) {
     const userLocation = await getLatAndLng();
 
     if ( location ) {
       if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        this.navigateToResults( imageClicked, timestamp, truncateCoordinates( location.latitude ), truncateCoordinates( location.longitude ) );
+        this.navigateToResults( image, timestamp, location.latitude, location.longitude );
       } else {
-        this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
+        this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
       }
     } else {
-      this.navigateToResults( imageClicked, timestamp, userLocation.latitude, userLocation.longitude );
+      this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
     }
   }
 

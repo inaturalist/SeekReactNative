@@ -17,7 +17,6 @@ import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
-import { getLatAndLng } from "../../utility/locationHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
@@ -67,14 +66,15 @@ class PostScreen extends Component<Props> {
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
   }
 
-  async getLocation() {
-    const { latitude, longitude } = this.state;
-    if ( !latitude || !longitude ) {
-      const location = await getLatAndLng();
-      this.reverseGeocodeLocation( location.latitude, location.longitude );
-      this.setLatitude( location.latitude );
-      this.setLongitude( location.longitude );
-    }
+  getLocation() {
+    navigator.geolocation.getCurrentPosition( ( position ) => {
+      const { latitude, longitude } = position.coords;
+      this.reverseGeocodeLocation( latitude, longitude );
+      this.setLatitude( latitude );
+      this.setLongitude( longitude );
+    } ).catch( () => {
+      this.setError();
+    } );
   }
 
   async getToken() {
@@ -289,9 +289,7 @@ class PostScreen extends Component<Props> {
             />
           </Modal>
           <NavigationEvents
-            onWillFocus={() => {
-              this.getLocation();
-            }}
+            onWillFocus={() => this.getLocation()}
           />
           <GreenHeader
             navigation={navigation}

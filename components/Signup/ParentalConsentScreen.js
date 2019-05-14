@@ -7,8 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -49,7 +48,6 @@ class ParentalConsentScreen extends Component<Props> {
     const { email } = this.state;
 
     const token = this.createJwtToken();
-    Alert.alert( JSON.stringify( token ) );
 
     const params = {
       email

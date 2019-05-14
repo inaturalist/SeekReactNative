@@ -7,9 +7,12 @@ import {
   TextInput,
   TouchableOpacity,
   Platform,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
+import jwt from "react-native-jwt-io";
 
+import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
@@ -23,8 +26,58 @@ class ParentalConsentScreen extends Component<Props> {
     super();
 
     this.state = {
-      email: ""
+      email: "",
+      error: false
     };
+  }
+
+  setError() {
+    this.setState( { error: true } );
+  }
+
+  createJwtToken() {
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
+
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
+  }
+
+  shareEmailWithiNat() {
+    const { email } = this.state;
+
+    const token = this.createJwtToken();
+    Alert.alert( JSON.stringify( token ) );
+
+    const params = {
+      email
+    };
+
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    if ( token ) {
+      headers.Authorization = `Authorization: ${token}`;
+    }
+
+    const site = "https://www.inaturalist.org";
+
+    fetch( `${site}/users/parental_consent`, {
+      method: "POST",
+      body: JSON.stringify( params ),
+      headers
+    } )
+      .then( ( responseJson ) => {
+        const { status } = responseJson;
+        if ( status === 200 ) {
+          this.submit();
+        }
+      } ).catch( () => {
+        this.setError();
+      } );
   }
 
   submit() {
@@ -64,10 +117,11 @@ class ParentalConsentScreen extends Component<Props> {
               keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus
               autoCorrect={false}
+              autoCapitalize="none"
             />
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.submit()}
+              onPress={() => this.shareEmailWithiNat()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}

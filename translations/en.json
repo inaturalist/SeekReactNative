@@ -44,7 +44,10 @@
     "log_in": "Log in with iNaturalist",
     "sign_up": "Sign up for iNaturalist",
     "about": " By logging in with iNaturalist, you can post observations to the online community through Seek.",
-    "skip_login": "Continue without signing in"
+    "skip_login": "Continue without signing in",
+    "error_email": "Please enter a valid email address",
+    "error_credentials": "Incorrect username or password",
+    "error_username_taken": "That username is already taken"
   },
   "inat_signup": {
     "welcome": "Welcome to Seek!",

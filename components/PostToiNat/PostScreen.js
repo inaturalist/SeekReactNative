@@ -225,8 +225,13 @@ class PostScreen extends Component<Props> {
     } = this.state;
     const { userImage } = taxon;
 
-    const photoParams = {
-      image: new FileUpload( {
+    const options = { api_token: token, user_agent: "Seek" };
+
+    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
+
+    const params = {
+      "observation_photo[observation_id]": obsId,
+      file: new FileUpload( {
         uri: userImage,
         name: "photo.jpeg",
         type: "image/jpeg"
@@ -234,17 +239,6 @@ class PostScreen extends Component<Props> {
       observed_on: date,
       latitude,
       longitude
-    };
-
-    const options = { api_token: token, user_agent: "Seek" };
-
-    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
-
-    const params = {
-      observation_photo: {
-        observation_id: obsId
-      },
-      file: photoParams
     };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {

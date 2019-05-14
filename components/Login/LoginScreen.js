@@ -48,8 +48,8 @@ class LoginScreen extends Component<Props> {
       client_id: config.appId,
       client_secret: config.appSecret,
       grant_type: "password",
-      username: "albullstagingtest",
-      password: "seek123"
+      username,
+      password
     };
 
     const site = "https://staging.inaturalist.org";

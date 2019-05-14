@@ -66,8 +66,8 @@ class LocationPicker extends Component<Props> {
     this.setState( { location } );
   }
 
-  reverseGeocodeLocation( latitude, longitude ) {
-    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
+  reverseGeocodeLocation( lat, lng ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
         this.setLocationUndefined();
       }
@@ -77,27 +77,6 @@ class LocationPicker extends Component<Props> {
       } else {
         this.setLocationUndefined();
       }
-    } ).catch( () => {
-      this.setLocationUndefined();
-    } );
-  }
-
-  findLatAndLng( location ) {
-    Geocoder.geocodeAddress( location ).then( ( result ) => {
-      if ( result.length === 0 ) {
-        this.setLocationUndefined();
-      }
-      const { locality, subAdminArea, position } = result[0];
-      const { lng, lat } = position;
-      this.setState( {
-        location: locality || subAdminArea,
-        region: {
-          latitude: lat,
-          longitude: lng,
-          latitudeDelta,
-          longitudeDelta
-        }
-      } );
     } ).catch( () => {
       this.setLocationUndefined();
     } );

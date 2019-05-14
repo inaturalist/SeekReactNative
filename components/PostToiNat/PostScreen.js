@@ -37,6 +37,7 @@ class PostScreen extends Component<Props> {
     const {
       taxaName,
       taxaId,
+      image,
       userImage,
       scientificName
     } = navigation.state.params;
@@ -52,6 +53,7 @@ class PostScreen extends Component<Props> {
         preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
         name: scientificName,
         taxaId,
+        image,
         userImage
       },
       modalVisible: false,
@@ -192,7 +194,6 @@ class PostScreen extends Component<Props> {
 
     const params = {
       observation: {
-        species_guess: taxon.preferredCommonName,
         observed_on_string: date,
         taxon_id: taxon.taxaId,
         geoprivacy,
@@ -223,7 +224,7 @@ class PostScreen extends Component<Props> {
       longitude,
       date
     } = this.state;
-    const { userImage } = taxon;
+    const { image } = taxon;
 
     const options = { api_token: token, user_agent: "Seek" };
 
@@ -232,7 +233,7 @@ class PostScreen extends Component<Props> {
     const params = {
       "observation_photo[observation_id]": obsId,
       file: new FileUpload( {
-        uri: userImage,
+        uri: image,
         name: "photo.jpeg",
         type: "image/jpeg"
       } ),

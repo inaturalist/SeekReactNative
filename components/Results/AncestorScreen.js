@@ -23,6 +23,7 @@ type Props = {
   speciesSeenImage: string,
   commonAncestor: string,
   userImage: string,
+  image: string,
   navigation: any,
   isLoggedIn: boolean,
   taxaId: number,
@@ -33,6 +34,7 @@ const MatchScreen = ( {
   commonAncestor,
   speciesSeenImage,
   userImage,
+  image,
   navigation,
   isLoggedIn,
   taxaId,
@@ -78,6 +80,7 @@ const MatchScreen = ( {
                 taxaInfo={{
                   taxaName: commonAncestor,
                   taxaId,
+                  image,
                   userImage,
                   scientificName
                 }}

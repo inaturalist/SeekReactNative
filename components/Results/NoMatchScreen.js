@@ -20,6 +20,7 @@ import PostToiNat from "./PostToiNat";
 
 type Props = {
   userImage: string,
+  image: string,
   navigation: any,
   isLoggedIn: boolean,
   taxaName: string,
@@ -27,8 +28,9 @@ type Props = {
   scientificName: string
 }
 
-const MatchScreen = ( {
+const NoMatchScreen = ( {
   userImage,
+  image,
   navigation,
   isLoggedIn,
   taxaName,
@@ -70,6 +72,7 @@ const MatchScreen = ( {
                 taxaInfo={{
                   taxaName,
                   taxaId,
+                  image,
                   userImage,
                   scientificName
                 }}
@@ -84,4 +87,4 @@ const MatchScreen = ( {
   </View>
 );
 
-export default MatchScreen;
+export default NoMatchScreen;

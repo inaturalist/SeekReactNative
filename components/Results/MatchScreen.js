@@ -40,6 +40,7 @@ type Props = {
   taxaName: string,
   taxaId: number,
   userImage: string,
+  image: string,
   navigation: any,
   isLoggedIn: boolean,
   scientificName: string
@@ -225,6 +226,7 @@ class MatchScreen extends Component<Props> {
       taxaName,
       speciesSeenImage,
       userImage,
+      image,
       navigation,
       isLoggedIn,
       taxaId,
@@ -329,6 +331,7 @@ class MatchScreen extends Component<Props> {
                     taxaInfo={{
                       taxaName,
                       taxaId,
+                      image,
                       userImage,
                       scientificName
                     }}

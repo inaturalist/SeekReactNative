@@ -390,6 +390,7 @@ class Results extends Component<Props> {
         <MatchScreen
           navigation={navigation}
           userImage={userImage}
+          image={image.uri}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
@@ -402,6 +403,7 @@ class Results extends Component<Props> {
         <AncestorScreen
           navigation={navigation}
           userImage={userImage}
+          image={image.uri}
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
           isLoggedIn={isLoggedIn}
@@ -414,6 +416,7 @@ class Results extends Component<Props> {
         <NoMatchScreen
           navigation={navigation}
           userImage={userImage}
+          image={image.uri}
           isLoggedIn={isLoggedIn}
           scientificName={scientificName}
         />

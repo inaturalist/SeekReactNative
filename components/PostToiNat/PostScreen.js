@@ -38,12 +38,14 @@ class PostScreen extends Component<Props> {
       taxaId,
       image,
       userImage,
-      scientificName
+      scientificName,
+      latitude,
+      longitude
     } = navigation.state.params;
 
     this.state = {
-      latitude: null,
-      longitude: null,
+      latitude,
+      longitude,
       location: null,
       date: moment().format( "YYYY-MM-DD" ),
       captive: null,
@@ -67,15 +69,36 @@ class PostScreen extends Component<Props> {
   }
 
   getLocation() {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const { latitude, longitude } = position.coords;
+    const { latitude, longitude } = this.state;
+    const truncated = this.checkForTruncatedCoordinates( latitude );
+
+    if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
-      this.setLatitude( latitude );
-      this.setLongitude( longitude );
-    } ).catch( () => {
-      this.setError();
-    } );
+    } else {
+      navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+        const lat = coords.latitude;
+        const long = coords.longitude;
+        this.reverseGeocodeLocation( lat, long );
+        this.setLatitude( lat );
+        this.setLongitude( long );
+      } ).catch( () => {
+        this.setError();
+      } );
+    }
   }
+
+  checkForTruncatedCoordinates( latitude ) {
+    if ( latitude ) {
+      const string = latitude.toString();
+      const split = string.split( "." );
+
+      if ( split[1].length === 2 ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   async getToken() {
     const token = await fetchAccessToken();

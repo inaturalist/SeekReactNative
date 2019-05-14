@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -360,7 +359,9 @@ class Results extends Component<Props> {
       photoConfirmed,
       error,
       isLoggedIn,
-      scientificName
+      scientificName,
+      latitude,
+      longitude
     } = this.state;
     const { navigation } = this.props;
 
@@ -379,10 +380,15 @@ class Results extends Component<Props> {
         <AlreadySeenScreen
           navigation={navigation}
           userImage={userImage}
+          image={image.uri}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
           seenDate={seenDate}
+          isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
         />
       );
     } else if ( match && taxaName ) {
@@ -396,6 +402,8 @@ class Results extends Component<Props> {
           speciesSeenImage={speciesSeenImage}
           isLoggedIn={isLoggedIn}
           scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -409,6 +417,8 @@ class Results extends Component<Props> {
           isLoggedIn={isLoggedIn}
           taxaId={taxaId}
           scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
         />
       );
     } else {
@@ -419,6 +429,8 @@ class Results extends Component<Props> {
           image={image.uri}
           isLoggedIn={isLoggedIn}
           scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
         />
       );
     }

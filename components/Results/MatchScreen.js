@@ -43,7 +43,9 @@ type Props = {
   image: string,
   navigation: any,
   isLoggedIn: boolean,
-  scientificName: string
+  scientificName: string,
+  latitude: number,
+  longitude: number
 }
 
 class MatchScreen extends Component<Props> {
@@ -230,7 +232,9 @@ class MatchScreen extends Component<Props> {
       navigation,
       isLoggedIn,
       taxaId,
-      scientificName
+      scientificName,
+      latitude,
+      longitude
     } = this.props;
 
     const {
@@ -333,7 +337,9 @@ class MatchScreen extends Component<Props> {
                       taxaId,
                       image,
                       userImage,
-                      scientificName
+                      scientificName,
+                      latitude,
+                      longitude
                     }}
                   />
                 ) : null

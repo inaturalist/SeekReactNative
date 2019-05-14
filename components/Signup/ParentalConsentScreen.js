@@ -15,6 +15,7 @@ import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
+import ErrorMessage from "./ErrorMessage";
 
 type Props = {
   navigation: any
@@ -30,8 +31,8 @@ class ParentalConsentScreen extends Component<Props> {
     };
   }
 
-  setError() {
-    this.setState( { error: true } );
+  setError( error ) {
+    this.setState( { error } );
   }
 
   createJwtToken() {
@@ -42,6 +43,19 @@ class ParentalConsentScreen extends Component<Props> {
 
     const token = jwt.encode( claims, config.jwtSecret, "HS512" );
     return token;
+  }
+
+  checkForValidEmail() {
+    const { email } = this.state;
+
+    if ( email.length > 5 ) {
+      if ( email.includes( "@" ) && email.includes( "." ) ) {
+        this.setError( false );
+        return true;
+      }
+    }
+    this.setError( true );
+    return false;
   }
 
   shareEmailWithiNat() {
@@ -72,9 +86,11 @@ class ParentalConsentScreen extends Component<Props> {
         const { status } = responseJson;
         if ( status === 200 ) {
           this.submit();
+        } else {
+          this.setError( true );
         }
       } ).catch( () => {
-        this.setError();
+        this.setError( true );
       } );
   }
 
@@ -85,7 +101,7 @@ class ParentalConsentScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const { email } = this.state;
+    const { email, error } = this.state;
 
     return (
       <View style={styles.container}>
@@ -117,9 +133,14 @@ class ParentalConsentScreen extends Component<Props> {
               autoCorrect={false}
               autoCapitalize="none"
             />
+            {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
             <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.shareEmailWithiNat()}
+              style={styles.greenButton}
+              onPress={() => {
+                if ( this.checkForValidEmail() ) {
+                  this.shareEmailWithiNat();
+                }
+              }}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}

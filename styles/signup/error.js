@@ -1,13 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
+import { fonts, colors } from "../global";
 
-import { fonts, colors, padding } from "../global";
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1
+  text: {
+    fontFamily: fonts.semibold,
+    color: colors.seekiNatGreen,
+    fontSize: 18
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+  errorMargin: {
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 28 : 55,
+    marginBottom: 28
   }
 } );

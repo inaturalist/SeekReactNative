@@ -201,7 +201,7 @@
     "seek_data": "Seek gets its data from iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
-    "join": "Join iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "by",
     "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!"
   },

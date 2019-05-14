@@ -64,13 +64,11 @@ class LoginScreen extends Component<Props> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        Alert.alert( JSON.stringify( responseJson ) );
         const { access_token } = responseJson;
         saveAccessToken( access_token );
         this.resetForm();
         this.submitSuccess();
-      } ).catch( ( err ) => {
-        Alert.alert( JSON.stringify( err ) );
+      } ).catch( () => {
         this.setError();
       } );
   }
@@ -108,6 +106,7 @@ class LoginScreen extends Component<Props> {
               textContentType="username"
               autoFocus
               autoCorrect={false}
+              autoCapitalize="none"
             />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>
@@ -121,6 +120,7 @@ class LoginScreen extends Component<Props> {
               secureTextEntry
               placeholder="*********"
               textContentType="password"
+              autoCapitalize="none"
             />
             <View style={styles.rightTextContainer}>
               <TouchableOpacity

@@ -162,6 +162,10 @@ class iNatStatsScreen extends Component<Props> {
                 {observers}
                 {"+"}
               </Text>
+              <Image
+                source={icons.iNatExplanation}
+                style={styles.explainImage}
+              />
               <Text style={styles.missionHeaderText}>
                 {i18n.t( "inat_stats.seek_data" )}
               </Text>
@@ -191,12 +195,16 @@ class iNatStatsScreen extends Component<Props> {
             <Text style={styles.italicText}>
               {i18n.t( "inat_stats.thanks" )}
             </Text>
-            {/* <TouchableOpacity
-              style={styles.greenButton}
-              onPress={() => navigation.navigate( "Login" )}
-            >
-              <Text style={styles.buttonText}>{i18n.t( "inat_stats.join" )}</Text>
-            </TouchableOpacity> */}
+            <View style={{ alignItems: "center", marginTop: 30 }}>
+              <TouchableOpacity
+                style={styles.greenButton}
+                onPress={() => navigation.navigate( "LoginOrSignup" )}
+              >
+                <Text style={styles.buttonText}>
+                  {i18n.t( "inat_stats.join" ).toLocaleUpperCase()}
+                </Text>
+              </TouchableOpacity>
+            </View>
             <Padding />
           </ScrollView>
         </SafeAreaView>

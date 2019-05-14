@@ -47,7 +47,8 @@ const icons = {
   speciesNearby: require( "./icons/img-speciesnearby.png" ),
   sectionExplanation: require( "./icons/icon-sectionexplanation.png" ),
   greenDot: require( "./icons/GreenCircle-square-shadow.png" ),
-  whiteDot: require( "./icons/WhiteCircle-square-shadow.png" )
+  whiteDot: require( "./icons/WhiteCircle-square-shadow.png" ),
+  iNatExplanation: require( "./icons/img-iNatExplanation.png" ),
 };
 
 export default icons;

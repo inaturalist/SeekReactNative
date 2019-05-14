@@ -48,7 +48,12 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 30,
-    marginBottom: 26
+    marginBottom: 23
+  },
+  explainImage: {
+    marginBottom: 33,
+    width: 320,
+    resizeMode: "contain"
   },
   forestGreenText: {
     color: colors.seekForestGreen,
@@ -88,18 +93,18 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   greenButton: {
-    alignSelf: "center",
-    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    width: height < 570 ? 292 : 317,
+    height: 52,
+    borderRadius: 34,
     justifyContent: "center",
-    backgroundColor: colors.seekiNatGreen,
-    borderRadius: 24,
-    width: "95%",
-    height: 52
+    alignItems: "center"
   },
   buttonText: {
-    fontFamily: fonts.semibold,
     paddingTop: padding.iOSPadding,
-    fontSize: 22,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
     color: colors.white
   },
   heatMap: {

@@ -56,7 +56,9 @@ const PostStatus = ( { loading, postingSuccess, togglePostModal }: Props ) => {
               ( !loading && !postingSuccess ) && { backgroundColor: colors.seekTeal }
             ]}
           >
-            <Text style={styles.buttonText}>OK</Text>
+            <Text style={styles.buttonText}>
+              {i18n.t( "posting.ok" ).toLocaleUpperCase()}
+            </Text>
           </TouchableOpacity>
         </View>
       ) : null}

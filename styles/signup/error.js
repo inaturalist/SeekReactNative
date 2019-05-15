@@ -14,8 +14,13 @@ export default StyleSheet.create( {
     marginBottom: 28,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "center"
+  },
+  textContainer: {
+    width: 240,
+    flexDirection: "row",
+    flexWrap: "wrap"
   },
   image: {
     marginRight: 15

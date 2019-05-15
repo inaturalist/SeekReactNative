@@ -87,7 +87,7 @@ class PostScreen extends Component<Props> {
         this.setLatitude( lat );
         this.setLongitude( long );
       } ).catch( () => {
-        this.setError();
+        // this.setError();
       } );
     }
   }
@@ -189,14 +189,6 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setError() {
-    Alert.alert( "error" );
-  }
-
-  setUnauthorized() {
-    Alert.alert( "user is not logged in" );
-  }
-
   setPostingStatus( status ) {
     this.setState( { postingSuccess: status } );
   }
@@ -220,7 +212,7 @@ class PostScreen extends Component<Props> {
         this.createObservation( api_token );
       } ).catch( () => {
         this.setPostingStatus( false );
-        this.setUnauthorized();
+        this.setLoading( false );
       } );
   }
 

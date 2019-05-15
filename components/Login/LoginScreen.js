@@ -7,13 +7,13 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../GreenHeader";
+import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 
@@ -130,7 +130,7 @@ class LoginScreen extends Component<Props> {
                 </Text>
               </TouchableOpacity>
             </View>
-            {error ? <Text>incorrect user name</Text> : null}
+            {error ? <ErrorMessage error="credentials" /> : null}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.retrieveOAuthToken( username, password )}

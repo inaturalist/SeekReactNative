@@ -18,6 +18,7 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   header: {
+    width: 286,
     textAlign: "center",
     fontSize: 19,
     lineHeight: 25,
@@ -43,5 +44,14 @@ export default StyleSheet.create( {
   bottom: {
     position: "absolute",
     bottom: 70
+  },
+  text: {
+    textAlign: "center",
+    width: 250,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21
   }
 } );

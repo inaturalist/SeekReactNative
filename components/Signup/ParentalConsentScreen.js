@@ -16,6 +16,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
 import ErrorMessage from "./ErrorMessage";
+import { checkIsEmailValid } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -43,19 +44,6 @@ class ParentalConsentScreen extends Component<Props> {
 
     const token = jwt.encode( claims, config.jwtSecret, "HS512" );
     return token;
-  }
-
-  checkForValidEmail() {
-    const { email } = this.state;
-
-    if ( email.length > 5 ) {
-      if ( email.includes( "@" ) && email.includes( "." ) ) {
-        this.setError( false );
-        return true;
-      }
-    }
-    this.setError( true );
-    return false;
   }
 
   shareEmailWithiNat() {
@@ -137,8 +125,11 @@ class ParentalConsentScreen extends Component<Props> {
             <TouchableOpacity
               style={styles.greenButton}
               onPress={() => {
-                if ( this.checkForValidEmail() ) {
+                if ( checkIsEmailValid( email ) ) {
+                  this.setError( false );
                   this.shareEmailWithiNat();
+                } else {
+                  this.setError( true );
                 }
               }}
             >

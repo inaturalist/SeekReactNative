@@ -65,6 +65,7 @@ class LicensePhotosScreen extends Component<Props> {
               textContentType="emailAddress"
               autoFocus
               autoCorrect={false}
+              autoCapitalize="none"
             />
             <View style={[styles.row, styles.margin]}>
               <Checkbox
@@ -74,15 +75,15 @@ class LicensePhotosScreen extends Component<Props> {
                 checkBoxColor="#979797"
               />
               <View>
-                <Text style={styles.licenseText}>
-                  {i18n.t( "inat_signup.release_photos" )}
-                </Text>
-                {/* <Text
-                  style={styles.privacy}
+                <TouchableOpacity
                   onPress={() => navigation.navigate( "Privacy" )}
                 >
-                  {i18n.t( "inat_signup.privacy" )}
-                </Text> */}
+                  <Text style={styles.licenseText}>
+                    {i18n.t( "inat_signup.release_photos" )}
+                    {" "}
+                    {i18n.t( "inat_signup.privacy" )}
+                  </Text>
+                </TouchableOpacity>
               </View>
             </View>
             <TouchableOpacity

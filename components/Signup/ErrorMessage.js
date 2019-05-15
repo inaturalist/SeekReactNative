@@ -22,6 +22,8 @@ const ErrorMessage = ( { error }: Props ) => {
     message = i18n.t( "login.error_credentials" );
   } else if ( error === "username" ) {
     message = i18n.t( "login.error_username_taken" );
+  } else {
+    message = error;
   }
   return (
     <View style={styles.errorMargin}>

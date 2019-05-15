@@ -6,12 +6,17 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
+import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
+import config from "../../config";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
+import ErrorMessage from "./ErrorMessage";
+import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -27,21 +32,136 @@ class SignUpScreen extends Component<Props> {
       email,
       licensePhotos,
       username: "",
-      password: "" // don't actually store in state, this is a placeholder
+      password: "",
+      error: null
     };
   }
 
-  submit() {
+  setError( error ) {
+    this.setState( { error } );
+  }
+
+  createJwtToken() {
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
+
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
+  }
+
+  retrieveOAuthToken( username, password ) {
+    const params = {
+      client_id: config.appId,
+      client_secret: config.appSecret,
+      grant_type: "password",
+      username,
+      password
+    };
+
+    const site = "https://staging.inaturalist.org";
+    // const site = "https://www.inaturalist.org";
+
+    fetch( `${site}/oauth/token`, {
+      method: "POST",
+      body: JSON.stringify( params ),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    } )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const { access_token } = responseJson;
+        saveAccessToken( access_token );
+        this.resetForm();
+        this.submitSuccess();
+      } ).catch( () => {
+        this.setError();
+      } );
+  }
+
+  resetForm() {
+    this.setState( {
+      username: "",
+      password: ""
+    } );
+  }
+
+  submitSuccess() {
     const { navigation } = this.props;
+    navigation.navigate( "Main" );
+  }
+
+  createNewiNatUser() {
+    const {
+      email,
+      licensePhotos,
+      username,
+      password
+    } = this.state;
+
+    const token = this.createJwtToken();
+
+    const params = {
+      user: {
+        login: username,
+        email,
+        password,
+        password_confirmation: password,
+        locale: i18n.currentLocale()
+      }
+    };
+
+    if ( licensePhotos ) {
+      params.user.preferred_photo_license = "CC-BY-NC";
+    }
+
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    if ( token ) {
+      headers.Authorization = `Authorization: ${token}`;
+    }
+
+    const site = "https://staging.inaturalist.org";
+    // const site = "https://www.inaturalist.org";
+
+    fetch( `${site}/users.json`, {
+      method: "POST",
+      body: JSON.stringify( params ),
+      headers
+    } )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const { errors, id } = responseJson;
+        if ( errors && errors.length > 0 ) {
+          this.setError( errors[0].toString() );
+        } else if ( id ) {
+          this.retrieveOAuthToken( username, password );
+        }
+      } ).catch( ( err ) => {
+        this.setError( err );
+      } );
+  }
+
+  submit() {
+    const { username } = this.state;
+    if ( checkIsUsernameValid( username ) ) {
+      this.createNewiNatUser();
+    } else {
+      this.setError( "username" );
+    }
     // try to log into iNat
     // if log in succeeds, navigate to Main
     // else, have a failure state / try again / forgot password prompt
-    navigation.navigate( "Main" );
+    // navigation.navigate( "Main" );
   }
 
   render() {
     const { navigation } = this.props;
-    const { username, password } = this.state;
+    const { username, password, error } = this.state;
 
     return (
       <View style={styles.container}>
@@ -78,6 +198,7 @@ class SignUpScreen extends Component<Props> {
               placeholder="*********"
               textContentType="password"
             />
+            {error ? <ErrorMessage error={error} /> : null}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}

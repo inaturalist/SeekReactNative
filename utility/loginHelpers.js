@@ -12,6 +12,15 @@ const checkIsEmailValid = ( email ) => {
   return false;
 };
 
+const checkIsUsernameValid = ( username ) => {
+  if ( username.length >= 3 && username.length <= 40 ) {
+    if ( typeof ( username.charAt( 0 ) ) !== "number" ) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const setIsLoggedIn = ( loggedIn ) => {
   AsyncStorage.setItem( "logged_in", loggedIn.toString() );
 };
@@ -67,5 +76,6 @@ export {
   fetchAccessToken,
   setIsLoggedIn,
   checkIsLoggedIn,
-  checkIsEmailValid
+  checkIsEmailValid,
+  checkIsUsernameValid
 };

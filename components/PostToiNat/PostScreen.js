@@ -62,7 +62,8 @@ class PostScreen extends Component<Props> {
       isDateTimePickerVisible: false,
       error: null,
       showPostModal: false,
-      loading: false
+      loading: false,
+      postingSuccess: null
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -196,6 +197,10 @@ class PostScreen extends Component<Props> {
     Alert.alert( "user is not logged in" );
   }
 
+  setPostingStatus( status ) {
+    this.setState( { postingSuccess: status } );
+  }
+
   fetchJSONWebToken( token ) {
     const headers = {
       "Content-Type": "application/json"
@@ -214,6 +219,7 @@ class PostScreen extends Component<Props> {
         const { api_token } = responseJson;
         this.createObservation( api_token );
       } ).catch( () => {
+        this.setPostingStatus( false );
         this.setUnauthorized();
       } );
   }
@@ -250,7 +256,7 @@ class PostScreen extends Component<Props> {
       const { id } = response;
       this.addPhotoToObservation( id, token ); // get the obs id, then add photo
     } ).catch( ( error ) => {
-      Alert.alert( JSON.stringify( error ) );
+      this.setPostingStatus( false );
     } );
   }
 
@@ -280,10 +286,11 @@ class PostScreen extends Component<Props> {
     };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
+      this.setPostingStatus( true );
       this.setLoading( false );
-      // Alert.alert( JSON.stringify( response ) );
-    } ).catch( ( error ) => {
-      Alert.alert( JSON.stringify( error ), "error uploading photo" );
+    } ).catch( () => {
+      this.setPostingStatus( false );
+      this.setLoading( false );
     } );
   }
 
@@ -299,7 +306,8 @@ class PostScreen extends Component<Props> {
       modalVisible,
       isDateTimePickerVisible,
       showPostModal,
-      loading
+      loading,
+      postingSuccess
     } = this.state;
 
     return (
@@ -335,6 +343,7 @@ class PostScreen extends Component<Props> {
             <PostStatus
               togglePostModal={this.togglePostModal}
               loading={loading}
+              postingSuccess={postingSuccess}
             />
           </Modal>
           <NavigationEvents

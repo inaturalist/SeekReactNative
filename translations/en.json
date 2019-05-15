@@ -448,6 +448,10 @@
     "id": "Seek's identification",
     "edit_location": "Edit location",
     "save_location": "Save location",
-    "unknown": "Unknown"
+    "unknown": "Unknown",
+    "posting": "Posting your Observation",
+    "posting_success": "Posted to iNaturalist!",
+    "posting_failure": "Posting to iNaturalist failed",
+    "internet": "Try checking your internet connection and try again"
   }
 }

@@ -184,6 +184,7 @@ class SignUpScreen extends Component<Props> {
               placeholder="username"
               textContentType="username"
               autoFocus
+              autoCapitalize="none"
             />
             <View style={styles.leftTextContainer}>
               <Text style={styles.leftText}>

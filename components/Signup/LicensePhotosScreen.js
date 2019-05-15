@@ -13,6 +13,8 @@ import Checkbox from "react-native-check-box";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
+import { checkIsEmailValid } from "../../utility/loginHelpers";
+import ErrorMessage from "./ErrorMessage";
 
 type Props = {
   navigation: any
@@ -24,26 +26,34 @@ class LicensePhotosScreen extends Component<Props> {
 
     this.state = {
       email: "",
-      licensePhotos: false
+      licensePhotos: false,
+      error: false
     };
+  }
+
+  setError( error ) {
+    this.setState( { error } );
   }
 
   toggleLicensePhotos() {
     const { licensePhotos } = this.state;
 
-    this.setState( {
-      licensePhotos: !licensePhotos
-    } );
+    this.setState( { licensePhotos: !licensePhotos } );
   }
 
   submit() {
     const { navigation } = this.props;
     const { email, licensePhotos } = this.state;
-    navigation.navigate( "Signup", { email, licensePhotos } );
+    if ( checkIsEmailValid( email ) ) {
+      this.setError( false );
+      navigation.navigate( "Signup", { email, licensePhotos } );
+    } else {
+      this.setError( true );
+    }
   }
 
   render() {
-    const { email, licensePhotos } = this.state;
+    const { email, licensePhotos, error } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -86,6 +96,7 @@ class LicensePhotosScreen extends Component<Props> {
                 </TouchableOpacity>
               </View>
             </View>
+            {error ? <ErrorMessage error="email" /> : null}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
               onPress={() => this.submit()}

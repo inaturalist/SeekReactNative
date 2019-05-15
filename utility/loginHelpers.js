@@ -3,6 +3,15 @@ const { AsyncStorage } = require( "react-native" );
 
 const realmConfig = require( "../models/index" );
 
+const checkIsEmailValid = ( email ) => {
+  if ( email.length > 5 ) {
+    if ( email.includes( "@" ) && email.includes( "." ) ) {
+      return true;
+    }
+  }
+  return false;
+};
+
 const setIsLoggedIn = ( loggedIn ) => {
   AsyncStorage.setItem( "logged_in", loggedIn.toString() );
 };
@@ -57,5 +66,6 @@ export {
   saveAccessToken,
   fetchAccessToken,
   setIsLoggedIn,
-  checkIsLoggedIn
+  checkIsLoggedIn,
+  checkIsEmailValid
 };

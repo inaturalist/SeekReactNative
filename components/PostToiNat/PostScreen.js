@@ -24,6 +24,7 @@ import posting from "../../assets/posting";
 import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
+import PostStatus from "./PostStatus";
 
 type Props = {
   navigation: any
@@ -59,7 +60,9 @@ class PostScreen extends Component<Props> {
       },
       modalVisible: false,
       isDateTimePickerVisible: false,
-      error: null
+      error: null,
+      showPostModal: false,
+      loading: false
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -101,10 +104,15 @@ class PostScreen extends Component<Props> {
 
 
   async getToken() {
+    this.setLoading( true );
     const token = await fetchAccessToken();
     if ( token ) {
       this.fetchJSONWebToken( token );
     }
+  }
+
+  setLoading( loading ) {
+    this.setState( { loading } );
   }
 
   setLatitude( latitude ) {
@@ -138,6 +146,11 @@ class PostScreen extends Component<Props> {
       }, this.hideDateTimePicker() );
     }
   };
+
+  togglePostModal() {
+    const { showPostModal } = this.state;
+    this.setState( { showPostModal: !showPostModal } );
+  }
 
   toggleLocationPicker() {
     const { modalVisible, error } = this.state;
@@ -266,7 +279,8 @@ class PostScreen extends Component<Props> {
     };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
-      Alert.alert( JSON.stringify( response ) );
+      this.setLoading( false );
+      // Alert.alert( JSON.stringify( response ) );
     } ).catch( ( error ) => {
       Alert.alert( JSON.stringify( error ), "error uploading photo" );
     } );
@@ -282,7 +296,9 @@ class PostScreen extends Component<Props> {
       latitude,
       longitude,
       modalVisible,
-      isDateTimePickerVisible
+      isDateTimePickerVisible,
+      showPostModal,
+      loading
     } = this.state;
 
     return (
@@ -309,6 +325,15 @@ class PostScreen extends Component<Props> {
               location={location}
               updateLocation={this.updateLocation}
               toggleLocationPicker={this.toggleLocationPicker}
+            />
+          </Modal>
+          <Modal
+            visible={showPostModal}
+            onRequestClose={() => this.togglePostModal()}
+          >
+            <PostStatus
+              togglePostModal={this.togglePostModal}
+              loading={loading}
             />
           </Modal>
           <NavigationEvents
@@ -369,7 +394,10 @@ class PostScreen extends Component<Props> {
           <View style={styles.textContainer}>
             <TouchableOpacity
               style={styles.greenButton}
-              onPress={() => this.getToken()}
+              onPress={() => {
+                this.getToken();
+                this.togglePostModal();
+              }}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "posting.header" ).toLocaleUpperCase()}

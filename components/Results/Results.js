@@ -26,7 +26,6 @@ import {
   capitalizeNames,
   flattenUploadParameters,
   getTaxonCommonName
-  // checkIsLoggedIn
 } from "../../utility/helpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";

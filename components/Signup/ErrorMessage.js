@@ -3,7 +3,8 @@
 import React from "react";
 import {
   View,
-  Text
+  Text,
+  Image
 } from "react-native";
 
 import posting from "../../assets/posting";
@@ -27,6 +28,7 @@ const ErrorMessage = ( { error }: Props ) => {
   }
   return (
     <View style={styles.errorMargin}>
+      <Image source={posting.error} style={styles.image} />
       <Text style={styles.text}>{message}</Text>
     </View>
   );

@@ -2,6 +2,7 @@ const posting = {
   captive: require( "./posting/icon-captive.png" ),
   crosshair: require( "./posting/icon-crosshair.png" ),
   date: require( "./posting/icon-date.png" ),
+  error: require( "./posting/icon-error-inatgreen.png" ),
   expand: require( "./posting/icon-expand.png" ),
   geoprivacy: require( "./posting/icon-geoprivacy.png" ),
   iNatuploading: require( "./posting/icon-iNatuploading.png"),

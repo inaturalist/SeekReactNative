@@ -69,6 +69,7 @@ class PostScreen extends Component<Props> {
     this.updateCaptive = this.updateCaptive.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    this.togglePostModal = this.togglePostModal.bind( this );
   }
 
   getLocation() {

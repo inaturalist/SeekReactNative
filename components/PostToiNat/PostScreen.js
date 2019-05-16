@@ -14,6 +14,7 @@ import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
+import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -247,7 +248,7 @@ class PostScreen extends Component<Props> {
       }
     };
 
-    const options = { api_token: token, user_agent: "Seek" };
+    const options = { api_token: token, user_agent: `Seek/${version}` };
 
     inatjs.observations.create( params, options ).then( ( response ) => {
       const { id } = response[0];

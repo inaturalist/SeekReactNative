@@ -153,6 +153,7 @@ class Results extends Component<Props> {
       commonAncestor: commonAncestor
         ? capitalizeNames( taxon.preferred_common_name || taxon.name )
         : null,
+      taxaId: taxon.id,
       speciesSeenImage: photo ? photo.medium_url : null,
       scientificName: taxon.name
     }, () => this.showNoMatch() );

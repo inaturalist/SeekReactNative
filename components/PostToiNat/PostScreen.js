@@ -336,6 +336,7 @@ class PostScreen extends Component<Props> {
             onRequestClose={() => this.togglePostModal()}
           >
             <PostStatus
+              navigation={navigation}
               togglePostModal={this.togglePostModal}
               loading={loading}
               postingSuccess={postingSuccess}

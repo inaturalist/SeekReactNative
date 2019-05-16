@@ -43,15 +43,13 @@ const ConfirmScreen = ( {
       <View />
     </View>
     <View style={styles.imageContainer}>
-      {loading && photoConfirmed ? (
-        // <View style={styles.loading}>
-        <LoadingWheel color="white" />
-        // </View>
+      {loading && photoConfirmed ? <LoadingWheel color="white" /> : null}
+      {image ? (
+        <Image
+          source={{ uri: image }}
+          style={styles.image}
+        />
       ) : null}
-      <Image
-        source={{ uri: image.uri }}
-        style={styles.image}
-      />
     </View>
     <View style={styles.footer}>
       {!photoConfirmed ? (

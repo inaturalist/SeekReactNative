@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -68,7 +69,8 @@ class Results extends Component<Props> {
       photoConfirmed: false,
       error: null,
       scientificName: null,
-      isLoggedIn: false
+      isLoggedIn: false,
+      imageForUploading: null
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -282,6 +284,29 @@ class Results extends Component<Props> {
       } );
   }
 
+  setImageForUploading( imageForUploading ) {
+    this.setState( { imageForUploading } );
+  }
+
+  resizeImageForUploading() {
+    const { image } = this.state;
+
+    ImageResizer.createResizedImage( image.uri, 2048, 2048, "JPEG", 80 )
+      .then( ( { uri } ) => {
+        let userImage;
+        if ( Platform.OS === "ios" ) {
+          const uriParts = uri.split( "://" );
+          userImage = uriParts[uriParts.length - 1];
+          this.setImageForUploading( userImage );
+        } else {
+          userImage = uri;
+          this.setImageForUploading( userImage );
+        }
+      } ).catch( () => {
+        this.setError( "image" );
+      } );
+  }
+
   createJwtToken() {
     const claims = {
       application: "SeekRN",
@@ -354,7 +379,7 @@ class Results extends Component<Props> {
       commonAncestor,
       seenDate,
       loading,
-      image,
+      imageForUploading,
       photoConfirmed,
       error,
       isLoggedIn,
@@ -379,7 +404,7 @@ class Results extends Component<Props> {
         <AlreadySeenScreen
           navigation={navigation}
           userImage={userImage}
-          image={image.uri}
+          image={imageForUploading}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
@@ -395,7 +420,7 @@ class Results extends Component<Props> {
         <MatchScreen
           navigation={navigation}
           userImage={userImage}
-          image={image.uri}
+          image={imageForUploading}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
@@ -410,7 +435,7 @@ class Results extends Component<Props> {
         <AncestorScreen
           navigation={navigation}
           userImage={userImage}
-          image={image.uri}
+          image={imageForUploading}
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
           isLoggedIn={isLoggedIn}
@@ -425,7 +450,7 @@ class Results extends Component<Props> {
         <NoMatchScreen
           navigation={navigation}
           userImage={userImage}
-          image={image.uri}
+          image={imageForUploading}
           isLoggedIn={isLoggedIn}
           scientificName={scientificName}
           latitude={latitude}
@@ -441,6 +466,7 @@ class Results extends Component<Props> {
             this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
+            this.resizeImageForUploading();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();
           }}
@@ -450,7 +476,7 @@ class Results extends Component<Props> {
           : (
             <ConfirmScreen
               navigation={navigation}
-              image={image}
+              image={imageForUploading}
               photoConfirmed={photoConfirmed}
               loading={loading}
               confirmPhoto={this.confirmPhoto}

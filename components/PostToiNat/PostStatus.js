@@ -15,10 +15,16 @@ import posting from "../../assets/posting";
 type Props = {
   loading: boolean,
   postingSuccess: boolean,
-  togglePostModal: Function
+  togglePostModal: Function,
+  navigation: any
 };
 
-const PostStatus = ( { loading, postingSuccess, togglePostModal }: Props ) => {
+const PostStatus = ( {
+  loading,
+  postingSuccess,
+  togglePostModal,
+  navigation
+}: Props ) => {
   let headerText;
   let image;
   let extraText;
@@ -50,7 +56,13 @@ const PostStatus = ( { loading, postingSuccess, togglePostModal }: Props ) => {
       {!loading ? (
         <View style={styles.bottom}>
           <TouchableOpacity
-            onPress={() => togglePostModal()}
+            onPress={() => {
+              if ( postingSuccess ) {
+                navigation.navigate( "Results" );
+              } else {
+                togglePostModal();
+              }
+            }}
             style={[
               styles.greenButton,
               ( !loading && !postingSuccess ) && { backgroundColor: colors.seekTeal }

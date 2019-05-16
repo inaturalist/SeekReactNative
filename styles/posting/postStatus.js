@@ -46,6 +46,7 @@ export default StyleSheet.create( {
     bottom: 70
   },
   text: {
+    marginTop: 32,
     textAlign: "center",
     width: 250,
     flexDirection: "row",

@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal,
-  Alert
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -16,6 +15,7 @@ import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
+import { version } from "../../package.json";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
@@ -240,7 +240,7 @@ class PostScreen extends Component<Props> {
       }
     };
 
-    const options = { api_token: token, user_agent: "Seek" };
+    const options = { api_token: token, user_agent: `Seek ${version}` };
 
     inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
 

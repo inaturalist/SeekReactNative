@@ -14,7 +14,7 @@ import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
-import { version } from "../../package.json";
+// import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -247,6 +247,8 @@ class PostScreen extends Component<Props> {
         owners_identification_from_vision_requested: true // this shows that the id is recommended by computer vision
       }
     };
+
+    const version = "2.1.0";
 
     const options = { api_token: token, user_agent: `Seek/${version}` };
 

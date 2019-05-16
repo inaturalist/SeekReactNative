@@ -52,8 +52,7 @@ class LoginScreen extends Component<Props> {
       password
     };
 
-    const site = "https://staging.inaturalist.org";
-    // const site = "https://www.inaturalist.org";
+    const site = "https://www.inaturalist.org";
 
     fetch( `${site}/oauth/token`, {
       method: "POST",

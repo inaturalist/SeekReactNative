@@ -10,6 +10,7 @@ import {
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import { version } from "../package.json";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
@@ -30,7 +31,6 @@ class AboutScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const version = "2.1.0";
     const buildNumber = 27;
 
     return (

@@ -60,8 +60,7 @@ class SignUpScreen extends Component<Props> {
       password
     };
 
-    const site = "https://staging.inaturalist.org";
-    // const site = "https://www.inaturalist.org";
+    const site = "https://www.inaturalist.org";
 
     fetch( `${site}/oauth/token`, {
       method: "POST",
@@ -125,8 +124,7 @@ class SignUpScreen extends Component<Props> {
       headers.Authorization = `Authorization: ${token}`;
     }
 
-    const site = "https://staging.inaturalist.org";
-    // const site = "https://www.inaturalist.org";
+    const site = "https://www.inaturalist.org";
 
     fetch( `${site}/users.json`, {
       method: "POST",

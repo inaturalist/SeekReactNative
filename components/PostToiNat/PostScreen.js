@@ -15,7 +15,6 @@ import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
-import { version } from "../../package.json";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
@@ -198,8 +197,7 @@ class PostScreen extends Component<Props> {
       "Content-Type": "application/json"
     };
 
-    const site = "https://staging.inaturalist.org";
-    // const site = "https://www.inaturalist.org";
+    const site = "https://www.inaturalist.org";
 
     if ( token ) {
       headers.Authorization = `Bearer ${token}`;
@@ -240,9 +238,7 @@ class PostScreen extends Component<Props> {
       }
     };
 
-    const options = { api_token: token, user_agent: `Seek ${version}` };
-
-    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
+    const options = { api_token: token, user_agent: "Seek" };
 
     inatjs.observations.create( params, options ).then( ( response ) => {
       const { id } = response;
@@ -262,8 +258,6 @@ class PostScreen extends Component<Props> {
     const { image } = taxon;
 
     const options = { api_token: token, user_agent: "Seek" };
-
-    inatjs.setConfig( { apiURL: "https://stagingapi.inaturalist.org/v1" } );
 
     const params = {
       "observation_photo[observation_id]": obsId,

@@ -151,10 +151,6 @@ class SignUpScreen extends Component<Props> {
     } else {
       this.setError( "username" );
     }
-    // try to log into iNat
-    // if log in succeeds, navigate to Main
-    // else, have a failure state / try again / forgot password prompt
-    // navigation.navigate( "Main" );
   }
 
   render() {

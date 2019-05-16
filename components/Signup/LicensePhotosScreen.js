@@ -26,7 +26,7 @@ class LicensePhotosScreen extends Component<Props> {
 
     this.state = {
       email: "",
-      licensePhotos: false,
+      licensePhotos: true,
       error: false
     };
   }

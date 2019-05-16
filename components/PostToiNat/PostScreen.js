@@ -48,8 +48,8 @@ class PostScreen extends Component<Props> {
       longitude,
       location: null,
       date: moment().format( "YYYY-MM-DD" ),
-      captive: null,
-      geoprivacy: null,
+      captive: "no",
+      geoprivacy: "yes",
       taxon: {
         preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
         name: scientificName,
@@ -188,8 +188,18 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setPostingStatus( status ) {
-    this.setState( { postingSuccess: status } );
+  setPostSucceeded() {
+    this.setState( {
+      postingSuccess: true,
+      loading: false
+    } );
+  }
+
+  setPostFailed() {
+    this.setState( {
+      postingSuccess: false,
+      loading: false
+    } );
   }
 
   fetchJSONWebToken( token ) {
@@ -209,8 +219,7 @@ class PostScreen extends Component<Props> {
         const { api_token } = responseJson;
         this.createObservation( api_token );
       } ).catch( () => {
-        this.setPostingStatus( false );
-        this.setLoading( false );
+        this.setPostFailed();
       } );
   }
 
@@ -241,10 +250,10 @@ class PostScreen extends Component<Props> {
     const options = { api_token: token, user_agent: "Seek" };
 
     inatjs.observations.create( params, options ).then( ( response ) => {
-      const { id } = response;
+      const { id } = response[0];
       this.addPhotoToObservation( id, token ); // get the obs id, then add photo
-    } ).catch( ( error ) => {
-      this.setPostingStatus( false );
+    } ).catch( () => {
+      this.setPostFailed();
     } );
   }
 
@@ -272,14 +281,11 @@ class PostScreen extends Component<Props> {
     };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
-      this.setPostingStatus( true );
-      this.setLoading( false );
+      this.setPostSucceeded();
     } ).catch( () => {
-      this.setPostingStatus( false );
-      this.setLoading( false );
+      this.setPostFailed();
     } );
   }
-
 
   render() {
     const { navigation } = this.props;

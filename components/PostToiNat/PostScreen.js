@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal
+  Modal,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -41,14 +42,15 @@ class PostScreen extends Component<Props> {
       userImage,
       scientificName,
       latitude,
-      longitude
+      longitude,
+      time
     } = navigation.state.params;
 
     this.state = {
       latitude,
       longitude,
       location: null,
-      date: moment().format( "YYYY-MM-DD" ),
+      date: moment.unix( time ).format( "YYYY-MM-DD" ),
       captive: "no",
       geoprivacy: "yes",
       taxon: {

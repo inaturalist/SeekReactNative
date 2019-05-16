@@ -385,7 +385,8 @@ class Results extends Component<Props> {
       isLoggedIn,
       scientificName,
       latitude,
-      longitude
+      longitude,
+      time
     } = this.state;
     const { navigation } = this.props;
 
@@ -413,6 +414,7 @@ class Results extends Component<Props> {
           scientificName={scientificName}
           latitude={latitude}
           longitude={longitude}
+          time={time}
         />
       );
     } else if ( match && taxaName ) {
@@ -428,6 +430,7 @@ class Results extends Component<Props> {
           scientificName={scientificName}
           latitude={latitude}
           longitude={longitude}
+          time={time}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -443,6 +446,7 @@ class Results extends Component<Props> {
           scientificName={scientificName}
           latitude={latitude}
           longitude={longitude}
+          time={time}
         />
       );
     } else {
@@ -455,6 +459,7 @@ class Results extends Component<Props> {
           scientificName={scientificName}
           latitude={latitude}
           longitude={longitude}
+          time={time}
         />
       );
     }

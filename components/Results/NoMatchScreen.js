@@ -27,7 +27,8 @@ type Props = {
   taxaId: number,
   scientificName: string,
   latitude: number,
-  longitude: number
+  longitude: number,
+  time: number
 }
 
 const NoMatchScreen = ( {
@@ -39,7 +40,8 @@ const NoMatchScreen = ( {
   taxaId,
   scientificName,
   latitude,
-  longitude
+  longitude,
+  time
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
@@ -80,7 +82,8 @@ const NoMatchScreen = ( {
                   userImage,
                   scientificName,
                   latitude,
-                  longitude
+                  longitude,
+                  time
                 }}
               />
             ) : null

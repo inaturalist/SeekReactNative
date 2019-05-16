@@ -29,7 +29,8 @@ type Props = {
   taxaId: number,
   scientificName: string,
   latitude: number,
-  longitude: number
+  longitude: number,
+  time: number
 }
 
 const MatchScreen = ( {
@@ -42,7 +43,8 @@ const MatchScreen = ( {
   taxaId,
   scientificName,
   latitude,
-  longitude
+  longitude,
+  time
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#175f67" }} />
@@ -88,7 +90,8 @@ const MatchScreen = ( {
                   userImage,
                   scientificName,
                   latitude,
-                  longitude
+                  longitude,
+                  time
                 }}
               />
             ) : null

@@ -31,7 +31,8 @@ type Props = {
   isLoggedIn: boolean,
   scientificName: string,
   latitude: number,
-  longitude: number
+  longitude: number,
+  time: number
 }
 
 const AlreadySeenScreen = ( {
@@ -45,7 +46,8 @@ const AlreadySeenScreen = ( {
   latitude,
   longitude,
   taxaName,
-  seenDate
+  seenDate,
+  time
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
@@ -104,7 +106,8 @@ const AlreadySeenScreen = ( {
                   userImage,
                   scientificName,
                   latitude,
-                  longitude
+                  longitude,
+                  time
                 }}
               />
             ) : null

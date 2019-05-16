@@ -27,7 +27,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     <View style={styles.buttonContainer}>
       <TouchableOpacity
         style={styles.whiteButton}
-        onPress={() => navigation.navigate( "Login" )}
+        onPress={() => navigation.navigate( "LoginScreen" )}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "login.log_in" ).toLocaleUpperCase()}
@@ -42,12 +42,13 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
         </Text>
       </TouchableOpacity>
     </View>
-    <Text
-      style={styles.textLink}
+    <TouchableOpacity
       onPress={() => navigation.navigate( "Main" )}
     >
-      {i18n.t( "login.skip_login" )}
-    </Text>
+      <Text style={styles.textLink}>
+        {i18n.t( "login.skip_login" )}
+      </Text>
+    </TouchableOpacity>
     <Text style={styles.text}>
       {i18n.t( "login.about" )}
     </Text>

@@ -231,8 +231,8 @@ class PostScreen extends Component<Props> {
       observation: {
         observed_on_string: date,
         taxon_id: taxon.taxaId,
-        geoprivacy,
-        captive,
+        geoprivacy: geoprivacy.toLowerCase(),
+        captive: captive.toLowerCase(),
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version

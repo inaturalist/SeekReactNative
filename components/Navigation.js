@@ -203,7 +203,7 @@ const LoginStack = createStackNavigator( {
     screen: AgeVerifyScreen,
     navigationOptions: () => noHeader
   },
-  Login: {
+  LoginScreen: {
     screen: LoginScreen,
     navigationOptions: () => noHeader
   },
@@ -254,10 +254,6 @@ const RootStack = createStackNavigator( {
   Main: {
     screen: MenuDrawerNav
   }
-  // Post: {
-  //   screen: PostScreen,
-  //   navigationOptions: () => noHeader
-  // }
 }, StackNavigatorConfig );
 
 const App = createAppContainer( RootStack );

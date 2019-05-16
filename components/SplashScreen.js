@@ -15,6 +15,7 @@ import styles from "../styles/splash";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch } from "../utility/helpers";
+import { checkIfFirstLogin } from "../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -32,14 +33,16 @@ class SplashScreen extends Component<Props> {
 
   async componentDidMount() {
     const isFirstLaunch = await checkIfFirstLaunch();
+    const isFirstLogin = await checkIfFirstLogin();
     this.setState( {
       isFirstLaunch,
+      isFirstLogin,
       hasCheckedAsyncStorage: true
     }, () => this.transitionScreen() );
   }
 
   transitionScreen() {
-    const { isFirstLaunch, hasCheckedAsyncStorage } = this.state;
+    const { isFirstLaunch, isFirstLogin, hasCheckedAsyncStorage } = this.state;
 
     const splashTimer = Platform.OS === "android" ? 2000 : 3000;
 
@@ -49,8 +52,10 @@ class SplashScreen extends Component<Props> {
 
     if ( isFirstLaunch ) {
       setTimeout( () => this.resetRouter( "Onboarding" ), splashTimer );
-    } else {
+    } else if ( isFirstLogin ) {
       setTimeout( () => this.resetRouter( "Login" ), splashTimer );
+    } else {
+      setTimeout( () => this.resetRouter( "Main" ), splashTimer );
     }
     return null;
   }

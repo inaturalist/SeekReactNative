@@ -1,4 +1,5 @@
 const { AsyncStorage } = require( "react-native" );
+// const { version } = require( "../package.json" );
 
 const checkIsEmailValid = ( email ) => {
   if ( email.length > 5 ) {
@@ -35,10 +36,29 @@ const fetchAccessToken = async () => {
   }
 };
 
+const setSeenLogin = () => {
+  AsyncStorage.setItem( "has_seen_login", "true" );
+};
+
+const checkIfFirstLogin = async () => {
+  try {
+    const hasSeenLogin = await AsyncStorage.getItem( "has_seen_login" );
+    if ( hasSeenLogin === null ) {
+      setSeenLogin();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   saveAccessToken,
   fetchAccessToken,
   setIsLoggedIn,
   checkIsEmailValid,
-  checkIsUsernameValid
+  checkIsUsernameValid,
+  setSeenLogin,
+  checkIfFirstLogin
 };

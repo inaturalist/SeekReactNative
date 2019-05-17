@@ -89,7 +89,7 @@ class SignUpScreen extends Component<Props> {
 
   submitSuccess() {
     const { navigation } = this.props;
-    navigation.navigate( "Main" );
+    navigation.navigate( "LoginSuccess" );
   }
 
   createNewiNatUser() {

@@ -1,4 +1,4 @@
-const { AsyncStorage } = require( "react-native" );
+const { AsyncStorage, Alert } = require( "react-native" );
 // const { version } = require( "../package.json" );
 
 const checkIsEmailValid = ( email ) => {
@@ -36,6 +36,16 @@ const fetchAccessToken = async () => {
   }
 };
 
+const removeAccessToken = async () => {
+  try {
+    const token = await AsyncStorage.removeItem( "access_token" );
+    Alert.alert( JSON.stringify( token ), "in helper" );
+    return token;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 const setSeenLogin = () => {
   AsyncStorage.setItem( "has_seen_login", "true" );
 };
@@ -56,6 +66,7 @@ const checkIfFirstLogin = async () => {
 export {
   saveAccessToken,
   fetchAccessToken,
+  removeAccessToken,
   setIsLoggedIn,
   checkIsEmailValid,
   checkIsUsernameValid,

@@ -206,7 +206,9 @@
     "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
     "join": "Log in with iNaturalist",
     "by": "by",
-    "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!"
+    "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!",
+    "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
+    "sign_out": "SIgn out of iNaturalist"
   },
   "results": {
     "observed_species": "You observed a new species!",

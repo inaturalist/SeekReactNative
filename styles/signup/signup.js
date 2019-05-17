@@ -64,7 +64,8 @@ export default StyleSheet.create( {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
   },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 58
+    marginTop: 10
+    // marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 58
   },
   headerText: {
     marginTop: 22,

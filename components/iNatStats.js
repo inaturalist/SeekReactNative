@@ -22,6 +22,7 @@ import logos from "../assets/logos";
 import Padding from "./Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
+import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -35,8 +36,27 @@ class iNatStatsScreen extends Component<Props> {
       observations: i18n.toNumber( 20000000, { precision: 0 } ),
       observers: i18n.toNumber( 540000, { precision: 0 } ),
       photos: [],
-      loading: true
+      loading: true,
+      isLoggedIn: false
     };
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async logUserOut() {
+    const loggedOut = await removeAccessToken();
+    if ( loggedOut === null ) {
+      this.setLoggedIn( false );
+    }
   }
 
   scrollToTop() {
@@ -88,7 +108,8 @@ class iNatStatsScreen extends Component<Props> {
       observations,
       observers,
       photos,
-      loading
+      loading,
+      isLoggedIn
     } = this.state;
     const { navigation } = this.props;
 
@@ -123,6 +144,7 @@ class iNatStatsScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.scrollToTop();
+            this.getLoggedIn();
             this.fetchProjectPhotos();
           }}
         />
@@ -193,15 +215,27 @@ class iNatStatsScreen extends Component<Props> {
               </View>
             )}
             <Text style={styles.italicText}>
-              {i18n.t( "inat_stats.thanks" )}
+              {isLoggedIn
+                ? i18n.t( "inat_stats.logged_in" )
+                : i18n.t( "inat_stats.thanks" )
+              }
             </Text>
             <View style={{ alignItems: "center", marginTop: 30 }}>
               <TouchableOpacity
                 style={styles.greenButton}
-                onPress={() => navigation.navigate( "LoginOrSignup" )}
+                onPress={() => {
+                  if ( isLoggedIn ) {
+                    this.logUserOut();
+                  } else {
+                    navigation.navigate( "LoginOrSignup" );
+                  }
+                }}
               >
                 <Text style={styles.buttonText}>
-                  {i18n.t( "inat_stats.join" ).toLocaleUpperCase()}
+                  {isLoggedIn
+                    ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
+                    : i18n.t( "inat_stats.join" ).toLocaleUpperCase()
+                  }
                 </Text>
               </TouchableOpacity>
             </View>

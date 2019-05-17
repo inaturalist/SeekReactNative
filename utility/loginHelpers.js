@@ -1,4 +1,4 @@
-const { AsyncStorage, Alert } = require( "react-native" );
+const { AsyncStorage } = require( "react-native" );
 // const { version } = require( "../package.json" );
 
 const checkIsEmailValid = ( email ) => {
@@ -39,7 +39,6 @@ const fetchAccessToken = async () => {
 const removeAccessToken = async () => {
   try {
     const token = await AsyncStorage.removeItem( "access_token" );
-    Alert.alert( JSON.stringify( token ), "in helper" );
     return token;
   } catch ( error ) {
     return false;

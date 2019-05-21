@@ -14,15 +14,15 @@ const missions = {
       number: 4,
       types: ["insects"]
     },
-    3: {
+    2: {
       number: 3,
       types: ["arachnids"]
     },
-    4: {
+    3: {
       number: 6,
       types: ["plants"]
     },
-    5: {
+    4: {
       number: 3,
       types: ["fungi"]
     }
@@ -36,11 +36,11 @@ const missions = {
       number: 3,
       types: ["Orthoptera", "Lepidoptera", "Bovines", "Camelids", "Giraffes", "Proboscidea", "Diprotodontia", "Equines", "Lagomorpha", "Rodents", "Sirenians"]
     },
-    3: {
+    2: {
       number: 3,
       types: ["carnivora", "spiders", "mantid"]
     },
-    4: {
+    3: {
       number: 2,
       types: ["fungi"]
     }

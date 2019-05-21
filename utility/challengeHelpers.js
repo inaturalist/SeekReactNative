@@ -10,8 +10,6 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
-const getSum = ( total, currentValue ) => total + currentValue;
-
 const setChallengeProgress = ( index ) => {
   const value = index ? index.toString() : "none";
   AsyncStorage.setItem( "challengeProgress", value );
@@ -45,17 +43,12 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
   return seenTaxa;
 };
 
-const checkPrevNumberSeen = ( challenge ) => {
-  const obsList = Object.keys( challenge.numbersObserved )
-    .map( number => challenge.numbersObserved[number] );
+const updateChallengePercentages = ( challenge ) => {
+  const prevPercent = challenge.percentComplete; // this only ever calculates for april
+  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
 
-  const prevNumberSeen = obsList.length > 0 ? obsList.reduce( getSum ) : 0;
-  return prevNumberSeen;
-};
-
-const updateChallengePercentages = ( challenge, totalSeen, prevPercent ) => {
-  Alert.alert( "updating challenge percentages" );
   const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+
   challenge.percentComplete = percentComplete;
 
   if ( percentComplete === 100 ) {
@@ -71,7 +64,6 @@ const updateChallengePercentages = ( challenge, totalSeen, prevPercent ) => {
 };
 
 const updateNumberObservedPerMission = ( challenge, count, number ) => {
-  Alert.alert( "updating numb observed" );
   let totalSeen = 0;
 
   if ( count <= number ) {
@@ -99,12 +91,9 @@ const checkForAncestors = ( seenTaxa, taxaId ) => {
 };
 
 const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
-  Alert.alert( "calculating taxa seen" );
-  Alert.alert( JSON.stringify( types ) );
   let count = 0;
 
   types.forEach( ( taxa ) => {
-    Alert.alert( JSON.stringify( taxa ) );
     let taxaPerMission;
 
     if ( taxa === "all" ) {
@@ -127,24 +116,22 @@ const recalculateChallenges = () => {
     .then( ( realm ) => {
       const incompleteChallenges = fetchIncompleteChallenges( realm );
 
-      incompleteChallenges.forEach( ( challenge ) => {
-        const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
-        const prevNumberSeen = checkPrevNumberSeen( challenge );
-        const prevPercent = calculatePercent( prevNumberSeen, challenge.totalSpecies );
+      realm.write( () => {
+        incompleteChallenges.forEach( ( challenge ) => {
+          const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
 
-        realm.write( () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
-          let totalSeen = 0;
           const { index } = challenge;
           const challengeMonth = missionsDict.default[index];
+          const challengeMonthMissionList = Object.keys( challengeMonth );
 
-          Object.keys( challengeMonth ).forEach( ( mission ) => {
+          challengeMonthMissionList.forEach( ( mission ) => {
             const { number, types } = challengeMonth[mission];
             const count = calculateTaxaSeenPerMission( types, seenTaxa );
-            totalSeen = updateNumberObservedPerMission( challenge, count, number );
+            updateNumberObservedPerMission( challenge, count, number );
           } );
-          updateChallengePercentages( challenge, totalSeen, prevPercent );
+          updateChallengePercentages( challenge );
         } );
       } );
     } ).catch( ( err ) => {

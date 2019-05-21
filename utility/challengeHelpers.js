@@ -19,13 +19,6 @@ const fetchIncompleteChallenges = ( realm ) => {
   const incompleteChallenges = realm.objects( "ChallengeRealm" )
     .filtered( "percentComplete != 100 AND started == true" );
 
-  incompleteChallenges.forEach( ( challenge ) => {
-    const { startedDate } = challenge;
-
-    if ( !startedDate ) {
-      challenge.startedDate = new Date();
-    }
-  } );
   return incompleteChallenges;
 };
 
@@ -43,15 +36,8 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
   return seenTaxa;
 };
 
-const updateChallengePercentages = ( challenge ) => {
-  const prevPercent = challenge.percentComplete; // this only ever calculates for april
-  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
-
-  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
-
-  challenge.percentComplete = percentComplete;
-
-  if ( percentComplete === 100 ) {
+const setChallengeNotifications = ( percentComplete, prevPercent, challenge ) => {
+  if ( percentComplete === 100 && prevPercent !== 100 ) {
     challenge.completedDate = new Date();
     createNotification( "challengeCompleted", challenge.index );
   } else if ( percentComplete >= 75 && prevPercent < 75 ) {
@@ -60,6 +46,18 @@ const updateChallengePercentages = ( challenge ) => {
 
   if ( prevPercent < percentComplete ) {
     setChallengeProgress( challenge.index );
+  }
+};
+
+const updateChallengePercentages = ( challenge ) => {
+  const prevPercent = challenge.percentComplete; // this only ever calculates for april
+  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
+
+  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+
+  if ( prevPercent !== percentComplete ) {
+    challenge.percentComplete = percentComplete;
+    setChallengeNotifications( percentComplete, prevPercent, challenge );
   }
 };
 
@@ -90,7 +88,7 @@ const checkForAncestors = ( seenTaxa, taxaId ) => {
   return matchingAncestors;
 };
 
-const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
+const calculateTaxaSeenPerMission = ( types, seenTaxa ) => { // only getting challenge 1
   let count = 0;
 
   types.forEach( ( taxa ) => {
@@ -102,8 +100,15 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
       const taxaId = taxonDict.default[taxa];
       const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
       const matchingAncestors = checkForAncestors( seenTaxa, taxaId );
+      if ( taxaTypeSeen.length > 0 ) {
+        taxaPerMission = taxaTypeSeen.length;
+      } else if ( matchingAncestors.length > 0 ) {
+        taxaPerMission = matchingAncestors.length;
+      } else {
+        taxaPerMission = 0;
+      }
 
-      taxaPerMission = taxaTypeSeen.length || matchingAncestors.length;
+      // taxaPerMission = taxaTypeSeen.length || matchingAncestors.length;
     }
     count += taxaPerMission;
   } );

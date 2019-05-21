@@ -24,7 +24,7 @@ export default StyleSheet.create( {
   },
   safeViewTop: {
     flex: 0,
-    backgroundColor: colors.darkGray
+    backgroundColor: colors.black
   },
   safeView: {
     flex: 1,

@@ -36,7 +36,7 @@ const challenges = {
     month: "challenges.june_2019",
     description: "challenges.june_description",
     totalSpecies: 13,
-    homeBackgroundName: "img-homechallenge-may",
+    homeBackgroundName: "img-homechallenge-june",
     backgroundName: "img-challengedetail-june",
     unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_june",

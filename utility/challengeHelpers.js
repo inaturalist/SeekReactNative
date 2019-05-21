@@ -53,6 +53,75 @@ const checkPrevNumberSeen = ( challenge ) => {
   return prevNumberSeen;
 };
 
+const updateChallengePercentages = ( challenge, totalSeen, prevPercent ) => {
+  Alert.alert( "updating challenge percentages" );
+  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+  challenge.percentComplete = percentComplete;
+
+  if ( percentComplete === 100 ) {
+    challenge.completedDate = new Date();
+    createNotification( "challengeCompleted", challenge.index );
+  } else if ( percentComplete >= 75 && prevPercent < 75 ) {
+    createNotification( "challengeProgress", challenge.index );
+  }
+
+  if ( prevPercent < percentComplete ) {
+    setChallengeProgress( challenge.index );
+  }
+};
+
+const updateNumberObservedPerMission = ( challenge, count, number ) => {
+  Alert.alert( "updating numb observed" );
+  let totalSeen = 0;
+
+  if ( count <= number ) {
+    challenge.numbersObserved.push( count );
+    totalSeen += count;
+  } else {
+    challenge.numbersObserved.push( number );
+    totalSeen += number;
+  }
+  return totalSeen;
+};
+
+const checkForAncestors = ( seenTaxa, taxaId ) => {
+  const taxaWithAncestors = seenTaxa.filter( t => t.taxon.ancestorIds.length > 0 );
+  const matchingAncestors = [];
+
+  taxaWithAncestors.forEach( ( taxon ) => {
+    const { ancestorIds } = taxon.taxon;
+    const ancestors = Object.keys( ancestorIds ).map( id => ancestorIds[id] );
+    if ( ancestors.includes( taxaId ) ) {
+      matchingAncestors.push( taxaId );
+    }
+  } );
+  return matchingAncestors;
+};
+
+const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
+  Alert.alert( "calculating taxa seen" );
+  Alert.alert( JSON.stringify( types ) );
+  let count = 0;
+
+  types.forEach( ( taxa ) => {
+    Alert.alert( JSON.stringify( taxa ) );
+    let taxaPerMission;
+
+    if ( taxa === "all" ) {
+      taxaPerMission = seenTaxa.length;
+    } else {
+      const taxaId = taxonDict.default[taxa];
+      const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
+      const matchingAncestors = checkForAncestors( seenTaxa, taxaId );
+
+      taxaPerMission = taxaTypeSeen.length || matchingAncestors.length;
+    }
+    count += taxaPerMission;
+  } );
+
+  return count;
+};
+
 const recalculateChallenges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
@@ -72,59 +141,14 @@ const recalculateChallenges = () => {
 
           Object.keys( challengeMonth ).forEach( ( mission ) => {
             const { number, types } = challengeMonth[mission];
-
-            let count = 0;
-
-            types.forEach( ( taxa ) => {
-              let taxaPerMission;
-
-              if ( taxa === "all" ) {
-                taxaPerMission = seenTaxa.length;
-              } else {
-                const taxaId = taxonDict.default[taxa];
-                const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
-                // const taxaWithAncestors = seenTaxa.filter( t => t.taxon.ancestorIds.length > 0 );
-                // const matchingAncestors = [];
-                
-                // taxaWithAncestors.forEach( ( taxon ) => {
-                //   const { ancestorIds } = taxon.taxon;
-                //   const ancestors = Object.keys( ancestorIds ).map( id => ancestorIds[id] );
-                //   if ( ancestors.includes( taxaId ) ) {
-                //     matchingAncestors.push( ancestors );
-                //   }
-                // } );
-
-                taxaPerMission = taxaTypeSeen.length;
-              }
-              count += taxaPerMission;
-            } );
-
-            if ( count <= number ) {
-              challenge.numbersObserved.push( count );
-              totalSeen += count;
-            } else {
-              challenge.numbersObserved.push( number );
-              totalSeen += number;
-            }
+            const count = calculateTaxaSeenPerMission( types, seenTaxa );
+            totalSeen = updateNumberObservedPerMission( challenge, count, number );
           } );
-
-          const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
-          challenge.percentComplete = percentComplete;
-
-          if ( percentComplete === 100 ) {
-            challenge.completedDate = new Date();
-            createNotification( "challengeCompleted", challenge.index );
-          } else if ( percentComplete >= 75 && prevPercent < 75 ) {
-            createNotification( "challengeProgress", challenge.index );
-          }
-
-          if ( prevPercent < percentComplete ) {
-            setChallengeProgress( challenge.index );
-          }
+          updateChallengePercentages( challenge, totalSeen, prevPercent );
         } );
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
+      Alert.alert( "[DEBUG] Failed to recalculate challenges: ", JSON.stringify( err ) );
     } );
 };
 
@@ -153,9 +177,9 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict.default[challengesType];
-          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          if ( isAvailable ) {
+          // if ( isAvailable ) {
             const challenge = realm.create( "ChallengeRealm", {
               name: challenges.name,
               month: challenges.month,
@@ -169,7 +193,7 @@ const setupChallenges = () => {
               availableDate: challenges.availableDate,
               index: challenges.index
             }, true );
-          }
+          // }
         } );
       } );
     } ).catch( ( err ) => {

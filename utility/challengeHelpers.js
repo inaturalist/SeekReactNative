@@ -52,25 +52,16 @@ const checkForChallengeComplete = ( percentComplete, challenge ) => {
   }
 };
 
-const updateChallengePercentages = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const incompleteChallenges = fetchIncompleteChallenges( realm );
+const updateChallengePercentages = ( challenge ) => {
+  const prevPercent = challenge.percentComplete;
+  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
 
-      incompleteChallenges.forEach( ( challenge ) => {
-        realm.write( () => {
-          const prevPercent = challenge.percentComplete;
-          const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
+  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
 
-          const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+  challenge.percentComplete = percentComplete;
 
-          challenge.percentComplete = percentComplete;
-
-          checkForChallengeComplete( percentComplete, challenge );
-          checkForChallengeInProgress( percentComplete, prevPercent, challenge );
-        } );
-      } );
-    } );
+  checkForChallengeComplete( percentComplete, challenge );
+  checkForChallengeInProgress( percentComplete, prevPercent, challenge );
 };
 
 const updateNumberObservedPerMission = ( challenge, count, number ) => {
@@ -131,8 +122,8 @@ const recalculateChallenges = () => {
     .then( ( realm ) => {
       const incompleteChallenges = fetchIncompleteChallenges( realm );
 
-      realm.write( () => {
-        incompleteChallenges.forEach( ( challenge ) => {
+      incompleteChallenges.forEach( ( challenge ) => {
+        realm.write( () => {
           const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
 
           realm.delete( challenge.numbersObserved );
@@ -146,9 +137,9 @@ const recalculateChallenges = () => {
             const count = calculateTaxaSeenPerMission( types, seenTaxa );
             updateNumberObservedPerMission( challenge, count, number );
           } );
+          updateChallengePercentages( challenge );
         } );
       } );
-      updateChallengePercentages();
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );

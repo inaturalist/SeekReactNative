@@ -28,11 +28,11 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     style={styles.container}
     source={backgrounds.splash}
   >
-    {navigation.state.params.backArrow ? (
+    {navigation.state && navigation.state.params && navigation.state.params.backArrow ? (
       <TouchableOpacity
         hitSlop={backStyles.touchable}
         style={[backStyles.backButton, { position: "absolute", top: height > 570 ? 58 : 18 }]}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate( "iNatStats" )}
       >
         <Image source={icons.backButton} />
       </TouchableOpacity>

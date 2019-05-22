@@ -36,29 +36,41 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
   return seenTaxa;
 };
 
-const setChallengeNotifications = ( percentComplete, prevPercent, challenge ) => {
-  if ( percentComplete === 100 && prevPercent !== 100 ) {
-    challenge.completedDate = new Date();
-    createNotification( "challengeCompleted", challenge.index );
-  } else if ( percentComplete >= 75 && prevPercent < 75 ) {
+const checkForChallengeInProgress = ( percentComplete, prevPercent, challenge ) => {
+  if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
-};
-
-const updateChallengePercentages = ( challenge ) => {
-  const prevPercent = challenge.percentComplete; // this only ever calculates for april
-  const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
-
-  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
-
-  if ( prevPercent !== percentComplete ) {
-    challenge.percentComplete = percentComplete;
-    setChallengeNotifications( percentComplete, prevPercent, challenge );
-  }
-
   if ( prevPercent < percentComplete ) {
     setChallengeProgress( challenge.index );
   }
+};
+
+const checkForChallengeComplete = ( percentComplete, challenge ) => {
+  if ( percentComplete === 100 ) {
+    challenge.completedDate = new Date();
+    createNotification( "challengeCompleted", challenge.index );
+  }
+};
+
+const updateChallengePercentages = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const incompleteChallenges = fetchIncompleteChallenges( realm );
+
+      incompleteChallenges.forEach( ( challenge ) => {
+        realm.write( () => {
+          const prevPercent = challenge.percentComplete;
+          const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
+
+          const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+
+          challenge.percentComplete = percentComplete;
+
+          checkForChallengeComplete( percentComplete, challenge );
+          checkForChallengeInProgress( percentComplete, prevPercent, challenge );
+        } );
+      } );
+    } );
 };
 
 const updateNumberObservedPerMission = ( challenge, count, number ) => {
@@ -88,7 +100,7 @@ const checkForAncestors = ( seenTaxa, taxaId ) => {
   return matchingAncestors;
 };
 
-const calculateTaxaSeenPerMission = ( types, seenTaxa ) => { // only getting challenge 1
+const calculateTaxaSeenPerMission = ( types, seenTaxa ) => { 
   let count = 0;
 
   types.forEach( ( taxa ) => {
@@ -107,8 +119,6 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => { // only getting cha
       } else {
         taxaPerMission = 0;
       }
-
-      // taxaPerMission = taxaTypeSeen.length || matchingAncestors.length;
     }
     count += taxaPerMission;
   } );
@@ -136,11 +146,11 @@ const recalculateChallenges = () => {
             const count = calculateTaxaSeenPerMission( types, seenTaxa );
             updateNumberObservedPerMission( challenge, count, number );
           } );
-          updateChallengePercentages( challenge );
         } );
       } );
+      updateChallengePercentages();
     } ).catch( ( err ) => {
-      Alert.alert( "[DEBUG] Failed to recalculate challenges: ", JSON.stringify( err ) );
+      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );
 };
 

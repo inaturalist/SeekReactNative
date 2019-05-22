@@ -37,44 +37,44 @@ const missions = {
       types: ["Orthoptera", "Lepidoptera", "Camelids", "Ruminantia", "Mysticeti", "Proboscidea", "Diprotodontia", "Perissodactyla", "Lagomorpha", "Rodents", "Sirenians"]
     },
     2: {
-      number: 3,
+      number: 2,
       types: ["carnivora", "arachnids", "mantid"]
     },
     3: {
       number: 2,
       types: ["fungi"]
     }
-  },
-  3: {
-    0: {
-      number: 10,
-      types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
-    }
-  },
-  4: {
-    0: {
-      number: 10,
-      types: ["insects"]
-    }
-  },
-  5: {
-    0: {
-      number: 10,
-      types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
-    }
-  },
-  6: {
-    0: {
-      number: 5,
-      types: ["birds"]
-    }
-  },
-  7: {
-    0: {
-      number: 20,
-      types: ["plants"]
-    }
   }
+  // 3: {
+  //   0: {
+  //     number: 10,
+  //     types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
+  //   }
+  // },
+  // 4: {
+  //   0: {
+  //     number: 10,
+  //     types: ["insects"]
+  //   }
+  // },
+  // 5: {
+  //   0: {
+  //     number: 10,
+  //     types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
+  //   }
+  // },
+  // 6: {
+  //   0: {
+  //     number: 5,
+  //     types: ["birds"]
+  //   }
+  // },
+  // 7: {
+  //   0: {
+  //     number: 20,
+  //     types: ["plants"]
+  //   }
+  // }
 };
 
 export default missions;

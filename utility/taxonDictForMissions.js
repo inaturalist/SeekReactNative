@@ -21,7 +21,7 @@ const taxonIds = {
   Rodents: 43698,
   Sirenians: 46306,
   carnivora: 41573,
-  spiders: 47118,
+  // spiders: 47118,
   mantid: 48111,
   Pinales: 47375,
   Arecaceae: 48867,

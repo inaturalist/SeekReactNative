@@ -38,7 +38,7 @@ const missions = {
     },
     2: {
       number: 3,
-      types: ["carnivora", "spiders", "mantid"]
+      types: ["carnivora", "arachnids", "mantid"]
     },
     3: {
       number: 2,

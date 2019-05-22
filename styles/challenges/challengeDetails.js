@@ -96,7 +96,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 36,
     marginTop: 21,
-    marginBottom: 23
+    marginBottom: 29
   },
   text: {
     maxWidth: 183,
@@ -111,6 +111,14 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
+  },
+  photographerText: {
+    textAlign: "center",
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21,
+    marginBottom: 25
   },
   greenButton: {
     marginLeft: 36,

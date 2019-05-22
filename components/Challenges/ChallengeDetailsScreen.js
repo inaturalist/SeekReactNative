@@ -91,6 +91,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             started: challenge.started,
             percentComplete: challenge.percentComplete,
             backgroundName: challenge.backgroundName,
+            photographer: challenge.photographer,
             index: challenge.index
           },
           missions,
@@ -224,6 +225,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <View style={styles.row}>
                 <Image source={logos.wwfop} />
               </View>
+              <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Challenges" )}
               >

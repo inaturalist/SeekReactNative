@@ -183,6 +183,7 @@ const setupChallenges = () => {
               earnedIconName: challenges.earnedIconName,
               missions: challenges.missions,
               availableDate: challenges.availableDate,
+              photographer: challenges.photographer,
               index: challenges.index
             }, true );
           // }

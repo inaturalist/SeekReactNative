@@ -196,7 +196,15 @@
     "mission_1_august": "Find 10 different insects",
     "mission_1_september": "Find any 10 different species from: dragonflies, amphibians, fish, ducks, mosses, ferns, water lilies, bulbushes, or cattails",
     "mission_1_october": "Find 5 birds",
-    "mission_1_november": "Find 20 plants"
+    "mission_1_november": "Find 20 plants",
+    "photographer_april": "Photo © Netflix / Silverback Films",
+    "photographer_may": "Photo © Huw Cordey, Netflix / Silverback Films",
+    "photographer_june": "Photo © Grace Frank, Netflix / Silverback Films",
+    "photographer_july": "Photo © Jeff Wilson, Netflix / Silverback Films",
+    "photographer_august": "Photo © Ben Macdonald, Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_november": "Photo © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
     "global_observations": "Global Observations",
@@ -423,7 +431,7 @@
   },
   "about": {
     "header": "About",
-    "sponsored": "Seek is sponsored by Our Planet on Netflix.",
+    "sponsored": "Seek is presented by Our Planet and WWF",
     "our_planet": "Our Planet is a landmark natural history TV series released on Netflix in April 2019. This series is a Netflix Original produced by Silverback films and World Wildlife Fund.",
     "seek": "Seek is created by the iNaturalist team.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",

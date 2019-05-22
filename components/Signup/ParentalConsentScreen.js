@@ -16,6 +16,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../GreenHeader";
 import ErrorMessage from "./ErrorMessage";
+import LoadingWheel from "../LoadingWheel";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 
 type Props = {
@@ -28,12 +29,17 @@ class ParentalConsentScreen extends Component<Props> {
 
     this.state = {
       email: "",
-      error: false
+      error: false,
+      loading: false
     };
   }
 
   setError( error ) {
     this.setState( { error } );
+  }
+
+  setLoading( loading ) {
+    this.setState( { loading } );
   }
 
   createJwtToken() {
@@ -49,6 +55,7 @@ class ParentalConsentScreen extends Component<Props> {
   shareEmailWithiNat() {
     const { email } = this.state;
 
+    this.setLoading( true );
     const token = this.createJwtToken();
 
     const params = {
@@ -72,13 +79,14 @@ class ParentalConsentScreen extends Component<Props> {
     } )
       .then( ( responseJson ) => {
         const { status } = responseJson;
-        if ( status === 200 ) {
+        console.log( responseJson );
+        if ( status === 200 || status === 404 ) {
+          this.setLoading( false );
           this.submit();
-        } else {
-          this.setError( true );
         }
-      } ).catch( () => {
-        this.setError( true );
+      } ).catch( ( err ) => {
+        this.setError( err );
+        this.setLoading( false );
       } );
   }
 
@@ -89,7 +97,7 @@ class ParentalConsentScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const { email, error } = this.state;
+    const { email, error, loading } = this.state;
 
     return (
       <View style={styles.container}>
@@ -121,7 +129,8 @@ class ParentalConsentScreen extends Component<Props> {
               autoCorrect={false}
               autoCapitalize="none"
             />
-            {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
+            {loading ? <LoadingWheel /> : null}
+            {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
             <TouchableOpacity
               style={styles.greenButton}
               onPress={() => {
@@ -129,7 +138,7 @@ class ParentalConsentScreen extends Component<Props> {
                   this.setError( false );
                   this.shareEmailWithiNat();
                 } else {
-                  this.setError( true );
+                  this.setError( "email" );
                 }
               }}
             >

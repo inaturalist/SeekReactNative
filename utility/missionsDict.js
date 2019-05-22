@@ -34,7 +34,7 @@ const missions = {
     },
     1: {
       number: 3,
-      types: ["Orthoptera", "Lepidoptera", "Bovines", "Camelids", "Giraffes", "Proboscidea", "Diprotodontia", "Equines", "Lagomorpha", "Rodents", "Sirenians"]
+      types: ["Orthoptera", "Lepidoptera", "Camelids", "Ruminantia", "Mysticeti", "Proboscidea", "Diprotodontia", "Perissodactyla", "Lagomorpha", "Rodents", "Sirenians"]
     },
     2: {
       number: 3,

@@ -43,10 +43,6 @@ const setChallengeNotifications = ( percentComplete, prevPercent, challenge ) =>
   } else if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
-
-  if ( prevPercent < percentComplete ) {
-    setChallengeProgress( challenge.index );
-  }
 };
 
 const updateChallengePercentages = ( challenge ) => {
@@ -58,6 +54,10 @@ const updateChallengePercentages = ( challenge ) => {
   if ( prevPercent !== percentComplete ) {
     challenge.percentComplete = percentComplete;
     setChallengeNotifications( percentComplete, prevPercent, challenge );
+  }
+
+  if ( prevPercent < percentComplete ) {
+    setChallengeProgress( challenge.index );
   }
 };
 

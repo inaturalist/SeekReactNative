@@ -9,6 +9,7 @@ const backgrounds = {
   "img-challengedetail-june": require( "./backgrounds/img-challengedetail-june.png" ),
   "img-homechallenge-april": require( "./backgrounds/img-homechallenge-april.png" ),
   "img-homechallenge-may": require( "./backgrounds/img-homechallenge-may.png" ),
+  "img-homechallenge-june": require( "./backgrounds/img-homechallenge-june.png" )
 };
 
 export default backgrounds;

@@ -40,9 +40,6 @@ const checkForChallengeInProgress = ( percentComplete, prevPercent, challenge ) 
   if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
-  if ( prevPercent < percentComplete ) {
-    setChallengeProgress( challenge.index );
-  }
 };
 
 const checkForChallengeComplete = ( percentComplete, challenge ) => {
@@ -59,6 +56,10 @@ const updateChallengePercentages = ( challenge ) => {
   const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
 
   challenge.percentComplete = percentComplete;
+
+  if ( prevPercent < percentComplete ) {
+    setChallengeProgress( challenge.index );
+  }
 
   checkForChallengeComplete( percentComplete, challenge );
   checkForChallengeInProgress( percentComplete, prevPercent, challenge );

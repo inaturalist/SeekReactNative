@@ -227,7 +227,7 @@ class iNatStatsScreen extends Component<Props> {
                   if ( isLoggedIn ) {
                     this.logUserOut();
                   } else {
-                    navigation.navigate( "LoginOrSignup" );
+                    navigation.navigate( "LoginOrSignup", { backArrow: true } );
                   }
                 }}
               >

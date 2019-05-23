@@ -16,6 +16,6 @@ export default {
     PhotoRealm,
     TaxonRealm
   ],
-  schemaVersion: 6,
+  schemaVersion: 8,
   path: "db.realm"
 };

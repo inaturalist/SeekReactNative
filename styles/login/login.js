@@ -2,68 +2,120 @@ import { StyleSheet, Platform, Dimensions } from "react-native";
 
 import { fonts, colors, padding } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
+    flex: 1
+  },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
     flex: 1,
+    backgroundColor: "transparent"
+  },
+  innerContainer: {
     alignItems: "center",
     justifyContent: "center"
+    // flex: ( Platform.OS === "android" || height < 570 ) ? null : 1
   },
-  logo: {
-    width: 294,
-    height: 105,
+  greenHeaderText: {
+    marginTop: 22,
+    textAlign: "center",
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 23,
+    lineHeight: 30,
+    letterSpacing: 1.0
+  },
+  inputField: {
+    width: 307,
+    backgroundColor: colors.white,
+    height: 37,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: colors.darkGray,
+    paddingLeft: 15
+  },
+  greenButton: {
+    backgroundColor: colors.seekForestGreen,
+    width: 317,
+    height: 52,
+    borderRadius: 34,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    paddingTop: padding.iOSPadding,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    color: colors.white
+  },
+  image: {
+    width: height < 570 ? 150 : 264,
+    height: height < 570 ? 150 : 264,
     resizeMode: "contain",
-    marginBottom: 50
+    marginTop: 36,
+    marginBottom: 44
   },
   headerText: {
-    marginTop: 50,
-    marginHorizontal: 40,
     textAlign: "center",
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 26,
-    lineHeight: 30
+    fontSize: 23,
+    letterSpacing: 1.0
   },
-  keyboardHeaderText: {
-    marginTop: ( width > 350 ) ? 50 : 20
+  header: {
+    textAlign: "center",
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24
   },
   secondHeaderTextContainer: {
-    marginHorizontal: 20
-  },
-  aboutTextContainer: {
-    marginTop: 20,
-    marginHorizontal: 35
+    marginTop: 11,
+    marginHorizontal: 25
   },
   text: {
     textAlign: "center",
     fontFamily: fonts.medium,
     fontSize: 17,
+    lineHeight: 19,
     color: colors.white
   },
   leftTextContainer: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignSelf: "flex-start",
-    marginLeft: 27,
-    marginTop: 10,
-    marginBottom: 5
+    marginLeft: 39,
+    marginTop: 16,
+    marginBottom: 8
   },
   leftText: {
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    color: colors.white
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    color: colors.seekForestGreen
   },
   rightTextContainer: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignSelf: "flex-end",
-    marginRight: 25,
-    marginTop: 10,
-    marginBottom: 10
+    marginRight: 41,
+    marginTop: 11
+  },
+  margin: {
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
+  },
+  greenButtonMargin: {
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 58
   },
   textLink: {
-    marginTop: 30,
+    marginTop: 21,
     fontFamily: fonts.book,
     fontSize: 19,
     color: colors.white,
@@ -72,79 +124,15 @@ export default StyleSheet.create( {
   forgotPasswordText: {
     fontFamily: fonts.book,
     fontSize: 16,
-    color: colors.white,
+    lineHeight: 21,
+    color: colors.seekForestGreen,
     textDecorationLine: "underline"
-  },
-  darkText: {
-    color: colors.black,
-    fontSize: 20,
-    textAlign: "center"
-  },
-  datePickerContainer: {
-    marginTop: Platform.OS === "android" ? 40 : null,
-    marginBottom: Platform.OS === "android" ? 60 : null,
-    alignItems: Platform.OS === "android" ? "center" : null,
-    flex: Platform.OS === "ios" ? 1 : null,
-    justifyContent: "center"
-  },
-  datePickerInputField: {
-    width: 307,
-    textAlign: "center",
-    justifyContent: "center",
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40
-  },
-  inputField: {
-    width: 307,
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40,
-    paddingLeft: 15
-  },
-  greenButton: {
-    backgroundColor: colors.seekiNatGreen,
-    width: 274,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center",
-    elevation: 10,
-    shadowColor: colors.black,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.5,
-    shadowRadius: 4
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 22,
-    color: colors.white
   },
   secondHeaderText: {
     textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 22,
+    fontFamily: fonts.medium,
+    fontSize: 19,
     color: colors.white,
-    lineHeight: 30
-  },
-  keyboardSecondHeaderText: {
-    fontSize: ( width > 350 ) ? 22 : 20,
-    lineHeight: ( width > 350 ) ? 30 : 28
-  },
-  licenseText: {
-    fontFamily: fonts.book,
-    fontSize: 17,
-    lineHeight: 23,
-    color: colors.white
-  },
-  row: {
-    marginTop: 30,
-    marginBottom: 30,
-    marginHorizontal: 40,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
+    lineHeight: 24
   }
 } );

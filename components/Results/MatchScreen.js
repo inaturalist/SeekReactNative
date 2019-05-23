@@ -16,10 +16,12 @@ import Realm from "realm";
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
 import styles from "../../styles/results/results";
+import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
+import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import {
   recalculateBadges,
@@ -38,7 +40,13 @@ type Props = {
   taxaName: string,
   taxaId: number,
   userImage: string,
-  navigation: any
+  image: string,
+  navigation: any,
+  isLoggedIn: boolean,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number
 }
 
 class MatchScreen extends Component<Props> {
@@ -221,7 +229,14 @@ class MatchScreen extends Component<Props> {
       taxaName,
       speciesSeenImage,
       userImage,
-      navigation
+      image,
+      navigation,
+      isLoggedIn,
+      taxaId,
+      scientificName,
+      latitude,
+      longitude,
+      time
     } = this.props;
 
     const {
@@ -313,6 +328,25 @@ class MatchScreen extends Component<Props> {
               >
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
+              <View style={{ marginBottom: 28 }} />
+              {isLoggedIn
+                ? (
+                  <PostToiNat
+                    navigation={navigation}
+                    color={colors.seekForestGreen}
+                    taxaInfo={{
+                      taxaName,
+                      taxaId,
+                      image,
+                      userImage,
+                      scientificName,
+                      latitude,
+                      longitude,
+                      time
+                    }}
+                  />
+                ) : null
+              }
             </View>
             <Padding />
           </ScrollView>

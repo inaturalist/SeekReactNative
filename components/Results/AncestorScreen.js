@@ -12,23 +12,39 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/results/results";
+import { colors } from "../../styles/global";
 import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import i18n from "../../i18n";
 import BackArrow from "../BackArrow";
+import PostToiNat from "./PostToiNat";
 
 type Props = {
   speciesSeenImage: string,
   commonAncestor: string,
   userImage: string,
-  navigation: any
+  image: string,
+  navigation: any,
+  isLoggedIn: boolean,
+  taxaId: number,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number
 }
 
 const MatchScreen = ( {
   commonAncestor,
   speciesSeenImage,
   userImage,
-  navigation
+  image,
+  navigation,
+  isLoggedIn,
+  taxaId,
+  scientificName,
+  latitude,
+  longitude,
+  time
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#175f67" }} />
@@ -62,6 +78,24 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
+          {isLoggedIn
+            ? (
+              <PostToiNat
+                navigation={navigation}
+                color={colors.seekTeal}
+                taxaInfo={{
+                  taxaName: commonAncestor,
+                  taxaId,
+                  image,
+                  userImage,
+                  scientificName,
+                  latitude,
+                  longitude,
+                  time
+                }}
+              />
+            ) : null
+          }
         </View>
         <Padding />
       </ScrollView>

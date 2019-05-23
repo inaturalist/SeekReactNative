@@ -3,7 +3,7 @@ import i18n from "../i18n";
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage, Platform } = require( "react-native" );
+const { AsyncStorage, Platform, Alert } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
@@ -79,6 +79,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           name: observation.taxon.name,
           preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
           iconicTaxonId: observation.taxon.iconic_taxon_id,
+          ancestorIds: observation.taxon.ancestor_ids,
           defaultPhoto
         } );
         const species = realm.create( "ObservationRealm", {

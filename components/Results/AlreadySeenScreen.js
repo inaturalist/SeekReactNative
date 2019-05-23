@@ -11,9 +11,11 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
+import { colors } from "../../styles/global";
 import styles from "../../styles/results/results";
 import BackArrow from "../BackArrow";
 import Footer from "../Home/Footer";
+import PostToiNat from "./PostToiNat";
 import Padding from "../Padding";
 import i18n from "../../i18n";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
@@ -24,16 +26,28 @@ type Props = {
   taxaId: number,
   userImage: string,
   navigation: any,
-  seenDate: string
+  seenDate: string,
+  image: string,
+  isLoggedIn: boolean,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number
 }
 
 const AlreadySeenScreen = ( {
-  taxaName,
-  taxaId,
   speciesSeenImage,
   userImage,
+  image,
   navigation,
-  seenDate
+  isLoggedIn,
+  taxaId,
+  scientificName,
+  latitude,
+  longitude,
+  taxaName,
+  seenDate,
+  time
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
@@ -79,6 +93,25 @@ const AlreadySeenScreen = ( {
           >
             <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
           </TouchableOpacity>
+          <View style={{ marginBottom: 28 }} />
+          {isLoggedIn
+            ? (
+              <PostToiNat
+                navigation={navigation}
+                color={colors.seekForestGreen}
+                taxaInfo={{
+                  taxaName,
+                  taxaId,
+                  image,
+                  userImage,
+                  scientificName,
+                  latitude,
+                  longitude,
+                  time
+                }}
+              />
+            ) : null
+          }
         </View>
         <Padding />
       </ScrollView>

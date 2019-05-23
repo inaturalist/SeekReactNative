@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -16,7 +16,6 @@
     "i18n-js": "^3.1.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.22.2",
-    "prop-types": "^15.7.2",
     "react": "^16.6.1",
     "react-native": "^0.57.4",
     "react-native-check-box": "^2.1.7",
@@ -30,6 +29,7 @@
     "react-native-linear-gradient": "^2.5.3",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
     "react-native-modal": "^6.5.0",
+    "react-native-modal-datetime-picker": "^7.4.0",
     "react-native-open-settings": "^1.0.1",
     "react-native-permissions": "^1.1.1",
     "react-native-picker-select": "^5.2.0",

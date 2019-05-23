@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
@@ -27,6 +28,7 @@ import {
   flattenUploadParameters,
   getTaxonCommonName
 } from "../../utility/helpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
@@ -65,7 +67,10 @@ class Results extends Component<Props> {
       seenDate: null,
       loading: true,
       photoConfirmed: false,
-      error: null
+      error: null,
+      scientificName: null,
+      isLoggedIn: false,
+      imageForUploading: null
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -79,11 +84,22 @@ class Results extends Component<Props> {
     }
   }
 
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
   setLocation( location ) {
     this.setState( {
       latitude: Number( location.latitude ),
       longitude: Number( location.longitude )
     } );
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   setImageUri( uri ) {
@@ -112,7 +128,8 @@ class Results extends Component<Props> {
       this.setState( {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,
-        speciesSeenImage
+        speciesSeenImage,
+        scientificName: ancestor.name
       }, () => this.showNoMatch() );
     } );
   }
@@ -125,6 +142,7 @@ class Results extends Component<Props> {
       observation: species,
       taxaId: taxon.id,
       taxaName: capitalizeNames( taxon.preferred_common_name || taxon.name ),
+      scientificName: taxon.name,
       speciesSeenImage: photo ? photo.medium_url : null
     }, () => this.showMatch() );
   }
@@ -137,7 +155,9 @@ class Results extends Component<Props> {
       commonAncestor: commonAncestor
         ? capitalizeNames( taxon.preferred_common_name || taxon.name )
         : null,
-      speciesSeenImage: photo ? photo.medium_url : null
+      taxaId: taxon.id,
+      speciesSeenImage: photo ? photo.medium_url : null,
+      scientificName: taxon.name
     }, () => this.showNoMatch() );
   }
 
@@ -204,13 +224,15 @@ class Results extends Component<Props> {
 
       this.setState( {
         taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
+        scientificName: taxa.name,
         observation: {
           taxon: {
             default_photo: taxa.default_photo,
             id: Number( taxaId ),
             name: taxa.name,
             preferred_common_name: taxa.preferred_common_name,
-            iconic_taxon_id: taxa.iconic_taxon_id
+            iconic_taxon_id: taxa.iconic_taxon_id,
+            ancestor_ids: taxa.ancestor_ids
           }
         },
         speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
@@ -256,6 +278,29 @@ class Results extends Component<Props> {
         } else {
           userImage = uri;
           this.setImageUri( userImage );
+        }
+      } ).catch( () => {
+        this.setError( "image" );
+      } );
+  }
+
+  setImageForUploading( imageForUploading ) {
+    this.setState( { imageForUploading } );
+  }
+
+  resizeImageForUploading() {
+    const { image } = this.state;
+
+    ImageResizer.createResizedImage( image.uri, 2048, 2048, "JPEG", 80 )
+      .then( ( { uri } ) => {
+        let userImage;
+        if ( Platform.OS === "ios" ) {
+          const uriParts = uri.split( "://" );
+          userImage = uriParts[uriParts.length - 1];
+          this.setImageForUploading( userImage );
+        } else {
+          userImage = uri;
+          this.setImageForUploading( userImage );
         }
       } ).catch( () => {
         this.setError( "image" );
@@ -334,9 +379,14 @@ class Results extends Component<Props> {
       commonAncestor,
       seenDate,
       loading,
-      image,
+      imageForUploading,
       photoConfirmed,
-      error
+      error,
+      isLoggedIn,
+      scientificName,
+      latitude,
+      longitude,
+      time
     } = this.state;
     const { navigation } = this.props;
 
@@ -355,10 +405,16 @@ class Results extends Component<Props> {
         <AlreadySeenScreen
           navigation={navigation}
           userImage={userImage}
+          image={imageForUploading}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
           seenDate={seenDate}
+          isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
+          time={time}
         />
       );
     } else if ( match && taxaName ) {
@@ -366,9 +422,15 @@ class Results extends Component<Props> {
         <MatchScreen
           navigation={navigation}
           userImage={userImage}
+          image={imageForUploading}
           taxaName={taxaName}
           taxaId={taxaId}
           speciesSeenImage={speciesSeenImage}
+          isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
+          time={time}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -376,8 +438,15 @@ class Results extends Component<Props> {
         <AncestorScreen
           navigation={navigation}
           userImage={userImage}
+          image={imageForUploading}
           speciesSeenImage={speciesSeenImage}
           commonAncestor={commonAncestor}
+          isLoggedIn={isLoggedIn}
+          taxaId={taxaId}
+          scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
+          time={time}
         />
       );
     } else {
@@ -385,6 +454,12 @@ class Results extends Component<Props> {
         <NoMatchScreen
           navigation={navigation}
           userImage={userImage}
+          image={imageForUploading}
+          isLoggedIn={isLoggedIn}
+          scientificName={scientificName}
+          latitude={latitude}
+          longitude={longitude}
+          time={time}
         />
       );
     }
@@ -393,8 +468,10 @@ class Results extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
+            this.resizeImageForUploading();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();
           }}
@@ -404,7 +481,7 @@ class Results extends Component<Props> {
           : (
             <ConfirmScreen
               navigation={navigation}
-              image={image}
+              image={imageForUploading}
               photoConfirmed={photoConfirmed}
               loading={loading}
               confirmPhoto={this.confirmPhoto}

@@ -9,10 +9,18 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
+  safeViewTop: {
+    flex: 0,
+    backgroundColor: colors.seekForestGreen
+  },
+  safeView: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
   textContainer: {
     marginHorizontal: 29,
-    marginTop: 29,
-    marginBottom: 29
+    marginTop: 27,
+    marginBottom: 27
   },
   text: {
     fontFamily: fonts.book,

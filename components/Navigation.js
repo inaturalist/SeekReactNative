@@ -28,27 +28,32 @@ import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./Home/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
-// import LoginScreen from "./Login/LoginScreen";
-// import AgeVerifyScreen from "./Login/AgeVerifyScreen";
-// import iNatLoginScreen from "./Login/iNatLoginScreen";
-// import CheckEmailScreen from "./Login/CheckEmailScreen";
-// import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
-// import WelcomeScreen from "./Login/WelcomeScreen";
-// import ParentalConsentScreen from "./Login/ParentalConsentScreen";
-// import SignUpScreen from "./Login/SignUpScreen-1";
-// import SignUpScreen2 from "./Login/SignUpScreen-2";
-// import ParentCheckEmailScreen from "./Login/ParentCheckEmailScreen";
-// import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import LoginOrSignupScreen from "./LoginOrSignupScreen";
+import LoginScreen from "./Login/LoginScreen";
+import LoginSuccessScreen from "./Login/LoginSuccessScreen";
+import ForgotPasswordScreen from "./Login/ForgotPasswordScreen";
+import PasswordEmailScreen from "./Login/PasswordEmailScreen";
+import AgeVerifyScreen from "./Signup/AgeVerifyScreen";
+import ParentalConsentScreen from "./Signup/ParentalConsentScreen";
+import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
+import LicensePhotosScreen from "./Signup/LicensePhotosScreen";
+import SignUpScreen from "./Signup/SignUpScreen";
+import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import PostScreen from "./PostToiNat/PostScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
+  const { route } = nextScene;
 
-  if ( nextScene.route.routeName === "Notifications" ) {
-    return fromRight();
+  if ( route ) {
+    if ( route.routeName === "Notifications" ) {
+      return fromRight();
+    }
+    if ( route.routeName === "Camera" ) {
+      return fromBottom( 100 );
+    }
   }
-  if ( nextScene.route.routeName === "Camera" ) {
-    return fromBottom( 100 );
-  }
+
   return fadeIn();
 };
 
@@ -156,6 +161,10 @@ const MainStack = createStackNavigator( {
   RangeMap: {
     screen: RangeMap,
     navigationOptions: () => noHeader
+  },
+  Post: {
+    screen: PostScreen,
+    navigationOptions: () => noHeader
   }
 }, {
   transitionConfig: nav => handleCustomTransition( nav )
@@ -185,83 +194,52 @@ const MenuDrawerNav = createDrawerNavigator( {
   }
 }, DrawerNavigatorConfig );
 
-// const LoginStack = createStackNavigator( {
-//   Login: {
-//     screen: LoginScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Age: {
-//     screen: AgeVerifyScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   iNatLogin: {
-//     screen: iNatLoginScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Forgot: {
-//     screen: ForgotPasswordScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   CheckEmail: {
-//     screen: CheckEmailScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   ParentCheckEmail: {
-//     screen: ParentCheckEmailScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Welcome: {
-//     screen: WelcomeScreen,
-//     navigationOptions: () => ( {
-//       header: null
-//     } )
-//   },
-//   Parent: {
-//     screen: ParentalConsentScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Signup: {
-//     screen: SignUpScreen,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Signup2: {
-//     screen: SignUpScreen2,
-//     navigationOptions: () => ( {
-//       headerTransparent: true,
-//       headerBackImage: backButton
-//     } )
-//   },
-//   Privacy: {
-//     screen: PrivacyPolicyScreen,
-//     navigationOptions: () => ( {
-//       title: i18n.t( "privacy.header" ),
-//       headerStyle: styles.greenHeader,
-//       headerTitleStyle: styles.whiteHeaderTitle,
-//       headerBackImage: backButton
-//     } )
-//   }
-// } );
+const LoginStack = createStackNavigator( {
+  LoginOrSignup: {
+    screen: LoginOrSignupScreen,
+    navigationOptions: () => noHeader
+  },
+  Age: {
+    screen: AgeVerifyScreen,
+    navigationOptions: () => noHeader
+  },
+  LoginScreen: {
+    screen: LoginScreen,
+    navigationOptions: () => noHeader
+  },
+  Forgot: {
+    screen: ForgotPasswordScreen,
+    navigationOptions: () => noHeader
+  },
+  PasswordEmail: {
+    screen: PasswordEmailScreen,
+    navigationOptions: () => noHeader
+  },
+  ParentCheckEmail: {
+    screen: ParentCheckEmailScreen,
+    navigationOptions: () => noHeader
+  },
+  LoginSuccess: {
+    screen: LoginSuccessScreen,
+    navigationOptions: () => noHeader
+  },
+  Parent: {
+    screen: ParentalConsentScreen,
+    navigationOptions: () => noHeader
+  },
+  LicensePhotos: {
+    screen: LicensePhotosScreen,
+    navigationOptions: () => noHeader
+  },
+  Signup: {
+    screen: SignUpScreen,
+    navigationOptions: () => noHeader
+  },
+  Privacy: {
+    screen: PrivacyPolicyScreen,
+    navigationOptions: () => noHeader
+  }
+} );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -270,9 +248,9 @@ const RootStack = createStackNavigator( {
   Onboarding: {
     screen: OnboardingScreen
   },
-  // Login: {
-  //   screen: LoginStack
-  // },
+  Login: {
+    screen: LoginStack
+  },
   Main: {
     screen: MenuDrawerNav
   }

@@ -12,4 +12,3 @@ const iconicTaxaNames = {
 };
 
 export default iconicTaxaNames;
-

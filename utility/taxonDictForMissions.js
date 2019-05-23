@@ -9,20 +9,18 @@ const taxonIds = {
   arachnids: 47119,
   fungi: 47170,
   plants: 47126,
-  all: null,
   Orthoptera: 47651,
   Lepidoptera: 47157,
-  Bovines: 568826,
+  Ruminantia: 424850,
+  Mysticeti: 424321,
   Camelids: 42231,
-  Giraffes: 42153,
   Proboscidea: 43691,
   Diprotodontia: 42711,
-  Equines: 43328,
+  Perissodactyla: 43327,
   Lagomorpha: 43094,
   Rodents: 43698,
   Sirenians: 46306,
   carnivora: 41573,
-  spiders: 47118,
   mantid: 48111,
   Pinales: 47375,
   Arecaceae: 48867,
@@ -53,7 +51,8 @@ const taxonIds = {
   Lemnoideae: 502646,
   Typhaceae: 48694,
   Polypodiopsida: 121943,
-  Bryophyta: 311249
+  Bryophyta: 311249,
+  all: null
 };
 
 export default taxonIds;

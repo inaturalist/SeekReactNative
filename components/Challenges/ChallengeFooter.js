@@ -35,8 +35,10 @@ const Footer = ( { navigation }: Props ) => (
           hitSlop={styles.touchable}
           style={styles.button}
           onPress={() => {
-            if ( navigation.state.routeName !== "iNatStats" ) {
-              navigation.navigate( "iNatStats" );
+            if ( navigation.state ) {
+              if ( navigation.state.routeName !== "iNatStats" ) {
+                navigation.navigate( "iNatStats" );
+              }
             }
           }}
         >

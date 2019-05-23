@@ -71,8 +71,10 @@ class Footer extends Component<Props> {
               hitSlop={styles.touchable}
               style={styles.button}
               onPress={() => {
-                if ( navigation.state.routeName !== "Notifications" ) {
-                  navigation.navigate( "Notifications" );
+                if ( navigation.state ) {
+                  if ( navigation.state.routeName !== "Notifications" ) {
+                    navigation.navigate( "Notifications" );
+                  }
                 }
               }}
             >

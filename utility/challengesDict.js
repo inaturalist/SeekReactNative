@@ -10,6 +10,7 @@ const challenges = {
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2019, 3, 1 ),
+    photographer: "challenges.photographer_april",
     index: 0
   },
   may: {
@@ -29,6 +30,7 @@ const challenges = {
       "challenges.mission_5_may"
     ],
     availableDate: new Date( 2019, 4, 1 ),
+    photographer: "challenges.photographer_may",
     index: 1
   },
   june: {
@@ -36,10 +38,10 @@ const challenges = {
     month: "challenges.june_2019",
     description: "challenges.june_description",
     totalSpecies: 13,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
+    homeBackgroundName: "img-homechallenge-june",
+    backgroundName: "img-challengedetail-june",
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
+    earnedIconName: "badge_ourplanet_june",
     missions: [
       "challenges.mission_1_june",
       "challenges.mission_2_june",
@@ -47,83 +49,89 @@ const challenges = {
       "challenges.mission_4_june"
     ],
     availableDate: new Date( 2019, 5, 1 ),
+    photographer: "challenges.photographer_june",
     index: 2
-  },
-  july: {
-    name: "challenges.resilience",
-    month: "challenges.july_2019",
-    description: "challenges.july_description",
-    totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
-    missions: [
-      "challenges.mission_1_july"
-    ],
-    availableDate: new Date( 2019, 6, 1 ),
-    index: 3
-  },
-  august: {
-    name: "challenges.farming",
-    month: "challenges.august_2019",
-    description: "challenges.august_description",
-    totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
-    missions: [
-      "challenges.mission_1_august"
-    ],
-    availableDate: new Date( 2019, 7, 1 ),
-    index: 4
-  },
-  september: {
-    name: "challenges.flow",
-    month: "challenges.september_2019",
-    description: "challenges.september_description",
-    totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
-    missions: [
-      "challenges.mission_1_september"
-    ],
-    availableDate: new Date( 2019, 8, 1 ),
-    index: 5
-  },
-  october: {
-    name: "challenges.hotspots",
-    month: "challenges.october_2019",
-    description: "challenges.october_description",
-    totalSpecies: 5,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
-    missions: [
-      "challenges.mission_1_october"
-    ],
-    availableDate: new Date( 2019, 9, 1 ),
-    index: 6
-  },
-  november: {
-    name: "challenges.ice",
-    month: "challenges.november_2019",
-    description: "challenges.november_description",
-    totalSpecies: 20,
-    homeBackgroundName: "img-homechallenge-may",
-    backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
-    missions: [
-      "challenges.mission_1_november"
-    ],
-    availableDate: new Date( 2019, 10, 1 ),
-    index: 7
   }
+  // july: {
+  //   name: "challenges.resilience",
+  //   month: "challenges.july_2019",
+  //   description: "challenges.july_description",
+  //   totalSpecies: 10,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_july"
+  //   ],
+  //   availableDate: new Date( 2019, 6, 1 ),
+  //   photographer: "challenges.photographer_july",
+  //   index: 3
+  // },
+  // august: {
+  //   name: "challenges.farming",
+  //   month: "challenges.august_2019",
+  //   description: "challenges.august_description",
+  //   totalSpecies: 10,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_august"
+  //   ],
+  //   availableDate: new Date( 2019, 7, 1 ),
+  //   photographer: "challenges.photographer_august",
+  //   index: 4
+  // },
+  // september: {
+  //   name: "challenges.flow",
+  //   month: "challenges.september_2019",
+  //   description: "challenges.september_description",
+  //   totalSpecies: 10,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_september"
+  //   ],
+  //   availableDate: new Date( 2019, 8, 1 ),
+  //   photographer: "challenges.photographer_september",
+  //   index: 5
+  // },
+  // october: {
+  //   name: "challenges.hotspots",
+  //   month: "challenges.october_2019",
+  //   description: "challenges.october_description",
+  //   totalSpecies: 5,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_october"
+  //   ],
+  //   availableDate: new Date( 2019, 9, 1 ),
+  //   photographer: "challenges.photographer_october",
+  //   index: 6
+  // },
+  // november: {
+  //   name: "challenges.ice",
+  //   month: "challenges.november_2019",
+  //   description: "challenges.november_description",
+  //   totalSpecies: 20,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_november"
+  //   ],
+  //   availableDate: new Date( 2019, 10, 1 ),
+  //   photographer: "challenges.photographer_november",
+  //   index: 7
+  // }
 };
 
 export default challenges;

@@ -239,7 +239,8 @@
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
-    "error_ancestor": "Sorry, we couldn't fetch taxonomy data for this image. Please check your internet connection and try again."
+    "error_ancestor": "Sorry, we couldn't fetch taxonomy data for this image. Please check your internet connection and try again.",
+    "error_location": "Seek can't add species to your observations without location permissions enabled"
   },
   "banner": {
     "view": "View badge",

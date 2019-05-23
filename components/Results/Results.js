@@ -346,7 +346,14 @@ class Results extends Component<Props> {
       image
     } = this.state;
 
-    addToCollection( observation, latitude, longitude, image );
+    if ( latitude && longitude ) {
+      addToCollection( observation, latitude, longitude, image );
+    } else {
+      Alert.alert(
+        i18n.t( "species_nearby.enable_location" ),
+        i18n.t( "results.error_location" )
+      );
+    }
   }
 
   checkDateSpeciesSeen( taxaId ) {

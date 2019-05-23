@@ -6,18 +6,13 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  ImageBackground,
-  Dimensions
+  ImageBackground
 } from "react-native";
 
 import i18n from "../i18n";
 import styles from "../styles/loginOrSignup";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
-import backStyles from "../styles/backArrow";
-import icons from "../assets/icons";
-
-const { height } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -28,15 +23,6 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     style={styles.container}
     source={backgrounds.splash}
   >
-    {navigation.state && navigation.state.params && navigation.state.params.backArrow ? (
-      <TouchableOpacity
-        hitSlop={backStyles.touchable}
-        style={[backStyles.backButton, { position: "absolute", top: height > 670 ? 58 : 18 }]}
-        onPress={() => navigation.navigate( "iNatStats" )}
-      >
-        <Image source={icons.backButton} />
-      </TouchableOpacity>
-    ) : null}
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.buttonContainer}>
       <TouchableOpacity

@@ -28,7 +28,7 @@ class CaptivePicker extends Component<Props> {
     this.inputRefs = {};
 
     this.state = {
-      captive: i18n.t( "posting.no" ),
+      captive: false,
       types: [
         {
           label: i18n.t( "posting.no" ),
@@ -45,7 +45,11 @@ class CaptivePicker extends Component<Props> {
   setCaptive( captive ) {
     const { updateCaptive } = this.props;
 
-    this.setState( { captive } );
+    if ( captive === i18n.t( "posting.no" ) ) {
+      this.setState( { captive: false } );
+    } else {
+      this.setState( { captive: true } );
+    }
     updateCaptive( captive );
   }
 

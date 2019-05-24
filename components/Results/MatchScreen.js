@@ -329,7 +329,7 @@ class MatchScreen extends Component<Props> {
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
               <View style={{ marginBottom: 28 }} />
-              {isLoggedIn
+              {isLoggedIn && latitude && longitude
                 ? (
                   <PostToiNat
                     navigation={navigation}

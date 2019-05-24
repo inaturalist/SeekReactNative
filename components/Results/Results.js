@@ -12,6 +12,7 @@ import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
+import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -350,8 +351,16 @@ class Results extends Component<Props> {
       addToCollection( observation, latitude, longitude, image );
     } else {
       Alert.alert(
-        i18n.t( "species_nearby.enable_location" ),
-        i18n.t( "results.error_location" )
+        i18n.t( "results.enable_location" ),
+        i18n.t( "results.error_location" ),
+        [{
+          text: i18n.t( "species_nearby.enable_location" ),
+          onPress: () => OpenSettings.openSettings()
+        },
+        {
+          text: i18n.t( "posting.ok" ),
+          style: "default"
+        }]
       );
     }
   }

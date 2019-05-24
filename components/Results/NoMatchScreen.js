@@ -70,7 +70,7 @@ const NoMatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          {isLoggedIn
+          {isLoggedIn && latitude && longitude
             ? (
               <PostToiNat
                 navigation={navigation}

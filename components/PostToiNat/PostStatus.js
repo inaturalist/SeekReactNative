@@ -32,6 +32,7 @@ const PostStatus = ( {
   if ( loading ) {
     headerText = i18n.t( "posting.posting" ).toLocaleUpperCase();
     image = <LoadingWheel color={colors.seekiNatGreen} />;
+    extraText = <Text style={styles.text}>{i18n.t( "posting.wait" )}</Text>;
   } else if ( !loading && postingSuccess ) {
     headerText = i18n.t( "posting.posting_success" ).toLocaleUpperCase();
     image = <Image source={posting.iNatuploading} />;

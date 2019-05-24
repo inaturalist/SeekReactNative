@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal,
-  Alert
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -51,8 +50,8 @@ class PostScreen extends Component<Props> {
       longitude,
       location: null,
       date: moment.unix( time ).format( "YYYY-MM-DD" ),
-      captive: "no",
-      geoprivacy: "yes",
+      captive: null,
+      geoprivacy: null,
       taxon: {
         preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
         name: scientificName,
@@ -237,12 +236,29 @@ class PostScreen extends Component<Props> {
       longitude
     } = this.state;
 
+    let captiveState;
+    let geoprivacyState;
+
+    if ( captive === i18n.t( "posting.yes" ) ) {
+      captiveState = true;
+    } else {
+      captiveState = false;
+    }
+
+    if ( geoprivacy === i18n.t( "posting.private" ) ) {
+      geoprivacyState = "private";
+    } else if ( geoprivacy === i18n.t( "posting.obscured" ) ) {
+      geoprivacyState = "obscured";
+    } else {
+      geoprivacyState = "open";
+    }
+
     const params = {
       observation: {
         observed_on_string: date,
         taxon_id: taxon.taxaId,
-        geoprivacy: geoprivacy.toLowerCase(),
-        captive,
+        geoprivacy: geoprivacyState,
+        captive_flag: captiveState,
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version

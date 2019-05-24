@@ -221,6 +221,7 @@
   "results": {
     "observed_species": "You observed a new species!",
     "learn_more": "It’s been added to your observations.\nLearn more about this species here:",
+    "learn_more_no_location": "Learn more about this species here:",
     "view_species": "View Species",
     "back": "Back to Camera",
     "no_identification": "We weren’t able to identify this photo",

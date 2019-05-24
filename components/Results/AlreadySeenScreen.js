@@ -32,7 +32,8 @@ type Props = {
   scientificName: string,
   latitude: number,
   longitude: number,
-  time: number
+  time: number,
+  postingSuccess: boolean
 }
 
 const AlreadySeenScreen = ( {
@@ -47,7 +48,8 @@ const AlreadySeenScreen = ( {
   longitude,
   taxaName,
   seenDate,
-  time
+  time,
+  postingSuccess
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
@@ -94,7 +96,7 @@ const AlreadySeenScreen = ( {
             <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
           </TouchableOpacity>
           <View style={{ marginBottom: 28 }} />
-          {isLoggedIn && latitude && longitude
+          {isLoggedIn && latitude && longitude && !postingSuccess
             ? (
               <PostToiNat
                 navigation={navigation}

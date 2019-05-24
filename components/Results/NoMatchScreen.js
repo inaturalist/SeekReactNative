@@ -28,7 +28,8 @@ type Props = {
   scientificName: string,
   latitude: number,
   longitude: number,
-  time: number
+  time: number,
+  postingSuccess: boolean
 }
 
 const NoMatchScreen = ( {
@@ -41,7 +42,8 @@ const NoMatchScreen = ( {
   scientificName,
   latitude,
   longitude,
-  time
+  time,
+  postingSuccess
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#404040" }} />
@@ -70,7 +72,7 @@ const NoMatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          {isLoggedIn && latitude && longitude
+          {isLoggedIn && latitude && longitude && !postingSuccess
             ? (
               <PostToiNat
                 navigation={navigation}

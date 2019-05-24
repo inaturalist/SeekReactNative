@@ -48,7 +48,8 @@ class Results extends Component<Props> {
       time,
       latitude,
       longitude,
-      predictions
+      predictions,
+      postingSuccess
     } = navigation.state.params;
 
     this.state = {
@@ -71,7 +72,8 @@ class Results extends Component<Props> {
       error: null,
       scientificName: null,
       isLoggedIn: false,
-      imageForUploading: null
+      imageForUploading: null,
+      postingSuccess: postingSuccess || false
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -402,7 +404,8 @@ class Results extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time
+      time,
+      postingSuccess
     } = this.state;
     const { navigation } = this.props;
 
@@ -431,6 +434,7 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
+          postingSuccess={postingSuccess}
         />
       );
     } else if ( match && taxaName ) {
@@ -447,6 +451,7 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
+          postingSuccess={postingSuccess}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -463,6 +468,7 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
+          postingSuccess={postingSuccess}
         />
       );
     } else {
@@ -476,6 +482,7 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
+          postingSuccess={postingSuccess}
         />
       );
     }

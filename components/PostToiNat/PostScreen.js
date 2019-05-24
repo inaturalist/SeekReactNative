@@ -17,7 +17,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 // import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
-import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -93,19 +93,6 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  checkForTruncatedCoordinates( latitude ) {
-    if ( latitude ) {
-      const string = latitude.toString();
-      const split = string.split( "." );
-
-      if ( split[1].length === 2 ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-
   async getToken() {
     this.setLoading( true );
     const token = await fetchAccessToken();
@@ -134,6 +121,24 @@ class PostScreen extends Component<Props> {
     this.setState( { location } );
   }
 
+  setPostSucceeded() {
+    savePostingSuccess( true );
+
+    this.setState( {
+      postingSuccess: true,
+      loading: false
+    } );
+  }
+
+  setPostFailed() {
+    savePostingSuccess( false );
+
+    this.setState( {
+      postingSuccess: false,
+      loading: false
+    } );
+  }
+
   showDateTimePicker = () => {
     this.setState( { isDateTimePickerVisible: true } );
   };
@@ -149,6 +154,18 @@ class PostScreen extends Component<Props> {
       }, this.hideDateTimePicker() );
     }
   };
+
+  checkForTruncatedCoordinates( latitude ) {
+    if ( latitude ) {
+      const string = latitude.toString();
+      const split = string.split( "." );
+
+      if ( split[1].length === 2 ) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   togglePostModal() {
     const { showPostModal } = this.state;
@@ -187,20 +204,6 @@ class PostScreen extends Component<Props> {
       this.setLocation( locality || subAdminArea );
     } ).catch( () => {
       console.log( "couldn't geocode location" );
-    } );
-  }
-
-  setPostSucceeded() {
-    this.setState( {
-      postingSuccess: true,
-      loading: false
-    } );
-  }
-
-  setPostFailed() {
-    this.setState( {
-      postingSuccess: false,
-      loading: false
     } );
   }
 

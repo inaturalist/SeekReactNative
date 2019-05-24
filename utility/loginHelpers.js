@@ -62,6 +62,19 @@ const checkIfFirstLogin = async () => {
   }
 };
 
+const savePostingSuccess = ( success ) => {
+  AsyncStorage.setItem( "posting_success", success.toString() );
+};
+
+const fetchPostingSuccess = async () => {
+  try {
+    const success = await AsyncStorage.getItem( "posting_success" );
+    return success;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   saveAccessToken,
   fetchAccessToken,
@@ -70,5 +83,7 @@ export {
   checkIsEmailValid,
   checkIsUsernameValid,
   setSeenLogin,
-  checkIfFirstLogin
+  checkIfFirstLogin,
+  savePostingSuccess,
+  fetchPostingSuccess
 };

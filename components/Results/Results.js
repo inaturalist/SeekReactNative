@@ -48,8 +48,7 @@ class Results extends Component<Props> {
       time,
       latitude,
       longitude,
-      predictions,
-      postingSuccess
+      predictions
     } = navigation.state.params;
 
     this.state = {
@@ -72,8 +71,7 @@ class Results extends Component<Props> {
       error: null,
       scientificName: null,
       isLoggedIn: false,
-      imageForUploading: null,
-      postingSuccess: postingSuccess || false
+      imageForUploading: null
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -99,6 +97,10 @@ class Results extends Component<Props> {
       latitude: Number( location.latitude ),
       longitude: Number( location.longitude )
     } );
+  }
+
+  setImageForUploading( imageForUploading ) {
+    this.setState( { imageForUploading } );
   }
 
   setLoggedIn( isLoggedIn ) {
@@ -194,16 +196,6 @@ class Results extends Component<Props> {
     this.fetchScore( params );
   }
 
-  checkOnlineOrOfflineVision() {
-    const { predictions } = this.state;
-
-    if ( predictions && predictions.length > 0 ) {
-      this.setARCameraVisionResults();
-    } else {
-      this.getParamsForOnlineVision();
-    }
-  }
-
   async showMatch() {
     await this.addObservation();
     this.setMatch( true );
@@ -287,8 +279,14 @@ class Results extends Component<Props> {
       } );
   }
 
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
+  checkOnlineOrOfflineVision() {
+    const { predictions } = this.state;
+
+    if ( predictions && predictions.length > 0 ) {
+      this.setARCameraVisionResults();
+    } else {
+      this.getParamsForOnlineVision();
+    }
   }
 
   resizeImageForUploading() {
@@ -404,8 +402,7 @@ class Results extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time,
-      postingSuccess
+      time
     } = this.state;
     const { navigation } = this.props;
 
@@ -434,7 +431,6 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
-          postingSuccess={postingSuccess}
         />
       );
     } else if ( match && taxaName ) {
@@ -451,7 +447,6 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
-          postingSuccess={postingSuccess}
         />
       );
     } else if ( !match && commonAncestor ) {
@@ -468,7 +463,6 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
-          postingSuccess={postingSuccess}
         />
       );
     } else {
@@ -482,7 +476,6 @@ class Results extends Component<Props> {
           latitude={latitude}
           longitude={longitude}
           time={time}
-          postingSuccess={postingSuccess}
         />
       );
     }

@@ -87,7 +87,13 @@ const SpeciesPhotos = ( {
         </ScrollView>
       )}
       <TouchableOpacity
-        onPress={() => navigation.navigate( route )}
+        onPress={() => {
+          if ( route ) {
+            navigation.navigate( route );
+          } else {
+            navigation.navigate( "Main" );
+          }
+        }}
         hitSlop={styles.touchable}
         style={styles.backButton}
       >

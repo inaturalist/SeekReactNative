@@ -8,6 +8,7 @@ const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
+const { createNotification } = require( "./notificationHelpers" );
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -62,9 +63,19 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
+const checkForPowerUsers = ( length, newLength ) => {
+  if ( length < newLength ) {
+    if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
+      createNotification( "badgeEarned" );
+    }
+  }
+};
+
 const addToCollection = ( observation, latitude, longitude, image ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
+      const { length } = realm.objects( "TaxonRealm" );
+
       realm.write( () => {
         let defaultPhoto;
         const p = observation.taxon.default_photo;
@@ -91,6 +102,8 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
           placeName: reverseGeocodeLocation( latitude, longitude )
         } );
       } );
+      const newLength = realm.objects( "TaxonRealm" ).length;
+      checkForPowerUsers( length, newLength );
     } ).catch( ( e ) => {
       console.log( e, "error adding to collection" );
     } );

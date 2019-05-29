@@ -1,6 +1,5 @@
 const Realm = require( "realm" );
 const { AsyncStorage } = require( "react-native" );
-const { createNotification } = require( "./notificationHelpers" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );
@@ -9,11 +8,6 @@ const recalculateBadges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
-      const { length } = collectedTaxa;
-
-      if ( length === 50 || length === 100 || length === 150 ) {
-        createNotification( "badgeEarned" );
-      }
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
 

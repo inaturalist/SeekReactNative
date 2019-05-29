@@ -171,7 +171,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           />
           <Modal
             isVisible={showChallengeModal}
-            onSwipe={() => this.toggleChallengeModal()}
+            onSwipeComplete={() => this.toggleChallengeModal()}
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
           >

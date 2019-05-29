@@ -170,7 +170,7 @@ class AchievementsScreen extends Component<Props> {
           />
           <Modal
             isVisible={showLevelModal}
-            onSwipe={() => this.toggleLevelModal()}
+            onSwipeComplete={() => this.toggleLevelModal()}
             onBackdropPress={() => this.toggleLevelModal()}
             swipeDirection="down"
           >
@@ -182,7 +182,7 @@ class AchievementsScreen extends Component<Props> {
           </Modal>
           <Modal
             isVisible={showChallengeModal}
-            onSwipe={() => this.toggleChallengeModal()}
+            onSwipeComplete={() => this.toggleChallengeModal()}
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
           >

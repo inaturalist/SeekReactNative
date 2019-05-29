@@ -257,7 +257,7 @@ class MatchScreen extends Component<Props> {
           <Banner navigation={navigation} badge={badge} incompleteChallenge={incompleteChallenge} />
           <Modal
             isVisible={showChallengeModal}
-            onSwipe={() => this.toggleChallengeModal()}
+            onSwipeComplete={() => this.toggleChallengeModal()}
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
             onModalHide={() => {
@@ -272,7 +272,7 @@ class MatchScreen extends Component<Props> {
           </Modal>
           <Modal
             isVisible={showLevelModal}
-            onSwipe={() => this.toggleLevelModal()}
+            onSwipeComplete={() => this.toggleLevelModal()}
             onBackdropPress={() => this.toggleLevelModal()}
             swipeDirection="down"
             onModalHide={() => this.navigateTo()}

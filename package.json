@@ -28,7 +28,7 @@
     "react-native-linear-gradient": "^2.5.3",
     "react-native-localize": "^1.1.2",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
-    "react-native-modal": "^6.5.0",
+    "react-native-modal": "^11.0.0",
     "react-native-modal-datetime-picker": "^7.4.0",
     "react-native-open-settings": "^1.0.1",
     "react-native-permissions": "^1.1.1",

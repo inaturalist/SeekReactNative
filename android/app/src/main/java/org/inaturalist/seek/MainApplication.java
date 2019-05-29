@@ -10,7 +10,7 @@ import com.horcrux.svg.SvgPackage;
 import com.opensettings.OpenSettingsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
@@ -42,7 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
             new OpenSettingsPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
-            new RNLanguagesPackage(),
+            new RNLocalizePackage(),
             new ImageResizerPackage(),
             new RNGestureHandlerPackage(),
             new RNGeocoderPackage()

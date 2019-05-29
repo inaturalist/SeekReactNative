@@ -25,8 +25,8 @@
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",
     "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
     "react-native-jwt-io": "^1.0.3",
-    "react-native-languages": "^3.0.1",
     "react-native-linear-gradient": "^2.5.3",
+    "react-native-localize": "^1.1.2",
     "react-native-maps": "git+https://github.com/inaturalist/react-native-maps.git",
     "react-native-modal": "^6.5.0",
     "react-native-modal-datetime-picker": "^7.4.0",
@@ -39,7 +39,7 @@
     "react-native-uuid": "^1.4.9",
     "react-navigation": "^3.3.2",
     "react-navigation-transitions": "^1.0.8",
-    "realm": "^2.19.0-rc.4"
+    "realm": "^2.28.0"
   },
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",

@@ -166,7 +166,7 @@ dependencies {
     implementation project(':react-native-fs')
     implementation project(':react-native-open-settings')
     implementation project(':react-native-linear-gradient')
-    implementation project(':react-native-languages')
+    implementation project(':react-native-localize')
     implementation project(':react-native-gesture-handler')
     implementation project(':realm')
     implementation project(':react-native-svg')

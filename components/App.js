@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RNLanguages from "react-native-languages";
+import * as RNLocalize from "react-native-localize";
 
 import i18n from "../i18n";
 import RootStack from "./Navigation";
@@ -15,11 +15,11 @@ class App extends Component {
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     setTimeout( setupCommonNames, 5000 );
-    RNLanguages.addEventListener( "change", this.onLanguagesChange );
+    RNLocalize.addEventListener( "change", this.onLanguagesChange );
   }
 
   componentWillUnmount() {
-    RNLanguages.removeEventListener( "change", this.onLanguagesChange );
+    RNLocalize.removeEventListener( "change", this.onLanguagesChange );
   }
 
   onLanguagesChange = ( { language } ) => {

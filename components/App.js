@@ -15,15 +15,18 @@ class App extends Component {
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     setTimeout( setupCommonNames, 5000 );
-    RNLocalize.addEventListener( "change", this.onLanguagesChange );
+    RNLocalize.addEventListener( "change", this.handleLanguagesChange );
   }
 
   componentWillUnmount() {
-    RNLocalize.removeEventListener( "change", this.onLanguagesChange );
+    RNLocalize.removeEventListener( "change", this.handleLanguagesChange );
   }
 
-  onLanguagesChange = ( { language } ) => {
-    i18n.locale = language;
+  handleLanguagesChange = () => {
+    const fallback = { languageTag: "en" };
+    const { languageTag } = RNLocalize.getLocales()[0] || fallback;
+
+    i18n.locale = languageTag;
   };
 
   render() {

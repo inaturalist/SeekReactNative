@@ -25,10 +25,10 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
         <Text style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</Text>
         <Text style={styles.text}>{i18n.t( "inat_signup.parent_instructions" )}</Text>
         <TouchableOpacity
-          style={[styles.greenButton, styles.greenButtonMargin]}
+          style={[styles.greenButton, styles.greenButtonMargin, { marginTop: 51 }]}
           onPress={() => navigation.navigate( "Main" )}
         >
-          <Text style={styles.buttonText}>
+          <Text style={[styles.buttonText, { fontSize: 16 }]}>
             {i18n.t( "inat_signup.continue_no_log_in" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>

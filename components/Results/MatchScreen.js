@@ -46,7 +46,8 @@ type Props = {
   scientificName: string,
   latitude: number,
   longitude: number,
-  time: number
+  time: number,
+  postingSuccess: boolean
 }
 
 class MatchScreen extends Component<Props> {
@@ -236,7 +237,8 @@ class MatchScreen extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time
+      time,
+      postingSuccess
     } = this.props;
 
     const {
@@ -307,7 +309,10 @@ class MatchScreen extends Component<Props> {
             <View style={styles.textContainer}>
               <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>
               <Text style={styles.speciesText}>{taxaName}</Text>
-              <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
+              {latitude && longitude
+                ? <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
+                : <Text style={styles.text}>{i18n.t( "results.learn_more_no_location" )}</Text>
+              }
               <TouchableOpacity
                 style={styles.button}
                 onPress={() => {
@@ -329,7 +334,7 @@ class MatchScreen extends Component<Props> {
                 <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
               <View style={{ marginBottom: 28 }} />
-              {isLoggedIn
+              {isLoggedIn && latitude && longitude && !postingSuccess
                 ? (
                   <PostToiNat
                     navigation={navigation}

@@ -12,6 +12,7 @@ import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
+import OpenSettings from "react-native-open-settings";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -96,6 +97,10 @@ class Results extends Component<Props> {
       latitude: Number( location.latitude ),
       longitude: Number( location.longitude )
     } );
+  }
+
+  setImageForUploading( imageForUploading ) {
+    this.setState( { imageForUploading } );
   }
 
   setLoggedIn( isLoggedIn ) {
@@ -191,16 +196,6 @@ class Results extends Component<Props> {
     this.fetchScore( params );
   }
 
-  checkOnlineOrOfflineVision() {
-    const { predictions } = this.state;
-
-    if ( predictions && predictions.length > 0 ) {
-      this.setARCameraVisionResults();
-    } else {
-      this.getParamsForOnlineVision();
-    }
-  }
-
   async showMatch() {
     await this.addObservation();
     this.setMatch( true );
@@ -284,8 +279,14 @@ class Results extends Component<Props> {
       } );
   }
 
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
+  checkOnlineOrOfflineVision() {
+    const { predictions } = this.state;
+
+    if ( predictions && predictions.length > 0 ) {
+      this.setARCameraVisionResults();
+    } else {
+      this.getParamsForOnlineVision();
+    }
   }
 
   resizeImageForUploading() {
@@ -346,7 +347,22 @@ class Results extends Component<Props> {
       image
     } = this.state;
 
-    addToCollection( observation, latitude, longitude, image );
+    if ( latitude && longitude ) {
+      addToCollection( observation, latitude, longitude, image );
+    } else {
+      Alert.alert(
+        i18n.t( "results.enable_location" ),
+        i18n.t( "results.error_location" ),
+        [{
+          text: i18n.t( "species_nearby.enable_location" ),
+          onPress: () => OpenSettings.openSettings()
+        },
+        {
+          text: i18n.t( "posting.ok" ),
+          style: "default"
+        }]
+      );
+    }
   }
 
   checkDateSpeciesSeen( taxaId ) {

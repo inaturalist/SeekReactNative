@@ -30,7 +30,8 @@ type Props = {
   scientificName: string,
   latitude: number,
   longitude: number,
-  time: number
+  time: number,
+  postingSuccess: boolean
 }
 
 const MatchScreen = ( {
@@ -44,7 +45,8 @@ const MatchScreen = ( {
   scientificName,
   latitude,
   longitude,
-  time
+  time,
+  postingSuccess
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={{ flex: 0, backgroundColor: "#175f67" }} />
@@ -78,7 +80,7 @@ const MatchScreen = ( {
               {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
-          {isLoggedIn
+          {isLoggedIn && latitude && longitude && !postingSuccess
             ? (
               <PostToiNat
                 navigation={navigation}

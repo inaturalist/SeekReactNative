@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal,
-  Alert
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -18,7 +17,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 // import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
-import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -51,8 +50,8 @@ class PostScreen extends Component<Props> {
       longitude,
       location: null,
       date: moment.unix( time ).format( "YYYY-MM-DD" ),
-      captive: "no",
-      geoprivacy: "yes",
+      captive: null,
+      geoprivacy: null,
       taxon: {
         preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
         name: scientificName,
@@ -94,19 +93,6 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  checkForTruncatedCoordinates( latitude ) {
-    if ( latitude ) {
-      const string = latitude.toString();
-      const split = string.split( "." );
-
-      if ( split[1].length === 2 ) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-
   async getToken() {
     this.setLoading( true );
     const token = await fetchAccessToken();
@@ -135,6 +121,24 @@ class PostScreen extends Component<Props> {
     this.setState( { location } );
   }
 
+  setPostSucceeded() {
+    savePostingSuccess( true );
+
+    this.setState( {
+      postingSuccess: true,
+      loading: false
+    } );
+  }
+
+  setPostFailed() {
+    savePostingSuccess( false );
+
+    this.setState( {
+      postingSuccess: false,
+      loading: false
+    } );
+  }
+
   showDateTimePicker = () => {
     this.setState( { isDateTimePickerVisible: true } );
   };
@@ -150,6 +154,18 @@ class PostScreen extends Component<Props> {
       }, this.hideDateTimePicker() );
     }
   };
+
+  checkForTruncatedCoordinates( latitude ) {
+    if ( latitude ) {
+      const string = latitude.toString();
+      const split = string.split( "." );
+
+      if ( split[1].length === 2 ) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   togglePostModal() {
     const { showPostModal } = this.state;
@@ -191,20 +207,6 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setPostSucceeded() {
-    this.setState( {
-      postingSuccess: true,
-      loading: false
-    } );
-  }
-
-  setPostFailed() {
-    this.setState( {
-      postingSuccess: false,
-      loading: false
-    } );
-  }
-
   fetchJSONWebToken( token ) {
     const headers = {
       "Content-Type": "application/json"
@@ -237,12 +239,29 @@ class PostScreen extends Component<Props> {
       longitude
     } = this.state;
 
+    let captiveState;
+    let geoprivacyState;
+
+    if ( captive === i18n.t( "posting.yes" ) ) {
+      captiveState = true;
+    } else {
+      captiveState = false;
+    }
+
+    if ( geoprivacy === i18n.t( "posting.private" ) ) {
+      geoprivacyState = "private";
+    } else if ( geoprivacy === i18n.t( "posting.obscured" ) ) {
+      geoprivacyState = "obscured";
+    } else {
+      geoprivacyState = "open";
+    }
+
     const params = {
       observation: {
         observed_on_string: date,
         taxon_id: taxon.taxaId,
-        geoprivacy: geoprivacy.toLowerCase(),
-        captive: captive.toLowerCase(),
+        geoprivacy: geoprivacyState,
+        captive_flag: captiveState,
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version

@@ -36,5 +36,13 @@ module.exports = {
       "ttf",
       // Archives (virtual files)
       "zip"]
+  },
+  transformer: {
+    getTransformOptions: async () => ( {
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false
+      }
+    } )
   }
 };

@@ -47,7 +47,7 @@ const handleCustomTransition = ( { scenes } ) => {
 
   if ( route ) {
     if ( route.routeName === "Notifications" ) {
-      return fromRight();
+      return fromRight( 200 );
     }
     if ( route.routeName === "Camera" ) {
       return fromBottom( 100 );

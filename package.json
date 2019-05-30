@@ -13,7 +13,7 @@
     "@babel/runtime": "^7.0.0",
     "@types/react-navigation": "^2.0.23",
     "ajv": "^6.6.1",
-    "i18n-js": "^3.1.0",
+    "i18n-js": "^3.2.2",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.22.2",
     "react": "^16.6.1",

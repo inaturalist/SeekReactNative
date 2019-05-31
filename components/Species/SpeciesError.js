@@ -12,14 +12,14 @@ import icons from "../../assets/icons";
 
 type Props = {
   seenDate: any,
-  checkInternetConnection: Function
+  updateScreen: Function
 }
 
-const SpeciesError = ( { seenDate, checkInternetConnection }: Props ) => (
+const SpeciesError = ( { seenDate, updateScreen }: Props ) => (
   <View>
     <TouchableOpacity
       style={styles.errorContainer}
-      onPress={() => checkInternetConnection()}
+      onPress={() => updateScreen()}
     >
       <View style={styles.errorRow}>
         <Image source={icons.internet} />

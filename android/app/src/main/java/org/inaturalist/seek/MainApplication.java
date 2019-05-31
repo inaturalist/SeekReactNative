@@ -14,6 +14,7 @@ import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
+import com.reactnativecommunity.netinfo.NetInfoPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -45,7 +46,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNLocalizePackage(),
             new ImageResizerPackage(),
             new RNGestureHandlerPackage(),
-            new RNGeocoderPackage()
+            new RNGeocoderPackage(),
+            new NetInfoPackage()
       );
     }
 

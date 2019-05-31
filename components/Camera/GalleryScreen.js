@@ -12,7 +12,8 @@ import {
   Text,
   View,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -47,7 +48,8 @@ class GalleryScreen extends Component<Props> {
 
     const photoOptions = {
       first: 28,
-      assetType: "Photos"
+      assetType: "Photos",
+      groupTypes: "All" // this is required in RN 0.59+
     };
 
     if ( lastCursor ) {
@@ -59,6 +61,7 @@ class GalleryScreen extends Component<Props> {
         stillLoading: true
       } );
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+        Alert.alert( results );
         this.appendPhotos( results.edges );
         this.setState( {
           loading: false,

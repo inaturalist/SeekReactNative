@@ -7,7 +7,6 @@ import {
   Platform,
   PermissionsAndroid,
   Modal,
-  NetInfo,
   SafeAreaView,
   StatusBar
 } from "react-native";
@@ -27,7 +26,7 @@ import Challenges from "./Challenges";
 import NoChallenges from "./NoChallenges";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
+import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { recalculateBadges } from "../../utility/badgeHelpers";
 import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
@@ -197,15 +196,14 @@ class HomeScreen extends Component<Props> {
   }
 
   checkInternetConnection() {
-    NetInfo.getConnectionInfo()
-      .then( ( connectionInfo ) => {
-        if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
-          this.setError( "internet" );
-          this.setLoading( false );
-        } else {
-          this.checkiOSPermissions();
-        }
-      } );
+    checkForInternet().then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        this.setError( "internet" );
+        this.setLoading( false );
+      } else {
+        this.checkiOSPermissions();
+      }
+    } );
   }
 
   checkiOSPermissions() {

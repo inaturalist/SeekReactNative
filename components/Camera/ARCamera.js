@@ -10,7 +10,8 @@ import {
   Platform,
   NativeModules,
   CameraRoll,
-  BackHandler
+  BackHandler,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
@@ -119,7 +120,8 @@ class ARCamera extends Component<Props> {
   getCameraCaptureFromGallery() {
     CameraRoll.getPhotos( {
       first: 1,
-      assetType: "All"
+      assetType: "All",
+      groupTypes: "All" // this is required in RN 0.59+
       // assetType: "Photos"
     } ).then( ( results ) => {
       let photo;
@@ -217,7 +219,10 @@ class ARCamera extends Component<Props> {
 
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( () => this.getCameraCaptureFromGallery() )
+      .then( ( result ) => {
+        Alert.alert( result );
+        this.getCameraCaptureFromGallery();
+      } )
       .catch( () => {
         this.setError( "save" );
       } );

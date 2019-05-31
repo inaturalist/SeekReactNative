@@ -1,3 +1,4 @@
+import NetInfo from "@react-native-community/netinfo";
 import i18n from "../i18n";
 
 const { FileUpload } = require( "inaturalistjs" );
@@ -9,6 +10,16 @@ const RNFS = require( "react-native-fs" );
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
 const { createNotification } = require( "./notificationHelpers" );
+
+const checkForInternet = () => (
+  new Promise( ( resolve ) => {
+    NetInfo.fetch().then( ( { type } ) => {
+      resolve( type );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -212,5 +223,6 @@ export {
   setSpeciesId,
   getSpeciesId,
   setRoute,
-  getRoute
+  getRoute,
+  checkForInternet
 };

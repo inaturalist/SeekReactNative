@@ -6,9 +6,9 @@ import {
   Image,
   ScrollView,
   Text,
-  NetInfo,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -32,7 +32,12 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
-import { getSpeciesId, capitalizeNames, getRoute } from "../../utility/helpers";
+import {
+  getSpeciesId,
+  capitalizeNames,
+  getRoute,
+  checkForInternet
+} from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -66,6 +71,7 @@ class SpeciesDetail extends Component<Props> {
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
+    this.updateScreen = this.updateScreen.bind( this );
   }
 
   setError( error ) {
@@ -86,6 +92,30 @@ class SpeciesDetail extends Component<Props> {
 
   setTaxonStats( stats ) {
     this.setState( { stats } );
+  }
+
+  setUserPhoto( seenTaxa ) {
+    const { taxon } = seenTaxa;
+    const { defaultPhoto } = taxon;
+
+    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
+      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+    } else {
+      this.setState( { userPhoto: null } );
+    }
+  }
+
+  updateScreen() {
+    this.checkInternetConnection();
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      const { locality, subAdminArea } = result[0];
+      this.setLocation( locality || subAdminArea );
+    } ).catch( () => {
+      // console.log( err, "error" );
+    } );
   }
 
   async fetchSpeciesId() {
@@ -121,26 +151,6 @@ class SpeciesDetail extends Component<Props> {
       this.fetchNearbySpeciesCount( latitude, longitude );
       this.checkIfSpeciesIsNative( latitude, longitude );
     } );
-  }
-
-  reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
-    } ).catch( () => {
-      // console.log( err, "error" );
-    } );
-  }
-
-  setUserPhoto( seenTaxa ) {
-    const { taxon } = seenTaxa;
-    const { defaultPhoto } = taxon;
-
-    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
-      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
-    } else {
-      this.setState( { userPhoto: null } );
-    }
   }
 
   resetState() {
@@ -353,6 +363,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData( screen ) {
+    this.checkInternetConnection();
     const { error } = this.state;
     this.setLoading( true );
     if ( screen === "similarSpecies" ) {
@@ -369,16 +380,14 @@ class SpeciesDetail extends Component<Props> {
   }
 
   checkInternetConnection() {
-    NetInfo.getConnectionInfo()
-      .then( ( connectionInfo ) => {
-        if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
-          this.setError( "internet" );
-          this.fetchSpeciesId();
-        }
+    checkForInternet().then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        this.setError( "internet" );
+        this.fetchSpeciesId();
+      } else {
         this.setError( null );
-      } ).catch( ( err ) => {
-        console.log( err, "can't check connection" );
-      } );
+      }
+    } );
   }
 
   render() {
@@ -414,10 +423,7 @@ class SpeciesDetail extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => {
-              this.checkInternetConnection();
-              this.fetchiNatData();
-            }}
+            onWillFocus={() => this.fetchiNatData()}
             onWillBlur={() => this.resetState()}
           />
           <ScrollView
@@ -445,7 +451,7 @@ class SpeciesDetail extends Component<Props> {
             {error ? (
               <SpeciesError
                 seenDate={seenDate}
-                checkInternetConnection={this.checkInternetConnection}
+                updateScreen={this.updateScreen}
               />
             ) : (
               <View style={styles.secondTextContainer}>

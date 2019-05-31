@@ -106,7 +106,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   updateScreen() {
-    this.checkInternetConnection();
+    this.fetchiNatData();
   }
 
   reverseGeocodeLocation( lat, lng ) {

@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -363,8 +362,8 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData( screen ) {
-    this.checkInternetConnection();
     const { error } = this.state;
+    this.checkInternetConnection();
     this.setLoading( true );
     if ( screen === "similarSpecies" ) {
       this.resetState();

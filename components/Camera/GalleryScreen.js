@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   PermissionsAndroid,
   Platform,
-  CameraRoll,
   Image,
   ScrollView,
   TouchableHighlight,
@@ -12,9 +11,9 @@ import {
   Text,
   View,
   StatusBar,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
@@ -61,7 +60,6 @@ class GalleryScreen extends Component<Props> {
         stillLoading: true
       } );
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-        Alert.alert( results );
         this.appendPhotos( results.edges );
         this.setState( {
           loading: false,

@@ -9,10 +9,9 @@ import {
   Text,
   Platform,
   NativeModules,
-  CameraRoll,
-  BackHandler,
-  Alert
+  BackHandler
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 import INatCamera from "react-native-inat-camera";
@@ -122,7 +121,6 @@ class ARCamera extends Component<Props> {
       first: 1,
       assetType: "All",
       groupTypes: "All" // this is required in RN 0.59+
-      // assetType: "Photos"
     } ).then( ( results ) => {
       let photo;
 
@@ -219,10 +217,7 @@ class ARCamera extends Component<Props> {
 
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( ( result ) => {
-        Alert.alert( result );
-        this.getCameraCaptureFromGallery();
-      } )
+      .then( () => this.getCameraCaptureFromGallery() )
       .catch( () => {
         this.setError( "save" );
       } );

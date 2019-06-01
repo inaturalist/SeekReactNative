@@ -4,7 +4,7 @@ import i18n from "../i18n";
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage, Platform } = require( "react-native" );
+const { AsyncStorage, Platform, PermissionsAndroid } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 
 const realmConfig = require( "../models/index" );
@@ -20,6 +20,24 @@ const checkForInternet = () => (
     } );
   } )
 );
+
+const checkCameraRollPermissions = async () => {
+  const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
+  const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
+
+  try {
+    const granted = await PermissionsAndroid.requestMultiple( [
+      save,
+      retrieve
+    ] );
+    if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
+      return true;
+    }
+    return JSON.stringify( granted );
+  } catch ( err ) {
+    return err;
+  }
+};
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -224,5 +242,6 @@ export {
   getSpeciesId,
   setRoute,
   getRoute,
-  checkForInternet
+  checkForInternet,
+  checkCameraRollPermissions
 };

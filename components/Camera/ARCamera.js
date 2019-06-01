@@ -22,7 +22,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
-import { getTaxonCommonName } from "../../utility/helpers";
+import { getTaxonCommonName, checkCameraRollPermissions } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -153,25 +153,13 @@ class ARCamera extends Component<Props> {
   }
 
   requestCameraRollPermissions = async ( photo ) => {
-    if ( Platform.OS === "android" ) {
-      const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-      const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-      try {
-        const granted = await PermissionsAndroid.requestMultiple( [
-          save,
-          retrieve
-        ] );
-        if ( granted[save] === PermissionsAndroid.RESULTS.GRANTED ) {
-          this.setImagePredictions( photo.predictions );
-          this.savePhotoToGallery( photo );
-          this.togglePreview();
-        } else {
-          this.setError( "cameraRoll" );
-        }
-      } catch ( e ) {
-        this.setError( null );
-      }
+    const permission = await checkCameraRollPermissions();
+    if ( permission === true ) {
+      this.setImagePredictions( photo.predictions );
+      this.savePhotoToGallery( photo );
+      this.togglePreview();
+    } else {
+      this.setError( "cameraRoll" );
     }
   }
 

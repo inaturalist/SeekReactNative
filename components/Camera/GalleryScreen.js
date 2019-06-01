@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import {
-  PermissionsAndroid,
   Platform,
   Image,
   ScrollView,
@@ -19,6 +18,7 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
+import { checkCameraRollPermissions } from "../../utility/helpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
@@ -75,21 +75,11 @@ class GalleryScreen extends Component<Props> {
   }
 
   requestAndroidPermissions = async () => {
-    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-    try {
-      const granted = await PermissionsAndroid.requestMultiple( [
-        save,
-        retrieve
-      ] );
-      if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.getPhotos();
-      } else {
-        this.showError( JSON.stringify( granted ) );
-      }
-    } catch ( err ) {
-      this.showError( err );
+    const permission = await checkCameraRollPermissions();
+    if ( permission === true ) {
+      this.getPhotos();
+    } else {
+      this.showError( permission );
     }
   }
 

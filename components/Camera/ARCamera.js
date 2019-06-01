@@ -218,9 +218,7 @@ class ARCamera extends Component<Props> {
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( () => this.getCameraCaptureFromGallery() )
-      .catch( () => {
-        this.setError( "save" );
-      } );
+      .catch( () => this.setError( "save" ) );
   }
 
   navigateToResults( photo ) {

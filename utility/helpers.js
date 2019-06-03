@@ -1,5 +1,6 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
+
 import i18n from "../i18n";
 
 const { FileUpload } = require( "inaturalistjs" );

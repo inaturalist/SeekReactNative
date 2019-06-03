@@ -39,6 +39,7 @@ import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "./Signup/LicensePhotosScreen";
 import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
@@ -237,6 +238,10 @@ const LoginStack = createStackNavigator( {
   },
   Privacy: {
     screen: PrivacyPolicyScreen,
+    navigationOptions: () => noHeader
+  },
+  TermsOfService: {
+    screen: TermsOfServiceScreen,
     navigationOptions: () => noHeader
   }
 } );

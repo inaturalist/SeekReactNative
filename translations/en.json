@@ -73,7 +73,8 @@
     "create_account": "Create my account",
     "thanks": "Thanks!",
     "parent_instructions": "We sent your parent or guardian an email with instructions.",
-    "continue_no_log_in": "Continue Without Logging In"
+    "continue_no_log_in": "Continue Without Logging In",
+    "terms": "Terms of Service"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",

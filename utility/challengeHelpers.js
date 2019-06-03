@@ -1,4 +1,5 @@
-const { AsyncStorage } = require( "react-native" );
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Realm = require( "realm" );
 
 const { createNotification } = require( "./notificationHelpers" );

@@ -162,6 +162,7 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-community/async-storage')
     implementation project(':@react-native-community/cameraroll')
     implementation project(':@react-native-community/netinfo')
     implementation project(':react-native-inat-camera')

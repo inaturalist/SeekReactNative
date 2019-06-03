@@ -1,5 +1,6 @@
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Realm = require( "realm" );
-const { AsyncStorage } = require( "react-native" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );

@@ -1,5 +1,6 @@
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Geocoder = require( "react-native-geocoder" );
-const { AsyncStorage } = require( "react-native" );
 
 const truncateCoordinates = ( coordinate ) => {
   if ( !coordinate ) {

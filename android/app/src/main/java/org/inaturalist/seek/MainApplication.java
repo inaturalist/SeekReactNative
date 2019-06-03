@@ -16,6 +16,7 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -49,7 +50,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGestureHandlerPackage(),
             new RNGeocoderPackage(),
             new NetInfoPackage(),
-            new CameraRollPackage()
+            new CameraRollPackage(),
+            new AsyncStoragePackage()
       );
     }
 

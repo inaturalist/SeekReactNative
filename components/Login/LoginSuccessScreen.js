@@ -47,12 +47,20 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
         </TouchableOpacity>
         <View style={{ marginTop: 20 }} />
         <Text style={styles.text}>{i18n.t( "inat_signup.data_usage" )}</Text>
-        <Text
-          style={styles.textLink}
-          onPress={() => navigation.navigate( "Privacy" )}
-        >
-          {i18n.t( "inat_signup.privacy" )}
-        </Text>
+        <View style={styles.row}>
+          <Text
+            style={styles.textLink}
+            onPress={() => navigation.navigate( "Privacy" )}
+          >
+            {i18n.t( "inat_signup.privacy" )}
+          </Text>
+          <Text
+            style={[styles.textLink, { marginLeft: 14 }]}
+            onPress={() => navigation.navigate( "TermsOfService" )}
+          >
+            {i18n.t( "inat_signup.terms" )}
+          </Text>
+        </View>
       </View>
     </SafeAreaView>
   </LinearGradient>

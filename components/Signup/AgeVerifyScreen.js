@@ -5,9 +5,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  DatePickerIOS,
-  DatePickerAndroid,
-  Platform,
   SafeAreaView
 } from "react-native";
 import moment from "moment";

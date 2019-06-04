@@ -89,8 +89,31 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { nearbySpeciesCount } );
   }
 
+  setRegion( latitude, longitude ) {
+    this.setState( {
+      region: {
+        latitude,
+        longitude,
+        latitudeDelta: 0.025,
+        longitudeDelta: 0.025
+      }
+    }, () => {
+      this.fetchNearbySpeciesCount( latitude, longitude );
+      this.checkIfSpeciesIsNative( latitude, longitude );
+    } );
+  }
+
   setTaxonStats( stats ) {
     this.setState( { stats } );
+  }
+
+  setSpeciesId( id ) {
+    this.setState( { id }, () => {
+      this.checkIfSpeciesSeen();
+      this.fetchTaxonDetails();
+      this.fetchHistogram();
+      this.fetchSimilarSpecies();
+    } );
   }
 
   setUserPhoto( seenTaxa ) {
@@ -119,14 +142,7 @@ class SpeciesDetail extends Component<Props> {
 
   async fetchSpeciesId() {
     const id = await getSpeciesId();
-    this.setState( {
-      id
-    }, () => {
-      this.checkIfSpeciesSeen();
-      this.fetchTaxonDetails();
-      this.fetchHistogram();
-      this.fetchSimilarSpecies();
-    } );
+    this.setSpeciesId( id );
   }
 
   async fetchRoute() {
@@ -139,17 +155,7 @@ class SpeciesDetail extends Component<Props> {
     const { latitude, longitude } = userLocation;
     this.reverseGeocodeLocation( latitude, longitude );
 
-    this.setState( {
-      region: {
-        latitude,
-        longitude,
-        latitudeDelta: 0.025,
-        longitudeDelta: 0.025
-      }
-    }, () => {
-      this.fetchNearbySpeciesCount( latitude, longitude );
-      this.checkIfSpeciesIsNative( latitude, longitude );
-    } );
+    this.setRegion( latitude, longitude );
   }
 
   resetState() {
@@ -176,6 +182,18 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  checkForLastSeenLocation( seenTaxa ) {
+    const { latitude, longitude } = seenTaxa;
+
+    if ( latitude && longitude ) {
+      this.reverseGeocodeLocation( latitude, longitude );
+
+      this.setRegion( latitude, longitude );
+    } else {
+      this.fetchUserLocation();
+    }
+  }
+
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
@@ -183,6 +201,12 @@ class SpeciesDetail extends Component<Props> {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
+
+        if ( seenTaxa ) {
+          this.checkForLastSeenLocation( seenTaxa );
+        } else {
+          this.fetchUserLocation();
+        }
 
         let userPhoto;
         const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
@@ -362,17 +386,14 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData( screen ) {
-    const { error } = this.state;
     this.checkInternetConnection();
     this.setLoading( true );
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
-    if ( !error ) {
-      this.fetchSpeciesId();
-      this.fetchRoute();
-      this.fetchUserLocation();
-    }
+    this.fetchSpeciesId();
+    this.fetchRoute();
+
     this.scrollView.scrollTo( {
       x: 0, y: 0, animated: Platform.OS === "android"
     } );
@@ -382,7 +403,6 @@ class SpeciesDetail extends Component<Props> {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );
-        this.fetchSpeciesId();
       } else {
         this.setError( null );
       }

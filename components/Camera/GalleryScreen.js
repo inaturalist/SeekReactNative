@@ -83,6 +83,17 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
+  resetState() {
+    this.setState( {
+      photos: [],
+      loading: true,
+      error: null,
+      hasNextPage: true,
+      lastCursor: null,
+      stillLoading: false
+    } );
+  }
+
   appendPhotos( data ) {
     const { photos } = this.state;
 
@@ -190,6 +201,7 @@ class GalleryScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => this.checkPermissions()}
+            onWillBlur={() => this.resetState()}
           />
           <StatusBar barStyle="dark-content" />
           <View style={styles.header}>

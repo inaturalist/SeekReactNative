@@ -12,7 +12,7 @@ import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "../Home/LocationMap";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchUserLocation } from "../../utility/locationHelpers";
 import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/greenHeader";
 import backStyles from "../../styles/backArrow";
@@ -82,17 +82,22 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  async returnToUserLocation() {
-    const location = await getLatAndLng();
+  returnToUserLocation() {
+    fetchUserLocation().then( ( coords ) => {
+      const lat = coords.latitude;
+      const long = coords.longitude;
 
-    this.setState( {
-      region: {
-        latitude: location.latitude,
-        longitude: location.longitude,
-        latitudeDelta: 0.2,
-        longitudeDelta: 0.2
-      },
-      location: this.reverseGeocodeLocation( location.latitude, location.longitude )
+      this.setState( {
+        region: {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: 0.2,
+          longitudeDelta: 0.2
+        },
+        location: this.reverseGeocodeLocation( lat, long )
+      } );
+    } ).catch( ( err ) => {
+      console.log( err );
     } );
   }
 

@@ -14,10 +14,10 @@ import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
-// import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
+import { fetchUserLocation } from "../../utility/locationHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -81,14 +81,14 @@ class PostScreen extends Component<Props> {
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
     } else {
-      navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+      fetchUserLocation().then( ( coords ) => {
         const lat = coords.latitude;
         const long = coords.longitude;
         this.reverseGeocodeLocation( lat, long );
         this.setLatitude( lat );
         this.setLongitude( long );
-      } ).catch( () => {
-        // this.setError();
+      } ).catch( ( err ) => {
+        console.log( err );
       } );
     }
   }

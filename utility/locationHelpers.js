@@ -2,6 +2,16 @@ import AsyncStorage from "@react-native-community/async-storage";
 
 const Geocoder = require( "react-native-geocoder" );
 
+const fetchUserLocation = () => (
+  new Promise( ( resolve ) => {
+    navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+      resolve( coords );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
+
 const truncateCoordinates = ( coordinate ) => {
   if ( !coordinate ) {
     return null;
@@ -41,5 +51,6 @@ export {
   reverseGeocodeLocation,
   truncateCoordinates,
   setLatAndLng,
-  getLatAndLng
+  getLatAndLng,
+  fetchUserLocation
 };

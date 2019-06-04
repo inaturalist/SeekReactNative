@@ -18,7 +18,7 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { checkCameraRollPermissions } from "../../utility/helpers";
+import { checkCameraRollPermissions, checkForPhotoMetaData } from "../../utility/photoHelpers";
 import { getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
@@ -129,15 +129,12 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  async selectImage( image, timestamp, location ) {
+  async selectImage( node ) {
+    const { timestamp, location, image } = node;
     const userLocation = await getLatAndLng();
 
-    if ( location ) {
-      if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        this.navigateToResults( image, timestamp, location.latitude, location.longitude );
-      } else {
-        this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
-      }
+    if ( checkForPhotoMetaData( location ) ) {
+      this.navigateToResults( image, timestamp, location.latitude, location.longitude );
     } else {
       this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
     }
@@ -174,9 +171,7 @@ class GalleryScreen extends Component<Props> {
                 style={styles.button}
                 key={i.toString()}
                 underlayColor="transparent"
-                onPress={() => {
-                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                }}
+                onPress={() => this.selectImage( p.node )}
               >
                 <Image
                   style={styles.image}

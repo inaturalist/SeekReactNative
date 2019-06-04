@@ -6,8 +6,9 @@ import i18n from "../i18n";
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { Platform, PermissionsAndroid } = require( "react-native" );
+const { Platform, Alert } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
+const moment = require( "moment" );
 
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
@@ -22,24 +23,6 @@ const checkForInternet = () => (
     } );
   } )
 );
-
-const checkCameraRollPermissions = async () => {
-  const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-  const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-  try {
-    const granted = await PermissionsAndroid.requestMultiple( [
-      save,
-      retrieve
-    ] );
-    if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return JSON.stringify( granted );
-  } catch ( err ) {
-    return err;
-  }
-};
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -102,7 +85,7 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, image ) => {
+const addToCollection = ( observation, latitude, longitude, image, time ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );
@@ -126,7 +109,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         } );
         const species = realm.create( "ObservationRealm", {
           uuidString: uuid.v1(),
-          date: new Date(),
+          date: time ? moment.unix( time ).format() : new Date(),
           taxon,
           latitude: truncateCoordinates( latitude ),
           longitude: truncateCoordinates( longitude ),
@@ -136,6 +119,7 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
       const newLength = realm.objects( "TaxonRealm" ).length;
       checkForPowerUsers( length, newLength );
     } ).catch( ( e ) => {
+      Alert.alert( JSON.stringify( e ), "error" );
       console.log( e, "error adding to collection" );
     } );
 };
@@ -244,6 +228,5 @@ export {
   getSpeciesId,
   setRoute,
   getRoute,
-  checkForInternet,
-  checkCameraRollPermissions
+  checkForInternet
 };

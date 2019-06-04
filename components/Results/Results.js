@@ -326,7 +326,8 @@ class Results extends Component<Props> {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;
 
-        if ( species.combined_score > 97 ) {
+        // if ( species.combined_score > 97 ) {
+        if ( species.combined_score > 85 ) { // changing to 85 for testing
           this.checkDateSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
@@ -344,11 +345,12 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image
+      image,
+      time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image );
+      addToCollection( observation, latitude, longitude, image, time );
     } else {
       Alert.alert(
         i18n.t( "results.enable_location" ),

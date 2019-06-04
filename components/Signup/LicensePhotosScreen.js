@@ -84,21 +84,28 @@ class LicensePhotosScreen extends Component<Props> {
                 isChecked={licensePhotos}
                 checkBoxColor="#979797"
               />
-              <View>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "Privacy" )}
-                >
-                  <Text style={styles.licenseText}>
-                    {i18n.t( "inat_signup.release_photos" )}
-                    {" "}
-                    {i18n.t( "inat_signup.privacy" )}
-                  </Text>
-                </TouchableOpacity>
-              </View>
+              <Text style={styles.licenseText}>
+                {i18n.t( "inat_signup.release_photos" )}
+              </Text>
             </View>
-            {error ? <ErrorMessage error="email" /> : null}
+            <View style={styles.row}>
+              <View style={{ marginLeft: 15 }} />
+              <Text
+                style={[styles.privacy, { marginTop: 2 }]}
+                onPress={() => navigation.navigate( "Privacy" )}
+              >
+                {i18n.t( "inat_signup.privacy" )}
+              </Text>
+              <Text
+                style={[styles.privacy, { marginTop: 2, marginLeft: 14 }]}
+                onPress={() => navigation.navigate( "TermsOfService" )}
+              >
+                {i18n.t( "inat_signup.terms" )}
+              </Text>
+            </View>
+            {error ? <ErrorMessage error="email" /> : <View style={{ marginTop: 29 }} />}
             <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin]}
+              style={[styles.greenButton]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>

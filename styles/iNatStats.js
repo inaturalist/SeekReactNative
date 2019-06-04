@@ -52,7 +52,7 @@ export default StyleSheet.create( {
   },
   explainImage: {
     marginBottom: 33,
-    width: 320,
+    width: width - 56,
     resizeMode: "contain"
   },
   forestGreenText: {

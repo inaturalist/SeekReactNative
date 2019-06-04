@@ -1,8 +1,15 @@
 import React, { Component } from "react";
-import { StyleSheet } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Image,
+  View
+} from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
+import icons from "../../assets/icons";
 import styles from "../../styles/home/speciesNearby";
 import { capitalizeNames } from "../../utility/helpers";
 
@@ -22,7 +29,7 @@ class TaxonPicker extends Component<Props> {
     this.inputRefs = {};
 
     this.state = {
-      taxonType: null,
+      taxonType: capitalizeNames( i18n.t( "taxon_picker.all" ).toLocaleUpperCase() ),
       types: [
         {
           label: capitalizeNames( i18n.t( "taxon_picker.all" ).toLocaleUpperCase() ),
@@ -96,7 +103,16 @@ class TaxonPicker extends Component<Props> {
           this.inputRefs.picker2 = el;
         }}
         useNativeAndroidPickerStyle={false}
-      />
+      >
+        <TouchableOpacity style={styles.buttonRow}>
+          <Image source={icons.filter} style={styles.image} />
+          <View style={styles.whiteButton}>
+            <Text style={styles.buttonText}>
+              {taxonType.toLocaleUpperCase()}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </RNPickerSelect>
     );
   }
 }

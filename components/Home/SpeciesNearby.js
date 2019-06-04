@@ -116,10 +116,7 @@ const SpeciesNearby = ( {
             }
           </View>
         </TouchableOpacity>
-        <View style={styles.buttonRow}>
-          <Image source={icons.filter} style={styles.image} />
-          <TaxonPicker updateTaxaType={updateTaxaType} />
-        </View>
+        <TaxonPicker updateTaxaType={updateTaxaType} />
       </View>
       <View style={[
         styles.speciesNearbyContainer,

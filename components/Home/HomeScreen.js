@@ -164,6 +164,7 @@ class HomeScreen extends Component<Props> {
 
   updateTaxaType( taxaType ) {
     const { latitude, longitude } = this.state;
+
     this.setLoading( true );
     this.setState( {
       taxaType

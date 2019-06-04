@@ -19,7 +19,6 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     justifyContent: "center"
-    // flex: ( Platform.OS === "android" || height < 570 ) ? null : 1
   },
   inputField: {
     width: 307,

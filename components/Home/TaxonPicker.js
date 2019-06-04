@@ -81,7 +81,6 @@ class TaxonPicker extends Component<Props> {
 
   render() {
     const { types, taxonType } = this.state;
-    
 
     return (
       <RNPickerSelect
@@ -91,10 +90,6 @@ class TaxonPicker extends Component<Props> {
         onValueChange={( value ) => {
           this.setTaxonType( value );
         }}
-        // onDonePress={( value ) => {
-        //   this.setTaxonType( value );
-        //   updateTaxaType( value );
-        // }}
         style={{ ...pickerSelectStyles }}
         value={taxonType}
         ref={( el ) => {

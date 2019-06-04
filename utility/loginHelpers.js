@@ -1,5 +1,4 @@
 import AsyncStorage from "@react-native-community/async-storage";
-// const { version } = require( "../package.json" );
 
 const checkIsEmailValid = ( email ) => {
   if ( email.length > 5 ) {

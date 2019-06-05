@@ -22,7 +22,8 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
-import { getTaxonCommonName, checkCameraRollPermissions } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/helpers";
+import { checkCameraRollPermissions } from "../../utility/photoHelpers";
 
 type Props = {
   navigation: any
@@ -286,6 +287,18 @@ class ARCamera extends Component<Props> {
       center = null;
     }
 
+    let helpText;
+
+    if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
+      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_class" )}</Text>;
+    } else if ( rankToRender === "genus" ) {
+      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_genus" )}</Text>;
+    } else if ( rankToRender === "species" ) {
+      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_species" )}</Text>;
+    } else {
+      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>;
+    }
+
     return (
       <View style={styles.container}>
         {center}
@@ -315,7 +328,7 @@ class ARCamera extends Component<Props> {
           ranks={ranks}
           rankToRender={rankToRender}
         />
-        {!error ? <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text> : null}
+        {!error ? helpText : null}
         {!pictureTaken ? (
           <TouchableOpacity
             onPress={() => {

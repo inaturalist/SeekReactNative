@@ -11,7 +11,7 @@ const RNFS = require( "react-native-fs" );
 const moment = require( "moment" );
 
 const realmConfig = require( "../models/index" );
-const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
+const { truncateCoordinates } = require( "./locationHelpers" );
 const { createNotification } = require( "./notificationHelpers" );
 
 const checkForInternet = () => (

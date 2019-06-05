@@ -13,11 +13,10 @@ import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
-import Geocoder from "react-native-geocoder";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
@@ -132,12 +131,9 @@ class SpeciesDetail extends Component<Props> {
   }
 
   reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
-    } ).catch( () => {
-      // console.log( err, "error" );
-    } );
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
+    } ).catch( () => this.setLocation( null ) );
   }
 
   async fetchSpeciesId() {
@@ -151,11 +147,12 @@ class SpeciesDetail extends Component<Props> {
   }
 
   async fetchUserLocation() {
-    const userLocation = await getLatAndLng();
-    const { latitude, longitude } = userLocation;
-    this.reverseGeocodeLocation( latitude, longitude );
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      const { latitude, longitude } = coords;
 
-    this.setRegion( latitude, longitude );
+      this.reverseGeocodeLocation( latitude, longitude );
+      this.setRegion( latitude, longitude );
+    } );
   }
 
   resetState() {

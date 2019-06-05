@@ -11,6 +11,30 @@ const fetchUserLocation = () => (
   } )
 );
 
+const truncateCoordinates = ( coordinate ) => {
+  if ( !coordinate ) {
+    return null;
+  }
+  return Number( coordinate.toFixed( 2 ) );
+};
+
+const fetchTruncatedUserLocation = () => (
+  new Promise( ( resolve ) => {
+    navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+      const latitude = truncateCoordinates( coords.latitude );
+      const longitude = truncateCoordinates( coords.longitude );
+      const truncatedCoords = {
+        latitude,
+        longitude
+      };
+
+      resolve( truncatedCoords );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
+
 const fetchLocationName = ( lat, lng ) => (
   new Promise( ( resolve ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
@@ -24,13 +48,6 @@ const fetchLocationName = ( lat, lng ) => (
     } );
   } )
 );
-
-const truncateCoordinates = ( coordinate ) => {
-  if ( !coordinate ) {
-    return null;
-  }
-  return Number( coordinate.toFixed( 2 ) );
-};
 
 const reverseGeocodeLocation = ( latitude, longitude ) => {
   Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )
@@ -66,5 +83,6 @@ export {
   setLatAndLng,
   getLatAndLng,
   fetchUserLocation,
-  fetchLocationName
+  fetchLocationName,
+  fetchTruncatedUserLocation
 };

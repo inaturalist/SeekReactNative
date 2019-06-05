@@ -8,9 +8,9 @@ import {
   PermissionsAndroid,
   Modal,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Alert
 } from "react-native";
-import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
@@ -28,7 +28,7 @@ import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { recalculateBadges } from "../../utility/badgeHelpers";
-import { truncateCoordinates, setLatAndLng, fetchUserLocation } from "../../utility/locationHelpers";
+import { truncateCoordinates, fetchUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -65,20 +65,20 @@ class HomeScreen extends Component<Props> {
     this.setState( { loading } );
   }
 
+  setLocation( location ) {
+    this.setState( { location } );
+  }
+
   setTaxa( taxa ) {
     this.setState( { taxa } );
     this.setLoading( false );
   }
 
   setError( error ) {
-    this.setState( {
-      error
-    } );
+    this.setState( { error } );
 
     if ( error === "location" ) {
-      this.setState( {
-        location: i18n.t( "species_nearby.no_location" )
-      } );
+      this.setLocation( i18n.t( "species_nearby.no_location" ) );
     }
   }
 
@@ -91,14 +91,11 @@ class HomeScreen extends Component<Props> {
       const lat = truncateCoordinates( coords.latitude );
       const long = truncateCoordinates( coords.longitude );
       this.reverseGeocodeLocation( lat, long );
-      setLatAndLng( lat.toString(), long.toString() );
 
       this.setState( {
         latitude: lat,
         longitude: long
       }, () => this.setParamsForSpeciesNearby( lat, long ) );
-    }, () => {
-      this.checkInternetConnection();
     } );
   }
 
@@ -185,17 +182,15 @@ class HomeScreen extends Component<Props> {
   }
 
   reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setState( {
-        location: locality || subAdminArea
-      } );
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
     } ).catch( () => {
       this.checkInternetConnection();
     } );
   }
 
   checkInternetConnection() {
+    Alert.alert( "checking internet" );
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );
@@ -292,7 +287,6 @@ class HomeScreen extends Component<Props> {
               onWillFocus={() => {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
-                this.checkInternetConnection();
                 this.fetchUserLocation();
                 this.fetchLatestChallenge();
                 addARCameraFiles();

@@ -59,29 +59,9 @@ const reverseGeocodeLocation = ( latitude, longitude ) => {
     } );
 };
 
-const setLatAndLng = ( lat, lng ) => {
-  AsyncStorage.setItem( "latitude", lat );
-  AsyncStorage.setItem( "longitude", lng );
-};
-
-const getLatAndLng = async () => {
-  try {
-    const latitude = await AsyncStorage.getItem( "latitude" );
-    const longitude = await AsyncStorage.getItem( "longitude" );
-    return {
-      latitude: Number( latitude ),
-      longitude: Number( longitude )
-    };
-  } catch ( error ) {
-    return ( error );
-  }
-};
-
 export {
   reverseGeocodeLocation,
   truncateCoordinates,
-  setLatAndLng,
-  getLatAndLng,
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation

@@ -102,7 +102,9 @@ class ARCamera extends Component<Props> {
   }
 
   onCameraError = ( event ) => {
-    this.setError( "camera" );
+    if ( event ) {
+      this.setError( "camera" );
+    }
   }
 
   onCameraPermissionMissing = () => {
@@ -110,11 +112,15 @@ class ARCamera extends Component<Props> {
   }
 
   onClassifierError = ( event ) => {
-    this.setError( "classifier" );
+    if ( event ) {
+      this.setError( "classifier" );
+    }
   }
 
   onDeviceNotSupported = ( event ) => {
-    this.setError( "device" );
+    if ( event ) {
+      this.setError( "device" );
+    }
   }
 
   getCameraCaptureFromGallery() {

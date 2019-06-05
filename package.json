@@ -20,7 +20,7 @@
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.24.0",
     "react": "^16.8.3",
-    "react-native": "^0.59.8",
+    "react-native": "^0.59.9",
     "react-native-check-box": "^2.1.7",
     "react-native-fs": "^2.13.3",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
@@ -47,22 +47,16 @@
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "23.6.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-flow": "^6.23.0",
-    "eslint": "^5.6.0",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "faker": "^4.1.0",
     "flow-bin": "^0.78.0",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "react-test-renderer": "16.5.0"
-  },
-  "jest": {
-    "preset": "react-native"
+    "metro-react-native-babel-preset": "^0.54.1"
   },
   "rnpm": {
     "assets": [

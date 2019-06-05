@@ -86,6 +86,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image, time ) => {
+  console.log( image, time, "image time" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );
@@ -113,7 +114,7 @@ const addToCollection = ( observation, latitude, longitude, image, time ) => {
           taxon,
           latitude: truncateCoordinates( latitude ),
           longitude: truncateCoordinates( longitude ),
-          placeName: reverseGeocodeLocation( latitude, longitude )
+          placeName: null
         } );
       } );
       const newLength = realm.objects( "TaxonRealm" ).length;

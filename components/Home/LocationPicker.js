@@ -13,7 +13,7 @@ import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
+import { truncateCoordinates, getLatAndLng, fetchLocationName } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
 
@@ -44,7 +44,6 @@ class LocationPicker extends Component<Props> {
         longitude
       },
       location
-      // error: null
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -65,14 +64,10 @@ class LocationPicker extends Component<Props> {
     this.setState( { location } );
   }
 
-  reverseGeocodeLocation( latitude, longitude ) {
-    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
-      if ( result.length === 0 ) {
-        this.setLocationUndefined();
-      }
-      const { locality, subAdminArea } = result[0];
-      if ( locality || subAdminArea ) {
-        this.setLocation( locality || subAdminArea );
+  reverseGeocodeLocation( lat, lng ) {
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      if ( location ) {
+        this.setLocation( location );
       } else {
         this.setLocationUndefined();
       }
@@ -109,8 +104,8 @@ class LocationPicker extends Component<Props> {
       region: {
         latitude: location.latitude,
         longitude: location.longitude,
-        latitudeDelta: 0.2,
-        longitudeDelta: 0.2
+        latitudeDelta,
+        longitudeDelta
       },
       location: this.reverseGeocodeLocation( location.latitude, location.longitude )
     } );

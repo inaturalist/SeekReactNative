@@ -7,11 +7,9 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal,
-  Alert
+  Modal
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";

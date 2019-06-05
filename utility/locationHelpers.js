@@ -1,4 +1,3 @@
-import AsyncStorage from "@react-native-community/async-storage";
 import Geocoder from "react-native-geocoder";
 
 const fetchUserLocation = () => (
@@ -49,18 +48,7 @@ const fetchLocationName = ( lat, lng ) => (
   } )
 );
 
-const reverseGeocodeLocation = ( latitude, longitude ) => {
-  Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )
-    .then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      return locality || subAdminArea;
-    } ).catch( () => {
-      // console.log( "Error reverse geocoding location: ", err.message );
-    } );
-};
-
 export {
-  reverseGeocodeLocation,
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,

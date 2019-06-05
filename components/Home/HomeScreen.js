@@ -28,7 +28,7 @@ import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { recalculateBadges } from "../../utility/badgeHelpers";
-import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
+import { truncateCoordinates, setLatAndLng, fetchUserLocation } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -87,17 +87,16 @@ class HomeScreen extends Component<Props> {
   }
 
   getGeolocation() {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
-      this.reverseGeocodeLocation( latitude, longitude );
-
-      setLatAndLng( latitude.toString(), longitude.toString() );
+    fetchUserLocation().then( ( coords ) => {
+      const lat = truncateCoordinates( coords.latitude );
+      const long = truncateCoordinates( coords.longitude );
+      this.reverseGeocodeLocation( lat, long );
+      setLatAndLng( lat.toString(), long.toString() );
 
       this.setState( {
-        latitude,
-        longitude
-      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+        latitude: lat,
+        longitude: long
+      }, () => this.setParamsForSpeciesNearby( lat, long ) );
     }, () => {
       this.checkInternetConnection();
     } );

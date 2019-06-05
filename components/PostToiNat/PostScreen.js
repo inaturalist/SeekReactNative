@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal
+  Modal,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Geocoder from "react-native-geocoder";
@@ -17,7 +18,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
-import { fetchUserLocation } from "../../utility/locationHelpers";
+import { fetchUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -182,11 +183,12 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude, location ) {
+  updateLocation( latitude, longitude ) {
+    this.reverseGeocodeLocation( latitude, longitude );
+
     this.setState( {
       latitude,
-      longitude,
-      location
+      longitude
     }, () => this.toggleLocationPicker() );
   }
 
@@ -199,11 +201,14 @@ class PostScreen extends Component<Props> {
   }
 
   reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      if ( location ) {
+        this.setLocation( location );
+      } else {
+        this.setLocationUndefined();
+      }
     } ).catch( () => {
-      console.log( "couldn't geocode location" );
+      this.setLocationUndefined();
     } );
   }
 

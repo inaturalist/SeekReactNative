@@ -1,11 +1,24 @@
 import AsyncStorage from "@react-native-community/async-storage";
-
-const Geocoder = require( "react-native-geocoder" );
+import Geocoder from "react-native-geocoder";
 
 const fetchUserLocation = () => (
   new Promise( ( resolve ) => {
     navigator.geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
+
+const fetchLocationName = ( lat, lng ) => (
+  new Promise( ( resolve ) => {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      if ( result.length === 0 ) {
+        resolve( null );
+      }
+      const { locality, subAdminArea } = result[0];
+      resolve( locality || subAdminArea );
     } ).catch( () => {
       resolve( null );
     } );
@@ -52,5 +65,6 @@ export {
   truncateCoordinates,
   setLatAndLng,
   getLatAndLng,
-  fetchUserLocation
+  fetchUserLocation,
+  fetchLocationName
 };

@@ -36,23 +36,26 @@ import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
 type Props = {
-  speciesSeenImage: string,
-  taxaName: string,
-  taxaId: number,
-  userImage: string,
-  image: string,
-  navigation: any,
-  isLoggedIn: boolean,
-  scientificName: string,
-  latitude: number,
-  longitude: number,
-  time: number,
-  postingSuccess: boolean
+  navigation: any
 }
 
 class MatchScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
+
+    const {
+      userImage,
+      image,
+      isLoggedIn,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      postingSuccess
+    } = navigation.state.params;
 
     this.state = {
       badgesEarned: 0,
@@ -64,7 +67,18 @@ class MatchScreen extends Component<Props> {
       challenge: null,
       incompleteChallenge: null,
       navigationPath: null,
-      challengeProgressIndex: null
+      challengeProgressIndex: null,
+      userImage,
+      image,
+      isLoggedIn,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      postingSuccess
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -198,8 +212,8 @@ class MatchScreen extends Component<Props> {
   }
 
   navigateTo() {
-    const { navigationPath } = this.state;
-    const { navigation, taxaId } = this.props;
+    const { navigationPath, taxaId } = this.state;
+    const { navigation } = this.props;
 
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
@@ -226,20 +240,7 @@ class MatchScreen extends Component<Props> {
   }
 
   render() {
-    const {
-      taxaName,
-      speciesSeenImage,
-      userImage,
-      image,
-      navigation,
-      isLoggedIn,
-      taxaId,
-      scientificName,
-      latitude,
-      longitude,
-      time,
-      postingSuccess
-    } = this.props;
+    const { navigation } = this.props;
 
     const {
       badge,
@@ -247,7 +248,18 @@ class MatchScreen extends Component<Props> {
       showLevelModal,
       newestLevel,
       challenge,
-      incompleteChallenge
+      incompleteChallenge,
+      userImage,
+      image,
+      isLoggedIn,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      postingSuccess
     } = this.state;
 
     return (

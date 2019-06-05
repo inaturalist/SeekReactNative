@@ -18,9 +18,6 @@ import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
 import ConfirmScreen from "./ConfirmScreen";
-import AncestorScreen from "./AncestorScreen";
-import MatchScreen from "./MatchScreen";
-import NoMatchScreen from "./NoMatchScreen";
 import config from "../../config";
 import styles from "../../styles/results/results";
 import {
@@ -33,7 +30,6 @@ import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
-import AlreadySeenScreen from "./AlreadySeenScreen";
 
 type Props = {
   navigation: any
@@ -65,7 +61,6 @@ class Results extends Component<Props> {
       taxaId: null,
       taxaName: null,
       commonAncestor: null,
-      match: null,
       seenDate: null,
       loading: true,
       photoConfirmed: false,
@@ -120,10 +115,6 @@ class Results extends Component<Props> {
 
   setSeenDate( seenDate ) {
     this.setState( { seenDate } );
-  }
-
-  setMatch( match ) {
-    this.setState( { match } );
   }
 
   setError( error ) {
@@ -200,14 +191,27 @@ class Results extends Component<Props> {
   }
 
   async showMatch() {
-    await this.addObservation();
-    this.setMatch( true );
+    const { seenDate } = this.state;
+
     this.setLoading( false );
+
+    if ( !seenDate ) {
+      await this.addObservation();
+      this.navigateTo( "Match" );
+    } else {
+      this.navigateTo( "AlreadySeen" );
+    }
   }
 
   showNoMatch() {
-    this.setMatch( false );
+    const { commonAncestor } = this.state;
     this.setLoading( false );
+
+    if ( commonAncestor ) {
+      this.navigateTo( "Ancestor" );
+    } else {
+      this.navigateTo( "NoMatch" );
+    }
   }
 
   fetchAdditionalTaxaInfo() {
@@ -329,8 +333,8 @@ class Results extends Component<Props> {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;
 
-        // if ( species.combined_score > 97 ) {
-        if ( species.combined_score > 85 ) { // changing to 85 for testing
+        // if ( species.combined_score > 85 ) { // changed to 85 for testing
+        if ( species.combined_score > 97 ) {
           this.checkDateSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
@@ -390,101 +394,51 @@ class Results extends Component<Props> {
     this.setState( { photoConfirmed: true } );
   }
 
-  render() {
+  navigateTo( route, matchStatus ) {
+    const { navigation } = this.props;
     const {
       userImage,
       taxaName,
-      match,
       taxaId,
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      loading,
       imageForUploading,
-      photoConfirmed,
-      error,
       isLoggedIn,
       scientificName,
       latitude,
       longitude,
       time,
+      postingSuccess
+    } = this.state;
+
+    navigation.navigate( route, {
+      userImage,
+      image: imageForUploading,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      seenDate,
+      isLoggedIn,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      commonAncestor,
+      matchStatus,
+      postingSuccess
+    } );
+  }
+
+  render() {
+    const {
+      loading,
+      imageForUploading,
+      photoConfirmed,
+      error,
       route
     } = this.state;
     const { navigation } = this.props;
-
-    let resultScreen;
-
-    if ( error === "onlineVision" ) {
-      resultScreen = <ErrorScreen error={i18n.t( "results.error_server" )} navigation={navigation} />;
-    } else if ( error === "image" ) {
-      resultScreen = <ErrorScreen error={i18n.t( "results.error_image" )} navigation={navigation} />;
-    } else if ( error === "taxaInfo" ) {
-      resultScreen = <ErrorScreen error={i18n.t( "results.error_species" )} navigation={navigation} />;
-    } else if ( error === "ancestorInfo" ) {
-      resultScreen = <ErrorScreen error={i18n.t( "results.error_ancestor" )} navigation={navigation} />;
-    } else if ( seenDate ) {
-      resultScreen = (
-        <AlreadySeenScreen
-          navigation={navigation}
-          userImage={userImage}
-          image={imageForUploading}
-          taxaName={taxaName}
-          taxaId={taxaId}
-          speciesSeenImage={speciesSeenImage}
-          seenDate={seenDate}
-          isLoggedIn={isLoggedIn}
-          scientificName={scientificName}
-          latitude={latitude}
-          longitude={longitude}
-          time={time}
-        />
-      );
-    } else if ( match && taxaName ) {
-      resultScreen = (
-        <MatchScreen
-          navigation={navigation}
-          userImage={userImage}
-          image={imageForUploading}
-          taxaName={taxaName}
-          taxaId={taxaId}
-          speciesSeenImage={speciesSeenImage}
-          isLoggedIn={isLoggedIn}
-          scientificName={scientificName}
-          latitude={latitude}
-          longitude={longitude}
-          time={time}
-        />
-      );
-    } else if ( !match && commonAncestor ) {
-      resultScreen = (
-        <AncestorScreen
-          navigation={navigation}
-          userImage={userImage}
-          image={imageForUploading}
-          speciesSeenImage={speciesSeenImage}
-          commonAncestor={commonAncestor}
-          isLoggedIn={isLoggedIn}
-          taxaId={taxaId}
-          scientificName={scientificName}
-          latitude={latitude}
-          longitude={longitude}
-          time={time}
-        />
-      );
-    } else {
-      resultScreen = (
-        <NoMatchScreen
-          navigation={navigation}
-          userImage={userImage}
-          image={imageForUploading}
-          isLoggedIn={isLoggedIn}
-          scientificName={scientificName}
-          latitude={latitude}
-          longitude={longitude}
-          time={time}
-        />
-      );
-    }
 
     return (
       <View style={styles.container}>
@@ -498,8 +452,9 @@ class Results extends Component<Props> {
             checkNumberOfChallengesCompleted();
           }}
         />
+        {error ? <ErrorScreen error={error} navigation={navigation} /> : null}
         {( !loading && photoConfirmed ) || route === "camera"
-          ? resultScreen
+          ? null
           : (
             <ConfirmScreen
               navigation={navigation}

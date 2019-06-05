@@ -290,13 +290,13 @@ class ARCamera extends Component<Props> {
     let helpText;
 
     if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
-      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_class" )}</Text>;
+      helpText = i18n.t( "camera.scan_class" );
     } else if ( rankToRender === "genus" ) {
-      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_genus" )}</Text>;
+      helpText = i18n.t( "camera.scan_genus" );
     } else if ( rankToRender === "species" ) {
-      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan_species" )}</Text>;
+      helpText = i18n.t( "camera.scan_species" );
     } else {
-      helpText = <Text style={styles.scanText}>{i18n.t( "camera.scan" )}</Text>;
+      helpText = i18n.t( "camera.scan" );
     }
 
     return (
@@ -328,7 +328,7 @@ class ARCamera extends Component<Props> {
           ranks={ranks}
           rankToRender={rankToRender}
         />
-        {!error ? helpText : null}
+        {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
         {!pictureTaken ? (
           <TouchableOpacity
             onPress={() => {

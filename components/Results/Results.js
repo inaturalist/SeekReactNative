@@ -30,7 +30,7 @@ import {
   getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 import AlreadySeenScreen from "./AlreadySeenScreen";
@@ -77,11 +77,23 @@ class Results extends Component<Props> {
     this.confirmPhoto = this.confirmPhoto.bind( this );
   }
 
-  async getLocation() {
+  getLocation() {
     const { latitude, longitude } = this.state;
+
+    Alert.alert( JSON.stringify( latitude, longitude ), "latlng from nav params" );
+
     if ( !latitude || !longitude ) {
-      const location = await getLatAndLng();
-      this.setLocation( location );
+      fetchTruncatedUserLocation().then( ( coords ) => {
+        const lat = coords.latitude;
+        const lng = coords.longitude;
+
+        Alert.alert( JSON.stringify( lat, lng ), "latlng from truncated coords" );
+
+        this.setState( {
+          latitude: lat,
+          longitude: lng
+        } );
+      } );
     }
   }
 
@@ -90,13 +102,6 @@ class Results extends Component<Props> {
     if ( login ) {
       this.setLoggedIn( true );
     }
-  }
-
-  setLocation( location ) {
-    this.setState( {
-      latitude: Number( location.latitude ),
-      longitude: Number( location.longitude )
-    } );
   }
 
   setImageForUploading( imageForUploading ) {

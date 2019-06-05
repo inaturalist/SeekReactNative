@@ -19,7 +19,6 @@ import i18n from "../../i18n";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import { checkCameraRollPermissions, checkForPhotoMetaData } from "../../utility/photoHelpers";
-import { getLatAndLng } from "../../utility/locationHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
@@ -140,14 +139,13 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  async selectImage( node ) {
+  selectImage( node ) {
     const { timestamp, location, image } = node;
-    const userLocation = await getLatAndLng();
 
     if ( checkForPhotoMetaData( location ) ) {
       this.navigateToResults( image, timestamp, location.latitude, location.longitude );
     } else {
-      this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
+      this.navigateToResults( image, timestamp, null, null );
     }
   }
 

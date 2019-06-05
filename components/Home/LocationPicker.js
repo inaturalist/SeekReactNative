@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, getLatAndLng, fetchLocationName } from "../../utility/locationHelpers";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
 
@@ -97,17 +98,20 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  async returnToUserLocation() {
-    const location = await getLatAndLng();
+  returnToUserLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      const { latitude, longitude } = coords;
 
-    this.setState( {
-      region: {
-        latitude: location.latitude,
-        longitude: location.longitude,
-        latitudeDelta,
-        longitudeDelta
-      },
-      location: this.reverseGeocodeLocation( location.latitude, location.longitude )
+      this.reverseGeocodeLocation( latitude, longitude );
+
+      this.setState( {
+        region: {
+          latitude,
+          longitude,
+          latitudeDelta,
+          longitudeDelta
+        }
+      } );
     } );
   }
 

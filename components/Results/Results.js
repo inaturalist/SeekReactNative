@@ -80,14 +80,10 @@ class Results extends Component<Props> {
   getLocation() {
     const { latitude, longitude } = this.state;
 
-    Alert.alert( JSON.stringify( latitude, longitude ), "latlng from nav params" );
-
     if ( !latitude || !longitude ) {
       fetchTruncatedUserLocation().then( ( coords ) => {
         const lat = coords.latitude;
         const lng = coords.longitude;
-
-        Alert.alert( JSON.stringify( lat, lng ), "latlng from truncated coords" );
 
         this.setState( {
           latitude: lat,

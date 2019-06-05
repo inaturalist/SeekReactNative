@@ -225,7 +225,8 @@ class ARCamera extends Component<Props> {
       time: photo.timestamp,
       latitude: null,
       longitude: null,
-      predictions
+      predictions,
+      route: "camera"
     } );
   }
 

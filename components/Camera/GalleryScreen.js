@@ -135,7 +135,8 @@ class GalleryScreen extends Component<Props> {
       time,
       latitude,
       longitude,
-      predictions: []
+      predictions: [],
+      route: "gallery"
     } );
   }
 

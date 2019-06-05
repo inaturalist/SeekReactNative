@@ -190,7 +190,6 @@ class HomeScreen extends Component<Props> {
   }
 
   checkInternetConnection() {
-    Alert.alert( "checking internet" );
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );

@@ -48,7 +48,8 @@ class Results extends Component<Props> {
       time,
       latitude,
       longitude,
-      predictions
+      predictions,
+      route
     } = navigation.state.params;
 
     this.state = {
@@ -71,7 +72,8 @@ class Results extends Component<Props> {
       error: null,
       scientificName: null,
       isLoggedIn: false,
-      imageForUploading: null
+      imageForUploading: null,
+      route
     };
 
     this.confirmPhoto = this.confirmPhoto.bind( this );
@@ -405,7 +407,8 @@ class Results extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time
+      time,
+      route
     } = this.state;
     const { navigation } = this.props;
 
@@ -495,7 +498,7 @@ class Results extends Component<Props> {
             checkNumberOfChallengesCompleted();
           }}
         />
-        {!loading && photoConfirmed
+        {( !loading && photoConfirmed ) || route === "camera"
           ? resultScreen
           : (
             <ConfirmScreen

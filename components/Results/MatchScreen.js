@@ -12,6 +12,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
 import Realm from "realm";
+import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
@@ -85,20 +86,11 @@ class MatchScreen extends Component<Props> {
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  async componentWillMount() {
-    this.getLoggedIn();
-    const badgesEarned = await getBadgesEarned();
-    const challengesCompleted = await getChallengesCompleted();
-    this.setBadgesEarned( badgesEarned );
-    this.setChallengesCompleted( challengesCompleted );
-    recalculateChallenges();
-    const index = await getChallengeProgress();
-    this.setChallengeProgressIndex( index );
-  }
+  // async componentWillMount() {
 
-  componentWillUnmount() {
-    this.resetState();
-  }
+  // componentWillUnmount() {
+  //   this.resetState();
+  // }
 
   setNavigationPath( navigationPath ) {
     this.setState( { navigationPath }, () => this.checkModals() );
@@ -139,6 +131,17 @@ class MatchScreen extends Component<Props> {
 
   setLoggedIn( isLoggedIn ) {
     this.setState( { isLoggedIn } );
+  }
+
+  async checkUserStatus() {
+    this.getLoggedIn();
+    const badgesEarned = await getBadgesEarned();
+    const challengesCompleted = await getChallengesCompleted();
+    this.setBadgesEarned( badgesEarned );
+    this.setChallengesCompleted( challengesCompleted );
+    recalculateChallenges();
+    const index = await getChallengeProgress();
+    this.setChallengeProgressIndex( index );
   }
 
   resetState() {
@@ -238,7 +241,6 @@ class MatchScreen extends Component<Props> {
     }
   }
 
-
   checkModals() {
     const { challenge, newestLevel } = this.state;
 
@@ -278,6 +280,12 @@ class MatchScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
         <SafeAreaView style={styles.safeView}>
+          <NavigationEvents
+            onWillFocus={() => {
+              this.checkUserStatus();
+            }}
+            onWillBlur={() => this.resetState()}
+          />
           <Banner navigation={navigation} badge={badge} incompleteChallenge={incompleteChallenge} />
           <Modal
             isVisible={showChallengeModal}

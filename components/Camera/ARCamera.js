@@ -164,7 +164,6 @@ class ARCamera extends Component<Props> {
     if ( permission === true ) {
       this.setImagePredictions( photo.predictions );
       this.savePhotoToGallery( photo );
-      this.togglePreview();
     } else {
       this.setError( "cameraRoll" );
     }

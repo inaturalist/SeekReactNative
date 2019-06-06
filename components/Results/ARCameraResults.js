@@ -10,6 +10,7 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
+import ConfirmScreen from "./ConfirmScreen";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -133,6 +134,8 @@ class ARCameraResults extends Component<Props> {
 
     inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
       const taxa = response.results[0];
+      const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
+      this.resizeDefaultTaxonImage( speciesSeenImage );
 
       this.setState( {
         taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
@@ -147,7 +150,7 @@ class ARCameraResults extends Component<Props> {
             ancestor_ids: taxa.ancestor_ids
           }
         },
-        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
+        speciesSeenImage
       }, () => this.showMatch() );
     } ).catch( () => {
       this.setError( "taxaInfo" );
@@ -158,7 +161,8 @@ class ARCameraResults extends Component<Props> {
     inatjs.taxa.fetch( ancestor.taxon_id ).then( ( response ) => {
       const taxa = response.results[0];
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
-      this.setCommonAncestor( ancestor, speciesSeenImage );
+      this.resizeDefaultTaxonImage( speciesSeenImage );
+      this.setCommonAncestor( ancestor );
     } ).catch( () => {
       this.setError( "ancestorInfo" );
     } );
@@ -175,6 +179,14 @@ class ARCameraResults extends Component<Props> {
     } else {
       this.showNoMatch();
     }
+  }
+
+  resizeDefaultTaxonImage( image ) {
+    resizeImage( image, 299 ).then( ( speciesSeenImage ) => {
+      if ( speciesSeenImage ) {
+        this.setState( { speciesSeenImage } );
+      }
+    } );
   }
 
   resizeImage() {
@@ -267,7 +279,7 @@ class ARCameraResults extends Component<Props> {
   }
 
   render() {
-    const { error } = this.state;
+    const { error, imageForUploading } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -282,6 +294,16 @@ class ARCameraResults extends Component<Props> {
           }}
         />
         {error ? <ErrorScreen error={error} navigation={navigation} /> : null}
+        {error
+          ? <ErrorScreen error={error} navigation={navigation} />
+          : (
+            <ConfirmScreen
+              image={imageForUploading}
+              match={null}
+              navigation={navigation}
+              clicked
+            />
+          )}
       </View>
     );
   }

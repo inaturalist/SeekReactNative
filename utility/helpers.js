@@ -6,7 +6,7 @@ import i18n from "../i18n";
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { Platform, Alert } = require( "react-native" );
+const { Platform } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 const moment = require( "moment" );
 
@@ -86,7 +86,6 @@ const checkForPowerUsers = ( length, newLength ) => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image, time ) => {
-  console.log( image, time, "image time" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );
@@ -120,7 +119,6 @@ const addToCollection = ( observation, latitude, longitude, image, time ) => {
       const newLength = realm.objects( "TaxonRealm" ).length;
       checkForPowerUsers( length, newLength );
     } ).catch( ( e ) => {
-      Alert.alert( JSON.stringify( e ), "error" );
       console.log( e, "error adding to collection" );
     } );
 };

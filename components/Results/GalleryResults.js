@@ -329,14 +329,17 @@ class Results extends Component<Props> {
             checkNumberOfChallengesCompleted();
           }}
         />
-        {error ? <ErrorScreen error={error} navigation={navigation} /> : null}
-        <ConfirmScreen
-          image={imageForUploading}
-          checkForMatches={this.checkForMatches}
-          match={match}
-          navigation={navigation}
-          clicked={clicked}
-        />
+        {error
+          ? <ErrorScreen error={error} navigation={navigation} />
+          : (
+            <ConfirmScreen
+              image={imageForUploading}
+              checkForMatches={this.checkForMatches}
+              match={match}
+              navigation={navigation}
+              clicked={clicked}
+            />
+          )}
       </View>
     );
   }

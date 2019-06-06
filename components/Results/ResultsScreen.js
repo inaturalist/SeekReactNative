@@ -142,7 +142,11 @@ class NoMatchScreen extends Component<Props> {
               {seenDate ? (
                 <TouchableOpacity
                   style={[styles.button, { backgroundColor: gradientColorLight }]}
-                  onPress={() => navigation.navigate( "Species" )}
+                  onPress={() => {
+                    setSpeciesId( taxaId ); // not sure why these are here
+                    setRoute( "Camera" ); // not sure why these are here
+                    navigation.navigate( "Species" );
+                  }}
                 >
                   <Text style={styles.buttonText}>
                     {i18n.t( "results.view_species" ).toLocaleUpperCase()}

@@ -215,20 +215,13 @@ class Results extends Component<Props> {
       this.navigateTo( "Match" );
     } else {
       this.navigateTo( "ResultsScreen" );
-      // this.navigateTo( "AlreadySeen" );
     }
   }
 
   showNoMatch() {
-    const { commonAncestor } = this.state;
     this.setLoading( false );
 
     this.navigateTo( "ResultsScreen" );
-    // if ( commonAncestor ) {
-    //   this.navigateTo( "Ancestor" );
-    // } else {
-    //   this.navigateTo( "NoMatch" );
-    // }
   }
 
   fetchAdditionalTaxaInfo() {

@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   Platform,
+  Modal,
   Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
@@ -68,10 +69,11 @@ class Results extends Component<Props> {
       scientificName: null,
       isLoggedIn: false,
       imageForUploading: null,
-      route
+      route,
+      modalVisible: false
     };
 
-    this.confirmPhoto = this.confirmPhoto.bind( this );
+    this.toggleConfirmationScreen = this.toggleConfirmationScreen.bind( this );
   }
 
   getLocation() {
@@ -190,6 +192,19 @@ class Results extends Component<Props> {
     this.fetchScore( params );
   }
 
+  // resetState() {
+  //   this.state = {
+  //     userImage: null,
+  //     speciesSeenImage: null,
+  //     observation: null,
+  //     taxaId: null,
+  //     taxaName: null,
+  //     commonAncestor: null,
+  //     seenDate: null,
+  //     scientificName: null
+  //   };
+  // }
+
   async showMatch() {
     const { seenDate } = this.state;
 
@@ -199,7 +214,8 @@ class Results extends Component<Props> {
       await this.addObservation();
       this.navigateTo( "Match" );
     } else {
-      this.navigateTo( "AlreadySeen" );
+      this.navigateTo( "ResultsScreen" );
+      // this.navigateTo( "AlreadySeen" );
     }
   }
 
@@ -207,11 +223,12 @@ class Results extends Component<Props> {
     const { commonAncestor } = this.state;
     this.setLoading( false );
 
-    if ( commonAncestor ) {
-      this.navigateTo( "Ancestor" );
-    } else {
-      this.navigateTo( "NoMatch" );
-    }
+    this.navigateTo( "ResultsScreen" );
+    // if ( commonAncestor ) {
+    //   this.navigateTo( "Ancestor" );
+    // } else {
+    //   this.navigateTo( "NoMatch" );
+    // }
   }
 
   fetchAdditionalTaxaInfo() {
@@ -390,11 +407,15 @@ class Results extends Component<Props> {
       } );
   }
 
-  confirmPhoto() {
-    this.setState( { photoConfirmed: true } );
+  toggleConfirmationScreen() {
+    const { modalVisible, photoConfirmed } = this.state;
+    this.setState( {
+      modalVisible: !modalVisible,
+      photoConfirmed: !photoConfirmed
+    } );
   }
 
-  navigateTo( route, matchStatus ) {
+  navigateTo( route ) {
     const { navigation } = this.props;
     const {
       userImage,
@@ -425,9 +446,16 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      matchStatus,
       postingSuccess
     } );
+  }
+
+  checkPrevRoute() {
+    const { route } = this.state;
+
+    if ( route === "gallery" ) {
+      this.toggleConfirmationScreen();
+    }
   }
 
   render() {
@@ -436,7 +464,8 @@ class Results extends Component<Props> {
       imageForUploading,
       photoConfirmed,
       error,
-      route
+      route,
+      modalVisible
     } = this.state;
     const { navigation } = this.props;
 
@@ -450,19 +479,26 @@ class Results extends Component<Props> {
             this.resizeImageForUploading();
             checkNumberOfBadgesEarned();
             checkNumberOfChallengesCompleted();
+            this.checkPrevRoute();
           }}
+          // onWillBlur={() => this.resetState()}
         />
         {error ? <ErrorScreen error={error} navigation={navigation} /> : null}
         {( !loading && photoConfirmed ) || route === "camera"
           ? null
           : (
-            <ConfirmScreen
-              navigation={navigation}
-              image={imageForUploading}
-              photoConfirmed={photoConfirmed}
-              loading={loading}
-              confirmPhoto={this.confirmPhoto}
-            />
+            <Modal
+              visible={modalVisible}
+              onRequestClose={() => this.toggleConfirmationScreen()}
+            >
+              <ConfirmScreen
+                navigation={navigation}
+                image={imageForUploading}
+                toggleConfirmationScreen={this.toggleConfirmationScreen}
+                photoConfirmed={photoConfirmed}
+                loading={loading}
+              />
+            </Modal>
           )}
       </View>
     );

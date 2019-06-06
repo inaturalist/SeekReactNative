@@ -8,8 +8,7 @@ import {
   PermissionsAndroid,
   Modal,
   SafeAreaView,
-  StatusBar,
-  Alert
+  StatusBar
 } from "react-native";
 import Realm from "realm";
 import inatjs from "inaturalistjs";

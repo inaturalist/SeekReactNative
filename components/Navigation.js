@@ -18,6 +18,7 @@ import Match from "./Results/MatchScreen";
 import AlreadySeen from "./Results/AlreadySeenScreen";
 import Ancestor from "./Results/AncestorScreen";
 import NoMatch from "./Results/NoMatchScreen";
+import ResultsScreen from "./Results/ResultsScreen";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
@@ -177,6 +178,10 @@ const MainStack = createStackNavigator( {
   },
   NoMatch: {
     screen: NoMatch,
+    navigationOptions: () => noHeader
+  },
+  ResultsScreen: {
+    screen: ResultsScreen,
     navigationOptions: () => noHeader
   },
   RangeMap: {

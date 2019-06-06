@@ -19,13 +19,13 @@ type Props = {
   image: Object,
   loading: boolean,
   photoConfirmed: boolean,
-  confirmPhoto: Function,
-  navigation: any
+  navigation: any,
+  toggleConfirmationScreen: Function
 }
 
 const ConfirmScreen = ( {
   image,
-  confirmPhoto,
+  toggleConfirmationScreen,
   loading,
   photoConfirmed,
   navigation
@@ -55,7 +55,7 @@ const ConfirmScreen = ( {
       {!photoConfirmed ? (
         <TouchableOpacity
           style={styles.button}
-          onPress={() => confirmPhoto()}
+          onPress={() => toggleConfirmationScreen()}
         >
           <Text style={styles.buttonText}>
             {i18n.t( "confirm.button" ).toLocaleUpperCase()}

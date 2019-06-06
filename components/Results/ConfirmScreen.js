@@ -6,8 +6,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -17,18 +16,18 @@ import LoadingWheel from "../LoadingWheel";
 
 type Props = {
   image: Object,
-  loading: boolean,
-  photoConfirmed: boolean,
   navigation: any,
-  toggleConfirmationScreen: Function
+  match: boolean,
+  checkForMatches: Function,
+  clicked: boolean
 }
 
 const ConfirmScreen = ( {
   image,
-  toggleConfirmationScreen,
-  loading,
-  photoConfirmed,
-  navigation
+  checkForMatches,
+  navigation,
+  match,
+  clicked
 }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView style={styles.safeViewTop} />
@@ -43,7 +42,11 @@ const ConfirmScreen = ( {
       <View />
     </View>
     <View style={styles.imageContainer}>
-      {loading && photoConfirmed ? <LoadingWheel color="white" /> : null}
+      {match === null ? (
+        <View style={styles.loadingWheel}>
+          <LoadingWheel color="white" />
+        </View>
+      ) : null}
       {image ? (
         <Image
           source={{ uri: image }}
@@ -52,22 +55,14 @@ const ConfirmScreen = ( {
       ) : null}
     </View>
     <View style={styles.footer}>
-      {!photoConfirmed ? (
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => toggleConfirmationScreen()}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-      ) : (
-        <View style={styles.lightButton}>
-          <Text style={styles.buttonText}>
-            {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-          </Text>
-        </View>
-      )}
+      <TouchableOpacity
+        style={[styles.button, clicked && styles.lightButton]}
+        onPress={() => checkForMatches()}
+      >
+        <Text style={styles.buttonText}>
+          {i18n.t( "confirm.button" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
     </View>
   </View>
 );

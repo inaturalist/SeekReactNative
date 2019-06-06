@@ -130,13 +130,11 @@ class GalleryScreen extends Component<Props> {
   navigateToResults( image, time, latitude, longitude ) {
     const { navigation } = this.props;
 
-    navigation.navigate( "Results", {
+    navigation.navigate( "GalleryResults", {
       image,
       time,
       latitude,
-      longitude,
-      predictions: [],
-      route: "gallery"
+      longitude
     } );
   }
 

@@ -27,7 +27,7 @@ import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { recalculateBadges } from "../../utility/badgeHelpers";
-import { truncateCoordinates, fetchUserLocation, fetchLocationName } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -86,15 +86,17 @@ class HomeScreen extends Component<Props> {
   }
 
   getGeolocation() {
-    fetchUserLocation().then( ( coords ) => {
-      const lat = truncateCoordinates( coords.latitude );
-      const long = truncateCoordinates( coords.longitude );
-      this.reverseGeocodeLocation( lat, long );
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      const { latitude, longitude } = coords;
+
+      this.reverseGeocodeLocation( latitude, longitude );
 
       this.setState( {
-        latitude: lat,
-        longitude: long
-      }, () => this.setParamsForSpeciesNearby( lat, long ) );
+        latitude,
+        longitude
+      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+    } ).catch( () => {
+      console.log( "no location permissions enabled" );
     } );
   }
 

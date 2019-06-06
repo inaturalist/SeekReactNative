@@ -220,14 +220,20 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.navigate( "Results", {
-      image: photo.image,
-      time: photo.timestamp,
-      latitude: null,
-      longitude: null,
-      predictions,
-      route: "camera"
-    } );
+    if ( predictions && predictions.length > 0 ) {
+      navigation.navigate( "ARCameraResults", {
+        image: photo.image,
+        time: photo.timestamp,
+        predictions
+      } );
+    } else {
+      navigation.navigate( "GalleryResults", {
+        image: photo.image,
+        time: photo.timestamp,
+        latitude: null,
+        longitude: null
+      } );
+    }
   }
 
   async closeCamera() {

@@ -232,7 +232,7 @@
     "believe": "We believe this is a member of",
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}",
-    "post_inat": "You can help train Seek to identify this species by posting to iNaturalist, where the community will help identify it and add it to our model.",
+    "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
     "post": "Post to iNaturalist",
     "flag": "Flag identification",
     "incorrect": "Are you confident that this identification is incorrect?",

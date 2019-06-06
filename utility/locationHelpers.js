@@ -1,4 +1,8 @@
+import { Alert } from "react-native";
 import Geocoder from "react-native-geocoder";
+import OpenSettings from "react-native-open-settings";
+
+import i18n from "../i18n";
 
 const fetchUserLocation = () => (
   new Promise( ( resolve ) => {
@@ -48,9 +52,25 @@ const fetchLocationName = ( lat, lng ) => (
   } )
 );
 
+const createLocationPermissionsAlert = () => {
+  Alert.alert(
+    i18n.t( "results.enable_location" ),
+    i18n.t( "results.error_location" ),
+    [{
+      text: i18n.t( "species_nearby.enable_location" ),
+      onPress: () => OpenSettings.openSettings()
+    },
+    {
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,
-  fetchTruncatedUserLocation
+  fetchTruncatedUserLocation,
+  createLocationPermissionsAlert
 };

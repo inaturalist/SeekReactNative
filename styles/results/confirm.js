@@ -64,12 +64,14 @@ export default StyleSheet.create( {
   buttonImage: {
     padding: 5
   },
-  loading: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   safeViewTop: {
     flex: 0,
     backgroundColor: colors.white
+  },
+  loadingWheel: {
+    zIndex: 1,
+    position: "absolute",
+    left: "50%",
+    top: "50%"
   }
 } );

@@ -32,6 +32,7 @@ import {
   getChallengesCompleted,
   getChallengeProgress
 } from "../../utility/challengeHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
@@ -46,7 +47,6 @@ class MatchScreen extends Component<Props> {
     const {
       userImage,
       image,
-      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -70,7 +70,7 @@ class MatchScreen extends Component<Props> {
       challengeProgressIndex: null,
       userImage,
       image,
-      isLoggedIn,
+      isLoggedIn: false,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -86,6 +86,7 @@ class MatchScreen extends Component<Props> {
   }
 
   async componentWillMount() {
+    this.getLoggedIn();
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
     this.setBadgesEarned( badgesEarned );
@@ -127,6 +128,17 @@ class MatchScreen extends Component<Props> {
 
   setLatestLevel( newestLevel ) {
     this.setState( { newestLevel } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   resetState() {

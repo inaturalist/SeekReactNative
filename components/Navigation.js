@@ -13,7 +13,6 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import ARCamera from "./Camera/ARCamera";
 import Gallery from "./Camera/GalleryScreen";
-import Results from "./Results/Results";
 import ARCameraResults from "./Results/ARCameraResults";
 import GalleryResults from "./Results/GalleryResults";
 import Match from "./Results/MatchScreen";
@@ -165,10 +164,6 @@ const MainStack = createStackNavigator( {
   },
   GalleryResults: {
     screen: GalleryResults,
-    navigationOptions: () => noHeader
-  },
-  Results: {
-    screen: Results,
     navigationOptions: () => noHeader
   },
   Match: {

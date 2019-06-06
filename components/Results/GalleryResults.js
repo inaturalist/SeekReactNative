@@ -1,14 +1,9 @@
 // @flow
 
 import React, { Component } from "react";
-import {
-  View,
-  Platform,
-  Alert
-} from "react-native";
+import { View } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
-import ImageResizer from "react-native-image-resizer";
 import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
@@ -27,6 +22,7 @@ import {
 import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
+import { resizeImage } from "../../utility/photoHelpers";
 
 type Props = {
   navigation: any
@@ -165,39 +161,25 @@ class Results extends Component<Props> {
   resizeImage() {
     const { image } = this.state;
 
-    ImageResizer.createResizedImage( image.uri, 299, 299, "JPEG", 80 )
-      .then( ( { uri } ) => {
-        let userImage;
-        if ( Platform.OS === "ios" ) {
-          const uriParts = uri.split( "://" );
-          userImage = uriParts[uriParts.length - 1];
-          this.setImageUri( userImage );
-        } else {
-          userImage = uri;
-          this.setImageUri( userImage );
-        }
-      } ).catch( () => {
+    resizeImage( image.uri, 299 ).then( ( userImage ) => {
+      if ( userImage ) {
+        this.setImageUri( userImage );
+      } else {
         this.setError( "image" );
-      } );
+      }
+    } ).catch( () => this.setError( "image" ) );
   }
 
   resizeImageForUploading() {
     const { image } = this.state;
 
-    ImageResizer.createResizedImage( image.uri, 2048, 2048, "JPEG", 80 )
-      .then( ( { uri } ) => {
-        let userImage;
-        if ( Platform.OS === "ios" ) {
-          const uriParts = uri.split( "://" );
-          userImage = uriParts[uriParts.length - 1];
-          this.setImageForUploading( userImage );
-        } else {
-          userImage = uri;
-          this.setImageForUploading( userImage );
-        }
-      } ).catch( () => {
+    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
+      if ( userImage ) {
+        this.setImageForUploading( userImage );
+      } else {
         this.setError( "image" );
-      } );
+      }
+    } ).catch( () => this.setError( "image" ) );
   }
 
   createJwtToken() {

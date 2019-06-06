@@ -1,4 +1,6 @@
-const { PermissionsAndroid } = require( "react-native" );
+import ImageResizer from "react-native-image-resizer";
+
+const { PermissionsAndroid, Platform } = require( "react-native" );
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -28,7 +30,26 @@ const checkCameraRollPermissions = async () => {
   }
 };
 
+const resizeImage = ( imageUri, size ) => (
+  new Promise( ( resolve ) => {
+    ImageResizer.createResizedImage( imageUri, size, size, "JPEG", 80 )
+      .then( ( { uri } ) => {
+        let userImage;
+        if ( Platform.OS === "ios" ) {
+          const uriParts = uri.split( "://" );
+          userImage = uriParts[uriParts.length - 1];
+          resolve( userImage );
+        } else {
+          resolve( uri );
+        }
+      } ).catch( () => {
+        resolve( null );
+      } );
+  } )
+);
+
 export {
   checkCameraRollPermissions,
-  checkForPhotoMetaData
+  checkForPhotoMetaData,
+  resizeImage
 };

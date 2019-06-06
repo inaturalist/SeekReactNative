@@ -137,7 +137,9 @@ class NoMatchScreen extends Component<Props> {
             </LinearGradient>
             <View style={styles.textContainer}>
               <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-              <Text style={styles.speciesText}>{taxaName || commonAncestor}</Text>
+              {seenDate || commonAncestor
+                ? <Text style={styles.speciesText}>{taxaName || commonAncestor}</Text>
+                : null}
               <Text style={styles.text}>{text}</Text>
               {seenDate ? (
                 <TouchableOpacity

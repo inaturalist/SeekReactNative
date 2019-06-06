@@ -214,14 +214,14 @@ class Results extends Component<Props> {
       await this.addObservation();
       this.navigateTo( "Match" );
     } else {
-      this.navigateTo( "ResultsScreen" );
+      this.navigateTo( "NoMatchScreen" );
     }
   }
 
   showNoMatch() {
     this.setLoading( false );
 
-    this.navigateTo( "ResultsScreen" );
+    this.navigateTo( "NoMatchScreen" );
   }
 
   fetchAdditionalTaxaInfo() {

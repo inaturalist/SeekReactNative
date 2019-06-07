@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Alert } from "react-native";
+import { View, Image } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -10,7 +10,8 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-import ConfirmScreen from "./ConfirmScreen";
+// import ConfirmScreen from "./ConfirmScreen";
+import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -288,12 +289,10 @@ class ARCameraResults extends Component<Props> {
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
           : (
-            <ConfirmScreen
-              image={imageForUploading}
-              match={null}
-              navigation={navigation}
-              clicked
-            />
+            <View>
+              <Image source={{ uri: imageForUploading }} style={{ width: "100%", height: "100%" }} />
+              <LoadingWheel color="white" />
+            </View>
           )}
       </View>
     );

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Image } from "react-native";
+import { View, ImageBackground } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -289,10 +289,21 @@ class ARCameraResults extends Component<Props> {
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
           : (
-            <View>
-              <Image source={{ uri: imageForUploading }} style={{ width: "100%", height: "100%" }} />
-              <LoadingWheel color="white" />
-            </View>
+            <ImageBackground
+              source={{ uri: imageForUploading }}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <View
+                style={{
+                  zIndex: 1,
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%"
+                }}
+              >
+                <LoadingWheel color="white" />
+              </View>
+            </ImageBackground>
           )}
       </View>
     );

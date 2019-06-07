@@ -100,18 +100,20 @@ class LocationPicker extends Component<Props> {
 
   returnToUserLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
-      const { latitude, longitude } = coords;
+      if ( coords ) {
+        const { latitude, longitude } = coords;
 
-      this.reverseGeocodeLocation( latitude, longitude );
+        this.reverseGeocodeLocation( latitude, longitude );
 
-      this.setState( {
-        region: {
-          latitude,
-          longitude,
-          latitudeDelta,
-          longitudeDelta
-        }
-      } );
+        this.setState( {
+          region: {
+            latitude,
+            longitude,
+            latitudeDelta,
+            longitudeDelta
+          }
+        } );
+      }
     } );
   }
 

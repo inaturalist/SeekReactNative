@@ -152,7 +152,7 @@ class SpeciesDetail extends Component<Props> {
 
       this.reverseGeocodeLocation( latitude, longitude );
       this.setRegion( latitude, longitude );
-    } );
+    } ).catch( () => this.setError( "internet" ) );
   }
 
   resetState() {

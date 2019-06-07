@@ -53,17 +53,18 @@ class LocationPicker extends Component<Props> {
 
   returnToUserLocation() {
     fetchUserLocation().then( ( coords ) => {
-      const lat = coords.latitude;
-      const long = coords.longitude;
+      if ( coords ) {
+        const { latitude, longitude } = coords;
 
-      this.setState( {
-        region: {
-          latitude: lat,
-          longitude: long,
-          latitudeDelta,
-          longitudeDelta
-        }
-      } );
+        this.setState( {
+          region: {
+            latitude,
+            longitude,
+            latitudeDelta,
+            longitudeDelta
+          }
+        } );
+      }
     } ).catch( ( err ) => {
       console.log( err );
     } );

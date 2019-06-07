@@ -16,7 +16,6 @@ import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 import INatCamera from "react-native-inat-camera";
 
-import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
@@ -269,30 +268,22 @@ class ARCamera extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    let center;
+    let errorText;
 
     if ( error === "permissions" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_camera" )} camera />;
+      errorText = i18n.t( "camera.error_camera" );
     } else if ( error === "cameraRoll" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_gallery" )} camera />;
+      errorText = i18n.t( "camera.error_gallery" );
     } else if ( error === "camera" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_old_camera" )} camera />;
+      errorText = i18n.t( "camera.error_old_camera" );
     } else if ( error === "classifier" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_classifier" )} camera />;
+      errorText = i18n.t( "camera.error_classifier" );
     } else if ( error === "device" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.device_support" )} camera />;
+      errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_saving_photos" )} camera />;
+      errorText = i18n.t( "camera.error_saving_photos" );
     } else if ( error === "fetch" ) {
-      center = <ErrorScreen errorText={i18n.t( "camera.error_fetching_photos" )} camera />;
-    } else if ( loading ) {
-      center = (
-        <View style={styles.loading}>
-          <LoadingWheel color="white" />
-        </View>
-      );
-    } else {
-      center = null;
+      errorText = i18n.t( "camera.error_fetching_photos" );
     }
 
     let helpText;
@@ -309,7 +300,6 @@ class ARCamera extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        {center}
         <NavigationEvents
           onWillFocus={() => {
             this.requestCameraPermissions();
@@ -324,6 +314,12 @@ class ARCamera extends Component<Props> {
             this.closeCameraAndroid();
           }}
         />
+        {loading ? (
+          <View style={styles.loading}>
+            <LoadingWheel color="white" />
+          </View>
+        ) : null}
+        {error ? <Text style={styles.errorText}>{errorText}</Text> : null}
         <TouchableOpacity
           style={styles.backButton}
           hitSlop={styles.touchable}

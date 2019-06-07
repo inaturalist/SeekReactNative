@@ -74,6 +74,24 @@ class NoMatchScreen extends Component<Props> {
     this.setState( { isLoggedIn } );
   }
 
+  resetState() {
+    this.setState( {
+      userImage: null,
+      image: null,
+      taxaId: null,
+      scientificName: null,
+      latitude: null,
+      longitude: null,
+      time: null,
+      postingSuccess: null,
+      speciesSeenImage: null,
+      taxaName: null,
+      seenDate: null,
+      commonAncestor: null,
+      isLoggedIn: false
+    } );
+  }
+
   render() {
     const { navigation } = this.props;
     const {
@@ -124,6 +142,7 @@ class NoMatchScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => this.getLoggedIn()}
+            onWillBlur={() => this.resetState()}
           />
           <ScrollView>
             <LinearGradient

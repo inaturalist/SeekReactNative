@@ -86,12 +86,6 @@ class MatchScreen extends Component<Props> {
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  // async componentWillMount() {
-
-  // componentWillUnmount() {
-  //   this.resetState();
-  // }
-
   setNavigationPath( navigationPath ) {
     this.setState( { navigationPath }, () => this.checkModals() );
   }

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, Alert } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";

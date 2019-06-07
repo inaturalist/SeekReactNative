@@ -46,10 +46,6 @@ class ARCamera extends Component<Props> {
     this.backHandler = null;
   }
 
-  setCommonName( commonName ) {
-    this.setState( { commonName } );
-  }
-
   setFocusedScreen( focusedScreen ) {
     this.setState( { focusedScreen } );
   }

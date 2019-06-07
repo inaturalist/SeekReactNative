@@ -58,12 +58,16 @@ class ARCameraResults extends Component<Props> {
 
   getLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
-      const { latitude, longitude } = coords;
+      if ( coords ) {
+        const { latitude, longitude } = coords;
 
-      this.setState( {
-        latitude,
-        longitude
-      } );
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      } else {
+        createLocationPermissionsAlert();
+      }
     } );
   }
 
@@ -134,8 +138,6 @@ class ARCameraResults extends Component<Props> {
 
     inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
       const taxa = response.results[0];
-      const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
-      this.resizeDefaultTaxonImage( speciesSeenImage );
 
       this.setState( {
         taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
@@ -150,7 +152,7 @@ class ARCameraResults extends Component<Props> {
             ancestor_ids: taxa.ancestor_ids
           }
         },
-        speciesSeenImage
+        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
       }, () => this.showMatch() );
     } ).catch( () => {
       this.setError( "taxaInfo" );
@@ -161,8 +163,7 @@ class ARCameraResults extends Component<Props> {
     inatjs.taxa.fetch( ancestor.taxon_id ).then( ( response ) => {
       const taxa = response.results[0];
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
-      this.resizeDefaultTaxonImage( speciesSeenImage );
-      this.setCommonAncestor( ancestor );
+      this.setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
       this.setError( "ancestorInfo" );
     } );
@@ -179,14 +180,6 @@ class ARCameraResults extends Component<Props> {
     } else {
       this.showNoMatch();
     }
-  }
-
-  resizeDefaultTaxonImage( image ) {
-    resizeImage( image, 299 ).then( ( speciesSeenImage ) => {
-      if ( speciesSeenImage ) {
-        this.setState( { speciesSeenImage } );
-      }
-    } );
   }
 
   resizeImage() {
@@ -224,8 +217,6 @@ class ARCameraResults extends Component<Props> {
 
     if ( latitude && longitude ) {
       addToCollection( observation, latitude, longitude, image, time );
-    } else {
-      createLocationPermissionsAlert();
     }
   }
 

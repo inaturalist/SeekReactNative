@@ -1,16 +1,16 @@
 import { Alert } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
+import Geolocation from "@react-native-community/geolocation";
 
 import i18n from "../i18n";
 
 const fetchUserLocation = () => (
   new Promise( ( resolve ) => {
-    navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+    Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
-    } ).catch( () => {
-      resolve( null );
-    } );
+    }, () => resolve( null ),
+    { enableHighAccuracy: true } );
   } )
 );
 
@@ -23,7 +23,7 @@ const truncateCoordinates = ( coordinate ) => {
 
 const fetchTruncatedUserLocation = () => (
   new Promise( ( resolve ) => {
-    navigator.geolocation.getCurrentPosition( ( { coords } ) => {
+    Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
       const longitude = truncateCoordinates( coords.longitude );
       const truncatedCoords = {
@@ -32,9 +32,8 @@ const fetchTruncatedUserLocation = () => (
       };
 
       resolve( truncatedCoords );
-    } ).catch( () => {
-      resolve( null );
-    } );
+    }, () => resolve( null ),
+    { enableHighAccuracy: true } );
   } )
 );
 

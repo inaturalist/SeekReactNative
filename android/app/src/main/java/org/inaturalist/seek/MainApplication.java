@@ -17,6 +17,7 @@ import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.reactnativecommunity.geolocation.GeolocationPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -51,7 +52,8 @@ public class MainApplication extends Application implements ReactApplication {
             new RNGeocoderPackage(),
             new NetInfoPackage(),
             new CameraRollPackage(),
-            new AsyncStoragePackage()
+            new AsyncStoragePackage(),
+            new GeolocationPackage()
       );
     }
 

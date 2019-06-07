@@ -66,13 +66,17 @@ class Results extends Component<Props> {
 
     if ( !latitude || !longitude ) {
       fetchTruncatedUserLocation().then( ( coords ) => {
-        const lat = coords.latitude;
-        const lng = coords.longitude;
+        if ( coords ) {
+          const lat = coords.latitude;
+          const lng = coords.longitude;
 
-        this.setState( {
-          latitude: lat,
-          longitude: lng
-        } );
+          this.setState( {
+            latitude: lat,
+            longitude: lng
+          } );
+        } else {
+          createLocationPermissionsAlert();
+        }
       } );
     }
   }
@@ -225,8 +229,6 @@ class Results extends Component<Props> {
 
     if ( latitude && longitude ) {
       addToCollection( observation, latitude, longitude, image, time );
-    } else {
-      createLocationPermissionsAlert();
     }
   }
 

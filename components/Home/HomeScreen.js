@@ -96,7 +96,7 @@ class HomeScreen extends Component<Props> {
         longitude
       }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
     } ).catch( () => {
-      console.log( "no location permissions enabled" );
+      this.setError( "location" );
     } );
   }
 

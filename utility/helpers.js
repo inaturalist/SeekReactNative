@@ -13,6 +13,7 @@ const moment = require( "moment" );
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates } = require( "./locationHelpers" );
 const { createNotification } = require( "./notificationHelpers" );
+const { checkNumberOfBadgesEarned } = require( "./badgeHelpers" );
 const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );
 
 const checkForInternet = () => (
@@ -87,6 +88,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image, time ) => {
+  checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
   Realm.open( realmConfig.default )

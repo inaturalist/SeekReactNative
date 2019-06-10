@@ -67,17 +67,19 @@ const setupBadges = () => {
     } );
 };
 
-const checkNumberOfBadgesEarned = () => (
-  new Promise( ( resolve ) => {
-    Realm.open( realmConfig.default )
-      .then( ( realm ) => {
-        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
-        resolve( earnedBadges );
-      } ).catch( ( e ) => {
-        console.log( e, "error checking number of badges earned" );
-      } );
-  } )
-);
+const setBadgesEarned = ( badges ) => {
+  AsyncStorage.setItem( "badgesEarned", badges );
+};
+
+const checkNumberOfBadgesEarned = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
+      setBadgesEarned( earnedBadges.toString() );
+    } ).catch( ( e ) => {
+      console.log( e, "error checking number of badges earned" );
+    } );
+};
 
 const getBadgesEarned = async () => {
   try {
@@ -130,5 +132,6 @@ export {
   recalculateBadges,
   setupBadges,
   checkNumberOfBadgesEarned,
-  checkForNewBadges
+  checkForNewBadges,
+  getBadgesEarned
 };

@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
 const Realm = require( "realm" );
+const { Alert } = require( "react-native" );
 
 const { createNotification } = require( "./notificationHelpers" );
 const taxonDict = require( "./taxonDictForMissions" );
@@ -249,6 +250,47 @@ const getChallengeProgress = async () => {
   }
 };
 
+const checkForChallengesCompleted = async () => {
+  const challengesCompleted = await getChallengesCompleted();
+
+  recalculateChallenges();
+  const challengeProgressIndex = await getChallengeIndex();
+  Alert.alert( JSON.stringify( challengeProgressIndex ), "challenge index" );
+
+  return (
+    new Promise( ( resolve ) => {
+      Realm.open( realmConfig )
+        .then( ( realm ) => {
+          let challengeInProgress;
+          let challengeComplete;
+
+          const challenges = realm.objects( "ChallengeRealm" )
+            .filtered( "started == true AND percentComplete == 100" )
+            .sorted( "completedDate", true );
+
+          if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
+            const incompleteChallenges = realm.objects( "ChallengeRealm" )
+              .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
+
+            Alert.alert( JSON.stringify( incompleteChallenges ), "incomplete challenge" );
+
+            challengeInProgress = incompleteChallenges[0];
+          }
+
+          if ( challenges.length > challengesCompleted ) {
+            challengeComplete = challenges[0];
+          }
+          resolve( {
+            challengeInProgress,
+            challengeComplete
+          } );
+        } ).catch( () => {
+          resolve( null );
+        } );
+    } )
+  );
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
@@ -259,5 +301,6 @@ export {
   setChallengeIndex,
   getChallengeIndex,
   setChallengeProgress,
-  getChallengeProgress
+  getChallengeProgress,
+  checkForChallengesCompleted
 };

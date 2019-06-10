@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
-import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
@@ -25,13 +24,8 @@ import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
-import {
-  recalculateChallenges,
-  getChallengesCompleted,
-  getChallengeProgress
-} from "../../utility/challengeHelpers";
+import { checkForChallengesCompleted } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
-import realmConfig from "../../models/index";
 
 type Props = {
   navigation: any
@@ -56,15 +50,13 @@ class MatchScreen extends Component<Props> {
     } = navigation.state.params;
 
     this.state = {
-      challengesCompleted: 0,
       badge: null,
       showLevelModal: false,
       showChallengeModal: false,
-      newestLevel: null,
+      latestLevel: null,
       challenge: null,
-      incompleteChallenge: null,
+      challengeInProgress: null,
       navigationPath: null,
-      challengeProgressIndex: null,
       userImage,
       image,
       isLoggedIn,
@@ -86,14 +78,6 @@ class MatchScreen extends Component<Props> {
     this.setState( { navigationPath }, () => this.checkModals() );
   }
 
-  setChallengeProgressIndex( challengeProgressIndex ) {
-    this.setState( { challengeProgressIndex }, () => this.checkForChallengesCompleted() );
-  }
-
-  setChallengesCompleted( challengesCompleted ) {
-    this.setState( { challengesCompleted } );
-  }
-
   setLatestBadge( badge ) {
     this.setState( { badge } );
   }
@@ -102,21 +86,12 @@ class MatchScreen extends Component<Props> {
     this.setState( { challenge } );
   }
 
-  setLatestLevel( newestLevel ) {
-    this.setState( { newestLevel } );
+  setLatestLevel( latestLevel ) {
+    this.setState( { latestLevel } );
   }
 
-  async checkUserStatus() {
-    this.checkForNewBadges();
-    const challengesCompleted = await getChallengesCompleted();
-    this.setChallengesCompleted( challengesCompleted );
-    recalculateChallenges();
-    const index = await getChallengeProgress();
-    this.setChallengeProgressIndex( index );
-  }
-
-  showChallengeInProgress( incompleteChallenge ) {
-    this.setState( { incompleteChallenge } );
+  setChallengeInProgress( challengeInProgress ) {
+    this.setState( { challengeInProgress } );
   }
 
   toggleChallengeModal() {
@@ -144,27 +119,15 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForChallengesCompleted() {
-    const { challengesCompleted, challengeProgressIndex } = this.state;
+    checkForChallengesCompleted().then( ( { challengeInProgress, challengeComplete } ) => {
+      if ( challengeInProgress ) {
+        this.setChallengeInProgress( challengeInProgress );
+      }
 
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" )
-          .filtered( "started == true AND percentComplete == 100" )
-          .sorted( "completedDate", true );
-
-        if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
-          const incompleteChallenges = realm.objects( "ChallengeRealm" )
-            .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
-
-          this.showChallengeInProgress( incompleteChallenges[0] );
-        }
-
-        if ( challenges.length > challengesCompleted ) {
-          this.setLatestChallenge( challenges[0] );
-        }
-      } ).catch( ( e ) => {
-        console.log( e, "error" );
-      } );
+      if ( challengeComplete ) {
+        this.setLatestChallenge( challengeComplete );
+      }
+    } ).catch( () => console.log( "could not check for challenges" ) );
   }
 
   navigateTo() {
@@ -183,13 +146,13 @@ class MatchScreen extends Component<Props> {
   }
 
   checkModals() {
-    const { challenge, newestLevel } = this.state;
+    const { challenge, latestLevel } = this.state;
 
-    if ( !challenge && !newestLevel ) {
+    if ( !challenge && !latestLevel ) {
       this.navigateTo();
     } else if ( challenge ) {
       this.toggleChallengeModal();
-    } else if ( newestLevel ) {
+    } else if ( latestLevel ) {
       this.toggleLevelModal();
     }
   }
@@ -201,9 +164,9 @@ class MatchScreen extends Component<Props> {
       badge,
       showChallengeModal,
       showLevelModal,
-      newestLevel,
+      latestLevel,
       challenge,
-      incompleteChallenge,
+      challengeInProgress,
       userImage,
       image,
       isLoggedIn,
@@ -222,9 +185,12 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => this.checkUserStatus()}
+            onWillFocus={() => {
+              this.checkForNewBadges();
+              this.checkForChallengesCompleted();
+            }}
           />
-          <Banner navigation={navigation} badge={badge} incompleteChallenge={incompleteChallenge} />
+          <Banner navigation={navigation} badge={badge} incompleteChallenge={challengeInProgress} />
           <Modal
             isVisible={showChallengeModal}
             onSwipeComplete={() => this.toggleChallengeModal()}
@@ -248,9 +214,9 @@ class MatchScreen extends Component<Props> {
             onModalHide={() => this.navigateTo()}
           >
             <LevelModal
-              level={newestLevel}
+              level={latestLevel}
               toggleLevelModal={this.toggleLevelModal}
-              speciesCount={newestLevel ? newestLevel.count : 0}
+              speciesCount={latestLevel ? latestLevel.count : 0}
             />
           </Modal>
           <ScrollView>

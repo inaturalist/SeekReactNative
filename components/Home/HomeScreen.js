@@ -26,7 +26,6 @@ import NoChallenges from "./NoChallenges";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
-import { recalculateBadges } from "../../utility/badgeHelpers";
 import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -154,7 +153,6 @@ class HomeScreen extends Component<Props> {
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     if ( isFirstLaunch ) {
-      recalculateBadges();
       this.toggleGetStartedModal();
     }
   }

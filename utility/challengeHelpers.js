@@ -13,6 +13,7 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
 const setChallengeProgress = ( index ) => {
+  Alert.alert( "setting challenge progress" );
   const value = index ? index.toString() : "none";
   AsyncStorage.setItem( "challengeProgress", value );
 };
@@ -254,13 +255,14 @@ const checkForChallengesCompleted = async () => {
   const challengesCompleted = await getChallengesCompleted();
 
   recalculateChallenges();
-  const challengeProgressIndex = await getChallengeIndex();
+  const challengeProgressIndex = await getChallengeProgress();
   Alert.alert( JSON.stringify( challengeProgressIndex ), "challenge index" );
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig )
+      Realm.open( realmConfig.default )
         .then( ( realm ) => {
+          Alert.alert( "opening realm" );
           let challengeInProgress;
           let challengeComplete;
 
@@ -272,6 +274,7 @@ const checkForChallengesCompleted = async () => {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 
+            Alert.alert( JSON.stringify( challenges ), "incomplete challenge" );
             Alert.alert( JSON.stringify( incompleteChallenges ), "incomplete challenge" );
 
             challengeInProgress = incompleteChallenges[0];
@@ -297,10 +300,8 @@ export {
   startChallenge,
   setupChallenges,
   checkNumberOfChallengesCompleted,
-  getChallengesCompleted,
   setChallengeIndex,
   getChallengeIndex,
   setChallengeProgress,
-  getChallengeProgress,
   checkForChallengesCompleted
 };

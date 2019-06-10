@@ -24,10 +24,7 @@ import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
-import {
-  recalculateBadges,
-  getBadgesEarned
-} from "../../utility/badgeHelpers";
+import { checkForNewBadges } from "../../utility/badgeHelpers";
 import {
   recalculateChallenges,
   getChallengesCompleted,
@@ -59,7 +56,6 @@ class MatchScreen extends Component<Props> {
     } = navigation.state.params;
 
     this.state = {
-      badgesEarned: 0,
       challengesCompleted: 0,
       badge: null,
       showLevelModal: false,
@@ -94,10 +90,6 @@ class MatchScreen extends Component<Props> {
     this.setState( { challengeProgressIndex }, () => this.checkForChallengesCompleted() );
   }
 
-  setBadgesEarned( badgesEarned ) {
-    this.setState( { badgesEarned }, () => this.checkForNewBadges() );
-  }
-
   setChallengesCompleted( challengesCompleted ) {
     this.setState( { challengesCompleted } );
   }
@@ -115,9 +107,8 @@ class MatchScreen extends Component<Props> {
   }
 
   async checkUserStatus() {
-    const badgesEarned = await getBadgesEarned();
+    this.checkForNewBadges();
     const challengesCompleted = await getChallengesCompleted();
-    this.setBadgesEarned( badgesEarned );
     this.setChallengesCompleted( challengesCompleted );
     recalculateChallenges();
     const index = await getChallengeProgress();
@@ -141,30 +132,15 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned } = this.state;
+    checkForNewBadges().then( ( { latestBadge, latestLevel } ) => {
+      if ( latestBadge ) {
+        this.setLatestBadge( latestBadge );
+      }
 
-    recalculateBadges();
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
-        const badges = earnedBadges.sorted( "earnedDate", true );
-
-        const speciesCount = realm.objects( "ObservationRealm" ).length;
-        const newestLevels = realm.objects( "BadgeRealm" )
-          .filtered( "earned == true AND iconicTaxonName == null" )
-          .sorted( "earnedDate", true );
-
-        if ( badgesEarned < earnedBadges.length ) {
-          this.setLatestBadge( badges[0] );
-        }
-
-        if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
-          this.setLatestLevel( newestLevels[0] );
-        }
-      } ).catch( ( e ) => {
-        console.log( e, "error" );
-      } );
+      if ( latestLevel ) {
+        this.setLatestLevel( latestLevel );
+      }
+    } ).catch( () => console.log( "could not check for badges" ) );
   }
 
   checkForChallengesCompleted() {

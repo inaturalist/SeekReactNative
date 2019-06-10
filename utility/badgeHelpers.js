@@ -67,19 +67,17 @@ const setupBadges = () => {
     } );
 };
 
-const setBadgesEarned = ( badges ) => {
-  AsyncStorage.setItem( "badgesEarned", badges );
-};
-
-const checkNumberOfBadgesEarned = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
-      setBadgesEarned( earnedBadges.toString() );
-    } ).catch( ( e ) => {
-      console.log( e, "error checking number of badges earned" );
-    } );
-};
+const checkNumberOfBadgesEarned = () => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
+        resolve( earnedBadges );
+      } ).catch( ( e ) => {
+        console.log( e, "error checking number of badges earned" );
+      } );
+  } )
+);
 
 const getBadgesEarned = async () => {
   try {
@@ -90,9 +88,47 @@ const getBadgesEarned = async () => {
   }
 };
 
+const checkForNewBadges = async () => {
+  const badgesEarned = await getBadgesEarned();
+  recalculateBadges();
+
+  return (
+    new Promise( ( resolve ) => {
+      Realm.open( realmConfig.default )
+        .then( ( realm ) => {
+          let latestBadge;
+          let latestLevel;
+
+          const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
+          const badges = earnedBadges.sorted( "earnedDate", true );
+
+          const speciesCount = realm.objects( "ObservationRealm" ).length;
+          const newestLevels = realm.objects( "BadgeRealm" )
+            .filtered( "earned == true AND iconicTaxonName == null" )
+            .sorted( "earnedDate", true );
+
+          if ( badgesEarned < earnedBadges.length ) {
+            latestBadge = badges[0];
+          }
+
+          if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
+            latestLevel = newestLevels[0];
+          }
+
+          resolve( {
+            latestBadge,
+            latestLevel
+          } );
+        } ).catch( () => {
+          resolve( null );
+        } );
+    } )
+  );
+};
+
 export {
   recalculateBadges,
   setupBadges,
   checkNumberOfBadgesEarned,
-  getBadgesEarned
+  checkForNewBadges
 };

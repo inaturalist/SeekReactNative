@@ -20,8 +20,6 @@ import {
   flattenUploadParameters
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
-import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
-import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -216,8 +214,8 @@ class Results extends Component<Props> {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;
 
-        // if ( species.combined_score > 85 ) { // changed to 85 for testing
-        if ( species.combined_score > 97 ) {
+        if ( species.combined_score > 85 ) { // changed to 85 for testing
+        // if ( species.combined_score > 97 ) {
           this.checkDateSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
@@ -324,8 +322,6 @@ class Results extends Component<Props> {
             this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
-            checkNumberOfBadgesEarned();
-            checkNumberOfChallengesCompleted();
           }}
         />
         {error

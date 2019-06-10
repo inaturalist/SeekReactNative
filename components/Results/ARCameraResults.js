@@ -18,8 +18,6 @@ import {
   getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
-import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
-import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -295,8 +293,6 @@ class ARCameraResults extends Component<Props> {
             this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
-            checkNumberOfBadgesEarned();
-            checkNumberOfChallengesCompleted();
           }}
         />
         {error ? <ErrorScreen error={error} navigation={navigation} /> : null}

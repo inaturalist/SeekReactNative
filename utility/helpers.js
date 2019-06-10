@@ -13,6 +13,7 @@ const moment = require( "moment" );
 const realmConfig = require( "../models/index" );
 const { truncateCoordinates } = require( "./locationHelpers" );
 const { createNotification } = require( "./notificationHelpers" );
+const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -86,6 +87,8 @@ const checkForPowerUsers = ( length, newLength ) => {
 };
 
 const addToCollection = ( observation, latitude, longitude, image, time ) => {
+  checkNumberOfChallengesCompleted();
+
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );

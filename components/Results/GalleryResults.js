@@ -23,6 +23,7 @@ import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../.
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -79,6 +80,17 @@ class Results extends Component<Props> {
         }
       } );
     }
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   setMatch( match ) {
@@ -274,7 +286,8 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess
+      postingSuccess,
+      isLoggedIn
     } = this.state;
 
     navigation.navigate( route, {
@@ -289,7 +302,8 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      postingSuccess
+      postingSuccess,
+      isLoggedIn
     } );
   }
 
@@ -307,6 +321,7 @@ class Results extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
+            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
             checkNumberOfBadgesEarned();

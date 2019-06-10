@@ -33,7 +33,6 @@ import {
   getChallengesCompleted,
   getChallengeProgress
 } from "../../utility/challengeHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import realmConfig from "../../models/index";
 
@@ -55,7 +54,8 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess
+      postingSuccess,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -71,7 +71,7 @@ class MatchScreen extends Component<Props> {
       challengeProgressIndex: null,
       userImage,
       image,
-      isLoggedIn: false,
+      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -95,9 +95,7 @@ class MatchScreen extends Component<Props> {
   }
 
   setBadgesEarned( badgesEarned ) {
-    this.setState( {
-      badgesEarned
-    }, () => this.checkForNewBadges() );
+    this.setState( { badgesEarned }, () => this.checkForNewBadges() );
   }
 
   setChallengesCompleted( challengesCompleted ) {
@@ -116,19 +114,7 @@ class MatchScreen extends Component<Props> {
     this.setState( { newestLevel } );
   }
 
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
   async checkUserStatus() {
-    this.getLoggedIn();
     const badgesEarned = await getBadgesEarned();
     const challengesCompleted = await getChallengesCompleted();
     this.setBadgesEarned( badgesEarned );
@@ -136,21 +122,6 @@ class MatchScreen extends Component<Props> {
     recalculateChallenges();
     const index = await getChallengeProgress();
     this.setChallengeProgressIndex( index );
-  }
-
-  resetState() {
-    this.setState( {
-      badgesEarned: 0,
-      challengesCompleted: 0,
-      badge: null,
-      showLevelModal: false,
-      showChallengeModal: false,
-      newestLevel: null,
-      challenge: null,
-      incompleteChallenge: null,
-      navigationPath: null,
-      challengeProgressIndex: null
-    } );
   }
 
   showChallengeInProgress( incompleteChallenge ) {
@@ -275,10 +246,7 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => {
-              this.checkUserStatus();
-            }}
-            onWillBlur={() => this.resetState()}
+            onWillFocus={() => this.checkUserStatus()}
           />
           <Banner navigation={navigation} badge={badge} incompleteChallenge={incompleteChallenge} />
           <Modal
@@ -345,9 +313,7 @@ class MatchScreen extends Component<Props> {
                   this.setNavigationPath( "Species" );
                 }}
               >
-                <Text
-                  style={styles.buttonText}
-                >
+                <Text style={styles.buttonText}>
                   {i18n.t( "results.view_species" ).toLocaleUpperCase()}
                 </Text>
               </TouchableOpacity>

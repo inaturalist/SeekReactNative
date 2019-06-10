@@ -10,9 +10,7 @@ import {
   SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { NavigationEvents } from "react-navigation";
 
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import styles from "../../styles/results/results";
@@ -43,7 +41,8 @@ class NoMatchScreen extends Component<Props> {
       speciesSeenImage,
       taxaName,
       seenDate,
-      commonAncestor
+      commonAncestor,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -59,37 +58,8 @@ class NoMatchScreen extends Component<Props> {
       taxaName,
       seenDate,
       commonAncestor,
-      isLoggedIn: false
+      isLoggedIn
     };
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  resetState() {
-    this.setState( {
-      userImage: null,
-      image: null,
-      taxaId: null,
-      scientificName: null,
-      latitude: null,
-      longitude: null,
-      time: null,
-      postingSuccess: null,
-      speciesSeenImage: null,
-      taxaName: null,
-      seenDate: null,
-      commonAncestor: null,
-      isLoggedIn: false
-    } );
   }
 
   render() {
@@ -140,10 +110,6 @@ class NoMatchScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
         <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => this.getLoggedIn()}
-            onWillBlur={() => this.resetState()}
-          />
           <ScrollView>
             <LinearGradient
               colors={[gradientColorDark, gradientColorLight]}

@@ -10,7 +10,6 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-// import ConfirmScreen from "./ConfirmScreen";
 import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/results/results";
 import {
@@ -22,6 +21,7 @@ import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../.
 import { checkNumberOfBadgesEarned } from "../../utility/badgeHelpers";
 import { checkNumberOfChallengesCompleted } from "../../utility/challengeHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -70,6 +70,17 @@ class ARCameraResults extends Component<Props> {
         createLocationPermissionsAlert();
       }
     } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   setImageForUploading( imageForUploading ) {
@@ -251,7 +262,8 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess
+      postingSuccess,
+      isLoggedIn
     } = this.state;
 
     navigation.navigate( route, {
@@ -266,7 +278,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      postingSuccess
+      postingSuccess,
+      isLoggedIn
     } );
   }
 
@@ -279,6 +292,7 @@ class ARCameraResults extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
+            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
             checkNumberOfBadgesEarned();
@@ -291,16 +305,10 @@ class ARCameraResults extends Component<Props> {
           : (
             <ImageBackground
               source={{ uri: imageForUploading }}
-              style={{ width: "100%", height: "100%" }}
+              style={styles.imageBackground}
+              imageStyle={{ resizeMode: "cover" }}
             >
-              <View
-                style={{
-                  zIndex: 1,
-                  position: "absolute",
-                  left: "50%",
-                  top: "50%"
-                }}
-              >
+              <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />
               </View>
             </ImageBackground>

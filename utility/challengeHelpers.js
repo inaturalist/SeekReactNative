@@ -39,14 +39,12 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
 };
 
 const checkForChallengeInProgress = ( percentComplete, prevPercent, challenge ) => {
-  Alert.alert( "check for challenge in prog" );
   if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
 };
 
 const checkForChallengeComplete = ( percentComplete, challenge ) => {
-  Alert.alert( "check for challenge complete" );
   if ( percentComplete === 100 ) {
     challenge.completedDate = new Date();
     createNotification( "challengeCompleted", challenge.index );
@@ -142,12 +140,11 @@ const recalculateChallenges = () => {
             const count = calculateTaxaSeenPerMission( types, seenTaxa );
             updateNumberObservedPerMission( challenge, count, number );
           } );
-          Alert.alert( "update percents" );
           updateChallengePercentages( challenge );
         } );
       } );
     } ).catch( ( err ) => {
-      Alert.alert( "[DEBUG] Failed to recalculate challenges: ", JSON.stringify( err ) );
+      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );
 };
 

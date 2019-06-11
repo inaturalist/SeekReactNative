@@ -13,7 +13,6 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
 const setChallengeProgress = ( index ) => {
-  Alert.alert( "setting challenge progress" );
   const value = index ? index.toString() : "none";
   AsyncStorage.setItem( "challengeProgress", value );
 };
@@ -40,12 +39,14 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
 };
 
 const checkForChallengeInProgress = ( percentComplete, prevPercent, challenge ) => {
+  Alert.alert( "check for challenge in prog" );
   if ( percentComplete >= 75 && prevPercent < 75 ) {
     createNotification( "challengeProgress", challenge.index );
   }
 };
 
 const checkForChallengeComplete = ( percentComplete, challenge ) => {
+  Alert.alert( "check for challenge complete" );
   if ( percentComplete === 100 ) {
     challenge.completedDate = new Date();
     createNotification( "challengeCompleted", challenge.index );
@@ -141,11 +142,12 @@ const recalculateChallenges = () => {
             const count = calculateTaxaSeenPerMission( types, seenTaxa );
             updateNumberObservedPerMission( challenge, count, number );
           } );
+          Alert.alert( "update percents" );
           updateChallengePercentages( challenge );
         } );
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
+      Alert.alert( "[DEBUG] Failed to recalculate challenges: ", JSON.stringify( err ) );
     } );
 };
 
@@ -256,13 +258,11 @@ const checkForChallengesCompleted = async () => {
 
   recalculateChallenges();
   const challengeProgressIndex = await getChallengeProgress();
-  Alert.alert( JSON.stringify( challengeProgressIndex ), "challenge index" );
 
   return (
     new Promise( ( resolve ) => {
       Realm.open( realmConfig.default )
         .then( ( realm ) => {
-          Alert.alert( "opening realm" );
           let challengeInProgress;
           let challengeComplete;
 
@@ -273,9 +273,6 @@ const checkForChallengesCompleted = async () => {
           if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
-
-            Alert.alert( JSON.stringify( challenges ), "incomplete challenge" );
-            Alert.alert( JSON.stringify( incompleteChallenges ), "incomplete challenge" );
 
             challengeInProgress = incompleteChallenges[0];
           }

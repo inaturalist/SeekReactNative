@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -121,8 +120,6 @@ class MatchScreen extends Component<Props> {
 
   checkForChallengesCompleted() {
     checkForChallengesCompleted().then( ( { challengeInProgress, challengeComplete } ) => {
-      Alert.alert( JSON.stringify( challengeInProgress ), "chall in progress in match screen" );
-      Alert.alert( JSON.stringify( challengeComplete ), "chall complete in match screen" );
       if ( challengeInProgress ) {
         this.setChallengeInProgress( challengeInProgress );
       }
@@ -189,8 +186,8 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => {
-              this.checkForNewBadges();
               this.checkForChallengesCompleted();
+              this.checkForNewBadges();
             }}
           />
           <Banner navigation={navigation} badge={badge} incompleteChallenge={challengeInProgress} />

@@ -16,7 +16,6 @@ import Gallery from "./Camera/GalleryScreen";
 import ARCameraResults from "./Results/ARCameraResults";
 import GalleryResults from "./Results/GalleryResults";
 import Match from "./Results/MatchScreen";
-import NoMatchScreen from "./Results/NoMatchScreen";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
@@ -168,10 +167,6 @@ const MainStack = createStackNavigator( {
   },
   Match: {
     screen: Match,
-    navigationOptions: () => noHeader
-  },
-  NoMatchScreen: {
-    screen: NoMatchScreen,
     navigationOptions: () => noHeader
   },
   RangeMap: {

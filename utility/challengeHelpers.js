@@ -1,7 +1,6 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
 const Realm = require( "realm" );
-const { Alert } = require( "react-native" );
 
 const { createNotification } = require( "./notificationHelpers" );
 const taxonDict = require( "./taxonDictForMissions" );
@@ -12,8 +11,7 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
-const setChallengeProgress = ( index ) => {
-  console.log( "setting challenge progress", index );
+const setChallengeProgress = async ( index ) => {
   AsyncStorage.setItem( "challengeProgress", index.toString() );
 };
 
@@ -241,7 +239,6 @@ const getChallengeIndex = async () => {
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
-    console.log( index, "getting challenge progress" );
     if ( index !== "none" ) {
       return Number( index );
     }
@@ -253,11 +250,10 @@ const getChallengeProgress = async () => {
 
 const checkForChallengesCompleted = async () => {
   const prevChallengesCompleted = await getChallengesCompleted();
-  console.log( prevChallengesCompleted, "complete" );
 
   recalculateChallenges();
+
   const challengeProgressIndex = await getChallengeProgress();
-  console.log( challengeProgressIndex, "progress" );
 
   return (
     new Promise( ( resolve ) => {
@@ -270,10 +266,9 @@ const checkForChallengesCompleted = async () => {
             .filtered( "started == true AND percentComplete == 100" )
             .sorted( "completedDate", true );
 
-          if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
+          if ( challengeProgressIndex ) {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
-            console.log( incompleteChallenges, "incomp chall" );
 
             challengeInProgress = incompleteChallenges[0];
           }
@@ -281,11 +276,6 @@ const checkForChallengesCompleted = async () => {
           if ( challenges.length > prevChallengesCompleted ) {
             challengeComplete = challenges[0];
           }
-
-          console.log( challengeComplete, "completechall" );
-          console.log( challengeInProgress, "progresschall" );
-
-          setChallengeProgress( "none" );
 
           resolve( {
             challengeInProgress,

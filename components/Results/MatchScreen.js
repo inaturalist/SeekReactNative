@@ -46,7 +46,10 @@ class MatchScreen extends Component<Props> {
       longitude,
       time,
       postingSuccess,
-      isLoggedIn
+      seenDate,
+      commonAncestor,
+      isLoggedIn,
+      match
     } = navigation.state.params;
 
     this.state = {
@@ -67,7 +70,11 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess
+      postingSuccess,
+      seenDate,
+      commonAncestor,
+      match,
+      challengeShown: false
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -84,6 +91,10 @@ class MatchScreen extends Component<Props> {
 
   setLatestChallenge( challenge ) {
     this.setState( { challenge } );
+  }
+
+  setChallengeCompleteShown( challengeShown ) {
+    this.setState( { challengeShown }, () => this.checkModals() );
   }
 
   setLatestLevel( latestLevel ) {
@@ -144,9 +155,9 @@ class MatchScreen extends Component<Props> {
   }
 
   checkModals() {
-    const { challenge, latestLevel } = this.state;
+    const { challenge, latestLevel, challengeShown } = this.state;
 
-    if ( !challenge && !latestLevel ) {
+    if ( ( !challenge && !latestLevel ) || challengeShown ) {
       this.navigateTo();
     } else if ( challenge ) {
       this.toggleChallengeModal();
@@ -175,51 +186,100 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess
+      postingSuccess,
+      seenDate,
+      commonAncestor,
+      match
     } = this.state;
+
+    let headerText;
+    let gradientColorDark;
+    let gradientColorLight;
+    let text;
+    let numOfImages;
+    let speciesText;
+
+    if ( seenDate ) {
+      headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
+      gradientColorDark = "#22784d";
+      gradientColorLight = colors.seekForestGreen;
+      numOfImages = 2;
+      text = i18n.t( "results.date_observed", { seenDate } );
+      speciesText = taxaName;
+    } else if ( taxaName && match ) {
+      headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
+      gradientColorDark = "#22784d";
+      gradientColorLight = colors.seekForestGreen;
+      numOfImages = 2;
+      text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
+      speciesText = taxaName;
+    } else if ( commonAncestor ) {
+      headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
+      gradientColorDark = "#175f67";
+      gradientColorLight = colors.seekTeal;
+      numOfImages = 2;
+      text = i18n.t( "results.common_ancestor" );
+      speciesText = commonAncestor;
+    } else {
+      headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
+      gradientColorDark = "#404040";
+      gradientColorLight = "#5e5e5e";
+      numOfImages = 1;
+      text = i18n.t( "results.sorry" );
+      speciesText = null;
+    }
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
+        <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
         <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.checkForChallengesCompleted();
-              this.checkForNewBadges();
-            }}
-          />
-          <Banner navigation={navigation} badge={badge} incompleteChallenge={challengeInProgress} />
-          <Modal
-            isVisible={showChallengeModal}
-            onSwipeComplete={() => this.toggleChallengeModal()}
-            onBackdropPress={() => this.toggleChallengeModal()}
-            swipeDirection="down"
-            onModalHide={() => {
-              this.setState( { challenge: null } );
-              this.checkModals();
-            }}
-          >
-            <ChallengeModal
-              challenge={challenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+          {match && !seenDate ? (
+            <NavigationEvents
+              onDidFocus={() => {
+                this.checkForChallengesCompleted();
+                this.checkForNewBadges();
+              }}
             />
-          </Modal>
-          <Modal
-            isVisible={showLevelModal}
-            onSwipeComplete={() => this.toggleLevelModal()}
-            onBackdropPress={() => this.toggleLevelModal()}
-            swipeDirection="down"
-            onModalHide={() => this.navigateTo()}
-          >
-            <LevelModal
-              level={latestLevel}
-              toggleLevelModal={this.toggleLevelModal}
-              speciesCount={latestLevel ? latestLevel.count : 0}
+          ) : null}
+          {match && !seenDate ? (
+            <Banner
+              navigation={navigation}
+              badge={badge}
+              incompleteChallenge={challengeInProgress}
             />
-          </Modal>
+          ) : null}
+          {match && !seenDate ? (
+            <Modal
+              isVisible={showChallengeModal}
+              onSwipeComplete={() => this.toggleChallengeModal()}
+              onBackdropPress={() => this.toggleChallengeModal()}
+              swipeDirection="down"
+              onModalHide={() => this.setChallengeCompleteShown( true )}
+            >
+              <ChallengeModal
+                challenge={challenge}
+                toggleChallengeModal={this.toggleChallengeModal}
+              />
+            </Modal>
+          ) : null}
+          {match && !seenDate ? (
+            <Modal
+              isVisible={showLevelModal}
+              onSwipeComplete={() => this.toggleLevelModal()}
+              onBackdropPress={() => this.toggleLevelModal()}
+              swipeDirection="down"
+              onModalHide={() => this.navigateTo()}
+            >
+              <LevelModal
+                level={latestLevel}
+                toggleLevelModal={this.toggleLevelModal}
+                speciesCount={latestLevel ? latestLevel.count : 0}
+              />
+            </Modal>
+          ) : null}
           <ScrollView>
             <LinearGradient
-              colors={["#22784d", "#38976d"]}
+              colors={[gradientColorDark, gradientColorLight]}
               style={styles.header}
             >
               <TouchableOpacity
@@ -234,43 +294,55 @@ class MatchScreen extends Component<Props> {
                   style={styles.imageCell}
                   source={{ uri: userImage }}
                 />
-                <Image
-                  style={styles.imageCell}
-                  source={{ uri: speciesSeenImage }}
-                />
+                {numOfImages === 2 ? (
+                  <Image
+                    style={styles.imageCell}
+                    source={{ uri: speciesSeenImage }}
+                  />
+                ) : null}
               </View>
             </LinearGradient>
             <View style={styles.textContainer}>
-              <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>
-              <Text style={styles.speciesText}>{taxaName}</Text>
-              {latitude && longitude
-                ? <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
-                : <Text style={styles.text}>{i18n.t( "results.learn_more_no_location" )}</Text>
-              }
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                  this.setNavigationPath( "Species" );
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "results.view_species" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.link}
-                onPress={() => {
-                  this.setNavigationPath( "Camera" );
-                }}
-              >
-                <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
-              </TouchableOpacity>
+              <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
+              <Text style={styles.speciesText}>{speciesText}</Text>
+              <Text style={styles.text}>{text}</Text>
+              {seenDate || match ? (
+                <TouchableOpacity
+                  style={[styles.button, { backgroundColor: gradientColorLight }]}
+                  onPress={() => {
+                    setSpeciesId( taxaId ); // not sure why these are here
+                    setRoute( "Camera" ); // not sure why these are here
+                    this.setNavigationPath( "Species" );
+                  }}
+                >
+                  <Text style={styles.buttonText}>
+                    {i18n.t( "results.view_species" ).toLocaleUpperCase()}
+                  </Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  style={[styles.button, { backgroundColor: gradientColorLight }]}
+                  onPress={() => navigation.navigate( "Camera" )}
+                >
+                  <Text style={styles.buttonText}>
+                    {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {seenDate || match ? (
+                <TouchableOpacity
+                  style={styles.link}
+                  onPress={() => this.setNavigationPath( "Camera" )}
+                >
+                  <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
+                </TouchableOpacity>
+              ) : null}
               <View style={{ marginBottom: 28 }} />
               {isLoggedIn && latitude && longitude && !postingSuccess
                 ? (
                   <PostToiNat
                     navigation={navigation}
-                    color={colors.seekForestGreen}
+                    color={gradientColorLight}
                     taxaInfo={{
                       taxaName,
                       taxaId,

@@ -164,12 +164,12 @@ class Results extends Component<Props> {
       await this.addObservation();
       this.navigateTo( "Match" );
     } else {
-      this.navigateTo( "NoMatchScreen" );
+      this.navigateTo( "Match" );
     }
   }
 
   showNoMatch() {
-    this.navigateTo( "NoMatchScreen" );
+    this.navigateTo( "Match" );
   }
 
   resizeImage() {
@@ -285,7 +285,8 @@ class Results extends Component<Props> {
       longitude,
       time,
       postingSuccess,
-      isLoggedIn
+      isLoggedIn,
+      match
     } = this.state;
 
     navigation.navigate( route, {
@@ -301,7 +302,8 @@ class Results extends Component<Props> {
       time,
       commonAncestor,
       postingSuccess,
-      isLoggedIn
+      isLoggedIn,
+      match
     } );
   }
 

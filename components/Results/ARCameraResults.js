@@ -51,7 +51,8 @@ class ARCameraResults extends Component<Props> {
       seenDate: null,
       error: null,
       scientificName: null,
-      imageForUploading: null
+      imageForUploading: null,
+      match: null
     };
   }
 
@@ -97,6 +98,10 @@ class ARCameraResults extends Component<Props> {
     this.setState( { error } );
   }
 
+  setMatch( match ) {
+    this.setState( { match }, () => this.checkForMatches() );
+  }
+
   setCommonAncestor( ancestor, speciesSeenImage ) {
     getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
       this.setState( {
@@ -104,7 +109,7 @@ class ARCameraResults extends Component<Props> {
         taxaId: ancestor.taxon_id,
         speciesSeenImage,
         scientificName: ancestor.name
-      }, () => this.showNoMatch() );
+      }, () => this.setMatch( false ) );
     } );
   }
 
@@ -131,12 +136,22 @@ class ARCameraResults extends Component<Props> {
       await this.addObservation();
       this.navigateTo( "Match" );
     } else {
-      this.navigateTo( "NoMatchScreen" );
+      this.navigateTo( "Match" );
     }
   }
 
   showNoMatch() {
-    this.navigateTo( "NoMatchScreen" );
+    this.navigateTo( "Match" );
+  }
+
+  checkForMatches() {
+    const { match } = this.state;
+
+    if ( match === true ) {
+      this.showMatch();
+    } else if ( match === false ) {
+      this.showNoMatch();
+    }
   }
 
   fetchAdditionalTaxaInfo() {
@@ -163,7 +178,7 @@ class ARCameraResults extends Component<Props> {
           }
         },
         speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
-      }, () => this.showMatch() );
+      }, () => this.setMatch( true ) );
     } ).catch( () => {
       this.setError( "taxaInfo" );
     } );
@@ -188,7 +203,7 @@ class ARCameraResults extends Component<Props> {
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );
     } else {
-      this.showNoMatch();
+      this.setMatch( false );
     }
   }
 
@@ -261,7 +276,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       time,
       postingSuccess,
-      isLoggedIn
+      isLoggedIn,
+      match
     } = this.state;
 
     navigation.navigate( route, {
@@ -277,7 +293,8 @@ class ARCameraResults extends Component<Props> {
       time,
       commonAncestor,
       postingSuccess,
-      isLoggedIn
+      isLoggedIn,
+      match
     } );
   }
 

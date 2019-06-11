@@ -92,7 +92,9 @@ const getBadgesEarned = async () => {
 
 const checkForNewBadges = async () => {
   const badgesEarned = await getBadgesEarned();
+  // console.log( badgesEarned, "earned" );
   recalculateBadges();
+  // console.log( "recalc" );
 
   return (
     new Promise( ( resolve ) => {
@@ -116,6 +118,9 @@ const checkForNewBadges = async () => {
           if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
             latestLevel = newestLevels[0];
           }
+
+          // console.log( latestBadge, "badge" );
+          // console.log( latestLevel, "level" );
 
           resolve( {
             latestBadge,

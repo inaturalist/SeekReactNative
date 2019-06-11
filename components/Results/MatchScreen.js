@@ -140,8 +140,6 @@ class MatchScreen extends Component<Props> {
       setSpeciesId( taxaId );
       setRoute( "Camera" );
       navigation.navigate( "Species" );
-    } else if ( navigationPath === "Back" ) {
-      navigation.goBack();
     }
   }
 
@@ -225,7 +223,7 @@ class MatchScreen extends Component<Props> {
               style={styles.header}
             >
               <TouchableOpacity
-                onPress={() => this.setNavigationPath( "Back" )}
+                onPress={() => this.setNavigationPath( "Camera" )}
                 hitSlop={styles.touchable}
                 style={styles.backButton}
               >

@@ -13,8 +13,8 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
 const setChallengeProgress = ( index ) => {
-  const value = index ? index.toString() : "none";
-  AsyncStorage.setItem( "challengeProgress", value );
+  console.log( "setting challenge progress", index );
+  AsyncStorage.setItem( "challengeProgress", index.toString() );
 };
 
 const fetchIncompleteChallenges = ( realm ) => {
@@ -241,6 +241,7 @@ const getChallengeIndex = async () => {
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
+    console.log( index, "getting challenge progress" );
     if ( index !== "none" ) {
       return Number( index );
     }
@@ -251,10 +252,12 @@ const getChallengeProgress = async () => {
 };
 
 const checkForChallengesCompleted = async () => {
-  const challengesCompleted = await getChallengesCompleted();
+  const prevChallengesCompleted = await getChallengesCompleted();
+  console.log( prevChallengesCompleted, "complete" );
 
   recalculateChallenges();
   const challengeProgressIndex = await getChallengeProgress();
+  console.log( challengeProgressIndex, "progress" );
 
   return (
     new Promise( ( resolve ) => {
@@ -270,13 +273,20 @@ const checkForChallengesCompleted = async () => {
           if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
+            console.log( incompleteChallenges, "incomp chall" );
 
             challengeInProgress = incompleteChallenges[0];
           }
 
-          if ( challenges.length > challengesCompleted ) {
+          if ( challenges.length > prevChallengesCompleted ) {
             challengeComplete = challenges[0];
           }
+
+          console.log( challengeComplete, "completechall" );
+          console.log( challengeInProgress, "progresschall" );
+
+          setChallengeProgress( "none" );
+
           resolve( {
             challengeInProgress,
             challengeComplete

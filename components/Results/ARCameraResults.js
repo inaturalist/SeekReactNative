@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground } from "react-native";
+import { View, ImageBackground, Alert } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -104,6 +104,7 @@ class ARCameraResults extends Component<Props> {
 
   setCommonAncestor( ancestor, speciesSeenImage ) {
     getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+      console.log( commonName, ancestor.taxon_id, "name id of ancestor" );
       this.setState( {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,
@@ -115,7 +116,9 @@ class ARCameraResults extends Component<Props> {
 
   setARCameraVisionResults() {
     const { predictions, threshold } = this.state;
-    const species = predictions.find( leaf => leaf.rank === 10 );
+    const species = predictions.find( leaf => leaf.rank === 10 ); // change to only look for ones > threshold?
+    Alert.alert( JSON.stringify( predictions ) );
+    console.log( species, "species" );
 
     if ( species && species.score > threshold ) {
       this.setState( {
@@ -130,6 +133,7 @@ class ARCameraResults extends Component<Props> {
   }
 
   async showMatch() {
+    console.log( "showing a match" );
     const { seenDate } = this.state;
 
     if ( !seenDate ) {
@@ -141,10 +145,12 @@ class ARCameraResults extends Component<Props> {
   }
 
   showNoMatch() {
+    console.log( "showing not a match" );
     this.navigateTo( "Match" );
   }
 
   checkForMatches() {
+    console.log( "checking for matches" );
     const { match } = this.state;
 
     if ( match === true ) {
@@ -195,10 +201,13 @@ class ARCameraResults extends Component<Props> {
   }
 
   checkForCommonAncestor() {
+    console.log( "checking ancestor" );
     const { predictions, threshold } = this.state;
     const reversePredictions = predictions.reverse();
 
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
+    console.log( "predictions", predictions );
+    console.log( "checking ancestor", ancestor );
 
     if ( ancestor && ancestor.rank !== 100 ) {
       this.fetchAdditionalAncestorInfo( ancestor );
@@ -246,6 +255,7 @@ class ARCameraResults extends Component<Props> {
   }
 
   checkDateSpeciesSeen( taxaId ) {
+    console.log( "checking species seen date" );
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
@@ -312,7 +322,6 @@ class ARCameraResults extends Component<Props> {
             this.resizeImageForUploading();
           }}
         />
-        {error ? <ErrorScreen error={error} navigation={navigation} /> : null}
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
           : (

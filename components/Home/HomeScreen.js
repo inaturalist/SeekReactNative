@@ -74,10 +74,6 @@ class HomeScreen extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-
-    if ( error === "location" ) {
-      this.setLocation( i18n.t( "species_nearby.no_location" ) );
-    }
   }
 
   setChallenge( challenge ) {
@@ -89,13 +85,14 @@ class HomeScreen extends Component<Props> {
       const { latitude, longitude } = coords;
 
       this.reverseGeocodeLocation( latitude, longitude );
+      this.setError( null );
 
       this.setState( {
         latitude,
         longitude
       }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
     } ).catch( () => {
-      this.setError( "location" );
+      console.log( "didn't get location" );
     } );
   }
 
@@ -103,9 +100,6 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
-    // if ( !lat || !lng ) {
-    //   this.fetchUserLocation();
-    // }
 
     const params = {
       verifiable: true,
@@ -137,8 +131,6 @@ class HomeScreen extends Component<Props> {
       );
       if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
         this.getGeolocation();
-      } else {
-        this.setError( "location" );
       }
     } catch ( err ) {
       this.checkInternetConnection();
@@ -194,17 +186,18 @@ class HomeScreen extends Component<Props> {
         this.setError( "internet" );
         this.setLoading( false );
       } else {
-        this.checkiOSPermissions();
+        this.setError( null );
       }
-    } );
+    } ).catch( () => this.setError( null ) );
   }
 
-  checkiOSPermissions() {
+  checkPermissions() {
     Permissions.check( "location" ).then( ( response ) => {
       if ( response !== "authorized" ) {
         this.setError( "location" );
       } else {
         this.setError( null );
+        this.fetchUserLocation();
       }
     } ).catch( () => this.setError( null ) );
   }
@@ -275,6 +268,8 @@ class HomeScreen extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
+    console.log( error, "is location error" );
+
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
@@ -285,7 +280,8 @@ class HomeScreen extends Component<Props> {
               onWillFocus={() => {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
-                this.fetchUserLocation();
+                this.checkPermissions();
+                this.checkInternetConnection();
                 this.fetchLatestChallenge();
                 addARCameraFiles();
               }}

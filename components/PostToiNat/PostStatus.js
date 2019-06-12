@@ -60,7 +60,6 @@ const PostStatus = ( {
             onPress={() => {
               if ( postingSuccess ) {
                 navigation.goBack();
-                // navigation.navigate( "Results" );
               } else {
                 togglePostModal();
               }

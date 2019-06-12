@@ -112,7 +112,7 @@ const SpeciesNearby = ( {
           <View style={styles.whiteButton}>
             {location
               ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-              : null
+              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>
             }
           </View>
         </TouchableOpacity>

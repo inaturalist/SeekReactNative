@@ -19,3 +19,5 @@ Seek is an app built for iOS and Android.
   * Clear watchman: `watchman watch-del-all`
   * Delete and reinstall node_modules: `rm -rf node_modules && npm install`
   * Reset the bundler cache: `npm start -- --reset-cache`
+
+![Heyyyyyyyy](https://media.giphy.com/media/uNlfm6nGyFmOQ/giphy.gif)

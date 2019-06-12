@@ -5,6 +5,7 @@ import {
   createAppContainer,
   createBottomTabNavigator
 } from "react-navigation";
+import { Platform } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
@@ -67,6 +68,7 @@ const noHeader = {
 const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
+  swipeEnabled: Platform.OS === "ios",
   tabBarOptions: {
     scrollEnabled: true,
     labelStyle: styles.cameraTabLabel,

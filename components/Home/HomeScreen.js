@@ -103,9 +103,9 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
-    if ( !lat || !lng ) {
-      this.fetchUserLocation();
-    }
+    // if ( !lat || !lng ) {
+    //   this.fetchUserLocation();
+    // }
 
     const params = {
       verifiable: true,

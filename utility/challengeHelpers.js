@@ -28,11 +28,13 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
   const seenTaxa = [];
   const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
 
-  observations.forEach( ( observation ) => {
-    if ( observation.date >= startedDate ) {
-      seenTaxa.push( observation );
-    }
-  } );
+  if ( startedDate ) {
+    observations.forEach( ( observation ) => {
+      if ( observation.date >= startedDate ) {
+        seenTaxa.push( observation );
+      }
+    } );
+  }
   return seenTaxa;
 };
 
@@ -119,7 +121,6 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
 };
 
 const recalculateChallenges = () => {
-  setChallengeProgress( "none" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const incompleteChallenges = fetchIncompleteChallenges( realm );
@@ -240,6 +241,7 @@ const getChallengeIndex = async () => {
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
+    console.log( index, "getting challenge progress index" );
     if ( index !== "none" ) {
       return Number( index );
     }

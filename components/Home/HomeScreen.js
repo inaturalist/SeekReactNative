@@ -268,8 +268,6 @@ class HomeScreen extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    console.log( error, "is location error" );
-
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />

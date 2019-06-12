@@ -24,7 +24,7 @@ import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
-import { checkForChallengesCompleted } from "../../utility/challengeHelpers";
+import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 
 type Props = {
@@ -236,6 +236,7 @@ class MatchScreen extends Component<Props> {
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
               }}
+              onWillBlur={() => setChallengeProgress( "none" )}
             />
           ) : null}
           {match && !seenDate ? (

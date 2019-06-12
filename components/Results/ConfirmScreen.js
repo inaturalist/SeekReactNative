@@ -42,7 +42,7 @@ const ConfirmScreen = ( {
       <View />
     </View>
     <View style={styles.imageContainer}>
-      {match === null ? (
+      {clicked && match === null ? (
         <View style={styles.loadingWheel}>
           <LoadingWheel color="white" />
         </View>

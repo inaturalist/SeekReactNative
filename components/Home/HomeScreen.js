@@ -279,6 +279,7 @@ class HomeScreen extends Component<Props> {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.checkPermissions();
+                this.fetchUserLocation();
                 this.checkInternetConnection();
                 this.fetchLatestChallenge();
                 addARCameraFiles();

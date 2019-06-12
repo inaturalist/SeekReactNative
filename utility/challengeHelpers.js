@@ -119,6 +119,7 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
 };
 
 const recalculateChallenges = () => {
+  setChallengeProgress( "none" );
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const incompleteChallenges = fetchIncompleteChallenges( realm );

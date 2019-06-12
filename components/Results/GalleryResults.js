@@ -284,7 +284,6 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess,
       isLoggedIn,
       match
     } = this.state;
@@ -301,7 +300,6 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      postingSuccess,
       isLoggedIn,
       match
     } );

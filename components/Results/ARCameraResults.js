@@ -275,7 +275,6 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess,
       isLoggedIn,
       match
     } = this.state;
@@ -292,7 +291,6 @@ class ARCameraResults extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      postingSuccess,
       isLoggedIn,
       match
     } );

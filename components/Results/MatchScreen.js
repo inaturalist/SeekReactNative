@@ -45,7 +45,6 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess,
       seenDate,
       commonAncestor,
       isLoggedIn,
@@ -70,7 +69,6 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess,
       seenDate,
       commonAncestor,
       match,
@@ -186,7 +184,6 @@ class MatchScreen extends Component<Props> {
       latitude,
       longitude,
       time,
-      postingSuccess,
       seenDate,
       commonAncestor,
       match
@@ -338,7 +335,7 @@ class MatchScreen extends Component<Props> {
                 </TouchableOpacity>
               ) : null}
               <View style={{ marginBottom: 28 }} />
-              {isLoggedIn && latitude && longitude && !postingSuccess
+              {isLoggedIn && latitude && longitude
                 ? (
                   <PostToiNat
                     navigation={navigation}

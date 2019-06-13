@@ -302,7 +302,9 @@ class MatchScreen extends Component<Props> {
             </LinearGradient>
             <View style={styles.textContainer}>
               <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-              <Text style={styles.speciesText}>{speciesText}</Text>
+              {seenDate || match || commonAncestor
+                ? <Text style={styles.speciesText}>{speciesText}</Text>
+                : null}
               <Text style={styles.text}>{text}</Text>
               {seenDate || match ? (
                 <TouchableOpacity

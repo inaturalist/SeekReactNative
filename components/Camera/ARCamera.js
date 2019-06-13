@@ -144,7 +144,7 @@ class ARCamera extends Component<Props> {
       try {
         const granted = await PermissionsAndroid.request( camera );
         if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-          // console.log( granted, "granted" );
+          console.log( granted, "granted" );
         } else {
           this.setError( "permissions" );
         }

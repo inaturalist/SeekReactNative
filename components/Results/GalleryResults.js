@@ -214,8 +214,7 @@ class Results extends Component<Props> {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;
 
-        if ( species.combined_score > 85 ) { // changed to 85 for testing
-        // if ( species.combined_score > 97 ) {
+        if ( species.combined_score > 85 ) {
           this.checkDateSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {

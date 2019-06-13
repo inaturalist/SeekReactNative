@@ -569,6 +569,13 @@
 		2DFB78C61598466CB712F38B /* libRCTINatCameraView.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTINatCameraView.a; sourceTree = "<group>"; };
 		2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		3721C5BA22B30F3800151678 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3721C5BB22B30F5700151678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = ../es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3721C5BC22B30F5D00151678 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = ../nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3721C5BD22B30F6200151678 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3721C5BE22B30F6B00151678 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = ../hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3721C5BF22B30F7100151678 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "../pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3721C5C022B30F7500151678 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "../pt-PT.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3721C5C122B30F7E00151678 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = ../de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3739CB162242B17600D8B525 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
 		3739CB172242B17600D8B525 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
 		3741928821766A39007414A3 /* RNGeocoder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGeocoder.xcodeproj; path = "../node_modules/react-native-geocoder/ios/RNGeocoder.xcodeproj"; sourceTree = "<group>"; };
@@ -1260,6 +1267,13 @@
 				en,
 				Base,
 				"zh-Hant",
+				es,
+				nl,
+				fr,
+				hi,
+				"pt-BR",
+				"pt-PT",
+				de,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -1963,6 +1977,13 @@
 			children = (
 				37DFB70321FFA4BE007B4E22 /* Base */,
 				3721C5BA22B30F3800151678 /* zh-Hant */,
+				3721C5BB22B30F5700151678 /* es */,
+				3721C5BC22B30F5D00151678 /* nl */,
+				3721C5BD22B30F6200151678 /* fr */,
+				3721C5BE22B30F6B00151678 /* hi */,
+				3721C5BF22B30F7100151678 /* pt-BR */,
+				3721C5C022B30F7500151678 /* pt-PT */,
+				3721C5C122B30F7E00151678 /* de */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

@@ -116,8 +116,8 @@ const addToCollection = ( observation, latitude, longitude, image, time ) => {
           uuidString: uuid.v1(),
           date: time ? moment.unix( time ).format() : new Date(),
           taxon,
-          latitude: truncateCoordinates( latitude ),
-          longitude: truncateCoordinates( longitude ),
+          latitude,
+          longitude,
           placeName: null
         } );
       } );

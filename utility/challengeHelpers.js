@@ -241,7 +241,6 @@ const getChallengeIndex = async () => {
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
-    console.log( index, "getting challenge progress index" );
     if ( index !== "none" ) {
       return Number( index );
     }

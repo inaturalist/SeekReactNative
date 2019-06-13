@@ -119,7 +119,7 @@ android {
         versionCode 36
         versionName "2.1.1"
         ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            abiFilters "armeabi-v7a", "x86"
         }
         vectorDrawables.useSupportLibrary = true
     }
@@ -184,10 +184,10 @@ dependencies {
     implementation("com.android.support:appcompat-v7:28.0.0")
     implementation("com.android.support:support-v4:28.0.0")
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    compile ("com.google.android.gms:play-services-base:10.2.1") {
+    implementation ("com.google.android.gms:play-services-base:10.2.1") {
       force = true;
     }
-    compile ("com.google.android.gms:play-services-maps:10.2.1") {
+    implementation ("com.google.android.gms:play-services-maps:10.2.1") {
       force = true;
     }
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"

@@ -11,7 +11,6 @@ const RNFS = require( "react-native-fs" );
 const moment = require( "moment" );
 
 const realmConfig = require( "../models/index" );
-const { truncateCoordinates } = require( "./locationHelpers" );
 const { createNotification } = require( "./notificationHelpers" );
 const { checkNumberOfBadgesEarned } = require( "./badgeHelpers" );
 const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );

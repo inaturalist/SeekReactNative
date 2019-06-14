@@ -5,7 +5,6 @@ import {
   View,
   ScrollView,
   Platform,
-  PermissionsAndroid,
   Modal,
   SafeAreaView,
   StatusBar
@@ -26,7 +25,7 @@ import NoChallenges from "./NoChallenges";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -124,16 +123,17 @@ class HomeScreen extends Component<Props> {
     this.fetchSpeciesNearby( params );
   }
 
-  requestAndroidPermissions = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.getGeolocation();
-      }
-    } catch ( err ) {
-      this.checkInternetConnection();
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.checkInternetConnection();
+        }
+      } );
+    } else {
+      this.getGeolocation();
     }
   }
 
@@ -162,11 +162,7 @@ class HomeScreen extends Component<Props> {
     const { latitude, longitude } = this.state;
 
     if ( !latitude && !longitude ) {
-      if ( Platform.OS === "android" ) {
-        this.requestAndroidPermissions();
-      } else {
-        this.getGeolocation();
-      }
+      this.requestAndroidPermissions();
     } else {
       this.setParamsForSpeciesNearby( latitude, longitude );
     }

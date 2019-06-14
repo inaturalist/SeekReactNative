@@ -16,7 +16,7 @@ import moment from "moment";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { fetchLocationName, fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
@@ -126,14 +126,25 @@ class SpeciesDetail extends Component<Props> {
     }
   }
 
-  updateScreen() {
-    this.fetchiNatData();
+  setUserLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      const { latitude, longitude } = coords;
+
+      this.reverseGeocodeLocation( latitude, longitude );
+      this.setRegion( latitude, longitude );
+    } ).catch( () => this.setError( "internet" ) );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location );
-    } ).catch( () => this.setLocation( null ) );
+  fetchUserLocation() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setUserLocation();
+        }
+      } );
+    } else {
+      this.setUserLocation();
+    }
   }
 
   async fetchSpeciesId() {
@@ -146,13 +157,14 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { route } );
   }
 
-  async fetchUserLocation() {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      const { latitude, longitude } = coords;
+  reverseGeocodeLocation( lat, lng ) {
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
+    } ).catch( () => this.setLocation( null ) );
+  }
 
-      this.reverseGeocodeLocation( latitude, longitude );
-      this.setRegion( latitude, longitude );
-    } ).catch( () => this.setError( "internet" ) );
+  updateScreen() {
+    this.fetchiNatData();
   }
 
   resetState() {

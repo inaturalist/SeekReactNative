@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import jwt from "react-native-jwt-io";
 import Realm from "realm";
@@ -19,7 +19,7 @@ import {
   capitalizeNames,
   flattenUploadParameters
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, createLocationPermissionsAlert, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -60,23 +60,32 @@ class Results extends Component<Props> {
     this.checkForMatches = this.checkForMatches.bind( this );
   }
 
+  setLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      } else {
+        createLocationPermissionsAlert();
+      }
+    } );
+  }
+
   getLocation() {
-    const { latitude, longitude } = this.state;
-
-    if ( !latitude || !longitude ) {
-      fetchTruncatedUserLocation().then( ( coords ) => {
-        if ( coords ) {
-          const lat = coords.latitude;
-          const lng = coords.longitude;
-
-          this.setState( {
-            latitude: lat,
-            longitude: lng
-          } );
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setLocation();
         } else {
           createLocationPermissionsAlert();
         }
       } );
+    } else {
+      this.setLocation();
     }
   }
 

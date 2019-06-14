@@ -119,7 +119,7 @@ android {
         versionCode 37
         versionName "2.2.0"
         ndk {
-            abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            abiFilters "armeabi-v7a", "x86"
         }
         vectorDrawables.useSupportLibrary = true
     }

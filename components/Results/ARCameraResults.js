@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground } from "react-native";
+import { View, ImageBackground, Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -17,7 +17,7 @@ import {
   capitalizeNames,
   getTaxonCommonName
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, createLocationPermissionsAlert, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -56,7 +56,7 @@ class ARCameraResults extends Component<Props> {
     };
   }
 
-  getLocation() {
+  setLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -69,6 +69,20 @@ class ARCameraResults extends Component<Props> {
         createLocationPermissionsAlert();
       }
     } );
+  }
+
+  getLocation() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setLocation();
+        } else {
+          createLocationPermissionsAlert();
+        }
+      } );
+    } else {
+      this.setLocation();
+    }
   }
 
   async getLoggedIn() {

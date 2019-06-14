@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal
+  Modal,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";
@@ -16,7 +17,7 @@ import inatjs, { FileUpload } from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
-import { fetchUserLocation, fetchLocationName } from "../../utility/locationHelpers";
+import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -73,6 +74,18 @@ class PostScreen extends Component<Props> {
     this.togglePostModal = this.togglePostModal.bind( this );
   }
 
+  setUserLocation() {
+    fetchUserLocation().then( ( coords ) => {
+      const lat = coords.latitude;
+      const long = coords.longitude;
+      this.reverseGeocodeLocation( lat, long );
+      this.setLatitude( lat );
+      this.setLongitude( long );
+    } ).catch( ( err ) => {
+      console.log( err );
+    } );
+  }
+
   getLocation() {
     const { latitude, longitude } = this.state;
     const truncated = this.checkForTruncatedCoordinates( latitude );
@@ -80,15 +93,7 @@ class PostScreen extends Component<Props> {
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
     } else {
-      fetchUserLocation().then( ( coords ) => {
-        const lat = coords.latitude;
-        const long = coords.longitude;
-        this.reverseGeocodeLocation( lat, long );
-        this.setLatitude( lat );
-        this.setLongitude( long );
-      } ).catch( ( err ) => {
-        console.log( err );
-      } );
+      this.checkPermissions();
     }
   }
 
@@ -153,6 +158,18 @@ class PostScreen extends Component<Props> {
       }, this.hideDateTimePicker() );
     }
   };
+
+  checkPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setUserLocation();
+        }
+      } );
+    } else {
+      this.setUserLocation();
+    }
+  }
 
   checkForTruncatedCoordinates( latitude ) {
     if ( latitude ) {

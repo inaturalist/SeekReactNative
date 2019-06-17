@@ -23,20 +23,14 @@
 	<key>CFBundleVersion</key>
 	<string>37</string>
 	<key>LSRequiresIPhoneOS</key>
-	<true />
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
-		<true />
+		<true/>
 		<key>NSExceptionDomains</key>
-		<dict />
+		<dict/>
 	</dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We use the camera so you can get identifications of your nature photos.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -45,16 +39,10 @@
 	<string>We use your location to suggest plants and animals to find near you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to suggest plants and animals to find near you.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
-	<key>NSMotionUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We use the photo library so you can get identifications of your nature photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We use the photo library so you can get identifications of your nature photos.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Whitney-Medium-Pro.otf</string>
@@ -105,6 +93,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false />
+	<false/>
 </dict>
 </plist>

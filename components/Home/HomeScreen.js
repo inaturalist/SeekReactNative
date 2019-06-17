@@ -7,7 +7,8 @@ import {
   Platform,
   Modal,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Alert
 } from "react-native";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
@@ -43,7 +44,7 @@ class HomeScreen extends Component<Props> {
       location: null,
       taxa: [],
       taxaType: "all",
-      loading: false,
+      loading: true,
       modalVisible: false,
       error: null,
       challenge: null,
@@ -72,6 +73,7 @@ class HomeScreen extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
+    this.setLoading( false );
   }
 
   setChallenge( challenge ) {
@@ -80,19 +82,23 @@ class HomeScreen extends Component<Props> {
 
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
-      const { latitude, longitude } = coords;
+      if ( coords === null ) {
+        this.setError( "location" );
+      } else {
+        const { latitude, longitude } = coords;
 
-      if ( latitude && longitude ) {
-        this.reverseGeocodeLocation( latitude, longitude );
-        this.setError( null );
+        if ( latitude && longitude ) {
+          this.reverseGeocodeLocation( latitude, longitude );
+          this.setError( null );
 
-        this.setState( {
-          latitude,
-          longitude
-        }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+          this.setState( {
+            latitude,
+            longitude
+          }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+        }
       }
     } ).catch( () => {
-      this.setError( "location" );
+      this.checkInternetConnection();
     } );
   }
 
@@ -171,7 +177,6 @@ class HomeScreen extends Component<Props> {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );
-        this.setLoading( false );
       } else {
         this.setError( null );
       }
@@ -255,7 +260,6 @@ class HomeScreen extends Component<Props> {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.requestAndroidPermissions();
-                this.checkInternetConnection();
                 this.fetchLatestChallenge();
                 addARCameraFiles();
               }}

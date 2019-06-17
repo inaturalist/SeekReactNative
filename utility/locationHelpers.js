@@ -1,18 +1,15 @@
-import { Alert } from "react-native";
+import { Alert, PermissionsAndroid } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
 import Geolocation from "@react-native-community/geolocation";
 
 import i18n from "../i18n";
 
-const { PermissionsAndroid } = require( "react-native" );
-
 const fetchUserLocation = () => (
   new Promise( ( resolve ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
-    }, () => resolve( null ),
-    { enableHighAccuracy: true } );
+    }, () => resolve( null ) );
   } )
 );
 
@@ -48,8 +45,7 @@ const fetchTruncatedUserLocation = () => (
       };
 
       resolve( truncatedCoords );
-    }, () => resolve( null ),
-    { enableHighAccuracy: true } );
+    }, () => resolve( null ) );
   } )
 );
 

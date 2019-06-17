@@ -17,7 +17,7 @@ import {
   capitalizeNames,
   getTaxonCommonName
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, createLocationPermissionsAlert, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -65,8 +65,6 @@ class ARCameraResults extends Component<Props> {
           latitude,
           longitude
         } );
-      } else {
-        createLocationPermissionsAlert();
       }
     } );
   }
@@ -76,8 +74,6 @@ class ARCameraResults extends Component<Props> {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
           this.setLocation();
-        } else {
-          createLocationPermissionsAlert();
         }
       } );
     } else {

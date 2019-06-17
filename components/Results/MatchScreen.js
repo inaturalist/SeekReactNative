@@ -26,6 +26,7 @@ import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
+import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any
@@ -164,6 +165,14 @@ class MatchScreen extends Component<Props> {
     }
   }
 
+  checkLocationPermissions() {
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude && !longitude ) {
+      createLocationPermissionsAlert();
+    }
+  }
+
   render() {
     const { navigation } = this.props;
 
@@ -235,18 +244,19 @@ class MatchScreen extends Component<Props> {
               onDidFocus={() => {
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
+                this.checkLocationPermissions();
               }}
               onWillBlur={() => setChallengeProgress( "none" )}
             />
           ) : null}
-          {match && !seenDate ? (
+          {match && !seenDate && latitude ? (
             <Banner
               navigation={navigation}
               badge={badge}
               incompleteChallenge={challengeInProgress}
             />
           ) : null}
-          {match && !seenDate ? (
+          {match && !seenDate && latitude ? (
             <Modal
               isVisible={showChallengeModal}
               onSwipeComplete={() => this.toggleChallengeModal()}
@@ -260,7 +270,7 @@ class MatchScreen extends Component<Props> {
               />
             </Modal>
           ) : null}
-          {match && !seenDate ? (
+          {match && !seenDate && latitude ? (
             <Modal
               isVisible={showLevelModal}
               onSwipeComplete={() => this.toggleLevelModal()}

@@ -12,7 +12,7 @@ import {
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
-import Permissions from "react-native-permissions";
+// import Permissions from "react-native-permissions";
 import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
@@ -83,15 +83,17 @@ class HomeScreen extends Component<Props> {
     fetchTruncatedUserLocation().then( ( coords ) => {
       const { latitude, longitude } = coords;
 
-      this.reverseGeocodeLocation( latitude, longitude );
-      this.setError( null );
+      if ( latitude && longitude ) {
+        this.reverseGeocodeLocation( latitude, longitude );
+        this.setError( null );
 
-      this.setState( {
-        latitude,
-        longitude
-      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+        this.setState( {
+          latitude,
+          longitude
+        }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+      }
     } ).catch( () => {
-      console.log( "didn't get location" );
+      this.setError( "location" );
     } );
   }
 
@@ -129,7 +131,7 @@ class HomeScreen extends Component<Props> {
         if ( granted ) {
           this.getGeolocation();
         } else {
-          this.checkInternetConnection();
+          this.setError( "location" );
         }
       } );
     } else {
@@ -158,15 +160,15 @@ class HomeScreen extends Component<Props> {
     }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
   }
 
-  fetchUserLocation() {
-    const { latitude, longitude } = this.state;
+  // fetchUserLocation() {
+  //   const { latitude, longitude } = this.state;
 
-    if ( !latitude && !longitude ) {
-      this.requestAndroidPermissions();
-    } else {
-      this.setParamsForSpeciesNearby( latitude, longitude );
-    }
-  }
+  //   if ( !latitude && !longitude ) {
+  //     this.requestAndroidPermissions();
+  //   } else {
+  //     this.setParamsForSpeciesNearby( latitude, longitude );
+  //   }
+  // }
 
   reverseGeocodeLocation( lat, lng ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
@@ -187,16 +189,17 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
-  checkPermissions() {
-    Permissions.check( "location" ).then( ( response ) => {
-      if ( response !== "authorized" ) {
-        this.setError( "location" );
-      } else {
-        this.setError( null );
-        this.fetchUserLocation();
-      }
-    } ).catch( () => this.setError( null ) );
-  }
+  // checkPermissions() {
+  //   Permissions.check( "location" ).then( ( response ) => {
+  //     Alert.alert( JSON.stringify( response ), "permissions check home" );
+  //     if ( response !== "authorized" ) {
+  //       this.setError( "location" );
+  //     } else {
+  //       this.setError( null );
+  //       this.fetchUserLocation();
+  //     }
+  //   } ).catch( () => this.setError( null ) );
+  // }
 
   fetchSpeciesNearby( params ) {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
@@ -274,8 +277,9 @@ class HomeScreen extends Component<Props> {
               onWillFocus={() => {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
-                this.checkPermissions();
-                this.fetchUserLocation();
+                this.requestAndroidPermissions();
+                // this.checkPermissions();
+                // this.fetchUserLocation();
                 this.checkInternetConnection();
                 this.fetchLatestChallenge();
                 addARCameraFiles();

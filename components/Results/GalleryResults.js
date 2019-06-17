@@ -19,7 +19,7 @@ import {
   capitalizeNames,
   flattenUploadParameters
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, createLocationPermissionsAlert, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -69,8 +69,6 @@ class Results extends Component<Props> {
           latitude,
           longitude
         } );
-      } else {
-        createLocationPermissionsAlert();
       }
     } );
   }
@@ -80,8 +78,6 @@ class Results extends Component<Props> {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
           this.setLocation();
-        } else {
-          createLocationPermissionsAlert();
         }
       } );
     } else {

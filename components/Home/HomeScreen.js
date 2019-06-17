@@ -12,7 +12,6 @@ import {
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
-// import Permissions from "react-native-permissions";
 import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
@@ -160,16 +159,6 @@ class HomeScreen extends Component<Props> {
     }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
   }
 
-  // fetchUserLocation() {
-  //   const { latitude, longitude } = this.state;
-
-  //   if ( !latitude && !longitude ) {
-  //     this.requestAndroidPermissions();
-  //   } else {
-  //     this.setParamsForSpeciesNearby( latitude, longitude );
-  //   }
-  // }
-
   reverseGeocodeLocation( lat, lng ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
       this.setLocation( location );
@@ -188,18 +177,6 @@ class HomeScreen extends Component<Props> {
       }
     } ).catch( () => this.setError( null ) );
   }
-
-  // checkPermissions() {
-  //   Permissions.check( "location" ).then( ( response ) => {
-  //     Alert.alert( JSON.stringify( response ), "permissions check home" );
-  //     if ( response !== "authorized" ) {
-  //       this.setError( "location" );
-  //     } else {
-  //       this.setError( null );
-  //       this.fetchUserLocation();
-  //     }
-  //   } ).catch( () => this.setError( null ) );
-  // }
 
   fetchSpeciesNearby( params ) {
     inatjs.observations.speciesCounts( params ).then( ( response ) => {
@@ -278,8 +255,6 @@ class HomeScreen extends Component<Props> {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.requestAndroidPermissions();
-                // this.checkPermissions();
-                // this.fetchUserLocation();
                 this.checkInternetConnection();
                 this.fetchLatestChallenge();
                 addARCameraFiles();

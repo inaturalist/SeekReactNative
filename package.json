@@ -35,7 +35,6 @@
     "react-native-modal": "^11.0.0",
     "react-native-modal-datetime-picker": "^7.4.2",
     "react-native-open-settings": "^1.0.1",
-    "react-native-permissions": "^1.1.1",
     "react-native-picker-select": "^6.1.0",
     "react-native-progress-circle": "^2.0.1",
     "react-native-svg": "^9.4.0",

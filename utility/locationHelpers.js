@@ -28,7 +28,7 @@ const checkLocationPermissions = async () => {
     if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
       return true;
     }
-    return JSON.stringify( granted );
+    return false;
   } catch ( err ) {
     return err;
   }

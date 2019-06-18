@@ -7,17 +7,17 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Modal
+  Modal,
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import Geocoder from "react-native-geocoder";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
-// import { version } from "../../package.json";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
+import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import GreenHeader from "../GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -74,6 +74,18 @@ class PostScreen extends Component<Props> {
     this.togglePostModal = this.togglePostModal.bind( this );
   }
 
+  setUserLocation() {
+    fetchUserLocation().then( ( coords ) => {
+      const lat = coords.latitude;
+      const long = coords.longitude;
+      this.reverseGeocodeLocation( lat, long );
+      this.setLatitude( lat );
+      this.setLongitude( long );
+    } ).catch( ( err ) => {
+      console.log( err );
+    } );
+  }
+
   getLocation() {
     const { latitude, longitude } = this.state;
     const truncated = this.checkForTruncatedCoordinates( latitude );
@@ -81,15 +93,7 @@ class PostScreen extends Component<Props> {
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
     } else {
-      navigator.geolocation.getCurrentPosition( ( { coords } ) => {
-        const lat = coords.latitude;
-        const long = coords.longitude;
-        this.reverseGeocodeLocation( lat, long );
-        this.setLatitude( lat );
-        this.setLongitude( long );
-      } ).catch( () => {
-        // this.setError();
-      } );
+      this.checkPermissions();
     }
   }
 
@@ -155,6 +159,18 @@ class PostScreen extends Component<Props> {
     }
   };
 
+  checkPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setUserLocation();
+        }
+      } );
+    } else {
+      this.setUserLocation();
+    }
+  }
+
   checkForTruncatedCoordinates( latitude ) {
     if ( latitude ) {
       const string = latitude.toString();
@@ -182,11 +198,12 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude, location ) {
+  updateLocation( latitude, longitude ) {
+    this.reverseGeocodeLocation( latitude, longitude );
+
     this.setState( {
       latitude,
-      longitude,
-      location
+      longitude
     }, () => this.toggleLocationPicker() );
   }
 
@@ -199,11 +216,14 @@ class PostScreen extends Component<Props> {
   }
 
   reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      if ( location ) {
+        this.setLocation( location );
+      } else {
+        this.setLocationUndefined();
+      }
     } ).catch( () => {
-      console.log( "couldn't geocode location" );
+      this.setLocationUndefined();
     } );
   }
 

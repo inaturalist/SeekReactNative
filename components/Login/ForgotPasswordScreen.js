@@ -29,9 +29,6 @@ class ForgotPasswordScreen extends Component<Props> {
 
   submit() {
     const { navigation } = this.props;
-    // try to log into iNat
-    // if log in succeeds, navigate to Main
-    // else, have a failure state / try again / forgot password prompt
     navigation.navigate( "PasswordEmail" );
   }
 

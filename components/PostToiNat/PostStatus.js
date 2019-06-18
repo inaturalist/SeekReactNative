@@ -59,7 +59,7 @@ const PostStatus = ( {
           <TouchableOpacity
             onPress={() => {
               if ( postingSuccess ) {
-                navigation.navigate( "Results" );
+                navigation.goBack();
               } else {
                 togglePostModal();
               }

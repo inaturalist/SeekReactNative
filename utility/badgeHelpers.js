@@ -1,6 +1,6 @@
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Realm = require( "realm" );
-const { AsyncStorage } = require( "react-native" );
-const { createNotification } = require( "./notificationHelpers" );
 
 const realmConfig = require( "../models/index" );
 const badgesDict = require( "./badgesDict" );
@@ -9,11 +9,6 @@ const recalculateBadges = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
-      const { length } = collectedTaxa;
-
-      if ( length === 50 || length === 100 || length === 150 ) {
-        createNotification( "badgeEarned" );
-      }
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
 
@@ -95,9 +90,48 @@ const getBadgesEarned = async () => {
   }
 };
 
+const checkForNewBadges = async () => {
+  const badgesEarned = await getBadgesEarned();
+  recalculateBadges();
+
+  return (
+    new Promise( ( resolve ) => {
+      Realm.open( realmConfig.default )
+        .then( ( realm ) => {
+          let latestBadge;
+          let latestLevel;
+
+          const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
+          const badges = earnedBadges.sorted( "earnedDate", true );
+
+          const speciesCount = realm.objects( "ObservationRealm" ).length;
+          const newestLevels = realm.objects( "BadgeRealm" )
+            .filtered( "earned == true AND iconicTaxonName == null" )
+            .sorted( "earnedDate", true );
+
+          if ( badgesEarned < earnedBadges.length ) {
+            latestBadge = badges[0];
+          }
+
+          if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
+            latestLevel = newestLevels[0];
+          }
+
+          resolve( {
+            latestBadge,
+            latestLevel
+          } );
+        } ).catch( () => {
+          resolve( null );
+        } );
+    } )
+  );
+};
+
 export {
   recalculateBadges,
   setupBadges,
   checkNumberOfBadgesEarned,
+  checkForNewBadges,
   getBadgesEarned
 };

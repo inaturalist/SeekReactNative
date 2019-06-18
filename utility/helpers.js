@@ -1,13 +1,29 @@
+import NetInfo from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-community/async-storage";
+
 import i18n from "../i18n";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { AsyncStorage, Platform } = require( "react-native" );
+const { Platform } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
+const moment = require( "moment" );
 
 const realmConfig = require( "../models/index" );
-const { truncateCoordinates, reverseGeocodeLocation } = require( "./locationHelpers" );
+const { createNotification } = require( "./notificationHelpers" );
+const { checkNumberOfBadgesEarned } = require( "./badgeHelpers" );
+const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );
+
+const checkForInternet = () => (
+  new Promise( ( resolve ) => {
+    NetInfo.fetch().then( ( { type } ) => {
+      resolve( type );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -62,9 +78,22 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
-const addToCollection = ( observation, latitude, longitude, image ) => {
+const checkForPowerUsers = ( length, newLength ) => {
+  if ( length < newLength ) {
+    if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
+      createNotification( "badgeEarned" );
+    }
+  }
+};
+
+const addToCollection = ( observation, latitude, longitude, image, time ) => {
+  checkNumberOfBadgesEarned();
+  checkNumberOfChallengesCompleted();
+
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
+      const { length } = realm.objects( "TaxonRealm" );
+
       realm.write( () => {
         let defaultPhoto;
         const p = observation.taxon.default_photo;
@@ -84,13 +113,15 @@ const addToCollection = ( observation, latitude, longitude, image ) => {
         } );
         const species = realm.create( "ObservationRealm", {
           uuidString: uuid.v1(),
-          date: new Date(),
+          date: time ? moment.unix( time ).format() : new Date(),
           taxon,
-          latitude: truncateCoordinates( latitude ),
-          longitude: truncateCoordinates( longitude ),
-          placeName: reverseGeocodeLocation( latitude, longitude )
+          latitude,
+          longitude,
+          placeName: null
         } );
       } );
+      const newLength = realm.objects( "TaxonRealm" ).length;
+      checkForPowerUsers( length, newLength );
     } ).catch( ( e ) => {
       console.log( e, "error adding to collection" );
     } );
@@ -199,5 +230,6 @@ export {
   setSpeciesId,
   getSpeciesId,
   setRoute,
-  getRoute
+  getRoute,
+  checkForInternet
 };

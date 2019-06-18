@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
-import Realm from "realm";
+import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
@@ -23,84 +23,65 @@ import Footer from "../Home/Footer";
 import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
-import {
-  recalculateBadges,
-  getBadgesEarned
-} from "../../utility/badgeHelpers";
-import {
-  recalculateChallenges,
-  getChallengesCompleted,
-  getChallengeProgress
-} from "../../utility/challengeHelpers";
+import { checkForNewBadges } from "../../utility/badgeHelpers";
+import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
-import realmConfig from "../../models/index";
+import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
 
 type Props = {
-  speciesSeenImage: string,
-  taxaName: string,
-  taxaId: number,
-  userImage: string,
-  image: string,
-  navigation: any,
-  isLoggedIn: boolean,
-  scientificName: string,
-  latitude: number,
-  longitude: number,
-  time: number,
-  postingSuccess: boolean
+  navigation: any
 }
 
 class MatchScreen extends Component<Props> {
-  constructor() {
+  constructor( { navigation }: Props ) {
     super();
 
+    const {
+      userImage,
+      image,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      seenDate,
+      commonAncestor,
+      isLoggedIn,
+      match
+    } = navigation.state.params;
+
     this.state = {
-      badgesEarned: 0,
-      challengesCompleted: 0,
       badge: null,
+      latestLevel: null,
+      challenge: null,
+      challengeInProgress: null,
       showLevelModal: false,
       showChallengeModal: false,
-      newestLevel: null,
-      challenge: null,
-      incompleteChallenge: null,
       navigationPath: null,
-      challengeProgressIndex: null
+      userImage,
+      image,
+      isLoggedIn,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      seenDate,
+      commonAncestor,
+      match,
+      challengeShown: false
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
   }
 
-  async componentWillMount() {
-    const badgesEarned = await getBadgesEarned();
-    const challengesCompleted = await getChallengesCompleted();
-    this.setBadgesEarned( badgesEarned );
-    this.setChallengesCompleted( challengesCompleted );
-    recalculateChallenges();
-    const index = await getChallengeProgress();
-    this.setChallengeProgressIndex( index );
-  }
-
-  componentWillUnmount() {
-    this.resetState();
-  }
-
   setNavigationPath( navigationPath ) {
     this.setState( { navigationPath }, () => this.checkModals() );
-  }
-
-  setChallengeProgressIndex( challengeProgressIndex ) {
-    this.setState( { challengeProgressIndex }, () => this.checkForChallengesCompleted() );
-  }
-
-  setBadgesEarned( badgesEarned ) {
-    this.setState( {
-      badgesEarned
-    }, () => this.checkForNewBadges() );
-  }
-
-  setChallengesCompleted( challengesCompleted ) {
-    this.setState( { challengesCompleted } );
   }
 
   setLatestBadge( badge ) {
@@ -111,27 +92,16 @@ class MatchScreen extends Component<Props> {
     this.setState( { challenge } );
   }
 
-  setLatestLevel( newestLevel ) {
-    this.setState( { newestLevel } );
+  setChallengeCompleteShown( challengeShown ) {
+    this.setState( { challengeShown }, () => this.checkModals() );
   }
 
-  resetState() {
-    this.setState( {
-      badgesEarned: 0,
-      challengesCompleted: 0,
-      badge: null,
-      showLevelModal: false,
-      showChallengeModal: false,
-      newestLevel: null,
-      challenge: null,
-      incompleteChallenge: null,
-      navigationPath: null,
-      challengeProgressIndex: null
-    } );
+  setLatestLevel( latestLevel ) {
+    this.setState( { latestLevel } );
   }
 
-  showChallengeInProgress( incompleteChallenge ) {
-    this.setState( { incompleteChallenge } );
+  setChallengeInProgress( challengeInProgress ) {
+    this.setState( { challengeInProgress } );
   }
 
   toggleChallengeModal() {
@@ -147,59 +117,32 @@ class MatchScreen extends Component<Props> {
   }
 
   checkForNewBadges() {
-    const { badgesEarned } = this.state;
+    checkForNewBadges().then( ( { latestBadge, latestLevel } ) => {
+      if ( latestBadge ) {
+        this.setLatestBadge( latestBadge );
+      }
 
-    recalculateBadges();
-
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
-        const badges = earnedBadges.sorted( "earnedDate", true );
-
-        const speciesCount = realm.objects( "ObservationRealm" ).length;
-        const newestLevels = realm.objects( "BadgeRealm" )
-          .filtered( "earned == true AND iconicTaxonName == null" )
-          .sorted( "earnedDate", true );
-
-        if ( badgesEarned < earnedBadges.length ) {
-          this.setLatestBadge( badges[0] );
-        }
-
-        if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
-          this.setLatestLevel( newestLevels[0] );
-        }
-      } ).catch( ( e ) => {
-        console.log( e, "error" );
-      } );
+      if ( latestLevel ) {
+        this.setLatestLevel( latestLevel );
+      }
+    } ).catch( () => console.log( "could not check for badges" ) );
   }
 
   checkForChallengesCompleted() {
-    const { challengesCompleted, challengeProgressIndex } = this.state;
+    checkForChallengesCompleted().then( ( { challengeInProgress, challengeComplete } ) => {
+      if ( challengeInProgress ) {
+        this.setChallengeInProgress( challengeInProgress );
+      }
 
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" )
-          .filtered( "started == true AND percentComplete == 100" )
-          .sorted( "completedDate", true );
-
-        if ( challengeProgressIndex && challengeProgressIndex !== "none" ) {
-          const incompleteChallenges = realm.objects( "ChallengeRealm" )
-            .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
-
-          this.showChallengeInProgress( incompleteChallenges[0] );
-        }
-
-        if ( challenges.length > challengesCompleted ) {
-          this.setLatestChallenge( challenges[0] );
-        }
-      } ).catch( ( e ) => {
-        console.log( e, "error" );
-      } );
+      if ( challengeComplete ) {
+        this.setLatestChallenge( challengeComplete );
+      }
+    } ).catch( () => console.log( "could not check for challenges" ) );
   }
 
   navigateTo() {
-    const { navigationPath } = this.state;
-    const { navigation, taxaId } = this.props;
+    const { navigationPath, taxaId } = this.state;
+    const { navigation } = this.props;
 
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
@@ -207,89 +150,148 @@ class MatchScreen extends Component<Props> {
       setSpeciesId( taxaId );
       setRoute( "Camera" );
       navigation.navigate( "Species" );
-    } else if ( navigationPath === "Back" ) {
-      navigation.goBack();
     }
   }
 
-
   checkModals() {
-    const { challenge, newestLevel } = this.state;
+    const { challenge, latestLevel, challengeShown } = this.state;
 
-    if ( !challenge && !newestLevel ) {
+    if ( ( !challenge && !latestLevel ) || challengeShown ) {
       this.navigateTo();
     } else if ( challenge ) {
       this.toggleChallengeModal();
-    } else if ( newestLevel ) {
+    } else if ( latestLevel ) {
       this.toggleLevelModal();
     }
   }
 
+  checkLocationPermissions() {
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude && !longitude ) {
+      createLocationPermissionsAlert();
+    }
+  }
+
   render() {
-    const {
-      taxaName,
-      speciesSeenImage,
-      userImage,
-      image,
-      navigation,
-      isLoggedIn,
-      taxaId,
-      scientificName,
-      latitude,
-      longitude,
-      time,
-      postingSuccess
-    } = this.props;
+    const { navigation } = this.props;
 
     const {
       badge,
       showChallengeModal,
       showLevelModal,
-      newestLevel,
+      latestLevel,
       challenge,
-      incompleteChallenge
+      challengeInProgress,
+      userImage,
+      image,
+      isLoggedIn,
+      taxaName,
+      taxaId,
+      speciesSeenImage,
+      scientificName,
+      latitude,
+      longitude,
+      time,
+      seenDate,
+      commonAncestor,
+      match
     } = this.state;
+
+    let headerText;
+    let gradientColorDark;
+    let gradientColorLight;
+    let text;
+    let numOfImages;
+    let speciesText;
+
+    if ( seenDate ) {
+      headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
+      gradientColorDark = "#22784d";
+      gradientColorLight = colors.seekForestGreen;
+      numOfImages = 2;
+      text = i18n.t( "results.date_observed", { seenDate } );
+      speciesText = taxaName;
+    } else if ( taxaName && match ) {
+      headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
+      gradientColorDark = "#22784d";
+      gradientColorLight = colors.seekForestGreen;
+      numOfImages = 2;
+      text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
+      speciesText = taxaName;
+    } else if ( commonAncestor ) {
+      headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
+      gradientColorDark = "#175f67";
+      gradientColorLight = colors.seekTeal;
+      numOfImages = 2;
+      text = i18n.t( "results.common_ancestor" );
+      speciesText = commonAncestor;
+    } else {
+      headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
+      gradientColorDark = "#404040";
+      gradientColorLight = "#5e5e5e";
+      numOfImages = 1;
+      text = i18n.t( "results.sorry" );
+      speciesText = null;
+    }
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: "#22784d" }} />
+        <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
         <SafeAreaView style={styles.safeView}>
-          <Banner navigation={navigation} badge={badge} incompleteChallenge={incompleteChallenge} />
-          <Modal
-            isVisible={showChallengeModal}
-            onSwipe={() => this.toggleChallengeModal()}
-            onBackdropPress={() => this.toggleChallengeModal()}
-            swipeDirection="down"
-            onModalHide={() => {
-              this.setState( { challenge: null } );
-              this.checkModals();
-            }}
-          >
-            <ChallengeModal
-              challenge={challenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+          {match && !seenDate ? (
+            <NavigationEvents
+              onDidFocus={() => {
+                this.checkForChallengesCompleted();
+                this.checkForNewBadges();
+                this.checkLocationPermissions();
+              }}
+              onWillBlur={() => setChallengeProgress( "none" )}
             />
-          </Modal>
-          <Modal
-            isVisible={showLevelModal}
-            onSwipe={() => this.toggleLevelModal()}
-            onBackdropPress={() => this.toggleLevelModal()}
-            swipeDirection="down"
-            onModalHide={() => this.navigateTo()}
-          >
-            <LevelModal
-              level={newestLevel}
-              toggleLevelModal={this.toggleLevelModal}
-              speciesCount={newestLevel ? newestLevel.count : 0}
+          ) : null}
+          {match && !seenDate && latitude ? (
+            <Banner
+              navigation={navigation}
+              badge={badge}
+              incompleteChallenge={challengeInProgress}
             />
-          </Modal>
+          ) : null}
+          {match && !seenDate && latitude ? (
+            <Modal
+              isVisible={showChallengeModal}
+              onSwipeComplete={() => this.toggleChallengeModal()}
+              onBackdropPress={() => this.toggleChallengeModal()}
+              swipeDirection="down"
+              onModalHide={() => this.setChallengeCompleteShown( true )}
+            >
+              <ChallengeModal
+                challenge={challenge}
+                toggleChallengeModal={this.toggleChallengeModal}
+              />
+            </Modal>
+          ) : null}
+          {match && !seenDate && latitude ? (
+            <Modal
+              isVisible={showLevelModal}
+              onSwipeComplete={() => this.toggleLevelModal()}
+              onBackdropPress={() => this.toggleLevelModal()}
+              swipeDirection="down"
+              onModalHide={() => this.navigateTo()}
+            >
+              <LevelModal
+                level={latestLevel}
+                toggleLevelModal={this.toggleLevelModal}
+                speciesCount={latestLevel ? latestLevel.count : 0}
+              />
+            </Modal>
+          ) : null}
           <ScrollView>
             <LinearGradient
-              colors={["#22784d", "#38976d"]}
+              colors={[gradientColorDark, gradientColorLight]}
               style={styles.header}
             >
               <TouchableOpacity
-                onPress={() => this.setNavigationPath( "Back" )}
+                onPress={() => this.setNavigationPath( "Camera" )}
                 hitSlop={styles.touchable}
                 style={styles.backButton}
               >
@@ -300,45 +302,57 @@ class MatchScreen extends Component<Props> {
                   style={styles.imageCell}
                   source={{ uri: userImage }}
                 />
-                <Image
-                  style={styles.imageCell}
-                  source={{ uri: speciesSeenImage }}
-                />
+                {numOfImages === 2 ? (
+                  <Image
+                    style={styles.imageCell}
+                    source={{ uri: speciesSeenImage }}
+                  />
+                ) : null}
               </View>
             </LinearGradient>
             <View style={styles.textContainer}>
-              <Text style={styles.headerText}>{i18n.t( "results.observed_species" ).toLocaleUpperCase()}</Text>
-              <Text style={styles.speciesText}>{taxaName}</Text>
-              {latitude && longitude
-                ? <Text style={styles.text}>{i18n.t( "results.learn_more" )}</Text>
-                : <Text style={styles.text}>{i18n.t( "results.learn_more_no_location" )}</Text>
-              }
-              <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                  this.setNavigationPath( "Species" );
-                }}
-              >
-                <Text
-                  style={styles.buttonText}
+              <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
+              {seenDate || match || commonAncestor
+                ? <Text style={styles.speciesText}>{speciesText}</Text>
+                : null}
+              <Text style={styles.text}>{text}</Text>
+              {seenDate || match ? (
+                <TouchableOpacity
+                  style={[styles.button, { backgroundColor: gradientColorLight }]}
+                  onPress={() => {
+                    setSpeciesId( taxaId ); // not sure why these are here
+                    setRoute( "Camera" ); // not sure why these are here
+                    this.setNavigationPath( "Species" );
+                  }}
                 >
-                  {i18n.t( "results.view_species" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.link}
-                onPress={() => {
-                  this.setNavigationPath( "Camera" );
-                }}
-              >
-                <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
-              </TouchableOpacity>
+                  <Text style={styles.buttonText}>
+                    {i18n.t( "results.view_species" ).toLocaleUpperCase()}
+                  </Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  style={[styles.button, { backgroundColor: gradientColorLight }]}
+                  onPress={() => navigation.navigate( "Camera" )}
+                >
+                  <Text style={styles.buttonText}>
+                    {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
+                  </Text>
+                </TouchableOpacity>
+              )}
+              {seenDate || match ? (
+                <TouchableOpacity
+                  style={styles.link}
+                  onPress={() => this.setNavigationPath( "Camera" )}
+                >
+                  <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
+                </TouchableOpacity>
+              ) : null}
               <View style={{ marginBottom: 28 }} />
-              {isLoggedIn && latitude && longitude && !postingSuccess
+              {isLoggedIn && latitude && longitude
                 ? (
                   <PostToiNat
                     navigation={navigation}
-                    color={colors.seekForestGreen}
+                    color={gradientColorLight}
                     taxaInfo={{
                       taxaName,
                       taxaId,

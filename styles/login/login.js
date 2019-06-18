@@ -19,7 +19,6 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     justifyContent: "center"
-    // flex: ( Platform.OS === "android" || height < 570 ) ? null : 1
   },
   greenHeaderText: {
     marginTop: 22,
@@ -117,7 +116,7 @@ export default StyleSheet.create( {
   textLink: {
     marginTop: 21,
     fontFamily: fonts.book,
-    fontSize: 19,
+    fontSize: 17,
     color: colors.white,
     textDecorationLine: "underline"
   },
@@ -134,5 +133,10 @@ export default StyleSheet.create( {
     fontSize: 19,
     color: colors.white,
     lineHeight: 24
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center"
   }
 } );

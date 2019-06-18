@@ -5,17 +5,13 @@ import {
   View,
   ScrollView,
   Platform,
-  PermissionsAndroid,
   Modal,
-  NetInfo,
   SafeAreaView,
   StatusBar
 } from "react-native";
-import Geocoder from "react-native-geocoder";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
-import Permissions from "react-native-permissions";
 import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
@@ -27,9 +23,8 @@ import Challenges from "./Challenges";
 import NoChallenges from "./NoChallenges";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, addARCameraFiles } from "../../utility/helpers";
-import { recalculateBadges } from "../../utility/badgeHelpers";
-import { truncateCoordinates, setLatAndLng } from "../../utility/locationHelpers";
+import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
+import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
@@ -48,7 +43,7 @@ class HomeScreen extends Component<Props> {
       location: null,
       taxa: [],
       taxaType: "all",
-      loading: false,
+      loading: true,
       modalVisible: false,
       error: null,
       challenge: null,
@@ -66,21 +61,18 @@ class HomeScreen extends Component<Props> {
     this.setState( { loading } );
   }
 
+  setLocation( location ) {
+    this.setState( { location } );
+  }
+
   setTaxa( taxa ) {
     this.setState( { taxa } );
     this.setLoading( false );
   }
 
   setError( error ) {
-    this.setState( {
-      error
-    } );
-
-    if ( error === "location" ) {
-      this.setState( {
-        location: i18n.t( "species_nearby.no_location" )
-      } );
-    }
+    this.setState( { error } );
+    this.setLoading( false );
   }
 
   setChallenge( challenge ) {
@@ -88,18 +80,23 @@ class HomeScreen extends Component<Props> {
   }
 
   getGeolocation() {
-    navigator.geolocation.getCurrentPosition( ( position ) => {
-      const latitude = truncateCoordinates( position.coords.latitude );
-      const longitude = truncateCoordinates( position.coords.longitude );
-      this.reverseGeocodeLocation( latitude, longitude );
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords === null ) {
+        this.setError( "location" );
+      } else {
+        const { latitude, longitude } = coords;
 
-      setLatAndLng( latitude.toString(), longitude.toString() );
+        if ( latitude && longitude ) {
+          this.reverseGeocodeLocation( latitude, longitude );
+          this.setError( null );
 
-      this.setState( {
-        latitude,
-        longitude
-      }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
-    }, () => {
+          this.setState( {
+            latitude,
+            longitude
+          }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+        }
+      }
+    } ).catch( () => {
       this.checkInternetConnection();
     } );
   }
@@ -108,9 +105,6 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
-    if ( !lat || !lng ) {
-      this.fetchUserLocation();
-    }
 
     const params = {
       verifiable: true,
@@ -135,18 +129,17 @@ class HomeScreen extends Component<Props> {
     this.fetchSpeciesNearby( params );
   }
 
-  requestAndroidPermissions = async () => {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
-      );
-      if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.getGeolocation();
-      } else {
-        this.setError( "location" );
-      }
-    } catch ( err ) {
-      this.checkInternetConnection();
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.setError( "location" );
+        }
+      } );
+    } else {
+      this.getGeolocation();
     }
   }
 
@@ -158,60 +151,31 @@ class HomeScreen extends Component<Props> {
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     if ( isFirstLaunch ) {
-      recalculateBadges();
       this.toggleGetStartedModal();
     }
   }
 
   updateTaxaType( taxaType ) {
     const { latitude, longitude } = this.state;
+
     this.setLoading( true );
     this.setState( {
       taxaType
     }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
   }
 
-  fetchUserLocation() {
-    const { latitude, longitude } = this.state;
-
-    if ( !latitude && !longitude ) {
-      if ( Platform.OS === "android" ) {
-        this.requestAndroidPermissions();
-      } else {
-        this.getGeolocation();
-      }
-    } else {
-      this.setParamsForSpeciesNearby( latitude, longitude );
-    }
-  }
-
   reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setState( {
-        location: locality || subAdminArea
-      } );
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
     } ).catch( () => {
       this.checkInternetConnection();
     } );
   }
 
   checkInternetConnection() {
-    NetInfo.getConnectionInfo()
-      .then( ( connectionInfo ) => {
-        if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
-          this.setError( "internet" );
-          this.setLoading( false );
-        } else {
-          this.checkiOSPermissions();
-        }
-      } );
-  }
-
-  checkiOSPermissions() {
-    Permissions.check( "location" ).then( ( response ) => {
-      if ( response !== "authorized" ) {
-        this.setError( "location" );
+    checkForInternet().then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        this.setError( "internet" );
       } else {
         this.setError( null );
       }
@@ -294,8 +258,7 @@ class HomeScreen extends Component<Props> {
               onWillFocus={() => {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
-                this.checkInternetConnection();
-                this.fetchUserLocation();
+                this.requestAndroidPermissions();
                 this.fetchLatestChallenge();
                 addARCameraFiles();
               }}

@@ -39,6 +39,7 @@ const SimilarSpecies = ( {
         horizontal
         bounces
         alwaysBounceHorizontal
+        initialNumToRender={3}
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity

@@ -33,6 +33,7 @@ const RangeMap = ( { navigation }: Props ) => {
           >
             <UrlTile
               urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
+              tileSize={512}
             />
             <Marker
               coordinate={{ latitude: region.latitude, longitude: region.longitude }}

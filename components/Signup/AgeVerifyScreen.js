@@ -5,9 +5,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  DatePickerIOS,
-  DatePickerAndroid,
-  Platform,
   SafeAreaView
 } from "react-native";
 import moment from "moment";
@@ -103,12 +100,20 @@ class AgeVerifyScreen extends Component<Props> {
                 {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-            <Text
-              style={styles.privacy}
-              onPress={() => navigation.navigate( "Privacy" )}
-            >
-              {i18n.t( "inat_signup.privacy" )}
-            </Text>
+            <View style={styles.row}>
+              <Text
+                style={styles.privacy}
+                onPress={() => navigation.navigate( "Privacy" )}
+              >
+                {i18n.t( "inat_signup.privacy" )}
+              </Text>
+              <Text
+                style={[styles.privacy, { marginLeft: 14 }]}
+                onPress={() => navigation.navigate( "TermsOfService" )}
+              >
+                {i18n.t( "inat_signup.terms" )}
+              </Text>
+            </View>
           </View>
         </SafeAreaView>
       </View>

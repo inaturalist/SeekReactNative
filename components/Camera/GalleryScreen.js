@@ -2,9 +2,7 @@
 
 import React, { Component } from "react";
 import {
-  PermissionsAndroid,
   Platform,
-  CameraRoll,
   Image,
   ScrollView,
   TouchableHighlight,
@@ -14,12 +12,13 @@ import {
   StatusBar,
   SafeAreaView
 } from "react-native";
+import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { checkCameraRollPermissions, checkForPhotoMetaData } from "../../utility/photoHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
@@ -47,7 +46,8 @@ class GalleryScreen extends Component<Props> {
 
     const photoOptions = {
       first: 28,
-      assetType: "Photos"
+      assetType: "Photos",
+      groupTypes: "All" // this is required in RN 0.59+
     };
 
     if ( lastCursor ) {
@@ -74,22 +74,23 @@ class GalleryScreen extends Component<Props> {
   }
 
   requestAndroidPermissions = async () => {
-    const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-    const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-    try {
-      const granted = await PermissionsAndroid.requestMultiple( [
-        save,
-        retrieve
-      ] );
-      if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
-        this.getPhotos();
-      } else {
-        this.showError( JSON.stringify( granted ) );
-      }
-    } catch ( err ) {
-      this.showError( err );
+    const permission = await checkCameraRollPermissions();
+    if ( permission === true ) {
+      this.getPhotos();
+    } else {
+      this.showError( permission );
     }
+  }
+
+  resetState() {
+    this.setState( {
+      photos: [],
+      loading: true,
+      error: null,
+      hasNextPage: true,
+      lastCursor: null,
+      stillLoading: false
+    } );
   }
 
   appendPhotos( data ) {
@@ -129,26 +130,21 @@ class GalleryScreen extends Component<Props> {
   navigateToResults( image, time, latitude, longitude ) {
     const { navigation } = this.props;
 
-    navigation.navigate( "Results", {
+    navigation.navigate( "GalleryResults", {
       image,
       time,
       latitude,
-      longitude,
-      predictions: []
+      longitude
     } );
   }
 
-  async selectImage( image, timestamp, location ) {
-    const userLocation = await getLatAndLng();
+  selectImage( node ) {
+    const { timestamp, location, image } = node;
 
-    if ( location ) {
-      if ( Object.keys( location ).length !== 0 && location.latitude ) {
-        this.navigateToResults( image, timestamp, location.latitude, location.longitude );
-      } else {
-        this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
-      }
+    if ( checkForPhotoMetaData( location ) ) {
+      this.navigateToResults( image, timestamp, location.latitude, location.longitude );
     } else {
-      this.navigateToResults( image, timestamp, userLocation.latitude, userLocation.longitude );
+      this.navigateToResults( image, timestamp, null, null );
     }
   }
 
@@ -183,9 +179,7 @@ class GalleryScreen extends Component<Props> {
                 style={styles.button}
                 key={i.toString()}
                 underlayColor="transparent"
-                onPress={() => {
-                  this.selectImage( p.node.image, p.node.timestamp, p.node.location );
-                }}
+                onPress={() => this.selectImage( p.node )}
               >
                 <Image
                   style={styles.image}
@@ -204,6 +198,7 @@ class GalleryScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
             onWillFocus={() => this.checkPermissions()}
+            onWillBlur={() => this.resetState()}
           />
           <StatusBar barStyle="dark-content" />
           <View style={styles.header}>

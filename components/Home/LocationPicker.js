@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, getLatAndLng } from "../../utility/locationHelpers";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
 
@@ -44,7 +45,6 @@ class LocationPicker extends Component<Props> {
         longitude
       },
       location
-      // error: null
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -65,14 +65,10 @@ class LocationPicker extends Component<Props> {
     this.setState( { location } );
   }
 
-  reverseGeocodeLocation( latitude, longitude ) {
-    Geocoder.geocodePosition( { lat: latitude, lng: longitude } ).then( ( result ) => {
-      if ( result.length === 0 ) {
-        this.setLocationUndefined();
-      }
-      const { locality, subAdminArea } = result[0];
-      if ( locality || subAdminArea ) {
-        this.setLocation( locality || subAdminArea );
+  reverseGeocodeLocation( lat, lng ) {
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      if ( location ) {
+        this.setLocation( location );
       } else {
         this.setLocationUndefined();
       }
@@ -102,17 +98,22 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  async returnToUserLocation() {
-    const location = await getLatAndLng();
+  returnToUserLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
 
-    this.setState( {
-      region: {
-        latitude: location.latitude,
-        longitude: location.longitude,
-        latitudeDelta: 0.2,
-        longitudeDelta: 0.2
-      },
-      location: this.reverseGeocodeLocation( location.latitude, location.longitude )
+        this.reverseGeocodeLocation( latitude, longitude );
+
+        this.setState( {
+          region: {
+            latitude,
+            longitude,
+            latitudeDelta,
+            longitudeDelta
+          }
+        } );
+      }
     } );
   }
 

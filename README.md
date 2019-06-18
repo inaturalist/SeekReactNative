@@ -19,3 +19,6 @@ Seek is an app built for iOS and Android.
   * Clear watchman: `watchman watch-del-all`
   * Delete and reinstall node_modules: `rm -rf node_modules && npm install`
   * Reset the bundler cache: `npm start -- --reset-cache`
+
+## Translations
+We do our translations on Crowdin. Head over to https://crowdin.com/project/seek and create an account, and you can start suggesting translations there. We regularly export translations from Crowdin and import them to this project.

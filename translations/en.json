@@ -73,7 +73,8 @@
     "create_account": "Create my account",
     "thanks": "Thanks!",
     "parent_instructions": "We sent your parent or guardian an email with instructions.",
-    "continue_no_log_in": "Continue Without Logging In"
+    "continue_no_log_in": "Continue Without Logging In",
+    "terms": "Terms of Service"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",
@@ -231,7 +232,7 @@
     "believe": "We believe this is a member of",
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}",
-    "post_inat": "You can help train Seek to identify this species by posting to iNaturalist, where the community will help identify it and add it to our model.",
+    "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
     "post": "Post to iNaturalist",
     "flag": "Flag identification",
     "incorrect": "Are you confident that this identification is incorrect?",
@@ -258,6 +259,9 @@
     "on": "on",
     "off": "off",
     "scan": "Keep scanning the environment for organisms to identify!",
+    "scan_class": "Try different angles till you can get the identification to species!",
+    "scan_genus": "Almost at species!",
+    "scan_species": "That’s it! Now take a picture to add this species to your observations.",
     "kingdom": "kingdom",
     "phylum": "phylum",
     "class": "class",
@@ -468,5 +472,20 @@
     "internet": "Try checking your internet connection and try again",
     "ok": "Ok",
     "wait": "This may take up to a minute"
+  },
+  "posting_help": {
+    "header": "Posting Help",
+    "identification": "Species Identification",
+    "id_description": "As you upload your observation, you can identify the species to whatever taxa you are most confident- from a class such as reptiles, down to a species, like Western Bluebird. After your observation is posted to iNaturalist, our community will help identify the species.\n\nYou can also choose to add optional notes to your observation here.",
+    "date": "Date & Location",
+    "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
+    "geoprivacy": "Geoprivacy",
+    "open": "Open: Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
+    "obscured": "Obscured: The exact location of this observation will be hidden from other users on iNaturalist, and instead expanded to a larger area. (The locations of all threatened and endangered species is automatically obscured)",
+    "closed": "Closed: The location of this observation will not be shared with other users on iNaturalist.",
+    "captive": "Captive/Cultivated?",
+    "no": "No: This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
+    "yes": "Yes: This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
+    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
   }
 }

@@ -30,7 +30,7 @@ const LocationMap = ( {
         onRegionChangeComplete={region => onRegionChange( region )}
       />
     ) : null}
-    <View pointerEvents="none" style={styles.markerFixed}>
+    <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>
       {posting
         ? <Image source={postingIcons.crosshair} />
         : <Image style={styles.markerPin} source={icons.locationPin} />

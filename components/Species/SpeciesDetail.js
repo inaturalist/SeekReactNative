@@ -6,7 +6,6 @@ import {
   Image,
   ScrollView,
   Text,
-  NetInfo,
   SafeAreaView,
   Platform
 } from "react-native";
@@ -14,11 +13,10 @@ import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
-import Geocoder from "react-native-geocoder";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
@@ -32,7 +30,12 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
-import { getSpeciesId, capitalizeNames, getRoute } from "../../utility/helpers";
+import {
+  getSpeciesId,
+  capitalizeNames,
+  getRoute,
+  checkForInternet
+} from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -66,6 +69,7 @@ class SpeciesDetail extends Component<Props> {
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
+    this.updateScreen = this.updateScreen.bind( this );
   }
 
   setError( error ) {
@@ -84,32 +88,7 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { nearbySpeciesCount } );
   }
 
-  setTaxonStats( stats ) {
-    this.setState( { stats } );
-  }
-
-  async fetchSpeciesId() {
-    const id = await getSpeciesId();
-    this.setState( {
-      id
-    }, () => {
-      this.checkIfSpeciesSeen();
-      this.fetchTaxonDetails();
-      this.fetchHistogram();
-      this.fetchSimilarSpecies();
-    } );
-  }
-
-  async fetchRoute() {
-    const route = await getRoute();
-    this.setState( { route } );
-  }
-
-  async fetchUserLocation() {
-    const userLocation = await getLatAndLng();
-    const { latitude, longitude } = userLocation;
-    this.reverseGeocodeLocation( latitude, longitude );
-
+  setRegion( latitude, longitude ) {
     this.setState( {
       region: {
         latitude,
@@ -123,12 +102,16 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      this.setLocation( locality || subAdminArea );
-    } ).catch( () => {
-      // console.log( err, "error" );
+  setTaxonStats( stats ) {
+    this.setState( { stats } );
+  }
+
+  setSpeciesId( id ) {
+    this.setState( { id }, () => {
+      this.checkIfSpeciesSeen();
+      this.fetchTaxonDetails();
+      this.fetchHistogram();
+      this.fetchSimilarSpecies();
     } );
   }
 
@@ -141,6 +124,47 @@ class SpeciesDetail extends Component<Props> {
     } else {
       this.setState( { userPhoto: null } );
     }
+  }
+
+  setUserLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      const { latitude, longitude } = coords;
+
+      this.reverseGeocodeLocation( latitude, longitude );
+      this.setRegion( latitude, longitude );
+    } ).catch( () => this.setError( "internet" ) );
+  }
+
+  fetchUserLocation() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.setUserLocation();
+        }
+      } );
+    } else {
+      this.setUserLocation();
+    }
+  }
+
+  async fetchSpeciesId() {
+    const id = await getSpeciesId();
+    this.setSpeciesId( id );
+  }
+
+  async fetchRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
+    } ).catch( () => this.setLocation( null ) );
+  }
+
+  updateScreen() {
+    this.fetchiNatData();
   }
 
   resetState() {
@@ -167,6 +191,18 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
+  checkForLastSeenLocation( seenTaxa ) {
+    const { latitude, longitude } = seenTaxa;
+
+    if ( latitude && longitude ) {
+      this.reverseGeocodeLocation( latitude, longitude );
+
+      this.setRegion( latitude, longitude );
+    } else {
+      this.fetchUserLocation();
+    }
+  }
+
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
@@ -174,6 +210,12 @@ class SpeciesDetail extends Component<Props> {
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
+
+        if ( seenTaxa ) {
+          this.checkForLastSeenLocation( seenTaxa );
+        } else {
+          this.fetchUserLocation();
+        }
 
         let userPhoto;
         const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
@@ -353,32 +395,27 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData( screen ) {
-    const { error } = this.state;
+    this.checkInternetConnection();
     this.setLoading( true );
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
-    if ( !error ) {
-      this.fetchSpeciesId();
-      this.fetchRoute();
-      this.fetchUserLocation();
-    }
+    this.fetchSpeciesId();
+    this.fetchRoute();
+
     this.scrollView.scrollTo( {
       x: 0, y: 0, animated: Platform.OS === "android"
     } );
   }
 
   checkInternetConnection() {
-    NetInfo.getConnectionInfo()
-      .then( ( connectionInfo ) => {
-        if ( connectionInfo.type === "none" || connectionInfo.type === "unknown" ) {
-          this.setError( "internet" );
-          this.fetchSpeciesId();
-        }
+    checkForInternet().then( ( internet ) => {
+      if ( internet === "none" || internet === "unknown" ) {
+        this.setError( "internet" );
+      } else {
         this.setError( null );
-      } ).catch( ( err ) => {
-        console.log( err, "can't check connection" );
-      } );
+      }
+    } );
   }
 
   render() {
@@ -414,10 +451,7 @@ class SpeciesDetail extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => {
-              this.checkInternetConnection();
-              this.fetchiNatData();
-            }}
+            onWillFocus={() => this.fetchiNatData()}
             onWillBlur={() => this.resetState()}
           />
           <ScrollView
@@ -445,7 +479,7 @@ class SpeciesDetail extends Component<Props> {
             {error ? (
               <SpeciesError
                 seenDate={seenDate}
-                checkInternetConnection={this.checkInternetConnection}
+                updateScreen={this.updateScreen}
               />
             ) : (
               <View style={styles.secondTextContainer}>

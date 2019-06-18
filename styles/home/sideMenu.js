@@ -31,7 +31,6 @@ export default StyleSheet.create( {
   },
   row: {
     height: height / 11,
-    // height: ( width > 350 ) ? 75 : 45,
     width: 300,
     alignItems: "center",
     justifyContent: "flex-start",

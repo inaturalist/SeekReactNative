@@ -29,29 +29,33 @@ const Error = ( {
   longitude
 }: Props ) => (
   <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
-    { error === "location" ? (
-      <View style={styles.row}>
-        <Image source={icons.error} />
-        <Text style={styles.text}>{i18n.t( "species_nearby.location_error" )}</Text>
-      </View>
-    ) : (
-      <TouchableOpacity
-        onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
-      >
+    <TouchableOpacity
+      onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
+    >
+      {error === "location" ? (
         <View style={styles.row}>
-          <Image source={icons.internet} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
+          <Image source={icons.error} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.location_error" )}</Text>
         </View>
-      </TouchableOpacity>
-    )}
-    { error === "location" ? (
-      <TouchableOpacity
-        style={styles.greenButton}
-        onPress={() => OpenSettings.openSettings()}
-      >
-        <Text style={styles.buttonText}>{i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}</Text>
-      </TouchableOpacity>
-    ) : null}
+      ) : (
+        <TouchableOpacity
+          onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
+        >
+          <View style={styles.row}>
+            <Image source={icons.internet} />
+            <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
+          </View>
+        </TouchableOpacity>
+      )}
+      {error === "location" ? (
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => OpenSettings.openSettings()}
+        >
+          <Text style={styles.buttonText}>{i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}</Text>
+        </TouchableOpacity>
+      ) : null}
+    </TouchableOpacity>
   </ImageBackground>
 );
 

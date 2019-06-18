@@ -10,10 +10,14 @@ import com.horcrux.svg.SvgPackage;
 import com.opensettings.OpenSettingsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+import com.reactcommunity.rnlocalize.RNLocalizePackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
+import com.reactnativecommunity.netinfo.NetInfoPackage;
+import com.reactnativecommunity.cameraroll.CameraRollPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+import com.reactnativecommunity.geolocation.GeolocationPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -42,10 +46,14 @@ public class MainApplication extends Application implements ReactApplication {
             new OpenSettingsPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
-            new RNLanguagesPackage(),
+            new RNLocalizePackage(),
             new ImageResizerPackage(),
             new RNGestureHandlerPackage(),
-            new RNGeocoderPackage()
+            new RNGeocoderPackage(),
+            new NetInfoPackage(),
+            new CameraRollPackage(),
+            new AsyncStoragePackage(),
+            new GeolocationPackage()
       );
     }
 

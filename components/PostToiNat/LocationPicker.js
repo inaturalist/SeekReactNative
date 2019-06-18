@@ -8,11 +8,10 @@ import {
   SafeAreaView,
   Image
 } from "react-native";
-import Geocoder from "react-native-geocoder";
 
 import i18n from "../../i18n";
 import LocationMap from "../Home/LocationMap";
-import { getLatAndLng } from "../../utility/locationHelpers";
+import { fetchUserLocation } from "../../utility/locationHelpers";
 import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/greenHeader";
 import backStyles from "../../styles/backArrow";
@@ -24,7 +23,6 @@ const longitudeDelta = 0.2;
 type Props = {
   latitude: number,
   longitude: number,
-  location: string,
   updateLocation: Function,
   toggleLocationPicker: Function
 }
@@ -32,8 +30,7 @@ type Props = {
 class LocationPicker extends Component<Props> {
   constructor( {
     latitude,
-    longitude,
-    location
+    longitude
   }: Props ) {
     super();
 
@@ -43,9 +40,7 @@ class LocationPicker extends Component<Props> {
         longitudeDelta,
         latitude,
         longitude
-      },
-      location
-      // error: null
+      }
     };
 
     this.onRegionChange = this.onRegionChange.bind( this );
@@ -53,51 +48,30 @@ class LocationPicker extends Component<Props> {
   }
 
   onRegionChange( newRegion ) {
-    this.setState( {
-      region: newRegion
-    }, () => this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude ) );
+    this.setState( { region: newRegion } );
   }
 
-  setLocationUndefined() {
-    this.setState( { location: i18n.t( "location_picker.undefined" ) } );
-  }
+  returnToUserLocation() {
+    fetchUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
 
-  setLocation( location ) {
-    this.setState( { location } );
-  }
-
-  reverseGeocodeLocation( lat, lng ) {
-    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      if ( result.length === 0 ) {
-        this.setLocationUndefined();
+        this.setState( {
+          region: {
+            latitude,
+            longitude,
+            latitudeDelta,
+            longitudeDelta
+          }
+        } );
       }
-      const { locality, subAdminArea } = result[0];
-      if ( locality || subAdminArea ) {
-        this.setLocation( locality || subAdminArea );
-      } else {
-        this.setLocationUndefined();
-      }
-    } ).catch( () => {
-      this.setLocationUndefined();
-    } );
-  }
-
-  async returnToUserLocation() {
-    const location = await getLatAndLng();
-
-    this.setState( {
-      region: {
-        latitude: location.latitude,
-        longitude: location.longitude,
-        latitudeDelta: 0.2,
-        longitudeDelta: 0.2
-      },
-      location: this.reverseGeocodeLocation( location.latitude, location.longitude )
+    } ).catch( ( err ) => {
+      console.log( err );
     } );
   }
 
   render() {
-    const { region, location } = this.state;
+    const { region } = this.state;
     const { updateLocation, toggleLocationPicker } = this.props;
 
     return (
@@ -125,7 +99,7 @@ class LocationPicker extends Component<Props> {
           <View style={styles.footer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => updateLocation( region.latitude, region.longitude, location )}
+              onPress={() => updateLocation( region.latitude, region.longitude )}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "posting.save_location" ).toLocaleUpperCase()}

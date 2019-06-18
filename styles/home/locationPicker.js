@@ -54,6 +54,14 @@ export default StyleSheet.create( {
     bottom: 0
   },
   markerFixed: {
+    marginTop: 64,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  pinFixed: {
+    marginRight: 15,
+    marginTop: 55,
     flex: 1,
     justifyContent: "center",
     alignItems: "center"

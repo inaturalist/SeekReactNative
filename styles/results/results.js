@@ -98,5 +98,14 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "transparent"
   },
+  imageBackground: {
+    height: "100%",
+    width: "100%"
+  },
+  loadingWheel: {
+    position: "absolute",
+    left: "50%",
+    top: "50%"
+  },
   touchable
 } );

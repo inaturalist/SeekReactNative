@@ -1,4 +1,5 @@
-const { AsyncStorage } = require( "react-native" );
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Realm = require( "realm" );
 
 const { createNotification } = require( "./notificationHelpers" );
@@ -10,9 +11,8 @@ const { checkIfChallengeAvailable } = require( "./dateHelpers" );
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
-const setChallengeProgress = ( index ) => {
-  const value = index ? index.toString() : "none";
-  AsyncStorage.setItem( "challengeProgress", value );
+const setChallengeProgress = async ( index ) => {
+  AsyncStorage.setItem( "challengeProgress", index.toString() );
 };
 
 const fetchIncompleteChallenges = ( realm ) => {
@@ -28,11 +28,13 @@ const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
   const seenTaxa = [];
   const observations = realm.objects( "ObservationRealm" ).sorted( "date" );
 
-  observations.forEach( ( observation ) => {
-    if ( observation.date >= startedDate ) {
-      seenTaxa.push( observation );
-    }
-  } );
+  if ( startedDate ) {
+    observations.forEach( ( observation ) => {
+      if ( observation.date >= startedDate ) {
+        seenTaxa.push( observation );
+      }
+    } );
+  }
   return seenTaxa;
 };
 
@@ -248,15 +250,54 @@ const getChallengeProgress = async () => {
   }
 };
 
+const checkForChallengesCompleted = async () => {
+  const prevChallengesCompleted = await getChallengesCompleted();
+
+  recalculateChallenges();
+
+  const challengeProgressIndex = await getChallengeProgress();
+
+  return (
+    new Promise( ( resolve ) => {
+      Realm.open( realmConfig.default )
+        .then( ( realm ) => {
+          let challengeInProgress;
+          let challengeComplete;
+
+          const challenges = realm.objects( "ChallengeRealm" )
+            .filtered( "started == true AND percentComplete == 100" )
+            .sorted( "completedDate", true );
+
+          if ( challengeProgressIndex ) {
+            const incompleteChallenges = realm.objects( "ChallengeRealm" )
+              .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
+
+            challengeInProgress = incompleteChallenges[0];
+          }
+
+          if ( challenges.length > prevChallengesCompleted ) {
+            challengeComplete = challenges[0];
+          }
+
+          resolve( {
+            challengeInProgress,
+            challengeComplete
+          } );
+        } ).catch( () => {
+          resolve( null );
+        } );
+    } )
+  );
+};
+
 export {
   recalculateChallenges,
   calculatePercent,
   startChallenge,
   setupChallenges,
   checkNumberOfChallengesCompleted,
-  getChallengesCompleted,
   setChallengeIndex,
   getChallengeIndex,
   setChallengeProgress,
-  getChallengeProgress
+  checkForChallengesCompleted
 };

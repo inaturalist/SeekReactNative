@@ -76,6 +76,16 @@ export default StyleSheet.create( {
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
   },
+  errorText: {
+    position: "absolute",
+    top: "50%",
+    textAlign: "center",
+    marginHorizontal: 41,
+    fontSize: 19,
+    lineHeight: 24,
+    fontFamily: fonts.medium,
+    color: colors.white
+  },
   shutter: {
     zIndex: 1,
     position: "absolute",
@@ -91,13 +101,5 @@ export default StyleSheet.create( {
     position: "absolute",
     top: height / 2 - 50
   },
-  // errorText: {
-  //   textAlign: "center",
-  //   marginHorizontal: 41,
-  //   fontSize: 19,
-  //   lineHeight: 24,
-  //   fontFamily: fonts.medium,
-  //   color: colors.white
-  // },
   touchable
 } );

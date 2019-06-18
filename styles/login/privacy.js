@@ -27,5 +27,8 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 23,
     color: colors.black
+  },
+  sectionText: {
+    marginTop: 25
   }
 } );

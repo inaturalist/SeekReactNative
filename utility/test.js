@@ -4,7 +4,7 @@ const { createNotification } = require( "./notificationHelpers" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
-  for ( let i = 0; i < 400; i += 1 ) {
+  for ( let i = 0; i < 25; i += 1 ) {
     const latitude = Number( faker.address.latitude() );
     const longitude = Number( faker.address.longitude() );
 

@@ -1,5 +1,17 @@
-const Geocoder = require( "react-native-geocoder" );
-const { AsyncStorage } = require( "react-native" );
+import { Alert, PermissionsAndroid } from "react-native";
+import Geocoder from "react-native-geocoder";
+import OpenSettings from "react-native-open-settings";
+import Geolocation from "@react-native-community/geolocation";
+
+import i18n from "../i18n";
+
+const fetchUserLocation = () => (
+  new Promise( ( resolve ) => {
+    Geolocation.getCurrentPosition( ( { coords } ) => {
+      resolve( coords );
+    }, () => resolve( null ) );
+  } )
+);
 
 const truncateCoordinates = ( coordinate ) => {
   if ( !coordinate ) {
@@ -8,37 +20,69 @@ const truncateCoordinates = ( coordinate ) => {
   return Number( coordinate.toFixed( 2 ) );
 };
 
-const reverseGeocodeLocation = ( latitude, longitude ) => {
-  Geocoder.default.geocodePosition( { lat: latitude, lng: longitude } )
-    .then( ( result ) => {
-      const { locality, subAdminArea } = result[0];
-      return locality || subAdminArea;
-    } ).catch( () => {
-      // console.log( "Error reverse geocoding location: ", err.message );
-    } );
-};
+const checkLocationPermissions = async () => {
+  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
-const setLatAndLng = ( lat, lng ) => {
-  AsyncStorage.setItem( "latitude", lat );
-  AsyncStorage.setItem( "longitude", lng );
-};
-
-const getLatAndLng = async () => {
   try {
-    const latitude = await AsyncStorage.getItem( "latitude" );
-    const longitude = await AsyncStorage.getItem( "longitude" );
-    return {
-      latitude: Number( latitude ),
-      longitude: Number( longitude )
-    };
-  } catch ( error ) {
-    return ( error );
+    const granted = await PermissionsAndroid.request( location );
+    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+      return true;
+    }
+    return false;
+  } catch ( err ) {
+    return err;
   }
 };
 
+const fetchTruncatedUserLocation = () => (
+  new Promise( ( resolve ) => {
+    Geolocation.getCurrentPosition( ( { coords } ) => {
+      const latitude = truncateCoordinates( coords.latitude );
+      const longitude = truncateCoordinates( coords.longitude );
+      const truncatedCoords = {
+        latitude,
+        longitude
+      };
+
+      resolve( truncatedCoords );
+    }, () => resolve( null ) );
+  } )
+);
+
+const fetchLocationName = ( lat, lng ) => (
+  new Promise( ( resolve ) => {
+    Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
+      if ( result.length === 0 ) {
+        resolve( null );
+      }
+      const { locality, subAdminArea } = result[0];
+      resolve( locality || subAdminArea );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
+
+const createLocationPermissionsAlert = () => {
+  Alert.alert(
+    i18n.t( "results.enable_location" ),
+    i18n.t( "results.error_location" ),
+    [{
+      text: i18n.t( "species_nearby.enable_location" ),
+      onPress: () => OpenSettings.openSettings()
+    },
+    {
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
 export {
-  reverseGeocodeLocation,
   truncateCoordinates,
-  setLatAndLng,
-  getLatAndLng
+  fetchUserLocation,
+  fetchLocationName,
+  fetchTruncatedUserLocation,
+  createLocationPermissionsAlert,
+  checkLocationPermissions
 };

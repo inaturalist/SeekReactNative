@@ -5,6 +5,7 @@ import {
   createAppContainer,
   createBottomTabNavigator
 } from "react-navigation";
+import { Platform } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
@@ -13,7 +14,9 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import ARCamera from "./Camera/ARCamera";
 import Gallery from "./Camera/GalleryScreen";
-import Results from "./Results/Results";
+import ARCameraResults from "./Results/ARCameraResults";
+import GalleryResults from "./Results/GalleryResults";
+import Match from "./Results/MatchScreen";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
 import MyObservations from "./Observations/MyObservations";
@@ -39,6 +42,7 @@ import ParentCheckEmailScreen from "./Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "./Signup/LicensePhotosScreen";
 import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
+import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
@@ -47,7 +51,7 @@ const handleCustomTransition = ( { scenes } ) => {
 
   if ( route ) {
     if ( route.routeName === "Notifications" ) {
-      return fromRight();
+      return fromRight( 200 );
     }
     if ( route.routeName === "Camera" ) {
       return fromBottom( 100 );
@@ -64,6 +68,7 @@ const noHeader = {
 const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
+  swipeEnabled: Platform.OS === "ios",
   tabBarOptions: {
     scrollEnabled: true,
     labelStyle: styles.cameraTabLabel,
@@ -154,8 +159,16 @@ const MainStack = createStackNavigator( {
     screen: CameraNav,
     navigationOptions: () => noHeader
   },
-  Results: {
-    screen: Results,
+  ARCameraResults: {
+    screen: ARCameraResults,
+    navigationOptions: () => noHeader
+  },
+  GalleryResults: {
+    screen: GalleryResults,
+    navigationOptions: () => noHeader
+  },
+  Match: {
+    screen: Match,
     navigationOptions: () => noHeader
   },
   RangeMap: {
@@ -237,6 +250,10 @@ const LoginStack = createStackNavigator( {
   },
   Privacy: {
     screen: PrivacyPolicyScreen,
+    navigationOptions: () => noHeader
+  },
+  TermsOfService: {
+    screen: TermsOfServiceScreen,
     navigationOptions: () => noHeader
   }
 } );

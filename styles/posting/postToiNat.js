@@ -1,5 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts, padding } from "../global";
+import {
+  colors,
+  fonts,
+  padding,
+  touchable
+} from "../global";
 
 const { height } = Dimensions.get( "window" );
 
@@ -94,5 +99,11 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     color: colors.white
-  }
+  },
+  help: {
+    position: "absolute",
+    right: 21,
+    top: -42
+  },
+  touchable
 } );

@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts, touchable } from "./global";
+import { colors, fonts } from "./global";
 
 export default StyleSheet.create( {
   container: {
@@ -13,11 +13,5 @@ export default StyleSheet.create( {
     color: colors.white,
     letterSpacing: 1.0,
     fontFamily: fonts.semibold
-  },
-  help: {
-    position: "absolute",
-    right: 21,
-    top: -32
-  },
-  touchable
+  }
 } );

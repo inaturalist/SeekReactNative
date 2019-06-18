@@ -153,6 +153,15 @@ class SignUpScreen extends Component<Props> {
     }
   }
 
+  formatError( error ) {
+    let newError;
+
+    if ( error.includes( "\n" ) ) {
+      newError = error.replace( /\n/g, " " );
+    }
+    return newError;
+  }
+
   render() {
     const { navigation } = this.props;
     const { username, password, error } = this.state;
@@ -193,9 +202,9 @@ class SignUpScreen extends Component<Props> {
               placeholder="*********"
               textContentType="password"
             />
-            {error ? <ErrorMessage error={error} /> : null}
+            {error ? <ErrorMessage error={this.formatError( error )} /> : null}
             <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin]}
+              style={[styles.greenButton, styles.greenButtonMargin, error && { marginTop: 5 }]}
               onPress={() => this.submit()}
             >
               <Text style={styles.buttonText}>

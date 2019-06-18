@@ -439,7 +439,7 @@ class PostScreen extends Component<Props> {
           <View style={styles.divider} />
           <CaptivePicker updateCaptive={this.updateCaptive} />
           <View style={styles.divider} />
-          <View style={styles.textContainer}>
+          <View style={[styles.textContainer, { alignItems: "center" }]}>
             <TouchableOpacity
               style={styles.greenButton}
               onPress={() => {

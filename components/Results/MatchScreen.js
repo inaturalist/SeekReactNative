@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
@@ -173,6 +174,12 @@ class MatchScreen extends Component<Props> {
     }
   }
 
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
+    } );
+  }
+
   render() {
     const { navigation } = this.props;
 
@@ -241,6 +248,7 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           {match && !seenDate ? (
             <NavigationEvents
+              onWillFocus={() => this.scrollToTop()}
               onDidFocus={() => {
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
@@ -285,7 +293,9 @@ class MatchScreen extends Component<Props> {
               />
             </Modal>
           ) : null}
-          <ScrollView>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+          >
             <LinearGradient
               colors={[gradientColorDark, gradientColorLight]}
               style={styles.header}

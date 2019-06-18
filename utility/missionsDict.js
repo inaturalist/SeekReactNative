@@ -48,25 +48,25 @@ const missions = {
   // 3: {
   //   0: {
   //     number: 10,
-  //     types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
+  //     types: ["insects"]
   //   }
   // },
   // 4: {
   //   0: {
   //     number: 10,
-  //     types: ["insects"]
+  //     types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
   //   }
   // },
   // 5: {
   //   0: {
-  //     number: 10,
-  //     types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
+  //     number: 5,
+  //     types: ["birds"]
   //   }
   // },
   // 6: {
   //   0: {
-  //     number: 5,
-  //     types: ["birds"]
+  //     number: 10,
+  //     types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
   //   }
   // },
   // 7: {

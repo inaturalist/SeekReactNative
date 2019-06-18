@@ -7,7 +7,8 @@ import {
   Platform,
   Modal,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Alert
 } from "react-native";
 import Realm from "realm";
 import inatjs from "inaturalistjs";
@@ -72,7 +73,6 @@ class HomeScreen extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-    this.setLoading( false );
   }
 
   setChallenge( challenge ) {

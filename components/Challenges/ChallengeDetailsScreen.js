@@ -92,6 +92,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             percentComplete: challenge.percentComplete,
             backgroundName: challenge.backgroundName,
             photographer: challenge.photographer,
+            action: challenge.action,
             index: challenge.index
           },
           missions,
@@ -222,6 +223,15 @@ class ChallengeDetailsScreen extends Component<Props> {
             </View>
             <View style={styles.descriptionContainer}>
               <Text style={styles.descriptionText}>{challenge.description}</Text>
+            </View>
+            <View style={styles.secondHeader}>
+              <Text style={styles.headerText}>{i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}</Text>
+            </View>
+            <View style={{ marginTop: 16 }} />
+            <Text style={[styles.descriptionText, { marginHorizontal: 36 }]}>
+              {i18n.t( challenge.action )}
+            </Text>
+            <View style={styles.descriptionContainer}>
               <View style={styles.row}>
                 <Image source={logos.wwfop} />
               </View>

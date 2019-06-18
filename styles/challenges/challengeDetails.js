@@ -142,5 +142,16 @@ export default StyleSheet.create( {
     fontSize: 16,
     textDecorationLine: "underline"
   },
-  touchable
+  touchable,
+  secondHeader: {
+    marginTop: 21,
+    marginLeft: 35
+  },
+  headerText: {
+    textAlign: "left",
+    fontSize: 19,
+    fontFamily: fonts.semibold,
+    color: colors.seekForestGreen,
+    letterSpacing: 1.12
+  }
 } );

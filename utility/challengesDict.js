@@ -11,6 +11,7 @@ const challenges = {
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2019, 3, 1 ),
     photographer: "challenges.photographer_april",
+    action: "challenges.action_april",
     index: 0
   },
   may: {
@@ -31,6 +32,7 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 4, 1 ),
     photographer: "challenges.photographer_may",
+    action: "challenges.action_may",
     index: 1
   },
   june: {
@@ -50,6 +52,7 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 5, 1 ),
     photographer: "challenges.photographer_june",
+    action: "challenges.action_june",
     index: 2
   }
   // august: {
@@ -66,6 +69,7 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 7, 1 ),
   //   photographer: "challenges.photographer_august",
+  //   action: "challenges.action_august",
   //   index: 3
   // },
   // september: {
@@ -82,6 +86,7 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 8, 1 ),
   //   photographer: "challenges.photographer_september",
+  //   action: "challenges.action_september",
   //   index: 4
   // },
   // october: {
@@ -98,6 +103,7 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 9, 1 ),
   //   photographer: "challenges.photographer_october",
+  //   action: "challenges.action_october",
   //   index: 5
   // },
   // november: {
@@ -114,6 +120,7 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 10, 1 ),
   //   photographer: "challenges.photographer_november",
+  //   action: "challenges.action_november",
   //   index: 6
   // },
   // december: {
@@ -130,6 +137,7 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 11, 1 ),
   //   photographer: "challenges.photographer_december",
+  //   action: "challenges.action_december",
   //   index: 7
   // }
 };

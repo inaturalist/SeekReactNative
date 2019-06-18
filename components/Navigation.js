@@ -44,6 +44,7 @@ import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
+import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
@@ -177,6 +178,10 @@ const MainStack = createStackNavigator( {
   },
   Post: {
     screen: PostScreen,
+    navigationOptions: () => noHeader
+  },
+  PostingHelp: {
+    screen: PostingHelpScreen,
     navigationOptions: () => noHeader
   }
 }, {

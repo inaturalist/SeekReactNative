@@ -389,6 +389,7 @@ class PostScreen extends Component<Props> {
           <GreenHeader
             navigation={navigation}
             header={i18n.t( "posting.header" )}
+            route="Posting"
           />
           <View style={styles.textContainer}>
             <View style={styles.card}>

@@ -1,8 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  fontSize
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {

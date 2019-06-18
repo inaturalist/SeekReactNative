@@ -8,6 +8,7 @@ const posting = {
   iNatuploading: require( "./posting/icon-iNatuploading.png"),
   location: require( "./posting/icon-location.png" ),
   search: require( "./posting/icon-search.png" ),
+  searchGreen: require( "./posting/icon-search-green.png" ),
   uploadfail: require( "./posting/icon-uploadfail.png"),
   uploadsuccess: require( "./posting/icon-uploadsuccess.png")
 };

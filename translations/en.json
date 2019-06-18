@@ -480,12 +480,17 @@
     "date": "Date & Location",
     "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
     "geoprivacy": "Geoprivacy",
-    "open": "Open: Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
-    "obscured": "Obscured: The exact location of this observation will be hidden from other users on iNaturalist, and instead expanded to a larger area. (The locations of all threatened and endangered species is automatically obscured)",
-    "closed": "Closed: The location of this observation will not be shared with other users on iNaturalist.",
+    "open_header": "Open: ",
+    "obscured_header": "Obscured: ",
+    "closed_header": "Closed: ",
+    "yes_header": "Yes: ",
+    "no_header": "No: ",
+    "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
+    "obscured": "The exact location of this observation will be hidden from other users on iNaturalist, and instead expanded to a larger area. (The locations of all threatened and endangered species is automatically obscured)",
+    "closed": "The location of this observation will not be shared with other users on iNaturalist.",
     "captive": "Captive/Cultivated?",
-    "no": "No: This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
-    "yes": "Yes: This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
+    "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
+    "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
     "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
   }
 }

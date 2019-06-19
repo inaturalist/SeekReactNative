@@ -7,9 +7,6 @@ export default StyleSheet.create( {
   container: {
     flex: 1
   },
-  mapContainer: {
-    flex: 1
-  },
   map: {
     width,
     height: height - 75
@@ -21,21 +18,21 @@ export default StyleSheet.create( {
   safeView: {
     flex: 1,
     backgroundColor: "transparent"
+  },
+  userLocation: {
+    position: "absolute",
+    right: 19,
+    bottom: 19
+  },
+  locationIcon: {
+    marginRight: 19,
+    marginBottom: 19,
+    backgroundColor: colors.white,
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: colors.white
   }
-  // userLocation: {
-  //   zIndex: 1,
-  //   alignItems: "flex-end",
-  //   justifyContent: "flex-end"
-  // },
-  // locationIcon: {
-  //   marginRight: 19,
-  //   marginBottom: 19,
-  //   backgroundColor: colors.white,
-  //   width: 50,
-  //   height: 50,
-  //   borderRadius: 50 / 2,
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  //   borderColor: colors.white
-  // }
 } );

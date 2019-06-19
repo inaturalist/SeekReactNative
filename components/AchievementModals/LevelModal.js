@@ -18,14 +18,25 @@ import icons from "../../assets/icons";
 type Props = {
   level: Object,
   speciesCount: number,
-  toggleLevelModal: Function
+  toggleLevelModal: Function,
+  screen: string
 };
 
-const LevelModal = ( { level, speciesCount, toggleLevelModal }: Props ) => (
+const LevelModal = ( {
+  level,
+  speciesCount,
+  toggleLevelModal,
+  screen
+}: Props ) => (
   <SafeAreaView style={styles.safeView}>
     <View style={styles.outerContainer}>
       <View style={styles.container}>
-        <Text style={styles.headerText}>{i18n.t( "banner.level_up" ).toLocaleUpperCase()}</Text>
+        <Text style={styles.headerText}>
+          {screen === "achievements"
+            ? i18n.t( "badges.your_level" ).toLocaleUpperCase()
+            : i18n.t( "banner.level_up" ).toLocaleUpperCase()
+          }
+        </Text>
         <LinearGradient
           style={styles.backgroundColor}
           colors={["#38976d", "#22784d"]}

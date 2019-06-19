@@ -10,7 +10,7 @@ import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
-import { fetchPostingSuccess } from "../../utility/loginHelpers";
+import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any,
@@ -30,7 +30,7 @@ class PostToiNat extends Component<Props> {
   async fetchPostingStatus() {
     const success = await fetchPostingSuccess();
     if ( success && success === "true" ) {
-      this.setState( { postingSuccess: true } );
+      this.setState( { postingSuccess: true }, () => savePostingSuccess( false ) );
     }
   }
 

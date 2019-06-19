@@ -52,8 +52,6 @@ class Footer extends Component<Props> {
     const { notifications } = this.state;
     const { navigation } = this.props;
 
-    console.log( navigation, "nav" );
-
     return (
       <SafeAreaView>
         <ImageBackground source={backgrounds.navBar} style={styles.container}>

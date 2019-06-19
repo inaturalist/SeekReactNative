@@ -21,8 +21,8 @@ export default StyleSheet.create( {
   },
   headerText: {
     textAlign: "center",
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 25,
+    marginBottom: 19,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
@@ -33,7 +33,7 @@ export default StyleSheet.create( {
     height: 213
   },
   nameText: {
-    marginTop: 10,
+    marginTop: 28,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 23,

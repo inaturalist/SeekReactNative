@@ -8,6 +8,7 @@ import {
   Text,
   SafeAreaView
 } from "react-native";
+import { DrawerActions } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/sideMenu";
@@ -19,10 +20,29 @@ type Props = {
 }
 
 class SideMenu extends Component<Props> {
+  constructor() {
+    super();
+
+    this.state = {
+      currentRoute: "Main"
+    };
+  }
+
+  setCurrentRoute( currentRoute ) {
+    this.setState( { currentRoute } );
+  }
+
   navigateTo( route ) {
     const { navigation } = this.props;
+    const { currentRoute } = this.state;
 
-    navigation.navigate( route );
+    this.setCurrentRoute( route );
+
+    if ( route === currentRoute ) {
+      navigation.dispatch( DrawerActions.closeDrawer() );
+    } else {
+      navigation.navigate( route );
+    }
   }
 
   render() {

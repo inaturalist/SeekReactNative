@@ -65,7 +65,6 @@ export default StyleSheet.create( {
   },
   legendHeader: {
     height: 56,
-    width: width - 90,
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
     backgroundColor: colors.seekForestGreen

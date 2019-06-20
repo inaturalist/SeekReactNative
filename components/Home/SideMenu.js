@@ -34,15 +34,15 @@ class SideMenu extends Component<Props> {
 
   navigateTo( route ) {
     const { navigation } = this.props;
-    const { currentRoute } = this.state;
+    // const { currentRoute } = this.state;
 
-    this.setCurrentRoute( route );
+    // this.setCurrentRoute( route );
 
-    if ( route === currentRoute ) {
-      navigation.dispatch( DrawerActions.closeDrawer() );
-    } else {
-      navigation.navigate( route );
-    }
+    // if ( route === currentRoute ) {
+    //   navigation.dispatch( DrawerActions.closeDrawer() );
+    // } else {
+    navigation.navigate( route );
+    // }
   }
 
   render() {

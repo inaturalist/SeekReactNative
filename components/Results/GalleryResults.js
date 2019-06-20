@@ -74,14 +74,18 @@ class Results extends Component<Props> {
   }
 
   getLocation() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.setLocation();
-        }
-      } );
-    } else {
-      this.setLocation();
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude || !longitude ) { // check to see if there are already photo coordinates
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            this.setLocation();
+          }
+        } );
+      } else {
+        this.setLocation();
+      }
     }
   }
 

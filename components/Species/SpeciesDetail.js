@@ -181,7 +181,6 @@ class SpeciesDetail extends Component<Props> {
       timesSeen: null,
       taxaType: null,
       region: {},
-      // lastSeenRegion: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
       error: null,
@@ -200,18 +199,7 @@ class SpeciesDetail extends Component<Props> {
 
     if ( latitude && longitude ) {
       this.reverseGeocodeLocation( latitude, longitude );
-
       this.setRegion( latitude, longitude );
-      // this.setState( {
-      //   lastSeenRegion: {
-      //     latitude,
-      //     longitude,
-      //     latitudeDelta,
-      //     longitudeDelta
-      //   }
-      // } );
-    } else {
-      this.fetchUserLocation();
     }
   }
 
@@ -439,7 +427,6 @@ class SpeciesDetail extends Component<Props> {
       observationsByMonth,
       photos,
       region,
-      // lastSeenRegion,
       scientificName,
       seenDate,
       timesSeen,

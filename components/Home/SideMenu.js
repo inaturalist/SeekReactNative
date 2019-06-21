@@ -6,7 +6,8 @@ import {
   Image,
   TouchableOpacity,
   Text,
-  SafeAreaView
+  SafeAreaView,
+  Alert
 } from "react-native";
 import { DrawerActions } from "react-navigation";
 
@@ -24,7 +25,7 @@ class SideMenu extends Component<Props> {
     super();
 
     this.state = {
-      currentRoute: "Main"
+      currentRoute: null
     };
   }
 
@@ -34,6 +35,7 @@ class SideMenu extends Component<Props> {
 
   navigateTo( route ) {
     const { navigation } = this.props;
+
     // const { currentRoute } = this.state;
 
     // this.setCurrentRoute( route );
@@ -70,7 +72,7 @@ class SideMenu extends Component<Props> {
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.row}
-            onPress={() => this.navigateTo( "Badges" )}
+            onPress={() => this.navigateTo( "Achievements" )}
           >
             <Image source={icons.menuAchievements} style={styles.image} />
             <Text style={styles.text}>

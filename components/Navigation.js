@@ -133,7 +133,7 @@ const FooterTabNav = createBottomTabNavigator( {
   iNatStats: {
     screen: iNatStatsScreen
   },
-  Badges: {
+  Achievements: {
     screen: AchievementsScreen
   },
   MyObservations: {
@@ -192,20 +192,17 @@ const MenuDrawerNav = createDrawerNavigator( {
   Main: {
     screen: MainStack
   },
-  iNatStats: {
-    screen: iNatStatsScreen
+  Achievements: {
+    screen: AchievementsScreen
   },
   Challenges: {
     screen: ChallengeScreen
   },
-  ChallengeDetails: {
-    screen: ChallengeDetailsScreen
-  },
-  Badges: {
-    screen: AchievementsScreen
-  },
   MyObservations: {
     screen: MyObservations
+  },
+  iNatStats: {
+    screen: iNatStatsScreen
   },
   About: {
     screen: AboutScreen

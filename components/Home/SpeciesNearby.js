@@ -6,7 +6,6 @@ import {
   FlatList,
   Image
 } from "react-native";
-import FastImage from "react-native-fast-image";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
@@ -75,12 +74,9 @@ const SpeciesNearby = ( {
                 navigation.navigate( "Species" );
               }}
             >
-              <FastImage
+              <Image
                 style={styles.cellImage}
-                source={{
-                  uri: item.default_photo.medium_url,
-                  priority: FastImage.priority.high
-                }}
+                source={{ uri: item.default_photo.medium_url }}
               />
               <View style={styles.cellTitle}>
                 <Text numberOfLines={3} style={styles.cellTitleText}>

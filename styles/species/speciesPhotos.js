@@ -10,8 +10,8 @@ const { width } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   image: {
     width,
-    height: 250
-    // resizeMode: "contain"
+    height: 250,
+    resizeMode: "contain"
   },
   photoOverlay: {
     zIndex: 1,

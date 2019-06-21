@@ -54,6 +54,7 @@ class Footer extends Component<Props> {
 
     return (
       <SafeAreaView>
+        {/* <GetCurrentRoute /> */}
         <ImageBackground source={backgrounds.navBar} style={styles.container}>
           <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
           <View style={styles.navbar}>

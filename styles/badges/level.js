@@ -6,6 +6,8 @@ import {
 
 const { height } = Dimensions.get( "window" );
 
+console.log( height, "height" );
+
 export default StyleSheet.create( {
   outerContainer: {
     flex: 1
@@ -29,8 +31,8 @@ export default StyleSheet.create( {
   },
   image: {
     marginTop: height > 570 ? 50 : 30,
-    width: height > 570 ? 258 : 215,
-    height: height > 570 ? 258 : 215,
+    width: height > 640 ? 258 : 215,
+    height: height > 640 ? 258 : 215,
     resizeMode: "contain"
   },
   nameText: {

@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native";
+import FastImage from "react-native-fast-image";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
@@ -36,7 +37,7 @@ const SpeciesPhotos = ( {
       <View key="user-image">
         <Image
           source={{ uri: userPhoto }}
-          style={styles.image}
+          style={[styles.image, { resizeMode: "contain" }]}
         />
       </View>
     );
@@ -45,9 +46,13 @@ const SpeciesPhotos = ( {
   photos.forEach( ( photo, i ) => {
     const image = (
       <View key={`image${photo.taxon_id}-${i}`}>
-        <Image
-          source={{ uri: photo.photo.original_url }}
+        <FastImage
+          source={{
+            uri: photo.photo.original_url,
+            priority: FastImage.priority.high
+          }}
           style={styles.image}
+          resizeMode={FastImage.resizeMode.contain}
         />
         <View style={styles.photoOverlay}>
           <TouchableOpacity

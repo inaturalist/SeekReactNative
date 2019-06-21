@@ -1,6 +1,7 @@
 package org.inaturalist.seek;
 
 import com.facebook.react.ReactActivity;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import com.reactnativecommunity.geolocation.GeolocationPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;

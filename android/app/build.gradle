@@ -162,6 +162,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-fast-image')
     implementation project(':@react-native-community/geolocation')
     implementation project(':@react-native-community/async-storage')
     implementation project(':@react-native-community/cameraroll')

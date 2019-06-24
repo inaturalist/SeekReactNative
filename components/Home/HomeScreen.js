@@ -72,7 +72,6 @@ class HomeScreen extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-    this.setLoading( false );
   }
 
   setChallenge( challenge ) {

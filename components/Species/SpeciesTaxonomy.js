@@ -18,27 +18,24 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   if ( ancestors.length > 0 ) {
     ancestors.forEach( ( ancestor, i ) => {
       const rank = (
-        <View key={`taxon-${ancestor.rank}${i}`} style={{ marginLeft: margin }}>
-          {ancestor.preferred_common_name ? (
-            <View style={styles.taxonomyRow}>
-              <Image source={icons.taxonomyCircle} style={styles.bullets} />
-              <View>
-                <Text style={styles.taxonomyHeader}>
-                  {ancestor.rank !== "species" ? capitalizeNames( ancestor.rank ) : null}
-                  {ancestor.rank !== "species" ? " " : null}
-                  {ancestor.name}
-                </Text>
-                <Text numOfLines={1} style={styles.taxonomyText}>
-                  {capitalizeNames( ancestor.preferred_common_name )}
-                </Text>
-              </View>
+        <View key={`taxon-${ancestor.rank}-${i}`} style={{ marginLeft: margin }}>
+          <View style={styles.taxonomyRow}>
+            <Image source={icons.taxonomyCircle} style={styles.bullets} />
+            <View>
+              <Text style={styles.taxonomyHeader}>
+                {ancestor.rank !== "species" ? capitalizeNames( ancestor.rank ) : null}
+                {ancestor.rank !== "species" ? " " : null}
+                {ancestor.name}
+              </Text>
+              <Text numOfLines={1} style={styles.taxonomyText}>
+                {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
+              </Text>
             </View>
-          ) : null}
+          </View>
         </View>
       );
-      if ( ancestor.preferred_common_name ) {
-        margin += 15;
-      }
+
+      margin += 15;
 
       taxonomy.push( rank );
     } );

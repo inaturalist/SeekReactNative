@@ -37,6 +37,9 @@ import {
   checkForInternet
 } from "../../utility/helpers";
 
+const latitudeDelta = 0.2;
+const longitudeDelta = 0.2;
+
 type Props = {
   navigation: any
 }
@@ -93,8 +96,8 @@ class SpeciesDetail extends Component<Props> {
       region: {
         latitude,
         longitude,
-        latitudeDelta: 0.025,
-        longitudeDelta: 0.025
+        latitudeDelta,
+        longitudeDelta
       }
     }, () => {
       this.fetchNearbySpeciesCount( latitude, longitude );
@@ -196,10 +199,7 @@ class SpeciesDetail extends Component<Props> {
 
     if ( latitude && longitude ) {
       this.reverseGeocodeLocation( latitude, longitude );
-
       this.setRegion( latitude, longitude );
-    } else {
-      this.fetchUserLocation();
     }
   }
 
@@ -507,6 +507,7 @@ class SpeciesDetail extends Component<Props> {
                       region={region}
                       id={id}
                       error={error}
+                      seenDate={seenDate}
                     />
                     <SpeciesTaxonomy ancestors={ancestors} />
                     <INatObs

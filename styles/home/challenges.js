@@ -31,7 +31,7 @@ export default StyleSheet.create( {
     marginHorizontal: 32
   },
   challengeHeader: {
-    marginTop: 32,
+    marginTop: 30,
     fontFamily: fonts.light,
     fontSize: 18,
     color: colors.white,
@@ -52,7 +52,7 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 14,
-    marginBottom: 28,
+    marginBottom: 26,
     marginHorizontal: 32
   },
   text: {

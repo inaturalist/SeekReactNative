@@ -9,6 +9,7 @@ import {
   SafeAreaView
 } from "react-native";
 
+
 import i18n from "../../i18n";
 import styles from "../../styles/home/sideMenu";
 import logoImages from "../../assets/logos";
@@ -50,7 +51,7 @@ class SideMenu extends Component<Props> {
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.row}
-            onPress={() => this.navigateTo( "Badges" )}
+            onPress={() => this.navigateTo( "Achievements" )}
           >
             <Image source={icons.menuAchievements} style={styles.image} />
             <Text style={styles.text}>

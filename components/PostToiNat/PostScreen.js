@@ -8,13 +8,15 @@ import {
   View,
   SafeAreaView,
   Modal,
-  Platform
+  Platform,
+  TextInput
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
+import icons from "../../assets/icons";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
@@ -53,7 +55,7 @@ class PostScreen extends Component<Props> {
       captive: null,
       geoprivacy: null,
       taxon: {
-        preferredCommonName: taxaName || i18n.t( "posting.unknown" ),
+        preferredCommonName: taxaName,
         name: scientificName,
         taxaId,
         image,
@@ -64,7 +66,8 @@ class PostScreen extends Component<Props> {
       error: null,
       showPostModal: false,
       loading: false,
-      postingSuccess: null
+      postingSuccess: null,
+      description: null
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -256,7 +259,8 @@ class PostScreen extends Component<Props> {
       date,
       taxon,
       latitude,
-      longitude
+      longitude,
+      description
     } = this.state;
 
     let captiveState;
@@ -285,7 +289,8 @@ class PostScreen extends Component<Props> {
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version
-        owners_identification_from_vision_requested: true // this shows that the id is recommended by computer vision
+        owners_identification_from_vision_requested: true, // this shows that the id is recommended by computer vision
+        description
       }
     };
 
@@ -343,8 +348,19 @@ class PostScreen extends Component<Props> {
       isDateTimePickerVisible,
       showPostModal,
       loading,
-      postingSuccess
+      postingSuccess,
+      description
     } = this.state;
+
+    let commonName;
+
+    if ( taxon.preferredCommonName ) {
+      commonName = taxon.preferredCommonName;
+    } else if ( taxon.name ) {
+      commonName = taxon.name;
+    } else {
+      commonName = i18n.t( "posting.unknown" );
+    }
 
     return (
       <View style={styles.container}>
@@ -390,17 +406,27 @@ class PostScreen extends Component<Props> {
             navigation={navigation}
             header={i18n.t( "posting.header" )}
           />
-          <View style={styles.textContainer}>
-            <View style={styles.card}>
-              <Image style={styles.image} source={{ uri: taxon.userImage }} />
-              <View style={styles.speciesNameContainer}>
-                <Text style={styles.commonNameText}>
-                  {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name}
-                </Text>
-                {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-              </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "PostingHelp" )}
+          >
+            <Image source={icons.cameraHelp} style={styles.help} />
+          </TouchableOpacity>
+          <View style={[styles.card, styles.textContainer]}>
+            <Image style={styles.image} source={{ uri: taxon.userImage }} />
+            <View style={styles.speciesNameContainer}>
+              <Text style={styles.commonNameText}>{commonName}</Text>
+              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
             </View>
           </View>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { description: value } )}
+            value={description}
+            placeholder={i18n.t( "posting.notes" )}
+            keyboardType="default"
+            multiline
+          />
+          <View style={{ marginBottom: 21 }} />
           <View style={styles.divider} />
           <TouchableOpacity
             style={styles.thinCard}
@@ -438,7 +464,7 @@ class PostScreen extends Component<Props> {
           <View style={styles.divider} />
           <CaptivePicker updateCaptive={this.updateCaptive} />
           <View style={styles.divider} />
-          <View style={styles.textContainer}>
+          <View style={[styles.textContainer, { alignItems: "center" }]}>
             <TouchableOpacity
               style={styles.greenButton}
               onPress={() => {

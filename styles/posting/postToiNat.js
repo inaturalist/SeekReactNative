@@ -1,7 +1,12 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts, padding } from "../global";
+import { StyleSheet, Dimensions, Platform } from "react-native";
+import {
+  colors,
+  fonts,
+  padding,
+  touchable
+} from "../global";
 
-const { height } = Dimensions.get( "window" );
+const { height, width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -18,8 +23,7 @@ export default StyleSheet.create( {
   },
   textContainer: {
     marginHorizontal: height < 570 ? 14 : 27,
-    marginTop: height < 570 ? 13 : 25,
-    marginBottom: height < 570 ? 13 : 26
+    marginTop: height < 570 ? 13 : 25
   },
   card: {
     height: height / 6,
@@ -94,5 +98,22 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     color: colors.white
+  },
+  help: {
+    position: "absolute",
+    right: 21,
+    top: -42
+  },
+  touchable,
+  inputField: {
+    marginHorizontal: height < 570 ? 14 : 27,
+    height: 21,
+    paddingTop: 0,
+    paddingBottom: 0,
+    width: width - 54,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    color: "#808080",
+    textAlignVertical: "top"
   }
 } );

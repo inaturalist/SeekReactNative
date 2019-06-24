@@ -44,6 +44,12 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     </View>
     <TouchableOpacity
       onPress={() => navigation.navigate( "Main" )}
+      hitSlop={{
+        left: 20,
+        right: 20,
+        top: 10,
+        bottom: 10
+      }}
     >
       <Text style={styles.textLink}>
         {i18n.t( "login.skip_login" )}

@@ -175,6 +175,7 @@ class AchievementsScreen extends Component<Props> {
               speciesCount={speciesCount}
               level={level}
               toggleLevelModal={this.toggleLevelModal}
+              screen="achievements"
             />
           </Modal>
           <Modal

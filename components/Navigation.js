@@ -44,6 +44,7 @@ import SignUpScreen from "./Signup/SignUpScreen";
 import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
+import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
@@ -132,7 +133,7 @@ const FooterTabNav = createBottomTabNavigator( {
   iNatStats: {
     screen: iNatStatsScreen
   },
-  Badges: {
+  Achievements: {
     screen: AchievementsScreen
   },
   MyObservations: {
@@ -178,6 +179,10 @@ const MainStack = createStackNavigator( {
   Post: {
     screen: PostScreen,
     navigationOptions: () => noHeader
+  },
+  PostingHelp: {
+    screen: PostingHelpScreen,
+    navigationOptions: () => noHeader
   }
 }, {
   transitionConfig: nav => handleCustomTransition( nav )
@@ -187,20 +192,17 @@ const MenuDrawerNav = createDrawerNavigator( {
   Main: {
     screen: MainStack
   },
-  iNatStats: {
-    screen: iNatStatsScreen
+  Achievements: {
+    screen: AchievementsScreen
   },
   Challenges: {
     screen: ChallengeScreen
   },
-  ChallengeDetails: {
-    screen: ChallengeDetailsScreen
-  },
-  Badges: {
-    screen: AchievementsScreen
-  },
   MyObservations: {
     screen: MyObservations
+  },
+  iNatStats: {
+    screen: iNatStatsScreen
   },
   About: {
     screen: AboutScreen

@@ -4,7 +4,8 @@ import {
   View,
   Image,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
@@ -20,14 +21,16 @@ type Props = {
   navigation: any,
   region: Object,
   id: number,
-  error: string
+  error: string,
+  seenDate: string
 }
 
 const LocationMap = ( {
   region,
   id,
   error,
-  navigation
+  navigation,
+  seenDate
 }: Props ) => (
   <View>
     <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
@@ -51,7 +54,7 @@ const LocationMap = ( {
             <Marker
               coordinate={{ latitude: region.latitude, longitude: region.longitude }}
             >
-              <Image source={icons.locationPin} />
+              <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
             </Marker>
           )}
         </MapView>
@@ -59,9 +62,11 @@ const LocationMap = ( {
     </View>
     <TouchableOpacity
       style={styles.darkGreenButton}
-      onPress={() => navigation.navigate( "RangeMap", { region, id } )}
+      onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
     >
-      <Text style={styles.darkGreenButtonText}>{i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}</Text>
+      <Text style={styles.darkGreenButtonText}>
+        {i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}
+      </Text>
     </TouchableOpacity>
   </View>
 );

@@ -1,10 +1,12 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
+
+console.log( height, "height" );
 
 export default StyleSheet.create( {
   outerContainer: {
@@ -15,25 +17,27 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   backgroundColor: {
-    height: height / 2,
     alignItems: "center",
     justifyContent: "center"
   },
   headerText: {
     textAlign: "center",
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 25,
+    marginBottom: Platform.OS === "android" ? 19 : 15,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12
   },
   image: {
-    width: 213,
-    height: 213
+    marginTop: height > 570 ? 50 : 30,
+    width: height > 640 ? 258 : 215,
+    height: height > 640 ? 258 : 215,
+    resizeMode: "contain"
   },
   nameText: {
-    marginTop: 10,
+    marginTop: 32,
+    marginBottom: height > 570 ? 43 : 30,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 23,

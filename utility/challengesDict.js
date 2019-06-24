@@ -11,6 +11,7 @@ const challenges = {
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2019, 3, 1 ),
     photographer: "challenges.photographer_april",
+    action: "challenges.action_april",
     index: 0
   },
   may: {
@@ -31,6 +32,7 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 4, 1 ),
     photographer: "challenges.photographer_may",
+    action: "challenges.action_may",
     index: 1
   },
   june: {
@@ -50,24 +52,9 @@ const challenges = {
     ],
     availableDate: new Date( 2019, 5, 1 ),
     photographer: "challenges.photographer_june",
+    action: "challenges.action_june",
     index: 2
   }
-  // july: {
-  //   name: "challenges.resilience",
-  //   month: "challenges.july_2019",
-  //   description: "challenges.july_description",
-  //   totalSpecies: 10,
-  //   homeBackgroundName: "img-homechallenge-may",
-  //   backgroundName: "img-challengedetail-may",
-  //   unearnedIconName: "badge_empty",
-  //   earnedIconName: "badge_ourplanet_may",
-  //   missions: [
-  //     "challenges.mission_1_july"
-  //   ],
-  //   availableDate: new Date( 2019, 6, 1 ),
-  //   photographer: "challenges.photographer_july",
-  //   index: 3
-  // },
   // august: {
   //   name: "challenges.farming",
   //   month: "challenges.august_2019",
@@ -82,7 +69,8 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 7, 1 ),
   //   photographer: "challenges.photographer_august",
-  //   index: 4
+  //   action: "challenges.action_august",
+  //   index: 3
   // },
   // september: {
   //   name: "challenges.flow",
@@ -98,7 +86,8 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 8, 1 ),
   //   photographer: "challenges.photographer_september",
-  //   index: 5
+  //   action: "challenges.action_september",
+  //   index: 4
   // },
   // october: {
   //   name: "challenges.hotspots",
@@ -114,13 +103,14 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 9, 1 ),
   //   photographer: "challenges.photographer_october",
-  //   index: 6
+  //   action: "challenges.action_october",
+  //   index: 5
   // },
   // november: {
-  //   name: "challenges.ice",
+  //   name: "challenges.resilience",
   //   month: "challenges.november_2019",
   //   description: "challenges.november_description",
-  //   totalSpecies: 20,
+  //   totalSpecies: 10,
   //   homeBackgroundName: "img-homechallenge-may",
   //   backgroundName: "img-challengedetail-may",
   //   unearnedIconName: "badge_empty",
@@ -130,6 +120,24 @@ const challenges = {
   //   ],
   //   availableDate: new Date( 2019, 10, 1 ),
   //   photographer: "challenges.photographer_november",
+  //   action: "challenges.action_november",
+  //   index: 6
+  // },
+  // december: {
+  //   name: "challenges.ice",
+  //   month: "challenges.december_2019",
+  //   description: "challenges.december_description",
+  //   totalSpecies: 20,
+  //   homeBackgroundName: "img-homechallenge-may",
+  //   backgroundName: "img-challengedetail-may",
+  //   unearnedIconName: "badge_empty",
+  //   earnedIconName: "badge_ourplanet_may",
+  //   missions: [
+  //     "challenges.mission_1_december"
+  //   ],
+  //   availableDate: new Date( 2019, 11, 1 ),
+  //   photographer: "challenges.photographer_december",
+  //   action: "challenges.action_december",
   //   index: 7
   // }
 };

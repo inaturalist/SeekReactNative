@@ -188,6 +188,7 @@ const setupChallenges = () => {
               missions: challenges.missions,
               availableDate: challenges.availableDate,
               photographer: challenges.photographer,
+              action: challenges.action,
               index: challenges.index
             }, true );
           }

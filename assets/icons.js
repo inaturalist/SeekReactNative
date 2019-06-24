@@ -49,6 +49,10 @@ const icons = {
   greenDot: require( "./icons/GreenCircle-square-shadow.png" ),
   whiteDot: require( "./icons/WhiteCircle-square-shadow.png" ),
   iNatExplanation: require( "./icons/img-iNatExplanation.png" ),
+  legendCamera: require( "./icons/legend-icon-camerabutton.png" ),
+  legendLocation: require( "./icons/legend-icon-location-onmap.png" ),
+  legendObs: require( "./icons/legend-icon-inatobs.png" ),
+  cameraOnMap: require( "./icons/icon-camerabutton-onmap.png" )
 };
 
 export default icons;

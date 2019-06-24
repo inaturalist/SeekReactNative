@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -24,7 +24,6 @@ export default StyleSheet.create( {
   textContainer: {
     marginHorizontal: height < 570 ? 14 : 27,
     marginTop: height < 570 ? 13 : 25
-    // marginBottom: height < 570 ? 13 : 26
   },
   card: {
     height: height / 6,
@@ -109,6 +108,8 @@ export default StyleSheet.create( {
   inputField: {
     marginHorizontal: height < 570 ? 14 : 27,
     height: 21,
+    paddingTop: 0,
+    paddingBottom: 0,
     width: width - 54,
     fontFamily: fonts.book,
     fontSize: 16,

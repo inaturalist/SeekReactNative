@@ -411,13 +411,11 @@ class PostScreen extends Component<Props> {
           >
             <Image source={icons.cameraHelp} style={styles.help} />
           </TouchableOpacity>
-          <View style={styles.textContainer}>
-            <View style={styles.card}>
-              <Image style={styles.image} source={{ uri: taxon.userImage }} />
-              <View style={styles.speciesNameContainer}>
-                <Text style={styles.commonNameText}>{commonName}</Text>
-                {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-              </View>
+          <View style={[styles.card, styles.textContainer]}>
+            <Image style={styles.image} source={{ uri: taxon.userImage }} />
+            <View style={styles.speciesNameContainer}>
+              <Text style={styles.commonNameText}>{commonName}</Text>
+              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
             </View>
           </View>
           <TextInput
@@ -425,7 +423,7 @@ class PostScreen extends Component<Props> {
             onChangeText={ value => this.setState( { description: value } )}
             value={description}
             placeholder={i18n.t( "posting.notes" )}
-            keyboardType={Platform.OS === "android" ? "visible-password" : "default"} // adding this to turn off autosuggestions on Android
+            keyboardType="default"
             multiline
           />
           <View style={{ marginBottom: 21 }} />

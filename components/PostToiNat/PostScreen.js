@@ -9,8 +9,7 @@ import {
   SafeAreaView,
   Modal,
   Platform,
-  TextInput,
-  Alert
+  TextInput
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";

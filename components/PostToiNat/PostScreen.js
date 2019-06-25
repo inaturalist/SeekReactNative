@@ -55,12 +55,12 @@ class PostScreen extends Component<Props> {
       date: moment.unix( time ).format( "YYYY-MM-DD" ),
       captive: null,
       geoprivacy: null,
+      image,
+      userImage,
       taxon: {
         preferredCommonName: taxaName,
         name: scientificName,
-        taxaId,
-        image,
-        userImage
+        taxaId
       },
       modalVisible: false,
       isDateTimePickerVisible: false,
@@ -78,6 +78,7 @@ class PostScreen extends Component<Props> {
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.togglePostModal = this.togglePostModal.bind( this );
     this.toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
+    this.updateTaxon = this.updateTaxon.bind( this );
   }
 
   setUserLocation() {
@@ -316,12 +317,11 @@ class PostScreen extends Component<Props> {
 
   addPhotoToObservation( obsId, token ) {
     const {
-      taxon,
+      image,
       latitude,
       longitude,
       date
     } = this.state;
-    const { image } = taxon;
 
     const options = { api_token: token, user_agent: "Seek" };
 
@@ -344,10 +344,21 @@ class PostScreen extends Component<Props> {
     } );
   }
 
+  updateTaxon( taxaId, preferredCommonName, name ) {
+    this.setState( {
+      taxon: {
+        taxaId,
+        preferredCommonName,
+        name
+      }
+    } );
+  }
+
   render() {
     const { navigation } = this.props;
     const {
       taxon,
+      userImage,
       date,
       location,
       latitude,
@@ -391,9 +402,10 @@ class PostScreen extends Component<Props> {
           >
             <SelectSpecies
               toggleSpeciesModal={this.toggleSpeciesModal}
-              image={taxon.userImage}
+              image={userImage}
               commonName={taxon.preferredCommonName}
               scientificName={taxon.name}
+              updateTaxon={this.updateTaxon}
             />
           </Modal>
           <Modal
@@ -435,7 +447,7 @@ class PostScreen extends Component<Props> {
             style={styles.card}
             onPress={() => this.toggleSpeciesModal()}
           >
-            <Image style={styles.image} source={{ uri: taxon.userImage }} />
+            <Image style={styles.image} source={{ uri: userImage }} />
             <View style={styles.speciesNameContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
               {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}

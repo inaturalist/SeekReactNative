@@ -11,7 +11,8 @@ import {
   Platform,
   TouchableOpacity,
   TextInput,
-  FlatList
+  FlatList,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -28,7 +29,8 @@ type Props = {
   toggleSpeciesModal: Function,
   image: string,
   commonName: string,
-  scientificName: string
+  scientificName: string,
+  updateTaxon: Function
 }
 
 
@@ -67,7 +69,8 @@ class SelectSpecies extends Component<Props> {
           const suggestedSpecies = {
             image: suggestion.defaultPhoto.medium_url,
             commonName: capitalizeNames( suggestion.preferred_common_name || suggestion.name ),
-            scientificName: suggestion.name
+            scientificName: suggestion.name,
+            id: suggestion.id
           };
 
           suggestions.push( suggestedSpecies );
@@ -84,6 +87,7 @@ class SelectSpecies extends Component<Props> {
     const { suggestions, isSearching } = this.state;
     const {
       toggleSpeciesModal,
+      updateTaxon,
       image,
       commonName,
       scientificName
@@ -126,8 +130,10 @@ class SelectSpecies extends Component<Props> {
               {!isSearching ? (
                 <SpeciesCard
                   image={image}
-                  commonName={commonName}
+                  commonName={commonName || scientificName}
                   scientificName={scientificName}
+                  toggleSpeciesModal={toggleSpeciesModal}
+                  updateTaxon={updateTaxon}
                 />
               ) : (
                 <FlatList
@@ -139,6 +145,9 @@ class SelectSpecies extends Component<Props> {
                       image={item.image}
                       commonName={item.commonName}
                       scientificName={item.scientificName}
+                      id={item.id}
+                      toggleSpeciesModal={toggleSpeciesModal}
+                      updateTaxon={updateTaxon}
                     />
                   ) }
                 />

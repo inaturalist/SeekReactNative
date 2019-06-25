@@ -11,7 +11,7 @@ import {
   Platform,
   TextInput
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents, ScrollView } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
@@ -438,81 +438,83 @@ class PostScreen extends Component<Props> {
             navigation={navigation}
             header={i18n.t( "posting.header" )}
           />
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "PostingHelp" )}
-          >
-            <Image source={icons.cameraHelp} style={styles.help} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.card}
-            onPress={() => this.toggleSpeciesModal()}
-          >
-            <Image style={styles.image} source={{ uri: userImage }} />
-            <View style={styles.speciesNameContainer}>
-              <Text style={styles.commonNameText}>{commonName}</Text>
-              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-            </View>
-            <Image style={styles.buttonIcon} source={posting.expand} />
-          </TouchableOpacity>
-          <TextInput
-            style={styles.inputField}
-            onChangeText={ value => this.setState( { description: value } )}
-            value={description}
-            placeholder={i18n.t( "posting.notes" )}
-            keyboardType="default"
-            multiline
-          />
-          <View style={{ marginBottom: 21 }} />
-          <View style={styles.divider} />
-          <TouchableOpacity
-            style={styles.thinCard}
-            onPress={() => this.showDateTimePicker()}
-          >
-            <Image style={styles.icon} source={posting.date} />
-            <View style={styles.row}>
-              <Text style={styles.greenText}>
-                {i18n.t( "posting.date" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.text}>
-                {date}
-              </Text>
-            </View>
-            <Image style={styles.buttonIcon} source={posting.expand} />
-          </TouchableOpacity>
-          <View style={styles.divider} />
-          <TouchableOpacity
-            style={styles.thinCard}
-            onPress={() => this.toggleLocationPicker()}
-          >
-            <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
-            <View style={styles.row}>
-              <Text style={styles.greenText}>
-                {i18n.t( "posting.location" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.text}>
-                {location}
-              </Text>
-            </View>
-            <Image style={styles.buttonIcon} source={posting.expand} />
-          </TouchableOpacity>
-          <View style={styles.divider} />
-          <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
-          <View style={styles.divider} />
-          <CaptivePicker updateCaptive={this.updateCaptive} />
-          <View style={styles.divider} />
-          <View style={[styles.textContainer, { alignItems: "center" }]}>
+          <ScrollView keyboardDismissMode="on-drag">
             <TouchableOpacity
-              style={styles.greenButton}
-              onPress={() => {
-                this.getToken();
-                this.togglePostModal();
-              }}
+              onPress={() => navigation.navigate( "PostingHelp" )}
             >
-              <Text style={styles.buttonText}>
-                {i18n.t( "posting.header" ).toLocaleUpperCase()}
-              </Text>
+              <Image source={icons.cameraHelp} style={styles.help} />
             </TouchableOpacity>
-          </View>
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() => this.toggleSpeciesModal()}
+            >
+              <Image style={styles.image} source={{ uri: userImage }} />
+              <View style={styles.speciesNameContainer}>
+                <Text style={styles.commonNameText}>{commonName}</Text>
+                {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
+              </View>
+              <Image style={styles.buttonIcon} source={posting.expand} />
+            </TouchableOpacity>
+            <TextInput
+              style={styles.inputField}
+              onChangeText={ value => this.setState( { description: value } )}
+              value={description}
+              placeholder={i18n.t( "posting.notes" )}
+              keyboardType="default"
+              multiline
+            />
+            <View style={{ marginBottom: 21 }} />
+            <View style={styles.divider} />
+            <TouchableOpacity
+              style={styles.thinCard}
+              onPress={() => this.showDateTimePicker()}
+            >
+              <Image style={styles.icon} source={posting.date} />
+              <View style={styles.row}>
+                <Text style={styles.greenText}>
+                  {i18n.t( "posting.date" ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.text}>
+                  {date}
+                </Text>
+              </View>
+              <Image style={styles.buttonIcon} source={posting.expand} />
+            </TouchableOpacity>
+            <View style={styles.divider} />
+            <TouchableOpacity
+              style={styles.thinCard}
+              onPress={() => this.toggleLocationPicker()}
+            >
+              <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
+              <View style={styles.row}>
+                <Text style={styles.greenText}>
+                  {i18n.t( "posting.location" ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.text}>
+                  {location}
+                </Text>
+              </View>
+              <Image style={styles.buttonIcon} source={posting.expand} />
+            </TouchableOpacity>
+            <View style={styles.divider} />
+            <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
+            <View style={styles.divider} />
+            <CaptivePicker updateCaptive={this.updateCaptive} />
+            <View style={styles.divider} />
+            <View style={[styles.textContainer, { alignItems: "center" }]}>
+              <TouchableOpacity
+                style={styles.greenButton}
+                onPress={() => {
+                  this.getToken();
+                  this.togglePostModal();
+                }}
+              >
+                <Text style={styles.buttonText}>
+                  {i18n.t( "posting.header" ).toLocaleUpperCase()}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
         </SafeAreaView>
       </View>
     );

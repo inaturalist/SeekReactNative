@@ -17,7 +17,8 @@ import styles from "../../styles/results/confirm";
 import {
   addToCollection,
   capitalizeNames,
-  flattenUploadParameters
+  flattenUploadParameters,
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
@@ -129,27 +130,31 @@ class Results extends Component<Props> {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
-    this.setState( {
-      observation: species,
-      taxaId: taxon.id,
-      taxaName: capitalizeNames( taxon.preferred_common_name || taxon.name ),
-      scientificName: taxon.name,
-      speciesSeenImage: photo ? photo.medium_url : null
-    }, () => this.setMatch( true ) );
+    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+      this.setState( {
+        observation: species,
+        taxaId: taxon.id,
+        taxaName: capitalizeNames( commonName || taxon.name ),
+        scientificName: taxon.name,
+        speciesSeenImage: photo ? photo.medium_url : null
+      }, () => this.setMatch( true ) );
+    } );
   }
 
   setOnlineVisionAncestorResults( commonAncestor ) {
     const { taxon } = commonAncestor;
     const photo = taxon.default_photo;
 
-    this.setState( {
-      commonAncestor: commonAncestor
-        ? capitalizeNames( taxon.preferred_common_name || taxon.name )
-        : null,
-      taxaId: taxon.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: taxon.name
-    }, () => this.setMatch( false ) );
+    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+      this.setState( {
+        commonAncestor: commonAncestor
+          ? capitalizeNames( commonName || taxon.name )
+          : null,
+        taxaId: taxon.id,
+        speciesSeenImage: photo ? photo.medium_url : null,
+        scientificName: taxon.name
+      }, () => this.setMatch( false ) );
+    } );
   }
 
   getParamsForOnlineVision() {

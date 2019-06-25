@@ -2,7 +2,6 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
   fonts,
-  padding,
   touchable
 } from "../global";
 
@@ -36,5 +35,29 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     fontFamily: fonts.semibold
   },
-  touchable
+  touchable,
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "center",
+    height: 63,
+    backgroundColor: colors.seekForestGreen
+  },
+  inputField: {
+    marginLeft: 11,
+    width: "81%",
+    backgroundColor: colors.white,
+    height: 37,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderRadius: 40,
+    paddingLeft: 16,
+    fontFamily: fonts.book,
+    fontSize: 15
+  },
+  photoContainer: {
+    backgroundColor: colors.black,
+    height: 155
+  }
 } );

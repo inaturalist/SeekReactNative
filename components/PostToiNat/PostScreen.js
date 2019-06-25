@@ -438,12 +438,12 @@ class PostScreen extends Component<Props> {
             navigation={navigation}
             header={i18n.t( "posting.header" )}
           />
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "PostingHelp" )}
+          >
+            <Image source={icons.cameraHelp} style={styles.help} />
+          </TouchableOpacity>
           <ScrollView keyboardDismissMode="on-drag">
-            <TouchableOpacity
-              onPress={() => navigation.navigate( "PostingHelp" )}
-            >
-              <Image source={icons.cameraHelp} style={styles.help} />
-            </TouchableOpacity>
             <TouchableOpacity
               style={styles.card}
               onPress={() => this.toggleSpeciesModal()}

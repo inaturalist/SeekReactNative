@@ -76,7 +76,8 @@ export default StyleSheet.create( {
     fontSize: 19,
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    letterSpacing: 1.12
+    letterSpacing: 1.12,
+    marginBottom: 18
   },
   textContainer: {
     marginHorizontal: 24,

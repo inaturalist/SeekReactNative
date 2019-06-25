@@ -45,7 +45,8 @@ class PostScreen extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time
+      time,
+      commonAncestor
     } = navigation.state.params;
 
     this.state = {
@@ -58,7 +59,7 @@ class PostScreen extends Component<Props> {
       image,
       userImage,
       taxon: {
-        preferredCommonName: taxaName,
+        preferredCommonName: taxaName || commonAncestor,
         name: scientificName,
         taxaId
       },

@@ -371,7 +371,8 @@ class MatchScreen extends Component<Props> {
                       scientificName,
                       latitude,
                       longitude,
-                      time
+                      time,
+                      commonAncestor
                     }}
                   />
                 ) : null

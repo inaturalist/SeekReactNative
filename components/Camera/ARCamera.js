@@ -21,6 +21,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
+import PermissionError from "./PermissionError";
 import { getTaxonCommonName } from "../../utility/helpers";
 import { checkCameraRollPermissions } from "../../utility/photoHelpers";
 
@@ -281,7 +282,7 @@ class ARCamera extends Component<Props> {
     } else if ( error === "device" ) {
       errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
-      errorText = i18n.t( "camera.error_saving_photos" );
+      errorText = i18n.t( "camera.error_camera" );
     } else if ( error === "fetch" ) {
       errorText = i18n.t( "camera.error_fetching_photos" );
     }
@@ -319,7 +320,8 @@ class ARCamera extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : null}
-        {error ? <Text style={styles.errorText}>{errorText}</Text> : null}
+        {error && error !== "save" ? <Text style={styles.errorText}>{errorText}</Text> : null}
+        {error && error === "save" ? <PermissionError error={errorText} /> : null}
         <TouchableOpacity
           style={styles.backButton}
           hitSlop={styles.touchable}

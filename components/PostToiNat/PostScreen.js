@@ -390,8 +390,10 @@ class PostScreen extends Component<Props> {
             onRequestClose={() => this.toggleSpeciesModal()}
           >
             <SelectSpecies
-              navigation={navigation}
               toggleSpeciesModal={this.toggleSpeciesModal}
+              image={taxon.userImage}
+              commonName={taxon.preferredCommonName}
+              scientificName={taxon.name}
             />
           </Modal>
           <Modal

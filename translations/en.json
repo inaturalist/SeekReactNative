@@ -475,7 +475,8 @@
     "posting_failure": "Posting to iNaturalist failed",
     "internet": "Try checking your internet connection and try again",
     "ok": "Ok",
-    "wait": "This may take up to a minute"
+    "wait": "This may take up to a minute",
+    "look_up": "Look up a species by name"
   },
   "posting_help": {
     "header": "Posting Help",

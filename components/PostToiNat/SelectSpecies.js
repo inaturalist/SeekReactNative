@@ -21,9 +21,14 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
 import Padding from "../Padding";
+import SpeciesCard from "./SpeciesCard";
+import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
-  toggleSpeciesModal: Function
+  toggleSpeciesModal: Function,
+  image: string,
+  commonName: string,
+  scientificName: string
 }
 
 
@@ -32,8 +37,8 @@ class SelectSpecies extends Component<Props> {
     super();
 
     this.state = {
-      speciesName: "",
-      suggestions: []
+      suggestions: [],
+      isSearching: false
     };
   }
 
@@ -45,11 +50,8 @@ class SelectSpecies extends Component<Props> {
     }
   }
 
-  updateSpeciesName( speciesName ) {
-    this.setState( { speciesName } );
-  }
-
   searchForSpecies( speciesName ) {
+    this.setState( { isSearching: true } );
     const params = {
       q: speciesName,
       per_page: 5,
@@ -58,16 +60,34 @@ class SelectSpecies extends Component<Props> {
     };
 
     inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
-      console.log( results, "response" );
-      this.setState( { suggestions: results } );
+      const suggestions = [];
+
+      if ( results.length > 0 ) {
+        results.forEach( ( suggestion ) => {
+          const suggestedSpecies = {
+            image: suggestion.defaultPhoto.medium_url,
+            commonName: capitalizeNames( suggestion.preferred_common_name || suggestion.name ),
+            scientificName: suggestion.name
+          };
+
+          suggestions.push( suggestedSpecies );
+        } );
+      }
+
+      this.setState( { suggestions } );
     } ).catch( ( err ) => {
       console.log( err, "catch error" );
     } );
   }
 
   render() {
-    const { speciesName, suggestions } = this.state;
-    const { toggleSpeciesModal } = this.props;
+    const { suggestions, isSearching } = this.state;
+    const {
+      toggleSpeciesModal,
+      image,
+      commonName,
+      scientificName
+    } = this.props;
 
     return (
       <View style={styles.container}>
@@ -91,35 +111,38 @@ class SelectSpecies extends Component<Props> {
           </View>
           <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
             <View style={styles.photoContainer}>
-              <Text>{speciesName}</Text>
+              <Image source={{ uri: image }} style={styles.image} />
             </View>
             <View style={styles.row}>
               <Image source={postingIcons.search} />
               <TextInput
                 style={styles.inputField}
-                placeholder={i18n.t( "posting.what_seen" )}
+                placeholder={i18n.t( "posting.look_up" )}
                 onChangeText={text => this.searchForSpecies( text )}
               />
-              {/* <FlatList
-                data={suggestions}
-                keyExtractor={item => `${item.name}-${item.id}`.toString()}
-                initialNumToRender={3}
-                renderItem={( { item } ) => (
-                  <TouchableOpacity
-                    onPress={() => console.log( "clicked" )}
-                  >
-                    <Image style={styles.image} source={item.photo} />
-                    <View style={styles.speciesNameContainer}>
-                      <Text style={styles.commonNameText}>
-                        {item.preferred_common_name
-                          ? item.preferred_common_name
-                          : item.name}
-                      </Text>
-                      <Text style={styles.scientificNameText}>{item.name}</Text>
-                    </View>
-                  </TouchableOpacity>
-                ) }
-              /> */}
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.headerText}>{i18n.t( "posting.id" ).toLocaleUpperCase()}</Text>
+              {!isSearching ? (
+                <SpeciesCard
+                  image={image}
+                  commonName={commonName}
+                  scientificName={scientificName}
+                />
+              ) : (
+                <FlatList
+                  data={suggestions}
+                  keyExtractor={item => `${item.scientificName}`.toString()}
+                  initialNumToRender={3}
+                  renderItem={( { item } ) => (
+                    <SpeciesCard
+                      image={item.image}
+                      commonName={item.commonName}
+                      scientificName={item.scientificName}
+                    />
+                  ) }
+                />
+              )}
             </View>
             <Padding />
           </ScrollView>

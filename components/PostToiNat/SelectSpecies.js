@@ -113,7 +113,10 @@ class SelectSpecies extends Component<Props> {
               {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
             </Text>
           </View>
-          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+          <ScrollView
+            ref={( ref ) => { this.scrollView = ref; }}
+            keyboardDismissMode="on-drag"
+          >
             <View style={styles.photoContainer}>
               <Image source={{ uri: image }} style={styles.image} />
             </View>
@@ -126,7 +129,12 @@ class SelectSpecies extends Component<Props> {
               />
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.headerText}>{i18n.t( "posting.id" ).toLocaleUpperCase()}</Text>
+              {!isSearching
+                ? (
+                  <Text style={styles.headerText}>
+                    {i18n.t( "posting.id" ).toLocaleUpperCase()}
+                  </Text>
+                ) : null}
               {!isSearching ? (
                 <SpeciesCard
                   image={image}

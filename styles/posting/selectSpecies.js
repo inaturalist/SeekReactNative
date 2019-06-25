@@ -102,7 +102,7 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   card: {
-    marginTop: 18,
+    marginBottom: 18,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"

@@ -26,6 +26,8 @@ export default StyleSheet.create( {
     marginTop: height < 570 ? 13 : 25
   },
   card: {
+    marginLeft: height < 570 ? 14 : 27,
+    marginTop: height < 570 ? 13 : 25,
     height: height / 6,
     flexDirection: "row",
     flexWrap: "nowrap",

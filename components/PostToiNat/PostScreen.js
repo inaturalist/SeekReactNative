@@ -27,6 +27,7 @@ import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 import PostStatus from "./PostStatus";
+import SelectSpecies from "./SelectSpecies";
 
 type Props = {
   navigation: any
@@ -65,6 +66,7 @@ class PostScreen extends Component<Props> {
       isDateTimePickerVisible: false,
       error: null,
       showPostModal: false,
+      showSpeciesModal: false,
       loading: false,
       postingSuccess: null,
       description: null
@@ -75,6 +77,7 @@ class PostScreen extends Component<Props> {
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.togglePostModal = this.togglePostModal.bind( this );
+    this.toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
   }
 
   setUserLocation() {
@@ -189,6 +192,11 @@ class PostScreen extends Component<Props> {
   togglePostModal() {
     const { showPostModal } = this.state;
     this.setState( { showPostModal: !showPostModal } );
+  }
+
+  toggleSpeciesModal() {
+    const { showSpeciesModal } = this.state;
+    this.setState( { showSpeciesModal: !showSpeciesModal } );
   }
 
   toggleLocationPicker() {
@@ -347,6 +355,7 @@ class PostScreen extends Component<Props> {
       modalVisible,
       isDateTimePickerVisible,
       showPostModal,
+      showSpeciesModal,
       loading,
       postingSuccess,
       description
@@ -376,6 +385,15 @@ class PostScreen extends Component<Props> {
             datePickerModeAndroid="spinner"
             timePickerModeAndroid="spinner"
           />
+          <Modal
+            visible={showSpeciesModal}
+            onRequestClose={() => this.toggleSpeciesModal()}
+          >
+            <SelectSpecies
+              navigation={navigation}
+              toggleSpeciesModal={this.toggleSpeciesModal}
+            />
+          </Modal>
           <Modal
             visible={modalVisible}
             onRequestClose={() => this.toggleLocationPicker()}
@@ -411,13 +429,17 @@ class PostScreen extends Component<Props> {
           >
             <Image source={icons.cameraHelp} style={styles.help} />
           </TouchableOpacity>
-          <View style={[styles.card, styles.textContainer]}>
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => this.toggleSpeciesModal()}
+          >
             <Image style={styles.image} source={{ uri: taxon.userImage }} />
             <View style={styles.speciesNameContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
               {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
             </View>
-          </View>
+            <Image style={styles.buttonIcon} source={posting.expand} />
+          </TouchableOpacity>
           <TextInput
             style={styles.inputField}
             onChangeText={ value => this.setState( { description: value } )}

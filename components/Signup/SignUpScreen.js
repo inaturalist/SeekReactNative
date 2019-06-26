@@ -6,8 +6,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -159,7 +158,7 @@ class SignUpScreen extends Component<Props> {
     if ( error.includes( "\n" ) ) {
       newError = error.replace( /\n/g, " " );
     }
-    return newError;
+    return newError || error;
   }
 
   render() {

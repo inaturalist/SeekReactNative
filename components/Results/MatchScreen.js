@@ -309,7 +309,7 @@ class MatchScreen extends Component<Props> {
                   style={styles.imageCell}
                   source={{ uri: userImage }}
                 />
-                {numOfImages === 2 ? (
+                {numOfImages === 2 && speciesSeenImage ? (
                   <Image
                     style={styles.imageCell}
                     source={{ uri: speciesSeenImage }}

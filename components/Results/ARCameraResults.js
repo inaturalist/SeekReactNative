@@ -123,6 +123,29 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
+  setSpeciesInfo( species, taxa ) {
+    const taxaId = Number( species.taxon_id );
+
+    getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
+      this.setState( {
+        taxaId,
+        taxaName: commonName || taxa.name,
+        scientificName: taxa.name,
+        observation: {
+          taxon: {
+            default_photo: taxa.default_photo,
+            id: taxaId,
+            name: taxa.name,
+            preferred_common_name: commonName,
+            iconic_taxon_id: taxa.iconic_taxon_id,
+            ancestor_ids: taxa.ancestor_ids
+          }
+        },
+        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
+      }, () => this.setMatch( true ) );
+    } );
+  }
+
   async showMatch() {
     const { seenDate } = this.state;
 
@@ -148,29 +171,6 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
-  setSpeciesInfo( species, taxa ) {
-    const taxaId = Number( species.taxon_id );
-
-    getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
-      this.setState( {
-        taxaId,
-        taxaName: commonName || taxa.name,
-        scientificName: taxa.name,
-        observation: {
-          taxon: {
-            default_photo: taxa.default_photo,
-            id: taxaId,
-            name: taxa.name,
-            preferred_common_name: commonName,
-            iconic_taxon_id: taxa.iconic_taxon_id,
-            ancestor_ids: taxa.ancestor_ids
-          }
-        },
-        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
-      }, () => this.setMatch( true ) );
-    } );
-  }
-
   fetchAdditionalSpeciesInfo( species ) {
     inatjs.taxa.fetch( species.taxon_id ).then( ( response ) => {
       const taxa = response.results[0];
@@ -186,7 +186,7 @@ class ARCameraResults extends Component<Props> {
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
       this.setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
-      this.setError( "ancestorInfo" );
+      this.setCommonAncestor( ancestor );
     } );
   }
 
@@ -235,8 +235,6 @@ class ARCameraResults extends Component<Props> {
       image,
       time
     } = this.state;
-
-    console.log( observation, "obs" );
 
     if ( latitude && longitude ) {
       addToCollection( observation, latitude, longitude, image, time );

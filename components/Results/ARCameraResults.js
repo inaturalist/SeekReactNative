@@ -7,14 +7,12 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
 import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
-  capitalizeNames,
   getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
@@ -129,13 +127,13 @@ class ARCameraResults extends Component<Props> {
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {
         taxaId,
-        taxaName: commonName || taxa.name,
-        scientificName: taxa.name,
+        taxaName: commonName || species.name,
+        scientificName: species.name,
         observation: {
           taxon: {
             default_photo: taxa.default_photo,
             id: taxaId,
-            name: taxa.name,
+            name: species.name,
             preferred_common_name: commonName,
             iconic_taxon_id: taxa.iconic_taxon_id,
             ancestor_ids: taxa.ancestor_ids
@@ -176,7 +174,8 @@ class ARCameraResults extends Component<Props> {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
-      this.setError( "taxaInfo" );
+      this.setSpeciesInfo( species );
+      // this.setError( "taxaInfo" );
     } );
   }
 

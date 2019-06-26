@@ -131,10 +131,10 @@ class ARCamera extends Component<Props> {
         photo = results.edges[0].node;
         this.navigateToResults( photo );
       } else {
-        this.setError( "fetch" );
+        this.setError( "save" );
       }
     } ).catch( () => {
-      this.setError( "fetch" );
+      this.setError( "save" );
     } );
   }
 
@@ -161,7 +161,7 @@ class ARCamera extends Component<Props> {
       this.setImagePredictions( photo.predictions );
       this.savePhotoToGallery( photo );
     } else {
-      this.setError( "cameraRoll" );
+      this.setError( "save" );
     }
   }
 
@@ -273,8 +273,6 @@ class ARCamera extends Component<Props> {
 
     if ( error === "permissions" ) {
       errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "cameraRoll" ) {
-      errorText = i18n.t( "camera.error_gallery" );
     } else if ( error === "camera" ) {
       errorText = i18n.t( "camera.error_old_camera" );
     } else if ( error === "classifier" ) {
@@ -282,9 +280,7 @@ class ARCamera extends Component<Props> {
     } else if ( error === "device" ) {
       errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
-      errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "fetch" ) {
-      errorText = i18n.t( "camera.error_fetching_photos" );
+      errorText = i18n.t( "camera.error_gallery" );
     }
 
     let helpText;

@@ -99,7 +99,7 @@ class ARCamera extends Component<Props> {
 
   onCameraError = ( event ) => {
     if ( event ) {
-      this.setError( "camera" );
+      this.setError( "permissions" );
     }
   }
 
@@ -273,8 +273,8 @@ class ARCamera extends Component<Props> {
 
     if ( error === "permissions" ) {
       errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "camera" ) {
-      errorText = i18n.t( "camera.error_old_camera" );
+    // } else if ( error === "camera" ) {
+    //   errorText = i18n.t( "camera.error_old_camera" );
     } else if ( error === "classifier" ) {
       errorText = i18n.t( "camera.error_classifier" );
     } else if ( error === "device" ) {
@@ -316,8 +316,12 @@ class ARCamera extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : null}
-        {error && error !== "save" ? <Text style={styles.errorText}>{errorText}</Text> : null}
-        {error && error === "save" ? <PermissionError error={errorText} /> : null}
+        {error && ( error === "save" || error === "permissions" )
+          ? <PermissionError error={errorText} />
+          : null}
+        {error && error !== "save" && error !== "permissions"
+          ? <Text style={styles.errorText}>{errorText}</Text>
+          : null}
         <TouchableOpacity
           style={styles.backButton}
           hitSlop={styles.touchable}

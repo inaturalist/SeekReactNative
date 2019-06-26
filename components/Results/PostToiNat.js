@@ -10,7 +10,7 @@ import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
-import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
+import { fetchPostingSuccess, savePostingSuccess, fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any,
@@ -23,8 +23,20 @@ class PostToiNat extends Component<Props> {
     super();
 
     this.state = {
-      postingSuccess: false
+      postingSuccess: false,
+      isLoggedIn: false
     };
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   async fetchPostingStatus() {
@@ -36,16 +48,17 @@ class PostToiNat extends Component<Props> {
 
   render() {
     const { navigation, color, taxaInfo } = this.props;
-    const { postingSuccess } = this.state;
+    const { postingSuccess, isLoggedIn } = this.state;
 
     return (
       <View>
         <NavigationEvents
           onWillFocus={() => {
+            this.getLoggedIn();
             this.fetchPostingStatus();
           }}
         />
-        {postingSuccess
+        {postingSuccess || !isLoggedIn
           ? null
           : (
             <View>

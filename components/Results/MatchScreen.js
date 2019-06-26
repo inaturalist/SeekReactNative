@@ -49,7 +49,6 @@ class MatchScreen extends Component<Props> {
       time,
       seenDate,
       commonAncestor,
-      isLoggedIn,
       match
     } = navigation.state.params;
 
@@ -63,7 +62,6 @@ class MatchScreen extends Component<Props> {
       navigationPath: null,
       userImage,
       image,
-      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -192,7 +190,6 @@ class MatchScreen extends Component<Props> {
       challengeInProgress,
       userImage,
       image,
-      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -358,7 +355,7 @@ class MatchScreen extends Component<Props> {
                 </TouchableOpacity>
               ) : null}
               <View style={{ marginBottom: 28 }} />
-              {isLoggedIn && latitude && longitude
+              {latitude && longitude
                 ? (
                   <PostToiNat
                     navigation={navigation}

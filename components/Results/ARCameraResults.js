@@ -19,7 +19,6 @@ import {
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -79,17 +78,6 @@ class ARCameraResults extends Component<Props> {
     } else {
       this.setLocation();
     }
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
   }
 
   setImageForUploading( imageForUploading ) {
@@ -285,7 +273,6 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       time,
-      isLoggedIn,
       match
     } = this.state;
 
@@ -301,7 +288,6 @@ class ARCameraResults extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      isLoggedIn,
       match
     } );
   }
@@ -315,7 +301,6 @@ class ARCameraResults extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
-            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
           }}

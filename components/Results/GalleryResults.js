@@ -8,7 +8,6 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
@@ -22,7 +21,6 @@ import {
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -90,17 +88,6 @@ class Results extends Component<Props> {
     }
   }
 
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
   setMatch( match ) {
     const { clicked } = this.state;
     this.setState( { match }, () => {
@@ -166,7 +153,6 @@ class Results extends Component<Props> {
     } = this.state;
 
     const params = flattenUploadParameters( userImage, time, latitude, longitude );
-    params.locale = i18n.currentLocale();
 
     this.fetchScore( params );
   }
@@ -297,7 +283,6 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       time,
-      isLoggedIn,
       match
     } = this.state;
 
@@ -313,7 +298,6 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      isLoggedIn,
       match
     } );
   }
@@ -332,7 +316,6 @@ class Results extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
-            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
           }}

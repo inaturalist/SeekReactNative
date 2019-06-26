@@ -5,8 +5,7 @@ import {
   TouchableOpacity,
   Image,
   View,
-  Text,
-  Alert
+  Text
 } from "react-native";
 
 import i18n from "../../i18n";

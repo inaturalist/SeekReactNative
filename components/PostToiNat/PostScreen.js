@@ -412,7 +412,7 @@ class PostScreen extends Component<Props> {
               image={userImage}
               commonName={seekId.preferredCommonName}
               scientificName={seekId.name}
-              seekId={seekId.id}
+              seekId={seekId.taxaId}
               updateTaxon={this.updateTaxon}
             />
           </Modal>

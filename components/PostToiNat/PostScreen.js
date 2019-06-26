@@ -63,6 +63,11 @@ class PostScreen extends Component<Props> {
         name: scientificName,
         taxaId
       },
+      seekId: {
+        preferredCommonName: taxaName || commonAncestor,
+        name: scientificName,
+        taxaId
+      },
       modalVisible: false,
       isDateTimePickerVisible: false,
       error: null,
@@ -359,6 +364,7 @@ class PostScreen extends Component<Props> {
     const { navigation } = this.props;
     const {
       taxon,
+      seekId,
       userImage,
       date,
       location,
@@ -404,8 +410,9 @@ class PostScreen extends Component<Props> {
             <SelectSpecies
               toggleSpeciesModal={this.toggleSpeciesModal}
               image={userImage}
-              commonName={taxon.preferredCommonName}
-              scientificName={taxon.name}
+              commonName={seekId.preferredCommonName}
+              scientificName={seekId.name}
+              seekId={seekId.id}
               updateTaxon={this.updateTaxon}
             />
           </Modal>

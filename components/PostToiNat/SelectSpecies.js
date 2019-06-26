@@ -11,8 +11,7 @@ import {
   Platform,
   TouchableOpacity,
   TextInput,
-  FlatList,
-  Alert
+  FlatList
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -30,7 +29,8 @@ type Props = {
   image: string,
   commonName: string,
   scientificName: string,
-  updateTaxon: Function
+  updateTaxon: Function,
+  seekId: Number
 }
 
 
@@ -90,7 +90,8 @@ class SelectSpecies extends Component<Props> {
       updateTaxon,
       image,
       commonName,
-      scientificName
+      scientificName,
+      seekId
     } = this.props;
 
     return (
@@ -142,6 +143,7 @@ class SelectSpecies extends Component<Props> {
                   scientificName={scientificName}
                   toggleSpeciesModal={toggleSpeciesModal}
                   updateTaxon={updateTaxon}
+                  id={seekId}
                 />
               ) : (
                 <FlatList

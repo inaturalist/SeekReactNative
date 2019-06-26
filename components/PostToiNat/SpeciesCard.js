@@ -32,12 +32,8 @@ const SpeciesCard = ( {
   <TouchableOpacity
     style={styles.card}
     onPress={() => {
-      if ( id ) {
-        updateTaxon( id, commonName, scientificName );
-        toggleSpeciesModal();
-      } else {
-        toggleSpeciesModal();
-      }
+      updateTaxon( id, commonName, scientificName );
+      toggleSpeciesModal();
     }}
   >
     <Image style={styles.roundImage} source={{ uri: image }} />

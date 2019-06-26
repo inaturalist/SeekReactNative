@@ -273,8 +273,6 @@ class ARCamera extends Component<Props> {
 
     if ( error === "permissions" ) {
       errorText = i18n.t( "camera.error_camera" );
-    // } else if ( error === "camera" ) {
-    //   errorText = i18n.t( "camera.error_old_camera" );
     } else if ( error === "classifier" ) {
       errorText = i18n.t( "camera.error_classifier" );
     } else if ( error === "device" ) {

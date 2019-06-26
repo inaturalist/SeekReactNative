@@ -206,35 +206,30 @@ class MatchScreen extends Component<Props> {
     let gradientColorDark;
     let gradientColorLight;
     let text;
-    let numOfImages;
     let speciesText;
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      numOfImages = 2;
       text = i18n.t( "results.date_observed", { seenDate } );
       speciesText = taxaName;
     } else if ( taxaName && match ) {
       headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      numOfImages = 2;
       text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
       headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
-      numOfImages = 2;
       text = i18n.t( "results.common_ancestor" );
       speciesText = commonAncestor;
     } else {
       headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
       gradientColorDark = "#404040";
       gradientColorLight = "#5e5e5e";
-      numOfImages = 1;
       text = i18n.t( "results.sorry" );
       speciesText = null;
     }
@@ -309,7 +304,7 @@ class MatchScreen extends Component<Props> {
                   style={styles.imageCell}
                   source={{ uri: userImage }}
                 />
-                {numOfImages === 2 && speciesSeenImage ? (
+                {speciesSeenImage ? (
                   <Image
                     style={styles.imageCell}
                     source={{ uri: speciesSeenImage }}

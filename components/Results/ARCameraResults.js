@@ -116,12 +116,8 @@ class ARCameraResults extends Component<Props> {
     const species = predictions.find( leaf => ( leaf.rank === 10 && leaf.score > threshold ) );
 
     if ( species ) {
-      this.setState( {
-        taxaId: Number( species.taxon_id )
-      }, () => {
-        this.checkDateSpeciesSeen( Number( species.taxon_id ) );
-        this.fetchAdditionalTaxaInfo();
-      } );
+      this.checkDateSpeciesSeen( Number( species.taxon_id ) );
+      this.fetchAdditionalSpeciesInfo( species );
     } else {
       this.checkForCommonAncestor();
     }
@@ -152,31 +148,33 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
-  fetchAdditionalTaxaInfo() {
-    const { taxaId } = this.state;
+  setSpeciesInfo( species, taxa ) {
+    const taxaId = Number( species.taxon_id );
 
-    const params = {
-      locale: i18n.currentLocale()
-    };
-
-    inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
-      const taxa = response.results[0];
-
+    getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {
-        taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
+        taxaId,
+        taxaName: commonName || taxa.name,
         scientificName: taxa.name,
         observation: {
           taxon: {
             default_photo: taxa.default_photo,
-            id: Number( taxaId ),
+            id: taxaId,
             name: taxa.name,
-            preferred_common_name: taxa.preferred_common_name,
+            preferred_common_name: commonName,
             iconic_taxon_id: taxa.iconic_taxon_id,
             ancestor_ids: taxa.ancestor_ids
           }
         },
         speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
       }, () => this.setMatch( true ) );
+    } );
+  }
+
+  fetchAdditionalSpeciesInfo( species ) {
+    inatjs.taxa.fetch( species.taxon_id ).then( ( response ) => {
+      const taxa = response.results[0];
+      this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
       this.setError( "taxaInfo" );
     } );
@@ -237,6 +235,8 @@ class ARCameraResults extends Component<Props> {
       image,
       time
     } = this.state;
+
+    console.log( observation, "obs" );
 
     if ( latitude && longitude ) {
       addToCollection( observation, latitude, longitude, image, time );

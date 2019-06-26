@@ -329,13 +329,15 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        <ARCameraHeader
-          commonName={commonName}
-          ranks={ranks}
-          rankToRender={rankToRender}
-        />
+        {!error ? (
+          <ARCameraHeader
+            commonName={commonName}
+            ranks={ranks}
+            rankToRender={rankToRender}
+          />
+        ) : null}
         {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
-        {!pictureTaken ? (
+        {!pictureTaken && !error ? (
           <TouchableOpacity
             onPress={() => {
               this.setPictureTaken( true );
@@ -347,13 +349,14 @@ class ARCamera extends Component<Props> {
               ? <Image source={icons.arCameraGreen} />
               : <Image source={icons.arCameraButton} />}
           </TouchableOpacity>
-        ) : (
+        ) : null}
+        {pictureTaken && !error ? (
           <View style={styles.shutter}>
             {ranks && ranks.species
               ? <Image source={icons.arCameraGreen} />
               : <Image source={icons.arCameraButton} />}
           </View>
-        )}
+        ) : null}
         {!error ? (
           <TouchableOpacity
             onPress={() => navigation.navigate( "CameraHelp" )}

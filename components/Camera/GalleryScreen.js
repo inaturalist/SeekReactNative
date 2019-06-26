@@ -16,7 +16,7 @@ import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
-import ErrorScreen from "./ErrorScreen";
+import PermissionError from "./PermissionError";
 import LoadingWheel from "../LoadingWheel";
 import { checkCameraRollPermissions, checkForPhotoMetaData } from "../../utility/photoHelpers";
 import styles from "../../styles/camera/gallery";
@@ -160,7 +160,7 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <ErrorScreen error={i18n.t( "camera.error_gallery" )} />;
+      gallery = <PermissionError error={i18n.t( "camera.error_gallery" )} />;
     } else if ( loading ) {
       gallery = (
         <View style={styles.loadingWheel}>

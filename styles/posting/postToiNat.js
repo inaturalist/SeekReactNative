@@ -114,7 +114,7 @@ export default StyleSheet.create( {
     width: width - 54,
     fontFamily: fonts.book,
     fontSize: 16,
-    color: "#808080",
+    color: colors.black,
     textAlignVertical: "top"
   }
 } );

@@ -174,8 +174,7 @@ class ARCameraResults extends Component<Props> {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
-      this.setSpeciesInfo( species );
-      // this.setError( "taxaInfo" );
+      this.setError( "taxaInfo" );
     } );
   }
 

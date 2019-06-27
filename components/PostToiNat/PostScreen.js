@@ -16,7 +16,6 @@ import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
-import icons from "../../assets/icons";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
@@ -449,7 +448,7 @@ class PostScreen extends Component<Props> {
           <TouchableOpacity
             onPress={() => navigation.navigate( "PostingHelp" )}
           >
-            <Image source={icons.cameraHelp} style={styles.help} />
+            <Image source={posting.postingHelp} style={styles.help} />
           </TouchableOpacity>
           <ScrollView keyboardDismissMode="on-drag">
             <TouchableOpacity

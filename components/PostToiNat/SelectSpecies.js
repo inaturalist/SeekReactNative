@@ -11,7 +11,8 @@ import {
   Platform,
   TouchableOpacity,
   TextInput,
-  FlatList
+  FlatList,
+  Keyboard
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -117,6 +118,7 @@ class SelectSpecies extends Component<Props> {
           <ScrollView
             ref={( ref ) => { this.scrollView = ref; }}
             keyboardDismissMode="on-drag"
+            onScroll={() => Keyboard.dismiss()}
           >
             <View style={styles.photoContainer}>
               <Image source={{ uri: image }} style={styles.image} />

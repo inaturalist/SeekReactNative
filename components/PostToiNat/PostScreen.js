@@ -9,7 +9,8 @@ import {
   SafeAreaView,
   Modal,
   Platform,
-  TextInput
+  TextInput,
+  Keyboard
 } from "react-native";
 import { NavigationEvents, ScrollView } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";
@@ -450,7 +451,10 @@ class PostScreen extends Component<Props> {
           >
             <Image source={posting.postingHelp} style={styles.help} />
           </TouchableOpacity>
-          <ScrollView keyboardDismissMode="on-drag">
+          <ScrollView
+            keyboardDismissMode="on-drag"
+            onScroll={() => Keyboard.dismiss()}
+          >
             <TouchableOpacity
               style={styles.card}
               onPress={() => this.toggleSpeciesModal()}

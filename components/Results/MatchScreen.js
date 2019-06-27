@@ -28,6 +28,7 @@ import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -72,7 +73,8 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      challengeShown: false
+      challengeShown: false,
+      isLoggedIn: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -101,6 +103,17 @@ class MatchScreen extends Component<Props> {
 
   setChallengeInProgress( challengeInProgress ) {
     this.setState( { challengeInProgress } );
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
   }
 
   toggleChallengeModal() {
@@ -199,7 +212,8 @@ class MatchScreen extends Component<Props> {
       time,
       seenDate,
       commonAncestor,
-      match
+      match,
+      isLoggedIn
     } = this.state;
 
     let headerText;
@@ -240,15 +254,27 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           {match && !seenDate ? (
             <NavigationEvents
-              onWillFocus={() => this.scrollToTop()}
+              onWillFocus={() => {
+                this.scrollToTop();
+              }}
               onDidFocus={() => {
+                this.getLoggedIn();
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
                 this.checkLocationPermissions();
               }}
               onWillBlur={() => setChallengeProgress( "none" )}
             />
-          ) : null}
+          ) : (
+            <NavigationEvents
+              onWillFocus={() => {
+                this.scrollToTop();
+              }}
+              onDidFocus={() => {
+                this.getLoggedIn();
+              }}
+            />
+          )}
           {match && !seenDate && latitude ? (
             <Banner
               navigation={navigation}
@@ -346,29 +372,26 @@ class MatchScreen extends Component<Props> {
                   style={styles.link}
                   onPress={() => this.setNavigationPath( "Camera" )}
                 >
-                  <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
+                  <Text style={[styles.linkText, { marginBottom: 28 }]}>{i18n.t( "results.back" )}</Text>
                 </TouchableOpacity>
               ) : null}
-              <View style={{ marginBottom: 28 }} />
-              {latitude && longitude
-                ? (
-                  <PostToiNat
-                    navigation={navigation}
-                    color={gradientColorLight}
-                    taxaInfo={{
-                      taxaName,
-                      taxaId,
-                      image,
-                      userImage,
-                      scientificName,
-                      latitude,
-                      longitude,
-                      time,
-                      commonAncestor
-                    }}
-                  />
-                ) : null
-              }
+              {isLoggedIn ? (
+                <PostToiNat
+                  navigation={navigation}
+                  color={gradientColorLight}
+                  taxaInfo={{
+                    taxaName,
+                    taxaId,
+                    image,
+                    userImage,
+                    scientificName,
+                    latitude,
+                    longitude,
+                    time,
+                    commonAncestor
+                  }}
+                />
+              ) : null}
             </View>
             <Padding />
           </ScrollView>

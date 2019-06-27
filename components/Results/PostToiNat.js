@@ -10,7 +10,7 @@ import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
-import { fetchPostingSuccess, savePostingSuccess, fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any,
@@ -23,20 +23,8 @@ class PostToiNat extends Component<Props> {
     super();
 
     this.state = {
-      postingSuccess: false,
-      isLoggedIn: false
+      postingSuccess: false
     };
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
   }
 
   async fetchPostingStatus() {
@@ -48,7 +36,9 @@ class PostToiNat extends Component<Props> {
 
   render() {
     const { navigation, color, taxaInfo } = this.props;
-    const { postingSuccess, isLoggedIn } = this.state;
+    const { postingSuccess } = this.state;
+
+    const { latitude, longitude } = taxaInfo;
 
     return (
       <View>
@@ -58,7 +48,7 @@ class PostToiNat extends Component<Props> {
             this.fetchPostingStatus();
           }}
         />
-        {postingSuccess || !isLoggedIn
+        {postingSuccess || !latitude || !longitude
           ? null
           : (
             <View>

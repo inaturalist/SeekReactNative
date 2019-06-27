@@ -44,7 +44,6 @@ class PostToiNat extends Component<Props> {
       <View>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLoggedIn();
             this.fetchPostingStatus();
           }}
         />

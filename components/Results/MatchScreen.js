@@ -28,7 +28,6 @@ import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -50,7 +49,8 @@ class MatchScreen extends Component<Props> {
       time,
       seenDate,
       commonAncestor,
-      match
+      match,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -74,7 +74,7 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       challengeShown: false,
-      isLoggedIn: null
+      isLoggedIn
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -103,17 +103,6 @@ class MatchScreen extends Component<Props> {
 
   setChallengeInProgress( challengeInProgress ) {
     this.setState( { challengeInProgress } );
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
   }
 
   toggleChallengeModal() {
@@ -258,7 +247,6 @@ class MatchScreen extends Component<Props> {
                 this.scrollToTop();
               }}
               onDidFocus={() => {
-                this.getLoggedIn();
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
                 this.checkLocationPermissions();
@@ -269,9 +257,6 @@ class MatchScreen extends Component<Props> {
             <NavigationEvents
               onWillFocus={() => {
                 this.scrollToTop();
-              }}
-              onDidFocus={() => {
-                this.getLoggedIn();
               }}
             />
           )}

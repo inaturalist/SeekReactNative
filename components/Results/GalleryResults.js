@@ -21,6 +21,7 @@ import {
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
   navigation: any
@@ -53,7 +54,8 @@ class Results extends Component<Props> {
       scientificName: null,
       imageForUploading: null,
       match: null,
-      clicked: false
+      clicked: false,
+      isLoggedIn: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
@@ -85,6 +87,17 @@ class Results extends Component<Props> {
       } else {
         this.setLocation();
       }
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
     }
   }
 
@@ -283,7 +296,8 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       time,
-      match
+      match,
+      isLoggedIn
     } = this.state;
 
     navigation.navigate( route, {
@@ -298,7 +312,8 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      match
+      match,
+      isLoggedIn
     } );
   }
 
@@ -316,6 +331,7 @@ class Results extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
+            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
           }}

@@ -111,7 +111,7 @@ export default StyleSheet.create( {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
   },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 58
+    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 28
   },
   textLink: {
     marginTop: 21,

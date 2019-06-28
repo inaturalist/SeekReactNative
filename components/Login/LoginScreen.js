@@ -120,15 +120,14 @@ class LoginScreen extends Component<Props> {
               textContentType="password"
               autoCapitalize="none"
             />
-            {/* <View style={styles.rightTextContainer}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "Forgot" )}
-              >
-                <Text style={styles.forgotPasswordText}>
-                  {i18n.t( "inat_login.forgot_password" )}
-                </Text>
-              </TouchableOpacity>
-            </View> */}
+            <TouchableOpacity
+              style={styles.rightTextContainer}
+              onPress={() => navigation.navigate( "Forgot" )}
+            >
+              <Text style={styles.forgotPasswordText}>
+                {i18n.t( "inat_login.forgot_password" )}
+              </Text>
+            </TouchableOpacity>
             {error ? <ErrorMessage error="credentials" /> : null}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}

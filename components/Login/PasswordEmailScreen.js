@@ -34,7 +34,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
         <View style={{ marginTop: 51 }} />
         <TouchableOpacity
           style={styles.greenButton}
-          onPress={() => navigation.navigate( "Login" )}
+          onPress={() => navigation.navigate( "LoginOrSignup" )}
         >
           <Text style={styles.buttonText}>
             {i18n.t( "inat_login.return_login" ).toLocaleUpperCase()}

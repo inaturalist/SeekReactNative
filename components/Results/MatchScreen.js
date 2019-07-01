@@ -16,11 +16,13 @@ import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
+import FlagModal from "./FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
+import MatchFooter from "./MatchFooter";
 import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
@@ -60,6 +62,7 @@ class MatchScreen extends Component<Props> {
       challengeInProgress: null,
       showLevelModal: false,
       showChallengeModal: false,
+      showFlagModal: false,
       navigationPath: null,
       userImage,
       image,
@@ -79,6 +82,7 @@ class MatchScreen extends Component<Props> {
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    this.toggleFlagModal = this.toggleFlagModal.bind( this );
   }
 
   setNavigationPath( navigationPath ) {
@@ -115,6 +119,12 @@ class MatchScreen extends Component<Props> {
     const { showLevelModal } = this.state;
 
     this.setState( { showLevelModal: !showLevelModal } );
+  }
+
+  toggleFlagModal() {
+    const { showFlagModal } = this.state;
+
+    this.setState( { showFlagModal: !showFlagModal } );
   }
 
   checkForNewBadges() {
@@ -187,6 +197,7 @@ class MatchScreen extends Component<Props> {
       badge,
       showChallengeModal,
       showLevelModal,
+      showFlagModal,
       latestLevel,
       challenge,
       challengeInProgress,
@@ -296,6 +307,22 @@ class MatchScreen extends Component<Props> {
               />
             </Modal>
           ) : null}
+          {match || seenDate ? (
+            <Modal
+              isVisible={showFlagModal}
+              onSwipeComplete={() => this.toggleFlagModal()}
+              onBackdropPress={() => this.toggleFlagModal()}
+              swipeDirection="down"
+              onModalHide={() => this.toggleFlagModal()}
+            >
+              <FlagModal
+                toggleFlagModal={this.toggleFlagModal}
+                userImage={userImage}
+                speciesSeenImage={speciesSeenImage}
+                speciesText={speciesText}
+              />
+            </Modal>
+          ) : null}
           <ScrollView
             ref={( ref ) => { this.scrollView = ref; }}
           >
@@ -380,7 +407,10 @@ class MatchScreen extends Component<Props> {
             </View>
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
+          {match || seenDate
+            ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
+            : <Footer navigation={navigation} />
+          }
         </SafeAreaView>
       </View>
     );

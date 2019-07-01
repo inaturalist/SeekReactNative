@@ -308,13 +308,7 @@ class MatchScreen extends Component<Props> {
             </Modal>
           ) : null}
           {match || seenDate ? (
-            <Modal
-              isVisible={showFlagModal}
-              onSwipeComplete={() => this.toggleFlagModal()}
-              onBackdropPress={() => this.toggleFlagModal()}
-              swipeDirection="down"
-              onModalHide={() => this.toggleFlagModal()}
-            >
+            <Modal isVisible={showFlagModal}>
               <FlagModal
                 toggleFlagModal={this.toggleFlagModal}
                 userImage={userImage}

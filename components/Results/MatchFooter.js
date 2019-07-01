@@ -36,7 +36,7 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
           style={styles.button}
           onPress={() => toggleFlagModal()}
         >
-          <Image source={icons.birdTeal} />
+          <Image source={icons.flag} />
         </TouchableOpacity>
       </View>
     </ImageBackground>

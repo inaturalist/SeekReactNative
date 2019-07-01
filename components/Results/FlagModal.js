@@ -43,19 +43,17 @@ const FlagModal = ( {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        <View style={styles.header}>
-          <View style={[styles.imageContainer, styles.buttonContainer]}>
+        <View style={[styles.imageContainer, styles.buttonContainer]}>
+          <Image
+            style={styles.flagImageCell}
+            source={{ uri: userImage }}
+          />
+          {speciesSeenImage ? (
             <Image
               style={styles.flagImageCell}
-              source={{ uri: userImage }}
+              source={{ uri: speciesSeenImage }}
             />
-            {speciesSeenImage ? (
-              <Image
-                style={styles.flagImageCell}
-                source={{ uri: speciesSeenImage }}
-              />
-            ) : null}
-          </View>
+          ) : null}
         </View>
       </LinearGradient>
       <View style={styles.flagContainer}>

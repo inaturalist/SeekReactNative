@@ -8,7 +8,6 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
@@ -17,7 +16,8 @@ import styles from "../../styles/results/confirm";
 import {
   addToCollection,
   capitalizeNames,
-  flattenUploadParameters
+  flattenUploadParameters,
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
@@ -54,7 +54,8 @@ class Results extends Component<Props> {
       scientificName: null,
       imageForUploading: null,
       match: null,
-      clicked: false
+      clicked: false,
+      isLoggedIn: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
@@ -89,15 +90,15 @@ class Results extends Component<Props> {
     }
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
   async getLoggedIn() {
     const login = await fetchAccessToken();
     if ( login ) {
       this.setLoggedIn( true );
     }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
   }
 
   setMatch( match ) {
@@ -129,27 +130,31 @@ class Results extends Component<Props> {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
-    this.setState( {
-      observation: species,
-      taxaId: taxon.id,
-      taxaName: capitalizeNames( taxon.preferred_common_name || taxon.name ),
-      scientificName: taxon.name,
-      speciesSeenImage: photo ? photo.medium_url : null
-    }, () => this.setMatch( true ) );
+    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+      this.setState( {
+        observation: species,
+        taxaId: taxon.id,
+        taxaName: capitalizeNames( commonName || taxon.name ),
+        scientificName: taxon.name,
+        speciesSeenImage: photo ? photo.medium_url : null
+      }, () => this.setMatch( true ) );
+    } );
   }
 
   setOnlineVisionAncestorResults( commonAncestor ) {
     const { taxon } = commonAncestor;
     const photo = taxon.default_photo;
 
-    this.setState( {
-      commonAncestor: commonAncestor
-        ? capitalizeNames( taxon.preferred_common_name || taxon.name )
-        : null,
-      taxaId: taxon.id,
-      speciesSeenImage: photo ? photo.medium_url : null,
-      scientificName: taxon.name
-    }, () => this.setMatch( false ) );
+    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+      this.setState( {
+        commonAncestor: commonAncestor
+          ? capitalizeNames( commonName || taxon.name )
+          : null,
+        taxaId: taxon.id,
+        speciesSeenImage: photo ? photo.medium_url : null,
+        scientificName: taxon.name
+      }, () => this.setMatch( false ) );
+    } );
   }
 
   getParamsForOnlineVision() {
@@ -161,7 +166,6 @@ class Results extends Component<Props> {
     } = this.state;
 
     const params = flattenUploadParameters( userImage, time, latitude, longitude );
-    params.locale = i18n.currentLocale();
 
     this.fetchScore( params );
   }
@@ -292,8 +296,8 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       time,
-      isLoggedIn,
-      match
+      match,
+      isLoggedIn
     } = this.state;
 
     navigation.navigate( route, {
@@ -308,8 +312,8 @@ class Results extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      isLoggedIn,
-      match
+      match,
+      isLoggedIn
     } );
   }
 

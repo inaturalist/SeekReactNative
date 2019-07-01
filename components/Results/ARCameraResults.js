@@ -7,14 +7,12 @@ import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import i18n from "../../i18n";
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
 import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
-  capitalizeNames,
   getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
@@ -52,7 +50,8 @@ class ARCameraResults extends Component<Props> {
       error: null,
       scientificName: null,
       imageForUploading: null,
-      match: null
+      match: null,
+      isLoggedIn: null
     };
   }
 
@@ -81,15 +80,15 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
   async getLoggedIn() {
     const login = await fetchAccessToken();
     if ( login ) {
       this.setLoggedIn( true );
     }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
   }
 
   setImageForUploading( imageForUploading ) {
@@ -128,15 +127,34 @@ class ARCameraResults extends Component<Props> {
     const species = predictions.find( leaf => ( leaf.rank === 10 && leaf.score > threshold ) );
 
     if ( species ) {
-      this.setState( {
-        taxaId: Number( species.taxon_id )
-      }, () => {
-        this.checkDateSpeciesSeen( Number( species.taxon_id ) );
-        this.fetchAdditionalTaxaInfo();
-      } );
+      this.checkDateSpeciesSeen( Number( species.taxon_id ) );
+      this.fetchAdditionalSpeciesInfo( species );
     } else {
       this.checkForCommonAncestor();
     }
+  }
+
+  setSpeciesInfo( species, taxa ) {
+    const taxaId = Number( species.taxon_id );
+
+    getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
+      this.setState( {
+        taxaId,
+        taxaName: commonName || species.name,
+        scientificName: species.name,
+        observation: {
+          taxon: {
+            default_photo: taxa.default_photo,
+            id: taxaId,
+            name: species.name,
+            preferred_common_name: commonName,
+            iconic_taxon_id: taxa.iconic_taxon_id,
+            ancestor_ids: taxa.ancestor_ids
+          }
+        },
+        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
+      }, () => this.setMatch( true ) );
+    } );
   }
 
   async showMatch() {
@@ -164,31 +182,10 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
-  fetchAdditionalTaxaInfo() {
-    const { taxaId } = this.state;
-
-    const params = {
-      locale: i18n.currentLocale()
-    };
-
-    inatjs.taxa.fetch( taxaId, params ).then( ( response ) => {
+  fetchAdditionalSpeciesInfo( species ) {
+    inatjs.taxa.fetch( species.taxon_id ).then( ( response ) => {
       const taxa = response.results[0];
-
-      this.setState( {
-        taxaName: capitalizeNames( taxa.preferred_common_name || taxa.name ),
-        scientificName: taxa.name,
-        observation: {
-          taxon: {
-            default_photo: taxa.default_photo,
-            id: Number( taxaId ),
-            name: taxa.name,
-            preferred_common_name: taxa.preferred_common_name,
-            iconic_taxon_id: taxa.iconic_taxon_id,
-            ancestor_ids: taxa.ancestor_ids
-          }
-        },
-        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
-      }, () => this.setMatch( true ) );
+      this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
       this.setError( "taxaInfo" );
     } );
@@ -200,7 +197,7 @@ class ARCameraResults extends Component<Props> {
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
       this.setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
-      this.setError( "ancestorInfo" );
+      this.setCommonAncestor( ancestor );
     } );
   }
 
@@ -285,8 +282,8 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       time,
-      isLoggedIn,
-      match
+      match,
+      isLoggedIn
     } = this.state;
 
     navigation.navigate( route, {
@@ -301,8 +298,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       time,
       commonAncestor,
-      isLoggedIn,
-      match
+      match,
+      isLoggedIn
     } );
   }
 

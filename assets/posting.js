@@ -10,7 +10,8 @@ const posting = {
   search: require( "./posting/icon-search.png" ),
   searchGreen: require( "./posting/icon-search-green.png" ),
   uploadfail: require( "./posting/icon-uploadfail.png"),
-  uploadsuccess: require( "./posting/icon-uploadsuccess.png")
+  uploadsuccess: require( "./posting/icon-uploadsuccess.png"),
+  postingHelp: require( "./posting/icon-help.png")
 };
 
 export default posting;

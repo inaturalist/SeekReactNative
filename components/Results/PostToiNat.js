@@ -38,6 +38,8 @@ class PostToiNat extends Component<Props> {
     const { navigation, color, taxaInfo } = this.props;
     const { postingSuccess } = this.state;
 
+    const { latitude, longitude } = taxaInfo;
+
     return (
       <View>
         <NavigationEvents
@@ -45,7 +47,7 @@ class PostToiNat extends Component<Props> {
             this.fetchPostingStatus();
           }}
         />
-        {postingSuccess
+        {postingSuccess || !latitude || !longitude
           ? null
           : (
             <View>

@@ -6,8 +6,6 @@ import {
 
 const { height } = Dimensions.get( "window" );
 
-console.log( height, "height" );
-
 export default StyleSheet.create( {
   outerContainer: {
     flex: 1

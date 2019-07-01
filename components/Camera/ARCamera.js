@@ -21,6 +21,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
+import PermissionError from "./PermissionError";
 import { getTaxonCommonName } from "../../utility/helpers";
 import { checkCameraRollPermissions } from "../../utility/photoHelpers";
 
@@ -98,7 +99,7 @@ class ARCamera extends Component<Props> {
 
   onCameraError = ( event ) => {
     if ( event ) {
-      this.setError( "camera" );
+      this.setError( "permissions" );
     }
   }
 
@@ -130,10 +131,10 @@ class ARCamera extends Component<Props> {
         photo = results.edges[0].node;
         this.navigateToResults( photo );
       } else {
-        this.setError( "fetch" );
+        this.setError( "save" );
       }
     } ).catch( () => {
-      this.setError( "fetch" );
+      this.setError( "save" );
     } );
   }
 
@@ -160,7 +161,7 @@ class ARCamera extends Component<Props> {
       this.setImagePredictions( photo.predictions );
       this.savePhotoToGallery( photo );
     } else {
-      this.setError( "cameraRoll" );
+      this.setError( "save" );
     }
   }
 
@@ -272,18 +273,12 @@ class ARCamera extends Component<Props> {
 
     if ( error === "permissions" ) {
       errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "cameraRoll" ) {
-      errorText = i18n.t( "camera.error_gallery" );
-    } else if ( error === "camera" ) {
-      errorText = i18n.t( "camera.error_old_camera" );
     } else if ( error === "classifier" ) {
       errorText = i18n.t( "camera.error_classifier" );
     } else if ( error === "device" ) {
       errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
-      errorText = i18n.t( "camera.error_saving_photos" );
-    } else if ( error === "fetch" ) {
-      errorText = i18n.t( "camera.error_fetching_photos" );
+      errorText = i18n.t( "camera.error_gallery" );
     }
 
     let helpText;
@@ -319,7 +314,12 @@ class ARCamera extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : null}
-        {error ? <Text style={styles.errorText}>{errorText}</Text> : null}
+        {error && ( error === "save" || error === "permissions" )
+          ? <PermissionError error={errorText} />
+          : null}
+        {error && error !== "save" && error !== "permissions"
+          ? <Text style={styles.errorText}>{errorText}</Text>
+          : null}
         <TouchableOpacity
           style={styles.backButton}
           hitSlop={styles.touchable}
@@ -327,13 +327,15 @@ class ARCamera extends Component<Props> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        <ARCameraHeader
-          commonName={commonName}
-          ranks={ranks}
-          rankToRender={rankToRender}
-        />
+        {!error ? (
+          <ARCameraHeader
+            commonName={commonName}
+            ranks={ranks}
+            rankToRender={rankToRender}
+          />
+        ) : null}
         {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
-        {!pictureTaken ? (
+        {!pictureTaken && !error ? (
           <TouchableOpacity
             onPress={() => {
               this.setPictureTaken( true );
@@ -345,13 +347,14 @@ class ARCamera extends Component<Props> {
               ? <Image source={icons.arCameraGreen} />
               : <Image source={icons.arCameraButton} />}
           </TouchableOpacity>
-        ) : (
+        ) : null}
+        {pictureTaken && !error ? (
           <View style={styles.shutter}>
             {ranks && ranks.species
               ? <Image source={icons.arCameraGreen} />
               : <Image source={icons.arCameraButton} />}
           </View>
-        )}
+        ) : null}
         {!error ? (
           <TouchableOpacity
             onPress={() => navigation.navigate( "CameraHelp" )}

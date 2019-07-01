@@ -80,7 +80,8 @@
     "log_in_with_inat": "Log in with your iNaturalist account",
     "username": "Username",
     "password": "Password",
-    "forgot_password": "Forgot password",
+    "forgot_password_header": "Forgot password",
+    "forgot_password": "Forgot your password?",
     "log_in": "Log in",
     "email": "Email",
     "no_worries": "No worries. We’ll send password reset instructions to your email.",
@@ -475,7 +476,8 @@
     "posting_failure": "Posting to iNaturalist failed",
     "internet": "Try checking your internet connection and try again",
     "ok": "Ok",
-    "wait": "This may take up to a minute"
+    "wait": "This may take up to a minute",
+    "look_up": "Look up a species by name"
   },
   "posting_help": {
     "header": "Posting Help",

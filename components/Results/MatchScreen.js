@@ -49,8 +49,8 @@ class MatchScreen extends Component<Props> {
       time,
       seenDate,
       commonAncestor,
-      isLoggedIn,
-      match
+      match,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -63,7 +63,6 @@ class MatchScreen extends Component<Props> {
       navigationPath: null,
       userImage,
       image,
-      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -74,7 +73,8 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      challengeShown: false
+      challengeShown: false,
+      isLoggedIn
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -192,7 +192,6 @@ class MatchScreen extends Component<Props> {
       challengeInProgress,
       userImage,
       image,
-      isLoggedIn,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -202,42 +201,38 @@ class MatchScreen extends Component<Props> {
       time,
       seenDate,
       commonAncestor,
-      match
+      match,
+      isLoggedIn
     } = this.state;
 
     let headerText;
     let gradientColorDark;
     let gradientColorLight;
     let text;
-    let numOfImages;
     let speciesText;
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      numOfImages = 2;
       text = i18n.t( "results.date_observed", { seenDate } );
       speciesText = taxaName;
     } else if ( taxaName && match ) {
       headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      numOfImages = 2;
       text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
       headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
-      numOfImages = 2;
       text = i18n.t( "results.common_ancestor" );
       speciesText = commonAncestor;
     } else {
       headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
       gradientColorDark = "#404040";
       gradientColorLight = "#5e5e5e";
-      numOfImages = 1;
       text = i18n.t( "results.sorry" );
       speciesText = null;
     }
@@ -248,7 +243,9 @@ class MatchScreen extends Component<Props> {
         <SafeAreaView style={styles.safeView}>
           {match && !seenDate ? (
             <NavigationEvents
-              onWillFocus={() => this.scrollToTop()}
+              onWillFocus={() => {
+                this.scrollToTop();
+              }}
               onDidFocus={() => {
                 this.checkForChallengesCompleted();
                 this.checkForNewBadges();
@@ -256,7 +253,13 @@ class MatchScreen extends Component<Props> {
               }}
               onWillBlur={() => setChallengeProgress( "none" )}
             />
-          ) : null}
+          ) : (
+            <NavigationEvents
+              onWillFocus={() => {
+                this.scrollToTop();
+              }}
+            />
+          )}
           {match && !seenDate && latitude ? (
             <Banner
               navigation={navigation}
@@ -312,7 +315,7 @@ class MatchScreen extends Component<Props> {
                   style={styles.imageCell}
                   source={{ uri: userImage }}
                 />
-                {numOfImages === 2 ? (
+                {speciesSeenImage ? (
                   <Image
                     style={styles.imageCell}
                     source={{ uri: speciesSeenImage }}
@@ -354,28 +357,26 @@ class MatchScreen extends Component<Props> {
                   style={styles.link}
                   onPress={() => this.setNavigationPath( "Camera" )}
                 >
-                  <Text style={styles.linkText}>{i18n.t( "results.back" )}</Text>
+                  <Text style={[styles.linkText, { marginBottom: 28 }]}>{i18n.t( "results.back" )}</Text>
                 </TouchableOpacity>
               ) : null}
-              <View style={{ marginBottom: 28 }} />
-              {isLoggedIn && latitude && longitude
-                ? (
-                  <PostToiNat
-                    navigation={navigation}
-                    color={gradientColorLight}
-                    taxaInfo={{
-                      taxaName,
-                      taxaId,
-                      image,
-                      userImage,
-                      scientificName,
-                      latitude,
-                      longitude,
-                      time
-                    }}
-                  />
-                ) : null
-              }
+              {isLoggedIn ? (
+                <PostToiNat
+                  navigation={navigation}
+                  color={gradientColorLight}
+                  taxaInfo={{
+                    taxaName,
+                    taxaId,
+                    image,
+                    userImage,
+                    scientificName,
+                    latitude,
+                    longitude,
+                    time,
+                    commonAncestor
+                  }}
+                />
+              ) : null}
             </View>
             <Padding />
           </ScrollView>

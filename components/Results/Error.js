@@ -21,8 +21,6 @@ const ErrorScreen = ( { error, navigation }: Props ) => {
     errorText = i18n.t( "results.error_image" );
   } else if ( error === "taxaInfo" ) {
     errorText = i18n.t( "results.error_species" );
-  } else if ( error === "ancestorInfo" ) {
-    errorText = i18n.t( "results.error_ancestor" );
   }
 
   return (

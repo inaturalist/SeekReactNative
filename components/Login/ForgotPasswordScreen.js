@@ -7,12 +7,17 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
-  Platform
+  Platform,
+  ScrollView
 } from "react-native";
+import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../GreenHeader";
+import config from "../../config";
+import { checkIsEmailValid } from "../../utility/loginHelpers";
+import ErrorMessage from "../Signup/ErrorMessage";
 
 type Props = {
   navigation: any
@@ -23,8 +28,70 @@ class ForgotPasswordScreen extends Component<Props> {
     super();
 
     this.state = {
-      email: ""
+      email: "",
+      error: false
     };
+  }
+
+  setError( error ) {
+    this.setState( { error } );
+  }
+
+  createJwtToken() {
+    const claims = {
+      application: "SeekRN",
+      exp: new Date().getTime() / 1000 + 300
+    };
+
+    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+    return token;
+  }
+
+  checkEmail() {
+    const { email } = this.state;
+
+    if ( checkIsEmailValid( email ) ) {
+      this.setError( false );
+      this.emailForgotPassword();
+    } else {
+      this.setError( true );
+    }
+  }
+
+  emailForgotPassword() {
+    const { email } = this.state;
+
+    const token = this.createJwtToken();
+
+    const params = {
+      user: {
+        email
+      }
+    };
+
+    const headers = {
+      "Content-Type": "application/json"
+    };
+
+    if ( token ) {
+      headers.Authorization = `Authorization: ${token}`;
+    }
+
+    const site = "https://www.inaturalist.org";
+
+    fetch( `${site}/users/password`, {
+      method: "POST",
+      body: JSON.stringify( params ),
+      headers
+    } )
+      .then( ( responseJson ) => {
+        const { status } = responseJson;
+        if ( status === 200 ) {
+          this.submit();
+        }
+      } ).catch( ( err ) => {
+        console.log( err, "error" );
+      } );
   }
 
   submit() {
@@ -34,19 +101,19 @@ class ForgotPasswordScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const { email } = this.state;
+    const { email, error } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <GreenHeader
-            header={i18n.t( "inat_login.forgot_password" ).toLocaleUpperCase()}
+            header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
             navigation={navigation}
           />
-          <View style={styles.innerContainer}>
+          <ScrollView contentContainerStyle={styles.innerContainer}>
             <View style={styles.margin} />
-            <Text style={styles.header}>
+            <Text style={[styles.header, { marginHorizontal: 23 }]}>
               {i18n.t( "inat_login.no_worries" )}
             </Text>
             <View style={[styles.leftTextContainer, { marginTop: 31 }]}>
@@ -62,16 +129,22 @@ class ForgotPasswordScreen extends Component<Props> {
               textContentType="emailAddress"
               keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus
+              autoCapitalize="none"
             />
+            {error ? (
+              <View style={{ marginTop: 29 }}>
+                <ErrorMessage error="email" />
+              </View>
+            ) : <View style={{ marginTop: 29 }} />}
             <TouchableOpacity
               style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.submit()}
+              onPress={() => this.checkEmail()}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
               </Text>
             </TouchableOpacity>
-          </View>
+          </ScrollView>
         </SafeAreaView>
       </View>
     );

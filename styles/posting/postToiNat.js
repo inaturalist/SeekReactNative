@@ -26,6 +26,7 @@ export default StyleSheet.create( {
     marginTop: height < 570 ? 13 : 25
   },
   card: {
+    marginLeft: height < 570 ? 14 : 27,
     height: height / 6,
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -113,7 +114,7 @@ export default StyleSheet.create( {
     width: width - 54,
     fontFamily: fonts.book,
     fontSize: 16,
-    color: "#808080",
+    color: colors.black,
     textAlignVertical: "top"
   }
 } );

@@ -113,7 +113,7 @@ class ForgotPasswordScreen extends Component<Props> {
           />
           <ScrollView contentContainerStyle={styles.innerContainer}>
             <View style={styles.margin} />
-            <Text style={styles.header}>
+            <Text style={[styles.header, { marginHorizontal: 23 }]}>
               {i18n.t( "inat_login.no_worries" )}
             </Text>
             <View style={[styles.leftTextContainer, { marginTop: 31 }]}>

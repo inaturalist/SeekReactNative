@@ -63,14 +63,18 @@ class ObservationCard extends Component<Props> {
 
     if ( defaultPhoto ) {
       if ( defaultPhoto.mediumUrl ) {
-        this.setPhoto( { uri: defaultPhoto.mediumUrl } );
-      } else if ( defaultPhoto.squareUrl ) {
-        this.setPhoto( { uri: defaultPhoto.squareUrl } );
+        RNFS.exists( defaultPhoto.mediumUrl ).then( ( result ) => {
+          if ( result !== false ) {
+            this.setPhoto( { uri: defaultPhoto.mediumUrl } );
+          } else if ( defaultPhoto.squareUrl ) {
+            this.setPhoto( { uri: defaultPhoto.squareUrl } );
+          } else {
+            this.setPhoto( iconicTaxa[taxon.iconicTaxonId] );
+          }
+        } ).catch( e => console.log( e ) );
       } else {
         this.setPhoto( iconicTaxa[taxon.iconicTaxonId] );
       }
-    } else {
-      this.setPhoto( iconicTaxa[taxon.iconicTaxonId] );
     }
   }
 

@@ -7,6 +7,19 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
+  innerContainer: {
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    borderBottomLeftRadius: 40,
+    backgroundColor: colors.white,
+    overflow: "hidden"
+  },
+  flagHeaderContainer: {
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    overflow: "visible"
+  },
   container: {
     flex: 1,
     backgroundColor: colors.white
@@ -14,13 +27,16 @@ export default StyleSheet.create( {
   flagHeader: {
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    marginHorizontal: 28,
     height: 166,
     overflow: "visible"
   },
   header: {
     height: 186,
     overflow: "visible"
+  },
+  flagButtonContainer: {
+    marginTop: 20,
+    marginHorizontal: 22
   },
   buttonContainer: {
     marginTop: 40,
@@ -43,11 +59,8 @@ export default StyleSheet.create( {
     borderRadius: 129 / 2
   },
   flagContainer: {
-    marginHorizontal: 28,
-    alignItems: "center",
-    backgroundColor: colors.white,
-    borderBottomRightRadius: 40,
-    borderBottomLeftRadius: 40
+    marginHorizontal: 22,
+    alignItems: "center"
   },
   textContainer: {
     marginTop: 50,

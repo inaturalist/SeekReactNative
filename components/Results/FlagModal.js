@@ -31,33 +31,36 @@ const FlagModal = ( {
   const gradientColorLight = "#5e5e5e";
 
   return (
-    <SafeAreaView style={styles.safeView}>
-      <LinearGradient
-        colors={[gradientColorDark, gradientColorLight]}
-        style={styles.flagHeader}
-      >
-        <TouchableOpacity
-          style={styles.flagBackButton}
-          hitSlop={styles.touchable}
-          onPress={() => toggleFlagModal() }
+    <View style={styles.innerContainer}>
+      <View style={styles.flagHeaderContainer}>
+        <LinearGradient
+          colors={[gradientColorDark, gradientColorLight]}
+          style={styles.flagHeader}
         >
-          <Image source={icons.closeWhite} />
-        </TouchableOpacity>
-        <View style={[styles.imageContainer, styles.buttonContainer]}>
-          <Image
-            style={styles.flagImageCell}
-            source={{ uri: userImage }}
-          />
-          {speciesSeenImage ? (
+          <TouchableOpacity
+            style={styles.flagBackButton}
+            hitSlop={styles.touchable}
+            onPress={() => toggleFlagModal() }
+          >
+            <Image source={icons.closeWhite} />
+          </TouchableOpacity>
+          <View style={[styles.imageContainer, styles.flagButtonContainer]}>
             <Image
               style={styles.flagImageCell}
-              source={{ uri: speciesSeenImage }}
+              source={{ uri: userImage }}
             />
-          ) : null}
-        </View>
-      </LinearGradient>
+            {speciesSeenImage ? (
+              <Image
+                style={styles.flagImageCell}
+                source={{ uri: speciesSeenImage }}
+              />
+            ) : null}
+          </View>
+        </LinearGradient>
+      </View>
       <View style={styles.flagContainer}>
-        <Text style={[styles.speciesText, { marginTop: 40 }]}>{speciesText}</Text>
+        <View style={{ marginTop: 40 }} />
+        <Text style={styles.speciesText}>{speciesText}</Text>
         <Text style={[styles.text, { width: 261 }]}>{i18n.t( "results.incorrect" )}</Text>
         <View style={{ marginTop: 31 }} />
         <TouchableOpacity
@@ -79,7 +82,7 @@ const FlagModal = ( {
         </TouchableOpacity>
         <View style={{ marginTop: 32 }} />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

@@ -2,6 +2,8 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 
 import i18n from "../i18n";
+import { recalculateBadges } from "./badgeHelpers";
+import { recalculateChallenges } from "./challengeHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -127,6 +129,23 @@ const addToCollection = ( observation, latitude, longitude, image, time ) => {
     } );
 };
 
+const removeFromCollection = ( id ) => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      realm.write( () => {
+        const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
+        const taxonToDelete = realm.objects( "TaxonRealm" ).filtered( `id == ${id}` );
+        // console.log( realm.objects( "PhotoRealm" ), "photo realm" );
+        realm.delete( taxonToDelete );
+        realm.delete( obsToDelete );
+        recalculateBadges();
+        recalculateChallenges();
+      } );
+    } ).catch( ( e ) => {
+      console.log( e, "error removing from collection" );
+    } );
+};
+
 const shuffleList = ( list ) => {
   const newList = list;
 
@@ -231,5 +250,6 @@ export {
   getSpeciesId,
   setRoute,
   getRoute,
-  checkForInternet
+  checkForInternet,
+  removeFromCollection
 };

@@ -28,7 +28,7 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { setSpeciesId, setRoute } from "../../utility/helpers";
+import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
 import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
 
 type Props = {
@@ -83,6 +83,7 @@ class MatchScreen extends Component<Props> {
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
     this.toggleFlagModal = this.toggleFlagModal.bind( this );
+    this.deleteObservation = this.deleteObservation.bind( this );
   }
 
   setNavigationPath( navigationPath ) {
@@ -188,6 +189,11 @@ class MatchScreen extends Component<Props> {
     this.scrollView.scrollTo( {
       x: 0, y: 0, animated: Platform.OS === "android"
     } );
+  }
+
+  deleteObservation() {
+    const { taxaId } = this.state;
+    removeFromCollection( taxaId );
   }
 
   render() {
@@ -311,9 +317,11 @@ class MatchScreen extends Component<Props> {
             <Modal isVisible={showFlagModal}>
               <FlagModal
                 toggleFlagModal={this.toggleFlagModal}
+                deleteObservation={this.deleteObservation}
                 userImage={userImage}
                 speciesSeenImage={speciesSeenImage}
                 speciesText={speciesText}
+                seenDate={seenDate}
               />
             </Modal>
           ) : null}

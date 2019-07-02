@@ -5,8 +5,7 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
-  SafeAreaView
+  TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -16,16 +15,20 @@ import icons from "../../assets/icons";
 
 type Props = {
   toggleFlagModal: Function,
+  deleteObservation: Function,
   userImage: string,
   speciesSeenImage: string,
-  speciesText: string
+  speciesText: string,
+  seenDate: string
 };
 
 const FlagModal = ( {
   toggleFlagModal,
+  deleteObservation,
   userImage,
   speciesSeenImage,
-  speciesText
+  speciesText,
+  seenDate
 }: Props ) => {
   const gradientColorDark = "#404040";
   const gradientColorLight = "#5e5e5e";
@@ -65,7 +68,14 @@ const FlagModal = ( {
         <View style={{ marginTop: 31 }} />
         <TouchableOpacity
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
-          onPress={() => toggleFlagModal()}
+          onPress={() => {
+            if ( seenDate ) {
+              toggleFlagModal();
+            } else {
+              deleteObservation();
+              toggleFlagModal();
+            }
+          }}
         >
           <Text style={styles.buttonText}>
             {i18n.t( "results.yes" ).toLocaleUpperCase()}

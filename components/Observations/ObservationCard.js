@@ -13,6 +13,7 @@ import RNFS from "react-native-fs";
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations";
 import iconicTaxa from "../../assets/iconicTaxa";
+import { checkIfPhotoExistsOnDevice } from "../../utility/photoHelpers";
 
 type Props = {
   navigation: any,
@@ -63,7 +64,7 @@ class ObservationCard extends Component<Props> {
 
     if ( defaultPhoto ) {
       if ( defaultPhoto.mediumUrl ) {
-        RNFS.exists( defaultPhoto.mediumUrl ).then( ( result ) => {
+        checkIfPhotoExistsOnDevice( defaultPhoto.mediumUrl ).then( ( result ) => {
           if ( result !== false ) {
             this.setPhoto( { uri: defaultPhoto.mediumUrl } );
           } else if ( defaultPhoto.squareUrl ) {

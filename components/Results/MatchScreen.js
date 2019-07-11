@@ -122,10 +122,23 @@ class MatchScreen extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  toggleFlagModal() {
+  showFailureScreen() {
+    this.setState( {
+      seenDate: null,
+      match: false,
+      commonAncestor: null,
+      speciesSeenImage: null
+    } );
+  }
+
+  toggleFlagModal( showFailure ) {
     const { showFlagModal } = this.state;
 
     this.setState( { showFlagModal: !showFlagModal } );
+
+    if ( showFailure ) {
+      this.showFailureScreen();
+    }
   }
 
   checkForNewBadges() {

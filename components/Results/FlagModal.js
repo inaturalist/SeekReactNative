@@ -70,10 +70,10 @@ const FlagModal = ( {
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
           onPress={() => {
             if ( seenDate ) {
-              toggleFlagModal();
+              toggleFlagModal( true );
             } else {
               deleteObservation();
-              toggleFlagModal();
+              toggleFlagModal( true );
             }
           }}
         >

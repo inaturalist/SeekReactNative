@@ -13,7 +13,6 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../LoadingWheel";
 import icons from "../../assets/icons";
-import { checkIfPhotoExistsOnDevice } from "../../utility/photoHelpers";
 
 type Props = {
   navigation: any,
@@ -33,18 +32,14 @@ const SpeciesPhotos = ( {
   const photoList = [];
 
   if ( userPhoto ) {
-    checkIfPhotoExistsOnDevice( userPhoto ).then( ( result ) => {
-      if ( result !== false ) {
-        photoList.push(
-          <View key="user-image">
-            <Image
-              source={{ uri: userPhoto }}
-              style={styles.image}
-            />
-          </View>
-        );
-      }
-    } );
+    photoList.push(
+      <View key="user-image">
+        <Image
+          source={{ uri: userPhoto }}
+          style={styles.image}
+        />
+      </View>
+    );
   }
 
   photos.forEach( ( photo, i ) => {

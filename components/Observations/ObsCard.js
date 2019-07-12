@@ -6,8 +6,7 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import RNFS from "react-native-fs";
 

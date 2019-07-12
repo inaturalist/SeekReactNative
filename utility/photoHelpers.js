@@ -49,16 +49,28 @@ const resizeImage = ( imageUri, size ) => (
   } )
 );
 
-const checkIfPhotoExistsOnDevice = uri => (
-  new Promise( ( resolve ) => {
-    RNFS.exists( uri )
-      .then( ( result ) => {
-        resolve( result );
-      } ).catch( () => {
-        resolve( null );
-      } );
-  } )
-);
+const checkIfPhotoExistsOnDevice = async ( uri ) => {
+  try {
+    const exists = await RNFS.exists( uri );
+    if ( exists ) {
+      return exists;
+    }
+    return null;
+  } catch ( err ) {
+    return null;
+  }
+};
+
+// const checkIfPhotoExistsOnDevice = uri => (
+//   new Promise( ( resolve ) => {
+//     RNFS.exists( uri )
+//       .then( ( exists ) => {
+//         resolve( exists );
+//       } ).catch( () => {
+//         resolve( null );
+//       } );
+//   } )
+// );
 
 export {
   checkCameraRollPermissions,

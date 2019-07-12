@@ -19,7 +19,7 @@ import GalleryResults from "./Results/GalleryResults";
 import Match from "./Results/MatchScreen";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
-import MyObservations from "./Observations/MyObservations";
+import Observations from "./Observations/Observations";
 import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./AboutScreen";
 import SideMenu from "./Home/SideMenu";
@@ -137,7 +137,7 @@ const FooterTabNav = createBottomTabNavigator( {
     screen: AchievementsScreen
   },
   MyObservations: {
-    screen: MyObservations
+    screen: Observations
   },
   About: {
     screen: AboutScreen
@@ -199,7 +199,7 @@ const MenuDrawerNav = createDrawerNavigator( {
     screen: ChallengeScreen
   },
   MyObservations: {
-    screen: MyObservations
+    screen: Observations
   },
   iNatStats: {
     screen: iNatStatsScreen

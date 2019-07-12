@@ -5,7 +5,9 @@ import {
   ScrollView,
   View,
   SafeAreaView,
-  Platform
+  Platform,
+  SectionList,
+  Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -13,18 +15,18 @@ import Realm from "realm";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import styles from "../../styles/observations";
-import ObservationList from "./ObservationList";
 import Padding from "../Padding";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
+import ObservationCard from "./ObsCard";
 
 type Props = {
   navigation: any
 }
 
-class MyObservations extends Component<Props> {
+class Observations extends Component<Props> {
   constructor() {
     super();
 
@@ -51,18 +53,18 @@ class MyObservations extends Component<Props> {
         const taxaIdList = Object.keys( taxaIds );
 
         taxaIdList.forEach( ( id ) => {
-          const iconicTaxonSeen = species
+          const data = species
             .filtered( `taxon.iconicTaxonId == ${id}` )
             .sorted( "date", true );
 
           observations.push( {
             id,
-            iconicTaxonSeen
+            data: data.length > 0 ? data : []
           } );
         } );
 
         observations.sort( ( a, b ) => {
-          if ( a.iconicTaxonSeen.length > b.iconicTaxonSeen.length ) {
+          if ( a.data.length > b.data.length ) {
             return -1;
           }
           return 1;
@@ -78,23 +80,20 @@ class MyObservations extends Component<Props> {
       } );
   }
 
+  renderEmptySection( id, data ) {
+    return data.length === 0
+      ? (
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>
+          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+        </Text>
+      </View>
+    ) : null
+  }
+
   render() {
     const { observations, loading } = this.state;
     const { navigation } = this.props;
-
-    const iconicTaxonList = [];
-
-    observations.forEach( ( iconicTaxon ) => {
-      const list = (
-        <ObservationList
-          observations={iconicTaxon.iconicTaxonSeen}
-          id={iconicTaxon.id}
-          navigation={navigation}
-        />
-      );
-
-      iconicTaxonList.push( list );
-    } );
 
     let content;
 
@@ -107,7 +106,24 @@ class MyObservations extends Component<Props> {
     } else if ( observations.length > 0 ) {
       content = (
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-          {iconicTaxonList}
+          <View style={styles.secondTextContainer}>
+            <SectionList
+              renderItem={( { item } ) => (
+                <ObservationCard
+                  navigation={navigation}
+                  item={item}
+                />
+              )}
+              renderSectionHeader={( { section: { id } } ) => (
+                <Text style={styles.secondHeaderText}>
+                  {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+                </Text>
+              )}
+              sections={observations}
+              keyExtractor={( item, index ) => item + index}
+              renderSectionFooter={( { section: { id, data } } ) => this.renderEmptySection( id, data )}
+            />
+          </View>
           <Padding />
         </ScrollView>
       );
@@ -125,7 +141,10 @@ class MyObservations extends Component<Props> {
               this.fetchObservations();
             }}
           />
-          <GreenHeader header={i18n.t( "observations.header" )} navigation={navigation} />
+          <GreenHeader
+            header={i18n.t( "observations.header" )}
+            navigation={navigation}
+          />
           {content}
         </SafeAreaView>
       </View>
@@ -133,4 +152,4 @@ class MyObservations extends Component<Props> {
   }
 }
 
-export default MyObservations;
+export default Observations;

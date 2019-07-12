@@ -81,14 +81,15 @@ class Observations extends Component<Props> {
   }
 
   renderEmptySection( id, data ) {
-    return data.length === 0
-      ? (
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>
-          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-        </Text>
-      </View>
-    ) : null
+    if ( data.length === 0 ) {
+      return (
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+          </Text>
+        </View>
+      );
+    }
   }
 
   render() {

@@ -134,10 +134,15 @@ const removeFromCollection = ( id ) => {
     .then( ( realm ) => {
       realm.write( () => {
         const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
-        const taxonToDelete = realm.objects( "TaxonRealm" ).filtered( `id == ${id}` );
-        // console.log( realm.objects( "PhotoRealm" ), "photo realm" );
-        realm.delete( taxonToDelete );
+        const taxonToDelete = obsToDelete[0].taxon;
+        const photoObjToDelete = taxonToDelete.defaultPhoto;
+
+        realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );
+        realm.delete( taxonToDelete );
+        console.log( "photos", realm.objects( "PhotoRealm" ) );
+        console.log( "taxon", realm.objects( "TaxonRealm" ), id );
+        console.log( "observation", realm.objects( "ObservationRealm" ) );
         recalculateBadges();
         recalculateChallenges();
       } );
@@ -237,6 +242,15 @@ const getRoute = async () => {
   }
 };
 
+const sortNewestToOldest = ( observations ) => {
+  observations.sort( ( a, b ) => {
+    if ( a.data.length > b.data.length ) {
+      return -1;
+    }
+    return 1;
+  } );
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -251,5 +265,6 @@ export {
   setRoute,
   getRoute,
   checkForInternet,
-  removeFromCollection
+  removeFromCollection,
+  sortNewestToOldest
 };

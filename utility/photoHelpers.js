@@ -61,17 +61,6 @@ const checkIfPhotoExistsOnDevice = async ( uri ) => {
   }
 };
 
-// const checkIfPhotoExistsOnDevice = uri => (
-//   new Promise( ( resolve ) => {
-//     RNFS.exists( uri )
-//       .then( ( exists ) => {
-//         resolve( exists );
-//       } ).catch( () => {
-//         resolve( null );
-//       } );
-//   } )
-// );
-
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,

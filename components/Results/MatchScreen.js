@@ -16,17 +16,19 @@ import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
 import ChallengeModal from "../AchievementModals/ChallengeModal";
+import FlagModal from "./FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
+import MatchFooter from "./MatchFooter";
 import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { setSpeciesId, setRoute } from "../../utility/helpers";
+import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
 import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
 
 type Props = {
@@ -60,6 +62,7 @@ class MatchScreen extends Component<Props> {
       challengeInProgress: null,
       showLevelModal: false,
       showChallengeModal: false,
+      showFlagModal: false,
       navigationPath: null,
       userImage,
       image,
@@ -79,6 +82,8 @@ class MatchScreen extends Component<Props> {
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    this.toggleFlagModal = this.toggleFlagModal.bind( this );
+    this.deleteObservation = this.deleteObservation.bind( this );
   }
 
   setNavigationPath( navigationPath ) {
@@ -115,6 +120,25 @@ class MatchScreen extends Component<Props> {
     const { showLevelModal } = this.state;
 
     this.setState( { showLevelModal: !showLevelModal } );
+  }
+
+  showFailureScreen() {
+    this.setState( {
+      seenDate: null,
+      match: false,
+      commonAncestor: null,
+      speciesSeenImage: null
+    } );
+  }
+
+  toggleFlagModal( showFailure ) {
+    const { showFlagModal } = this.state;
+
+    this.setState( { showFlagModal: !showFlagModal } );
+
+    if ( showFailure ) {
+      this.showFailureScreen();
+    }
   }
 
   checkForNewBadges() {
@@ -180,6 +204,11 @@ class MatchScreen extends Component<Props> {
     } );
   }
 
+  deleteObservation() {
+    const { taxaId } = this.state;
+    removeFromCollection( taxaId );
+  }
+
   render() {
     const { navigation } = this.props;
 
@@ -187,6 +216,7 @@ class MatchScreen extends Component<Props> {
       badge,
       showChallengeModal,
       showLevelModal,
+      showFlagModal,
       latestLevel,
       challenge,
       challengeInProgress,
@@ -296,6 +326,18 @@ class MatchScreen extends Component<Props> {
               />
             </Modal>
           ) : null}
+          {match || seenDate ? (
+            <Modal isVisible={showFlagModal}>
+              <FlagModal
+                toggleFlagModal={this.toggleFlagModal}
+                deleteObservation={this.deleteObservation}
+                userImage={userImage}
+                speciesSeenImage={speciesSeenImage}
+                speciesText={speciesText}
+                seenDate={seenDate}
+              />
+            </Modal>
+          ) : null}
           <ScrollView
             ref={( ref ) => { this.scrollView = ref; }}
           >
@@ -380,7 +422,10 @@ class MatchScreen extends Component<Props> {
             </View>
             <Padding />
           </ScrollView>
-          <Footer navigation={navigation} />
+          {match || seenDate
+            ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
+            : <Footer navigation={navigation} />
+          }
         </SafeAreaView>
       </View>
     );

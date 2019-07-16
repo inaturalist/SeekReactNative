@@ -1,4 +1,5 @@
 import ImageResizer from "react-native-image-resizer";
+import RNFS from "react-native-fs";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
 
@@ -48,8 +49,21 @@ const resizeImage = ( imageUri, size ) => (
   } )
 );
 
+const checkIfPhotoExistsOnDevice = async ( uri ) => {
+  try {
+    const exists = await RNFS.exists( uri );
+    if ( exists ) {
+      return exists;
+    }
+    return null;
+  } catch ( err ) {
+    return null;
+  }
+};
+
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
-  resizeImage
+  resizeImage,
+  checkIfPhotoExistsOnDevice
 };

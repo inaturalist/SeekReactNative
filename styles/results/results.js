@@ -7,13 +7,36 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
+  innerContainer: {
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    borderBottomLeftRadius: 40,
+    backgroundColor: colors.white,
+    overflow: "hidden"
+  },
+  flagHeaderContainer: {
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    overflow: "visible"
+  },
   container: {
     flex: 1,
     backgroundColor: colors.white
   },
+  flagHeader: {
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    height: 166,
+    overflow: "visible"
+  },
   header: {
     height: 186,
     overflow: "visible"
+  },
+  flagButtonContainer: {
+    marginTop: 20,
+    marginHorizontal: 22
   },
   buttonContainer: {
     marginTop: 40,
@@ -29,6 +52,15 @@ export default StyleSheet.create( {
     width: 150,
     height: 150,
     borderRadius: 150 / 2
+  },
+  flagImageCell: {
+    width: 129,
+    height: 129,
+    borderRadius: 129 / 2
+  },
+  flagContainer: {
+    marginHorizontal: 22,
+    alignItems: "center"
   },
   textContainer: {
     marginTop: 50,
@@ -61,6 +93,13 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.book
   },
+  flagButton: {
+    width: 243,
+    height: 46,
+    borderRadius: 40,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   button: {
     backgroundColor: colors.seekForestGreen,
     width: 292,
@@ -80,7 +119,12 @@ export default StyleSheet.create( {
   },
   backButton: {
     top: 18,
-    left: 23
+    right: 23
+  },
+  flagBackButton: {
+    marginTop: 18,
+    marginRight: 29,
+    alignItems: "flex-end"
   },
   linkText: {
     fontFamily: fonts.book,

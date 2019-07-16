@@ -52,7 +52,8 @@ const icons = {
   legendCamera: require( "./icons/legend-icon-camerabutton.png" ),
   legendLocation: require( "./icons/legend-icon-location-onmap.png" ),
   legendObs: require( "./icons/legend-icon-inatobs.png" ),
-  cameraOnMap: require( "./icons/icon-camerabutton-onmap.png" )
+  cameraOnMap: require( "./icons/icon-camerabutton-onmap.png" ),
+  flag: require( "./icons/icon-flagidentification.png" )
 };
 
 export default icons;

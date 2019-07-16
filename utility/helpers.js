@@ -140,9 +140,6 @@ const removeFromCollection = ( id ) => {
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );
         realm.delete( taxonToDelete );
-        console.log( "photos", realm.objects( "PhotoRealm" ) );
-        console.log( "taxon", realm.objects( "TaxonRealm" ), id );
-        console.log( "observation", realm.objects( "ObservationRealm" ) );
         recalculateBadges();
         recalculateChallenges();
       } );

@@ -3,6 +3,7 @@ import i18n from "i18n-js";
 
 import en from "./translations/en.json";
 import fr from "./translations/fr.json";
+import da from "./translations/da.json";
 import de from "./translations/de.json";
 import es from "./translations/es.json";
 import hi from "./translations/hi.json";
@@ -14,6 +15,7 @@ import ptBR from "./translations/pt-BR.json";
 i18n.translations = {
   en,
   fr,
+  da,
   de,
   es,
   hi,

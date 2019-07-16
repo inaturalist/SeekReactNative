@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
-// import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -23,7 +22,6 @@ import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
 import ObservationCard from "./ObsCard";
 import { sortNewestToOldest } from "../../utility/helpers";
-// import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   navigation: any
@@ -35,8 +33,7 @@ class Observations extends Component<Props> {
 
     this.state = {
       observations: [],
-      loading: true,
-      // itemPhoto: null
+      loading: true
     };
   }
 
@@ -97,7 +94,7 @@ class Observations extends Component<Props> {
   }
 
   render() {
-    const { observations, loading, itemPhoto } = this.state;
+    const { observations, loading } = this.state;
     const { navigation } = this.props;
 
     let content;
@@ -113,28 +110,12 @@ class Observations extends Component<Props> {
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <View style={styles.secondTextContainer}>
             <SectionList
-              renderItem={( { item } ) => {
-                // const { taxon } = item;
-                // const { defaultPhoto } = taxon;
-
-                // RNFS.exists( defaultPhoto.mediumUrl ).then( ( result ) => {
-                //   if ( result !== false && defaultPhoto.squareUrl ) {
-                //     this.setState( { itemPhoto: { uri: defaultPhoto.mediumUrl } } );
-                //   } else if ( defaultPhoto.squareUrl ) {
-                //     this.setState( { itemPhoto: { uri: defaultPhoto.squareUrl } } );
-                //   } else {
-                //     this.setState( { itemPhoto: iconicTaxa[taxon.iconicTaxonId] } );
-                //   }
-                // } );
-
-                return (
-                  <ObservationCard
-                    navigation={navigation}
-                    item={item}
-                    // photo={itemPhoto}
-                  />
-                );
-              }}
+              renderItem={( { item } ) => (
+                <ObservationCard
+                  navigation={navigation}
+                  item={item}
+                />
+              )}
               renderSectionHeader={( { section: { id } } ) => (
                 <Text style={styles.secondHeaderText}>
                   {i18n.t( taxaIds[id] ).toLocaleUpperCase()}

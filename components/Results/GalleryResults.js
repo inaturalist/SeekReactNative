@@ -235,8 +235,13 @@ class Results extends Component<Props> {
         } else {
           this.setMatch( false );
         }
-      } ).catch( () => {
-        this.setError( "onlineVision" );
+      } ).catch( ( { response } ) => {
+        if ( response.status && response.status === 503 ) {
+          this.setError( "downtime" );
+          // console.log( JSON.stringify( response.headers ), "response" );
+        } else {
+          this.setError( "onlineVision" );
+        }
       } );
   }
 

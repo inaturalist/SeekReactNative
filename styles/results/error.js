@@ -16,12 +16,9 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "transparent"
   },
-  textContainer: {
-    position: "absolute",
-    top: height / 2 - 100
-  },
   errorText: {
     textAlign: "center",
+    top: height / 2 - 150,
     marginHorizontal: 41,
     fontSize: 19,
     lineHeight: 24,

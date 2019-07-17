@@ -245,7 +245,8 @@
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
     "error_ancestor": "Sorry, we couldn't fetch taxonomy data for this image. Please check your internet connection and try again.",
     "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
-    "error_downtime": "Service temporarily unavailable. Please try again in a few hours."
+    "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
+    "error_few": "a few"
   },
   "banner": {
     "view": "View badge",

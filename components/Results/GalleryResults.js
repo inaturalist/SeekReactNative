@@ -55,7 +55,8 @@ class Results extends Component<Props> {
       imageForUploading: null,
       match: null,
       clicked: false,
-      isLoggedIn: null
+      isLoggedIn: null,
+      numberOfHours: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
@@ -120,6 +121,10 @@ class Results extends Component<Props> {
 
   setSeenDate( seenDate ) {
     this.setState( { seenDate } );
+  }
+
+  setNumberOfHours( numberOfHours ) {
+    this.setState( { numberOfHours } );
   }
 
   setError( error ) {
@@ -220,7 +225,8 @@ class Results extends Component<Props> {
   }
 
   fetchScore( params ) {
-    const token = this.createJwtToken();
+    const token = 1234;
+    // const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {
@@ -237,8 +243,11 @@ class Results extends Component<Props> {
         }
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
+          const number = response.headers.map["Retry-After"]; // double check this is correct
+          if ( number ) {
+            this.setNumberOfHours( number );
+          }
           this.setError( "downtime" );
-          // console.log( JSON.stringify( response.headers ), "response" );
         } else {
           this.setError( "onlineVision" );
         }
@@ -327,7 +336,8 @@ class Results extends Component<Props> {
       imageForUploading,
       error,
       match,
-      clicked
+      clicked,
+      numberOfHours
     } = this.state;
     const { navigation } = this.props;
 
@@ -342,8 +352,13 @@ class Results extends Component<Props> {
           }}
         />
         {error
-          ? <ErrorScreen error={error} navigation={navigation} />
-          : (
+          ? (
+            <ErrorScreen
+              error={error}
+              navigation={navigation}
+              number={numberOfHours}
+            />
+          ) : (
             <ConfirmScreen
               image={imageForUploading}
               checkForMatches={this.checkForMatches}

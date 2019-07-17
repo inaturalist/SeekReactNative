@@ -225,8 +225,7 @@ class Results extends Component<Props> {
   }
 
   fetchScore( params ) {
-    const token = 1234;
-    // const token = this.createJwtToken();
+    const token = this.createJwtToken();
 
     inatjs.computervision.score_image( params, { api_token: token } )
       .then( ( response ) => {

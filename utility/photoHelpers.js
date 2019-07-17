@@ -2,6 +2,9 @@ import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
+// const Realm = require( "realm" );
+
+// const realmConfig = require( "../models/index" );
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -49,21 +52,52 @@ const resizeImage = ( imageUri, size ) => (
   } )
 );
 
-const checkIfPhotoExistsOnDevice = async ( uri ) => {
-  try {
-    const exists = await RNFS.exists( uri );
-    if ( exists ) {
-      return exists;
-    }
-    return null;
-  } catch ( err ) {
-    return null;
-  }
-};
+const checkIfPhotoExistsOnDevice = uri => (
+  new Promise( ( resolve ) => {
+    RNFS.exists( uri ).then( ( exists ) => {
+      resolve( exists );
+    } ).catch( () => {
+      resolve( null );
+    } );
+  } )
+);
+
+// const convertLocalIdentifierToAssetLibrary = ( localIdentifier, ext ) => {
+//   const hash = localIdentifier.split( "/" )[0];
+//   return `assets-library://asset/asset.${ext}?id=${hash}&ext=${ext}`;
+// };
+
+// const getLocalIdentifier = ( uri ) => {
+//   const uriParts = uri.split( "://" );
+//   const localId = uriParts[1].split( "/" );
+//   return localId[0];
+// };
+
+// const checkIfTaxonPhotosExist = () => {
+//   Realm.open( realmConfig.default )
+//     .then( ( realm ) => {
+//       const taxon = realm.objects( "TaxonRealm" );
+//       taxon.forEach( ( species ) => {
+//         const { defaultPhoto } = species;
+
+//         if ( defaultPhoto.mediumUrl ) {
+//           const localId = getLocalIdentifier( defaultPhoto.mediumUrl );
+//           const uri = convertLocalIdentifierToAssetLibrary( localId, "jpeg" );
+//           console.log( uri, "uri" );
+//           checkIfPhotoExistsOnDevice( uri ).then( ( exists ) => {
+//             console.log( exists, "exists 2" );
+//           } );
+//         }
+//       } );
+//     } ).catch( () => {
+//       console.log( "can't check observation photos" );
+//     } );
+// };
 
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
-  resizeImage,
-  checkIfPhotoExistsOnDevice
+  resizeImage
+  // checkIfPhotoExistsOnDevice,
+  // checkIfTaxonPhotosExist
 };

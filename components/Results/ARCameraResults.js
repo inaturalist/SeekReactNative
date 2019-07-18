@@ -323,7 +323,7 @@ class ARCameraResults extends Component<Props> {
             <ImageBackground
               source={{ uri: imageForUploading }}
               style={styles.imageBackground}
-              imageStyle={{ resizeMode: "cover" }}
+              imageStyle={{ resizeMode: "cover" }} // is this working differently across both
             >
               <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />

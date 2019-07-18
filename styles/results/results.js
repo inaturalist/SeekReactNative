@@ -119,7 +119,7 @@ export default StyleSheet.create( {
   },
   backButton: {
     top: 18,
-    right: 23
+    left: 23
   },
   flagBackButton: {
     marginTop: 18,

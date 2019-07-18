@@ -1,5 +1,4 @@
 import ImageResizer from "react-native-image-resizer";
-import RNFS from "react-native-fs";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
 

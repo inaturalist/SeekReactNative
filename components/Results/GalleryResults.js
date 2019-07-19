@@ -242,9 +242,14 @@ class Results extends Component<Props> {
         }
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
-          const number = response.headers.map["Retry-After"]; // double check this is correct
-          if ( number ) {
-            this.setNumberOfHours( number );
+          const gmtTime = response.headers.map["retry-after"];
+          const currentTime = moment();
+          const retryAfter = moment( gmtTime );
+
+          const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
+
+          if ( hours ) {
+            this.setNumberOfHours( hours.toFixed( 0 ) );
           }
           this.setError( "downtime" );
         } else {

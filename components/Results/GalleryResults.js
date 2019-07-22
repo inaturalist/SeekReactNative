@@ -32,14 +32,14 @@ class Results extends Component<Props> {
     super();
 
     const {
-      image,
+      uri,
       time,
       latitude,
       longitude
     } = navigation.state.params;
 
     this.state = {
-      image,
+      uri,
       time,
       latitude,
       longitude,
@@ -191,9 +191,9 @@ class Results extends Component<Props> {
   }
 
   resizeImage() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 299 ).then( ( userImage ) => {
+    resizeImage( uri, 299 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
@@ -203,9 +203,9 @@ class Results extends Component<Props> {
   }
 
   resizeImageForUploading() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
+    resizeImage( uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
@@ -263,12 +263,12 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image,
+      uri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image, time );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 

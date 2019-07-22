@@ -28,14 +28,14 @@ class ARCameraResults extends Component<Props> {
     super();
 
     const {
-      image,
+      uri,
       predictions
     } = navigation.state.params;
 
     this.state = {
       threshold: 0.7,
       predictions,
-      image,
+      uri,
       latitude: null,
       longitude: null,
       userImage: null,
@@ -213,9 +213,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   resizeImage() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 299 ).then( ( userImage ) => {
+    resizeImage( uri, 299 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
@@ -225,9 +225,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   resizeImageForUploading() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
+    resizeImage( uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
@@ -241,11 +241,11 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image
+      uri
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image );
+      addToCollection( observation, latitude, longitude, uri );
     }
   }
 

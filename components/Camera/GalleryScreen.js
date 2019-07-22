@@ -127,11 +127,11 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  navigateToResults( image, time, latitude, longitude ) {
+  navigateToResults( uri, time, latitude, longitude ) {
     const { navigation } = this.props;
 
     navigation.navigate( "GalleryResults", {
-      image,
+      uri,
       time,
       latitude,
       longitude
@@ -142,9 +142,9 @@ class GalleryScreen extends Component<Props> {
     const { timestamp, location, image } = node;
 
     if ( checkForPhotoMetaData( location ) ) {
-      this.navigateToResults( image, timestamp, location.latitude, location.longitude );
+      this.navigateToResults( image.uri, timestamp, location.latitude, location.longitude );
     } else {
-      this.navigateToResults( image, timestamp, null, null );
+      this.navigateToResults( image.uri, timestamp, null, null );
     }
   }
 

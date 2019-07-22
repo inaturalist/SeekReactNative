@@ -29,7 +29,6 @@ class ARCameraResults extends Component<Props> {
 
     const {
       image,
-      time,
       predictions
     } = navigation.state.params;
 
@@ -37,7 +36,6 @@ class ARCameraResults extends Component<Props> {
       threshold: 0.7,
       predictions,
       image,
-      time,
       latitude: null,
       longitude: null,
       userImage: null,
@@ -243,12 +241,11 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image,
-      time
+      image
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image, time );
+      addToCollection( observation, latitude, longitude, image );
     }
   }
 
@@ -281,7 +278,6 @@ class ARCameraResults extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time,
       match,
       isLoggedIn
     } = this.state;
@@ -296,7 +292,6 @@ class ARCameraResults extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time,
       commonAncestor,
       match,
       isLoggedIn

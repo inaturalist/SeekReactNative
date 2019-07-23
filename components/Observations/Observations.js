@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import {
-  ScrollView,
   View,
   SafeAreaView,
   Platform,
@@ -35,6 +34,13 @@ class Observations extends Component<Props> {
       observations: [],
       loading: true
     };
+  }
+
+  resetObservations() {
+    this.setState( {
+      observations: [],
+      loading: true
+    } );
   }
 
   scrollToTop() {
@@ -148,6 +154,7 @@ class Observations extends Component<Props> {
               this.scrollToTop();
               this.fetchObservations();
             }}
+            onWillBlur={() => this.resetObservations()}
           />
           <GreenHeader
             header={i18n.t( "observations.header" )}

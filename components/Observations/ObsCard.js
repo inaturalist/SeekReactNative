@@ -113,7 +113,6 @@ class ObservationCard extends Component<Props> {
         <View style={styles.speciesNameContainer}>
           <Text style={styles.commonNameText}>
             {commonName}
-            {/* {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name} */}
           </Text>
           <Text style={styles.scientificNameText}>{taxon.name}</Text>
         </View>

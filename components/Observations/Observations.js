@@ -39,8 +39,11 @@ class Observations extends Component<Props> {
 
   scrollToTop() {
     if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
+      this.scrollView.scrollToLocation( {
+        sectionIndex: 0,
+        itemIndex: 0,
+        viewOffset: 70,
+        animated: Platform.OS === "android"
       } );
     }
   }
@@ -54,6 +57,8 @@ class Observations extends Component<Props> {
       const data = species
         .filtered( `taxon.iconicTaxonId == ${id}` )
         .sorted( "date", true );
+
+        console.log( data.length, "data length", id );
 
       observations.push( {
         id,
@@ -107,27 +112,28 @@ class Observations extends Component<Props> {
       );
     } else if ( observations.length > 0 ) {
       content = (
-        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-          <View style={styles.secondTextContainer}>
-            <SectionList
-              renderItem={( { item } ) => (
-                <ObservationCard
-                  navigation={navigation}
-                  item={item}
-                />
-              )}
-              renderSectionHeader={( { section: { id } } ) => (
-                <Text style={styles.secondHeaderText}>
-                  {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
-                </Text>
-              )}
-              sections={observations}
-              keyExtractor={( item, index ) => item + index}
-              renderSectionFooter={( { section: { id, data } } ) => this.renderEmptySection( id, data )}
-            />
-          </View>
+        <View>
+          <SectionList
+            ref={( ref ) => { this.scrollView = ref; }}
+            style={styles.secondTextContainer}
+            renderItem={( { item } ) => (
+              <ObservationCard
+                navigation={navigation}
+                item={item}
+              />
+            )}
+            renderSectionHeader={( { section: { id } } ) => (
+              <Text style={styles.secondHeaderText}>
+                {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+              </Text>
+            )}
+            sections={observations}
+            initialNumToRender={5}
+            keyExtractor={( item, index ) => item + index}
+            renderSectionFooter={( { section: { id, data } } ) => this.renderEmptySection( id, data )}
+          />
           <Padding />
-        </ScrollView>
+        </View>
       );
     } else {
       content = <NoObservations navigation={navigation} />;

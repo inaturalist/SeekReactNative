@@ -5,6 +5,7 @@ import {
   Platform,
   Image,
   ScrollView,
+  FlatList,
   TouchableHighlight,
   TouchableOpacity,
   Text,
@@ -169,26 +170,24 @@ class GalleryScreen extends Component<Props> {
       );
     } else {
       gallery = (
-        <ScrollView
-          contentContainerStyle={styles.container}
-          onScroll={() => this.getPhotos()}
-        >
-          {photos.map( ( p, i ) => {
-            return (
-              <TouchableHighlight
-                style={styles.button}
-                key={i.toString()}
-                underlayColor="transparent"
-                onPress={() => this.selectImage( p.node )}
-              >
-                <Image
-                  style={styles.image}
-                  source={{ uri: p.node.image.uri }}
-                />
-              </TouchableHighlight>
-            );
-          } )}
-        </ScrollView>
+        <FlatList
+          data={photos}
+          numColumns={4}
+          onEndReached={() => this.getPhotos()}
+          keyExtractor={( item, index ) => `${item}${index}`}
+          renderItem={( { item } ) => (
+            <TouchableHighlight
+              style={styles.button}
+              underlayColor="transparent"
+              onPress={() => this.selectImage( item.node )}
+            >
+              <Image
+                style={styles.image}
+                source={{ uri: item.node.image.uri }}
+              />
+            </TouchableHighlight>
+          )}
+        />
       );
     }
 

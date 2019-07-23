@@ -238,6 +238,7 @@
     "flag": "Misidentification",
     "incorrect": "Was this species misidentified?",
     "yes": "Yes, remove it from my observations",
+    "yes_resighted": "Yes, this species was misidentified",
     "no": "No, It's correct",
     "enable_location": "Enable location to save observations",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",

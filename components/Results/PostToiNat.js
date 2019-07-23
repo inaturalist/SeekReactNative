@@ -50,7 +50,7 @@ class PostToiNat extends Component<Props> {
         {postingSuccess || !latitude || !longitude
           ? null
           : (
-            <View>
+            <View style={{ alignItems: "center" }}>
               <Text style={styles.text}>
                 {i18n.t( "results.post_inat" )}
               </Text>

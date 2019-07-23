@@ -83,7 +83,10 @@ const FlagModal = ( {
           }}
         >
           <Text style={styles.buttonText}>
-            {i18n.t( "results.yes" ).toLocaleUpperCase()}
+            {seenDate
+              ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
+              : i18n.t( "results.yes" ).toLocaleUpperCase()
+            }
           </Text>
         </TouchableOpacity>
         <View style={{ marginTop: 16 }} />

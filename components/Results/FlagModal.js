@@ -47,6 +47,7 @@ const FlagModal = ( {
           >
             <Image source={icons.closeWhite} />
           </TouchableOpacity>
+          <Text>{i18n.t( "results.flag" ).toLocaleUpperCase()}</Text>
           <View style={[styles.imageContainer, styles.flagButtonContainer]}>
             <Image
               style={styles.flagImageCell}
@@ -67,7 +68,7 @@ const FlagModal = ( {
         <Text style={[styles.text, { width: 261 }]}>{i18n.t( "results.incorrect" )}</Text>
         <View style={{ marginTop: 31 }} />
         <TouchableOpacity
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
+          style={[styles.flagButton, { backgroundColor: "#973838" }]}
           onPress={() => {
             if ( seenDate ) {
               toggleFlagModal( true );

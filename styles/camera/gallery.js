@@ -29,10 +29,6 @@ export default StyleSheet.create( {
     flexGrow: 1,
     backgroundColor: colors.lightGray
   },
-  container: {
-    flexWrap: "wrap",
-    flexDirection: "row"
-  },
   button: {
     paddingHorizontal: 1,
     paddingTop: 2

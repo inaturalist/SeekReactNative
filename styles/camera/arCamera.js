@@ -11,6 +11,7 @@ export default StyleSheet.create( {
   },
   camera: {
     width,
+    // width: Platform.OS === "android" ? width + 100 : width, // this should account for offcenter photos on android
     height,
     zIndex: -2
   },

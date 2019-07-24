@@ -88,7 +88,7 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, image, time ) => {
+const addToCollection = ( observation, latitude, longitude, uri, time ) => {
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
@@ -99,10 +99,10 @@ const addToCollection = ( observation, latitude, longitude, image, time ) => {
       realm.write( () => {
         let defaultPhoto;
         const p = observation.taxon.default_photo;
-        if ( image ) {
+        if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p.medium_url,
-            mediumUrl: image.uri
+            mediumUrl: uri
           } );
         }
         const taxon = realm.create( "TaxonRealm", {

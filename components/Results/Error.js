@@ -9,10 +9,11 @@ import styles from "../../styles/results/error";
 
 type Props = {
   error: string,
-  navigation: any
+  navigation: any,
+  number: Number
 }
 
-const ErrorScreen = ( { error, navigation }: Props ) => {
+const ErrorScreen = ( { error, navigation, number }: Props ) => {
   let errorText;
 
   if ( error === "onlineVision" ) {
@@ -21,6 +22,10 @@ const ErrorScreen = ( { error, navigation }: Props ) => {
     errorText = i18n.t( "results.error_image" );
   } else if ( error === "taxaInfo" ) {
     errorText = i18n.t( "results.error_species" );
+  } else if ( error === "downtime" ) {
+    errorText = i18n.t( "results.error_downtime", {
+      number: number || i18n.t( "results.error_few" )
+    } );
   }
 
   return (
@@ -28,9 +33,7 @@ const ErrorScreen = ( { error, navigation }: Props ) => {
       <SafeAreaView style={styles.safeViewTop} />
       <SafeAreaView style={styles.safeView}>
         <GreenHeader navigation={navigation} />
-        <View style={styles.textContainer}>
-          <Text style={styles.errorText}>{errorText}</Text>
-        </View>
+        <Text style={styles.errorText}>{errorText}</Text>
       </SafeAreaView>
     </View>
   );

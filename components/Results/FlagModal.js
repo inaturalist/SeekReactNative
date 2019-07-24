@@ -40,13 +40,18 @@ const FlagModal = ( {
           colors={[gradientColorDark, gradientColorLight]}
           style={styles.flagHeader}
         >
-          <TouchableOpacity
-            style={styles.flagBackButton}
-            hitSlop={styles.touchable}
-            onPress={() => toggleFlagModal() }
-          >
-            <Image source={icons.closeWhite} />
-          </TouchableOpacity>
+          <View style={styles.flagTextContainer}>
+            <Text style={[styles.buttonText, { paddingTop: 9 }]}>
+              {i18n.t( "results.flag" ).toLocaleUpperCase()}
+            </Text>
+            <TouchableOpacity
+              style={styles.flagBackButton}
+              hitSlop={styles.touchable}
+              onPress={() => toggleFlagModal() }
+            >
+              <Image source={icons.closeWhite} />
+            </TouchableOpacity>
+          </View>
           <View style={[styles.imageContainer, styles.flagButtonContainer]}>
             <Image
               style={styles.flagImageCell}
@@ -62,12 +67,12 @@ const FlagModal = ( {
         </LinearGradient>
       </View>
       <View style={styles.flagContainer}>
-        <View style={{ marginTop: 40 }} />
+        <View style={{ marginTop: 45 }} />
         <Text style={styles.speciesText}>{speciesText}</Text>
-        <Text style={[styles.text, { width: 261 }]}>{i18n.t( "results.incorrect" )}</Text>
-        <View style={{ marginTop: 31 }} />
+        <Text style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
+        <View style={{ marginTop: 16 }} />
         <TouchableOpacity
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
+          style={styles.largeFlagButton}
           onPress={() => {
             if ( seenDate ) {
               toggleFlagModal( true );
@@ -78,10 +83,13 @@ const FlagModal = ( {
           }}
         >
           <Text style={styles.buttonText}>
-            {i18n.t( "results.yes" ).toLocaleUpperCase()}
+            {seenDate
+              ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
+              : i18n.t( "results.yes" ).toLocaleUpperCase()
+            }
           </Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 17 }} />
+        <View style={{ marginTop: 16 }} />
         <TouchableOpacity
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
           onPress={() => toggleFlagModal()}

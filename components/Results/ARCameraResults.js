@@ -28,16 +28,14 @@ class ARCameraResults extends Component<Props> {
     super();
 
     const {
-      image,
-      time,
+      uri,
       predictions
     } = navigation.state.params;
 
     this.state = {
       threshold: 0.7,
       predictions,
-      image,
-      time,
+      uri,
       latitude: null,
       longitude: null,
       userImage: null,
@@ -215,9 +213,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   resizeImage() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 299 ).then( ( userImage ) => {
+    resizeImage( uri, 299 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
@@ -227,9 +225,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   resizeImageForUploading() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
+    resizeImage( uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
@@ -243,12 +241,11 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image,
-      time
+      uri
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image, time );
+      addToCollection( observation, latitude, longitude, uri );
     }
   }
 
@@ -281,7 +278,6 @@ class ARCameraResults extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time,
       match,
       isLoggedIn
     } = this.state;
@@ -296,7 +292,6 @@ class ARCameraResults extends Component<Props> {
       scientificName,
       latitude,
       longitude,
-      time,
       commonAncestor,
       match,
       isLoggedIn
@@ -323,7 +318,7 @@ class ARCameraResults extends Component<Props> {
             <ImageBackground
               source={{ uri: imageForUploading }}
               style={styles.imageBackground}
-              imageStyle={{ resizeMode: "cover" }}
+              imageStyle={{ resizeMode: "cover" }} // is this working differently across both
             >
               <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />

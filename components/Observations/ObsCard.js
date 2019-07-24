@@ -6,11 +6,12 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Platform
+  Platform,
+  ImageBackground
 } from "react-native";
 import RNFS from "react-native-fs";
 
-import { setSpeciesId, setRoute } from "../../utility/helpers";
+import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/observations";
 import iconicTaxa from "../../assets/iconicTaxa";
 
@@ -24,12 +25,14 @@ class ObservationCard extends Component<Props> {
     super();
 
     this.state = {
-      photo: null
+      photo: null,
+      commonName: null
     };
   }
 
   componentWillMount() {
     this.checkForSeekV1Photos();
+    this.localizeCommonName();
   }
 
   setPhoto( photo ) {
@@ -74,9 +77,21 @@ class ObservationCard extends Component<Props> {
     }
   }
 
+  localizeCommonName() {
+    const { item } = this.props;
+
+    getTaxonCommonName( item.taxon.id ).then( ( commonName ) => {
+      if ( commonName ) {
+        this.setState( { commonName } );
+      } else {
+        this.setState( { commonName: item.taxon.name } );
+      }
+    } );
+  }
+
   render() {
     const { navigation, item } = this.props;
-    const { photo } = this.state;
+    const { photo, commonName } = this.state;
     const { taxon } = item;
 
     return (
@@ -88,10 +103,16 @@ class ObservationCard extends Component<Props> {
           navigation.navigate( "Species" );
         }}
       >
-        <Image style={styles.image} source={photo} />
+        <ImageBackground
+          imageStyle={styles.image}
+          style={styles.image}
+          source={iconicTaxa[taxon.iconicTaxonId]}
+        >
+          <Image style={styles.image} source={photo} />
+        </ImageBackground>
         <View style={styles.speciesNameContainer}>
           <Text style={styles.commonNameText}>
-            {taxon.preferredCommonName ? taxon.preferredCommonName : taxon.name}
+            {commonName}
           </Text>
           <Text style={styles.scientificNameText}>{taxon.name}</Text>
         </View>

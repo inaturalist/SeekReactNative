@@ -27,7 +27,7 @@ export default StyleSheet.create( {
   flagHeader: {
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
-    height: 166,
+    height: 167,
     overflow: "visible"
   },
   header: {
@@ -46,6 +46,13 @@ export default StyleSheet.create( {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+    flexWrap: "nowrap"
+  },
+  flagTextContainer: {
+    marginTop: 15,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
     flexWrap: "nowrap"
   },
   imageCell: {
@@ -83,7 +90,7 @@ export default StyleSheet.create( {
     fontSize: 30,
     lineHeight: 35,
     color: colors.black,
-    marginBottom: 24
+    marginBottom: 8
   },
   text: {
     width: 292,
@@ -100,9 +107,18 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
+  largeFlagButton: {
+    backgroundColor: "#973838",
+    width: 278,
+    height: 79,
+    borderRadius: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    flexWrap: "wrap"
+  },
   button: {
     backgroundColor: colors.seekForestGreen,
-    width: 292,
+    width: 244,
     height: 46,
     marginTop: 28,
     marginBottom: 28,
@@ -111,6 +127,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   buttonText: {
+    textAlign: "center",
     fontFamily: fonts.semibold,
     fontSize: 18,
     color: colors.white,
@@ -119,12 +136,11 @@ export default StyleSheet.create( {
   },
   backButton: {
     top: 18,
-    right: 23
+    left: 23
   },
   flagBackButton: {
-    marginTop: 18,
-    marginRight: 29,
-    alignItems: "flex-end"
+    marginLeft: 33,
+    marginRight: 29
   },
   linkText: {
     fontFamily: fonts.book,

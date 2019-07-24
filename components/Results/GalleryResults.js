@@ -32,14 +32,14 @@ class Results extends Component<Props> {
     super();
 
     const {
-      image,
+      uri,
       time,
       latitude,
       longitude
     } = navigation.state.params;
 
     this.state = {
-      image,
+      uri,
       time,
       latitude,
       longitude,
@@ -55,7 +55,8 @@ class Results extends Component<Props> {
       imageForUploading: null,
       match: null,
       clicked: false,
-      isLoggedIn: null
+      isLoggedIn: null,
+      numberOfHours: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
@@ -122,6 +123,10 @@ class Results extends Component<Props> {
     this.setState( { seenDate } );
   }
 
+  setNumberOfHours( numberOfHours ) {
+    this.setState( { numberOfHours } );
+  }
+
   setError( error ) {
     this.setState( { error } );
   }
@@ -186,9 +191,9 @@ class Results extends Component<Props> {
   }
 
   resizeImage() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 299 ).then( ( userImage ) => {
+    resizeImage( uri, 299 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
@@ -198,9 +203,9 @@ class Results extends Component<Props> {
   }
 
   resizeImageForUploading() {
-    const { image } = this.state;
+    const { uri } = this.state;
 
-    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
+    resizeImage( uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
@@ -235,8 +240,21 @@ class Results extends Component<Props> {
         } else {
           this.setMatch( false );
         }
-      } ).catch( () => {
-        this.setError( "onlineVision" );
+      } ).catch( ( { response } ) => {
+        if ( response.status && response.status === 503 ) {
+          const gmtTime = response.headers.map["retry-after"];
+          const currentTime = moment();
+          const retryAfter = moment( gmtTime );
+
+          const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
+
+          if ( hours ) {
+            this.setNumberOfHours( hours.toFixed( 0 ) );
+          }
+          this.setError( "downtime" );
+        } else {
+          this.setError( "onlineVision" );
+        }
       } );
   }
 
@@ -245,12 +263,12 @@ class Results extends Component<Props> {
       latitude,
       longitude,
       observation,
-      image,
+      uri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, image, time );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
@@ -322,7 +340,8 @@ class Results extends Component<Props> {
       imageForUploading,
       error,
       match,
-      clicked
+      clicked,
+      numberOfHours
     } = this.state;
     const { navigation } = this.props;
 
@@ -337,8 +356,13 @@ class Results extends Component<Props> {
           }}
         />
         {error
-          ? <ErrorScreen error={error} navigation={navigation} />
-          : (
+          ? (
+            <ErrorScreen
+              error={error}
+              navigation={navigation}
+              number={numberOfHours}
+            />
+          ) : (
             <ConfirmScreen
               image={imageForUploading}
               checkForMatches={this.checkForMatches}

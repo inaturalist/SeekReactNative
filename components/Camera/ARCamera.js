@@ -119,25 +119,6 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  getCameraCaptureFromGallery() {
-    CameraRoll.getPhotos( {
-      first: 1,
-      assetType: "All",
-      groupTypes: "All" // this is required in RN 0.59+
-    } ).then( ( results ) => {
-      let photo;
-
-      if ( results.edges[0] ) {
-        photo = results.edges[0].node;
-        this.navigateToResults( photo );
-      } else {
-        this.setError( "save" );
-      }
-    } ).catch( () => {
-      this.setError( "save" );
-    } );
-  }
-
   requestCameraPermissions = async () => {
     if ( Platform.OS === "android" ) {
       const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
@@ -207,24 +188,25 @@ class ARCamera extends Component<Props> {
 
   savePhotoToGallery( photo ) {
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( () => this.getCameraCaptureFromGallery() )
+      .then( ( uri ) => {
+        this.navigateToResults( uri );
+      } )
       .catch( () => this.setError( "save" ) );
   }
 
-  navigateToResults( photo ) {
+  navigateToResults( uri ) {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
-        image: photo.image,
-        time: photo.timestamp,
+        uri,
         predictions
       } );
     } else {
       navigation.navigate( "GalleryResults", {
-        image: photo.image,
-        time: photo.timestamp,
+        uri,
+        time: null,
         latitude: null,
         longitude: null
       } );

@@ -44,13 +44,13 @@ const missions = {
       number: 2,
       types: ["fungi"]
     }
+  },
+  3: {
+    0: {
+      number: 10,
+      types: ["insects"]
+    }
   }
-  // 3: {
-  //   0: {
-  //     number: 10,
-  //     types: ["insects"]
-  //   }
-  // },
   // 4: {
   //   0: {
   //     number: 10,

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as RNLocalize from "react-native-localize";
+import Geolocation from "@react-native-community/geolocation";
 
 import i18n from "../i18n";
 import RootStack from "./Navigation";
@@ -15,6 +16,7 @@ class App extends Component {
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     setTimeout( setupCommonNames, 5000 );
+    Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
     RNLocalize.addEventListener( "change", this.handleLanguagesChange );
   }
 

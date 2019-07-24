@@ -1,5 +1,3 @@
-import commonNames from "./commonNames/commonNamesDict-1";
-
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 

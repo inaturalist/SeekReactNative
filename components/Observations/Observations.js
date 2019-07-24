@@ -135,6 +135,7 @@ class Observations extends Component<Props> {
             )}
             sections={observations}
             initialNumToRender={5}
+            stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
             renderSectionFooter={( { section: { id, data } } ) => this.renderEmptySection( id, data )}
           />

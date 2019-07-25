@@ -66,8 +66,8 @@ class HomeScreen extends Component<Props> {
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa } );
     this.setLoading( false );
+    this.setState( { taxa } );
   }
 
   setError( error ) {
@@ -134,7 +134,8 @@ class HomeScreen extends Component<Props> {
         if ( granted ) {
           this.getGeolocation();
         } else {
-          this.setError( "location" );
+          this.setLoading( false );
+          this.setError( "location" ); // is this necessary?
         }
       } );
     } else {

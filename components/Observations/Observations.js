@@ -64,8 +64,6 @@ class Observations extends Component<Props> {
         .filtered( `taxon.iconicTaxonId == ${id}` )
         .sorted( "date", true );
 
-        console.log( data.length, "data length", id );
-
       observations.push( {
         id,
         data: data.length > 0 ? data : []

@@ -134,6 +134,7 @@ class HomeScreen extends Component<Props> {
         if ( granted ) {
           this.getGeolocation();
         } else {
+          this.setLoading( false );
           this.setError( "location" );
         }
       } );

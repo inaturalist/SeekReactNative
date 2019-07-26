@@ -162,6 +162,9 @@ android {
 }
 
 dependencies {
+    implementation ( project(':react-native-device-info') ) {
+        exclude group: 'com.google.android.gms'
+    }
     implementation project(':@react-native-community/geolocation')
     implementation project(':@react-native-community/async-storage')
     implementation project(':@react-native-community/cameraroll')

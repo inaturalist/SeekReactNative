@@ -32,21 +32,24 @@ const Error = ( {
     <TouchableOpacity
       onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
     >
+      {error === "location_device" ? (
+        <View style={styles.row}>
+          <Image source={icons.error} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.location_device" )}</Text>
+        </View>
+      ) : null}
       {error === "location" ? (
         <View style={styles.row}>
           <Image source={icons.error} />
           <Text style={styles.text}>{i18n.t( "species_nearby.location_error" )}</Text>
         </View>
-      ) : (
-        <TouchableOpacity
-          onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
-        >
-          <View style={styles.row}>
-            <Image source={icons.internet} />
-            <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
-          </View>
-        </TouchableOpacity>
-      )}
+      ) : null}
+      {error === "internet" ? (
+        <View style={styles.row}>
+          <Image source={icons.internet} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
+        </View>
+      ) : null}
       {error === "location" ? (
         <TouchableOpacity
           style={styles.greenButton}

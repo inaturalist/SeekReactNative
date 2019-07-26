@@ -13,6 +13,7 @@ import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
+import DeviceInfo from "react-native-device-info";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -81,7 +82,8 @@ class HomeScreen extends Component<Props> {
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords === null ) {
-        this.setError( "location" );
+        this.checkDeviceLocationEnabled();
+        // this.setError( "location" );
       } else {
         const { latitude, longitude } = coords;
 
@@ -126,6 +128,15 @@ class HomeScreen extends Component<Props> {
     }
 
     this.fetchSpeciesNearby( params );
+  }
+
+  checkDeviceLocationEnabled() {
+    DeviceInfo.isLocationEnabled().then( ( enabled ) => {
+      if ( enabled === false ) {
+        this.setLoading( false );
+        this.setError( "location_device" );
+      }
+    } );
   }
 
   requestAndroidPermissions() {

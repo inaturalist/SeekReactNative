@@ -1,10 +1,10 @@
 package org.inaturalist.seek;
 
 import com.facebook.react.ReactActivity;
-import com.reactnativecommunity.geolocation.GeolocationPackage;
-import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import com.reactnativecommunity.cameraroll.CameraRollPackage;
-import com.reactnativecommunity.netinfo.NetInfoPackage;
+// import com.reactnativecommunity.geolocation.GeolocationPackage;
+// import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// import com.reactnativecommunity.cameraroll.CameraRollPackage;
+// import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;

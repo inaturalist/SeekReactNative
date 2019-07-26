@@ -6,7 +6,7 @@
   "species_nearby": {
     "header": "Species nearby",
     "location_error": "In order to show you nearby species, we need to use your location.",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please turn on your device’s location services.",
+    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
     "enable_location": "Enable location in settings",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",

@@ -55,7 +55,9 @@ const Error = ( {
           style={styles.greenButton}
           onPress={() => OpenSettings.openSettings()}
         >
-          <Text style={styles.buttonText}>{i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.buttonText}>
+            {i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}
+          </Text>
         </TouchableOpacity>
       ) : null}
     </TouchableOpacity>

@@ -39,6 +39,7 @@ export default StyleSheet.create( {
     height: 34
   },
   buttonText: {
+    textAlign: "center",
     fontFamily: fonts.semibold,
     letterSpacing: 1.12,
     fontSize: 16,

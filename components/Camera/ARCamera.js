@@ -137,6 +137,7 @@ class ARCamera extends Component<Props> {
   }
 
   requestCameraRollPermissions = async ( photo ) => {
+    // console.log( photo, "request camera roll permissions" );
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
       this.setImagePredictions( photo.predictions );

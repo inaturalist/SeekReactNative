@@ -126,7 +126,7 @@ class ARCamera extends Component<Props> {
       try {
         const granted = await PermissionsAndroid.request( camera );
         if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-          // console.log( granted, "granted" );
+          this.requestCameraRollPermissions();
         } else {
           this.setError( "permissions" );
         }
@@ -136,12 +136,10 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  requestCameraRollPermissions = async ( photo ) => {
-    // console.log( photo, "request camera roll permissions" );
+  requestCameraRollPermissions = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
-      this.setImagePredictions( photo.predictions );
-      this.savePhotoToGallery( photo );
+      console.log( permission, "permission granted" );
     } else {
       this.setError( "save" );
     }
@@ -171,7 +169,8 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          this.requestCameraRollPermissions( photo );
+          this.setImagePredictions( photo.predictions );
+          this.savePhotoToGallery( photo );
         } ).catch( () => {
           this.setError( "save" );
         } );

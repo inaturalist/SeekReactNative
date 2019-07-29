@@ -118,7 +118,7 @@ export default StyleSheet.create( {
   },
   button: {
     backgroundColor: colors.seekForestGreen,
-    width: 244,
+    width: 292,
     height: 46,
     marginTop: 28,
     marginBottom: 28,

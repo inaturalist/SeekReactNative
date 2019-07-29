@@ -63,7 +63,7 @@ const challenges = {
     homeBackgroundName: "img-homechallenge-august",
     backgroundName: "img-challengedetail-august",
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_may",
+    earnedIconName: "badge_ourplanet_august",
     missions: [
       "challenges.mission_1_august"
     ],

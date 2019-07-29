@@ -36,6 +36,7 @@ class ARCameraResults extends Component<Props> {
       threshold: 0.7,
       predictions,
       uri,
+      time: moment().format( "X" ),
       latitude: null,
       longitude: null,
       userImage: null,
@@ -241,11 +242,12 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       observation,
-      uri
+      uri,
+      time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
@@ -271,6 +273,7 @@ class ARCameraResults extends Component<Props> {
       userImage,
       taxaName,
       taxaId,
+      time,
       speciesSeenImage,
       commonAncestor,
       seenDate,
@@ -287,6 +290,7 @@ class ARCameraResults extends Component<Props> {
       image: imageForUploading,
       taxaName,
       taxaId,
+      time,
       speciesSeenImage,
       seenDate,
       scientificName,

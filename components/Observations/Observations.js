@@ -7,7 +7,8 @@ import {
   Platform,
   SectionList,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -76,7 +77,8 @@ class Observations extends Component<Props> {
       observations.push( {
         id,
         data: data.length > 0 ? data : [],
-        badgeCount
+        badgeCount,
+        open: true
       } );
     } );
 
@@ -112,6 +114,20 @@ class Observations extends Component<Props> {
     }
   }
 
+  toggleSection( id ) {
+    const { observations } = this.state;
+
+    const section = observations.find( item => item.id === id );
+    if ( section.open === true ) {
+      section.open = false;
+    } else {
+      section.open = true;
+    }
+    console.log( section, "section" );
+
+    this.setState( { observations } );
+  }
+
   render() {
     const { observations, loading } = this.state;
     const { navigation } = this.props;
@@ -130,12 +146,17 @@ class Observations extends Component<Props> {
           <SectionList
             ref={( ref ) => { this.scrollView = ref; }}
             style={styles.secondTextContainer}
-            renderItem={( { item } ) => (
-              <ObservationCard
-                navigation={navigation}
-                item={item}
-              />
-            )}
+            renderItem={( { item, section } ) => {
+              if ( section.open === true ) {
+                return (
+                  <ObservationCard
+                    navigation={navigation}
+                    item={item}
+                  />
+                );
+              }
+              return null;
+            }}
             renderSectionHeader={( { section: { id, data, badgeCount } } ) => {
               let badge;
 
@@ -150,7 +171,10 @@ class Observations extends Component<Props> {
               }
 
               return (
-                <View style={styles.headerRow}>
+                <TouchableOpacity
+                  style={styles.headerRow}
+                  onPress={() => this.toggleSection( id )}
+                >
                   <Text style={styles.secondHeaderText}>
                     {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
                   </Text>
@@ -160,7 +184,7 @@ class Observations extends Component<Props> {
                     </Text>
                     <Image source={badge} style={styles.badgeImage} />
                   </View>
-                </View>
+                </TouchableOpacity>
               );
             }}
             sections={observations}

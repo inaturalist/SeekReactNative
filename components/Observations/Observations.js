@@ -102,8 +102,8 @@ class Observations extends Component<Props> {
       } );
   }
 
-  renderEmptySection( id, data ) {
-    if ( data.length === 0 ) {
+  renderEmptySection( id, data, open ) {
+    if ( data.length === 0 && open ) {
       return (
         <View style={styles.textContainer}>
           <Text style={styles.text}>
@@ -112,6 +112,7 @@ class Observations extends Component<Props> {
         </View>
       );
     }
+    return null;
   }
 
   toggleSection( id ) {
@@ -191,7 +192,7 @@ class Observations extends Component<Props> {
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
-            renderSectionFooter={( { section: { id, data } } ) => this.renderEmptySection( id, data )}
+            renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}
           />
           <Padding />
         </View>

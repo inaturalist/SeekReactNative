@@ -126,10 +126,15 @@ class Observations extends Component<Props> {
                 item={item}
               />
             )}
-            renderSectionHeader={( { section: { id } } ) => (
-              <Text style={styles.secondHeaderText}>
-                {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
-              </Text>
+            renderSectionHeader={( { section: { id, data } } ) => (
+              <View style={styles.headerRow}>
+                <Text style={styles.secondHeaderText}>
+                  {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+                </Text>
+                <Text style={styles.numberText}>
+                  {data.length}
+                </Text>
+              </View>
             )}
             sections={observations}
             initialNumToRender={5}

@@ -10,9 +10,20 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: colors.white
   },
-  secondHeaderText: {
+  headerRow: {
     marginTop: 32,
     marginBottom: 10,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
+  },
+  numberText: {
+    fontSize: 18,
+    fontFamily: fonts.light,
+    letterSpacing: 0.78,
+    color: colors.black
+  },
+  secondHeaderText: {
     fontSize: 18,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -68,7 +79,7 @@ export default StyleSheet.create( {
     color: colors.white
   },
   secondTextContainer: {
-    marginLeft: 25
+    marginHorizontal: 25
   },
   card: {
     height: 100,

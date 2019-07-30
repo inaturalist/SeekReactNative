@@ -139,7 +139,7 @@ class ARCamera extends Component<Props> {
   requestCameraRollPermissions = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
-      console.log( permission, "permission granted" );
+      // console.log( permission, "permission granted" );
     } else {
       this.setError( "save" );
     }

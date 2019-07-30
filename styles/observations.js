@@ -11,19 +11,32 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   headerRow: {
-    marginTop: 32,
+    marginTop: 18,
     marginBottom: 10,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between"
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center"
+  },
   numberText: {
+    marginTop: 4,
     fontSize: 18,
     fontFamily: fonts.light,
     letterSpacing: 0.78,
-    color: colors.black
+    color: colors.black,
+    marginRight: 6
+  },
+  badgeImage: {
+    width: 22,
+    height: 25
   },
   secondHeaderText: {
+    marginTop: 4,
     fontSize: 18,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,

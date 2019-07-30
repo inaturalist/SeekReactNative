@@ -6,7 +6,8 @@ import {
   SafeAreaView,
   Platform,
   SectionList,
-  Text
+  Text,
+  Image
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -14,6 +15,7 @@ import Realm from "realm";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import styles from "../../styles/observations";
+import badges from "../../assets/badges";
 import Padding from "../Padding";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
@@ -57,6 +59,8 @@ class Observations extends Component<Props> {
   createSectionList( realm ) {
     const observations = [];
     const species = realm.objects( "ObservationRealm" );
+    const badges = realm.objects( "BadgeRealm" );
+
     const taxaIdList = Object.keys( taxaIds );
 
     taxaIdList.forEach( ( id ) => {
@@ -64,9 +68,15 @@ class Observations extends Component<Props> {
         .filtered( `taxon.iconicTaxonId == ${id}` )
         .sorted( "date", true );
 
+      const badgeCount = badges
+        .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
+
+      console.log( badgeCount, "badge count" );
+
       observations.push( {
         id,
-        data: data.length > 0 ? data : []
+        data: data.length > 0 ? data : [],
+        badgeCount
       } );
     } );
 
@@ -126,16 +136,33 @@ class Observations extends Component<Props> {
                 item={item}
               />
             )}
-            renderSectionHeader={( { section: { id, data } } ) => (
-              <View style={styles.headerRow}>
-                <Text style={styles.secondHeaderText}>
-                  {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.numberText}>
-                  {data.length}
-                </Text>
-              </View>
-            )}
+            renderSectionHeader={( { section: { id, data, badgeCount } } ) => {
+              let badge;
+
+              if ( badgeCount === 0 ) {
+                badge = badges.badge_empty_small;
+              } else if ( badgeCount === 1 ) {
+                badge = badges.badge_bronze;
+              } else if ( badgeCount === 2 ) {
+                badge = badges.badge_silver;
+              } else if ( badgeCount === 3 ) {
+                badge = badges.badge_gold;
+              }
+
+              return (
+                <View style={styles.headerRow}>
+                  <Text style={styles.secondHeaderText}>
+                    {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
+                  </Text>
+                  <View style={styles.row}>
+                    <Text style={styles.numberText}>
+                      {data.length}
+                    </Text>
+                    <Image source={badge} style={styles.badgeImage} />
+                  </View>
+                </View>
+              );
+            }}
             sections={observations}
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}

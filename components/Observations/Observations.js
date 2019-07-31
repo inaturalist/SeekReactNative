@@ -17,6 +17,7 @@ import i18n from "../../i18n";
 import realmConfig from "../../models";
 import styles from "../../styles/observations";
 import badges from "../../assets/badges";
+import icons from "../../assets/icons";
 import Padding from "../Padding";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import LoadingWheel from "../LoadingWheel";
@@ -71,8 +72,6 @@ class Observations extends Component<Props> {
 
       const badgeCount = badges
         .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
-
-      console.log( badgeCount, "badge count" );
 
       observations.push( {
         id,
@@ -146,7 +145,6 @@ class Observations extends Component<Props> {
         <View>
           <SectionList
             ref={( ref ) => { this.scrollView = ref; }}
-            style={styles.secondTextContainer}
             renderItem={( { item, section } ) => {
               if ( section.open === true ) {
                 return (
@@ -158,7 +156,14 @@ class Observations extends Component<Props> {
               }
               return null;
             }}
-            renderSectionHeader={( { section: { id, data, badgeCount } } ) => {
+            renderSectionHeader={( {
+              section: {
+                id,
+                data,
+                badgeCount,
+                open
+              }
+            } ) => {
               let badge;
 
               if ( badgeCount === 0 ) {
@@ -184,12 +189,14 @@ class Observations extends Component<Props> {
                       {data.length}
                     </Text>
                     <Image source={badge} style={styles.badgeImage} />
+                    <View style={{ marginRight: badge === badges.badge_empty_small ? 14 : 15 }} />
+                    <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                   </View>
                 </TouchableOpacity>
               );
             }}
             sections={observations}
-            initialNumToRender={5}
+            initialNumToRender={7}
             stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
             renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}

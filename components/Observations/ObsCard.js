@@ -7,12 +7,14 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  ImageBackground
+  ImageBackground,
+  ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/observations";
+import icons from "../../assets/icons";
 import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
@@ -95,28 +97,40 @@ class ObservationCard extends Component<Props> {
     const { taxon } = item;
 
     return (
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => {
-          setSpeciesId( item.taxon.id );
-          setRoute( "MyObservations" );
-          navigation.navigate( "Species" );
-        }}
+      <ScrollView
+        horizontal
+        bounces={false}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ marginHorizontal: 25, marginBottom: 20 }}
       >
-        <ImageBackground
-          imageStyle={styles.image}
-          style={styles.image}
-          source={iconicTaxa[taxon.iconicTaxonId]}
+        <TouchableOpacity
+          style={styles.card}
+          onPress={() => {
+            setSpeciesId( item.taxon.id );
+            setRoute( "MyObservations" );
+            navigation.navigate( "Species" );
+          }}
         >
-          <Image style={styles.image} source={photo} />
-        </ImageBackground>
-        <View style={styles.speciesNameContainer}>
-          <Text style={styles.commonNameText}>
-            {commonName}
-          </Text>
-          <Text style={styles.scientificNameText}>{taxon.name}</Text>
-        </View>
-      </TouchableOpacity>
+          <ImageBackground
+            imageStyle={styles.image}
+            style={styles.image}
+            source={iconicTaxa[taxon.iconicTaxonId]}
+          >
+            <Image style={styles.image} source={photo} />
+          </ImageBackground>
+          <View style={styles.speciesNameContainer}>
+            <Text style={styles.commonNameText}>
+              {commonName}
+            </Text>
+            <Text style={styles.scientificNameText}>{taxon.name}</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{ justifyContent: "center", marginRight: 25 }}
+        >
+          <Image source={icons.delete} />
+        </TouchableOpacity>
+      </ScrollView>
     );
   }
 }

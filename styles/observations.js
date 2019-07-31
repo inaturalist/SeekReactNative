@@ -1,9 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
   padding
 } from "./global";
+
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
@@ -11,8 +13,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   headerRow: {
+    marginHorizontal: 25,
     marginTop: 18,
-    marginBottom: 10,
+    marginBottom: 23,
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "space-between"
@@ -43,7 +46,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   textContainer: {
-    marginHorizontal: 25,
     alignItems: "center"
   },
   text: {
@@ -91,11 +93,8 @@ export default StyleSheet.create( {
     fontSize: 18,
     color: colors.white
   },
-  secondTextContainer: {
-    marginHorizontal: 25
-  },
   card: {
-    height: 100,
+    width,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"

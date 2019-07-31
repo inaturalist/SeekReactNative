@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
+import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
@@ -24,6 +25,7 @@ import LoadingWheel from "../LoadingWheel";
 import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
 import ObservationCard from "./ObsCard";
+import DeleteModal from "./DeleteModal";
 import { sortNewestToOldest } from "../../utility/helpers";
 
 type Props = {
@@ -36,8 +38,12 @@ class Observations extends Component<Props> {
 
     this.state = {
       observations: [],
-      loading: true
+      loading: true,
+      showDeleteModal: false,
+      itemToDelete: null
     };
+
+    this.toggleDeleteModal = this.toggleDeleteModal.bind( this );
   }
 
   resetObservations() {
@@ -101,6 +107,21 @@ class Observations extends Component<Props> {
       } );
   }
 
+  toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {
+    const { showDeleteModal } = this.state;
+
+    this.setState( {
+      showDeleteModal: !showDeleteModal,
+      itemToDelete: {
+        id,
+        photo,
+        commonName,
+        scientificName,
+        iconicTaxonId
+      }
+    } );
+  }
+
   renderEmptySection( id, data, open ) {
     if ( data.length === 0 && open ) {
       return (
@@ -123,13 +144,17 @@ class Observations extends Component<Props> {
     } else {
       section.open = true;
     }
-    console.log( section, "section" );
 
     this.setState( { observations } );
   }
 
   render() {
-    const { observations, loading } = this.state;
+    const {
+      observations,
+      loading,
+      showDeleteModal,
+      itemToDelete
+    } = this.state;
     const { navigation } = this.props;
 
     let content;
@@ -151,6 +176,7 @@ class Observations extends Component<Props> {
                   <ObservationCard
                     navigation={navigation}
                     item={item}
+                    toggleDeleteModal={this.toggleDeleteModal}
                   />
                 );
               }
@@ -223,6 +249,13 @@ class Observations extends Component<Props> {
             header={i18n.t( "observations.header" )}
             navigation={navigation}
           />
+          <Modal isVisible={showDeleteModal}>
+            <DeleteModal
+              toggleDeleteModal={this.toggleDeleteModal}
+              deleteObservation={this.deleteObservation}
+              itemToDelete={itemToDelete}
+            />
+          </Modal>
           {content}
         </SafeAreaView>
       </View>

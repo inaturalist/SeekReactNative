@@ -19,7 +19,8 @@ import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   navigation: any,
-  item: Object
+  item: Object,
+  toggleDeleteModal: Function
 }
 
 class ObservationCard extends Component<Props> {
@@ -92,7 +93,7 @@ class ObservationCard extends Component<Props> {
   }
 
   render() {
-    const { navigation, item } = this.props;
+    const { navigation, item, toggleDeleteModal } = this.props;
     const { photo, commonName } = this.state;
     const { taxon } = item;
 
@@ -127,6 +128,7 @@ class ObservationCard extends Component<Props> {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.deleteButton}
+          onPress={() => toggleDeleteModal( item.taxon.id, photo, commonName, taxon.name, taxon.iconicTaxonId )}
         >
           <Image source={icons.delete} />
         </TouchableOpacity>

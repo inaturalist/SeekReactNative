@@ -26,7 +26,7 @@ import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";
-import { sortNewestToOldest } from "../../utility/helpers";
+import { sortNewestToOldest, removeFromCollection } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -44,6 +44,7 @@ class Observations extends Component<Props> {
     };
 
     this.toggleDeleteModal = this.toggleDeleteModal.bind( this );
+    this.deleteObservation = this.deleteObservation.bind( this );
   }
 
   resetObservations() {
@@ -105,6 +106,11 @@ class Observations extends Component<Props> {
       .catch( () => {
         // console.log( "Err: ", err )
       } );
+  }
+
+  async deleteObservation( id ) {
+    await removeFromCollection( id );
+    this.fetchObservations();
   }
 
   toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {

@@ -81,7 +81,7 @@ const DeleteModal = ( {
         <TouchableOpacity
           style={styles.largeFlagButton}
           onPress={() => {
-            deleteObservation();
+            deleteObservation( id );
             toggleDeleteModal( true );
           }}
         >

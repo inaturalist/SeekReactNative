@@ -13,7 +13,7 @@ import {
 import RNFS from "react-native-fs";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
-import styles from "../../styles/observations";
+import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import iconicTaxa from "../../assets/iconicTaxa";
 
@@ -101,10 +101,10 @@ class ObservationCard extends Component<Props> {
         horizontal
         bounces={false}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ marginHorizontal: 25, marginBottom: 20 }}
+        contentContainerStyle={styles.card}
       >
         <TouchableOpacity
-          style={styles.card}
+          style={styles.touchableArea}
           onPress={() => {
             setSpeciesId( item.taxon.id );
             setRoute( "MyObservations" );
@@ -126,7 +126,7 @@ class ObservationCard extends Component<Props> {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={{ justifyContent: "center", marginRight: 25 }}
+          style={styles.deleteButton}
         >
           <Image source={icons.delete} />
         </TouchableOpacity>

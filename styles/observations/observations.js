@@ -3,7 +3,7 @@ import {
   colors,
   fonts,
   padding
-} from "./global";
+} from "../global";
 
 const { width } = Dimensions.get( "window" );
 
@@ -92,37 +92,6 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPadding,
     fontSize: 18,
     color: colors.white
-  },
-  card: {
-    width,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  image: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
-    marginRight: 20
-  },
-  speciesNameContainer: {
-    maxWidth: 223
-  },
-  commonNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: 21,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 5,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
-    fontSize: 16,
-    lineHeight: 21
   },
   loadingWheel: {
     flexGrow: 1,

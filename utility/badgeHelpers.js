@@ -12,7 +12,6 @@ const recalculateBadges = () => {
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
-      console.log( earnedBadges, "earned badges" );
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -35,7 +34,6 @@ const recalculateBadges = () => {
       } );
 
       earnedBadges.forEach( ( badge ) => {
-        console.log( badge, "badge" );
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
           const collectionLength = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` ).length;
 

@@ -6,7 +6,7 @@ import {
   Alert,
   Image,
   TouchableOpacity,
-  ScrollView
+  FlatList
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -72,7 +72,7 @@ const SpeciesPhotos = ( {
           <LoadingWheel color="white" />
         </View>
       ) : (
-        <ScrollView
+        <FlatList
           horizontal
           showsHorizontalScrollIndicator
           scrollEventThrottle
@@ -84,7 +84,7 @@ const SpeciesPhotos = ( {
           {( photos.length > 0 || userPhoto ) && !loading
             ? photoList
             : null}
-        </ScrollView>
+        </FlatList>
       )}
       <TouchableOpacity
         onPress={() => {

@@ -128,7 +128,6 @@ const recalculateChallenges = () => {
       incompleteChallenges.forEach( ( challenge ) => {
         realm.write( () => {
           const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
-          console.log( seenTaxa, "seen taxa" );
 
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results

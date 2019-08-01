@@ -64,7 +64,6 @@ class Observations extends Component<Props> {
   createSectionList( realm ) {
     const observations = [];
     const species = realm.objects( "ObservationRealm" );
-    const badges = realm.objects( "BadgeRealm" );
 
     const taxaIdList = Object.keys( taxaIds );
 
@@ -73,7 +72,7 @@ class Observations extends Component<Props> {
         .filtered( `taxon.iconicTaxonId == ${id}` )
         .sorted( "date", true );
 
-      const badgeCount = badges
+      const badgeCount = realm.objects( "BadgeRealm" )
         .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
 
       observations.push( {
@@ -126,19 +125,6 @@ class Observations extends Component<Props> {
     } );
   }
 
-  renderEmptySection( id, data, open ) {
-    if ( data.length === 0 && open ) {
-      return (
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-          </Text>
-        </View>
-      );
-    }
-    return null;
-  }
-
   toggleSection( id ) {
     const { observations } = this.state;
 
@@ -150,6 +136,19 @@ class Observations extends Component<Props> {
     }
 
     this.setState( { observations } );
+  }
+
+  renderEmptySection( id, data, open ) {
+    if ( data.length === 0 && open ) {
+      return (
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>
+            {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+          </Text>
+        </View>
+      );
+    }
+    return null;
   }
 
   render() {
@@ -165,8 +164,8 @@ class Observations extends Component<Props> {
     if ( observations.length > 0 ) {
       content = (
         <SectionList
-          contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
           ref={( ref ) => { this.scrollView = ref; }}
+          contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
           renderItem={( { item, section } ) => {
             if ( section.open === true ) {
               return (

@@ -11,6 +11,8 @@ const recalculateBadges = () => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
+      console.log( earnedBadges, "earned badges" );
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -31,8 +33,29 @@ const recalculateBadges = () => {
           }
         }
       } );
-    } ).catch( () => {
-      // console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+
+      earnedBadges.forEach( ( badge ) => {
+        console.log( badge, "badge" );
+        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+          const collectionLength = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` ).length;
+
+          if ( collectionLength < badge.count ) {
+            realm.write( () => {
+              badge.earned = false;
+              badge.earnedDate = null;
+            } );
+          }
+        } else if ( badge.count !== 0 ) {
+          if ( collectedTaxa.length < badge.count ) {
+            realm.write( () => {
+              badge.earned = false;
+              badge.earnedDate = null;
+            } );
+          }
+        }
+      } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
     } );
 };
 

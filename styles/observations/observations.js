@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -25,7 +25,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   numberText: {
-    marginTop: 4,
+    marginTop: Platform.OS === "ios" ? 4 : 0,
     fontSize: 18,
     fontFamily: fonts.light,
     letterSpacing: 0.78,

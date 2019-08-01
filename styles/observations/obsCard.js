@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   card: {
@@ -44,6 +46,6 @@ export default StyleSheet.create( {
     width: 72,
     justifyContent: "center",
     marginRight: 25,
-    marginLeft: 28
+    marginLeft: width - 327 - 25
   }
 } );

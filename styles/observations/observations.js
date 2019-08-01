@@ -34,7 +34,8 @@ export default StyleSheet.create( {
   },
   badgeImage: {
     width: 22,
-    height: 25
+    height: 25,
+    resizeMode: "contain"
   },
   secondHeaderText: {
     marginTop: 4,

@@ -19,7 +19,6 @@ import realmConfig from "../../models";
 import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import Padding from "../Padding";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import GreenHeader from "../GreenHeader";
 import NoObservations from "./NoObservations";
@@ -166,7 +165,7 @@ class Observations extends Component<Props> {
     if ( observations.length > 0 ) {
       content = (
         <SectionList
-          contentContainerStyle={{ paddingBottom: 60 }}
+          contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
           ref={( ref ) => { this.scrollView = ref; }}
           renderItem={( { item, section } ) => {
             if ( section.open === true ) {

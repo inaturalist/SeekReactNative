@@ -66,7 +66,6 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       similarSpecies: [],
       ancestors: [],
-      loading: true,
       loadingSpecies: true,
       route: null
     };
@@ -77,10 +76,6 @@ class SpeciesDetail extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-  }
-
-  setLoading( loading ) {
-    this.setState( { loading } );
   }
 
   setLocation( location ) {
@@ -188,7 +183,6 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       similarSpecies: [],
       ancestors: [],
-      loading: true,
       loadingSpecies: true,
       route: null
     } );
@@ -334,7 +328,6 @@ class SpeciesDetail extends Component<Props> {
         } );
       }
       this.setState( { observationsByMonth } );
-      this.setLoading( false );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );
@@ -396,7 +389,6 @@ class SpeciesDetail extends Component<Props> {
 
   fetchiNatData( screen ) {
     this.checkInternetConnection();
-    this.setLoading( true );
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
@@ -437,7 +429,6 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies,
       ancestors,
       stats,
-      loading,
       loadingSpecies,
       route
     } = this.state;
@@ -461,7 +452,6 @@ class SpeciesDetail extends Component<Props> {
               navigation={navigation}
               photos={photos}
               userPhoto={userPhoto}
-              loading={loading}
               route={route}
             />
             {taxaType && iconicTaxaNames[taxaType]

@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -454,14 +455,13 @@ class SpeciesDetail extends Component<Props> {
               userPhoto={userPhoto}
               route={route}
             />
-            {taxaType && iconicTaxaNames[taxaType]
-              ? (
-                <View style={styles.greenBanner}>
-                  <Text style={styles.iconicTaxaText}>
-                    {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
-                  </Text>
-                </View>
-              ) : null}
+            <View style={styles.greenBanner}>
+              <Text style={styles.iconicTaxaText}>
+                {taxaType && iconicTaxaNames[taxaType]
+                  ? i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()
+                  : null}
+              </Text>
+            </View>
             <View style={styles.textContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
               <Text style={styles.scientificNameText}>{scientificName}</Text>

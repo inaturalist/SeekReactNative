@@ -65,7 +65,8 @@ class Observations extends Component<Props> {
     const observations = [];
     const species = realm.objects( "ObservationRealm" );
 
-    const taxaIdList = Object.keys( taxaIds );
+    const taxaIdList = Object.keys( taxaIds ).reverse();
+    taxaIdList.pop();
 
     taxaIdList.forEach( ( id ) => {
       const data = species
@@ -85,6 +86,17 @@ class Observations extends Component<Props> {
 
     sortNewestToOldest( observations );
 
+    const otherData = species
+      .filtered( "taxon.iconicTaxonId == 1" )
+      .sorted( "date", true );
+
+    observations.push( {
+      id: 1,
+      data: otherData,
+      badgeCount: -1,
+      open: true
+    } );
+
     return species.length > 0 ? observations : [];
   }
 
@@ -92,6 +104,8 @@ class Observations extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = this.createSectionList( realm );
+        const other = observations.filter( item => item.id === 1 );
+        console.log( other, "other" );
 
         this.setState( { observations } );
       } )
@@ -188,7 +202,9 @@ class Observations extends Component<Props> {
           } ) => {
             let badge;
 
-            if ( badgeCount === 0 ) {
+            if ( badgeCount === -1 ) {
+              badge = null;
+            } else if ( badgeCount === 0 ) {
               badge = badges.badge_empty_small;
             } else if ( badgeCount === 1 ) {
               badge = badges.badge_bronze;
@@ -207,11 +223,17 @@ class Observations extends Component<Props> {
                   {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
                 </Text>
                 <View style={styles.row}>
-                  <Text style={styles.numberText}>
-                    {data.length}
-                  </Text>
-                  <Image source={badge} style={styles.badgeImage} />
-                  <View style={{ marginRight: badge === badges.badge_empty_small ? 14 : 15 }} />
+                  <Text style={styles.numberText}>{data.length}</Text>
+                  {badgeCount === -1
+                    ? <View style={{ marginRight: 7 }} />
+                    : null
+                  }
+                  {badgeCount !== -1
+                    ? <Image source={badge} style={styles.badgeImage} />
+                    : null}
+                  {badgeCount !== -1
+                    ? <View style={{ marginRight: badge === badges.badge_empty_small ? 14 : 15 }} />
+                    : null}
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>
               </TouchableOpacity>

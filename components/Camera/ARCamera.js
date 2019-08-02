@@ -68,6 +68,7 @@ class ARCamera extends Component<Props> {
   }
 
   onTaxaDetected = ( event ) => {
+    const { rankToRender } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
 
     if ( predictions ) {
@@ -81,20 +82,29 @@ class ARCamera extends Component<Props> {
       if ( predictions[rank] ) {
         predictionSet = true;
         const prediction = predictions[rank][0];
-        getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
-          this.setState( {
-            ranks: {
-              [rank]: [prediction]
-            },
-            commonName,
-            rankToRender: rank
-          } );
-        } );
+        if ( rankToRender === "species" ) {
+          // this block keeps the last species seen displayed for 3 seconds
+          // console.log( "rank to render is species so setting timeout" );
+          const saveLastSpecies = setTimeout( () => {
+            this.resetPredictions();
+            this.updateUI( prediction, rank );
+          }, 3000 );
+
+          // unless there is a new species seen during those 3 seconds
+          if ( predictions.species ) {
+            // console.log( "clearing timeout because a second species sighted" );
+            clearTimeout( saveLastSpecies );
+            this.updateUI( prediction, rank );
+          }
+        } else {
+          // console.log( "rank NOT species so predicting normally" );
+          this.updateUI( prediction, rank );
+          if ( !predictionSet ) {
+            this.resetPredictions();
+          }
+        }
       }
     } );
-    if ( !predictionSet ) {
-      this.resetPredictions( );
-    }
   }
 
   onCameraError = ( event ) => {
@@ -158,7 +168,6 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } catch ( e ) {
           this.setError( "save" );
@@ -169,13 +178,24 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } ).catch( () => {
           this.setError( "save" );
         } );
       }
     }
+  }
+
+  updateUI( prediction, rank ) {
+    getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+      this.setState( {
+        ranks: {
+          [rank]: [prediction]
+        },
+        commonName,
+        rankToRender: rank
+      } );
+    } );
   }
 
   resetPredictions() {
@@ -187,10 +207,10 @@ class ARCamera extends Component<Props> {
   }
 
   savePhotoToGallery( photo ) {
+    this.setImagePredictions( photo.predictions );
+
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( ( uri ) => {
-        this.navigateToResults( uri );
-      } )
+      .then( uri => this.navigateToResults( uri ) )
       .catch( () => this.setError( "save" ) );
   }
 
@@ -285,6 +305,7 @@ class ARCamera extends Component<Props> {
             this.addListenerForAndroid();
           }}
           onWillBlur={() => {
+            this.resetPredictions();
             this.setError( null );
             this.setPictureTaken( false );
             this.setFocusedScreen( false );

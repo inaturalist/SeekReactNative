@@ -64,6 +64,7 @@ const SpeciesNearby = ( {
         keyExtractor={taxon => `species-${taxon.id}`}
         horizontal
         bounces
+        initialNumToRender={3}
         alwaysBounceHorizontal
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>

@@ -41,10 +41,10 @@ class ObservationCard extends Component<Props> {
     this.localizeCommonName();
   }
 
-  componentWillReceiveProps( nextProps ) {
-    const { itemScrolledId, item } = this.props;
+  componentDidUpdate( prevProps ) {
+    const { itemScrolledId } = this.props;
 
-    if ( nextProps.itemScrolledId !== item.taxon.id && itemScrolledId !== null ) {
+    if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
       this.scrollToTop();
     }
   }

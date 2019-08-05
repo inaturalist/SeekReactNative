@@ -8,7 +8,8 @@ import {
   SectionList,
   Text,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -37,17 +38,23 @@ class Observations extends Component<Props> {
     this.state = {
       observations: [],
       showDeleteModal: false,
-      itemToDelete: null
+      itemToDelete: null,
+      itemScrolledId: null
     };
 
     this.toggleDeleteModal = this.toggleDeleteModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
+    this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
   resetObservations() {
     this.setState( {
       observations: []
     } );
+  }
+
+  updateItemScrolledId( itemScrolledId ) {
+    this.setState( { itemScrolledId } );
   }
 
   scrollToTop() {
@@ -104,8 +111,6 @@ class Observations extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = this.createSectionList( realm );
-        const other = observations.filter( item => item.id === 1 );
-        console.log( other, "other" );
 
         this.setState( { observations } );
       } )
@@ -143,13 +148,16 @@ class Observations extends Component<Props> {
     const { observations } = this.state;
 
     const section = observations.find( item => item.id === id );
+
     if ( section.open === true ) {
       section.open = false;
     } else {
       section.open = true;
     }
 
-    this.setState( { observations } );
+    this.setState( {
+      observations
+    } );
   }
 
   renderEmptySection( id, data, open ) {
@@ -169,7 +177,8 @@ class Observations extends Component<Props> {
     const {
       observations,
       showDeleteModal,
-      itemToDelete
+      itemToDelete,
+      itemScrolledId
     } = this.state;
     const { navigation } = this.props;
 
@@ -187,6 +196,8 @@ class Observations extends Component<Props> {
                   navigation={navigation}
                   item={item}
                   toggleDeleteModal={this.toggleDeleteModal}
+                  updateItemScrolledId={this.updateItemScrolledId}
+                  itemScrolledId={itemScrolledId}
                 />
               );
             }

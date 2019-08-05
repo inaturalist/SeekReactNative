@@ -8,7 +8,8 @@ import {
   View,
   Platform,
   ImageBackground,
-  ScrollView
+  ScrollView,
+  Alert
 } from "react-native";
 import RNFS from "react-native-fs";
 
@@ -20,7 +21,9 @@ import iconicTaxa from "../../assets/iconicTaxa";
 type Props = {
   navigation: any,
   item: Object,
-  toggleDeleteModal: Function
+  toggleDeleteModal: Function,
+  updateItemScrolledId: Function,
+  itemScrolledId: Number
 }
 
 class ObservationCard extends Component<Props> {
@@ -36,6 +39,14 @@ class ObservationCard extends Component<Props> {
   componentWillMount() {
     this.checkForSeekV1Photos();
     this.localizeCommonName();
+  }
+
+  componentWillReceiveProps( nextProps ) {
+    const { itemScrolledId, item } = this.props;
+
+    if ( nextProps.itemScrolledId !== item.taxon.id && itemScrolledId !== null ) {
+      this.scrollToTop();
+    }
   }
 
   setPhoto( photo ) {
@@ -92,17 +103,33 @@ class ObservationCard extends Component<Props> {
     } );
   }
 
+  scrollToTop() {
+    const { item, itemScrolledId } = this.props;
+
+    if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
+  }
+
   render() {
-    const { navigation, item, toggleDeleteModal } = this.props;
+    const {
+      navigation,
+      item,
+      toggleDeleteModal,
+      updateItemScrolledId
+    } = this.props;
     const { photo, commonName } = this.state;
     const { taxon } = item;
 
     return (
       <ScrollView
+        ref={( ref ) => { this.scrollView = ref; }}
         horizontal
-        bounces={false}
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.card}
+        onScrollBeginDrag={() => updateItemScrolledId( item.taxon.id )}
       >
         <TouchableOpacity
           style={styles.touchableArea}

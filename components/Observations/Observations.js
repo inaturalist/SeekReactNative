@@ -232,8 +232,9 @@ class Observations extends Component<Props> {
                     ? <Image source={badge} style={styles.badgeImage} />
                     : null}
                   {badgeCount !== -1
-                    ? <View style={{ marginRight: badge === badges.badge_empty_small ? 14 : 15 }} />
+                    ? <View style={{ marginRight: open ? 15 : 19 }} />
                     : null}
+                  <View style={{ marginRight: badge === badges.badge_empty_small ? -1 : null }} />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>
               </TouchableOpacity>

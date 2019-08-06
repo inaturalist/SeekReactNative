@@ -80,8 +80,13 @@ class HomeScreen extends Component<Props> {
 
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
+      console.log( coords, "coords" );
       if ( coords === null ) {
-        this.checkDeviceLocationEnabled();
+        if ( Platform.OS === "android" ) {
+          this.checkDeviceLocationEnabled();
+        } else {
+          this.setError( "location" );
+        }
       } else {
         const { latitude, longitude } = coords;
 
@@ -95,7 +100,7 @@ class HomeScreen extends Component<Props> {
           }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
         }
       }
-    } ).catch( ( e ) => {
+    } ).catch( () => {
       this.checkInternetConnection();
     } );
   }

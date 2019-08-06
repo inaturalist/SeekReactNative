@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView,
-  Alert
+  SafeAreaView
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 

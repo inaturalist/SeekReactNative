@@ -120,10 +120,11 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   inputField: {
+    paddingTop: 0,
+    paddingBottom: 0,
     width: "91%",
     backgroundColor: colors.white,
     height: 37,
-    paddingTop: 3,
     borderRadius: 40,
     paddingLeft: 20,
     fontFamily: fonts.medium,

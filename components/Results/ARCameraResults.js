@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground, Platform } from "react-native";
+import { View, ImageBackground } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -15,7 +15,6 @@ import {
   addToCollection,
   getTaxonCommonName
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
@@ -29,7 +28,9 @@ class ARCameraResults extends Component<Props> {
 
     const {
       uri,
-      predictions
+      predictions,
+      latitude,
+      longitude
     } = navigation.state.params;
 
     this.state = {
@@ -37,8 +38,8 @@ class ARCameraResults extends Component<Props> {
       predictions,
       uri,
       time: moment().format( "X" ),
-      latitude: null,
-      longitude: null,
+      latitude,
+      longitude,
       userImage: null,
       speciesSeenImage: null,
       observation: null,
@@ -52,31 +53,6 @@ class ARCameraResults extends Component<Props> {
       match: null,
       isLoggedIn: null
     };
-  }
-
-  setLocation() {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords ) {
-        const { latitude, longitude } = coords;
-
-        this.setState( {
-          latitude,
-          longitude
-        } );
-      }
-    } );
-  }
-
-  getLocation() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.setLocation();
-        }
-      } );
-    } else {
-      this.setLocation();
-    }
   }
 
   setLoggedIn( isLoggedIn ) {
@@ -310,7 +286,6 @@ class ARCameraResults extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLocation();
             this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
@@ -322,7 +297,7 @@ class ARCameraResults extends Component<Props> {
             <ImageBackground
               source={{ uri: imageForUploading }}
               style={styles.imageBackground}
-              imageStyle={{ resizeMode: "cover" }} // is this working differently across both
+              imageStyle={{ resizeMode: "cover" }}
             >
               <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />

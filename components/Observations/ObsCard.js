@@ -108,7 +108,7 @@ class ObservationCard extends Component<Props> {
 
     if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
       this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
+        x: 0, y: 0, duration: 300
       } );
     }
   }

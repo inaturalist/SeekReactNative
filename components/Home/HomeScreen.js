@@ -67,11 +67,11 @@ class HomeScreen extends Component<Props> {
   }
 
   setTaxa( taxa ) {
-    this.setLoading( false );
-    this.setState( { taxa } );
+    this.setState( { taxa }, () => this.setLoading( false ) );
   }
 
   setError( error ) {
+    this.setLoading( false );
     this.setState( { error } );
   }
 
@@ -83,7 +83,6 @@ class HomeScreen extends Component<Props> {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords === null ) {
         this.checkDeviceLocationEnabled();
-        // this.setError( "location" );
       } else {
         const { latitude, longitude } = coords;
 
@@ -97,7 +96,7 @@ class HomeScreen extends Component<Props> {
           }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
         }
       }
-    } ).catch( () => {
+    } ).catch( ( e ) => {
       this.checkInternetConnection();
     } );
   }
@@ -106,6 +105,7 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
+    this.reverseGeocodeLocation( lat, lng );
 
     const params = {
       verifiable: true,
@@ -133,7 +133,6 @@ class HomeScreen extends Component<Props> {
   checkDeviceLocationEnabled() {
     DeviceInfo.isLocationEnabled().then( ( enabled ) => {
       if ( enabled === false ) {
-        this.setLoading( false );
         this.setError( "location_device" );
       }
     } );
@@ -145,8 +144,7 @@ class HomeScreen extends Component<Props> {
         if ( granted ) {
           this.getGeolocation();
         } else {
-          this.setLoading( false );
-          this.setError( "location" ); // is this necessary?
+          this.setError( "location" );
         }
       } );
     } else {
@@ -273,6 +271,7 @@ class HomeScreen extends Component<Props> {
                 this.fetchLatestChallenge();
                 addARCameraFiles();
               }}
+              onWillBlur={() => this.setLoading( true )}
             />
             <RNModal
               isVisible={showGetStartedModal}

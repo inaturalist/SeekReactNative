@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName } from "../../utility/helpers";
-import { checkCameraRollPermissions } from "../../utility/photoHelpers";
+import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any
@@ -41,7 +41,9 @@ class ARCamera extends Component<Props> {
       pictureTaken: false,
       error: null,
       focusedScreen: false,
-      commonName: null
+      commonName: null,
+      latitude: null,
+      longitude: null
     };
     this.backHandler = null;
   }
@@ -65,6 +67,19 @@ class ARCamera extends Component<Props> {
   setError( error ) {
     this.setLoading( false );
     this.setState( { error } );
+  }
+
+  setLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      }
+    } );
   }
 
   onTaxaDetected = ( event ) => {
@@ -132,29 +147,42 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  requestCameraPermissions = async () => {
+  requestAllCameraPermissions = async () => {
+    const permissions = PermissionsAndroid.PERMISSIONS;
+    const results = PermissionsAndroid.RESULTS;
+
     if ( Platform.OS === "android" ) {
-      const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+      const camera = permissions.CAMERA;
+      const cameraRollSave = permissions.WRITE_EXTERNAL_STORAGE;
+      const cameraRollRetrieve = permissions.READ_EXTERNAL_STORAGE;
+      const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
       try {
-        const granted = await PermissionsAndroid.request( camera );
-        if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-          this.requestCameraRollPermissions();
-        } else {
+        const granted = await PermissionsAndroid.requestMultiple( [
+          camera,
+          cameraRollSave,
+          cameraRollRetrieve,
+          location
+        ] );
+
+        if ( granted[camera] !== results.GRANTED ) {
           this.setError( "permissions" );
+        }
+
+        if ( granted[cameraRollRetrieve] !== results.GRANTED ) {
+          this.setError( "save" );
+        }
+
+        if ( granted[location] !== results.GRANTED ) {
+          createLocationPermissionsAlert();
+        } else {
+          this.getLocation();
         }
       } catch ( e ) {
         this.setError( "permissions" );
       }
-    }
-  }
-
-  requestCameraRollPermissions = async () => {
-    const permission = await checkCameraRollPermissions();
-    if ( permission === true ) {
-      // console.log( permission, "permission granted" );
     } else {
-      this.setError( "save" );
+      this.getLocation();
     }
   }
 
@@ -197,7 +225,7 @@ class ARCamera extends Component<Props> {
         },
         commonName,
         rankToRender: rank
-      }, () => console.log( this.state.rankToRender, "rank to render" ) );
+      } );
     } );
   }
 
@@ -218,20 +246,22 @@ class ARCamera extends Component<Props> {
   }
 
   navigateToResults( uri ) {
-    const { predictions } = this.state;
+    const { predictions, latitude, longitude } = this.state;
     const { navigation } = this.props;
 
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
         uri,
-        predictions
+        predictions,
+        latitude,
+        longitude
       } );
     } else {
       navigation.navigate( "GalleryResults", {
         uri,
         time: null,
-        latitude: null,
-        longitude: null
+        latitude,
+        longitude
       } );
     }
   }
@@ -302,7 +332,7 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.requestCameraPermissions();
+            this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );
             this.addListenerForAndroid();

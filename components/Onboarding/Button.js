@@ -16,21 +16,16 @@ type Props = {
 
 const Button = ( { navigation, index }: Props ) => (
   <TouchableOpacity
+    hitSlop={styles.touchable}
+    style={styles.buttonContainer}
     onPress={() => navigation.navigate( "Login" )}
   >
-    <View style={styles.buttonContainer}>
-      { index === 2
-        ? (
-          <View style={[styles.button, { backgroundColor: colors.seekTeal }]}>
-            <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
-          </View>
-        ) : (
-          <View>
-            <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>
-          </View>
-        )
-      }
-    </View>
+    {index === 2
+      ? (
+        <View style={[styles.button, { backgroundColor: colors.seekTeal }]}>
+          <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
+        </View>
+      ) : <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>}
   </TouchableOpacity>
 );
 

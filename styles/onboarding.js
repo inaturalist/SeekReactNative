@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
   fonts,
-  padding
+  padding,
+  touchable
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -65,6 +66,7 @@ export default StyleSheet.create( {
     alignItems: "center",
     marginBottom: height > 670 ? 94 : 34
   },
+  touchable,
   button: {
     paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
     justifyContent: "center",

@@ -70,8 +70,13 @@ class HomeScreen extends Component<Props> {
     this.setState( { taxa }, () => this.setLoading( false ) );
   }
 
-  setError( error ) {
-    this.setState( { error }, () => this.setLoading( false ) );
+  setError( newError ) {
+    const { error } = this.state;
+
+    if ( error !== newError ) {
+      // this ensures the loading wheel stays in place when its needed
+      this.setState( { error: newError }, () => this.setLoading( false ) );
+    }
   }
 
   setChallenge( challenge ) {

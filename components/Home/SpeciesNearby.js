@@ -56,7 +56,7 @@ const SpeciesNearby = ( {
         longitude={longitude}
       />
     );
-  } else if ( taxa.length > 0 ) {
+  } else {
     species = (
       <FlatList
         contentContainerStyle={styles.taxonList}
@@ -66,6 +66,11 @@ const SpeciesNearby = ( {
         bounces
         initialNumToRender={3}
         alwaysBounceHorizontal
+        ListEmptyComponent={() => (
+          <Text style={[styles.cellTitleText, styles.noTaxon]}>
+            {i18n.t( "species_nearby.no_species" )}
+          </Text>
+        )}
         renderItem={ ( { item } ) => (
           <View style={styles.gridCell}>
             <TouchableOpacity
@@ -88,12 +93,6 @@ const SpeciesNearby = ( {
           </View>
         )}
       />
-    );
-  } else {
-    species = (
-      <View style={styles.noTaxon}>
-        <Text style={styles.cellTitleText}>{i18n.t( "species_nearby.no_species" )}</Text>
-      </View>
     );
   }
 

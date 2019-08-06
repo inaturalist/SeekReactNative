@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, createLocationPermissionsAlert } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any
@@ -173,16 +173,14 @@ class ARCamera extends Component<Props> {
           this.setError( "save" );
         }
 
-        if ( granted[location] !== results.GRANTED ) {
-          createLocationPermissionsAlert();
-        } else {
-          this.getLocation();
+        if ( granted[location] === results.GRANTED ) {
+          this.setLocation();
         }
       } catch ( e ) {
         this.setError( "permissions" );
       }
     } else {
-      this.getLocation();
+      this.setLocation();
     }
   }
 

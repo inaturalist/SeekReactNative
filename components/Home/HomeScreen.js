@@ -80,7 +80,6 @@ class HomeScreen extends Component<Props> {
 
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
-      console.log( coords, "coords" );
       if ( coords === null ) {
         if ( Platform.OS === "android" ) {
           this.checkDeviceLocationEnabled();

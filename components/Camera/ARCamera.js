@@ -83,46 +83,34 @@ class ARCamera extends Component<Props> {
   }
 
   onTaxaDetected = ( event ) => {
-    // const { rankToRender } = this.state;
+    const { rankToRender } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
-
-    // console.log( predictions, "predictions" );
 
     if ( predictions ) {
       this.setLoading( false );
     }
     let predictionSet = false;
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-    ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
-      // skip this block if a prediction state has already been set
-      if ( predictionSet ) { return; }
-      if ( predictions[rank] ) {
-        predictionSet = true;
-        const prediction = predictions[rank][0];
-        // if ( rankToRender === "species" ) {
-        //   // this block keeps the last species seen displayed for 3 seconds
-        //   console.log( "rank to render is species so setting timeout" );
-        //   const saveLastSpecies = setTimeout( () => {
-        //     console.log( "set timeout executing" );
-        //     this.resetPredictions();
-        //     this.updateUI( prediction, rank );
-        //   }, 3000 );
-
-        //   // unless there is a new species seen during those 3 seconds
-        //   if ( predictions.species ) {
-        //     console.log( "clearing timeout because a second species sighted" );
-        //     clearTimeout( saveLastSpecies );
-        //     this.updateUI( prediction, rank );
-        //   }
-        // } else {
-        //   console.log( "rank NOT species so predicting normally" );
-        this.updateUI( prediction, rank );
-      }
-      // }
-      if ( !predictionSet ) {
+    if ( rankToRender === "species" ) {
+      // this block keeps the last species seen displayed for 2.5 seconds
+      setTimeout( () => {
         this.resetPredictions();
-      }
-    } );
+      }, 2500 );
+    } else {
+      ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
+        // skip this block if a prediction state has already been set
+        if ( predictionSet ) { return; }
+        if ( predictions[rank] ) {
+          predictionSet = true;
+          const prediction = predictions[rank][0];
+
+          this.updateUI( prediction, rank );
+        }
+        if ( !predictionSet ) {
+          this.resetPredictions();
+        }
+      } );
+    }
   }
 
   onCameraError = ( event ) => {
@@ -336,7 +324,7 @@ class ARCamera extends Component<Props> {
             this.addListenerForAndroid();
           }}
           onWillBlur={() => {
-            // this.resetPredictions();
+            this.resetPredictions();
             this.setError( null );
             this.setPictureTaken( false );
             this.setFocusedScreen( false );

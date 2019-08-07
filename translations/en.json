@@ -454,7 +454,8 @@
     "original": "Seek was originally created as part of the HHMI Tangled Bank Studios Backyard Wilderness initiative.",
     "designed_by": "Designed & developed by the iNaturalist team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
-    "version": "Version"
+    "version": "Version",
+    "help": "For help with Seek, please email help+seek@inaturalist.org."
   },
   "posting": {
     "header": "Post to iNaturalist",

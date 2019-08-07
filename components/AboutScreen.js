@@ -81,6 +81,11 @@ class AboutScreen extends Component<Props> {
                 {` ${version} (${buildNumber})`}
               </Text>
             </View>
+            <View style={styles.block}>
+              <Text style={styles.text}>
+                {i18n.t( "about.help" )}
+              </Text>
+            </View>
             <Padding />
           </ScrollView>
         </SafeAreaView>

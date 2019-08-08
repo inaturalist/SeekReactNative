@@ -15,8 +15,10 @@ import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 import INatCamera from "react-native-inat-camera";
+import RNModal from "react-native-modal";
 
 import LoadingWheel from "../LoadingWheel";
+import WarningModal from "./WarningModal";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
@@ -43,9 +45,11 @@ class ARCamera extends Component<Props> {
       focusedScreen: false,
       commonName: null,
       latitude: null,
-      longitude: null
+      longitude: null,
+      showWarningModal: true
     };
     this.backHandler = null;
+    this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen ) {
@@ -278,6 +282,11 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  toggleWarningModal() {
+    const { showWarningModal } = this.state;
+    this.setState( { showWarningModal: !showWarningModal } );
+  }
+
   render() {
     const {
       ranks,
@@ -286,7 +295,8 @@ class ARCamera extends Component<Props> {
       pictureTaken,
       error,
       focusedScreen,
-      commonName
+      commonName,
+      showWarningModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -331,6 +341,14 @@ class ARCamera extends Component<Props> {
             this.closeCameraAndroid();
           }}
         />
+        <RNModal
+          isVisible={showWarningModal}
+          onBackdropPress={() => this.toggleWarningModal()}
+        >
+          <WarningModal
+            toggleWarningModal={this.toggleWarningModal}
+          />
+        </RNModal>
         {loading ? (
           <View style={styles.loading}>
             <LoadingWheel color="white" />

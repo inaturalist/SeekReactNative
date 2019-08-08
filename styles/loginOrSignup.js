@@ -24,18 +24,13 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   buttonText: {
+    textAlign: "center",
+    width: 245,
     paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
     color: colors.seekForestGreen
-  },
-  textLink: {
-    marginTop: 11,
-    fontFamily: fonts.book,
-    fontSize: 19,
-    color: colors.white,
-    textDecorationLine: "underline"
   },
   text: {
     marginHorizontal: 30,

@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName } from "../../utility/helpers";
-import { checkCameraRollPermissions } from "../../utility/photoHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any
@@ -41,7 +41,9 @@ class ARCamera extends Component<Props> {
       pictureTaken: false,
       error: null,
       focusedScreen: false,
-      commonName: null
+      commonName: null,
+      latitude: null,
+      longitude: null
     };
     this.backHandler = null;
   }
@@ -67,7 +69,21 @@ class ARCamera extends Component<Props> {
     this.setState( { error } );
   }
 
+  setLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      }
+    } );
+  }
+
   onTaxaDetected = ( event ) => {
+    const { rankToRender } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
 
     if ( predictions ) {
@@ -75,25 +91,25 @@ class ARCamera extends Component<Props> {
     }
     let predictionSet = false;
     // not looking at kingdom or phylum as we are currently not displaying results for those ranks
-    ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
-      // skip this block if a prediction state has already been set
-      if ( predictionSet ) { return; }
-      if ( predictions[rank] ) {
-        predictionSet = true;
-        const prediction = predictions[rank][0];
-        getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
-          this.setState( {
-            ranks: {
-              [rank]: [prediction]
-            },
-            commonName,
-            rankToRender: rank
-          } );
-        } );
-      }
-    } );
-    if ( !predictionSet ) {
-      this.resetPredictions( );
+    if ( rankToRender === "species" ) {
+      // this block keeps the last species seen displayed for 2.5 seconds
+      setTimeout( () => {
+        this.resetPredictions();
+      }, 2500 );
+    } else {
+      ["species", "genus", "family", "order", "class"].forEach( ( rank ) => {
+        // skip this block if a prediction state has already been set
+        if ( predictionSet ) { return; }
+        if ( predictions[rank] ) {
+          predictionSet = true;
+          const prediction = predictions[rank][0];
+
+          this.updateUI( prediction, rank );
+        }
+        if ( !predictionSet ) {
+          this.resetPredictions();
+        }
+      } );
     }
   }
 
@@ -119,30 +135,40 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  requestCameraPermissions = async () => {
+  requestAllCameraPermissions = async () => {
+    const permissions = PermissionsAndroid.PERMISSIONS;
+    const results = PermissionsAndroid.RESULTS;
+
     if ( Platform.OS === "android" ) {
-      const camera = PermissionsAndroid.PERMISSIONS.CAMERA;
+      const camera = permissions.CAMERA;
+      const cameraRollSave = permissions.WRITE_EXTERNAL_STORAGE;
+      const cameraRollRetrieve = permissions.READ_EXTERNAL_STORAGE;
+      const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
       try {
-        const granted = await PermissionsAndroid.request( camera );
-        if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-          // console.log( granted, "granted" );
-        } else {
+        const granted = await PermissionsAndroid.requestMultiple( [
+          camera,
+          cameraRollSave,
+          cameraRollRetrieve,
+          location
+        ] );
+
+        if ( granted[camera] !== results.GRANTED ) {
           this.setError( "permissions" );
+        }
+
+        if ( granted[cameraRollRetrieve] !== results.GRANTED ) {
+          this.setError( "save" );
+        }
+
+        if ( granted[location] === results.GRANTED ) {
+          this.setLocation();
         }
       } catch ( e ) {
         this.setError( "permissions" );
       }
-    }
-  }
-
-  requestCameraRollPermissions = async ( photo ) => {
-    const permission = await checkCameraRollPermissions();
-    if ( permission === true ) {
-      this.setImagePredictions( photo.predictions );
-      this.savePhotoToGallery( photo );
     } else {
-      this.setError( "save" );
+      this.setLocation();
     }
   }
 
@@ -159,7 +185,6 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          this.setImagePredictions( photo.predictions );
           this.savePhotoToGallery( photo );
         } catch ( e ) {
           this.setError( "save" );
@@ -170,12 +195,24 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          this.requestCameraRollPermissions( photo );
+          this.savePhotoToGallery( photo );
         } ).catch( () => {
           this.setError( "save" );
         } );
       }
     }
+  }
+
+  updateUI( prediction, rank ) {
+    getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+      this.setState( {
+        ranks: {
+          [rank]: [prediction]
+        },
+        commonName,
+        rankToRender: rank
+      } );
+    } );
   }
 
   resetPredictions() {
@@ -187,28 +224,30 @@ class ARCamera extends Component<Props> {
   }
 
   savePhotoToGallery( photo ) {
+    this.setImagePredictions( photo.predictions );
+
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( ( uri ) => {
-        this.navigateToResults( uri );
-      } )
+      .then( uri => this.navigateToResults( uri ) )
       .catch( () => this.setError( "save" ) );
   }
 
   navigateToResults( uri ) {
-    const { predictions } = this.state;
+    const { predictions, latitude, longitude } = this.state;
     const { navigation } = this.props;
 
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
         uri,
-        predictions
+        predictions,
+        latitude,
+        longitude
       } );
     } else {
       navigation.navigate( "GalleryResults", {
         uri,
         time: null,
-        latitude: null,
-        longitude: null
+        latitude,
+        longitude
       } );
     }
   }
@@ -279,12 +318,13 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.requestCameraPermissions();
+            this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );
             this.addListenerForAndroid();
           }}
           onWillBlur={() => {
+            this.resetPredictions();
             this.setError( null );
             this.setPictureTaken( false );
             this.setFocusedScreen( false );

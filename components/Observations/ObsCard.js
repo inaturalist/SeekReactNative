@@ -7,17 +7,23 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  ImageBackground
+  ImageBackground,
+  ScrollView,
+  Alert
 } from "react-native";
 import RNFS from "react-native-fs";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
-import styles from "../../styles/observations";
+import styles from "../../styles/observations/obsCard";
+import icons from "../../assets/icons";
 import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   navigation: any,
-  item: Object
+  item: Object,
+  toggleDeleteModal: Function,
+  updateItemScrolledId: Function,
+  itemScrolledId: Number
 }
 
 class ObservationCard extends Component<Props> {
@@ -33,6 +39,14 @@ class ObservationCard extends Component<Props> {
   componentWillMount() {
     this.checkForSeekV1Photos();
     this.localizeCommonName();
+  }
+
+  componentDidUpdate( prevProps ) {
+    const { itemScrolledId } = this.props;
+
+    if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
+      this.scrollToTop();
+    }
   }
 
   setPhoto( photo ) {
@@ -89,34 +103,63 @@ class ObservationCard extends Component<Props> {
     } );
   }
 
+  scrollToTop() {
+    const { item, itemScrolledId } = this.props;
+
+    if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, duration: 300
+      } );
+    }
+  }
+
   render() {
-    const { navigation, item } = this.props;
+    const {
+      navigation,
+      item,
+      toggleDeleteModal,
+      updateItemScrolledId
+    } = this.props;
     const { photo, commonName } = this.state;
     const { taxon } = item;
 
     return (
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => {
-          setSpeciesId( item.taxon.id );
-          setRoute( "MyObservations" );
-          navigation.navigate( "Species" );
-        }}
+      <ScrollView
+        ref={( ref ) => { this.scrollView = ref; }}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.card}
+        onScrollBeginDrag={() => updateItemScrolledId( item.taxon.id )}
       >
-        <ImageBackground
-          imageStyle={styles.image}
-          style={styles.image}
-          source={iconicTaxa[taxon.iconicTaxonId]}
+        <TouchableOpacity
+          style={styles.touchableArea}
+          onPress={() => {
+            setSpeciesId( item.taxon.id );
+            setRoute( "MyObservations" );
+            navigation.navigate( "Species" );
+          }}
         >
-          <Image style={styles.image} source={photo} />
-        </ImageBackground>
-        <View style={styles.speciesNameContainer}>
-          <Text style={styles.commonNameText}>
-            {commonName}
-          </Text>
-          <Text style={styles.scientificNameText}>{taxon.name}</Text>
-        </View>
-      </TouchableOpacity>
+          <ImageBackground
+            imageStyle={styles.image}
+            style={styles.image}
+            source={iconicTaxa[taxon.iconicTaxonId]}
+          >
+            <Image style={styles.image} source={photo} />
+          </ImageBackground>
+          <View style={styles.speciesNameContainer}>
+            <Text style={styles.commonNameText}>
+              {commonName}
+            </Text>
+            <Text style={styles.scientificNameText}>{taxon.name}</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => toggleDeleteModal( item.taxon.id, photo, commonName, taxon.name, taxon.iconicTaxonId )}
+        >
+          <Image source={icons.delete} />
+        </TouchableOpacity>
+      </ScrollView>
     );
   }
 }

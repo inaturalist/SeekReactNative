@@ -42,6 +42,9 @@ export default StyleSheet.create( {
     height: 250,
     backgroundColor: colors.black
   },
+  fullWidth: {
+    width
+  },
   loading: {
     justifyContent: "center",
     alignItems: "center"

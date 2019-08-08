@@ -32,7 +32,7 @@ const checkCameraRollPermissions = async () => {
 
 const resizeImage = ( imageUri, size ) => (
   new Promise( ( resolve ) => {
-    ImageResizer.createResizedImage( imageUri, size, size, "JPEG", 80 )
+    ImageResizer.createResizedImage( imageUri, size, size, "JPEG", 100 )
       .then( ( { uri } ) => {
         let userImage;
         if ( Platform.OS === "ios" ) {

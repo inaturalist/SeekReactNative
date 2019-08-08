@@ -30,8 +30,8 @@ class AboutScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const version = "2.2.3";
-    const buildNumber = 50;
+    const version = "2.3.0";
+    const buildNumber = 54;
 
     return (
       <View style={styles.container}>
@@ -79,6 +79,11 @@ class AboutScreen extends Component<Props> {
               <Text style={styles.greenText}>
                 {i18n.t( "about.version" ).toLocaleUpperCase()}
                 {` ${version} (${buildNumber})`}
+              </Text>
+            </View>
+            <View style={styles.block}>
+              <Text style={styles.text}>
+                {i18n.t( "about.help" )}
               </Text>
             </View>
             <Padding />

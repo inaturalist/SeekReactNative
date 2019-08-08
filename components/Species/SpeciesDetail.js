@@ -7,7 +7,8 @@ import {
   ScrollView,
   Text,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -66,7 +67,6 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       similarSpecies: [],
       ancestors: [],
-      loading: true,
       loadingSpecies: true,
       route: null
     };
@@ -77,10 +77,6 @@ class SpeciesDetail extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-  }
-
-  setLoading( loading ) {
-    this.setState( { loading } );
   }
 
   setLocation( location ) {
@@ -188,7 +184,6 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       similarSpecies: [],
       ancestors: [],
-      loading: true,
       loadingSpecies: true,
       route: null
     } );
@@ -334,7 +329,6 @@ class SpeciesDetail extends Component<Props> {
         } );
       }
       this.setState( { observationsByMonth } );
-      this.setLoading( false );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );
@@ -396,7 +390,6 @@ class SpeciesDetail extends Component<Props> {
 
   fetchiNatData( screen ) {
     this.checkInternetConnection();
-    this.setLoading( true );
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
@@ -437,7 +430,6 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies,
       ancestors,
       stats,
-      loading,
       loadingSpecies,
       route
     } = this.state;
@@ -461,17 +453,15 @@ class SpeciesDetail extends Component<Props> {
               navigation={navigation}
               photos={photos}
               userPhoto={userPhoto}
-              loading={loading}
               route={route}
             />
-            {taxaType && iconicTaxaNames[taxaType]
-              ? (
-                <View style={styles.greenBanner}>
-                  <Text style={styles.iconicTaxaText}>
-                    {i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()}
-                  </Text>
-                </View>
-              ) : null}
+            <View style={styles.greenBanner}>
+              <Text style={styles.iconicTaxaText}>
+                {taxaType && iconicTaxaNames[taxaType]
+                  ? i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()
+                  : null}
+              </Text>
+            </View>
             <View style={styles.textContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
               <Text style={styles.scientificNameText}>{scientificName}</Text>

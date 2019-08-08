@@ -6,7 +6,7 @@ import {
   Alert,
   Image,
   TouchableOpacity,
-  ScrollView
+  FlatList
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -18,14 +18,12 @@ type Props = {
   navigation: any,
   photos: Array<Object>,
   userPhoto: string,
-  loading: boolean,
   route: string
 };
 
 const SpeciesPhotos = ( {
   photos,
   userPhoto,
-  loading,
   navigation,
   route
 }: Props ) => {
@@ -67,25 +65,21 @@ const SpeciesPhotos = ( {
 
   return (
     <View>
-      {loading ? (
-        <View style={[styles.photoContainer, styles.loading]}>
-          <LoadingWheel color="white" />
-        </View>
-      ) : (
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator
-          scrollEventThrottle
-          pagingEnabled
-          nestedScrollEnabled
-          indicatorStyle="white"
-          contentContainerStyle={styles.photoContainer}
-        >
-          {( photos.length > 0 || userPhoto ) && !loading
-            ? photoList
-            : null}
-        </ScrollView>
-      )}
+      <FlatList
+        data={photoList}
+        horizontal
+        pagingEnabled
+        bounces={false}
+        indicatorStyle="white"
+        initialNumToRender={1}
+        renderItem={( { item } ) => item}
+        contentContainerStyle={styles.photoContainer}
+        ListEmptyComponent={() => (
+          <View style={[styles.photoContainer, styles.fullWidth, styles.loading]}>
+            <LoadingWheel color="white" />
+          </View>
+        )}
+      />
       <TouchableOpacity
         onPress={() => {
           if ( route ) {

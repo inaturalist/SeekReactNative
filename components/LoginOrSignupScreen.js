@@ -41,20 +41,15 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
           {i18n.t( "login.sign_up" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.whiteButton, { height: 79, borderRadius: 100 }]}
+        onPress={() => navigation.navigate( "Main" )}
+      >
+        <Text style={[styles.buttonText, { lineHeight: 24 }]}>
+          {i18n.t( "login.skip_login" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
     </View>
-    <TouchableOpacity
-      onPress={() => navigation.navigate( "Main" )}
-      hitSlop={{
-        left: 20,
-        right: 20,
-        top: 10,
-        bottom: 10
-      }}
-    >
-      <Text style={styles.textLink}>
-        {i18n.t( "login.skip_login" )}
-      </Text>
-    </TouchableOpacity>
     <Text style={styles.text}>
       {i18n.t( "login.about" )}
     </Text>

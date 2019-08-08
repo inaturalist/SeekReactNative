@@ -6,6 +6,7 @@
   "species_nearby": {
     "header": "Species nearby",
     "location_error": "In order to show you nearby species, we need to use your location.",
+    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
     "enable_location": "Enable location in settings",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",
@@ -137,12 +138,12 @@
     "badge": "Badge",
     "connectivity": "Connectivity Challenge",
     "biodiversity": "Biodiversity Challenge",
-    "productivity": "Productivity & Community Challenge",
-    "resilience": "Resilience Challenge",
-    "farming": "Farming & Food Challenge",
-    "flow": "Flow Challenge",
-    "hotspots": "Hotspots Challenge",
-    "ice": "Ice Challenge",
+    "productivity": "Community Challenge",
+    "resilience": "Forests Challenge",
+    "farming": "Grasslands Challenge",
+    "flow": "Freshwater Challenge",
+    "hotspots": "High Seas Challenge",
+    "ice": "Climate Challenge",
     "op": "Our Planet",
     "start_now": "Start now",
     "april_2019": "April 2019",
@@ -453,7 +454,8 @@
     "original": "Seek was originally created as part of the HHMI Tangled Bank Studios Backyard Wilderness initiative.",
     "designed_by": "Designed & developed by the iNaturalist team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
-    "version": "Version"
+    "version": "Version",
+    "help": "For help with Seek, please email help+seek@inaturalist.org."
   },
   "posting": {
     "header": "Post to iNaturalist",
@@ -501,5 +503,11 @@
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
     "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+  },
+  "delete": {
+    "header": "Delete species?",
+    "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
+    "yes": "Yes, delete it from my observations",
+    "no": "Cancel"
   }
 }

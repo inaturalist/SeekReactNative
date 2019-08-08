@@ -116,8 +116,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 51
-        versionName "2.2.3"
+        versionCode 54
+        versionName "2.3.0"
         ndk {
             abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
         }
@@ -140,10 +140,14 @@ android {
         }
     }
     buildTypes {
+        debug {
+            manifestPlaceholders = [usesCleartextTraffic:"true"]
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
+            manifestPlaceholders = [usesCleartextTraffic:"false"]
         }
     }
     // applicationVariants are e.g. debug, release
@@ -162,6 +166,9 @@ android {
 }
 
 dependencies {
+    implementation ( project(':react-native-device-info') ) {
+        exclude group: 'com.google.android.gms'
+    }
     implementation project(':@react-native-community/geolocation')
     implementation project(':@react-native-community/async-storage')
     implementation project(':@react-native-community/cameraroll')

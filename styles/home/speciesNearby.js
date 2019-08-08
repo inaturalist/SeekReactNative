@@ -93,8 +93,11 @@ export default StyleSheet.create( {
     paddingLeft: 20
   },
   noTaxon: {
-    marginTop: 71,
-    marginHorizontal: 27
+    width: 322,
+    marginHorizontal: Platform.OS === "android" ? 27 : 0,
+    marginTop: 54,
+    alignItems: Platform.OS === "ios" ? "center" : null,
+    justifyContent: Platform.OS === "ios" ? "center" : null
   },
   gridCell: {
     width: 108,

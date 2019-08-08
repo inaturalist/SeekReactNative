@@ -13,6 +13,7 @@ import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
+import DeviceInfo from "react-native-device-info";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -66,12 +67,16 @@ class HomeScreen extends Component<Props> {
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa } );
-    this.setLoading( false );
+    this.setState( { taxa }, () => this.setLoading( false ) );
   }
 
-  setError( error ) {
-    this.setState( { error } );
+  setError( newError ) {
+    const { error } = this.state;
+
+    if ( error !== newError ) {
+      // this ensures the loading wheel stays in place when its needed
+      this.setState( { error: newError }, () => this.setLoading( false ) );
+    }
   }
 
   setChallenge( challenge ) {
@@ -81,7 +86,11 @@ class HomeScreen extends Component<Props> {
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords === null ) {
-        this.setError( "location" );
+        if ( Platform.OS === "android" ) {
+          this.checkDeviceLocationEnabled();
+        } else {
+          this.setError( "location" );
+        }
       } else {
         const { latitude, longitude } = coords;
 
@@ -104,6 +113,7 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
+    this.reverseGeocodeLocation( lat, lng );
 
     const params = {
       verifiable: true,
@@ -128,13 +138,20 @@ class HomeScreen extends Component<Props> {
     this.fetchSpeciesNearby( params );
   }
 
+  checkDeviceLocationEnabled() {
+    DeviceInfo.isLocationEnabled().then( ( enabled ) => {
+      if ( enabled === false ) {
+        this.setError( "location_device" );
+      }
+    } );
+  }
+
   requestAndroidPermissions() {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
           this.getGeolocation();
         } else {
-          this.setLoading( false );
           this.setError( "location" );
         }
       } );
@@ -262,6 +279,7 @@ class HomeScreen extends Component<Props> {
                 this.fetchLatestChallenge();
                 addARCameraFiles();
               }}
+              onWillBlur={() => this.setLoading( true )}
             />
             <RNModal
               isVisible={showGetStartedModal}

@@ -53,7 +53,10 @@ const icons = {
   legendLocation: require( "./icons/legend-icon-location-onmap.png" ),
   legendObs: require( "./icons/legend-icon-inatobs.png" ),
   cameraOnMap: require( "./icons/icon-camerabutton-onmap.png" ),
-  flag: require( "./icons/icon-flagidentification.png" )
+  flag: require( "./icons/icon-flagidentification.png" ),
+  dropdownOpen: require( "./icons/icon-dropdown-open.png" ),
+  dropdownClosed: require( "./icons/icon-dropdown-closed.png"),
+  delete: require( "./icons/button-deleteobservation.png" )
 };
 
 export default icons;

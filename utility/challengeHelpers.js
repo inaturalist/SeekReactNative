@@ -81,7 +81,7 @@ const updateNumberObservedPerMission = ( challenge, count, number ) => {
 };
 
 const checkForAncestors = ( seenTaxa, taxaId ) => {
-  const taxaWithAncestors = seenTaxa.filter( t => t.taxon.ancestorIds.length > 0 );
+  const taxaWithAncestors = seenTaxa.filter( t => ( t.taxon && t.taxon.ancestorIds.length > 0 ) );
   const matchingAncestors = [];
 
   taxaWithAncestors.forEach( ( taxon ) => {
@@ -104,7 +104,7 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
       taxaPerMission = seenTaxa.length;
     } else {
       const taxaId = taxonDict.default[taxa];
-      const taxaTypeSeen = seenTaxa.filter( t => t.taxon.iconicTaxonId === taxaId );
+      const taxaTypeSeen = seenTaxa.filter( t => ( t.taxon && t.taxon.iconicTaxonId === taxaId ) );
       const matchingAncestors = checkForAncestors( seenTaxa, taxaId );
       if ( taxaTypeSeen.length > 0 ) {
         taxaPerMission = taxaTypeSeen.length;

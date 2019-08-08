@@ -8,7 +8,8 @@ const iconicTaxaNames = {
   Aves: "species_detail.bird",
   Insecta: "species_detail.insect",
   Mollusca: "species_detail.mollusk",
-  Mammalia: "species_detail.mammal"
+  Mammalia: "species_detail.mammal",
+  Animalia: "taxon_picker.other"
 };
 
 export default iconicTaxaNames;

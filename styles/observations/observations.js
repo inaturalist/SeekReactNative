@@ -1,25 +1,50 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
   padding
-} from "./global";
+} from "../global";
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.white
   },
+  headerRow: {
+    marginHorizontal: 25,
+    marginTop: 18,
+    marginBottom: 23,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between"
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  numberText: {
+    marginTop: Platform.OS === "ios" ? 4 : 0,
+    fontSize: 18,
+    fontFamily: fonts.light,
+    letterSpacing: 0.78,
+    color: colors.black,
+    marginRight: 6
+  },
+  badgeImage: {
+    width: 22,
+    height: 25,
+    resizeMode: "contain"
+  },
   secondHeaderText: {
-    marginTop: 32,
-    marginBottom: 10,
+    marginTop: 4,
     fontSize: 18,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     letterSpacing: 1.0
   },
   textContainer: {
-    marginHorizontal: 25,
     alignItems: "center"
   },
   text: {
@@ -66,40 +91,6 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPadding,
     fontSize: 18,
     color: colors.white
-  },
-  secondTextContainer: {
-    marginLeft: 25
-  },
-  card: {
-    height: 100,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  image: {
-    width: 80,
-    height: 80,
-    borderRadius: 80 / 2,
-    marginRight: 20
-  },
-  speciesNameContainer: {
-    maxWidth: 223
-  },
-  commonNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: 21,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 5,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
-    fontSize: 16,
-    lineHeight: 21
   },
   loadingWheel: {
     flexGrow: 1,

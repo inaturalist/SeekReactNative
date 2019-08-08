@@ -178,6 +178,25 @@ const checkIfFirstLaunch = async () => {
   }
 };
 
+const CAMERA_LAUNCHED = "camera_launched";
+
+const setCameraLaunched = ( boolean ) => {
+  AsyncStorage.setItem( CAMERA_LAUNCHED, boolean.toString() );
+};
+
+const checkIfCameraLaunched = async () => {
+  try {
+    const cameraLaunched = await AsyncStorage.getItem( CAMERA_LAUNCHED );
+    if ( cameraLaunched === null || cameraLaunched === "false" ) {
+      setCameraLaunched( true );
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 const CARD_SHOWN = "card_shown";
 
 const setCardShown = () => {
@@ -256,8 +275,10 @@ export {
   getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
+  checkIfCameraLaunched,
   shuffleList,
   setSpeciesId,
+  setCameraLaunched,
   getSpeciesId,
   setRoute,
   getRoute,

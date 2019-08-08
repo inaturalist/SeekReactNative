@@ -24,7 +24,7 @@ import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
-import { getTaxonCommonName } from "../../utility/helpers";
+import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 
 type Props = {
@@ -46,7 +46,7 @@ class ARCamera extends Component<Props> {
       commonName: null,
       latitude: null,
       longitude: null,
-      showWarningModal: true
+      showWarningModal: false
     };
     this.backHandler = null;
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
@@ -207,6 +207,13 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  async checkForCameraLaunch() {
+    const isFirstCameraLaunch = await checkIfCameraLaunched();
+    if ( isFirstCameraLaunch ) {
+      this.toggleWarningModal();
+    }
+  }
+
   updateUI( prediction, rank ) {
     getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
       this.setState( {
@@ -328,6 +335,7 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.checkForCameraLaunch();
             this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );

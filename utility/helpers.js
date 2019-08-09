@@ -102,7 +102,7 @@ const addToCollection = ( observation, latitude, longitude, uri, time ) => {
         const p = observation.taxon.default_photo;
         if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p.medium_url,
+            squareUrl: p ? p.medium_url : null,
             mediumUrl: uri
           } );
         }

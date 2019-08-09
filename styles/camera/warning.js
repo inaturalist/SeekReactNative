@@ -28,6 +28,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   headerText: {
+    paddingTop: Platform.OS === "ios" ? 5 : 0,
     textAlign: "center",
     fontSize: 18,
     fontFamily: fonts.semibold,
@@ -36,12 +37,10 @@ export default StyleSheet.create( {
   },
   contentContainer: {
     marginTop: 25,
-    marginHorizontal: 36,
     alignItems: "center"
   },
   row: {
-    height: 63,
-    marginBottom: 23,
+    height: 86,
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
@@ -53,11 +52,12 @@ export default StyleSheet.create( {
     marginRight: 24
   },
   textContainer: {
-    width: 198
+    width: height > 570 ? 198 : 150
   },
   text: {
+    flexDirection: "row",
+    flexWrap: "wrap",
     color: colors.black,
-    maxWidth: height > 570 ? 198 : 150,
     fontFamily: fonts.book,
     fontSize: height > 570 ? 16 : 14,
     lineHeight: 21

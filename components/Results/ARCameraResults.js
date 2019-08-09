@@ -126,8 +126,8 @@ class ARCameraResults extends Component<Props> {
             id: taxaId,
             name: species.name,
             preferred_common_name: commonName,
-            iconic_taxon_id: iconicTaxonId,
-            ancestor_ids: species.ancestor_ids
+            iconic_taxon_id: Platform.OS === "android" ? iconicTaxonId : taxa.iconic_taxon_id,
+            ancestor_ids: Platform.OS === "android" ? species.ancestor_ids : taxa.ancestor_ids
           }
         },
         speciesSeenImage:

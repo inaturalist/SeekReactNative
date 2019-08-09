@@ -16,6 +16,7 @@ import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 import INatCamera from "react-native-inat-camera";
 import RNModal from "react-native-modal";
+import moment from "moment";
 
 import LoadingWheel from "../LoadingWheel";
 import WarningModal from "./WarningModal";
@@ -25,7 +26,9 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
+import { movePhotoToAppStorage } from "../../utility/photoHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { dirPictures } from "../../utility/dirStorage";
 
 type Props = {
   navigation: any
@@ -189,7 +192,7 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          this.savePhotoToGallery( photo );
+          this.savePhoto( photo );
         } catch ( e ) {
           this.setError( "save" );
         }
@@ -199,7 +202,7 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          this.savePhotoToGallery( photo );
+          this.savePhoto( photo );
         } ).catch( () => {
           this.setError( "save" );
         } );
@@ -234,12 +237,25 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  savePhotoToGallery( photo ) {
-    this.setImagePredictions( photo.predictions );
+  async saveImageToAppDirectory( filePath ) {
+    try {
+      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
+      const newFilepath = `${dirPictures}/${newImageName}`;
+      const imageMoved = await movePhotoToAppStorage( filePath, newFilepath );
 
-    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( uri => this.navigateToResults( uri ) )
-      .catch( () => this.setError( "save" ) );
+      if ( imageMoved ) {
+        this.navigateToResults( newFilepath );
+      } else {
+        this.setError( "save" );
+      }
+    } catch ( error ) {
+      this.setError( "save" );
+    }
+  }
+
+  savePhoto( photo ) {
+    this.setImagePredictions( photo.predictions );
+    this.saveImageToAppDirectory( photo.uri );
   }
 
   navigateToResults( uri ) {

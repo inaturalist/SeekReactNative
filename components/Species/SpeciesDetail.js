@@ -118,10 +118,24 @@ class SpeciesDetail extends Component<Props> {
     const { defaultPhoto } = taxon;
 
     if ( defaultPhoto && defaultPhoto.mediumUrl ) {
-      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+      RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
+        this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+      } ).catch( () => {
+        this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+      } );
     } else {
       this.setState( { userPhoto: null } );
     }
+  }
+
+  setSeenTaxa( seenTaxa ) {
+    const { taxon } = seenTaxa;
+
+    this.setState( {
+      commonName: taxon.preferredCommonName,
+      scientificName: taxon.name,
+      iconicTaxonId: taxon.iconicTaxonId
+    } );
   }
 
   setUserLocation() {
@@ -195,16 +209,6 @@ class SpeciesDetail extends Component<Props> {
       this.reverseGeocodeLocation( latitude, longitude );
       this.setRegion( latitude, longitude );
     }
-  }
-
-  setSeenTaxa( seenTaxa ) {
-    const { taxon } = seenTaxa;
-
-    this.setState( {
-      commonName: taxon.preferredCommonName,
-      scientificName: taxon.name,
-      iconicTaxonId: taxon.iconicTaxonId
-    } );
   }
 
   checkIfSpeciesSeen() {
@@ -384,7 +388,7 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.observations.search( params ).then( ( { results } ) => {
       const { taxon } = results[0];
-      if ( taxon ) {
+      if ( taxon && taxon !== undefined ) {
         const stats = {
           threatened: taxon.threatened,
           endemic: taxon.endemic,

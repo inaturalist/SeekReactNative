@@ -80,7 +80,11 @@ class ObservationCard extends Component<Props> {
 
     if ( defaultPhoto ) {
       if ( defaultPhoto.mediumUrl ) {
-        this.setPhoto( { uri: defaultPhoto.mediumUrl } );
+        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setPhoto( { uri: defaultPhoto.mediumUrl } );
+        } );
       } else if ( defaultPhoto.squareUrl ) {
         this.setPhoto( { uri: defaultPhoto.squareUrl } );
       } else {

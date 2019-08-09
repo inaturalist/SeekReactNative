@@ -1,4 +1,6 @@
 import ImageResizer from "react-native-image-resizer";
+import RNFS from "react-native-fs";
+import { dirPictures } from "./dirStorage";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
 
@@ -48,8 +50,26 @@ const resizeImage = ( imageUri, size ) => (
   } )
 );
 
+const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
+  new Promise( ( resolve ) => {
+    RNFS.mkdir( dirPictures )
+      .then( () => {
+        RNFS.moveFile( filePath, newFilepath )
+          .then( () => {
+            resolve( true );
+          } )
+          .catch( ( error ) => {
+            resolve( error );
+          } );
+      } ).catch( ( err ) => {
+        resolve( err );
+      } );
+  } )
+);
+
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
-  resizeImage
+  resizeImage,
+  movePhotoToAppStorage
 };

@@ -479,54 +479,54 @@ class SpeciesDetail extends Component<Props> {
                 seenDate={seenDate}
                 updateScreen={this.updateScreen}
               />
-            ) : (
-              <View style={styles.secondTextContainer}>
-                {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
-                {seenDate ? (
-                  <View style={[
-                    styles.row,
-                    showGreenButtons.includes( true ) && { marginTop: 21 }
-                  ]}
-                  >
-                    <Image source={icons.checklist} style={styles.checkmark} />
-                    <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
-                  </View>
-                ) : null}
-                {about ? (
-                  <View>
-                    <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
-                    <Text style={styles.text}>{about}</Text>
-                  </View>
-                ) : null}
-                {id !== 43584 ? (
-                  <View>
-                    <SpeciesMap
-                      navigation={navigation}
-                      region={region}
-                      id={id}
-                      error={error}
-                      seenDate={seenDate}
-                    />
-                    <SpeciesTaxonomy ancestors={ancestors} />
-                    <INatObs
-                      location={location}
-                      nearbySpeciesCount={nearbySpeciesCount}
-                      timesSeen={timesSeen}
-                      navigation={navigation}
-                    />
-                    {observationsByMonth.length > 0
-                      ? <SpeciesChart data={observationsByMonth} />
-                      : null}
-                  </View>
-                ) : (
-                  <View>
-                    <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-                    <Padding />
-                  </View>
-                )}
-              </View>
-            ) }
-            {id !== 43584 ? (
+            ) : null}
+            <View style={styles.secondTextContainer}>
+              {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
+              {seenDate && !error ? (
+                <View style={[
+                  styles.row,
+                  showGreenButtons.includes( true ) && { marginTop: 21 }
+                ]}
+                >
+                  <Image source={icons.checklist} style={styles.checkmark} />
+                  <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
+                </View>
+              ) : null}
+              {about && !error ? (
+                <View>
+                  <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+                  <Text style={styles.text}>{about}</Text>
+                </View>
+              ) : null}
+              {id !== 43584 && !error ? (
+                <View>
+                  <SpeciesMap
+                    navigation={navigation}
+                    region={region}
+                    id={id}
+                    error={error}
+                    seenDate={seenDate}
+                  />
+                  <SpeciesTaxonomy ancestors={ancestors} />
+                  <INatObs
+                    location={location}
+                    nearbySpeciesCount={nearbySpeciesCount}
+                    timesSeen={timesSeen}
+                    navigation={navigation}
+                  />
+                  {observationsByMonth.length > 0
+                    ? <SpeciesChart data={observationsByMonth} />
+                    : null}
+                </View>
+              ) : null}
+              {id === 43584 ? (
+                <View>
+                  <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+                  <Padding />
+                </View>
+              ) : null}
+            </View>
+            {id !== 43584 && !error ? (
               <View>
                 <SimilarSpecies
                   taxa={similarSpecies}

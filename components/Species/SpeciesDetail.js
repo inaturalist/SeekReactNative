@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -58,7 +57,6 @@ class SpeciesDetail extends Component<Props> {
       about: null,
       seenDate: null,
       timesSeen: null,
-      taxaType: null,
       region: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
@@ -68,7 +66,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loadingSpecies: true,
-      route: null
+      route: null,
+      iconicTaxonId: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -175,7 +174,6 @@ class SpeciesDetail extends Component<Props> {
       about: null,
       seenDate: null,
       timesSeen: null,
-      taxaType: null,
       region: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
@@ -185,7 +183,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loadingSpecies: true,
-      route: null
+      route: null,
+      iconicTaxonId: null
     } );
   }
 
@@ -198,6 +197,16 @@ class SpeciesDetail extends Component<Props> {
     }
   }
 
+  setSeenTaxa( seenTaxa ) {
+    const { taxon } = seenTaxa;
+
+    this.setState( {
+      commonName: taxon.preferredCommonName,
+      scientificName: taxon.name,
+      iconicTaxonId: taxon.iconicTaxonId
+    } );
+  }
+
   checkIfSpeciesSeen() {
     const { id } = this.state;
 
@@ -208,6 +217,7 @@ class SpeciesDetail extends Component<Props> {
 
         if ( seenTaxa ) {
           this.checkForLastSeenLocation( seenTaxa );
+          this.setSeenTaxa( seenTaxa );
         } else {
           this.fetchUserLocation();
         }
@@ -281,7 +291,7 @@ class SpeciesDetail extends Component<Props> {
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,
-        taxaType: taxa.iconic_taxon_name,
+        iconicTaxonId: taxa.iconic_taxon_id,
         ancestors,
         stats: {
           endangered: conservationStatus ? conservationStatus.status_name : false
@@ -423,7 +433,6 @@ class SpeciesDetail extends Component<Props> {
       scientificName,
       seenDate,
       timesSeen,
-      taxaType,
       error,
       userPhoto,
       location,
@@ -431,7 +440,8 @@ class SpeciesDetail extends Component<Props> {
       ancestors,
       stats,
       loadingSpecies,
-      route
+      route,
+      iconicTaxonId
     } = this.state;
 
     const { navigation } = this.props;
@@ -446,9 +456,7 @@ class SpeciesDetail extends Component<Props> {
             onWillFocus={() => this.fetchiNatData()}
             onWillBlur={() => this.resetState()}
           />
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
-          >
+          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}
@@ -456,11 +464,11 @@ class SpeciesDetail extends Component<Props> {
               route={route}
             />
             <View style={styles.greenBanner}>
-              <Text style={styles.iconicTaxaText}>
-                {taxaType && iconicTaxaNames[taxaType]
-                  ? i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()
-                  : null}
-              </Text>
+              {iconicTaxonId ? (
+                <Text style={styles.iconicTaxaText}>
+                  {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
+                </Text>
+              ) : null}
             </View>
             <View style={styles.textContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>

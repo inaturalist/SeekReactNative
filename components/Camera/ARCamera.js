@@ -256,6 +256,10 @@ class ARCamera extends Component<Props> {
   savePhoto( photo ) {
     this.setImagePredictions( photo.predictions );
     this.saveImageToAppDirectory( photo.uri );
+
+    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
+      .then( uri => console.log( "saved to camera roll", uri ) )
+      .catch( () => console.log( "couldn't save to camera roll" ) );
   }
 
   navigateToResults( uri ) {

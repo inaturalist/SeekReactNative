@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import i18n from "../i18n";
 import { recalculateBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
+import iconicTaxaIds from "./iconicTaxonDictById";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -267,6 +268,21 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
+const checkForIconicTaxonId = ( ancestorIds ) => {
+  const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
+  taxaIdList.pop();
+
+  const newTaxaList = [];
+
+  taxaIdList.forEach( ( id ) => {
+    newTaxaList.push( Number( id ) );
+  } );
+
+  const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
+
+  return iconicTaxonId[0] || 1;
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -283,6 +299,7 @@ export {
   setRoute,
   getRoute,
   checkForInternet,
+  checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest
 };

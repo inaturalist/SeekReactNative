@@ -13,7 +13,8 @@ import LoadingWheel from "../LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
-  getTaxonCommonName
+  getTaxonCommonName,
+  checkForIconicTaxonId
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -112,6 +113,8 @@ class ARCameraResults extends Component<Props> {
   setSpeciesInfo( species, taxa ) {
     const taxaId = Number( species.taxon_id );
 
+    const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
+
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {
         taxaId,
@@ -119,15 +122,18 @@ class ARCameraResults extends Component<Props> {
         scientificName: species.name,
         observation: {
           taxon: {
-            default_photo: taxa.default_photo,
+            default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
             id: taxaId,
             name: species.name,
             preferred_common_name: commonName,
-            iconic_taxon_id: taxa.iconic_taxon_id,
-            ancestor_ids: taxa.ancestor_ids
+            iconic_taxon_id: iconicTaxonId,
+            ancestor_ids: species.ancestor_ids
           }
         },
-        speciesSeenImage: taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null
+        speciesSeenImage:
+          taxa && taxa.taxon_photos[0]
+            ? taxa.taxon_photos[0].photo.medium_url
+            : null
       }, () => this.setMatch( true ) );
     } );
   }
@@ -162,7 +168,8 @@ class ARCameraResults extends Component<Props> {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
-      this.setError( "taxaInfo" );
+      this.setSpeciesInfo( species );
+      // this.setError( "taxaInfo" );
     } );
   }
 

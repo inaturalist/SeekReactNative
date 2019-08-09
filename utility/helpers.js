@@ -269,6 +269,7 @@ const sortNewestToOldest = ( observations ) => {
 };
 
 const checkForIconicTaxonId = ( ancestorIds ) => {
+  console.log( ancestorIds, "ancestor ids" );
   const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
   taxaIdList.pop();
 
@@ -279,6 +280,7 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
   } );
 
   const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
+  console.log( iconicTaxonId, "iconic id" );
 
   return iconicTaxonId[0] || 1;
 };

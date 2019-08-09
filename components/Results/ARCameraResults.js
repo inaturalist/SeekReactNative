@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground } from "react-native";
+import { View, ImageBackground, Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -113,7 +113,7 @@ class ARCameraResults extends Component<Props> {
   setSpeciesInfo( species, taxa ) {
     const taxaId = Number( species.taxon_id );
 
-    const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
+    const iconicTaxonId = Platform.OS === "android" ? checkForIconicTaxonId( species.ancestor_ids ) : null;
 
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {
@@ -126,8 +126,8 @@ class ARCameraResults extends Component<Props> {
             id: taxaId,
             name: species.name,
             preferred_common_name: commonName,
-            iconic_taxon_id: iconicTaxonId,
-            ancestor_ids: species.ancestor_ids
+            iconic_taxon_id: Platform.OS === "android" ? iconicTaxonId : taxa.iconic_taxon_id,
+            ancestor_ids: Platform.OS === "android" ? species.ancestor_ids : taxa.ancestor_ids
           }
         },
         speciesSeenImage:
@@ -168,7 +168,11 @@ class ARCameraResults extends Component<Props> {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
-      this.setSpeciesInfo( species );
+      if ( Platform.OS === "android" ) {
+        this.setSpeciesInfo( species );
+      } else {
+        this.setError( "taxaInfo" );
+      }
     } );
   }
 

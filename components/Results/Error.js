@@ -20,6 +20,8 @@ const ErrorScreen = ( { error, navigation, number }: Props ) => {
     errorText = i18n.t( "results.error_server" );
   } else if ( error === "image" ) {
     errorText = i18n.t( "results.error_image" );
+  } else if ( error === "taxaInfo" ) {
+    errorText = i18n.t( "results.error_species" );
   } else if ( error === "downtime" ) {
     errorText = i18n.t( "results.error_downtime", {
       number: number || i18n.t( "results.error_few" )

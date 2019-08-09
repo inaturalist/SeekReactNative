@@ -244,6 +244,7 @@
     "enable_location": "Enable location to save observations",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
+    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
     "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few"

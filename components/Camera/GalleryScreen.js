@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   Platform,
   Image,
-  ScrollView,
   FlatList,
   TouchableHighlight,
   TouchableOpacity,

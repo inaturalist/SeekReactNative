@@ -80,16 +80,11 @@ class ObservationCard extends Component<Props> {
 
     if ( defaultPhoto ) {
       if ( defaultPhoto.backupUri ) {
-        // console.log( defaultPhoto.backupUri, "backup uri" );
         const uri = defaultPhoto.backupUri.split( "/Pictures/" );
         const backupFilepath = `${dirPictures}/${uri[1]}`;
-        // console.log( backupFilepath, "backup filepath" );
         RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
           this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( ( e ) => {
-          console.log( e, "why task orphaned" );
-          this.setPhoto( { uri: backupFilepath } );
-        } );
+        } ).catch( () => this.setPhoto( { uri: backupFilepath } ) );
       } else if ( defaultPhoto.mediumUrl ) {
         RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
           this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );

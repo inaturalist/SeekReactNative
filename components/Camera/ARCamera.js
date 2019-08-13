@@ -243,10 +243,7 @@ class ARCamera extends Component<Props> {
   resizeImageForBackup( uri ) {
     resizeImage( uri, width, 250 ).then( ( resizedImage ) => {
       this.saveImageToAppDirectory( uri, resizedImage );
-    } ).catch( ( e ) => {
-      console.log( e, "error in resizing" );
-      this.navigateToResults( uri );
-    } );
+    } ).catch( () => this.navigateToResults( uri ) );
   }
 
   async saveImageToAppDirectory( uri, resizedImageUri ) {

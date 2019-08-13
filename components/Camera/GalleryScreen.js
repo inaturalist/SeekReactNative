@@ -10,18 +10,28 @@ import {
   Text,
   View,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Dimensions
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
+import moment from "moment";
 
 import i18n from "../../i18n";
 import PermissionError from "./PermissionError";
 import LoadingWheel from "../LoadingWheel";
-import { checkCameraRollPermissions, checkForPhotoMetaData } from "../../utility/photoHelpers";
+import {
+  checkCameraRollPermissions,
+  checkForPhotoMetaData,
+  movePhotoToAppStorage,
+  resizeImage
+} from "../../utility/photoHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
+import { dirPictures } from "../../utility/dirStorage";
+
+const { width } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -127,24 +137,48 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  navigateToResults( uri, time, latitude, longitude ) {
+  navigateToResults( uri, time, location, backupUri ) {
     const { navigation } = this.props;
+
+    let latitude = null;
+    let longitude = null;
+
+    if ( checkForPhotoMetaData( location ) ) {
+      latitude = location.latitude;
+      longitude = location.longitude;
+    }
 
     navigation.navigate( "GalleryResults", {
       uri,
       time,
-      latitude,
-      longitude
+      latitude, // double check that this still works
+      longitude,
+      backupUri
     } );
   }
 
-  selectImage( node ) {
+  selectAndResizeImage( node ) {
     const { timestamp, location, image } = node;
 
-    if ( checkForPhotoMetaData( location ) ) {
-      this.navigateToResults( image.uri, timestamp, location.latitude, location.longitude );
-    } else {
-      this.navigateToResults( image.uri, timestamp, null, null );
+    resizeImage( image.uri, width, 250 ).then( ( resizedImage ) => {
+      this.saveImageToAppDirectory( image.uri, resizedImage, node );
+    } ).catch( () => {
+      this.navigateToResults( image.uri, timestamp, location );
+    } );
+  }
+
+  async saveImageToAppDirectory( uri, resizedImageUri, node ) {
+    const { timestamp, location } = node;
+    try {
+      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
+      const backupFilepath = `${dirPictures}/${newImageName}`;
+      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
+
+      if ( imageMoved ) {
+        this.navigateToResults( uri, timestamp, location, backupFilepath );
+      }
+    } catch ( error ) {
+      console.log( error, "error making backup" );
     }
   }
 
@@ -178,7 +212,7 @@ class GalleryScreen extends Component<Props> {
             <TouchableHighlight
               style={styles.button}
               underlayColor="transparent"
-              onPress={() => this.selectImage( item.node )}
+              onPress={() => this.selectAndResizeImage( item.node )}
             >
               <Image
                 style={styles.image}

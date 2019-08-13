@@ -36,6 +36,7 @@ import {
   getRoute,
   checkForInternet
 } from "../../utility/helpers";
+import { dirPictures } from "../../utility/dirStorage";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -117,14 +118,24 @@ class SpeciesDetail extends Component<Props> {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
 
-    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
-      RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
-        this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
-      } ).catch( () => {
-        this.setState( { userPhoto: defaultPhoto.mediumUrl } );
-      } );
-    } else {
-      this.setState( { userPhoto: null } );
+    if ( defaultPhoto ) {
+      if ( defaultPhoto.backupUri ) {
+        const uri = defaultPhoto.backupUri.split( "/Pictures/" );
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setState( { userPhoto: backupFilepath } );
+        } );
+      } else if ( defaultPhoto.mediumUrl ) {
+        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+        } );
+      } else {
+        this.setState( { userPhoto: null } );
+      }
     }
   }
 

@@ -31,13 +31,15 @@ class ARCameraResults extends Component<Props> {
       uri,
       predictions,
       latitude,
-      longitude
+      longitude,
+      backupUri
     } = navigation.state.params;
 
     this.state = {
       threshold: 0.7,
       predictions,
       uri,
+      backupUri,
       time: moment().format( "X" ),
       latitude,
       longitude,
@@ -229,11 +231,12 @@ class ARCameraResults extends Component<Props> {
       longitude,
       observation,
       uri,
+      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time );
+      addToCollection( observation, latitude, longitude, uri, time, backupUri );
     }
   }
 

@@ -35,11 +35,13 @@ class Results extends Component<Props> {
       uri,
       time,
       latitude,
-      longitude
+      longitude,
+      backupUri
     } = navigation.state.params;
 
     this.state = {
       uri,
+      backupUri,
       time,
       latitude,
       longitude,
@@ -264,11 +266,12 @@ class Results extends Component<Props> {
       longitude,
       observation,
       uri,
+      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time );
+      addToCollection( observation, latitude, longitude, uri, time, backupUri );
     }
   }
 

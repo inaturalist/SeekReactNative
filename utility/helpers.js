@@ -89,7 +89,7 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, uri, time ) => {
+const addToCollection = ( observation, latitude, longitude, uri, time, backupUri ) => {
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
@@ -103,7 +103,8 @@ const addToCollection = ( observation, latitude, longitude, uri, time ) => {
         if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p ? p.medium_url : null,
-            mediumUrl: uri
+            mediumUrl: uri,
+            backupUri: backupUri || null
           } );
         }
         const taxon = realm.create( "TaxonRealm", {

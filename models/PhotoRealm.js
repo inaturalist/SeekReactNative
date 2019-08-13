@@ -3,7 +3,8 @@ PhotoRealm.schema = {
   name: "PhotoRealm",
   properties: {
     squareUrl: "string?",
-    mediumUrl: "string?"
+    mediumUrl: "string?",
+    backupUri: "string?"
   }
 };
 

@@ -9,7 +9,8 @@ import {
   Text,
   Platform,
   NativeModules,
-  BackHandler
+  BackHandler,
+  Dimensions
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
@@ -26,9 +27,11 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
-import { movePhotoToAppStorage } from "../../utility/photoHelpers";
+import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { dirPictures } from "../../utility/dirStorage";
+
+const { width } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -237,14 +240,25 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  async saveImageToAppDirectory( filePath ) {
+  resizeImageForBackup( uri ) {
+    resizeImage( uri, width ).then( ( resizedImage ) => {
+      // console.log( resizedImage, "backup uri" );
+      this.saveImageToAppDirectory( uri, resizedImage );
+    } ).catch( ( e ) => {
+      console.log( e, "error in resizing" );
+      this.navigateToResults( uri );
+    } );
+  }
+
+  async saveImageToAppDirectory( uri, resizedImageUri ) {
     try {
       const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
-      const newFilepath = `${dirPictures}/${newImageName}`;
-      const imageMoved = await movePhotoToAppStorage( filePath, newFilepath );
+      const backupFilepath = `${dirPictures}/${newImageName}`;
+      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
 
       if ( imageMoved ) {
-        this.navigateToResults( newFilepath );
+        // console.log( backupFilepath, "new filepath" );
+        this.navigateToResults( uri, backupFilepath );
       } else {
         this.setError( "save" );
       }
@@ -255,14 +269,14 @@ class ARCamera extends Component<Props> {
 
   savePhoto( photo ) {
     this.setImagePredictions( photo.predictions );
-    this.saveImageToAppDirectory( photo.uri );
+    // this.saveImageToAppDirectory( photo.uri );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( uri => console.log( "saved to camera roll", uri ) )
-      .catch( () => console.log( "couldn't save to camera roll" ) );
+      .then( uri => this.resizeImageForBackup( uri ) )
+      .catch( () => this.setError( "save" ) );
   }
 
-  navigateToResults( uri ) {
+  navigateToResults( uri, backupUri ) {
     const { predictions, latitude, longitude } = this.state;
     const { navigation } = this.props;
 
@@ -271,14 +285,16 @@ class ARCamera extends Component<Props> {
         uri,
         predictions,
         latitude,
-        longitude
+        longitude,
+        backupUri
       } );
     } else {
       navigation.navigate( "GalleryResults", {
         uri,
         time: null,
         latitude,
-        longitude
+        longitude,
+        backupUri
       } );
     }
   }

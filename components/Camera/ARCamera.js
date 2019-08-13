@@ -241,8 +241,7 @@ class ARCamera extends Component<Props> {
   }
 
   resizeImageForBackup( uri ) {
-    resizeImage( uri, width ).then( ( resizedImage ) => {
-      // console.log( resizedImage, "backup uri" );
+    resizeImage( uri, width, 250 ).then( ( resizedImage ) => {
       this.saveImageToAppDirectory( uri, resizedImage );
     } ).catch( ( e ) => {
       console.log( e, "error in resizing" );
@@ -257,7 +256,6 @@ class ARCamera extends Component<Props> {
       const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
 
       if ( imageMoved ) {
-        // console.log( backupFilepath, "new filepath" );
         this.navigateToResults( uri, backupFilepath );
       } else {
         this.setError( "save" );
@@ -269,7 +267,6 @@ class ARCamera extends Component<Props> {
 
   savePhoto( photo ) {
     this.setImagePredictions( photo.predictions );
-    // this.saveImageToAppDirectory( photo.uri );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( uri => this.resizeImageForBackup( uri ) )

@@ -1,4 +1,9 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Platform,
+  Dimensions,
+  PixelRatio
+} from "react-native";
 import {
   colors,
   fonts,
@@ -6,6 +11,7 @@ import {
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
+const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   container: {
@@ -31,8 +37,7 @@ export default StyleSheet.create( {
     backgroundColor: "transparent"
   },
   challengeBackground: {
-    height: 405,
-    width
+    height: 405
   },
   header: {
     height: 85
@@ -53,12 +58,6 @@ export default StyleSheet.create( {
   missionContainer: {
     flex: 1
   },
-  challengeContainer: {
-    height: 315,
-    alignItems: "flex-start",
-    justifyContent: "center",
-    marginBottom: 10
-  },
   descriptionContainer: {
     alignItems: "center",
     marginTop: 21,
@@ -66,42 +65,39 @@ export default StyleSheet.create( {
     marginHorizontal: 36
   },
   challengeHeader: {
-    alignSelf: "flex-start",
-    marginLeft: 36,
+    marginLeft: 32,
     fontFamily: fonts.light,
-    fontSize: 22,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
     color: colors.white,
-    letterSpacing: 1.16
+    letterSpacing: 0.78
   },
   challengeName: {
-    alignSelf: "flex-start",
-    marginLeft: 36,
-    marginRight: 36,
+    marginTop: 5,
+    marginHorizontal: 32,
     fontFamily: fonts.semibold,
     fontSize: 23,
     letterSpacing: 1.0,
     color: colors.white
   },
-  leftRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    marginLeft: 36,
-    marginTop: 21,
-    marginBottom: 28
+  badge: {
+    width: 93,
+    height: 105,
+    resizeMode: "contain"
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-between",
-    marginHorizontal: 36,
+    justifyContent: "flex-start",
+    marginHorizontal: 38,
     marginTop: 21,
-    marginBottom: 29
+    marginBottom: 28
   },
   text: {
-    maxWidth: 183,
+    textAlign: "center",
+    maxWidth: width - ( 105 + 28 + 76 ),
     color: colors.white,
-    fontFamily: fonts.semibold,
+    fontFamily: fonts.medium,
     fontSize: 16,
     lineHeight: 25,
     marginLeft: 26
@@ -121,12 +117,11 @@ export default StyleSheet.create( {
     marginBottom: 25
   },
   greenButton: {
-    marginLeft: 36,
+    marginHorizontal: 42,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.seekGreen,
     borderRadius: 24,
-    width: "80%",
     height: 46
   },
   buttonText: {

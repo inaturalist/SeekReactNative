@@ -82,7 +82,7 @@ const FlagModal = ( {
             }
           }}
         >
-          <Text style={[styles.buttonText, { lineHeight: 24 }]}>
+          <Text style={[styles.buttonText, styles.largeButtonHeight]}>
             {seenDate
               ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
               : i18n.t( "results.yes" ).toLocaleUpperCase()

@@ -1,9 +1,11 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, PixelRatio } from "react-native";
 import {
   colors,
   fonts,
   touchable
 } from "../global";
+
+const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   innerContainer: {
@@ -80,13 +82,16 @@ export default StyleSheet.create( {
     height: 79,
     borderRadius: 40,
     alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap"
+    justifyContent: "center"
+  },
+  largeButtonHeight: {
+    flexWrap: "wrap",
+    lineHeight: ( fontScale > 1 ) ? 14 : 24
   },
   buttonText: {
     textAlign: "center",
     fontFamily: fonts.semibold,
-    fontSize: 18,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
     color: colors.white,
     paddingTop: Platform.OS === "ios" ? 7 : 0,
     letterSpacing: 1.0

@@ -40,10 +40,10 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   row: {
-    height: 86,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 22
   },
   image: {
     width: 36,

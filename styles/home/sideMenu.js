@@ -1,16 +1,13 @@
 import { StyleSheet, Dimensions } from "react-native";
-import DeviceInfo from "react-native-device-info";
 
 import { colors, fonts, padding } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
-const fontScale = DeviceInfo.getFontScale();
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.seekForestGreen,
-    flexDirection: "column",
     justifyContent: "space-between"
   },
   logo: {
@@ -21,8 +18,7 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   textContainer: {
-    marginBottom: ( height / 11 ) * 1.5,
-    alignItems: "flex-start"
+    marginBottom: ( height / 11 ) * 1.5
   },
   image: {
     marginLeft: 26,
@@ -33,7 +29,6 @@ export default StyleSheet.create( {
   },
   row: {
     height: height / 11,
-    width: 300,
     alignItems: "center",
     justifyContent: "flex-start",
     flexDirection: "row",
@@ -42,13 +37,12 @@ export default StyleSheet.create( {
   text: {
     paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1.2 ) ? 15 : 18,
+    fontSize: 18,
     letterSpacing: 1.0,
     color: colors.white
   },
   divider: {
     backgroundColor: "#63d4ab",
-    height: 1,
-    width: "100%"
+    height: 1
   }
 } );

@@ -1,8 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
+import DeviceInfo from "react-native-device-info";
 
 import { colors, fonts, padding } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
+const fontScale = DeviceInfo.getFontScale();
 
 export default StyleSheet.create( {
   container: {
@@ -40,7 +42,7 @@ export default StyleSheet.create( {
   text: {
     paddingTop: padding.iOSPadding,
     fontFamily: fonts.semibold,
-    fontSize: 18,
+    fontSize: ( fontScale > 1.2 ) ? 15 : 18,
     letterSpacing: 1.0,
     color: colors.white
   },

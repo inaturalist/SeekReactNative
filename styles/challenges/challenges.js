@@ -66,7 +66,7 @@ export default StyleSheet.create( {
     lineHeight: 17
   },
   noChallengeContainer: {
-    height: ( fontScale > 1 ) ? 186 : 121,
+    height: ( fontScale > 1 ) ? 182 : 121,
     alignItems: "center",
     justifyContent: "center"
   },

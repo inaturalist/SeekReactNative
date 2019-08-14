@@ -43,9 +43,7 @@ class NotificationsScreen extends Component<Props> {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
-        this.setState( {
-          notifications
-        } );
+        this.setState( { notifications } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -65,19 +63,12 @@ class NotificationsScreen extends Component<Props> {
             onDidBlur={() => updateNotifications()}
           />
           <GreenHeader navigation={navigation} header={i18n.t( "notifications.header" )} />
-          <View style={{ marginTop: 15 }} />
-          {notifications.length > 0
-            ? (
-              <FlatList
-                ref={( ref ) => { this.scrollView = ref; }}
-                data={notifications}
-                style={styles.notificationsContainer}
-                keyExtractor={( item, i ) => `${item}${i}`}
-                renderItem={( { item } ) => (
-                  <NotificationCard item={item} navigation={navigation} />
-                )}
-              />
-            ) : (
+          <FlatList
+            ref={( ref ) => { this.scrollView = ref; }}
+            data={notifications}
+            style={styles.notificationsContainer}
+            keyExtractor={( item, i ) => `${item}${i}`}
+            ListEmptyComponent={() => (
               <View style={styles.noNotifications}>
                 <Text style={styles.noNotificationsHeader}>
                   {i18n.t( "notifications.none" ).toLocaleUpperCase()}
@@ -87,6 +78,10 @@ class NotificationsScreen extends Component<Props> {
                 </Text>
               </View>
             )}
+            renderItem={( { item } ) => (
+              <NotificationCard item={item} navigation={navigation} />
+            )}
+          />
         </SafeAreaView>
       </View>
     );

@@ -53,8 +53,8 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
   }
 
   return (
-    <TouchableOpacity 
-      style={[styles.card, styles.cardContainer]}
+    <TouchableOpacity
+      style={styles.card}
       onPress={() => {
         setChallengeIndex( item.index );
         navigation.navigate( "ChallengeDetails" );

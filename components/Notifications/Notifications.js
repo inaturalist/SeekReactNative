@@ -66,7 +66,6 @@ class NotificationsScreen extends Component<Props> {
           <FlatList
             ref={( ref ) => { this.scrollView = ref; }}
             data={notifications}
-            style={styles.notificationsContainer}
             keyExtractor={( item, i ) => `${item}${i}`}
             ListEmptyComponent={() => (
               <View style={styles.noNotifications}>

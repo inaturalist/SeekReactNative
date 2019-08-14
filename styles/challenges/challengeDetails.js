@@ -42,12 +42,6 @@ export default StyleSheet.create( {
   header: {
     height: 85
   },
-  logo: {
-    alignSelf: "center",
-    height: 58,
-    width: 116,
-    resizeMode: "contain"
-  },
   backButton: {
     top: 18,
     marginLeft: 23
@@ -55,14 +49,11 @@ export default StyleSheet.create( {
   image: {
     padding: 5
   },
-  missionContainer: {
-    flex: 1
-  },
-  descriptionContainer: {
-    alignItems: "center",
-    marginTop: 21,
-    backgroundColor: colors.white,
-    marginHorizontal: 36
+  logo: {
+    alignSelf: "center",
+    height: 58,
+    width: 116,
+    resizeMode: "contain"
   },
   challengeHeader: {
     marginLeft: 32,
@@ -75,7 +66,7 @@ export default StyleSheet.create( {
     marginTop: 5,
     marginHorizontal: 32,
     fontFamily: fonts.semibold,
-    fontSize: 23,
+    fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0,
     color: colors.white
   },
@@ -90,17 +81,26 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "flex-start",
     marginHorizontal: 38,
-    marginTop: 21,
-    marginBottom: 28
+    marginTop: ( fontScale > 1 ) ? 15 : 21,
+    marginBottom: ( fontScale > 1 ) ? 20 : 28
   },
   text: {
     textAlign: "center",
     maxWidth: width - ( 105 + 28 + 76 ),
     color: colors.white,
     fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 25,
+    fontSize: ( fontScale > 1 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 ) ? null : 25,
     marginLeft: 26
+  },
+  missionContainer: {
+    flex: 1
+  },
+  descriptionContainer: {
+    alignItems: "center",
+    marginTop: 21,
+    backgroundColor: colors.white,
+    marginHorizontal: 36
   },
   descriptionText: {
     color: colors.black,

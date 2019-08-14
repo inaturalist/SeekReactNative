@@ -71,24 +71,24 @@ const challenges = {
     photographer: "challenges.photographer_august",
     action: "challenges.action_august",
     index: 3
+  },
+  september: {
+    name: "challenges.flow",
+    month: "challenges.september_2019",
+    description: "challenges.september_description",
+    totalSpecies: 10,
+    homeBackgroundName: "img-homechallenge-september",
+    backgroundName: "img-challengedetail-september",
+    unearnedIconName: "badge_empty",
+    earnedIconName: "badge_ourplanet_september",
+    missions: [
+      "challenges.mission_1_september"
+    ],
+    availableDate: new Date( 2019, 8, 1 ),
+    photographer: "challenges.photographer_september",
+    action: "challenges.action_september",
+    index: 4
   }
-  // september: {
-  //   name: "challenges.flow",
-  //   month: "challenges.september_2019",
-  //   description: "challenges.september_description",
-  //   totalSpecies: 10,
-  //   homeBackgroundName: "img-homechallenge-may",
-  //   backgroundName: "img-challengedetail-may",
-  //   unearnedIconName: "badge_empty",
-  //   earnedIconName: "badge_ourplanet_may",
-  //   missions: [
-  //     "challenges.mission_1_september"
-  //   ],
-  //   availableDate: new Date( 2019, 8, 1 ),
-  //   photographer: "challenges.photographer_september",
-  //   action: "challenges.action_september",
-  //   index: 4
-  // },
   // october: {
   //   name: "challenges.hotspots",
   //   month: "challenges.october_2019",

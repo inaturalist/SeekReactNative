@@ -1,10 +1,16 @@
-import { StyleSheet, Platform, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Platform,
+  Dimensions,
+  PixelRatio
+} from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
+const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   outerContainer: {
@@ -59,14 +65,14 @@ export default StyleSheet.create( {
     flexWrap: "wrap",
     color: colors.black,
     fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
+    fontSize: ( fontScale > 1 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 ) ? null : 21
   },
   button: {
     backgroundColor: colors.seekForestGreen,
     width: height > 570 ? 285 : 230,
     height: 46,
-    marginTop: 24,
+    marginTop: ( fontScale > 1 ) ? null : 24,
     marginBottom: 24,
     borderRadius: 40,
     alignItems: "center",

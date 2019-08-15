@@ -18,7 +18,7 @@ export default StyleSheet.create( {
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     backgroundColor: colors.white,
-    width: 337
+    width: height > 570 ? 337 : 280
   },
   header: {
     borderTopRightRadius: 40,
@@ -36,20 +36,20 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   contentContainer: {
-    marginTop: 25,
+    marginTop: 31,
     alignItems: "center"
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    marginBottom: 22
+    marginBottom: 28
   },
   image: {
-    width: 36,
-    height: 36,
+    width: 39,
+    height: 39,
     resizeMode: "contain",
-    marginRight: 24
+    marginRight: 22
   },
   textContainer: {
     width: height > 570 ? 198 : 150
@@ -59,14 +59,14 @@ export default StyleSheet.create( {
     flexWrap: "wrap",
     color: colors.black,
     fontFamily: fonts.book,
-    fontSize: height > 570 ? 16 : 14,
+    fontSize: 16,
     lineHeight: 21
   },
   button: {
     backgroundColor: colors.seekForestGreen,
     width: height > 570 ? 285 : 230,
     height: 46,
-    marginTop: 14,
+    marginTop: 24,
     marginBottom: 24,
     borderRadius: 40,
     alignItems: "center",

@@ -43,7 +43,6 @@ class GalleryScreen extends Component<Props> {
 
     this.state = {
       photos: [],
-      loading: true,
       error: null,
       hasNextPage: true,
       lastCursor: null,
@@ -71,7 +70,6 @@ class GalleryScreen extends Component<Props> {
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         this.appendPhotos( results.edges );
         this.setState( {
-          loading: false,
           hasNextPage: results.page_info.has_next_page,
           lastCursor: results.page_info.end_cursor
         } );
@@ -95,7 +93,6 @@ class GalleryScreen extends Component<Props> {
   resetState() {
     this.setState( {
       photos: [],
-      loading: true,
       error: null,
       hasNextPage: true,
       lastCursor: null,
@@ -132,8 +129,7 @@ class GalleryScreen extends Component<Props> {
 
   showError( err ) {
     this.setState( {
-      error: err || "Photo access permission denied",
-      loading: false
+      error: err || "Photo access permission denied"
     } );
   }
 
@@ -185,7 +181,6 @@ class GalleryScreen extends Component<Props> {
   render() {
     const {
       error,
-      loading,
       photos
     } = this.state;
 
@@ -195,12 +190,6 @@ class GalleryScreen extends Component<Props> {
 
     if ( error ) {
       gallery = <PermissionError error={i18n.t( "camera.error_gallery" )} />;
-    } else if ( loading ) {
-      gallery = (
-        <View style={styles.loadingWheel}>
-          <LoadingWheel color={colors.darkGray} />
-        </View>
-      );
     } else {
       gallery = (
         <FlatList
@@ -208,6 +197,11 @@ class GalleryScreen extends Component<Props> {
           numColumns={4}
           onEndReached={() => this.getPhotos()}
           keyExtractor={( item, index ) => `${item}${index}`}
+          ListEmptyComponent={() => (
+            <View style={styles.loadingWheel}>
+              <LoadingWheel color={colors.darkGray} />
+            </View>
+          )}
           renderItem={( { item } ) => (
             <TouchableHighlight
               style={styles.button}

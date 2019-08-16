@@ -7,8 +7,7 @@ import {
   ScrollView,
   Text,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -37,6 +36,7 @@ import {
   getRoute,
   checkForInternet
 } from "../../utility/helpers";
+import { dirPictures } from "../../utility/dirStorage";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -58,7 +58,6 @@ class SpeciesDetail extends Component<Props> {
       about: null,
       seenDate: null,
       timesSeen: null,
-      taxaType: null,
       region: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
@@ -68,7 +67,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loadingSpecies: true,
-      route: null
+      route: null,
+      iconicTaxonId: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -118,11 +118,35 @@ class SpeciesDetail extends Component<Props> {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
 
-    if ( defaultPhoto && defaultPhoto.mediumUrl ) {
-      this.setState( { userPhoto: defaultPhoto.mediumUrl } );
-    } else {
-      this.setState( { userPhoto: null } );
+    if ( defaultPhoto ) {
+      if ( defaultPhoto.backupUri ) {
+        const uri = defaultPhoto.backupUri.split( "/Pictures/" );
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setState( { userPhoto: backupFilepath } );
+        } );
+      } else if ( defaultPhoto.mediumUrl ) {
+        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setState( { userPhoto: defaultPhoto.mediumUrl } );
+        } );
+      } else {
+        this.setState( { userPhoto: null } );
+      }
     }
+  }
+
+  setSeenTaxa( seenTaxa ) {
+    const { taxon } = seenTaxa;
+
+    this.setState( {
+      commonName: taxon.preferredCommonName,
+      scientificName: taxon.name,
+      iconicTaxonId: taxon.iconicTaxonId
+    } );
   }
 
   setUserLocation() {
@@ -175,7 +199,6 @@ class SpeciesDetail extends Component<Props> {
       about: null,
       seenDate: null,
       timesSeen: null,
-      taxaType: null,
       region: {},
       observationsByMonth: [],
       nearbySpeciesCount: null,
@@ -185,7 +208,8 @@ class SpeciesDetail extends Component<Props> {
       similarSpecies: [],
       ancestors: [],
       loadingSpecies: true,
-      route: null
+      route: null,
+      iconicTaxonId: null
     } );
   }
 
@@ -208,6 +232,7 @@ class SpeciesDetail extends Component<Props> {
 
         if ( seenTaxa ) {
           this.checkForLastSeenLocation( seenTaxa );
+          this.setSeenTaxa( seenTaxa );
         } else {
           this.fetchUserLocation();
         }
@@ -281,7 +306,7 @@ class SpeciesDetail extends Component<Props> {
         photos,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,
-        taxaType: taxa.iconic_taxon_name,
+        iconicTaxonId: taxa.iconic_taxon_id,
         ancestors,
         stats: {
           endangered: conservationStatus ? conservationStatus.status_name : false
@@ -374,7 +399,7 @@ class SpeciesDetail extends Component<Props> {
 
     inatjs.observations.search( params ).then( ( { results } ) => {
       const { taxon } = results[0];
-      if ( taxon ) {
+      if ( taxon && taxon !== undefined ) {
         const stats = {
           threatened: taxon.threatened,
           endemic: taxon.endemic,
@@ -423,7 +448,6 @@ class SpeciesDetail extends Component<Props> {
       scientificName,
       seenDate,
       timesSeen,
-      taxaType,
       error,
       userPhoto,
       location,
@@ -431,7 +455,8 @@ class SpeciesDetail extends Component<Props> {
       ancestors,
       stats,
       loadingSpecies,
-      route
+      route,
+      iconicTaxonId
     } = this.state;
 
     const { navigation } = this.props;
@@ -446,9 +471,7 @@ class SpeciesDetail extends Component<Props> {
             onWillFocus={() => this.fetchiNatData()}
             onWillBlur={() => this.resetState()}
           />
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
-          >
+          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}
@@ -456,11 +479,11 @@ class SpeciesDetail extends Component<Props> {
               route={route}
             />
             <View style={styles.greenBanner}>
-              <Text style={styles.iconicTaxaText}>
-                {taxaType && iconicTaxaNames[taxaType]
-                  ? i18n.t( iconicTaxaNames[taxaType] ).toLocaleUpperCase()
-                  : null}
-              </Text>
+              {iconicTaxonId ? (
+                <Text style={styles.iconicTaxaText}>
+                  {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
+                </Text>
+              ) : null}
             </View>
             <View style={styles.textContainer}>
               <Text style={styles.commonNameText}>{commonName}</Text>
@@ -471,54 +494,54 @@ class SpeciesDetail extends Component<Props> {
                 seenDate={seenDate}
                 updateScreen={this.updateScreen}
               />
-            ) : (
-              <View style={styles.secondTextContainer}>
-                {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
-                {seenDate ? (
-                  <View style={[
-                    styles.row,
-                    showGreenButtons.includes( true ) && { marginTop: 21 }
-                  ]}
-                  >
-                    <Image source={icons.checklist} style={styles.checkmark} />
-                    <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
-                  </View>
-                ) : null}
-                {about ? (
-                  <View>
-                    <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
-                    <Text style={styles.text}>{about}</Text>
-                  </View>
-                ) : null}
-                {id !== 43584 ? (
-                  <View>
-                    <SpeciesMap
-                      navigation={navigation}
-                      region={region}
-                      id={id}
-                      error={error}
-                      seenDate={seenDate}
-                    />
-                    <SpeciesTaxonomy ancestors={ancestors} />
-                    <INatObs
-                      location={location}
-                      nearbySpeciesCount={nearbySpeciesCount}
-                      timesSeen={timesSeen}
-                      navigation={navigation}
-                    />
-                    {observationsByMonth.length > 0
-                      ? <SpeciesChart data={observationsByMonth} />
-                      : null}
-                  </View>
-                ) : (
-                  <View>
-                    <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-                    <Padding />
-                  </View>
-                )}
-              </View>
-            ) }
-            {id !== 43584 ? (
+            ) : null}
+            <View style={styles.secondTextContainer}>
+              {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
+              {seenDate && !error ? (
+                <View style={[
+                  styles.row,
+                  showGreenButtons.includes( true ) && { marginTop: 21 }
+                ]}
+                >
+                  <Image source={icons.checklist} style={styles.checkmark} />
+                  <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
+                </View>
+              ) : null}
+              {about && !error ? (
+                <View>
+                  <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+                  <Text style={styles.text}>{about}</Text>
+                </View>
+              ) : null}
+              {id !== 43584 && !error ? (
+                <View>
+                  <SpeciesMap
+                    navigation={navigation}
+                    region={region}
+                    id={id}
+                    error={error}
+                    seenDate={seenDate}
+                  />
+                  <SpeciesTaxonomy ancestors={ancestors} />
+                  <INatObs
+                    location={location}
+                    nearbySpeciesCount={nearbySpeciesCount}
+                    timesSeen={timesSeen}
+                    navigation={navigation}
+                  />
+                  {observationsByMonth.length > 0
+                    ? <SpeciesChart data={observationsByMonth} />
+                    : null}
+                </View>
+              ) : null}
+              {id === 43584 ? (
+                <View>
+                  <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+                  <Padding />
+                </View>
+              ) : null}
+            </View>
+            {id !== 43584 && !error ? (
               <View>
                 <SimilarSpecies
                   taxa={similarSpecies}

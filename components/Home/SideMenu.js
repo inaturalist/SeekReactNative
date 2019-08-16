@@ -44,7 +44,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "Main" )}
           >
             <Image source={icons.menuHome} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.home" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
@@ -54,7 +54,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "Achievements" )}
           >
             <Image source={icons.menuAchievements} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.achievements" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
@@ -64,7 +64,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "Challenges" )}
           >
             <Image source={icons.menuChallenges} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.challenges" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
@@ -74,7 +74,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "MyObservations" )}
           >
             <Image source={icons.menuObservations} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.observations" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
@@ -84,7 +84,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "iNatStats" )}
           >
             <Image source={icons.menuiNat} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.inat" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>
@@ -94,7 +94,7 @@ class SideMenu extends Component<Props> {
             onPress={() => this.navigateTo( "About" )}
           >
             <Image source={icons.menuSeek} style={styles.image} />
-            <Text style={styles.text}>
+            <Text adjustsFontSizeToFit style={styles.text}>
               {i18n.t( "menu.about" ).toLocaleUpperCase()}
             </Text>
           </TouchableOpacity>

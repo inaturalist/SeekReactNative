@@ -207,7 +207,7 @@ class ChallengeScreen extends Component<Props> {
             header={i18n.t( "challenges.header" )}
             route="Main"
           />
-          <ScrollView contentContainerStyle={styles.column}>
+          <ScrollView>
             <NavigationEvents
               onWillFocus={ () => {
                 recalculateChallenges();
@@ -215,7 +215,7 @@ class ChallengeScreen extends Component<Props> {
               }}
             />
             {noChallenges ? (
-              <View style={[styles.noChallengeContainer, { height: 170 }]}>
+              <View style={[styles.noChallengeContainer, { height: 182 }]}>
                 <View style={styles.noChallengeRow}>
                   <Image source={icons.completed} />
                   <View style={styles.noChallengeTextContainer}>

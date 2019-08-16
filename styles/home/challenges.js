@@ -1,16 +1,20 @@
-import { StyleSheet, Platform } from "react-native";
+import {
+  StyleSheet,
+  Platform,
+  Dimensions,
+  PixelRatio
+} from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { width } = Dimensions.get( "window" );
+const fontScale = PixelRatio.getFontScale();
+
 export default StyleSheet.create( {
   container: {
     flex: 1
-  },
-  column: {
-    flexDirection: "column",
-    justifyContent: "space-around"
   },
   header: {
     marginTop: 21,
@@ -31,15 +35,15 @@ export default StyleSheet.create( {
     marginHorizontal: 32
   },
   challengeHeader: {
-    marginTop: 30,
+    marginTop: 32,
     fontFamily: fonts.light,
-    fontSize: 18,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
     color: colors.white,
     letterSpacing: 0.78
   },
   challengeName: {
     fontFamily: fonts.semibold,
-    fontSize: 23,
+    fontSize: ( fontScale > 1 ) ? 20 : 23,
     color: colors.white,
     letterSpacing: 1.0
   },
@@ -50,17 +54,20 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: 14,
-    marginBottom: 26,
+    justifyContent: "flex-start",
+    marginTop: ( fontScale > 1 ) ? 10 : 21,
+    marginBottom: ( fontScale > 1 ) ? 10 : 28,
     marginHorizontal: 32
   },
+  image: {
+    marginRight: 27
+  },
   text: {
-    maxWidth: 165,
+    maxWidth: width - ( 116 + 27 + 64 ),
     color: colors.white,
     fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 24
+    fontSize: ( fontScale > 1 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 ) ? null : 24
   },
   greenButton: {
     alignItems: "center",
@@ -82,7 +89,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     textDecorationLine: "underline",
     color: colors.white,
-    fontSize: 16
+    fontSize: ( fontScale > 1 ) ? 14 : 16
   },
   noChallengeContainer: {
     marginTop: 20,

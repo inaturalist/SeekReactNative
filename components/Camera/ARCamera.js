@@ -9,21 +9,29 @@ import {
   Text,
   Platform,
   NativeModules,
-  BackHandler
+  BackHandler,
+  Dimensions
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 import INatCamera from "react-native-inat-camera";
+import RNModal from "react-native-modal";
+import moment from "moment";
 
 import LoadingWheel from "../LoadingWheel";
+import WarningModal from "./WarningModal";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
-import { getTaxonCommonName } from "../../utility/helpers";
+import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
+import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { dirPictures } from "../../utility/dirStorage";
+
+const { width } = Dimensions.get( "window" );
 
 type Props = {
   navigation: any
@@ -43,9 +51,11 @@ class ARCamera extends Component<Props> {
       focusedScreen: false,
       commonName: null,
       latitude: null,
-      longitude: null
+      longitude: null,
+      showWarningModal: false
     };
     this.backHandler = null;
+    this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen ) {
@@ -185,7 +195,7 @@ class ARCamera extends Component<Props> {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          this.savePhotoToGallery( photo );
+          this.savePhoto( photo );
         } catch ( e ) {
           this.setError( "save" );
         }
@@ -195,11 +205,18 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          this.savePhotoToGallery( photo );
+          this.savePhoto( photo );
         } ).catch( () => {
           this.setError( "save" );
         } );
       }
+    }
+  }
+
+  async checkForCameraLaunch() {
+    const isFirstCameraLaunch = await checkIfCameraLaunched();
+    if ( isFirstCameraLaunch ) {
+      this.toggleWarningModal();
     }
   }
 
@@ -223,15 +240,37 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  savePhotoToGallery( photo ) {
+  resizeImageForBackup( uri ) {
+    resizeImage( uri, width, 250 ).then( ( resizedImage ) => {
+      this.saveImageToAppDirectory( uri, resizedImage );
+    } ).catch( () => this.navigateToResults( uri ) );
+  }
+
+  async saveImageToAppDirectory( uri, resizedImageUri ) {
+    try {
+      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
+      const backupFilepath = `${dirPictures}/${newImageName}`;
+      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
+
+      if ( imageMoved ) {
+        this.navigateToResults( uri, backupFilepath );
+      } else {
+        this.setError( "save" );
+      }
+    } catch ( error ) {
+      this.setError( "save" );
+    }
+  }
+
+  savePhoto( photo ) {
     this.setImagePredictions( photo.predictions );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( uri => this.navigateToResults( uri ) )
+      .then( uri => this.resizeImageForBackup( uri ) )
       .catch( () => this.setError( "save" ) );
   }
 
-  navigateToResults( uri ) {
+  navigateToResults( uri, backupUri ) {
     const { predictions, latitude, longitude } = this.state;
     const { navigation } = this.props;
 
@@ -240,14 +279,16 @@ class ARCamera extends Component<Props> {
         uri,
         predictions,
         latitude,
-        longitude
+        longitude,
+        backupUri
       } );
     } else {
       navigation.navigate( "GalleryResults", {
         uri,
         time: null,
         latitude,
-        longitude
+        longitude,
+        backupUri
       } );
     }
   }
@@ -278,6 +319,11 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  toggleWarningModal() {
+    const { showWarningModal } = this.state;
+    this.setState( { showWarningModal: !showWarningModal } );
+  }
+
   render() {
     const {
       ranks,
@@ -286,7 +332,8 @@ class ARCamera extends Component<Props> {
       pictureTaken,
       error,
       focusedScreen,
-      commonName
+      commonName,
+      showWarningModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -318,6 +365,7 @@ class ARCamera extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.checkForCameraLaunch();
             this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );
@@ -331,6 +379,14 @@ class ARCamera extends Component<Props> {
             this.closeCameraAndroid();
           }}
         />
+        <RNModal
+          isVisible={showWarningModal}
+          onBackdropPress={() => this.toggleWarningModal()}
+        >
+          <WarningModal
+            toggleWarningModal={this.toggleWarningModal}
+          />
+        </RNModal>
         {loading ? (
           <View style={styles.loading}>
             <LoadingWheel color="white" />

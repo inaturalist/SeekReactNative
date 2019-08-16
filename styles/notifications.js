@@ -1,41 +1,32 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "./global";
+
+const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.white
   },
-  notificationsContainer: {
-    flexGrow: 1
-  },
-  cardContainer: {
-    height: 123,
-    justifyContent: "center",
-    alignItems: "flex-start"
-  },
   card: {
-    marginHorizontal: 24,
+    height: 112,
+    marginHorizontal: 22,
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     alignItems: "center"
   },
   image: {
-    marginRight: 5,
-    height: 63,
-    width: 63,
+    marginRight: 24,
+    height: 72,
+    width: 72,
     resizeMode: "contain"
   },
   textContainer: {
-    marginLeft: 22,
-    width: 214,
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center"
+    width: 214
   },
   titleText: {
     fontFamily: fonts.medium,
@@ -44,8 +35,6 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   messageText: {
-    textAlign: "left",
-    maxWidth: 232,
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21
@@ -59,9 +48,7 @@ export default StyleSheet.create( {
   divider: {
     backgroundColor: colors.dividerGray,
     height: 1,
-    marginTop: 26,
-    marginHorizontal: 23,
-    width: "85%"
+    marginHorizontal: 23
   },
   safeViewTop: {
     flex: 0,
@@ -73,9 +60,8 @@ export default StyleSheet.create( {
   },
   noNotifications: {
     marginHorizontal: 28,
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    marginTop: height / 3 - 50,
+    alignItems: "center"
   },
   noNotificationsHeader: {
     textAlign: "center",
@@ -88,6 +74,7 @@ export default StyleSheet.create( {
   },
   noNotificationsText: {
     marginTop: 24,
+    maxWidth: 319,
     textAlign: "center",
     fontFamily: fonts.book,
     fontSize: 16,

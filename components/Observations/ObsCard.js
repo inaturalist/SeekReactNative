@@ -8,8 +8,7 @@ import {
   View,
   Platform,
   ImageBackground,
-  ScrollView,
-  Alert
+  ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
 
@@ -17,6 +16,7 @@ import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helper
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import iconicTaxa from "../../assets/iconicTaxa";
+import { dirPictures } from "../../utility/dirStorage";
 
 type Props = {
   navigation: any,
@@ -79,8 +79,18 @@ class ObservationCard extends Component<Props> {
     const { defaultPhoto } = taxon;
 
     if ( defaultPhoto ) {
-      if ( defaultPhoto.mediumUrl ) {
-        this.setPhoto( { uri: defaultPhoto.mediumUrl } );
+      if ( defaultPhoto.backupUri ) {
+        const uri = defaultPhoto.backupUri.split( "/Pictures/" );
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => this.setPhoto( { uri: backupFilepath } ) );
+      } else if ( defaultPhoto.mediumUrl ) {
+        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.setPhoto( { uri: defaultPhoto.mediumUrl } );
+        } );
       } else if ( defaultPhoto.squareUrl ) {
         this.setPhoto( { uri: defaultPhoto.squareUrl } );
       } else {

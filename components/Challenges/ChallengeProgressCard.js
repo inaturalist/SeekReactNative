@@ -53,28 +53,26 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
   }
 
   return (
-    <View style={styles.cardContainer}>
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => {
-          setChallengeIndex( item.index );
-          navigation.navigate( "ChallengeDetails" );
-        }}
-      >
-        <Image style={styles.image} source={item.iconName} />
-        <View style={styles.textContainer}>
-          <Text style={styles.titleText}>
-            {item.name}
-          </Text>
-          <Text style={styles.messageText}>
-            {i18n.t( "challenges.op" )}
-            {" - "}
-            {item.month}
-          </Text>
-        </View>
-        {rightIcon}
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        setChallengeIndex( item.index );
+        navigation.navigate( "ChallengeDetails" );
+      }}
+    >
+      <Image style={styles.image} source={item.iconName} />
+      <View style={styles.textContainer}>
+        <Text style={styles.titleText}>
+          {item.name}
+        </Text>
+        <Text style={styles.messageText}>
+          {i18n.t( "challenges.op" )}
+          {" - "}
+          {item.month}
+        </Text>
+      </View>
+      {rightIcon}
+    </TouchableOpacity>
   );
 };
 

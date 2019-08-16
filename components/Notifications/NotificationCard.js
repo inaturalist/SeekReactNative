@@ -5,8 +5,7 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  View,
-  Alert
+  View
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -20,7 +19,7 @@ type Props = {
 }
 
 const NotificationCard = ( { navigation, item }: Props ) => (
-  <View style={styles.cardContainer}>
+  <View>
     <TouchableOpacity
       style={styles.card}
       onPress={() => {

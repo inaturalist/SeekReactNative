@@ -244,8 +244,7 @@
     "enable_location": "Enable location to save observations",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
-    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
-    "error_ancestor": "Sorry, we couldn't fetch taxonomy data for this image. Please check your internet connection and try again.",
+    "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
     "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few"
@@ -509,5 +508,11 @@
     "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
     "yes": "Yes, delete it from my observations",
     "no": "Cancel"
+  },
+  "warning": {
+    "remember": "Remember",
+    "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
   }
 }

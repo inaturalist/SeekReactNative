@@ -56,7 +56,10 @@ const icons = {
   flag: require( "./icons/icon-flagidentification.png" ),
   dropdownOpen: require( "./icons/icon-dropdown-open.png" ),
   dropdownClosed: require( "./icons/icon-dropdown-closed.png"),
-  delete: require( "./icons/button-deleteobservation.png" )
+  delete: require( "./icons/button-deleteobservation.png" ),
+  warningEat: require( "./icons/icon-donteat.png" ),
+  warningTouch: require( "./icons/icon-donttouch.png" ),
+  warningTrespass: require( "./icons/icon-donttrespass.png" )
 };
 
 export default icons;

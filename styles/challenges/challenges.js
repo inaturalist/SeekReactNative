@@ -1,17 +1,15 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const fontScale = PixelRatio.getFontScale();
+
 export default StyleSheet.create( {
   container: {
     flex: 1,
     backgroundColor: colors.white
-  },
-  column: {
-    flexDirection: "column",
-    justifyContent: "space-around"
   },
   header: {
     marginTop: 26,
@@ -24,12 +22,8 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     letterSpacing: 1.12
   },
-  cardContainer: {
-    height: 95,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   card: {
+    height: ( fontScale > 1 ) ? 138 : 95,
     marginHorizontal: 20,
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -43,15 +37,12 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   textContainer: {
-    flexDirection: "column",
-    alignItems: "flex-start",
     justifyContent: "center",
-    height: 96,
-    width: 150
+    width: 156
   },
   titleText: {
     fontFamily: fonts.medium,
-    fontSize: 16,
+    fontSize: ( fontScale > 1 ) ? 14 : 16,
     marginBottom: 1,
     lineHeight: 21,
     color: colors.seekTeal
@@ -75,7 +66,7 @@ export default StyleSheet.create( {
     lineHeight: 17
   },
   noChallengeContainer: {
-    height: 121,
+    height: ( fontScale > 1 ) ? 182 : 121,
     alignItems: "center",
     justifyContent: "center"
   },

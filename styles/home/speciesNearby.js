@@ -6,7 +6,6 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
     backgroundColor: colors.seekForestGreen,
     height: 422
   },

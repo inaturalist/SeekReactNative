@@ -14,7 +14,7 @@ import i18n from "../i18n";
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
-import { checkIfFirstLaunch } from "../utility/helpers";
+import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { checkIfFirstLogin } from "../utility/loginHelpers";
 
 type Props = {
@@ -32,6 +32,7 @@ class SplashScreen extends Component<Props> {
   }
 
   async componentDidMount() {
+    setCameraLaunched( false );
     const isFirstLaunch = await checkIfFirstLaunch();
     const isFirstLogin = await checkIfFirstLogin();
     this.setState( {

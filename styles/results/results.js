@@ -15,28 +15,13 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     overflow: "hidden"
   },
-  flagHeaderContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    overflow: "visible"
-  },
   container: {
     flex: 1,
     backgroundColor: colors.white
   },
-  flagHeader: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    height: 167,
-    overflow: "visible"
-  },
   header: {
     height: 186,
     overflow: "visible"
-  },
-  flagButtonContainer: {
-    marginTop: 20,
-    marginHorizontal: 22
   },
   buttonContainer: {
     marginTop: 40,
@@ -48,26 +33,10 @@ export default StyleSheet.create( {
     justifyContent: "space-around",
     flexWrap: "nowrap"
   },
-  flagTextContainer: {
-    marginTop: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    flexWrap: "nowrap"
-  },
   imageCell: {
     width: 150,
     height: 150,
     borderRadius: 150 / 2
-  },
-  flagImageCell: {
-    width: 129,
-    height: 129,
-    borderRadius: 129 / 2
-  },
-  flagContainer: {
-    marginHorizontal: 22,
-    alignItems: "center"
   },
   textContainer: {
     marginTop: 50,
@@ -100,22 +69,6 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.book
   },
-  flagButton: {
-    width: 243,
-    height: 46,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  largeFlagButton: {
-    backgroundColor: "#973838",
-    width: 278,
-    height: 79,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap"
-  },
   button: {
     backgroundColor: colors.seekForestGreen,
     width: 292,
@@ -137,10 +90,6 @@ export default StyleSheet.create( {
   backButton: {
     top: 18,
     left: 23
-  },
-  flagBackButton: {
-    marginLeft: 33,
-    marginRight: 29
   },
   linkText: {
     fontFamily: fonts.book,

@@ -10,7 +10,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/results";
+import styles from "../../styles/results/flagModal";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -82,7 +82,7 @@ const FlagModal = ( {
             }
           }}
         >
-          <Text style={[styles.buttonText, { lineHeight: 24 }]}>
+          <Text style={[styles.buttonText, styles.largeButtonHeight]}>
             {seenDate
               ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
               : i18n.t( "results.yes" ).toLocaleUpperCase()

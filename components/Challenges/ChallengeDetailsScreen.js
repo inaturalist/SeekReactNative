@@ -196,22 +196,21 @@ class ChallengeDetailsScreen extends Component<Props> {
                 </TouchableOpacity>
                 <Image style={styles.logo} source={logos.op} />
               </View>
-              <View style={styles.challengeContainer}>
-                <Text style={styles.challengeHeader}>
-                  {i18n.t( challenge.month ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.challengeName}>
-                  {i18n.t( challenge.name ).toLocaleUpperCase()}
-                </Text>
-                <View style={styles.leftRow}>
-                  {challenge.percentComplete === 100
-                    ? <Image source={badges[challenge.earnedIconName]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
-                    : <Image source={badges["badge-empty-white"]} style={{ width: 83, height: 83, resizeMode: "contain" }} />
-                  }
-                  <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-                </View>
-                {button}
+              <View style={{ marginTop: 24 }} />
+              <Text style={styles.challengeHeader}>
+                {i18n.t( challenge.month ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.challengeName}>
+                {i18n.t( challenge.name ).toLocaleUpperCase()}
+              </Text>
+              <View style={styles.row}>
+                {challenge.percentComplete === 100
+                  ? <Image source={badges[challenge.earnedIconName]} style={styles.badge} />
+                  : <Image source={badges["badge-empty-white"]} style={styles.badge} />
+                }
+                <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
               </View>
+              {button}
             </ImageBackground>
             <View style={styles.missionContainer}>
               {challengeStarted ? (

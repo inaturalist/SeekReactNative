@@ -1,7 +1,13 @@
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import {
+  StyleSheet,
+  Dimensions,
+  Platform,
+  PixelRatio
+} from "react-native";
 import { colors, fonts, touchable } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
+const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   container: {
@@ -65,7 +71,7 @@ export default StyleSheet.create( {
   scanText: {
     position: "absolute",
     bottom: 95,
-    fontSize: 16,
+    fontSize: ( fontScale > 1 ) ? 14 : 16,
     textAlign: "center",
     color: colors.white,
     margin: 20,

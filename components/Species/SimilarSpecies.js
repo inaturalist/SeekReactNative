@@ -24,45 +24,40 @@ const SimilarSpecies = ( {
   loading,
   fetchiNatData
 }: Props ) => {
-  let species;
-
-  if ( loading ) {
-    species = (
-      <LoadingWheel color="black" />
-    );
-  } else if ( taxa.length > 0 ) {
-    species = (
-      <FlatList
-        contentContainerStyle={styles.similarSpeciesList}
-        data={taxa}
-        keyExtractor={taxon => `species-${taxon.id}`}
-        horizontal
-        bounces
-        alwaysBounceHorizontal
-        initialNumToRender={3}
-        renderItem={ ( { item } ) => (
-          <View style={styles.gridCell}>
-            <TouchableOpacity
-              onPress={ () => {
-                setSpeciesId( item.id );
-                fetchiNatData( "similarSpecies" );
-              }}
-            >
-              <Image
-                style={styles.cellImage}
-                source={{ uri: item.default_photo.medium_url }}
-              />
-              <View style={styles.cellTitle}>
-                <Text numberOfLines={3} style={styles.cellTitleText}>
-                  {capitalizeNames( item.preferred_common_name || item.name )}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
-    );
-  }
+  const species = (
+    <FlatList
+      contentContainerStyle={styles.similarSpeciesList}
+      data={taxa}
+      keyExtractor={taxon => `species-${taxon.id}`}
+      horizontal
+      bounces
+      alwaysBounceHorizontal
+      initialNumToRender={3}
+      ListEmptyComponent={() => (
+        <LoadingWheel color="black" />
+      )}
+      renderItem={ ( { item } ) => (
+        <View style={styles.gridCell}>
+          <TouchableOpacity
+            onPress={ () => {
+              setSpeciesId( item.id );
+              fetchiNatData( "similarSpecies" );
+            }}
+          >
+            <Image
+              style={styles.cellImage}
+              source={{ uri: item.default_photo.medium_url }}
+            />
+            <View style={styles.cellTitle}>
+              <Text numberOfLines={3} style={styles.cellTitleText}>
+                {capitalizeNames( item.preferred_common_name || item.name )}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      )}
+    />
+  );
 
   return (
     <View>

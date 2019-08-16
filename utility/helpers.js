@@ -4,6 +4,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import i18n from "../i18n";
 import { recalculateBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
+import iconicTaxaIds from "./iconicTaxonDictById";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -88,7 +89,7 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, uri, time ) => {
+const addToCollection = ( observation, latitude, longitude, uri, time, backupUri ) => {
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
@@ -101,8 +102,9 @@ const addToCollection = ( observation, latitude, longitude, uri, time ) => {
         const p = observation.taxon.default_photo;
         if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p.medium_url,
-            mediumUrl: uri
+            squareUrl: p ? p.medium_url : null,
+            mediumUrl: uri,
+            backupUri: backupUri || null
           } );
         }
         const taxon = realm.create( "TaxonRealm", {
@@ -170,6 +172,25 @@ const checkIfFirstLaunch = async () => {
     const hasLaunched = await AsyncStorage.getItem( HAS_LAUNCHED );
     if ( hasLaunched === null ) {
       setAppLaunched();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
+const CAMERA_LAUNCHED = "camera_launched";
+
+const setCameraLaunched = ( boolean ) => {
+  AsyncStorage.setItem( CAMERA_LAUNCHED, boolean.toString() );
+};
+
+const checkIfCameraLaunched = async () => {
+  try {
+    const cameraLaunched = await AsyncStorage.getItem( CAMERA_LAUNCHED );
+    if ( cameraLaunched === null || cameraLaunched === "false" ) {
+      setCameraLaunched( true );
       return true;
     }
     return false;
@@ -248,6 +269,21 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
+const checkForIconicTaxonId = ( ancestorIds ) => {
+  const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
+  taxaIdList.pop();
+
+  const newTaxaList = [];
+
+  taxaIdList.forEach( ( id ) => {
+    newTaxaList.push( Number( id ) );
+  } );
+
+  const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
+
+  return iconicTaxonId[0] || 1;
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -256,12 +292,15 @@ export {
   getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
+  checkIfCameraLaunched,
   shuffleList,
   setSpeciesId,
+  setCameraLaunched,
   getSpeciesId,
   setRoute,
   getRoute,
   checkForInternet,
+  checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest
 };

@@ -44,6 +44,7 @@ const badges = {
   badge_ourplanet_may: require( "./badges/challenges/badge_ourplanet_may.png" ),
   badge_ourplanet_june: require( "./badges/challenges/badge_ourplanet_june.png" ),
   badge_ourplanet_august: require( "./badges/challenges/badge_ourplanet_august.png" ),
+  badge_ourplanet_september: require( "./badges/challenges/badge_ourplanet_september.png" ),
   badge_bronze: require( "./badges/observations/icon-badge-bronze.png" ),
   badge_silver: require( "./badges/observations/icon-badge-silver.png" ),
   badge_gold: require( "./badges/observations/icon-badge-gold.png" ),

@@ -1,6 +1,6 @@
 {
   "name": "seek",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -24,7 +24,6 @@
     "react-native": "^0.59.9",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^2.3.0",
-    "react-native-fast-image": "^6.0.3",
     "react-native-fs": "^2.13.3",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.2.2",
@@ -59,10 +58,5 @@
     "faker": "^4.1.0",
     "flow-bin": "^0.78.0",
     "metro-react-native-babel-preset": "^0.54.1"
-  },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
   }
 }

@@ -72,7 +72,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     width: height > 570 ? 285 : 230,
     height: 46,
-    marginTop: ( fontScale > 1 ) ? null : 24,
+    marginTop: ( fontScale > 1 ) ? null : 14,
     marginBottom: 24,
     borderRadius: 40,
     alignItems: "center",

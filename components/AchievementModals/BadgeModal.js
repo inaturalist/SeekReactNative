@@ -7,8 +7,8 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
-  ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  FlatList
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -53,7 +53,7 @@ class BadgeModal extends Component<Props> {
 
   render() {
     const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
-    const { interval } = this.state;
+    // const { interval } = this.state;
 
     const badgeList = [];
 
@@ -95,14 +95,12 @@ class BadgeModal extends Component<Props> {
             text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
             modal
           />
-          <ScrollView
+          <FlatList
             horizontal
             pagingEnabled
-            // snapToInterval={interval}
             showsHorizontalScrollIndicator={false}
-          >
-            {badgeList}
-          </ScrollView>
+            data={badgeList}
+          />
           <Image source={icons.badgeSwipeRight} style={styles.arrow} />
           <View style={styles.row}>
             <TouchableOpacity onPress={this.scrollToB}>

@@ -192,6 +192,7 @@ class PostScreen extends Component<Props> {
       if ( split[1] && split[1].length === 2 ) {
         return true;
       }
+      return false;
     }
     return false;
   }

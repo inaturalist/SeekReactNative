@@ -33,8 +33,8 @@ class iNatStatsScreen extends Component<Props> {
     super();
 
     this.state = {
-      observations: i18n.toNumber( 23000000, { precision: 0 } ),
-      observers: i18n.toNumber( 660000, { precision: 0 } ),
+      observations: i18n.toNumber( 25000000, { precision: 0 } ),
+      observers: i18n.toNumber( 700000, { precision: 0 } ),
       photos: [],
       loading: true,
       isLoggedIn: false

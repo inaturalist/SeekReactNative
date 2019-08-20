@@ -8,8 +8,7 @@ import {
   SectionList,
   Text,
   Image,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";

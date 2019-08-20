@@ -322,6 +322,7 @@
     "explanation": "Observe more total species to raise your level, find organisms of specific groups to earn species badges, and participate in challenges to earn challenge badges!",
     "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
+    "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observe",
     "species_badges": "Species Badges",
     "challenge_badges": "Challenge Badges",

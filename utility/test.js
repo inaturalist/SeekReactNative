@@ -4,14 +4,11 @@ const { createNotification } = require( "./notificationHelpers" );
 const { addToCollection } = require( "./helpers" );
 
 const createFakeObservations = () => {
-  for ( let i = 0; i < 25; i += 1 ) {
+  for ( let i = 0; i < 15; i += 1 ) {
     const latitude = Number( faker.address.latitude() );
     const longitude = Number( faker.address.longitude() );
 
-    const image = {
-      uri: null
-      // uri: "content://media/external/images/media/8153"
-    };
+    const uri = "content://media/external/images/media/8153";
 
     const taxonIds = {
       birds: 3,
@@ -30,15 +27,15 @@ const createFakeObservations = () => {
       taxon: {
         name: faker.name.findName(),
         id: faker.random.number(),
-        preferred_common_name: null,
-        iconic_taxon_id: taxonIds.fungi,
+        preferred_common_name: faker.name.findName(),
+        iconic_taxon_id: taxonIds.plants,
         default_photo: {
-          medium_url: null
-          // medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"
+          // medium_url: null
+          medium_url: "https://static.inaturalist.org/photos/19448634/medium.jpg?1528597766"
         }
       }
     };
-    addToCollection( observation, latitude, longitude, image );
+    addToCollection( observation, latitude, longitude, uri, new Date(), uri );
   }
 };
 

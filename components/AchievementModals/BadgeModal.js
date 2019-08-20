@@ -100,6 +100,7 @@ class BadgeModal extends Component<Props> {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             data={badgeList}
+            renderItem={( { item } ) => item}
           />
           <Image source={icons.badgeSwipeRight} style={styles.arrow} />
           <View style={styles.row}>

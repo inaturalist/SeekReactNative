@@ -16,6 +16,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.google.gms:google-services:4.3.0'
         // classpath 'de.undercouch:gradle-download-task:3.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -25,6 +26,17 @@ buildscript {
 
 allprojects {
     repositories {
+        configurations.all {
+            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+                if (requested.group == 'com.google.android.gms') {
+                    details.useVersion '12.0.1'
+                }
+                if (requested.group == 'com.google.firebase') {
+                    details.useVersion '12.0.1'
+                }
+            }
+        }
         mavenLocal()
         jcenter()
         maven {

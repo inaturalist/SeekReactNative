@@ -1,6 +1,6 @@
 rootProject.name = 'Seek'
-// include ':react-native-inat-camera'
-// project(':react-native-inat-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-inat-camera/android')
+include ':react-native-inat-camera'
+project(':react-native-inat-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-inat-camera/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 
 include ':app'

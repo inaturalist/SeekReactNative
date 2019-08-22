@@ -50,15 +50,16 @@ const fetchTruncatedUserLocation = () => (
 );
 
 const fetchLocationName = ( lat, lng ) => (
-  new Promise( ( resolve ) => {
+  new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
         resolve( null );
       }
       const { locality, subAdminArea } = result[0];
       resolve( locality || subAdminArea );
-    } ).catch( () => {
-      resolve( null );
+    } ).catch( ( e ) => {
+      reject( e );
+      // resolve( null );
     } );
   } )
 );

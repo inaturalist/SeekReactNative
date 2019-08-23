@@ -9,7 +9,7 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 
 class App extends Component {
-  async componentWillMount() {
+  async componentDidMount() {
     await setupBadges();
     await setupChallenges();
     // do not wait for commonNames setup to complete. It could take a while to

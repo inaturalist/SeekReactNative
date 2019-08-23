@@ -38,7 +38,7 @@
     "react-native-svg": "^9.6.4",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",
-    "react-navigation": "^3.11.1",
+    "react-navigation": "^3.12.0",
     "react-navigation-transitions": "^1.0.12",
     "realm": "^2.29.2"
   },

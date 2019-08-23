@@ -4,10 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "esw --watch --fix --parser babel-eslint",
-    "test": "jest",
-    "flow": "flow",
-    "flow-stop": "flow stop"
+    "lint": "eslint *.js **/*.js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.4.2",
@@ -45,9 +42,10 @@
     "realm": "^2.29.2"
   },
   "devDependencies": {
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/runtime": "^7.5.5",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-flow": "^6.23.0",
     "eslint": "^5.16.0",

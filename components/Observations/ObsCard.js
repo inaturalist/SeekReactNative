@@ -36,7 +36,7 @@ class ObservationCard extends Component<Props> {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.checkForSeekV1Photos();
     this.localizeCommonName();
   }
@@ -165,7 +165,13 @@ class ObservationCard extends Component<Props> {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.deleteButton}
-          onPress={() => toggleDeleteModal( item.taxon.id, photo, commonName, taxon.name, taxon.iconicTaxonId )}
+          onPress={() => toggleDeleteModal(
+            item.taxon.id,
+            photo,
+            commonName,
+            taxon.name,
+            taxon.iconicTaxonId
+          )}
         >
           <Image source={icons.delete} />
         </TouchableOpacity>

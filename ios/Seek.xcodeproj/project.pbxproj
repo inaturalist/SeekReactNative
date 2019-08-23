@@ -18,6 +18,8 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* SeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeekTests.m */; };
 		33787D6627894B64BA95C5AF /* Whitney-LightItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5E17A692724D7ABD01DA41 /* Whitney-LightItalic-Pro.otf */; };
+		37072BA9231040D00003520D /* libReact Native Open Settings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37072B9F23103AD10003520D /* libReact Native Open Settings.a */; };
+		37072BAA231040E40003520D /* libRCTINatCameraView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37072BA723103CB50003520D /* libRCTINatCameraView.a */; };
 		3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3739CB162242B17600D8B525 /* optimized_model.mlmodel */; };
 		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
 		37A31732230F5FB9008A8233 /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A31731230F5FB9008A8233 /* libRealmJS.a */; };
@@ -57,6 +59,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "Seek-tvOS";
+		};
+		37072B9E23103AD10003520D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37072B9A23103AD10003520D /* React Native Open Settings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 190C8BAA1BEAADCC00CD505E;
+			remoteInfo = "React Native Open Settings";
+		};
+		37072BA623103CB50003520D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37072BA223103CB50003520D /* RCTINatCameraView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RCTINatCameraView;
 		};
 		374193122177DC86007414A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -109,6 +125,8 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		36187AD0D07371AAACA50935 /* libPods-Seek-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37072B9A23103AD10003520D /* React Native Open Settings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React Native Open Settings.xcodeproj"; path = "../node_modules/react-native-open-settings/React Native Open Settings.xcodeproj"; sourceTree = "<group>"; };
+		37072BA223103CB50003520D /* RCTINatCameraView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTINatCameraView.xcodeproj; path = "../node_modules/react-native-inat-camera/ios/RCTINatCameraView.xcodeproj"; sourceTree = "<group>"; };
 		3721C5BA22B30F3800151678 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3721C5BB22B30F5700151678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = ../es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3721C5BC22B30F5D00151678 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = ../nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -173,6 +191,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37072BAA231040E40003520D /* libRCTINatCameraView.a in Frameworks */,
+				37072BA9231040D00003520D /* libReact Native Open Settings.a in Frameworks */,
 				37A31732230F5FB9008A8233 /* libRealmJS.a in Frameworks */,
 				37A31733230F5FB9008A8233 /* libRealmReact.a in Frameworks */,
 				37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */,
@@ -244,6 +264,22 @@
 				503D0ADEDC6DAAE1FB9DD0B3 /* libPods-SeekTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37072B9B23103AD10003520D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37072B9F23103AD10003520D /* libReact Native Open Settings.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37072BA323103CB50003520D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37072BA723103CB50003520D /* libRCTINatCameraView.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		370DC8B0216FC36D000A29BA /* Recovered References */ = {
@@ -318,6 +354,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				37072BA223103CB50003520D /* RCTINatCameraView.xcodeproj */,
+				37072B9A23103AD10003520D /* React Native Open Settings.xcodeproj */,
 				37A3172A230F5FB1008A8233 /* RealmReact.xcodeproj */,
 			);
 			name = Libraries;
@@ -510,6 +548,14 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 37072BA323103CB50003520D /* Products */;
+					ProjectRef = 37072BA223103CB50003520D /* RCTINatCameraView.xcodeproj */;
+				},
+				{
+					ProductGroup = 37072B9B23103AD10003520D /* Products */;
+					ProjectRef = 37072B9A23103AD10003520D /* React Native Open Settings.xcodeproj */;
+				},
+				{
 					ProductGroup = 37A3172B230F5FB1008A8233 /* Products */;
 					ProjectRef = 37A3172A230F5FB1008A8233 /* RealmReact.xcodeproj */;
 				},
@@ -529,6 +575,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		37072B9F23103AD10003520D /* libReact Native Open Settings.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReact Native Open Settings.a";
+			remoteRef = 37072B9E23103AD10003520D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		37072BA723103CB50003520D /* libRCTINatCameraView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTINatCameraView.a;
+			remoteRef = 37072BA623103CB50003520D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		374193132177DC86007414A3 /* libRNGL.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -813,10 +873,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seek.app/Seek";
@@ -848,10 +905,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seek.app/Seek";
@@ -873,12 +927,14 @@
 				);
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../ReactCommon/**",
-					"$(SRCROOT)/../../React/build/include/**",
+					"$(inherited)",
+					"$(SRCROOT)/.../node_modules/react-native-inat-camera/ios/**",
+					"$(SRCROOT)/.../node_modules/react-native-open-settings/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.iNatLite;
 				PRODUCT_NAME = Seek;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -900,12 +956,14 @@
 				);
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../../ReactCommon/**",
-					"$(SRCROOT)/../../React/build/include/**",
+					"$(inherited)",
+					"$(SRCROOT)/.../node_modules/react-native-inat-camera/ios/**",
+					"$(SRCROOT)/.../node_modules/react-native-open-settings/**",
 				);
 				INFOPLIST_FILE = Seek/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.iNatLite;
 				PRODUCT_NAME = Seek;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -3,30 +3,26 @@
 import React, { Component } from "react";
 import {
   View,
-  Image,
   Text,
-  FlatList,
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  Platform
+  Platform,
+  Alert
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
-import badgeImages from "../../assets/badges";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Padding from "../Padding";
 import LevelHeader from "./LevelHeader";
-import BannerHeader from "./BannerHeader";
 import SpeciesBadges from "./SpeciesBadges";
+import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
-import ChallengeModal from "../AchievementModals/ChallengeModal";
-import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
 import GreenHeader from "../GreenHeader";
 
 type Props = {
@@ -44,17 +40,10 @@ class AchievementsScreen extends Component<Props> {
       nextLevelCount: null,
       badgesEarned: null,
       speciesCount: null,
-      showLevelModal: false,
-      showChallengeModal: false,
-      selectedChallenge: null
+      showLevelModal: false
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
-  }
-
-  setChallenge( challenge ) {
-    this.setState( { selectedChallenge: challenge } );
   }
 
   scrollToTop() {
@@ -121,8 +110,8 @@ class AchievementsScreen extends Component<Props> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).sorted( [["percentComplete", true], ["availableDate", true]] );
-        const challengeBadges = challenges.slice( 0, 3 );
+        const challengeBadges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
+
         this.setState( { challengeBadges } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -134,11 +123,6 @@ class AchievementsScreen extends Component<Props> {
     this.setState( { showLevelModal: !showLevelModal } );
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
-    this.setState( { showChallengeModal: !showChallengeModal } );
-  }
-
   render() {
     const {
       speciesBadges,
@@ -147,9 +131,7 @@ class AchievementsScreen extends Component<Props> {
       nextLevelCount,
       badgesEarned,
       speciesCount,
-      showLevelModal,
-      showChallengeModal,
-      selectedChallenge
+      showLevelModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -178,25 +160,6 @@ class AchievementsScreen extends Component<Props> {
               screen="achievements"
             />
           </Modal>
-          <Modal
-            isVisible={showChallengeModal}
-            onSwipeComplete={() => this.toggleChallengeModal()}
-            onBackdropPress={() => this.toggleChallengeModal()}
-            swipeDirection="down"
-          >
-            {selectedChallenge && selectedChallenge.percentComplete === 100 ? (
-              <ChallengeModal
-                challenge={selectedChallenge}
-                toggleChallengeModal={this.toggleChallengeModal}
-              />
-            ) : (
-              <ChallengeUnearnedModal
-                challenge={selectedChallenge}
-                toggleChallengeModal={this.toggleChallengeModal}
-              />
-            )
-            }
-          </Modal>
           <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
           <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
             {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
@@ -206,37 +169,8 @@ class AchievementsScreen extends Component<Props> {
               toggleLevelModal={this.toggleLevelModal}
             />
             <SpeciesBadges speciesBadges={speciesBadges} />
+            <ChallengeBadges challengeBadges={challengeBadges} />
             <View style={styles.secondTextContainer}>
-              <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
-              <FlatList
-                data={challengeBadges}
-                contentContainerStyle={styles.badgesContainer}
-                keyExtractor={challenge => challenge.name}
-                numColumns={3}
-                renderItem={( { item } ) => {
-                  let badgeIcon;
-                  if ( item.percentComplete === 100 ) {
-                    badgeIcon = badgeImages[item.earnedIconName];
-                  } else {
-                    badgeIcon = badgeImages[item.unearnedIconName];
-                  }
-                  return (
-                    <TouchableOpacity
-                      style={styles.gridCell}
-                      onPress={() => {
-                        this.toggleChallengeModal();
-                        this.setChallenge( item );
-                      }}
-                    >
-                      <Image
-                        source={badgeIcon}
-                        style={styles.badgeIcon}
-                      />
-                    </TouchableOpacity>
-                  );
-                }}
-              />
-              <View style={{ marginTop: 42 }} />
               <View style={styles.stats}>
                 <TouchableOpacity
                   onPress={() => navigation.navigate( "MyObservations" )}

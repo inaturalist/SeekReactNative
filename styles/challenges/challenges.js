@@ -38,14 +38,15 @@ export default StyleSheet.create( {
   },
   textContainer: {
     justifyContent: "center",
-    width: 156
+    width: 170
   },
   titleText: {
-    fontFamily: fonts.medium,
+    fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 14 : 16,
     marginBottom: 1,
-    lineHeight: 21,
-    color: colors.seekTeal
+    lineHeight: 20,
+    letterSpacing: 0.89,
+    color: colors.seekGreen
   },
   messageText: {
     textAlign: "left",

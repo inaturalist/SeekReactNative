@@ -63,7 +63,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
       <Image style={styles.image} source={item.iconName} />
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
-          {item.name}
+          {item.name.toLocaleUpperCase()}
         </Text>
         <Text style={styles.messageText}>
           {i18n.t( "challenges.op" )}

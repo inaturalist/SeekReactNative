@@ -1,9 +1,10 @@
-import { StyleSheet, PixelRatio } from "react-native";
+import { StyleSheet, PixelRatio, Dimensions } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
+const { height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
@@ -38,7 +39,7 @@ export default StyleSheet.create( {
   },
   textContainer: {
     justifyContent: "center",
-    width: 170
+    width: height > 570 ? 170 : 156
   },
   titleText: {
     fontFamily: fonts.semibold,
@@ -46,7 +47,7 @@ export default StyleSheet.create( {
     marginBottom: 1,
     lineHeight: 20,
     letterSpacing: 0.89,
-    color: colors.seekGreen
+    color: colors.seekForestGreen
   },
   messageText: {
     textAlign: "left",
@@ -63,7 +64,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    fontSize: 16,
+    fontSize: 14,
     lineHeight: 17
   },
   noChallengeContainer: {

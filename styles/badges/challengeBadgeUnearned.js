@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
@@ -15,6 +16,7 @@ export default StyleSheet.create( {
   innerContainer: {
     borderRadius: 40,
     alignItems: "center",
+    width: 338,
     backgroundColor: colors.white
   },
   image: {
@@ -65,5 +67,22 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 25,
     color: colors.black
+  },
+  greenButton: {
+    marginTop: 37,
+    marginBottom: 32,
+    backgroundColor: colors.seekForestGreen,
+    width: 293,
+    height: 52,
+    borderRadius: 34,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    paddingTop: padding.iOSPadding,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    color: colors.white
   }
 } );

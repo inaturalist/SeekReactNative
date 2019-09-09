@@ -168,7 +168,7 @@ class AchievementsScreen extends Component<Props> {
               toggleLevelModal={this.toggleLevelModal}
             />
             <SpeciesBadges speciesBadges={speciesBadges} />
-            <ChallengeBadges challengeBadges={challengeBadges} />
+            <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
             <View style={styles.secondTextContainer}>
               <View style={styles.stats}>
                 <TouchableOpacity

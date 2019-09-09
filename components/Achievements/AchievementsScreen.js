@@ -238,10 +238,12 @@ class AchievementsScreen extends Component<Props> {
               />
               <View style={{ marginTop: 42 }} />
               <View style={styles.stats}>
-                <View>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate( "MyObservations" )}
+                >
                   <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
                   <Text style={styles.number}>{speciesCount}</Text>
-                </View>
+                </TouchableOpacity>
                 <View>
                   <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
                   <Text style={styles.number}>{badgesEarned}</Text>

@@ -319,7 +319,7 @@
   },
   "badges": {
     "your_level": "Your Level",
-    "explanation": "Observe more total species to raise your level, find organisms of specific groups to earn species badges, and participate in challenges to earn challenge badges!",
+    "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_max": "You’ve reached the max level on Seek!",

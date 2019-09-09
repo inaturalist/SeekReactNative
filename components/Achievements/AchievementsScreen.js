@@ -182,9 +182,15 @@ class AchievementsScreen extends Component<Props> {
                   <Text style={styles.number}>{badgesEarned}</Text>
                 </View>
               </View>
-              <View>
-                <Text style={styles.darkText}>{i18n.t( "badges.explanation" )}</Text>
-              </View>
+              <Text style={styles.loginText}>{i18n.t( "badges.login" )}</Text>
+              <TouchableOpacity
+                style={styles.greenButton}
+                onPress={() => navigation.navigate( "LoginOrSignup" )}
+              >
+                <Text style={styles.buttonText}>
+                  {i18n.t( "login.log_in" ).toLocaleUpperCase() }
+                </Text>
+              </TouchableOpacity>
             </View>
             <Padding />
           </ScrollView>

@@ -15,7 +15,7 @@ import Modal from "react-native-modal";
 import { NavigationEvents } from "react-navigation";
 
 import LevelModal from "../AchievementModals/LevelModal";
-import ChallengeModal from "../AchievementModals/ChallengeModal";
+import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
 import FlagModal from "./FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
@@ -61,7 +61,7 @@ class MatchScreen extends Component<Props> {
       challenge: null,
       challengeInProgress: null,
       showLevelModal: false,
-      showChallengeModal: false,
+      showEarned: false,
       showFlagModal: false,
       navigationPath: null,
       userImage,
@@ -305,7 +305,7 @@ class MatchScreen extends Component<Props> {
               swipeDirection="down"
               onModalHide={() => this.setChallengeCompleteShown( true )}
             >
-              <ChallengeModal
+              <ChallengeEarnedModal
                 challenge={challenge}
                 toggleChallengeModal={this.toggleChallengeModal}
               />

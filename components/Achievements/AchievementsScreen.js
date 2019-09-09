@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";

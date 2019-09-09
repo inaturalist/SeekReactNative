@@ -10,7 +10,7 @@ import {
 import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
-import ChallengeModal from "../AchievementModals/ChallengeModal";
+import ChallengeModal from "../AchievementModals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";

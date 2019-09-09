@@ -8,13 +8,16 @@ const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   outerContainer: {
-    flex: 1
+    flex: 1,
+    justifyContent: "center"
   },
-  container: {
+  innerContainer: {
     borderRadius: 40,
+    alignItems: "center",
     backgroundColor: colors.white
   },
   backgroundColor: {
+    width: "100%",
     alignItems: "center",
     justifyContent: "center"
   },

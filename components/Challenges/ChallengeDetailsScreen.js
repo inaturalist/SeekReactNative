@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeModal from "../AchievementModals/ChallengeModal";
+import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
 import Padding from "../Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 
@@ -176,7 +176,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             onBackdropPress={() => this.toggleChallengeModal()}
             swipeDirection="down"
           >
-            <ChallengeModal
+            <ChallengeEarnedModal
               challenge={challenge}
               toggleChallengeModal={this.toggleChallengeModal}
             />

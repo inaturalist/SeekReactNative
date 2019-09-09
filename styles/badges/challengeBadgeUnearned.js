@@ -7,9 +7,14 @@ import {
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
+  outerContainer: {
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center"
+  },
+  innerContainer: {
     borderRadius: 40,
+    alignItems: "center",
     backgroundColor: colors.white
   },
   image: {
@@ -32,6 +37,7 @@ export default StyleSheet.create( {
     lineHeight: 24
   },
   backButton: {
+    marginTop: 15,
     padding: 10,
     alignItems: "center",
     justifyContent: "center"
@@ -50,6 +56,7 @@ export default StyleSheet.create( {
     color: colors.black
   },
   italicText: {
+    maxWidth: 256,
     marginTop: 16,
     marginBottom: 16,
     marginHorizontal: 27,

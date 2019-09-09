@@ -7,10 +7,14 @@ import {
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
+  outerContainer: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  innerContainer: {
+    borderRadius: 40,
     height: height > 570 ? 525 : 475,
     alignItems: "center",
-    borderRadius: 40,
     backgroundColor: colors.white
   },
   carousel: {
@@ -49,6 +53,7 @@ export default StyleSheet.create( {
     lineHeight: 24
   },
   backButton: {
+    marginTop: height > 570 ? 15 : 0,
     padding: 10,
     alignItems: "center",
     justifyContent: "center"

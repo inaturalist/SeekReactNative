@@ -6,9 +6,11 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  SafeAreaView
+  SafeAreaView,
+  ImageBackground
 } from "react-native";
 import moment from "moment";
+import ProgressCircle from "react-native-progress-circle";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/challengeBadgeUnearned";
@@ -16,6 +18,8 @@ import BannerHeader from "../Achievements/BannerHeader";
 import icons from "../../assets/icons";
 import badgeImages from "../../assets/badges";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
+import { colors } from "../../styles/global";
+import circleStyles from "../../styles/badges/progressCircle";
 
 type Props = {
   toggleChallengeModal: Function,
@@ -31,10 +35,33 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
           modal
         />
-        <Image
-          source={badgeImages[challenge.unearnedIconName]}
-          style={[styles.image, styles.imageStyle]}
-        />
+        {challenge.started && challenge.percentComplete !== 100 ? (
+          <ImageBackground
+            source={badgeImages[challenge.unearnedIconName]}
+            style={[styles.image, circleStyles.center]}
+            imageStyle={styles.imageStyle}
+          >
+            <ProgressCircle
+              outerCircleStyle={circleStyles.circleStyle}
+              percent={challenge.percentComplete}
+              radius={113 / 2}
+              borderWidth={3}
+              color={colors.seekiNatGreen}
+              shadowColor={colors.circleGray}
+              bgColor={colors.white}
+            >
+              <Text style={circleStyles.circleText}>
+                {challenge.percentComplete}
+                {" %"}
+              </Text>
+            </ProgressCircle>
+          </ImageBackground>
+        ) : (
+          <Image
+            source={badgeImages[challenge.unearnedIconName]}
+            style={[styles.image, styles.imageStyle]}
+          />
+        )}
         <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
         <Text style={styles.nameText}>
           {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}

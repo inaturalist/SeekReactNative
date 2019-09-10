@@ -67,6 +67,18 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
+  greenHeader: {
+    height: 55,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: colors.seekForestGreen
+  },
+  loginSuccessHeaderText: {
+    fontSize: 18,
+    color: colors.white,
+    letterSpacing: 1.0,
+    fontFamily: fonts.semibold
+  },
   header: {
     textAlign: "center",
     color: colors.black,
@@ -114,11 +126,17 @@ export default StyleSheet.create( {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 28
   },
   textLink: {
-    marginTop: 21,
+    marginTop: 26,
     fontFamily: fonts.book,
     fontSize: 17,
-    color: colors.white,
+    color: colors.black,
     textDecorationLine: "underline"
+  },
+  clickableText: {
+    left: 10,
+    right: 10,
+    top: 10,
+    bottom: 10
   },
   forgotPasswordText: {
     fontFamily: fonts.book,
@@ -138,5 +156,32 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center"
+  },
+  textContainer: {
+    marginHorizontal: 31
+  },
+  linkedAccountHeader: {
+    marginTop: 26,
+    marginBottom: 29,
+    textAlign: "center",
+    maxWidth: 313,
+    fontFamily: fonts.medium,
+    fontSize: 22,
+    lineHeight: 28,
+    color: colors.black
+  },
+  smallGreenHeaderText: {
+    marginBottom: 5,
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    lineHeight: 24,
+    letterSpacing: 1.0
+  },
+  descriptionText: {
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    color: colors.black
   }
 } );

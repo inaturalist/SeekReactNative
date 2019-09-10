@@ -52,7 +52,6 @@
   },
   "inat_signup": {
     "welcome": "Welcome to Seek!",
-    "explore": "We’re excited to explore with you!",
     "enter_birthday": "Please enter your birthday",
     "permission": "You need to be at least 13 years old to create an account.",
     "privacy": "Privacy Policy",
@@ -70,12 +69,18 @@
     "username": "username",
     "password": "password",
     "release_photos": "Yes, license my photos so scientists can use my data!",
-    "data_usage": "Seek uses your data to help improve our identification models.",
     "create_account": "Create my account",
     "thanks": "Thanks!",
     "parent_instructions": "We sent your parent or guardian an email with instructions.",
     "continue_no_log_in": "Continue Without Logging In",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "linked_account": "You’ve linked an iNaturalist account to Seek!",
+    "posting": "Posting to iNaturalist",
+    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
+    "observations": "Observations Saved on Device",
+    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
+    "observations_2": "Deleting the app will delete all your observations made in Seek.",
+    "observations_3": "Seek does not sync your observations to other devices."
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",

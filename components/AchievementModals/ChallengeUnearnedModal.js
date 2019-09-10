@@ -17,6 +17,7 @@ import styles from "../../styles/badges/challengeBadgeUnearned";
 import BannerHeader from "../Achievements/BannerHeader";
 import icons from "../../assets/icons";
 import badgeImages from "../../assets/badges";
+import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
@@ -66,21 +67,24 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
         <Text style={styles.nameText}>
           {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
         </Text>
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => {
-            setChallengeIndex( challenge.index );
-            navigation.navigate( "ChallengeDetails" );
-            toggleChallengeModal();
-          }}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "notifications.view_challenges" ).toLocaleUpperCase() }
+        {checkIfChallengeAvailable( challenge.availableDate ) ? (
+          <TouchableOpacity
+            style={styles.greenButton}
+            onPress={() => {
+              setChallengeIndex( challenge.index );
+              navigation.navigate( "ChallengeDetails" );
+              toggleChallengeModal();
+            }}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "notifications.view_challenges" ).toLocaleUpperCase() }
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          <Text style={styles.italicText}>
+            {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}
           </Text>
-        </TouchableOpacity>
-        {/* <Text style={styles.italicText}>
-          {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}
-        </Text> */}
+        )}
       </View>
       <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
         <Image source={icons.closeModal} />

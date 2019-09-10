@@ -23,6 +23,7 @@ import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../GreenHeader";
+import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 
 type Props = {
   navigation: any
@@ -109,7 +110,46 @@ class AchievementsScreen extends Component<Props> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challengeBadges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
+        const challengeBadges = [];
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
+
+        challenges.forEach( ( challenge ) => {
+          challengeBadges.push( challenge );
+        } );
+
+        if ( challenges.length < 8 ) {
+          const oct = {
+            month: "challenges.october_2019",
+            availableDate: new Date( 2019, 9, 1 ),
+            startedDate: false,
+            percentComplete: 0,
+            unearnedIconName: "badge_empty"
+          };
+
+          const nov = {
+            month: "challenges.november_2019",
+            availableDate: new Date( 2019, 10, 1 ),
+            startedDate: false,
+            percentComplete: 0,
+            unearnedIconName: "badge_empty"
+          };
+
+          const dec = {
+            month: "challenges.december_2019",
+            availableDate: new Date( 2019, 11, 1 ),
+            startedDate: false,
+            percentComplete: 0,
+            unearnedIconName: "badge_empty"
+          };
+
+          if ( checkIfChallengeAvailable( nov.availableDate ) ) {
+            challengeBadges.push( dec );
+          } else if ( checkIfChallengeAvailable( oct.availableDate ) ) {
+            challengeBadges.push( nov, dec );
+          } else {
+            challengeBadges.push( oct, nov, dec );
+          }
+        }
 
         this.setState( { challengeBadges } );
       } ).catch( () => {

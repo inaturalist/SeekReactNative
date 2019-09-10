@@ -36,6 +36,10 @@ class RangeMap extends Component<Props> {
       region,
       id,
       showModal: false,
+      obsLocation: {
+        latitude: region.latitude,
+        longitude: region.longitude
+      },
       userLocation: {},
       seenDate
     };
@@ -76,6 +80,7 @@ class RangeMap extends Component<Props> {
       region,
       id,
       showModal,
+      obsLocation,
       userLocation,
       seenDate
     } = this.state;
@@ -112,9 +117,9 @@ class RangeMap extends Component<Props> {
                 urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
                 tileSize={512}
               />
-              {seenDate ? (
+              {seenDate && obsLocation.latitude ? (
                 <Marker
-                  coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+                  coordinate={{ latitude: obsLocation.latitude, longitude: obsLocation.longitude }}
                 >
                   <Image source={icons.cameraOnMap} />
                 </Marker>

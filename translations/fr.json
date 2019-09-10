@@ -6,6 +6,7 @@
   "species_nearby": {
     "header": "Espèce proche",
     "location_error": "Pour vous montrer une espèce proche nous devons connaître votre emplacement.",
+    "location_device": "Seek a besoin de votre emplacement pour générer les espèces proches et vous permettre d'ajouter des observations. Veuillez-vous assurer que les services de localisation sont activés sur votre appareil.",
     "enable_location": "Activer emplacement dans les paramètres",
     "internet_error": "Nous avons besoin d'internet pour générer l'espèce proche. Tapez pour réessayer.",
     "no_location": "Aucun emplacement",
@@ -51,7 +52,6 @@
   },
   "inat_signup": {
     "welcome": " Bienvenue sur Seek !",
-    "explore": " Nous sommes heureux de partir avec vous en exploration !",
     "enter_birthday": " Veuillez saisir votre anniversaire",
     "permission": "Vous devez avoir au moins 13 ans pour créer un compte.",
     "privacy": " Politique de confidentialité",
@@ -69,18 +69,25 @@
     "username": " nom d'utilisateur",
     "password": " mot de passe",
     "release_photos": " « Oui créer licence pour mes photos afin que les savants puissent utiliser mes données ! »",
-    "data_usage": " Seek utilise vos données pour aider à améliorer nos modèles d'identification.",
     "create_account": " Créer compte",
     "thanks": " Merci !",
     "parent_instructions": "Nous avons envoyé un e-mail à votre parent ou tuteur légal avec les consignes.",
     "continue_no_log_in": " continuer sans se connecter",
-    "terms": "Conditions d'utilisation"
+    "terms": "Conditions d'utilisation",
+    "linked_account": "You’ve linked an iNaturalist account to Seek!",
+    "posting": "Posting to iNaturalist",
+    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
+    "observations": "Observations Saved on Device",
+    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
+    "observations_2": "Deleting the app will delete all your observations made in Seek.",
+    "observations_3": "Seek does not sync your observations to other devices."
   },
   "inat_login": {
     "log_in_with_inat": " Se connecter sur votre compte iNaturalist",
     "username": " Nom d'utilisateur",
     "password": " Mot de passe",
-    "forgot_password": "Mot de passe oublié",
+    "forgot_password_header": "Mot de passe oublié",
+    "forgot_password": "Mot de passe oublié ?",
     "log_in": " Se connecter",
     "email": " Courriel",
     "no_worries": " Aucun souci. Nous vous enverrons les instructions de réinitialisation du mot de passe à votre adresse électronique.",
@@ -136,12 +143,12 @@
     "badge": "Badge",
     "connectivity": " Défi à la connectivité",
     "biodiversity": " Défi à la biodiversité",
-    "productivity": " Défi à la productivité et à la communauté",
-    "resilience": "Resilience Challenge",
-    "farming": "Défi agricole et alimentaire",
-    "flow": "Flow Challenge",
-    "hotspots": "Hotspots Challenge",
-    "ice": "Ice Challenge",
+    "productivity": "Défi de la communauté",
+    "resilience": "Défi des forêts",
+    "farming": "Défi des prairies",
+    "flow": "Défi d'eau douce",
+    "hotspots": "Défi de haute mer",
+    "ice": "Défi climatique",
     "op": " Our Planet",
     "start_now": " Commencer maintenant",
     "april_2019": "Avril 2019",
@@ -234,19 +241,21 @@
     "date_observed": " Vous l'avez observée la première fois le :\n{{seenDate}}",
     "post_inat": "Si vous prenez une photo originale de l’organisme, vous pouvez aidez Seek à s'améliorer sur les espèces en l’envoyant à iNaturalist où la communauté pourra nous aider à l'identifier et améliorer les versions suivantes de l’application.",
     "post": "Envoyer à iNaturalist",
-    "flag": "Identification du pavillon",
-    "incorrect": "Êtes-vous sûr que cette identification est incorrecte ?",
-    "yes": "oui",
-    "no": "non",
+    "flag": "Erreur d’identification",
+    "incorrect": "Cette espèce a-t-elle été mal identifiée?",
+    "yes": "Oui, retirez-la de mes observations",
+    "yes_resighted": "Oui, cette espèce a été mal identifiée",
+    "no": "Non, c'est correct",
     "enable_location": "Activez la localisation afin de sauvegarder vos observations",
     "error_server": "Désolé nous ne parvenons pas à reconnaître cette image. Veuillez vérifier votre connexion internet et essayez de nouveau.",
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
-    "error_ancestor": "Désolé, nous n’arrivons pas à afficher les données relatives à la taxonomie pour cette image. Vérifiez votre connexion internet et réessayez.",
-    "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer à la science citoyenne si vous avez effectué des publications sur iNaturalist."
+    "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer à la science citoyenne si vous avez effectué des publications sur iNaturalist.",
+    "error_downtime": "Service temporairement indisponible. Merci de réessayer dans {{number}} heure(s).",
+    "error_few": "peu"
   },
   "banner": {
-    "view": " Afficher badge",
+    "view": "Afficher le badge",
     "badge": " Badge",
     "species": " espèce",
     "challenge_progress": "Vous avez trouvé une autre espèce !",
@@ -315,9 +324,10 @@
   },
   "badges": {
     "your_level": "Votre niveau",
-    "explanation": "Observez plus d'espèces pour  augmenter de niveau, trouvez des organismes appartenant à des groupes particuliers pour gagner des badges d’espèce et participez à des défis pour gagner des badges défi !",
+    "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "Performances",
     "observe": "Observer {{number}} espèces pour accéder au prochain niveau !",
+    "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observer",
     "species_badges": "Badges d'espèces",
     "challenge_badges": "Badges défi",
@@ -449,7 +459,8 @@
     "original": "Seek a été initialement créée avec le soutien de HHMI Tangled Bank Studios.",
     "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary et Yaron Budowski. Nous remercions tout particulièrement Visipedia et la communauté iNaturalist.",
-    "version": "Version"
+    "version": "Version",
+    "help": "Afin d’obtenir de l’aide pour l’utilisation de Seek, merci d’envoyer un courriel à help+seek@inaturalist.org."
   },
   "posting": {
     "header": "Publier sur iNaturalist",
@@ -497,5 +508,17 @@
     "no": "C’est un organisme naturellement présent dans l’environnement et qui n’a pas été amené ici par l’Homme.",
     "yes": "Cet organisme a été amené ici par l’Homme. Cela s’applique aux plantes de jardin, animaux de compagnie et animaux de zoos.",
     "addendum": "* L'ajout d'observations à des projets n'est pas pris en charge par Seek. Si vous souhaitez ajouter vos observations à un projet, veuillez le faire sur iNaturalist.org ou en utilisant l’application iNaturalist."
+  },
+  "delete": {
+    "header": "Supprimer les espèces ?",
+    "description": "Voulez-vous retirer cette espèce de vos observations ? Cela risque d'apporter des modifications aux défis réalisés et aux badges obtenus.",
+    "yes": "Oui, retirez-la de mes observations",
+    "no": "Annuler"
+  },
+  "warning": {
+    "remember": "Mémoriser",
+    "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
+    "tip_2": "Ne mangez pas tout ce que vous trouvez dans la nature.",
+    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre."
   }
 }

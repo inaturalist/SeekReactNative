@@ -115,7 +115,10 @@ class ARCameraResults extends Component<Props> {
   setSpeciesInfo( species, taxa ) {
     const taxaId = Number( species.taxon_id );
 
+    console.log( species.ancestor_ids, "ancestor ids" );
+
     const iconicTaxonId = Platform.OS === "android" ? checkForIconicTaxonId( species.ancestor_ids ) : null;
+    console.log( iconicTaxonId, "iconic taxon id" );
 
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {

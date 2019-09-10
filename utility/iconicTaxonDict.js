@@ -9,7 +9,9 @@ const iconicTaxaNames = {
   47158: "species_detail.insect",
   47115: "species_detail.mollusk",
   40151: "species_detail.mammal",
-  1: "taxon_picker.other"
+  1: "taxon_picker.other",
+  47686: "taxon_picker.other", // protozoans can be observed and have a non-animalia / iconic taxon group ancestor,
+  48222: "taxon_picker.other" // kelp
 };
 
 export default iconicTaxaNames;

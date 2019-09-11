@@ -23,6 +23,7 @@ import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../GreenHeader";
+import LoginCard from "../LoginCard";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 
 type Props = {
@@ -222,15 +223,7 @@ class AchievementsScreen extends Component<Props> {
                   <Text style={styles.number}>{badgesEarned}</Text>
                 </View>
               </View>
-              <Text style={styles.loginText}>{i18n.t( "badges.login" )}</Text>
-              <TouchableOpacity
-                style={styles.greenButton}
-                onPress={() => navigation.navigate( "LoginOrSignup" )}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "login.log_in" ).toLocaleUpperCase() }
-                </Text>
-              </TouchableOpacity>
+              <LoginCard navigation={navigation} screen="achievements" />
             </View>
             <Padding />
           </ScrollView>

@@ -13,7 +13,8 @@ import i18n from "../i18n";
 import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  navigation: any,
+  screen: ?string
 }
 
 class LoginCard extends Component<Props> {
@@ -45,38 +46,46 @@ class LoginCard extends Component<Props> {
 
   render() {
     const { isLoggedIn } = this.state;
-    const { navigation } = this.props;
+    const { navigation, screen } = this.props;
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { alignItems: "center" }]}>
         <NavigationEvents
           onWillFocus={() => this.getLoggedIn()}
         />
-        <Text style={styles.italicText}>
-          {isLoggedIn
-            ? i18n.t( "inat_stats.logged_in" )
-            : i18n.t( "inat_stats.thanks" )
-          }
-        </Text>
-        <View style={{ alignItems: "center", marginTop: 30 }}>
-          <TouchableOpacity
-            style={styles.greenButton}
-            onPress={() => {
-              if ( isLoggedIn ) {
-                this.logUserOut();
-              } else {
-                navigation.navigate( "LoginOrSignup" );
-              }
-            }}
-          >
-            <Text style={styles.buttonText}>
-              {isLoggedIn
-                ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
-                : i18n.t( "inat_stats.join" ).toLocaleUpperCase()
-              }
-            </Text>
-          </TouchableOpacity>
-        </View>
+        {screen === "achievements" ? (
+          <Text style={styles.loginText}>
+            {isLoggedIn
+              ? i18n.t( "inat_stats.logged_in" )
+              : i18n.t( "badges.login" )
+            }
+          </Text>
+        ) : (
+          <Text style={styles.italicText}>
+            {isLoggedIn
+              ? i18n.t( "inat_stats.logged_in" )
+              : i18n.t( "inat_stats.thanks" )
+            }
+          </Text>
+        )}
+        {screen !== "achievements" ? <View style={{ marginTop: 30 }} /> : null}
+        <TouchableOpacity
+          style={styles.greenButton}
+          onPress={() => {
+            if ( isLoggedIn ) {
+              this.logUserOut();
+            } else {
+              navigation.navigate( "LoginOrSignup" );
+            }
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {isLoggedIn
+              ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
+              : i18n.t( "inat_stats.join" ).toLocaleUpperCase()
+            }
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

@@ -106,17 +106,6 @@ export default StyleSheet.create( {
     left: 0,
     right: 0
   },
-  loginText: {
-    maxWidth: 334,
-    marginTop: 32,
-    marginBottom: 28,
-    marginHorizontal: 20,
-    textAlign: "center",
-    fontSize: 16,
-    lineHeight: 21,
-    fontFamily: fonts.book,
-    color: colors.black
-  },
   greenButton: {
     backgroundColor: colors.seekForestGreen,
     width: 293,

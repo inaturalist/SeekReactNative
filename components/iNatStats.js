@@ -9,8 +9,7 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
-  Platform,
-  Alert
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -24,6 +23,7 @@ import Padding from "./Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
 import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
+import { getiNatStats } from "../utility/iNatStatsHelpers";
 
 type Props = {
   navigation: any
@@ -64,22 +64,13 @@ class iNatStatsScreen extends Component<Props> {
     return i18n.toNumber( number, { precision: 0 } );
   };
 
-  fetchNumbers() {
-    fetch( "https://www.inaturalist.org/stats/summary.json" )
-      .then( response => response.json() )
-      .then( ( responseJson ) => {
-        const { total_observations, total_observers } = responseJson;
-        const observations = Math.round( total_observations / 1000000 ) * 1000000;
-        const observers = Math.round( total_observers / 10000 ) * 10000;
+  async fetchiNatStats() {
+    const { observations, observers } = await getiNatStats();
 
-        this.setState( {
-          observations: this.seti18nNumber( observations ),
-          observers: this.seti18nNumber( observers )
-        } );
-      } )
-      .catch( ( e ) => {
-        console.log( e );
-      } );
+    this.setState( {
+      observations: this.seti18nNumber( observations ),
+      observers: this.seti18nNumber( observers )
+    } );
   }
 
   scrollToTop() {
@@ -166,7 +157,7 @@ class iNatStatsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
-            this.fetchNumbers();
+            this.fetchiNatStats();
             this.scrollToTop();
             this.getLoggedIn();
             this.fetchProjectPhotos();

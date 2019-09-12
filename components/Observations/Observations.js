@@ -98,8 +98,6 @@ class Observations extends Component<Props> {
       .sorted( "date", true );
     // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-    console.log( otherData, "other" );
-
     observations.push( {
       id: 1,
       data: otherData,
@@ -192,6 +190,7 @@ class Observations extends Component<Props> {
         <SectionList
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
+          extraData={observations}
           renderItem={( { item, section } ) => {
             if ( section.open === true ) {
               return (

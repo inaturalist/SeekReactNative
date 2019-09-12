@@ -85,7 +85,7 @@ const DeleteModal = ( {
             toggleDeleteModal( true );
           }}
         >
-          <Text style={[styles.buttonText, { lineHeight: 24 }]}>
+          <Text style={[styles.buttonText, { lineHeight: 24, textAlign: "center" }]}>
             {i18n.t( "delete.yes" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>

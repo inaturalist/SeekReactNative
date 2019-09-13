@@ -29,6 +29,7 @@ import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models/index";
+import Spacer from "../iOSSpacer";
 
 type Props = {
   navigation: any
@@ -292,7 +293,7 @@ class HomeScreen extends Component<Props> {
             <ScrollView
               ref={( ref ) => { this.scrollView = ref; }}
             >
-              {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
+              {Platform.OS === "ios" && <Spacer />}
               <Modal
                 visible={modalVisible}
                 onRequestClose={() => this.toggleLocationPicker()}

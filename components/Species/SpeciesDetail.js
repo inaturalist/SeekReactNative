@@ -30,6 +30,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
+import Spacer from "../iOSSpacer";
 import {
   getSpeciesId,
   capitalizeNames,
@@ -472,6 +473,7 @@ class SpeciesDetail extends Component<Props> {
             onWillBlur={() => this.resetState()}
           />
           <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+            {Platform.OS === "ios" && <Spacer />}
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}

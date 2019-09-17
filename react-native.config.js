@@ -16,11 +16,6 @@ module.exports = {
       platforms: {
         ios: null
       }
-    },
-    "react-native-open-settings": {
-      platforms: {
-        ios: null
-      }
     }
   }
 };

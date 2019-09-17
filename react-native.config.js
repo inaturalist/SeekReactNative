@@ -8,8 +8,7 @@ module.exports = {
   dependencies: {
     "react-native-inat-camera": {
       platforms: {
-        android: null,
-        ios: null
+        android: null
       }
     },
     realm: {

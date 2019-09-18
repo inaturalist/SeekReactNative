@@ -35,7 +35,7 @@ const checkLocationPermissions = async () => {
 };
 
 const fetchTruncatedUserLocation = () => (
-  new Promise( ( resolve ) => {
+  new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
       const longitude = truncateCoordinates( coords.longitude );
@@ -45,7 +45,9 @@ const fetchTruncatedUserLocation = () => (
       };
 
       resolve( truncatedCoords );
-    }, () => resolve( null ) );
+    }, ( { code } ) => {
+      reject( code );
+    }, { timeout: 30000 } );
   } )
 );
 

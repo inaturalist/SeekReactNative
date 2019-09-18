@@ -20,7 +20,6 @@
     "react": "^16.8.6",
     "react-native": "^0.60.5",
     "react-native-check-box": "^2.1.7",
-    "react-native-device-info": "^2.3.2",
     "react-native-fs": "^2.14.1",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.4.1",

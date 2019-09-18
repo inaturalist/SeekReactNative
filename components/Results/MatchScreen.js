@@ -62,7 +62,6 @@ class MatchScreen extends Component<Props> {
       challenge: null,
       challengeInProgress: null,
       showLevelModal: false,
-      showEarned: false,
       showFlagModal: false,
       navigationPath: null,
       userImage,

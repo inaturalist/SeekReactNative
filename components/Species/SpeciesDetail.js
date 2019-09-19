@@ -498,7 +498,7 @@ class SpeciesDetail extends Component<Props> {
               />
             ) : null}
             <View style={styles.secondTextContainer}>
-              {showGreenButtons.includes( true ) && error !== "internet" ? <SpeciesStats stats={stats} /> : null}
+              {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
               {seenDate && !error ? (
                 <View style={[
                   styles.row,

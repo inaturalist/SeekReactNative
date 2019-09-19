@@ -9,7 +9,8 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Platform
 } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -26,6 +27,7 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
 import Padding from "../Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
+import Spacer from "../iOSSpacer";
 
 type Props = {
   navigation: any
@@ -182,6 +184,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             />
           </Modal>
           <ScrollView>
+            {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
             <ImageBackground
               source={backgrounds[challenge.backgroundName]}
               style={styles.challengeBackground}

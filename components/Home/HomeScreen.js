@@ -51,7 +51,7 @@ class HomeScreen extends Component<Props> {
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
-    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
+    this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
   setLoading( loading ) {
@@ -105,7 +105,6 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
-    this.reverseGeocodeLocation( lat, lng );
 
     const params = {
       verifiable: true,
@@ -166,12 +165,9 @@ class HomeScreen extends Component<Props> {
   }
 
   reverseGeocodeLocation( lat, lng ) {
-    console.log( lat, lng );
     fetchLocationName( lat, lng ).then( ( location ) => {
-      console.log( location, "location" );
       this.setLocation( location );
-    } ).catch( ( e ) => {
-      console.log( e, "error reverse geocoding" );
+    } ).catch( () => {
       this.checkInternetConnection();
     } );
   }
@@ -285,7 +281,7 @@ class HomeScreen extends Component<Props> {
                 updateTaxaType={this.updateTaxaType}
                 toggleLocationPicker={this.toggleLocationPicker}
                 error={error}
-                setParamsForSpeciesNearby={this.setParamsForSpeciesNearby}
+                requestAndroidPermissions={this.requestAndroidPermissions}
               />
               <CardPadding />
               <ChallengeCard navigation={navigation} />

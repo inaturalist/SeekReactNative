@@ -17,20 +17,20 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   error: string,
-  setParamsForSpeciesNearby: Function,
-  latitude: string,
-  longitude: string
+  requestAndroidPermissions: Function
+  // latitude: string,
+  // longitude: string
 }
 
 const Error = ( {
   error,
-  setParamsForSpeciesNearby,
-  latitude,
-  longitude
+  requestAndroidPermissions
+  // latitude,
+  // longitude
 }: Props ) => (
   <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
     <TouchableOpacity
-      onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
+      onPress={() => requestAndroidPermissions()}
     >
       {error === "location_device" ? (
         <View style={styles.row}>

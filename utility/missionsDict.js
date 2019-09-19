@@ -56,13 +56,13 @@ const missions = {
       number: 10,
       types: ["Odonata", "Amphibia", "Actinopterygii", "Anseriformes", "Nymphaeales", "Pontederiaceae", "Lemnoideae", "Typhaceae", "Polypodiopsida", "Bryophyta"]
     }
+  },
+  5: {
+    0: {
+      number: 5,
+      types: ["birds"]
+    }
   }
-  // 5: {
-  //   0: {
-  //     number: 5,
-  //     types: ["birds"]
-  //   }
-  // },
   // 6: {
   //   0: {
   //     number: 10,

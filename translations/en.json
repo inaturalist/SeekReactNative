@@ -22,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Challenges",
-    "april": "April 2019: Connectivity",
     "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
@@ -288,9 +287,7 @@
     "permissions": "Enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_old_camera": "Sorry, we weren't able to load the camera",
-    "error_device_support": "Sorry, the device you are using is not supported",
-    "error_saving_photos": "Sorry, we weren't able to save your photo",
-    "error_fetching_photos": "Sorry, we weren't able to fetch your photo from the camera roll"
+    "error_device_support": "Sorry, the device you are using is not supported"
     },
   "gallery": {
     "label": "Photos",

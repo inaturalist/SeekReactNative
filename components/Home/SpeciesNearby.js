@@ -21,8 +21,6 @@ type Props = {
   loading: boolean,
   navigation: any,
   location: string,
-  // latitude: number,
-  // longitude: number,
   updateTaxaType: Function,
   toggleLocationPicker: Function,
   requestAndroidPermissions: Function,
@@ -34,8 +32,6 @@ const SpeciesNearby = ( {
   loading,
   navigation,
   location,
-  // latitude,
-  // longitude,
   updateTaxaType,
   toggleLocationPicker,
   requestAndroidPermissions,
@@ -52,8 +48,6 @@ const SpeciesNearby = ( {
       <Error
         error={error}
         requestAndroidPermissions={requestAndroidPermissions}
-        // latitude={latitude}
-        // longitude={longitude}
       />
     );
   } else {

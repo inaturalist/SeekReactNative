@@ -276,8 +276,6 @@ class HomeScreen extends Component<Props> {
                 loading={loading}
                 navigation={navigation}
                 location={location}
-                latitude={latitude}
-                longitude={longitude}
                 updateTaxaType={this.updateTaxaType}
                 toggleLocationPicker={this.toggleLocationPicker}
                 error={error}

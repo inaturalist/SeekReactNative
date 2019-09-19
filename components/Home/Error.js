@@ -18,15 +18,11 @@ import backgrounds from "../../assets/backgrounds";
 type Props = {
   error: string,
   requestAndroidPermissions: Function
-  // latitude: string,
-  // longitude: string
 }
 
 const Error = ( {
   error,
   requestAndroidPermissions
-  // latitude,
-  // longitude
 }: Props ) => (
   <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
     <TouchableOpacity

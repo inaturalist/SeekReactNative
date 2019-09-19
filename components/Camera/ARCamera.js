@@ -52,7 +52,8 @@ class ARCamera extends Component<Props> {
       commonName: null,
       latitude: null,
       longitude: null,
-      showWarningModal: false
+      showWarningModal: false,
+      errorCode: null
     };
     this.backHandler = null;
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
@@ -79,7 +80,11 @@ class ARCamera extends Component<Props> {
     this.setState( { error } );
   }
 
-  setLocation() {
+  setLocationErrorCode( errorCode ) {
+    this.setState( { errorCode } );
+  }
+
+  getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -89,6 +94,8 @@ class ARCamera extends Component<Props> {
           longitude
         } );
       }
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
     } );
   }
 
@@ -172,13 +179,13 @@ class ARCamera extends Component<Props> {
         }
 
         if ( granted[location] === results.GRANTED ) {
-          this.setLocation();
+          this.getGeolocation();
         }
       } catch ( e ) {
         this.setError( "permissions" );
       }
     } else {
-      this.setLocation();
+      this.getGeolocation();
     }
   }
 
@@ -271,7 +278,12 @@ class ARCamera extends Component<Props> {
   }
 
   navigateToResults( uri, backupUri ) {
-    const { predictions, latitude, longitude } = this.state;
+    const {
+      predictions,
+      latitude,
+      longitude,
+      errorCode
+    } = this.state;
     const { navigation } = this.props;
 
     if ( predictions && predictions.length > 0 ) {
@@ -280,7 +292,8 @@ class ARCamera extends Component<Props> {
         predictions,
         latitude,
         longitude,
-        backupUri
+        backupUri,
+        errorCode
       } );
     } else {
       navigation.navigate( "GalleryResults", {
@@ -288,7 +301,8 @@ class ARCamera extends Component<Props> {
         time: null,
         latitude,
         longitude,
-        backupUri
+        backupUri,
+        errorCode
       } );
     }
   }

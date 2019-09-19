@@ -62,7 +62,7 @@ PODS:
     - React
   - react-native-geocoder (0.5.1):
     - React
-  - react-native-geolocation (1.4.2):
+  - react-native-geolocation (2.0.2):
     - React
   - react-native-image-resizer (1.1.0):
     - React
@@ -98,8 +98,6 @@ PODS:
   - React-RCTWebSocket (0.60.5):
     - React-Core (= 0.60.5)
   - RNCAsyncStorage (1.4.2):
-    - React
-  - RNDeviceInfo (2.3.2):
     - React
   - RNFS (2.14.1):
     - React
@@ -144,7 +142,6 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
-  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
@@ -217,8 +214,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
-  RNDeviceInfo:
-    :path: "../node_modules/react-native-device-info"
   RNFS:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
@@ -247,7 +242,7 @@ SPEC CHECKSUMS:
   React-jsinspector: e08662d1bf5b129a3d556eb9ea343a3f40353ae4
   react-native-cameraroll: 9fa61cb36a9cc6d5109b591466a9f985b264c27b
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
-  react-native-geolocation: 79c743ad7a2e86617811ef23f49308824e92520c
+  react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
@@ -264,7 +259,6 @@ SPEC CHECKSUMS:
   React-RCTVibration: 2105b2e0e2b66a6408fc69a46c8a7fb5b2fdade0
   React-RCTWebSocket: cd932a16b7214898b6b7f788c8bddb3637246ac4
   RNCAsyncStorage: 285698b8a4f219573174d99e863a78b93f389272
-  RNDeviceInfo: bdc3e922b2ed0f086e9d9ab534e61bc316f08576
   RNFS: a8fbe7060fa49157d819466404794ad9c58e58cf
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
   RNLocalize: a91e036a6abc46e656a989456701182e0e228c7a

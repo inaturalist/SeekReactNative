@@ -32,7 +32,8 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri
+      backupUri,
+      errorCode
     } = navigation.state.params;
 
     this.state = {
@@ -54,7 +55,8 @@ class ARCameraResults extends Component<Props> {
       scientificName: null,
       imageForUploading: null,
       match: null,
-      isLoggedIn: null
+      isLoggedIn: null,
+      errorCode
     };
   }
 
@@ -280,7 +282,8 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } = this.state;
 
     navigation.navigate( route, {
@@ -296,7 +299,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } );
   }
 

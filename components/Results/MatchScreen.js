@@ -30,7 +30,11 @@ import i18n from "../../i18n";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
-import { createLocationPermissionsAlert } from "../../utility/locationHelpers";
+import {
+  createLocationPermissionsAlert,
+  createGPSAlert,
+  createLocationTimeoutAlert
+} from "../../utility/locationHelpers";
 
 type Props = {
   navigation: any
@@ -53,7 +57,8 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } = navigation.state.params;
 
     this.state = {
@@ -77,7 +82,8 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       challengeShown: false,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -191,10 +197,16 @@ class MatchScreen extends Component<Props> {
   }
 
   checkLocationPermissions() {
-    const { latitude, longitude } = this.state;
+    const { latitude, longitude, errorCode } = this.state;
 
     if ( !latitude && !longitude ) {
-      createLocationPermissionsAlert();
+      if ( errorCode === 1 ) {
+        createLocationPermissionsAlert();
+      } else if ( errorCode === 2 ) {
+        createGPSAlert();
+      } else {
+        createLocationTimeoutAlert();
+      }
     }
   }
 

@@ -61,7 +61,6 @@ const fetchLocationName = ( lat, lng ) => (
       resolve( locality || subAdminArea );
     } ).catch( ( e ) => {
       reject( e );
-      // resolve( null );
     } );
   } )
 );
@@ -81,11 +80,35 @@ const createLocationPermissionsAlert = () => {
   );
 };
 
+const createGPSAlert = () => {
+  Alert.alert(
+    i18n.t( "species_nearby.no_gps" ),
+    i18n.t( "results.error_gps" ),
+    [{
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
+const createLocationTimeoutAlert = () => {
+  Alert.alert(
+    i18n.t( "species_nearby.location_timeout" ),
+    i18n.t( "results.error_timeout" ),
+    [{
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation,
   createLocationPermissionsAlert,
-  checkLocationPermissions
+  checkLocationPermissions,
+  createGPSAlert,
+  createLocationTimeoutAlert
 };

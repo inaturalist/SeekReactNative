@@ -10,7 +10,9 @@
     "enable_location": "Standort in den Einstellungen aktivieren",
     "internet_error": "Um Arten in der Nähe zu generieren, benötigen wir das Internet. Tippen Sie, um es erneut zu versuchen.",
     "no_location": "Kein Standort",
-    "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuchen Sie, Ihren Standort zu ändern oder den Artenfilter zu erweitern."
+    "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuchen Sie, Ihren Standort zu ändern oder den Artenfilter zu erweitern.",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "Erste Schritte",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Herausforderungen",
-    "april": "April 2019: Verbindung",
     "join": "Nehmen Sie an der weltweiten Beobachtungsherausforderung teil, und verfolgen Sie „Unser Planet“ bei Netflix!",
     "take_challenge": "Herausforderung annehmen",
     "continue_challenge": "Herausforderung fortsetzen",
@@ -252,7 +253,9 @@
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_location": "Um Arten zu deinen Beobachtungen hinzuzufügen, musst du deinen Standort aktivieren. Seek benutzt deinen Standort, um dich daran zu erinnern, wo du einen Organismus gesehen hast, und um zu helfen, zu Citizen Science Projekten beizutragen, wenn du auf iNaturalist postest.",
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
-    "error_few": "a few"
+    "error_few": "a few",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "Auszeichnung anzeigen",
@@ -284,9 +287,7 @@
     "permissions": "Berechtigungen in den Einstellungen aktivieren",
     "error_classifier": "Leider können wir den Klassifikator nicht laden",
     "error_old_camera": "Wir konnten die Kamera leider nicht laden",
-    "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt",
-    "error_saving_photos": "Wir konnten dein Foto leider nicht speichern",
-    "error_fetching_photos": "Wir konnten dein Foto leider nicht im Kamera-Speicher finden"
+    "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt"
   },
   "gallery": {
     "label": "Fotos",

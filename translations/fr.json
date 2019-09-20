@@ -10,7 +10,9 @@
     "enable_location": "Activer emplacement dans les paramètres",
     "internet_error": "Nous avons besoin d'internet pour générer l'espèce proche. Tapez pour réessayer.",
     "no_location": "Aucun emplacement",
-    "no_species": "Il semble que peu d’espèces ont été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces."
+    "no_species": "Il semble que peu d’espèces ont été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces.",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "Pour commencer",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": " Défis",
-    "april": "Avril 2019 : Connectivité",
     "join": " Rejoignez le défi d'observation mondiale et suivez Our Planet sur Netflix !",
     "take_challenge": " Relever le défi",
     "continue_challenge": "Poursuivre le défi",
@@ -74,13 +75,13 @@
     "parent_instructions": "Nous avons envoyé un e-mail à votre parent ou tuteur légal avec les consignes.",
     "continue_no_log_in": " continuer sans se connecter",
     "terms": "Conditions d'utilisation",
-    "linked_account": "You’ve linked an iNaturalist account to Seek!",
-    "posting": "Posting to iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
-    "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "linked_account": "Vous avez relié un compte iNaturalist à Seek !",
+    "posting": "Publier sur iNaturalist",
+    "posting_details": "Vous pouvez publier les observations faites avec Seek sur iNaturalist juste après les avoir ajoutées à vos observations. Si vous souhaitez les publier sur iNaturalist plus tard, merci d’utiliser l’application iNaturalist ou le site web.",
+    "observations": "Observations enregistrées sur l'appareil",
+    "observations_1": "Vos observations Seek sont stockées sur votre appareil et ne sont PAS sauvegardées en ligne.",
+    "observations_2": "Supprimer l'application supprimera toutes vos observations Seek.",
+    "observations_3": "Seek ne synchronise pas vos observations sur d'autres appareils."
   },
   "inat_login": {
     "log_in_with_inat": " Se connecter sur votre compte iNaturalist",
@@ -252,7 +253,9 @@
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer à la science citoyenne si vous avez effectué des publications sur iNaturalist.",
     "error_downtime": "Service temporairement indisponible. Merci de réessayer dans {{number}} heure(s).",
-    "error_few": "peu"
+    "error_few": "peu",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "Afficher le badge",
@@ -284,9 +287,7 @@
     "permissions": "Activer les permissions dans les paramètres",
     "error_classifier": "Désolé, nous n’arrivons pas à charger le répertoire",
     "error_old_camera": "Désolé, nous n’avons pas réussi à charger la caméra",
-    "error_device_support": "Désolé, l’appareil utilisé n’est pas pris en charge",
-    "error_saving_photos": "Désolé, nous n’avons pas pu enregistrer votre photo",
-    "error_fetching_photos": "Désolé, nous n’avons pas pu récupérer votre photo depuis la caméra"
+    "error_device_support": "Désolé, l’appareil utilisé n’est pas pris en charge"
   },
   "gallery": {
     "label": " Photos",
@@ -324,10 +325,10 @@
   },
   "badges": {
     "your_level": "Votre niveau",
-    "login": "Log in with iNaturalist to post observations to the online community!",
+    "login": "Connectez-vous avec iNaturalist pour publier des observations à la communauté en ligne!",
     "achievements": "Performances",
     "observe": "Observer {{number}} espèces pour accéder au prochain niveau !",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
     "species_badges": "Badges d'espèces",
     "challenge_badges": "Badges défi",

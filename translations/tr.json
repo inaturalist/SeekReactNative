@@ -10,7 +10,9 @@
     "enable_location": "Ayarlardan konumu etkinleştir",
     "internet_error": "Yakındaki türleri ortaya çıkarmak için internete ihtiyacımız var. Tekrar denemek için tıkla.",
     "no_location": "Konum yok",
-    "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene."
+    "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "Başla",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Mücadeleler",
-    "april": "Nisan 2019: Bağlanabilirlik",
     "join": "Seek kamerası ile gözlemler ekleyip Bizim Gezegenimiz rozetini kazan!",
     "take_challenge": "Mücadeleyi kabul et",
     "continue_challenge": "Mücadeleye devam et",
@@ -74,13 +75,13 @@
     "parent_instructions": "Ebeveynine veya vasine talimatlar içeren bir e-posta gönderdik.",
     "continue_no_log_in": "Giriş yapmadan devam et",
     "terms": "Hizmet Şartları",
-    "linked_account": "You’ve linked an iNaturalist account to Seek!",
-    "posting": "Posting to iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
-    "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "linked_account": "iNaturalist hesabını Seek'e bağladınız!",
+    "posting": "iNaturalist'e gönder",
+    "posting_details": "Seek'de yapılan gözlemleri, gözlemlerinize ekledikten hemen sonra iNaturalist'e gönderebilirsiniz. Onları daha sonra iNaturalist'e göndermek isterseniz, lütfen iNaturalist uygulamasını ya da genel ağ sayfasını kullanın.",
+    "observations": "Aygıta Kaydedilmiş Gözlemler",
+    "observations_1": "Seek'deki gözlemleriniz aygıtınızda saklanır ve çevrimiçi olarak yedeklenmez.",
+    "observations_2": "Uygulamayı silmek, Seek ile yapılan tüm gözlemlerinizi siler.",
+    "observations_3": "Seek, gözlemlerinizi diğer aygıtlarda eşleme yapmaz."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalist hesabınız ile giriş yapın",
@@ -252,7 +253,9 @@
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_location": "Gözlemlerinize tür eklemek için konumunuzu etkinleştirmeniz gerekir. Seek, bulunduğunuz yeri bir organizmayı nerede gördüğünüzü anımsatmak ve iNaturalist’e gönderirseniz vatandaş bilimine katkıda bulunmanız için kullanır.",
     "error_downtime": "Servis geçici olarak kullanılamıyor. Lütfen {{number}} saat içinde tekrar deneyin.",
-    "error_few": "bazı"
+    "error_few": "bazı",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "Rozeti göster",
@@ -284,9 +287,7 @@
     "permissions": "Ayarlardan izinleri etkinleştir",
     "error_classifier": "Üzgünüz, sınıflandırıcıyı yükleyemiyoruz",
     "error_old_camera": "Üzgünüz, kamerayı yükleyemedik",
-    "error_device_support": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
-    "error_saving_photos": "Üzgünüz, fotoğrafınızı kaydedemedik",
-    "error_fetching_photos": "Üzgünüz, fotoğrafınızı galeriden alamadık"
+    "error_device_support": "Üzgünüz, kullandığınız cihaz desteklenmiyor"
   },
   "gallery": {
     "label": "Fotoğraflar",
@@ -324,10 +325,10 @@
   },
   "badges": {
     "your_level": "Düzeyin",
-    "login": "Log in with iNaturalist to post observations to the online community!",
+    "login": "iNaturalist'e giriş yaparak, gözlemlerini çevrimiçi topluluğa gönderebilirsin!",
     "achievements": "Başarılar",
     "observe": "Bir sonraki düzeye geçmek için {{number}} tür gözlemleyin!",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "Seek'de en yüksek düzeye ulaştınız!",
     "observe_species": "Gözlemle",
     "species_badges": "Tür Rozetleri",
     "challenge_badges": "Meydan Okuma Rozetleri",

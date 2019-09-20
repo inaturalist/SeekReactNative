@@ -10,7 +10,9 @@
     "enable_location": "Locatiebepaling aanzetten in instellingen",
     "internet_error": "Internet is nodig om soorten in de buurt te vinden. Tik om het opnieuw te proberen.",
     "no_location": "Geen locatie",
-    "no_species": "Er zijn nog niet veel soorten in de buurt waargenomen! Verander je locatie of pas de soortzoekcriteria aan."
+    "no_species": "Er zijn nog niet veel soorten in de buurt waargenomen! Verander je locatie of pas de soortzoekcriteria aan.",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "Aan de slag",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Uitdagingen",
-    "april": "April 2019: Connectiviteit",
     "join": "Voeg waarnemingen toe met de Seek Camera en verdien de 'Our Planet'-badge!",
     "take_challenge": "Neem de uitdaging aan",
     "continue_challenge": "Ga door met de uitdaging",
@@ -74,13 +75,13 @@
     "parent_instructions": "We hebben je ouder of voogd een e-mail gestuurd met instructies.",
     "continue_no_log_in": "Ga verder zonder je aan te melden",
     "terms": "Gebruiksvoorwaarden",
-    "linked_account": "You’ve linked an iNaturalist account to Seek!",
-    "posting": "Posting to iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
-    "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "linked_account": "Je hebt een iNaturalist account gekoppeld aan Seek!",
+    "posting": "Verzenden naar iNaturalist",
+    "posting_details": "Je kunt onmiddellijk na het invoeren van deze waarnemingen in Seek ze verzenden naar iNaturalist. Als je ze later wilt plaatsen naar iNaturalist, gebruik dan de iNaturalist app of website.",
+    "observations": "Waarnemingen opgeslagen op dit apparaat",
+    "observations_1": "Je waarnemingen in Seek worden opgeslagen op uw apparaat en worden NIET online gebackupped.",
+    "observations_2": "Het verwijderen van de app zal al je waarnemingen in Seek verwijderen.",
+    "observations_3": "Seek synchroniseert je waarnemingen niet met andere apparaten."
   },
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
@@ -252,7 +253,9 @@
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
     "error_location": "Om jouw waarnemingen op te kunnen slaan moet je locatiebepaling aanstaan. Seek gebruikt je locatie om te onthouden waar je een organisme zag en om bij te dragen aan de burgerwetenschap als je gegevens invoert in iNaturalist.",
     "error_downtime": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{number}} uur.",
-    "error_few": "een paar"
+    "error_few": "een paar",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "Bekijk badge",
@@ -284,9 +287,7 @@
     "permissions": "Verleen toestemming bij instellingen",
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",
     "error_old_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
-    "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund",
-    "error_saving_photos": "Het spijt ons, we konden je foto niet opslaan",
-    "error_fetching_photos": "Het spijt ons, we konden je foto niet ophalen van de filmrol"
+    "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund"
   },
   "gallery": {
     "label": "Foto’s",
@@ -324,10 +325,10 @@
   },
   "badges": {
     "your_level": "Jouw niveau",
-    "login": "Log in with iNaturalist to post observations to the online community!",
+    "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
     "observe": "Nog {{number}} soorten waarnemen om het volgende niveau te halen!",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "Je hebt het maximale level bereikt op Seek!",
     "observe_species": "Waarnemen",
     "species_badges": "Soort Badges",
     "challenge_badges": "Uitdaging Badges",

@@ -10,7 +10,9 @@
     "enable_location": "Aktiver placering i indstillinger",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden. Tryk for at prøve igen.",
     "no_location": "Ingen placering",
-    "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret."
+    "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
+    "no_gps": "GPS-signal ikke fundet.",
+    "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen."
   },
   "get_started": {
     "header": "Kom i gang",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Udfordringer",
-    "april": "April 2019: Sammenhænge",
     "join": "Tilføj observationer med Seek kameraet for at modtage Vores Planet-mærket!",
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
@@ -74,13 +75,13 @@
     "parent_instructions": "Vi har sent en email til dine forældre eller værge med instruktioner.",
     "continue_no_log_in": "Fortsæt uden at logge ind",
     "terms": "Servicevilkår",
-    "linked_account": "You’ve linked an iNaturalist account to Seek!",
-    "posting": "Posting to iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
-    "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "linked_account": "Du har forbundet en iNaturalist-konto med Seek!",
+    "posting": "Tilføjelse til iNaturalist",
+    "posting_details": "Du kan tilføje observationer lavet i Seek til iNaturalist umiddelbart efter du har tilføjet dem til dine observationer. Hvis du ønsker at tilføje dem til iNaturalist senere, så brug venligst iNaturalist-app'en eller hjemmesiden.",
+    "observations": "Observationer gemt på enhed",
+    "observations_1": "Dine observationer i Seek gemmes på din enhed, men der laves IKKE backup online.",
+    "observations_2": "Sletning af appen vil slette alle dine observationer i Seek.",
+    "observations_3": "Seek synkroniserer ikke dine observationer med andre enheder."
   },
   "inat_login": {
     "log_in_with_inat": "Log ind med din iNaturalist-konto",
@@ -252,7 +253,9 @@
     "error_species": "Beklager, vi kunne ikke indhente artsdetaljer for dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist.",
     "error_downtime": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{number}} timer.",
-    "error_few": "nogle få"
+    "error_few": "nogle få",
+    "error_gps": "Vi kunne ikke finde din GPS-placering. Prøv venligst at flytte dig til et sted, hvor du kan se himlen, og tjek at din enheds placering er slået til for at gemme observationer.",
+    "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere."
   },
   "banner": {
     "view": "Se mærke",
@@ -284,9 +287,7 @@
     "permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
-    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
-    "error_saving_photos": "Beklager, vi kunne ikke gemme dit foto",
-    "error_fetching_photos": "Beklager, vi kunne ikke hente dit foto fra billedbiblioteket"
+    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet"
   },
   "gallery": {
     "label": "Fotos",
@@ -324,10 +325,10 @@
   },
   "badges": {
     "your_level": "Dit niveau",
-    "login": "Log in with iNaturalist to post observations to the online community!",
+    "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
     "achievements": "Resultater",
     "observe": "Observer {{number}} arter for at nå til det næste niveau!",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "Du har nået det højeste niveau på Seek!",
     "observe_species": "Observer",
     "species_badges": "Artsmærker",
     "challenge_badges": "Udfordringsmærker",

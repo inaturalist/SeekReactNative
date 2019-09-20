@@ -15,8 +15,9 @@ const setupCommonNames = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        // check to see if names are already in Realm. There are about 51k names.
+        // check to see if names are already in Realm. There are about 61k names.
         const numberInserted = realm.objects( "CommonNamesRealm" ).length;
+        console.log( numberInserted, "number inserted" );
         if ( numberInserted < 60000 ) {
           // delete all existing common names from Realm
           realm.delete( realm.objects( "CommonNamesRealm" ) );

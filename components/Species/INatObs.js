@@ -1,54 +1,108 @@
 // @flow
-import React from "react";
+import React, { Component } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity
 } from "react-native";
+import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
+import { fetchLocationName } from "../../utility/locationHelpers";
 
 type Props = {
-  location: string,
-  nearbySpeciesCount: number,
-  timesSeen: number,
+  id: Number,
+  region: Object,
+  timesSeen: Number,
   navigation: any
 };
 
-const INatObs = ( {
-  location,
-  nearbySpeciesCount,
-  timesSeen,
-  navigation
-}: Props ) => (
-  <View>
-    <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
-    <View style={styles.stats}>
-      <TouchableOpacity
-        hitSlop={styles.touchable}
-        onPress={() => navigation.navigate( "iNatStats" )}
-      >
-        <Image source={logos.bird} style={styles.image} />
-      </TouchableOpacity>
-      <View style={styles.textContainer}>
-        <Text style={styles.secondHeaderText}>
-          {i18n.t( "species_detail.near" )}
-          {" "}
-          {location}
-        </Text>
-        <Text style={styles.number}>
-          {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
-        </Text>
-        <Text style={[styles.secondHeaderText, { marginTop: 28 }]}>{i18n.t( "species_detail.worldwide" )}</Text>
-        <Text style={styles.number}>
-          {i18n.toNumber( timesSeen, { precision: 0 } )}
-        </Text>
+class INatObs extends Component<Props> {
+  constructor() {
+    super();
+
+    this.state = {
+      nearbySpeciesCount: null,
+      location: null
+    };
+  }
+
+  componentDidUpdate( prevProps ) {
+    const { region } = this.props;
+
+    if ( region !== prevProps.region ) {
+      this.reverseGeocodeLocation( region.latitude, region.longitude );
+      this.fetchNearbySpeciesCount();
+    }
+  }
+
+  setLocation( location ) {
+    this.setState( { location } );
+  }
+
+  setNearbySpeciesCount( nearbySpeciesCount ) {
+    this.setState( { nearbySpeciesCount } );
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    fetchLocationName( lat, lng ).then( ( location ) => {
+      this.setLocation( location );
+    } ).catch( () => this.setLocation( null ) );
+  }
+
+  fetchNearbySpeciesCount() {
+    const { region, id } = this.props;
+    const { latitude, longitude } = region;
+
+    const params = {
+      lat: latitude,
+      lng: longitude,
+      radius: 50,
+      taxon_id: id
+    };
+
+    inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
+      this.setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching species count" );
+    } );
+  }
+
+  render() {
+    const { navigation, timesSeen } = this.props;
+    const { nearbySpeciesCount, location } = this.state;
+
+    return (
+      <View>
+        <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
+        <View style={styles.stats}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => navigation.navigate( "iNatStats" )}
+          >
+            <Image source={logos.bird} style={styles.image} />
+          </TouchableOpacity>
+          <View style={styles.textContainer}>
+            <Text style={styles.secondHeaderText}>
+              {i18n.t( "species_detail.near" )}
+              {" "}
+              {location}
+            </Text>
+            <Text style={styles.number}>
+              {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
+            </Text>
+            <Text style={[styles.secondHeaderText, { marginTop: 28 }]}>{i18n.t( "species_detail.worldwide" )}</Text>
+            <Text style={styles.number}>
+              {i18n.toNumber( timesSeen, { precision: 0 } )}
+            </Text>
+          </View>
+        </View>
       </View>
-    </View>
-  </View>
-);
+    );
+  }
+}
 
 export default INatObs;

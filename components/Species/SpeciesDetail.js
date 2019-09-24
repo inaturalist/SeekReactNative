@@ -16,7 +16,7 @@ import moment from "moment";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { fetchLocationName, fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
 import SpeciesStats from "./SpeciesStats";
@@ -52,7 +52,6 @@ class SpeciesDetail extends Component<Props> {
 
     this.state = {
       id: null,
-      location: null,
       photos: [],
       commonName: null,
       scientificName: null,
@@ -61,13 +60,10 @@ class SpeciesDetail extends Component<Props> {
       timesSeen: null,
       region: {},
       observationsByMonth: [],
-      nearbySpeciesCount: null,
       error: null,
       userPhoto: null,
       stats: {},
-      // similarSpecies: [],
       ancestors: [],
-      // loadingSpecies: true,
       route: null,
       iconicTaxonId: null
     };
@@ -80,14 +76,6 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { error } );
   }
 
-  setLocation( location ) {
-    this.setState( { location } );
-  }
-
-  setNearbySpeciesCount( nearbySpeciesCount ) {
-    this.setState( { nearbySpeciesCount } );
-  }
-
   setRegion( latitude, longitude ) {
     this.setState( {
       region: {
@@ -97,7 +85,6 @@ class SpeciesDetail extends Component<Props> {
         longitudeDelta
       }
     }, () => {
-      this.fetchNearbySpeciesCount( latitude, longitude );
       this.checkIfSpeciesIsNative( latitude, longitude );
     } );
   }
@@ -111,7 +98,6 @@ class SpeciesDetail extends Component<Props> {
       this.checkIfSpeciesSeen();
       this.fetchTaxonDetails();
       this.fetchHistogram();
-      // this.fetchSimilarSpecies();
     } );
   }
 
@@ -154,7 +140,6 @@ class SpeciesDetail extends Component<Props> {
     fetchTruncatedUserLocation().then( ( coords ) => {
       const { latitude, longitude } = coords;
 
-      this.reverseGeocodeLocation( latitude, longitude );
       this.setRegion( latitude, longitude );
     } ).catch( () => this.setError( "location" ) );
   }
@@ -181,19 +166,12 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { route } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location );
-    } ).catch( () => this.setLocation( null ) );
-  }
-
   updateScreen() {
     this.fetchiNatData();
   }
 
   resetState() {
     this.setState( {
-      location: null,
       photos: [],
       commonName: null,
       scientificName: null,
@@ -202,7 +180,6 @@ class SpeciesDetail extends Component<Props> {
       timesSeen: null,
       region: {},
       observationsByMonth: [],
-      nearbySpeciesCount: null,
       error: null,
       userPhoto: null,
       stats: {},
@@ -216,7 +193,6 @@ class SpeciesDetail extends Component<Props> {
     const { latitude, longitude } = seenTaxa;
 
     if ( latitude && longitude ) {
-      this.reverseGeocodeLocation( latitude, longitude );
       this.setRegion( latitude, longitude );
     }
   }
@@ -316,23 +292,6 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchNearbySpeciesCount( latitude, longitude ) {
-    const { id } = this.state;
-
-    const params = {
-      lat: latitude,
-      lng: longitude,
-      radius: 50,
-      taxon_id: id
-    };
-
-    inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
-      this.setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
-    } ).catch( ( err ) => {
-      console.log( err, "error fetching species count" );
-    } );
-  }
-
   fetchHistogram() {
     const { id } = this.state;
 
@@ -413,7 +372,6 @@ class SpeciesDetail extends Component<Props> {
       about,
       commonName,
       id,
-      nearbySpeciesCount,
       observationsByMonth,
       photos,
       region,
@@ -422,7 +380,6 @@ class SpeciesDetail extends Component<Props> {
       timesSeen,
       error,
       userPhoto,
-      location,
       ancestors,
       stats,
       route,
@@ -498,8 +455,8 @@ class SpeciesDetail extends Component<Props> {
                   <SpeciesTaxonomy ancestors={ancestors} />
                   {!error ? (
                     <INatObs
-                      location={location}
-                      nearbySpeciesCount={nearbySpeciesCount}
+                      id={id}
+                      region={region}
                       timesSeen={timesSeen}
                       navigation={navigation}
                     />

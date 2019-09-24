@@ -7,7 +7,8 @@ import {
   Platform,
   Modal,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Alert
 } from "react-native";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";

@@ -449,7 +449,8 @@
     "mollusk": "mollusk",
     "mammal": "mammal",
     "species_saved": "This species is saved to your observations.",
-    "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them."
+    "you": "Hey look, it’s you! Get outside and find some wild species to learn even more about them.",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "About",

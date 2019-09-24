@@ -65,9 +65,9 @@ class SpeciesDetail extends Component<Props> {
       error: null,
       userPhoto: null,
       stats: {},
-      similarSpecies: [],
+      // similarSpecies: [],
       ancestors: [],
-      loadingSpecies: true,
+      // loadingSpecies: true,
       route: null,
       iconicTaxonId: null
     };
@@ -111,7 +111,7 @@ class SpeciesDetail extends Component<Props> {
       this.checkIfSpeciesSeen();
       this.fetchTaxonDetails();
       this.fetchHistogram();
-      this.fetchSimilarSpecies();
+      // this.fetchSimilarSpecies();
     } );
   }
 
@@ -206,9 +206,7 @@ class SpeciesDetail extends Component<Props> {
       error: null,
       userPhoto: null,
       stats: {},
-      similarSpecies: [],
       ancestors: [],
-      loadingSpecies: true,
       route: null,
       iconicTaxonId: null
     } );
@@ -360,33 +358,6 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchSimilarSpecies() {
-    const { id } = this.state;
-    const params = {
-      taxon_id: id,
-      without_taxon_id: 43584,
-      locale: i18n.currentLocale()
-    };
-
-    inatjs.identifications.similar_species( params ).then( ( response ) => {
-      const shortenedList = response.results.slice( 0, 20 );
-      const taxa = shortenedList.map( r => r.taxon );
-      const taxaWithPhotos = [];
-      taxa.forEach( ( taxon ) => {
-        if ( taxon.default_photo && taxon.default_photo.medium_url ) {
-          taxaWithPhotos.push( taxon );
-        }
-      } );
-
-      this.setState( {
-        similarSpecies: taxaWithPhotos,
-        loadingSpecies: false
-      } );
-    } ).catch( ( err ) => {
-      console.log( err, ": couldn't fetch similar species" );
-    } );
-  }
-
   checkIfSpeciesIsNative( latitude, longitude ) {
     const { id } = this.state;
 
@@ -452,10 +423,8 @@ class SpeciesDetail extends Component<Props> {
       error,
       userPhoto,
       location,
-      similarSpecies,
       ancestors,
       stats,
-      loadingSpecies,
       route,
       iconicTaxonId
     } = this.state;
@@ -550,10 +519,8 @@ class SpeciesDetail extends Component<Props> {
             {id !== 43584 && error !== "internet" ? (
               <View>
                 <SimilarSpecies
-                  taxa={similarSpecies}
-                  loading={loadingSpecies}
+                  id={id}
                   fetchiNatData={this.fetchiNatData}
-                  setSimilarSpecies={this.setSimilarSpecies}
                 />
                 <View style={styles.bottomPadding} />
               </View>

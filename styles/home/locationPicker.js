@@ -124,6 +124,7 @@ export default StyleSheet.create( {
     paddingBottom: 0,
     width: "91%",
     backgroundColor: colors.white,
+    color: colors.black,
     height: 37,
     borderRadius: 40,
     paddingLeft: 20,

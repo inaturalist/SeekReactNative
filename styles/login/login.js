@@ -32,6 +32,7 @@ export default StyleSheet.create( {
   inputField: {
     width: 307,
     backgroundColor: colors.white,
+    color: colors.black,
     height: 37,
     borderRadius: 40,
     borderWidth: 1,

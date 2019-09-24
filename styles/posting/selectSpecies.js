@@ -48,6 +48,7 @@ export default StyleSheet.create( {
     marginLeft: 11,
     width: "81%",
     backgroundColor: colors.white,
+    color: colors.black,
     height: 37,
     paddingTop: 0,
     paddingBottom: 0,

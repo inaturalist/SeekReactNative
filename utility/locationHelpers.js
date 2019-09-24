@@ -35,7 +35,7 @@ const checkLocationPermissions = async () => {
 };
 
 const fetchTruncatedUserLocation = () => (
-  new Promise( ( resolve ) => {
+  new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
       const longitude = truncateCoordinates( coords.longitude );
@@ -45,20 +45,22 @@ const fetchTruncatedUserLocation = () => (
       };
 
       resolve( truncatedCoords );
-    }, () => resolve( null ) );
+    }, ( { code } ) => {
+      reject( code );
+    }, { timeout: 30000 } );
   } )
 );
 
 const fetchLocationName = ( lat, lng ) => (
-  new Promise( ( resolve ) => {
+  new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
       if ( result.length === 0 ) {
         resolve( null );
       }
       const { locality, subAdminArea } = result[0];
       resolve( locality || subAdminArea );
-    } ).catch( () => {
-      resolve( null );
+    } ).catch( ( e ) => {
+      reject( e );
     } );
   } )
 );
@@ -78,11 +80,35 @@ const createLocationPermissionsAlert = () => {
   );
 };
 
+const createGPSAlert = () => {
+  Alert.alert(
+    i18n.t( "species_nearby.no_gps" ),
+    i18n.t( "results.error_gps" ),
+    [{
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
+const createLocationTimeoutAlert = () => {
+  Alert.alert(
+    i18n.t( "species_nearby.location_timeout" ),
+    i18n.t( "results.error_timeout" ),
+    [{
+      text: i18n.t( "posting.ok" ),
+      style: "default"
+    }]
+  );
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation,
   createLocationPermissionsAlert,
-  checkLocationPermissions
+  checkLocationPermissions,
+  createGPSAlert,
+  createLocationTimeoutAlert
 };

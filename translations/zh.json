@@ -6,10 +6,13 @@
   "species_nearby": {
     "header": "附近物種",
     "location_error": "為顯示你附近的物種，我們必須使用你的位置資訊。",
+    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
     "enable_location": "在設定中開啟位置資訊",
     "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
     "no_location": "沒有位置資訊",
-    "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。"
+    "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "開始",
@@ -19,7 +22,6 @@
   },
   "challenges_card": {
     "header": "挑戰",
-    "april": "2019年4月：連線",
     "join": "參加全球觀察挑戰並在Netflix上跟大家一起追蹤！",
     "take_challenge": "參加挑戰",
     "continue_challenge": "繼續挑戰",
@@ -51,7 +53,6 @@
   },
   "inat_signup": {
     "welcome": "歡迎來到Seek！",
-    "explore": "與你一起探索讓我們雀躍無比！",
     "enter_birthday": "請輸入你的生日",
     "permission": "你必須至少滿13歲方可建立帳戶。",
     "privacy": "隱私政策",
@@ -69,18 +70,25 @@
     "username": "使用者名稱",
     "password": "密碼",
     "release_photos": "是，授權我的資料以利科學家使用！",
-    "data_usage": "Seek利用你的資料協助改善我們的辨識模型。",
     "create_account": "建立我的帳戶",
     "thanks": "謝謝你！",
     "parent_instructions": "我們已將附有說明的電子郵件寄給您的家長或監護人。",
     "continue_no_log_in": "不登入直接繼續",
-    "terms": "服務條款"
+    "terms": "服務條款",
+    "linked_account": "You’ve linked an iNaturalist account to Seek!",
+    "posting": "Posting to iNaturalist",
+    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
+    "observations": "Observations Saved on Device",
+    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
+    "observations_2": "Deleting the app will delete all your observations made in Seek.",
+    "observations_3": "Seek does not sync your observations to other devices."
   },
   "inat_login": {
     "log_in_with_inat": "利用你的iNaturalist帳戶登入",
     "username": "使用者名稱",
     "password": "密碼",
-    "forgot_password": "忘記您的密碼了嗎？",
+    "forgot_password_header": "Forgot password",
+    "forgot_password": "Forgot your password?",
     "log_in": "登入",
     "email": "電子郵件信箱",
     "no_worries": "不用擔心。我們會把重設密碼的指示送到你的電子郵件信箱中。",
@@ -136,12 +144,12 @@
     "badge": "獎牌",
     "connectivity": "連線挑戰",
     "biodiversity": "生物多樣性挑戰",
-    "productivity": "生產力與社群挑戰",
-    "resilience": "生態系韌性挑戰",
-    "farming": "農耕與食物挑戰",
-    "flow": "水挑戰",
-    "hotspots": "熱點挑戰",
-    "ice": "冰挑戰",
+    "productivity": "Community Challenge",
+    "resilience": "Forests Challenge",
+    "farming": "Grasslands Challenge",
+    "flow": "Freshwater Challenge",
+    "hotspots": "High Seas Challenge",
+    "ice": "Climate Challenge",
     "op": "Our Planet",
     "start_now": "立刻開始",
     "april_2019": "Apr-19",
@@ -234,16 +242,20 @@
     "date_observed": "你第一次觀察到這物種是在\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
     "post": "上傳至 iNaturalist",
-    "flag": "旗幟標識",
-    "incorrect": "你是否相信此標識不正確？",
-    "yes": "是",
-    "no": "否",
+    "flag": "Misidentification",
+    "incorrect": "Was this species misidentified?",
+    "yes": "Yes, remove it from my observations",
+    "yes_resighted": "Yes, this species was misidentified",
+    "no": "No, It's correct",
     "enable_location": "Enable location to save observations",
     "error_server": "很抱歉，我們無法評判此照片。請確認您的網路連線並重試一次。",
     "error_image": "很抱歉，我們無法處理您的照片. 請確認您的網路連線並重試一次。",
     "error_species": "很抱歉，我們無法針對此照片下載物種的詳細資訊。請確認您的網路連線並重試一次。",
-    "error_ancestor": "很抱歉，我們無法針對此照片下載分類資訊。 請確認您的網路連線並重試一次。",
-    "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist."
+    "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
+    "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
+    "error_few": "a few",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "檢視徽章",
@@ -275,9 +287,7 @@
     "permissions": "在設定中啟用權限",
     "error_classifier": "很抱歉，我們無法載入分類器",
     "error_old_camera": "很抱歉，我們無法開啟相機",
-    "error_device_support": "很抱歉，您使用的裝置並不支援",
-    "error_saving_photos": "很抱歉，我們無法儲存您的照片",
-    "error_fetching_photos": "很抱歉，我們無法從您的照片膠卷中存取照片"
+    "error_device_support": "很抱歉，您使用的裝置並不支援"
   },
   "gallery": {
     "label": "照片",
@@ -315,9 +325,10 @@
   },
   "badges": {
     "your_level": "您的級別",
-    "explanation": "觀察更多的總物种以提高您的級別，尋找特定群組的生物以贏取物种獎牌，參與挑戰以贏取挑戰獎牌！",
+    "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "成就",
     "observe": "觀察 {{number}} 物种以到達下一級別！",
+    "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "觀察",
     "species_badges": "物種獎牌",
     "challenge_badges": "挑戰獎牌",
@@ -449,7 +460,8 @@
     "original": "Seek 的最初創建得到 HHMI Tangled Bank Studios 的支援。",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：:",
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
-    "version": "版本"
+    "version": "版本",
+    "help": "For help with Seek, please email help+seek@inaturalist.org."
   },
   "posting": {
     "header": "上傳至 iNaturalist",
@@ -497,5 +509,17 @@
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
     "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+  },
+  "delete": {
+    "header": "Delete species?",
+    "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
+    "yes": "Yes, delete it from my observations",
+    "no": "Cancel"
+  },
+  "warning": {
+    "remember": "Remember",
+    "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
   }
 }

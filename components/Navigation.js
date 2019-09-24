@@ -1,10 +1,7 @@
-import {
-  createStackNavigator,
-  createMaterialTopTabNavigator,
-  createDrawerNavigator,
-  createAppContainer,
-  createBottomTabNavigator
-} from "react-navigation";
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createDrawerNavigator } from "react-navigation-drawer";
+import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
 import { Platform } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 

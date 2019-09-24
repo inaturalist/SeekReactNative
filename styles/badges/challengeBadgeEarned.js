@@ -5,12 +5,18 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  container: {
+  outerContainer: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  innerContainer: {
     borderRadius: 40,
+    alignItems: "center",
     backgroundColor: colors.white
   },
   header: {
     backgroundColor: colors.seekTeal,
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
     borderTopLeftRadius: 40,

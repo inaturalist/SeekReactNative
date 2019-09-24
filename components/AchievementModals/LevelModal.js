@@ -30,7 +30,7 @@ const LevelModal = ( {
 }: Props ) => (
   <SafeAreaView style={styles.safeView}>
     <View style={styles.outerContainer}>
-      <View style={styles.container}>
+      <View style={styles.innerContainer}>
         <Text style={styles.headerText}>
           {screen === "achievements"
             ? i18n.t( "badges.your_level" ).toLocaleUpperCase()

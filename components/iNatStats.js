@@ -22,7 +22,8 @@ import logos from "../assets/logos";
 import Padding from "./Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
-import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
+import LoginCard from "./LoginCard";
+import { getiNatStats } from "../utility/iNatStatsHelpers";
 
 type Props = {
   navigation: any
@@ -33,30 +34,24 @@ class iNatStatsScreen extends Component<Props> {
     super();
 
     this.state = {
-      observations: i18n.toNumber( 23000000, { precision: 0 } ),
-      observers: i18n.toNumber( 660000, { precision: 0 } ),
+      observations: i18n.toNumber( 25000000, { precision: 0 } ),
+      observers: i18n.toNumber( 700000, { precision: 0 } ),
       photos: [],
-      loading: true,
-      isLoggedIn: false
+      loading: true
     };
   }
 
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
+  seti18nNumber( number ) {
+    return i18n.toNumber( number, { precision: 0 } );
+  };
 
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
+  async fetchiNatStats() {
+    const { observations, observers } = await getiNatStats();
 
-  async logUserOut() {
-    const loggedOut = await removeAccessToken();
-    if ( loggedOut === null ) {
-      this.setLoggedIn( false );
-    }
+    this.setState( {
+      observations: this.seti18nNumber( observations ),
+      observers: this.seti18nNumber( observers )
+    } );
   }
 
   scrollToTop() {
@@ -108,8 +103,7 @@ class iNatStatsScreen extends Component<Props> {
       observations,
       observers,
       photos,
-      loading,
-      isLoggedIn
+      loading
     } = this.state;
     const { navigation } = this.props;
 
@@ -143,8 +137,8 @@ class iNatStatsScreen extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.fetchiNatStats();
             this.scrollToTop();
-            this.getLoggedIn();
             this.fetchProjectPhotos();
           }}
         />
@@ -214,31 +208,7 @@ class iNatStatsScreen extends Component<Props> {
                 <Image source={icons.swipeRight} style={styles.rightArrow} />
               </View>
             )}
-            <Text style={styles.italicText}>
-              {isLoggedIn
-                ? i18n.t( "inat_stats.logged_in" )
-                : i18n.t( "inat_stats.thanks" )
-              }
-            </Text>
-            <View style={{ alignItems: "center", marginTop: 30 }}>
-              <TouchableOpacity
-                style={styles.greenButton}
-                onPress={() => {
-                  if ( isLoggedIn ) {
-                    this.logUserOut();
-                  } else {
-                    navigation.navigate( "LoginOrSignup" );
-                  }
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {isLoggedIn
-                    ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
-                    : i18n.t( "inat_stats.join" ).toLocaleUpperCase()
-                  }
-                </Text>
-              </TouchableOpacity>
-            </View>
+            <LoginCard navigation={navigation} />
             <Padding />
           </ScrollView>
         </SafeAreaView>

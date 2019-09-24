@@ -94,8 +94,9 @@ class Observations extends Component<Props> {
     sortNewestToOldest( observations );
 
     const otherData = species
-      .filtered( "taxon.iconicTaxonId == 1" )
+      .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
       .sorted( "date", true );
+    // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
     observations.push( {
       id: 1,
@@ -189,6 +190,7 @@ class Observations extends Component<Props> {
         <SectionList
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
+          extraData={observations}
           renderItem={( { item, section } ) => {
             if ( section.open === true ) {
               return (

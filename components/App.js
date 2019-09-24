@@ -7,11 +7,13 @@ import RootStack from "./Navigation";
 import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
+import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 
 class App extends Component {
-  async componentWillMount() {
+  async componentDidMount() {
     await setupBadges();
     await setupChallenges();
+    await fetchiNatStats();
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately

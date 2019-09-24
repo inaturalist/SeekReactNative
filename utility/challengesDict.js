@@ -88,33 +88,33 @@ const challenges = {
     photographer: "challenges.photographer_september",
     action: "challenges.action_september",
     index: 4
+  },
+  october: {
+    name: "challenges.hotspots",
+    month: "challenges.october_2019",
+    description: "challenges.october_description",
+    totalSpecies: 5,
+    homeBackgroundName: "img-homechallenge-october",
+    backgroundName: "img-challengedetail-october",
+    unearnedIconName: "badge_empty",
+    earnedIconName: "badge_ourplanet_october",
+    missions: [
+      "challenges.mission_1_october"
+    ],
+    availableDate: new Date( 2019, 9, 1 ),
+    photographer: "challenges.photographer_october",
+    action: "challenges.action_october",
+    index: 5
   }
-  // october: {
-  //   name: "challenges.hotspots",
-  //   month: "challenges.october_2019",
-  //   description: "challenges.october_description",
-  //   totalSpecies: 5,
-  //   homeBackgroundName: "img-homechallenge-may",
-  //   backgroundName: "img-challengedetail-may",
-  //   unearnedIconName: "badge_empty",
-  //   earnedIconName: "badge_ourplanet_may",
-  //   missions: [
-  //     "challenges.mission_1_october"
-  //   ],
-  //   availableDate: new Date( 2019, 9, 1 ),
-  //   photographer: "challenges.photographer_october",
-  //   action: "challenges.action_october",
-  //   index: 5
-  // },
   // november: {
   //   name: "challenges.resilience",
   //   month: "challenges.november_2019",
   //   description: "challenges.november_description",
   //   totalSpecies: 10,
-  //   homeBackgroundName: "img-homechallenge-may",
-  //   backgroundName: "img-challengedetail-may",
+  //   homeBackgroundName: "img-homechallenge-september",
+  //   backgroundName: "img-challengedetail-september",
   //   unearnedIconName: "badge_empty",
-  //   earnedIconName: "badge_ourplanet_may",
+  //   earnedIconName: "badge_ourplanet_september",
   //   missions: [
   //     "challenges.mission_1_november"
   //   ],
@@ -128,10 +128,10 @@ const challenges = {
   //   month: "challenges.december_2019",
   //   description: "challenges.december_description",
   //   totalSpecies: 20,
-  //   homeBackgroundName: "img-homechallenge-may",
-  //   backgroundName: "img-challengedetail-may",
+  //   homeBackgroundName: "img-homechallenge-september",
+  //   backgroundName: "img-challengedetail-september",
   //   unearnedIconName: "badge_empty",
-  //   earnedIconName: "badge_ourplanet_may",
+  //   earnedIconName: "badge_ourplanet_september",
   //   missions: [
   //     "challenges.mission_1_december"
   //   ],

@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet, Platform } from "react-native";
 import { colors, fonts, touchable } from "../global";
 
-const { width } = Dimensions.get( "screen" );
+const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   background: {
@@ -20,13 +20,11 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   loadingWheel: {
-    flexGrow: 1,
-    alignItems: "center",
+    marginTop: height / 2 - 150,
     justifyContent: "center"
   },
   galleryContainer: {
     flex: 1,
-    flexGrow: 1,
     backgroundColor: colors.lightGray
   },
   button: {

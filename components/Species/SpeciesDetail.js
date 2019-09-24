@@ -30,6 +30,7 @@ import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../Padding";
+import Spacer from "../iOSSpacer";
 import {
   getSpeciesId,
   capitalizeNames,
@@ -155,7 +156,7 @@ class SpeciesDetail extends Component<Props> {
 
       this.reverseGeocodeLocation( latitude, longitude );
       this.setRegion( latitude, longitude );
-    } ).catch( () => this.setError( "internet" ) );
+    } ).catch( () => this.setError( "location" ) );
   }
 
   fetchUserLocation() {
@@ -472,6 +473,7 @@ class SpeciesDetail extends Component<Props> {
             onWillBlur={() => this.resetState()}
           />
           <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+            {Platform.OS === "ios" && <Spacer />}
             <SpeciesPhotos
               navigation={navigation}
               photos={photos}
@@ -489,7 +491,7 @@ class SpeciesDetail extends Component<Props> {
               <Text style={styles.commonNameText}>{commonName}</Text>
               <Text style={styles.scientificNameText}>{scientificName}</Text>
             </View>
-            {error ? (
+            {error === "internet" ? (
               <SpeciesError
                 seenDate={seenDate}
                 updateScreen={this.updateScreen}
@@ -507,29 +509,33 @@ class SpeciesDetail extends Component<Props> {
                   <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
                 </View>
               ) : null}
-              {about && !error ? (
+              {about && error !== "internet" ? (
                 <View>
                   <Text style={[styles.headerText, showGreenButtons.includes( true ) && { marginTop: 38 }]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
                   <Text style={styles.text}>{about}</Text>
                 </View>
               ) : null}
-              {id !== 43584 && !error ? (
+              {id !== 43584 ? (
                 <View>
-                  <SpeciesMap
-                    navigation={navigation}
-                    region={region}
-                    id={id}
-                    error={error}
-                    seenDate={seenDate}
-                  />
+                  {!error ? (
+                    <SpeciesMap
+                      navigation={navigation}
+                      region={region}
+                      id={id}
+                      error={error}
+                      seenDate={seenDate}
+                    />
+                  ) : null}
                   <SpeciesTaxonomy ancestors={ancestors} />
-                  <INatObs
-                    location={location}
-                    nearbySpeciesCount={nearbySpeciesCount}
-                    timesSeen={timesSeen}
-                    navigation={navigation}
-                  />
-                  {observationsByMonth.length > 0
+                  {!error ? (
+                    <INatObs
+                      location={location}
+                      nearbySpeciesCount={nearbySpeciesCount}
+                      timesSeen={timesSeen}
+                      navigation={navigation}
+                    />
+                  ) : null}
+                  {observationsByMonth.length > 0 && error !== "internet"
                     ? <SpeciesChart data={observationsByMonth} />
                     : null}
                 </View>
@@ -541,7 +547,7 @@ class SpeciesDetail extends Component<Props> {
                 </View>
               ) : null}
             </View>
-            {id !== 43584 && !error ? (
+            {id !== 43584 && error !== "internet" ? (
               <View>
                 <SimilarSpecies
                   taxa={similarSpecies}

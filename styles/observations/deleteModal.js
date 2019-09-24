@@ -74,8 +74,7 @@ export default StyleSheet.create( {
     height: 79,
     borderRadius: 40,
     alignItems: "center",
-    justifyContent: "center",
-    flexWrap: "wrap"
+    justifyContent: "center"
   },
   flagBackButton: {
     marginLeft: 33,

@@ -6,10 +6,13 @@
   "species_nearby": {
     "header": "Arter i nærheden",
     "location_error": "For at vise dig arter i nærheden, har vi brug for at kende din placering.",
+    "location_device": "Seek har brug for din placering for at vise arter i nærheden og tilføje observationer. Sørg venligst for at din enheds placering er slået til.",
     "enable_location": "Aktiver placering i indstillinger",
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise arter i nærheden. Tryk for at prøve igen.",
     "no_location": "Ingen placering",
-    "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret."
+    "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
+    "no_gps": "GPS-signal ikke fundet.",
+    "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen."
   },
   "get_started": {
     "header": "Kom i gang",
@@ -19,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Udfordringer",
-    "april": "April 2019: Sammenhænge",
     "join": "Tilføj observationer med Seek kameraet for at modtage Vores Planet-mærket!",
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
@@ -51,7 +53,6 @@
   },
   "inat_signup": {
     "welcome": "Velkommen til Seek!",
-    "explore": "Vi glæder os til at gå på opdagelse med dig!",
     "enter_birthday": "Indtast venligst din fødselsdato",
     "permission": "Du skal være mindst 13 år for at oprette en konto.",
     "privacy": "Privatlivspolitik",
@@ -69,18 +70,25 @@
     "username": "brugernavn",
     "password": "adgangskode",
     "release_photos": "Ja, licensér mine fotos, så forskere kan benytte mine data!",
-    "data_usage": "Seek bruger dine data til at gøre vores identifikationsmodeller bedre.",
     "create_account": "Opret min konto",
     "thanks": "Tak!",
     "parent_instructions": "Vi har sent en email til dine forældre eller værge med instruktioner.",
     "continue_no_log_in": "Fortsæt uden at logge ind",
-    "terms": "Servicevilkår"
+    "terms": "Servicevilkår",
+    "linked_account": "Du har forbundet en iNaturalist-konto med Seek!",
+    "posting": "Tilføjelse til iNaturalist",
+    "posting_details": "Du kan tilføje observationer lavet i Seek til iNaturalist umiddelbart efter du har tilføjet dem til dine observationer. Hvis du ønsker at tilføje dem til iNaturalist senere, så brug venligst iNaturalist-app'en eller hjemmesiden.",
+    "observations": "Observationer gemt på enhed",
+    "observations_1": "Dine observationer i Seek gemmes på din enhed, men der laves IKKE backup online.",
+    "observations_2": "Sletning af appen vil slette alle dine observationer i Seek.",
+    "observations_3": "Seek synkroniserer ikke dine observationer med andre enheder."
   },
   "inat_login": {
     "log_in_with_inat": "Log ind med din iNaturalist-konto",
     "username": "Brugernavn",
     "password": "Adgangskode",
-    "forgot_password": "Glemt adgangskode",
+    "forgot_password_header": "Glemt adgangskode",
+    "forgot_password": "Glemt din adgangskode?",
     "log_in": "Log ind",
     "email": "Email",
     "no_worries": "Ikke noget problem. Vi sender email med instruktioner til at nulstille din adgangskode.",
@@ -136,12 +144,12 @@
     "badge": "Mærke",
     "connectivity": "Sammenhænge-udfordring",
     "biodiversity": "Biodiversitetsudfordring",
-    "productivity": "Produktivitet & fællesskabudfordring",
-    "resilience": "Robusthedsudfordring",
-    "farming": "Landbrug & Fødevarer udfordring",
-    "flow": "Flow udfordring",
-    "hotspots": "Hotspots udfordring",
-    "ice": "Is udfordring",
+    "productivity": "Fællesskabsudfordring",
+    "resilience": "Skovudfordring",
+    "farming": "Græssletteudfordring",
+    "flow": "Ferskvandsudfordring",
+    "hotspots": "Havudfordring",
+    "ice": "Klimaudfordring",
     "op": "Vores Planet",
     "start_now": "Start nu",
     "april_2019": "April 2019",
@@ -234,16 +242,20 @@
     "date_observed": "Du så denne første gang: {{seenDate}}",
     "post_inat": "Hvis du tog det originale foto af organismen, kan du hjælpe med at træne Seek på denne art ved at tilføje den til iNaturalist, hvor fællesskabet vil hjælpe med at identificere den og dermed forbedre fremtidige udgaver.",
     "post": "Tilføj til iNaturalist",
-    "flag": "Anmærk identifikation",
-    "incorrect": "Er du sikker på, at denne identifikation er forkert?",
-    "yes": "ja",
-    "no": "nej",
+    "flag": "Fejlidentifikation",
+    "incorrect": "Blev denne art fejlidentificeret?",
+    "yes": "Ja, fjern den fra mine observationer",
+    "yes_resighted": "Ja, denne art blev fejlidentificeret",
+    "no": "Nej, den er korrekt",
     "enable_location": "Slå placering til for at gemme observationer",
     "error_server": "Beklager, vi kunne ikke score dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_image": "Beklager, vi kunne ikke behandle dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_species": "Beklager, vi kunne ikke indhente artsdetaljer for dette billede. Kontroller internetforbindelsen og prøv igen.",
-    "error_ancestor": "Beklager, vi kunne ikke indhente taksonomisk data for dette billede. Kontroller internetforbindelsen og prøv igen.",
-    "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist."
+    "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist.",
+    "error_downtime": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{number}} timer.",
+    "error_few": "nogle få",
+    "error_gps": "Vi kunne ikke finde din GPS-placering. Prøv venligst at flytte dig til et sted, hvor du kan se himlen, og tjek at din enheds placering er slået til for at gemme observationer.",
+    "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere."
   },
   "banner": {
     "view": "Se mærke",
@@ -258,7 +270,7 @@
     "label": "Kamera",
     "on": "til",
     "off": "fra",
-    "scan": "Bliv ved at skanne miljøet for organismer, der kan identificeres!",
+    "scan": "Bliv ved at skanne omgivelserne for organismer, der kan identificeres!",
     "scan_class": "Prøv forskellige vinkler indtil du kan få en identifikation på artsniveau!",
     "scan_genus": "Næsten ved art!",
     "scan_species": "Det var det! Tag nu et billede for at tilføje denne art til dine observationer.",
@@ -275,9 +287,7 @@
     "permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
-    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
-    "error_saving_photos": "Beklager, vi kunne ikke gemme dit foto",
-    "error_fetching_photos": "Beklager, vi kunne ikke hente dit foto fra billedbiblioteket"
+    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet"
   },
   "gallery": {
     "label": "Fotos",
@@ -315,9 +325,10 @@
   },
   "badges": {
     "your_level": "Dit niveau",
-    "explanation": "Observer flere arter for at stige i niveau, find flere organismer inden for en bestemt gruppe for at optjene bestemte mærker og deltag i udfordringer for at optjene udfordringsmærker!",
+    "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
     "achievements": "Resultater",
     "observe": "Observer {{number}} arter for at nå til det næste niveau!",
+    "observe_max": "Du har nået det højeste niveau på Seek!",
     "observe_species": "Observer",
     "species_badges": "Artsmærker",
     "challenge_badges": "Udfordringsmærker",
@@ -449,7 +460,8 @@
     "original": "Seek blev oprindeligt skabt som en del af HHMI Tangled Bank Studios Backyard Wilderness initiative.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
-    "version": "Version"
+    "version": "Version",
+    "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org."
   },
   "posting": {
     "header": "Tilføj til iNaturalist",
@@ -497,5 +509,17 @@
     "no": "Dette er en organisme som naturligt lever vildt i naturen og ikke blev anbragt her af mennesker.",
     "yes": "Denne organisme blev anbragt her af mennesker. Det gælder for eksempel for haveplanter, kæledyr og dyr i zoologiske haver.",
     "addendum": "*Tilføjelse af observationer til projekter er ikke undersøttet i Seek. Hvis du gerne vil tilføje dine observationer til et projekt, kan du gøre det på iNaturalist.org eller ved at bruge iNaturalist appen."
+  },
+  "delete": {
+    "header": "Slet art?",
+    "description": "Ønsker du at slette denne art fra dine observationer? Dette kan påvirke dine udfordringer og mærker.",
+    "yes": "Ja, slet den fra mine observationer",
+    "no": "Annuller"
+  },
+  "warning": {
+    "remember": "Husk",
+    "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
+    "tip_2": "Spis ikke alt du finder i naturen.",
+    "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide."
   }
 }

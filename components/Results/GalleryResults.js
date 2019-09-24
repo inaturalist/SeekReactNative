@@ -58,13 +58,14 @@ class Results extends Component<Props> {
       match: null,
       clicked: false,
       isLoggedIn: null,
-      numberOfHours: null
+      numberOfHours: null,
+      errorCode: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
   }
 
-  setLocation() {
+  getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -74,6 +75,8 @@ class Results extends Component<Props> {
           longitude
         } );
       }
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
     } );
   }
 
@@ -84,11 +87,11 @@ class Results extends Component<Props> {
       if ( Platform.OS === "android" ) {
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
-            this.setLocation();
+            this.getGeolocation();
           }
         } );
       } else {
-        this.setLocation();
+        this.getGeolocation();
       }
     }
   }
@@ -131,6 +134,10 @@ class Results extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
+  }
+
+  setLocationErrorCode( errorCode ) {
+    this.setState( { errorCode } );
   }
 
   setOnlineVisionSpeciesResults( species ) {
@@ -318,7 +325,8 @@ class Results extends Component<Props> {
       longitude,
       time,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } = this.state;
 
     navigation.navigate( route, {
@@ -334,7 +342,8 @@ class Results extends Component<Props> {
       time,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } );
   }
 

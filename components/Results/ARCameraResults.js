@@ -32,7 +32,8 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri
+      backupUri,
+      errorCode
     } = navigation.state.params;
 
     this.state = {
@@ -54,7 +55,8 @@ class ARCameraResults extends Component<Props> {
       scientificName: null,
       imageForUploading: null,
       match: null,
-      isLoggedIn: null
+      isLoggedIn: null,
+      errorCode
     };
   }
 
@@ -102,9 +104,22 @@ class ARCameraResults extends Component<Props> {
 
   setARCameraVisionResults() {
     const { predictions, threshold } = this.state;
+
+    const ancestorIds = [];
+
+    if ( Platform.OS === "ios" ) {
+      predictions.forEach( ( prediction ) => {
+        ancestorIds.push( Number( prediction.taxon_id ) );
+      } );
+    }
+    // adding ancestor ids to take iOS camera experience offline
+
     const species = predictions.find( leaf => ( leaf.rank === 10 && leaf.score > threshold ) );
 
     if ( species ) {
+      if ( Platform.OS === "ios" ) {
+        species.ancestor_ids = ancestorIds.sort();
+      }
       this.checkDateSpeciesSeen( Number( species.taxon_id ) );
       this.fetchAdditionalSpeciesInfo( species );
     } else {
@@ -115,7 +130,7 @@ class ARCameraResults extends Component<Props> {
   setSpeciesInfo( species, taxa ) {
     const taxaId = Number( species.taxon_id );
 
-    const iconicTaxonId = Platform.OS === "android" ? checkForIconicTaxonId( species.ancestor_ids ) : null;
+    const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
 
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
       this.setState( {
@@ -128,8 +143,8 @@ class ARCameraResults extends Component<Props> {
             id: taxaId,
             name: species.name,
             preferred_common_name: commonName,
-            iconic_taxon_id: Platform.OS === "android" ? iconicTaxonId : taxa.iconic_taxon_id,
-            ancestor_ids: Platform.OS === "android" ? species.ancestor_ids : taxa.ancestor_ids
+            iconic_taxon_id: iconicTaxonId,
+            ancestor_ids: species.ancestor_ids
           }
         },
         speciesSeenImage:
@@ -170,11 +185,7 @@ class ARCameraResults extends Component<Props> {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
-      if ( Platform.OS === "android" ) {
-        this.setSpeciesInfo( species );
-      } else {
-        this.setError( "taxaInfo" );
-      }
+      this.setSpeciesInfo( species );
     } );
   }
 
@@ -271,7 +282,8 @@ class ARCameraResults extends Component<Props> {
       latitude,
       longitude,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } = this.state;
 
     navigation.navigate( route, {
@@ -287,7 +299,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      errorCode
     } );
   }
 

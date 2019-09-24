@@ -50,10 +50,10 @@ class LocationPicker extends Component<Props> {
     this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  onRegionChange( newRegion ) {
+  onRegionChange( region ) {
     this.setState( {
-      region: newRegion
-    }, () => this.reverseGeocodeLocation( newRegion.latitude, newRegion.longitude ) );
+      region
+    }, () => this.reverseGeocodeLocation( region.latitude, region.longitude ) );
   }
 
   setLocationUndefined() {
@@ -64,19 +64,7 @@ class LocationPicker extends Component<Props> {
     this.setState( { location } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      if ( location ) {
-        this.setLocation( location );
-      } else {
-        this.setLocationUndefined();
-      }
-    } ).catch( () => {
-      this.setLocationUndefined();
-    } );
-  }
-
-  findLatAndLng( location ) {
+  setCoordsByLocationName( location ) {
     Geocoder.geocodeAddress( location ).then( ( result ) => {
       if ( result.length === 0 ) {
         this.setLocationUndefined();
@@ -92,8 +80,21 @@ class LocationPicker extends Component<Props> {
           longitudeDelta
         }
       } );
-    } ).catch( () => {
-      this.setLocationUndefined();
+    } ).catch( ( e ) => {
+      console.log( e, "error" );
+    } );
+  }
+
+  reverseGeocodeLocation( lat, lng ) {
+    const { location } = this.state;
+    fetchLocationName( lat, lng ).then( ( newLocation ) => {
+      if ( newLocation === null ) {
+        this.setLocationUndefined();
+      } else if ( location !== newLocation ) {
+        this.setLocation( newLocation );
+      }
+    } ).catch( ( e ) => {
+      console.log( e, "error" );
     } );
   }
 
@@ -145,7 +146,7 @@ class LocationPicker extends Component<Props> {
                 placeholder={location}
                 autoCapitalize="words"
                 textContentType="addressCity"
-                onChangeText={text => this.findLatAndLng( text )}
+                onChangeText={text => this.setCoordsByLocationName( text )}
               />
             </View>
           </View>

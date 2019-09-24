@@ -10,7 +10,9 @@
     "enable_location": "Enable location in settings",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",
-    "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter."
+    "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter.",
+    "no_gps": "GPS signal not found.",
+    "location_timeout": "Your location request timed out. Please try again."
   },
   "get_started": {
     "header": "Get started",
@@ -20,7 +22,6 @@
   },
   "challenges_card": {
     "header": "Challenges",
-    "april": "April 2019: Connectivity",
     "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
@@ -52,7 +53,6 @@
   },
   "inat_signup": {
     "welcome": "Welcome to Seek!",
-    "explore": "We’re excited to explore with you!",
     "enter_birthday": "Please enter your birthday",
     "permission": "You need to be at least 13 years old to create an account.",
     "privacy": "Privacy Policy",
@@ -70,12 +70,18 @@
     "username": "username",
     "password": "password",
     "release_photos": "Yes, license my photos so scientists can use my data!",
-    "data_usage": "Seek uses your data to help improve our identification models.",
     "create_account": "Create my account",
     "thanks": "Thanks!",
     "parent_instructions": "We sent your parent or guardian an email with instructions.",
     "continue_no_log_in": "Continue Without Logging In",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "linked_account": "You’ve linked an iNaturalist account to Seek!",
+    "posting": "Posting to iNaturalist",
+    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
+    "observations": "Observations Saved on Device",
+    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
+    "observations_2": "Deleting the app will delete all your observations made in Seek.",
+    "observations_3": "Seek does not sync your observations to other devices."
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",
@@ -127,7 +133,7 @@
     "insects": "insects",
     "mollusks": "mollusks",
     "mammals": "mammals",
-    "other": "other"
+    "other": "other species"
   },
   "challenges": {
     "header": "Challenges",
@@ -149,11 +155,11 @@
     "april_2019": "April 2019",
     "may_2019": "May 2019",
     "june_2019": "June 2019",
-    "november_2019": "november 2019",
+    "november_2019": "November 2019",
     "august_2019": "August 2019",
     "september_2019": "September 2019",
     "october_2019": "October 2019",
-    "december_2019": "december 2019",
+    "december_2019": "December 2019",
     "mission_1_april": "Find 10 new species!",
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
     "start_challenge": "Start the challenge",
@@ -247,7 +253,9 @@
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
     "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
-    "error_few": "a few"
+    "error_few": "a few",
+    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
   },
   "banner": {
     "view": "View badge",
@@ -279,9 +287,7 @@
     "permissions": "Enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_old_camera": "Sorry, we weren't able to load the camera",
-    "error_device_support": "Sorry, the device you are using is not supported",
-    "error_saving_photos": "Sorry, we weren't able to save your photo",
-    "error_fetching_photos": "Sorry, we weren't able to fetch your photo from the camera roll"
+    "error_device_support": "Sorry, the device you are using is not supported"
     },
   "gallery": {
     "label": "Photos",
@@ -319,9 +325,10 @@
   },
   "badges": {
     "your_level": "Your Level",
-    "explanation": "Observe more total species to raise your level, find organisms of specific groups to earn species badges, and participate in challenges to earn challenge badges!",
+    "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
+    "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observe",
     "species_badges": "Species Badges",
     "challenge_badges": "Challenge Badges",

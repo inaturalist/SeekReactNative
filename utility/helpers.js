@@ -272,6 +272,7 @@ const sortNewestToOldest = ( observations ) => {
 const checkForIconicTaxonId = ( ancestorIds ) => {
   const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
   taxaIdList.pop();
+  taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
 
   const newTaxaList = [];
 

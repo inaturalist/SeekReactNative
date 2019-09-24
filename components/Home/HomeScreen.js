@@ -9,26 +9,23 @@ import {
   SafeAreaView,
   StatusBar
 } from "react-native";
-import Realm from "realm";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
-import DeviceInfo from "react-native-device-info";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
-import Challenges from "./Challenges";
-import NoChallenges from "./NoChallenges";
+import ChallengeCard from "./ChallengeCard";
 import Padding from "../Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
-import realmConfig from "../../models/index";
+import Spacer from "../iOSSpacer";
 
 type Props = {
   navigation: any
@@ -47,7 +44,6 @@ class HomeScreen extends Component<Props> {
       loading: true,
       modalVisible: false,
       error: null,
-      challenge: null,
       showGetStartedModal: false
     };
 
@@ -55,7 +51,7 @@ class HomeScreen extends Component<Props> {
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
     this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
-    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
+    this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
   setLoading( loading ) {
@@ -79,33 +75,29 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  setChallenge( challenge ) {
-    this.setState( { challenge } );
-  }
-
   getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords === null ) {
-        if ( Platform.OS === "android" ) {
-          this.checkDeviceLocationEnabled();
-        } else {
-          this.setError( "location" );
-        }
-      } else {
-        const { latitude, longitude } = coords;
+      const { latitude, longitude } = coords;
 
-        if ( latitude && longitude ) {
-          this.reverseGeocodeLocation( latitude, longitude );
-          this.setError( null );
+      if ( latitude && longitude ) {
+        this.reverseGeocodeLocation( latitude, longitude );
+        this.setError( null );
 
-          this.setState( {
-            latitude,
-            longitude
-          }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
-        }
+        this.setState( {
+          latitude,
+          longitude
+        }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
       }
-    } ).catch( () => {
-      this.checkInternetConnection();
+    } ).catch( ( errorCode ) => {
+      if ( errorCode === 1 ) {
+        this.setError( "location" );
+      } else if ( errorCode === 2 ) {
+        this.setError( "no_gps" );
+        this.setLoading( false );
+      } else {
+        this.setError( "location_timeout" );
+        this.setLoading( false );
+      }
     } );
   }
 
@@ -113,7 +105,6 @@ class HomeScreen extends Component<Props> {
     const { taxaType } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
-    this.reverseGeocodeLocation( lat, lng );
 
     const params = {
       verifiable: true,
@@ -136,14 +127,6 @@ class HomeScreen extends Component<Props> {
     }
 
     this.fetchSpeciesNearby( params );
-  }
-
-  checkDeviceLocationEnabled() {
-    DeviceInfo.isLocationEnabled().then( ( enabled ) => {
-      if ( enabled === false ) {
-        this.setError( "location_device" );
-      }
-    } );
   }
 
   requestAndroidPermissions() {
@@ -208,21 +191,6 @@ class HomeScreen extends Component<Props> {
     } );
   }
 
-  fetchLatestChallenge() {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
-        if ( incompleteChallenges.length > 0 ) {
-          const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
-          this.setChallenge( latestChallenge[0] );
-        } else {
-          this.setChallenge( null );
-        }
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-  }
-
   toggleLocationPicker() {
     const { modalVisible, error } = this.state;
 
@@ -260,7 +228,6 @@ class HomeScreen extends Component<Props> {
       taxa,
       modalVisible,
       error,
-      challenge,
       showGetStartedModal
     } = this.state;
     const { navigation } = this.props;
@@ -276,7 +243,6 @@ class HomeScreen extends Component<Props> {
                 this.scrollToTop();
                 this.checkForFirstLaunch();
                 this.requestAndroidPermissions();
-                this.fetchLatestChallenge();
                 addARCameraFiles();
               }}
               onWillBlur={() => this.setLoading( true )}
@@ -292,7 +258,7 @@ class HomeScreen extends Component<Props> {
             <ScrollView
               ref={( ref ) => { this.scrollView = ref; }}
             >
-              {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
+              {Platform.OS === "ios" && <Spacer />}
               <Modal
                 visible={modalVisible}
                 onRequestClose={() => this.toggleLocationPicker()}
@@ -310,18 +276,13 @@ class HomeScreen extends Component<Props> {
                 loading={loading}
                 navigation={navigation}
                 location={location}
-                latitude={latitude}
-                longitude={longitude}
                 updateTaxaType={this.updateTaxaType}
                 toggleLocationPicker={this.toggleLocationPicker}
                 error={error}
-                setParamsForSpeciesNearby={this.setParamsForSpeciesNearby}
+                requestAndroidPermissions={this.requestAndroidPermissions}
               />
               <CardPadding />
-              { challenge
-                ? <Challenges navigation={navigation} challenge={challenge} />
-                : <NoChallenges navigation={navigation} />
-              }
+              <ChallengeCard navigation={navigation} />
               <Padding />
             </ScrollView>
           </View>

@@ -21,11 +21,9 @@ type Props = {
   loading: boolean,
   navigation: any,
   location: string,
-  latitude: number,
-  longitude: number,
   updateTaxaType: Function,
   toggleLocationPicker: Function,
-  setParamsForSpeciesNearby: Function,
+  requestAndroidPermissions: Function,
   error: string
 }
 
@@ -34,11 +32,9 @@ const SpeciesNearby = ( {
   loading,
   navigation,
   location,
-  latitude,
-  longitude,
   updateTaxaType,
   toggleLocationPicker,
-  setParamsForSpeciesNearby,
+  requestAndroidPermissions,
   error
 }: Props ) => {
   let species;
@@ -51,9 +47,7 @@ const SpeciesNearby = ( {
     species = (
       <Error
         error={error}
-        setParamsForSpeciesNearby={setParamsForSpeciesNearby}
-        latitude={latitude}
-        longitude={longitude}
+        requestAndroidPermissions={requestAndroidPermissions}
       />
     );
   } else {

@@ -11,6 +11,7 @@ import nl from "./translations/nl.json";
 import zh from "./translations/zh.json";
 import pt from "./translations/pt.json";
 import ptBR from "./translations/pt-BR.json";
+import tr from "./translations/tr.json";
 
 i18n.translations = {
   en,
@@ -22,7 +23,8 @@ i18n.translations = {
   nl,
   zh,
   pt,
-  ptBR
+  ptBR,
+  tr
 };
 i18n.fallbacks = true;
 

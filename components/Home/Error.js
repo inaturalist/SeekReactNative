@@ -17,25 +17,33 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   error: string,
-  setParamsForSpeciesNearby: Function,
-  latitude: string,
-  longitude: string
+  requestAndroidPermissions: Function
 }
 
 const Error = ( {
   error,
-  setParamsForSpeciesNearby,
-  latitude,
-  longitude
+  requestAndroidPermissions
 }: Props ) => (
   <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
     <TouchableOpacity
-      onPress={() => setParamsForSpeciesNearby( latitude, longitude )}
+      onPress={() => requestAndroidPermissions()}
     >
       {error === "location_device" ? (
         <View style={styles.row}>
           <Image source={icons.error} />
           <Text style={styles.text}>{i18n.t( "species_nearby.location_device" )}</Text>
+        </View>
+      ) : null}
+      {error === "no_gps" ? (
+        <View style={styles.row}>
+          <Image source={icons.error} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.no_gps" )}</Text>
+        </View>
+      ) : null}
+      {error === "location_timeout" ? (
+        <View style={styles.row}>
+          <Image source={icons.error} />
+          <Text style={styles.text}>{i18n.t( "species_nearby.location_timeout" )}</Text>
         </View>
       ) : null}
       {error === "location" ? (

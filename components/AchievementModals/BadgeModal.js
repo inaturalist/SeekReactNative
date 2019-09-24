@@ -7,8 +7,8 @@ import {
   Image,
   ImageBackground,
   TouchableOpacity,
-  ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  FlatList
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -53,7 +53,7 @@ class BadgeModal extends Component<Props> {
 
   render() {
     const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
-    const { interval } = this.state;
+    // const { interval } = this.state;
 
     const badgeList = [];
 
@@ -90,44 +90,45 @@ class BadgeModal extends Component<Props> {
 
     return (
       <SafeAreaView style={styles.safeView}>
-        <View style={styles.container}>
-          <BannerHeader
-            text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
-            modal
-          />
-          <ScrollView
-            horizontal
-            pagingEnabled
-            // snapToInterval={interval}
-            showsHorizontalScrollIndicator={false}
-          >
-            {badgeList}
-          </ScrollView>
-          <Image source={icons.badgeSwipeRight} style={styles.arrow} />
-          <View style={styles.row}>
-            <TouchableOpacity onPress={this.scrollToB}>
-              <Image
-                source={badges[0].earned ? badgeImages[badges[0].earnedIconName] : badgeImages[badges[0].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.scrollToC}>
-              <Image
-                source={badges[1].earned ? badgeImages[badges[1].earnedIconName] : badgeImages[badges[1].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={this.scrollToTop}>
-              <Image
-                source={badges[2].earned ? badgeImages[badges[2].earnedIconName] : badgeImages[badges[2].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            </TouchableOpacity>
+        <View style={styles.outerContainer}>
+          <View style={styles.innerContainer}>
+            <BannerHeader
+              text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+              modal
+            />
+            <FlatList
+              horizontal
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              data={badgeList}
+              renderItem={( { item } ) => item}
+            />
+            <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+            <View style={styles.row}>
+              <TouchableOpacity onPress={this.scrollToB}>
+                <Image
+                  source={badges[0].earned ? badgeImages[badges[0].earnedIconName] : badgeImages[badges[0].unearnedIconName]}
+                  style={styles.smallImage}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.scrollToC}>
+                <Image
+                  source={badges[1].earned ? badgeImages[badges[1].earnedIconName] : badgeImages[badges[1].unearnedIconName]}
+                  style={styles.smallImage}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.scrollToTop}>
+                <Image
+                  source={badges[2].earned ? badgeImages[badges[2].earnedIconName] : badgeImages[badges[2].unearnedIconName]}
+                  style={styles.smallImage}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
+          <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
+            <Image source={icons.closeModal} />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
-          <Image source={icons.closeModal} />
-        </TouchableOpacity>
       </SafeAreaView>
     );
   }

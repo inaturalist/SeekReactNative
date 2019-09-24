@@ -1,15 +1,22 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  padding
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
+  outerContainer: {
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center"
+  },
+  innerContainer: {
     borderRadius: 40,
+    alignItems: "center",
+    width: 338,
     backgroundColor: colors.white
   },
   image: {
@@ -32,6 +39,7 @@ export default StyleSheet.create( {
     lineHeight: 24
   },
   backButton: {
+    marginTop: 15,
     padding: 10,
     alignItems: "center",
     justifyContent: "center"
@@ -50,6 +58,7 @@ export default StyleSheet.create( {
     color: colors.black
   },
   italicText: {
+    maxWidth: 256,
     marginTop: 16,
     marginBottom: 16,
     marginHorizontal: 27,
@@ -58,5 +67,22 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 25,
     color: colors.black
+  },
+  greenButton: {
+    marginTop: 37,
+    marginBottom: 32,
+    backgroundColor: colors.seekForestGreen,
+    width: 293,
+    height: 52,
+    borderRadius: 34,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    paddingTop: padding.iOSPadding,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    color: colors.white
   }
 } );

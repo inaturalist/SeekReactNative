@@ -189,9 +189,10 @@ class PostScreen extends Component<Props> {
       const string = latitude.toString();
       const split = string.split( "." );
 
-      if ( split[1].length === 2 ) {
+      if ( split[1] && split[1].length === 2 ) {
         return true;
       }
+      return false;
     }
     return false;
   }

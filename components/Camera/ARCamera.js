@@ -28,7 +28,7 @@ import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { dirPictures } from "../../utility/dirStorage";
 
 const { width } = Dimensions.get( "window" );
@@ -52,7 +52,8 @@ class ARCamera extends Component<Props> {
       commonName: null,
       latitude: null,
       longitude: null,
-      showWarningModal: false
+      showWarningModal: false,
+      errorCode: null
     };
     this.backHandler = null;
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
@@ -79,7 +80,11 @@ class ARCamera extends Component<Props> {
     this.setState( { error } );
   }
 
-  setLocation() {
+  setLocationErrorCode( errorCode ) {
+    this.setState( { errorCode } );
+  }
+
+  getGeolocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -89,6 +94,8 @@ class ARCamera extends Component<Props> {
           longitude
         } );
       }
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
     } );
   }
 
@@ -125,7 +132,7 @@ class ARCamera extends Component<Props> {
 
   onCameraError = ( event ) => {
     if ( event ) {
-      this.setError( "permissions" );
+      this.setError( "camera" );
     }
   }
 
@@ -153,14 +160,12 @@ class ARCamera extends Component<Props> {
       const camera = permissions.CAMERA;
       const cameraRollSave = permissions.WRITE_EXTERNAL_STORAGE;
       const cameraRollRetrieve = permissions.READ_EXTERNAL_STORAGE;
-      const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
       try {
         const granted = await PermissionsAndroid.requestMultiple( [
           camera,
           cameraRollSave,
-          cameraRollRetrieve,
-          location
+          cameraRollRetrieve
         ] );
 
         if ( granted[camera] !== results.GRANTED ) {
@@ -170,15 +175,9 @@ class ARCamera extends Component<Props> {
         if ( granted[cameraRollRetrieve] !== results.GRANTED ) {
           this.setError( "save" );
         }
-
-        if ( granted[location] === results.GRANTED ) {
-          this.setLocation();
-        }
       } catch ( e ) {
-        this.setError( "permissions" );
+        this.setError( "camera" );
       }
-    } else {
-      this.setLocation();
     }
   }
 
@@ -210,6 +209,20 @@ class ARCamera extends Component<Props> {
           this.setError( "save" );
         } );
       }
+    }
+  }
+
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.setLocationErrorCode( 1 );
+        }
+      } );
+    } else {
+      this.getGeolocation();
     }
   }
 
@@ -271,7 +284,12 @@ class ARCamera extends Component<Props> {
   }
 
   navigateToResults( uri, backupUri ) {
-    const { predictions, latitude, longitude } = this.state;
+    const {
+      predictions,
+      latitude,
+      longitude,
+      errorCode
+    } = this.state;
     const { navigation } = this.props;
 
     if ( predictions && predictions.length > 0 ) {
@@ -280,7 +298,8 @@ class ARCamera extends Component<Props> {
         predictions,
         latitude,
         longitude,
-        backupUri
+        backupUri,
+        errorCode
       } );
     } else {
       navigation.navigate( "GalleryResults", {
@@ -288,7 +307,8 @@ class ARCamera extends Component<Props> {
         time: null,
         latitude,
         longitude,
-        backupUri
+        backupUri,
+        errorCode
       } );
     }
   }
@@ -347,6 +367,8 @@ class ARCamera extends Component<Props> {
       errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
       errorText = i18n.t( "camera.error_gallery" );
+    } else if ( error === "camera" ) {
+      errorText = i18n.t( "camera.error_old_camera" );
     }
 
     let helpText;
@@ -366,6 +388,7 @@ class ARCamera extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.checkForCameraLaunch();
+            this.requestAndroidPermissions(); // separate location from camera permissions
             this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );

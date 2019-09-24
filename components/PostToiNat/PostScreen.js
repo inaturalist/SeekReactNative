@@ -16,6 +16,7 @@ import { NavigationEvents, ScrollView } from "react-navigation";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
+import { Appearance } from "react-native-appearance";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
@@ -379,6 +380,7 @@ class PostScreen extends Component<Props> {
       postingSuccess,
       description
     } = this.state;
+    const colorScheme = Appearance.getColorScheme();
 
     let commonName;
 
@@ -403,6 +405,7 @@ class PostScreen extends Component<Props> {
             hideTitleContainerIOS
             datePickerModeAndroid="spinner"
             timePickerModeAndroid="spinner"
+            isDarkModeEnabled={colorScheme === "dark"}
           />
           <Modal
             visible={showSpeciesModal}

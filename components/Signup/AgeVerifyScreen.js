@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import moment from "moment";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { Appearance } from "react-native-appearance";
 
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
@@ -59,6 +60,7 @@ class AgeVerifyScreen extends Component<Props> {
   render() {
     const { navigation } = this.props;
     const { isDateTimePickerVisible, date } = this.state;
+    const colorScheme = Appearance.getColorScheme();
 
     return (
       <View style={styles.container}>
@@ -90,6 +92,7 @@ class AgeVerifyScreen extends Component<Props> {
               hideTitleContainerIOS
               datePickerModeAndroid="spinner"
               timePickerModeAndroid="spinner"
+              isDarkModeEnabled={colorScheme === "dark"}
             />
             <View style={{ marginBottom: 98 }} />
             <TouchableOpacity

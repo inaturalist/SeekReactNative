@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView
+  SafeAreaView,
+  Platform
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
@@ -53,7 +54,11 @@ class LocationPicker extends Component<Props> {
   onRegionChange( region ) {
     this.setState( {
       region
-    }, () => this.reverseGeocodeLocation( region.latitude, region.longitude ) );
+    }, () => {
+      if ( Platform.OS === "android" ) {
+        this.reverseGeocodeLocation( region.latitude, region.longitude );
+      }
+    } );
   }
 
   setLocationUndefined() {
@@ -161,7 +166,12 @@ class LocationPicker extends Component<Props> {
           <View style={styles.footer}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => updateLocation( truncateCoordinates( region.latitude ), truncateCoordinates( region.longitude ), location )}
+              onPress={() => {
+                updateLocation(
+                  truncateCoordinates( region.latitude ),
+                  truncateCoordinates( region.longitude )
+                );
+              }}
             >
               <Text style={styles.buttonText}>
                 {i18n.t( "location_picker.button" ).toLocaleUpperCase()}

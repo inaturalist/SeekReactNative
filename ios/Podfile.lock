@@ -109,6 +109,8 @@ PODS:
     - React
   - RNReanimated (1.2.0):
     - React
+  - RNShare (2.0.0):
+    - React
   - RNSVG (9.6.4):
     - React
   - yoga (0.60.5.React)
@@ -149,6 +151,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+  - RNShare (from `../node_modules/react-native-share`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -227,6 +230,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+  RNShare:
+    :path: "../node_modules/react-native-share"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   yoga:
@@ -269,6 +274,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 4cb47a93019c1a201df2644413a0a1569a51c8aa
   RNLocalize: a91e036a6abc46e656a989456701182e0e228c7a
   RNReanimated: 1b52415c4302f198cb581282a0166690bad62c43
+  RNShare: 8b171d4b43c1d886917fdd303bf7a4b87167b05c
   RNSVG: a53a5de0d90ec96a6502cc3a4534dfcc0c130622
   yoga: 312528f5bbbba37b4dcea5ef00e8b4033fdd9411
 

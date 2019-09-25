@@ -7,8 +7,7 @@ import {
   Platform,
   Modal,
   SafeAreaView,
-  StatusBar,
-  Alert
+  StatusBar
 } from "react-native";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
@@ -202,12 +201,12 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude, location ) {
+  updateLocation( latitude, longitude ) {
     this.setLoading( true );
+    this.reverseGeocodeLocation( latitude, longitude );
     this.setState( {
       latitude,
-      longitude,
-      location
+      longitude
     }, () => {
       this.toggleLocationPicker();
       this.setParamsForSpeciesNearby( latitude, longitude );

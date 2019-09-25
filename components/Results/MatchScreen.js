@@ -30,6 +30,7 @@ import Spacer from "../iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
+// import { openShareDialog } from "../../utility/shareHelpers";
 import {
   createLocationPermissionsAlert,
   createGPSAlert,
@@ -415,6 +416,14 @@ class MatchScreen extends Component<Props> {
                   <Text style={[styles.linkText, { marginBottom: 28 }]}>{i18n.t( "results.back" )}</Text>
                 </TouchableOpacity>
               ) : null}
+              {/* {isLoggedIn ? (
+                <TouchableOpacity
+                  style={styles.link}
+                  onPress={() => openShareDialog( userImage )}
+                >
+                  <Text style={[styles.linkText, { marginBottom: 28 }]}>Share your Observation</Text>
+                </TouchableOpacity>
+              ) : null} */}
               {isLoggedIn ? (
                 <PostToiNat
                   navigation={navigation}

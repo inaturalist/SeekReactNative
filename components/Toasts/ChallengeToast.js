@@ -18,7 +18,6 @@ type Props = {
 
 const ChallengeToast = ( { navigation, challenge }: Props ) => (
   <TouchableOpacity
-    style={styles.container}
     onPress={() => navigation.navigate( "Challenges" )}
   >
     <View style={styles.row}>

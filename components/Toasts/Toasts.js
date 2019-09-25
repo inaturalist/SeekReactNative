@@ -1,6 +1,11 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, View, Dimensions } from "react-native";
+import {
+  Animated,
+  View,
+  Dimensions,
+  Platform
+} from "react-native";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
@@ -89,7 +94,7 @@ class Toasts extends Component<Props> {
     const { navigation, badge, incompleteChallenge } = this.props;
 
     return (
-      <View style={styles.topContainer}>
+      <View style={Platform.OS === "ios" ? styles.topContainer : null}>
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {

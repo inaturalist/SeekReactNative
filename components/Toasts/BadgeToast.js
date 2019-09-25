@@ -19,7 +19,6 @@ type Props = {
 
 const BadgeToast = ( { navigation, badge }: Props ) => (
   <TouchableOpacity
-    style={styles.container}
     onPress={() => navigation.navigate( "Achievements" )}
   >
     <View style={styles.row}>

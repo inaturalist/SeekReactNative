@@ -35,6 +35,15 @@ const capitalizeNames = ( name ) => {
   return titleCaseName;
 };
 
+const searchForRealm = () => {
+  RNFS.readDir( RNFS.DocumentDirectoryPath )
+    .then( ( result ) => {
+      console.log( result, "directories" );
+    } ).catch( ( error ) => {
+      console.log( error, "main directory" );
+    } );
+};
+
 const addARCameraFiles = () => {
   if ( Platform.OS === "android" ) {
     RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
@@ -303,5 +312,6 @@ export {
   checkForInternet,
   checkForIconicTaxonId,
   removeFromCollection,
-  sortNewestToOldest
+  sortNewestToOldest,
+  searchForRealm
 };

@@ -6,6 +6,7 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   animatedStyle: {
+    zIndex: 1,
     position: "absolute",
     left: 0,
     top: 0,
@@ -13,9 +14,6 @@ export default StyleSheet.create( {
     justifyContent: "center",
     backgroundColor: colors.white,
     height: 112
-  },
-  container: {
-    zIndex: 1
   },
   row: {
     height: 112,

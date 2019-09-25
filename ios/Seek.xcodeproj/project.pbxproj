@@ -23,6 +23,7 @@
 		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
 		37A31732230F5FB9008A8233 /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A31731230F5FB9008A8233 /* libRealmJS.a */; };
 		37A31733230F5FB9008A8233 /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37A31730230F5FB1008A8233 /* libRealmReact.a */; };
+		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
 		37EDFD87F70E4E039370DDA3 /* Whitney-Bold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */; };
@@ -125,6 +126,7 @@
 		37A31731230F5FB9008A8233 /* libRealmJS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRealmJS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CD59672162E99E002E78BA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		37CD59692162E99E002E78BA /* Whitney-Medium-Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Whitney-Medium-Pro.otf"; path = "../assets/fonts/Whitney-Medium-Pro.otf"; sourceTree = "<group>"; };
+		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		38A1CF6C4F29432F981EAFC3 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */,
 				37A31732230F5FB9008A8233 /* libRealmJS.a in Frameworks */,
 				37A31733230F5FB9008A8233 /* libRealmReact.a in Frameworks */,
 				37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */,
@@ -235,6 +238,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37D71CD3233BE712003423F8 /* CloudKit.framework */,
 				37A31731230F5FB9008A8233 /* libRealmJS.a */,
 				37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,

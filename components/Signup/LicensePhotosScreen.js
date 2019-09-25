@@ -72,6 +72,7 @@ class LicensePhotosScreen extends Component<Props> {
               onChangeText={ value => this.setState( { email: value } )}
               value={email}
               placeholder="email"
+              placeholderTextColor="#828282"
               textContentType="emailAddress"
               autoFocus
               autoCorrect={false}

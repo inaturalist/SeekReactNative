@@ -184,6 +184,7 @@ class SignUpScreen extends Component<Props> {
               onChangeText={ value => this.setState( { username: value } )}
               value={username}
               placeholder="username"
+              placeholderTextColor="#828282"
               textContentType="username"
               autoFocus
               autoCapitalize="none"

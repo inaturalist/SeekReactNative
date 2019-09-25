@@ -117,6 +117,7 @@ class LoginScreen extends Component<Props> {
               value={password}
               secureTextEntry
               placeholder="*********"
+              placeholderTextColor="#828282"
               textContentType="password"
               autoCapitalize="none"
             />

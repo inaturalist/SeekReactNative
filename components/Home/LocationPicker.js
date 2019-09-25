@@ -144,6 +144,7 @@ class LocationPicker extends Component<Props> {
               <TextInput
                 style={styles.inputField}
                 placeholder={location}
+                placeholderTextColor="#828282"
                 autoCapitalize="words"
                 textContentType="addressCity"
                 onChangeText={text => this.setCoordsByLocationName( text )}

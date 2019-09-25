@@ -126,6 +126,7 @@ class ForgotPasswordScreen extends Component<Props> {
               onChangeText={ value => this.setState( { email: value } )}
               value={email}
               placeholder="email address"
+              placeholderTextColor="#828282"
               textContentType="emailAddress"
               keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
               autoFocus

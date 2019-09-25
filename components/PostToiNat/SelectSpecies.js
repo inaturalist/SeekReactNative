@@ -128,6 +128,7 @@ class SelectSpecies extends Component<Props> {
               <TextInput
                 style={styles.inputField}
                 placeholder={i18n.t( "posting.look_up" )}
+                placeholderTextColor="#828282"
                 onChangeText={text => this.searchForSpecies( text )}
               />
             </View>

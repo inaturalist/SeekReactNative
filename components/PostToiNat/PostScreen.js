@@ -475,6 +475,7 @@ class PostScreen extends Component<Props> {
               onChangeText={ value => this.setState( { description: value } )}
               value={description}
               placeholder={i18n.t( "posting.notes" )}
+              placeholderTextColor="#828282"
               keyboardType="default"
               multiline
             />

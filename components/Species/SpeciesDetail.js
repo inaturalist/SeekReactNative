@@ -452,7 +452,7 @@ class SpeciesDetail extends Component<Props> {
                       seenDate={seenDate}
                     />
                   ) : null}
-                  <SpeciesTaxonomy ancestors={ancestors} />
+                  {!error ? <SpeciesTaxonomy ancestors={ancestors} /> : null}
                   {!error ? (
                     <INatObs
                       id={id}

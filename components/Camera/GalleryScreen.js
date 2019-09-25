@@ -11,7 +11,8 @@ import {
   View,
   StatusBar,
   SafeAreaView,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
@@ -46,17 +47,25 @@ class GalleryScreen extends Component<Props> {
       error: null,
       hasNextPage: true,
       lastCursor: null,
-      stillLoading: false
+      stillLoading: false,
+      groupTypes: "All"
     };
   }
 
   getPhotos() {
-    const { lastCursor, hasNextPage, stillLoading } = this.state;
+    const {
+      lastCursor,
+      hasNextPage,
+      stillLoading,
+      groupTypes
+    } = this.state;
+
+    // console.log( CameraRoll.GroupTypesOptions, "cam roll" );
 
     const photoOptions = {
       first: 28,
       assetType: "Photos",
-      groupTypes: "All" // this is required in RN 0.59+
+      groupTypes // this is required in RN 0.59+
     };
 
     if ( lastCursor ) {
@@ -97,7 +106,7 @@ class GalleryScreen extends Component<Props> {
       hasNextPage: true,
       lastCursor: null,
       stillLoading: false
-    } );
+    }, () => this.getPhotos() );
   }
 
   appendPhotos( data ) {
@@ -178,6 +187,21 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
+
+  togglePhotoGallery() {
+    const { groupTypes } = this.state;
+
+    if ( groupTypes === "All" ) {
+      this.setState( { 
+        groupTypes: "Album"
+      }, () => this.resetState() );
+    } else {
+      this.setState( { 
+        groupTypes: "All"
+      }, () => this.resetState() );
+    }
+  }
+
   render() {
     const {
       error,
@@ -235,7 +259,11 @@ class GalleryScreen extends Component<Props> {
             >
               <Image source={icons.closeGreen} style={styles.buttonImage} />
             </TouchableOpacity>
-            <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
+            <TouchableOpacity
+              onPress={() => this.togglePhotoGallery()}
+            >
+              <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.galleryContainer}>
             {gallery}

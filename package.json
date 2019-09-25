@@ -40,12 +40,12 @@
     "react-native-svg": "^9.6.4",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",
-    "react-navigation": "^4.0.4",
-    "react-navigation-drawer": "^2.2.0",
+    "react-navigation": "^4.0.9",
+    "react-navigation-drawer": "^2.2.2",
     "react-navigation-stack": "^1.7.3",
     "react-navigation-tabs": "^2.5.1",
     "react-navigation-transitions": "^1.0.12",
-    "realm": "^2.29.2"
+    "realm": "^3.1.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-flow-strip-types": "^7.4.4",

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
-  TouchableOpacity,
-  Image
+  Image,
+  View
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -57,10 +57,9 @@ class AlbumPicker extends Component<Props> {
           this.inputRefs.picker2 = el;
         }}
         useNativeAndroidPickerStyle={false}
+        Icon={() => <Image source={icons.dropdownOpen} style={{ marginLeft: 15 }} />}
       >
-        <TouchableOpacity
-          style={styles.row}
-        >
+        <View style={styles.row}>
           <Text style={styles.headerText}>
             {album === "All"
               ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()
@@ -68,7 +67,7 @@ class AlbumPicker extends Component<Props> {
             }
           </Text>
           <Image source={icons.dropdownOpen} style={{ marginLeft: 15 }} />
-        </TouchableOpacity>
+        </View>
       </RNPickerSelect>
     );
   }

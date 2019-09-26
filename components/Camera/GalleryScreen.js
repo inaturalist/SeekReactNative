@@ -7,16 +7,15 @@ import {
   FlatList,
   TouchableHighlight,
   TouchableOpacity,
-  Text,
   View,
   StatusBar,
   SafeAreaView,
-  Dimensions,
-  Alert
+  Dimensions
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import moment from "moment";
+import GalleryManager from "react-native-gallery-manager";
 
 import i18n from "../../i18n";
 import PermissionError from "./PermissionError";
@@ -31,6 +30,7 @@ import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
+import AlbumPicker from "./AlbumPicker";
 
 const { width } = Dimensions.get( "window" );
 
@@ -48,8 +48,40 @@ class GalleryScreen extends Component<Props> {
       hasNextPage: true,
       lastCursor: null,
       stillLoading: false,
-      groupTypes: "All"
+      groupTypes: "All",
+      albumNames: [],
+      album: null
     };
+
+    this.updateAlbum = this.updateAlbum.bind( this );
+  }
+
+  async setupComponent() {
+    await this.getAlbumNames();
+  }
+
+  getAlbumNames() {
+    GalleryManager.getAlbums().then( ( { albums } ) => {
+      const albumNames = [{
+        label: i18n.t( "gallery.camera_roll" ),
+        value: "All"
+      }];
+
+      albums.forEach( ( album ) => {
+        const { assetCount, title } = album;
+
+        if ( assetCount > 0 ) {
+          albumNames.push( {
+            label: title,
+            value: title
+          } );
+        }
+      } );
+
+      this.setState( { albumNames } );
+    } ).catch( ( err ) => {
+      console.log( err, "error fetching album names" );
+    } );
   }
 
   getPhotos() {
@@ -57,14 +89,14 @@ class GalleryScreen extends Component<Props> {
       lastCursor,
       hasNextPage,
       stillLoading,
-      groupTypes
+      groupTypes,
+      album
     } = this.state;
-
-    // console.log( CameraRoll.GroupTypesOptions, "cam roll" );
 
     const photoOptions = {
       first: 28,
       assetType: "Photos",
+      groupName: album,
       groupTypes // this is required in RN 0.59+
     };
 
@@ -96,6 +128,20 @@ class GalleryScreen extends Component<Props> {
       this.getPhotos();
     } else {
       this.showError( permission );
+    }
+  }
+
+  updateAlbum( album ) {
+    if ( album !== "All" ) {
+      this.setState( {
+        groupTypes: "Album",
+        album
+      }, () => this.resetState() );
+    } else {
+      this.setState( {
+        groupTypes: "All",
+        album: i18n.t( "gallery.camera_roll" )
+      }, () => this.resetState() );
     }
   }
 
@@ -187,25 +233,11 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-
-  togglePhotoGallery() {
-    const { groupTypes } = this.state;
-
-    if ( groupTypes === "All" ) {
-      this.setState( { 
-        groupTypes: "Album"
-      }, () => this.resetState() );
-    } else {
-      this.setState( { 
-        groupTypes: "All"
-      }, () => this.resetState() );
-    }
-  }
-
   render() {
     const {
       error,
-      photos
+      photos,
+      albumNames
     } = this.state;
 
     const { navigation } = this.props;
@@ -247,7 +279,10 @@ class GalleryScreen extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <SafeAreaView style={styles.safeView}>
           <NavigationEvents
-            onWillFocus={() => this.checkPermissions()}
+            onWillFocus={() => {
+              this.setupComponent();
+              this.checkPermissions();
+            }}
             onWillBlur={() => this.resetState()}
           />
           <StatusBar barStyle="dark-content" />
@@ -259,11 +294,10 @@ class GalleryScreen extends Component<Props> {
             >
               <Image source={icons.closeGreen} style={styles.buttonImage} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.togglePhotoGallery()}
-            >
-              <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
-            </TouchableOpacity>
+            {albumNames.length > 0
+              ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+              : null
+            }
           </View>
           <View style={styles.galleryContainer}>
             {gallery}

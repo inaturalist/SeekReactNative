@@ -22,6 +22,7 @@
     "react-native-appearance": "^0.1.0",
     "react-native-check-box": "^2.1.7",
     "react-native-fs": "^2.14.1",
+    "react-native-gallery-manager": "github:pentarex/react-native-gallery-manager#d09fcf2cf63fbbcbac76f9b287d5652200ff203a",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-image-resizer": "git+https://github.com/QuartermasterInc/react-native-image-resizer.git",

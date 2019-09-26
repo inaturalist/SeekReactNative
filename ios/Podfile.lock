@@ -62,6 +62,8 @@ PODS:
     - React
   - react-native-cameraroll (1.2.1):
     - React
+  - react-native-gallery-manager (1.0.9):
+    - React
   - react-native-geocoder (0.5.1):
     - React
   - react-native-geolocation (2.0.2):
@@ -129,6 +131,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-appearance (from `../node_modules/react-native-appearance`)
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
+  - react-native-gallery-manager (from `../node_modules/react-native-gallery-manager`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
@@ -186,6 +189,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-appearance"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-community/cameraroll"
+  react-native-gallery-manager:
+    :path: "../node_modules/react-native-gallery-manager"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation:
@@ -252,6 +257,7 @@ SPEC CHECKSUMS:
   React-jsinspector: e08662d1bf5b129a3d556eb9ea343a3f40353ae4
   react-native-appearance: b2441a5ffbf3187820209592775c15431aaf9544
   react-native-cameraroll: 9fa61cb36a9cc6d5109b591466a9f985b264c27b
+  react-native-gallery-manager: 030b6f09cbe458ecbe81b6dcd8248dc17a475f26
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8

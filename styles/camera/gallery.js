@@ -49,5 +49,11 @@ export default StyleSheet.create( {
     flex: 0,
     backgroundColor: colors.white
   },
-  touchable
+  touchable,
+  row: {
+    flexWrap: "nowrap",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  }
 } );

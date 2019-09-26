@@ -291,7 +291,8 @@
     },
   "gallery": {
     "label": "Photos",
-    "choose_photo": "Choose a photo"
+    "choose_photo": "Choose a photo",
+    "camera_roll": "Camera Roll"
   },
   "camera_help": {
     "title": "Seek's Camera",

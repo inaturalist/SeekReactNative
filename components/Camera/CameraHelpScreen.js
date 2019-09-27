@@ -35,12 +35,12 @@ class CameraHelpScreen extends Component<Props> {
 
   renderTips( tip ) {
     return (
-        <View style={styles.tips}>
-          <Text style={styles.bullets}>&#8226;</Text>
-          <View style={styles.tipContainer}>
-            <Text style={styles.text}>{tip}</Text>
-          </View>
+      <View style={styles.tips}>
+        <Text style={styles.bullets}>&#8226;</Text>
+        <View style={styles.tipContainer}>
+          <Text style={styles.text}>{tip}</Text>
         </View>
+      </View>
     );
   }
 
@@ -87,19 +87,6 @@ class CameraHelpScreen extends Component<Props> {
               {this.renderTips( tips[1] )}
               {this.renderTips( tips[2] )}
               {this.renderTips( tips[3] )}
-              {/* <FlatList
-                data={tips}
-                scrollEnabled={false}
-                keyExtractor={( item, index ) => `${item}${index}`}
-                renderItem={( { item } ) => (
-                  <View style={styles.tips}>
-                    <Text style={styles.bullets}>&#8226;</Text>
-                    <View style={styles.tipContainer}>
-                      <Text style={styles.text}>{item}</Text>
-                    </View>
-                  </View>
-                )}
-              /> */}
             </View>
             <Padding />
           </ScrollView>

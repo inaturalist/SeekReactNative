@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  FlatList,
   Image,
   ScrollView,
   SafeAreaView
@@ -104,16 +103,13 @@ class ChallengeScreen extends Component<Props> {
         </View>
         {challengesStarted.length > 0 ? (
           <View>
-            <FlatList
-              data={challengesStarted}
-              keyExtractor={( item, i ) => `${item}${i}`}
-              renderItem={( { item } ) => (
-                <ChallengeProgressCard
-                  item={item}
-                  navigation={navigation}
-                />
-              )}
-            />
+            {challengesStarted.map( ( item, index ) => (
+              <ChallengeProgressCard
+                key={`${item}${index}`}
+                item={item}
+                navigation={navigation}
+              />
+            ) )}
             <View style={{ marginTop: 23 }} />
           </View>
         ) : (
@@ -138,17 +134,14 @@ class ChallengeScreen extends Component<Props> {
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
-            <FlatList
-              data={challengesNotStarted}
-              keyExtractor={( item, i ) => `${item}${i}`}
-              renderItem={( { item } ) => (
-                <ChallengeProgressCard
-                  item={item}
-                  navigation={navigation}
-                  fetchChallenges={this.fetchChallenges}
-                />
-              )}
-            />
+            {challengesNotStarted.map( ( item, index ) => (
+              <ChallengeProgressCard
+                key={`${item}${index}`}
+                item={item}
+                navigation={navigation}
+                fetchChallenges={this.fetchChallenges}
+              />
+            ) )}
             <View style={{ marginTop: 23 }} />
           </View>
         ) : (
@@ -173,16 +166,13 @@ class ChallengeScreen extends Component<Props> {
           </Text>
         </View>
         {challengesCompleted.length > 0 ? (
-          <FlatList
-            data={challengesCompleted}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <ChallengeProgressCard
-                item={item}
-                navigation={navigation}
-              />
-            )}
-          />
+          challengesCompleted.map( ( item, index ) => (
+            <ChallengeProgressCard
+              key={`${item}${index}`}
+              item={item}
+              navigation={navigation}
+            />
+          ) )
         ) : (
           <View style={styles.noChallengeContainer}>
             <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_completed_challenges" )}</Text>

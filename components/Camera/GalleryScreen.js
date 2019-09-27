@@ -93,12 +93,17 @@ class GalleryScreen extends Component<Props> {
       album
     } = this.state;
 
+    console.log( this.state, "state" );
+
     const photoOptions = {
       first: 28,
       assetType: "Photos",
-      groupName: album,
       groupTypes // this is required in RN 0.59+
     };
+
+    if ( album ) { // append for cases where album is null
+      photoOptions.groupName = album;
+    }
 
     if ( lastCursor ) {
       photoOptions.after = lastCursor;
@@ -115,6 +120,7 @@ class GalleryScreen extends Component<Props> {
           lastCursor: results.page_info.end_cursor
         } );
       } ).catch( ( err ) => {
+        console.log( err, "error in gallery" );
         this.setState( {
           error: err.message
         } );

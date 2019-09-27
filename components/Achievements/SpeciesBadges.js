@@ -60,8 +60,8 @@ class SpeciesBadges extends Component<Props> {
       <FlatList
         data={data}
         contentContainerStyle={styles.badgesContainer}
-        keyExtractor={badge => badge.name}
-        numColumns={3}
+        keyExtractor={( badge, index ) => `${badge.name}${index}`}
+        horizontal
         renderItem={( { item } ) => {
           let badgeIcon;
           if ( item.earned ) {

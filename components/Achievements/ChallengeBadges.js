@@ -47,8 +47,8 @@ class ChallengeBadges extends Component<Props> {
       <FlatList
         data={challengeBadges}
         contentContainerStyle={styles.badgesContainer}
-        keyExtractor={challenge => challenge.name}
-        numColumns={3}
+        keyExtractor={( challenge, index ) => `${challenge.name}${index}`}
+        horizontal
         renderItem={( { item } ) => {
           let badgeIcon;
           if ( item.percentComplete === 100 ) {

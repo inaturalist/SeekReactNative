@@ -404,7 +404,9 @@ class ARCamera extends Component<Props> {
         />
         <RNModal
           isVisible={showWarningModal}
+          onSwipeComplete={() => this.toggleWarningModal()}
           onBackdropPress={() => this.toggleWarningModal()}
+          swipeDirection="down"
         >
           <WarningModal
             toggleWarningModal={this.toggleWarningModal}

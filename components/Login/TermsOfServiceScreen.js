@@ -5,8 +5,7 @@ import {
   Text,
   View,
   ScrollView,
-  SafeAreaView,
-  FlatList
+  SafeAreaView
 } from "react-native";
 
 import styles from "../../styles/login/privacy";
@@ -45,18 +44,13 @@ const TermsOfServiceScreen = ( { navigation }: Props ) => {
         <ScrollView contentContainerStyle={styles.textContainer}>
           <Text style={styles.text}>Last modified June 16, 2016</Text>
           <Text style={styles.text}>{`\nWelcome to the iNaturalist.org website. The following terms and conditions of use, in conjunction with the Terms and Conditions of Use of the California Academy of Sciences website, available at http://www.calacademy.org/terms-of-use, govern all use of the California Academy of Sciences’ iNaturalist.org website, all related applications, and all content, services and products available at or through the website (collectively, the "Website" ). The Website is owned and operated by the California Academy of Sciences (the "Academy" ). The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, the privacy policy) and procedures that may be published from time to time on this Site by iNaturalist and by the Academy (collectively, the “Agreement”).\n\nPlease read this Agreement carefully before accessing or using the Website. By accessing or using any part of the Website, each user ("You" , "Your"  or "User" ) agree to the terms and conditions of this Agreement. If You do not agree to all the terms and conditions of this Agreement, You should not access the Website or use any services made available via the Website. The Website is available only to individuals who are at least 13 years old.`}</Text>
-          <FlatList
-            data={sections}
-            scrollEnabled={false}
-            keyExtractor={( item, index ) => `${item}${index}`}
-            renderItem={( { item, index } ) => (
-              <Text style={[styles.text, styles.sectionText]}>
-                {index + 1}
-                {". "}
-                {item}
-              </Text>
-            )}
-          />
+          {sections.map( ( item, index ) => (
+            <Text style={[styles.text, styles.sectionText]} key={`${item}${index}`}>
+              {index + 1}
+              {". "}
+              {item}
+            </Text>
+          ) )}
           <Text style={[styles.text, styles.sectionText]}>
             © Copyright 2016 California Academy of Sciences. All rights reserved.
           </Text>

@@ -2,7 +2,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
-import { Platform } from "react-native";
+import { Platform, Dimensions } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
@@ -43,6 +43,8 @@ import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
 import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 
+const { width, height } = Dimensions.get( "window" );
+
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
   const { route } = nextScene;
@@ -67,6 +69,11 @@ const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
   swipeEnabled: Platform.OS === "ios",
+  lazy: true, // see if this improves performance,
+  initialLayout: { // prevents one frame delay
+    width,
+    height
+  },
   tabBarOptions: {
     scrollEnabled: true,
     labelStyle: styles.cameraTabLabel,

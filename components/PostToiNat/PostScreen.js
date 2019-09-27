@@ -449,12 +449,8 @@ class PostScreen extends Component<Props> {
           <GreenHeader
             navigation={navigation}
             header={i18n.t( "posting.header" )}
+            route="post"
           />
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "PostingHelp" )}
-          >
-            <Image source={posting.postingHelp} style={styles.help} />
-          </TouchableOpacity>
           <ScrollView
             keyboardDismissMode="on-drag"
             onScroll={() => Keyboard.dismiss()}

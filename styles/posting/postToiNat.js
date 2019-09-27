@@ -1,9 +1,8 @@
-import { StyleSheet, Dimensions, Platform } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
-  touchable
+  padding
 } from "../global";
 
 const { height, width } = Dimensions.get( "window" );
@@ -100,12 +99,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     color: colors.white
   },
-  help: {
-    position: "absolute",
-    right: 21,
-    top: -42
-  },
-  touchable,
   inputField: {
     marginHorizontal: height < 570 ? 14 : 27,
     height: 21,

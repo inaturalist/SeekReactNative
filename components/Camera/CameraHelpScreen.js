@@ -5,7 +5,6 @@ import {
   ScrollView,
   Text,
   View,
-  FlatList,
   SafeAreaView,
   StatusBar,
   Image,
@@ -31,17 +30,6 @@ class CameraHelpScreen extends Component<Props> {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
-  }
-
-  renderTips( tip ) {
-    return (
-      <View style={styles.tips}>
-        <Text style={styles.bullets}>&#8226;</Text>
-        <View style={styles.tipContainer}>
-          <Text style={styles.text}>{tip}</Text>
-        </View>
-      </View>
-    );
   }
 
   render() {
@@ -83,10 +71,14 @@ class CameraHelpScreen extends Component<Props> {
               <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
               <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
               <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
-              {this.renderTips( tips[0] )}
-              {this.renderTips( tips[1] )}
-              {this.renderTips( tips[2] )}
-              {this.renderTips( tips[3] )}
+              {tips.map( ( tip, index ) => (
+                <View style={styles.tips} key={`${tip}${index}`}>
+                  <Text style={styles.bullets}>&#8226;</Text>
+                  <View style={styles.tipContainer}>
+                    <Text style={styles.text}>{tip}</Text>
+                  </View>
+                </View>
+              ) )}
             </View>
             <Padding />
           </ScrollView>

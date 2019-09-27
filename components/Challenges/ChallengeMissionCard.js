@@ -4,7 +4,6 @@ import React from "react";
 import {
   View,
   Text,
-  FlatList,
   Image
 } from "react-native";
 
@@ -29,12 +28,9 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
         <Text style={styles.headerText}>
           {i18n.t( "challenges.your_mission" ).toLocaleUpperCase()}
         </Text>
-        <FlatList
-          style={styles.textContainer}
-          data={missions}
-          keyExtractor={( item, i ) => `${item}${i}`}
-          renderItem={( { item, index } ) => (
-            <View style={styles.row}>
+        <View style={styles.textContainer}>
+          {missions.map( ( item, index ) => (
+            <View style={styles.row} key={`${item}${index}`}>
               <View style={styles.leftItem}>
                 {missionNumbers[index].number === item.observations
                   ? <Image source={icons.checklist} style={styles.checklist} />
@@ -48,8 +44,9 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
                 </Text>
               </View>
             </View>
-          )}
-        />
+          ) )
+          }
+        </View>
         {challenge.percentComplete === 100 ? (
           <View style={styles.circleStyle}>
             <Image source={icons.completed} />

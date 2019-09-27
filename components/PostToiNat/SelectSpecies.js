@@ -11,7 +11,6 @@ import {
   Platform,
   TouchableOpacity,
   TextInput,
-  FlatList,
   Keyboard
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -149,22 +148,17 @@ class SelectSpecies extends Component<Props> {
                   id={seekId}
                 />
               ) : (
-                <FlatList
-                  data={suggestions}
-                  keyExtractor={item => `${item.scientificName}`.toString()}
-                  initialNumToRender={3}
-                  renderItem={( { item } ) => (
-                    <SpeciesCard
-                      image={item.image}
-                      commonName={item.commonName}
-                      scientificName={item.scientificName}
-                      id={item.id}
-                      toggleSpeciesModal={toggleSpeciesModal}
-                      updateTaxon={updateTaxon}
-                    />
-                  ) }
-                />
-              )}
+                suggestions.map( item => (
+                  <SpeciesCard
+                    key={`${item.scientificName}`}
+                    image={item.image}
+                    commonName={item.commonName}
+                    scientificName={item.scientificName}
+                    id={item.id}
+                    toggleSpeciesModal={toggleSpeciesModal}
+                    updateTaxon={updateTaxon}
+                  />
+                ) ) )}
             </View>
             <Padding />
           </ScrollView>

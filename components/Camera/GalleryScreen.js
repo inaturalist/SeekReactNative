@@ -120,7 +120,6 @@ class GalleryScreen extends Component<Props> {
           lastCursor: results.page_info.end_cursor
         } );
       } ).catch( ( err ) => {
-        console.log( err, "error in gallery" );
         this.setState( {
           error: err.message
         } );

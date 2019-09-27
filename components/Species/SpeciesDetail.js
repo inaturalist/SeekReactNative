@@ -329,15 +329,17 @@ class SpeciesDetail extends Component<Props> {
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {
-      const { taxon } = results[0];
-      if ( taxon && taxon !== undefined ) {
-        const stats = {
-          threatened: taxon.threatened,
-          endemic: taxon.endemic,
-          introduced: taxon.introduced,
-          native: taxon.native
-        };
-        this.setTaxonStats( stats );
+      if ( results.length > 0 ) {
+        const { taxon } = results[0];
+        if ( taxon ) {
+          const stats = {
+            threatened: taxon.threatened,
+            endemic: taxon.endemic,
+            introduced: taxon.introduced,
+            native: taxon.native
+          };
+          this.setTaxonStats( stats );
+        }
       }
     } ).catch( ( err ) => {
       console.log( err, "err fetching native threatened etc" );

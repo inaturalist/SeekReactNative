@@ -454,6 +454,7 @@ class PostScreen extends Component<Props> {
           <ScrollView
             keyboardDismissMode="on-drag"
             onScroll={() => Keyboard.dismiss()}
+            scrollEventThrottle={1}
           >
             <TouchableOpacity
               style={styles.card}

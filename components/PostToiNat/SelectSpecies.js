@@ -67,10 +67,13 @@ class SelectSpecies extends Component<Props> {
       if ( results.length > 0 ) {
         results.forEach( ( suggestion ) => {
           const suggestedSpecies = {
-            image: suggestion.defaultPhoto.medium_url,
+            image: suggestion.defaultPhoto && suggestion.defaultPhoto.medium_url
+              ? suggestion.defaultPhoto.medium_url
+              : null,
             commonName: capitalizeNames( suggestion.preferred_common_name || suggestion.name ),
             scientificName: suggestion.name,
-            id: suggestion.id
+            id: suggestion.id,
+            iconicTaxonId: suggestion.iconic_taxon_id
           };
 
           suggestions.push( suggestedSpecies );
@@ -118,6 +121,7 @@ class SelectSpecies extends Component<Props> {
             ref={( ref ) => { this.scrollView = ref; }}
             keyboardDismissMode="on-drag"
             onScroll={() => Keyboard.dismiss()}
+            scrollEventThrottle={1}
           >
             <View style={styles.photoContainer}>
               <Image source={{ uri: image }} style={styles.image} />
@@ -148,15 +152,16 @@ class SelectSpecies extends Component<Props> {
                   id={seekId}
                 />
               ) : (
-                suggestions.map( item => (
+                suggestions.map( ( item, index ) => (
                   <SpeciesCard
-                    key={`${item.scientificName}`}
+                    key={`${item.scientificName}${index}`}
                     image={item.image}
                     commonName={item.commonName}
                     scientificName={item.scientificName}
                     id={item.id}
                     toggleSpeciesModal={toggleSpeciesModal}
                     updateTaxon={updateTaxon}
+                    iconicTaxonId={item.iconicTaxonId}
                   />
                 ) ) )}
             </View>

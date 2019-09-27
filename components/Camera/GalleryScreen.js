@@ -93,8 +93,6 @@ class GalleryScreen extends Component<Props> {
       album
     } = this.state;
 
-    console.log( this.state, "state" );
-
     const photoOptions = {
       first: 28,
       assetType: "Photos",

@@ -33,6 +33,17 @@ class CameraHelpScreen extends Component<Props> {
     }
   }
 
+  renderTips( tip ) {
+    return (
+        <View style={styles.tips}>
+          <Text style={styles.bullets}>&#8226;</Text>
+          <View style={styles.tipContainer}>
+            <Text style={styles.text}>{tip}</Text>
+          </View>
+        </View>
+    );
+  }
+
   render() {
     const { navigation } = this.props;
 
@@ -72,7 +83,11 @@ class CameraHelpScreen extends Component<Props> {
               <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
               <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
               <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
-              <FlatList
+              {this.renderTips( tips[0] )}
+              {this.renderTips( tips[1] )}
+              {this.renderTips( tips[2] )}
+              {this.renderTips( tips[3] )}
+              {/* <FlatList
                 data={tips}
                 scrollEnabled={false}
                 keyExtractor={( item, index ) => `${item}${index}`}
@@ -84,7 +99,7 @@ class CameraHelpScreen extends Component<Props> {
                     </View>
                   </View>
                 )}
-              />
+              /> */}
             </View>
             <Padding />
           </ScrollView>

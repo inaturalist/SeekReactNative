@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-  SafeAreaView,
   ImageBackground
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -16,44 +15,40 @@ import icons from "../../assets/icons";
 import BackButton from "./ModalBackButton";
 
 type Props = {
-  toggleChallengeModal: Function,
-  challenge: Object
+  +toggleChallengeModal: Function,
+  +challenge: Object
 };
 
 const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
-  <SafeAreaView style={styles.safeView}>
-    <View style={styles.outerContainer}>
-      <View style={styles.innerContainer}>
-        <LinearGradient
-          style={styles.header}
-          colors={["#67c5ca", "#3ca2ab"]}
-        >
-          <Image
-            source={badges[challenge.earnedIconName]}
-            style={styles.image}
-          />
-          <ImageBackground source={icons.badgeBanner} style={styles.banner}>
-            <Text style={styles.bannerText}>
-              {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
-              {" "}
-              {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
-            </Text>
-          </ImageBackground>
-        </LinearGradient>
-        <Text style={styles.headerText}>
-          {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
+  <React.Fragment>
+    <LinearGradient
+      colors={["#67c5ca", "#3ca2ab"]}
+      style={[styles.header, styles.modalTop]}
+    >
+      <Image
+        source={badges[challenge.earnedIconName]}
+        style={styles.image}
+      />
+      <ImageBackground source={icons.badgeBanner} style={styles.banner}>
+        <Text style={styles.bannerText}>
+          {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
+          {" "}
+          {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
         </Text>
-        <Text style={styles.text}>
-          {i18n.t( "challenges.thanks" )}
-        </Text>
-        <View style={styles.center}>
-          <Image source={logos.wwfop} style={styles.logo} />
-        </View>
-        <View style={{ marginBottom: 30 }} />
-      </View>
-      <BackButton toggleModal={toggleChallengeModal} />
+      </ImageBackground>
+    </LinearGradient>
+    <View style={[styles.innerContainer, styles.modalBottom]}>
+      <Text style={styles.headerText}>
+        {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
+      </Text>
+      <Text style={styles.text}>
+        {i18n.t( "challenges.thanks" )}
+      </Text>
+      <Image source={logos.wwfop} style={[styles.logo, styles.center]} />
+      <View style={styles.marginBottom} />
     </View>
-  </SafeAreaView>
+    <BackButton toggleModal={toggleChallengeModal} />
+  </React.Fragment>
 );
 
 export default ChallengeEarnedModal;

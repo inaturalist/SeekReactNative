@@ -4,15 +4,14 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
-  TouchableOpacity
+  Image
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/level";
 import badgeImages from "../../assets/badges";
-import icons from "../../assets/icons";
+import BackButton from "./ModalBackButton";
 
 type Props = {
   +level: Object,
@@ -48,9 +47,7 @@ const LevelModal = ( {
     <View style={[styles.innerContainer, styles.modalBottom]}>
       <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
     </View>
-    <TouchableOpacity onPress={() => toggleLevelModal()} style={styles.backButton}>
-      <Image source={icons.closeModal} />
-    </TouchableOpacity>
+    <BackButton toggleModal={toggleLevelModal} />
   </React.Fragment>
 );
 

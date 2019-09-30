@@ -10,6 +10,7 @@ export default StyleSheet.create( {
   backButton: {
     alignItems: "center",
     justifyContent: "center",
+    marginTop: height > 570 ? 15 : 0,
     padding: 20
   },
   backgroundColor: {
@@ -35,7 +36,6 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     backgroundColor: colors.white
-    // borderRadius: 40
   },
   modalBottom: {
     borderBottomLeftRadius: 40,

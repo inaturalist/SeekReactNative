@@ -38,12 +38,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.12,
     lineHeight: 24
   },
-  backButton: {
-    marginTop: 15,
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   safeView: {
     flex: 1,
     backgroundColor: "transparent"

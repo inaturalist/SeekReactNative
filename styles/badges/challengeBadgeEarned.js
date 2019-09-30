@@ -57,12 +57,6 @@ export default StyleSheet.create( {
     width: 209,
     resizeMode: "contain"
   },
-  backButton: {
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 4
-  },
   safeView: {
     flex: 1,
     backgroundColor: "transparent"

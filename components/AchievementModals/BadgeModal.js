@@ -6,8 +6,6 @@ import {
   Text,
   Image,
   ImageBackground,
-  TouchableOpacity,
-  SafeAreaView,
   FlatList
 } from "react-native";
 
@@ -17,11 +15,12 @@ import badgeImages from "../../assets/badges";
 import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";
 import icons from "../../assets/icons";
+import BackButton from "./ModalBackButton";
 
 type Props = {
-  badges: Array<Object>,
-  iconicSpeciesCount: number,
-  toggleBadgeModal: Function
+  +badges: Array<Object>,
+  +iconicSpeciesCount: number,
+  +toggleBadgeModal: Function
 };
 
 const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) => {
@@ -37,17 +36,16 @@ const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) =
           <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
         ) : (
           <ImageBackground
+            imageStyle={styles.imageStyle}
             source={badgeImages[badge.unearnedIconName]}
             style={styles.image}
-            imageStyle={styles.imageStyle}
           >
             <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
           </ImageBackground>
         )}
         {badge.earned
           ? <Text style={styles.headerText}>{i18n.t( badge.intlName ).toLocaleUpperCase()}</Text>
-          : <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
-        }
+          : <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>}
         <Text style={styles.nameText}>
           {i18n.t( "badges.observe_species" )}
           {" "}
@@ -59,39 +57,35 @@ const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) =
   } );
 
   return (
-    <SafeAreaView style={styles.safeView}>
-      <View style={styles.outerContainer}>
-        <View style={styles.innerContainer}>
-          <BannerHeader
-            text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
-            modal
-          />
-          <FlatList
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            data={badgeList}
-            renderItem={( { item } ) => item}
-          />
-          <Image source={icons.badgeSwipeRight} style={styles.arrow} />
-          <View style={styles.row}>
-            {[0, 1, 2].map( item => (
-              <View key={item}>
-                <Image
-                  source={badges[item].earned
-                    ? badgeImages[badges[item].earnedIconName]
-                    : badgeImages[badges[item].unearnedIconName]}
-                  style={styles.smallImage}
-                />
-              </View>
-            ) )}
-          </View>
+    <React.Fragment>
+      <View style={styles.innerContainer}>
+        <BannerHeader
+          modal
+          text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+        />
+        <FlatList
+          data={badgeList}
+          horizontal
+          pagingEnabled
+          renderItem={( { item } ) => item}
+          showsHorizontalScrollIndicator={false}
+        />
+        <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+        <View style={styles.row}>
+          {[0, 1, 2].map( item => (
+            <View key={item}>
+              <Image
+                source={badges[item].earned
+                  ? badgeImages[badges[item].earnedIconName]
+                  : badgeImages[badges[item].unearnedIconName]}
+                style={styles.smallImage}
+              />
+            </View>
+          ) )}
         </View>
-        <TouchableOpacity style={styles.backButton} onPress={() => toggleBadgeModal()}>
-          <Image source={icons.closeModal} />
-        </TouchableOpacity>
       </View>
-    </SafeAreaView>
+      <BackButton toggleModal={toggleBadgeModal} />
+    </React.Fragment>
   );
 };
 

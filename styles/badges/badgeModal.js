@@ -7,72 +7,58 @@ import {
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  innerContainer: {
-    borderRadius: 40,
-    height: height > 570 ? 525 : 475,
-    alignItems: "center",
-    backgroundColor: colors.white
+  arrow: {
+    position: "absolute",
+    right: 27,
+    top: 198,
+    zIndex: 1
   },
   carousel: {
     alignItems: "center",
     width: width - ( width * 0.1 )
   },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    lineHeight: 24,
+    marginBottom: 9,
+    marginHorizontal: 27,
+    textAlign: "center"
+  },
   image: {
-    marginBottom: 25,
     height: width / 2,
     justifyContent: "center",
+    marginBottom: 25,
     width: width / 2
   },
   imageStyle: {
     resizeMode: "contain"
   },
+  innerContainer: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 40,
+    height: height > 570 ? 525 : 475
+  },
+  nameText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    marginHorizontal: 27,
+    textAlign: "center"
+  },
   row: {
-    marginTop: 0,
     flexDirection: "row",
     flexWrap: "nowrap",
-    marginBottom: 47
+    marginBottom: 47,
+    marginTop: 0
   },
   smallImage: {
     height: 57,
-    width: 57,
+    marginHorizontal: 20,
     resizeMode: "contain",
-    marginHorizontal: 20
-  },
-  headerText: {
-    marginHorizontal: 27,
-    marginBottom: 9,
-    textAlign: "center",
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12,
-    lineHeight: 24
-  },
-  backButton: {
-    marginTop: height > 570 ? 15 : 0,
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
-  },
-  nameText: {
-    marginHorizontal: 27,
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    color: colors.black
-  },
-  arrow: {
-    zIndex: 1,
-    position: "absolute",
-    top: 198,
-    right: 27
+    width: 57
   }
 } );

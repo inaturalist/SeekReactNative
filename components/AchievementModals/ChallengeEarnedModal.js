@@ -3,7 +3,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
   SafeAreaView,
   ImageBackground
 } from "react-native";
@@ -14,6 +13,7 @@ import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
+import BackButton from "./ModalBackButton";
 
 type Props = {
   toggleChallengeModal: Function,
@@ -51,9 +51,7 @@ const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
         </View>
         <View style={{ marginBottom: 30 }} />
       </View>
-      <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
-        <Image source={icons.closeModal} />
-      </TouchableOpacity>
+      <BackButton toggleModal={toggleChallengeModal} />
     </View>
   </SafeAreaView>
 );

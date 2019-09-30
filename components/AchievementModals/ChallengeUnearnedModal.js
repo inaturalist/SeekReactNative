@@ -15,12 +15,12 @@ import ProgressCircle from "react-native-progress-circle";
 import i18n from "../../i18n";
 import styles from "../../styles/badges/challengeBadgeUnearned";
 import BannerHeader from "../Achievements/BannerHeader";
-import icons from "../../assets/icons";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
+import BackButton from "./ModalBackButton";
 
 type Props = {
   toggleChallengeModal: Function,
@@ -86,9 +86,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           </Text>
         )}
       </View>
-      <TouchableOpacity style={styles.backButton} onPress={() => toggleChallengeModal()}>
-        <Image source={icons.closeModal} />
-      </TouchableOpacity>
+      <BackButton toggleModal={toggleChallengeModal} />
     </View>
   </SafeAreaView>
 );

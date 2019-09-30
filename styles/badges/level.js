@@ -7,64 +7,60 @@ import {
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1,
-    justifyContent: "center"
-  },
-  innerContainer: {
-    borderRadius: 40,
+  backButton: {
     alignItems: "center",
-    backgroundColor: colors.white
+    justifyContent: "center",
+    padding: 20
   },
   backgroundColor: {
-    width: "100%",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: "100%"
   },
   headerText: {
-    textAlign: "center",
-    marginTop: 25,
-    marginBottom: Platform.OS === "android" ? 19 : 15,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
-    letterSpacing: 1.12
+    letterSpacing: 1.12,
+    marginBottom: Platform.OS === "android" ? 19 : 15,
+    marginTop: 25,
+    textAlign: "center"
   },
   image: {
-    marginTop: height > 570 ? 50 : 30,
-    width: height > 640 ? 258 : 215,
     height: height > 640 ? 258 : 215,
-    resizeMode: "contain"
+    marginTop: height > 570 ? 50 : 30,
+    resizeMode: "contain",
+    width: height > 640 ? 258 : 215
+  },
+  innerContainer: {
+    alignItems: "center",
+    backgroundColor: colors.white
+    // borderRadius: 40
+  },
+  modalBottom: {
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40
+  },
+  modalTop: {
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40
   },
   nameText: {
-    marginTop: 32,
-    marginBottom: height > 570 ? 43 : 30,
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 23,
-    letterSpacing: 1.0
+    letterSpacing: 1.0,
+    marginBottom: height > 570 ? 43 : 30,
+    marginTop: 32
   },
   text: {
-    textAlign: "center",
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: 20,
     marginHorizontal: 40,
     marginTop: 20,
-    marginBottom: 20,
-    fontFamily: fonts.book,
-    color: colors.black,
-    lineHeight: 21,
-    fontSize: 16
-  },
-  backButton: {
-    padding: 20,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: "transparent"
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+    textAlign: "center"
   }
 } );

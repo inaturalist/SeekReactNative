@@ -6,7 +6,7 @@
     "react-native/react-native": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react-native/all"],
+  "extends": ["airbnb", "plugin:react-native/all", "plugin:react/all"],
   "plugins": [
     "react-native"
   ],
@@ -16,6 +16,7 @@
     "space-in-parens": [2, "always"],
     "func-names": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-curly-spacing": 0
+    "react/jsx-curly-spacing": 0,
+    "react/jsx-fragments": "off"
   }
 }

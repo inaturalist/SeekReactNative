@@ -2,10 +2,14 @@
   "env": {
     "node": true,
     "browser": true,
-    "es6": true
+    "es6": true,
+    "react-native/react-native": true
   },
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": ["airbnb", "plugin:react-native/all"],
+  "plugins": [
+    "react-native"
+  ],
   "rules": {
     "quotes": [2, "double"],
     "comma-dangle": [2, "never"],

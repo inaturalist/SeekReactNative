@@ -14,7 +14,7 @@ import LocationMap from "../Home/LocationMap";
 import { fetchUserLocation } from "../../utility/locationHelpers";
 import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/greenHeader";
-import backStyles from "../../styles/backArrow";
+import backStyles from "../../styles/uiComponents/backArrow";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
 

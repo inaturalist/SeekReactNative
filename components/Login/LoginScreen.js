@@ -18,7 +18,7 @@ import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class LoginScreen extends Component<Props> {
@@ -84,62 +84,60 @@ class LoginScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
-            navigation={navigation}
-          />
-          <View style={styles.innerContainer}>
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { username: value } )}
-              value={username}
-              placeholder={i18n.t( "inat_login.username" )}
-              keyboardType={Platform.OS === "android" ? "visible-password" : "default"} // adding this to turn off autosuggestions on Android
-              textContentType="username"
-              autoFocus
-              autoCorrect={false}
-              autoCapitalize="none"
-            />
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { password: value } )}
-              value={password}
-              secureTextEntry
-              placeholder="*********"
-              placeholderTextColor="#828282"
-              textContentType="password"
-              autoCapitalize="none"
-            />
-            <TouchableOpacity
-              style={styles.rightTextContainer}
-              onPress={() => navigation.navigate( "Forgot" )}
-            >
-              <Text style={styles.forgotPasswordText}>
-                {i18n.t( "inat_login.forgot_password" )}
-              </Text>
-            </TouchableOpacity>
-            {error ? <ErrorMessage error="credentials" /> : null}
-            <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.retrieveOAuthToken( username, password )}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
+        <GreenHeader
+          header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
+          navigation={navigation}
+        />
+        <View style={styles.innerContainer}>
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>
+              {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
+            </Text>
           </View>
-        </SafeAreaView>
+          <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            autoFocus
+            keyboardType={Platform.OS === "android" ? "visible-password" : "default"}
+            onChangeText={ value => this.setState( { username: value } )} // adding this to turn off autosuggestions on Android
+            placeholder={i18n.t( "inat_login.username" )}
+            style={styles.inputField}
+            textContentType="username"
+            value={username}
+          />
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>
+              {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+          <TextInput
+            autoCapitalize="none"
+            onChangeText={ value => this.setState( { password: value } )}
+            placeholder="*********"
+            placeholderTextColor="#828282"
+            secureTextEntry
+            style={styles.inputField}
+            textContentType="password"
+            value={password}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Forgot" )}
+            style={styles.rightTextContainer}
+          >
+            <Text style={styles.forgotPasswordText}>
+              {i18n.t( "inat_login.forgot_password" )}
+            </Text>
+          </TouchableOpacity>
+          {error ? <ErrorMessage error="credentials" /> : null}
+          <TouchableOpacity
+            onPress={() => this.retrieveOAuthToken( username, password )}
+            style={[styles.greenButton, styles.greenButtonMargin]}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

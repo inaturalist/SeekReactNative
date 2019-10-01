@@ -65,60 +65,58 @@ class AgeVerifyScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            navigation={navigation}
-            header={i18n.t( "login.sign_up" )}
+        <GreenHeader
+          navigation={navigation}
+          header={i18n.t( "login.sign_up" )}
+        />
+        <View style={[styles.innerContainer, { flex: 1 }]}>
+          <Text style={styles.header}>
+            {i18n.t( "inat_signup.enter_birthday" )}
+          </Text>
+          <Text style={styles.text}>
+            {i18n.t( "inat_signup.permission" )}
+          </Text>
+          <View style={{ marginBottom: 68 }} />
+          <TouchableOpacity
+            onPress={() => this.showDateTimePicker()}
+            style={styles.dateButton}
+          >
+            <Text style={styles.buttonText}>{date}</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+            maximumDate={new Date()}
+            hideTitleContainerIOS
+            datePickerModeAndroid="spinner"
+            timePickerModeAndroid="spinner"
+            isDarkModeEnabled={colorScheme === "dark"}
           />
-          <View style={[styles.innerContainer, { flex: 1 }]}>
-            <Text style={styles.header}>
-              {i18n.t( "inat_signup.enter_birthday" )}
+          <View style={{ marginBottom: 98 }} />
+          <TouchableOpacity
+            style={styles.greenButton}
+            onPress={() => this.submit()}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
             </Text>
-            <Text style={styles.text}>
-              {i18n.t( "inat_signup.permission" )}
+          </TouchableOpacity>
+          <View style={styles.row}>
+            <Text
+              style={styles.privacy}
+              onPress={() => navigation.navigate( "Privacy" )}
+            >
+              {i18n.t( "inat_signup.privacy" )}
             </Text>
-            <View style={{ marginBottom: 68 }} />
-            <TouchableOpacity
-              onPress={() => this.showDateTimePicker()}
-              style={styles.dateButton}
+            <Text
+              style={[styles.privacy, { marginLeft: 14 }]}
+              onPress={() => navigation.navigate( "TermsOfService" )}
             >
-              <Text style={styles.buttonText}>{date}</Text>
-            </TouchableOpacity>
-            <DateTimePicker
-              isVisible={isDateTimePickerVisible}
-              onConfirm={this.handleDatePicked}
-              onCancel={this.hideDateTimePicker}
-              maximumDate={new Date()}
-              hideTitleContainerIOS
-              datePickerModeAndroid="spinner"
-              timePickerModeAndroid="spinner"
-              isDarkModeEnabled={colorScheme === "dark"}
-            />
-            <View style={{ marginBottom: 98 }} />
-            <TouchableOpacity
-              style={styles.greenButton}
-              onPress={() => this.submit()}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-            <View style={styles.row}>
-              <Text
-                style={styles.privacy}
-                onPress={() => navigation.navigate( "Privacy" )}
-              >
-                {i18n.t( "inat_signup.privacy" )}
-              </Text>
-              <Text
-                style={[styles.privacy, { marginLeft: 14 }]}
-                onPress={() => navigation.navigate( "TermsOfService" )}
-              >
-                {i18n.t( "inat_signup.terms" )}
-              </Text>
-            </View>
+              {i18n.t( "inat_signup.terms" )}
+            </Text>
           </View>
-        </SafeAreaView>
+        </View>
       </View>
     );
   }

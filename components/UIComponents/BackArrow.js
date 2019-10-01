@@ -6,18 +6,18 @@ import {
   Image
 } from "react-native";
 
-import styles from "../styles/backArrow";
-import icons from "../assets/icons";
+import styles from "../../styles/uiComponents/backArrow";
+import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const BackArrow = ( { navigation }: Props ) => (
   <TouchableOpacity
     hitSlop={styles.touchable}
-    style={styles.backButton}
     onPress={() => navigation.goBack()}
+    style={styles.backButton}
   >
     <Image source={icons.backButton} />
   </TouchableOpacity>

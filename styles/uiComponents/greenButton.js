@@ -19,6 +19,5 @@ export default StyleSheet.create( {
     borderRadius: 34,
     height: 46,
     justifyContent: "center"
-    // width: "100%"
   }
 } );

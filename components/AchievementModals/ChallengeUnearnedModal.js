@@ -30,11 +30,11 @@ type Props = {
 const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }: Props ) => (
   <React.Fragment>
     <View style={styles.innerContainer}>
-      <BannerHeader
-        modal
-        text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
-      />
       <View style={styles.center}>
+        <BannerHeader
+          modal
+          text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
+        />
         {challenge.started && challenge.percentComplete !== 100 ? (
           <ImageBackground
             imageStyle={styles.imageStyle}

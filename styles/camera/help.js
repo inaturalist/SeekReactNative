@@ -4,41 +4,48 @@ import { colors, fonts } from "../global";
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  bullets: {
+    fontSize: 26,
+    lineHeight: 21,
+    marginRight: 20,
+    marginTop: 18
+  },
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  howText: {
+    marginRight: 36,
+    width: height > 570 ? 192 : 140
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
   },
   secondHeaderText: {
-    textAlign: "left",
-    marginTop: 35,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
-  topImage: {
-    width,
-    height: 180,
-    resizeMode: "cover",
-    overflow: "hidden"
-  },
-  textContainer: {
-    marginTop: 20,
-    backgroundColor: colors.white,
-    marginHorizontal: 26
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginTop: 35,
+    textAlign: "left"
   },
   text: {
-    marginTop: 11,
+    color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    color: colors.black
+    marginTop: 11
   },
-  bullets: {
-    marginTop: 18,
-    marginRight: 20,
-    fontSize: 26,
-    lineHeight: 21
+  textContainer: {
+    backgroundColor: colors.white,
+    marginHorizontal: 26,
+    marginTop: 20
   },
   tipContainer: {
     width: height > 570 ? 260 : 230
@@ -47,21 +54,10 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  howText: {
-    width: height > 570 ? 192 : 140,
-    marginRight: 36
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
+  topImage: {
+    height: 180,
+    overflow: "hidden",
+    resizeMode: "cover",
+    width
   }
 } );

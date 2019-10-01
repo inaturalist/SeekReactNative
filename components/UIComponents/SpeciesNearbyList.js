@@ -45,7 +45,7 @@ const SpeciesNearbyList = ( { taxa, navigation, fetchiNatData }: Props ) => (
             setRoute( "Main" );
             navigation.navigate( "Species" );
           } else {
-            fetchiNatData( "similarSpecies" );
+            fetchiNatData();
           }
         }}
         style={styles.gridCell}

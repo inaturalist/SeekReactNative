@@ -7,23 +7,65 @@ import {
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
   card: {
-    height: 112,
-    marginHorizontal: 22,
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
+    height: 112,
     justifyContent: "flex-start",
-    alignItems: "center"
+    marginHorizontal: 22
+  },
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  divider: {
+    backgroundColor: colors.dividerGray,
+    height: 1,
+    marginHorizontal: 23
+  },
+  greenDot: {
+    backgroundColor: colors.seekiNatGreen,
+    borderRadius: 11 / 2,
+    height: 11,
+    width: 11
   },
   image: {
-    marginRight: 24,
     height: 72,
-    width: 72,
-    resizeMode: "contain"
+    marginRight: 24,
+    resizeMode: "contain",
+    width: 72
+  },
+  messageText: {
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21
+  },
+  noNotifications: {
+    alignItems: "center",
+    marginHorizontal: 28,
+    marginTop: height / 3 - 50
+  },
+  noNotificationsHeader: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    maxWidth: 279,
+    textAlign: "center"
+  },
+  noNotificationsText: {
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 24,
+    maxWidth: 319,
+    textAlign: "center"
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
   },
   textContainer: {
     width: 214
@@ -31,53 +73,7 @@ export default StyleSheet.create( {
   titleText: {
     fontFamily: fonts.medium,
     fontSize: 16,
-    marginBottom: 6,
-    lineHeight: 21
-  },
-  messageText: {
-    fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 21
-  },
-  greenDot: {
-    height: 11,
-    width: 11,
-    borderRadius: 11 / 2,
-    backgroundColor: colors.seekiNatGreen
-  },
-  divider: {
-    backgroundColor: colors.dividerGray,
-    height: 1,
-    marginHorizontal: 23
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  noNotifications: {
-    marginHorizontal: 28,
-    marginTop: height / 3 - 50,
-    alignItems: "center"
-  },
-  noNotificationsHeader: {
-    textAlign: "center",
-    maxWidth: 279,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 1.0,
-    color: colors.seekForestGreen
-  },
-  noNotificationsText: {
-    marginTop: 24,
-    maxWidth: 319,
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
+    lineHeight: 21,
+    marginBottom: 6
   }
 } );

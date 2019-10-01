@@ -9,28 +9,27 @@ import {
 } from "react-native";
 
 import styles from "../styles/greenHeader";
-import BackArrow from "./BackArrow";
-import CustomBackArrow from "./CustomBackArrow";
+import BackArrow from "./UIComponents/BackArrow";
+import CustomBackArrow from "./UIComponents/CustomBackArrow";
 import posting from "../assets/posting";
 
 type Props = {
-  header: string,
-  navigation: any,
-  route: string
+  +header: string,
+  +navigation: any,
+  +route: string
 }
 
 const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
     {route && route !== "post"
       ? <CustomBackArrow navigation={navigation} route={route} />
-      : <BackArrow navigation={navigation} />
-    }
+      : <BackArrow navigation={navigation} />}
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
       <TouchableOpacity
-        style={styles.help}
         hitSlop={styles.touchable}
         onPress={() => navigation.navigate( "PostingHelp" )}
+        style={styles.help}
       >
         <Image source={posting.postingHelp} />
       </TouchableOpacity>

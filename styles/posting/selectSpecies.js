@@ -8,105 +8,101 @@ import {
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  backButton: {
+    left: 23,
+    top: 18
+  },
+  card: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginBottom: 18
+  },
+  commonNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: 21
+  },
   container: {
     flex: 1
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
   header: {
-    height: 55,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.seekForestGreen,
+    height: 55
   },
-  backButton: {
-    top: 18,
-    left: 23
-  },
-  text: {
-    top: Platform.OS === "android" ? -4 : null,
-    alignSelf: "center",
-    fontSize: 18,
-    color: colors.white,
-    letterSpacing: 1.0,
-    fontFamily: fonts.semibold
-  },
-  touchable,
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center",
-    alignItems: "center",
-    height: 63,
-    backgroundColor: colors.seekForestGreen
-  },
-  inputField: {
-    marginLeft: 11,
-    width: "81%",
-    backgroundColor: colors.white,
-    color: colors.black,
-    height: 37,
-    paddingTop: 0,
-    paddingBottom: 0,
-    borderRadius: 40,
-    paddingLeft: 16,
-    fontFamily: fonts.book,
-    fontSize: 15
-  },
-  photoContainer: {
-    backgroundColor: colors.black,
-    alignItems: "center",
-    height: 155
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginBottom: 18
   },
   image: {
     height: 155,
-    width,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    width
+  },
+  inputField: {
+    backgroundColor: colors.white,
+    borderRadius: 40,
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 15,
+    height: 37,
+    marginLeft: 11,
+    paddingBottom: 0,
+    paddingLeft: 16,
+    paddingTop: 0,
+    width: "81%"
+  },
+  photoContainer: {
+    alignItems: "center",
+    backgroundColor: colors.black,
+    height: 155
   },
   roundImage: {
-    width: 80,
-    height: 80,
     borderRadius: 80 / 2,
-    marginRight: 24
+    height: 80,
+    marginRight: 24,
+    width: 80
   },
-  headerText: {
-    fontSize: 19,
+  row: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    height: 63,
+    justifyContent: "center"
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  scientificNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 5
+  },
+  speciesNameContainer: {
+    maxWidth: 223
+  },
+  text: {
+    alignSelf: "center",
+    color: colors.white,
     fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12,
-    marginBottom: 18
+    fontSize: 18,
+    letterSpacing: 1.0,
+    top: Platform.OS === "android" ? -4 : null
   },
   textContainer: {
     marginHorizontal: 24,
     marginTop: 27
   },
-  speciesNameContainer: {
-    maxWidth: 223
-  },
-  commonNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: 21,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 5,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
-    fontSize: 16,
-    lineHeight: 21
-  },
-  card: {
-    marginBottom: 18,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  }
+  touchable
 } );

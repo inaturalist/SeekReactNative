@@ -8,9 +8,9 @@ import GreenHeader from "../GreenHeader";
 import styles from "../../styles/results/error";
 
 type Props = {
-  error: string,
-  navigation: any,
-  number: Number
+  +error: string,
+  +navigation: any,
+  +number: Number
 }
 
 const ErrorScreen = ( { error, navigation, number }: Props ) => {
@@ -31,10 +31,8 @@ const ErrorScreen = ( { error, navigation, number }: Props ) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.safeViewTop} />
-      <SafeAreaView style={styles.safeView}>
-        <GreenHeader navigation={navigation} />
-        <Text style={styles.errorText}>{errorText}</Text>
-      </SafeAreaView>
+      <GreenHeader navigation={navigation} />
+      <Text style={styles.errorText}>{errorText}</Text>
     </View>
   );
 };

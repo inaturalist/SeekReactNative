@@ -22,7 +22,7 @@ import logos from "../assets/logos";
 import Padding from "./Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
-import LoginCard from "./LoginCard";
+import LoginCard from "./UIComponents/LoginCard";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 
 type Props = {

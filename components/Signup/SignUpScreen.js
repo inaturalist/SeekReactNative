@@ -18,7 +18,7 @@ import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class SignUpScreen extends Component<Props> {
@@ -168,51 +168,49 @@ class SignUpScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
-            navigation={navigation}
-          />
-          <View style={[styles.innerContainer, styles.margin]}>
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { username: value } )}
-              value={username}
-              placeholder="username"
-              placeholderTextColor="#828282"
-              textContentType="username"
-              autoFocus
-              autoCapitalize="none"
-            />
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { password: value } )}
-              value={password}
-              secureTextEntry
-              placeholder="*********"
-              textContentType="password"
-            />
-            {error ? <ErrorMessage error={this.formatError( error )} /> : null}
-            <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin, error && { marginTop: 5 }]}
-              onPress={() => this.submit()}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
+        <GreenHeader
+          header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
+          navigation={navigation}
+        />
+        <View style={[styles.innerContainer, styles.margin]}>
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>
+              {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
+            </Text>
           </View>
-        </SafeAreaView>
+          <TextInput
+            autoCapitalize="none"
+            autoFocus
+            onChangeText={ value => this.setState( { username: value } )}
+            placeholder="username"
+            placeholderTextColor="#828282"
+            style={styles.inputField}
+            textContentType="username"
+            value={username}
+          />
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>
+              {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+          <TextInput
+            onChangeText={ value => this.setState( { password: value } )}
+            placeholder="*********"
+            secureTextEntry
+            style={styles.inputField}
+            textContentType="password"
+            value={password}
+          />
+          {error ? <ErrorMessage error={this.formatError( error )} /> : null}
+          <TouchableOpacity
+            onPress={() => this.submit()}
+            style={[styles.greenButton, styles.greenButtonMargin, error && { marginTop: 5 }]}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

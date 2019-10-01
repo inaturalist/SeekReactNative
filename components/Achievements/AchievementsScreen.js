@@ -23,7 +23,7 @@ import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../GreenHeader";
-import LoginCard from "../LoginCard";
+import LoginCard from "../UIComponents/LoginCard";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 

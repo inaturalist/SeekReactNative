@@ -25,12 +25,12 @@ import SpeciesCard from "./SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
-  toggleSpeciesModal: Function,
-  image: string,
-  commonName: string,
-  scientificName: string,
-  updateTaxon: Function,
-  seekId: Number
+  +toggleSpeciesModal: Function,
+  +image: string,
+  +commonName: string,
+  +scientificName: string,
+  +updateTaxon: Function,
+  +seekId: Number
 }
 
 
@@ -100,74 +100,72 @@ class SelectSpecies extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <StatusBar barStyle="light-content" />
-          <NavigationEvents
-            onWillFocus={() => this.scrollToTop()}
-          />
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => toggleSpeciesModal()}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-            <Text style={styles.text}>
-              {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
-            keyboardDismissMode="on-drag"
-            onScroll={() => Keyboard.dismiss()}
-            scrollEventThrottle={1}
+        <StatusBar barStyle="light-content" />
+        <NavigationEvents
+          onWillFocus={() => this.scrollToTop()}
+        />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleSpeciesModal()}
+            style={styles.backButton}
           >
-            <View style={styles.photoContainer}>
-              <Image source={{ uri: image }} style={styles.image} />
-            </View>
-            <View style={styles.row}>
-              <Image source={postingIcons.search} />
-              <TextInput
-                style={styles.inputField}
-                placeholder={i18n.t( "posting.look_up" )}
-                placeholderTextColor="#828282"
-                onChangeText={text => this.searchForSpecies( text )}
+            <Image source={icons.backButton} />
+          </TouchableOpacity>
+          <Text style={styles.text}>
+            {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
+          </Text>
+        </View>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+          keyboardDismissMode="on-drag"
+          onScroll={() => Keyboard.dismiss()}
+          scrollEventThrottle={1}
+        >
+          <View style={styles.photoContainer}>
+            <Image source={{ uri: image }} style={styles.image} />
+          </View>
+          <View style={styles.row}>
+            <Image source={postingIcons.search} />
+            <TextInput
+              onChangeText={text => this.searchForSpecies( text )}
+              placeholder={i18n.t( "posting.look_up" )}
+              placeholderTextColor="#828282"
+              style={styles.inputField}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            {!isSearching
+              ? (
+                <Text style={styles.headerText}>
+                  {i18n.t( "posting.id" ).toLocaleUpperCase()}
+                </Text>
+              ) : null}
+            {!isSearching ? (
+              <SpeciesCard
+                commonName={commonName || scientificName}
+                id={seekId}
+                image={image}
+                scientificName={scientificName}
+                toggleSpeciesModal={toggleSpeciesModal}
+                updateTaxon={updateTaxon}
               />
-            </View>
-            <View style={styles.textContainer}>
-              {!isSearching
-                ? (
-                  <Text style={styles.headerText}>
-                    {i18n.t( "posting.id" ).toLocaleUpperCase()}
-                  </Text>
-                ) : null}
-              {!isSearching ? (
+            ) : (
+              suggestions.map( ( item, index ) => (
                 <SpeciesCard
-                  image={image}
-                  commonName={commonName || scientificName}
-                  scientificName={scientificName}
+                  key={`${item.scientificName}${index}`}
+                  commonName={item.commonName}
+                  iconicTaxonId={item.iconicTaxonId}
+                  id={item.id}
+                  image={item.image}
+                  scientificName={item.scientificName}
                   toggleSpeciesModal={toggleSpeciesModal}
                   updateTaxon={updateTaxon}
-                  id={seekId}
                 />
-              ) : (
-                suggestions.map( ( item, index ) => (
-                  <SpeciesCard
-                    key={`${item.scientificName}${index}`}
-                    image={item.image}
-                    commonName={item.commonName}
-                    scientificName={item.scientificName}
-                    id={item.id}
-                    toggleSpeciesModal={toggleSpeciesModal}
-                    updateTaxon={updateTaxon}
-                    iconicTaxonId={item.iconicTaxonId}
-                  />
-                ) ) )}
-            </View>
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
+              ) ) )}
+          </View>
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

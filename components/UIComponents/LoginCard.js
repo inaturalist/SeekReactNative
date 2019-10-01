@@ -7,10 +7,10 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
-import styles from "../styles/loginCard";
-import i18n from "../i18n";
-import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
-import GreenButton from "./UIComponents/GreenButton";
+import styles from "../../styles/uiComponents/loginCard";
+import i18n from "../../i18n";
+import { fetchAccessToken, removeAccessToken } from "../../utility/loginHelpers";
+import GreenButton from "./GreenButton";
 
 type Props = {
   +navigation: any,

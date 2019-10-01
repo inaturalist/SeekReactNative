@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import { touchable } from "./global";
+import { touchable } from "../global";
 
 export default StyleSheet.create( {
   backButton: {
-    top: 18,
-    left: 23
+    left: 23,
+    top: 18
   },
   touchable
 } );

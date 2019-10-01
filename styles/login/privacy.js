@@ -6,29 +6,25 @@ import {
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
   },
   safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  textContainer: {
-    marginHorizontal: 29,
-    marginTop: 27,
-    marginBottom: 27
-  },
-  text: {
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 23,
-    color: colors.black
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
   },
   sectionText: {
     marginTop: 25
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 23
+  },
+  textContainer: {
+    marginBottom: 27,
+    marginHorizontal: 29,
+    marginTop: 27
   }
 } );

@@ -20,7 +20,7 @@ import LoadingWheel from "../LoadingWheel";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ParentalConsentScreen extends Component<Props> {
@@ -101,53 +101,51 @@ class ParentalConsentScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
-          <View style={styles.innerContainer}>
-            <View style={styles.margin} />
-            <Text style={styles.header}>
-              {i18n.t( "inat_signup.enter_email" )}
+        <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+        <View style={styles.innerContainer}>
+          <View style={styles.margin} />
+          <Text style={styles.header}>
+            {i18n.t( "inat_signup.enter_email" )}
+          </Text>
+          <Text style={[styles.text, styles.keyboardText]}>
+            {i18n.t( "inat_signup.under_13" )}
+          </Text>
+          <View style={styles.margin} />
+          <View style={styles.leftTextContainer}>
+            <Text style={styles.leftText}>
+              {i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()}
             </Text>
-            <Text style={[styles.text, styles.keyboardText]}>
-              {i18n.t( "inat_signup.under_13" )}
-            </Text>
-            <View style={styles.margin} />
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { email: value } )}
-              value={email}
-              placeholder="email address"
-              placeholderTextColor="#828282"
-              textContentType="emailAddress"
-              keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
-              autoFocus
-              autoCorrect={false}
-              autoCapitalize="none"
-            />
-            {loading ? <LoadingWheel /> : null}
-            {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
-            <TouchableOpacity
-              style={styles.greenButton}
-              onPress={() => {
-                if ( checkIsEmailValid( email ) ) {
-                  this.setError( false );
-                  this.shareEmailWithiNat();
-                } else {
-                  this.setError( "email" );
-                }
-              }}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
           </View>
-        </SafeAreaView>
+          <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            autoFocus
+            keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"}
+            onChangeText={ value => this.setState( { email: value } )}
+            placeholder="email address"
+            placeholderTextColor="#828282" // adding this to turn off autosuggestions on Android
+            style={styles.inputField}
+            textContentType="emailAddress"
+            value={email}
+          />
+          {loading ? <LoadingWheel /> : null}
+          {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
+          <TouchableOpacity
+            onPress={() => {
+              if ( checkIsEmailValid( email ) ) {
+                this.setError( false );
+                this.shareEmailWithiNat();
+              } else {
+                this.setError( "email" );
+              }
+            }}
+            style={styles.greenButton}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

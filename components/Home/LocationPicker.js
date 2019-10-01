@@ -22,11 +22,11 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  latitude: number,
-  longitude: number,
-  location: string,
-  updateLocation: Function,
-  toggleLocationPicker: Function
+  +latitude: number,
+  +longitude: number,
+  +location: string,
+  +updateLocation: Function,
+  +toggleLocationPicker: Function
 }
 
 class LocationPicker extends Component<Props> {
@@ -129,56 +129,54 @@ class LocationPicker extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => toggleLocationPicker()}
-            >
-              <Image
-                source={icons.backButton}
-                style={styles.image}
-              />
-            </TouchableOpacity>
-            <View style={styles.textContainer}>
-              <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
-            </View>
-            <View style={styles.row}>
-              <Image source={icons.locationWhite} />
-              <TextInput
-                style={styles.inputField}
-                placeholder={location}
-                placeholderTextColor="#828282"
-                autoCapitalize="words"
-                textContentType="addressCity"
-                onChangeText={text => this.setCoordsByLocationName( text )}
-              />
-            </View>
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleLocationPicker()}
+            style={styles.backButton}
+          >
+            <Image
+              source={icons.backButton}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          <View style={styles.textContainer}>
+            <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
           </View>
-          <View style={styles.mapContainer}>
-            <LocationMap
-              region={region}
-              onRegionChange={this.onRegionChange}
-              returnToUserLocation={this.returnToUserLocation}
+          <View style={styles.row}>
+            <Image source={icons.locationWhite} />
+            <TextInput
+              autoCapitalize="words"
+              onChangeText={text => this.setCoordsByLocationName( text )}
+              placeholder={location}
+              placeholderTextColor="#828282"
+              style={styles.inputField}
+              textContentType="addressCity"
             />
           </View>
-          <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => {
-                updateLocation(
-                  truncateCoordinates( region.latitude ),
-                  truncateCoordinates( region.longitude )
-                );
-              }}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        </View>
+        <View style={styles.mapContainer}>
+          <LocationMap
+            onRegionChange={this.onRegionChange}
+            region={region}
+            returnToUserLocation={this.returnToUserLocation}
+          />
+        </View>
+        <View style={styles.footer}>
+          <TouchableOpacity
+            onPress={() => {
+              updateLocation(
+                truncateCoordinates( region.latitude ),
+                truncateCoordinates( region.longitude )
+              );
+            }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

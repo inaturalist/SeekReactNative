@@ -8,102 +8,101 @@ const { height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
-  header: {
-    marginTop: 26,
-    marginLeft: 22,
-    marginBottom: 10
-  },
-  headerText: {
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
   card: {
-    height: ( fontScale > 1 ) ? 138 : 95,
-    marginHorizontal: 20,
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
+    height: ( fontScale > 1 ) ? 138 : 95,
     justifyContent: "space-around",
-    alignItems: "center"
+    marginHorizontal: 20
+  },
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  greenText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 14,
+    lineHeight: 17,
+    textAlign: "center"
+  },
+  header: {
+    marginBottom: 10,
+    marginLeft: 22,
+    marginTop: 26
+  },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
   },
   image: {
-    marginRight: 20,
-    width: 68,
     height: 68,
-    resizeMode: "contain"
+    marginRight: 20,
+    resizeMode: "contain",
+    width: 68
+  },
+  lightText: {
+    color: colors.errorGray,
+    fontFamily: fonts.light,
+    fontSize: 16,
+    lineHeight: 18,
+    marginTop: 10,
+    textAlign: "center",
+    width: 204
+  },
+  margin: {
+    marginTop: 23
+  },
+  messageText: {
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21,
+    textAlign: "left"
+  },
+  noChallengeContainer: {
+    alignItems: "center",
+    height: ( fontScale > 1 ) ? 182 : 121,
+    justifyContent: "center"
+  },
+  noChallengeRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  noChallengeText: {
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24,
+    textAlign: "center",
+    width: 229
+  },
+  noChallengeTextContainer: {
+    justifyContent: "center",
+    marginLeft: 30
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  startButton: {
+    alignItems: "center",
+    marginLeft: 20,
+    width: 59
   },
   textContainer: {
     justifyContent: "center",
     width: height > 570 ? 170 : 156
   },
   titleText: {
+    color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 14 : 16,
-    marginBottom: 1,
-    lineHeight: 20,
     letterSpacing: 0.89,
-    color: colors.seekForestGreen
-  },
-  messageText: {
-    textAlign: "left",
-    fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 21
-  },
-  startButton: {
-    alignItems: "center",
-    width: 59,
-    marginLeft: 20
-  },
-  greenText: {
-    textAlign: "center",
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    fontSize: 14,
-    lineHeight: 17
-  },
-  noChallengeContainer: {
-    height: ( fontScale > 1 ) ? 182 : 121,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  noChallengeRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "nowrap"
-  },
-  noChallengeTextContainer: {
-    marginLeft: 30,
-    justifyContent: "center"
-  },
-  noChallengeText: {
-    width: 229,
-    textAlign: "center",
-    fontFamily: fonts.medium,
-    color: colors.black,
-    fontSize: 19,
-    lineHeight: 24
-  },
-  lightText: {
-    marginTop: 10,
-    width: 204,
-    textAlign: "center",
-    fontFamily: fonts.light,
-    color: colors.errorGray,
-    fontSize: 16,
-    lineHeight: 18
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
+    lineHeight: 20,
+    marginBottom: 1
   }
 } );

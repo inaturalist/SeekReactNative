@@ -2,7 +2,6 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
   touchable
 } from "./global";
 
@@ -12,13 +11,6 @@ export default StyleSheet.create( {
   backButton: {
     left: 23,
     top: 18
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding
   },
   caption: {
     marginBottom: 20,
@@ -42,14 +34,6 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     lineHeight: 24,
     marginBottom: 7
-  },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 34,
-    height: 52,
-    justifyContent: "center",
-    width: height < 570 ? 292 : 317
   },
   header: {
     backgroundColor: colors.white,
@@ -75,31 +59,11 @@ export default StyleSheet.create( {
     resizeMode: "cover",
     width
   },
-  italicText: {
-    color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
-    marginHorizontal: 27,
-    marginTop: 33,
-    textAlign: "center"
-  },
   leftArrow: {
     left: 5,
     position: "absolute",
     top: 137,
     zIndex: 1
-  },
-  loginText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    marginBottom: 28,
-    marginHorizontal: 20,
-    marginTop: 32,
-    maxWidth: 334,
-    textAlign: "center"
   },
   logo: {
     alignSelf: "center",

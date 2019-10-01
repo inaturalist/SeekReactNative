@@ -4,13 +4,13 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   Image
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/camera/warning";
 import icons from "../../assets/icons";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +toggleWarningModal: Function
@@ -48,12 +48,12 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
           </Text>
         </View>
       </View>
-      <TouchableOpacity
-        onPress={() => toggleWarningModal()}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
-      </TouchableOpacity>
+      <View style={styles.button}>
+        <GreenButton
+          handlePress={() => toggleWarningModal()}
+          text={i18n.t( "onboarding.continue" ).toLocaleUpperCase()}
+        />
+      </View>
     </View>
   </View>
 );

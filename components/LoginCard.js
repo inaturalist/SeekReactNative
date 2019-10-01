@@ -3,18 +3,18 @@
 import React, { Component } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity
+  Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
-import styles from "../styles/iNatStats";
+import styles from "../styles/loginCard";
 import i18n from "../i18n";
 import { fetchAccessToken, removeAccessToken } from "../utility/loginHelpers";
+import GreenButton from "./UIComponents/GreenButton";
 
 type Props = {
-  navigation: any,
-  screen: ?string
+  +navigation: any,
+  +screen: ?string
 }
 
 class LoginCard extends Component<Props> {
@@ -49,7 +49,7 @@ class LoginCard extends Component<Props> {
     const { navigation, screen } = this.props;
 
     return (
-      <View style={[styles.container, { alignItems: "center" }]}>
+      <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => this.getLoggedIn()}
         />
@@ -57,35 +57,28 @@ class LoginCard extends Component<Props> {
           <Text style={styles.loginText}>
             {isLoggedIn
               ? i18n.t( "inat_stats.logged_in" )
-              : i18n.t( "badges.login" )
-            }
+              : i18n.t( "badges.login" )}
           </Text>
         ) : (
           <Text style={styles.italicText}>
             {isLoggedIn
               ? i18n.t( "inat_stats.logged_in" )
-              : i18n.t( "inat_stats.thanks" )
-            }
+              : i18n.t( "inat_stats.thanks" )}
           </Text>
         )}
-        {screen !== "achievements" ? <View style={{ marginTop: 30 }} /> : null}
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => {
+        {screen !== "achievements" ? <View style={styles.margin} /> : null}
+        <GreenButton
+          handlePress={() => {
             if ( isLoggedIn ) {
               this.logUserOut();
             } else {
               navigation.navigate( "LoginOrSignup" );
             }
           }}
-        >
-          <Text style={styles.buttonText}>
-            {isLoggedIn
-              ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
-              : i18n.t( "inat_stats.join" ).toLocaleUpperCase()
-            }
-          </Text>
-        </TouchableOpacity>
+          text={isLoggedIn
+            ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
+            : i18n.t( "inat_stats.join" ).toLocaleUpperCase()}
+        />
       </View>
     );
   }

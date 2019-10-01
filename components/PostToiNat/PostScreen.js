@@ -29,6 +29,7 @@ import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 import PostStatus from "./PostStatus";
 import SelectSpecies from "./SelectSpecies";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   navigation: any
@@ -395,140 +396,134 @@ class PostScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <DateTimePicker
-            isVisible={isDateTimePickerVisible}
-            onConfirm={this.handleDatePicked}
-            onCancel={this.hideDateTimePicker}
-            mode="datetime"
-            maximumDate={new Date()}
-            hideTitleContainerIOS
-            datePickerModeAndroid="spinner"
-            timePickerModeAndroid="spinner"
-            isDarkModeEnabled={colorScheme === "dark"}
+        <DateTimePicker
+          isVisible={isDateTimePickerVisible}
+          onConfirm={this.handleDatePicked}
+          onCancel={this.hideDateTimePicker}
+          mode="datetime"
+          maximumDate={new Date()}
+          hideTitleContainerIOS
+          datePickerModeAndroid="spinner"
+          timePickerModeAndroid="spinner"
+          isDarkModeEnabled={colorScheme === "dark"}
+        />
+        <Modal
+          visible={showSpeciesModal}
+          onRequestClose={() => this.toggleSpeciesModal()}
+        >
+          <SelectSpecies
+            toggleSpeciesModal={this.toggleSpeciesModal}
+            image={userImage}
+            commonName={seekId.preferredCommonName}
+            scientificName={seekId.name}
+            seekId={seekId.taxaId}
+            updateTaxon={this.updateTaxon}
           />
-          <Modal
-            visible={showSpeciesModal}
-            onRequestClose={() => this.toggleSpeciesModal()}
-          >
-            <SelectSpecies
-              toggleSpeciesModal={this.toggleSpeciesModal}
-              image={userImage}
-              commonName={seekId.preferredCommonName}
-              scientificName={seekId.name}
-              seekId={seekId.taxaId}
-              updateTaxon={this.updateTaxon}
-            />
-          </Modal>
-          <Modal
-            visible={modalVisible}
-            onRequestClose={() => this.toggleLocationPicker()}
-          >
-            <LocationPicker
-              latitude={latitude}
-              longitude={longitude}
-              location={location}
-              updateLocation={this.updateLocation}
-              toggleLocationPicker={this.toggleLocationPicker}
-            />
-          </Modal>
-          <Modal
-            visible={showPostModal}
-            onRequestClose={() => this.togglePostModal()}
-          >
-            <PostStatus
-              navigation={navigation}
-              togglePostModal={this.togglePostModal}
-              loading={loading}
-              postingSuccess={postingSuccess}
-            />
-          </Modal>
-          <NavigationEvents
-            onWillFocus={() => this.getLocation()}
+        </Modal>
+        <Modal
+          visible={modalVisible}
+          onRequestClose={() => this.toggleLocationPicker()}
+        >
+          <LocationPicker
+            latitude={latitude}
+            longitude={longitude}
+            location={location}
+            updateLocation={this.updateLocation}
+            toggleLocationPicker={this.toggleLocationPicker}
           />
-          <GreenHeader
+        </Modal>
+        <Modal
+          visible={showPostModal}
+          onRequestClose={() => this.togglePostModal()}
+        >
+          <PostStatus
             navigation={navigation}
-            header={i18n.t( "posting.header" )}
-            route="post"
+            togglePostModal={this.togglePostModal}
+            loading={loading}
+            postingSuccess={postingSuccess}
           />
-          <ScrollView
-            keyboardDismissMode="on-drag"
-            onScroll={() => Keyboard.dismiss()}
-            scrollEventThrottle={1}
+        </Modal>
+        <NavigationEvents
+          onWillFocus={() => this.getLocation()}
+        />
+        <GreenHeader
+          navigation={navigation}
+          header={i18n.t( "posting.header" )}
+          route="post"
+        />
+        <ScrollView
+          keyboardDismissMode="on-drag"
+          onScroll={() => Keyboard.dismiss()}
+          scrollEventThrottle={1}
+        >
+          <TouchableOpacity
+            style={styles.card}
+            onPress={() => this.toggleSpeciesModal()}
           >
-            <TouchableOpacity
-              style={styles.card}
-              onPress={() => this.toggleSpeciesModal()}
-            >
-              <Image style={styles.image} source={{ uri: userImage }} />
-              <View style={styles.speciesNameContainer}>
-                <Text style={styles.commonNameText}>{commonName}</Text>
-                {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-              </View>
-              <Image style={styles.buttonIcon} source={posting.expand} />
-            </TouchableOpacity>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { description: value } )}
-              value={description}
-              placeholder={i18n.t( "posting.notes" )}
-              placeholderTextColor="#828282"
-              keyboardType="default"
-              multiline
-            />
-            <View style={{ marginBottom: 21 }} />
-            <View style={styles.divider} />
-            <TouchableOpacity
-              style={styles.thinCard}
-              onPress={() => this.showDateTimePicker()}
-            >
-              <Image style={styles.icon} source={posting.date} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.date" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {date}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={posting.expand} />
-            </TouchableOpacity>
-            <View style={styles.divider} />
-            <TouchableOpacity
-              style={styles.thinCard}
-              onPress={() => this.toggleLocationPicker()}
-            >
-              <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
-              <View style={styles.row}>
-                <Text style={styles.greenText}>
-                  {i18n.t( "posting.location" ).toLocaleUpperCase()}
-                </Text>
-                <Text style={styles.text}>
-                  {location}
-                </Text>
-              </View>
-              <Image style={styles.buttonIcon} source={posting.expand} />
-            </TouchableOpacity>
-            <View style={styles.divider} />
-            <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
-            <View style={styles.divider} />
-            <CaptivePicker updateCaptive={this.updateCaptive} />
-            <View style={styles.divider} />
-            <View style={[styles.textContainer, { alignItems: "center" }]}>
-              <TouchableOpacity
-                style={styles.greenButton}
-                onPress={() => {
-                  this.getToken();
-                  this.togglePostModal();
-                }}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "posting.header" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
+            <Image style={styles.image} source={{ uri: userImage }} />
+            <View style={styles.speciesNameContainer}>
+              <Text style={styles.commonNameText}>{commonName}</Text>
+              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
             </View>
-          </ScrollView>
-        </SafeAreaView>
+            <Image style={styles.buttonIcon} source={posting.expand} />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.inputField}
+            onChangeText={ value => this.setState( { description: value } )}
+            value={description}
+            placeholder={i18n.t( "posting.notes" )}
+            placeholderTextColor="#828282"
+            keyboardType="default"
+            multiline
+          />
+          <View style={{ marginBottom: 21 }} />
+          <View style={styles.divider} />
+          <TouchableOpacity
+            style={styles.thinCard}
+            onPress={() => this.showDateTimePicker()}
+          >
+            <Image style={styles.icon} source={posting.date} />
+            <View style={styles.row}>
+              <Text style={styles.greenText}>
+                {i18n.t( "posting.date" ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.text}>
+                {date}
+              </Text>
+            </View>
+            <Image style={styles.buttonIcon} source={posting.expand} />
+          </TouchableOpacity>
+          <View style={styles.divider} />
+          <TouchableOpacity
+            style={styles.thinCard}
+            onPress={() => this.toggleLocationPicker()}
+          >
+            <Image style={[styles.icon, { marginHorizontal: 5 }]} source={posting.location} />
+            <View style={styles.row}>
+              <Text style={styles.greenText}>
+                {i18n.t( "posting.location" ).toLocaleUpperCase()}
+              </Text>
+              <Text style={styles.text}>
+                {location}
+              </Text>
+            </View>
+            <Image style={styles.buttonIcon} source={posting.expand} />
+          </TouchableOpacity>
+          <View style={styles.divider} />
+          <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
+          <View style={styles.divider} />
+          <CaptivePicker updateCaptive={this.updateCaptive} />
+          <View style={styles.divider} />
+          <View style={styles.textContainer}>
+          <GreenButton
+            handlePress={() => {
+              this.getToken();
+              this.togglePostModal();
+            }}
+            text={i18n.t( "posting.header" ).toLocaleUpperCase()}
+          />
+          </View>
+        </ScrollView>
       </View>
     );
   }

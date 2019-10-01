@@ -1,113 +1,93 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 const { height, width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  textContainer: {
-    marginHorizontal: height < 570 ? 14 : 27,
-    marginTop: height < 570 ? 13 : 25
-  },
-  card: {
-    marginLeft: height < 570 ? 14 : 27,
-    height: height / 6,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  image: {
-    width: 82,
-    height: 82,
-    borderRadius: 82 / 2,
-    marginRight: height < 570 ? 19 : 22
-  },
-  speciesNameContainer: {
-    maxWidth: 199
-  },
-  commonNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: height < 570 ? 19 : 21,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  text: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: height < 570 ? 2 : 7,
-    fontFamily: fonts.book,
-    color: colors.black,
-    fontSize: height < 570 ? 15 : 16,
-    lineHeight: height < 570 ? 18 : 21
-  },
-  thinCard: {
-    height: height / 9,
-    marginLeft: 27,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  row: {
-    marginLeft: 21,
-    width: 211,
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "center"
-  },
-  greenText: {
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.seekForestGreen
-  },
   buttonIcon: {
     position: "absolute",
     right: 27
+  },
+  card: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    height: height / 6,
+    marginLeft: height < 570 ? 14 : 27
+  },
+  commonNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: height < 570 ? 19 : 21
+  },
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
   },
   divider: {
     backgroundColor: colors.dividerGray,
     height: 1
   },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: height < 570 ? 292 : 317,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
+  greenText: {
+    color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
+    letterSpacing: 1.0
+  },
+  image: {
+    borderRadius: 82 / 2,
+    height: 82,
+    marginRight: height < 570 ? 19 : 22,
+    width: 82
   },
   inputField: {
-    marginHorizontal: height < 570 ? 14 : 27,
-    height: 21,
-    paddingTop: 0,
-    paddingBottom: 0,
-    width: width - 54,
+    color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
+    height: 21,
+    marginHorizontal: height < 570 ? 14 : 27,
+    paddingBottom: 0,
+    paddingTop: 0,
+    textAlignVertical: "top",
+    width: width - 54
+  },
+  row: {
+    alignItems: "flex-start",
+    flexDirection: "column",
+    justifyContent: "center",
+    marginLeft: 21,
+    width: 211
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  speciesNameContainer: {
+    maxWidth: 199
+  },
+  text: {
     color: colors.black,
-    textAlignVertical: "top"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: height < 570 ? 15 : 16,
+    lineHeight: height < 570 ? 18 : 21,
+    marginTop: height < 570 ? 2 : 7
+  },
+  textContainer: {
+    marginHorizontal: height < 570 ? 14 : 27,
+    marginTop: height < 570 ? 13 : 25
+  },
+  thinCard: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    height: height / 9,
+    marginLeft: 27
   }
 } );

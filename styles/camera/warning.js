@@ -14,21 +14,9 @@ const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   button: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 40,
-    height: 46,
-    justifyContent: "center",
     marginBottom: 24,
     marginTop: ( fontScale > 1 ) ? null : 14,
     width: height > 570 ? 285 : 230
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 5 : 0
   },
   contentContainer: {
     alignItems: "center",
@@ -62,12 +50,6 @@ export default StyleSheet.create( {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40
   },
-  // marginBottom: {
-  //   marginTop: 37
-  // },
-  // marginTop: {
-  //   marginTop: 35
-  // },
   row: {
     alignItems: "center",
     flexDirection: "row",

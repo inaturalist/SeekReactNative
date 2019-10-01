@@ -3,10 +3,10 @@
 import React from "react";
 import { View } from "react-native";
 
-import styles from "../styles/iOSSpacer";
+import styles from "../../styles/uiComponents/iOSSpacer";
 
 type Props = {
-  backgroundColor: ?string
+  +backgroundColor: ?string
 };
 
 const iOSSpacer = ( { backgroundColor }: Props ) => (

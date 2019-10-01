@@ -6,7 +6,6 @@ import {
 import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
-import { fonts, colors } from "../../styles/global";
 import styles from "../../styles/home/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
@@ -79,16 +78,7 @@ class SimilarSpecies extends Component<Props> {
 
     return (
       <View>
-        <Text style={{
-          marginTop: 45,
-          marginLeft: 28,
-          marginBottom: 11,
-          fontSize: 19,
-          fontFamily: fonts.semibold,
-          color: colors.seekForestGreen,
-          letterSpacing: 1.12
-        }}
-        >
+        <Text style={styles.similarSpeciesHeaderText}>
           {i18n.t( "species_detail.similar" ).toLocaleUpperCase()}
         </Text>
         <View style={[

@@ -17,6 +17,7 @@ import LocationMap from "./LocationMap";
 import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
+import GreenButton from "../UIComponents/GreenButton";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -163,19 +164,17 @@ class LocationPicker extends Component<Props> {
           />
         </View>
         <View style={styles.footer}>
-          <TouchableOpacity
-            onPress={() => {
+          <View style={styles.margin} />
+          <GreenButton
+            handlePress={() => {
               updateLocation(
                 truncateCoordinates( region.latitude ),
                 truncateCoordinates( region.longitude )
               );
             }}
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
+            letterSpacing={0.68}
+            text={i18n.t( "location_picker.button" ).toLocaleUpperCase()}
+          />
         </View>
       </View>
     );

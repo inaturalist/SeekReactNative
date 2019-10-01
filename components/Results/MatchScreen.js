@@ -26,7 +26,7 @@ import MatchFooter from "./MatchFooter";
 import Padding from "../Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";

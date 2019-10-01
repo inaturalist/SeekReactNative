@@ -3,9 +3,7 @@ import React from "react";
 import {
   View,
   Image,
-  Text,
-  TouchableOpacity,
-  Alert
+  Text
 } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
@@ -16,13 +14,14 @@ import MapView, {
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any,
-  region: Object,
-  id: number,
-  error: string,
-  seenDate: string
+  +navigation: any,
+  +region: Object,
+  +id: number,
+  +error: string,
+  +seenDate: string
 }
 
 const LocationMap = ( {
@@ -37,18 +36,18 @@ const LocationMap = ( {
     <View style={styles.mapContainer}>
       {region.latitude ? (
         <MapView
-          region={region}
-          provider={PROVIDER_DEFAULT}
-          style={styles.map}
-          zoomEnabled={false}
-          rotateEnabled={false}
-          scrollEnabled={false}
           maxZoomLevel={7}
           onPress={() => navigation.navigate( "RangeMap", { region, id } )}
+          provider={PROVIDER_DEFAULT}
+          region={region}
+          rotateEnabled={false}
+          scrollEnabled={false}
+          style={styles.map}
+          zoomEnabled={false}
         >
           <UrlTile
-            urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
             tileSize={512}
+            urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
           />
           {error ? null : (
             <Marker
@@ -60,14 +59,11 @@ const LocationMap = ( {
         </MapView>
       ) : null}
     </View>
-    <TouchableOpacity
-      style={styles.darkGreenButton}
-      onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-    >
-      <Text style={styles.darkGreenButtonText}>
-        {i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}
-      </Text>
-    </TouchableOpacity>
+    <View style={styles.margin} />
+    <GreenButton
+      handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
+      text={i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}
+    />
   </View>
 );
 

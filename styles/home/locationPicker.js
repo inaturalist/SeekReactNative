@@ -2,7 +2,6 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
   touchable
 } from "../global";
 
@@ -13,29 +12,13 @@ export default StyleSheet.create( {
     left: 23,
     top: 28
   },
-  button: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 40,
-    height: 46,
-    justifyContent: "center",
-    marginBottom: 15,
-    marginHorizontal: 22,
-    marginTop: 15
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 0.7,
-    paddingTop: padding.iOSPadding
-  },
   container: {
     flex: 1
   },
   footer: {
     backgroundColor: colors.white,
-    height: height > 670 ? 130 : 86
+    height: height > 670 ? 130 : 86,
+    marginHorizontal: 23
   },
   greenCircle: {
     backgroundColor: colors.seekGreen,
@@ -94,6 +77,9 @@ export default StyleSheet.create( {
   },
   mapContainer: {
     flexGrow: 1
+  },
+  margin: {
+    marginTop: 15
   },
   markerFixed: {
     alignItems: "center",

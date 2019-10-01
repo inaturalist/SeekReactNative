@@ -27,7 +27,7 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
 import Padding from "../Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
   +navigation: any

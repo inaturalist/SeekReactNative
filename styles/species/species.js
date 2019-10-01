@@ -6,51 +6,79 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  container: {
-    backgroundColor: colors.white,
-    flex: 1
+  bottomPadding: {
+    backgroundColor: colors.seekForestGreen,
+    height: Platform.OS === "android" ? 17 : 60
+  },
+  checkmark: {
+    marginRight: 10
+  },
+  commonNameText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 30,
+    letterSpacing: 0.3,
+    lineHeight: 31,
+    marginTop: 23
   },
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
-    justifyContent: "center",
-    height: 40
+    height: 40,
+    justifyContent: "center"
+  },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginBottom: 11,
+    marginTop: 45
+  },
+  humanText: {
+    color: colors.black,
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 45,
+    textAlign: "center"
   },
   iconicTaxaText: {
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    marginLeft: 28,
     color: colors.white,
-    fontSize: 19,
     fontFamily: fonts.semibold,
-    letterSpacing: 1.12
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginLeft: 28,
+    paddingTop: Platform.OS === "ios" ? 7 : 0
   },
-  textContainer: {
-    marginHorizontal: 28
+  loading: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  marginLarge: {
+    marginTop: 38
+  },
+  marginSmall: {
+    marginTop: 21
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginTop: 28
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  scientificNameText: {
+    color: colors.black,
+    fontFamily: fonts.bookItalic,
+    fontSize: 19,
+    lineHeight: 21,
+    marginTop: 10
   },
   secondTextContainer: {
     marginHorizontal: 28
-  },
-  commonNameText: {
-    marginTop: 23,
-    fontSize: 30,
-    lineHeight: 31,
-    letterSpacing: 0.3,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    marginTop: 10,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
-    fontSize: 19,
-    lineHeight: 21
-  },
-  headerText: {
-    marginTop: 45,
-    marginBottom: 11,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
   },
   text: {
     color: colors.black,
@@ -58,38 +86,8 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  row: {
-    marginTop: 28,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
+  textContainer: {
+    marginHorizontal: 28
   },
-  checkmark: {
-    marginRight: 10
-  },
-  loading: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  bottomPadding: {
-    height: Platform.OS === "android" ? 17 : 60,
-    backgroundColor: colors.seekForestGreen
-  },
-  touchable,
-  humanText: {
-    textAlign: "center",
-    marginTop: 45,
-    color: colors.black,
-    fontSize: 16,
-    lineHeight: 21,
-    fontFamily: fonts.bookItalic
-  }
+  touchable
 } );

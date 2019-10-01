@@ -25,7 +25,7 @@ import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../GreenHeader";
 import LoginCard from "../LoginCard";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
   +navigation: any

@@ -25,7 +25,7 @@ import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../util
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
   +navigation: any

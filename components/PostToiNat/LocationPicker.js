@@ -16,15 +16,16 @@ import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/greenHeader";
 import backStyles from "../../styles/backArrow";
 import icons from "../../assets/icons";
+import GreenButton from "../UIComponents/GreenButton";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  latitude: number,
-  longitude: number,
-  updateLocation: Function,
-  toggleLocationPicker: Function
+  +latitude: number,
+  +longitude: number,
+  +updateLocation: Function,
+  +toggleLocationPicker: Function
 }
 
 class LocationPicker extends Component<Props> {
@@ -77,36 +78,31 @@ class LocationPicker extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <View style={headerStyles.container}>
-            <TouchableOpacity
-              hitSlop={backStyles.touchable}
-              style={backStyles.backButton}
-              onPress={() => toggleLocationPicker()}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-            <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
-          </View>
-          <View style={styles.mapContainer}>
-            <LocationMap
-              region={region}
-              onRegionChange={this.onRegionChange}
-              returnToUserLocation={this.returnToUserLocation}
-              posting
-            />
-          </View>
-          <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => updateLocation( region.latitude, region.longitude )}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "posting.save_location" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        <View style={headerStyles.container}>
+          <TouchableOpacity
+            hitSlop={backStyles.touchable}
+            onPress={() => toggleLocationPicker()}
+            style={backStyles.backButton}
+          >
+            <Image source={icons.backButton} />
+          </TouchableOpacity>
+          <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
+        </View>
+        <View style={styles.mapContainer}>
+          <LocationMap
+            onRegionChange={this.onRegionChange}
+            posting
+            region={region}
+            returnToUserLocation={this.returnToUserLocation}
+          />
+        </View>
+        <View style={styles.footer}>
+          <View style={styles.margin} />
+          <GreenButton
+            handlePress={() => updateLocation( region.latitude, region.longitude )}
+            text={i18n.t( "posting.save_location" ).toLocaleUpperCase()}
+          />
+        </View>
       </View>
     );
   }

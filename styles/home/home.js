@@ -3,23 +3,11 @@ import { colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
   },
   safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  iosSpacer: {
     backgroundColor: colors.seekForestGreen,
-    height: 1000,
-    position: "absolute",
-    top: -1000,
-    left: 0,
-    right: 0
+    flex: 0
   }
 } );

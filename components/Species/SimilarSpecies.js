@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  Image
+  Text
 } from "react-native";
 import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
 import { fonts, colors } from "../../styles/global";
 import styles from "../../styles/home/speciesNearby";
-import { capitalizeNames, setSpeciesId } from "../../utility/helpers";
-import LoadingWheel from "../LoadingWheel";
+import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
 type Props = {
-  id: ?Number,
-  fetchiNatData: Function
+  +id: ?Number,
+  +fetchiNatData: Function
 }
 
 class SimilarSpecies extends Component<Props> {
@@ -78,38 +74,7 @@ class SimilarSpecies extends Component<Props> {
     const { fetchiNatData } = this.props;
 
     const species = (
-      <FlatList
-        contentContainerStyle={styles.similarSpeciesList}
-        data={similarSpecies}
-        keyExtractor={taxon => `species-${taxon.id}`}
-        horizontal
-        bounces
-        alwaysBounceHorizontal
-        initialNumToRender={3}
-        ListEmptyComponent={() => (
-          <LoadingWheel color="black" />
-        )}
-        renderItem={ ( { item } ) => (
-          <View style={styles.gridCell}>
-            <TouchableOpacity
-              onPress={ () => {
-                setSpeciesId( item.id );
-                fetchiNatData( "similarSpecies" );
-              }}
-            >
-              <Image
-                style={styles.cellImage}
-                source={{ uri: item.default_photo.medium_url }}
-              />
-              <View style={styles.cellTitle}>
-                <Text numberOfLines={3} style={styles.cellTitleText}>
-                  {capitalizeNames( item.preferred_common_name || item.name )}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      <SpeciesNearbyList fetchiNatData={fetchiNatData} taxa={similarSpecies} />
     );
 
     return (

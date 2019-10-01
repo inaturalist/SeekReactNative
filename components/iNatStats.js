@@ -26,7 +26,7 @@ import LoginCard from "./LoginCard";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class iNatStatsScreen extends Component<Props> {
@@ -43,7 +43,7 @@ class iNatStatsScreen extends Component<Props> {
 
   seti18nNumber( number ) {
     return i18n.toNumber( number, { precision: 0 } );
-  };
+  }
 
   async fetchiNatStats() {
     const { observations, observers } = await getiNatStats();
@@ -134,7 +134,9 @@ class iNatStatsScreen extends Component<Props> {
     } );
 
     return (
-      <View style={styles.container}>
+      <ScrollView
+        ref={( ref ) => { this.scrollView = ref; }}
+      >
         <NavigationEvents
           onWillFocus={() => {
             this.fetchiNatStats();
@@ -142,77 +144,71 @@ class iNatStatsScreen extends Component<Props> {
             this.fetchProjectPhotos();
           }}
         />
-        <SafeAreaView style={styles.safeView}>
-          <StatusBar barStyle="dark-content" />
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
+        <SafeAreaView style={styles.safeView} />
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => navigation.goBack()}
           >
-            <View style={styles.header}>
-              <TouchableOpacity
-                hitSlop={styles.touchable}
-                onPress={() => navigation.goBack()}
-                style={{ padding: 5 }}
-              >
-                <Image
-                  source={icons.backButtonGreen}
-                  style={styles.backButton}
-                />
-              </TouchableOpacity>
-              <Image style={styles.logo} source={logos.iNat} />
-              <View />
-            </View>
-            <Image source={backgrounds.heatMap} style={styles.heatMap} />
-            <View style={styles.missionContainer}>
-              <Text style={styles.forestGreenText}>
-                {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}
-              </Text>
-              <Image source={logos.bird} style={styles.iNatLogo} />
-              <Text style={styles.numberText}>
-                {observations}
-                {"+"}
-              </Text>
-              <Text style={styles.forestGreenText}>
-                {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.numberText}>
-                {observers}
-                {"+"}
-              </Text>
-              <Image
-                source={icons.iNatExplanation}
-                style={styles.explainImage}
-              />
-              <Text style={styles.missionHeaderText}>
-                {i18n.t( "inat_stats.seek_data" )}
-              </Text>
-              <Text style={styles.missionText}>
-                {i18n.t( "inat_stats.about_inat" )}
-              </Text>
-            </View>
-            {loading ? (
-              <View style={[styles.center, styles.photoContainer]}>
-                <LoadingWheel color="black" />
-              </View>
-            ) : (
-              <View>
-                <ScrollView
-                  horizontal
-                  showsHorizontalScrollIndicator
-                  pagingEnabled
-                  indicatorStyle="white"
-                  contentContainerStyle={styles.photoContainer}
-                >
-                  {photoList}
-                </ScrollView>
-                <Image source={icons.swipeLeft} style={styles.leftArrow} />
-                <Image source={icons.swipeRight} style={styles.rightArrow} />
-              </View>
-            )}
-            <LoginCard navigation={navigation} />
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
-      </View>
+            <Image
+              source={icons.backButtonGreen}
+              style={styles.backButton}
+            />
+          </TouchableOpacity>
+          <Image source={logos.iNat} style={styles.logo} />
+          <View />
+        </View>
+        <Image source={backgrounds.heatMap} style={styles.heatMap} />
+        <View style={styles.missionContainer}>
+          <Text style={styles.forestGreenText}>
+            {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}
+          </Text>
+          <Image source={logos.bird} style={styles.iNatLogo} />
+          <Text style={styles.numberText}>
+            {observations}
+            {"+"}
+          </Text>
+          <Text style={styles.forestGreenText}>
+            {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}
+          </Text>
+          <Text style={styles.numberText}>
+            {observers}
+            {"+"}
+          </Text>
+          <Image
+            source={icons.iNatExplanation}
+            style={styles.explainImage}
+          />
+          <Text style={styles.missionHeaderText}>
+            {i18n.t( "inat_stats.seek_data" )}
+          </Text>
+          <Text style={styles.missionText}>
+            {i18n.t( "inat_stats.about_inat" )}
+          </Text>
+        </View>
+        {loading ? (
+          <View style={[styles.center, styles.photoContainer]}>
+            <LoadingWheel color="black" />
+          </View>
+        ) : (
+          <View>
+            <ScrollView
+              contentContainerStyle={styles.photoContainer}
+              horizontal
+              indicatorStyle="white"
+              pagingEnabled
+              showsHorizontalScrollIndicator
+            >
+              {photoList}
+            </ScrollView>
+            <Image source={icons.swipeLeft} style={styles.leftArrow} />
+            <Image source={icons.swipeRight} style={styles.rightArrow} />
+          </View>
+        )}
+        <LoginCard navigation={navigation} />
+        <Padding />
+      </ScrollView>
     );
   }
 }

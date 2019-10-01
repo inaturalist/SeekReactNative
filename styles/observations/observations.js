@@ -6,103 +6,99 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
-  headerRow: {
-    marginHorizontal: 25,
-    marginTop: 18,
-    marginBottom: 23,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between"
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  numberText: {
-    marginTop: Platform.OS === "ios" ? 4 : 0,
-    fontSize: 18,
-    fontFamily: fonts.light,
-    letterSpacing: 0.78,
-    color: colors.black,
-    marginRight: 6
-  },
   badgeImage: {
-    width: 22,
     height: 25,
-    resizeMode: "contain"
-  },
-  secondHeaderText: {
-    marginTop: 4,
-    fontSize: 18,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
-  },
-  textContainer: {
-    alignItems: "center"
-  },
-  text: {
-    fontSize: 16,
-    fontFamily: fonts.book,
-    lineHeight: 21,
-    color: colors.black,
-    textAlign: "center"
-  },
-  noSpecies: {
-    marginHorizontal: 28,
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  noSpeciesHeaderText: {
-    textAlign: "center",
-    maxWidth: 279,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 1.0,
-    color: colors.seekForestGreen
-  },
-  noSpeciesText: {
-    marginTop: 24,
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
-  },
-  greenButton: {
-    marginTop: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    width: "94%",
-    height: 46
+    resizeMode: "contain",
+    width: 22
   },
   buttonText: {
+    color: colors.white,
     fontFamily: fonts.semibold,
-    letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
     fontSize: 18,
-    color: colors.white
+    letterSpacing: 1.12,
+    paddingTop: padding.iOSPadding
+  },
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  greenButton: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 24,
+    height: 46,
+    justifyContent: "center",
+    marginTop: 25,
+    width: "94%"
+  },
+  headerRow: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    marginBottom: 23,
+    marginHorizontal: 25,
+    marginTop: 18
   },
   loadingWheel: {
-    flexGrow: 1,
     alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "center"
+  },
+  noSpecies: {
+    alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "center",
+    marginHorizontal: 28
+  },
+  noSpeciesHeaderText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    maxWidth: 279,
+    textAlign: "center"
+  },
+  noSpeciesText: {
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 24,
+    textAlign: "center"
+  },
+  numberText: {
+    color: colors.black,
+    fontFamily: fonts.light,
+    fontSize: 18,
+    letterSpacing: 0.78,
+    marginRight: 6,
+    marginTop: Platform.OS === "ios" ? 4 : 0
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     justifyContent: "center"
   },
   safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
+  secondHeaderText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    marginTop: 4
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
+  },
+  textContainer: {
+    alignItems: "center"
   }
 } );

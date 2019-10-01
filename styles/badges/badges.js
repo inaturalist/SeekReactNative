@@ -8,28 +8,44 @@ import {
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  badgeIcon: {
+    height: width / 4,
+    resizeMode: "contain",
+    width: width / 4
+  },
+  badgesContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 26
+  },
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSPadding
+  },
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  greenButton: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 34,
+    height: 52,
+    justifyContent: "center",
+    width: 293
+  },
+  gridCell: {
+    height: width / 4,
+    marginHorizontal: 6,
+    width: width / 4
   },
   header: {
-    height: 203,
     alignItems: "center",
+    height: 203,
     justifyContent: "center"
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  levelImage: {
-    width: 117,
-    height: 117,
-    resizeMode: "contain"
-  },
-  textContainer: {
-    width: 167,
-    marginLeft: 24
   },
   headerText: {
     color: colors.white,
@@ -37,88 +53,60 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
-  lightText: {
-    marginBottom: 10,
-    fontFamily: fonts.light,
-    color: colors.white,
-    letterSpacing: 0.78,
-    fontSize: 18
+  levelImage: {
+    height: 117,
+    resizeMode: "contain",
+    width: 117
   },
-  text: {
-    marginTop: 7,
-    fontFamily: fonts.book,
+  lightText: {
     color: colors.white,
-    lineHeight: 21,
-    fontSize: 16
+    fontFamily: fonts.light,
+    fontSize: 18,
+    letterSpacing: 0.78,
+    marginBottom: 10
+  },
+  number: {
+    color: colors.black,
+    fontFamily: fonts.light,
+    fontSize: 22,
+    marginTop: 10,
+    textAlign: "center"
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  secondHeaderText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginHorizontal: 23,
+    textAlign: "center"
   },
   secondTextContainer: {
     alignItems: "center",
     justifyContent: "center"
   },
-  badgesContainer: {
-    marginHorizontal: 26,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  badgeIcon: {
-    width: width / 4,
-    height: width / 4,
-    resizeMode: "contain"
-  },
-  gridCell: {
-    width: width / 4,
-    height: width / 4,
-    marginHorizontal: 6
-  },
   stats: {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
-  secondHeaderText: {
-    textAlign: "center",
-    marginHorizontal: 23,
-    fontSize: 18,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    lineHeight: 24,
-    letterSpacing: 1.0
+  text: {
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 7
   },
-  number: {
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 22,
-    fontFamily: fonts.light,
-    color: colors.black
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  iosSpacer: {
-    backgroundColor: "#22784d",
-    height: 1000,
-    position: "absolute",
-    top: -1000,
-    left: 0,
-    right: 0
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: 293,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
+  textContainer: {
+    marginLeft: 24,
+    width: 167
   }
 } );

@@ -25,9 +25,10 @@ import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../GreenHeader";
 import LoginCard from "../LoginCard";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
+import Spacer from "../iOSSpacer";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class AchievementsScreen extends Component<Props> {
@@ -178,56 +179,54 @@ class AchievementsScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.scrollToTop();
-              this.fetchBadges();
-              this.fetchChallenges();
-              this.fetchSpeciesCount();
-            }}
+        <NavigationEvents
+          onWillFocus={() => {
+            this.scrollToTop();
+            this.fetchBadges();
+            this.fetchChallenges();
+            this.fetchSpeciesCount();
+          }}
+        />
+        <Modal
+          isVisible={showLevelModal}
+          onBackdropPress={() => this.toggleLevelModal()}
+          onSwipeComplete={() => this.toggleLevelModal()}
+          swipeDirection="down"
+        >
+          <LevelModal
+            level={level}
+            screen="achievements"
+            speciesCount={speciesCount}
+            toggleLevelModal={this.toggleLevelModal}
           />
-          <Modal
-            isVisible={showLevelModal}
-            onSwipeComplete={() => this.toggleLevelModal()}
-            onBackdropPress={() => this.toggleLevelModal()}
-            swipeDirection="down"
-          >
-            <LevelModal
-              speciesCount={speciesCount}
-              level={level}
-              toggleLevelModal={this.toggleLevelModal}
-              screen="achievements"
-            />
-          </Modal>
-          <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
-          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-            {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
-            <LevelHeader
-              level={level}
-              nextLevelCount={nextLevelCount}
-              toggleLevelModal={this.toggleLevelModal}
-            />
-            <SpeciesBadges speciesBadges={speciesBadges} />
-            <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
-            <View style={styles.secondTextContainer}>
-              <View style={styles.stats}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "MyObservations" )}
-                >
-                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
-                  <Text style={styles.number}>{speciesCount}</Text>
-                </TouchableOpacity>
-                <View>
-                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
-                  <Text style={styles.number}>{badgesEarned}</Text>
-                </View>
+        </Modal>
+        <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
+        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+          {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
+          <LevelHeader
+            level={level}
+            nextLevelCount={nextLevelCount}
+            toggleLevelModal={this.toggleLevelModal}
+          />
+          <SpeciesBadges speciesBadges={speciesBadges} />
+          <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
+          <View style={styles.secondTextContainer}>
+            <View style={styles.stats}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate( "MyObservations" )}
+              >
+                <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
+                <Text style={styles.number}>{speciesCount}</Text>
+              </TouchableOpacity>
+              <View>
+                <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
+                <Text style={styles.number}>{badgesEarned}</Text>
               </View>
-              <LoginCard navigation={navigation} screen="achievements" />
             </View>
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
+            <LoginCard navigation={navigation} screen="achievements" />
+          </View>
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

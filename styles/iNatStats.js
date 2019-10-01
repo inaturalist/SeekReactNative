@@ -30,10 +30,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
-  container: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   explainImage: {
     marginBottom: 33,
     resizeMode: "contain",
@@ -93,6 +89,17 @@ export default StyleSheet.create( {
     position: "absolute",
     top: 137,
     zIndex: 1
+  },
+  loginText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: 28,
+    marginHorizontal: 20,
+    marginTop: 32,
+    maxWidth: 334,
+    textAlign: "center"
   },
   logo: {
     alignSelf: "center",

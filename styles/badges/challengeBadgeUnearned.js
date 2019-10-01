@@ -1,29 +1,19 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding
+  center: {
+    alignItems: "center"
   },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 34,
-    height: 52,
-    justifyContent: "center",
+  container: {
     marginBottom: 32,
-    marginTop: 37,
-    width: 293
+    marginHorizontal: 23,
+    marginTop: 37
   },
   headerText: {
     color: colors.seekForestGreen,
@@ -45,7 +35,6 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   innerContainer: {
-    alignItems: "center",
     backgroundColor: colors.white,
     borderRadius: 40
   },

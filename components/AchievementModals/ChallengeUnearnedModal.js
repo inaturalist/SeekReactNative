@@ -5,7 +5,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
   ImageBackground
 } from "react-native";
 import moment from "moment";
@@ -20,6 +19,7 @@ import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
 import BackButton from "./ModalBackButton";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +toggleChallengeModal: Function,
@@ -34,50 +34,50 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
         modal
         text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
       />
-      {challenge.started && challenge.percentComplete !== 100 ? (
-        <ImageBackground
-          imageStyle={styles.imageStyle}
-          source={badgeImages[challenge.unearnedIconName]}
-          style={[styles.image, circleStyles.center]}
-        >
-          <ProgressCircle
-            bgColor={colors.white}
-            borderWidth={3}
-            color={colors.seekiNatGreen}
-            outerCircleStyle={circleStyles.circleStyle}
-            percent={challenge.percentComplete}
-            radius={113 / 2}
-            shadowColor={colors.circleGray}
+      <View style={styles.center}>
+        {challenge.started && challenge.percentComplete !== 100 ? (
+          <ImageBackground
+            imageStyle={styles.imageStyle}
+            source={badgeImages[challenge.unearnedIconName]}
+            style={[styles.image, circleStyles.center]}
           >
-            <Text style={circleStyles.circleText}>
-              {challenge.percentComplete}
-              {" %"}
-            </Text>
-          </ProgressCircle>
-        </ImageBackground>
-      ) : (
-        <Image
-          source={badgeImages[challenge.unearnedIconName]}
-          style={[styles.image, styles.imageStyle]}
-        />
-      )}
+            <ProgressCircle
+              bgColor={colors.white}
+              borderWidth={3}
+              color={colors.seekiNatGreen}
+              outerCircleStyle={circleStyles.circleStyle}
+              percent={challenge.percentComplete}
+              radius={113 / 2}
+              shadowColor={colors.circleGray}
+            >
+              <Text style={circleStyles.circleText}>
+                {challenge.percentComplete}
+                {" %"}
+              </Text>
+            </ProgressCircle>
+          </ImageBackground>
+        ) : (
+          <Image
+            source={badgeImages[challenge.unearnedIconName]}
+            style={[styles.image, styles.imageStyle]}
+          />
+        )}
+      </View>
       <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
       <Text style={styles.nameText}>
         {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
       </Text>
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
-        <TouchableOpacity
-          onPress={() => {
-            setChallengeIndex( challenge.index );
-            navigation.navigate( "ChallengeDetails" );
-            toggleChallengeModal();
-          }}
-          style={styles.greenButton}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "notifications.view_challenges" ).toLocaleUpperCase() }
-          </Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+          <GreenButton
+            handlePress={() => {
+              setChallengeIndex( challenge.index );
+              navigation.navigate( "ChallengeDetails" );
+              toggleChallengeModal();
+            }}
+            text={i18n.t( "notifications.view_challenges" ).toLocaleUpperCase() }
+          />
+        </View>
       ) : (
         <Text style={styles.italicText}>
           {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}

@@ -69,7 +69,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   largeFlagButton: {
-    backgroundColor: "#973838",
+    backgroundColor: colors.red,
     width: 278,
     height: 79,
     borderRadius: 40,

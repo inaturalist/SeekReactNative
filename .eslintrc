@@ -17,6 +17,7 @@
     "func-names": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/jsx-curly-spacing": 0,
-    "react/jsx-fragments": "off"
+    "react/jsx-fragments": "off",
+    "react/no-set-state": "off"
   }
 }

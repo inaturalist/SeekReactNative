@@ -4,7 +4,22 @@ import { colors, fonts, touchable } from "../global";
 const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
+  backButton: {
+    left: 23,
+    top: 19
+  },
   background: {
+    flex: 1
+  },
+  button: {
+    paddingHorizontal: 1,
+    paddingTop: 2
+  },
+  buttonImage: {
+    padding: 5
+  },
+  galleryContainer: {
+    backgroundColor: colors.lightGray,
     flex: 1
   },
   header: {
@@ -13,47 +28,29 @@ export default StyleSheet.create( {
   },
   headerText: {
     alignSelf: "center",
-    paddingTop: Platform.OS === "ios" ? 3 : 0,
-    fontSize: 18,
-    fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    letterSpacing: 1.0
-  },
-  loadingWheel: {
-    marginTop: height / 2 - 150,
-    justifyContent: "center"
-  },
-  galleryContainer: {
-    flex: 1,
-    backgroundColor: colors.lightGray
-  },
-  button: {
-    paddingHorizontal: 1,
-    paddingTop: 2
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: Platform.OS === "ios" ? 3 : 0
   },
   image: {
-    width: width / 4 - 2,
-    height: width / 4 - 2
+    height: width / 4 - 2,
+    width: width / 4 - 2
   },
-  backButton: {
-    top: 19,
-    left: 23
+  loadingWheel: {
+    justifyContent: "center",
+    marginTop: height / 2 - 150
   },
-  buttonImage: {
-    padding: 5
-  },
-  safeView: {
-    flex: 1
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center"
   },
   safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 0
   },
-  touchable,
-  row: {
-    flexWrap: "nowrap",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  }
+  touchable
 } );

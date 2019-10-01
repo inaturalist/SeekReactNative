@@ -280,32 +280,30 @@ class GalleryScreen extends Component<Props> {
     return (
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.setupComponent();
-              this.checkPermissions();
-            }}
-            onWillBlur={() => this.resetState()}
-          />
-          <StatusBar barStyle="dark-content" />
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => navigation.navigate( "Main" )}
-            >
-              <Image source={icons.closeGreen} style={styles.buttonImage} />
-            </TouchableOpacity>
-            {albumNames.length > 0
-              ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
-              : null
-            }
-          </View>
-          <View style={styles.galleryContainer}>
-            {gallery}
-          </View>
-        </SafeAreaView>
+        <NavigationEvents
+          onWillBlur={() => this.resetState()}
+          onWillFocus={() => {
+            this.setupComponent();
+            this.checkPermissions();
+          }}
+        />
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            style={styles.backButton}
+            onPress={() => navigation.navigate( "Main" )}
+          >
+            <Image source={icons.closeGreen} style={styles.buttonImage} />
+          </TouchableOpacity>
+          {albumNames.length > 0
+            ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+            : null
+          }
+        </View>
+        <View style={styles.galleryContainer}>
+          {gallery}
+        </View>
       </View>
     );
   }

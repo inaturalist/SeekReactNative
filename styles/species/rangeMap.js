@@ -7,86 +7,77 @@ export default StyleSheet.create( {
   container: {
     flex: 1
   },
-  map: {
-    width,
-    height: height - 75
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: colors.transparent
-  },
-  userLocation: {
-    position: "absolute",
-    right: 19,
-    bottom: 19
-  },
-  locationIcon: {
-    marginRight: 19,
-    marginBottom: 19,
+  innerContainer: {
     backgroundColor: colors.white,
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: colors.white
-  },
-  legendPosition: {
-    position: "absolute",
-    left: 0,
-    bottom: 0
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40
   },
   legend: {
-    borderTopRightRadius: 40,
     backgroundColor: colors.seekForestGreen,
+    borderTopRightRadius: 40,
     height: height > 670 ? 70 : 50,
     width: 126
   },
-  whiteText: {
-    marginTop: 18,
-    textAlign: "center",
-    fontSize: 19,
-    color: colors.white,
-    letterSpacing: 1.12,
-    fontFamily: fonts.semibold
-  },
-  outerContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  innerContainer: {
-    borderRadius: 40,
-    backgroundColor: colors.white
-  },
   legendHeader: {
-    height: 56,
-    borderTopRightRadius: 40,
+    backgroundColor: colors.seekForestGreen,
     borderTopLeftRadius: 40,
-    backgroundColor: colors.seekForestGreen
+    borderTopRightRadius: 40,
+    height: 56
   },
-  text: {
-    marginTop: 3,
-    marginLeft: 21,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black,
-    fontFamily: fonts.book
+  legendPosition: {
+    bottom: 0,
+    left: 0,
+    position: "absolute"
+  },
+  locationIcon: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderColor: colors.white,
+    borderRadius: 50 / 2,
+    height: 50,
+    justifyContent: "center",
+    marginBottom: 19,
+    marginRight: 19,
+    width: 50
+  },
+  map: {
+    height: height - 75,
+    width
   },
   row: {
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
     marginHorizontal: 25,
     marginTop: 15
   },
-  backButton: {
-    padding: 20,
-    alignItems: "center",
-    justifyContent: "center"
+  safeView: {
+    backgroundColor: colors.transparent,
+    flex: 1
+  },
+  safeViewTop: {
+    backgroundColor: colors.seekForestGreen,
+    flex: 0
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginLeft: 21,
+    marginTop: 3
+  },
+  userLocation: {
+    bottom: 19,
+    position: "absolute",
+    right: 19
+  },
+  whiteText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginTop: 18,
+    textAlign: "center"
   }
 } );

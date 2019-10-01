@@ -22,7 +22,7 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 
@@ -89,72 +89,66 @@ class RangeMap extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => this.getUserLocation()}
-          />
-          <Modal
-            isVisible={showModal}
-            onSwipeComplete={() => this.toggleModal()}
-            onBackdropPress={() => this.toggleModal()}
-            swipeDirection="down"
+        <NavigationEvents
+          onWillFocus={() => this.getUserLocation()}
+        />
+        <Modal
+          isVisible={showModal}
+          onBackdropPress={() => this.toggleModal()}
+          onSwipeComplete={() => this.toggleModal()}
+          swipeDirection="down"
+        >
+          <Legend toggleModal={this.toggleModal} />
+        </Modal>
+        <GreenHeader
+          header={i18n.t( "species_detail.range_map" )}
+          navigation={navigation}
+          route="Species"
+        />
+        {region.latitude ? (
+          <MapView
+            provider={PROVIDER_DEFAULT}
+            region={region}
+            style={styles.map}
+            zoomEnabled
           >
-            <Legend toggleModal={this.toggleModal} />
-          </Modal>
-          <GreenHeader
-            header={i18n.t( "species_detail.range_map" )}
-            navigation={navigation}
-            route="Species"
-          />
-          {region.latitude ? (
-            <MapView
-              region={region}
-              provider={PROVIDER_DEFAULT}
-              style={styles.map}
-              zoomEnabled
-            >
-              <UrlTile
-                urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
-                tileSize={512}
-              />
-              {seenDate && obsLocation.latitude ? (
-                <Marker
-                  coordinate={{ latitude: obsLocation.latitude, longitude: obsLocation.longitude }}
-                >
-                  <Image source={icons.cameraOnMap} />
-                </Marker>
-              ) : null}
-              {userLocation.latitude ? (
-                <Marker
-                  coordinate={{
-                    latitude: userLocation.latitude,
-                    longitude: userLocation.longitude
-                  }}
-                >
-                  <Image source={icons.locationPin} style={{ marginBottom: 23 }} />
-                </Marker>
-              ) : null}
-            </MapView>
-          ) : null}
-          <View style={styles.legendPosition}>
-            <TouchableOpacity
-              onPress={() => this.toggleModal()}
-              style={styles.legend}
-            >
-              <Text style={styles.whiteText}>
-                {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.userLocation}>
-            <TouchableOpacity
-              onPress={() => this.returnToUserLocation()}
-              style={styles.locationIcon}
-            >
-              <Image source={icons.indicator} />
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+            <UrlTile
+              tileSize={512}
+              urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
+            />
+            {seenDate && obsLocation.latitude ? (
+              <Marker
+                coordinate={{ latitude: obsLocation.latitude, longitude: obsLocation.longitude }}
+              >
+                <Image source={icons.cameraOnMap} />
+              </Marker>
+            ) : null}
+            {userLocation.latitude ? (
+              <Marker
+                coordinate={{
+                  latitude: userLocation.latitude,
+                  longitude: userLocation.longitude
+                }}
+              >
+                <Image source={icons.locationPin} style={{ marginBottom: 23 }} />
+              </Marker>
+            ) : null}
+          </MapView>
+        ) : null}
+        <TouchableOpacity
+          onPress={() => this.toggleModal()}
+          style={[styles.legend, styles.legendPosition]}
+        >
+          <Text style={styles.whiteText}>
+            {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.returnToUserLocation()}
+          style={[styles.locationIcon, styles.userLocation]}
+        >
+          <Image source={icons.indicator} />
+        </TouchableOpacity>
       </View>
     );
   }

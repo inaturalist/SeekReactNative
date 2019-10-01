@@ -96,7 +96,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.transparent
   },
   iosSpacer: {
     backgroundColor: "#22784d",

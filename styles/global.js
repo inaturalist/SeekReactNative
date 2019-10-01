@@ -12,7 +12,8 @@ export const colors = {
   dividerGray: "#d8d8d8",
   errorGray: "#4a4a4a",
   circleGray: "#f0f0f0",
-  red: "#973838"
+  red: "#973838",
+  transparent: "transparent"
 };
 
 export const fonts = {

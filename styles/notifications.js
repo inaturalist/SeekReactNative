@@ -56,7 +56,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.transparent
   },
   noNotifications: {
     marginHorizontal: 28,

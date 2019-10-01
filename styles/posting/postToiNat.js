@@ -18,7 +18,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.transparent
   },
   textContainer: {
     marginHorizontal: height < 570 ? 14 : 27,

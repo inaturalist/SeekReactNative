@@ -77,7 +77,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.transparent
   },
   bottomPadding: {
     height: Platform.OS === "android" ? 17 : 60,

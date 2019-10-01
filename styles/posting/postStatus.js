@@ -15,7 +15,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.transparent
   },
   header: {
     width: 286,

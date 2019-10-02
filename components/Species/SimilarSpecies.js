@@ -73,7 +73,7 @@ class SimilarSpecies extends Component<Props> {
     const { fetchiNatData } = this.props;
 
     const species = (
-      <SpeciesNearbyList fetchiNatData={fetchiNatData} taxa={similarSpecies} />
+      <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={similarSpecies} />
     );
 
     return (

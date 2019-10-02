@@ -20,7 +20,7 @@ import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import badges from "../../assets/badges";
-import icons from "../../assets/icons";
+import BackArrow from "../UIComponents/BackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
@@ -55,6 +55,12 @@ class ChallengeDetailsScreen extends Component<Props> {
       challengeStarted: false,
       showChallengeModal: false,
       index: null
+    } );
+  }
+
+  scrollToTop() {
+    this.scrollView.scrollTo( {
+      x: 0, y: 0, animated: Platform.OS === "android"
     } );
   }
 
@@ -161,12 +167,13 @@ class ChallengeDetailsScreen extends Component<Props> {
     }
 
     return (
-      <View style={styles.container}>
+      <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
         <SafeAreaView style={styles.safeViewTop} />
         <StatusBar barStyle="light-content" />
         <NavigationEvents
           onWillBlur={() => this.resetState()}
           onWillFocus={() => {
+            this.scrollToTop();
             recalculateChallenges();
             this.fetchChallengeIndex();
           }}
@@ -182,69 +189,59 @@ class ChallengeDetailsScreen extends Component<Props> {
             toggleChallengeModal={this.toggleChallengeModal}
           />
         </Modal>
-        <ScrollView>
-          {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
-          <ImageBackground
-            source={backgrounds[challenge.backgroundName]}
-            style={styles.challengeBackground}
-          >
-            <View style={styles.header}>
-              <TouchableOpacity
-                hitSlop={styles.touchable}
-                onPress={() => navigation.goBack()}
-                style={styles.backButton}
-              >
-                <Image source={icons.backButton} style={styles.image} />
-              </TouchableOpacity>
-              <Image source={logos.op} style={styles.logo} />
-            </View>
-            <View style={{ marginTop: 24 }} />
-            <Text style={styles.challengeHeader}>
-              {i18n.t( challenge.month ).toLocaleUpperCase()}
-            </Text>
-            <Text style={styles.challengeName}>
-              {i18n.t( challenge.name ).toLocaleUpperCase()}
-            </Text>
-            <View style={styles.row}>
-              {challenge.percentComplete === 100
-                ? <Image source={badges[challenge.earnedIconName]} style={styles.badge} />
-                : <Image source={badges["badge-empty-white"]} style={styles.badge} />}
-              <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-            </View>
-            {button}
-          </ImageBackground>
-          <View style={styles.missionContainer}>
-            {challengeStarted ? (
-              <ChallengeMissionCard
-                challenge={challenge}
-                missions={missions}
-              />
-            ) : null}
-          </View>
-          <View style={styles.descriptionContainer}>
-            <Text style={styles.descriptionText}>{challenge.description}</Text>
-          </View>
-          <View style={styles.secondHeader}>
-            <Text style={styles.headerText}>{i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}</Text>
-          </View>
-          <View style={{ marginTop: 16 }} />
-          <Text style={[styles.descriptionText, { marginHorizontal: 36 }]}>
-            {i18n.t( challenge.action )}
+        {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
+        <ImageBackground
+          source={backgrounds[challenge.backgroundName]}
+          style={styles.challengeBackground}
+        >
+          <BackArrow navigation={navigation} />
+          <Image source={logos.op} style={styles.logo} />
+          <View style={{ marginTop: 24 }} />
+          <Text style={styles.challengeHeader}>
+            {i18n.t( challenge.month ).toLocaleUpperCase()}
           </Text>
-          <View style={styles.descriptionContainer}>
-            <View style={styles.row}>
-              <Image source={logos.wwfop} />
-            </View>
-            <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate( "Challenges" )}
-            >
-              <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
-            </TouchableOpacity>
+          <Text style={styles.challengeName}>
+            {i18n.t( challenge.name ).toLocaleUpperCase()}
+          </Text>
+          <View style={styles.row}>
+            {challenge.percentComplete === 100
+              ? <Image source={badges[challenge.earnedIconName]} style={styles.badge} />
+              : <Image source={badges["badge-empty-white"]} style={styles.badge} />}
+            <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
           </View>
-          <Padding />
-        </ScrollView>
-      </View>
+          {button}
+        </ImageBackground>
+        <View style={styles.missionContainer}>
+          {challengeStarted ? (
+            <ChallengeMissionCard
+              challenge={challenge}
+              missions={missions}
+            />
+          ) : null}
+        </View>
+        <View style={styles.descriptionContainer}>
+          <Text style={styles.descriptionText}>{challenge.description}</Text>
+        </View>
+        <View style={styles.secondHeader}>
+          <Text style={styles.headerText}>{i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}</Text>
+        </View>
+        <View style={{ marginTop: 16 }} />
+        <Text style={[styles.descriptionText, { marginHorizontal: 36 }]}>
+          {i18n.t( challenge.action )}
+        </Text>
+        <View style={styles.descriptionContainer}>
+          <View style={styles.row}>
+            <Image source={logos.wwfop} />
+          </View>
+          <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Challenges" )}
+          >
+            <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+          </TouchableOpacity>
+        </View>
+        <Padding />
+      </ScrollView>
     );
   }
 }

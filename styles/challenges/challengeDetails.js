@@ -14,10 +14,6 @@ const { width } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  backButton: {
-    marginLeft: 23,
-    top: 18
-  },
   badge: {
     height: 105,
     resizeMode: "contain",
@@ -48,10 +44,6 @@ export default StyleSheet.create( {
     marginHorizontal: 32,
     marginTop: 5
   },
-  container: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   descriptionContainer: {
     alignItems: "center",
     backgroundColor: colors.white,
@@ -71,9 +63,6 @@ export default StyleSheet.create( {
     height: 46,
     justifyContent: "center",
     marginHorizontal: 42
-  },
-  header: {
-    height: 85
   },
   headerText: {
     color: colors.seekForestGreen,

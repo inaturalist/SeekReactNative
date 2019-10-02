@@ -24,7 +24,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class Results extends Component<Props> {
@@ -59,7 +59,8 @@ class Results extends Component<Props> {
       clicked: false,
       isLoggedIn: null,
       numberOfHours: null,
-      errorCode: null
+      errorCode: null,
+      rank: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
@@ -166,7 +167,8 @@ class Results extends Component<Props> {
           : null,
         taxaId: taxon.id,
         speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: taxon.name
+        scientificName: taxon.name,
+        rank: taxon.rank_level
       }, () => this.setMatch( false ) );
     } );
   }
@@ -326,7 +328,8 @@ class Results extends Component<Props> {
       time,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } = this.state;
 
     navigation.navigate( route, {
@@ -343,7 +346,8 @@ class Results extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } );
   }
 
@@ -376,11 +380,11 @@ class Results extends Component<Props> {
             />
           ) : (
             <ConfirmScreen
-              image={imageForUploading}
               checkForMatches={this.checkForMatches}
+              clicked={clicked}
+              image={imageForUploading}
               match={match}
               navigation={navigation}
-              clicked={clicked}
             />
           )}
       </View>

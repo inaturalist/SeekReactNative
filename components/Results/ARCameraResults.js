@@ -56,7 +56,8 @@ class ARCameraResults extends Component<Props> {
       imageForUploading: null,
       match: null,
       isLoggedIn: null,
-      errorCode
+      errorCode,
+      rank: null
     };
   }
 

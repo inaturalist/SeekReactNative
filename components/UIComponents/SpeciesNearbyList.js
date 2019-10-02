@@ -7,7 +7,7 @@ import {
   Image
 } from "react-native";
 
-import styles from "../../styles/home/speciesNearby";
+import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import LoadingWheel from "../LoadingWheel";
@@ -15,10 +15,16 @@ import LoadingWheel from "../LoadingWheel";
 type Props = {
   +taxa: Array,
   +navigation: ?any,
-  +fetchiNatData: ?Function
+  +fetchiNatData: ?Function,
+  +match: boolean
 }
 
-const SpeciesNearbyList = ( { taxa, navigation, fetchiNatData }: Props ) => (
+const SpeciesNearbyList = ( {
+  taxa,
+  match,
+  navigation,
+  fetchiNatData
+}: Props ) => (
   <FlatList
     alwaysBounceHorizontal
     bounces
@@ -30,8 +36,8 @@ const SpeciesNearbyList = ( { taxa, navigation, fetchiNatData }: Props ) => (
     ListEmptyComponent={() => {
       if ( navigation ) {
         return (
-          <Text style={[styles.cellTitleText, styles.noTaxon]}>
-            {i18n.t( "species_nearby.no_species" )}
+          <Text style={[styles.cellTitleText, styles.errorText, styles.noTaxon]}>
+            {match ? i18n.t( "results.nothing_nearby" ) : i18n.t( "species_nearby.no_species" )}
           </Text>
         );
       }

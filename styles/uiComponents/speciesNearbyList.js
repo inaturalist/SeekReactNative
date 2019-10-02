@@ -25,29 +25,24 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center"
   },
+  errorText: {
+    lineHeight: 24
+  },
   gridCell: {
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 10,
     width: 108
   },
-  loading: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   noTaxon: {
     alignItems: Platform.OS === "ios" ? "center" : null,
     justifyContent: Platform.OS === "ios" ? "center" : null,
     marginHorizontal: Platform.OS === "android" ? 27 : 0,
-    marginTop: 54,
+    marginTop: 50,
     width: 322
   },
-  similarSpeciesContainer: {
-    backgroundColor: colors.seekForestGreen,
-    height: 223
-  },
-  similarSpeciesList: {
-    marginTop: 20,
+  taxonList: {
+    marginTop: 29,
     paddingLeft: 20
   }
 } );

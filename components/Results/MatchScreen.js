@@ -36,6 +36,7 @@ import {
   createGPSAlert,
   createLocationTimeoutAlert
 } from "../../utility/locationHelpers";
+import SpeciesNearby from "./SpeciesNearby";
 
 type Props = {
   +navigation: any
@@ -59,7 +60,8 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } = navigation.state.params;
 
     this.state = {
@@ -84,7 +86,8 @@ class MatchScreen extends Component<Props> {
       match,
       challengeShown: false,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -245,7 +248,8 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      rank
     } = this.state;
 
     let headerText;
@@ -253,6 +257,28 @@ class MatchScreen extends Component<Props> {
     let gradientColorLight;
     let text;
     let speciesText;
+    let ancestorRank;
+    let hrank;
+
+    if ( rank === 20 ) {
+      ancestorRank = i18n.t( "camera.genus" );
+      hrank = "genus";
+    } else if ( rank === 30 ) {
+      ancestorRank = i18n.t( "camera.family" );
+      hrank = "family";
+    } else if ( rank === 40 ) {
+      ancestorRank = i18n.t( "camera.order" );
+      hrank = "order";
+    } else if ( rank === 50 ) {
+      ancestorRank = i18n.t( "camera.class" );
+      hrank = "class";
+    } else if ( rank === 60 ) {
+      ancestorRank = i18n.t( "camera.phylum" );
+      hrank = "phylum";
+    } else if ( rank === 70 ) {
+      ancestorRank = i18n.t( "camera.kingdom" );
+      hrank = "kingdom";
+    }
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
@@ -267,7 +293,7 @@ class MatchScreen extends Component<Props> {
       text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
-      headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
+      headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
       text = i18n.t( "results.common_ancestor" );
@@ -378,6 +404,7 @@ class MatchScreen extends Component<Props> {
               ) : null}
             </View>
           </LinearGradient>
+          <View style={styles.marginLarge} />
           <View style={styles.textContainer}>
             <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
             {seenDate || match || commonAncestor
@@ -407,12 +434,24 @@ class MatchScreen extends Component<Props> {
                 </Text>
               </TouchableOpacity>
             )}
+          </View>
+          {commonAncestor && rank !== ( 60 || 70 ) ? (
+            <SpeciesNearby
+              ancestorId={taxaId}
+              hrank={hrank}
+              lat={latitude}
+              lng={longitude}
+              navigation={navigation}
+            />
+          ) : null}
+          <View style={styles.marginMedium} />
+          <View style={styles.textContainer}>
             {seenDate || match ? (
               <TouchableOpacity
                 onPress={() => this.setNavigationPath( "Camera" )}
                 style={styles.link}
               >
-                <Text style={[styles.linkText, { marginBottom: 28 }]}>{i18n.t( "results.back" )}</Text>
+                <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
             ) : null}
             {/* {isLoggedIn ? (

@@ -43,6 +43,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
+  cover: {
+    resizeMode: "cover"
+  },
   header: {
     height: 186,
     overflow: "visible"
@@ -91,6 +94,12 @@ export default StyleSheet.create( {
     position: "absolute",
     top: "50%"
   },
+  marginLarge: {
+    marginTop: 50
+  },
+  marginMedium: {
+    marginBottom: 28
+  },
   speciesText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -109,8 +118,7 @@ export default StyleSheet.create( {
   },
   textContainer: {
     alignItems: "center",
-    marginHorizontal: 24,
-    marginTop: 50
+    marginHorizontal: 24
   },
   touchable
 } );

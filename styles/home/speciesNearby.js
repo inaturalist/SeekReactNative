@@ -23,35 +23,9 @@ export default StyleSheet.create( {
     letterSpacing: 1.12,
     paddingTop: Platform.OS === "ios" ? 6 : 0
   },
-  cellImage: {
-    borderRadius: 108 / 2,
-    height: 108,
-    width: 108
-  },
-  cellTitle: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    height: 92,
-    justifyContent: "center",
-    paddingTop: 15,
-    width: 108
-  },
-  cellTitleText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: "center"
-  },
   container: {
     backgroundColor: colors.seekForestGreen,
     height: 422
-  },
-  gridCell: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 10,
-    width: 108
   },
   header: {
     marginLeft: 22,
@@ -73,13 +47,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
-  noTaxon: {
-    alignItems: Platform.OS === "ios" ? "center" : null,
-    justifyContent: Platform.OS === "ios" ? "center" : null,
-    marginHorizontal: Platform.OS === "android" ? 27 : 0,
-    marginTop: 54,
-    width: 322
-  },
   similarSpeciesContainer: {
     backgroundColor: colors.seekForestGreen,
     height: 223
@@ -100,10 +67,6 @@ export default StyleSheet.create( {
   speciesNearbyContainer: {
     backgroundColor: colors.speciesNearbyGreen,
     height: 231
-  },
-  taxonList: {
-    marginTop: 29,
-    paddingLeft: 20
   },
   text: {
     fontFamily: fonts.medium,

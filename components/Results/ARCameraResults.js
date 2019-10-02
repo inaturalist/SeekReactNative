@@ -20,7 +20,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ARCameraResults extends Component<Props> {
@@ -97,7 +97,8 @@ class ARCameraResults extends Component<Props> {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,
         speciesSeenImage,
-        scientificName: ancestor.name
+        scientificName: ancestor.name,
+        rank: ancestor.rank
       }, () => this.setMatch( false ) );
     } );
   }
@@ -283,7 +284,8 @@ class ARCameraResults extends Component<Props> {
       longitude,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } = this.state;
 
     navigation.navigate( route, {
@@ -300,7 +302,8 @@ class ARCameraResults extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } );
   }
 
@@ -321,9 +324,9 @@ class ARCameraResults extends Component<Props> {
           ? <ErrorScreen error={error} navigation={navigation} />
           : (
             <ImageBackground
+              imageStyle={styles.cover}
               source={{ uri: imageForUploading }}
               style={styles.imageBackground}
-              imageStyle={{ resizeMode: "cover" }}
             >
               <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />

@@ -236,8 +236,8 @@
     "no_identification": "We weren’t able to identify this photo",
     "sorry": "Sorry about that, Seek is still learning!\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
     "take_photo": "Take another photo",
-    "common_ancestor": "But we couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
-    "believe": "We believe this is a member of",
+    "common_ancestor": "But Seek couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
+    "believe": "We believe this is a member of the {{ancestorRank}}",
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
@@ -255,7 +255,9 @@
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist."
   },
   "banner": {
     "view": "View badge",

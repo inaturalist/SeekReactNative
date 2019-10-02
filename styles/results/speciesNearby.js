@@ -16,6 +16,6 @@ export default StyleSheet.create( {
   },
   speciesNearbyContainer: {
     backgroundColor: colors.seekTeal,
-    height: 223
+    height: 231
   }
 } );

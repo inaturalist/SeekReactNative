@@ -444,7 +444,7 @@ class MatchScreen extends Component<Props> {
               navigation={navigation}
             />
           ) : null}
-          <View style={styles.marginMedium} />
+          {commonAncestor && rank !== ( 60 || 70 ) ? <View style={styles.marginMedium} /> : null}
           <View style={styles.textContainer}>
             {seenDate || match ? (
               <TouchableOpacity

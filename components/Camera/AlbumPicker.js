@@ -12,13 +12,15 @@ import icons from "../../assets/icons";
 import styles from "../../styles/camera/gallery";
 
 const pickerSelectStyles = StyleSheet.create( {
-  inputIOS: styles.headerText,
-  inputAndroid: styles.headerText
+  viewContainer: {
+    alignSelf: "center",
+    maxWidth: 200
+  }
 } );
 
 type Props = {
-  updateAlbum: Function,
-  albums: Array
+  +updateAlbum: Function,
+  +albums: Array
 }
 
 class AlbumPicker extends Component<Props> {
@@ -45,28 +47,27 @@ class AlbumPicker extends Component<Props> {
 
     return (
       <RNPickerSelect
-        placeholder={{}}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
         hideIcon
+        Icon={() => <Image source={icons.dropdownOpen} style={styles.margin} />}
         items={albums}
         onValueChange={( value ) => {
           this.setAlbum( value );
         }}
+        placeholder={{}}
         style={{ ...pickerSelectStyles }}
-        value={album}
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
         useNativeAndroidPickerStyle={false}
-        Icon={() => <Image source={icons.dropdownOpen} style={{ marginLeft: 15 }} />}
+        value={album}
       >
         <View style={styles.row}>
           <Text style={styles.headerText}>
             {album === "All"
               ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()
-              : album.toLocaleUpperCase()
-            }
+              : album.toLocaleUpperCase()}
           </Text>
-          <Image source={icons.dropdownOpen} style={{ marginLeft: 15 }} />
+          <Image source={icons.dropdownOpen} style={styles.margin} />
         </View>
       </RNPickerSelect>
     );

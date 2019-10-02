@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get( "screen" );
 export default StyleSheet.create( {
   backButton: {
     left: 23,
-    top: 19
+    top: 18
   },
   background: {
     flex: 1
@@ -24,7 +24,7 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 54
+    height: 55
   },
   headerText: {
     alignSelf: "center",
@@ -41,6 +41,9 @@ export default StyleSheet.create( {
   loadingWheel: {
     justifyContent: "center",
     marginTop: height / 2 - 150
+  },
+  margin: {
+    marginLeft: 15
   },
   row: {
     alignItems: "center",

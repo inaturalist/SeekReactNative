@@ -5,20 +5,6 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  androidSecondButtonText: {
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    height: 29,
-    letterSpacing: 1.12,
-    paddingBottom: 2,
-    paddingHorizontal: 9,
-    paddingTop: 6,
-    textAlign: "left",
-    width: 140
-  },
   buttonContainer: {
     marginBottom: 15,
     marginLeft: 22,
@@ -93,17 +79,6 @@ export default StyleSheet.create( {
     marginHorizontal: Platform.OS === "android" ? 27 : 0,
     marginTop: 54,
     width: 322
-  },
-  secondButtonText: {
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    height: 29,
-    letterSpacing: 1.12,
-    paddingHorizontal: 9,
-    paddingTop: 3
   },
   similarSpeciesContainer: {
     backgroundColor: colors.seekForestGreen,

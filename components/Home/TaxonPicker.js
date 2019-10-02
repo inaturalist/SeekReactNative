@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  StyleSheet,
   Text,
   TouchableOpacity,
   Image,
@@ -12,13 +11,8 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/speciesNearby";
 
-const pickerSelectStyles = StyleSheet.create( {
-  inputIOS: styles.secondButtonText,
-  inputAndroid: styles.androidSecondButtonText
-} );
-
 type Props = {
-  updateTaxaType: Function
+  +updateTaxaType: Function
 }
 
 class TaxonPicker extends Component<Props> {
@@ -90,18 +84,17 @@ class TaxonPicker extends Component<Props> {
 
     return (
       <RNPickerSelect
-        placeholder={{}}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
         hideIcon
         items={types}
         onValueChange={( value ) => {
           this.setTaxonType( value );
         }}
-        style={{ ...pickerSelectStyles }}
-        value={taxonType}
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
+        placeholder={{}}
         useNativeAndroidPickerStyle={false}
+        value={taxonType}
       >
         <TouchableOpacity style={styles.buttonRow}>
           <Image source={icons.filter} style={styles.image} />

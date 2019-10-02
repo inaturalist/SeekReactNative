@@ -6,7 +6,7 @@ import {
 import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/speciesNearby";
+import styles from "../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
 type Props = {

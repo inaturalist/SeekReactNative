@@ -8,15 +8,15 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postStatus";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 
 type Props = {
-  loading: boolean,
-  postingSuccess: boolean,
-  togglePostModal: Function,
-  navigation: any
+  +loading: boolean,
+  +postingSuccess: boolean,
+  +togglePostModal: Function,
+  +navigation: any
 };
 
 const PostStatus = ( {

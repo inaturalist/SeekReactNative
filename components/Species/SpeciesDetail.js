@@ -29,7 +29,7 @@ import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/iOSSpacer";
 import {
   getSpeciesId,

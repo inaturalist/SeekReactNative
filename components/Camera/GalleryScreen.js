@@ -19,7 +19,7 @@ import GalleryManager from "react-native-gallery-manager";
 
 import i18n from "../../i18n";
 import PermissionError from "./PermissionError";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import {
   checkCameraRollPermissions,
   checkForPhotoMetaData,

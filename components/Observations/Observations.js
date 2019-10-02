@@ -8,8 +8,7 @@ import {
   SectionList,
   Text,
   Image,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -21,7 +20,7 @@ import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/iconicTaxonDictById";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import NoObservations from "./NoObservations";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";

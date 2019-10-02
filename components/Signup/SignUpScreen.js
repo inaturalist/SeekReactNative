@@ -13,7 +13,7 @@ import jwt from "react-native-jwt-io";
 import i18n from "../../i18n";
 import config from "../../config";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 

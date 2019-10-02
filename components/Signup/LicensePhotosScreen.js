@@ -12,7 +12,7 @@ import Checkbox from "react-native-check-box";
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
 

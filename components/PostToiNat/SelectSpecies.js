@@ -20,7 +20,7 @@ import styles from "../../styles/posting/selectSpecies";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import SpeciesCard from "./SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 

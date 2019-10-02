@@ -11,14 +11,14 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any,
-  photos: Array<Object>,
-  userPhoto: string,
-  route: string
+  +navigation: any,
+  +photos: Array<Object>,
+  +userPhoto: string,
+  +route: string
 };
 
 const SpeciesPhotos = ( {
@@ -49,11 +49,11 @@ const SpeciesPhotos = ( {
         />
         <View style={styles.photoOverlay}>
           <TouchableOpacity
-            style={styles.ccButton}
             onPress={() => Alert.alert(
               i18n.t( "species_detail.license" ),
               photo.photo.attribution
             )}
+            style={styles.ccButton}
           >
             <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
           </TouchableOpacity>
@@ -66,21 +66,22 @@ const SpeciesPhotos = ( {
   return (
     <View>
       <FlatList
+        bounces={false}
+        contentContainerStyle={styles.photoContainer}
         data={photoList}
         horizontal
-        pagingEnabled
-        bounces={false}
         indicatorStyle="white"
         initialNumToRender={1}
-        renderItem={( { item } ) => item}
-        contentContainerStyle={styles.photoContainer}
         ListEmptyComponent={() => (
           <View style={[styles.photoContainer, styles.fullWidth, styles.loading]}>
             <LoadingWheel color="white" />
           </View>
         )}
+        pagingEnabled
+        renderItem={( { item } ) => item}
       />
       <TouchableOpacity
+        hitSlop={styles.touchable}
         onPress={() => {
           if ( route ) {
             navigation.navigate( route );
@@ -88,7 +89,6 @@ const SpeciesPhotos = ( {
             navigation.navigate( "Main" );
           }
         }}
-        hitSlop={styles.touchable}
         style={styles.backButton}
       >
         <Image source={icons.backButton} />

@@ -12,7 +12,7 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";

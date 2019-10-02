@@ -14,9 +14,9 @@ import jwt from "react-native-jwt-io";
 import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import ErrorMessage from "./ErrorMessage";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 
 type Props = {

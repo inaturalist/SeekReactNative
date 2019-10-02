@@ -10,7 +10,7 @@ import {
 import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "./LoadingWheel";
 
 type Props = {
   +taxa: Array,

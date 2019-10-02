@@ -14,7 +14,7 @@ import { Appearance } from "react-native-appearance";
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 
 type Props = {
   navigation: any

@@ -15,7 +15,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import Legend from "./Legend";
 
 const latitudeDelta = 0.2;

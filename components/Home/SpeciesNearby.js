@@ -10,7 +10,7 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import Error from "./Error";
 import TaxonPicker from "./TaxonPicker";
 import icons from "../../assets/icons";
@@ -59,11 +59,9 @@ const SpeciesNearby = ( {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>
-          {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-        </Text>
-      </View>
+      <Text style={[styles.headerText, styles.header]}>
+        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+      </Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => toggleLocationPicker()}

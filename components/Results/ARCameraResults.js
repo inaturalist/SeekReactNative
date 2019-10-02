@@ -9,7 +9,7 @@ import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,

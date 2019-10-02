@@ -19,7 +19,7 @@ import INatCamera from "react-native-inat-camera";
 import RNModal from "react-native-modal";
 import moment from "moment";
 
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import WarningModal from "./WarningModal";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";

@@ -21,7 +21,7 @@ import { Appearance } from "react-native-appearance";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
 import LocationPicker from "./LocationPicker";

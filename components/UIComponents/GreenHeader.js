@@ -8,10 +8,10 @@ import {
   Image
 } from "react-native";
 
-import styles from "../styles/greenHeader";
-import BackArrow from "./UIComponents/BackArrow";
-import CustomBackArrow from "./UIComponents/CustomBackArrow";
-import posting from "../assets/posting";
+import styles from "../../styles/uiComponents/greenHeader";
+import BackArrow from "./BackArrow";
+import CustomBackArrow from "./CustomBackArrow";
+import posting from "../../assets/posting";
 
 type Props = {
   +header: string,

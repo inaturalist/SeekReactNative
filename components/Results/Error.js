@@ -4,7 +4,7 @@ import React from "react";
 import { Text, View, SafeAreaView } from "react-native";
 
 import i18n from "../../i18n";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import styles from "../../styles/results/error";
 
 type Props = {

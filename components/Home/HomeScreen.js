@@ -19,7 +19,7 @@ import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";

@@ -10,6 +10,9 @@ export default StyleSheet.create( {
   center: {
     alignItems: "center"
   },
+  centerSelf: {
+    alignSelf: "center"
+  },
   container: {
     marginBottom: 32,
     marginHorizontal: 23,

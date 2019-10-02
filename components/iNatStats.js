@@ -19,9 +19,9 @@ import i18n from "../i18n";
 import icons from "../assets/icons";
 import backgrounds from "../assets/backgrounds";
 import logos from "../assets/logos";
-import Padding from "./Padding";
+import Padding from "./UIComponents/Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
-import LoadingWheel from "./LoadingWheel";
+import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 

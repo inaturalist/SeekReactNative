@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import MatchFooter from "./MatchFooter";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import Spacer from "../UIComponents/iOSSpacer";

@@ -12,14 +12,14 @@ import {
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/results/confirm";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 
 type Props = {
-  image: Object,
-  navigation: any,
-  match: boolean,
-  checkForMatches: Function,
-  clicked: boolean
+  +image: Object,
+  +navigation: any,
+  +match: boolean,
+  +checkForMatches: Function,
+  +clicked: boolean
 }
 
 const ConfirmScreen = ( {
@@ -33,8 +33,8 @@ const ConfirmScreen = ( {
     <SafeAreaView style={styles.safeViewTop} />
     <View style={styles.header}>
       <TouchableOpacity
-        style={styles.backButton}
         onPress={() => navigation.goBack()}
+        style={styles.backButton}
       >
         <Image source={icons.backButtonGreen} style={styles.buttonImage} />
       </TouchableOpacity>
@@ -56,8 +56,8 @@ const ConfirmScreen = ( {
     </View>
     <View style={styles.footer}>
       <TouchableOpacity
-        style={[styles.button, clicked && styles.lightButton]}
         onPress={() => checkForMatches()}
+        style={[styles.button, clicked && styles.lightButton]}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "confirm.button" ).toLocaleUpperCase()}

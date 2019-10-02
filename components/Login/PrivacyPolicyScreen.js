@@ -10,7 +10,7 @@ import {
 
 import styles from "../../styles/login/privacy";
 import i18n from "../../i18n";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 
 type Props = {
   +navigation: any

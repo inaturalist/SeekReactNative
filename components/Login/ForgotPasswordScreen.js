@@ -14,7 +14,7 @@ import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import config from "../../config";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "../Signup/ErrorMessage";

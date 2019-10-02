@@ -79,7 +79,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           />
         </View>
       ) : (
-        <Text style={styles.italicText}>
+        <Text style={[styles.italicText, styles.centerSelf]}>
           {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}
         </Text>
       )}

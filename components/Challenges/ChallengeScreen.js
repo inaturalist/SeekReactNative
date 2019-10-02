@@ -17,8 +17,8 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Padding from "../Padding";
-import GreenHeader from "../GreenHeader";
+import Padding from "../UIComponents/Padding";
+import GreenHeader from "../UIComponents/GreenHeader";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {

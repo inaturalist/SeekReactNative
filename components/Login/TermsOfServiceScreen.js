@@ -10,8 +10,8 @@ import {
 
 import styles from "../../styles/login/privacy";
 import i18n from "../../i18n";
-import GreenHeader from "../GreenHeader";
-import Padding from "../Padding";
+import GreenHeader from "../UIComponents/GreenHeader";
+import Padding from "../UIComponents/Padding";
 
 type Props = {
   +navigation: any

@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts, touchable } from "./global";
+import { colors, fonts, touchable } from "../global";
 
 export default StyleSheet.create( {
   container: {

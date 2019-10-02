@@ -14,8 +14,8 @@ import { NavigationEvents } from "react-navigation";
 import styles from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
-import GreenHeader from "./GreenHeader";
-import Padding from "./Padding";
+import GreenHeader from "./UIComponents/GreenHeader";
+import Padding from "./UIComponents/Padding";
 
 type Props = {
   +navigation: any

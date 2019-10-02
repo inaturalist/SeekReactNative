@@ -15,7 +15,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
 import { updateNotifications } from "../../utility/notificationHelpers";
 
 type Props = {

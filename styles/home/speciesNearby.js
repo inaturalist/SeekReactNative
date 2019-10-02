@@ -47,23 +47,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
-  similarSpeciesContainer: {
-    backgroundColor: colors.seekForestGreen,
-    height: 223
-  },
-  similarSpeciesHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    marginBottom: 11,
-    marginLeft: 28,
-    marginTop: 45
-  },
-  similarSpeciesList: {
-    marginTop: 20,
-    paddingLeft: 20
-  },
   speciesNearbyContainer: {
     backgroundColor: colors.speciesNearbyGreen,
     height: 231

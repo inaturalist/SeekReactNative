@@ -43,10 +43,6 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 16
   },
-  loading: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   speciesNearbyContainer: {
     backgroundColor: colors.speciesNearbyGreen,
     height: 231

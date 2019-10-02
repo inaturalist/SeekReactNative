@@ -39,7 +39,6 @@ export default StyleSheet.create( {
     width: width / 4 - 2
   },
   loadingWheel: {
-    justifyContent: "center",
     marginTop: height / 2 - 150
   },
   margin: {

@@ -73,7 +73,7 @@ const SpeciesPhotos = ( {
         indicatorStyle="white"
         initialNumToRender={1}
         ListEmptyComponent={() => (
-          <View style={[styles.photoContainer, styles.fullWidth, styles.loading]}>
+          <View style={[styles.photoContainer, styles.fullWidth]}>
             <LoadingWheel color="white" />
           </View>
         )}

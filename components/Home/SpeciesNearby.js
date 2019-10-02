@@ -76,11 +76,7 @@ const SpeciesNearby = ( {
         </TouchableOpacity>
         <TaxonPicker updateTaxaType={updateTaxaType} />
       </View>
-      <View style={[
-        styles.speciesNearbyContainer,
-        loading && styles.loading
-      ]}
-      >
+      <View style={styles.speciesNearbyContainer}>
         {species}
       </View>
     </View>

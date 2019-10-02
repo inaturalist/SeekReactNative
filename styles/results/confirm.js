@@ -4,8 +4,35 @@ import { colors, fonts, padding } from "../global";
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  backButton: {
+    left: 23,
+    top: 18
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 24,
+    height: 46,
+    justifyContent: "center",
+    marginHorizontal: 23,
+    width: "85%"
+  },
+  buttonImage: {
+    padding: 5
+  },
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSPadding
+  },
   container: {
     flex: 1
+  },
+  footer: {
+    alignItems: "center",
+    marginTop: 20
   },
   header: {
     backgroundColor: colors.white,
@@ -13,65 +40,37 @@ export default StyleSheet.create( {
   },
   headerText: {
     alignSelf: "center",
-    fontSize: 18,
-    fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
     letterSpacing: 1.0
   },
-  imageContainer: {
-    backgroundColor: colors.black,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   image: {
-    width,
     height: height / 3 * 2,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    width
   },
-  footer: {
+  imageContainer: {
     alignItems: "center",
-    marginTop: 20
-  },
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 23,
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    width: "85%",
-    height: 46
+    backgroundColor: colors.black,
+    justifyContent: "center"
   },
   lightButton: {
     alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 23,
     backgroundColor: "#38976d33",
     borderRadius: 24,
-    width: "85%",
-    height: 46
-  },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding,
-    fontSize: 18,
-    color: colors.white
-  },
-  backButton: {
-    top: 19,
-    left: 23
-  },
-  buttonImage: {
-    padding: 5
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.white
+    height: 46,
+    justifyContent: "center",
+    marginHorizontal: 23,
+    width: "85%"
   },
   loadingWheel: {
-    zIndex: 1,
     position: "absolute",
-    left: "50%",
-    top: "50%"
+    top: "50%",
+    zIndex: 1
+  },
+  safeViewTop: {
+    backgroundColor: colors.white,
+    flex: 0
   }
 } );

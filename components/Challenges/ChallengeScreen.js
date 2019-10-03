@@ -19,6 +19,7 @@ import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Padding from "../UIComponents/Padding";
 import GreenHeader from "../UIComponents/GreenHeader";
+import GreenText from "../UIComponents/GreenText";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
@@ -97,9 +98,7 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.in_progress" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()} />
         </View>
         {challengesStarted.length > 0 ? (
           <View>
@@ -128,9 +127,7 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.not_started" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()} />
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
@@ -161,9 +158,7 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.completed" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.completed" ).toLocaleUpperCase()} />
         </View>
         {challengesCompleted.length > 0 ? (
           challengesCompleted.map( ( item, index ) => (

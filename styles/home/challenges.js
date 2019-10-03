@@ -37,12 +37,6 @@ export default StyleSheet.create( {
     marginLeft: 22,
     marginTop: 21
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12
-  },
   image: {
     marginRight: 27
   },

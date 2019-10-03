@@ -13,7 +13,7 @@ export default StyleSheet.create( {
   backButton: {
     left: 23,
     position: "absolute",
-    top: height > 670 ? 49 : 19
+    top: height > 670 ? 49 : 18
   },
   camera: {
     height,
@@ -86,7 +86,7 @@ export default StyleSheet.create( {
   },
   safeView: {
     backgroundColor: colors.black,
-    flex: 1
+    flex: 0
   },
   scanText: {
     bottom: 95,

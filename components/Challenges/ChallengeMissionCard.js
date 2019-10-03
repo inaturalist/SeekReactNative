@@ -11,11 +11,12 @@ import styles from "../../styles/challenges/challengeMission";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import PercentCircle from "./PercentCircle";
+import GreenText from "../UIComponents/GreenText";
 import missionsDict from "../../utility/missionsDict";
 
 type Props = {
-  challenge: Object,
-  missions: Array<Object>
+  +challenge: Object,
+  +missions: Array<Object>
 };
 
 const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
@@ -25,17 +26,14 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>
-          {i18n.t( "challenges.your_mission" ).toLocaleUpperCase()}
-        </Text>
+        <GreenText text={i18n.t( "challenges.your_mission" ).toLocaleUpperCase()} />
         <View style={styles.textContainer}>
           {missions.map( ( item, index ) => (
-            <View style={styles.row} key={`${item}${index}`}>
+            <View key={`${item}${index}`} style={styles.row}>
               <View style={styles.leftItem}>
                 {missionNumbers[index].number === item.observations
                   ? <Image source={icons.checklist} style={styles.checklist} />
-                  : <Text style={styles.bullets}>&#8226;</Text>
-                }
+                  : <Text style={styles.bullets}>&#8226;</Text>}
               </View>
               <View style={styles.missionText}>
                 <Text style={styles.text}>{i18n.t( item.mission )}</Text>
@@ -44,8 +42,7 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
                 </Text>
               </View>
             </View>
-          ) )
-          }
+          ) )}
         </View>
         {challenge.percentComplete === 100 ? (
           <View style={styles.circleStyle}>

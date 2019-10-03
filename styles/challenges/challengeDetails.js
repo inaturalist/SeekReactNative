@@ -48,13 +48,6 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    textAlign: "left"
-  },
   image: {
     padding: 5
   },

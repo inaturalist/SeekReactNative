@@ -29,6 +29,7 @@ import Padding from "../UIComponents/Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import GreenButton from "../UIComponents/GreenButton";
+import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
 
 type Props = {
@@ -222,7 +223,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.descriptionText}>{challenge.description}</Text>
         </View>
         <View style={styles.secondHeader}>
-          <Text style={styles.headerText}>{i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}</Text>
+          <GreenText text={i18n.t( "challenges.get_involved" ).toLocaleUpperCase()} />
         </View>
         <View style={{ marginTop: 16 }} />
         <Text style={[styles.descriptionText, styles.marginHorizontal]}>

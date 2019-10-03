@@ -15,6 +15,7 @@ import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/GreenButton";
+import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
 
 type Props = {
@@ -28,9 +29,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
       onPress={() => navigation.navigate( "Challenges" )}
       style={styles.header}
     >
-      <Text style={styles.headerText}>
-        {i18n.t( "challenges_card.header" ).toLocaleUpperCase()}
-      </Text>
+      <GreenText text={i18n.t( "challenges_card.header" ).toLocaleUpperCase()} />
     </TouchableOpacity>
     <ImageBackground
       source={backgrounds[challenge.homeBackgroundName]}
@@ -59,17 +58,6 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         />
       </View>
       <View style={styles.margin} />
-      {/* <TouchableOpacity
-        onPress={() => {
-          setChallengeIndex( challenge.index );
-          navigation.navigate( "ChallengeDetails" );
-        }}
-        style={[styles.greenButton, styles.centeredContent, styles.textContainer]}
-      >
-        {challenge.started
-          ? <Text style={styles.buttonText}>{i18n.t( "challenges_card.continue_challenge" ).toLocaleUpperCase()}</Text>
-          : <Text style={styles.buttonText}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>}
-      </TouchableOpacity> */}
       <TouchableOpacity
         onPress={() => navigation.navigate( "Challenges" )}
         style={styles.centeredContent}

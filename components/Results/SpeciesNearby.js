@@ -9,7 +9,9 @@ import { NavigationEvents } from "react-navigation";
 import i18n from "../../i18n";
 import styles from "../../styles/results/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
+import { colors } from "../../styles/global";
 
 type Props = {
   +ancestorId: Number,
@@ -24,12 +26,13 @@ class SpeciesNearby extends Component<Props> {
     super();
 
     this.state = {
-      taxa: []
+      taxa: [],
+      loading: true
     };
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa } );
+    this.setState( { taxa }, () => this.setState( { loading: false } ) );
   }
 
   setParamsForSpeciesNearby() {
@@ -70,12 +73,20 @@ class SpeciesNearby extends Component<Props> {
   }
 
   render() {
-    const { taxa } = this.state;
+    const { taxa, loading } = this.state;
     const { navigation } = this.props;
 
-    const species = (
-      <SpeciesNearbyList match navigation={navigation} taxa={taxa} />
-    );
+    let species;
+
+    if ( loading ) {
+      species = (
+        <LoadingWheel color={colors.black} />
+      );
+    } else {
+      species = (
+        <SpeciesNearbyList match navigation={navigation} taxa={taxa} />
+      );
+    }
 
     return (
       <View>

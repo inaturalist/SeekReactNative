@@ -50,9 +50,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     justifyContent: "center"
   },
-  marginLarge: {
-    marginTop: 38
-  },
   marginSmall: {
     marginTop: 21
   },

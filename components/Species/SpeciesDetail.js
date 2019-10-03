@@ -437,7 +437,7 @@ class SpeciesDetail extends Component<Props> {
             </View>
           ) : null}
           {about && error !== "internet" ? (
-            <View style={showGreenButtons.includes( true ) && styles.marginLarge}>
+            <View>
               <View style={styles.headerMargins}>
                 <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
               </View>

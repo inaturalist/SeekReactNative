@@ -15,18 +15,8 @@ export default StyleSheet.create( {
   },
   container: {
     marginBottom: 32,
-    marginHorizontal: 23,
+    marginHorizontal: 20,
     marginTop: 37
-  },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    lineHeight: 24,
-    marginBottom: 9,
-    marginHorizontal: 27,
-    textAlign: "center"
   },
   image: {
     height: width / 2,
@@ -57,8 +47,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginHorizontal: 27,
-    marginTop: 6,
+    marginHorizontal: 34,
+    marginTop: 9,
     textAlign: "center"
   }
 } );

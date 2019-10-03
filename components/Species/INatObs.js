@@ -12,12 +12,13 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
 import { fetchLocationName } from "../../utility/locationHelpers";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  id: Number,
-  region: Object,
-  timesSeen: Number,
-  navigation: any
+  +id: Number,
+  +region: Object,
+  +timesSeen: Number,
+  +navigation: any
 };
 
 class INatObs extends Component<Props> {
@@ -77,7 +78,9 @@ class INatObs extends Component<Props> {
 
     return (
       <View>
-        <Text style={styles.headerText}>{i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()}</Text>
+        <View style={styles.headerMargins}>
+          <GreenText text={i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()} />
+        </View>
         <View style={styles.stats}>
           <TouchableOpacity
             hitSlop={styles.touchable}

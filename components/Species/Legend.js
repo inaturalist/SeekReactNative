@@ -10,7 +10,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
-import BackButton from "../AchievementModals/ModalBackButton";
+import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
   +toggleModal: Function

@@ -32,11 +32,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     height: 55
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
+  headerMargins: {
     marginBottom: 18
   },
   image: {

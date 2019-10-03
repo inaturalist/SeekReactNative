@@ -2,8 +2,7 @@
 import React from "react";
 import {
   View,
-  Image,
-  Text
+  Image
 } from "react-native";
 import MapView, {
   PROVIDER_DEFAULT,
@@ -15,6 +14,7 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
 import GreenButton from "../UIComponents/GreenButton";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +navigation: any,
@@ -32,7 +32,11 @@ const LocationMap = ( {
   seenDate
 }: Props ) => (
   <View>
-    <Text style={styles.headerText}>{i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}</Text>
+    <View style={styles.headerMargins}>
+      <GreenText
+        text={i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}
+      />
+    </View>
     <View style={styles.mapContainer}>
       {region.latitude ? (
         <MapView

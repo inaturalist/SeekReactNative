@@ -1,17 +1,9 @@
 import { Dimensions, StyleSheet } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
+  headerMargins: {
     marginBottom: 11,
     marginTop: 45
   },

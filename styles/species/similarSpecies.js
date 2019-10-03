@@ -1,8 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
+import { colors } from "../global";
 
 export default StyleSheet.create( {
   loading: {
@@ -13,11 +10,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     height: 231
   },
-  similarSpeciesHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
+  similarSpeciesMargins: {
     marginBottom: 11,
     marginLeft: 28,
     marginTop: 45

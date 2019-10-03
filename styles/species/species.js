@@ -26,11 +26,7 @@ export default StyleSheet.create( {
     height: 40,
     justifyContent: "center"
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
+  headerMargins: {
     marginBottom: 11,
     marginTop: 45
   },

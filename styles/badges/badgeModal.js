@@ -17,16 +17,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     width: width - ( width * 0.1 )
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    lineHeight: 24,
-    marginBottom: 9,
-    marginHorizontal: 27,
-    textAlign: "center"
-  },
   image: {
     height: width / 2,
     justifyContent: "center",
@@ -42,6 +32,9 @@ export default StyleSheet.create( {
     borderRadius: 40,
     height: height > 570 ? 525 : 475
   },
+  margin: {
+    marginBottom: 9
+  },
   nameText: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -52,8 +45,7 @@ export default StyleSheet.create( {
   row: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    marginBottom: 47,
-    marginTop: 0
+    marginBottom: 47
   },
   smallImage: {
     height: 57,

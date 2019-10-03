@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import BackButton from "./ModalBackButton";
+import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
   +toggleChallengeModal: Function,

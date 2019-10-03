@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text
-} from "react-native";
+import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +id: ?Number,
@@ -78,9 +76,9 @@ class SimilarSpecies extends Component<Props> {
 
     return (
       <View>
-        <Text style={styles.similarSpeciesHeaderText}>
-          {i18n.t( "species_detail.similar" ).toLocaleUpperCase()}
-        </Text>
+        <View style={styles.similarSpeciesMargins}>
+          <GreenText text={i18n.t( "species_detail.similar" ).toLocaleUpperCase()} />
+        </View>
         <View style={[
           styles.similarSpeciesContainer,
           loading && styles.loading

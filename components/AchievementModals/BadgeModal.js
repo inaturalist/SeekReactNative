@@ -15,7 +15,8 @@ import badgeImages from "../../assets/badges";
 import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";
 import icons from "../../assets/icons";
-import BackButton from "./ModalBackButton";
+import BackButton from "../UIComponents/ModalBackButton";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +badges: Array<Object>,
@@ -43,9 +44,11 @@ const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) =
             <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
           </ImageBackground>
         )}
-        {badge.earned
-          ? <Text style={styles.headerText}>{i18n.t( badge.intlName ).toLocaleUpperCase()}</Text>
-          : <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>}
+        <GreenText text={badge.earned
+          ? i18n.t( badge.intlName ).toLocaleUpperCase()
+          : i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+        />
+        <View style={styles.margin} />
         <Text style={styles.nameText}>
           {i18n.t( "badges.observe_species" )}
           {" "}

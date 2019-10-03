@@ -11,7 +11,8 @@ import LinearGradient from "react-native-linear-gradient";
 import i18n from "../../i18n";
 import styles from "../../styles/badges/level";
 import badgeImages from "../../assets/badges";
-import BackButton from "./ModalBackButton";
+import BackButton from "../UIComponents/ModalBackButton";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +level: Object,
@@ -28,11 +29,12 @@ const LevelModal = ( {
 }: Props ) => (
   <React.Fragment>
     <View style={[styles.innerContainer, styles.modalTop]}>
-      <Text style={styles.headerText}>
-        {screen === "achievements"
+      <View style={styles.headerMargins}>
+        <GreenText text={screen === "achievements"
           ? i18n.t( "badges.your_level" ).toLocaleUpperCase()
           : i18n.t( "banner.level_up" ).toLocaleUpperCase()}
-      </Text>
+        />
+      </View>
     </View>
     <LinearGradient
       colors={["#38976d", "#22784d"]}

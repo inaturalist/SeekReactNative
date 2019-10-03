@@ -18,8 +18,9 @@ import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
-import BackButton from "./ModalBackButton";
+import BackButton from "../UIComponents/ModalBackButton";
 import GreenButton from "../UIComponents/GreenButton";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +toggleChallengeModal: Function,
@@ -63,7 +64,11 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           />
         )}
       </View>
-      <Text style={styles.headerText}>{i18n.t( "badges.to_earn" ).toLocaleUpperCase()}</Text>
+      <View style={styles.center}>
+        <GreenText
+          text={i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+        />
+      </View>
       <Text style={styles.nameText}>
         {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
       </Text>

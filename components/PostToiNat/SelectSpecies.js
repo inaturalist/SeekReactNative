@@ -23,6 +23,7 @@ import postingIcons from "../../assets/posting";
 import Padding from "../UIComponents/Padding";
 import SpeciesCard from "./SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +toggleSpeciesModal: Function,
@@ -137,9 +138,9 @@ class SelectSpecies extends Component<Props> {
           <View style={styles.textContainer}>
             {!isSearching
               ? (
-                <Text style={styles.headerText}>
-                  {i18n.t( "posting.id" ).toLocaleUpperCase()}
-                </Text>
+                <View style={styles.headerMargins}>
+                  <GreenText text={i18n.t( "posting.id" ).toLocaleUpperCase()} />
+                </View>
               ) : null}
             {!isSearching ? (
               <SpeciesCard

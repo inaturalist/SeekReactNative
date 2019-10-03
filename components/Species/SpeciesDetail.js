@@ -31,6 +31,7 @@ import SpeciesError from "./SpeciesError";
 import INatObs from "./INatObs";
 import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/iOSSpacer";
+import GreenText from "../UIComponents/GreenText";
 import {
   getSpeciesId,
   capitalizeNames,
@@ -436,8 +437,10 @@ class SpeciesDetail extends Component<Props> {
             </View>
           ) : null}
           {about && error !== "internet" ? (
-            <View>
-              <Text style={[styles.headerText, showGreenButtons.includes( true ) && styles.marginLarge]}>{i18n.t( "species_detail.about" ).toLocaleUpperCase()}</Text>
+            <View style={showGreenButtons.includes( true ) && styles.marginLarge}>
+              <View style={styles.headerMargins}>
+                <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
+              </View>
               <Text style={styles.text}>{about}</Text>
             </View>
           ) : null}

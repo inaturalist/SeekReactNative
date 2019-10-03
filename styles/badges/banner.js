@@ -6,17 +6,17 @@ import {
 
 export default StyleSheet.create( {
   banner: {
-    marginTop: 40,
+    height: 48,
     marginBottom: 32,
+    marginTop: 40,
     paddingTop: Platform.OS === "android" ? 5 : 8,
-    width: 284,
-    height: 48
+    width: 284
   },
   bannerText: {
-    textAlign: "center",
-    fontSize: 19,
-    fontFamily: fonts.semibold,
     color: colors.white,
-    letterSpacing: 1.12
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    textAlign: "center"
   }
 } );

@@ -7,25 +7,14 @@ import {
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  backButton: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: height > 570 ? 15 : 0,
-    padding: 20
-  },
   backgroundColor: {
     alignItems: "center",
     justifyContent: "center",
     width: "100%"
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
+  headerMargins: {
     marginBottom: Platform.OS === "android" ? 19 : 15,
-    marginTop: 25,
-    textAlign: "center"
+    marginTop: 25
   },
   image: {
     height: height > 640 ? 258 : 215,

@@ -6,7 +6,7 @@ import {
   Image
 } from "react-native";
 
-import styles from "../../styles/badges/level";
+import styles from "../../styles/uiComponents/modalBackButton";
 import icons from "../../assets/icons";
 
 type Props = {

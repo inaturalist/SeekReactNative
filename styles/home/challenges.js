@@ -9,117 +9,114 @@ import {
   fonts
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1
-  },
-  header: {
-    marginTop: 21,
-    marginLeft: 22
-  },
-  headerText: {
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
-  challengeContainer: {
-    backgroundColor: colors.darkGray,
-    marginTop: 21,
-    height: 332
-  },
-  textContainer: {
-    marginHorizontal: 32
-  },
-  challengeHeader: {
-    marginTop: 32,
-    fontFamily: fonts.light,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
+  buttonText: {
     color: colors.white,
-    letterSpacing: 0.78
-  },
-  challengeName: {
     fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 20 : 23,
-    color: colors.white,
-    letterSpacing: 1.0
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingHorizontal: 33,
+    paddingTop: Platform.OS === "ios" ? 7 : 0
   },
   centeredContent: {
     alignItems: "center"
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
+  challengeContainer: {
+    backgroundColor: colors.darkGray,
+    height: 332,
+    marginTop: 21
+  },
+  challengeHeader: {
+    color: colors.white,
+    fontFamily: fonts.light,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
+    letterSpacing: 0.78,
+    marginTop: 32
+  },
+  challengeName: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: ( fontScale > 1 ) ? 20 : 23,
+    letterSpacing: 1.0
+  },
+  greenButton: {
     alignItems: "center",
-    justifyContent: "flex-start",
-    marginTop: ( fontScale > 1 ) ? 10 : 21,
-    marginBottom: ( fontScale > 1 ) ? 10 : 28,
-    marginHorizontal: 32
+    backgroundColor: colors.seekGreen,
+    borderRadius: 24,
+    height: 46,
+    justifyContent: "center",
+    marginBottom: 14
+  },
+  header: {
+    marginLeft: 22,
+    marginTop: 21
+  },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
   },
   image: {
     marginRight: 27
   },
+  lightText: {
+    color: colors.errorGray,
+    fontFamily: fonts.light,
+    fontSize: 16,
+    lineHeight: 18,
+    marginTop: 10,
+    textAlign: "center",
+    width: 204
+  },
+  noChallengeContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20
+  },
+  noChallengeRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  noChallengeText: {
+    color: colors.errorGray,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24,
+    textAlign: "center",
+    width: 229
+  },
+  noChallengeTextContainer: {
+    justifyContent: "center",
+    marginLeft: 30
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "flex-start",
+    marginBottom: ( fontScale > 1 ) ? 10 : 28,
+    marginHorizontal: 32,
+    marginTop: ( fontScale > 1 ) ? 10 : 21
+  },
   text: {
-    maxWidth: width - ( 116 + 27 + 64 ),
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: ( fontScale > 1 || height < 570 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 || height < 570 ) ? null : 24,
+    maxWidth: width - ( 116 + 27 + 64 )
+  },
+  textContainer: {
+    marginHorizontal: 32
+  },
+  viewText: {
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 ) ? null : 24
-  },
-  greenButton: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekGreen,
-    borderRadius: 24,
-    height: 46,
-    marginBottom: 14
-  },
-  buttonText: {
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    fontSize: 18,
-    paddingHorizontal: 33,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0,
-    color: colors.white
-  },
-  viewText: {
-    fontFamily: fonts.book,
-    textDecorationLine: "underline",
-    color: colors.white,
-    fontSize: ( fontScale > 1 ) ? 14 : 16
-  },
-  noChallengeContainer: {
-    marginTop: 20,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  noChallengeRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    flexWrap: "nowrap"
-  },
-  noChallengeTextContainer: {
-    marginLeft: 30,
-    justifyContent: "center"
-  },
-  noChallengeText: {
-    width: 229,
-    textAlign: "center",
-    fontFamily: fonts.medium,
-    color: colors.errorGray,
-    fontSize: 19,
-    lineHeight: 24
-  },
-  lightText: {
-    marginTop: 10,
-    width: 204,
-    textAlign: "center",
-    fontFamily: fonts.light,
-    color: colors.errorGray,
-    fontSize: 16,
-    lineHeight: 18
+    textDecorationLine: "underline"
   }
 } );

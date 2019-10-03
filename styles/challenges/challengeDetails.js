@@ -10,7 +10,7 @@ import {
   touchable
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
@@ -80,6 +80,9 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 116
   },
+  marginHorizontal: {
+    marginHorizontal: 36
+  },
   missionContainer: {
     flex: 1
   },
@@ -97,7 +100,6 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "flex-start",
     marginBottom: ( fontScale > 1 ) ? 20 : 28,
-    marginHorizontal: 38,
     marginTop: ( fontScale > 1 ) ? 15 : 21
   },
   safeViewTop: {
@@ -111,10 +113,10 @@ export default StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.medium,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 ) ? null : 25,
+    fontSize: ( fontScale > 1 || height < 570 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 || height < 570 ) ? null : 25,
     marginLeft: 26,
-    maxWidth: width - ( 105 + 28 + 76 ),
+    maxWidth: width - ( 105 + 28 + 74 ),
     textAlign: "center"
   },
   touchable,

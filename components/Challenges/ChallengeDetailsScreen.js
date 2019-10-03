@@ -203,7 +203,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.challengeName}>
             {i18n.t( challenge.name ).toLocaleUpperCase()}
           </Text>
-          <View style={styles.row}>
+          <View style={[styles.row, styles.marginHorizontal]}>
             {challenge.percentComplete === 100
               ? <Image source={badges[challenge.earnedIconName]} style={styles.badge} />
               : <Image source={badges["badge-empty-white"]} style={styles.badge} />}
@@ -226,7 +226,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           <Text style={styles.headerText}>{i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}</Text>
         </View>
         <View style={{ marginTop: 16 }} />
-        <Text style={[styles.descriptionText, { marginHorizontal: 36 }]}>
+        <Text style={[styles.descriptionText, styles.marginHorizontal]}>
           {i18n.t( challenge.action )}
         </Text>
         <View style={styles.descriptionContainer}>

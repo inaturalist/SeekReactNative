@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Platform,
   Dimensions,
   PixelRatio
 } from "react-native";
@@ -13,14 +12,6 @@ const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingHorizontal: 33,
-    paddingTop: Platform.OS === "ios" ? 7 : 0
-  },
   centeredContent: {
     alignItems: "center"
   },
@@ -41,14 +32,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0
-  },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekGreen,
-    borderRadius: 24,
-    height: 46,
-    justifyContent: "center",
-    marginBottom: 14
   },
   header: {
     marginLeft: 22,
@@ -71,6 +54,9 @@ export default StyleSheet.create( {
     marginTop: 10,
     textAlign: "center",
     width: 204
+  },
+  margin: {
+    marginBottom: 14
   },
   noChallengeContainer: {
     alignItems: "center",

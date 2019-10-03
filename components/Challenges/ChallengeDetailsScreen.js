@@ -28,6 +28,8 @@ import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
 import Padding from "../UIComponents/Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
+import GreenButton from "../UIComponents/GreenButton";
+import { colors } from "../../styles/global";
 
 type Props = {
   +navigation: any
@@ -135,36 +137,31 @@ class ChallengeDetailsScreen extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    let button;
+    let buttonText;
 
     if ( !challengeStarted ) {
-      button = (
-        <TouchableOpacity
-          onPress={() => this.showMission()}
-          style={styles.greenButton}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "challenges.start_challenge" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      );
+      buttonText = i18n.t( "challenges.start_challenge" ).toLocaleUpperCase();
     } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-      button = (
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Camera" )}
-          style={styles.greenButton}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "challenges.open_camera" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      );
+      buttonText = i18n.t( "challenges.open_camera" ).toLocaleUpperCase();
     } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-      button = (
-        <TouchableOpacity
-          onPress={() => this.toggleChallengeModal()}
-          style={styles.greenButton}
-        >
-          <Text style={styles.buttonText}>{i18n.t( "challenges.view_badge" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      );
+      buttonText = i18n.t( "challenges.view_badge" ).toLocaleUpperCase();
     }
+
+    const button = (
+      <GreenButton
+        color={colors.seekGreen}
+        handlePress={() => {
+          if ( !challengeStarted ) {
+            this.showMission();
+          } else if ( challengeStarted && challenge.percentComplete < 100 ) {
+            navigation.navigate( "Camera" )
+          } else if ( challengeStarted && challenge.percentComplete === 100 ) {
+            this.toggleChallengeModal();
+          }
+        }}
+        text={buttonText}
+      />
+    );
 
     return (
       <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
@@ -209,7 +206,9 @@ class ChallengeDetailsScreen extends Component<Props> {
               : <Image source={badges["badge-empty-white"]} style={styles.badge} />}
             <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
           </View>
-          {button}
+          <View style={styles.marginHorizontal}>
+            {button}
+          </View>
         </ImageBackground>
         <View style={styles.missionContainer}>
           {challengeStarted ? (

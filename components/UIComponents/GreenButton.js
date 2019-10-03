@@ -10,15 +10,21 @@ import {
 import styles from "../../styles/uiComponents/greenButton";
 
 type Props = {
+  +color: ?Object,
   +handlePress: Function,
   +letterSpacing: ?Number,
   +text: string
 }
 
-const GreenButton = ( { handlePress, letterSpacing, text }: Props ) => (
+const GreenButton = ( {
+  color,
+  handlePress,
+  letterSpacing,
+  text
+}: Props ) => (
   <TouchableOpacity
     onPress={() => handlePress()}
-    style={styles.greenButton}
+    style={[styles.greenButton, color && { backgroundColor: color }]}
   >
     <Text style={[styles.buttonText, letterSpacing && { letterSpacing }]}>
       {text}

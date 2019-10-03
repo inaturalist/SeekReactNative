@@ -14,6 +14,8 @@ import styles from "../../styles/home/challenges";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
+import GreenButton from "../UIComponents/GreenButton";
+import { colors } from "../../styles/global";
 
 type Props = {
   +navigation: any,
@@ -44,7 +46,20 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         <Image source={logos.op} style={styles.image} />
         <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
       </View>
-      <TouchableOpacity
+      <View style={styles.textContainer}>
+        <GreenButton
+          color={colors.seekGreen}
+          handlePress={() => {
+            setChallengeIndex( challenge.index );
+            navigation.navigate( "ChallengeDetails" );
+          }}
+          text={challenge.started
+            ? i18n.t( "challenges_card.continue_challenge" ).toLocaleUpperCase()
+            : i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}
+        />
+      </View>
+      <View style={styles.margin} />
+      {/* <TouchableOpacity
         onPress={() => {
           setChallengeIndex( challenge.index );
           navigation.navigate( "ChallengeDetails" );
@@ -54,7 +69,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         {challenge.started
           ? <Text style={styles.buttonText}>{i18n.t( "challenges_card.continue_challenge" ).toLocaleUpperCase()}</Text>
           : <Text style={styles.buttonText}>{i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}</Text>}
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <TouchableOpacity
         onPress={() => navigation.navigate( "Challenges" )}
         style={styles.centeredContent}

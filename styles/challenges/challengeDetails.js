@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Platform,
   Dimensions,
   PixelRatio
 } from "react-native";
@@ -18,13 +17,6 @@ export default StyleSheet.create( {
     height: 105,
     resizeMode: "contain",
     width: 93
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.12,
-    paddingTop: Platform.OS === "ios" ? 7 : 0
   },
   challengeBackground: {
     height: 405
@@ -55,14 +47,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
-  },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekGreen,
-    borderRadius: 24,
-    height: 46,
-    justifyContent: "center",
-    marginHorizontal: 42
   },
   headerText: {
     color: colors.seekForestGreen,

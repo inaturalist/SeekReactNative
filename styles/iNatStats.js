@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  touchable
+  touchable,
+  center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -18,10 +19,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     width: 245
   },
-  center: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
+  center,
   explainImage: {
     marginBottom: 33,
     resizeMode: "contain",

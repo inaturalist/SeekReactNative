@@ -96,7 +96,7 @@ export default StyleSheet.create( {
     marginBottom: 23
   },
   photoContainer: {
-    height: 350
+    height: 375
   },
   rightArrow: {
     position: "absolute",

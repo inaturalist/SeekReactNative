@@ -146,19 +146,17 @@ class iNatStatsScreen extends Component<Props> {
         />
         <SafeAreaView style={styles.safeView} />
         <StatusBar barStyle="dark-content" />
-        <View style={styles.header}>
-          <TouchableOpacity
-            hitSlop={styles.touchable}
-            onPress={() => navigation.goBack()}
-          >
-            <Image
-              source={icons.backButtonGreen}
-              style={styles.backButton}
-            />
-          </TouchableOpacity>
-          <Image source={logos.iNat} style={styles.logo} />
-          <View />
-        </View>
+        <TouchableOpacity
+          hitSlop={styles.touchable}
+          onPress={() => navigation.goBack()}
+        >
+          <Image
+            source={icons.backButtonGreen}
+            style={styles.backButton}
+          />
+        </TouchableOpacity>
+        <Image source={logos.iNat} style={styles.logo} />
+        <View style={styles.headerMargin} />
         <Image source={backgrounds.heatMap} style={styles.heatMap} />
         <View style={styles.missionContainer}>
           <Text style={styles.forestGreenText}>

@@ -210,7 +210,7 @@ class AchievementsScreen extends Component<Props> {
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
           <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
-          <View style={styles.secondTextContainer}>
+          <View style={styles.center}>
             <View style={styles.stats}>
               <TouchableOpacity
                 onPress={() => navigation.navigate( "MyObservations" )}

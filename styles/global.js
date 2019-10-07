@@ -44,3 +44,8 @@ export const dimensions = {
   width,
   height
 };
+
+export const center = {
+  alignItems: "center",
+  justifyContent: "center"
+};

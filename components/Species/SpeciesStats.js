@@ -11,7 +11,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/speciesStats";
 
 type Props = {
-  stats: Object
+  +stats: Object
 };
 
 const SpeciesStats = ( { stats }: Props ) => {
@@ -28,40 +28,40 @@ const SpeciesStats = ( { stats }: Props ) => {
     <View style={styles.greenButtonContainer}>
       {stats.endangered ? (
         <TouchableOpacity
-          style={styles.greenButton}
           onPress={() => showAlert( "endangered" )}
+          style={styles.greenButton}
         >
           <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       ) : null}
       {stats.endemic ? (
         <TouchableOpacity
-          style={styles.greenButton}
           onPress={() => showAlert( "endemic" )}
+          style={styles.greenButton}
         >
           <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       ) : null}
       {stats.native ? (
         <TouchableOpacity
-          style={styles.greenButton}
           onPress={() => showAlert( "native" )}
+          style={styles.greenButton}
         >
           <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       ) : null}
       {stats.threatened ? (
         <TouchableOpacity
-          style={styles.greenButton}
           onPress={() => showAlert( "threatened" )}
+          style={styles.greenButton}
         >
           <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
       ) : null}
       {stats.introduced ? (
         <TouchableOpacity
-          style={styles.greenButton}
           onPress={() => showAlert( "introduced" )}
+          style={styles.greenButton}
         >
           <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>

@@ -23,7 +23,6 @@ export default StyleSheet.create( {
   },
   center: {
     alignItems: "center",
-    justifyContent: "center",
     marginTop: 10
   },
   header: {

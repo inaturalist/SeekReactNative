@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding
+  center
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
@@ -13,29 +13,10 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: width / 4
   },
-  badgesContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 26
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding
-  },
+  center,
   container: {
     backgroundColor: colors.white,
     flex: 1
-  },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 34,
-    height: 52,
-    justifyContent: "center",
-    width: 293
   },
   gridCell: {
     height: width / 4,
@@ -43,9 +24,7 @@ export default StyleSheet.create( {
     width: width / 4
   },
   header: {
-    alignItems: "center",
-    height: 203,
-    justifyContent: "center"
+    height: 203
   },
   headerText: {
     color: colors.white,
@@ -85,10 +64,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 23,
     textAlign: "center"
-  },
-  secondTextContainer: {
-    alignItems: "center",
-    justifyContent: "center"
   },
   stats: {
     flexDirection: "row",

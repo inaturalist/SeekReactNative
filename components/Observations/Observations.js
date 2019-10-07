@@ -21,7 +21,7 @@ import icons from "../../assets/icons";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import NoObservations from "./NoObservations";
+import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";
 import { sortNewestToOldest, removeFromCollection } from "../../utility/helpers";
@@ -259,7 +259,7 @@ class Observations extends Component<Props> {
         />
       );
     } else {
-      content = <NoObservations navigation={navigation} />;
+      content = <EmptyState navigation={navigation} screen="observations" />;
     }
 
     return (

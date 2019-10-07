@@ -1,8 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
@@ -11,25 +10,9 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 22
   },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding
-  },
   container: {
     backgroundColor: colors.white,
     flex: 1
-  },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    height: 46,
-    justifyContent: "center",
-    marginTop: 25,
-    width: "94%"
   },
   headerRow: {
     flexDirection: "row",
@@ -43,28 +26,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     flexGrow: 1,
     justifyContent: "center"
-  },
-  noSpecies: {
-    alignItems: "center",
-    flexGrow: 1,
-    justifyContent: "center",
-    marginHorizontal: 28
-  },
-  noSpeciesHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    maxWidth: 279,
-    textAlign: "center"
-  },
-  noSpeciesText: {
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    marginTop: 24,
-    textAlign: "center"
   },
   numberText: {
     color: colors.black,

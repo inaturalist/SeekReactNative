@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   FlatList,
   View,
-  Text,
   Platform
 } from "react-native";
 import Realm from "realm";
@@ -16,6 +15,7 @@ import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
 
 type Props = {
@@ -62,24 +62,16 @@ class NotificationsScreen extends Component<Props> {
           onWillFocus={() => this.fetchNotifications()}
         />
         <GreenHeader header={i18n.t( "notifications.header" )} navigation={navigation} />
-        <FlatList
-          ref={( ref ) => { this.scrollView = ref; }}
-          data={notifications}
-          keyExtractor={( item, i ) => `${item}${i}`}
-          ListEmptyComponent={() => (
-            <View style={styles.noNotifications}>
-              <Text style={styles.noNotificationsHeader}>
-                {i18n.t( "notifications.none" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.noNotificationsText}>
-                {i18n.t( "notifications.about" )}
-              </Text>
-            </View>
-          )}
-          renderItem={( { item } ) => (
-            <NotificationCard item={item} navigation={navigation} />
-          )}
-        />
+        {notifications.length > 0 ? (
+          <FlatList
+            ref={( ref ) => { this.scrollView = ref; }}
+            data={notifications}
+            keyExtractor={( item, i ) => `${item}${i}`}
+            renderItem={( { item } ) => (
+              <NotificationCard item={item} navigation={navigation} />
+            )}
+          />
+        ) : <EmptyState />}
       </View>
     );
   }

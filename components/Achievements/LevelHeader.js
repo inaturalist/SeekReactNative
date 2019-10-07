@@ -5,8 +5,7 @@ import {
   View,
   Image,
   Text,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
@@ -15,9 +14,9 @@ import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 
 type Props = {
-  level: Object,
-  nextLevelCount: number,
-  toggleLevelModal: Function
+  +level: Object,
+  +nextLevelCount: number,
+  +toggleLevelModal: Function
 }
 
 const LevelHeader = ( { level, nextLevelCount, toggleLevelModal }: Props ) => (
@@ -26,7 +25,7 @@ const LevelHeader = ( { level, nextLevelCount, toggleLevelModal }: Props ) => (
   >
     <LinearGradient
       colors={["#22784d", "#38976d"]}
-      style={styles.header}
+      style={[styles.header, styles.center]}
     >
       {level ? (
         <View style={styles.row}>
@@ -37,8 +36,7 @@ const LevelHeader = ( { level, nextLevelCount, toggleLevelModal }: Props ) => (
             <Text style={styles.text}>
               {level.count >= 150
                 ? i18n.t( "badges.observe_max" )
-                : i18n.t( "badges.observe", { number: nextLevelCount } )
-              }
+                : i18n.t( "badges.observe", { number: nextLevelCount } )}
             </Text>
           </View>
         </View>

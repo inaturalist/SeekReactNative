@@ -5,7 +5,6 @@ import {
   Text,
   View,
   TouchableOpacity,
-  SafeAreaView,
   Image
 } from "react-native";
 
@@ -17,6 +16,7 @@ import headerStyles from "../../styles/uiComponents/greenHeader";
 import backStyles from "../../styles/uiComponents/backArrow";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -77,7 +77,7 @@ class LocationPicker extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <View style={headerStyles.container}>
           <TouchableOpacity
             hitSlop={backStyles.touchable}

@@ -58,7 +58,7 @@ export default StyleSheet.create( {
   },
   row: {
     alignItems: "flex-start",
-    flexDirection: "column",
+    // flexDirection: "column",
     justifyContent: "center",
     marginLeft: 21,
     width: 211

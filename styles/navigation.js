@@ -8,23 +8,23 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   cameraTab: {
+    alignItems: "center",
     backgroundColor: colors.black,
-    height: height > 570 ? 81 : 41,
-    alignItems: "center"
+    height: height > 570 ? 81 : 41
   },
   cameraTabLabel: {
     color: colors.white,
     fontFamily: fonts.medium,
-    letterSpacing: 0.88,
-    fontSize: 14
+    fontSize: 14,
+    letterSpacing: 0.88
   },
   indicator: {
-    position: "absolute",
-    left: width / 10,
-    width: width / 2.5,
+    backgroundColor: colors.seekGreen,
     borderRadius: 40,
     height: 2,
+    left: width / 10,
     marginBottom: height > 570 ? 25 : 0,
-    backgroundColor: colors.seekGreen
+    position: "absolute",
+    width: width / 2.5
   }
 } );

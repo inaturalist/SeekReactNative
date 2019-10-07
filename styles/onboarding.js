@@ -9,115 +9,115 @@ import {
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1
+  activeDot: {
+    backgroundColor: colors.white,
+    borderRadius: 10 / 2,
+    height: 10,
+    width: 10
+  },
+  banner: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    elevation: 10,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    height: 150,
+    justifyContent: "center",
+    shadowColor: colors.black,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 1,
+    width
+  },
+  button: {
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 34,
+    height: 50,
+    justifyContent: "center",
+    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
+    width: 293
+  },
+  buttonContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: height > 670 ? 94 : 34
   },
   carousel: {
     marginTop: 20
   },
-  banner: {
-    height: 150,
-    width,
-    backgroundColor: colors.white,
-    flexDirection: "row",
-    flexWrap: "nowrap",
+  container: {
+    flex: 1
+  },
+  contentContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    elevation: 10,
-    shadowColor: colors.black,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    shadowRadius: 1
+    justifyContent: "flex-end",
+    paddingBottom: 57,
+    width
+  },
+  dot: {
+    backgroundColor: colors.darkGray,
+    borderRadius: 6 / 2,
+    height: 6,
+    marginBottom: 3,
+    marginHorizontal: 16,
+    marginTop: 3,
+    width: 6
+  },
+  image: {
+    height: height > 570 ? 268 : 250,
+    resizeMode: "contain",
+    width: 297
+  },
+  image1: {
+    height: height > 570 ? 304 : 250,
+    resizeMode: "contain",
+    width: 256
   },
   imageContainer: {
     alignItems: "center",
     marginHorizontal: 22
   },
-  image1: {
-    width: 256,
-    height: height > 570 ? 304 : 250,
-    resizeMode: "contain"
+  pagination: {
+    alignItems: "center",
+    bottom: height > 670 ? 190 : 130,
+    flexDirection: "row",
+    justifyContent: "center",
+    left: 0,
+    position: "absolute",
+    right: 0
   },
-  image: {
-    width: 297,
-    height: height > 570 ? 268 : 250,
-    resizeMode: "contain"
+  skip: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    textAlign: "center"
+  },
+  skipText: {
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    marginBottom: 30,
+    textAlign: "center",
+    textDecorationLine: "underline"
+  },
+  text: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: height > 570 ? 19 : 16,
+    lineHeight: 24,
+    maxWidth: 292,
+    textAlign: "center"
   },
   textContainer: {
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    alignItems: "center",
+    marginBottom: 57,
     marginLeft: 42,
     marginRight: 42,
-    marginTop: 29,
-    marginBottom: 57
+    marginTop: 29
   },
-  text: {
-    maxWidth: 292,
-    fontSize: height > 570 ? 19 : 16,
-    textAlign: "center",
-    color: colors.white,
-    lineHeight: 24,
-    fontFamily: fonts.medium
-  },
-  buttonContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: height > 670 ? 94 : 34
-  },
-  touchable,
-  button: {
-    paddingTop: Platform.OS === "ios" ? padding.iOSPadding : null,
-    justifyContent: "center",
-    borderRadius: 34,
-    width: 293,
-    height: 50,
-    backgroundColor: colors.seekForestGreen
-  },
-  skip: {
-    fontSize: 18,
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.0
-  },
-  skipText: {
-    marginBottom: 30,
-    fontSize: 16,
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.book,
-    textDecorationLine: "underline"
-  },
-  contentContainer: {
-    width,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    paddingBottom: 57
-  },
-  pagination: {
-    position: "absolute",
-    bottom: height > 670 ? 190 : 130,
-    left: 0,
-    right: 0,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  dot: {
-    backgroundColor: "#393939",
-    width: 6,
-    height: 6,
-    borderRadius: 6 / 2,
-    marginHorizontal: 16,
-    marginTop: 3,
-    marginBottom: 3
-  },
-  activeDot: {
-    backgroundColor: colors.white,
-    width: 10,
-    height: 10,
-    borderRadius: 10 / 2
-  }
+  touchable
 } );

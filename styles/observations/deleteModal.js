@@ -7,110 +7,110 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  innerContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderBottomLeftRadius: 40,
-    backgroundColor: colors.white,
-    overflow: "hidden"
-  },
-  flagHeaderContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40
-  },
-  flagHeader: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    height: 62
-  },
-  flagTextContainer: {
-    marginTop: 15,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    flexWrap: "nowrap"
-  },
-  flagContainer: {
-    marginHorizontal: 30,
-    alignItems: "center"
-  },
   buttonText: {
-    textAlign: "center",
-    fontFamily: fonts.semibold,
-    fontSize: 18,
     color: colors.white,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    letterSpacing: 1.0
-  },
-  headerText: {
-    textAlign: "center",
-    paddingTop: padding.iOSPadding,
-    fontSize: 18,
     fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    lineHeight: 24,
+    fontSize: 18,
     letterSpacing: 1.0,
-    marginBottom: 24
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
+    textAlign: "center"
   },
-  text: {
-    width: 292,
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: "center",
+  commonNameText: {
     color: colors.black,
-    fontFamily: fonts.book
-  },
-  flagButton: {
-    width: 243,
-    height: 46,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  largeFlagButton: {
-    backgroundColor: colors.red,
-    width: 278,
-    height: 79,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: 21
   },
   flagBackButton: {
     marginLeft: 33,
     marginRight: 29
   },
+  flagButton: {
+    alignItems: "center",
+    borderRadius: 40,
+    height: 46,
+    justifyContent: "center",
+    width: 243
+  },
+  flagContainer: {
+    alignItems: "center",
+    marginHorizontal: 30
+  },
+  flagHeader: {
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    height: 62
+  },
+  flagHeaderContainer: {
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40
+  },
+  flagTextContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "flex-end",
+    marginTop: 15
+  },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginBottom: 24,
+    paddingTop: padding.iOSPadding,
+    textAlign: "center"
+  },
   image: {
-    width: 80,
-    height: 80,
     borderRadius: 80 / 2,
-    marginRight: 20
+    height: 80,
+    marginRight: 20,
+    width: 80
+  },
+  innerContainer: {
+    backgroundColor: colors.white,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    overflow: "hidden"
+  },
+  largeFlagButton: {
+    alignItems: "center",
+    backgroundColor: colors.red,
+    borderRadius: 40,
+    height: 79,
+    justifyContent: "center",
+    width: 278
+  },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginLeft: 23,
+    width: 292
+  },
+  scientificNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 5
   },
   speciesNameContainer: {
     maxWidth: 223
   },
-  commonNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: 21,
+  text: {
     color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 5,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
+    fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21
+    lineHeight: 21,
+    textAlign: "center",
+    width: 292
   },
-  touchable,
-  row: {
-    width: 292,
-    marginLeft: 23,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  }
+  touchable
 } );

@@ -4,23 +4,24 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   Image
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/getStarted";
 import icons from "../../assets/icons";
+import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  toggleGetStartedModal: Function
+  +toggleGetStartedModal: Function
 }
 
 const GetStarted = ( { toggleGetStartedModal }: Props ) => (
   <View style={styles.container}>
-    <Text style={styles.headerText}>
-      {i18n.t( "get_started.header" ).toLocaleUpperCase()}
-    </Text>
+    <View style={styles.headerMargin}>
+      <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
+    </View>
     <View style={styles.contentContainer}>
       <View style={styles.row}>
         <Image source={icons.cameraGreen} style={styles.image} />
@@ -46,12 +47,12 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
           </Text>
         </View>
       </View>
-      <TouchableOpacity
-        onPress={() => toggleGetStartedModal()}
-        style={styles.button}
-      >
-        <Text style={styles.buttonText}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
-      </TouchableOpacity>
+    </View>
+    <View style={styles.button}>
+      <GreenButton
+        handlePress={() => toggleGetStartedModal()}
+        text={i18n.t( "onboarding.continue" ).toLocaleUpperCase()}
+      />
     </View>
   </View>
 );

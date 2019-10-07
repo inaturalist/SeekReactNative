@@ -42,10 +42,6 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

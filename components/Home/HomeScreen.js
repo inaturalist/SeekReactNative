@@ -6,7 +6,6 @@ import {
   ScrollView,
   Platform,
   Modal,
-  SafeAreaView,
   StatusBar
 } from "react-native";
 import inatjs from "inaturalistjs";
@@ -26,6 +25,7 @@ import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
   +navigation: any
@@ -235,7 +235,7 @@ class HomeScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onWillBlur={() => this.setLoading( true )}
           onWillFocus={() => {

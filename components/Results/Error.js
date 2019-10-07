@@ -1,10 +1,11 @@
 // @flow
 
 import React from "react";
-import { Text, View, SafeAreaView } from "react-native";
+import { Text, View } from "react-native";
 
 import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import styles from "../../styles/results/error";
 
 type Props = {
@@ -30,7 +31,7 @@ const ErrorScreen = ( { error, navigation, number }: Props ) => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.safeViewTop} />
+      <SafeAreaView />
       <GreenHeader navigation={navigation} />
       <Text style={styles.errorText}>{errorText}</Text>
     </View>

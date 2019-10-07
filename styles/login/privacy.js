@@ -9,10 +9,6 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   sectionText: {
     marginTop: 25
   },

@@ -16,9 +16,5 @@ export default StyleSheet.create( {
     marginHorizontal: 41,
     textAlign: "center",
     top: height / 2 - 150
-  },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
   }
 } );

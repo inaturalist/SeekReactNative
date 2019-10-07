@@ -4,13 +4,13 @@ import React from "react";
 import {
   Text,
   View,
-  ScrollView,
-  SafeAreaView
+  ScrollView
 } from "react-native";
 
 import styles from "../../styles/login/privacy";
 import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
   +navigation: any
@@ -18,7 +18,7 @@ type Props = {
 
 const PrivacyPolicyScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
-    <SafeAreaView style={styles.safeViewTop} />
+    <SafeAreaView />
     <GreenHeader header={i18n.t( "inat_signup.privacy" )} navigation={navigation} />
     <ScrollView contentContainerStyle={styles.textContainer}>
       <Text style={styles.text}>

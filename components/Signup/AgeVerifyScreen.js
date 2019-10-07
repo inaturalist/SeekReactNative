@@ -4,8 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
-  SafeAreaView
+  TouchableOpacity
 } from "react-native";
 import moment from "moment";
 import DateTimePicker from "react-native-modal-datetime-picker";
@@ -15,9 +14,10 @@ import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class AgeVerifyScreen extends Component<Props> {
@@ -64,10 +64,10 @@ class AgeVerifyScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <GreenHeader
-          navigation={navigation}
           header={i18n.t( "login.sign_up" )}
+          navigation={navigation}
         />
         <View style={[styles.innerContainer, { flex: 1 }]}>
           <Text style={styles.header}>
@@ -84,19 +84,19 @@ class AgeVerifyScreen extends Component<Props> {
             <Text style={styles.buttonText}>{date}</Text>
           </TouchableOpacity>
           <DateTimePicker
-            isVisible={isDateTimePickerVisible}
-            onConfirm={this.handleDatePicked}
-            onCancel={this.hideDateTimePicker}
-            maximumDate={new Date()}
-            hideTitleContainerIOS
             datePickerModeAndroid="spinner"
-            timePickerModeAndroid="spinner"
+            hideTitleContainerIOS
             isDarkModeEnabled={colorScheme === "dark"}
+            isVisible={isDateTimePickerVisible}
+            maximumDate={new Date()}
+            onCancel={this.hideDateTimePicker}
+            onConfirm={this.handleDatePicked}
+            timePickerModeAndroid="spinner"
           />
           <View style={{ marginBottom: 98 }} />
           <TouchableOpacity
-            style={styles.greenButton}
             onPress={() => this.submit()}
+            style={styles.greenButton}
           >
             <Text style={styles.buttonText}>
               {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
@@ -104,14 +104,14 @@ class AgeVerifyScreen extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.row}>
             <Text
-              style={styles.privacy}
               onPress={() => navigation.navigate( "Privacy" )}
+              style={styles.privacy}
             >
               {i18n.t( "inat_signup.privacy" )}
             </Text>
             <Text
-              style={[styles.privacy, { marginLeft: 14 }]}
               onPress={() => navigation.navigate( "TermsOfService" )}
+              style={[styles.privacy, { marginLeft: 14 }]}
             >
               {i18n.t( "inat_signup.terms" )}
             </Text>

@@ -5,7 +5,6 @@ import {
   ScrollView,
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   Image,
   Platform
@@ -15,6 +14,7 @@ import { NavigationEvents } from "react-navigation";
 import styles from "../../styles/camera/help";
 import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
 
@@ -44,7 +44,7 @@ class CameraHelpScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <StatusBar barStyle="light-content" />
         <NavigationEvents
           onWillFocus={() => this.scrollToTop()}

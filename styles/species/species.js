@@ -59,10 +59,6 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     marginTop: 28
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   scientificNameText: {
     color: colors.black,
     fontFamily: fonts.bookItalic,

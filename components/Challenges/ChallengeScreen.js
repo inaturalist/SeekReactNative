@@ -5,8 +5,7 @@ import {
   View,
   Text,
   Image,
-  ScrollView,
-  SafeAreaView
+  ScrollView
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -20,6 +19,7 @@ import ChallengeProgressCard from "./ChallengeProgressCard";
 import Padding from "../UIComponents/Padding";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
@@ -185,7 +185,7 @@ class ChallengeScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <GreenHeader
           header={i18n.t( "challenges.header" )}
           navigation={navigation}

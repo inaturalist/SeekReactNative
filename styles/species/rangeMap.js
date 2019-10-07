@@ -51,10 +51,6 @@ export default StyleSheet.create( {
     marginHorizontal: 25,
     marginTop: 15
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

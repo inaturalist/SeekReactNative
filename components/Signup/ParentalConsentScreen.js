@@ -6,8 +6,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  Platform,
-  SafeAreaView
+  Platform
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -15,6 +14,7 @@ import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import ErrorMessage from "./ErrorMessage";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
@@ -100,7 +100,7 @@ class ParentalConsentScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
         <View style={styles.innerContainer}>
           <View style={styles.margin} />

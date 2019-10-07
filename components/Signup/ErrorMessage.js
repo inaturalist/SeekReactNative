@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/signup/error";
 
 type Props = {
-  error: string
+  +error: string
 }
 
 const ErrorMessage = ( { error }: Props ) => {

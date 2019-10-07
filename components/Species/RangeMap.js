@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import {
   View,
   Image,
-  SafeAreaView,
   TouchableOpacity,
   Text
 } from "react-native";
@@ -16,6 +15,7 @@ import styles from "../../styles/species/rangeMap";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import Legend from "./Legend";
 
 const latitudeDelta = 0.2;
@@ -88,7 +88,7 @@ class RangeMap extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onWillFocus={() => this.getUserLocation()}
         />

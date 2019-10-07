@@ -5,14 +5,14 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
-  SafeAreaView
+  View
 } from "react-native";
 import Checkbox from "react-native-check-box";
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
 
@@ -58,7 +58,7 @@ class LicensePhotosScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
         <View style={styles.innerContainer}>
           <View style={styles.leftTextContainer}>

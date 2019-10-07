@@ -63,10 +63,6 @@ export default StyleSheet.create( {
     marginLeft: 21,
     width: 211
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   speciesNameContainer: {
     maxWidth: 199
   },

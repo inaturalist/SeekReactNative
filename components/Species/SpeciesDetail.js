@@ -6,7 +6,6 @@ import {
   Image,
   ScrollView,
   Text,
-  SafeAreaView,
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -32,6 +31,7 @@ import INatObs from "./INatObs";
 import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/iOSSpacer";
 import GreenText from "../UIComponents/GreenText";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
   capitalizeNames,
@@ -395,7 +395,7 @@ class SpeciesDetail extends Component<Props> {
 
     return (
       <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onWillBlur={() => this.resetState()}
           onWillFocus={() => this.fetchiNatData()}

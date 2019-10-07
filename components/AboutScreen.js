@@ -6,7 +6,6 @@ import {
   ScrollView,
   Text,
   View,
-  SafeAreaView,
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -16,6 +15,7 @@ import logos from "../assets/logos";
 import i18n from "../i18n";
 import GreenHeader from "./UIComponents/GreenHeader";
 import Padding from "./UIComponents/Padding";
+import SafeAreaView from "./UIComponents/SafeAreaView";
 
 type Props = {
   +navigation: any
@@ -35,7 +35,7 @@ class AboutScreen extends Component<Props> {
 
     return (
       <React.Fragment>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onWillFocus={() => {
             this.scrollToTop();

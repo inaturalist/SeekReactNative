@@ -4,12 +4,12 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
-  SafeAreaView
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
   +navigation: any
@@ -17,7 +17,7 @@ type Props = {
 
 const LoginSuccessScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
-    <SafeAreaView style={styles.safeViewTop} />
+    <SafeAreaView />
     <View style={styles.greenHeader}>
       <Text style={styles.loginSuccessHeaderText}>
         {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}

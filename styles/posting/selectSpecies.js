@@ -72,10 +72,6 @@ export default StyleSheet.create( {
     height: 63,
     justifyContent: "center"
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   scientificNameText: {
     color: colors.black,
     flexDirection: "row",

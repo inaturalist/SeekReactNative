@@ -78,10 +78,6 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginLeft: 30
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   startButton: {
     alignItems: "center",
     marginLeft: 20,

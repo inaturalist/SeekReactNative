@@ -108,10 +108,6 @@ export default StyleSheet.create( {
     marginHorizontal: 23,
     marginTop: 15
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   textContainer: {
     alignSelf: "center",
     top: 10

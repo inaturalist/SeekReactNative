@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView,
   Platform
 } from "react-native";
 import Geocoder from "react-native-geocoder";
@@ -18,6 +17,7 @@ import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } fr
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
 import GreenButton from "../UIComponents/GreenButton";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -129,7 +129,7 @@ class LocationPicker extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <View style={styles.header}>
           <TouchableOpacity
             hitSlop={styles.touchable}

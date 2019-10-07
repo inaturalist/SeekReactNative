@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   View,
-  SafeAreaView,
   Platform,
   SectionList,
   Text,
@@ -21,6 +20,7 @@ import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/iconicTaxonDictById";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import NoObservations from "./NoObservations";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";
@@ -264,7 +264,7 @@ class Observations extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onDidFocus={() => {
             this.scrollToTop();

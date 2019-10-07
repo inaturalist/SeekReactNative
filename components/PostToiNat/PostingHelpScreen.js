@@ -5,7 +5,6 @@ import {
   ScrollView,
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   Image,
   Platform
@@ -17,6 +16,7 @@ import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
 import icons from "../../assets/posting";
 import Padding from "../UIComponents/Padding";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
   +navigation: any
@@ -37,7 +37,7 @@ class PostingHelpScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <StatusBar barStyle="light-content" />
         <NavigationEvents
           onWillFocus={() => this.scrollToTop()}

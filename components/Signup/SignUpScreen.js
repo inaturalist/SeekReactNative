@@ -5,8 +5,7 @@ import {
   View,
   Text,
   TextInput,
-  TouchableOpacity,
-  SafeAreaView
+  TouchableOpacity
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -14,6 +13,7 @@ import i18n from "../../i18n";
 import config from "../../config";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 
@@ -167,7 +167,7 @@ class SignUpScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <GreenHeader
           header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
           navigation={navigation}

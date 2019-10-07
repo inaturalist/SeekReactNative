@@ -4,13 +4,13 @@ import React from "react";
 import {
   Text,
   View,
-  ScrollView,
-  SafeAreaView
+  ScrollView
 } from "react-native";
 
 import styles from "../../styles/login/privacy";
 import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import Padding from "../UIComponents/Padding";
 
 type Props = {
@@ -38,7 +38,7 @@ const TermsOfServiceScreen = ( { navigation }: Props ) => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.safeViewTop} />
+      <SafeAreaView />
       <GreenHeader header={i18n.t( "inat_signup.terms" )} navigation={navigation} />
       <ScrollView contentContainerStyle={styles.textContainer}>
         <Text style={styles.text}>Last modified June 16, 2016</Text>

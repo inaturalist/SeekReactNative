@@ -80,10 +80,6 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "center"
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   secondHeaderText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,

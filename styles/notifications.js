@@ -63,10 +63,6 @@ export default StyleSheet.create( {
     maxWidth: 319,
     textAlign: "center"
   },
-  safeViewTop: {
-    backgroundColor: colors.seekForestGreen,
-    flex: 0
-  },
   textContainer: {
     width: 214
   },

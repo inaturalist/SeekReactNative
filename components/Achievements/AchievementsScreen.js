@@ -6,7 +6,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -24,6 +23,7 @@ import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../UIComponents/GreenHeader";
 import LoginCard from "../UIComponents/LoginCard";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 
@@ -178,7 +178,7 @@ class AchievementsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onWillFocus={() => {
             this.scrollToTop();

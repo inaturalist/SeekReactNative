@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   FlatList,
   View,
-  SafeAreaView,
   Text,
   Platform
 } from "react-native";
@@ -16,6 +15,7 @@ import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { updateNotifications } from "../../utility/notificationHelpers";
 
 type Props = {
@@ -55,7 +55,7 @@ class NotificationsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <NavigationEvents
           onDidBlur={() => updateNotifications()}
           onDidFocus={() => this.scrollToTop()}

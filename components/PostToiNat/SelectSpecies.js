@@ -5,7 +5,6 @@ import {
   ScrollView,
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   Image,
   Platform,
@@ -24,6 +23,7 @@ import Padding from "../UIComponents/Padding";
 import SpeciesCard from "./SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 import GreenText from "../UIComponents/GreenText";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
   +toggleSpeciesModal: Function,
@@ -100,7 +100,7 @@ class SelectSpecies extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
+        <SafeAreaView />
         <StatusBar barStyle="light-content" />
         <NavigationEvents
           onWillFocus={() => this.scrollToTop()}

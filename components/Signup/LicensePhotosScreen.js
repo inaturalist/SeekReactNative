@@ -66,7 +66,7 @@ class LicensePhotosScreen extends Component<Props> {
         </View>
         <InputField
           handleTextChange={value => this.setState( { email: value } )}
-          placeholder="email"
+          placeholder={i18n.t( "inat_signup.email" )}
           text={email}
           type="emailAddress"
         />

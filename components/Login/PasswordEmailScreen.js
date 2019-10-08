@@ -30,7 +30,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
       >
         {i18n.t( "inat_login.reset_instructions" )}
       </Text>
-      <View style={{ marginTop: 51 }} />
+      <View style={styles.greenButtonMargin} />
       <GreenButton
         handlePress={() => navigation.navigate( "LoginOrSignup" )}
         login

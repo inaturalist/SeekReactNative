@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   Text,
-  Platform
+  Platform,
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -401,10 +402,23 @@ class SpeciesDetail extends Component<Props> {
           onWillFocus={() => this.fetchiNatData()}
         />
         {Platform.OS === "ios" && <Spacer />}
+        <TouchableOpacity
+          hitSlop={styles.touchable}
+          onPress={() => {
+            if ( route === "Match" ) {
+              navigation.navigate( route, { ...navigation.state.params } );
+            } else if ( route ) {
+              navigation.navigate( route );
+            } else {
+              navigation.navigate( "Main" );
+            }
+          }}
+          style={styles.backButton}
+        >
+          <Image source={icons.backButton} />
+        </TouchableOpacity>
         <SpeciesPhotos
-          navigation={navigation}
           photos={photos}
-          route={route}
           userPhoto={userPhoto}
         />
         <View style={styles.greenBanner}>

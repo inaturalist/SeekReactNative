@@ -5,7 +5,8 @@ import {
   colors,
   padding,
   center,
-  row
+  row,
+  dimensions
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -43,7 +44,7 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   greenButtonMargin: {
-    marginTop: 10
+    marginTop: dimensions.height < 570 ? 10 : 51
   },
   header: {
     color: colors.black,

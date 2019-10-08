@@ -27,7 +27,7 @@ const ErrorMessage = ( { error }: Props ) => {
     message = error;
   }
   return (
-    <View style={[styles.errorMargin, error === "email" && { marginTop: 16 }]}>
+    <View style={styles.errorMargin}>
       <Image source={posting.error} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.text}>{message}</Text>

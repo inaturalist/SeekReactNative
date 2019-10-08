@@ -1,19 +1,12 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  backButton: {
-    left: 23,
-    position: "absolute",
-    top: 28,
-    zIndex: 1
-  },
   ccButton: {
     backgroundColor: colors.black,
     borderRadius: 40,
@@ -56,6 +49,5 @@ export default StyleSheet.create( {
     right: 5,
     top: 120,
     zIndex: 1
-  },
-  touchable
+  }
 } );

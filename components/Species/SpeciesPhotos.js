@@ -15,17 +15,13 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import icons from "../../assets/icons";
 
 type Props = {
-  +navigation: any,
   +photos: Array<Object>,
-  +userPhoto: string,
-  +route: string
+  +userPhoto: string
 };
 
 const SpeciesPhotos = ( {
   photos,
-  userPhoto,
-  navigation,
-  route
+  userPhoto
 }: Props ) => {
   const photoList = [];
 
@@ -80,19 +76,6 @@ const SpeciesPhotos = ( {
         pagingEnabled
         renderItem={( { item } ) => item}
       />
-      <TouchableOpacity
-        hitSlop={styles.touchable}
-        onPress={() => {
-          if ( route ) {
-            navigation.navigate( route );
-          } else {
-            navigation.navigate( "Main" );
-          }
-        }}
-        style={styles.backButton}
-      >
-        <Image source={icons.backButton} />
-      </TouchableOpacity>
       <Image source={icons.swipeLeft} style={styles.leftArrow} />
       <Image source={icons.swipeRight} style={styles.rightArrow} />
     </View>

@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   View,
-  Text
+  Text,
+  ScrollView
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -102,39 +103,41 @@ class ParentalConsentScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
-        <View style={styles.margin} />
-        <Text style={styles.header}>
-          {i18n.t( "inat_signup.enter_email" )}
-        </Text>
-        <Text style={[styles.text, styles.keyboardText]}>
-          {i18n.t( "inat_signup.under_13" )}
-        </Text>
-        <View style={styles.margin} />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { email: value } )}
-          placeholder={i18n.t( "inat_signup.email" )}
-          text={email}
-          type="emailAddress"
-        />
-        <View style={styles.center}>
-          {loading ? <LoadingWheel /> : null}
-          {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
-        </View>
-        <GreenButton
-          handlePress={() => {
-            if ( checkIsEmailValid( email ) ) {
-              this.setError( false );
-              this.shareEmailWithiNat();
-            } else {
-              this.setError( "email" );
-            }
-          }}
-          login
-          text={i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
-        />
+        <ScrollView>
+          <View style={styles.margin} />
+          <Text style={styles.header}>
+            {i18n.t( "inat_signup.enter_email" )}
+          </Text>
+          <Text style={[styles.text, styles.keyboardText]}>
+            {i18n.t( "inat_signup.under_13" )}
+          </Text>
+          <View style={styles.margin} />
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { email: value } )}
+            placeholder={i18n.t( "inat_signup.email" )}
+            text={email}
+            type="emailAddress"
+          />
+          <View style={styles.center}>
+            {loading ? <LoadingWheel /> : null}
+            {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
+          </View>
+          <GreenButton
+            handlePress={() => {
+              if ( checkIsEmailValid( email ) ) {
+                this.setError( false );
+                this.shareEmailWithiNat();
+              } else {
+                this.setError( "email" );
+              }
+            }}
+            login
+            text={i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

@@ -3,10 +3,17 @@ import {
   colors,
   fonts,
   touchable,
-  row
+  row,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
+  backButton: {
+    left: 23,
+    position: "absolute",
+    top: dimensions.height < 570 ? 38 : 18,
+    zIndex: 1
+  },
   bottomPadding: {
     backgroundColor: colors.seekForestGreen,
     height: Platform.OS === "android" ? 17 : 60

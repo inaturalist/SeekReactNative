@@ -3,7 +3,8 @@
 import React, { Component } from "react";
 import {
   Text,
-  View
+  View,
+  ScrollView
 } from "react-native";
 import Checkbox from "react-native-check-box";
 
@@ -61,17 +62,17 @@ class LicensePhotosScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { email: value } )}
-          placeholder={i18n.t( "inat_signup.email" )}
-          text={email}
-          type="emailAddress"
-        />
-        <View style={styles.center}>
-          <View style={[styles.row, styles.margin]}>
+        <ScrollView>
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { email: value } )}
+            placeholder={i18n.t( "inat_signup.email" )}
+            text={email}
+            type="emailAddress"
+          />
+          <View style={[styles.row, styles.margin, styles.center]}>
             <Checkbox
               checkBoxColor="#979797"
               isChecked={licensePhotos}
@@ -82,7 +83,7 @@ class LicensePhotosScreen extends Component<Props> {
               {i18n.t( "inat_signup.release_photos" )}
             </Text>
           </View>
-          <View style={styles.row}>
+          <View style={[styles.row, styles.center]}>
             <View style={{ marginLeft: 15 }} />
             <Text
               onPress={() => navigation.navigate( "Privacy" )}
@@ -97,13 +98,13 @@ class LicensePhotosScreen extends Component<Props> {
               {i18n.t( "inat_signup.terms" )}
             </Text>
           </View>
-          {error ? <ErrorMessage error="email" /> : <View style={{ marginTop: 29 }} />}
-        </View>
-        <GreenButton
-          handlePress={() => this.submit()}
-          login
-          text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
-        />
+          {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
+          <GreenButton
+            handlePress={() => this.submit()}
+            login
+            text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

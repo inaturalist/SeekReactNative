@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
@@ -170,34 +170,35 @@ class SignUpScreen extends Component<Props> {
           header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
           navigation={navigation}
         />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { username: value } )}
-          placeholder={i18n.t( "inat_login.username" )}
-          text={username}
-          type="username"
-        />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { password: value } )}
-          placeholder="*********"
-          secureTextEntry
-          text={password}
-          type="password"
-        />
-        <View style={[styles.center, styles.margin]}>
-          {error ? <ErrorMessage error={this.formatError( error )} /> : null}
-          <View style={[styles.greenButtonMargin, error && { marginTop: 5 }]} />
-        </View>
-        <GreenButton
-          handlePress={() => this.submit()}
-          login
-          text={i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
-        />
+        <ScrollView>
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { username: value } )}
+            placeholder={i18n.t( "inat_login.username" )}
+            text={username}
+            type="username"
+          />
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { password: value } )}
+            placeholder="*********"
+            secureTextEntry
+            text={password}
+            type="password"
+          />
+          {error
+            ? <ErrorMessage error={this.formatError( error )} />
+            : <View style={styles.greenButtonMargin} />}
+          <GreenButton
+            handlePress={() => this.submit()}
+            login
+            text={i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

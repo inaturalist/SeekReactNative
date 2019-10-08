@@ -124,11 +124,9 @@ class ForgotPasswordScreen extends Component<Props> {
             text={email}
             type="emailAddress"
           />
-          {error ? (
-            <View style={{ marginTop: 29 }}>
-              <ErrorMessage error="email" />
-            </View>
-          ) : <View style={{ marginTop: 29 }} />}
+          {error
+            ? <ErrorMessage error="email" />
+            : <View style={{ marginTop: 29 }} />}
           <GreenButton
             handlePress={() => this.checkEmail()}
             login

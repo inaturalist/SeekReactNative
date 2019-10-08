@@ -47,7 +47,10 @@ const SpeciesNearbyList = ( {
       <TouchableOpacity
         onPress={ () => {
           setSpeciesId( item.id );
-          if ( navigation ) {
+          if ( match ) {
+            setRoute( "Match" );
+            navigation.navigate( "Species", { ...navigation.state.params } );
+          } else if ( navigation ) {
             setRoute( "Main" );
             navigation.navigate( "Species" );
           } else {

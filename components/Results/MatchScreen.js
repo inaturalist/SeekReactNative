@@ -37,6 +37,7 @@ import {
   createLocationTimeoutAlert
 } from "../../utility/locationHelpers";
 import SpeciesNearby from "./SpeciesNearby";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +navigation: any
@@ -183,8 +184,9 @@ class MatchScreen extends Component<Props> {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
       setSpeciesId( taxaId );
-      setRoute( "Camera" );
-      navigation.navigate( "Species" );
+      // return user to match screen
+      setRoute( "Match" );
+      navigation.navigate( "Species", { ...navigation.state.params } );
     }
   }
 
@@ -293,7 +295,11 @@ class MatchScreen extends Component<Props> {
       text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
-      headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
+      if ( rank === 20 || rank === 30 || rank === 40 || rank === 50 ) {
+        headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
+      } else {
+        headerText = i18n.t( "results.believe_1" ).toLocaleUpperCase();
+      }
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
       text = i18n.t( "results.common_ancestor" );
@@ -411,30 +417,24 @@ class MatchScreen extends Component<Props> {
               ? <Text style={styles.speciesText}>{speciesText}</Text>
               : null}
             <Text style={styles.text}>{text}</Text>
+          </View>
+          <View style={styles.marginMedium} />
+          <View style={styles.textContainer}>
             {seenDate || match ? (
-              <TouchableOpacity
-                onPress={() => {
-                  setSpeciesId( taxaId ); // not sure why these are here
-                  setRoute( "Camera" ); // not sure why these are here
-                  this.setNavigationPath( "Species" );
-                }}
-                style={[styles.button, { backgroundColor: gradientColorLight }]}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "results.view_species" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
+              <GreenButton
+                color={gradientColorLight}
+                handlePress={() => this.setNavigationPath( "Species" )}
+                text={i18n.t( "results.view_species" ).toLocaleUpperCase()}
+              />
             ) : (
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "Camera" )}
-                style={[styles.button, { backgroundColor: gradientColorLight }]}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
+              <GreenButton
+                color={gradientColorLight}
+                handlePress={() => navigation.navigate( "Camera" )}
+                text={i18n.t( "results.take_photo" ).toLocaleUpperCase()}
+              />
             )}
           </View>
+          <View style={styles.marginMedium} />
           {commonAncestor && rank !== ( 60 || 70 ) ? (
             <SpeciesNearby
               ancestorId={taxaId}
@@ -442,6 +442,7 @@ class MatchScreen extends Component<Props> {
               lat={latitude}
               lng={longitude}
               navigation={navigation}
+              params={navigation.state.params}
             />
           ) : null}
           {commonAncestor && rank !== ( 60 || 70 ) ? <View style={styles.marginMedium} /> : null}

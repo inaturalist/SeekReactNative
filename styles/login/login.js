@@ -4,7 +4,8 @@ import {
   fonts,
   colors,
   row,
-  center
+  center,
+  dimensions
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -38,7 +39,7 @@ export default StyleSheet.create( {
     textDecorationLine: "underline"
   },
   greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 28
+    marginTop: dimensions.height < 570 ? 10 : 51
   },
   greenHeader: {
     alignItems: "center",

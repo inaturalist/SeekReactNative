@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { fonts, colors } from "../global";
+import { fonts, colors, dimensions } from "../global";
 
 export default StyleSheet.create( {
   errorMargin: {
@@ -7,8 +7,9 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     justifyContent: "center",
-    marginBottom: 18,
-    marginTop: 28
+    marginBottom: dimensions.height > 570 ? 27 : 18,
+    marginHorizontal: dimensions.height > 570 ? 34 : 20,
+    marginTop: dimensions.height > 570 ? 30 : 21
   },
   image: {
     marginRight: 15
@@ -20,7 +21,6 @@ export default StyleSheet.create( {
   },
   textContainer: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    width: 240
+    flexWrap: "wrap"
   }
 } );

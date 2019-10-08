@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   Text,
+  ScrollView,
   TouchableOpacity
 } from "react-native";
 
@@ -89,42 +90,41 @@ class LoginScreen extends Component<Props> {
           header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
           navigation={navigation}
         />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { username: value } )}
-          placeholder={i18n.t( "inat_login.username" )}
-          text={username}
-          type="username"
-        />
-        <View style={styles.leftTextMargins}>
-          <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
-        </View>
-        <InputField
-          handleTextChange={value => this.setState( { password: value } )}
-          placeholder="*********"
-          secureTextEntry
-          text={password}
-          type="password"
-        />
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Forgot" )}
-          style={styles.rightTextContainer}
-        >
-          <Text style={styles.forgotPasswordText}>
-            {i18n.t( "inat_login.forgot_password" )}
-          </Text>
-        </TouchableOpacity>
-        <View style={styles.center}>
-          {error ? <ErrorMessage error="credentials" /> : null}
-          <View style={styles.greenButtonMargin} />
-        </View>
-        <GreenButton
-          handlePress={() => this.retrieveOAuthToken( username, password )}
-          login
-          text={i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
-        />
+        <ScrollView>
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { username: value } )}
+            placeholder={i18n.t( "inat_login.username" )}
+            text={username}
+            type="username"
+          />
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { password: value } )}
+            placeholder="*********"
+            secureTextEntry
+            text={password}
+            type="password"
+          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Forgot" )}
+            style={styles.rightTextContainer}
+          >
+            <Text style={styles.forgotPasswordText}>
+              {i18n.t( "inat_login.forgot_password" )}
+            </Text>
+          </TouchableOpacity>
+          {error ? <ErrorMessage error="credentials" /> : <View style={styles.greenButtonMargin} />}
+          <GreenButton
+            handlePress={() => this.retrieveOAuthToken( username, password )}
+            login
+            text={i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

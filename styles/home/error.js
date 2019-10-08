@@ -2,14 +2,13 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  row
 } from "../global";
 
 export default StyleSheet.create( {
   background: {
-    alignItems: "center",
-    height: 223,
-    justifyContent: "center"
+    height: 223
   },
   buttonText: {
     color: colors.white,
@@ -29,12 +28,7 @@ export default StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? 5 : null,
     width: 284
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between"
-  },
+  row,
   text: {
     color: colors.white,
     fontFamily: fonts.book,

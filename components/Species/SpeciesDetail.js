@@ -429,6 +429,7 @@ class SpeciesDetail extends Component<Props> {
           {seenDate && !error ? (
             <View style={[
               styles.row,
+              styles.rowMargin,
               showGreenButtons.includes( true ) && styles.marginSmall
             ]}
             >

@@ -15,9 +15,9 @@ import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any,
-  item: Object,
-  fetchChallenges: Function
+  +navigation: any,
+  +item: Object,
+  +fetchChallenges: Function
 }
 
 const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) => {
@@ -38,7 +38,6 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
   } else {
     rightIcon = (
       <TouchableOpacity
-        style={styles.startButton}
         onPress={() => {
           setChallengeIndex( item.index );
           startChallenge( item.index );
@@ -46,6 +45,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
           recalculateChallenges();
           navigation.navigate( "ChallengeDetails" );
         }}
+        style={styles.startButton}
       >
         <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>
       </TouchableOpacity>
@@ -54,13 +54,13 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
 
   return (
     <TouchableOpacity
-      style={styles.card}
       onPress={() => {
         setChallengeIndex( item.index );
         navigation.navigate( "ChallengeDetails" );
       }}
+      style={[styles.card, styles.row]}
     >
-      <Image style={styles.image} source={item.iconName} />
+      <Image source={item.iconName} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
           {item.name.toLocaleUpperCase()}

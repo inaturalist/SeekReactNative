@@ -4,15 +4,16 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  TextInput,
-  TouchableOpacity,
-  Platform
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
@@ -88,56 +89,42 @@ class LoginScreen extends Component<Props> {
           header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
           navigation={navigation}
         />
-        <View style={styles.innerContainer}>
-          <View style={styles.leftTextContainer}>
-            <Text style={styles.leftText}>
-              {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <TextInput
-            autoCapitalize="none"
-            autoCorrect={false}
-            autoFocus
-            keyboardType={Platform.OS === "android" ? "visible-password" : "default"}
-            onChangeText={ value => this.setState( { username: value } )} // adding this to turn off autosuggestions on Android
-            placeholder={i18n.t( "inat_login.username" )}
-            style={styles.inputField}
-            textContentType="username"
-            value={username}
-          />
-          <View style={styles.leftTextContainer}>
-            <Text style={styles.leftText}>
-              {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <TextInput
-            autoCapitalize="none"
-            onChangeText={ value => this.setState( { password: value } )}
-            placeholder="*********"
-            placeholderTextColor="#828282"
-            secureTextEntry
-            style={styles.inputField}
-            textContentType="password"
-            value={password}
-          />
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "Forgot" )}
-            style={styles.rightTextContainer}
-          >
-            <Text style={styles.forgotPasswordText}>
-              {i18n.t( "inat_login.forgot_password" )}
-            </Text>
-          </TouchableOpacity>
-          {error ? <ErrorMessage error="credentials" /> : null}
-          <TouchableOpacity
-            onPress={() => this.retrieveOAuthToken( username, password )}
-            style={[styles.greenButton, styles.greenButtonMargin]}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
+        <View style={styles.leftTextMargins}>
+          <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
         </View>
+        <InputField
+          handleTextChange={value => this.setState( { username: value } )}
+          placeholder={i18n.t( "inat_login.username" )}
+          text={username}
+          type="username"
+        />
+        <View style={styles.leftTextMargins}>
+          <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+        </View>
+        <InputField
+          handleTextChange={value => this.setState( { password: value } )}
+          placeholder="*********"
+          secureTextEntry
+          text={password}
+          type="password"
+        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Forgot" )}
+          style={styles.rightTextContainer}
+        >
+          <Text style={styles.forgotPasswordText}>
+            {i18n.t( "inat_login.forgot_password" )}
+          </Text>
+        </TouchableOpacity>
+        <View style={styles.center}>
+          {error ? <ErrorMessage error="credentials" /> : null}
+          <View style={styles.greenButtonMargin} />
+        </View>
+        <GreenButton
+          handlePress={() => this.retrieveOAuthToken( username, password )}
+          login
+          text={i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
+        />
       </View>
     );
   }

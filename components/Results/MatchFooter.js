@@ -13,18 +13,18 @@ import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
-  navigation: any,
-  toggleFlagModal: Function
+  +navigation: any,
+  +toggleFlagModal: Function
 }
 
 const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
-      <View style={styles.navbar}>
+      <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          style={styles.button}
           onPress={() => navigation.openDrawer()}
+          style={styles.button}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
@@ -33,8 +33,8 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          style={styles.button}
           onPress={() => toggleFlagModal()}
+          style={styles.button}
         >
           <Image source={icons.flag} />
         </TouchableOpacity>

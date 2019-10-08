@@ -10,6 +10,8 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +navigation: any
@@ -23,16 +25,16 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
         {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
       </Text>
     </View>
-    <View style={styles.innerContainer}>
+    <View style={styles.center}>
       <Text style={styles.linkedAccountHeader}>{i18n.t( "inat_signup.linked_account" )}</Text>
     </View>
     <View style={styles.textContainer}>
-      <Text style={styles.smallGreenHeaderText}>{i18n.t( "inat_signup.posting" ).toLocaleUpperCase()}</Text>
+      <GreenText smaller text={i18n.t( "inat_signup.posting" ).toLocaleUpperCase()} />
+      <View style={{ marginTop: 5 }} />
       <Text style={styles.descriptionText}>{i18n.t( "inat_signup.posting_details" )}</Text>
       <View style={{ marginTop: 25 }} />
-      <Text style={styles.smallGreenHeaderText}>
-        {i18n.t( "inat_signup.observations" ).toLocaleUpperCase()}
-      </Text>
+      <GreenText smaller text={i18n.t( "inat_signup.observations" ).toLocaleUpperCase()} />
+      <View style={{ marginTop: 5 }} />
       <Text style={styles.descriptionText}>
         {i18n.t( "inat_signup.observations_1" )}
         {" "}
@@ -44,33 +46,28 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
       </Text>
     </View>
     <View style={{ marginTop: 29 }} />
-    <View style={styles.innerContainer}>
+    <GreenButton
+      handlePress={() => navigation.navigate( "Main" )}
+      login
+      text={i18n.t( "inat_signup.continue" ).toLocaleUpperCase()}
+    />
+    <View style={[styles.center, styles.row]}>
       <TouchableOpacity
-        onPress={() => navigation.navigate( "Main" )}
-        style={[styles.greenButton, { width: "85%" }]}
+        hitSlop={styles.clickableText}
+        onPress={() => navigation.navigate( "Privacy" )}
       >
-        <Text style={styles.buttonText}>
-          {i18n.t( "inat_signup.continue" ).toLocaleUpperCase()}
+        <Text style={styles.textLink}>
+          {i18n.t( "inat_signup.privacy" )}
         </Text>
       </TouchableOpacity>
-      <View style={styles.row}>
-        <TouchableOpacity
-          hitSlop={styles.clickableText}
-          onPress={() => navigation.navigate( "Privacy" )}
-        >
-          <Text style={styles.textLink}>
-            {i18n.t( "inat_signup.privacy" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          hitSlop={styles.clickableText}
-          onPress={() => navigation.navigate( "TermsOfService" )}
-        >
-          <Text style={[styles.textLink, { marginLeft: 14 }]}>
-            {i18n.t( "inat_signup.terms" )}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        hitSlop={styles.clickableText}
+        onPress={() => navigation.navigate( "TermsOfService" )}
+      >
+        <Text style={[styles.textLink, { marginLeft: 14 }]}>
+          {i18n.t( "inat_signup.terms" )}
+        </Text>
+      </TouchableOpacity>
     </View>
   </View>
 );

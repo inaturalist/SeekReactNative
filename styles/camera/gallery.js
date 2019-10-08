@@ -1,5 +1,11 @@
 import { Dimensions, StyleSheet, Platform } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import {
+  colors,
+  center,
+  row,
+  fonts,
+  touchable
+} from "../global";
 
 const { width, height } = Dimensions.get( "screen" );
 
@@ -18,6 +24,7 @@ export default StyleSheet.create( {
   buttonImage: {
     padding: 5
   },
+  center,
   galleryContainer: {
     backgroundColor: colors.lightGray,
     flex: 1
@@ -44,12 +51,7 @@ export default StyleSheet.create( {
   margin: {
     marginLeft: 15
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center"
-  },
+  row,
   safeViewTop: {
     backgroundColor: colors.white,
     flex: 0

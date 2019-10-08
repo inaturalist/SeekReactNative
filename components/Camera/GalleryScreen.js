@@ -35,7 +35,7 @@ import AlbumPicker from "./AlbumPicker";
 const { width } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class GalleryScreen extends Component<Props> {
@@ -253,23 +253,23 @@ class GalleryScreen extends Component<Props> {
       gallery = (
         <FlatList
           data={photos}
-          numColumns={4}
-          onEndReached={() => this.getPhotos()}
           keyExtractor={( item, index ) => `${item}${index}`}
           ListEmptyComponent={() => (
             <View style={styles.loadingWheel}>
               <LoadingWheel color={colors.darkGray} />
             </View>
           )}
+          numColumns={4}
+          onEndReached={() => this.getPhotos()}
           renderItem={( { item } ) => (
             <TouchableHighlight
+              onPress={() => this.selectAndResizeImage( item.node )}
               style={styles.button}
               underlayColor="transparent"
-              onPress={() => this.selectAndResizeImage( item.node )}
             >
               <Image
-                style={styles.image}
                 source={{ uri: item.node.image.uri }}
+                style={styles.image}
               />
             </TouchableHighlight>
           )}
@@ -291,15 +291,14 @@ class GalleryScreen extends Component<Props> {
         <View style={styles.header}>
           <TouchableOpacity
             hitSlop={styles.touchable}
-            style={styles.backButton}
             onPress={() => navigation.navigate( "Main" )}
+            style={styles.backButton}
           >
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
           {albumNames.length > 0
             ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
-            : null
-          }
+            : null}
         </View>
         <View style={styles.galleryContainer}>
           {gallery}

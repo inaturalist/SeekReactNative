@@ -2,7 +2,8 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  touchable
+  touchable,
+  row
 } from "../global";
 
 export default StyleSheet.create( {
@@ -46,17 +47,11 @@ export default StyleSheet.create( {
     marginLeft: 28,
     paddingTop: Platform.OS === "ios" ? 7 : 0
   },
-  loading: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   marginSmall: {
     marginTop: 21
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
+  row,
+  rowMargin: {
     marginTop: 28
   },
   scientificNameText: {

@@ -20,7 +20,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView />
     <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
-    <View style={[styles.innerContainer, styles.container]}>
+    <View style={[styles.center, styles.container]}>
       <Text style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</Text>
       <Text style={styles.text}>{i18n.t( "inat_signup.parent_instructions" )}</Text>
       <TouchableOpacity

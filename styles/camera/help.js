@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, row } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -18,11 +18,7 @@ export default StyleSheet.create( {
     marginRight: 36,
     width: height > 570 ? 192 : 140
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   secondHeaderText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,

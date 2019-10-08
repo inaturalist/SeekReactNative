@@ -1,7 +1,8 @@
 import { StyleSheet, PixelRatio, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -9,9 +10,6 @@ const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   card: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     height: ( fontScale > 1 ) ? 138 : 95,
     justifyContent: "space-around",
     marginHorizontal: 20
@@ -61,11 +59,6 @@ export default StyleSheet.create( {
     height: ( fontScale > 1 ) ? 182 : 121,
     justifyContent: "center"
   },
-  noChallengeRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
   noChallengeText: {
     color: colors.black,
     fontFamily: fonts.medium,
@@ -78,6 +71,7 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginLeft: 30
   },
+  row,
   startButton: {
     alignItems: "center",
     marginLeft: 20,

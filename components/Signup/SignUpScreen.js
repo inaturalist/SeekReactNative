@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity
 } from "react-native";
 import jwt from "react-native-jwt-io";
@@ -14,6 +13,8 @@ import config from "../../config";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 
@@ -172,35 +173,26 @@ class SignUpScreen extends Component<Props> {
           header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
           navigation={navigation}
         />
-        <View style={[styles.innerContainer, styles.margin]}>
-          <View style={styles.leftTextContainer}>
-            <Text style={styles.leftText}>
-              {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <TextInput
-            autoCapitalize="none"
-            autoFocus
-            onChangeText={ value => this.setState( { username: value } )}
-            placeholder="username"
-            placeholderTextColor="#828282"
-            style={styles.inputField}
-            textContentType="username"
-            value={username}
-          />
-          <View style={styles.leftTextContainer}>
-            <Text style={styles.leftText}>
-              {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <TextInput
-            onChangeText={ value => this.setState( { password: value } )}
-            placeholder="*********"
-            secureTextEntry
-            style={styles.inputField}
-            textContentType="password"
-            value={password}
-          />
+        <View style={styles.leftTextMargins}>
+          <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+        </View>
+        <InputField
+          handleTextChange={value => this.setState( { username: value } )}
+          placeholder={i18n.t( "inat_login.username" )}
+          text={username}
+          type="username"
+        />
+        <View style={styles.leftTextMargins}>
+          <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+        </View>
+        <InputField
+          handleTextChange={value => this.setState( { password: value } )}
+          placeholder="*********"
+          secureTextEntry
+          text={password}
+          type="password"
+        />
+        <View style={[styles.center, styles.margin]}>
           {error ? <ErrorMessage error={this.formatError( error )} /> : null}
           <TouchableOpacity
             onPress={() => this.submit()}

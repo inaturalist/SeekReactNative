@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, row } from "../global";
 
 export default StyleSheet.create( {
   boldText: {
@@ -37,11 +37,7 @@ export default StyleSheet.create( {
   paragraph: {
     marginBottom: 16
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,

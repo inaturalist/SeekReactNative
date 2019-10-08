@@ -3,13 +3,13 @@
 import React from "react";
 import {
   View,
-  Text,
-  TouchableOpacity
+  Text
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../UIComponents/GreenHeader";
+import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
@@ -20,7 +20,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView />
     <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
-    <View style={[styles.innerContainer, styles.container]}>
+    <View style={styles.flexCenter}>
       <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
       <Text style={[styles.secondHeaderText, {
         color: "black",
@@ -31,14 +31,11 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
         {i18n.t( "inat_login.reset_instructions" )}
       </Text>
       <View style={{ marginTop: 51 }} />
-      <TouchableOpacity
-        onPress={() => navigation.navigate( "LoginOrSignup" )}
-        style={styles.greenButton}
-      >
-        <Text style={styles.buttonText}>
-          {i18n.t( "inat_login.return_login" ).toLocaleUpperCase()}
-        </Text>
-      </TouchableOpacity>
+      <GreenButton
+        handlePress={() => navigation.navigate( "LoginOrSignup" )}
+        login
+        text={i18n.t( "inat_login.return_login" ).toLocaleUpperCase()}
+      />
     </View>
   </View>
 );

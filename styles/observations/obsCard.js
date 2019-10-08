@@ -8,44 +8,44 @@ const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   card: {
-    marginHorizontal: 25,
-    marginBottom: 20
+    marginBottom: 20,
+    marginHorizontal: 25
   },
-  touchableArea: {
-    width: 327,
+  commonNameText: {
+    color: colors.black,
     flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
+    flexWrap: "wrap",
+    fontFamily: fonts.book,
+    fontSize: 21
+  },
+  deleteButton: {
+    justifyContent: "center",
+    marginLeft: width - 327 - 25,
+    marginRight: 25,
+    width: 72
   },
   image: {
-    width: 80,
-    height: 80,
     borderRadius: 80 / 2,
-    marginRight: 20
+    height: 80,
+    marginRight: 20,
+    width: 80
+  },
+  scientificNameText: {
+    color: colors.black,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 5
   },
   speciesNameContainer: {
     maxWidth: 223
   },
-  commonNameText: {
+  touchableArea: {
+    alignItems: "center",
     flexDirection: "row",
-    flexWrap: "wrap",
-    fontSize: 21,
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  scientificNameText: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 5,
-    fontFamily: fonts.bookItalic,
-    color: colors.black,
-    fontSize: 16,
-    lineHeight: 21
-  },
-  deleteButton: {
-    width: 72,
-    justifyContent: "center",
-    marginRight: 25,
-    marginLeft: width - 327 - 25
+    flexWrap: "nowrap",
+    width: 327
   }
 } );

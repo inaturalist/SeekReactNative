@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   Text,
-  TextInput,
   TouchableOpacity,
   View
 } from "react-native";
@@ -15,6 +14,8 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +navigation: any
@@ -60,23 +61,16 @@ class LicensePhotosScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
-        <View style={styles.innerContainer}>
-          <View style={styles.leftTextContainer}>
-            <Text style={styles.leftText}>
-              {i18n.t( "inat_signup.email" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <TextInput
-            autoCapitalize="none"
-            autoCorrect={false}
-            autoFocus
-            onChangeText={ value => this.setState( { email: value } )}
-            placeholder="email"
-            placeholderTextColor="#828282"
-            style={styles.inputField}
-            textContentType="emailAddress"
-            value={email}
-          />
+        <View style={styles.leftTextMargins}>
+          <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
+        </View>
+        <InputField
+          handleTextChange={value => this.setState( { email: value } )}
+          placeholder="email"
+          text={email}
+          type="emailAddress"
+        />
+        <View style={styles.center}>
           <View style={[styles.row, styles.margin]}>
             <Checkbox
               checkBoxColor="#979797"

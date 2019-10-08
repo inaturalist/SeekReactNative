@@ -199,13 +199,11 @@ class ChallengeScreen extends Component<Props> {
             }}
           />
           {noChallenges ? (
-            <View style={[styles.noChallengeContainer, { height: 182 }]}>
-              <View style={styles.noChallengeRow}>
-                <Image source={icons.completed} />
-                <View style={styles.noChallengeTextContainer}>
-                  <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
-                  <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
-                </View>
+            <View style={[styles.noChallengeContainer, styles.row, { height: 182 }]}>
+              <Image source={icons.completed} />
+              <View style={styles.noChallengeTextContainer}>
+                <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
+                <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
               </View>
             </View>
           ) : null}

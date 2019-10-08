@@ -1,14 +1,12 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "./global";
 
 export default StyleSheet.create( {
   card: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     height: 112,
     justifyContent: "flex-start",
     marginHorizontal: 22
@@ -39,6 +37,7 @@ export default StyleSheet.create( {
     fontSize: 14,
     lineHeight: 21
   },
+  row,
   textContainer: {
     width: 214
   },

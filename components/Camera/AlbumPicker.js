@@ -61,7 +61,7 @@ class AlbumPicker extends Component<Props> {
         useNativeAndroidPickerStyle={false}
         value={album}
       >
-        <View style={styles.row}>
+        <View style={[styles.row, styles.center]}>
           <Text style={styles.headerText}>
             {album === "All"
               ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()

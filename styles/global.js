@@ -13,6 +13,7 @@ export const colors = {
   seekForestGreen: "#38976d",
   speciesNearbyGreen: "#2a7353",
   dividerGray: "#d8d8d8",
+  dividerWhite: "#63d4ab",
   errorGray: "#4a4a4a",
   circleGray: "#f0f0f0",
   red: "#973838",
@@ -48,4 +49,10 @@ export const dimensions = {
 export const center = {
   alignItems: "center",
   justifyContent: "center"
+};
+
+export const row = {
+  alignItems: "center",
+  flexDirection: "row",
+  flexWrap: "nowrap"
 };

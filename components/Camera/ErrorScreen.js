@@ -6,8 +6,8 @@ import { Text, View } from "react-native";
 import styles from "../../styles/camera/error";
 
 type Props = {
-  error: string,
-  camera: boolean
+  +error: string,
+  +camera: boolean
 }
 
 const ErrorScreen = ( { error, camera }: Props ) => (

@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  center
 } from "./global";
 
 const { width } = Dimensions.get( "screen" );
@@ -26,10 +27,7 @@ export default StyleSheet.create( {
     shadowRadius: 1,
     width
   },
-  header: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
+  center,
   headerText: {
     color: colors.white,
     fontFamily: fonts.book,

@@ -7,5 +7,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12
+  },
+  smallerText: {
+    fontSize: 18,
+    letterSpacing: 1.0,
+    lineHeight: 24
   }
 } );

@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  row
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
@@ -51,11 +52,7 @@ export default StyleSheet.create( {
     marginTop: 10,
     textAlign: "center"
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   secondHeaderText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -64,10 +61,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 23,
     textAlign: "center"
-  },
-  stats: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
   },
   text: {
     color: colors.white,

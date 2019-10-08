@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  padding
+  padding,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
@@ -19,5 +20,9 @@ export default StyleSheet.create( {
     borderRadius: 34,
     height: 46,
     justifyContent: "center"
+  },
+  loginHeight: {
+    height: 52,
+    marginHorizontal: dimensions.height > 570 ? 34 : 20
   }
 } );

@@ -1,6 +1,12 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 
-import { fonts, colors, padding } from "../global";
+import {
+  fonts,
+  colors,
+  padding,
+  center,
+  row
+} from "../global";
 
 const { height } = Dimensions.get( "window" );
 
@@ -12,6 +18,7 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     paddingTop: padding.iOSPadding
   },
+  center,
   checkBox: {
     marginRight: 18
   },
@@ -58,10 +65,6 @@ export default StyleSheet.create( {
     marginTop: 22,
     textAlign: "center"
   },
-  innerContainer: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
   inputField: {
     backgroundColor: colors.white,
     borderColor: colors.darkGray,
@@ -76,14 +79,7 @@ export default StyleSheet.create( {
     marginHorizontal: ( Platform.OS === "android" || height < 570 ) ? 24 : 28,
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 20
   },
-  leftText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24
-  },
-  leftTextContainer: {
+  leftTextMargins: {
     alignSelf: "flex-start",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -110,11 +106,7 @@ export default StyleSheet.create( {
     textAlign: "center",
     textDecorationLine: "underline"
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   secondHeaderText: {
     color: colors.white,
     fontFamily: fonts.book,

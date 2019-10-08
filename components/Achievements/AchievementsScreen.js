@@ -210,19 +210,19 @@ class AchievementsScreen extends Component<Props> {
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
           <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
-          <View style={styles.center}>
-            <View style={styles.stats}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "MyObservations" )}
-              >
-                <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.number}>{speciesCount}</Text>
-              </TouchableOpacity>
-              <View>
-                <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
-                <Text style={styles.number}>{badgesEarned}</Text>
-              </View>
+          <View style={[styles.row, styles.center]}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate( "MyObservations" )}
+            >
+              <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
+              <Text style={styles.number}>{speciesCount}</Text>
+            </TouchableOpacity>
+            <View>
+              <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
+              <Text style={styles.number}>{badgesEarned}</Text>
             </View>
+          </View>
+          <View style={styles.center}>
             <LoginCard navigation={navigation} screen="achievements" />
           </View>
           <Padding />

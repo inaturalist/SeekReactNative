@@ -69,7 +69,7 @@ class AgeVerifyScreen extends Component<Props> {
           header={i18n.t( "login.sign_up" )}
           navigation={navigation}
         />
-        <View style={[styles.innerContainer, { flex: 1 }]}>
+        <View style={[styles.center, { flex: 1 }]}>
           <Text style={styles.header}>
             {i18n.t( "inat_signup.enter_birthday" )}
           </Text>

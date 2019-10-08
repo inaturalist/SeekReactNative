@@ -1,8 +1,20 @@
 import { StyleSheet, Platform } from "react-native";
 
-import { colors } from "../global";
+import { colors, row } from "../global";
 
 export default StyleSheet.create( {
+  button: {
+    marginHorizontal: 26,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10
+  },
+  cameraImage: {
+    height: Platform.OS === "android" ? 84 : 94,
+    marginBottom: Platform.OS === "android" ? 10 : 50,
+    width: Platform.OS === "android" ? 84 : 94
+  },
   container: {
     height: 74,
     justifyContent: "flex-end"
@@ -10,27 +22,13 @@ export default StyleSheet.create( {
   navbar: {
     backgroundColor: colors.white,
     height: 70,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    alignItems: "center"
+    justifyContent: "space-between"
   },
-  cameraImage: {
-    marginBottom: Platform.OS === "android" ? 10 : 50,
-    width: Platform.OS === "android" ? 84 : 94,
-    height: Platform.OS === "android" ? 84 : 94
-  },
-  button: {
-    marginHorizontal: 26,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10
-  },
+  row,
   touchable: {
+    bottom: 21,
     left: 30,
     right: 30,
-    top: 21,
-    bottom: 21
+    top: 21
   }
 } );

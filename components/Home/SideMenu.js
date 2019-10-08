@@ -16,7 +16,7 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class SideMenu extends Component<Props> {
@@ -40,8 +40,8 @@ class SideMenu extends Component<Props> {
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "Main" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuHome} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>
@@ -50,8 +50,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "Achievements" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuAchievements} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>
@@ -60,8 +60,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "Challenges" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuChallenges} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>
@@ -70,8 +70,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "MyObservations" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuObservations} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>
@@ -80,8 +80,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "iNatStats" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuiNat} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>
@@ -90,8 +90,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
-            style={styles.row}
             onPress={() => this.navigateTo( "About" )}
+            style={[styles.row, styles.height]}
           >
             <Image source={icons.menuSeek} style={styles.image} />
             <Text adjustsFontSizeToFit style={styles.text}>

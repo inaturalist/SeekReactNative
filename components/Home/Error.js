@@ -28,7 +28,7 @@ const Error = ( {
 
   if ( error === "location_device" ) {
     text = i18n.t( "species_nearby.location_device" );
-  } else if ( error ===  "no_gps" ) {
+  } else if ( error === "no_gps" ) {
     text = i18n.t( "species_nearby.no_gps" );
   } else if ( error === "location_timeout" ) {
     text = i18n.t( "species_nearby.location_timeout" );
@@ -39,7 +39,10 @@ const Error = ( {
   }
 
   return (
-    <ImageBackground source={backgrounds.noSpeciesNearby} style={styles.background}>
+    <ImageBackground
+      source={backgrounds.noSpeciesNearby}
+      style={[styles.background, styles.center]}
+    >
       <TouchableOpacity
         onPress={() => requestAndroidPermissions()}
       >

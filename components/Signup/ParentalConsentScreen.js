@@ -3,8 +3,7 @@
 import React, { Component } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity
+  Text
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
@@ -12,6 +11,7 @@ import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import ErrorMessage from "./ErrorMessage";
 import LoadingWheel from "../UIComponents/LoadingWheel";
@@ -122,22 +122,19 @@ class ParentalConsentScreen extends Component<Props> {
         <View style={styles.center}>
           {loading ? <LoadingWheel /> : null}
           {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
-          <TouchableOpacity
-            onPress={() => {
-              if ( checkIsEmailValid( email ) ) {
-                this.setError( false );
-                this.shareEmailWithiNat();
-              } else {
-                this.setError( "email" );
-              }
-            }}
-            style={styles.greenButton}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
         </View>
+        <GreenButton
+          handlePress={() => {
+            if ( checkIsEmailValid( email ) ) {
+              this.setError( false );
+              this.shareEmailWithiNat();
+            } else {
+              this.setError( "email" );
+            }
+          }}
+          login
+          text={i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
+        />
       </View>
     );
   }

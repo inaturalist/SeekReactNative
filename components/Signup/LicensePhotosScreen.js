@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import {
   Text,
-  TouchableOpacity,
   View
 } from "react-native";
 import Checkbox from "react-native-check-box";
@@ -16,6 +15,7 @@ import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +navigation: any
@@ -98,15 +98,12 @@ class LicensePhotosScreen extends Component<Props> {
             </Text>
           </View>
           {error ? <ErrorMessage error="email" /> : <View style={{ marginTop: 29 }} />}
-          <TouchableOpacity
-            onPress={() => this.submit()}
-            style={[styles.greenButton]}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
         </View>
+        <GreenButton
+          handlePress={() => this.submit()}
+          login
+          text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+        />
       </View>
     );
   }

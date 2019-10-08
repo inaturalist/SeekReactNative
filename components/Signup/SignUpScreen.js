@@ -1,11 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import { View } from "react-native";
 import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
@@ -17,6 +13,7 @@ import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
   +navigation: any
@@ -194,15 +191,13 @@ class SignUpScreen extends Component<Props> {
         />
         <View style={[styles.center, styles.margin]}>
           {error ? <ErrorMessage error={this.formatError( error )} /> : null}
-          <TouchableOpacity
-            onPress={() => this.submit()}
-            style={[styles.greenButton, styles.greenButtonMargin, error && { marginTop: 5 }]}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
+          <View style={[styles.greenButtonMargin, error && { marginTop: 5 }]} />
         </View>
+        <GreenButton
+          handlePress={() => this.submit()}
+          login
+          text={i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
+        />
       </View>
     );
   }

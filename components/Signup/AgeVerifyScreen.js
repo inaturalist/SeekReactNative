@@ -14,6 +14,7 @@ import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
+import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
@@ -69,7 +70,7 @@ class AgeVerifyScreen extends Component<Props> {
           header={i18n.t( "login.sign_up" )}
           navigation={navigation}
         />
-        <View style={[styles.center, { flex: 1 }]}>
+        <View style={styles.flexCenter}>
           <Text style={styles.header}>
             {i18n.t( "inat_signup.enter_birthday" )}
           </Text>
@@ -77,12 +78,14 @@ class AgeVerifyScreen extends Component<Props> {
             {i18n.t( "inat_signup.permission" )}
           </Text>
           <View style={{ marginBottom: 68 }} />
-          <TouchableOpacity
-            onPress={() => this.showDateTimePicker()}
-            style={styles.dateButton}
-          >
-            <Text style={styles.buttonText}>{date}</Text>
-          </TouchableOpacity>
+          <View style={styles.center}>
+            <TouchableOpacity
+              onPress={() => this.showDateTimePicker()}
+              style={styles.dateButton}
+            >
+              <Text style={styles.buttonText}>{date}</Text>
+            </TouchableOpacity>
+          </View>
           <DateTimePicker
             datePickerModeAndroid="spinner"
             hideTitleContainerIOS
@@ -94,15 +97,12 @@ class AgeVerifyScreen extends Component<Props> {
             timePickerModeAndroid="spinner"
           />
           <View style={{ marginBottom: 98 }} />
-          <TouchableOpacity
-            onPress={() => this.submit()}
-            style={styles.greenButton}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
-          <View style={styles.row}>
+          <GreenButton
+            handlePress={() => this.submit()}
+            login
+            text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+          />
+          <View style={[styles.row, styles.center]}>
             <Text
               onPress={() => navigation.navigate( "Privacy" )}
               style={styles.privacy}

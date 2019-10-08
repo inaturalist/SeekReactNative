@@ -14,7 +14,8 @@ type Props = {
   +handlePress: Function,
   +letterSpacing: ?Number,
   +text: string,
-  +login: ?boolean
+  +login: ?boolean,
+  +fontSize: ?boolean
 }
 
 const GreenButton = ( {
@@ -22,13 +23,14 @@ const GreenButton = ( {
   handlePress,
   letterSpacing,
   login,
+  fontSize,
   text
 }: Props ) => (
   <TouchableOpacity
     onPress={() => handlePress()}
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >
-    <Text style={[styles.buttonText, letterSpacing && { letterSpacing }]}>
+    <Text style={[styles.buttonText, letterSpacing && { letterSpacing }, fontSize && { fontSize }]}>
       {text}
     </Text>
   </TouchableOpacity>

@@ -38,13 +38,9 @@ export default StyleSheet.create( {
     justifyContent: "center",
     paddingHorizontal: 14
   },
-  greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 34,
-    height: 52,
-    justifyContent: "center",
-    width: 317
+  flexCenter: {
+    flexGrow: 1,
+    justifyContent: "center"
   },
   greenButtonMargin: {
     marginTop: 10

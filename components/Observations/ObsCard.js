@@ -145,7 +145,7 @@ class ObservationCard extends Component<Props> {
           onPress={() => {
             setSpeciesId( item.taxon.id );
             setRoute( "MyObservations" );
-            navigation.navigate( "Species" );
+            navigation.navigate( "Species", { ...navigation.state.params } );
           }}
           style={styles.touchableArea}
         >

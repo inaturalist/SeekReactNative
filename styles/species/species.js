@@ -11,7 +11,7 @@ export default StyleSheet.create( {
   backButton: {
     left: 23,
     position: "absolute",
-    top: dimensions.height < 570 ? 38 : 18,
+    top: dimensions.height < 570 ? 58 : 18,
     zIndex: 1
   },
   bottomPadding: {

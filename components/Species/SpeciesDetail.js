@@ -397,112 +397,114 @@ class SpeciesDetail extends Component<Props> {
     const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
     return (
-      <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+      <>
         <SafeAreaView />
-        <NavigationEvents
-          onWillBlur={() => this.resetState()}
-          onWillFocus={() => this.fetchiNatData()}
-        />
-        {Platform.OS === "ios" && <Spacer />}
-        <TouchableOpacity
-          hitSlop={styles.touchable}
-          onPress={() => {
-            if ( route === "Match" ) {
-              navigation.navigate( route, { ...navigation.state.params } );
-            } else if ( route ) {
-              navigation.navigate( route );
-            } else {
-              navigation.navigate( "Main" );
-            }
-          }}
-          style={styles.backButton}
-        >
-          <Image source={icons.backButton} />
-        </TouchableOpacity>
-        <SpeciesPhotos
-          photos={photos}
-          userPhoto={userPhoto}
-        />
-        <View style={styles.greenBanner}>
-          {iconicTaxonId ? (
-            <Text style={styles.iconicTaxaText}>
-              {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-            </Text>
-          ) : null}
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.commonNameText}>{commonName}</Text>
-          <Text style={styles.scientificNameText}>{scientificName}</Text>
-        </View>
-        {error === "internet" ? (
-          <SpeciesError
-            seenDate={seenDate}
-            updateScreen={this.updateScreen}
+        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+          <NavigationEvents
+            onWillBlur={() => this.resetState()}
+            onWillFocus={() => this.fetchiNatData()}
           />
-        ) : null}
-        <View style={styles.secondTextContainer}>
-          {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
-          {seenDate && !error ? (
-            <View style={[
-              styles.row,
-              styles.rowMargin,
-              showGreenButtons.includes( true ) && styles.marginSmall
-            ]}
-            >
-              <Image source={icons.checklist} style={styles.checkmark} />
-              <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
-            </View>
-          ) : null}
-          {about && error !== "internet" ? (
-            <View>
-              <View style={styles.headerMargins}>
-                <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
-              </View>
-              <Text style={styles.text}>{about}</Text>
-            </View>
-          ) : null}
-          {id !== 43584 ? (
-            <View>
-              {!error ? (
-                <SpeciesMap
-                  error={error}
-                  id={id}
-                  navigation={navigation}
-                  region={region}
-                  seenDate={seenDate}
-                />
-              ) : null}
-              {!error ? <SpeciesTaxonomy ancestors={ancestors} /> : null}
-              {!error ? (
-                <INatObs
-                  id={id}
-                  navigation={navigation}
-                  region={region}
-                  timesSeen={timesSeen}
-                />
-              ) : null}
-              {observationsByMonth.length > 0 && error !== "internet"
-                ? <SpeciesChart data={observationsByMonth} />
-                : null}
-            </View>
-          ) : null}
-          {id === 43584 ? (
-            <View>
-              <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-              <Padding />
-            </View>
-          ) : null}
-        </View>
-        {id !== 43584 && error !== "internet" ? (
-          <View>
-            <SimilarSpecies
-              fetchiNatData={this.fetchiNatData}
-              id={id}
-            />
-            <View style={styles.bottomPadding} />
+          {Platform.OS === "ios" && <Spacer />}
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => {
+              if ( route === "Match" ) {
+                navigation.navigate( route, { ...navigation.state.params } );
+              } else if ( route ) {
+                navigation.navigate( route );
+              } else {
+                navigation.navigate( "Main" );
+              }
+            }}
+            style={styles.backButton}
+          >
+            <Image source={icons.backButton} />
+          </TouchableOpacity>
+          <SpeciesPhotos
+            photos={photos}
+            userPhoto={userPhoto}
+          />
+          <View style={styles.greenBanner}>
+            {iconicTaxonId ? (
+              <Text style={styles.iconicTaxaText}>
+                {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
+              </Text>
+            ) : null}
           </View>
-        ) : null}
-      </ScrollView>
+          <View style={styles.textContainer}>
+            <Text style={styles.commonNameText}>{commonName}</Text>
+            <Text style={styles.scientificNameText}>{scientificName}</Text>
+          </View>
+          {error === "internet" ? (
+            <SpeciesError
+              seenDate={seenDate}
+              updateScreen={this.updateScreen}
+            />
+          ) : null}
+          <View style={styles.secondTextContainer}>
+            {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
+            {seenDate && !error ? (
+              <View style={[
+                styles.row,
+                styles.rowMargin,
+                showGreenButtons.includes( true ) && styles.marginSmall
+              ]}
+              >
+                <Image source={icons.checklist} style={styles.checkmark} />
+                <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
+              </View>
+            ) : null}
+            {about && error !== "internet" ? (
+              <View>
+                <View style={styles.headerMargins}>
+                  <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
+                </View>
+                <Text style={styles.text}>{about}</Text>
+              </View>
+            ) : null}
+            {id !== 43584 ? (
+              <View>
+                {!error ? (
+                  <SpeciesMap
+                    error={error}
+                    id={id}
+                    navigation={navigation}
+                    region={region}
+                    seenDate={seenDate}
+                  />
+                ) : null}
+                {!error ? <SpeciesTaxonomy ancestors={ancestors} /> : null}
+                {!error ? (
+                  <INatObs
+                    id={id}
+                    navigation={navigation}
+                    region={region}
+                    timesSeen={timesSeen}
+                  />
+                ) : null}
+                {observationsByMonth.length > 0 && error !== "internet"
+                  ? <SpeciesChart data={observationsByMonth} />
+                  : null}
+              </View>
+            ) : null}
+            {id === 43584 ? (
+              <View>
+                <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+                <Padding />
+              </View>
+            ) : null}
+          </View>
+          {id !== 43584 && error !== "internet" ? (
+            <View>
+              <SimilarSpecies
+                fetchiNatData={this.fetchiNatData}
+                id={id}
+              />
+              <View style={styles.bottomPadding} />
+            </View>
+          ) : null}
+        </ScrollView>
+      </>
     );
   }
 }

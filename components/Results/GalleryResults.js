@@ -332,7 +332,7 @@ class Results extends Component<Props> {
       rank
     } = this.state;
 
-    navigation.navigate( route, {
+    navigation.push( route, {
       userImage,
       image: imageForUploading,
       taxaName,

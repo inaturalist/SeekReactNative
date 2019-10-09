@@ -322,7 +322,9 @@ class MatchScreen extends Component<Props> {
               this.checkForNewBadges();
               this.checkLocationPermissions();
             }}
-            onWillBlur={() => setChallengeProgress( "none" )}
+            onWillBlur={() => {
+              setChallengeProgress( "none" );
+            }}
             onWillFocus={() => {
               this.scrollToTop();
             }}

@@ -22,6 +22,7 @@ import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../UIComponents/GreenHeader";
+import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
@@ -213,12 +214,13 @@ class AchievementsScreen extends Component<Props> {
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
               onPress={() => navigation.navigate( "MyObservations" )}
+              style={styles.secondHeaderText}
             >
-              <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
+              <GreenText center smaller text={i18n.t( "badges.observed" ).toLocaleUpperCase()} />
               <Text style={styles.number}>{speciesCount}</Text>
             </TouchableOpacity>
-            <View>
-              <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
+            <View style={styles.secondHeaderText}>
+              <GreenText center smaller text={i18n.t( "badges.earned" ).toLocaleUpperCase()} />
               <Text style={styles.number}>{badgesEarned}</Text>
             </View>
           </View>

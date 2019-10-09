@@ -54,13 +54,8 @@ export default StyleSheet.create( {
   },
   row,
   secondHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
     marginHorizontal: 23,
-    textAlign: "center"
+    maxWidth: 150
   },
   text: {
     color: colors.white,

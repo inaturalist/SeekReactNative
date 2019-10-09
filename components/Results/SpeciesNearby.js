@@ -76,8 +76,6 @@ class SpeciesNearby extends Component<Props> {
     const { taxa, loading } = this.state;
     const { navigation } = this.props;
 
-    console.log( navigation.state.params, "nav params" );
-
     let species;
 
     if ( loading ) {

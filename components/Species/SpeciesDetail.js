@@ -49,11 +49,13 @@ type Props = {
 }
 
 class SpeciesDetail extends Component<Props> {
-  constructor() {
+  constructor( { navigation } ) {
     super();
 
+    const { id } = navigation.state.params;
+
     this.state = {
-      id: null,
+      id,
       photos: [],
       commonName: null,
       scientificName: null,

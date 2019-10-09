@@ -19,11 +19,11 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import { dirPictures } from "../../utility/dirStorage";
 
 type Props = {
-  navigation: any,
-  item: Object,
-  toggleDeleteModal: Function,
-  updateItemScrolledId: Function,
-  itemScrolledId: Number
+  +navigation: any,
+  +item: Object,
+  +toggleDeleteModal: Function,
+  +updateItemScrolledId: Function,
+  +itemScrolledId: Number
 }
 
 class ObservationCard extends Component<Props> {
@@ -136,25 +136,25 @@ class ObservationCard extends Component<Props> {
     return (
       <ScrollView
         ref={( ref ) => { this.scrollView = ref; }}
-        horizontal
-        showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.card}
+        horizontal
         onScrollBeginDrag={() => updateItemScrolledId( item.taxon.id )}
+        showsHorizontalScrollIndicator={false}
       >
         <TouchableOpacity
-          style={styles.touchableArea}
           onPress={() => {
             setSpeciesId( item.taxon.id );
             setRoute( "MyObservations" );
             navigation.navigate( "Species" );
           }}
+          style={styles.touchableArea}
         >
           <ImageBackground
             imageStyle={styles.image}
-            style={styles.image}
             source={iconicTaxa[taxon.iconicTaxonId]}
+            style={styles.image}
           >
-            <Image style={styles.image} source={photo} />
+            <Image source={photo} style={styles.image} />
           </ImageBackground>
           <View style={styles.speciesNameContainer}>
             <Text style={styles.commonNameText}>
@@ -164,7 +164,6 @@ class ObservationCard extends Component<Props> {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
-          style={styles.deleteButton}
           onPress={() => toggleDeleteModal(
             item.taxon.id,
             photo,
@@ -172,6 +171,7 @@ class ObservationCard extends Component<Props> {
             taxon.name,
             taxon.iconicTaxonId
           )}
+          style={styles.deleteButton}
         >
           <Image source={icons.delete} />
         </TouchableOpacity>

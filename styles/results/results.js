@@ -63,11 +63,11 @@ export default StyleSheet.create( {
     overflow: "hidden"
   },
   linkText: {
-    color: "#9b9b9b",
+    alignSelf: "center",
+    color: colors.linkText,
     fontFamily: fonts.book,
     fontSize: 18,
-    textDecorationLine: "underline",
-    alignSelf: "center"
+    textDecorationLine: "underline"
   },
   loadingWheel: {
     left: "50%",

@@ -17,7 +17,8 @@ export const colors = {
   errorGray: "#4a4a4a",
   circleGray: "#f0f0f0",
   red: "#973838",
-  transparent: "transparent"
+  transparent: "transparent",
+  linkText: "#9b9b9b"
 };
 
 export const fonts = {

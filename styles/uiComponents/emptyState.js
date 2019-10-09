@@ -17,7 +17,8 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     lineHeight: 24,
-    maxWidth: 279
+    maxWidth: 279,
+    textAlign: "center"
   },
   margin: {
     marginTop: 32

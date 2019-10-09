@@ -4,7 +4,7 @@ import {
   fonts
 } from "../global";
 
-const { width, height } = Dimensions.get( "window" );
+const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   arrow: {
@@ -29,11 +29,13 @@ export default StyleSheet.create( {
   innerContainer: {
     alignItems: "center",
     backgroundColor: colors.white,
-    borderRadius: 40,
-    height: height > 570 ? 525 : 475
+    borderRadius: 40
   },
   margin: {
     marginBottom: 9
+  },
+  marginLarge: {
+    marginTop: 39
   },
   nameText: {
     color: colors.black,

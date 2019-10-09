@@ -2,17 +2,12 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  touchable,
   center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  backButton: {
-    left: 23,
-    top: 18
-  },
   caption: {
     marginBottom: 20,
     marginTop: 20,
@@ -24,14 +19,6 @@ export default StyleSheet.create( {
     marginBottom: 33,
     resizeMode: "contain",
     width: width - 56
-  },
-  forestGreenText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    marginBottom: 7
   },
   headerMargin: {
     marginBottom: 30
@@ -91,7 +78,8 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 30,
-    marginBottom: 23
+    marginBottom: 23,
+    marginTop: 7
   },
   photoContainer: {
     height: 375
@@ -104,7 +92,6 @@ export default StyleSheet.create( {
   },
   safeView: {
     backgroundColor: colors.transparent,
-    flex: 1
-  },
-  touchable
+    flex: 0
+  }
 } );

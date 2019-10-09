@@ -10,16 +10,17 @@ import styles from "../../styles/uiComponents/backArrow";
 import icons from "../../assets/icons";
 
 type Props = {
-  +navigation: any
+  +navigation: any,
+  +green: ?boolean
 }
 
-const BackArrow = ( { navigation }: Props ) => (
+const BackArrow = ( { navigation, green }: Props ) => (
   <TouchableOpacity
     hitSlop={styles.touchable}
     onPress={() => navigation.goBack()}
     style={styles.backButton}
   >
-    <Image source={icons.backButton} />
+    <Image source={green ? icons.backButtonGreen : icons.backButton} />
   </TouchableOpacity>
 );
 

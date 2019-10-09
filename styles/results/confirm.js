@@ -1,37 +1,11 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts, padding } from "../global";
+import { colors } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  backButton: {
-    left: 23,
-    top: 18
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    height: 46,
-    justifyContent: "center",
-    marginHorizontal: 23,
-    width: "85%"
-  },
-  buttonImage: {
-    padding: 5
-  },
-  buttonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding
-  },
-  container: {
-    flex: 1
-  },
   footer: {
-    alignItems: "center",
+    marginHorizontal: 23,
     marginTop: 20
   },
   header: {
@@ -40,10 +14,7 @@ export default StyleSheet.create( {
   },
   headerText: {
     alignSelf: "center",
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0
+    marginTop: -3
   },
   image: {
     height: height / 3 * 2,
@@ -54,15 +25,6 @@ export default StyleSheet.create( {
     alignItems: "center",
     backgroundColor: colors.black,
     justifyContent: "center"
-  },
-  lightButton: {
-    alignItems: "center",
-    backgroundColor: "#38976d33",
-    borderRadius: 24,
-    height: 46,
-    justifyContent: "center",
-    marginHorizontal: 23,
-    width: "85%"
   },
   loadingWheel: {
     position: "absolute",

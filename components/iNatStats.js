@@ -5,7 +5,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
   ScrollView,
   StatusBar,
   SafeAreaView,
@@ -23,6 +22,8 @@ import Padding from "./UIComponents/Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
+import BackArrow from "./UIComponents/BackArrow";
+import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 
 type Props = {
@@ -146,30 +147,18 @@ class iNatStatsScreen extends Component<Props> {
         />
         <SafeAreaView style={styles.safeView} />
         <StatusBar barStyle="dark-content" />
-        <TouchableOpacity
-          hitSlop={styles.touchable}
-          onPress={() => navigation.goBack()}
-        >
-          <Image
-            source={icons.backButtonGreen}
-            style={styles.backButton}
-          />
-        </TouchableOpacity>
+        <BackArrow green navigation={navigation} />
         <Image source={logos.iNat} style={styles.logo} />
         <View style={styles.headerMargin} />
         <Image source={backgrounds.heatMap} style={styles.heatMap} />
         <View style={styles.missionContainer}>
-          <Text style={styles.forestGreenText}>
-            {i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
           <Image source={logos.bird} style={styles.iNatLogo} />
           <Text style={styles.numberText}>
             {observations}
             {"+"}
           </Text>
-          <Text style={styles.forestGreenText}>
-            {i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText smaller text={i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()} />
           <Text style={styles.numberText}>
             {observers}
             {"+"}

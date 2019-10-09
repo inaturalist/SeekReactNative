@@ -74,6 +74,7 @@ const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) =
           showsHorizontalScrollIndicator={false}
         />
         <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+        <View style={styles.marginLarge} />
         <View style={styles.row}>
           {[0, 1, 2].map( item => (
             <View key={item}>

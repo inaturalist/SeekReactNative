@@ -38,6 +38,7 @@
     "react-native-progress-circle": "github:linkinmedo/react-native-progress-circle",
     "react-native-reanimated": "^1.3.0",
     "react-native-share": "^2.0.0",
+    "react-native-store-review": "^0.1.5",
     "react-native-svg": "^9.6.4",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",

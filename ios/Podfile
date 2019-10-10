@@ -41,13 +41,3 @@ target 'Seek' do
 
   use_native_modules!
 end
-
-target 'Seek-tvOS' do
-  # Pods for Seek-tvOS
-
-  target 'Seek-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end

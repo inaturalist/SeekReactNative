@@ -1,5 +1,6 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
+import * as StoreReview from "react-native-store-review";
 
 import i18n from "../i18n";
 import { recalculateBadges } from "./badgeHelpers";
@@ -292,6 +293,12 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
   const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
 
   return iconicTaxonId[0] || 1;
+};
+
+const showAppStoreReview = () => {
+  if ( StoreReview.isAvailable ) {
+    StoreReview.requestReview();
+  }
 };
 
 export {

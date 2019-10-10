@@ -251,6 +251,8 @@ PODS:
     - React
   - RNShare (2.0.0):
     - React
+  - RNStoreReview (0.1.5):
+    - React
   - RNSVG (9.6.4):
     - React
   - Yoga (1.14.0)
@@ -300,11 +302,12 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNShare (from `../node_modules/react-native-share`)
+  - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - boost-for-react-native
 
 EXTERNAL SOURCES:
@@ -390,6 +393,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNShare:
     :path: "../node_modules/react-native-share"
+  RNStoreReview:
+    :path: "../node_modules/react-native-store-review/ios"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -438,9 +443,10 @@ SPEC CHECKSUMS:
   RNLocalize: a91e036a6abc46e656a989456701182e0e228c7a
   RNReanimated: 6abbbae2e5e72609d85aabd92a982a94566885f1
   RNShare: 8b171d4b43c1d886917fdd303bf7a4b87167b05c
+  RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: a53a5de0d90ec96a6502cc3a4534dfcc0c130622
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: 2059e66bdd4288126af503c25c8df242262cba8b
+PODFILE CHECKSUM: e098fd4ebeb17ca5d2558e958a3067042519d4cb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3

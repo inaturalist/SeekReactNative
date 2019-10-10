@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import * as StoreReview from "react-native-store-review";
 
 import i18n from "../i18n";
-import { recalculateBadges } from "./badgeHelpers";
+import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
 
@@ -91,6 +91,12 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
+const showAppStoreReview = () => {
+  if ( StoreReview.isAvailable ) {
+    StoreReview.requestReview();
+  }
+};
+
 const checkForPowerUsers = ( length, newLength ) => {
   if ( length < newLength ) {
     if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
@@ -152,7 +158,7 @@ const removeFromCollection = ( id ) => {
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );
         realm.delete( taxonToDelete );
-        recalculateBadges();
+        deleteBadges();
         recalculateChallenges();
       } );
     } ).catch( ( e ) => {
@@ -295,11 +301,17 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
   return iconicTaxonId[0] || 1;
 };
 
-const showAppStoreReview = () => {
-  if ( StoreReview.isAvailable ) {
-    StoreReview.requestReview();
-  }
-};
+const fetchNumberSpeciesSeen = () => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const { length } = realm.objects( "TaxonRealm" );
+        resolve( length );
+      } ).catch( () => {
+        resolve( 0 );
+      } );
+  } )
+);
 
 export {
   addARCameraFiles,
@@ -320,5 +332,7 @@ export {
   checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest,
-  searchForRealm
+  searchForRealm,
+  showAppStoreReview,
+  fetchNumberSpeciesSeen
 };

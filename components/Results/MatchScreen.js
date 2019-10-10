@@ -29,7 +29,13 @@ import i18n from "../../i18n";
 import Spacer from "../UIComponents/iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
+import {
+  setSpeciesId,
+  setRoute,
+  removeFromCollection,
+  fetchNumberSpeciesSeen,
+  showAppStoreReview
+} from "../../utility/helpers";
 // import { openShareDialog } from "../../utility/shareHelpers";
 import {
   createLocationPermissionsAlert,
@@ -129,6 +135,16 @@ class MatchScreen extends Component<Props> {
 
   toggleLevelModal() {
     const { showLevelModal } = this.state;
+
+    if ( showLevelModal === true ) {
+      fetchNumberSpeciesSeen().then( ( speciesCount ) => {
+        console.log( speciesCount, "speciesCount" );
+        if ( speciesCount === 30 || speciesCount === 75 ) {
+          // trigger review at 30 and 75 species
+          showAppStoreReview();
+        }
+      } );
+    }
 
     this.setState( { showLevelModal: !showLevelModal } );
   }

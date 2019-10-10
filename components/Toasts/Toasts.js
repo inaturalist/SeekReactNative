@@ -1,17 +1,22 @@
 // @flow
 import React, { Component } from "react";
-import { Animated, View, Dimensions } from "react-native";
+import {
+  Animated,
+  View,
+  Dimensions,
+  Platform
+} from "react-native";
 
 import BadgeToast from "./BadgeToast";
 import ChallengeToast from "./ChallengeToast";
-import styles from "../../styles/banner/badgeToast";
+import styles from "../../styles/toasts/badgeToast";
 
 const { height } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any,
-  badge: ?Object,
-  incompleteChallenge: ?Object
+  +navigation: any,
+  +badge: ?Object,
+  +incompleteChallenge: ?Object
 }
 
 class Toasts extends Component<Props> {
@@ -89,7 +94,7 @@ class Toasts extends Component<Props> {
     const { navigation, badge, incompleteChallenge } = this.props;
 
     return (
-      <View style={styles.topContainer}>
+      <View style={Platform.OS === "ios" ? styles.topContainer : null}>
         {badge ? (
           <Animated.View style={[
             styles.animatedStyle, {
@@ -98,8 +103,8 @@ class Toasts extends Component<Props> {
           ]}
           >
             <BadgeToast
-              navigation={navigation}
               badge={badge}
+              navigation={navigation}
             />
           </Animated.View>
         ) : null}
@@ -111,8 +116,8 @@ class Toasts extends Component<Props> {
           ]}
           >
             <ChallengeToast
-              navigation={navigation}
               challenge={incompleteChallenge}
+              navigation={navigation}
             />
           </Animated.View>
         ) : null}

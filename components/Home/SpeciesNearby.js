@@ -1,30 +1,31 @@
+// @flow
+
 import React from "react";
 import {
   View,
   Text,
   TouchableOpacity,
-  FlatList,
   Image
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import Error from "./Error";
 import TaxonPicker from "./TaxonPicker";
-import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
+import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
 type Props = {
-  taxa: Array,
-  loading: boolean,
-  navigation: any,
-  location: string,
-  updateTaxaType: Function,
-  toggleLocationPicker: Function,
-  requestAndroidPermissions: Function,
-  error: string
+  +taxa: Array,
+  +loading: boolean,
+  +navigation: any,
+  +location: string,
+  +updateTaxaType: Function,
+  +toggleLocationPicker: Function,
+  +requestAndroidPermissions: Function,
+  +error: string
 }
 
 const SpeciesNearby = ( {
@@ -52,71 +53,30 @@ const SpeciesNearby = ( {
     );
   } else {
     species = (
-      <FlatList
-        contentContainerStyle={styles.taxonList}
-        data={taxa}
-        keyExtractor={taxon => `species-${taxon.id}`}
-        horizontal
-        bounces
-        initialNumToRender={3}
-        alwaysBounceHorizontal
-        ListEmptyComponent={() => (
-          <Text style={[styles.cellTitleText, styles.noTaxon]}>
-            {i18n.t( "species_nearby.no_species" )}
-          </Text>
-        )}
-        renderItem={ ( { item } ) => (
-          <View style={styles.gridCell}>
-            <TouchableOpacity
-              onPress={ () => {
-                setSpeciesId( item.id );
-                setRoute( "Main" );
-                navigation.navigate( "Species" );
-              }}
-            >
-              <Image
-                style={styles.cellImage}
-                source={{ uri: item.default_photo.medium_url }}
-              />
-              <View style={styles.cellTitle}>
-                <Text numberOfLines={3} style={styles.cellTitleText}>
-                  {capitalizeNames( item.preferred_common_name || item.name )}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
-      />
+      <SpeciesNearbyList navigation={navigation} taxa={taxa} />
     );
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>
-          {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-        </Text>
-      </View>
+      <Text style={[styles.headerText, styles.header]}>
+        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+      </Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          style={styles.buttonRow}
           onPress={() => toggleLocationPicker()}
+          style={styles.buttonRow}
         >
           <Image source={icons.locationWhite} style={styles.image} />
           <View style={styles.whiteButton}>
             {location
               ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>
-            }
+              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
           </View>
         </TouchableOpacity>
         <TaxonPicker updateTaxaType={updateTaxaType} />
       </View>
-      <View style={[
-        styles.speciesNearbyContainer,
-        loading && styles.loading
-      ]}
-      >
+      <View style={styles.speciesNearbyContainer}>
         {species}
       </View>
     </View>

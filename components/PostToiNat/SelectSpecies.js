@@ -5,13 +5,11 @@ import {
   ScrollView,
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   Image,
   Platform,
   TouchableOpacity,
   TextInput,
-  FlatList,
   Keyboard
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -21,17 +19,19 @@ import styles from "../../styles/posting/selectSpecies";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import SpeciesCard from "./SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
+import GreenText from "../UIComponents/GreenText";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
-  toggleSpeciesModal: Function,
-  image: string,
-  commonName: string,
-  scientificName: string,
-  updateTaxon: Function,
-  seekId: Number
+  +toggleSpeciesModal: Function,
+  +image: string,
+  +commonName: string,
+  +scientificName: string,
+  +updateTaxon: Function,
+  +seekId: Number
 }
 
 
@@ -68,10 +68,13 @@ class SelectSpecies extends Component<Props> {
       if ( results.length > 0 ) {
         results.forEach( ( suggestion ) => {
           const suggestedSpecies = {
-            image: suggestion.defaultPhoto.medium_url,
+            image: suggestion.defaultPhoto && suggestion.defaultPhoto.medium_url
+              ? suggestion.defaultPhoto.medium_url
+              : null,
             commonName: capitalizeNames( suggestion.preferred_common_name || suggestion.name ),
             scientificName: suggestion.name,
-            id: suggestion.id
+            id: suggestion.id,
+            iconicTaxonId: suggestion.iconic_taxon_id
           };
 
           suggestions.push( suggestedSpecies );
@@ -97,77 +100,73 @@ class SelectSpecies extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <StatusBar barStyle="light-content" />
-          <NavigationEvents
-            onWillFocus={() => this.scrollToTop()}
-          />
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => toggleSpeciesModal()}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-            <Text style={styles.text}>
-              {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
-            keyboardDismissMode="on-drag"
-            onScroll={() => Keyboard.dismiss()}
+        <SafeAreaView />
+        <StatusBar barStyle="light-content" />
+        <NavigationEvents
+          onWillFocus={() => this.scrollToTop()}
+        />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleSpeciesModal()}
+            style={styles.backButton}
           >
-            <View style={styles.photoContainer}>
-              <Image source={{ uri: image }} style={styles.image} />
-            </View>
-            <View style={styles.row}>
-              <Image source={postingIcons.search} />
-              <TextInput
-                style={styles.inputField}
-                placeholder={i18n.t( "posting.look_up" )}
-                onChangeText={text => this.searchForSpecies( text )}
+            <Image source={icons.backButton} />
+          </TouchableOpacity>
+          <Text style={styles.text}>
+            {i18n.t( "posting.what_seen" ).toLocaleUpperCase()}
+          </Text>
+        </View>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+          keyboardDismissMode="on-drag"
+          onScroll={() => Keyboard.dismiss()}
+          scrollEventThrottle={1}
+        >
+          <View style={styles.photoContainer}>
+            <Image source={{ uri: image }} style={styles.image} />
+          </View>
+          <View style={styles.row}>
+            <Image source={postingIcons.search} />
+            <TextInput
+              onChangeText={text => this.searchForSpecies( text )}
+              placeholder={i18n.t( "posting.look_up" )}
+              placeholderTextColor="#828282"
+              style={styles.inputField}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            {!isSearching
+              ? (
+                <View style={styles.headerMargins}>
+                  <GreenText text={i18n.t( "posting.id" ).toLocaleUpperCase()} />
+                </View>
+              ) : null}
+            {!isSearching ? (
+              <SpeciesCard
+                commonName={commonName || scientificName}
+                id={seekId}
+                image={image}
+                scientificName={scientificName}
+                toggleSpeciesModal={toggleSpeciesModal}
+                updateTaxon={updateTaxon}
               />
-            </View>
-            <View style={styles.textContainer}>
-              {!isSearching
-                ? (
-                  <Text style={styles.headerText}>
-                    {i18n.t( "posting.id" ).toLocaleUpperCase()}
-                  </Text>
-                ) : null}
-              {!isSearching ? (
+            ) : (
+              suggestions.map( ( item, index ) => (
                 <SpeciesCard
-                  image={image}
-                  commonName={commonName || scientificName}
-                  scientificName={scientificName}
+                  key={`${item.scientificName}${index}`}
+                  commonName={item.commonName}
+                  iconicTaxonId={item.iconicTaxonId}
+                  id={item.id}
+                  image={item.image}
+                  scientificName={item.scientificName}
                   toggleSpeciesModal={toggleSpeciesModal}
                   updateTaxon={updateTaxon}
-                  id={seekId}
                 />
-              ) : (
-                <FlatList
-                  data={suggestions}
-                  keyExtractor={item => `${item.scientificName}`.toString()}
-                  initialNumToRender={3}
-                  renderItem={( { item } ) => (
-                    <SpeciesCard
-                      image={item.image}
-                      commonName={item.commonName}
-                      scientificName={item.scientificName}
-                      id={item.id}
-                      toggleSpeciesModal={toggleSpeciesModal}
-                      updateTaxon={updateTaxon}
-                    />
-                  ) }
-                />
-              )}
-            </View>
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
+              ) ) )}
+          </View>
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

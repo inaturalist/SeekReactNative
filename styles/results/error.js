@@ -5,24 +5,16 @@ const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
-    backgroundColor: colors.black
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: colors.black,
+    flex: 1
   },
   errorText: {
-    textAlign: "center",
-    top: height / 2 - 150,
-    marginHorizontal: 41,
+    color: colors.white,
+    fontFamily: fonts.medium,
     fontSize: 19,
     lineHeight: 24,
-    fontFamily: fonts.medium,
-    color: colors.white
+    marginHorizontal: 41,
+    textAlign: "center",
+    top: height / 2 - 150
   }
 } );

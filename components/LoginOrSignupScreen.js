@@ -15,35 +15,35 @@ import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const LoginOrSignupScreen = ( { navigation }: Props ) => (
   <ImageBackground
-    style={styles.container}
     source={backgrounds.splash}
+    style={styles.container}
   >
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.buttonContainer}>
       <TouchableOpacity
-        style={styles.whiteButton}
         onPress={() => navigation.navigate( "LoginScreen" )}
+        style={styles.whiteButton}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "login.log_in" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.whiteButton}
         onPress={() => navigation.navigate( "Age" )}
+        style={styles.whiteButton}
       >
         <Text style={styles.buttonText}>
           {i18n.t( "login.sign_up" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={[styles.whiteButton, { height: 79, borderRadius: 100 }]}
         onPress={() => navigation.navigate( "Main" )}
+        style={[styles.whiteButton, { height: 79, borderRadius: 100 }]}
       >
         <Text style={[styles.buttonText, { lineHeight: 24 }]}>
           {i18n.t( "login.skip_login" ).toLocaleUpperCase()}

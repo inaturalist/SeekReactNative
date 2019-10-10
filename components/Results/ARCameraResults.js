@@ -9,7 +9,7 @@ import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -20,7 +20,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ARCameraResults extends Component<Props> {
@@ -56,7 +56,8 @@ class ARCameraResults extends Component<Props> {
       imageForUploading: null,
       match: null,
       isLoggedIn: null,
-      errorCode
+      errorCode,
+      rank: null
     };
   }
 
@@ -97,7 +98,8 @@ class ARCameraResults extends Component<Props> {
         commonAncestor: commonName || ancestor.name,
         taxaId: ancestor.taxon_id,
         speciesSeenImage,
-        scientificName: ancestor.name
+        scientificName: ancestor.name,
+        rank: ancestor.rank
       }, () => this.setMatch( false ) );
     } );
   }
@@ -283,10 +285,11 @@ class ARCameraResults extends Component<Props> {
       longitude,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } = this.state;
 
-    navigation.navigate( route, {
+    navigation.push( route, {
       userImage,
       image: imageForUploading,
       taxaName,
@@ -300,7 +303,8 @@ class ARCameraResults extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } );
   }
 
@@ -321,9 +325,9 @@ class ARCameraResults extends Component<Props> {
           ? <ErrorScreen error={error} navigation={navigation} />
           : (
             <ImageBackground
+              imageStyle={styles.cover}
               source={{ uri: imageForUploading }}
               style={styles.imageBackground}
-              imageStyle={{ resizeMode: "cover" }}
             >
               <View style={styles.loadingWheel}>
                 <LoadingWheel color="white" />

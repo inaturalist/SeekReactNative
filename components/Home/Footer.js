@@ -16,7 +16,7 @@ import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class Footer extends Component<Props> {
@@ -54,14 +54,13 @@ class Footer extends Component<Props> {
 
     return (
       <SafeAreaView>
-        {/* <GetCurrentRoute /> */}
         <ImageBackground source={backgrounds.navBar} style={styles.container}>
           <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
-          <View style={styles.navbar}>
+          <View style={[styles.navbar, styles.row]}>
             <TouchableOpacity
               hitSlop={styles.touchable}
-              style={styles.button}
               onPress={() => navigation.openDrawer()}
+              style={styles.button}
             >
               <Image source={icons.hamburger} />
             </TouchableOpacity>
@@ -70,7 +69,6 @@ class Footer extends Component<Props> {
             </TouchableOpacity>
             <TouchableOpacity
               hitSlop={styles.touchable}
-              style={styles.button}
               onPress={() => {
                 if ( navigation.state ) {
                   if ( navigation.state.routeName !== "Notifications" ) {
@@ -78,11 +76,11 @@ class Footer extends Component<Props> {
                   }
                 }
               }}
+              style={styles.button}
             >
               {notifications
                 ? <Image source={icons.notifications} />
-                : <Image source={icons.notificationsInactive} />
-              }
+                : <Image source={icons.notificationsInactive} />}
             </TouchableOpacity>
           </View>
         </ImageBackground>

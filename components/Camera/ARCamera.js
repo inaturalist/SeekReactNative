@@ -19,7 +19,7 @@ import INatCamera from "react-native-inat-camera";
 import RNModal from "react-native-modal";
 import moment from "moment";
 
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import WarningModal from "./WarningModal";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
@@ -34,7 +34,7 @@ import { dirPictures } from "../../utility/dirStorage";
 const { width } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ARCamera extends Component<Props> {
@@ -386,6 +386,13 @@ class ARCamera extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavigationEvents
+          onWillBlur={() => {
+            this.resetPredictions();
+            this.setError( null );
+            this.setPictureTaken( false );
+            this.setFocusedScreen( false );
+            this.closeCameraAndroid();
+          }}
           onWillFocus={() => {
             this.checkForCameraLaunch();
             this.requestAndroidPermissions(); // separate location from camera permissions
@@ -394,17 +401,12 @@ class ARCamera extends Component<Props> {
             this.setFocusedScreen( true );
             this.addListenerForAndroid();
           }}
-          onWillBlur={() => {
-            this.resetPredictions();
-            this.setError( null );
-            this.setPictureTaken( false );
-            this.setFocusedScreen( false );
-            this.closeCameraAndroid();
-          }}
         />
         <RNModal
           isVisible={showWarningModal}
           onBackdropPress={() => this.toggleWarningModal()}
+          onSwipeComplete={() => this.toggleWarningModal()}
+          swipeDirection="down"
         >
           <WarningModal
             toggleWarningModal={this.toggleWarningModal}
@@ -422,9 +424,9 @@ class ARCamera extends Component<Props> {
           ? <Text style={styles.errorText}>{errorText}</Text>
           : null}
         <TouchableOpacity
-          style={styles.backButton}
           hitSlop={styles.touchable}
           onPress={() => this.closeCamera() }
+          style={styles.backButton}
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
@@ -469,16 +471,16 @@ class ARCamera extends Component<Props> {
             ref={( ref ) => {
               this.camera = ref;
             }}
-            onTaxaDetected={this.onTaxaDetected}
+            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
             onCameraError={this.onCameraError}
             onCameraPermissionMissing={this.onCameraPermissionMissing}
             onClassifierError={this.onClassifierError}
             onDeviceNotSupported={this.onDeviceNotSupported}
-            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
-            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+            onTaxaDetected={this.onTaxaDetected}
             style={styles.camera}
+            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
           />
         ) : null}
       </View>

@@ -3,21 +3,23 @@
 import React, { Component } from "react";
 import {
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
-  SafeAreaView
+  ScrollView
 } from "react-native";
 import Checkbox from "react-native-check-box";
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class LicensePhotosScreen extends Component<Props> {
@@ -58,62 +60,51 @@ class LicensePhotosScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader navigation={navigation} header={i18n.t( "login.sign_up" )} />
-          <View style={styles.innerContainer}>
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_signup.email" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { email: value } )}
-              value={email}
-              placeholder="email"
-              textContentType="emailAddress"
-              autoFocus
-              autoCorrect={false}
-              autoCapitalize="none"
-            />
-            <View style={[styles.row, styles.margin]}>
-              <Checkbox
-                style={styles.checkBox}
-                onClick={() => this.toggleLicensePhotos()}
-                isChecked={licensePhotos}
-                checkBoxColor="#979797"
-              />
-              <Text style={styles.licenseText}>
-                {i18n.t( "inat_signup.release_photos" )}
-              </Text>
-            </View>
-            <View style={styles.row}>
-              <View style={{ marginLeft: 15 }} />
-              <Text
-                style={[styles.privacy, { marginTop: 2 }]}
-                onPress={() => navigation.navigate( "Privacy" )}
-              >
-                {i18n.t( "inat_signup.privacy" )}
-              </Text>
-              <Text
-                style={[styles.privacy, { marginTop: 2, marginLeft: 14 }]}
-                onPress={() => navigation.navigate( "TermsOfService" )}
-              >
-                {i18n.t( "inat_signup.terms" )}
-              </Text>
-            </View>
-            {error ? <ErrorMessage error="email" /> : <View style={{ marginTop: 29 }} />}
-            <TouchableOpacity
-              style={[styles.greenButton]}
-              onPress={() => this.submit()}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
+        <SafeAreaView />
+        <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+        <ScrollView>
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
           </View>
-        </SafeAreaView>
+          <InputField
+            handleTextChange={value => this.setState( { email: value } )}
+            placeholder={i18n.t( "inat_signup.email" )}
+            text={email}
+            type="emailAddress"
+          />
+          <View style={[styles.row, styles.margin, styles.center]}>
+            <Checkbox
+              checkBoxColor="#979797"
+              isChecked={licensePhotos}
+              onClick={() => this.toggleLicensePhotos()}
+              style={styles.checkBox}
+            />
+            <Text style={styles.licenseText}>
+              {i18n.t( "inat_signup.release_photos" )}
+            </Text>
+          </View>
+          <View style={[styles.row, styles.center]}>
+            <View style={{ marginLeft: 15 }} />
+            <Text
+              onPress={() => navigation.navigate( "Privacy" )}
+              style={[styles.privacy, { marginTop: 2 }]}
+            >
+              {i18n.t( "inat_signup.privacy" )}
+            </Text>
+            <Text
+              onPress={() => navigation.navigate( "TermsOfService" )}
+              style={[styles.privacy, { marginTop: 2, marginLeft: 14 }]}
+            >
+              {i18n.t( "inat_signup.terms" )}
+            </Text>
+          </View>
+          {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
+          <GreenButton
+            handlePress={() => this.submit()}
+            login
+            text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

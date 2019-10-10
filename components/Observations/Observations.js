@@ -3,13 +3,11 @@
 import React, { Component } from "react";
 import {
   View,
-  SafeAreaView,
   Platform,
   SectionList,
   Text,
   Image,
-  TouchableOpacity,
-  Alert
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
@@ -21,14 +19,15 @@ import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/iconicTaxonDictById";
-import GreenHeader from "../GreenHeader";
-import NoObservations from "./NoObservations";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
+import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";
 import { sortNewestToOldest, removeFromCollection } from "../../utility/helpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class Observations extends Component<Props> {
@@ -191,20 +190,23 @@ class Observations extends Component<Props> {
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
           extraData={observations}
+          initialNumToRender={6}
+          keyExtractor={( item, index ) => item + index}
           renderItem={( { item, section } ) => {
             if ( section.open === true ) {
               return (
                 <ObservationCard
-                  navigation={navigation}
                   item={item}
+                  itemScrolledId={itemScrolledId}
+                  navigation={navigation}
                   toggleDeleteModal={this.toggleDeleteModal}
                   updateItemScrolledId={this.updateItemScrolledId}
-                  itemScrolledId={itemScrolledId}
                 />
               );
             }
             return null;
           }}
+          renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}
           renderSectionHeader={( {
             section: {
               id,
@@ -229,8 +231,8 @@ class Observations extends Component<Props> {
 
             return (
               <TouchableOpacity
-                style={styles.headerRow}
                 onPress={() => this.toggleSection( id )}
+                style={styles.headerRow}
               >
                 <Text style={styles.secondHeaderText}>
                   {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
@@ -239,8 +241,7 @@ class Observations extends Component<Props> {
                   <Text style={styles.numberText}>{data.length}</Text>
                   {badgeCount === -1
                     ? <View style={{ marginRight: 7 }} />
-                    : null
-                  }
+                    : null}
                   {badgeCount !== -1
                     ? <Image source={badge} style={styles.badgeImage} />
                     : null}
@@ -254,40 +255,35 @@ class Observations extends Component<Props> {
             );
           }}
           sections={observations}
-          initialNumToRender={6}
           stickySectionHeadersEnabled={false}
-          keyExtractor={( item, index ) => item + index}
-          renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}
         />
       );
     } else {
-      content = <NoObservations navigation={navigation} />;
+      content = <EmptyState navigation={navigation} screen="observations" />;
     }
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onDidFocus={() => {
-              this.scrollToTop();
-              this.fetchObservations();
-            }}
-            onWillBlur={() => this.resetObservations()}
+        <SafeAreaView />
+        <NavigationEvents
+          onDidFocus={() => {
+            this.scrollToTop();
+            this.fetchObservations();
+          }}
+          onWillBlur={() => this.resetObservations()}
+        />
+        <GreenHeader
+          header={i18n.t( "observations.header" )}
+          navigation={navigation}
+        />
+        <Modal isVisible={showDeleteModal}>
+          <DeleteModal
+            deleteObservation={this.deleteObservation}
+            itemToDelete={itemToDelete}
+            toggleDeleteModal={this.toggleDeleteModal}
           />
-          <GreenHeader
-            header={i18n.t( "observations.header" )}
-            navigation={navigation}
-          />
-          <Modal isVisible={showDeleteModal}>
-            <DeleteModal
-              toggleDeleteModal={this.toggleDeleteModal}
-              deleteObservation={this.deleteObservation}
-              itemToDelete={itemToDelete}
-            />
-          </Modal>
-          {content}
-        </SafeAreaView>
+        </Modal>
+        {content}
       </View>
     );
   }

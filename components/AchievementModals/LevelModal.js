@@ -4,22 +4,21 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
-  TouchableOpacity,
-  SafeAreaView
+  Image
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/badges/level";
 import badgeImages from "../../assets/badges";
-import icons from "../../assets/icons";
+import BackButton from "../UIComponents/ModalBackButton";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  level: Object,
-  speciesCount: number,
-  toggleLevelModal: Function,
-  screen: string
+  +level: Object,
+  +speciesCount: number,
+  +toggleLevelModal: Function,
+  +screen: string
 };
 
 const LevelModal = ( {
@@ -28,32 +27,30 @@ const LevelModal = ( {
   toggleLevelModal,
   screen
 }: Props ) => (
-  <SafeAreaView style={styles.safeView}>
-    <View style={styles.outerContainer}>
-      <View style={styles.innerContainer}>
-        <Text style={styles.headerText}>
-          {screen === "achievements"
-            ? i18n.t( "badges.your_level" ).toLocaleUpperCase()
-            : i18n.t( "banner.level_up" ).toLocaleUpperCase()
-          }
-        </Text>
-        <LinearGradient
-          style={styles.backgroundColor}
-          colors={["#38976d", "#22784d"]}
-        >
-          <Image
-            source={badgeImages[level.earnedIconName]}
-            style={styles.image}
-          />
-          <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
-        </LinearGradient>
-        <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
+  <React.Fragment>
+    <View style={[styles.innerContainer, styles.modalTop]}>
+      <View style={styles.headerMargins}>
+        <GreenText text={screen === "achievements"
+          ? i18n.t( "badges.your_level" ).toLocaleUpperCase()
+          : i18n.t( "banner.level_up" ).toLocaleUpperCase()}
+        />
       </View>
-      <TouchableOpacity style={styles.backButton} onPress={() => toggleLevelModal()}>
-        <Image source={icons.closeModal} />
-      </TouchableOpacity>
     </View>
-  </SafeAreaView>
+    <LinearGradient
+      colors={["#38976d", "#22784d"]}
+      style={styles.backgroundColor}
+    >
+      <Image
+        source={badgeImages[level.earnedIconName]}
+        style={styles.image}
+      />
+      <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
+    </LinearGradient>
+    <View style={[styles.innerContainer, styles.modalBottom]}>
+      <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
+    </View>
+    <BackButton toggleModal={toggleLevelModal} />
+  </React.Fragment>
 );
 
 export default LevelModal;

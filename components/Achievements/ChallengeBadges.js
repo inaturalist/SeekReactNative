@@ -17,8 +17,8 @@ import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 
 type Props = {
-  challengeBadges: Array<Object>,
-  navigation: any
+  +challengeBadges: Array<Object>,
+  +navigation: any
 }
 
 class ChallengeBadges extends Component<Props> {
@@ -46,9 +46,8 @@ class ChallengeBadges extends Component<Props> {
     return (
       <FlatList
         data={challengeBadges}
-        contentContainerStyle={styles.badgesContainer}
-        keyExtractor={challenge => challenge.name}
-        numColumns={3}
+        horizontal
+        keyExtractor={( challenge, index ) => `${challenge.name}${index}`}
         renderItem={( { item } ) => {
           let badgeIcon;
           if ( item.percentComplete === 100 ) {
@@ -58,11 +57,11 @@ class ChallengeBadges extends Component<Props> {
           }
           return (
             <TouchableOpacity
-              style={styles.gridCell}
               onPress={() => {
                 this.toggleChallengeModal();
                 this.setChallenge( item );
               }}
+              style={styles.gridCell}
             >
               <Image
                 source={badgeIcon}
@@ -80,11 +79,11 @@ class ChallengeBadges extends Component<Props> {
     const { showChallengeModal, selectedChallenge } = this.state;
 
     return (
-      <View style={styles.secondTextContainer}>
+      <View style={styles.center}>
         <Modal
           isVisible={showChallengeModal}
-          onSwipeComplete={() => this.toggleChallengeModal()}
           onBackdropPress={() => this.toggleChallengeModal()}
+          onSwipeComplete={() => this.toggleChallengeModal()}
           swipeDirection="down"
         >
           {selectedChallenge && selectedChallenge.percentComplete === 100 ? (
@@ -95,11 +94,10 @@ class ChallengeBadges extends Component<Props> {
           ) : (
             <ChallengeUnearnedModal
               challenge={selectedChallenge}
-              toggleChallengeModal={this.toggleChallengeModal}
               navigation={navigation}
+              toggleChallengeModal={this.toggleChallengeModal}
             />
-          )
-          }
+          )}
         </Modal>
         <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
         {this.renderChallengesRow( challengeBadges.slice( 0, 3 ) )}

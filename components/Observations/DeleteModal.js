@@ -16,9 +16,9 @@ import iconicTaxa from "../../assets/iconicTaxa";
 import icons from "../../assets/icons";
 
 type Props = {
-  toggleDeleteModal: Function,
-  deleteObservation: Function,
-  itemToDelete: Object
+  +toggleDeleteModal: Function,
+  +deleteObservation: Function,
+  +itemToDelete: Object
 };
 
 const DeleteModal = ( {
@@ -49,9 +49,9 @@ const DeleteModal = ( {
               {i18n.t( "delete.header" ).toLocaleUpperCase()}
             </Text>
             <TouchableOpacity
-              style={styles.flagBackButton}
               hitSlop={styles.touchable}
               onPress={() => toggleDeleteModal() }
+              style={styles.flagBackButton}
             >
               <Image source={icons.closeWhite} />
             </TouchableOpacity>
@@ -63,10 +63,10 @@ const DeleteModal = ( {
         <View style={styles.row}>
           <ImageBackground
             imageStyle={styles.image}
-            style={styles.image}
             source={iconicTaxa[iconicTaxonId]}
+            style={styles.image}
           >
-            <Image style={styles.image} source={photo} />
+            <Image source={photo} style={styles.image} />
           </ImageBackground>
           <View style={styles.speciesNameContainer}>
             <Text style={styles.commonNameText}>
@@ -79,11 +79,11 @@ const DeleteModal = ( {
         <Text style={styles.text}>{i18n.t( "delete.description" )}</Text>
         <View style={{ marginTop: 16 }} />
         <TouchableOpacity
-          style={styles.largeFlagButton}
           onPress={() => {
             deleteObservation( id );
             toggleDeleteModal( true );
           }}
+          style={styles.largeFlagButton}
         >
           <Text style={[styles.buttonText, { lineHeight: 24, textAlign: "center" }]}>
             {i18n.t( "delete.yes" ).toLocaleUpperCase()}
@@ -91,8 +91,8 @@ const DeleteModal = ( {
         </TouchableOpacity>
         <View style={{ marginTop: 16 }} />
         <TouchableOpacity
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
           onPress={() => toggleDeleteModal()}
+          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
         >
           <Text style={styles.buttonText}>
             {i18n.t( "delete.no" ).toLocaleUpperCase()}

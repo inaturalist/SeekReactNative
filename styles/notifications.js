@@ -1,83 +1,50 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "./global";
 
-const { height } = Dimensions.get( "window" );
-
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
   card: {
     height: 112,
-    marginHorizontal: 22,
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "flex-start",
-    alignItems: "center"
+    marginHorizontal: 22
   },
-  image: {
-    marginRight: 24,
-    height: 72,
-    width: 72,
-    resizeMode: "contain"
-  },
-  textContainer: {
-    width: 214
-  },
-  titleText: {
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    marginBottom: 6,
-    lineHeight: 21
-  },
-  messageText: {
-    fontFamily: fonts.book,
-    fontSize: 14,
-    lineHeight: 21
-  },
-  greenDot: {
-    height: 11,
-    width: 11,
-    borderRadius: 11 / 2,
-    backgroundColor: colors.seekiNatGreen
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
   },
   divider: {
     backgroundColor: colors.dividerGray,
     height: 1,
     marginHorizontal: 23
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+  greenDot: {
+    backgroundColor: colors.seekiNatGreen,
+    borderRadius: 11 / 2,
+    height: 11,
+    width: 11
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  image: {
+    height: 72,
+    marginRight: 24,
+    resizeMode: "contain",
+    width: 72
   },
-  noNotifications: {
-    marginHorizontal: 28,
-    marginTop: height / 3 - 50,
-    alignItems: "center"
-  },
-  noNotificationsHeader: {
-    textAlign: "center",
-    maxWidth: 279,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 1.0,
-    color: colors.seekForestGreen
-  },
-  noNotificationsText: {
-    marginTop: 24,
-    maxWidth: 319,
-    textAlign: "center",
+  messageText: {
     fontFamily: fonts.book,
-    fontSize: 16,
+    fontSize: 14,
     lineHeight: 21
+  },
+  row,
+  textContainer: {
+    width: 214
+  },
+  titleText: {
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: 6
   }
 } );

@@ -1,24 +1,22 @@
 // @flow
 
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  SafeAreaView
-} from "react-native";
+import { View, ScrollView } from "react-native";
 import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import config from "../../config";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class SignUpScreen extends Component<Props> {
@@ -167,51 +165,40 @@ class SignUpScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
-            navigation={navigation}
-          />
-          <View style={[styles.innerContainer, styles.margin]}>
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.username" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { username: value } )}
-              value={username}
-              placeholder="username"
-              textContentType="username"
-              autoFocus
-              autoCapitalize="none"
-            />
-            <View style={styles.leftTextContainer}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.password" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { password: value } )}
-              value={password}
-              secureTextEntry
-              placeholder="*********"
-              textContentType="password"
-            />
-            {error ? <ErrorMessage error={this.formatError( error )} /> : null}
-            <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin, error && { marginTop: 5 }]}
-              onPress={() => this.submit()}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
+        <SafeAreaView />
+        <GreenHeader
+          header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
+          navigation={navigation}
+        />
+        <ScrollView>
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
           </View>
-        </SafeAreaView>
+          <InputField
+            handleTextChange={value => this.setState( { username: value } )}
+            placeholder={i18n.t( "inat_login.username" )}
+            text={username}
+            type="username"
+          />
+          <View style={styles.leftTextMargins}>
+            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { password: value } )}
+            placeholder="*********"
+            secureTextEntry
+            text={password}
+            type="password"
+          />
+          {error
+            ? <ErrorMessage error={this.formatError( error )} />
+            : <View style={styles.greenButtonMargin} />}
+          <GreenButton
+            handlePress={() => this.submit()}
+            login
+            text={i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

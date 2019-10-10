@@ -11,8 +11,8 @@
     "internet_error": "Nous avons besoin d'internet pour générer l'espèce proche. Tapez pour réessayer.",
     "no_location": "Aucun emplacement",
     "no_species": "Il semble que peu d’espèces ont été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "no_gps": "Signal GPS introuvable.",
+    "location_timeout": "Votre demande de localisation a expiré. Merci de réessayer."
   },
   "get_started": {
     "header": "Pour commencer",
@@ -254,8 +254,8 @@
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer à la science citoyenne si vous avez effectué des publications sur iNaturalist.",
     "error_downtime": "Service temporairement indisponible. Merci de réessayer dans {{number}} heure(s).",
     "error_few": "peu",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_gps": "Nous n’avons pas réussi a vous localiser. Pour enregistrer les observation, merci d’essayer de vous déplacer à un endroit où vous pouvez voir le ciel ainsi que de vérifier si le service de localisation de votre appareil est activé.",
+    "error_timeout": "Nous n’avons pas réussi à enregistrer vos observations en raison d’un délai de localisation trop long. Merci de réessayer plus tard."
   },
   "banner": {
     "view": "Afficher le badge",

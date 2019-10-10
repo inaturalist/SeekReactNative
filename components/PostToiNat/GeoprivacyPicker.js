@@ -3,8 +3,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  View,
-  StyleSheet
+  View
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -12,13 +11,8 @@ import i18n from "../../i18n";
 import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
 
-const pickerSelectStyles = StyleSheet.create( {
-  inputIOS: styles.text,
-  inputAndroid: styles.text
-} );
-
 type Props = {
-  updateGeoprivacy: Function
+  +updateGeoprivacy: Function
 }
 
 class GeoprivacyPicker extends Component<Props> {
@@ -58,23 +52,22 @@ class GeoprivacyPicker extends Component<Props> {
 
     return (
       <RNPickerSelect
-        placeholder={{}}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
         hideIcon
         items={types}
         onValueChange={( value ) => {
           this.setGeoprivacy( value );
         }}
-        style={{ ...pickerSelectStyles }}
-        value={geoprivacy}
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
+        placeholder={{}}
         useNativeAndroidPickerStyle={false}
+        value={geoprivacy}
       >
         <TouchableOpacity
           style={styles.thinCard}
         >
-          <Image style={styles.icon} source={posting.geoprivacy} />
+          <Image source={posting.geoprivacy} style={styles.icon} />
           <View style={styles.row}>
             <Text style={styles.greenText}>
               {i18n.t( "posting.geoprivacy" ).toLocaleUpperCase()}
@@ -83,7 +76,7 @@ class GeoprivacyPicker extends Component<Props> {
               {geoprivacy}
             </Text>
           </View>
-          <Image style={styles.buttonIcon} source={posting.expand} />
+          <Image source={posting.expand} style={styles.buttonIcon} />
         </TouchableOpacity>
       </RNPickerSelect>
     );

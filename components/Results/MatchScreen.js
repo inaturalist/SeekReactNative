@@ -23,21 +23,24 @@ import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
 import Footer from "../Home/Footer";
 import MatchFooter from "./MatchFooter";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
 import { setSpeciesId, setRoute, removeFromCollection } from "../../utility/helpers";
+// import { openShareDialog } from "../../utility/shareHelpers";
 import {
   createLocationPermissionsAlert,
   createGPSAlert,
   createLocationTimeoutAlert
 } from "../../utility/locationHelpers";
+import SpeciesNearby from "./SpeciesNearby";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class MatchScreen extends Component<Props> {
@@ -58,7 +61,8 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     } = navigation.state.params;
 
     this.state = {
@@ -83,7 +87,8 @@ class MatchScreen extends Component<Props> {
       match,
       challengeShown: false,
       isLoggedIn,
-      errorCode
+      errorCode,
+      rank
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
@@ -179,8 +184,9 @@ class MatchScreen extends Component<Props> {
       navigation.navigate( "Camera" );
     } else if ( navigationPath === "Species" ) {
       setSpeciesId( taxaId );
-      setRoute( "Camera" );
-      navigation.navigate( "Species" );
+      // return user to match screen
+      setRoute( "Match" );
+      navigation.navigate( "Species", { ...navigation.state.params } );
     }
   }
 
@@ -244,7 +250,8 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn
+      isLoggedIn,
+      rank
     } = this.state;
 
     let headerText;
@@ -252,6 +259,28 @@ class MatchScreen extends Component<Props> {
     let gradientColorLight;
     let text;
     let speciesText;
+    let ancestorRank;
+    let hrank;
+
+    if ( rank === 20 ) {
+      ancestorRank = i18n.t( "camera.genus" );
+      hrank = "genus";
+    } else if ( rank === 30 ) {
+      ancestorRank = i18n.t( "camera.family" );
+      hrank = "family";
+    } else if ( rank === 40 ) {
+      ancestorRank = i18n.t( "camera.order" );
+      hrank = "order";
+    } else if ( rank === 50 ) {
+      ancestorRank = i18n.t( "camera.class" );
+      hrank = "class";
+    } else if ( rank === 60 ) {
+      ancestorRank = i18n.t( "camera.phylum" );
+      hrank = "phylum";
+    } else if ( rank === 70 ) {
+      ancestorRank = i18n.t( "camera.kingdom" );
+      hrank = "kingdom";
+    }
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
@@ -266,7 +295,11 @@ class MatchScreen extends Component<Props> {
       text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
-      headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
+      if ( rank === 20 || rank === 30 || rank === 40 || rank === 50 ) {
+        headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
+      } else {
+        headerText = i18n.t( "results.believe_1" ).toLocaleUpperCase();
+      }
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
       text = i18n.t( "results.common_ancestor" );
@@ -282,164 +315,179 @@ class MatchScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
-        <SafeAreaView style={styles.safeView}>
-          {match && !seenDate ? (
-            <NavigationEvents
-              onWillFocus={() => {
-                this.scrollToTop();
-              }}
-              onDidFocus={() => {
-                this.checkForChallengesCompleted();
-                this.checkForNewBadges();
-                this.checkLocationPermissions();
-              }}
-              onWillBlur={() => setChallengeProgress( "none" )}
-            />
-          ) : (
-            <NavigationEvents
-              onWillFocus={() => {
-                this.scrollToTop();
-              }}
-            />
-          )}
-          {match && !seenDate && latitude ? (
-            <Banner
-              navigation={navigation}
-              badge={badge}
-              incompleteChallenge={challengeInProgress}
-            />
-          ) : null}
-          {match && !seenDate && latitude ? (
-            <Modal
-              isVisible={showChallengeModal}
-              onSwipeComplete={() => this.toggleChallengeModal()}
-              onBackdropPress={() => this.toggleChallengeModal()}
-              swipeDirection="down"
-              onModalHide={() => this.setChallengeCompleteShown( true )}
-            >
-              <ChallengeEarnedModal
-                challenge={challenge}
-                toggleChallengeModal={this.toggleChallengeModal}
-              />
-            </Modal>
-          ) : null}
-          {match && !seenDate && latitude ? (
-            <Modal
-              isVisible={showLevelModal}
-              onSwipeComplete={() => this.toggleLevelModal()}
-              onBackdropPress={() => this.toggleLevelModal()}
-              swipeDirection="down"
-              onModalHide={() => this.navigateTo()}
-            >
-              <LevelModal
-                level={latestLevel}
-                toggleLevelModal={this.toggleLevelModal}
-                speciesCount={latestLevel ? latestLevel.count : 0}
-              />
-            </Modal>
-          ) : null}
-          {match || seenDate ? (
-            <Modal isVisible={showFlagModal}>
-              <FlagModal
-                toggleFlagModal={this.toggleFlagModal}
-                deleteObservation={this.deleteObservation}
-                userImage={userImage}
-                speciesSeenImage={speciesSeenImage}
-                speciesText={speciesText}
-                seenDate={seenDate}
-              />
-            </Modal>
-          ) : null}
-          <ScrollView
-            ref={( ref ) => { this.scrollView = ref; }}
+        {match && !seenDate ? (
+          <NavigationEvents
+            onDidFocus={() => {
+              this.checkForChallengesCompleted();
+              this.checkForNewBadges();
+              this.checkLocationPermissions();
+            }}
+            onWillBlur={() => {
+              setChallengeProgress( "none" );
+            }}
+            onWillFocus={() => {
+              this.scrollToTop();
+            }}
+          />
+        ) : (
+          <NavigationEvents
+            onWillFocus={() => {
+              this.scrollToTop();
+            }}
+          />
+        )}
+        {match && !seenDate && latitude ? (
+          <Banner
+            badge={badge}
+            incompleteChallenge={challengeInProgress}
+            navigation={navigation}
+          />
+        ) : null}
+        {match && !seenDate && latitude ? (
+          <Modal
+            isVisible={showChallengeModal}
+            onBackdropPress={() => this.toggleChallengeModal()}
+            onModalHide={() => this.setChallengeCompleteShown( true )}
+            onSwipeComplete={() => this.toggleChallengeModal()}
+            swipeDirection="down"
           >
-            {Platform.OS === "ios" && <Spacer backgroundColor={gradientColorDark} />}
-            <LinearGradient
-              colors={[gradientColorDark, gradientColorLight]}
-              style={styles.header}
+            <ChallengeEarnedModal
+              challenge={challenge}
+              toggleChallengeModal={this.toggleChallengeModal}
+            />
+          </Modal>
+        ) : null}
+        {match && !seenDate && latitude ? (
+          <Modal
+            isVisible={showLevelModal}
+            onBackdropPress={() => this.toggleLevelModal()}
+            onModalHide={() => this.navigateTo()}
+            onSwipeComplete={() => this.toggleLevelModal()}
+            swipeDirection="down"
+          >
+            <LevelModal
+              level={latestLevel}
+              speciesCount={latestLevel ? latestLevel.count : 0}
+              toggleLevelModal={this.toggleLevelModal}
+            />
+          </Modal>
+        ) : null}
+        {match || seenDate ? (
+          <Modal isVisible={showFlagModal}>
+            <FlagModal
+              deleteObservation={this.deleteObservation}
+              seenDate={seenDate}
+              speciesSeenImage={speciesSeenImage}
+              speciesText={speciesText}
+              toggleFlagModal={this.toggleFlagModal}
+              userImage={userImage}
+            />
+          </Modal>
+        ) : null}
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+        >
+          {Platform.OS === "ios" && <Spacer backgroundColor={gradientColorDark} />}
+          <LinearGradient
+            colors={[gradientColorDark, gradientColorLight]}
+            style={styles.header}
+          >
+            <TouchableOpacity
+              hitSlop={styles.touchable}
+              onPress={() => this.setNavigationPath( "Camera" )}
+              style={styles.backButton}
             >
-              <TouchableOpacity
-                onPress={() => this.setNavigationPath( "Camera" )}
-                hitSlop={styles.touchable}
-                style={styles.backButton}
-              >
-                <Image source={icons.backButton} />
-              </TouchableOpacity>
-              <View style={[styles.imageContainer, styles.buttonContainer]}>
+              <Image source={icons.backButton} />
+            </TouchableOpacity>
+            <View style={[styles.imageContainer, styles.buttonContainer]}>
+              <Image
+                source={{ uri: userImage }}
+                style={styles.imageCell}
+              />
+              {speciesSeenImage ? (
                 <Image
+                  source={{ uri: speciesSeenImage }}
                   style={styles.imageCell}
-                  source={{ uri: userImage }}
-                />
-                {speciesSeenImage ? (
-                  <Image
-                    style={styles.imageCell}
-                    source={{ uri: speciesSeenImage }}
-                  />
-                ) : null}
-              </View>
-            </LinearGradient>
-            <View style={styles.textContainer}>
-              <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-              {seenDate || match || commonAncestor
-                ? <Text style={styles.speciesText}>{speciesText}</Text>
-                : null}
-              <Text style={styles.text}>{text}</Text>
-              {seenDate || match ? (
-                <TouchableOpacity
-                  style={[styles.button, { backgroundColor: gradientColorLight }]}
-                  onPress={() => {
-                    setSpeciesId( taxaId ); // not sure why these are here
-                    setRoute( "Camera" ); // not sure why these are here
-                    this.setNavigationPath( "Species" );
-                  }}
-                >
-                  <Text style={styles.buttonText}>
-                    {i18n.t( "results.view_species" ).toLocaleUpperCase()}
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity
-                  style={[styles.button, { backgroundColor: gradientColorLight }]}
-                  onPress={() => navigation.navigate( "Camera" )}
-                >
-                  <Text style={styles.buttonText}>
-                    {i18n.t( "results.take_photo" ).toLocaleUpperCase()}
-                  </Text>
-                </TouchableOpacity>
-              )}
-              {seenDate || match ? (
-                <TouchableOpacity
-                  style={styles.link}
-                  onPress={() => this.setNavigationPath( "Camera" )}
-                >
-                  <Text style={[styles.linkText, { marginBottom: 28 }]}>{i18n.t( "results.back" )}</Text>
-                </TouchableOpacity>
-              ) : null}
-              {isLoggedIn ? (
-                <PostToiNat
-                  navigation={navigation}
-                  color={gradientColorLight}
-                  taxaInfo={{
-                    taxaName,
-                    taxaId,
-                    image,
-                    userImage,
-                    scientificName,
-                    latitude,
-                    longitude,
-                    time,
-                    commonAncestor
-                  }}
                 />
               ) : null}
             </View>
-            <Padding />
-          </ScrollView>
-          {match || seenDate
-            ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
-            : <Footer navigation={navigation} />
-          }
-        </SafeAreaView>
+          </LinearGradient>
+          <View style={styles.marginLarge} />
+          <View style={styles.textContainer}>
+            <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
+            {seenDate || match || commonAncestor
+              ? <Text style={styles.speciesText}>{speciesText}</Text>
+              : null}
+            <Text style={styles.text}>{text}</Text>
+          </View>
+          <View style={styles.marginMedium} />
+          <View style={styles.textContainer}>
+            {seenDate || match ? (
+              <GreenButton
+                color={gradientColorLight}
+                handlePress={() => this.setNavigationPath( "Species" )}
+                text={i18n.t( "results.view_species" ).toLocaleUpperCase()}
+              />
+            ) : (
+              <GreenButton
+                color={gradientColorLight}
+                handlePress={() => navigation.navigate( "Camera" )}
+                text={i18n.t( "results.take_photo" ).toLocaleUpperCase()}
+              />
+            )}
+          </View>
+          <View style={styles.marginMedium} />
+          {commonAncestor && rank !== ( 60 || 70 ) ? (
+            <SpeciesNearby
+              ancestorId={taxaId}
+              hrank={hrank}
+              lat={latitude}
+              lng={longitude}
+              navigation={navigation}
+              params={navigation.state.params}
+            />
+          ) : null}
+          {commonAncestor && rank !== ( 60 || 70 ) ? <View style={styles.marginMedium} /> : null}
+          <View style={styles.textContainer}>
+            {seenDate || match ? (
+              <TouchableOpacity
+                onPress={() => this.setNavigationPath( "Camera" )}
+                style={styles.link}
+              >
+                <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
+              </TouchableOpacity>
+            ) : null}
+            {/* {isLoggedIn ? (
+              <TouchableOpacity
+                style={styles.link}
+                onPress={() => openShareDialog( userImage )}
+              >
+                <Text style={[styles.linkText, { marginBottom: 28 }]}>Share your Observation</Text>
+              </TouchableOpacity>
+            ) : null} */}
+            {isLoggedIn ? (
+              <PostToiNat
+                color={gradientColorLight}
+                navigation={navigation}
+                taxaInfo={{
+                  taxaName,
+                  taxaId,
+                  image,
+                  userImage,
+                  scientificName,
+                  latitude,
+                  longitude,
+                  time,
+                  commonAncestor
+                }}
+              />
+            ) : null}
+          </View>
+          <Padding />
+        </ScrollView>
+        {match || seenDate
+          ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
+          : <Footer navigation={navigation} />}
       </View>
     );
   }

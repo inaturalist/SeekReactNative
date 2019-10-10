@@ -1,120 +1,102 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  padding,
-  touchable
+  touchable,
+  center
 } from "../global";
 
 export default StyleSheet.create( {
-  innerContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderBottomLeftRadius: 40,
-    backgroundColor: colors.white,
-    overflow: "hidden"
+  backButton: {
+    left: 23,
+    top: 18
   },
+  buttonBlue: {
+    backgroundColor: colors.seekTeal
+  },
+  buttonContainer: {
+    marginBottom: 10,
+    marginTop: 40
+  },
+  center,
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  cover: {
+    resizeMode: "cover"
   },
   header: {
     height: 186,
     overflow: "visible"
   },
-  buttonContainer: {
-    marginTop: 40,
-    marginBottom: 10
-  },
-  imageContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    flexWrap: "nowrap"
-  },
-  imageCell: {
-    width: 150,
-    height: 150,
-    borderRadius: 150 / 2
-  },
-  textContainer: {
-    marginTop: 50,
-    marginHorizontal: 24,
-    alignItems: "center"
-  },
   headerText: {
-    textAlign: "center",
-    paddingTop: padding.iOSPadding,
-    fontSize: 18,
-    fontFamily: fonts.semibold,
     color: colors.seekForestGreen,
-    lineHeight: 24,
-    letterSpacing: 1.0,
-    marginBottom: 24
-  },
-  speciesText: {
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 30,
-    lineHeight: 35,
-    color: colors.black,
-    marginBottom: 8
-  },
-  text: {
-    width: 292,
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: "center",
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  button: {
-    backgroundColor: colors.seekForestGreen,
-    width: 292,
-    height: 46,
-    marginTop: 28,
-    marginBottom: 28,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  buttonText: {
-    textAlign: "center",
     fontFamily: fonts.semibold,
     fontSize: 18,
-    color: colors.white,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    letterSpacing: 1.0
-  },
-  backButton: {
-    top: 18,
-    left: 23
-  },
-  linkText: {
-    fontFamily: fonts.book,
-    fontSize: 18,
-    color: "#9b9b9b",
-    textDecorationLine: "underline"
-  },
-  buttonGray: {
-    backgroundColor: "#5e5e5e"
-  },
-  buttonBlue: {
-    backgroundColor: colors.seekTeal
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+    letterSpacing: 1.0,
+    lineHeight: 24,
+    marginBottom: 24,
+    textAlign: "center"
   },
   imageBackground: {
     height: "100%",
     width: "100%"
   },
+  imageCell: {
+    borderRadius: 150 / 2,
+    height: 150,
+    width: 150
+  },
+  imageContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-around"
+  },
+  innerContainer: {
+    backgroundColor: colors.white,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    overflow: "hidden"
+  },
+  linkText: {
+    alignSelf: "center",
+    color: colors.linkText,
+    fontFamily: fonts.book,
+    fontSize: 18,
+    textDecorationLine: "underline"
+  },
   loadingWheel: {
-    position: "absolute",
     left: "50%",
+    position: "absolute",
     top: "50%"
+  },
+  marginLarge: {
+    marginTop: 50
+  },
+  marginMedium: {
+    marginBottom: 28
+  },
+  speciesText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 30,
+    lineHeight: 35,
+    marginBottom: 22,
+    textAlign: "center"
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
+  },
+  textContainer: {
+    marginHorizontal: 41
   },
   touchable
 } );

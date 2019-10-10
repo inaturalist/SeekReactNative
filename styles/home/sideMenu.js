@@ -4,50 +4,53 @@ import {
   PixelRatio
 } from "react-native";
 
-import { colors, fonts, padding } from "../global";
+import {
+  colors,
+  fonts,
+  padding,
+  row
+} from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   container: {
-    flex: 1,
     backgroundColor: colors.seekForestGreen,
+    flex: 1,
     justifyContent: "space-between"
+  },
+  divider: {
+    backgroundColor: colors.dividerWhite,
+    height: 1
+  },
+  height: {
+    height: height / 11,
+    justifyContent: "flex-start"
+  },
+  image: {
+    height: 25,
+    marginLeft: 26,
+    marginRight: 23,
+    resizeMode: "contain",
+    width: 25
   },
   logo: {
     alignSelf: "center",
-    marginTop: 25,
-    width: ( width / 2 ) * 1.5,
     height: 79,
-    resizeMode: "contain"
+    marginTop: 25,
+    resizeMode: "contain",
+    width: ( width / 2 ) * 1.5
   },
-  textContainer: {
-    marginBottom: ( height / 11 ) * 1.5
-  },
-  image: {
-    marginLeft: 26,
-    marginRight: 23,
-    width: 25,
-    height: 25,
-    resizeMode: "contain"
-  },
-  row: {
-    height: height / 11,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   text: {
-    paddingTop: padding.iOSPadding,
+    color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 15 : 18,
     letterSpacing: 1.0,
-    color: colors.white
+    paddingTop: padding.iOSPadding
   },
-  divider: {
-    backgroundColor: "#63d4ab",
-    height: 1
+  textContainer: {
+    marginBottom: ( height / 11 ) * 1.5
   }
 } );

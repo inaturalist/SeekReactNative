@@ -5,139 +5,65 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
+  buttonContainer: {
+    marginBottom: 15,
+    marginLeft: 22,
+    marginTop: 30
+  },
+  buttonRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginBottom: 15
+  },
+  buttonText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    paddingTop: Platform.OS === "ios" ? 6 : 0
+  },
   container: {
     backgroundColor: colors.seekForestGreen,
     height: 422
   },
   header: {
-    marginTop: 21,
-    marginLeft: 22
+    marginLeft: 22,
+    marginTop: 21
   },
   headerText: {
-    fontSize: 19,
-    fontFamily: fonts.semibold,
     color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
     letterSpacing: 1.12
-  },
-  buttonContainer: {
-    marginTop: 30,
-    marginLeft: 22,
-    marginBottom: 15
-  },
-  buttonRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    marginBottom: 15
-  },
-  whiteButton: {
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    justifyContent: "center",
-    paddingHorizontal: 9,
-    height: 29
   },
   image: {
-    marginRight: 13,
-    width: 16,
     height: 21,
-    resizeMode: "contain"
-  },
-  buttonText: {
-    paddingTop: Platform.OS === "ios" ? 6 : 0,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
-  secondButtonText: {
-    backgroundColor: colors.white,
-    paddingTop: 3,
-    paddingHorizontal: 9,
-    height: 29,
-    borderRadius: 6,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
-  androidSecondButtonText: {
-    textAlign: "left",
-    paddingHorizontal: 9,
-    width: 140,
-    height: 29,
-    backgroundColor: colors.white,
-    borderRadius: 6,
-    paddingTop: 6,
-    paddingBottom: 2,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
+    marginRight: 13,
+    resizeMode: "contain",
+    width: 16
   },
   speciesNearbyContainer: {
-    backgroundColor: "#2a7353",
+    backgroundColor: colors.speciesNearbyGreen,
     height: 231
-  },
-  similarSpeciesContainer: {
-    backgroundColor: colors.seekForestGreen,
-    height: 223
-  },
-  similarSpeciesList: {
-    marginTop: 20,
-    paddingLeft: 20
-  },
-  taxonList: {
-    marginTop: 29,
-    paddingLeft: 20
-  },
-  noTaxon: {
-    width: 322,
-    marginHorizontal: Platform.OS === "android" ? 27 : 0,
-    marginTop: 54,
-    alignItems: Platform.OS === "ios" ? "center" : null,
-    justifyContent: Platform.OS === "ios" ? "center" : null
-  },
-  gridCell: {
-    width: 108,
-    marginHorizontal: 10,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  cellImage: {
-    width: 108,
-    height: 108,
-    borderRadius: 108 / 2
-  },
-  cellTitle: {
-    height: 92,
-    width: 108,
-    paddingTop: 15,
-    justifyContent: "center",
-    flexDirection: "row",
-    flexWrap: "wrap"
-  },
-  cellTitleText: {
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.medium,
-    lineHeight: 21,
-    fontSize: 16
-  },
-  textContainer: {
-    marginLeft: 22,
-    marginRight: 22,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center"
   },
   text: {
     fontFamily: fonts.medium,
     fontSize: 18
   },
-  loading: {
+  textContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginLeft: 22,
+    marginRight: 22
+  },
+  whiteButton: {
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    height: 29,
+    justifyContent: "center",
+    paddingHorizontal: 9
   }
 } );

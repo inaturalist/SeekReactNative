@@ -23,7 +23,7 @@ const SpeciesError = ( { seenDate, updateScreen }: Props ) => (
     >
       <View style={styles.errorRow}>
         <Image source={icons.internet} />
-        <Text style={styles.errorText}>{i18n.t( "species_nearby.internet_error" )}</Text>
+        <Text style={styles.errorText}>{i18n.t( "species_detail.internet_error" )}</Text>
       </View>
     </TouchableOpacity>
     {seenDate ? (

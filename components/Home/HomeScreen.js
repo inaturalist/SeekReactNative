@@ -6,7 +6,6 @@ import {
   ScrollView,
   Platform,
   Modal,
-  SafeAreaView,
   StatusBar
 } from "react-native";
 import inatjs from "inaturalistjs";
@@ -19,16 +18,17 @@ import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import CardPadding from "./CardPadding";
 import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
-import Spacer from "../iOSSpacer";
+import Spacer from "../UIComponents/iOSSpacer";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class HomeScreen extends Component<Props> {
@@ -201,12 +201,12 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude, location ) {
+  updateLocation( latitude, longitude ) {
     this.setLoading( true );
+    this.reverseGeocodeLocation( latitude, longitude );
     this.setState( {
       latitude,
-      longitude,
-      location
+      longitude
     }, () => {
       this.toggleLocationPicker();
       this.setParamsForSpeciesNearby( latitude, longitude );
@@ -235,58 +235,54 @@ class HomeScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <View style={styles.container}>
-            <NavigationEvents
-              onWillFocus={() => {
-                this.scrollToTop();
-                this.checkForFirstLaunch();
-                this.requestAndroidPermissions();
-                addARCameraFiles();
-              }}
-              onWillBlur={() => this.setLoading( true )}
-            />
-            <RNModal
-              isVisible={showGetStartedModal}
-              onBackdropPress={() => this.toggleGetStartedModal()}
-            >
-              <GetStarted
-                toggleGetStartedModal={this.toggleGetStartedModal}
-              />
-            </RNModal>
-            <ScrollView
-              ref={( ref ) => { this.scrollView = ref; }}
-            >
-              {Platform.OS === "ios" && <Spacer />}
-              <Modal
-                visible={modalVisible}
-                onRequestClose={() => this.toggleLocationPicker()}
-              >
-                <LocationPicker
-                  latitude={latitude}
-                  longitude={longitude}
-                  location={location}
-                  updateLocation={this.updateLocation}
-                  toggleLocationPicker={this.toggleLocationPicker}
-                />
-              </Modal>
-              <SpeciesNearby
-                taxa={taxa}
-                loading={loading}
-                navigation={navigation}
-                location={location}
-                updateTaxaType={this.updateTaxaType}
-                toggleLocationPicker={this.toggleLocationPicker}
-                error={error}
-                requestAndroidPermissions={this.requestAndroidPermissions}
-              />
-              <CardPadding />
-              <ChallengeCard navigation={navigation} />
-              <Padding />
-            </ScrollView>
-          </View>
-        </SafeAreaView>
+        <SafeAreaView />
+        <NavigationEvents
+          onWillBlur={() => this.setLoading( true )}
+          onWillFocus={() => {
+            this.scrollToTop();
+            this.checkForFirstLaunch();
+            this.requestAndroidPermissions();
+            addARCameraFiles();
+          }}
+        />
+        <RNModal
+          isVisible={showGetStartedModal}
+          onBackdropPress={() => this.toggleGetStartedModal()}
+        >
+          <GetStarted
+            toggleGetStartedModal={this.toggleGetStartedModal}
+          />
+        </RNModal>
+        <Modal
+          onRequestClose={() => this.toggleLocationPicker()}
+          visible={modalVisible}
+        >
+          <LocationPicker
+            latitude={latitude}
+            location={location}
+            longitude={longitude}
+            toggleLocationPicker={this.toggleLocationPicker}
+            updateLocation={this.updateLocation}
+          />
+        </Modal>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+        >
+          {Platform.OS === "ios" && <Spacer />}
+          <SpeciesNearby
+            error={error}
+            loading={loading}
+            location={location}
+            navigation={navigation}
+            requestAndroidPermissions={this.requestAndroidPermissions}
+            taxa={taxa}
+            toggleLocationPicker={this.toggleLocationPicker}
+            updateTaxaType={this.updateTaxaType}
+          />
+          <CardPadding />
+          <ChallengeCard navigation={navigation} />
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

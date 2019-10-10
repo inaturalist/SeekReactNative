@@ -8,17 +8,16 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/banner/badgeToast";
+import styles from "../../styles/toasts/badgeToast";
 import PercentCircle from "../Challenges/PercentCircle";
 
 type Props = {
-  navigation: any,
-  challenge: Object
+  +navigation: any,
+  +challenge: Object
 }
 
 const ChallengeToast = ( { navigation, challenge }: Props ) => (
   <TouchableOpacity
-    style={styles.container}
     onPress={() => navigation.navigate( "Challenges" )}
   >
     <View style={styles.row}>

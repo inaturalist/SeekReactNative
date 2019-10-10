@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
@@ -8,9 +8,10 @@ import moment from "moment";
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
+import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  data: Array<Object>
+  +data: Array<Object>
 };
 
 const SpeciesChart = ( { data }: Props ) => {
@@ -19,44 +20,46 @@ const SpeciesChart = ( { data }: Props ) => {
     return allMonths[index][0];
   };
 
-  const Decorator = ( { x, y } ) => {
-    return data.map( value => (
-      <Circle
-        key={`circle-${value.month}`}
-        cx={x( value.month )}
-        cy={y( value.count )}
-        r={4}
-        fill={colors.seekiNatGreen}
-      />
-    ) );
-  };
+  const Decorator = ( { x, y } ) => data.map( value => (
+    <Circle
+      key={`circle-${value.month}`}
+      cx={x( value.month )}
+      cy={y( value.count )}
+      fill={colors.seekiNatGreen}
+      r={4}
+    />
+  ) );
 
   return (
     <View>
-      <Text style={styles.headerText}>{i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}</Text>
+      <View style={styles.headerMargins}>
+        <GreenText
+          text={i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}
+        />
+      </View>
       <View style={styles.container}>
         {data.length > 0 ? (
           <View style={styles.chartRow}>
             <LineChart
-              style={styles.chart}
-              data={data}
-              yAccessor={ ( { item } ) => item.count }
-              xAccessor={( { item } ) => item.month }
-              svg={{ stroke: colors.seekForestGreen }}
               contentInset={styles.chartInset}
+              data={data}
+              style={styles.chart}
+              svg={{ stroke: colors.seekForestGreen }}
+              xAccessor={( { item } ) => item.month }
+              yAccessor={ ( { item } ) => item.count }
             >
               <Decorator />
             </LineChart>
             <XAxis
-              style={styles.xAxis}
-              data={data}
-              xAccessor={( { item } ) => item.month }
-              formatLabel={value => formatXAxis( value - 1 )}
               contentInset={styles.xAxisWidth}
+              data={data}
+              formatLabel={value => formatXAxis( value - 1 )}
+              style={styles.xAxis}
               svg={{
                 fontSize: 18,
                 fill: colors.seekTeal
               }}
+              xAccessor={( { item } ) => item.month }
             />
           </View>
         ) : null}

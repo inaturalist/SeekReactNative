@@ -3,8 +3,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  View,
-  StyleSheet
+  View
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
@@ -12,13 +11,8 @@ import i18n from "../../i18n";
 import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
 
-const pickerSelectStyles = StyleSheet.create( {
-  inputIOS: styles.text,
-  inputAndroid: styles.text
-} );
-
 type Props = {
-  updateCaptive: Function
+  +updateCaptive: Function
 }
 
 class CaptivePicker extends Component<Props> {
@@ -54,24 +48,23 @@ class CaptivePicker extends Component<Props> {
 
     return (
       <RNPickerSelect
-        placeholder={{}}
+        ref={( el ) => {
+          this.inputRefs.picker2 = el;
+        }}
         hideIcon
         items={types}
         onValueChange={( value ) => {
           this.setCaptive( value );
         }}
-        style={{ ...pickerSelectStyles }}
-        value={captive}
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
+        placeholder={{}}
         useNativeAndroidPickerStyle={false}
+        value={captive}
       >
         <TouchableOpacity
-          style={styles.thinCard}
           onPress={() => console.log( "clicked" )}
+          style={styles.thinCard}
         >
-          <Image style={styles.icon} source={posting.captive} />
+          <Image source={posting.captive} style={styles.icon} />
           <View style={styles.row}>
             <Text style={styles.greenText}>
               {i18n.t( "posting.captive" ).toLocaleUpperCase()}
@@ -80,7 +73,7 @@ class CaptivePicker extends Component<Props> {
               {captive}
             </Text>
           </View>
-          <Image style={styles.buttonIcon} source={posting.expand} />
+          <Image source={posting.expand} style={styles.buttonIcon} />
         </TouchableOpacity>
       </RNPickerSelect>
     );

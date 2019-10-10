@@ -10,12 +10,12 @@ export default StyleSheet.create( {
     justifyContent: "center"
   },
   circleStyle: {
-    width: 113,
-    height: 113
+    height: 113,
+    width: 113
   },
   circleText: {
-    paddingTop: padding.iOSPadding,
     fontFamily: fonts.light,
-    fontSize: 30
+    fontSize: 30,
+    paddingTop: padding.iOSPadding
   }
 } );

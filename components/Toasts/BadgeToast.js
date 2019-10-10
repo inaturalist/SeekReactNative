@@ -9,17 +9,16 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/banner/badgeToast";
+import styles from "../../styles/toasts/badgeToast";
 import badges from "../../assets/badges";
 
 type Props = {
-  navigation: any,
-  badge: Object
+  +navigation: any,
+  +badge: Object
 }
 
 const BadgeToast = ( { navigation, badge }: Props ) => (
   <TouchableOpacity
-    style={styles.container}
     onPress={() => navigation.navigate( "Achievements" )}
   >
     <View style={styles.row}>
@@ -34,7 +33,7 @@ const BadgeToast = ( { navigation, badge }: Props ) => (
         </Text>
         <Text style={styles.view}>{i18n.t( "banner.view" )}</Text>
       </View>
-      <Image style={styles.image} source={badges[badge.earnedIconName]} />
+      <Image source={badges[badge.earnedIconName]} style={styles.image} />
     </View>
   </TouchableOpacity>
 );

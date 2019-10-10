@@ -7,35 +7,35 @@ import {
 
 export default StyleSheet.create( {
   errorContainer: {
-    marginTop: 15,
-    height: 109,
     alignItems: "center",
+    backgroundColor: "#102b1f",
+    height: 109,
     justifyContent: "center",
-    backgroundColor: "#102b1f"
+    marginTop: 15
   },
   errorRow: {
+    alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
     justifyContent: "space-between"
   },
   errorText: {
-    textAlign: "center",
     color: colors.white,
-    maxWidth: 245,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 24,
-    marginLeft: 12
-  },
-  textContainer: {
-    marginTop: 20,
-    marginHorizontal: 28
+    marginLeft: 12,
+    maxWidth: 245,
+    textAlign: "center"
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
+  },
+  textContainer: {
+    marginHorizontal: 28,
+    marginTop: 20
   }
 } );

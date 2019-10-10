@@ -3,24 +3,24 @@
 import React, { Component } from "react";
 import {
   Text,
-  TextInput,
-  TouchableOpacity,
   View,
-  SafeAreaView,
-  Platform,
   ScrollView
 } from "react-native";
 import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import GreenHeader from "../GreenHeader";
+import GreenHeader from "../UIComponents/GreenHeader";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import config from "../../config";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "../Signup/ErrorMessage";
+import InputField from "../UIComponents/InputField";
+import GreenText from "../UIComponents/GreenText";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ForgotPasswordScreen extends Component<Props> {
@@ -105,47 +105,34 @@ class ForgotPasswordScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
-            navigation={navigation}
+        <SafeAreaView />
+        <GreenHeader
+          header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
+          navigation={navigation}
+        />
+        <ScrollView>
+          <View style={styles.margin} />
+          <Text style={[styles.header, { marginHorizontal: 23 }]}>
+            {i18n.t( "inat_login.no_worries" )}
+          </Text>
+          <View style={[styles.leftTextMargins, { marginTop: 31 }]}>
+            <GreenText smaller text={i18n.t( "inat_login.email" ).toLocaleUpperCase()} />
+          </View>
+          <InputField
+            handleTextChange={value => this.setState( { email: value } )}
+            placeholder="email"
+            text={email}
+            type="emailAddress"
           />
-          <ScrollView contentContainerStyle={styles.innerContainer}>
-            <View style={styles.margin} />
-            <Text style={[styles.header, { marginHorizontal: 23 }]}>
-              {i18n.t( "inat_login.no_worries" )}
-            </Text>
-            <View style={[styles.leftTextContainer, { marginTop: 31 }]}>
-              <Text style={styles.leftText}>
-                {i18n.t( "inat_login.email" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-            <TextInput
-              style={styles.inputField}
-              onChangeText={ value => this.setState( { email: value } )}
-              value={email}
-              placeholder="email address"
-              textContentType="emailAddress"
-              keyboardType={Platform.OS === "android" ? "visible-password" : "email-address"} // adding this to turn off autosuggestions on Android
-              autoFocus
-              autoCapitalize="none"
-            />
-            {error ? (
-              <View style={{ marginTop: 29 }}>
-                <ErrorMessage error="email" />
-              </View>
-            ) : <View style={{ marginTop: 29 }} />}
-            <TouchableOpacity
-              style={[styles.greenButton, styles.greenButtonMargin]}
-              onPress={() => this.checkEmail()}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          </ScrollView>
-        </SafeAreaView>
+          {error
+            ? <ErrorMessage error="email" />
+            : <View style={{ marginTop: 29 }} />}
+          <GreenButton
+            handlePress={() => this.checkEmail()}
+            login
+            text={i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
+          />
+        </ScrollView>
       </View>
     );
   }

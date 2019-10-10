@@ -121,8 +121,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 58
-        versionName "2.3.2"
+        versionCode 61
+        versionName "2.3.3"
         // ndk {
         //     abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
         // }
@@ -168,25 +168,25 @@ android {
             }
         }
     }
-    packagingOptions {
-        pickFirst '**/armeabi-v7a/libc++_shared.so'
-        pickFirst '**/x86/libc++_shared.so'
-        pickFirst '**/arm64-v8a/libc++_shared.so'
-        pickFirst '**/x86_64/libc++_shared.so'
-        pickFirst '**/x86/libjsc.so'
-        pickFirst '**/armeabi-v7a/libjsc.so'
-    }
+    // packagingOptions {
+    //     pickFirst '**/armeabi-v7a/libc++_shared.so'
+    //     pickFirst '**/x86/libc++_shared.so'
+    //     pickFirst '**/arm64-v8a/libc++_shared.so'
+    //     pickFirst '**/x86_64/libc++_shared.so'
+    //     pickFirst '**/x86/libjsc.so'
+    //     pickFirst '**/armeabi-v7a/libjsc.so'
+    // }
 }
 
 dependencies {
     implementation project(':react-native-inat-camera')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation("com.android.support:appcompat-v7:28.0.0")
-    implementation("com.android.support:support-v4:28.0.0")
+    // implementation fileTree(dir: "libs", include: ["*.jar"])
+    // implementation("com.android.support:appcompat-v7:28.0.0")
+    // implementation("com.android.support:support-v4:28.0.0")
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     if (enableHermes) {
-      def hermesPath = "../../node_modules/hermesvm/android/";
+      def hermesPath = "../../node_modules/hermes-engine/android/";
       debugImplementation files(hermesPath + "hermes-debug.aar")
       releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {

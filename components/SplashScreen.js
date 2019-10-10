@@ -18,7 +18,7 @@ import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { checkIfFirstLogin } from "../utility/loginHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class SplashScreen extends Component<Props> {
@@ -72,10 +72,10 @@ class SplashScreen extends Component<Props> {
   render() {
     return (
       <ImageBackground
-        style={styles.backgroundImage}
         source={backgrounds.splash}
+        style={styles.backgroundImage}
       >
-        <View style={styles.header}>
+        <View style={styles.center}>
           <View style={styles.banner}>
             <Image source={logoImages.wwfop} style={styles.image} />
           </View>

@@ -2,73 +2,64 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
-  touchable
+  center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
+  caption: {
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: "center",
+    width: 245
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+  center,
+  explainImage: {
+    marginBottom: 33,
+    resizeMode: "contain",
+    width: width - 56
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  headerMargin: {
+    marginBottom: 30
   },
-  header: {
-    height: 55,
-    marginBottom: 30,
-    backgroundColor: colors.white
+  heatMap: {
+    height: 227,
+    overflow: "hidden",
+    resizeMode: "cover",
+    width
+  },
+  iNatLogo: {
+    height: height > 570 ? 65 : 45,
+    position: "absolute",
+    resizeMode: "contain",
+    right: -5,
+    top: 5,
+    width: height > 570 ? 81 : 61
+  },
+  image: {
+    height: 286,
+    resizeMode: "cover",
+    width
+  },
+  leftArrow: {
+    left: 5,
+    position: "absolute",
+    top: 137,
+    zIndex: 1
   },
   logo: {
     alignSelf: "center",
-    width: 175,
     height: 34,
-    resizeMode: "contain"
-  },
-  backButton: {
-    top: 18,
-    left: 23
-  },
-  iNatLogo: {
-    position: "absolute",
-    top: 5,
-    right: -5,
-    height: height > 570 ? 65 : 45,
-    width: height > 570 ? 81 : 61,
-    resizeMode: "contain"
-  },
-  numberText: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 30,
-    marginBottom: 23
-  },
-  explainImage: {
-    marginBottom: 33,
-    width: width - 56,
-    resizeMode: "contain"
-  },
-  forestGreenText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    marginBottom: 7
+    resizeMode: "contain",
+    width: 175
   },
   missionContainer: {
     alignItems: "flex-start",
-    marginTop: 21,
-    marginBottom: 46,
     backgroundColor: colors.white,
-    marginHorizontal: 27
+    marginBottom: 46,
+    marginHorizontal: 27,
+    marginTop: 21
   },
   missionHeaderText: {
     color: colors.black,
@@ -83,76 +74,24 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  italicText: {
-    marginHorizontal: 27,
-    textAlign: "center",
-    marginTop: 33,
+  numberText: {
     color: colors.black,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: height < 570 ? 292 : 317,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
-  },
-  heatMap: {
-    width,
-    height: 227,
-    resizeMode: "cover",
-    overflow: "hidden"
-  },
-  image: {
-    width,
-    height: 286,
-    resizeMode: "cover"
-  },
-  caption: {
-    marginTop: 20,
-    marginBottom: 20,
-    textAlign: "center",
-    width: 245
-  },
-  center: {
-    alignItems: "center",
-    justifyContent: "center"
+    fontFamily: fonts.light,
+    fontSize: 30,
+    marginBottom: 23,
+    marginTop: 7
   },
   photoContainer: {
-    height: 350
-  },
-  touchable,
-  leftArrow: {
-    zIndex: 1,
-    position: "absolute",
-    top: 137,
-    left: 5
+    height: 375
   },
   rightArrow: {
-    zIndex: 1,
     position: "absolute",
+    right: 5,
     top: 137,
-    right: 5
+    zIndex: 1
   },
-  loginText: {
-    maxWidth: 334,
-    marginTop: 32,
-    marginBottom: 28,
-    marginHorizontal: 20,
-    textAlign: "center",
-    fontSize: 16,
-    lineHeight: 21,
-    fontFamily: fonts.book,
-    color: colors.black
+  safeView: {
+    backgroundColor: colors.transparent,
+    flex: 0
   }
 } );

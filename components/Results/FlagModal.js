@@ -14,12 +14,12 @@ import styles from "../../styles/results/flagModal";
 import icons from "../../assets/icons";
 
 type Props = {
-  toggleFlagModal: Function,
-  deleteObservation: Function,
-  userImage: string,
-  speciesSeenImage: string,
-  speciesText: string,
-  seenDate: string
+  +toggleFlagModal: Function,
+  +deleteObservation: Function,
+  +userImage: string,
+  +speciesSeenImage: string,
+  +speciesText: string,
+  +seenDate: string
 };
 
 const FlagModal = ( {
@@ -35,44 +35,41 @@ const FlagModal = ( {
 
   return (
     <View style={styles.innerContainer}>
-      <View style={styles.flagHeaderContainer}>
-        <LinearGradient
-          colors={[gradientColorDark, gradientColorLight]}
-          style={styles.flagHeader}
-        >
-          <View style={styles.flagTextContainer}>
-            <Text style={[styles.buttonText, { paddingTop: 9 }]}>
-              {i18n.t( "results.flag" ).toLocaleUpperCase()}
-            </Text>
-            <TouchableOpacity
-              style={styles.flagBackButton}
-              hitSlop={styles.touchable}
-              onPress={() => toggleFlagModal() }
-            >
-              <Image source={icons.closeWhite} />
-            </TouchableOpacity>
-          </View>
-          <View style={[styles.imageContainer, styles.flagButtonContainer]}>
+      <LinearGradient
+        colors={[gradientColorDark, gradientColorLight]}
+        style={styles.flagHeader}
+      >
+        <View style={styles.flagTextContainer}>
+          <Text style={[styles.buttonText, styles.paddingSmall]}>
+            {i18n.t( "results.flag" ).toLocaleUpperCase()}
+          </Text>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleFlagModal() }
+            style={styles.flagBackButton}
+          >
+            <Image source={icons.closeWhite} />
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.imageContainer, styles.flagButtonContainer]}>
+          <Image
+            source={{ uri: userImage }}
+            style={styles.flagImageCell}
+          />
+          {speciesSeenImage ? (
             <Image
+              source={{ uri: speciesSeenImage }}
               style={styles.flagImageCell}
-              source={{ uri: userImage }}
             />
-            {speciesSeenImage ? (
-              <Image
-                style={styles.flagImageCell}
-                source={{ uri: speciesSeenImage }}
-              />
-            ) : null}
-          </View>
-        </LinearGradient>
-      </View>
+          ) : null}
+        </View>
+      </LinearGradient>
       <View style={styles.flagContainer}>
-        <View style={{ marginTop: 45 }} />
+        <View style={styles.marginLarge} />
         <Text style={styles.speciesText}>{speciesText}</Text>
         <Text style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
-        <View style={{ marginTop: 16 }} />
+        <View style={styles.marginSmall} />
         <TouchableOpacity
-          style={styles.largeFlagButton}
           onPress={() => {
             if ( seenDate ) {
               toggleFlagModal( true );
@@ -81,24 +78,24 @@ const FlagModal = ( {
               toggleFlagModal( true );
             }
           }}
+          style={styles.largeFlagButton}
         >
           <Text style={[styles.buttonText, styles.largeButtonHeight]}>
             {seenDate
               ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
-              : i18n.t( "results.yes" ).toLocaleUpperCase()
-            }
+              : i18n.t( "results.yes" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 16 }} />
+        <View style={styles.marginSmall} />
         <TouchableOpacity
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
           onPress={() => toggleFlagModal()}
+          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
         >
           <Text style={styles.buttonText}>
             {i18n.t( "results.no" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 32 }} />
+        <View style={styles.marginMedium} />
       </View>
     </View>
   );

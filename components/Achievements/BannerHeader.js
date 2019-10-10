@@ -10,8 +10,8 @@ import styles from "../../styles/badges/banner";
 import icons from "../../assets/icons";
 
 type Props = {
-  text: string,
-  modal: boolean
+  +text: string,
+  +modal: boolean
 }
 
 const BannerHeader = ( { text, modal }: Props ) => (

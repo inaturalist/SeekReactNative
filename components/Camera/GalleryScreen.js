@@ -7,7 +7,6 @@ import {
   FlatList,
   TouchableHighlight,
   TouchableOpacity,
-  Text,
   View,
   StatusBar,
   SafeAreaView,
@@ -16,10 +15,11 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import moment from "moment";
+import GalleryManager from "react-native-gallery-manager";
 
 import i18n from "../../i18n";
 import PermissionError from "./PermissionError";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
 import {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
@@ -30,11 +30,12 @@ import styles from "../../styles/camera/gallery";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
+import AlbumPicker from "./AlbumPicker";
 
 const { width } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class GalleryScreen extends Component<Props> {
@@ -46,18 +47,63 @@ class GalleryScreen extends Component<Props> {
       error: null,
       hasNextPage: true,
       lastCursor: null,
-      stillLoading: false
+      stillLoading: false,
+      groupTypes: "All",
+      albumNames: [],
+      album: null
     };
+
+    this.updateAlbum = this.updateAlbum.bind( this );
+  }
+
+  async setupComponent() {
+    await this.getAlbumNames();
+  }
+
+  getAlbumNames() {
+    const albumNames = [{
+      label: i18n.t( "gallery.camera_roll" ),
+      value: "All"
+    }];
+
+    GalleryManager.getAlbums().then( ( { albums } ) => {
+      albums.forEach( ( album ) => {
+        const { assetCount, title } = album;
+
+        if ( assetCount > 0 ) {
+          albumNames.push( {
+            label: title,
+            value: title
+          } );
+        }
+      } );
+
+      this.setState( { albumNames } );
+    } ).catch( ( err ) => {
+      if ( err ) {
+        this.setState( { albumNames } ); // handle state where device has no albums on Android
+      }
+    } );
   }
 
   getPhotos() {
-    const { lastCursor, hasNextPage, stillLoading } = this.state;
+    const {
+      lastCursor,
+      hasNextPage,
+      stillLoading,
+      groupTypes,
+      album
+    } = this.state;
 
     const photoOptions = {
       first: 28,
       assetType: "Photos",
-      groupTypes: "All" // this is required in RN 0.59+
+      groupTypes // this is required in RN 0.59+
     };
+
+    if ( album ) { // append for cases where album is null
+      photoOptions.groupName = album;
+    }
 
     if ( lastCursor ) {
       photoOptions.after = lastCursor;
@@ -90,6 +136,20 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
+  updateAlbum( album ) {
+    if ( album !== "All" ) {
+      this.setState( {
+        groupTypes: "Album",
+        album
+      }, () => this.resetState() );
+    } else {
+      this.setState( {
+        groupTypes: "All",
+        album: i18n.t( "gallery.camera_roll" )
+      }, () => this.resetState() );
+    }
+  }
+
   resetState() {
     this.setState( {
       photos: [],
@@ -97,7 +157,7 @@ class GalleryScreen extends Component<Props> {
       hasNextPage: true,
       lastCursor: null,
       stillLoading: false
-    } );
+    }, () => this.getPhotos() );
   }
 
   appendPhotos( data ) {
@@ -181,7 +241,8 @@ class GalleryScreen extends Component<Props> {
   render() {
     const {
       error,
-      photos
+      photos,
+      albumNames
     } = this.state;
 
     const { navigation } = this.props;
@@ -194,23 +255,23 @@ class GalleryScreen extends Component<Props> {
       gallery = (
         <FlatList
           data={photos}
-          numColumns={4}
-          onEndReached={() => this.getPhotos()}
           keyExtractor={( item, index ) => `${item}${index}`}
           ListEmptyComponent={() => (
             <View style={styles.loadingWheel}>
               <LoadingWheel color={colors.darkGray} />
             </View>
           )}
+          numColumns={4}
+          onEndReached={() => this.getPhotos()}
           renderItem={( { item } ) => (
             <TouchableHighlight
+              onPress={() => this.selectAndResizeImage( item.node )}
               style={styles.button}
               underlayColor="transparent"
-              onPress={() => this.selectAndResizeImage( item.node )}
             >
               <Image
-                style={styles.image}
                 source={{ uri: item.node.image.uri }}
+                style={styles.image}
               />
             </TouchableHighlight>
           )}
@@ -221,26 +282,29 @@ class GalleryScreen extends Component<Props> {
     return (
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => this.checkPermissions()}
-            onWillBlur={() => this.resetState()}
-          />
-          <StatusBar barStyle="dark-content" />
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => navigation.navigate( "Main" )}
-            >
-              <Image source={icons.closeGreen} style={styles.buttonImage} />
-            </TouchableOpacity>
-            <Text style={styles.headerText}>{i18n.t( "gallery.choose_photo" ).toLocaleUpperCase()}</Text>
-          </View>
-          <View style={styles.galleryContainer}>
-            {gallery}
-          </View>
-        </SafeAreaView>
+        <NavigationEvents
+          onWillBlur={() => this.resetState()}
+          onWillFocus={() => {
+            this.setupComponent();
+            this.checkPermissions();
+          }}
+        />
+        <StatusBar barStyle="dark-content" />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => navigation.navigate( "Main" )}
+            style={styles.backButton}
+          >
+            <Image source={icons.closeGreen} style={styles.buttonImage} />
+          </TouchableOpacity>
+          {albumNames.length > 0
+            ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+            : null}
+        </View>
+        <View style={styles.galleryContainer}>
+          {gallery}
+        </View>
       </View>
     );
   }

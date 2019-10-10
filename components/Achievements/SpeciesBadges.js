@@ -18,7 +18,7 @@ import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 
 type Props = {
-  speciesBadges: Array<Object>
+  +speciesBadges: Array<Object>
 }
 
 class SpeciesBadges extends Component<Props> {
@@ -59,9 +59,8 @@ class SpeciesBadges extends Component<Props> {
     return (
       <FlatList
         data={data}
-        contentContainerStyle={styles.badgesContainer}
-        keyExtractor={badge => badge.name}
-        numColumns={3}
+        horizontal
+        keyExtractor={( badge, index ) => `${badge.name}${index}`}
         renderItem={( { item } ) => {
           let badgeIcon;
           if ( item.earned ) {
@@ -71,8 +70,8 @@ class SpeciesBadges extends Component<Props> {
           }
           return (
             <TouchableOpacity
-              style={styles.gridCell}
               onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
+              style={styles.gridCell}
             >
               <Image
                 source={badgeIcon}
@@ -90,13 +89,9 @@ class SpeciesBadges extends Component<Props> {
     const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
 
     return (
-      <View style={styles.secondTextContainer}>
+      <View style={styles.center}>
         { iconicTaxonBadges.length > 0 ? (
           <Modal
-            style={{
-              justifyContent: "center",
-              alignItems: "center"
-            }}
             isVisible={showBadgeModal}
             onBackdropPress={() => this.toggleBadgeModal()}
           >

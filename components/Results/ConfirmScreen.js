@@ -4,22 +4,22 @@ import React from "react";
 import {
   View,
   Image,
-  Text,
-  TouchableOpacity,
   SafeAreaView
 } from "react-native";
 
 import i18n from "../../i18n";
-import icons from "../../assets/icons";
 import styles from "../../styles/results/confirm";
-import LoadingWheel from "../LoadingWheel";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import GreenButton from "../UIComponents/GreenButton";
+import GreenText from "../UIComponents/GreenText";
+import BackArrow from "../UIComponents/BackArrow";
 
 type Props = {
-  image: Object,
-  navigation: any,
-  match: boolean,
-  checkForMatches: Function,
-  clicked: boolean
+  +image: Object,
+  +navigation: any,
+  +match: boolean,
+  +checkForMatches: Function,
+  +clicked: boolean
 }
 
 const ConfirmScreen = ( {
@@ -29,16 +29,13 @@ const ConfirmScreen = ( {
   match,
   clicked
 }: Props ) => (
-  <View style={styles.container}>
+  <View>
     <SafeAreaView style={styles.safeViewTop} />
     <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-      >
-        <Image source={icons.backButtonGreen} style={styles.buttonImage} />
-      </TouchableOpacity>
-      <Text style={styles.headerText}>{i18n.t( "confirm.identify" ).toLocaleUpperCase()}</Text>
+      <BackArrow green navigation={navigation} />
+      <View style={styles.headerText}>
+        <GreenText smaller text={i18n.t( "confirm.identify" ).toLocaleUpperCase()} />
+      </View>
       <View />
     </View>
     <View style={styles.imageContainer}>
@@ -55,14 +52,11 @@ const ConfirmScreen = ( {
       ) : null}
     </View>
     <View style={styles.footer}>
-      <TouchableOpacity
-        style={[styles.button, clicked && styles.lightButton]}
-        onPress={() => checkForMatches()}
-      >
-        <Text style={styles.buttonText}>
-          {i18n.t( "confirm.button" ).toLocaleUpperCase()}
-        </Text>
-      </TouchableOpacity>
+      <GreenButton
+        color={clicked ? "#38976d33" : null}
+        handlePress={() => checkForMatches()}
+        text={i18n.t( "confirm.button" ).toLocaleUpperCase()}
+      />
     </View>
   </View>
 );

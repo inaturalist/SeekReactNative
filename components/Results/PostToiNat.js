@@ -3,19 +3,19 @@
 import React, { Component } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity
+  Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
 import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
+import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  navigation: any,
-  color: string,
-  taxaInfo: Object
+  +navigation: any,
+  +color: string,
+  +taxaInfo: Object
 }
 
 class PostToiNat extends Component<Props> {
@@ -50,19 +50,17 @@ class PostToiNat extends Component<Props> {
         {postingSuccess || !latitude || !longitude
           ? null
           : (
-            <View style={{ alignItems: "center" }}>
+            <>
               <Text style={styles.text}>
                 {i18n.t( "results.post_inat" )}
               </Text>
-              <TouchableOpacity
-                style={[styles.button, { backgroundColor: color }]}
-                onPress={() => navigation.navigate( "Post", taxaInfo )}
-              >
-                <Text style={styles.buttonText}>
-                  {i18n.t( "results.post" ).toLocaleUpperCase()}
-                </Text>
-              </TouchableOpacity>
-            </View>
+              <View style={styles.marginMedium} />
+              <GreenButton
+                color={color}
+                handlePress={() => navigation.navigate( "Post", taxaInfo )}
+                text={i18n.t( "results.post" ).toLocaleUpperCase()}
+              />
+            </>
           )}
       </View>
     );

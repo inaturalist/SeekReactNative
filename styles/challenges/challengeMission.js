@@ -5,66 +5,60 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
+  bullets: {
+    fontSize: 27,
+    marginTop: 8
   },
-  header: {
-    marginTop: 21,
-    marginLeft: 35
-  },
-  headerText: {
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
+  checklist: {
+    marginTop: 20
   },
   circleStyle: {
-    width: 59,
     height: 59,
     position: "absolute",
+    right: 40,
     top: 40,
-    right: 40
+    width: 59
   },
   circleText: {
     fontFamily: fonts.book,
     fontSize: 20
   },
-  textContainer: {
-    width: 240,
-    marginBottom: 20
+  container: {
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  greenText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 4
+  },
+  header: {
+    marginLeft: 35,
+    marginTop: 21
+  },
+  leftItem: {
+    alignItems: "center",
+    width: 20
+  },
+  missionText: {
+    marginLeft: 10,
+    width: 205
   },
   row: {
     flexDirection: "row",
     flexWrap: "nowrap"
   },
-  leftItem: {
-    width: 20,
-    alignItems: "center"
-  },
-  bullets: {
-    marginTop: 8,
-    fontSize: 27
-  },
-  checklist: {
-    marginTop: 20
-  },
-  missionText: {
-    width: 205,
-    marginLeft: 10
-  },
   text: {
-    marginTop: 16,
+    color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    color: colors.black
+    marginTop: 16
   },
-  greenText: {
-    marginTop: 4,
-    fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.seekForestGreen
+  textContainer: {
+    marginBottom: 20,
+    width: 240
   }
 } );

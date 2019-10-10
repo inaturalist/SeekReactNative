@@ -4,55 +4,51 @@ import { colors, fonts, padding } from "../global";
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  bottom: {
+    bottom: 70,
+    position: "absolute"
+  },
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSPadding
+  },
   container: {
-    flex: 1,
-    backgroundColor: colors.white,
     alignItems: "center",
+    backgroundColor: colors.white,
+    flex: 1,
     justifyContent: "center"
+  },
+  greenButton: {
+    alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 34,
+    height: 52,
+    justifyContent: "center",
+    width: height < 570 ? 292 : 317
+  },
+  header: {
+    color: colors.seekiNatGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    lineHeight: 25,
+    textAlign: "center",
+    width: 286
   },
   safeViewTop: {
     flex: 0
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
-  },
-  header: {
-    width: 286,
-    textAlign: "center",
-    fontSize: 19,
-    lineHeight: 25,
-    letterSpacing: 1.12,
-    fontFamily: fonts.semibold,
-    color: colors.seekiNatGreen
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: height < 570 ? 292 : 317,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
-  },
-  bottom: {
-    position: "absolute",
-    bottom: 70
-  },
   text: {
-    marginTop: 32,
-    textAlign: "center",
-    width: 250,
     flexDirection: "row",
     flexWrap: "wrap",
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21
+    lineHeight: 21,
+    marginTop: 32,
+    textAlign: "center",
+    width: 250
   }
 } );

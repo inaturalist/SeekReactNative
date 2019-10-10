@@ -5,37 +5,33 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
-  taxonomyHeader: {
-    fontSize: 16,
-    fontFamily: fonts.semibold,
-    color: colors.black,
-    lineHeight: 21
-  },
-  headerText: {
-    marginTop: 45,
-    marginBottom: 11,
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
-  },
-  taxonomyText: {
-    maxWidth: 200,
-    fontSize: 16,
-    fontFamily: fonts.book,
-    color: colors.black,
-    lineHeight: 21
-  },
-  taxonomyRow: {
-    marginTop: 7,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
   bullets: {
     marginRight: 16
   },
+  headerMargins: {
+    marginBottom: 4,
+    marginTop: 45
+  },
   italicText: {
     fontFamily: fonts.boldItalic
+  },
+  taxonomyHeader: {
+    color: colors.black,
+    fontFamily: fonts.semibold,
+    fontSize: 16,
+    lineHeight: 21
+  },
+  taxonomyRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    marginTop: 7
+  },
+  taxonomyText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    maxWidth: 200
   }
 } );

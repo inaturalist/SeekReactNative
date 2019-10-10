@@ -6,7 +6,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
@@ -17,17 +16,20 @@ import i18n from "../../i18n";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
-import Padding from "../Padding";
+import Padding from "../UIComponents/Padding";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import LevelModal from "../AchievementModals/LevelModal";
-import GreenHeader from "../GreenHeader";
-import LoginCard from "../LoginCard";
+import GreenHeader from "../UIComponents/GreenHeader";
+import GreenText from "../UIComponents/GreenText";
+import LoginCard from "../UIComponents/LoginCard";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
+import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class AchievementsScreen extends Component<Props> {
@@ -177,57 +179,56 @@ class AchievementsScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.scrollToTop();
-              this.fetchBadges();
-              this.fetchChallenges();
-              this.fetchSpeciesCount();
-            }}
+        <SafeAreaView />
+        <NavigationEvents
+          onWillFocus={() => {
+            this.scrollToTop();
+            this.fetchBadges();
+            this.fetchChallenges();
+            this.fetchSpeciesCount();
+          }}
+        />
+        <Modal
+          isVisible={showLevelModal}
+          onBackdropPress={() => this.toggleLevelModal()}
+          onSwipeComplete={() => this.toggleLevelModal()}
+          swipeDirection="down"
+        >
+          <LevelModal
+            level={level}
+            screen="achievements"
+            speciesCount={speciesCount}
+            toggleLevelModal={this.toggleLevelModal}
           />
-          <Modal
-            isVisible={showLevelModal}
-            onSwipeComplete={() => this.toggleLevelModal()}
-            onBackdropPress={() => this.toggleLevelModal()}
-            swipeDirection="down"
-          >
-            <LevelModal
-              speciesCount={speciesCount}
-              level={level}
-              toggleLevelModal={this.toggleLevelModal}
-              screen="achievements"
-            />
-          </Modal>
-          <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
-          <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-            {Platform.OS === "ios" && <View style={styles.iosSpacer} />}
-            <LevelHeader
-              level={level}
-              nextLevelCount={nextLevelCount}
-              toggleLevelModal={this.toggleLevelModal}
-            />
-            <SpeciesBadges speciesBadges={speciesBadges} />
-            <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
-            <View style={styles.secondTextContainer}>
-              <View style={styles.stats}>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate( "MyObservations" )}
-                >
-                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.observed" ).toLocaleUpperCase()}</Text>
-                  <Text style={styles.number}>{speciesCount}</Text>
-                </TouchableOpacity>
-                <View>
-                  <Text style={styles.secondHeaderText}>{i18n.t( "badges.earned" ).toLocaleUpperCase()}</Text>
-                  <Text style={styles.number}>{badgesEarned}</Text>
-                </View>
-              </View>
-              <LoginCard navigation={navigation} screen="achievements" />
+        </Modal>
+        <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
+        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+          {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
+          <LevelHeader
+            level={level}
+            nextLevelCount={nextLevelCount}
+            toggleLevelModal={this.toggleLevelModal}
+          />
+          <SpeciesBadges speciesBadges={speciesBadges} />
+          <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
+          <View style={[styles.row, styles.center]}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate( "MyObservations" )}
+              style={styles.secondHeaderText}
+            >
+              <GreenText center smaller text={i18n.t( "badges.observed" ).toLocaleUpperCase()} />
+              <Text style={styles.number}>{speciesCount}</Text>
+            </TouchableOpacity>
+            <View style={styles.secondHeaderText}>
+              <GreenText center smaller text={i18n.t( "badges.earned" ).toLocaleUpperCase()} />
+              <Text style={styles.number}>{badgesEarned}</Text>
             </View>
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
+          </View>
+          <View style={styles.center}>
+            <LoginCard navigation={navigation} screen="achievements" />
+          </View>
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

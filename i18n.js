@@ -7,6 +7,7 @@ import da from "./translations/da.json";
 import de from "./translations/de.json";
 import es from "./translations/es.json";
 import hi from "./translations/hi.json";
+import it from "./translations/it.json";
 import nl from "./translations/nl.json";
 import zh from "./translations/zh.json";
 import pt from "./translations/pt.json";
@@ -20,6 +21,7 @@ i18n.translations = {
   de,
   es,
   hi,
+  it,
   nl,
   zh,
   pt,

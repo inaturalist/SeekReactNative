@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  SafeAreaView
+  Platform
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
@@ -16,16 +16,18 @@ import LocationMap from "./LocationMap";
 import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import styles from "../../styles/home/locationPicker";
+import GreenButton from "../UIComponents/GreenButton";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  latitude: number,
-  longitude: number,
-  location: string,
-  updateLocation: Function,
-  toggleLocationPicker: Function
+  +latitude: number,
+  +longitude: number,
+  +location: string,
+  +updateLocation: Function,
+  +toggleLocationPicker: Function
 }
 
 class LocationPicker extends Component<Props> {
@@ -53,7 +55,11 @@ class LocationPicker extends Component<Props> {
   onRegionChange( region ) {
     this.setState( {
       region
-    }, () => this.reverseGeocodeLocation( region.latitude, region.longitude ) );
+    }, () => {
+      if ( Platform.OS === "android" ) {
+        this.reverseGeocodeLocation( region.latitude, region.longitude );
+      }
+    } );
   }
 
   setLocationUndefined() {
@@ -123,51 +129,53 @@ class LocationPicker extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <View style={styles.header}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              style={styles.backButton}
-              onPress={() => toggleLocationPicker()}
-            >
-              <Image
-                source={icons.backButton}
-                style={styles.image}
-              />
-            </TouchableOpacity>
-            <View style={styles.textContainer}>
-              <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
-            </View>
-            <View style={styles.row}>
-              <Image source={icons.locationWhite} />
-              <TextInput
-                style={styles.inputField}
-                placeholder={location}
-                autoCapitalize="words"
-                textContentType="addressCity"
-                onChangeText={text => this.setCoordsByLocationName( text )}
-              />
-            </View>
+        <SafeAreaView />
+        <View style={styles.header}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleLocationPicker()}
+            style={styles.backButton}
+          >
+            <Image
+              source={icons.backButton}
+              style={styles.image}
+            />
+          </TouchableOpacity>
+          <View style={styles.textContainer}>
+            <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
           </View>
-          <View style={styles.mapContainer}>
-            <LocationMap
-              region={region}
-              onRegionChange={this.onRegionChange}
-              returnToUserLocation={this.returnToUserLocation}
+          <View style={styles.row}>
+            <Image source={icons.locationWhite} />
+            <TextInput
+              autoCapitalize="words"
+              onChangeText={text => this.setCoordsByLocationName( text )}
+              placeholder={location}
+              placeholderTextColor="#828282"
+              style={styles.inputField}
+              textContentType="addressCity"
             />
           </View>
-          <View style={styles.footer}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={() => updateLocation( truncateCoordinates( region.latitude ), truncateCoordinates( region.longitude ), location )}
-            >
-              <Text style={styles.buttonText}>
-                {i18n.t( "location_picker.button" ).toLocaleUpperCase()}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </SafeAreaView>
+        </View>
+        <View style={styles.mapContainer}>
+          <LocationMap
+            onRegionChange={this.onRegionChange}
+            region={region}
+            returnToUserLocation={this.returnToUserLocation}
+          />
+        </View>
+        <View style={styles.footer}>
+          <View style={styles.margin} />
+          <GreenButton
+            handlePress={() => {
+              updateLocation(
+                truncateCoordinates( region.latitude ),
+                truncateCoordinates( region.longitude )
+              );
+            }}
+            letterSpacing={0.68}
+            text={i18n.t( "location_picker.button" ).toLocaleUpperCase()}
+          />
+        </View>
       </View>
     );
   }

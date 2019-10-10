@@ -29,7 +29,7 @@ const NoChallenges = ( { navigation }: Props ) => (
         </TouchableOpacity>
       </View>
       <View style={styles.noChallengeContainer}>
-        <View style={styles.noChallengeRow}>
+        <View style={styles.row}>
           <Image source={icons.completed} />
           <View style={styles.noChallengeTextContainer}>
             <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>

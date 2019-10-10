@@ -4,10 +4,8 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  FlatList,
   Image,
-  ScrollView,
-  SafeAreaView
+  ScrollView
 } from "react-native";
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
@@ -18,12 +16,14 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Padding from "../Padding";
-import GreenHeader from "../GreenHeader";
+import Padding from "../UIComponents/Padding";
+import GreenHeader from "../UIComponents/GreenHeader";
+import GreenText from "../UIComponents/GreenText";
+import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ChallengeScreen extends Component<Props> {
@@ -98,23 +98,18 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.in_progress" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()} />
         </View>
         {challengesStarted.length > 0 ? (
           <View>
-            <FlatList
-              data={challengesStarted}
-              keyExtractor={( item, i ) => `${item}${i}`}
-              renderItem={( { item } ) => (
-                <ChallengeProgressCard
-                  item={item}
-                  navigation={navigation}
-                />
-              )}
-            />
-            <View style={{ marginTop: 23 }} />
+            {challengesStarted.map( ( item, index ) => (
+              <ChallengeProgressCard
+                key={`${item}${index}`}
+                item={item}
+                navigation={navigation}
+              />
+            ) )}
+            <View style={styles.margin} />
           </View>
         ) : (
           <View style={styles.noChallengeContainer}>
@@ -132,24 +127,19 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.not_started" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()} />
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
-            <FlatList
-              data={challengesNotStarted}
-              keyExtractor={( item, i ) => `${item}${i}`}
-              renderItem={( { item } ) => (
-                <ChallengeProgressCard
-                  item={item}
-                  navigation={navigation}
-                  fetchChallenges={this.fetchChallenges}
-                />
-              )}
-            />
-            <View style={{ marginTop: 23 }} />
+            {challengesNotStarted.map( ( item, index ) => (
+              <ChallengeProgressCard
+                key={`${item}${index}`}
+                fetchChallenges={this.fetchChallenges}
+                item={item}
+                navigation={navigation}
+              />
+            ) )}
+            <View style={styles.margin} />
           </View>
         ) : (
           <View style={styles.noChallengeContainer}>
@@ -168,21 +158,16 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <Text style={styles.headerText}>
-            {i18n.t( "challenges.completed" ).toLocaleUpperCase()}
-          </Text>
+          <GreenText text={i18n.t( "challenges.completed" ).toLocaleUpperCase()} />
         </View>
         {challengesCompleted.length > 0 ? (
-          <FlatList
-            data={challengesCompleted}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            renderItem={( { item } ) => (
-              <ChallengeProgressCard
-                item={item}
-                navigation={navigation}
-              />
-            )}
-          />
+          challengesCompleted.map( ( item, index ) => (
+            <ChallengeProgressCard
+              key={`${item}${index}`}
+              item={item}
+              navigation={navigation}
+            />
+          ) )
         ) : (
           <View style={styles.noChallengeContainer}>
             <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_completed_challenges" )}</Text>
@@ -200,37 +185,33 @@ class ChallengeScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <SafeAreaView style={styles.safeView}>
-          <GreenHeader
-            navigation={navigation}
-            header={i18n.t( "challenges.header" )}
-            route="Main"
+        <SafeAreaView />
+        <GreenHeader
+          header={i18n.t( "challenges.header" )}
+          navigation={navigation}
+          route="Main"
+        />
+        <ScrollView>
+          <NavigationEvents
+            onWillFocus={ () => {
+              recalculateChallenges();
+              this.fetchChallenges();
+            }}
           />
-          <ScrollView>
-            <NavigationEvents
-              onWillFocus={ () => {
-                recalculateChallenges();
-                this.fetchChallenges();
-              }}
-            />
-            {noChallenges ? (
-              <View style={[styles.noChallengeContainer, { height: 182 }]}>
-                <View style={styles.noChallengeRow}>
-                  <Image source={icons.completed} />
-                  <View style={styles.noChallengeTextContainer}>
-                    <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
-                    <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
-                  </View>
-                </View>
+          {noChallenges ? (
+            <View style={[styles.noChallengeContainer, styles.row, { height: 182 }]}>
+              <Image source={icons.completed} />
+              <View style={styles.noChallengeTextContainer}>
+                <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
+                <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
               </View>
-            ) : null}
-            {noChallenges ? null : this.renderChallengesStarted()}
-            {noChallenges ? null : this.renderChallengesNotStarted()}
-            {this.renderChallengesCompleted()}
-            <Padding />
-          </ScrollView>
-        </SafeAreaView>
+            </View>
+          ) : null}
+          {noChallenges ? null : this.renderChallengesStarted()}
+          {noChallenges ? null : this.renderChallengesNotStarted()}
+          {this.renderChallengesCompleted()}
+          <Padding />
+        </ScrollView>
       </View>
     );
   }

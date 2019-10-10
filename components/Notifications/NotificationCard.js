@@ -14,22 +14,22 @@ import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 
 type Props = {
-  navigation: any,
-  item: Object
+  +navigation: any,
+  +item: Object
 }
 
 const NotificationCard = ( { navigation, item }: Props ) => (
   <View>
     <TouchableOpacity
-      style={styles.card}
       onPress={() => {
         if ( item.nextScreen === "ChallengeDetails" ) {
           setChallengeIndex( item.challengeIndex );
         }
         navigation.navigate( item.nextScreen );
       }}
+      style={[styles.card, styles.row]}
     >
-      <Image style={styles.image} source={notifications[item.iconName]} />
+      <Image source={notifications[item.iconName]} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
           {i18n.t( item.title )}

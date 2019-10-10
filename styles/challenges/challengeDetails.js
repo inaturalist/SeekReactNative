@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Platform,
   Dimensions,
   PixelRatio
 } from "react-native";
@@ -10,97 +9,38 @@ import {
   touchable
 } from "../global";
 
-const { width } = Dimensions.get( "window" );
+const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    backgroundColor: colors.white
-  },
-  modalContainer: {
-    backgroundColor: "rgba(0,0,0,0.5)"
-  },
-  modalView: {
-    flex: 1,
-    justifyContent: "center",
-    paddingLeft: 20,
-    paddingRight: 20,
-    alignItems: "center"
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.black
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  badge: {
+    height: 105,
+    resizeMode: "contain",
+    width: 93
   },
   challengeBackground: {
     height: 405
   },
-  header: {
-    height: 85
-  },
-  backButton: {
-    top: 18,
-    marginLeft: 23
-  },
-  image: {
-    padding: 5
-  },
-  logo: {
-    alignSelf: "center",
-    height: 58,
-    width: 116,
-    resizeMode: "contain"
-  },
   challengeHeader: {
-    marginLeft: 32,
+    color: colors.white,
     fontFamily: fonts.light,
     fontSize: ( fontScale > 1 ) ? 16 : 18,
-    color: colors.white,
-    letterSpacing: 0.78
+    letterSpacing: 0.78,
+    marginLeft: 32
   },
   challengeName: {
-    marginTop: 5,
-    marginHorizontal: 32,
+    color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0,
-    color: colors.white
-  },
-  badge: {
-    width: 93,
-    height: 105,
-    resizeMode: "contain"
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    marginHorizontal: 38,
-    marginTop: ( fontScale > 1 ) ? 15 : 21,
-    marginBottom: ( fontScale > 1 ) ? 20 : 28
-  },
-  text: {
-    textAlign: "center",
-    maxWidth: width - ( 105 + 28 + 76 ),
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 ) ? null : 25,
-    marginLeft: 26
-  },
-  missionContainer: {
-    flex: 1
+    marginHorizontal: 32,
+    marginTop: 5
   },
   descriptionContainer: {
     alignItems: "center",
-    marginTop: 21,
     backgroundColor: colors.white,
-    marginHorizontal: 36
+    marginHorizontal: 36,
+    marginTop: 21
   },
   descriptionText: {
     color: colors.black,
@@ -108,45 +48,59 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
+  image: {
+    padding: 5
+  },
+  logo: {
+    alignSelf: "center",
+    height: 58,
+    resizeMode: "contain",
+    width: 116
+  },
+  marginHorizontal: {
+    marginHorizontal: 36
+  },
+  missionContainer: {
+    flex: 1
+  },
   photographerText: {
-    textAlign: "center",
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21,
-    marginBottom: 25
+    marginBottom: 25,
+    textAlign: "center"
   },
-  greenButton: {
-    marginHorizontal: 42,
+  row: {
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekGreen,
-    borderRadius: 24,
-    height: 46
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "flex-start",
+    marginBottom: ( fontScale > 1 ) ? 20 : 28,
+    marginTop: ( fontScale > 1 ) ? 15 : 21
   },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.12,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    fontSize: 18,
-    color: colors.white
+  safeViewTop: {
+    backgroundColor: colors.black,
+    flex: 0
   },
+  secondHeader: {
+    marginLeft: 35,
+    marginTop: 21
+  },
+  text: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: ( fontScale > 1 || height < 570 ) ? 14 : 16,
+    lineHeight: ( fontScale > 1 || height < 570 ) ? null : 25,
+    marginLeft: 26,
+    maxWidth: width - ( 105 + 28 + 74 ),
+    textAlign: "center"
+  },
+  touchable,
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,
     fontSize: 16,
     textDecorationLine: "underline"
-  },
-  touchable,
-  secondHeader: {
-    marginTop: 21,
-    marginLeft: 35
-  },
-  headerText: {
-    textAlign: "left",
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12
   }
 } );

@@ -1,88 +1,54 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  outerContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+  center: {
+    alignItems: "center"
   },
-  innerContainer: {
-    borderRadius: 40,
-    alignItems: "center",
-    width: 338,
-    backgroundColor: colors.white
+  centerSelf: {
+    alignSelf: "center"
+  },
+  container: {
+    marginBottom: 32,
+    marginHorizontal: 20,
+    marginTop: 37
   },
   image: {
-    marginBottom: 25,
     height: width / 2,
     justifyContent: "center",
+    marginBottom: 25,
     width: width / 2
   },
   imageStyle: {
     resizeMode: "contain"
   },
-  headerText: {
-    marginHorizontal: 27,
-    marginBottom: 9,
-    textAlign: "center",
-    fontSize: 19,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1.12,
-    lineHeight: 24
-  },
-  backButton: {
-    marginTop: 15,
-    padding: 10,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
-  },
-  nameText: {
-    marginTop: 6,
-    marginHorizontal: 27,
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black
+  innerContainer: {
+    backgroundColor: colors.white,
+    borderRadius: 40
   },
   italicText: {
-    maxWidth: 256,
-    marginTop: 16,
-    marginBottom: 16,
-    marginHorizontal: 27,
-    textAlign: "center",
+    color: colors.black,
     fontFamily: fonts.bookItalic,
     fontSize: 16,
     lineHeight: 25,
-    color: colors.black
+    marginBottom: 16,
+    marginHorizontal: 27,
+    marginTop: 16,
+    maxWidth: 256,
+    textAlign: "center"
   },
-  greenButton: {
-    marginTop: 37,
-    marginBottom: 32,
-    backgroundColor: colors.seekForestGreen,
-    width: 293,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
+  nameText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginHorizontal: 34,
+    marginTop: 9,
+    textAlign: "center"
   }
 } );

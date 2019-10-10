@@ -2,34 +2,30 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding
+  center,
+  row
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  badgeIcon: {
+    height: width / 4,
+    resizeMode: "contain",
+    width: width / 4
+  },
+  center,
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  gridCell: {
+    height: width / 4,
+    marginHorizontal: 6,
+    width: width / 4
   },
   header: {
-    height: 203,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  levelImage: {
-    width: 117,
-    height: 117,
-    resizeMode: "contain"
-  },
-  textContainer: {
-    width: 167,
-    marginLeft: 24
+    height: 203
   },
   headerText: {
     color: colors.white,
@@ -37,88 +33,39 @@ export default StyleSheet.create( {
     fontSize: 23,
     letterSpacing: 1.0
   },
+  levelImage: {
+    height: 117,
+    resizeMode: "contain",
+    width: 117
+  },
   lightText: {
-    marginBottom: 10,
+    color: colors.white,
     fontFamily: fonts.light,
-    color: colors.white,
-    letterSpacing: 0.78,
-    fontSize: 18
-  },
-  text: {
-    marginTop: 7,
-    fontFamily: fonts.book,
-    color: colors.white,
-    lineHeight: 21,
-    fontSize: 16
-  },
-  secondTextContainer: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  badgesContainer: {
-    marginHorizontal: 26,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  badgeIcon: {
-    width: width / 4,
-    height: width / 4,
-    resizeMode: "contain"
-  },
-  gridCell: {
-    width: width / 4,
-    height: width / 4,
-    marginHorizontal: 6
-  },
-  stats: {
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  secondHeaderText: {
-    textAlign: "center",
-    marginHorizontal: 23,
     fontSize: 18,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    lineHeight: 24,
-    letterSpacing: 1.0
+    letterSpacing: 0.78,
+    marginBottom: 10
   },
   number: {
-    marginTop: 10,
-    textAlign: "center",
-    fontSize: 22,
+    color: colors.black,
     fontFamily: fonts.light,
-    color: colors.black
+    fontSize: 22,
+    marginTop: 10,
+    textAlign: "center"
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+  row,
+  secondHeaderText: {
+    marginHorizontal: 23,
+    maxWidth: 150
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  text: {
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 7
   },
-  iosSpacer: {
-    backgroundColor: "#22784d",
-    height: 1000,
-    position: "absolute",
-    top: -1000,
-    left: 0,
-    right: 0
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: 293,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
+  textContainer: {
+    marginLeft: 24,
+    width: 167
   }
 } );

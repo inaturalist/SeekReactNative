@@ -2,140 +2,119 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  padding,
   touchable
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  backButton: {
+    left: 23,
+    top: 28
+  },
   container: {
     flex: 1
   },
-  backButton: {
-    top: 28,
-    left: 23
+  footer: {
+    backgroundColor: colors.white,
+    height: height > 670 ? 130 : 86,
+    marginHorizontal: 23
   },
-  touchable,
-  image: {
-    padding: 5
+  greenCircle: {
+    backgroundColor: colors.seekGreen,
+    borderRadius: 281 / 2,
+    height: 281,
+    opacity: 0.33,
+    width: 281
   },
   header: {
     backgroundColor: colors.seekForestGreen
   },
-  textContainer: {
-    top: 10,
-    alignSelf: "center"
-  },
   headerText: {
-    fontSize: 18,
     color: colors.white,
-    letterSpacing: 1.0,
     fontFamily: fonts.semibold,
+    fontSize: 18,
+    letterSpacing: 1.0,
     marginBottom: 16
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
+  image: {
+    padding: 5
+  },
+  inputField: {
+    backgroundColor: colors.white,
+    borderRadius: 40,
+    color: colors.black,
+    fontFamily: fonts.medium,
+    fontSize: 15,
+    height: 37,
+    paddingBottom: 0,
+    paddingLeft: 20,
+    paddingTop: 0,
+    width: "91%"
+  },
+  locationIcon: {
     alignItems: "center",
-    marginHorizontal: 23,
-    marginTop: 15,
-    marginBottom: 15
+    backgroundColor: colors.white,
+    borderColor: colors.white,
+    borderRadius: 50 / 2,
+    height: 50,
+    justifyContent: "center",
+    marginBottom: 19,
+    marginRight: 19,
+    width: 50
+  },
+  locationRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap"
+  },
+  map: {
+    bottom: 0,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    top: 0
   },
   mapContainer: {
     flexGrow: 1
   },
-  map: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0
+  margin: {
+    marginTop: 15
   },
   markerFixed: {
-    marginTop: 64,
+    alignItems: "center",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
-  },
-  pinFixed: {
-    marginRight: 15,
-    marginTop: 55,
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
+    marginTop: 64
   },
   markerPin: {
-    width: 23,
     height: 33,
-    position: "absolute"
+    position: "absolute",
+    width: 23
   },
-  greenCircle: {
-    width: 281,
-    height: 281,
-    backgroundColor: colors.seekGreen,
-    opacity: 0.33,
-    borderRadius: 281 / 2
+  pinFixed: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+    marginRight: 15,
+    marginTop: 55
   },
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    marginBottom: 15,
+    marginHorizontal: 23,
+    marginTop: 15
+  },
+  textContainer: {
+    alignSelf: "center",
+    top: 10
+  },
+  touchable,
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"
-  },
-  locationIcon: {
-    marginRight: 19,
-    marginBottom: 19,
-    backgroundColor: colors.white,
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: colors.white
-  },
-  footer: {
-    backgroundColor: colors.white,
-    height: height > 670 ? 130 : 86
-  },
-  button: {
-    backgroundColor: colors.seekForestGreen,
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 22,
-    marginBottom: 15,
-    marginTop: 15,
-    height: 46,
-    borderRadius: 40
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    color: colors.white,
-    letterSpacing: 0.7
-  },
-  locationRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  inputField: {
-    paddingTop: 0,
-    paddingBottom: 0,
-    width: "91%",
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40,
-    paddingLeft: 20,
-    fontFamily: fonts.medium,
-    fontSize: 15
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
   }
 } );

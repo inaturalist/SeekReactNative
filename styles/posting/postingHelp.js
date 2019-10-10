@@ -1,66 +1,54 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { colors, fonts, row } from "../global";
 
 export default StyleSheet.create( {
+  boldText: {
+    color: colors.black,
+    fontFamily: fonts.semibold,
+    fontSize: 16,
+    lineHeight: 21
+  },
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
+  },
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 17,
+    justifyContent: "center",
+    letterSpacing: 1,
+    marginLeft: 21,
+    paddingTop: Platform.OS === "ios" ? 6 : 0
   },
   icon: {
     height: 32,
-    width: 32,
-    resizeMode: "contain"
+    resizeMode: "contain",
+    width: 32
   },
-  headerText: {
-    paddingTop: Platform.OS === "ios" ? 6 : 0,
-    justifyContent: "center",
-    marginLeft: 21,
-    fontSize: 17,
-    fontFamily: fonts.semibold,
-    color: colors.seekForestGreen,
-    letterSpacing: 1
-  },
-  textContainer: {
-    marginTop: 30,
-    backgroundColor: colors.white,
-    marginHorizontal: 27
+  italicText: {
+    color: colors.black,
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21,
+    marginHorizontal: 20,
+    textAlign: "center"
   },
   paragraph: {
     marginBottom: 16
   },
+  row,
   text: {
-    marginTop: 16,
+    color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    color: colors.black,
-    marginBottom: 35
+    marginBottom: 35,
+    marginTop: 16
   },
-  boldText: {
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black
-  },
-  italicText: {
-    textAlign: "center",
-    marginHorizontal: 20,
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center"
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  textContainer: {
+    backgroundColor: colors.white,
+    marginHorizontal: 27,
+    marginTop: 30
   }
 } );

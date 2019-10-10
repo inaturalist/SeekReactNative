@@ -8,45 +8,45 @@ import {
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
-  galleryError: {
-    flex: 1,
-    backgroundColor: colors.black,
+  blackBackground: {
     alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: colors.black,
+    height: "100%",
+    justifyContent: "center",
+    width: "100%"
+  },
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 16,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSPadding
   },
   cameraError: {
     position: "absolute",
     top: height / 2 - 50
   },
   errorText: {
-    textAlign: "center",
-    marginHorizontal: 41,
+    color: colors.white,
+    fontFamily: fonts.medium,
     fontSize: 19,
     lineHeight: 24,
-    fontFamily: fonts.medium,
-    color: colors.white
+    marginHorizontal: 41,
+    textAlign: "center"
   },
-  blackBackground: {
-    width: "100%",
-    height: "100%",
+  galleryError: {
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.black
+    backgroundColor: colors.black,
+    flex: 1,
+    justifyContent: "center"
   },
   greenButton: {
-    marginTop: 38,
+    alignItems: "center",
     backgroundColor: colors.seekForestGreen,
-    width: 323,
-    height: 42,
     borderRadius: 34,
+    height: 42,
     justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    letterSpacing: 1.0,
-    color: colors.white
+    marginTop: 38,
+    width: 323
   }
 } );

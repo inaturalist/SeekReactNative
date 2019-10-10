@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/signup/error";
 
 type Props = {
-  error: string
+  +error: string
 }
 
 const ErrorMessage = ( { error }: Props ) => {
@@ -27,7 +27,7 @@ const ErrorMessage = ( { error }: Props ) => {
     message = error;
   }
   return (
-    <View style={[styles.errorMargin, error === "email" && { marginTop: 16 }]}>
+    <View style={styles.errorMargin}>
       <Image source={posting.error} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.text}>{message}</Text>

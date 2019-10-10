@@ -14,17 +14,17 @@ import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const Footer = ( { navigation }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
-      <View style={styles.navbar}>
+      <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          style={styles.button}
           onPress={() => navigation.openDrawer()}
+          style={styles.button}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
@@ -33,7 +33,6 @@ const Footer = ( { navigation }: Props ) => (
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          style={styles.button}
           onPress={() => {
             if ( navigation.state ) {
               if ( navigation.state.routeName !== "iNatStats" ) {
@@ -41,6 +40,7 @@ const Footer = ( { navigation }: Props ) => (
               }
             }
           }}
+          style={styles.button}
         >
           <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
         </TouchableOpacity>

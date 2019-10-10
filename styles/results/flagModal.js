@@ -8,97 +8,104 @@ import {
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
-  innerContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderBottomLeftRadius: 40,
-    backgroundColor: colors.white,
-    overflow: "hidden"
+  buttonText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: ( fontScale > 1 ) ? 16 : 18,
+    letterSpacing: 1.0,
+    paddingTop: Platform.OS === "ios" ? 7 : 0,
+    textAlign: "center"
   },
-  flagHeaderContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    overflow: "visible"
+  flagBackButton: {
+    marginLeft: 33,
+    marginRight: 29
+  },
+  flagButton: {
+    alignItems: "center",
+    borderRadius: 40,
+    height: 46,
+    justifyContent: "center",
+    width: 243
+  },
+  flagButtonContainer: {
+    marginHorizontal: 22,
+    marginTop: 20
+  },
+  flagContainer: {
+    alignItems: "center",
+    marginHorizontal: 22
   },
   flagHeader: {
-    borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
     height: 167,
     overflow: "visible"
   },
-  flagButtonContainer: {
-    marginTop: 20,
-    marginHorizontal: 22
-  },
-  imageContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    flexWrap: "nowrap"
+  flagImageCell: {
+    borderRadius: 129 / 2,
+    height: 129,
+    width: 129
   },
   flagTextContainer: {
-    marginTop: 15,
+    alignItems: "center",
     flexDirection: "row",
-    alignItems: "center",
+    flexWrap: "nowrap",
     justifyContent: "flex-end",
-    flexWrap: "nowrap"
+    marginTop: 15
   },
-  flagImageCell: {
-    width: 129,
-    height: 129,
-    borderRadius: 129 / 2
-  },
-  flagContainer: {
-    marginHorizontal: 22,
-    alignItems: "center"
-  },
-  speciesText: {
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 30,
-    lineHeight: 35,
-    color: colors.black,
-    marginBottom: 8
-  },
-  text: {
-    width: 292,
-    fontSize: 16,
-    lineHeight: 21,
-    textAlign: "center",
-    color: colors.black,
-    fontFamily: fonts.book
-  },
-  flagButton: {
-    width: 243,
-    height: 46,
-    borderRadius: 40,
+  imageContainer: {
     alignItems: "center",
-    justifyContent: "center"
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-around"
   },
-  largeFlagButton: {
-    backgroundColor: "#973838",
-    width: 278,
-    height: 79,
-    borderRadius: 40,
-    alignItems: "center",
-    justifyContent: "center"
+  innerContainer: {
+    backgroundColor: colors.white,
+    borderBottomLeftRadius: 40,
+    borderBottomRightRadius: 40,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40,
+    overflow: "hidden"
   },
   largeButtonHeight: {
     flexWrap: "wrap",
     lineHeight: ( fontScale > 1 ) ? 14 : 24
   },
-  buttonText: {
-    textAlign: "center",
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    color: colors.white,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
-    letterSpacing: 1.0
+  largeFlagButton: {
+    alignItems: "center",
+    backgroundColor: colors.red,
+    borderRadius: 40,
+    height: 79,
+    justifyContent: "center",
+    width: 278
   },
-  flagBackButton: {
-    marginLeft: 33,
-    marginRight: 29
+  marginLarge: {
+    marginTop: 45
+  },
+  marginMedium: {
+    marginTop: 32
+  },
+  marginSmall: {
+    marginTop: 16
+  },
+  paddingSmall: {
+    paddingTop: 9
+  },
+  speciesText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 30,
+    lineHeight: 35,
+    marginBottom: 8,
+    textAlign: "center"
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center",
+    width: 292
   },
   touchable
 } );

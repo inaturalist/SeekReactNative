@@ -1,187 +1,140 @@
 import { StyleSheet, Platform, Dimensions } from "react-native";
 
-import { fonts, colors, padding } from "../global";
+import {
+  fonts,
+  colors,
+  row,
+  center,
+  dimensions
+} from "../global";
 
 const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  center,
+  clickableText: {
+    bottom: 10,
+    left: 10,
+    right: 10,
+    top: 10
+  },
   container: {
     flex: 1
   },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
+  descriptionText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21
   },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
+  flexCenter: {
+    flexGrow: 1,
+    justifyContent: "center"
   },
-  innerContainer: {
+  forgotPasswordText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textDecorationLine: "underline"
+  },
+  greenButtonMargin: {
+    marginTop: dimensions.height < 570 ? 10 : 51
+  },
+  greenHeader: {
     alignItems: "center",
+    backgroundColor: colors.seekForestGreen,
+    height: 55,
     justifyContent: "center"
   },
   greenHeaderText: {
-    marginTop: 22,
-    textAlign: "center",
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 23,
+    letterSpacing: 1.0,
     lineHeight: 30,
-    letterSpacing: 1.0
-  },
-  inputField: {
-    width: 307,
-    backgroundColor: colors.white,
-    height: 37,
-    borderRadius: 40,
-    borderWidth: 1,
-    borderColor: colors.darkGray,
-    paddingLeft: 15
-  },
-  greenButton: {
-    backgroundColor: colors.seekForestGreen,
-    width: 317,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  buttonText: {
-    paddingTop: padding.iOSPadding,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    color: colors.white
-  },
-  image: {
-    width: height < 570 ? 150 : 264,
-    height: height < 570 ? 150 : 264,
-    resizeMode: "contain",
-    marginTop: 36,
-    marginBottom: 44
-  },
-  headerText: {
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 23,
-    letterSpacing: 1.0
-  },
-  greenHeader: {
-    height: 55,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekForestGreen
-  },
-  loginSuccessHeaderText: {
-    fontSize: 18,
-    color: colors.white,
-    letterSpacing: 1.0,
-    fontFamily: fonts.semibold
+    marginTop: 22,
+    textAlign: "center"
   },
   header: {
-    textAlign: "center",
     color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 19,
-    lineHeight: 24
+    lineHeight: 24,
+    textAlign: "center"
   },
-  secondHeaderTextContainer: {
-    marginTop: 11,
-    marginHorizontal: 25
+  headerText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 23,
+    letterSpacing: 1.0,
+    textAlign: "center"
   },
-  text: {
-    textAlign: "center",
+  image: {
+    height: height < 570 ? 150 : 264,
+    marginBottom: 44,
+    marginTop: 36,
+    resizeMode: "contain",
+    width: height < 570 ? 150 : 264
+  },
+  leftTextMargins: {
+    marginBottom: 8,
+    marginLeft: height > 570 ? 39 : 25,
+    marginTop: 16
+  },
+  linkedAccountHeader: {
+    color: colors.black,
     fontFamily: fonts.medium,
-    fontSize: 17,
-    lineHeight: 19,
-    color: colors.white
+    fontSize: 22,
+    lineHeight: 28,
+    marginBottom: 29,
+    marginTop: 26,
+    maxWidth: 313,
+    textAlign: "center"
   },
-  leftTextContainer: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignSelf: "flex-start",
-    marginLeft: 39,
-    marginTop: 16,
-    marginBottom: 8
-  },
-  leftText: {
+  loginSuccessHeaderText: {
+    color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    color: colors.seekForestGreen
-  },
-  rightTextContainer: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignSelf: "flex-end",
-    marginRight: 41,
-    marginTop: 11
+    letterSpacing: 1.0
   },
   margin: {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
   },
-  greenButtonMargin: {
-    marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 28
-  },
-  textLink: {
-    marginTop: 26,
-    fontFamily: fonts.book,
-    fontSize: 17,
-    color: colors.black,
-    textDecorationLine: "underline"
-  },
-  clickableText: {
-    left: 10,
-    right: 10,
-    top: 10,
-    bottom: 10
-  },
-  forgotPasswordText: {
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.seekForestGreen,
-    textDecorationLine: "underline"
-  },
-  secondHeaderText: {
-    textAlign: "center",
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    color: colors.white,
-    lineHeight: 24
-  },
-  row: {
+  rightTextContainer: {
+    alignSelf: "flex-end",
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center"
+    marginRight: 41,
+    marginTop: 11
+  },
+  row,
+  secondHeaderText: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 19,
+    lineHeight: 24,
+    textAlign: "center"
+  },
+  secondHeaderTextContainer: {
+    marginHorizontal: 25,
+    marginTop: 11
+  },
+  text: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 17,
+    lineHeight: 19,
+    textAlign: "center"
   },
   textContainer: {
     marginHorizontal: 31
   },
-  linkedAccountHeader: {
-    marginTop: 26,
-    marginBottom: 29,
-    textAlign: "center",
-    maxWidth: 313,
-    fontFamily: fonts.medium,
-    fontSize: 22,
-    lineHeight: 28,
-    color: colors.black
-  },
-  smallGreenHeaderText: {
-    marginBottom: 5,
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 1.0
-  },
-  descriptionText: {
+  textLink: {
+    color: colors.black,
     fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    color: colors.black
+    fontSize: 17,
+    marginTop: 26,
+    textDecorationLine: "underline"
   }
 } );

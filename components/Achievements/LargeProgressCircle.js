@@ -12,20 +12,20 @@ import { colors } from "../../styles/global";
 import { calculatePercent } from "../../utility/challengeHelpers";
 
 type Props = {
-  badge: Object,
-  iconicSpeciesCount: number
+  +badge: Object,
+  +iconicSpeciesCount: number
 }
 
 const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
   <View style={styles.center}>
     <ProgressCircle
+      bgColor={colors.white}
+      borderWidth={3}
+      color={colors.seekiNatGreen}
       outerCircleStyle={styles.circleStyle}
       percent={calculatePercent( iconicSpeciesCount, badge.count )}
       radius={113 / 2}
-      borderWidth={3}
-      color={colors.seekiNatGreen}
       shadowColor={colors.circleGray}
-      bgColor={colors.white}
     >
       <Text style={styles.circleText}>
         {iconicSpeciesCount}

@@ -1,108 +1,61 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  padding
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
+  badgeImage: {
+    height: 25,
+    resizeMode: "contain",
+    width: 22
+  },
   container: {
-    flex: 1,
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
+    flex: 1
   },
   headerRow: {
-    marginHorizontal: 25,
-    marginTop: 18,
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
     marginBottom: 23,
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between"
+    marginHorizontal: 25,
+    marginTop: 18
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
+  loadingWheel: {
     alignItems: "center",
+    flexGrow: 1,
     justifyContent: "center"
   },
   numberText: {
-    marginTop: Platform.OS === "ios" ? 4 : 0,
-    fontSize: 18,
-    fontFamily: fonts.light,
-    letterSpacing: 0.78,
     color: colors.black,
-    marginRight: 6
+    fontFamily: fonts.light,
+    fontSize: 18,
+    letterSpacing: 0.78,
+    marginRight: 6,
+    marginTop: Platform.OS === "ios" ? 4 : 0
   },
-  badgeImage: {
-    width: 22,
-    height: 25,
-    resizeMode: "contain"
+  row: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center"
   },
   secondHeaderText: {
-    marginTop: 4,
-    fontSize: 18,
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
-    letterSpacing: 1.0
+    fontSize: 18,
+    letterSpacing: 1.0,
+    marginTop: 4
+  },
+  text: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center"
   },
   textContainer: {
     alignItems: "center"
-  },
-  text: {
-    fontSize: 16,
-    fontFamily: fonts.book,
-    lineHeight: 21,
-    color: colors.black,
-    textAlign: "center"
-  },
-  noSpecies: {
-    marginHorizontal: 28,
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  noSpeciesHeaderText: {
-    textAlign: "center",
-    maxWidth: 279,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 1.0,
-    color: colors.seekForestGreen
-  },
-  noSpeciesText: {
-    marginTop: 24,
-    textAlign: "center",
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21
-  },
-  greenButton: {
-    marginTop: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 24,
-    width: "94%",
-    height: 46
-  },
-  buttonText: {
-    fontFamily: fonts.semibold,
-    letterSpacing: 1.12,
-    paddingTop: padding.iOSPadding,
-    fontSize: 18,
-    color: colors.white
-  },
-  loadingWheel: {
-    flexGrow: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  safeViewTop: {
-    flex: 0,
-    backgroundColor: colors.seekForestGreen
-  },
-  safeView: {
-    flex: 1,
-    backgroundColor: "transparent"
   }
 } );

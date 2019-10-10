@@ -1,65 +1,53 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
-  image: {
-    width,
-    height: 250,
-    resizeMode: "contain"
-  },
-  photoOverlay: {
-    zIndex: 1,
-    position: "absolute",
-    right: 20,
-    bottom: 20
-  },
   ccButton: {
     backgroundColor: colors.black,
+    borderRadius: 40,
     opacity: 1,
-    paddingHorizontal: 5,
-    paddingTop: Platform.OS === "ios" ? 8 : 5,
     paddingBottom: Platform.OS === "ios" ? 3 : 5,
-    borderRadius: 40
+    paddingHorizontal: 5,
+    paddingTop: Platform.OS === "ios" ? 8 : 5
   },
   ccButtonText: {
+    color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 16,
-    color: colors.white
-  },
-  backButton: {
-    zIndex: 1,
-    position: "absolute",
-    left: 23,
-    top: 28
-  },
-  photoContainer: {
-    height: 250,
-    backgroundColor: colors.black
+    fontSize: 16
   },
   fullWidth: {
     width
   },
-  loading: {
-    justifyContent: "center",
-    alignItems: "center"
+  image: {
+    height: 250,
+    resizeMode: "contain",
+    width
   },
   leftArrow: {
-    zIndex: 1,
+    left: 5,
     position: "absolute",
     top: 120,
-    left: 5
+    zIndex: 1
+  },
+  photoContainer: {
+    backgroundColor: colors.black,
+    height: 250
+  },
+  photoOverlay: {
+    bottom: 20,
+    position: "absolute",
+    right: 20,
+    zIndex: 1
   },
   rightArrow: {
-    zIndex: 1,
     position: "absolute",
+    right: 5,
     top: 120,
-    right: 5
-  },
-  touchable
+    zIndex: 1
+  }
 } );

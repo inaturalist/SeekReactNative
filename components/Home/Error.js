@@ -16,60 +16,53 @@ import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
-  error: string,
-  requestAndroidPermissions: Function
+  +error: string,
+  +requestAndroidPermissions: Function
 }
 
 const Error = ( {
   error,
   requestAndroidPermissions
-}: Props ) => (
-  <ImageBackground style={styles.background} source={backgrounds.noSpeciesNearby}>
-    <TouchableOpacity
-      onPress={() => requestAndroidPermissions()}
+}: Props ) => {
+  let text;
+
+  if ( error === "location_device" ) {
+    text = i18n.t( "species_nearby.location_device" );
+  } else if ( error === "no_gps" ) {
+    text = i18n.t( "species_nearby.no_gps" );
+  } else if ( error === "location_timeout" ) {
+    text = i18n.t( "species_nearby.location_timeout" );
+  } else if ( error === "location" ) {
+    text = i18n.t( "species_nearby.location_error" );
+  } else if ( error === "internet" ) {
+    text = i18n.t( "species_nearby.internet_error" );
+  }
+
+  return (
+    <ImageBackground
+      source={backgrounds.noSpeciesNearby}
+      style={[styles.background, styles.center]}
     >
-      {error === "location_device" ? (
+      <TouchableOpacity
+        onPress={() => requestAndroidPermissions()}
+      >
         <View style={styles.row}>
-          <Image source={icons.error} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.location_device" )}</Text>
+          <Image source={error === "internet" ? icons.internet : icons.error} />
+          <Text style={styles.text}>{text}</Text>
         </View>
-      ) : null}
-      {error === "no_gps" ? (
-        <View style={styles.row}>
-          <Image source={icons.error} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.no_gps" )}</Text>
-        </View>
-      ) : null}
-      {error === "location_timeout" ? (
-        <View style={styles.row}>
-          <Image source={icons.error} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.location_timeout" )}</Text>
-        </View>
-      ) : null}
-      {error === "location" ? (
-        <View style={styles.row}>
-          <Image source={icons.error} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.location_error" )}</Text>
-        </View>
-      ) : null}
-      {error === "internet" ? (
-        <View style={styles.row}>
-          <Image source={icons.internet} />
-          <Text style={styles.text}>{i18n.t( "species_nearby.internet_error" )}</Text>
-        </View>
-      ) : null}
-      {error === "location" ? (
-        <TouchableOpacity
-          style={styles.greenButton}
-          onPress={() => OpenSettings.openSettings()}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-      ) : null}
-    </TouchableOpacity>
-  </ImageBackground>
-);
+        {error === "location" ? (
+          <TouchableOpacity
+            onPress={() => OpenSettings.openSettings()}
+            style={styles.greenButton}
+          >
+            <Text style={styles.buttonText}>
+              {i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}
+            </Text>
+          </TouchableOpacity>
+        ) : null}
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+};
 
 export default Error;

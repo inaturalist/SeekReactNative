@@ -13,7 +13,7 @@ import Challenges from "./Challenges";
 import NoChallenges from "./NoChallenges";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 class ChallengeCard extends Component<Props> {
@@ -54,9 +54,8 @@ class ChallengeCard extends Component<Props> {
           onWillFocus={() => this.fetchLatestChallenge()}
         />
         {challenge
-          ? <Challenges navigation={navigation} challenge={challenge} />
-          : <NoChallenges navigation={navigation} />
-        }
+          ? <Challenges challenge={challenge} navigation={navigation} />
+          : <NoChallenges navigation={navigation} />}
       </View>
     );
   }

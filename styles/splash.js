@@ -1,59 +1,56 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  center
 } from "./global";
 
 const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backgroundImage: {
+    alignItems: "center",
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
-  },
-  header: {
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: "space-around"
   },
   banner: {
-    height: 106,
-    width,
+    alignItems: "center",
     backgroundColor: colors.white,
+    elevation: 10,
     flexDirection: "row",
     flexWrap: "nowrap",
-    alignItems: "center",
+    height: 106,
     justifyContent: "center",
-    elevation: 10,
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
-    shadowRadius: 1
+    shadowRadius: 1,
+    width
   },
-  image: {
-    width: 202,
-    height: 80,
-    resizeMode: "contain"
-  },
+  center,
   headerText: {
-    marginTop: 20,
+    color: colors.white,
     fontFamily: fonts.book,
     fontSize: 18,
-    color: colors.white,
-    letterSpacing: 5.62
+    letterSpacing: 5.62,
+    marginTop: 20
   },
-  text: {
-    fontSize: 17,
-    textAlign: "center",
-    color: colors.white,
-    fontFamily: fonts.medium,
-    marginHorizontal: 35
+  image: {
+    height: 80,
+    resizeMode: "contain",
+    width: 202
   },
   logo: {
-    width: 300,
     height: 113,
+    marginBottom: 25,
     resizeMode: "contain",
-    marginBottom: 25
+    width: 300
+  },
+  text: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 17,
+    marginHorizontal: 35,
+    textAlign: "center"
   }
 } );

@@ -12,7 +12,7 @@ import styles from "../../styles/onboarding";
 const { width, height } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const gradientColors = {
@@ -69,7 +69,7 @@ class Swiper extends Component<Props> {
   }
 
   updateIndex = ( offset ) => {
-    const state = this.state;
+    const { state } = this;
     const diff = offset - this.internals.offset;
     const step = state.width;
     let { index } = state;
@@ -97,7 +97,7 @@ class Swiper extends Component<Props> {
       onMomentumScrollEnd={this.onScrollEnd}
     >
       {pages.map( ( page, i ) => (
-        <View style={styles.contentContainer} key={`page-${i}`}>
+        <View key={`page-${i}`} style={styles.contentContainer}>
           {page}
         </View>
       ) )}
@@ -120,7 +120,7 @@ class Swiper extends Component<Props> {
     return (
       <View
         pointerEvents="none"
-        style={[styles.pagination]}
+        style={[styles.pagination, styles.center]}
       >
         {dots}
       </View>
@@ -132,14 +132,12 @@ class Swiper extends Component<Props> {
       colors={[colorTop, colorBottom]}
       style={styles.container}
     >
-      <View style={styles.container}>
-        {this.renderScrollView( children )}
-        {this.renderPagination()}
-        <Button
-          navigation={navigation}
-          index={index}
-        />
-      </View>
+      {this.renderScrollView( children )}
+      {this.renderPagination()}
+      <Button
+        index={index}
+        navigation={navigation}
+      />
     </LinearGradient>
   )
 }

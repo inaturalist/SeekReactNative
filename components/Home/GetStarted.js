@@ -23,41 +23,40 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
     accessible
     style={styles.container}
   >
-    <View style={styles.headerMargin}>
-      <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
-    </View>
-    <View style={styles.contentContainer}>
-      <View style={styles.row}>
-        <Image source={icons.cameraGreen} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_1" )}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.row}>
-        <Image source={icons.speciesNearby} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_2" )}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.row}>
-        <Image source={icons.birdBadge} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_3" )}
-          </Text>
-        </View>
+    <View style={styles.headerMargin} />
+    <GreenText center text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
+    <View style={styles.margin} />
+    <View style={styles.row}>
+      <Image source={icons.cameraGreen} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>
+          {i18n.t( "get_started.tip_1" )}
+        </Text>
       </View>
     </View>
-    <View style={styles.button}>
+    <View style={styles.row}>
+      <Image source={icons.speciesNearby} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>
+          {i18n.t( "get_started.tip_2" )}
+        </Text>
+      </View>
+    </View>
+    <View style={styles.row}>
+      <Image source={icons.birdBadge} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>
+          {i18n.t( "get_started.tip_3" )}
+        </Text>
+      </View>
+    </View>
+    <View style={[styles.button, styles.margin]}>
       <GreenButton
         handlePress={() => toggleGetStartedModal()}
         text={i18n.t( "onboarding.continue" ).toLocaleUpperCase()}
       />
     </View>
+    <View style={styles.headerMargin} />
   </View>
 );
 

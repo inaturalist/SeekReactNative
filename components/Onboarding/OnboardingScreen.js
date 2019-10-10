@@ -12,7 +12,7 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const OnboardingScreen = ( { navigation }: Props ) => (
@@ -40,7 +40,7 @@ const OnboardingScreen = ( { navigation }: Props ) => (
       </View>
     </View>
     <View style={styles.carousel}>
-      <View style={styles.banner}>
+      <View style={[styles.banner, styles.center]}>
         <Image
           source={logoImages.wwfop}
           style={styles.image}

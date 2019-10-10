@@ -8,9 +8,8 @@ const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   button: {
-    marginBottom: 21,
-    marginHorizontal: 29,
-    marginTop: height > 570 ? 21 : 10
+    marginHorizontal: 23,
+    marginTop: 7
   },
   container: {
     backgroundColor: colors.white,
@@ -19,10 +18,9 @@ export default StyleSheet.create( {
   contentContainer: {
     alignItems: "center",
     marginHorizontal: 29,
-    marginTop: height > 570 ? 10 : 0
+    marginTop: 21
   },
   headerMargin: {
-    alignSelf: "center",
     marginTop: 30
   },
   image: {
@@ -31,11 +29,15 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 68
   },
+  margin: {
+    marginTop: 21
+  },
   row: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    height: height > 570 ? 100 : 120
+    marginBottom: 28,
+    marginHorizontal: 23
   },
   text: {
     fontFamily: fonts.book,

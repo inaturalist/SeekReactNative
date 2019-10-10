@@ -248,6 +248,8 @@ class HomeScreen extends Component<Props> {
         <RNModal
           isVisible={showGetStartedModal}
           onBackdropPress={() => this.toggleGetStartedModal()}
+          onSwipeComplete={() => this.toggleGetStartedModal()}
+          swipeDirection="down"
         >
           <GetStarted
             toggleGetStartedModal={this.toggleGetStartedModal}

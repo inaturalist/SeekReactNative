@@ -3,7 +3,8 @@ import {
   colors,
   fonts,
   padding,
-  touchable
+  touchable,
+  center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -16,13 +17,9 @@ export default StyleSheet.create( {
     width: 10
   },
   banner: {
-    alignItems: "center",
     backgroundColor: colors.white,
     elevation: 10,
-    flexDirection: "row",
-    flexWrap: "nowrap",
     height: 150,
-    justifyContent: "center",
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
@@ -39,19 +36,18 @@ export default StyleSheet.create( {
   },
   buttonContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: height > 670 ? 94 : 34
+    marginBottom: 52
   },
   carousel: {
     marginTop: 20
   },
+  center,
   container: {
     flex: 1
   },
   contentContainer: {
-    alignItems: "center",
-    justifyContent: "flex-end",
-    paddingBottom: 57,
+    justifyContent: "center",
+    marginBottom: 50,
     width
   },
   dot: {
@@ -64,12 +60,12 @@ export default StyleSheet.create( {
     width: 6
   },
   image: {
-    height: height > 570 ? 268 : 250,
+    height: 268,
     resizeMode: "contain",
     width: 297
   },
   image1: {
-    height: height > 570 ? 304 : 250,
+    height: 304,
     resizeMode: "contain",
     width: 256
   },
@@ -111,13 +107,9 @@ export default StyleSheet.create( {
   },
   textContainer: {
     alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "wrap",
     justifyContent: "center",
-    marginBottom: 57,
-    marginLeft: 42,
-    marginRight: 42,
-    marginTop: 29
+    marginHorizontal: 42,
+    marginTop: 21
   },
   touchable
 } );

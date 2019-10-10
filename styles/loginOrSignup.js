@@ -3,42 +3,42 @@ import { StyleSheet } from "react-native";
 import { fonts, colors, padding } from "./global";
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  logo: {
-    width: 304,
-    height: 107,
-    resizeMode: "contain",
-    marginBottom: 64
-  },
-  whiteButton: {
-    marginBottom: 25,
-    backgroundColor: colors.white,
-    width: 296,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   buttonText: {
-    textAlign: "center",
-    width: 245,
-    paddingTop: padding.iOSPadding,
+    color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    color: colors.seekForestGreen
+    paddingTop: padding.iOSPadding,
+    textAlign: "center",
+    width: 245
+  },
+  container: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center"
+  },
+  logo: {
+    height: 107,
+    marginBottom: 64,
+    resizeMode: "contain",
+    width: 304
   },
   text: {
-    marginHorizontal: 30,
-    marginTop: 64,
-    textAlign: "center",
+    color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 17,
     lineHeight: 19,
-    color: colors.white
+    marginHorizontal: 30,
+    marginTop: 64,
+    textAlign: "center"
+  },
+  whiteButton: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 34,
+    height: 52,
+    justifyContent: "center",
+    marginBottom: 25,
+    width: 296
   }
 } );

@@ -121,7 +121,7 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 59
+        versionCode 61
         versionName "2.3.3"
         // ndk {
         //     abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
@@ -180,11 +180,11 @@ android {
 
 dependencies {
     implementation project(':react-native-inat-camera')
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation("com.android.support:appcompat-v7:28.0.0")
-    implementation("com.android.support:support-v4:28.0.0")
+    // implementation fileTree(dir: "libs", include: ["*.jar"])
+    // implementation("com.android.support:appcompat-v7:28.0.0")
+    // implementation("com.android.support:support-v4:28.0.0")
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermes-engine/android/";
       debugImplementation files(hermesPath + "hermes-debug.aar")

@@ -61,12 +61,12 @@ class GalleryScreen extends Component<Props> {
   }
 
   getAlbumNames() {
-    GalleryManager.getAlbums().then( ( { albums } ) => {
-      const albumNames = [{
-        label: i18n.t( "gallery.camera_roll" ),
-        value: "All"
-      }];
+    const albumNames = [{
+      label: i18n.t( "gallery.camera_roll" ),
+      value: "All"
+    }];
 
+    GalleryManager.getAlbums().then( ( { albums } ) => {
       albums.forEach( ( album ) => {
         const { assetCount, title } = album;
 
@@ -80,7 +80,9 @@ class GalleryScreen extends Component<Props> {
 
       this.setState( { albumNames } );
     } ).catch( ( err ) => {
-      console.log( err, "error fetching album names" );
+      if ( err ) {
+        this.setState( { albumNames } ); // handle state where device has no albums on Android
+      }
     } );
   }
 

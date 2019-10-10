@@ -528,6 +528,9 @@
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
   },
   "accessibility": {
-    "tap": "Tap me!"
+    "tap": "Tap me to go back to the previous screen!",
+    "check": "Check me to license photos so scientists can use your data!",
+    "swipe": "Swipe down to get started",
+    "input": "Tap to input your {{type}}"
   }
 }

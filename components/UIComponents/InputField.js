@@ -7,6 +7,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
+import i18n from "../../i18n";
 
 type Props = {
   +handleTextChange: Function,
@@ -31,6 +32,8 @@ const InputField = ( {
 
   return (
     <TextInput
+      accessibilityLabel={i18n.t( "accessibility.input", { type: text } )}
+      accessible
       autoCapitalize="none"
       autoCorrect={false}
       autoFocus

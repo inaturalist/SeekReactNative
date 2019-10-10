@@ -72,7 +72,11 @@ class LicensePhotosScreen extends Component<Props> {
             text={email}
             type="emailAddress"
           />
-          <View style={[styles.row, styles.margin, styles.center]}>
+          <View
+            accessibilityLabel={i18n.t( "accessibility.check" )}
+            accessible
+            style={[styles.row, styles.margin, styles.center]}
+          >
             <Checkbox
               checkBoxColor="#979797"
               isChecked={licensePhotos}

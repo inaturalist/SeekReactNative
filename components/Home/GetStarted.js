@@ -18,7 +18,11 @@ type Props = {
 }
 
 const GetStarted = ( { toggleGetStartedModal }: Props ) => (
-  <View style={styles.container}>
+  <View
+    accessibilityLabel={i18n.t( "accessibility.swipe" )}
+    accessible
+    style={styles.container}
+  >
     <View style={styles.headerMargin}>
       <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
     </View>

@@ -42,6 +42,7 @@ import PrivacyPolicyScreen from "./Login/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
 import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
+import WikipediaView from "./Species/WikipediaView";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -148,6 +149,9 @@ const FooterTabNav = createBottomTabNavigator( {
   },
   Species: {
     screen: SpeciesDetail
+  },
+  Wikipedia: {
+    screen: WikipediaView
   }
 }, FooterTabConfig );
 

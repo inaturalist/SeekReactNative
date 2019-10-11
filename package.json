@@ -42,6 +42,7 @@
     "react-native-svg": "^9.6.4",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-uuid": "^1.4.9",
+    "react-native-webview": "^7.4.2",
     "react-navigation": "^4.0.9",
     "react-navigation-drawer": "^2.2.2",
     "react-navigation-stack": "^1.9.0",

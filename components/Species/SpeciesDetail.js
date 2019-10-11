@@ -40,6 +40,7 @@ import {
   checkForInternet
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -69,7 +70,9 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       ancestors: [],
       route: null,
-      iconicTaxonId: null
+      iconicTaxonId: null,
+      isLoggedIn: null,
+      wikiUrl: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -148,6 +151,31 @@ class SpeciesDetail extends Component<Props> {
     } ).catch( () => this.setError( "location" ) );
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  async fetchSpeciesId() {
+    const id = await getSpeciesId();
+    this.setSpeciesId( id );
+  }
+
+  updateScreen() {
+    this.fetchiNatData();
+  }
+
+  async fetchRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
+  }
+
   fetchUserLocation() {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
@@ -158,20 +186,6 @@ class SpeciesDetail extends Component<Props> {
     } else {
       this.setUserLocation();
     }
-  }
-
-  async fetchSpeciesId() {
-    const id = await getSpeciesId();
-    this.setSpeciesId( id );
-  }
-
-  async fetchRoute() {
-    const route = await getRoute();
-    this.setState( { route } );
-  }
-
-  updateScreen() {
-    this.fetchiNatData();
   }
 
   resetState() {
@@ -283,6 +297,7 @@ class SpeciesDetail extends Component<Props> {
         commonName,
         scientificName,
         photos,
+        wikiUrl: taxa.wikipedia_url,
         about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
         timesSeen: taxa.observations_count,
         iconicTaxonId: taxa.iconic_taxon_id,
@@ -389,7 +404,9 @@ class SpeciesDetail extends Component<Props> {
       ancestors,
       stats,
       route,
-      iconicTaxonId
+      iconicTaxonId,
+      isLoggedIn,
+      wikiUrl
     } = this.state;
 
     const { navigation } = this.props;
@@ -402,7 +419,10 @@ class SpeciesDetail extends Component<Props> {
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <NavigationEvents
             onWillBlur={() => this.resetState()}
-            onWillFocus={() => this.fetchiNatData()}
+            onWillFocus={() => {
+              this.fetchiNatData();
+              this.getLoggedIn();
+            }}
           />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
@@ -460,6 +480,13 @@ class SpeciesDetail extends Component<Props> {
                   <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
                 </View>
                 <Text style={styles.text}>{about}</Text>
+                {/* {isLoggedIn ? (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
+                  >
+                    <Text style={styles.linkText}>{commonName}</Text>
+                  </TouchableOpacity>
+                ) : null} */}
               </View>
             ) : null}
             {id !== 43584 ? (

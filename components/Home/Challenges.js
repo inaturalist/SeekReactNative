@@ -17,6 +17,7 @@ import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
+import { setDrawer } from "../../utility/helpers";
 
 type Props = {
   +navigation: any,
@@ -26,7 +27,10 @@ type Props = {
 const Challenges = ( { navigation, challenge }: Props ) => (
   <View>
     <TouchableOpacity
-      onPress={() => navigation.navigate( "Challenges" )}
+      onPress={() => {
+        setDrawer( "Challenges" );
+        navigation.navigate( "Challenges" );
+      }}
       style={styles.header}
     >
       <GreenText text={i18n.t( "challenges_card.header" ).toLocaleUpperCase()} />
@@ -50,6 +54,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
           color={colors.seekGreen}
           handlePress={() => {
             setChallengeIndex( challenge.index );
+            setDrawer( "ChallengeDetails" );
             navigation.navigate( "ChallengeDetails" );
           }}
           text={challenge.started
@@ -59,7 +64,10 @@ const Challenges = ( { navigation, challenge }: Props ) => (
       </View>
       <View style={styles.margin} />
       <TouchableOpacity
-        onPress={() => navigation.navigate( "Challenges" )}
+        onPress={() => {
+          setDrawer( "Challenges" );
+          navigation.navigate( "Challenges" );
+        }}
         style={styles.centeredContent}
       >
         <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>

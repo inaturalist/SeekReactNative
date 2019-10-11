@@ -30,7 +30,7 @@ class AboutScreen extends Component<Props> {
 
   render() {
     const { navigation } = this.props;
-    const version = "2.3.3";
+    const version = "2.3.4";
     const buildNumber = 61;
 
     return (

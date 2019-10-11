@@ -26,7 +26,7 @@ import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
-import Footer from "./Home/Footer";
+import Footer from "./UIComponents/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
 import LoginOrSignupScreen from "./LoginOrSignupScreen";
 import LoginScreen from "./Login/LoginScreen";

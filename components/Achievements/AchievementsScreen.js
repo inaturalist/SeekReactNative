@@ -26,7 +26,7 @@ import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
-import { fetchNumberSpeciesSeen } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, setDrawer } from "../../utility/helpers";
 import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
@@ -210,7 +210,10 @@ class AchievementsScreen extends Component<Props> {
           <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
-              onPress={() => navigation.navigate( "MyObservations" )}
+              onPress={() => {
+                setDrawer( "MyObservations" );
+                navigation.navigate( "MyObservations" );
+              }}
               style={styles.secondHeaderText}
             >
               <GreenText center smaller text={i18n.t( "badges.observed" ).toLocaleUpperCase()} />

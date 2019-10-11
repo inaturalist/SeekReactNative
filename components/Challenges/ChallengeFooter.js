@@ -12,6 +12,7 @@ import {
 import styles from "../../styles/home/footer";
 import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
+import { setDrawer } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -36,6 +37,7 @@ const Footer = ( { navigation }: Props ) => (
           onPress={() => {
             if ( navigation.state ) {
               if ( navigation.state.routeName !== "iNatStats" ) {
+                setDrawer( "iNatStats" );
                 navigation.navigate( "iNatStats" );
               }
             }

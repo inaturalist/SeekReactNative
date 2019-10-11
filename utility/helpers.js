@@ -276,6 +276,19 @@ const getRoute = async () => {
   }
 };
 
+const setDrawer = ( drawer ) => {
+  AsyncStorage.setItem( "drawer", drawer );
+};
+
+const getDrawer = async () => {
+  try {
+    const drawer = await AsyncStorage.getItem( "drawer" );
+    return drawer;
+  } catch ( error ) {
+    return ( error );
+  }
+};
+
 const sortNewestToOldest = ( observations ) => {
   observations.sort( ( a, b ) => {
     if ( a.data.length > b.data.length ) {
@@ -334,5 +347,7 @@ export {
   sortNewestToOldest,
   searchForRealm,
   showAppStoreReview,
-  fetchNumberSpeciesSeen
+  fetchNumberSpeciesSeen,
+  getDrawer,
+  setDrawer
 };

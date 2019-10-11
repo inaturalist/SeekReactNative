@@ -138,7 +138,6 @@ class MatchScreen extends Component<Props> {
 
     if ( showLevelModal === true ) {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
-        console.log( speciesCount, "speciesCount" );
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
           showAppStoreReview();

@@ -97,11 +97,7 @@ class ObservationCard extends Component<Props> {
         } );
       } else if ( defaultPhoto.squareUrl ) {
         this.setPhoto( { uri: defaultPhoto.squareUrl } );
-      } else {
-        this.setPhoto( iconicTaxa[taxon.iconicTaxonId] );
       }
-    } else {
-      this.setPhoto( iconicTaxa[taxon.iconicTaxonId] );
     }
   }
 
@@ -109,11 +105,7 @@ class ObservationCard extends Component<Props> {
     const { item } = this.props;
 
     getTaxonCommonName( item.taxon.id ).then( ( commonName ) => {
-      if ( commonName ) {
-        this.setState( { commonName } );
-      } else {
-        this.setState( { commonName: item.taxon.name } );
-      }
+      this.setState( { commonName: commonName || item.taxon.name } );
     } );
   }
 
@@ -161,9 +153,7 @@ class ObservationCard extends Component<Props> {
             <Image source={photo} style={styles.image} />
           </ImageBackground>
           <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {commonName}
-            </Text>
+            <Text style={styles.commonNameText}>{commonName}</Text>
             <Text style={styles.scientificNameText}>{taxon.name}</Text>
           </View>
         </TouchableOpacity>

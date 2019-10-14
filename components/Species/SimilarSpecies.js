@@ -57,7 +57,7 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
   }, [id] );
 
   return (
-    <View>
+    <>
       <View style={styles.similarSpeciesMargins}>
         <GreenText text={i18n.t( "species_detail.similar" ).toLocaleUpperCase()} />
       </View>
@@ -68,7 +68,7 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
       >
         <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={state.similarSpecies} />
       </View>
-    </View>
+    </>
   );
 };
 

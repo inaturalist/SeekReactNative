@@ -33,13 +33,7 @@ const Footer = ( { navigation }: Props ) => (
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          onPress={() => {
-            if ( navigation.state ) {
-              if ( navigation.state.routeName !== "iNatStats" ) {
-                navigation.navigate( "iNatStats" );
-              }
-            }
-          }}
+          onPress={() => navigation.navigate( "iNatStats" )}
           style={styles.button}
         >
           <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />

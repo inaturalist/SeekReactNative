@@ -223,9 +223,7 @@ class AchievementsScreen extends Component<Props> {
               <Text style={styles.number}>{badgesEarned}</Text>
             </View>
           </View>
-          <View style={styles.center}>
-            <LoginCard navigation={navigation} screen="achievements" />
-          </View>
+          <LoginCard />
           <Padding />
         </ScrollView>
       </View>

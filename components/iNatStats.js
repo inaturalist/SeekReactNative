@@ -193,7 +193,7 @@ class iNatStatsScreen extends Component<Props> {
             <Image source={icons.swipeRight} style={styles.rightArrow} />
           </View>
         )}
-        <LoginCard navigation={navigation} />
+        <LoginCard />
         <Padding />
       </ScrollView>
     );

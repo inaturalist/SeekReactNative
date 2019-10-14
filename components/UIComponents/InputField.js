@@ -36,7 +36,7 @@ const InputField = ( {
       accessible
       autoCapitalize="none"
       autoCorrect={false}
-      autoFocus
+      autoFocus={type !== "password"}
       keyboardType={Platform.OS === "android" ? "visible-password" : keyboardType} // adding this to turn off autosuggestions on Android
       onChangeText={ value => handleTextChange( value )}
       placeholder={placeholder}

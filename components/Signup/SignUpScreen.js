@@ -186,7 +186,6 @@ class SignUpScreen extends Component<Props> {
           <InputField
             handleTextChange={value => this.setState( { password: value } )}
             placeholder="*********"
-            secureTextEntry
             text={password}
             type="password"
           />

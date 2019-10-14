@@ -105,8 +105,7 @@ class LoginScreen extends Component<Props> {
           </View>
           <InputField
             handleTextChange={value => this.setState( { password: value } )}
-            placeholder="*********"
-            secureTextEntry
+            placeholder="*********"        
             text={password}
             type="password"
           />

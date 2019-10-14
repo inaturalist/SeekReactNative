@@ -13,14 +13,12 @@ type Props = {
   +handleTextChange: Function,
   +placeholder: string,
   +text: string,
-  +type: string,
-  +secureTextEntry: ?boolean
+  +type: string
 }
 
 const InputField = ( {
   handleTextChange,
   placeholder,
-  secureTextEntry,
   text,
   type
 }: Props ) => {
@@ -37,11 +35,11 @@ const InputField = ( {
       autoCapitalize="none"
       autoCorrect={false}
       autoFocus={type !== "password"}
-      keyboardType={Platform.OS === "android" ? "visible-password" : keyboardType} // adding this to turn off autosuggestions on Android
+      keyboardType={keyboardType}
       onChangeText={ value => handleTextChange( value )}
       placeholder={placeholder}
       placeholderTextColor="#828282"
-      secureTextEntry={secureTextEntry}
+      secureTextEntry={type === "password"}
       style={styles.inputField}
       textContentType={type}
       value={text}

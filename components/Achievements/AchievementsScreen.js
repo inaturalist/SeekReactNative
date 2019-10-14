@@ -26,7 +26,7 @@ import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
-import { fetchNumberSpeciesSeen, setDrawer } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen } from "../../utility/helpers";
 import Spacer from "../UIComponents/iOSSpacer";
 
 type Props = {
@@ -211,7 +211,6 @@ class AchievementsScreen extends Component<Props> {
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
               onPress={() => {
-                setDrawer( "MyObservations" );
                 navigation.navigate( "MyObservations" );
               }}
               style={styles.secondHeaderText}

@@ -13,42 +13,16 @@ import i18n from "../../i18n";
 import styles from "../../styles/home/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
-import { getDrawer, setDrawer } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
 }
 
 class SideMenu extends Component<Props> {
-  constructor() {
-    super();
-
-    this.state = {
-      prevDrawer: null
-    };
-  }
-
-  componentDidUpdate() {
-    this.fetchDrawer();
-  }
-
-  async fetchDrawer() {
-    const prevDrawer = await getDrawer();
-    this.setState( { prevDrawer } );
-  }
-
   navigateTo( route ) {
-    const { prevDrawer } = this.state;
     const { navigation } = this.props;
 
-    console.log( prevDrawer, "drawer" );
-
-    if ( prevDrawer === route ) {
-      navigation.closeDrawer();
-    } else {
-      setDrawer( route );
-      navigation.navigate( route );
-    }
+    navigation.navigate( route );
   }
 
   render() {

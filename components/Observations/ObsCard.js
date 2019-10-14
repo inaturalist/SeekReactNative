@@ -15,8 +15,7 @@ import RNFS from "react-native-fs";
 import {
   setSpeciesId,
   setRoute,
-  getTaxonCommonName,
-  setDrawer
+  getTaxonCommonName
 } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
@@ -149,7 +148,6 @@ class ObservationCard extends Component<Props> {
         <TouchableOpacity
           onPress={() => {
             setSpeciesId( item.taxon.id );
-            setDrawer( "Species" );
             setRoute( "MyObservations" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           }}

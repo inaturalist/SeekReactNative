@@ -16,7 +16,6 @@ import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import { setDrawer } from "../../utility/helpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
 import BackButton from "../UIComponents/ModalBackButton";
@@ -78,7 +77,6 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           <GreenButton
             handlePress={() => {
               setChallengeIndex( challenge.index );
-              setDrawer( "Main" );
               navigation.navigate( "ChallengeDetails" );
               toggleChallengeModal();
             }}

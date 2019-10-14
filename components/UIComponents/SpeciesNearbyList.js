@@ -9,7 +9,7 @@ import {
 
 import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
-import { capitalizeNames, setSpeciesId, setRoute, setDrawer } from "../../utility/helpers";
+import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
 
 type Props = {
@@ -51,7 +51,6 @@ const SpeciesNearbyList = ( {
             setRoute( "Match" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           } else if ( navigation ) {
-            setDrawer( "Species" );
             setRoute( "Main" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           } else {

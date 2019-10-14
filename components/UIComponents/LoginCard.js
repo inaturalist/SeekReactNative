@@ -11,7 +11,7 @@ import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
 import { fetchAccessToken, removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./GreenButton";
-import { setDrawer } from "../../utility/helpers";
+
 
 type Props = {
   +navigation: any,
@@ -73,7 +73,6 @@ class LoginCard extends Component<Props> {
             if ( isLoggedIn ) {
               this.logUserOut();
             } else {
-              setDrawer( "Main" );
               navigation.navigate( "LoginOrSignup" );
             }
           }}

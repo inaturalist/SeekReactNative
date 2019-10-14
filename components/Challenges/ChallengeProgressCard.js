@@ -13,7 +13,6 @@ import styles from "../../styles/challenges/challenges";
 import PercentCircle from "./PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
 import icons from "../../assets/icons";
-import { setDrawer } from "../../utility/helpers";
 
 type Props = {
   +navigation: any,
@@ -44,7 +43,6 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
           startChallenge( item.index );
           fetchChallenges();
           recalculateChallenges();
-          setDrawer( "Main" );
           navigation.navigate( "ChallengeDetails" );
         }}
         style={styles.startButton}
@@ -58,7 +56,6 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
     <TouchableOpacity
       onPress={() => {
         setChallengeIndex( item.index );
-        setDrawer( "Main" );
         navigation.navigate( "ChallengeDetails" );
       }}
       style={[styles.card, styles.row]}

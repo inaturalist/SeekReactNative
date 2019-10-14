@@ -26,6 +26,9 @@ const InputField = ( {
 
   if ( type === "email" ) {
     keyboardType = "email-address";
+  } else if ( Platform.OS === "android" && type !== "password" ) {
+    // adding this to turn off autosuggestions on Android
+    keyboardType = "visible-password";
   }
 
   return (

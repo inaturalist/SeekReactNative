@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -12,35 +12,20 @@ type Props = {
   +fetchiNatData: Function
 }
 
-class SimilarSpecies extends Component<Props> {
-  constructor() {
-    super();
+const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
+  const [state, setState] = useState( {
+    similarSpecies: [],
+    loading: true
+  } );
 
-    this.state = {
-      similarSpecies: [],
-      loading: true
-    };
-  }
-
-  componentDidUpdate( prevProps ) {
-    const { id } = this.props;
-
-    if ( id !== prevProps.id ) {
-      this.resetState();
-      this.fetchSimilarSpecies();
-    }
-  }
-
-  resetState() {
-    this.setState( {
+  const resetState = () => {
+    setState( {
       similarSpecies: [],
       loading: true
     } );
-  }
+  };
 
-  fetchSimilarSpecies() {
-    const { id } = this.props;
-
+  const fetchSimilarSpecies = () => {
     const params = {
       taxon_id: id,
       without_taxon_id: 43584,
@@ -57,38 +42,34 @@ class SimilarSpecies extends Component<Props> {
         }
       } );
 
-      this.setState( {
+      setState( {
         similarSpecies: taxaWithPhotos,
         loading: false
       } );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch similar species" );
     } );
-  }
+  };
 
-  render() {
-    const { similarSpecies, loading } = this.state;
-    const { fetchiNatData } = this.props;
+  useEffect( () => {
+    resetState();
+    fetchSimilarSpecies();
+  }, [id] );
 
-    const species = (
-      <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={similarSpecies} />
-    );
-
-    return (
-      <View>
-        <View style={styles.similarSpeciesMargins}>
-          <GreenText text={i18n.t( "species_detail.similar" ).toLocaleUpperCase()} />
-        </View>
-        <View style={[
-          styles.similarSpeciesContainer,
-          loading && styles.loading
-        ]}
-        >
-          {species}
-        </View>
+  return (
+    <View>
+      <View style={styles.similarSpeciesMargins}>
+        <GreenText text={i18n.t( "species_detail.similar" ).toLocaleUpperCase()} />
       </View>
-    );
-  }
-}
+      <View style={[
+        styles.similarSpeciesContainer,
+        state.loading && styles.loading
+      ]}
+      >
+        <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={state.similarSpecies} />
+      </View>
+    </View>
+  );
+};
 
 export default SimilarSpecies;

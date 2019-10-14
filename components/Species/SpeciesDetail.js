@@ -70,9 +70,9 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       ancestors: [],
       route: null,
-      iconicTaxonId: null,
-      isLoggedIn: null,
-      wikiUrl: null
+      iconicTaxonId: null
+      // isLoggedIn: null,
+      // wikiUrl: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -405,8 +405,8 @@ class SpeciesDetail extends Component<Props> {
       stats,
       route,
       iconicTaxonId,
-      isLoggedIn,
-      wikiUrl
+      // isLoggedIn,
+      // wikiUrl
     } = this.state;
 
     const { navigation } = this.props;

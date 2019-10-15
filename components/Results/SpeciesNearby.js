@@ -10,6 +10,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/results/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
+import Error from "../Home/Error";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import { colors } from "../../styles/global";
 
@@ -27,15 +28,21 @@ class SpeciesNearby extends Component<Props> {
 
     this.state = {
       taxa: [],
-      loading: true
+      loading: false,
+      error: "tap"
     };
+
+    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa }, () => this.setState( { loading: false } ) );
+    this.setState( { taxa }, () => this.setState( {
+      loading: false
+    } ) );
   }
 
   setParamsForSpeciesNearby() {
+    this.setState( { loading: true, error: null } );
     const {
       ancestorId,
       hrank,
@@ -73,12 +80,16 @@ class SpeciesNearby extends Component<Props> {
   }
 
   render() {
-    const { taxa, loading } = this.state;
+    const { taxa, loading, error } = this.state;
     const { navigation } = this.props;
 
     let species;
 
-    if ( loading ) {
+    if ( error ) {
+      species = (
+        <Error error={error} handleClick={this.setParamsForSpeciesNearby} />
+      );
+    } else if ( loading ) {
       species = (
         <LoadingWheel color={colors.black} />
       );
@@ -94,11 +105,11 @@ class SpeciesNearby extends Component<Props> {
 
     return (
       <View>
-        <NavigationEvents
+        {/* <NavigationEvents
           onWillFocus={() => {
             this.setParamsForSpeciesNearby();
           }}
-        />
+        /> */}
         <Text style={styles.headerText}>
           {i18n.t( "results.nearby" ).toLocaleUpperCase()}
         </Text>

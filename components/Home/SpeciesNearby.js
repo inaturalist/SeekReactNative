@@ -48,7 +48,7 @@ const SpeciesNearby = ( {
     species = (
       <Error
         error={error}
-        requestAndroidPermissions={requestAndroidPermissions}
+        handleClick={requestAndroidPermissions}
       />
     );
   } else {

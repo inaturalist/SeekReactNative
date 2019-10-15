@@ -89,6 +89,8 @@
 		26E48DE711F2D4BBDA3D3E2C /* libPods-Seek-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
+		3718C4BA23563E7F0054DC4B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = ../tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3718C4BC235687550054DC4B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = ../it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3721C5BA22B30F3800151678 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3721C5BB22B30F5700151678 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = ../es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3721C5BC22B30F5D00151678 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = ../nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -406,6 +408,8 @@
 				"pt-PT",
 				de,
 				da,
+				tr,
+				it,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -581,6 +585,8 @@
 				3721C5C022B30F7500151678 /* pt-PT */,
 				3721C5C122B30F7E00151678 /* de */,
 				374AF64122DE43690040B45F /* da */,
+				3718C4BA23563E7F0054DC4B /* tr */,
+				3718C4BC235687550054DC4B /* it */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

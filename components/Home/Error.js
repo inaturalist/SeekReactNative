@@ -17,12 +17,12 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   +error: string,
-  +requestAndroidPermissions: Function
+  +handleClick: Function
 }
 
 const Error = ( {
   error,
-  requestAndroidPermissions
+  handleClick
 }: Props ) => {
   let text;
 
@@ -36,6 +36,8 @@ const Error = ( {
     text = i18n.t( "species_nearby.location_error" );
   } else if ( error === "internet" ) {
     text = i18n.t( "species_nearby.internet_error" );
+  } else if ( error === "tap" ) {
+    text = i18n.t( "results.tap" );
   }
 
   return (
@@ -44,7 +46,7 @@ const Error = ( {
       style={[styles.background, styles.center]}
     >
       <TouchableOpacity
-        onPress={() => requestAndroidPermissions()}
+        onPress={() => handleClick()}
       >
         <View style={styles.row}>
           <Image source={error === "internet" ? icons.internet : icons.error} />

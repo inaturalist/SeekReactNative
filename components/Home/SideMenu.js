@@ -15,8 +15,12 @@ import styles from "../../styles/home/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
-const SideMenu = () => {
+const SideMenu = ( props ) => {
   const { navigate } = useNavigation();
+  const activeRoute = props.items.find( it => it.key === props.activeItemKey );
+  // console.log( props, "props" );
+  // console.log( activeRoute.routes[0], "props" );
+  // console.log( activeRoute.routes[0].index, "props" );
 
   return (
     <View style={styles.container}>

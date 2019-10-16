@@ -27,7 +27,6 @@ import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
 import Footer from "./UIComponents/Footer";
-import ChallengeFooter from "./Challenges/ChallengeFooter";
 import LoginOrSignupScreen from "./LoginOrSignupScreen";
 import LoginScreen from "./Login/LoginScreen";
 import LoginSuccessScreen from "./Login/LoginSuccessScreen";
@@ -97,10 +96,6 @@ const FooterTabConfig = {
   tabBarComponent: Footer
 };
 
-const ChallengeFooterTabConfig = {
-  tabBarComponent: ChallengeFooter
-};
-
 const CameraNav = createMaterialTopTabNavigator( {
   CAMERA: {
     screen: ARCamera,
@@ -116,36 +111,33 @@ const CameraNav = createMaterialTopTabNavigator( {
   }
 }, CameraNavigatorConfig );
 
-const ChallengeFooterTabNav = createBottomTabNavigator( {
+const FooterTabNav = createBottomTabNavigator( {
+  Main: {
+    screen: HomeScreen
+  },
+  Achievements: {
+    screen: AchievementsScreen
+  },
   Challenges: {
     screen: ChallengeScreen
   },
   ChallengeDetails: {
     screen: ChallengeDetailsScreen
-  }
-}, ChallengeFooterTabConfig );
-
-const FooterTabNav = createBottomTabNavigator( {
-  Main: {
-    screen: HomeScreen
+  },
+  MyObservations: {
+    screen: Observations
+  },
+  iNatStats: {
+    screen: iNatStatsScreen
+  },
+  About: {
+    screen: AboutScreen
   },
   CameraHelp: {
     screen: CameraHelpScreen
   },
   Notifications: {
     screen: NotificationsScreen
-  },
-  iNatStats: {
-    screen: iNatStatsScreen
-  },
-  Achievements: {
-    screen: AchievementsScreen
-  },
-  MyObservations: {
-    screen: Observations
-  },
-  About: {
-    screen: AboutScreen
   },
   Species: {
     screen: SpeciesDetail
@@ -155,10 +147,6 @@ const FooterTabNav = createBottomTabNavigator( {
 const MainStack = createStackNavigator( {
   Footer: {
     screen: FooterTabNav,
-    navigationOptions: () => noHeader
-  },
-  ChallengeFooter: {
-    screen: ChallengeFooterTabNav,
     navigationOptions: () => noHeader
   },
   Camera: {
@@ -201,21 +189,21 @@ const MenuDrawerNav = createDrawerNavigator( {
   Main: {
     screen: MainStack
   },
-  Achievements: {
-    screen: AchievementsScreen
-  },
-  Challenges: {
-    screen: ChallengeScreen
-  },
-  MyObservations: {
-    screen: Observations
-  },
-  iNatStats: {
-    screen: iNatStatsScreen
-  },
-  About: {
-    screen: AboutScreen
-  }
+  // Achievements: {
+  //   screen: AchievementsScreen
+  // },
+  // Challenges: {
+  //   screen: ChallengeScreen
+  // },
+  // MyObservations: {
+  //   screen: Observations
+  // },
+  // iNatStats: {
+  //   screen: iNatStatsScreen
+  // },
+  // About: {
+  //   screen: AboutScreen
+  // }
 }, DrawerNavigatorConfig );
 
 const LoginStack = createStackNavigator( {

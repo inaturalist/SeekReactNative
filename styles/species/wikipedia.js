@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors, fonts, touchable } from "../global";
 
 export default StyleSheet.create( {
@@ -9,7 +9,7 @@ export default StyleSheet.create( {
   },
   bottom: {
     backgroundColor: colors.seekForestGreen,
-    height: Platform.OS === "ios" ? 75 : 60
+    height: 60
   },
   header: {
     backgroundColor: colors.seekForestGreen,

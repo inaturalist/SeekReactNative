@@ -6,6 +6,7 @@ import i18n from "../i18n";
 import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
+import { isWithinPastYear } from "./dateHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -91,10 +92,44 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
+const updateReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    if ( reviews.length === 0 ) {
+      realm.create( "ReviewRealm", {
+        date: new Date(),
+        timesSeen: 1
+      } );
+    } else {
+      reviews[0].timesSeen += 1;
+    }
+    console.log( reviews, "reviews" );
+  } );
+};
+
+const deleteReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    realm.delete( reviews );
+  } );
+};
+
 const showAppStoreReview = () => {
-  if ( StoreReview.isAvailable ) {
-    StoreReview.requestReview();
-  }
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const reviews = realm.objects( "ReviewRealm" );
+      const withinYear = isWithinPastYear( reviews[0].date );
+      if ( withinYear && StoreReview.isAvailable ) {
+        if ( reviews[0].timesSeen < 3 ) {
+          updateReviews( realm, reviews );
+          StoreReview.requestReview();
+        }
+      } else if ( StoreReview.isAvailable ) {
+        deleteReviews( realm, reviews );
+        updateReviews( realm, reviews );
+        StoreReview.requestReview();
+      }
+    } ).catch( () => {
+      console.log( "couldn't show review modal" );
+    } );
 };
 
 const checkForPowerUsers = ( length, newLength ) => {

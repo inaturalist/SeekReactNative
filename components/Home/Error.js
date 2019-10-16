@@ -36,8 +36,6 @@ const Error = ( {
     text = i18n.t( "species_nearby.location_error" );
   } else if ( error === "internet" ) {
     text = i18n.t( "species_nearby.internet_error" );
-  } else if ( error === "tap" ) {
-    text = i18n.t( "results.tap" );
   }
 
   return (

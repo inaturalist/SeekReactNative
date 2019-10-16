@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  center
 } from "../global";
 
 export default StyleSheet.create( {
+  center,
   headerText: {
     alignSelf: "center",
     color: colors.seekTeal,
@@ -17,5 +19,14 @@ export default StyleSheet.create( {
   speciesNearbyContainer: {
     backgroundColor: colors.seekTeal,
     height: 231
+  },
+  text: {
+    color: colors.white,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 24,
+    marginLeft: 12,
+    maxWidth: 245,
+    textAlign: "center"
   }
 } );

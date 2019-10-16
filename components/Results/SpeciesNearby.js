@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import {
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
-import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import Error from "../Home/Error";
 import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import { colors } from "../../styles/global";
 
@@ -31,8 +30,6 @@ class SpeciesNearby extends Component<Props> {
       loading: false,
       error: "tap"
     };
-
-    this.setParamsForSpeciesNearby = this.setParamsForSpeciesNearby.bind( this );
   }
 
   setTaxa( taxa ) {
@@ -87,7 +84,12 @@ class SpeciesNearby extends Component<Props> {
 
     if ( error ) {
       species = (
-        <Error error={error} handleClick={this.setParamsForSpeciesNearby} />
+        <TouchableOpacity
+          onPress={() => this.setParamsForSpeciesNearby()}
+          style={[styles.center, styles.speciesNearbyContainer]}
+        >
+          <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>
+        </TouchableOpacity>
       );
     } else if ( loading ) {
       species = (

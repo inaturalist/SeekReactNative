@@ -24,6 +24,7 @@ const Footer = ( { navigation }: Props ) => {
   const { state } = navigation.dangerouslyGetParent();
   const activeRoute = state.routes[state.index];
   const { index } = activeRoute;
+  const isChallengeScreen = index === 2 || index === 3;
 
   const fetchNotifications = () => {
     Realm.open( realmConfig )
@@ -40,7 +41,7 @@ const Footer = ( { navigation }: Props ) => {
   };
 
   useEffect( () => {
-    if ( index !== 2 && index !== 3 ) {
+    if ( !isChallengeScreen ) {
       fetchNotifications();
     }
   } );
@@ -59,7 +60,7 @@ const Footer = ( { navigation }: Props ) => {
           <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
             <Image source={icons.cameraGreen} style={styles.cameraImage} />
           </TouchableOpacity>
-          {( index === 2 || index === 3 ) ? (
+          {( isChallengeScreen ) ? (
             <TouchableOpacity
               hitSlop={styles.touchable}
               onPress={() => navigation.navigate( "iNatStats" )}

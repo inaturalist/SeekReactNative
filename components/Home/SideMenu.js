@@ -8,7 +8,6 @@ import {
   Text,
   SafeAreaView
 } from "react-native";
-import { useNavigation } from "react-navigation-hooks";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/sideMenu";
@@ -16,17 +15,24 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 const SideMenu = ( props ) => {
-  const { navigate } = useNavigation();
+  const { navigation } = props;
   const activeRoute = props.items.find( it => it.key === props.activeItemKey );
-  // console.log( props, "props" );
-  // console.log( activeRoute.routes[0], "props" );
-  // console.log( activeRoute.routes[0].index, "props" );
+  const { index, routes } = activeRoute.routes[0];
+  const { routeName } = routes[index];
+
+  const navigateOrCloseDrawer = ( route ) => {
+    if ( routeName === route ) {
+      navigation.closeDrawer();
+    } else {
+      navigation.navigate( route );
+    }
+  };
 
   return (
     <View style={styles.container}>
       <SafeAreaView />
       <TouchableOpacity
-        onPress={() => navigate( "Main" )}
+        onPress={() => navigateOrCloseDrawer( "Main" )}
       >
         <Image
           source={logoImages.seek}
@@ -35,7 +41,7 @@ const SideMenu = ( props ) => {
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <TouchableOpacity
-          onPress={() => navigate( "Main" )}
+          onPress={() => navigateOrCloseDrawer( "Main" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuHome} style={styles.image} />
@@ -45,7 +51,7 @@ const SideMenu = ( props ) => {
         </TouchableOpacity>
         <View style={styles.divider} />
         <TouchableOpacity
-          onPress={() => navigate( "Achievements" )}
+          onPress={() => navigateOrCloseDrawer( "Achievements" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuAchievements} style={styles.image} />
@@ -55,7 +61,7 @@ const SideMenu = ( props ) => {
         </TouchableOpacity>
         <View style={styles.divider} />
         <TouchableOpacity
-          onPress={() => navigate( "Challenges" )}
+          onPress={() => navigateOrCloseDrawer( "Challenges" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuChallenges} style={styles.image} />
@@ -65,7 +71,7 @@ const SideMenu = ( props ) => {
         </TouchableOpacity>
         <View style={styles.divider} />
         <TouchableOpacity
-          onPress={() => navigate( "MyObservations" )}
+          onPress={() => navigateOrCloseDrawer( "MyObservations" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuObservations} style={styles.image} />
@@ -75,7 +81,7 @@ const SideMenu = ( props ) => {
         </TouchableOpacity>
         <View style={styles.divider} />
         <TouchableOpacity
-          onPress={() => navigate( "iNatStats" )}
+          onPress={() => navigateOrCloseDrawer( "iNatStats" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuiNat} style={styles.image} />
@@ -85,7 +91,7 @@ const SideMenu = ( props ) => {
         </TouchableOpacity>
         <View style={styles.divider} />
         <TouchableOpacity
-          onPress={() => navigate( "About" )}
+          onPress={() => navigateOrCloseDrawer( "About" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuSeek} style={styles.image} />

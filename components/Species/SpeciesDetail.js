@@ -70,9 +70,9 @@ class SpeciesDetail extends Component<Props> {
       stats: {},
       ancestors: [],
       route: null,
-      iconicTaxonId: null
-      // isLoggedIn: null,
-      // wikiUrl: null
+      iconicTaxonId: null,
+      isLoggedIn: null,
+      wikiUrl: null
     };
 
     this.fetchiNatData = this.fetchiNatData.bind( this );
@@ -405,8 +405,8 @@ class SpeciesDetail extends Component<Props> {
       stats,
       route,
       iconicTaxonId,
-      // isLoggedIn,
-      // wikiUrl
+      isLoggedIn,
+      wikiUrl
     } = this.state;
 
     const { navigation } = this.props;
@@ -480,13 +480,13 @@ class SpeciesDetail extends Component<Props> {
                   <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
                 </View>
                 <Text style={styles.text}>{about}</Text>
-                {/* {isLoggedIn ? (
+                {isLoggedIn ? (
                   <TouchableOpacity
                     onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
                   >
                     <Text style={styles.linkText}>{commonName}</Text>
                   </TouchableOpacity>
-                ) : null} */}
+                ) : null}
               </View>
             ) : null}
             {id !== 43584 ? (

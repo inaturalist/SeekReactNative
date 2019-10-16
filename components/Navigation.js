@@ -149,9 +149,6 @@ const FooterTabNav = createBottomTabNavigator( {
   },
   Species: {
     screen: SpeciesDetail
-  },
-  Wikipedia: {
-    screen: WikipediaView
   }
 }, FooterTabConfig );
 
@@ -190,6 +187,10 @@ const MainStack = createStackNavigator( {
   },
   PostingHelp: {
     screen: PostingHelpScreen,
+    navigationOptions: () => noHeader
+  },
+  Wikipedia: {
+    screen: WikipediaView,
     navigationOptions: () => noHeader
   }
 }, {

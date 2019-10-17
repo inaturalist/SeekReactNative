@@ -1,4 +1,7 @@
+import React from "react";
 import { createAppContainer } from "react-navigation";
+import createAnimatedSwitchNavigator from "react-navigation-animated-switch";
+import { Transition } from "react-native-reanimated";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
@@ -108,7 +111,7 @@ const CameraNav = createMaterialTopTabNavigator( {
 }, CameraNavigatorConfig );
 
 const FooterTabNav = createBottomTabNavigator( {
-  Main: {
+  Home: {
     screen: HomeScreen
   },
   Achievements: {
@@ -177,7 +180,7 @@ const MainStack = createStackNavigator( {
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {
-  Main: {
+  Stack: {
     screen: MainStack
   }
 }, DrawerNavigatorConfig );
@@ -221,8 +224,8 @@ const LoginStack = createStackNavigator( {
   }
 }, { headerMode: "none" } );
 
-const RootStack = createStackNavigator( {
-  Home: {
+const RootStack = createAnimatedSwitchNavigator( {
+  Splash: {
     screen: SplashScreen
   },
   Onboarding: {
@@ -231,10 +234,20 @@ const RootStack = createStackNavigator( {
   Login: {
     screen: LoginStack
   },
-  Main: {
+  Drawer: {
     screen: MenuDrawerNav
   }
-}, StackNavigatorConfig );
+}, {
+  transition: (
+    <Transition.Together>
+      <Transition.Out
+        durationMs={100}
+        type="fade"
+      />
+      <Transition.In durationMs={200} type="fade" />
+    </Transition.Together>
+  )
+} );
 
 const App = createAppContainer( RootStack );
 

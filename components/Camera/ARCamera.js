@@ -321,7 +321,7 @@ class ARCamera extends Component<Props> {
       }
     }
 
-    navigation.navigate( "Main" );
+    navigation.navigate( "Home" );
   }
 
   addListenerForAndroid() {

@@ -51,7 +51,7 @@ const SpeciesNearbyList = ( {
             setRoute( "Match" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           } else if ( navigation ) {
-            setRoute( "Main" );
+            setRoute( "Home" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           } else {
             fetchiNatData();

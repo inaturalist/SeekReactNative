@@ -22,9 +22,9 @@ const SideMenu = ( props ) => {
 
   const { navigation } = props;
   const activeRoute = props.items.find( it => it.key === props.activeItemKey );
-  console.log( activeRoute.routes[0], "activeRoute" );
   const { index, routes } = activeRoute.routes[0];
   const { routeName } = routes[index];
+  console.log( routeName, "route name" );
 
   const navigateOrCloseDrawer = ( route ) => {
     if ( routeName === route ) {
@@ -38,7 +38,7 @@ const SideMenu = ( props ) => {
     <View style={styles.container}>
       <SafeAreaView />
       <TouchableOpacity
-        onPress={() => navigateOrCloseDrawer( "Main" )}
+        onPress={() => navigateOrCloseDrawer( "Home" )}
       >
         <Image
           source={logoImages.seek}
@@ -47,7 +47,7 @@ const SideMenu = ( props ) => {
       </TouchableOpacity>
       <View style={styles.textContainer}>
         <TouchableOpacity
-          onPress={() => navigateOrCloseDrawer( "Main" )}
+          onPress={() => navigateOrCloseDrawer( "Home" )}
           style={[styles.row, styles.height]}
         >
           <Image source={icons.menuHome} style={styles.image} />

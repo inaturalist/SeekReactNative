@@ -433,7 +433,7 @@ class SpeciesDetail extends Component<Props> {
               } else if ( route ) {
                 navigation.navigate( route );
               } else {
-                navigation.navigate( "Main" );
+                navigation.navigate( "Home" );
               }
             }}
             style={styles.backButton}

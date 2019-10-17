@@ -40,7 +40,7 @@ const LoginOrSignupScreen = () => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigate( "Main" )}
+          onPress={() => navigate( "Home" )}
           style={[styles.whiteButton, { height: 79, borderRadius: 100 }]}
         >
           <Text style={[styles.buttonText, { lineHeight: 24 }]}>

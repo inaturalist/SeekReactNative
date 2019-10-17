@@ -24,7 +24,7 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
-          style={styles.button}
+          style={styles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
@@ -34,7 +34,7 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           hitSlop={styles.touchable}
           onPress={() => toggleFlagModal()}
-          style={styles.button}
+          style={styles.rightIcon}
         >
           <Image source={icons.flag} />
         </TouchableOpacity>

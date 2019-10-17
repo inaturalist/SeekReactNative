@@ -1,4 +1,4 @@
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
@@ -19,7 +19,7 @@ import RangeMap from "./Species/RangeMap";
 import Observations from "./Observations/Observations";
 import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./AboutScreen";
-import SideMenu from "./Home/SideMenu";
+import SideMenu from "./UIComponents/SideMenu";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Notifications/Notifications";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
@@ -133,6 +133,9 @@ const FooterTabNav = createBottomTabNavigator( {
   About: {
     screen: AboutScreen
   },
+  Match: {
+    screen: Match
+  },
   CameraHelp: {
     screen: CameraHelpScreen
   },
@@ -188,22 +191,7 @@ const MainStack = createStackNavigator( {
 const MenuDrawerNav = createDrawerNavigator( {
   Main: {
     screen: MainStack
-  },
-  // Achievements: {
-  //   screen: AchievementsScreen
-  // },
-  // Challenges: {
-  //   screen: ChallengeScreen
-  // },
-  // MyObservations: {
-  //   screen: Observations
-  // },
-  // iNatStats: {
-  //   screen: iNatStatsScreen
-  // },
-  // About: {
-  //   screen: AboutScreen
-  // }
+  }
 }, DrawerNavigatorConfig );
 
 const LoginStack = createStackNavigator( {
@@ -257,7 +245,7 @@ const LoginStack = createStackNavigator( {
   }
 } );
 
-const RootStack = createStackNavigator( {
+const RootStack = createSwitchNavigator( {
   Home: {
     screen: SplashScreen
   },

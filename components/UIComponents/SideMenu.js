@@ -8,7 +8,6 @@ import {
   Text,
   SafeAreaView
 } from "react-native";
-import { useNavigation, useNavigationState } from "react-navigation-hooks";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
@@ -16,15 +15,10 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 const SideMenu = ( props ) => {
-  // const { navigate } = useNavigation();
-  const otherRouteName = useNavigationState().routeName;
-  console.log( otherRouteName, "other route name" );
-
   const { navigation } = props;
   const activeRoute = props.items.find( it => it.key === props.activeItemKey );
   const { index, routes } = activeRoute.routes[0];
   const { routeName } = routes[index];
-  console.log( routeName, "route name" );
 
   const navigateOrCloseDrawer = ( route ) => {
     if ( routeName === route ) {

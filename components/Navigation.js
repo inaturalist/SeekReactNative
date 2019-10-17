@@ -81,11 +81,6 @@ const CameraNavigatorConfig = {
   }
 };
 
-const StackNavigatorConfig = {
-  headerMode: "none",
-  transitionConfig: () => fadeIn()
-};
-
 const DrawerNavigatorConfig = {
   contentComponent: SideMenu,
   headerMode: "none"
@@ -131,9 +126,6 @@ const FooterTabNav = createBottomTabNavigator( {
   },
   About: {
     screen: AboutScreen
-  },
-  Match: {
-    screen: Match
   },
   CameraHelp: {
     screen: CameraHelpScreen

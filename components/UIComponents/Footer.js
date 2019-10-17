@@ -19,11 +19,9 @@ type Props = {
 }
 
 const Footer = ( { navigation }: Props ) => {
-  console.log( navigation.openDrawer, "nav" );
   const [notifications, setNotifications] = useState( false );
 
   const { state } = navigation.dangerouslyGetParent();
-  console.log( state, "state" );
   const activeRoute = state.routes[state.index];
   const { index } = activeRoute;
   const isChallengeScreen = index === 2 || index === 3;

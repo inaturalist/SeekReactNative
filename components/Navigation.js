@@ -61,10 +61,6 @@ const handleCustomTransition = ( { scenes } ) => {
   return fadeIn();
 };
 
-const noHeader = {
-  header: null
-};
-
 const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
@@ -149,42 +145,34 @@ const FooterTabNav = createBottomTabNavigator( {
 
 const MainStack = createStackNavigator( {
   Footer: {
-    screen: FooterTabNav,
-    navigationOptions: () => noHeader
+    screen: FooterTabNav
   },
   Camera: {
-    screen: CameraNav,
-    navigationOptions: () => noHeader
+    screen: CameraNav
   },
   ARCameraResults: {
-    screen: ARCameraResults,
-    navigationOptions: () => noHeader
+    screen: ARCameraResults
   },
   GalleryResults: {
-    screen: GalleryResults,
-    navigationOptions: () => noHeader
+    screen: GalleryResults
   },
   Match: {
-    screen: Match,
-    navigationOptions: () => noHeader
+    screen: Match
   },
   RangeMap: {
-    screen: RangeMap,
-    navigationOptions: () => noHeader
+    screen: RangeMap
   },
   Post: {
-    screen: PostScreen,
-    navigationOptions: () => noHeader
+    screen: PostScreen
   },
   PostingHelp: {
-    screen: PostingHelpScreen,
-    navigationOptions: () => noHeader
+    screen: PostingHelpScreen
   },
   Wikipedia: {
-    screen: WikipediaView,
-    navigationOptions: () => noHeader
+    screen: WikipediaView
   }
 }, {
+  headerMode: "none",
   transitionConfig: nav => handleCustomTransition( nav )
 } );
 
@@ -196,54 +184,42 @@ const MenuDrawerNav = createDrawerNavigator( {
 
 const LoginStack = createStackNavigator( {
   LoginOrSignup: {
-    screen: LoginOrSignupScreen,
-    navigationOptions: () => noHeader
+    screen: LoginOrSignupScreen
   },
   Age: {
-    screen: AgeVerifyScreen,
-    navigationOptions: () => noHeader
+    screen: AgeVerifyScreen
   },
   LoginScreen: {
-    screen: LoginScreen,
-    navigationOptions: () => noHeader
+    screen: LoginScreen
   },
   Forgot: {
-    screen: ForgotPasswordScreen,
-    navigationOptions: () => noHeader
+    screen: ForgotPasswordScreen
   },
   PasswordEmail: {
-    screen: PasswordEmailScreen,
-    navigationOptions: () => noHeader
+    screen: PasswordEmailScreen
   },
   ParentCheckEmail: {
-    screen: ParentCheckEmailScreen,
-    navigationOptions: () => noHeader
+    screen: ParentCheckEmailScreen
   },
   LoginSuccess: {
-    screen: LoginSuccessScreen,
-    navigationOptions: () => noHeader
+    screen: LoginSuccessScreen
   },
   Parent: {
-    screen: ParentalConsentScreen,
-    navigationOptions: () => noHeader
+    screen: ParentalConsentScreen
   },
   LicensePhotos: {
-    screen: LicensePhotosScreen,
-    navigationOptions: () => noHeader
+    screen: LicensePhotosScreen
   },
   Signup: {
-    screen: SignUpScreen,
-    navigationOptions: () => noHeader
+    screen: SignUpScreen
   },
   Privacy: {
-    screen: PrivacyPolicyScreen,
-    navigationOptions: () => noHeader
+    screen: PrivacyPolicyScreen
   },
   TermsOfService: {
-    screen: TermsOfServiceScreen,
-    navigationOptions: () => noHeader
+    screen: TermsOfServiceScreen
   }
-} );
+}, { headerMode: "none" } );
 
 const RootStack = createStackNavigator( {
   Home: {

@@ -1,4 +1,4 @@
-import { createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
@@ -245,7 +245,7 @@ const LoginStack = createStackNavigator( {
   }
 } );
 
-const RootStack = createSwitchNavigator( {
+const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen
   },

@@ -5,6 +5,7 @@ import NotificationRealm from "./NotificationRealm";
 import ObservationRealm from "./ObservationRealm";
 import PhotoRealm from "./PhotoRealm";
 import TaxonRealm from "./TaxonRealm";
+import ReviewRealm from "./ReviewRealm";
 
 export default {
   schema: [
@@ -14,8 +15,9 @@ export default {
     NotificationRealm,
     ObservationRealm,
     PhotoRealm,
+    ReviewRealm,
     TaxonRealm
   ],
-  schemaVersion: 10,
+  schemaVersion: 11,
   path: "db.realm"
 };

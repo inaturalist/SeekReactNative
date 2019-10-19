@@ -14,11 +14,16 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     lineHeight: 24,
-    marginBottom: 20
+    marginBottom: 20,
+    marginTop: 4
+  },
+  largerHeight: {
+    backgroundColor: colors.seekTeal,
+    height: 231
   },
   speciesNearbyContainer: {
     backgroundColor: colors.seekTeal,
-    height: 231
+    height: 55
   },
   text: {
     color: colors.white,

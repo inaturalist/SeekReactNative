@@ -110,7 +110,7 @@ class SpeciesNearby extends Component<Props> {
         <Text style={styles.headerText}>
           {i18n.t( "results.nearby" ).toLocaleUpperCase()}
         </Text>
-        <View style={styles.speciesNearbyContainer}>
+        <View style={[styles.speciesNearbyContainer, !notLoaded && styles.largerHeight]}>
           {species}
         </View>
       </View>

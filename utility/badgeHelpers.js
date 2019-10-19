@@ -106,6 +106,7 @@ const checkNumberOfBadgesEarned = () => {
     .then( ( realm ) => {
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
       setBadgesEarned( earnedBadges.toString() );
+      recalculateBadges();
     } ).catch( ( e ) => {
       console.log( e, "error checking number of badges earned" );
     } );
@@ -122,7 +123,6 @@ const getBadgesEarned = async () => {
 
 const checkForNewBadges = async () => {
   const badgesEarned = await getBadgesEarned();
-  recalculateBadges();
 
   return (
     new Promise( ( resolve ) => {
@@ -134,7 +134,7 @@ const checkForNewBadges = async () => {
           const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
           const badges = earnedBadges.sorted( "earnedDate", true );
 
-          const speciesCount = realm.objects( "ObservationRealm" ).length;
+          const speciesCount = realm.objects( "TaxonRealm" ).length;
           const newestLevels = realm.objects( "BadgeRealm" )
             .filtered( "earned == true AND iconicTaxonName == null" )
             .sorted( "earnedDate", true );

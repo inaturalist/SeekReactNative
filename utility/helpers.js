@@ -6,6 +6,7 @@ import i18n from "../i18n";
 import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
+import { isWithinPastYear } from "./dateHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -192,7 +193,7 @@ const removeFromCollection = ( id ) => {
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );
         realm.delete( taxonToDelete );
-        recalculateBadges();
+        deleteBadges();
         recalculateChallenges();
       } );
     } ).catch( ( e ) => {

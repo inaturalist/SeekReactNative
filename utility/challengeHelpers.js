@@ -211,6 +211,7 @@ const checkNumberOfChallengesCompleted = () => {
       const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" ).length;
 
       setChallengesCompleted( challengesCompleted.toString() );
+      recalculateChallenges();
     } ).catch( ( e ) => {
       console.log( e, "error checking number of badges earned" );
     } );
@@ -268,7 +269,7 @@ const checkForChallengesCompleted = async () => {
             .filtered( "started == true AND percentComplete == 100" )
             .sorted( "completedDate", true );
 
-          if ( challengeProgressIndex ) {
+          if ( challengeProgressIndex !== null ) {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 

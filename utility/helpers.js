@@ -102,8 +102,8 @@ const updateReviews = ( realm, reviews ) => {
     } else {
       reviews[0].timesSeen += 1;
     }
-    console.log( reviews, "reviews" );
   } );
+  StoreReview.requestReview();
 };
 
 const deleteReviews = ( realm, reviews ) => {
@@ -116,16 +116,19 @@ const showAppStoreReview = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       const reviews = realm.objects( "ReviewRealm" );
-      const withinYear = isWithinPastYear( reviews[0].date );
-      if ( withinYear && StoreReview.isAvailable ) {
-        if ( reviews[0].timesSeen < 3 ) {
+
+      if ( reviews.length > 0 ) {
+        const withinYear = isWithinPastYear( reviews[0].date );
+        if ( withinYear && StoreReview.isAvailable ) {
+          if ( reviews[0].timesSeen < 3 ) {
+            updateReviews( realm, reviews );
+          }
+        } else if ( StoreReview.isAvailable ) {
+          deleteReviews( realm, reviews );
           updateReviews( realm, reviews );
-          StoreReview.requestReview();
         }
       } else if ( StoreReview.isAvailable ) {
-        deleteReviews( realm, reviews );
         updateReviews( realm, reviews );
-        StoreReview.requestReview();
       }
     } ).catch( () => {
       console.log( "couldn't show review modal" );

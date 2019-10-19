@@ -1,8 +1,9 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
+import * as StoreReview from "react-native-store-review";
 
 import i18n from "../i18n";
-import { recalculateBadges } from "./badgeHelpers";
+import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
 
@@ -88,6 +89,46 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
     longitude
   };
   return params;
+};
+
+const updateReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    if ( reviews.length === 0 ) {
+      realm.create( "ReviewRealm", {
+        date: new Date(),
+        timesSeen: 1
+      } );
+    } else {
+      reviews[0].timesSeen += 1;
+    }
+    console.log( reviews, "reviews" );
+  } );
+};
+
+const deleteReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    realm.delete( reviews );
+  } );
+};
+
+const showAppStoreReview = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const reviews = realm.objects( "ReviewRealm" );
+      const withinYear = isWithinPastYear( reviews[0].date );
+      if ( withinYear && StoreReview.isAvailable ) {
+        if ( reviews[0].timesSeen < 3 ) {
+          updateReviews( realm, reviews );
+          StoreReview.requestReview();
+        }
+      } else if ( StoreReview.isAvailable ) {
+        deleteReviews( realm, reviews );
+        updateReviews( realm, reviews );
+        StoreReview.requestReview();
+      }
+    } ).catch( () => {
+      console.log( "couldn't show review modal" );
+    } );
 };
 
 const checkForPowerUsers = ( length, newLength ) => {
@@ -294,6 +335,18 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
   return iconicTaxonId[0] || 1;
 };
 
+const fetchNumberSpeciesSeen = () => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const { length } = realm.objects( "TaxonRealm" );
+        resolve( length );
+      } ).catch( () => {
+        resolve( 0 );
+      } );
+  } )
+);
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -313,5 +366,7 @@ export {
   checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest,
-  searchForRealm
+  searchForRealm,
+  showAppStoreReview,
+  fetchNumberSpeciesSeen
 };

@@ -11,7 +11,6 @@ const recalculateBadges = () => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
-      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -32,6 +31,16 @@ const recalculateBadges = () => {
           }
         }
       } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+    } );
+};
+
+const deleteBadges = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const collectedTaxa = realm.objects( "TaxonRealm" );
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
       earnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -53,7 +62,7 @@ const recalculateBadges = () => {
         }
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+      console.log( "[DEBUG] Failed to delete badges, error: ", err );
     } );
 };
 
@@ -154,5 +163,6 @@ export {
   setupBadges,
   checkNumberOfBadgesEarned,
   checkForNewBadges,
-  getBadgesEarned
+  getBadgesEarned,
+  deleteBadges
 };

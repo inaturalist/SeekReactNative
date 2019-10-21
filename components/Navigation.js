@@ -19,14 +19,14 @@ import RangeMap from "./Species/RangeMap";
 import Observations from "./Observations/Observations";
 import AchievementsScreen from "./Achievements/AchievementsScreen";
 import AboutScreen from "./AboutScreen";
-import SideMenu from "./Home/SideMenu";
+import SideMenu from "./UIComponents/SideMenu";
 import OnboardingScreen from "./Onboarding/OnboardingScreen";
 import NotificationsScreen from "./Notifications/Notifications";
 import ChallengeScreen from "./Challenges/ChallengeScreen";
 import ChallengeDetailsScreen from "./Challenges/ChallengeDetailsScreen";
 import iNatStatsScreen from "./iNatStats";
 import CameraHelpScreen from "./Camera/CameraHelpScreen";
-import Footer from "./Home/Footer";
+import Footer from "./UIComponents/Footer";
 import ChallengeFooter from "./Challenges/ChallengeFooter";
 import LoginOrSignupScreen from "./LoginOrSignupScreen";
 import LoginScreen from "./Login/LoginScreen";
@@ -154,46 +154,37 @@ const FooterTabNav = createBottomTabNavigator( {
 
 const MainStack = createStackNavigator( {
   Footer: {
-    screen: FooterTabNav,
-    navigationOptions: () => noHeader
+    screen: FooterTabNav
   },
   ChallengeFooter: {
-    screen: ChallengeFooterTabNav,
-    navigationOptions: () => noHeader
+    screen: ChallengeFooterTabNav
   },
   Camera: {
-    screen: CameraNav,
-    navigationOptions: () => noHeader
+    screen: CameraNav
   },
   ARCameraResults: {
-    screen: ARCameraResults,
-    navigationOptions: () => noHeader
+    screen: ARCameraResults
   },
   GalleryResults: {
-    screen: GalleryResults,
-    navigationOptions: () => noHeader
+    screen: GalleryResults
   },
   Match: {
-    screen: Match,
-    navigationOptions: () => noHeader
+    screen: Match
   },
   RangeMap: {
-    screen: RangeMap,
-    navigationOptions: () => noHeader
+    screen: RangeMap
   },
   Post: {
-    screen: PostScreen,
-    navigationOptions: () => noHeader
+    screen: PostScreen
   },
   PostingHelp: {
-    screen: PostingHelpScreen,
-    navigationOptions: () => noHeader
+    screen: PostingHelpScreen
   },
   Wikipedia: {
-    screen: WikipediaView,
-    navigationOptions: () => noHeader
+    screen: WikipediaView
   }
 }, {
+  headerMode: "none",
   transitionConfig: nav => handleCustomTransition( nav )
 } );
 
@@ -220,54 +211,42 @@ const MenuDrawerNav = createDrawerNavigator( {
 
 const LoginStack = createStackNavigator( {
   LoginOrSignup: {
-    screen: LoginOrSignupScreen,
-    navigationOptions: () => noHeader
+    screen: LoginOrSignupScreen
   },
   Age: {
-    screen: AgeVerifyScreen,
-    navigationOptions: () => noHeader
+    screen: AgeVerifyScreen
   },
   LoginScreen: {
-    screen: LoginScreen,
-    navigationOptions: () => noHeader
+    screen: LoginScreen
   },
   Forgot: {
-    screen: ForgotPasswordScreen,
-    navigationOptions: () => noHeader
+    screen: ForgotPasswordScreen
   },
   PasswordEmail: {
-    screen: PasswordEmailScreen,
-    navigationOptions: () => noHeader
+    screen: PasswordEmailScreen
   },
   ParentCheckEmail: {
-    screen: ParentCheckEmailScreen,
-    navigationOptions: () => noHeader
+    screen: ParentCheckEmailScreen
   },
   LoginSuccess: {
-    screen: LoginSuccessScreen,
-    navigationOptions: () => noHeader
+    screen: LoginSuccessScreen
   },
   Parent: {
-    screen: ParentalConsentScreen,
-    navigationOptions: () => noHeader
+    screen: ParentalConsentScreen
   },
   LicensePhotos: {
-    screen: LicensePhotosScreen,
-    navigationOptions: () => noHeader
+    screen: LicensePhotosScreen
   },
   Signup: {
-    screen: SignUpScreen,
-    navigationOptions: () => noHeader
+    screen: SignUpScreen
   },
   Privacy: {
-    screen: PrivacyPolicyScreen,
-    navigationOptions: () => noHeader
+    screen: PrivacyPolicyScreen
   },
   TermsOfService: {
-    screen: TermsOfServiceScreen,
-    navigationOptions: () => noHeader
+    screen: TermsOfServiceScreen
   }
-} );
+}, { headerMode: "none" } );
 
 const RootStack = createStackNavigator( {
   Home: {

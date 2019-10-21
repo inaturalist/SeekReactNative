@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react";
 import {
   View,
@@ -17,14 +16,14 @@ type Props = {
   +navigation: any
 }
 
-const Footer = ( { navigation }: Props ) => (
+const ChallengeFooter = ( { navigation }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
           hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
-          style={styles.button}
+          style={styles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
@@ -33,20 +32,14 @@ const Footer = ( { navigation }: Props ) => (
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={styles.touchable}
-          onPress={() => {
-            if ( navigation.state ) {
-              if ( navigation.state.routeName !== "iNatStats" ) {
-                navigation.navigate( "iNatStats" );
-              }
-            }
-          }}
-          style={styles.button}
+          onPress={() => navigation.navigate( "iNatStats" )}
+          style={styles.rightIcon}
         >
-          <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
+          <Image source={icons.birdTeal} />
         </TouchableOpacity>
       </View>
     </ImageBackground>
   </SafeAreaView>
 );
 
-export default Footer;
+export default ChallengeFooter;

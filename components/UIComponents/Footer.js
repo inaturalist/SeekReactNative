@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   TouchableOpacity,
@@ -7,7 +7,6 @@ import {
   ImageBackground,
   SafeAreaView
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
 import realmConfig from "../../models";
@@ -19,74 +18,54 @@ type Props = {
   +navigation: any
 }
 
-class Footer extends Component<Props> {
-  constructor() {
-    super();
+const Footer = ( { navigation }: Props ) => {
+  const [notifications, setNotifications] = useState( false );
 
-    this.state = {
-      notifications: false
-    };
-  }
-
-  toggleNotifications( status ) {
-    this.setState( {
-      notifications: status
-    } );
-  }
-
-  fetchNotifications() {
+  const fetchNotifications = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const notifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
-        if ( notifications > 0 ) {
-          this.toggleNotifications( true );
+        const newNotifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
+        if ( newNotifications > 0 ) {
+          setNotifications( true );
         } else {
-          this.toggleNotifications( false );
+          setNotifications( false );
         }
       } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+        console.log( "[DEBUG] Failed to fetch notifications: " );
       } );
-  }
+  };
 
-  render() {
-    const { notifications } = this.state;
-    const { navigation } = this.props;
+  useEffect( () => {
+    fetchNotifications();
+  } );
 
-    return (
-      <SafeAreaView>
-        <ImageBackground source={backgrounds.navBar} style={styles.container}>
-          <NavigationEvents onWillFocus={() => this.fetchNotifications()} />
-          <View style={[styles.navbar, styles.row]}>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              onPress={() => navigation.openDrawer()}
-              style={styles.button}
-            >
-              <Image source={icons.hamburger} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
-              <Image source={icons.cameraGreen} style={styles.cameraImage} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              onPress={() => {
-                if ( navigation.state ) {
-                  if ( navigation.state.routeName !== "Notifications" ) {
-                    navigation.navigate( "Notifications" );
-                  }
-                }
-              }}
-              style={styles.button}
-            >
-              {notifications
-                ? <Image source={icons.notifications} />
-                : <Image source={icons.notificationsInactive} />}
-            </TouchableOpacity>
-          </View>
-        </ImageBackground>
-      </SafeAreaView>
-    );
-  }
-}
+  return (
+    <SafeAreaView>
+      <ImageBackground source={backgrounds.navBar} style={styles.container}>
+        <View style={[styles.navbar, styles.row]}>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => navigation.openDrawer()}
+            style={styles.leftIcon}
+          >
+            <Image source={icons.hamburger} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+            <Image source={icons.cameraGreen} style={styles.cameraImage} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => navigation.navigate( "Notifications" )}
+            style={[styles.rightIcon, styles.notificationPadding]}
+          >
+            {notifications
+              ? <Image source={icons.notifications} />
+              : <Image source={icons.notificationsInactive} />}
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
+    </SafeAreaView>
+  );
+};
 
 export default Footer;

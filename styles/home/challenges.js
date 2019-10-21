@@ -17,8 +17,7 @@ export default StyleSheet.create( {
   },
   challengeContainer: {
     backgroundColor: colors.darkGray,
-    height: 332,
-    marginTop: 21
+    height: 332
   },
   challengeHeader: {
     color: colors.white,
@@ -51,28 +50,6 @@ export default StyleSheet.create( {
   },
   margin: {
     marginBottom: 14
-  },
-  noChallengeContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20
-  },
-  noChallengeRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  noChallengeText: {
-    color: colors.errorGray,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    textAlign: "center",
-    width: 229
-  },
-  noChallengeTextContainer: {
-    justifyContent: "center",
-    marginLeft: 30
   },
   row: {
     alignItems: "center",

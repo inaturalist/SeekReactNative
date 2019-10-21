@@ -1,64 +1,56 @@
 // @flow
 
-import React, { Component } from "react";
-import {
-  View
-} from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
-import { NavigationEvents } from "react-navigation";
 
+import i18n from "../../i18n";
 import styles from "../../styles/home/challenges";
 import realmConfig from "../../models/index";
 import Challenges from "./Challenges";
+import GreenText from "../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
 
 type Props = {
   +navigation: any
-}
+};
 
-class ChallengeCard extends Component<Props> {
-  constructor() {
-    super();
+const ChallengeCard = ( { navigation }: Props ) => {
+  const [challenge, setChallenge] = useState( null );
 
-    this.state = {
-      challenge: null
-    };
-  }
-
-  setChallenge( challenge ) {
-    this.setState( { challenge } );
-  }
-
-  fetchLatestChallenge() {
+  const fetchLatestChallenge = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
         if ( incompleteChallenges.length > 0 ) {
           const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
-          this.setChallenge( latestChallenge[0] );
+          setChallenge( latestChallenge[0] );
         } else {
-          this.setChallenge( null );
+          setChallenge( null );
         }
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
-  }
+  };
 
-  render() {
-    const { navigation } = this.props;
-    const { challenge } = this.state;
+  useEffect( () => {
+    fetchLatestChallenge();
+  }, [] );
 
-    return (
-      <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => this.fetchLatestChallenge()}
-        />
-        {challenge
-          ? <Challenges challenge={challenge} navigation={navigation} />
-          : <NoChallenges navigation={navigation} />}
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate( "Challenges" )}
+        style={styles.header}
+      >
+        <GreenText text={i18n.t( "challenges_card.header" ).toLocaleUpperCase()} />
+      </TouchableOpacity>
+      <View style={styles.header} />
+      {challenge
+        ? <Challenges challenge={challenge} navigation={navigation} />
+        : <NoChallenges />}
+    </View>
+  );
+};
 
 export default ChallengeCard;

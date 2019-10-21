@@ -48,11 +48,11 @@ class LocationPicker extends Component<Props> {
       location
     };
 
-    this.onRegionChange = this.onRegionChange.bind( this );
+    this.handleRegionChange = this.handleRegionChange.bind( this );
     this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  onRegionChange( region ) {
+  handleRegionChange( region ) {
     this.setState( {
       region
     }, () => {
@@ -136,10 +136,7 @@ class LocationPicker extends Component<Props> {
             onPress={() => toggleLocationPicker()}
             style={styles.backButton}
           >
-            <Image
-              source={icons.backButton}
-              style={styles.image}
-            />
+            <Image source={icons.backButton} />
           </TouchableOpacity>
           <View style={styles.textContainer}>
             <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
@@ -156,15 +153,12 @@ class LocationPicker extends Component<Props> {
             />
           </View>
         </View>
-        <View style={styles.mapContainer}>
-          <LocationMap
-            onRegionChange={this.onRegionChange}
-            region={region}
-            returnToUserLocation={this.returnToUserLocation}
-          />
-        </View>
+        <LocationMap
+          onRegionChange={this.handleRegionChange}
+          region={region}
+          returnToUserLocation={this.returnToUserLocation}
+        />
         <View style={styles.footer}>
-          <View style={styles.margin} />
           <GreenButton
             handlePress={() => {
               updateLocation(

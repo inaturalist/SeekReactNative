@@ -1,7 +1,8 @@
 import {
   StyleSheet,
   Dimensions,
-  PixelRatio
+  PixelRatio,
+  Platform
 } from "react-native";
 import {
   colors,
@@ -33,8 +34,9 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   header: {
-    marginLeft: 22,
-    marginTop: 21
+    paddingBottom: Platform.OS === "ios" ? 19 : 21,
+    paddingLeft: 22,
+    paddingTop: 21
   },
   image: {
     marginRight: 27

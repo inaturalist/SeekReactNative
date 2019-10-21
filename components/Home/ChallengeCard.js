@@ -45,7 +45,6 @@ const ChallengeCard = ( { navigation }: Props ) => {
       >
         <GreenText text={i18n.t( "challenges_card.header" ).toLocaleUpperCase()} />
       </TouchableOpacity>
-      <View style={styles.header} />
       {challenge
         ? <Challenges challenge={challenge} navigation={navigation} />
         : <NoChallenges />}

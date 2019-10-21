@@ -7,19 +7,18 @@ import {
 } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
+import i18n from "../../i18n";
 
 type Props = {
   +handleTextChange: Function,
   +placeholder: string,
   +text: string,
-  +type: string,
-  +secureTextEntry: ?boolean
+  +type: string
 }
 
 const InputField = ( {
   handleTextChange,
   placeholder,
-  secureTextEntry,
   text,
   type
 }: Props ) => {
@@ -27,18 +26,23 @@ const InputField = ( {
 
   if ( type === "email" ) {
     keyboardType = "email-address";
+  } else if ( Platform.OS === "android" && type !== "password" ) {
+    // adding this to turn off autosuggestions on Android
+    keyboardType = "visible-password";
   }
 
   return (
     <TextInput
+      accessibilityLabel={i18n.t( "accessibility.input", { type: text } )}
+      accessible
       autoCapitalize="none"
       autoCorrect={false}
-      autoFocus
-      keyboardType={Platform.OS === "android" ? "visible-password" : keyboardType} // adding this to turn off autosuggestions on Android
+      autoFocus={type !== "password"}
+      keyboardType={keyboardType}
       onChangeText={ value => handleTextChange( value )}
       placeholder={placeholder}
       placeholderTextColor="#828282"
-      secureTextEntry={secureTextEntry}
+      secureTextEntry={type === "password"}
       style={styles.inputField}
       textContentType={type}
       value={text}

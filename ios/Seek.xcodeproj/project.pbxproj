@@ -12,11 +12,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2B8098F81BB14D5BBEB96B92 /* Whitney-BoldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86ECB60F94D3443F96BDAF5F /* Whitney-BoldItalic-Pro.otf */; };
-		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* SeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SeekTests.m */; };
 		33787D6627894B64BA95C5AF /* Whitney-LightItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5E17A692724D7ABD01DA41 /* Whitney-LightItalic-Pro.otf */; };
 		3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3739CB162242B17600D8B525 /* optimized_model.mlmodel */; };
 		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
@@ -32,8 +27,6 @@
 		78F570DFE78B47D1B93D8213 /* Whitney-SemiboldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */; };
 		9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */; };
 		AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */; };
-		B0704A9ED59B319217B87F14 /* libPods-Seek-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F65E16C637271018128E6F /* libPods-Seek-tvOS.a */; };
-		B294843D558ABA1B8F838511 /* libPods-Seek-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26E48DE711F2D4BBDA3D3E2C /* libPods-Seek-tvOSTests.a */; };
 		B9B7533D57D0421BA0E82F5F /* Whitney-MediumItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1C4B4FA4CE0644B48BB19157 /* Whitney-MediumItalic-Pro.otf */; };
 		C4A208F8859170CCC83B31ED /* libPods-Seek.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA1B57533311233FAAB4CF2 /* libPods-Seek.a */; };
 		CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */; };
@@ -48,13 +41,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = Seek;
-		};
-		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Seek-tvOS";
 		};
 		374193122177DC86007414A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -99,10 +85,6 @@
 		15FDDD02CC4441A8989F73FA /* Whitney-Semibold-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Semibold-Pro.otf"; path = "../assets/fonts/Whitney-Semibold-Pro.otf"; sourceTree = "<group>"; };
 		1BA1B57533311233FAAB4CF2 /* libPods-Seek.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C4B4FA4CE0644B48BB19157 /* Whitney-MediumItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-MediumItalic-Pro.otf"; path = "../assets/fonts/Whitney-MediumItalic-Pro.otf"; sourceTree = "<group>"; };
-		24558EC821F253D25C536484 /* Pods-Seek-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Seek-tvOSTests/Pods-Seek-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		26E48DE711F2D4BBDA3D3E2C /* libPods-Seek-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E47B1E0B4A5D006451C7 /* Seek-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Seek-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Seek-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Seek-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFAB3387D664ABA98F75FA3 /* Whitney-SemiboldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-SemiboldItalic-Pro.otf"; path = "../assets/fonts/Whitney-SemiboldItalic-Pro.otf"; sourceTree = "<group>"; };
 		3721C5BA22B30F3800151678 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -124,8 +106,6 @@
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		3934BA896BF67AA5ED2C2F7A /* Pods-Seek-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Seek-tvOS/Pods-Seek-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		3C32256EC197AC908DCCA439 /* Pods-Seek-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Seek-tvOS/Pods-Seek-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB4EE7510E647C1ACA3B930 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		5229C53D51524867A0B7218B /* Whitney-BlackItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-BlackItalic-Pro.otf"; path = "../assets/fonts/Whitney-BlackItalic-Pro.otf"; sourceTree = "<group>"; };
 		58A6272C6D8E4E7288D27E9D /* Whitney-Bold-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Bold-Pro.otf"; path = "../assets/fonts/Whitney-Bold-Pro.otf"; sourceTree = "<group>"; };
@@ -137,12 +117,10 @@
 		8B2C8A94B0E2403CA2681E78 /* libRNCNetInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCNetInfo.a; sourceTree = "<group>"; };
 		8C5D7E526C224A39878D5385 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
 		9212388F3CCB4F7BAE13DCC7 /* libRNCGeolocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCGeolocation.a; sourceTree = "<group>"; };
-		95F65E16C637271018128E6F /* libPods-Seek-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seek-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A137AD88526A4B3F959EFA73 /* RNGL.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGL.xcodeproj; path = "../node_modules/gl-react-native/ios/RNGL.xcodeproj"; sourceTree = "<group>"; };
 		A3D8FEFD0BF24BCCB6D91C75 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		BF5E17A692724D7ABD01DA41 /* Whitney-LightItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-LightItalic-Pro.otf"; path = "../assets/fonts/Whitney-LightItalic-Pro.otf"; sourceTree = "<group>"; };
 		D1E957E622264476A8A27E50 /* libRNCCameraRoll.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCCameraRoll.a; sourceTree = "<group>"; };
-		D520B1C58DA4703D395001EA /* Pods-Seek-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Seek-tvOSTests/Pods-Seek-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA6BE48E419092F5709C4488 /* libPods-SeekTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SeekTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAD319CE4BF4A81AA4136B9 /* Whitney-Black-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-Black-Pro.otf"; path = "../assets/fonts/Whitney-Black-Pro.otf"; sourceTree = "<group>"; };
 		E2C507E52B66FFE755947956 /* Pods-Seek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.debug.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,23 +147,6 @@
 				37A31733230F5FB9008A8233 /* libRealmReact.a in Frameworks */,
 				37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */,
 				C4A208F8859170CCC83B31ED /* libPods-Seek.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E4781E0B4A5D006451C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
-				B0704A9ED59B319217B87F14 /* libPods-Seek-tvOS.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48D1E0B4A5D006451C7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B294843D558ABA1B8F838511 /* libPods-Seek-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,8 +192,6 @@
 				37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				1BA1B57533311233FAAB4CF2 /* libPods-Seek.a */,
-				95F65E16C637271018128E6F /* libPods-Seek-tvOS.a */,
-				26E48DE711F2D4BBDA3D3E2C /* libPods-Seek-tvOSTests.a */,
 				DA6BE48E419092F5709C4488 /* libPods-SeekTests.a */,
 			);
 			name = Frameworks;
@@ -291,10 +250,6 @@
 			children = (
 				E2C507E52B66FFE755947956 /* Pods-Seek.debug.xcconfig */,
 				5EE01C8B79D9419EC423ED93 /* Pods-Seek.release.xcconfig */,
-				3C32256EC197AC908DCCA439 /* Pods-Seek-tvOS.debug.xcconfig */,
-				3934BA896BF67AA5ED2C2F7A /* Pods-Seek-tvOS.release.xcconfig */,
-				24558EC821F253D25C536484 /* Pods-Seek-tvOSTests.debug.xcconfig */,
-				D520B1C58DA4703D395001EA /* Pods-Seek-tvOSTests.release.xcconfig */,
 				E577C39B4E48E3A24D36DE90 /* Pods-SeekTests.debug.xcconfig */,
 				75B6124D2D2836027088443E /* Pods-SeekTests.release.xcconfig */,
 			);
@@ -332,8 +287,6 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Seek.app */,
 				00E356EE1AD99517003FC87E /* SeekTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* Seek-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Seek-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,44 +354,6 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Seek.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* Seek-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Seek-tvOS" */;
-			buildPhases = (
-				79FB98079ACF16FAE104416A /* [CP] Check Pods Manifest.lock */,
-				2D02E4771E0B4A5D006451C7 /* Sources */,
-				2D02E4781E0B4A5D006451C7 /* Frameworks */,
-				2D02E4791E0B4A5D006451C7 /* Resources */,
-				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Seek-tvOS";
-			productName = "Seek-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* Seek-tvOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		2D02E48F1E0B4A5D006451C7 /* Seek-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Seek-tvOSTests" */;
-			buildPhases = (
-				D68BA5248781CD8B65C80E1D /* [CP] Check Pods Manifest.lock */,
-				2D02E48C1E0B4A5D006451C7 /* Sources */,
-				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
-				2D02E48E1E0B4A5D006451C7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
-			);
-			name = "Seek-tvOSTests";
-			productName = "Seek-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Seek-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -459,15 +374,6 @@
 								enabled = 1;
 							};
 						};
-					};
-					2D02E47A1E0B4A5D006451C7 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					2D02E48F1E0B4A5D006451C7 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
 				};
 			};
@@ -506,8 +412,6 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Seek */,
 				00E356ED1AD99517003FC87E /* SeekTests */,
-				2D02E47A1E0B4A5D006451C7 /* Seek-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Seek-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -559,21 +463,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D02E4791E0B4A5D006451C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48E1E0B4A5D006451C7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -613,20 +502,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Bundle React Native Code And Images";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
 		3969700E25A60DAC6C5C0ACC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,50 +518,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-SeekTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		79FB98079ACF16FAE104416A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Seek-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D68BA5248781CD8B65C80E1D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Seek-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -714,23 +545,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D02E4771E0B4A5D006451C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */,
-				2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D02E48C1E0B4A5D006451C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2DCD954D1E0B4F2C00145EB5 /* SeekTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -738,11 +552,6 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Seek */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
-		};
-		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Seek-tvOS */;
-			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -893,178 +702,6 @@
 			};
 			name = Release;
 		};
-		2D02E4971E0B4A5E006451C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C32256EC197AC908DCCA439 /* Pods-Seek-tvOS.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-webgl/**",
-					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
-					"$(SRCROOT)/../node_modules/@react-native-community/netinfo/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/cameraroll/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/geolocation/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
-				);
-				INFOPLIST_FILE = "Seek-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Seek-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
-			};
-			name = Debug;
-		};
-		2D02E4981E0B4A5E006451C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3934BA896BF67AA5ED2C2F7A /* Pods-Seek-tvOS.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-webgl/**",
-					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
-					"$(SRCROOT)/../node_modules/@react-native-community/netinfo/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/cameraroll/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/geolocation/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
-				);
-				INFOPLIST_FILE = "Seek-tvOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Seek-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
-			};
-			name = Release;
-		};
-		2D02E4991E0B4A5E006451C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24558EC821F253D25C536484 /* Pods-Seek-tvOSTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-webgl/**",
-					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
-					"$(SRCROOT)/../node_modules/@react-native-community/netinfo/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/cameraroll/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/geolocation/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
-				);
-				INFOPLIST_FILE = "Seek-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Seek-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seek-tvOS.app/Seek-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
-			};
-			name = Debug;
-		};
-		2D02E49A1E0B4A5E006451C7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D520B1C58DA4703D395001EA /* Pods-Seek-tvOSTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-image-crop-picker/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-webgl/**",
-					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
-					"$(SRCROOT)/../node_modules/rn-fetch-blob/ios/**",
-					"$(SRCROOT)/../node_modules/@react-native-community/netinfo/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/cameraroll/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/async-storage/ios",
-					"$(SRCROOT)/../node_modules/@react-native-community/geolocation/ios",
-					"$(SRCROOT)/../node_modules/react-native-device-info/ios/RNDeviceInfo",
-				);
-				INFOPLIST_FILE = "Seek-tvOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Seek-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seek-tvOS.app/Seek-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
-			};
-			name = Release;
-		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1181,24 +818,6 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Seek-tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D02E4971E0B4A5E006451C7 /* Debug */,
-				2D02E4981E0B4A5E006451C7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Seek-tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D02E4991E0B4A5E006451C7 /* Debug */,
-				2D02E49A1E0B4A5E006451C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -54,6 +54,14 @@ export default StyleSheet.create( {
     marginLeft: 28,
     paddingTop: Platform.OS === "ios" ? 7 : 0
   },
+  linkText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 5,
+    textDecorationLine: "underline"
+  },
   marginSmall: {
     marginTop: 21
   },

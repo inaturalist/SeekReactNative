@@ -11,7 +11,6 @@ const recalculateBadges = () => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
-      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
       unearnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -32,6 +31,16 @@ const recalculateBadges = () => {
           }
         }
       } );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+    } );
+};
+
+const deleteBadges = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const collectedTaxa = realm.objects( "TaxonRealm" );
+      const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
       earnedBadges.forEach( ( badge ) => {
         if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
@@ -53,7 +62,7 @@ const recalculateBadges = () => {
         }
       } );
     } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to open realm in recalculate badges, error: ", err );
+      console.log( "[DEBUG] Failed to delete badges, error: ", err );
     } );
 };
 
@@ -97,6 +106,7 @@ const checkNumberOfBadgesEarned = () => {
     .then( ( realm ) => {
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
       setBadgesEarned( earnedBadges.toString() );
+      recalculateBadges();
     } ).catch( ( e ) => {
       console.log( e, "error checking number of badges earned" );
     } );
@@ -113,7 +123,6 @@ const getBadgesEarned = async () => {
 
 const checkForNewBadges = async () => {
   const badgesEarned = await getBadgesEarned();
-  recalculateBadges();
 
   return (
     new Promise( ( resolve ) => {
@@ -125,7 +134,7 @@ const checkForNewBadges = async () => {
           const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
           const badges = earnedBadges.sorted( "earnedDate", true );
 
-          const speciesCount = realm.objects( "ObservationRealm" ).length;
+          const speciesCount = realm.objects( "TaxonRealm" ).length;
           const newestLevels = realm.objects( "BadgeRealm" )
             .filtered( "earned == true AND iconicTaxonName == null" )
             .sorted( "earnedDate", true );
@@ -154,5 +163,6 @@ export {
   setupBadges,
   checkNumberOfBadgesEarned,
   checkForNewBadges,
-  getBadgesEarned
+  getBadgesEarned,
+  deleteBadges
 };

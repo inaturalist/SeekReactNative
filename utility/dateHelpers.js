@@ -35,8 +35,18 @@ const checkIfChallengeAvailable = ( date ) => {
   return false;
 };
 
+const isWithinPastYear = ( reviewShownDate ) => {
+  const today = moment().format( "YYYY-MM-DD" );
+  const lastYear = moment( today ).subtract( 1, "year" ).format( "YYYY-MM-DD" );
+  if ( moment( reviewShownDate ).isAfter( lastYear ) ) {
+    return true;
+  }
+  return false;
+};
+
 export {
   getPreviousAndNextMonth,
   checkIfChallengeAvailable,
-  requiresParent
+  requiresParent,
+  isWithinPastYear
 };

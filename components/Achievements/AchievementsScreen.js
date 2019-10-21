@@ -27,6 +27,7 @@ import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
+import { fetchNumberSpeciesSeen } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -101,13 +102,9 @@ class AchievementsScreen extends Component<Props> {
   }
 
   fetchSpeciesCount() {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const speciesCount = realm.objects( "ObservationRealm" ).length;
-        this.setState( { speciesCount } );
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
+    fetchNumberSpeciesSeen().then( ( speciesCount ) => {
+      this.setState( { speciesCount } );
+    } );
   }
 
   fetchChallenges() {

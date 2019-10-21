@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {
   View,
-  Text
+  Text,
+  TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
-import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/speciesNearby";
@@ -27,15 +27,19 @@ class SpeciesNearby extends Component<Props> {
 
     this.state = {
       taxa: [],
-      loading: true
+      loading: false,
+      notLoaded: true
     };
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa }, () => this.setState( { loading: false } ) );
+    this.setState( { taxa }, () => this.setState( {
+      loading: false
+    } ) );
   }
 
   setParamsForSpeciesNearby() {
+    this.setState( { loading: true, notLoaded: null } );
     const {
       ancestorId,
       hrank,
@@ -73,12 +77,21 @@ class SpeciesNearby extends Component<Props> {
   }
 
   render() {
-    const { taxa, loading } = this.state;
+    const { taxa, loading, notLoaded } = this.state;
     const { navigation } = this.props;
 
     let species;
 
-    if ( loading ) {
+    if ( notLoaded ) {
+      species = (
+        <TouchableOpacity
+          onPress={() => this.setParamsForSpeciesNearby()}
+          style={[styles.center, styles.speciesNearbyContainer]}
+        >
+          <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>
+        </TouchableOpacity>
+      );
+    } else if ( loading ) {
       species = (
         <LoadingWheel color={colors.black} />
       );
@@ -94,15 +107,10 @@ class SpeciesNearby extends Component<Props> {
 
     return (
       <View>
-        <NavigationEvents
-          onWillFocus={() => {
-            this.setParamsForSpeciesNearby();
-          }}
-        />
         <Text style={styles.headerText}>
           {i18n.t( "results.nearby" ).toLocaleUpperCase()}
         </Text>
-        <View style={styles.speciesNearbyContainer}>
+        <View style={[styles.speciesNearbyContainer, !notLoaded && styles.largerHeight]}>
           {species}
         </View>
       </View>

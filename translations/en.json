@@ -258,7 +258,8 @@
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
     "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
     "nearby": "Species nearby in this taxon",
-    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist."
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "View badge",
@@ -440,6 +441,7 @@
     "introduced_about": "This species was brought to this area by humans, and doesn’t naturally occur here.",
     "got_it": "Got it!",
     "wikipedia": "{{about}}\n\nSource: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Similar Species",
     "similar_about": "Organisms commonly misidentified as this species.",
     "plant": "plant",

@@ -1,10 +1,12 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
+import * as StoreReview from "react-native-store-review";
 
 import i18n from "../i18n";
-import { recalculateBadges } from "./badgeHelpers";
+import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
+import { isWithinPastYear } from "./dateHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -90,6 +92,49 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
+const updateReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    if ( reviews.length === 0 ) {
+      realm.create( "ReviewRealm", {
+        date: new Date(),
+        timesSeen: 1
+      } );
+    } else {
+      reviews[0].timesSeen += 1;
+    }
+  } );
+  StoreReview.requestReview();
+};
+
+const deleteReviews = ( realm, reviews ) => {
+  realm.write( () => {
+    realm.delete( reviews );
+  } );
+};
+
+const showAppStoreReview = () => {
+  Realm.open( realmConfig.default )
+    .then( ( realm ) => {
+      const reviews = realm.objects( "ReviewRealm" );
+
+      if ( reviews.length > 0 ) {
+        const withinYear = isWithinPastYear( reviews[0].date );
+        if ( withinYear && StoreReview.isAvailable ) {
+          if ( reviews[0].timesSeen < 3 ) {
+            updateReviews( realm, reviews );
+          }
+        } else if ( StoreReview.isAvailable ) {
+          deleteReviews( realm, reviews );
+          updateReviews( realm, reviews );
+        }
+      } else if ( StoreReview.isAvailable ) {
+        updateReviews( realm, reviews );
+      }
+    } ).catch( () => {
+      console.log( "couldn't show review modal" );
+    } );
+};
+
 const checkForPowerUsers = ( length, newLength ) => {
   if ( length < newLength ) {
     if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
@@ -151,7 +196,7 @@ const removeFromCollection = ( id ) => {
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );
         realm.delete( taxonToDelete );
-        recalculateBadges();
+        deleteBadges();
         recalculateChallenges();
       } );
     } ).catch( ( e ) => {
@@ -294,6 +339,18 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
   return iconicTaxonId[0] || 1;
 };
 
+const fetchNumberSpeciesSeen = () => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const { length } = realm.objects( "TaxonRealm" );
+        resolve( length );
+      } ).catch( () => {
+        resolve( 0 );
+      } );
+  } )
+);
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -313,5 +370,7 @@ export {
   checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest,
-  searchForRealm
+  searchForRealm,
+  showAppStoreReview,
+  fetchNumberSpeciesSeen
 };

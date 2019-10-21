@@ -79,6 +79,8 @@ export default StyleSheet.create( {
   startButton: {
     alignItems: "center",
     marginLeft: 20,
+    paddingBottom: 20,
+    paddingTop: 20,
     width: 59
   },
   textContainer: {

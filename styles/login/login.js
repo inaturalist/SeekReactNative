@@ -39,7 +39,7 @@ export default StyleSheet.create( {
     textDecorationLine: "underline"
   },
   greenButtonMargin: {
-    marginTop: dimensions.height < 570 ? 10 : 51
+    marginTop: dimensions.height < 570 ? 0 : 40
   },
   greenHeader: {
     alignItems: "center",
@@ -106,7 +106,8 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "nowrap",
     marginRight: 41,
-    marginTop: 11
+    paddingBottom: 11,
+    paddingTop: 11
   },
   row,
   secondHeaderText: {

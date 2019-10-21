@@ -52,7 +52,6 @@ const Challenges = ( { navigation, challenge }: Props ) => (
           : i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}
       />
     </View>
-    <View style={styles.margin} />
     <TouchableOpacity
       onPress={() => navigation.navigate( "Challenges" )}
       style={styles.centeredContent}

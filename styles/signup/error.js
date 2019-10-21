@@ -1,11 +1,13 @@
 import { StyleSheet } from "react-native";
-import { fonts, colors, dimensions } from "../global";
+import {
+  fonts,
+  colors,
+  dimensions,
+  row
+} from "../global";
 
 export default StyleSheet.create( {
   errorMargin: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "center",
     marginBottom: dimensions.height > 570 ? 27 : 18,
     marginHorizontal: dimensions.height > 570 ? 34 : 20,
@@ -13,6 +15,10 @@ export default StyleSheet.create( {
   },
   image: {
     marginRight: 15
+  },
+  row,
+  smallerMargin: {
+    marginTop: dimensions.height > 570 ? 19 : 10
   },
   text: {
     color: colors.seekiNatGreen,

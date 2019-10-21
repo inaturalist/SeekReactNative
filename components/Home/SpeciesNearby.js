@@ -65,7 +65,7 @@ const SpeciesNearby = ( {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           onPress={() => toggleLocationPicker()}
-          style={styles.buttonRow}
+          style={[styles.row, styles.paddingBottom, styles.paddingTop]}
         >
           <Image source={icons.locationWhite} style={styles.image} />
           <View style={styles.whiteButton}>

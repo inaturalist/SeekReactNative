@@ -96,7 +96,7 @@ class TaxonPicker extends Component<Props> {
         useNativeAndroidPickerStyle={false}
         value={taxonType}
       >
-        <TouchableOpacity style={styles.buttonRow}>
+        <TouchableOpacity style={[styles.row, styles.paddingBottom]}>
           <Image source={icons.filter} style={styles.image} />
           <View style={styles.whiteButton}>
             <Text style={styles.buttonText}>

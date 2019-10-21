@@ -1,20 +1,15 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "../global";
 
 export default StyleSheet.create( {
   buttonContainer: {
     marginBottom: 15,
     marginLeft: 22,
-    marginTop: 30
-  },
-  buttonRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    marginBottom: 15
+    marginTop: 15
   },
   buttonText: {
     color: colors.seekForestGreen,
@@ -43,21 +38,16 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 16
   },
+  paddingBottom: {
+    paddingBottom: 15
+  },
+  paddingTop: {
+    paddingTop: 15
+  },
+  row,
   speciesNearbyContainer: {
     backgroundColor: colors.speciesNearbyGreen,
     height: 231
-  },
-  text: {
-    fontFamily: fonts.medium,
-    fontSize: 18
-  },
-  textContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    marginLeft: 22,
-    marginRight: 22
   },
   whiteButton: {
     backgroundColor: colors.white,

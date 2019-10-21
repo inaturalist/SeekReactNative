@@ -48,6 +48,10 @@ export default StyleSheet.create( {
   margin: {
     marginTop: 23
   },
+  margins: {
+    marginBottom: 23,
+    marginTop: 39
+  },
   messageText: {
     fontFamily: fonts.book,
     fontSize: 14,

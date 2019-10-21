@@ -3,15 +3,16 @@ import {
   colors,
   fonts,
   touchable,
-  row,
-  dimensions
+  row
 } from "../global";
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
+    left: 0,
+    paddingBottom: 18,
+    paddingHorizontal: 23,
+    paddingTop: 18,
     position: "absolute",
-    top: dimensions.height < 570 ? 58 : 18,
     zIndex: 1
   },
   bottomPadding: {

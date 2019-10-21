@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
@@ -107,7 +107,7 @@ export default StyleSheet.create( {
   textContainer: {
     alignSelf: "center",
     position: "absolute",
-    top: 21
+    top: Platform.OS === "ios" ? 25 : 21
   },
   touchable,
   userLocation: {

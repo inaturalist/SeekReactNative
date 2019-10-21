@@ -8,7 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 
-import styles from "../../styles/home/footer";
+import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 

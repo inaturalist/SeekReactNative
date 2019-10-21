@@ -11,7 +11,7 @@ import {
 
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/sideMenu";
+import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 

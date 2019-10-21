@@ -11,7 +11,7 @@ import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
 import realmConfig from "../../models";
-import styles from "../../styles/home/footer";
+import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
 

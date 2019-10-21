@@ -62,10 +62,6 @@ const handleCustomTransition = ( { scenes } ) => {
   return fadeIn();
 };
 
-const noHeader = {
-  header: null
-};
-
 const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",

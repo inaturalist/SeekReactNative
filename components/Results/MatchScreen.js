@@ -21,7 +21,7 @@ import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
-import Footer from "../Home/Footer";
+import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
 import PostToiNat from "./PostToiNat";

@@ -8,14 +8,21 @@ import styles from "../../styles/uiComponents/greenText";
 type Props = {
   +text: string,
   +smaller: ?boolean,
-  +center: ?boolean
+  +center: ?boolean,
+  +color: ?string
 }
 
-const GreenText = ( { smaller, text, center }: Props ) => (
+const GreenText = ( {
+  smaller,
+  text,
+  center,
+  color
+}: Props ) => (
   <Text style={[
     styles.greenHeaderText,
     smaller && styles.smallerText,
-    center && styles.center
+    center && styles.center,
+    color && { color }
   ]}
   >
     {text}

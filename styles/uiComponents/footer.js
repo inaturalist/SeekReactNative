@@ -3,18 +3,25 @@ import { StyleSheet, Platform } from "react-native";
 import { colors, row } from "../global";
 
 export default StyleSheet.create( {
+  camera: {
+    marginBottom: Platform.OS === "android" ? 10 : 50,
+    marginLeft: 8
+  },
   cameraImage: {
     height: Platform.OS === "android" ? 84 : 94,
-    marginBottom: Platform.OS === "android" ? 10 : 50,
-    marginLeft: 8,
     width: Platform.OS === "android" ? 84 : 94
   },
   container: {
     height: 74,
     justifyContent: "flex-end"
   },
+  flagPadding: {
+    padding: 26,
+    right: 10
+  },
   leftIcon: {
-    marginLeft: 30
+    left: 10,
+    padding: 20
   },
   navbar: {
     backgroundColor: colors.white,
@@ -22,11 +29,12 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   notificationPadding: {
-    paddingLeft: 4,
-    paddingRight: 3
+    padding: 24,
+    right: 10
   },
   rightIcon: {
-    marginRight: 30
+    padding: 20,
+    right: 10
   },
   row,
   touchable: {

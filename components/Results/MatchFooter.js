@@ -24,17 +24,20 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
-          style={styles.button}
+          style={styles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Camera" )}
+          style={styles.camera}
+        >
           <Image source={icons.cameraGreen} style={styles.cameraImage} />
         </TouchableOpacity>
         <TouchableOpacity
           hitSlop={styles.touchable}
           onPress={() => toggleFlagModal()}
-          style={styles.button}
+          style={styles.flagPadding}
         >
           <Image source={icons.flag} />
         </TouchableOpacity>

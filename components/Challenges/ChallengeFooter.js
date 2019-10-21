@@ -27,7 +27,10 @@ const ChallengeFooter = ( { navigation }: Props ) => (
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Camera" )}
+          style={styles.camera}
+        >
           <Image source={icons.cameraGreen} style={styles.cameraImage} />
         </TouchableOpacity>
         <TouchableOpacity

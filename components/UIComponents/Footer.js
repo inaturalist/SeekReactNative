@@ -50,13 +50,16 @@ const Footer = ( { navigation }: Props ) => {
           >
             <Image source={icons.hamburger} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Camera" )}
+            style={styles.camera}
+          >
             <Image source={icons.cameraGreen} style={styles.cameraImage} />
           </TouchableOpacity>
           <TouchableOpacity
             hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Notifications" )}
-            style={[styles.rightIcon, styles.notificationPadding]}
+            style={styles.notificationPadding}
           >
             {notifications
               ? <Image source={icons.notifications} />

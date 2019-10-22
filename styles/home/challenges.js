@@ -35,6 +35,9 @@ export default StyleSheet.create( {
     fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0
   },
+  container: {
+    marginTop: 5
+  },
   header: {
     paddingBottom: Platform.OS === "ios" ? 19 : 21,
     paddingLeft: 22,

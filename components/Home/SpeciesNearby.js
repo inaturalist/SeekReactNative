@@ -1,19 +1,11 @@
 // @flow
 
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image
-} from "react-native";
+import { View } from "react-native";
 
-import i18n from "../../i18n";
 import styles from "../../styles/home/speciesNearby";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import Error from "./Error";
-import TaxonPicker from "./TaxonPicker";
-import icons from "../../assets/icons";
 import { colors } from "../../styles/global";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
@@ -21,9 +13,6 @@ type Props = {
   +taxa: Array,
   +loading: boolean,
   +navigation: any,
-  +location: string,
-  +updateTaxaType: Function,
-  +toggleLocationPicker: Function,
   +requestAndroidPermissions: Function,
   +error: string
 }
@@ -32,9 +21,6 @@ const SpeciesNearby = ( {
   taxa,
   loading,
   navigation,
-  location,
-  updateTaxaType,
-  toggleLocationPicker,
   requestAndroidPermissions,
   error
 }: Props ) => {
@@ -58,27 +44,8 @@ const SpeciesNearby = ( {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={[styles.headerText, styles.header]}>
-        {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-      </Text>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          onPress={() => toggleLocationPicker()}
-          style={[styles.row, styles.paddingBottom, styles.paddingTop]}
-        >
-          <Image source={icons.locationWhite} style={styles.image} />
-          <View style={styles.whiteButton}>
-            {location
-              ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
-          </View>
-        </TouchableOpacity>
-        <TaxonPicker updateTaxaType={updateTaxaType} />
-      </View>
-      <View style={styles.speciesNearbyContainer}>
-        {species}
-      </View>
+    <View style={styles.speciesNearbyContainer}>
+      {species}
     </View>
   );
 };

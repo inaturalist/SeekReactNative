@@ -17,7 +17,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";
 import Padding from "../UIComponents/Padding";
-import CardPadding from "./CardPadding";
+import Header from "./Header";
 import {
   checkIfCardShown,
   addARCameraFiles,
@@ -276,17 +276,19 @@ class HomeScreen extends Component<Props> {
           ref={( ref ) => { this.scrollView = ref; }}
         >
           {Platform.OS === "ios" && <Spacer />}
-          <SpeciesNearby
-            error={error}
-            loading={loading}
+          <Header
             location={location}
-            navigation={navigation}
-            requestAndroidPermissions={this.requestAndroidPermissions}
-            taxa={taxa}
             toggleLocationPicker={this.toggleLocationPicker}
             updateTaxaType={this.updateTaxaType}
           />
-          <CardPadding />
+          <SpeciesNearby
+            error={error}
+            loading={loading}
+            navigation={navigation}
+            requestAndroidPermissions={this.requestAndroidPermissions}
+            taxa={taxa}
+          />
+          <View style={styles.greenMargin} />
           <ChallengeCard navigation={navigation} />
           <Padding />
         </ScrollView>

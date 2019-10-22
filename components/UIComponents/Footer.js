@@ -12,6 +12,7 @@ import Realm from "realm";
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
@@ -44,6 +45,8 @@ const Footer = ( { navigation }: Props ) => {
       <ImageBackground source={backgrounds.navBar} style={styles.container}>
         <View style={[styles.navbar, styles.row]}>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.menu" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => navigation.openDrawer()}
             style={styles.leftIcon}
@@ -51,12 +54,16 @@ const Footer = ( { navigation }: Props ) => {
             <Image source={icons.hamburger} />
           </TouchableOpacity>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.camera" )}
+            accessible
             onPress={() => navigation.navigate( "Camera" )}
             style={styles.camera}
           >
             <Image source={icons.cameraGreen} style={styles.cameraImage} />
           </TouchableOpacity>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.notifications" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Notifications" )}
             style={styles.notificationPadding}

@@ -298,9 +298,11 @@ class GalleryScreen extends Component<Props> {
           >
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
-          {albumNames.length > 0
-            ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
-            : null}
+          <View style={[styles.center, styles.headerContainer]}>
+            {albumNames.length > 0
+              ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+              : null}
+          </View>
         </View>
         <View style={styles.galleryContainer}>
           {gallery}

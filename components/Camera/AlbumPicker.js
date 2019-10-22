@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  StyleSheet,
   Text,
   Image,
   View
@@ -10,13 +9,6 @@ import RNPickerSelect from "react-native-picker-select";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/camera/gallery";
-
-const pickerSelectStyles = StyleSheet.create( {
-  viewContainer: {
-    alignSelf: "center",
-    maxWidth: 200
-  }
-} );
 
 type Props = {
   +updateAlbum: Function,
@@ -57,11 +49,10 @@ class AlbumPicker extends Component<Props> {
           this.setAlbum( value );
         }}
         placeholder={{}}
-        style={{ ...pickerSelectStyles }}
         useNativeAndroidPickerStyle={false}
         value={album}
       >
-        <View style={[styles.row, styles.center]}>
+        <View style={styles.row}>
           <Text style={styles.headerText}>
             {album === "All"
               ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()

@@ -186,12 +186,13 @@ class HomeScreen extends Component<Props> {
       .then( ( { results } ) => {
         const taxa = results.map( r => r.taxon );
 
-        taxa.map( species => getTaxonCommonName( species.id ).then( ( commonName ) => {
+        const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id ).then( ( commonName ) => {
           const localizedSpecies = species;
           localizedSpecies.preferred_common_name = commonName;
         } ) );
 
-        this.setTaxa( taxa );
+        Promise.all( localizedTaxa ).then( this.setTaxa( taxa ) )
+          .catch( e => console.log( e, "couldn't resolve common name" ) );
       } ).catch( () => {
         this.checkInternetConnection();
       } );

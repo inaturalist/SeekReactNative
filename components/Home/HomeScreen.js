@@ -184,6 +184,7 @@ class HomeScreen extends Component<Props> {
     fetch( `${site}?${queryString}` )
       .then( response => response.json() )
       .then( ( { results } ) => {
+        console.log( "fetching results" );
         const taxa = results.map( r => r.taxon );
 
         const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id ).then( ( commonName ) => {

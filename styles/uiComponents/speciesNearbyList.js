@@ -12,10 +12,9 @@ export default StyleSheet.create( {
   },
   cellTitle: {
     flexDirection: "row",
-    flexWrap: "wrap",
     height: 92,
     justifyContent: "center",
-    paddingTop: 15,
+    paddingTop: 13,
     width: 108
   },
   cellTitleText: {
@@ -29,10 +28,7 @@ export default StyleSheet.create( {
     lineHeight: 24
   },
   gridCell: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 10,
-    width: 108
+    marginHorizontal: 14
   },
   noTaxon: {
     alignItems: Platform.OS === "ios" ? "center" : null,
@@ -42,7 +38,7 @@ export default StyleSheet.create( {
     width: 322
   },
   taxonList: {
-    marginTop: 29,
-    paddingLeft: 20
+    marginLeft: 20,
+    marginTop: 29
   }
 } );

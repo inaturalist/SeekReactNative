@@ -39,7 +39,7 @@ export default StyleSheet.create( {
   headerContainer: {
     alignSelf: "center",
     position: "absolute",
-    top: Platform.OS === "ios" ? 15 : 18
+    top: 15
   },
   headerText: {
     color: colors.seekForestGreen,

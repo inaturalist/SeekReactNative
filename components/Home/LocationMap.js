@@ -9,10 +9,10 @@ import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
 
 type Props = {
-  region: Object,
-  onRegionChange: Function,
-  returnToUserLocation: Function,
-  posting: ?boolean
+  +region: Object,
+  +onRegionChange: Function,
+  +returnToUserLocation: Function,
+  +posting: ?boolean
 }
 
 const LocationMap = ( {
@@ -21,20 +21,19 @@ const LocationMap = ( {
   returnToUserLocation,
   posting
 }: Props ) => (
-  <View style={{ flex: 1 }}>
+  <View style={styles.container}>
     {region.latitude ? (
       <MapView
-        provider={PROVIDER_DEFAULT}
-        style={styles.map}
-        region={region}
         onRegionChangeComplete={region => onRegionChange( region )}
+        provider={PROVIDER_DEFAULT}
+        region={region}
+        style={styles.map}
       />
     ) : null}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>
       {posting
         ? <Image source={postingIcons.crosshair} />
-        : <Image style={styles.markerPin} source={icons.locationPin} />
-      }
+        : <Image source={icons.locationPin} style={styles.markerPin} />}
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight

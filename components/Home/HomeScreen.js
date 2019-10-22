@@ -8,11 +8,9 @@ import {
   Modal,
   StatusBar
 } from "react-native";
-import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
 
-import i18n from "../../i18n";
 import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
@@ -20,9 +18,14 @@ import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import CardPadding from "./CardPadding";
-import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
+import {
+  checkIfCardShown,
+  addARCameraFiles,
+  checkForInternet,
+  getTaxonCommonName
+} from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
-import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
+// import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
@@ -107,19 +110,11 @@ class HomeScreen extends Component<Props> {
     this.checkInternetConnection();
 
     const params = {
-      verifiable: true,
-      photos: true,
       per_page: 20,
       lat,
       lng,
-      radius: 50,
-      threatened: false,
-      oauth_application_id: "2,3",
-      hrank: "species",
-      include_only_vision_taxa: true,
-      not_in_list_id: 945029,
-      month: getPreviousAndNextMonth(),
-      locale: i18n.currentLocale()
+      observed_on: new Date(),
+      seek_exceptions: true
     };
 
     if ( taxonIds[taxaType] ) {
@@ -183,12 +178,23 @@ class HomeScreen extends Component<Props> {
   }
 
   fetchSpeciesNearby( params ) {
-    inatjs.observations.speciesCounts( params ).then( ( response ) => {
-      const taxa = response.results.map( r => r.taxon );
-      this.setTaxa( taxa );
-    } ).catch( () => {
-      this.checkInternetConnection();
-    } );
+    const site = "https://api.inaturalist.org/v1/taxa/nearby";
+    const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+
+    fetch( `${site}?${queryString}` )
+      .then( response => response.json() )
+      .then( ( { results } ) => {
+        const taxa = results.map( r => r.taxon );
+
+        taxa.map( species => getTaxonCommonName( species.id ).then( ( commonName ) => {
+          const localizedSpecies = species;
+          localizedSpecies.preferred_common_name = commonName;
+        } ) );
+
+        this.setTaxa( taxa );
+      } ).catch( () => {
+        this.checkInternetConnection();
+      } );
   }
 
   toggleLocationPicker() {

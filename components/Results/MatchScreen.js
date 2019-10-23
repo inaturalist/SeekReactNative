@@ -275,26 +275,19 @@ class MatchScreen extends Component<Props> {
     let text;
     let speciesText;
     let ancestorRank;
-    let hrank;
 
     if ( rank === 20 ) {
       ancestorRank = i18n.t( "camera.genus" );
-      hrank = "genus";
     } else if ( rank === 30 ) {
       ancestorRank = i18n.t( "camera.family" );
-      hrank = "family";
     } else if ( rank === 40 ) {
       ancestorRank = i18n.t( "camera.order" );
-      hrank = "order";
     } else if ( rank === 50 ) {
       ancestorRank = i18n.t( "camera.class" );
-      hrank = "class";
     } else if ( rank === 60 ) {
       ancestorRank = i18n.t( "camera.phylum" );
-      hrank = "phylum";
     } else if ( rank === 70 ) {
       ancestorRank = i18n.t( "camera.kingdom" );
-      hrank = "kingdom";
     }
 
     if ( seenDate ) {
@@ -455,7 +448,6 @@ class MatchScreen extends Component<Props> {
           {commonAncestor && rank !== ( 60 || 70 ) ? (
             <SpeciesNearby
               ancestorId={taxaId}
-              hrank={hrank}
               lat={latitude}
               lng={longitude}
               navigation={navigation}

@@ -4,18 +4,15 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import inatjs from "inaturalistjs";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import { colors } from "../../styles/global";
 
 type Props = {
   +ancestorId: Number,
-  +hrank: string,
   +lat: Number,
   +lng: Number,
   +navigation: any
@@ -42,25 +39,17 @@ class SpeciesNearby extends Component<Props> {
     this.setState( { loading: true, notLoaded: null } );
     const {
       ancestorId,
-      hrank,
       lat,
       lng
     } = this.props;
 
     const params = {
-      verifiable: true,
-      photos: true,
       per_page: 20,
       lat,
       lng,
-      radius: 50,
-      threatened: false,
-      oauth_application_id: "2,3",
-      hrank,
-      include_only_vision_taxa: true,
-      not_in_list_id: 945029,
-      month: getPreviousAndNextMonth(),
-      locale: i18n.currentLocale(),
+      observed_on: new Date(),
+      seek_exceptions: true,
+      locale: i18n.locale,
       taxon_id: ancestorId
     };
 
@@ -68,12 +57,17 @@ class SpeciesNearby extends Component<Props> {
   }
 
   fetchSpeciesNearby( params ) {
-    inatjs.observations.speciesCounts( params ).then( ( response ) => {
-      const taxa = response.results.map( r => r.taxon );
-      this.setTaxa( taxa );
-    } ).catch( () => {
-      console.log( "couldn't fetch species nearby" );
-    } );
+    const site = "https://api.inaturalist.org/v1/taxa/nearby";
+    const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+
+    fetch( `${site}?${queryString}` )
+      .then( response => response.json() )
+      .then( ( { results } ) => {
+        const taxa = results.map( r => r.taxon );
+        this.setTaxa( taxa );
+      } ).catch( () => {
+        console.log( "couldn't fetch species nearby" );
+      } );
   }
 
   render() {

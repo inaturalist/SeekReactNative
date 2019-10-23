@@ -26,7 +26,6 @@ import {
   getTaxonCommonName
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
-// import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";

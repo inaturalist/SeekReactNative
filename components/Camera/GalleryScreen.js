@@ -265,6 +265,8 @@ class GalleryScreen extends Component<Props> {
           onEndReached={() => this.getPhotos()}
           renderItem={( { item } ) => (
             <TouchableHighlight
+              accessibilityLabel={item.node.image.filename}
+              accessible
               onPress={() => this.selectAndResizeImage( item.node )}
               style={styles.button}
               underlayColor="transparent"

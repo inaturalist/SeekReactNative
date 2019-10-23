@@ -2,7 +2,8 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  dimensions
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -49,10 +50,14 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   logo: {
-    alignSelf: "center",
     height: 34,
     resizeMode: "contain",
     width: 175
+  },
+  logoContainer: {
+    alignSelf: "center",
+    paddingTop: 18,
+    position: "absolute"
   },
   missionContainer: {
     alignItems: "flex-start",

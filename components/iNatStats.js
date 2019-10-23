@@ -135,67 +135,70 @@ class iNatStatsScreen extends Component<Props> {
     } );
 
     return (
-      <ScrollView
-        ref={( ref ) => { this.scrollView = ref; }}
-      >
-        <NavigationEvents
-          onWillFocus={() => {
-            this.fetchiNatStats();
-            this.scrollToTop();
-            this.fetchProjectPhotos();
-          }}
-        />
-        <SafeAreaView style={styles.safeView} />
-        <StatusBar barStyle="dark-content" />
-        <BackArrow green navigation={navigation} />
-        <Image source={logos.iNat} style={styles.logo} />
-        <View style={styles.headerMargin} />
-        <Image source={backgrounds.heatMap} style={styles.heatMap} />
-        <View style={styles.missionContainer}>
-          <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
-          <Image source={logos.bird} style={styles.iNatLogo} />
-          <Text style={styles.numberText}>
-            {observations}
-            {"+"}
-          </Text>
-          <GreenText smaller text={i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()} />
-          <Text style={styles.numberText}>
-            {observers}
-            {"+"}
-          </Text>
-          <Image
-            source={icons.iNatExplanation}
-            style={styles.explainImage}
+      <SafeAreaView style={styles.safeView}>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+        >
+          <NavigationEvents
+            onWillFocus={() => {
+              this.fetchiNatStats();
+              this.scrollToTop();
+              this.fetchProjectPhotos();
+            }}
           />
-          <Text style={styles.missionHeaderText}>
-            {i18n.t( "inat_stats.seek_data" )}
-          </Text>
-          <Text style={styles.missionText}>
-            {i18n.t( "inat_stats.about_inat" )}
-          </Text>
-        </View>
-        {loading ? (
-          <View style={[styles.center, styles.photoContainer]}>
-            <LoadingWheel color="black" />
+          <StatusBar barStyle="dark-content" />
+          <BackArrow green navigation={navigation} />
+          <View style={styles.logoContainer}>
+            <Image source={logos.iNat} style={styles.logo} />
           </View>
-        ) : (
-          <View>
-            <ScrollView
-              contentContainerStyle={styles.photoContainer}
-              horizontal
-              indicatorStyle="white"
-              pagingEnabled
-              showsHorizontalScrollIndicator
-            >
-              {photoList}
-            </ScrollView>
-            <Image source={icons.swipeLeft} style={styles.leftArrow} />
-            <Image source={icons.swipeRight} style={styles.rightArrow} />
+          <View style={styles.headerMargin} />
+          <Image source={backgrounds.heatMap} style={styles.heatMap} />
+          <View style={styles.missionContainer}>
+            <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
+            <Image source={logos.bird} style={styles.iNatLogo} />
+            <Text style={styles.numberText}>
+              {observations}
+              {"+"}
+            </Text>
+            <GreenText smaller text={i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()} />
+            <Text style={styles.numberText}>
+              {observers}
+              {"+"}
+            </Text>
+            <Image
+              source={icons.iNatExplanation}
+              style={styles.explainImage}
+            />
+            <Text style={styles.missionHeaderText}>
+              {i18n.t( "inat_stats.seek_data" )}
+            </Text>
+            <Text style={styles.missionText}>
+              {i18n.t( "inat_stats.about_inat" )}
+            </Text>
           </View>
-        )}
-        <LoginCard navigation={navigation} />
-        <Padding />
-      </ScrollView>
+          {loading ? (
+            <View style={[styles.center, styles.photoContainer]}>
+              <LoadingWheel color="black" />
+            </View>
+          ) : (
+            <View>
+              <ScrollView
+                contentContainerStyle={styles.photoContainer}
+                horizontal
+                indicatorStyle="white"
+                pagingEnabled
+                showsHorizontalScrollIndicator
+              >
+                {photoList}
+              </ScrollView>
+              <Image source={icons.swipeLeft} style={styles.leftArrow} />
+              <Image source={icons.swipeRight} style={styles.rightArrow} />
+            </View>
+          )}
+          <LoginCard navigation={navigation} />
+          <Padding />
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }

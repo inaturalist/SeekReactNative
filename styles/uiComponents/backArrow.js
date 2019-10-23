@@ -4,7 +4,8 @@ import { touchable } from "../global";
 export default StyleSheet.create( {
   backButton: {
     left: 23,
-    top: 18
+    paddingBottom: 18,
+    paddingTop: 18
   },
   touchable
 } );

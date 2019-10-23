@@ -17,7 +17,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    top: Platform.OS === "android" ? -4 : null
+    paddingTop: Platform.OS === "android" ? 18 : 21,
+    position: "absolute"
   },
   touchable
 } );

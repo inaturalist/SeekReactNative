@@ -534,6 +534,7 @@
     "camera": "Open camera",
     "notifications": "View notifications",
     "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect"
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen"
   }
 }

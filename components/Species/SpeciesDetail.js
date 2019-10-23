@@ -428,6 +428,8 @@ class SpeciesDetail extends Component<Props> {
           />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.back" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => {
               if ( route === "Match" ) {

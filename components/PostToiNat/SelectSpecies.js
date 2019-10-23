@@ -107,6 +107,8 @@ class SelectSpecies extends Component<Props> {
         />
         <View style={styles.header}>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.back" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => toggleSpeciesModal()}
             style={styles.backButton}

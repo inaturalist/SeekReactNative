@@ -7,6 +7,7 @@ import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 import styles from "../../styles/home/locationPicker";
 import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
+import i18n from "../../i18n";
 
 type Props = {
   +region: Object,
@@ -37,6 +38,8 @@ const LocationMap = ( {
     </View>
     <View style={styles.userLocation}>
       <TouchableHighlight
+        accessibilityLabel={i18n.t( "accessibility.user_location" )}
+        accessible
         onPress={() => returnToUserLocation()}
         style={styles.locationIcon}
       >

@@ -442,6 +442,8 @@ class ARCamera extends Component<Props> {
         {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
         {!pictureTaken && !error ? (
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+            accessible
             onPress={() => {
               this.setPictureTaken( true );
               this.takePicture();
@@ -462,6 +464,8 @@ class ARCamera extends Component<Props> {
         ) : null}
         {!error ? (
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.help" )}
+            accessible
             onPress={() => navigation.navigate( "CameraHelp" )}
             style={styles.help}
           >

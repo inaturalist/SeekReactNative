@@ -11,6 +11,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
 
+import i18n from "../../i18n";
 import styles from "../../styles/home/home";
 import LocationPicker from "./LocationPicker";
 import SpeciesNearby from "./SpeciesNearby";
@@ -66,6 +67,7 @@ class HomeScreen extends Component<Props> {
   }
 
   setTaxa( taxa ) {
+    // console.log( taxa[0], "setting taxa" );
     this.setState( { taxa }, () => this.setLoading( false ) );
   }
 
@@ -177,6 +179,17 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
+  localizeSpeciesNearby( taxa ) {
+    const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id )
+      .then( ( commonName ) => {
+        const localizedSpecies = species;
+        localizedSpecies.preferred_common_name = commonName;
+      } ) );
+
+    Promise.all( localizedTaxa ).then( () => this.setTaxa( taxa ) )
+      .catch( e => console.log( e, "couldn't resolve common name" ) );
+  }
+
   fetchSpeciesNearby( params ) {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
@@ -184,16 +197,13 @@ class HomeScreen extends Component<Props> {
     fetch( `${site}?${queryString}` )
       .then( response => response.json() )
       .then( ( { results } ) => {
-        console.log( "fetching results" );
         const taxa = results.map( r => r.taxon );
 
-        const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id ).then( ( commonName ) => {
-          const localizedSpecies = species;
-          localizedSpecies.preferred_common_name = commonName;
-        } ) );
-
-        Promise.all( localizedTaxa ).then( this.setTaxa( taxa ) )
-          .catch( e => console.log( e, "couldn't resolve common name" ) );
+        if ( i18n.locale !== "en" ) {
+          this.localizeSpeciesNearby( taxa );
+        } else {
+          this.setTaxa( taxa );
+        }
       } ).catch( () => {
         this.checkInternetConnection();
       } );

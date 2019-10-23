@@ -17,16 +17,17 @@ class App extends Component {
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
-    setTimeout( setupCommonNames, 5000 );
+    await setupCommonNames();
+    // setTimeout( setupCommonNames, 5000 );
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
-    RNLocalize.addEventListener( "change", this.handleLanguagesChange );
+    RNLocalize.addEventListener( "change", this.handleLocalizationChange );
   }
 
   componentWillUnmount() {
-    RNLocalize.removeEventListener( "change", this.handleLanguagesChange );
+    RNLocalize.removeEventListener( "change", this.handleLocalizationChange );
   }
 
-  handleLanguagesChange = () => {
+  handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 

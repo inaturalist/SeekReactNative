@@ -7,9 +7,9 @@ export default StyleSheet.create( {
     height: 55
   },
   help: {
-    alignSelf: "flex-end",
-    right: 21,
-    top: -32
+    paddingTop: Platform.OS === "android" ? 13 : 15,
+    position: "absolute",
+    right: 21
   },
   text: {
     alignSelf: "center",
@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    paddingTop: Platform.OS === "android" ? 18 : 21,
+    paddingTop: Platform.OS === "android" ? 18 : 20,
     position: "absolute"
   },
   touchable

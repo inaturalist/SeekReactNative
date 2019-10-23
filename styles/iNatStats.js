@@ -2,8 +2,7 @@ import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
   fonts,
-  center,
-  dimensions
+  center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );

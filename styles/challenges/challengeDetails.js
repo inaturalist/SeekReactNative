@@ -39,7 +39,6 @@ export default StyleSheet.create( {
   descriptionContainer: {
     alignItems: "center",
     backgroundColor: colors.white,
-    marginHorizontal: 36,
     marginTop: 21
   },
   descriptionText: {
@@ -57,11 +56,16 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 116
   },
+  logoContainer: {
+    alignSelf: "center",
+    paddingTop: 18,
+    position: "absolute"
+  },
+  margin: {
+    marginTop: 50
+  },
   marginHorizontal: {
     marginHorizontal: 36
-  },
-  missionContainer: {
-    flex: 1
   },
   photographerText: {
     color: colors.black,
@@ -79,12 +83,11 @@ export default StyleSheet.create( {
     marginBottom: ( fontScale > 1 ) ? 20 : 28,
     marginTop: ( fontScale > 1 ) ? 15 : 21
   },
-  safeViewTop: {
+  safeView: {
     backgroundColor: colors.black,
     flex: 0
   },
   secondHeader: {
-    marginLeft: 35,
     marginTop: 21
   },
   text: {
@@ -102,5 +105,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     textDecorationLine: "underline"
+  },
+  whiteContainer: {
+    backgroundColor: colors.white,
+    paddingHorizontal: 36
   }
 } );

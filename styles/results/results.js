@@ -8,15 +8,17 @@ import {
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
-    top: 18
+    paddingBottom: 18,
+    paddingLeft: 23,
+    paddingTop: 18,
+    position: "absolute"
   },
   buttonBlue: {
     backgroundColor: colors.seekTeal
   },
   buttonContainer: {
     marginBottom: 10,
-    marginTop: 40
+    marginTop: 58
   },
   center,
   container: {

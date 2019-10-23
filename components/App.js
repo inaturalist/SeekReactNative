@@ -17,8 +17,7 @@ class App extends Component {
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
-    await setupCommonNames();
-    // setTimeout( setupCommonNames, 5000 );
+    setTimeout( setupCommonNames, 5000 );
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
     RNLocalize.addEventListener( "change", this.handleLocalizationChange );
   }

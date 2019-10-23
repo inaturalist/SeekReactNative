@@ -116,7 +116,8 @@ class HomeScreen extends Component<Props> {
       lat,
       lng,
       observed_on: new Date(),
-      seek_exceptions: true
+      seek_exceptions: true,
+      locale: i18n.locale
     };
 
     if ( taxonIds[taxaType] ) {
@@ -198,12 +199,7 @@ class HomeScreen extends Component<Props> {
       .then( response => response.json() )
       .then( ( { results } ) => {
         const taxa = results.map( r => r.taxon );
-
-        if ( i18n.locale !== "en" ) {
-          this.localizeSpeciesNearby( taxa );
-        } else {
-          this.setTaxa( taxa );
-        }
+        this.setTaxa( taxa );
       } ).catch( () => {
         this.checkInternetConnection();
       } );

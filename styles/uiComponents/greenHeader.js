@@ -7,9 +7,11 @@ export default StyleSheet.create( {
     height: 55
   },
   help: {
+    paddingBottom: 13,
+    paddingHorizontal: 21,
     paddingTop: 13,
     position: "absolute",
-    right: 21
+    right: 0
   },
   text: {
     alignSelf: "center",

@@ -10,11 +10,12 @@ export default StyleSheet.create( {
   },
   header: {
     backgroundColor: colors.white,
-    height: 62
+    height: 55
   },
   headerText: {
     alignSelf: "center",
-    marginTop: -3
+    paddingTop: 18,
+    position: "absolute"
   },
   image: {
     height: height / 3 * 2,

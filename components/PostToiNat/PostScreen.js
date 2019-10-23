@@ -476,7 +476,6 @@ class PostScreen extends Component<Props> {
             style={styles.inputField}
             value={description}
           />
-          <View style={{ marginBottom: 21 }} />
           <View style={styles.divider} />
           <TouchableOpacity
             onPress={() => this.showDateTimePicker()}

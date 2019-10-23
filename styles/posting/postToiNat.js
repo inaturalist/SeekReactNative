@@ -49,16 +49,14 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
-    height: 21,
     marginHorizontal: height < 570 ? 14 : 27,
-    paddingBottom: 0,
-    paddingTop: 0,
+    paddingBottom: 21,
+    paddingTop: 21,
     textAlignVertical: "top",
     width: width - 54
   },
   row: {
     alignItems: "flex-start",
-    // flexDirection: "column",
     justifyContent: "center",
     marginLeft: 21,
     width: 211

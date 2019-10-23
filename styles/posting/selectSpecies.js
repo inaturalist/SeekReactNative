@@ -10,7 +10,8 @@ const { width } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   backButton: {
     left: 23,
-    top: 18
+    paddingBottom: 18,
+    paddingTop: 18
   },
   card: {
     alignItems: "center",
@@ -90,7 +91,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    top: Platform.OS === "android" ? -4 : null
+    paddingTop: Platform.OS === "android" ? 18 : 20,
+    position: "absolute"
   },
   textContainer: {
     marginHorizontal: 24,

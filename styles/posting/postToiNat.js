@@ -9,7 +9,8 @@ const { height, width } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   buttonIcon: {
     position: "absolute",
-    right: 27
+    right: 27,
+    zIndex: 1
   },
   card: {
     alignItems: "center",

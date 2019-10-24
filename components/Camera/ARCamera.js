@@ -53,7 +53,8 @@ class ARCamera extends Component<Props> {
       latitude: null,
       longitude: null,
       showWarningModal: false,
-      errorCode: null
+      errorCode: null,
+      errorEvent: null
     };
     this.backHandler = null;
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
@@ -75,9 +76,12 @@ class ARCamera extends Component<Props> {
     this.setState( { loading } );
   }
 
-  setError( error ) {
+  setError( error, event ) {
     this.setLoading( false );
-    this.setState( { error } );
+    this.setState( {
+      error,
+      errorEvent: event || null
+    } );
   }
 
   setLocationErrorCode( errorCode ) {
@@ -132,7 +136,11 @@ class ARCamera extends Component<Props> {
 
   onCameraError = ( event ) => {
     if ( event ) {
-      this.setError( "camera" );
+      if ( Platform.OS === "ios" ) {
+        this.setError( "camera", event.nativeEvent.error );
+      } else {
+        this.setError( "camera" );
+      }
     }
   }
 
@@ -353,7 +361,8 @@ class ARCamera extends Component<Props> {
       error,
       focusedScreen,
       commonName,
-      showWarningModal
+      showWarningModal,
+      errorEvent
     } = this.state;
     const { navigation } = this.props;
 
@@ -367,8 +376,10 @@ class ARCamera extends Component<Props> {
       errorText = i18n.t( "camera.device_support" );
     } else if ( error === "save" ) {
       errorText = i18n.t( "camera.error_gallery" );
+    } else if ( error === "camera" && Platform.OS === "ios" ) {
+      errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent}`;
     } else if ( error === "camera" ) {
-      errorText = i18n.t( "camera.error_old_camera" );
+      i18n.t( "camera.error_old_camera" );
     }
 
     let helpText;

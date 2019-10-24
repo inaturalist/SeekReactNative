@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import {
   colors,
-  fonts
+  row
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -10,16 +10,11 @@ export default StyleSheet.create( {
   button: {
     marginBottom: 21,
     marginHorizontal: 29,
-    marginTop: height > 570 ? 21 : 10
+    marginTop: 21
   },
   container: {
     backgroundColor: colors.white,
     borderRadius: 40
-  },
-  contentContainer: {
-    alignItems: "center",
-    marginHorizontal: 29,
-    marginTop: height > 570 ? 10 : 0
   },
   headerMargin: {
     alignSelf: "center",
@@ -31,19 +26,17 @@ export default StyleSheet.create( {
     resizeMode: "contain",
     width: 68
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    height: height > 570 ? 100 : 120
+  margin: {
+    marginHorizontal: 29
   },
-  text: {
-    fontFamily: fonts.book,
-    fontSize: height > 570 ? 16 : 14,
-    lineHeight: 21,
-    maxWidth: height > 570 ? 194 : 150
+  marginMiddle: {
+    marginTop: height > 570 ? 28 : 10
   },
+  marginTop: {
+    marginTop: 10
+  },
+  row,
   textContainer: {
-    width: 194
+    maxWidth: height > 570 ? 194 : 150
   }
 } );

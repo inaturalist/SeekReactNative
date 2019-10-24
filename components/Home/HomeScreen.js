@@ -66,7 +66,6 @@ class HomeScreen extends Component<Props> {
   }
 
   setTaxa( taxa ) {
-    // console.log( taxa[0], "setting taxa" );
     this.setState( { taxa }, () => this.setLoading( false ) );
   }
 

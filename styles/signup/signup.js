@@ -51,6 +51,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.medium,
     fontSize: 19,
     lineHeight: 24,
+    marginHorizontal: 22,
     textAlign: "center"
   },
   headerText: {

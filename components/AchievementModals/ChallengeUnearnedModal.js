@@ -30,7 +30,7 @@ type Props = {
 
 const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }: Props ) => (
   <React.Fragment>
-    <View style={styles.innerContainer}>
+    <View style={[styles.innerContainer, styles.center]}>
       <View style={styles.center}>
         <BannerHeader
           modal
@@ -64,8 +64,9 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           />
         )}
       </View>
-      <View style={styles.center}>
+      <View style={styles.margins}>
         <GreenText
+          center
           text={i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
         />
       </View>

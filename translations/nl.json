@@ -11,8 +11,8 @@
     "internet_error": "Internet is nodig om soorten in de buurt te vinden. Tik om het opnieuw te proberen.",
     "no_location": "Geen locatie",
     "no_species": "Er zijn nog niet veel soorten in de buurt waargenomen! Verander je locatie of pas de soortzoekcriteria aan.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "no_gps": "GPS signaal niet gevonden.",
+    "location_timeout": "Uw locatieaanvraag is verlopen. Probeer het opnieuw."
   },
   "get_started": {
     "header": "Aan de slag",
@@ -238,6 +238,7 @@
     "take_photo": "Neem een andere foto",
     "common_ancestor": "Maar we konden de exacte soort niet determineren.\n\nJe kunt een andere hoek proberen, in te zoomen of proberen een duidelijkere afbeelding van het organisme te maken.",
     "believe": "Wij geloven dat dit lid is van",
+    "believe_1": "We believe this is a member of",
     "resighted": "Je hebt een soort opnieuw waargenomen!",
     "date_observed": "Je hebt het voor het eerst op \n{{seenDate}} waargenomen",
     "post_inat": "Als je de originele foto van het organisme hebt genomen kun je Seek op deze soort helpen trainen door de foto in te voeren op iNaturalist, waar de gemeenschap zal helpen deze te determineren en toekomstige versies te verbeteren.",
@@ -255,7 +256,10 @@
     "error_downtime": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{number}} uur.",
     "error_few": "een paar",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "Bekijk badge",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Foto’s",
-    "choose_photo": "Kies een foto"
+    "choose_photo": "Kies een foto",
+    "camera_roll": "Filmrol"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -436,6 +441,7 @@
     "introduced_about": "Deze soort is door mensen naar dit gebied gebracht en komt hier niet van nature voor.",
     "got_it": "Ik snap het!",
     "wikipedia": "{{about}}\n\nBron: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Dubbelgangers",
     "similar_about": "Organismen die vaak ten onrechte worden aangezien als deze soort.",
     "plant": "plant",
@@ -449,7 +455,8 @@
     "mollusk": "weekdier",
     "mammal": "zoogdier",
     "species_saved": "Deze soort wordt opgeslagen in jouw waarnemingen.",
-    "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren."
+    "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren.",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "Over",
@@ -521,5 +528,17 @@
     "tip_1": "Wees altijd bewust van je omgeving, doe geen domme dingen en betreed terreinen alleen met toestemming.",
     "tip_2": "Eet geen wilde planten of dieren.",
     "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

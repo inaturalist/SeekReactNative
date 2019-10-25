@@ -238,6 +238,7 @@
     "take_photo": "Tag et billede mere",
     "common_ancestor": "Men vi kunne ikke identificere den præcise art.\n\nDu kan prøve en anden vinkel, zoome ind eller prøve at få et skarpere foto af organismen.",
     "believe": "Vi mener, at dette er et medlem af",
+    "believe_1": "Vi mener, at dette er et medlem af",
     "resighted": "Du genfandt en art!",
     "date_observed": "Du så denne første gang: {{seenDate}}",
     "post_inat": "Hvis du tog det originale foto af organismen, kan du hjælpe med at træne Seek på denne art ved at tilføje den til iNaturalist, hvor fællesskabet vil hjælpe med at identificere den og dermed forbedre fremtidige udgaver.",
@@ -255,7 +256,10 @@
     "error_downtime": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{number}} timer.",
     "error_few": "nogle få",
     "error_gps": "Vi kunne ikke finde din GPS-placering. Prøv venligst at flytte dig til et sted, hvor du kan se himlen, og tjek at din enheds placering er slået til for at gemme observationer.",
-    "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere."
+    "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere.",
+    "nearby": "Arter i nærheden fra dette takson",
+    "nothing_nearby": "Det ser ud til, at der ikke er observeret ret mange arter fra dette takson i nærheden! Prøv at tage endnu et billede og slå det op på iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "Se mærke",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Fotos",
-    "choose_photo": "Vælg et foto"
+    "choose_photo": "Vælg et foto",
+    "camera_roll": "Kamerarulle"
   },
   "camera_help": {
     "title": "Seek's kamera",
@@ -436,6 +441,7 @@
     "introduced_about": "Denne art blev indført til dette område af mennesker og forekommer ikke naturligt her.",
     "got_it": "Forstået!",
     "wikipedia": "{{about}} \n\nKilde: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Lignende arter",
     "similar_about": "Organismer som ofte forveksles med denne art.",
     "plant": "plante",
@@ -449,7 +455,8 @@
     "mollusk": "bløddyr",
     "mammal": "pattedyr",
     "species_saved": "Denne art er gemt under dine observationer.",
-    "you": "Hej igen! Gå udenfor og find nogle vilde arter for at lære endnu mere om dem."
+    "you": "Hej igen! Gå udenfor og find nogle vilde arter for at lære endnu mere om dem.",
+    "internet_error": "Vi har brug for internetforbindelse for at kunne vise siden med artsdetaljer. Tryk for at prøve igen."
   },
   "about": {
     "header": "Om",
@@ -521,5 +528,17 @@
     "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
     "tip_2": "Spis ikke alt du finder i naturen.",
     "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

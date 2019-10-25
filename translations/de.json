@@ -87,7 +87,7 @@
     "log_in_with_inat": "Beim iNaturalist-Konto anmelden",
     "username": "Benutzername",
     "password": "Kennwort",
-    "forgot_password_header": "Forgot password",
+    "forgot_password_header": "Kennwort vergessen",
     "forgot_password": "Forgot your password?",
     "log_in": "Anmelden",
     "email": "E-Mail-Adresse",
@@ -238,6 +238,7 @@
     "take_photo": "Weiteres Foto aufnehmen",
     "common_ancestor": "Wir konnten die genaue Art nicht ermitteln.\n \nSie können es aus einem anderen Winkel versuchen oder das Bild vergrößern. Oder versuchen Sie, eine deutlicher Aufnahme des Lebewesens zu machen.",
     "believe": "Wir vermuten, es gehört zu",
+    "believe_1": "We believe this is a member of",
     "resighted": "Sie haben eine Art erneut beobachtet!",
     "date_observed": "Sie haben Sie erstmals beobachtet am:\n{{seenDate}}",
     "post_inat": "Wenn du derjenige warst, der das Foto des Organismus aufgenommen hast, kannst du mithelfen, Seek zu trainieren, indem du die Art an iNaturalist schickst, wo die Gemeinschaft helfen wird, es zu identifizieren und zukünftige Versionen zu verbessern.",
@@ -255,7 +256,10 @@
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "Auszeichnung anzeigen",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Fotos",
-    "choose_photo": "Foto auswählen"
+    "choose_photo": "Foto auswählen",
+    "camera_roll": "Camera Roll"
   },
   "camera_help": {
     "title": "Seek-Kamera",
@@ -436,6 +441,7 @@
     "introduced_about": "Diese Art wurde vom Menschen in dieses Gebiet gebracht und kommt hier nicht natürlich vor.",
     "got_it": "Verstanden!",
     "wikipedia": "{{about}} Quelle: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Ähnliche Arten",
     "similar_about": "Organismen, die häufig als diese Art falsch identifiziert wurden.",
     "plant": "Pflanze ",
@@ -449,7 +455,8 @@
     "mollusk": "Weichtier",
     "mammal": "Säugetier",
     "species_saved": "Diese Art wird in deinen Beobachtungen gespeichert.",
-    "you": "Hey, schauen Sie - Sie sind es! Gehen Sie hinaus und finden Sie einige wilde Arten, um noch mehr über sie zu erfahren."
+    "you": "Hey, schauen Sie - Sie sind es! Gehen Sie hinaus und finden Sie einige wilde Arten, um noch mehr über sie zu erfahren.",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "Über",
@@ -521,5 +528,17 @@
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

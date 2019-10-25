@@ -201,7 +201,7 @@
     "mission_2_june": "找出任何 3 种草蜢、蟋蟀、蝗蟲、蝴蝶、飛蛾、毛毛蟲或食植物的哺乳動物（草食動物）",
     "mission_3_june": "找出 2 种不同的蛛形䋄動物、螳螂或食肉哺乳動物（食肉動物）",
     "mission_4_june": "找出 2 种菌類（分解物）",
-    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows; -Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
+    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows;\n-Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
     "mission_1_august": "找出 10 种不同的昆蟲",
     "mission_1_september": "從以下各項找出 10 种不同的物种：蜻蜓、兩棲動物、魚類、鴨子、蘚類、蕨類、睡蓮、球莖苔草或香蒲",
     "mission_1_october": "找出 5 种鳥類",
@@ -238,6 +238,7 @@
     "take_photo": "再拍一張照片",
     "common_ancestor": "可是我們無法辨識正確的物種。\n \n你可以嘗試拍攝不同角度、近拍，或者照出本有機物更清晰的照片。",
     "believe": "我們認為這物種屬於",
+    "believe_1": "We believe this is a member of",
     "resighted": "你再度觀察到一個物種！",
     "date_observed": "你第一次觀察到這物種是在\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
@@ -255,7 +256,10 @@
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "檢視徽章",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "照片",
-    "choose_photo": "選擇一張照片"
+    "choose_photo": "選擇一張照片",
+    "camera_roll": "Camera Roll"
   },
   "camera_help": {
     "title": "Seek的相機",
@@ -436,6 +441,7 @@
     "introduced_about": "此物種是由人類帶到此區域，並非土生土長。",
     "got_it": "明白了！",
     "wikipedia": "{{about}} 來源：維基百科",
+    "wikipedia_1": "Wikipedia",
     "similar": "相似物種",
     "similar_about": "通常被誤以為此物种的生物。",
     "plant": "植物",
@@ -449,7 +455,8 @@
     "mollusk": "軟體動物",
     "mammal": "哺乳動物",
     "species_saved": "此物种已存儲至您的觀察結果。",
-    "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。"
+    "you": "嗨，瞧–原來是您！到戶外尋找一些野生生物，並瞭解它們。",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "關於",
@@ -521,5 +528,17 @@
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

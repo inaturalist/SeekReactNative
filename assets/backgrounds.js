@@ -10,12 +10,14 @@ const backgrounds = {
   "img-challengedetail-august": require( "./backgrounds/img-challengedetail-august.png" ),
   "img-challengedetail-september": require( "./backgrounds/img-challengedetail-september.png" ),
   "img-challengedetail-october": require( "./backgrounds/img-challengedetail-october.png" ),
+  "img-challengedetail-november": require( "./backgrounds/img-challengedetail-november.png" ),
   "img-homechallenge-april": require( "./backgrounds/img-homechallenge-april.png" ),
   "img-homechallenge-may": require( "./backgrounds/img-homechallenge-may.png" ),
   "img-homechallenge-june": require( "./backgrounds/img-homechallenge-june.png" ),
   "img-homechallenge-august": require( "./backgrounds/img-homechallenge-august.png" ),
   "img-homechallenge-september": require( "./backgrounds/img-homechallenge-september.png" ),
-  "img-homechallenge-october": require( "./backgrounds/img-homechallenge-october.png" )
+  "img-homechallenge-october": require( "./backgrounds/img-homechallenge-october.png" ),
+  "img-homechallenge-november": require( "./backgrounds/img-homechallenge-november.png" )
 };
 
 export default backgrounds;

@@ -111,10 +111,10 @@ const challenges = {
     month: "challenges.november_2019",
     description: "challenges.november_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-september",
-    backgroundName: "img-challengedetail-september",
+    homeBackgroundName: "img-homechallenge-november",
+    backgroundName: "img-challengedetail-november",
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_september",
+    earnedIconName: "badge_ourplanet_november",
     missions: [
       "challenges.mission_1_november"
     ],
@@ -122,7 +122,7 @@ const challenges = {
     photographer: "challenges.photographer_november",
     action: "challenges.action_november",
     index: 6
-  },
+  }
   // december: {
   //   name: "challenges.ice",
   //   month: "challenges.december_2019",

@@ -7,8 +7,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import moment from "moment";
-import DateTimePicker from "react-native-modal-datetime-picker";
-import { Appearance } from "react-native-appearance";
 
 import i18n from "../../i18n";
 import { requiresParent } from "../../utility/dateHelpers";
@@ -16,6 +14,7 @@ import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import DateTimePicker from "../UIComponents/DateTimePicker";
 
 type Props = {
   +navigation: any
@@ -29,21 +28,22 @@ class AgeVerifyScreen extends Component<Props> {
       date: moment().format( "YYYY-MM-DD" ),
       isDateTimePickerVisible: false
     };
+
+    this.handleDatePicked = this.handleDatePicked.bind( this );
+    this.toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
   }
 
-  showDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: true } );
-  };
 
-  hideDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: false } );
+  toggleDateTimePicker = () => {
+    const { isDateTimePickerVisible } = this.state;
+    this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
   handleDatePicked = ( date ) => {
     if ( date ) {
       this.setState( {
         date: moment( date ).format( "YYYY-MM-DD" )
-      }, this.hideDateTimePicker() );
+      }, this.toggleDateTimePicker() );
     }
   };
 
@@ -61,7 +61,6 @@ class AgeVerifyScreen extends Component<Props> {
   render() {
     const { navigation } = this.props;
     const { isDateTimePickerVisible, date } = this.state;
-    const colorScheme = Appearance.getColorScheme();
 
     return (
       <View style={styles.container}>
@@ -80,21 +79,16 @@ class AgeVerifyScreen extends Component<Props> {
           <View style={{ marginBottom: 68 }} />
           <View style={styles.center}>
             <TouchableOpacity
-              onPress={() => this.showDateTimePicker()}
+              onPress={() => this.toggleDateTimePicker()}
               style={styles.dateButton}
             >
               <Text style={styles.buttonText}>{date}</Text>
             </TouchableOpacity>
           </View>
           <DateTimePicker
-            datePickerModeAndroid="spinner"
-            hideTitleContainerIOS
-            isDarkModeEnabled={colorScheme === "dark"}
-            isVisible={isDateTimePickerVisible}
-            maximumDate={new Date()}
-            onCancel={this.hideDateTimePicker}
-            onConfirm={this.handleDatePicked}
-            timePickerModeAndroid="spinner"
+            isDateTimePickerVisible={isDateTimePickerVisible}
+            onDatePicked={this.handleDatePicked}
+            toggleDateTimePicker={this.toggleDateTimePicker}
           />
           <View style={{ marginBottom: 98 }} />
           <GreenButton

@@ -8,6 +8,7 @@ import {
   Image
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
 import BackArrow from "./BackArrow";
 import CustomBackArrow from "./CustomBackArrow";
@@ -27,6 +28,8 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
       <TouchableOpacity
+        accessibilityLabel={i18n.t( "accessibility.help" )}
+        accessible
         hitSlop={styles.touchable}
         onPress={() => navigation.navigate( "PostingHelp" )}
         style={styles.help}

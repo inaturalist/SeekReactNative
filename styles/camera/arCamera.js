@@ -11,9 +11,12 @@ const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
+    left: 0,
+    paddingBottom: 18,
+    paddingHorizontal: 23,
+    paddingTop: 18,
     position: "absolute",
-    top: height > 670 ? 49 : 18
+    top: height > 670 ? 31 : 0
   },
   camera: {
     height,
@@ -65,9 +68,12 @@ export default StyleSheet.create( {
     top: height > 670 ? 80 : 40
   },
   help: {
-    bottom: 35,
+    bottom: 0,
+    paddingBottom: 35,
+    paddingHorizontal: 48,
+    paddingTop: 35,
     position: "absolute",
-    right: 64,
+    right: 64 - 48,
     zIndex: 1
   },
   loading: {

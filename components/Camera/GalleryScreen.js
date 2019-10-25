@@ -265,6 +265,8 @@ class GalleryScreen extends Component<Props> {
           onEndReached={() => this.getPhotos()}
           renderItem={( { item } ) => (
             <TouchableHighlight
+              accessibilityLabel={item.node.image.filename}
+              accessible
               onPress={() => this.selectAndResizeImage( item.node )}
               style={styles.button}
               underlayColor="transparent"
@@ -292,15 +294,19 @@ class GalleryScreen extends Component<Props> {
         <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.back" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Main" )}
             style={styles.backButton}
           >
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
-          {albumNames.length > 0
-            ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
-            : null}
+          <View style={[styles.center, styles.headerContainer]}>
+            {albumNames.length > 0
+              ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+              : null}
+          </View>
         </View>
         <View style={styles.galleryContainer}>
           {gallery}

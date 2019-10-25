@@ -8,9 +8,7 @@ export default StyleSheet.create( {
     flexDirection: "row",
     height: 29,
     marginBottom: 7,
-    marginRight: 10,
-    paddingHorizontal: 9,
-    paddingTop: Platform.OS === "ios" ? 6 : 3
+    marginRight: 10
   },
   greenButtonContainer: {
     flexDirection: "row",
@@ -21,6 +19,8 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 18,
-    letterSpacing: 1.0
+    letterSpacing: 1.0,
+    paddingHorizontal: 9,
+    paddingTop: Platform.OS === "ios" ? 6 : 3
   }
 } );

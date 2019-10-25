@@ -24,5 +24,11 @@ export default StyleSheet.create( {
   loginHeight: {
     height: 52,
     marginHorizontal: dimensions.height > 570 ? 34 : 20
+  },
+  touchable: {
+    bottom: 20,
+    left: 20,
+    right: 20,
+    top: 20
   }
 } );

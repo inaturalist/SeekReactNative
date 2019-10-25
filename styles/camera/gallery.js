@@ -11,8 +11,11 @@ const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
-    top: 18
+    left: 0,
+    paddingBottom: 18,
+    paddingHorizontal: 23,
+    paddingTop: 18,
+    position: "absolute"
   },
   background: {
     flex: 1
@@ -33,8 +36,12 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 55
   },
-  headerText: {
+  headerContainer: {
     alignSelf: "center",
+    position: "absolute",
+    top: 15
+  },
+  headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,

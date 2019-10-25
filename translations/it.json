@@ -238,6 +238,7 @@
     "take_photo": "Scatta una nuova foto",
     "common_ancestor": "Ma non possiamo identificare la specie esatta.\n\nPuoi provare un angolo diverso, zoomare di più, o provare ad ottenere un scatto più definito dell'organismo.",
     "believe": "Pensiamo che sia un membro di",
+    "believe_1": "We believe this is a member of",
     "resighted": "Hai rivisto una specie!",
     "date_observed": "Lo hai osservato per la prima il:\n{{seenDate}}",
     "post_inat": "Se hai scattato la foto originale dell'organismo puoi aiutare Seek ad imparare a riconoscere questa specie pubblicandola su iNaturalist, dove la comunità contribuirà all'identificazione e al miglioramento delle versioni future.",
@@ -255,7 +256,10 @@
     "error_downtime": "Servizio temporaneamente non disponibile. Riprova tra {{number}} ore.",
     "error_few": "alcuni",
     "error_gps": "Non siamo riusciti a trovare la tua posizione GPS. Prova a spostarti in un luogo dove puoi vedere il cielo e controllare che sia attivo il rilevamento della posizione del tuo dispositivo per salvare le osservazioni.",
-    "error_timeout": "Non siamo riusciti a salvare la tua osservazione a causa di un ritardo nel rilevamento della posizione. Riprova più tardi."
+    "error_timeout": "Non siamo riusciti a salvare la tua osservazione a causa di un ritardo nel rilevamento della posizione. Riprova più tardi.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "Mostra Distintivo",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Foto",
-    "choose_photo": "Scegli una foto"
+    "choose_photo": "Scegli una foto",
+    "camera_roll": "Camera Roll"
   },
   "camera_help": {
     "title": "Fotocamera di Seek",
@@ -436,6 +441,7 @@
     "introduced_about": "Questa specie è stata portata in questa zona dagli esseri umani, ma non ci vive naturalmente.",
     "got_it": "Ricevuto!",
     "wikipedia": "{{about}}\n\nFonte: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Specie Simili",
     "similar_about": "Organismi comunemente identificati erroneamente come questa specie.",
     "plant": "pianta",
@@ -449,7 +455,8 @@
     "mollusk": "mollusco",
     "mammal": "mammifero",
     "species_saved": "Questa specie è salvata nelle tue osservazioni.",
-    "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più."
+    "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più.",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "Info su",
@@ -521,5 +528,17 @@
     "tip_1": "Tieniti sempre d'occhio l'ambiente che ti circonda, stai attento e non violare la proprietà privata.",
     "tip_2": "Non mangiare nulla che trovi in natura.",
     "tip_3": "Rispetta gli altri esseri viventi non infastidendoli o toccandoli. Alcuni potrebbero pungere o mordere."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

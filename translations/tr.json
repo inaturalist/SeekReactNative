@@ -11,8 +11,8 @@
     "internet_error": "Yakındaki türleri ortaya çıkarmak için internete ihtiyacımız var. Tekrar denemek için tıkla.",
     "no_location": "Konum yok",
     "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "no_gps": "GPS sinyali bulunamadı.",
+    "location_timeout": "Konum isteğiniz zaman aşımına uğradı. Lütfen tekrar deneyin."
   },
   "get_started": {
     "header": "Başla",
@@ -238,6 +238,7 @@
     "take_photo": "Başka bir fotoğraf çek",
     "common_ancestor": "Ancak kesin türü tespit edemedik.\n\nDeğişik bir açı deneyebilir, yakınlaştırabilir ya da organizmayı daha net bir şekilde çekmeye çalışabilirsiniz.",
     "believe": "Bunun bir üyesi olduğuna inanıyoruz",
+    "believe_1": "Şunun bir üyesi olduğuna inanıyoruz:",
     "resighted": "Bir tür gözlemlediniz!",
     "date_observed": "İlk gözleminiz:\n{{seenDate}}",
     "post_inat": "Organizmanın asıl fotoğrafını çektiyseniz, topluluğun onu tanımlamaya ve gelecekteki sürümleri iyileştirmeye yardımcı olacağı iNaturalist'e göndererek, bu türler üzerinde Seek'i eğitmeye yardım edebilirsiniz.",
@@ -254,8 +255,11 @@
     "error_location": "Gözlemlerinize tür eklemek için konumunuzu etkinleştirmeniz gerekir. Seek, bulunduğunuz yeri bir organizmayı nerede gördüğünüzü anımsatmak ve iNaturalist’e gönderirseniz vatandaş bilimine katkıda bulunmanız için kullanır.",
     "error_downtime": "Servis geçici olarak kullanılamıyor. Lütfen {{number}} saat içinde tekrar deneyin.",
     "error_few": "bazı",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_gps": "GPS konumuzu bulamadık. Lütfen gökyüzünü görebileceğiniz bir yere gitmeyi deneyin ve gözlemlerinizi kaydetmek için aygıtınızın konumunun açık olup olmadığını kontrol edin.",
+    "error_timeout": "Konum zaman aşımı nedeniyle gözlemlerinizi kaydedemedik. Lütfen daha sonra tekrar deneyin.",
+    "nearby": "Bu sınıflandırmaya yakındaki türler",
+    "nothing_nearby": "Görünüşe göre bu sınıflandırmada çok fazla tür gözlemlenmemiş! Başka bir fotoğraf çekmeyi ya da iNaturalist'e göndermeyi deneyin.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "Rozeti göster",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Fotoğraflar",
-    "choose_photo": "Fotoğraf seç"
+    "choose_photo": "Fotoğraf seç",
+    "camera_roll": "Galeri"
   },
   "camera_help": {
     "title": "Seek'in Kamerası",
@@ -436,6 +441,7 @@
     "introduced_about": "Bu türü insanlar bu alana getirdi ve burada doğal olarak ortaya çıkmıyor.",
     "got_it": "Anlaşıldı!",
     "wikipedia": "{{about}}\n\nKaynak: Vikipedi",
+    "wikipedia_1": "Wikipedia",
     "similar": "Benzer Tür",
     "similar_about": "Organizmalar, bu tür olarak genellikle yanlış tanımlanır.",
     "plant": "bitki",
@@ -449,7 +455,8 @@
     "mollusk": "yumuşakça",
     "mammal": "memeli",
     "species_saved": "Bu tür gözlemlerinize kaydedildi.",
-    "you": "Hey bak! Dışarı çık ve onlar hakkında daha çok bilgi edinmek için bazı vahşi türler bul."
+    "you": "Hey bak! Dışarı çık ve onlar hakkında daha çok bilgi edinmek için bazı vahşi türler bul.",
+    "internet_error": "Tür ayrıntı ekranını oluşturmak için internete gereksinimimiz var. Tekrar denemek için dokunun."
   },
   "about": {
     "header": "Hakkında",
@@ -521,5 +528,17 @@
     "tip_1": "Sürekli çevrenizin farkında olun, güvende kalın ve izinsiz girmeyin.",
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
     "tip_3": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

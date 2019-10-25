@@ -12,10 +12,8 @@ import {
   Keyboard
 } from "react-native";
 import { NavigationEvents, ScrollView } from "react-navigation";
-import DateTimePicker from "react-native-modal-datetime-picker";
 import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
-import { Appearance } from "react-native-appearance";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
@@ -30,6 +28,7 @@ import PostStatus from "./PostStatus";
 import SelectSpecies from "./SelectSpecies";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import DateTimePicker from "../UIComponents/DateTimePicker";
 
 type Props = {
   +navigation: any
@@ -87,6 +86,8 @@ class PostScreen extends Component<Props> {
     this.togglePostModal = this.togglePostModal.bind( this );
     this.toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
     this.updateTaxon = this.updateTaxon.bind( this );
+    this.handleDatePicked = this.handleDatePicked.bind( this );
+    this.toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
   }
 
   setUserLocation() {
@@ -158,19 +159,16 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  showDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: true } );
-  };
-
-  hideDateTimePicker = () => {
-    this.setState( { isDateTimePickerVisible: false } );
+  toggleDateTimePicker = () => {
+    const { isDateTimePickerVisible } = this.state;
+    this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
   handleDatePicked = ( date ) => {
     if ( date ) {
       this.setState( {
         date: date.toString()
-      }, this.hideDateTimePicker() );
+      }, this.toggleDateTimePicker() );
     }
   };
 
@@ -381,7 +379,6 @@ class PostScreen extends Component<Props> {
       postingSuccess,
       description
     } = this.state;
-    const colorScheme = Appearance.getColorScheme();
 
     let commonName;
 
@@ -397,15 +394,10 @@ class PostScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <DateTimePicker
-          datePickerModeAndroid="spinner"
-          hideTitleContainerIOS
-          isDarkModeEnabled={colorScheme === "dark"}
-          isVisible={isDateTimePickerVisible}
-          maximumDate={new Date()}
-          mode="datetime"
-          onCancel={this.hideDateTimePicker}
-          onConfirm={this.handleDatePicked}
-          timePickerModeAndroid="spinner"
+          datetime
+          isDateTimePickerVisible={isDateTimePickerVisible}
+          onDatePicked={this.handleDatePicked}
+          toggleDateTimePicker={this.toggleDateTimePicker}
         />
         <Modal
           onRequestClose={() => this.toggleSpeciesModal()}
@@ -476,10 +468,9 @@ class PostScreen extends Component<Props> {
             style={styles.inputField}
             value={description}
           />
-          <View style={{ marginBottom: 21 }} />
           <View style={styles.divider} />
           <TouchableOpacity
-            onPress={() => this.showDateTimePicker()}
+            onPress={() => this.toggleDateTimePicker()}
             style={styles.thinCard}
           >
             <Image source={posting.date} style={styles.icon} />

@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   View,
   Text,
-  Image,
   ScrollView
 } from "react-native";
 import Realm from "realm";
@@ -13,7 +12,6 @@ import { NavigationEvents } from "react-navigation";
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challenges";
 import i18n from "../../i18n";
-import icons from "../../assets/icons";
 import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Padding from "../UIComponents/Padding";
@@ -21,6 +19,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
+import NoChallenges from "../Home/NoChallenges";
 
 type Props = {
   +navigation: any
@@ -199,12 +198,8 @@ class ChallengeScreen extends Component<Props> {
             }}
           />
           {noChallenges ? (
-            <View style={[styles.noChallengeContainer, styles.row, { height: 182 }]}>
-              <Image source={icons.completed} />
-              <View style={styles.noChallengeTextContainer}>
-                <Text style={[styles.noChallengeText, { textAlign: "left" }]}>{i18n.t( "challenges.completed_all" )}</Text>
-                <Text style={[styles.lightText, { textAlign: "left", marginLeft: 0 }]}>{i18n.t( "challenges.no_new_challenges" )}</Text>
-              </View>
+            <View style={styles.margins}>
+              <NoChallenges />
             </View>
           ) : null}
           {noChallenges ? null : this.renderChallengesStarted()}

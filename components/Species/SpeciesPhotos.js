@@ -43,17 +43,19 @@ const SpeciesPhotos = ( {
           source={{ uri: photo.photo.original_url }}
           style={styles.image}
         />
-        <View style={styles.photoOverlay}>
-          <TouchableOpacity
-            onPress={() => Alert.alert(
-              i18n.t( "species_detail.license" ),
-              photo.photo.attribution
-            )}
-            style={styles.ccButton}
-          >
-            <Text style={styles.ccButtonText}>{i18n.t( "species_detail.cc" ).toLocaleUpperCase()}</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          onPress={() => Alert.alert(
+            i18n.t( "species_detail.license" ),
+            photo.photo.attribution
+          )}
+          style={styles.ccButton}
+        >
+          <View style={styles.ccView}>
+            <Text style={styles.ccButtonText}>
+              {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
     photoList.push( image );

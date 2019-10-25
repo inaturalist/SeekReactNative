@@ -201,7 +201,7 @@
     "mission_2_june": "Encontre quaisquer 3 grilos, gafanhotos, borboletas, mariposas, lagartas ou mamíferos que se alimentam de plantas (herbívoros)",
     "mission_3_june": "Encontre 2 diferentes aracnídeos, mantídeos ou mamíferos que se alimentam de carne (carnívoros)",
     "mission_4_june": "Encontre 2 fungos (decompositores)",
-    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows; -Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
+    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows;\n-Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
     "mission_1_august": "Encontre 10 insetos diferentes",
     "mission_1_september": "Encontre quaisquer 10 espécies diferentes de: libélulas, anfíbios, peixes, patos, musgos, samambaia, ninfeias, bolbos ou taboas",
     "mission_1_october": "Encontre 5 aves",
@@ -236,8 +236,9 @@
     "no_identification": "We weren’t able to identify this photo",
     "sorry": "Sorry about that, Seek is still learning!\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
     "take_photo": "Take another photo",
-    "common_ancestor": "But we couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
-    "believe": "We believe this is a member of",
+    "common_ancestor": "But Seek couldn’t identify the exact species.\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",
+    "believe": "We believe this is a member of the {{ancestorRank}}",
+    "believe_1": "We believe this is a member of",
     "resighted": "You resighted a species!",
     "date_observed": "You first observed it on:\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
@@ -255,7 +256,10 @@
     "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
     "error_few": "a few",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later."
+    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "nearby": "Species nearby in this taxon",
+    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
+    "tap": "Tap to load species nearby"
   },
   "banner": {
     "view": "View badge",
@@ -291,7 +295,8 @@
   },
   "gallery": {
     "label": "Photos",
-    "choose_photo": "Choose a photo"
+    "choose_photo": "Choose a photo",
+    "camera_roll": "Camera Roll"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -436,6 +441,7 @@
     "introduced_about": "Essa espécie foi trazida para essa área pelos seres humanos e não ocorre naturalmente nela.",
     "got_it": "Entendi!",
     "wikipedia": "{{about}} Fonte: Wikipedia",
+    "wikipedia_1": "Wikipedia",
     "similar": "Espécies semelhantes",
     "similar_about": "Organismos frequentemente identificados como sendo esta espécie por engano.",
     "plant": "planta",
@@ -449,7 +455,8 @@
     "mollusk": "molusco",
     "mammal": "mamífero",
     "species_saved": "Esta espécie foi salva nas suas observações.",
-    "you": "Veja – é você! Saia e encontre algumas espécies silvestres para saber ainda mais sobre elas."
+    "you": "Veja – é você! Saia e encontre algumas espécies silvestres para saber ainda mais sobre elas.",
+    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
     "header": "Sobre",
@@ -521,5 +528,17 @@
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

@@ -1,24 +1,26 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  touchable
+  touchable,
+  dimensions
 } from "../global";
-
-const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
-    top: 28
+    left: 0,
+    paddingBottom: 20,
+    paddingHorizontal: 23,
+    paddingTop: 23
   },
   container: {
     flex: 1
   },
   footer: {
     backgroundColor: colors.white,
-    height: height > 670 ? 130 : 86,
-    marginHorizontal: 23
+    marginHorizontal: 23,
+    paddingBottom: dimensions.height > 670 ? 45 : 15,
+    paddingTop: 15
   },
   greenCircle: {
     backgroundColor: colors.seekGreen,
@@ -63,11 +65,6 @@ export default StyleSheet.create( {
     marginRight: 19,
     width: 50
   },
-  locationRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
   map: {
     bottom: 0,
     left: 0,
@@ -105,12 +102,12 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "space-between",
     marginBottom: 15,
-    marginHorizontal: 23,
-    marginTop: 15
+    marginHorizontal: 23
   },
   textContainer: {
     alignSelf: "center",
-    top: 10
+    position: "absolute",
+    top: Platform.OS === "ios" ? 25 : 21
   },
   touchable,
   userLocation: {

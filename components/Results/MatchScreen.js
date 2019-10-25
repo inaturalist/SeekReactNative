@@ -21,7 +21,7 @@ import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Banner from "../Toasts/Toasts";
-import Footer from "../Home/Footer";
+import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
 import PostToiNat from "./PostToiNat";
@@ -138,7 +138,6 @@ class MatchScreen extends Component<Props> {
     if ( showLevelModal === true ) {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
-          console.log( speciesCount, "species seen" );
           // trigger review at 30 and 75 species
           showAppStoreReview();
         }
@@ -275,26 +274,19 @@ class MatchScreen extends Component<Props> {
     let text;
     let speciesText;
     let ancestorRank;
-    let hrank;
 
     if ( rank === 20 ) {
       ancestorRank = i18n.t( "camera.genus" );
-      hrank = "genus";
     } else if ( rank === 30 ) {
       ancestorRank = i18n.t( "camera.family" );
-      hrank = "family";
     } else if ( rank === 40 ) {
       ancestorRank = i18n.t( "camera.order" );
-      hrank = "order";
     } else if ( rank === 50 ) {
       ancestorRank = i18n.t( "camera.class" );
-      hrank = "class";
     } else if ( rank === 60 ) {
       ancestorRank = i18n.t( "camera.phylum" );
-      hrank = "phylum";
     } else if ( rank === 70 ) {
       ancestorRank = i18n.t( "camera.kingdom" );
-      hrank = "kingdom";
     }
 
     if ( seenDate ) {
@@ -408,6 +400,8 @@ class MatchScreen extends Component<Props> {
             style={styles.header}
           >
             <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.back" )}
+              accessible
               hitSlop={styles.touchable}
               onPress={() => this.setNavigationPath( "Camera" )}
               style={styles.backButton}
@@ -455,7 +449,6 @@ class MatchScreen extends Component<Props> {
           {commonAncestor && rank !== ( 60 || 70 ) ? (
             <SpeciesNearby
               ancestorId={taxaId}
-              hrank={hrank}
               lat={latitude}
               lng={longitude}
               navigation={navigation}

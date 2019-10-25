@@ -1,5 +1,4 @@
 // @flow
-
 import React from "react";
 import {
   View,
@@ -9,44 +8,48 @@ import {
   SafeAreaView
 } from "react-native";
 
-import styles from "../../styles/home/footer";
+import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   +navigation: any
 }
 
-const Footer = ( { navigation }: Props ) => (
+const ChallengeFooter = ( { navigation }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.menu" )}
+          accessible
           hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
-          style={styles.button}
+          style={styles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.camera" )}
+          accessible
+          onPress={() => navigation.navigate( "Camera" )}
+          style={styles.camera}
+        >
           <Image source={icons.cameraGreen} style={styles.cameraImage} />
         </TouchableOpacity>
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
+          accessible
           hitSlop={styles.touchable}
-          onPress={() => {
-            if ( navigation.state ) {
-              if ( navigation.state.routeName !== "iNatStats" ) {
-                navigation.navigate( "iNatStats" );
-              }
-            }
-          }}
-          style={styles.button}
+          onPress={() => navigation.navigate( "iNatStats" )}
+          style={styles.rightIcon}
         >
-          <Image source={icons.birdTeal} style={{ width: 36, height: 29, resizeMode: "contain" }} />
+          <Image source={icons.birdTeal} />
         </TouchableOpacity>
       </View>
     </ImageBackground>
   </SafeAreaView>
 );
 
-export default Footer;
+export default ChallengeFooter;

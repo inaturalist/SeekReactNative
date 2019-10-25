@@ -1,44 +1,52 @@
 import { StyleSheet } from "react-native";
 
-import { fonts, colors, padding } from "./global";
+import {
+  fonts,
+  colors,
+  padding,
+  dimensions
+} from "./global";
 
 export default StyleSheet.create( {
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  logo: {
-    width: 304,
-    height: 107,
-    resizeMode: "contain",
-    marginBottom: 64
-  },
-  whiteButton: {
-    marginBottom: 25,
-    backgroundColor: colors.white,
-    width: 296,
-    height: 52,
-    borderRadius: 34,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   buttonText: {
-    textAlign: "center",
-    width: 245,
-    paddingTop: padding.iOSPadding,
+    color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    color: colors.seekForestGreen
+    paddingHorizontal: 26,
+    paddingTop: padding.iOSPadding,
+    textAlign: "center"
+  },
+  container: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center"
+  },
+  logo: {
+    height: 107,
+    resizeMode: "contain",
+    width: dimensions.width - 70
+  },
+  margin: {
+    marginTop: dimensions.height > 570 ? 64 : 34
+  },
+  marginSmall: {
+    marginTop: 25
   },
   text: {
-    marginHorizontal: 30,
-    marginTop: 64,
-    textAlign: "center",
+    color: colors.white,
     fontFamily: fonts.medium,
     fontSize: 17,
     lineHeight: 19,
-    color: colors.white
+    marginHorizontal: 30,
+    textAlign: "center"
+  },
+  whiteButton: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 34,
+    height: 52,
+    justifyContent: "center",
+    width: dimensions.width - 70
   }
 } );

@@ -19,14 +19,14 @@ class App extends Component {
     // are not needed immediately
     setTimeout( setupCommonNames, 5000 );
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
-    RNLocalize.addEventListener( "change", this.handleLanguagesChange );
+    RNLocalize.addEventListener( "change", this.handleLocalizationChange );
   }
 
   componentWillUnmount() {
-    RNLocalize.removeEventListener( "change", this.handleLanguagesChange );
+    RNLocalize.removeEventListener( "change", this.handleLocalizationChange );
   }
 
-  handleLanguagesChange = () => {
+  handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 

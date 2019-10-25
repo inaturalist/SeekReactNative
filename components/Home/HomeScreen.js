@@ -8,7 +8,6 @@ import {
   Modal,
   StatusBar
 } from "react-native";
-import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
 
@@ -19,10 +18,14 @@ import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";
 import Padding from "../UIComponents/Padding";
-import CardPadding from "./CardPadding";
-import { checkIfCardShown, addARCameraFiles, checkForInternet } from "../../utility/helpers";
+import Header from "./Header";
+import {
+  checkIfCardShown,
+  addARCameraFiles,
+  checkForInternet,
+  getTaxonCommonName
+} from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
-import { getPreviousAndNextMonth } from "../../utility/dateHelpers";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
@@ -107,19 +110,12 @@ class HomeScreen extends Component<Props> {
     this.checkInternetConnection();
 
     const params = {
-      verifiable: true,
-      photos: true,
       per_page: 20,
       lat,
       lng,
-      radius: 50,
-      threatened: false,
-      oauth_application_id: "2,3",
-      hrank: "species",
-      include_only_vision_taxa: true,
-      not_in_list_id: 945029,
-      month: getPreviousAndNextMonth(),
-      locale: i18n.currentLocale()
+      observed_on: new Date(),
+      seek_exceptions: true,
+      locale: i18n.locale
     };
 
     if ( taxonIds[taxaType] ) {
@@ -182,13 +178,29 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
+  localizeSpeciesNearby( taxa ) {
+    const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id )
+      .then( ( commonName ) => {
+        const localizedSpecies = species;
+        localizedSpecies.preferred_common_name = commonName;
+      } ) );
+
+    Promise.all( localizedTaxa ).then( () => this.setTaxa( taxa ) )
+      .catch( e => console.log( e, "couldn't resolve common name" ) );
+  }
+
   fetchSpeciesNearby( params ) {
-    inatjs.observations.speciesCounts( params ).then( ( response ) => {
-      const taxa = response.results.map( r => r.taxon );
-      this.setTaxa( taxa );
-    } ).catch( () => {
-      this.checkInternetConnection();
-    } );
+    const site = "https://api.inaturalist.org/v1/taxa/nearby";
+    const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
+
+    fetch( `${site}?${queryString}` )
+      .then( response => response.json() )
+      .then( ( { results } ) => {
+        const taxa = results.map( r => r.taxon );
+        this.setTaxa( taxa );
+      } ).catch( () => {
+        this.checkInternetConnection();
+      } );
   }
 
   toggleLocationPicker() {
@@ -269,17 +281,19 @@ class HomeScreen extends Component<Props> {
           ref={( ref ) => { this.scrollView = ref; }}
         >
           {Platform.OS === "ios" && <Spacer />}
-          <SpeciesNearby
-            error={error}
-            loading={loading}
+          <Header
             location={location}
-            navigation={navigation}
-            requestAndroidPermissions={this.requestAndroidPermissions}
-            taxa={taxa}
             toggleLocationPicker={this.toggleLocationPicker}
             updateTaxaType={this.updateTaxaType}
           />
-          <CardPadding />
+          <SpeciesNearby
+            error={error}
+            loading={loading}
+            navigation={navigation}
+            requestAndroidPermissions={this.requestAndroidPermissions}
+            taxa={taxa}
+          />
+          <View style={styles.greenMargin} />
           <ChallengeCard navigation={navigation} />
           <Padding />
         </ScrollView>

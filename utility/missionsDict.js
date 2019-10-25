@@ -62,13 +62,13 @@ const missions = {
       number: 5,
       types: ["birds"]
     }
+  },
+  6: {
+    0: {
+      number: 10,
+      types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
+    }
   }
-  // 6: {
-  //   0: {
-  //     number: 10,
-  //     types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
-  //   }
-  // },
   // 7: {
   //   0: {
   //     number: 20,

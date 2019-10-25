@@ -48,6 +48,10 @@ export default StyleSheet.create( {
   margin: {
     marginTop: 23
   },
+  margins: {
+    marginBottom: 23,
+    marginTop: 39
+  },
   messageText: {
     fontFamily: fonts.book,
     fontSize: 14,
@@ -75,6 +79,8 @@ export default StyleSheet.create( {
   startButton: {
     alignItems: "center",
     marginLeft: 20,
+    paddingBottom: 20,
+    paddingTop: 20,
     width: 59
   },
   textContainer: {

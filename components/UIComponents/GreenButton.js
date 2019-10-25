@@ -27,6 +27,7 @@ const GreenButton = ( {
   text
 }: Props ) => (
   <TouchableOpacity
+    hitSlop={styles.touchable}
     onPress={() => handlePress()}
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >

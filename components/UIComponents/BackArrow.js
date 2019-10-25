@@ -6,6 +6,7 @@ import {
   Image
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/backArrow";
 import icons from "../../assets/icons";
 
@@ -16,6 +17,8 @@ type Props = {
 
 const BackArrow = ( { navigation, green }: Props ) => (
   <TouchableOpacity
+    accessibilityLabel={i18n.t( "accessibility.back" )}
+    accessible
     hitSlop={styles.touchable}
     onPress={() => navigation.goBack()}
     style={styles.backButton}

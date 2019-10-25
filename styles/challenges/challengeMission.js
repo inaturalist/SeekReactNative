@@ -15,17 +15,13 @@ export default StyleSheet.create( {
   circleStyle: {
     height: 59,
     position: "absolute",
-    right: 40,
-    top: 40,
+    right: 0,
+    top: 42,
     width: 59
   },
   circleText: {
     fontFamily: fonts.book,
     fontSize: 20
-  },
-  container: {
-    backgroundColor: colors.white,
-    flex: 1
   },
   greenText: {
     color: colors.seekForestGreen,
@@ -35,7 +31,6 @@ export default StyleSheet.create( {
     marginTop: 4
   },
   header: {
-    marginLeft: 35,
     marginTop: 21
   },
   leftItem: {

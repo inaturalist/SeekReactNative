@@ -1,5 +1,9 @@
 import { StyleSheet, Platform } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import {
+  colors,
+  fonts,
+  touchable
+} from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -7,9 +11,11 @@ export default StyleSheet.create( {
     height: 55
   },
   help: {
-    alignSelf: "flex-end",
-    right: 21,
-    top: -32
+    paddingBottom: 13,
+    paddingHorizontal: 21,
+    paddingTop: 13,
+    position: "absolute",
+    right: 0
   },
   text: {
     alignSelf: "center",
@@ -17,7 +23,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    top: Platform.OS === "android" ? -4 : null
+    paddingTop: Platform.OS === "android" ? 18 : 20,
+    position: "absolute"
   },
   touchable
 } );

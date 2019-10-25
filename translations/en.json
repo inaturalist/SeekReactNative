@@ -201,7 +201,7 @@
     "mission_2_june": "Find any 3 grasshoppers, crickets, locusts, butterflies, moths, caterpillars, or plant-eating mammals (herbivores)",
     "mission_3_june": "Find 2 different arachnids, mantids, or meat-eating mammals (carnivores)",
     "mission_4_june": "Find 2 fungi (decomposers)",
-    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows; -Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
+    "mission_1_november": "Find any 10 different trees or shrubs from the following types:\n\n-Pines, conifers, yews, and podocarps;\n-Palms;\n-Beeches, walnuts, and oaks;\n-Maples, buckeyes, mangos, mahoganies, and citrus;\n-Hollies;\n-Rowans, Whitebeams;\n-Cherries, apples, and pears;\n-Hackberries, aspens, poplars, and willows;\n-Laurels, avocado, spicebush, and sassafrass;\n-Elms;\n-Buckthorns and Ceanothus;\n-Figs and mulberries;\n-Mangroves;\n-Bushwillows;\n-Dogwoods, hydrangeas, and tupelos",
     "mission_1_august": "Find 10 different insects",
     "mission_1_september": "Find any 10 different species from: dragonflies, amphibians, fish, ducks, mosses, ferns, water lilies, bulbushes, or cattails",
     "mission_1_october": "Find 5 birds",
@@ -528,5 +528,17 @@
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
+  },
+  "accessibility": {
+    "menu": "Open menu",
+    "camera": "Open camera",
+    "notifications": "View notifications",
+    "iNatStats": "View iNat stats screen",
+    "flag": "Flag this observation incorrect",
+    "back": "Go back to previous screen",
+    "modal": "Swipe down to close modal",
+    "user_location": "Return to your current location",
+    "help": "Tap for help screen",
+    "take_photo": "Tap to take photo"
   }
 }

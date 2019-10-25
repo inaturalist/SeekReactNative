@@ -12,6 +12,7 @@ import styles from "../../styles/home/getStarted";
 import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/GreenButton";
+import DescriptionText from "../UIComponents/DescriptionText";
 
 type Props = {
   +toggleGetStartedModal: Function
@@ -22,30 +23,25 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
     <View style={styles.headerMargin}>
       <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
     </View>
-    <View style={styles.contentContainer}>
-      <View style={styles.row}>
-        <Image source={icons.cameraGreen} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_1" )}
-          </Text>
-        </View>
+    <View style={styles.marginTop} />
+    <View style={[styles.row, styles.margin]}>
+      <Image source={icons.cameraGreen} style={styles.image} />
+      <View style={styles.textContainer}>
+        <DescriptionText text={i18n.t( "get_started.tip_1" )} />
       </View>
-      <View style={styles.row}>
-        <Image source={icons.speciesNearby} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_2" )}
-          </Text>
-        </View>
+    </View>
+    <View style={styles.marginMiddle} />
+    <View style={[styles.row, styles.margin]}>
+      <Image source={icons.speciesNearby} style={styles.image} />
+      <View style={styles.textContainer}>
+        <DescriptionText text={i18n.t( "get_started.tip_2" )} />
       </View>
-      <View style={styles.row}>
-        <Image source={icons.birdBadge} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "get_started.tip_3" )}
-          </Text>
-        </View>
+    </View>
+    <View style={styles.marginMiddle} />
+    <View style={[styles.row, styles.margin]}>
+      <Image source={icons.birdBadge} style={styles.image} />
+      <View style={styles.textContainer}>
+        <DescriptionText text={i18n.t( "get_started.tip_3" )} />
       </View>
     </View>
     <View style={styles.button}>

@@ -44,11 +44,11 @@ class LocationPicker extends Component<Props> {
       }
     };
 
-    this.onRegionChange = this.onRegionChange.bind( this );
+    this.handleRegionChange = this.handleRegionChange.bind( this );
     this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  onRegionChange( newRegion ) {
+  handleRegionChange( newRegion ) {
     this.setState( { region: newRegion } );
   }
 
@@ -80,6 +80,8 @@ class LocationPicker extends Component<Props> {
         <SafeAreaView />
         <View style={headerStyles.container}>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.back" )}
+            accessible
             hitSlop={backStyles.touchable}
             onPress={() => toggleLocationPicker()}
             style={backStyles.backButton}
@@ -88,14 +90,12 @@ class LocationPicker extends Component<Props> {
           </TouchableOpacity>
           <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
         </View>
-        <View style={styles.mapContainer}>
-          <LocationMap
-            onRegionChange={this.onRegionChange}
-            posting
-            region={region}
-            returnToUserLocation={this.returnToUserLocation}
-          />
-        </View>
+        <LocationMap
+          onRegionChange={this.handleRegionChange}
+          posting
+          region={region}
+          returnToUserLocation={this.returnToUserLocation}
+        />
         <View style={styles.footer}>
           <View style={styles.margin} />
           <GreenButton

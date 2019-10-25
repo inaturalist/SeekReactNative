@@ -11,7 +11,7 @@ import {
 
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/sideMenu";
+import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
@@ -31,6 +31,8 @@ class SideMenu extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "menu.home" )}
+          accessible
           onPress={() => this.navigateTo( "Main" )}
         >
           <Image
@@ -40,6 +42,8 @@ class SideMenu extends Component<Props> {
         </TouchableOpacity>
         <View style={styles.textContainer}>
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.home" )}
+            accessible
             onPress={() => this.navigateTo( "Main" )}
             style={[styles.row, styles.height]}
           >
@@ -50,6 +54,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.achievements" )}
+            accessible
             onPress={() => this.navigateTo( "Achievements" )}
             style={[styles.row, styles.height]}
           >
@@ -60,6 +66,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.challenges" )}
+            accessible
             onPress={() => this.navigateTo( "Challenges" )}
             style={[styles.row, styles.height]}
           >
@@ -70,6 +78,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.observations" )}
+            accessible
             onPress={() => this.navigateTo( "MyObservations" )}
             style={[styles.row, styles.height]}
           >
@@ -80,6 +90,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.inat" )}
+            accessible
             onPress={() => this.navigateTo( "iNatStats" )}
             style={[styles.row, styles.height]}
           >
@@ -90,6 +102,8 @@ class SideMenu extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "menu.about" )}
+            accessible
             onPress={() => this.navigateTo( "About" )}
             style={[styles.row, styles.height]}
           >

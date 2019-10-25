@@ -1,7 +1,8 @@
 import {
   StyleSheet,
   Dimensions,
-  PixelRatio
+  PixelRatio,
+  Platform
 } from "react-native";
 import {
   colors,
@@ -13,12 +14,13 @@ const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   centeredContent: {
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 14,
+    paddingTop: 14
   },
   challengeContainer: {
     backgroundColor: colors.darkGray,
-    height: 332,
-    marginTop: 21
+    height: 332
   },
   challengeHeader: {
     color: colors.white,
@@ -33,9 +35,13 @@ export default StyleSheet.create( {
     fontSize: ( fontScale > 1 ) ? 20 : 23,
     letterSpacing: 1.0
   },
+  container: {
+    marginTop: 5
+  },
   header: {
-    marginLeft: 22,
-    marginTop: 21
+    paddingBottom: Platform.OS === "ios" ? 19 : 21,
+    paddingLeft: 22,
+    paddingTop: 21
   },
   image: {
     marginRight: 27
@@ -51,28 +57,6 @@ export default StyleSheet.create( {
   },
   margin: {
     marginBottom: 14
-  },
-  noChallengeContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20
-  },
-  noChallengeRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
-  noChallengeText: {
-    color: colors.errorGray,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    textAlign: "center",
-    width: 229
-  },
-  noChallengeTextContainer: {
-    justifyContent: "center",
-    marginLeft: 30
   },
   row: {
     alignItems: "center",

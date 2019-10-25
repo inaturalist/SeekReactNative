@@ -8,8 +8,9 @@ import {
   SafeAreaView
 } from "react-native";
 
-import styles from "../../styles/home/footer";
+import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
+import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {
@@ -22,19 +23,28 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.menu" )}
+          accessible
           hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
-          style={styles.button}
+          style={styles.leftIcon}
         >
           <Image source={icons.hamburger} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate( "Camera" )}>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.camera" )}
+          accessible
+          onPress={() => navigation.navigate( "Camera" )}
+          style={styles.camera}
+        >
           <Image source={icons.cameraGreen} style={styles.cameraImage} />
         </TouchableOpacity>
         <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.flag" )}
+          accessible
           hitSlop={styles.touchable}
           onPress={() => toggleFlagModal()}
-          style={styles.button}
+          style={styles.flagPadding}
         >
           <Image source={icons.flag} />
         </TouchableOpacity>

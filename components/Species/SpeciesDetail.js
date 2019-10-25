@@ -428,6 +428,8 @@ class SpeciesDetail extends Component<Props> {
           />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.back" )}
+            accessible
             hitSlop={styles.touchable}
             onPress={() => {
               if ( route === "Match" ) {
@@ -485,6 +487,7 @@ class SpeciesDetail extends Component<Props> {
                 {isLoggedIn ? (
                   <TouchableOpacity
                     onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
+                    style={styles.linkContainer}
                   >
                     <Text style={styles.linkText}>{commonName}</Text>
                   </TouchableOpacity>
@@ -497,6 +500,7 @@ class SpeciesDetail extends Component<Props> {
                   <SpeciesMap
                     error={error}
                     id={id}
+                    isLoggedIn={isLoggedIn}
                     navigation={navigation}
                     region={region}
                     seenDate={seenDate}

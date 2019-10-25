@@ -21,7 +21,8 @@ type Props = {
   +region: Object,
   +id: number,
   +error: string,
-  +seenDate: string
+  +seenDate: string,
+  +isLoggedIn: ?boolean
 }
 
 const LocationMap = ( {
@@ -29,10 +30,11 @@ const LocationMap = ( {
   id,
   error,
   navigation,
-  seenDate
+  seenDate,
+  isLoggedIn
 }: Props ) => (
   <View>
-    <View style={styles.headerMargins}>
+    <View style={[styles.headerMargins, isLoggedIn && styles.smallMargins]}>
       <GreenText
         text={i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}
       />

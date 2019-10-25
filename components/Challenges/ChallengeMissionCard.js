@@ -24,36 +24,34 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
     .map( mission => missionsDict[challenge.index][mission] );
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <GreenText text={i18n.t( "challenges.your_mission" ).toLocaleUpperCase()} />
-        <View style={styles.textContainer}>
-          {missions.map( ( item, index ) => (
-            <View key={`${item}${index}`} style={styles.row}>
-              <View style={styles.leftItem}>
-                {missionNumbers[index].number === item.observations
-                  ? <Image source={icons.checklist} style={styles.checklist} />
-                  : <Text style={styles.bullets}>&#8226;</Text>}
-              </View>
-              <View style={styles.missionText}>
-                <Text style={styles.text}>{i18n.t( item.mission )}</Text>
-                <Text style={styles.greenText}>
-                  {i18n.t( "challenges.number_observed", { defaultValue: "{{number}}", number: item.observations } )}
-                </Text>
-              </View>
+    <View style={styles.header}>
+      <GreenText text={i18n.t( "challenges.your_mission" ).toLocaleUpperCase()} />
+      <View style={styles.textContainer}>
+        {missions.map( ( item, index ) => (
+          <View key={`${item}${index}`} style={styles.row}>
+            <View style={styles.leftItem}>
+              {missionNumbers[index].number === item.observations
+                ? <Image source={icons.checklist} style={styles.checklist} />
+                : <Text style={styles.bullets}>&#8226;</Text>}
             </View>
-          ) )}
-        </View>
-        {challenge.percentComplete === 100 ? (
-          <View style={styles.circleStyle}>
-            <Image source={icons.completed} />
+            <View style={styles.missionText}>
+              <Text style={styles.text}>{i18n.t( item.mission )}</Text>
+              <Text style={styles.greenText}>
+                {i18n.t( "challenges.number_observed", { defaultValue: "{{number}}", number: item.observations } )}
+              </Text>
+            </View>
           </View>
-        ) : (
-          <View style={styles.circleStyle}>
-            <PercentCircle challenge={challenge} />
-          </View>
-        )}
+        ) )}
       </View>
+      {challenge.percentComplete === 100 ? (
+        <View style={styles.circleStyle}>
+          <Image source={icons.completed} />
+        </View>
+      ) : (
+        <View style={styles.circleStyle}>
+          <PercentCircle challenge={challenge} />
+        </View>
+      )}
     </View>
   );
 };

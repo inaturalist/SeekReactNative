@@ -8,17 +8,23 @@ const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   ccButton: {
-    backgroundColor: colors.black,
-    borderRadius: 40,
-    opacity: 1,
-    paddingBottom: Platform.OS === "ios" ? 3 : 5,
-    paddingHorizontal: 5,
-    paddingTop: Platform.OS === "ios" ? 8 : 5
+    bottom: 0,
+    padding: 15,
+    position: "absolute",
+    right: 0,
+    zIndex: 1
   },
   ccButtonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 16
+    fontSize: 16,
+    paddingBottom: Platform.OS === "ios" ? 3 : 5,
+    paddingHorizontal: 5,
+    paddingTop: Platform.OS === "ios" ? 8 : 5
+  },
+  ccView: {
+    backgroundColor: colors.black,
+    borderRadius: 40
   },
   fullWidth: {
     width
@@ -38,12 +44,12 @@ export default StyleSheet.create( {
     backgroundColor: colors.black,
     height: 250
   },
-  photoOverlay: {
-    bottom: 20,
-    position: "absolute",
-    right: 20,
-    zIndex: 1
-  },
+  // photoOverlay: {
+  //   bottom: 20,
+  //   position: "absolute",
+  //   right: 20,
+  //   zIndex: 1
+  // },
   rightArrow: {
     position: "absolute",
     right: 5,

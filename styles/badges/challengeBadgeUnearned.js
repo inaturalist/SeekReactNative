@@ -42,6 +42,9 @@ export default StyleSheet.create( {
     maxWidth: 256,
     textAlign: "center"
   },
+  margins: {
+    marginHorizontal: 20
+  },
   nameText: {
     color: colors.black,
     fontFamily: fonts.book,

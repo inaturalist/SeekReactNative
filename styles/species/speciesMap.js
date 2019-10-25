@@ -18,5 +18,8 @@ export default StyleSheet.create( {
   },
   margin: {
     marginTop: 20
+  },
+  smallMargins: {
+    marginTop: 25
   }
 } );

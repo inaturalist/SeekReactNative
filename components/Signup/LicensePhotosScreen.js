@@ -72,7 +72,7 @@ class LicensePhotosScreen extends Component<Props> {
             text={email}
             type="emailAddress"
           />
-          <View style={[styles.row, styles.margin, styles.center]}>
+          <View style={[styles.row, styles.margin]}>
             <Checkbox
               checkBoxColor="#979797"
               isChecked={licensePhotos}
@@ -83,8 +83,7 @@ class LicensePhotosScreen extends Component<Props> {
               {i18n.t( "inat_signup.release_photos" )}
             </Text>
           </View>
-          <View style={[styles.row, styles.center]}>
-            <View style={{ marginLeft: 15 }} />
+          <View style={[styles.row, styles.marginLeft]}>
             <Text
               onPress={() => navigation.navigate( "Privacy" )}
               style={[styles.privacy, { marginTop: 2 }]}

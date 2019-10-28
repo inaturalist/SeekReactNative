@@ -15,7 +15,7 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
-import INatCamera from "react-native-inat-camera";
+import { INatCamera } from "react-native-inat-camera";
 import RNModal from "react-native-modal";
 import moment from "moment";
 

@@ -16,6 +16,8 @@ import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import moment from "moment";
 import GalleryManager from "react-native-gallery-manager";
+import { getPredictionsForImage } from "react-native-inat-camera";
+import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
 import PermissionError from "./PermissionError";
@@ -60,6 +62,19 @@ class GalleryScreen extends Component<Props> {
     await this.getAlbumNames();
   }
 
+  getPredictions( uri ) {
+    const imagePath = uri.split( "/" )[7];
+    getPredictionsForImage( {
+      uri: `${RNFS.ExternalStorageDirectoryPath}/Download/${imagePath}`, // triple check that this works for all images
+      modelFilename: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`,
+      taxonomyFilename: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
+    } ).then( ( { predictions } ) => {
+      this.setState( { predictions } );
+    } ).catch( ( err ) => {
+      console.log( "Error", err );
+    } );
+  }
+
   getAlbumNames() {
     const albumNames = [{
       label: i18n.t( "gallery.camera_roll" ),
@@ -67,16 +82,18 @@ class GalleryScreen extends Component<Props> {
     }];
 
     GalleryManager.getAlbums().then( ( { albums } ) => {
-      albums.forEach( ( album ) => {
-        const { assetCount, title } = album;
+      if ( albums.length > 0 ) { // attempt to fix error on android
+        albums.forEach( ( album ) => {
+          const { assetCount, title } = album;
 
-        if ( assetCount > 0 ) {
-          albumNames.push( {
-            label: title,
-            value: title
-          } );
-        }
-      } );
+          if ( assetCount > 0 ) {
+            albumNames.push( {
+              label: title,
+              value: title
+            } );
+          }
+        } );
+      }
 
       this.setState( { albumNames } );
     } ).catch( ( err ) => {
@@ -195,6 +212,9 @@ class GalleryScreen extends Component<Props> {
 
   navigateToResults( uri, time, location, backupUri ) {
     const { navigation } = this.props;
+    const { predictions } = this.state;
+
+    console.log( predictions, "predict in navigate" );
 
     let latitude = null;
     let longitude = null;
@@ -204,7 +224,16 @@ class GalleryScreen extends Component<Props> {
       longitude = location.longitude;
     }
 
-    navigation.navigate( "GalleryResults", {
+    if ( predictions && predictions.length > 0 ) {
+      navigation.navigate( "ARCameraResults", {
+        uri,
+        predictions,
+        latitude,
+        longitude,
+        backupUri,
+        errorCode: null
+      } );
+    } navigation.navigate( "GalleryResults", {
       uri,
       time,
       latitude, // double check that this still works
@@ -215,6 +244,10 @@ class GalleryScreen extends Component<Props> {
 
   selectAndResizeImage( node ) {
     const { timestamp, location, image } = node;
+
+    if ( Platform.OS === "android" ) {
+      this.getPredictions( image.uri );
+    }
 
     resizeImage( image.uri, width, 250 ).then( ( resizedImage ) => {
       this.saveImageToAppDirectory( image.uri, resizedImage, node );

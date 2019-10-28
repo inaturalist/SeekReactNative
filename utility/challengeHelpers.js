@@ -59,8 +59,6 @@ const updateChallengePercentages = ( challenge ) => {
 
   challenge.percentComplete = percentComplete;
 
-  console.log( prevPercent, percentComplete, "percents of challenge complete" );
-
   if ( prevPercent < percentComplete ) {
     setChallengeProgress( challenge.index );
   } else {

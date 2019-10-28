@@ -52,7 +52,8 @@ class GalleryScreen extends Component<Props> {
       stillLoading: false,
       groupTypes: "All",
       albumNames: [],
-      album: null
+      album: null,
+      predictions: []
     };
 
     this.updateAlbum = this.updateAlbum.bind( this );
@@ -63,9 +64,13 @@ class GalleryScreen extends Component<Props> {
   }
 
   getPredictions( uri ) {
-    const imagePath = uri.split( "/" )[7];
+    const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
+    const paths = reactUri.split( "/" );
+    const imagePath = paths.pop();
+    const folder = paths.join( "/" );
+
     getPredictionsForImage( {
-      uri: `${RNFS.ExternalStorageDirectoryPath}/Download/${imagePath}`, // triple check that this works for all images
+      uri: `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`, // triple check that this works for all images
       modelFilename: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`,
       taxonomyFilename: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
     } ).then( ( { predictions } ) => {
@@ -86,7 +91,7 @@ class GalleryScreen extends Component<Props> {
         albums.forEach( ( album ) => {
           const { assetCount, title } = album;
 
-          if ( assetCount > 0 ) {
+          if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
             albumNames.push( {
               label: title,
               value: title
@@ -173,7 +178,8 @@ class GalleryScreen extends Component<Props> {
       error: null,
       hasNextPage: true,
       lastCursor: null,
-      stillLoading: false
+      stillLoading: false,
+      predictions: []
     }, () => this.getPhotos() );
   }
 
@@ -213,8 +219,6 @@ class GalleryScreen extends Component<Props> {
   navigateToResults( uri, time, location, backupUri ) {
     const { navigation } = this.props;
     const { predictions } = this.state;
-
-    console.log( predictions, "predict in navigate" );
 
     let latitude = null;
     let longitude = null;

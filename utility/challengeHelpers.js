@@ -59,6 +59,8 @@ const updateChallengePercentages = ( challenge ) => {
 
   challenge.percentComplete = percentComplete;
 
+  console.log( prevPercent, percentComplete, "percents of challenge complete" );
+
   if ( prevPercent < percentComplete ) {
     setChallengeProgress( challenge.index );
   } else {
@@ -245,7 +247,7 @@ const getChallengeIndex = async () => {
 const getChallengeProgress = async () => {
   try {
     const index = await AsyncStorage.getItem( "challengeProgress" );
-    if ( index !== "none" ) {
+    if ( index !== "none" && index !== null ) {
       return Number( index );
     }
     return null;

@@ -17,6 +17,7 @@ import {
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 
 type Props = {
@@ -32,8 +33,7 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri,
-      errorCode
+      backupUri
     } = navigation.state.params;
 
     this.state = {
@@ -56,9 +56,28 @@ class ARCameraResults extends Component<Props> {
       imageForUploading: null,
       match: null,
       isLoggedIn: null,
-      errorCode,
+      errorCode: null,
       rank: null
     };
+  }
+
+  setLocationErrorCode( errorCode ) {
+    this.setState( { errorCode } );
+  }
+
+  getGeolocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      }
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
+    } );
   }
 
   setLoggedIn( isLoggedIn ) {
@@ -155,6 +174,20 @@ class ARCameraResults extends Component<Props> {
             : null
       }, () => this.setMatch( true ) );
     } );
+  }
+
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.setLocationErrorCode( 1 );
+        }
+      } );
+    } else {
+      this.getGeolocation();
+    }
   }
 
   async showMatch() {
@@ -316,6 +349,7 @@ class ARCameraResults extends Component<Props> {
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.requestAndroidPermissions();
             this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();

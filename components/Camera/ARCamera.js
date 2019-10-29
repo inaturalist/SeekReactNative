@@ -28,7 +28,6 @@ import ARCameraHeader from "./ARCameraHeader";
 import PermissionError from "./PermissionError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { dirPictures } from "../../utility/dirStorage";
 
 const { width } = Dimensions.get( "window" );
@@ -53,7 +52,6 @@ class ARCamera extends Component<Props> {
       latitude: null,
       longitude: null,
       showWarningModal: false,
-      errorCode: null,
       errorEvent: null
     };
     this.backHandler = null;
@@ -81,25 +79,6 @@ class ARCamera extends Component<Props> {
     this.setState( {
       error,
       errorEvent: event || null
-    } );
-  }
-
-  setLocationErrorCode( errorCode ) {
-    this.setState( { errorCode } );
-  }
-
-  getGeolocation() {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords ) {
-        const { latitude, longitude } = coords;
-
-        this.setState( {
-          latitude,
-          longitude
-        } );
-      }
-    } ).catch( ( errorCode ) => {
-      this.setLocationErrorCode( errorCode );
     } );
   }
 
@@ -220,20 +199,6 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setLocationErrorCode( 1 );
-        }
-      } );
-    } else {
-      this.getGeolocation();
-    }
-  }
-
   async checkForCameraLaunch() {
     const isFirstCameraLaunch = await checkIfCameraLaunched();
     if ( isFirstCameraLaunch ) {
@@ -295,8 +260,7 @@ class ARCamera extends Component<Props> {
     const {
       predictions,
       latitude,
-      longitude,
-      errorCode
+      longitude
     } = this.state;
     const { navigation } = this.props;
 
@@ -306,8 +270,7 @@ class ARCamera extends Component<Props> {
         predictions,
         latitude,
         longitude,
-        backupUri,
-        errorCode
+        backupUri
       } );
     } else {
       navigation.navigate( "GalleryResults", {
@@ -315,8 +278,7 @@ class ARCamera extends Component<Props> {
         time: null,
         latitude,
         longitude,
-        backupUri,
-        errorCode
+        backupUri
       } );
     }
   }
@@ -406,7 +368,6 @@ class ARCamera extends Component<Props> {
           }}
           onWillFocus={() => {
             this.checkForCameraLaunch();
-            this.requestAndroidPermissions(); // separate location from camera permissions
             this.requestAllCameraPermissions();
             this.onResumePreview();
             this.setFocusedScreen( true );

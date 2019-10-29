@@ -29,12 +29,11 @@ import {
   resizeImage
 } from "../../utility/photoHelpers";
 import styles from "../../styles/camera/gallery";
-import { colors } from "../../styles/global";
+import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
 import AlbumPicker from "./AlbumPicker";
 
-const { width } = Dimensions.get( "window" );
 
 type Props = {
   +navigation: any
@@ -118,7 +117,7 @@ class GalleryScreen extends Component<Props> {
     } = this.state;
 
     const photoOptions = {
-      first: 28,
+      first: 24,
       assetType: "Photos",
       groupTypes // this is required in RN 0.59+
     };
@@ -255,7 +254,7 @@ class GalleryScreen extends Component<Props> {
       this.getPredictions( image.uri );
     }
 
-    resizeImage( image.uri, width, 250 ).then( ( resizedImage ) => {
+    resizeImage( image.uri, dimensions.width, 250 ).then( ( resizedImage ) => {
       this.saveImageToAppDirectory( image.uri, resizedImage, node );
     } ).catch( () => {
       this.navigateToResults( image.uri, timestamp, location );
@@ -277,6 +276,21 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
+  renderItem = ( { item } ) => (
+    <TouchableHighlight
+      accessibilityLabel={item.node.image.filename}
+      accessible
+      onPress={() => this.selectAndResizeImage( item.node )}
+      style={styles.button}
+      underlayColor="transparent"
+    >
+      <Image
+        source={{ uri: item.node.image.uri }}
+        style={styles.image}
+      />
+    </TouchableHighlight>
+  );
+
   render() {
     const {
       error,
@@ -294,6 +308,15 @@ class GalleryScreen extends Component<Props> {
       gallery = (
         <FlatList
           data={photos}
+          getItemLayout={( data, index ) => (
+            // skips measurement of dynamic content for faster loading
+            {
+              length: ( dimensions.width / 4 - 2 ),
+              offset: ( dimensions.width / 4 - 2 ) * index,
+              index
+            }
+          )}
+          initialNumToRender={20}
           keyExtractor={( item, index ) => `${item}${index}`}
           ListEmptyComponent={() => (
             <View style={styles.loadingWheel}>
@@ -302,20 +325,8 @@ class GalleryScreen extends Component<Props> {
           )}
           numColumns={4}
           onEndReached={() => this.getPhotos()}
-          renderItem={( { item } ) => (
-            <TouchableHighlight
-              accessibilityLabel={item.node.image.filename}
-              accessible
-              onPress={() => this.selectAndResizeImage( item.node )}
-              style={styles.button}
-              underlayColor="transparent"
-            >
-              <Image
-                source={{ uri: item.node.image.uri }}
-                style={styles.image}
-              />
-            </TouchableHighlight>
-          )}
+          renderItem={this.renderItem}
+          // move render item out so won't recreate self every render
         />
       );
     }

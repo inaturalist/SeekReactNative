@@ -12,7 +12,6 @@
     "@react-native-community/cameraroll": "^1.2.1",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/netinfo": "^3.2.0",
-    "@types/react-navigation": "^2.0.23",
     "ajv": "^6.6.1",
     "i18n-js": "^3.3.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
@@ -35,7 +34,7 @@
     "react-native-modal-datetime-picker": "github:mmazzarolo/react-native-modal-datetime-picker#f4757c7bb20ee36a05ae07c0fe5bcd15ca7bb2eb",
     "react-native-open-settings": "github:pix-inc/react-native-open-settings",
     "react-native-picker-select": "^6.3.1",
-    "react-native-progress-circle": "github:linkinmedo/react-native-progress-circle",
+    "react-native-progress-circle": "^2.1.0",
     "react-native-reanimated": "^1.3.0",
     "react-native-store-review": "^0.1.5",
     "react-native-svg": "^9.6.4",
@@ -47,12 +46,13 @@
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.5.6",
     "react-navigation-transitions": "^1.0.12",
-    "realm": "^3.2.0"
+    "realm": "^3.3.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-flow-strip-types": "^7.4.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/runtime": "^7.5.5",
+    "@types/react-navigation": "^3.0.8",
     "babel-eslint": "^10.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-flow": "^6.23.0",

@@ -1,4 +1,4 @@
-import { createAppContainer } from "react-navigation";
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
@@ -77,11 +77,6 @@ const CameraNavigatorConfig = {
     style: styles.cameraTab,
     indicatorStyle: styles.indicator
   }
-};
-
-const StackNavigatorConfig = {
-  headerMode: "none",
-  transitionConfig: () => fadeIn()
 };
 
 const DrawerNavigatorConfig = {
@@ -244,7 +239,7 @@ const LoginStack = createStackNavigator( {
   }
 }, { headerMode: "none" } );
 
-const RootStack = createStackNavigator( {
+const RootSwitch = createSwitchNavigator( {
   Home: {
     screen: SplashScreen
   },
@@ -257,8 +252,11 @@ const RootStack = createStackNavigator( {
   Main: {
     screen: MenuDrawerNav
   }
-}, StackNavigatorConfig );
+}, {
+  headerMode: "none",
+  transitionConfig: () => fadeIn()
+} );
 
-const App = createAppContainer( RootStack );
+const App = createAppContainer( RootSwitch );
 
 export default App;

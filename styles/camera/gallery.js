@@ -1,13 +1,12 @@
-import { Dimensions, StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   center,
   row,
   fonts,
-  touchable
+  touchable,
+  dimensions
 } from "../global";
-
-const { width, height } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   backButton: {
@@ -49,11 +48,11 @@ export default StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? 3 : 0
   },
   image: {
-    height: width / 4 - 2,
-    width: width / 4 - 2
+    height: dimensions.width / 4 - 2,
+    width: dimensions.width / 4 - 2
   },
   loadingWheel: {
-    marginTop: height / 2 - 150
+    marginTop: dimensions.height / 2 - 125
   },
   margin: {
     marginLeft: 15

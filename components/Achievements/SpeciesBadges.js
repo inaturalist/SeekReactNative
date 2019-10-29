@@ -58,6 +58,7 @@ class SpeciesBadges extends Component<Props> {
   renderBadgesRow( data ) {
     return (
       <FlatList
+        alwaysBounceHorizontal={false}
         data={data}
         horizontal
         keyExtractor={( badge, index ) => `${badge.name}${index}`}

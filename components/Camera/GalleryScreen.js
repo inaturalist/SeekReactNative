@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   View,
   StatusBar,
-  SafeAreaView,
-  Dimensions
+  SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
@@ -34,7 +33,6 @@ import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
 import AlbumPicker from "./AlbumPicker";
 
-
 type Props = {
   +navigation: any
 }
@@ -56,10 +54,6 @@ class GalleryScreen extends Component<Props> {
     };
 
     this.updateAlbum = this.updateAlbum.bind( this );
-  }
-
-  async setupComponent() {
-    await this.getAlbumNames();
   }
 
   getPredictions( uri ) {
@@ -117,7 +111,7 @@ class GalleryScreen extends Component<Props> {
     } = this.state;
 
     const photoOptions = {
-      first: 24,
+      first: 50,
       assetType: "Photos",
       groupTypes // this is required in RN 0.59+
     };
@@ -131,15 +125,9 @@ class GalleryScreen extends Component<Props> {
     }
 
     if ( hasNextPage && !stillLoading ) {
-      this.setState( {
-        stillLoading: true
-      } );
+      this.setState( { stillLoading: true } );
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-        this.appendPhotos( results.edges );
-        this.setState( {
-          hasNextPage: results.page_info.has_next_page,
-          lastCursor: results.page_info.end_cursor
-        } );
+        this.appendPhotos( results.edges, results.page_info );
       } ).catch( ( err ) => {
         this.setState( {
           error: err.message
@@ -182,22 +170,25 @@ class GalleryScreen extends Component<Props> {
     }, () => this.getPhotos() );
   }
 
-  appendPhotos( data ) {
+  updatePhotos( photos, pageInfo ) {
+    this.setState( {
+      photos,
+      stillLoading: false,
+      hasNextPage: pageInfo.has_next_page,
+      lastCursor: pageInfo.end_cursor
+    } );
+  }
+
+  appendPhotos( data, pageInfo ) {
     const { photos } = this.state;
 
     if ( photos.length > 0 ) {
       data.forEach( ( photo ) => {
         photos.push( photo );
       } );
-      this.setState( {
-        photos,
-        stillLoading: false
-      } );
+      this.updatePhotos( photos, pageInfo );
     } else {
-      this.setState( {
-        photos: data,
-        stillLoading: false
-      } );
+      this.updatePhotos( data, pageInfo );
     }
   }
 
@@ -326,7 +317,6 @@ class GalleryScreen extends Component<Props> {
           numColumns={4}
           onEndReached={() => this.getPhotos()}
           renderItem={this.renderItem}
-          // move render item out so won't recreate self every render
         />
       );
     }
@@ -335,9 +325,10 @@ class GalleryScreen extends Component<Props> {
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
-          onWillBlur={() => this.resetState()}
+          // onWillBlur={() => this.resetState()}
           onWillFocus={() => {
-            this.setupComponent();
+            this.getAlbumNames();
+            this.getPhotos();
             this.checkPermissions();
           }}
         />

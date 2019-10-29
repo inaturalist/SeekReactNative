@@ -17,8 +17,8 @@ import {
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 
 type Props = {
   +navigation: any
@@ -62,7 +62,7 @@ class ARCameraResults extends Component<Props> {
   }
 
   setLocationErrorCode( errorCode ) {
-    this.setState( { errorCode } );
+    this.setState( { errorCode }, () => this.resizeImage() );
   }
 
   getGeolocation() {
@@ -75,6 +75,7 @@ class ARCameraResults extends Component<Props> {
           longitude
         } );
       }
+      this.resizeImage();
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
     } );
@@ -174,20 +175,6 @@ class ARCameraResults extends Component<Props> {
             : null
       }, () => this.setMatch( true ) );
     } );
-  }
-
-  requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setLocationErrorCode( 1 );
-        }
-      } );
-    } else {
-      this.getGeolocation();
-    }
   }
 
   async showMatch() {
@@ -302,7 +289,22 @@ class ARCameraResults extends Component<Props> {
       } );
   }
 
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.setLocationErrorCode( 1 );
+        }
+      } );
+    } else {
+      this.getGeolocation();
+    }
+  }
+
   navigateTo( route ) {
+    console.log( "navigating" );
     const { navigation } = this.props;
     const {
       userImage,
@@ -351,7 +353,7 @@ class ARCameraResults extends Component<Props> {
           onWillFocus={() => {
             this.requestAndroidPermissions();
             this.getLoggedIn();
-            this.resizeImage();
+            // this.resizeImage();
             this.resizeImageForUploading();
           }}
         />

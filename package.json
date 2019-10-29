@@ -12,7 +12,6 @@
     "@react-native-community/cameraroll": "^1.2.1",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/netinfo": "^3.2.0",
-    "ajv": "^6.6.1",
     "i18n-js": "^3.3.0",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
     "moment": "^2.24.0",

@@ -3,7 +3,8 @@ import {
   colors,
   fonts,
   touchable,
-  center
+  center,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
@@ -25,9 +26,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  cover: {
-    resizeMode: "cover"
-  },
+  // cover: {
+  //   resizeMode: "cover"
+  // },
   header: {
     height: 186,
     overflow: "visible"
@@ -41,10 +42,10 @@ export default StyleSheet.create( {
     marginBottom: 24,
     textAlign: "center"
   },
-  imageBackground: {
-    height: "100%",
-    width: "100%"
-  },
+  // imageBackground: {
+  //   height: "100%",
+  //   width: "100%"
+  // },
   imageCell: {
     borderRadius: 150 / 2,
     height: 150,
@@ -71,11 +72,12 @@ export default StyleSheet.create( {
     fontSize: 18,
     textDecorationLine: "underline"
   },
-  loadingWheel: {
-    left: "50%",
-    position: "absolute",
-    top: "50%"
-  },
+  // loadingWheel: {
+  //   left: dimensions.width / 2,
+  //   position: "absolute",
+  //   top: dimensions.height / 2,
+  //   zIndex: 1
+  // },
   marginLarge: {
     marginTop: 50
   },

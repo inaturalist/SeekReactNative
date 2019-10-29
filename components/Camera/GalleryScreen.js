@@ -87,7 +87,7 @@ class GalleryScreen extends Component<Props> {
     }];
 
     GalleryManager.getAlbums().then( ( { albums } ) => {
-      if ( albums.length > 0 ) { // attempt to fix error on android
+      if ( albums && albums.length > 0 ) { // attempt to fix error on android
         albums.forEach( ( album ) => {
           const { assetCount, title } = album;
 
@@ -237,13 +237,15 @@ class GalleryScreen extends Component<Props> {
         backupUri,
         errorCode: null
       } );
-    } navigation.navigate( "GalleryResults", {
-      uri,
-      time,
-      latitude, // double check that this still works
-      longitude,
-      backupUri
-    } );
+    } else {
+      navigation.navigate( "GalleryResults", {
+        uri,
+        time,
+        latitude, // double check that this still works
+        longitude,
+        backupUri
+      } );
+    }
   }
 
   selectAndResizeImage( node ) {

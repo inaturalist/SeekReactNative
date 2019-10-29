@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground, Platform } from "react-native";
+import { View, Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -9,7 +9,6 @@ import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-import LoadingWheel from "../UIComponents/LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -18,6 +17,7 @@ import {
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
+import FullPhotoLoading from "./FullPhotoLoading";
 
 type Props = {
   +navigation: any
@@ -323,17 +323,7 @@ class ARCameraResults extends Component<Props> {
         />
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
-          : (
-            <ImageBackground
-              imageStyle={styles.cover}
-              source={{ uri: imageForUploading }}
-              style={styles.imageBackground}
-            >
-              <View style={styles.loadingWheel}>
-                <LoadingWheel color="white" />
-              </View>
-            </ImageBackground>
-          )}
+          : <FullPhotoLoading uri={imageForUploading} />}
       </View>
     );
   }

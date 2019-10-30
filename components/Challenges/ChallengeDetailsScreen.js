@@ -155,7 +155,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           if ( !challengeStarted ) {
             this.showMission();
           } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-            navigation.navigate( "Camera" )
+            navigation.navigate( "Camera" );
           } else if ( challengeStarted && challenge.percentComplete === 100 ) {
             this.toggleChallengeModal();
           }
@@ -235,6 +235,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Challenges" )}
+                style={styles.padding}
               >
                 <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>

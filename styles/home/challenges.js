@@ -15,7 +15,7 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   centeredContent: {
     alignItems: "center",
-    paddingBottom: 14,
+    paddingBottom: 34,
     paddingTop: 14
   },
   challengeContainer: {

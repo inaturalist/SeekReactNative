@@ -511,7 +511,7 @@ class PostScreen extends Component<Props> {
                 this.getToken();
                 this.togglePostModal();
               }}
-              text={i18n.t( "posting.header" ).toLocaleUpperCase()}
+              text={i18n.t( "posting.header" )}
             />
           </View>
         </ScrollView>

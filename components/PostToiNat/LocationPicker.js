@@ -100,7 +100,7 @@ class LocationPicker extends Component<Props> {
           <View style={styles.margin} />
           <GreenButton
             handlePress={() => updateLocation( region.latitude, region.longitude )}
-            text={i18n.t( "posting.save_location" ).toLocaleUpperCase()}
+            text={i18n.t( "posting.save_location" )}
           />
         </View>
       </View>

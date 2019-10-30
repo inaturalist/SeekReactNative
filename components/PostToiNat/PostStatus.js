@@ -74,7 +74,7 @@ const PostStatus = ( {
                 togglePostModal();
               }
             }}
-            text={i18n.t( "posting.ok" ).toLocaleUpperCase()}
+            text={i18n.t( "posting.ok" )}
           />
         </View>
       ) : null}

@@ -141,11 +141,11 @@ class ChallengeDetailsScreen extends Component<Props> {
     let buttonText;
 
     if ( !challengeStarted ) {
-      buttonText = i18n.t( "challenges.start_challenge" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.start_challenge" );
     } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-      buttonText = i18n.t( "challenges.open_camera" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.open_camera" );
     } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-      buttonText = i18n.t( "challenges.view_badge" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.view_badge" );
     }
 
     const button = (

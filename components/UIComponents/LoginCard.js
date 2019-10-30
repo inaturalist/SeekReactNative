@@ -76,8 +76,8 @@ class LoginCard extends Component<Props> {
             }
           }}
           text={isLoggedIn
-            ? i18n.t( "inat_stats.sign_out" ).toLocaleUpperCase()
-            : i18n.t( "inat_stats.join" ).toLocaleUpperCase()}
+            ? i18n.t( "inat_stats.sign_out" )
+            : i18n.t( "inat_stats.join" )}
         />
       </View>
     );

@@ -34,7 +34,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
       <GreenButton
         handlePress={() => navigation.navigate( "LoginOrSignup" )}
         login
-        text={i18n.t( "inat_login.return_login" ).toLocaleUpperCase()}
+        text={i18n.t( "inat_login.return_login" )}
       />
     </View>
   </View>

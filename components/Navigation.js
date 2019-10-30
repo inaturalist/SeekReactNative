@@ -1,12 +1,9 @@
-import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
 import { Platform, Dimensions } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
-import createAnimatedSwitchNavigator from "react-navigation-animated-switch";
-import { Transition } from "react-native-reanimated";
 
 import styles from "../styles/navigation";
 import i18n from "../i18n";
@@ -242,7 +239,7 @@ const LoginStack = createStackNavigator( {
   }
 }, { headerMode: "none" } );
 
-const RootSwitch = createAnimatedSwitchNavigator( {
+const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen
   },
@@ -256,17 +253,10 @@ const RootSwitch = createAnimatedSwitchNavigator( {
     screen: MenuDrawerNav
   }
 }, {
-  transition: (
-    <Transition.Together>
-      <Transition.Out
-        durationMs={100}
-        type="fade"
-      />
-      <Transition.In durationMs={300} type="fade" />
-    </Transition.Together>
-  )
+  headerMode: "none",
+  transitionConfig: () => fadeIn()
 } );
 
-const App = createAppContainer( RootSwitch );
+const App = createAppContainer( RootStack );
 
 export default App;

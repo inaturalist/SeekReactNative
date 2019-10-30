@@ -41,7 +41,6 @@
     "react-native-uuid": "^1.4.9",
     "react-native-webview": "^7.4.2",
     "react-navigation": "^4.0.10",
-    "react-navigation-animated-switch": "^0.3.2",
     "react-navigation-drawer": "^2.3.2",
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.5.6",

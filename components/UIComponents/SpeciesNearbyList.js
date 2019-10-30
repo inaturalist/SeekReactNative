@@ -60,8 +60,6 @@ const SpeciesNearbyList = ( {
         }}
         style={styles.gridCell}
       >
-        {console.log( item.iconic_taxon_id, "item" )}
-
         {item.default_photo.medium_url ? (
           <Image
             source={{ uri: item.default_photo.medium_url }}

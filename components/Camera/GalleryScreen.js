@@ -327,7 +327,6 @@ class GalleryScreen extends Component<Props> {
           // onWillBlur={() => this.resetState()}
           onWillFocus={() => {
             this.getAlbumNames();
-            this.getPhotos();
             this.checkPermissions();
           }}
         />

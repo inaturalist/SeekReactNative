@@ -22,34 +22,15 @@ type Props = {
 }
 
 class SplashScreen extends Component<Props> {
-  constructor() {
-    super();
-
-    this.state = {
-      isFirstLaunch: false,
-      hasCheckedAsyncStorage: false
-    };
-  }
-
   async componentDidMount() {
     setCameraLaunched( false );
     const isFirstLaunch = await checkIfFirstLaunch();
     const isFirstLogin = await checkIfFirstLogin();
-    this.setState( {
-      isFirstLaunch,
-      isFirstLogin,
-      hasCheckedAsyncStorage: true
-    }, () => this.transitionScreen() );
+    this.transitionScreen( isFirstLaunch, isFirstLogin );
   }
 
-  transitionScreen() {
-    const { isFirstLaunch, isFirstLogin, hasCheckedAsyncStorage } = this.state;
-
+  transitionScreen( isFirstLaunch, isFirstLogin ) {
     const splashTimer = Platform.OS === "android" ? 2000 : 3000;
-
-    if ( !hasCheckedAsyncStorage ) {
-      return null;
-    }
 
     if ( isFirstLaunch ) {
       setTimeout( () => this.resetRouter( "Onboarding" ), splashTimer );

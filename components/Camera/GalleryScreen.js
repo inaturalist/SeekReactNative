@@ -8,6 +8,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
+  Text,
   StatusBar,
   SafeAreaView
 } from "react-native";
@@ -48,7 +49,10 @@ class GalleryScreen extends Component<Props> {
       lastCursor: null,
       stillLoading: false,
       groupTypes: "All",
-      albumNames: [],
+      albumNames: [{
+        label: i18n.t( "gallery.camera_roll" ),
+        value: "All"
+      }],
       album: null,
       predictions: []
     };
@@ -74,12 +78,10 @@ class GalleryScreen extends Component<Props> {
   }
 
   getAlbumNames() {
-    const albumNames = [{
-      label: i18n.t( "gallery.camera_roll" ),
-      value: "All"
-    }];
+    const { albumNames } = this.state;
 
-    GalleryManager.getAlbums().then( ( { albums } ) => {
+    GalleryManager.getAlbums().then( ( results ) => {
+      const { albums } = results;
       if ( albums && albums.length > 0 ) { // attempt to fix error on android
         albums.forEach( ( album ) => {
           const { assetCount, title } = album;
@@ -94,10 +96,8 @@ class GalleryScreen extends Component<Props> {
       }
 
       this.setState( { albumNames } );
-    } ).catch( ( err ) => {
-      if ( err ) {
-        this.setState( { albumNames } ); // handle state where device has no albums on Android
-      }
+    } ).catch( () => {
+      console.log( "can't fetch album names" );
     } );
   }
 
@@ -155,7 +155,7 @@ class GalleryScreen extends Component<Props> {
     } else {
       this.setState( {
         groupTypes: "All",
-        album: i18n.t( "gallery.camera_roll" )
+        album: null
       }, () => this.resetState() );
     }
   }
@@ -343,9 +343,7 @@ class GalleryScreen extends Component<Props> {
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
           <View style={[styles.center, styles.headerContainer]}>
-            {albumNames.length > 0
-              ? <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
-              : null}
+            <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
           </View>
         </View>
         <View style={styles.galleryContainer}>

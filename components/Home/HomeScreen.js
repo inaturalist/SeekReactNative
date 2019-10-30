@@ -71,6 +71,7 @@ class HomeScreen extends Component<Props> {
 
   setError( newError ) {
     const { error } = this.state;
+    console.log( error, newError, "errors" );
 
     if ( error !== newError ) {
       // this ensures the loading wheel stays in place when its needed
@@ -94,6 +95,7 @@ class HomeScreen extends Component<Props> {
     } ).catch( ( errorCode ) => {
       if ( errorCode === 1 ) {
         this.setError( "location" );
+        this.setLoading( false );
       } else if ( errorCode === 2 ) {
         this.setError( "no_gps" );
         this.setLoading( false );
@@ -132,6 +134,7 @@ class HomeScreen extends Component<Props> {
           this.getGeolocation();
         } else {
           this.setError( "location" );
+          this.setLoading( false )
         }
       } );
     } else {

@@ -12,7 +12,7 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 type Props = {
-  navigation: any
+  +navigation: any
 }
 
 const OnboardingScreen = ( { navigation }: Props ) => (

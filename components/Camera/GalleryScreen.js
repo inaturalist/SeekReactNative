@@ -146,6 +146,7 @@ class GalleryScreen extends Component<Props> {
   }
 
   updateAlbum( album ) {
+    console.log( album, "album" );
     if ( album !== "All" ) {
       this.setState( {
         groupTypes: "Album",

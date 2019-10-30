@@ -304,7 +304,6 @@ class ARCameraResults extends Component<Props> {
   }
 
   navigateTo( route ) {
-    console.log( "navigating" );
     const { navigation } = this.props;
     const {
       userImage,

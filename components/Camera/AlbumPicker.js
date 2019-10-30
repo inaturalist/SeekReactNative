@@ -19,8 +19,6 @@ class AlbumPicker extends Component<Props> {
   constructor( { albums }: Props ) {
     super();
 
-    this.inputRefs = {};
-
     this.state = {
       album: i18n.t( "gallery.camera_roll" ),
       albums
@@ -39,9 +37,6 @@ class AlbumPicker extends Component<Props> {
 
     return (
       <RNPickerSelect
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
         hideIcon
         Icon={() => <Image source={icons.dropdownOpen} style={styles.margin} />}
         items={albums}

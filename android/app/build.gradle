@@ -121,8 +121,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 67
-        versionName "2.3.6"
+        versionCode 68
+        versionName "2.3.7"
         // ndk {
         //     abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
         // }

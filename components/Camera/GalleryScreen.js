@@ -8,14 +8,12 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   View,
-  Text,
   StatusBar,
   SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import moment from "moment";
-import GalleryManager from "react-native-gallery-manager";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import RNFS from "react-native-fs";
 
@@ -49,10 +47,6 @@ class GalleryScreen extends Component<Props> {
       lastCursor: null,
       stillLoading: false,
       groupTypes: "All",
-      albumNames: [{
-        label: i18n.t( "gallery.camera_roll" ),
-        value: "All"
-      }],
       album: null,
       predictions: []
     };
@@ -74,30 +68,6 @@ class GalleryScreen extends Component<Props> {
       this.setState( { predictions } );
     } ).catch( ( err ) => {
       console.log( "Error", err );
-    } );
-  }
-
-  getAlbumNames() {
-    const { albumNames } = this.state;
-
-    GalleryManager.getAlbums().then( ( results ) => {
-      const { albums } = results;
-      if ( albums && albums.length > 0 ) { // attempt to fix error on android
-        albums.forEach( ( album ) => {
-          const { assetCount, title } = album;
-
-          if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-            albumNames.push( {
-              label: title,
-              value: title
-            } );
-          }
-        } );
-      }
-
-      this.setState( { albumNames } );
-    } ).catch( () => {
-      console.log( "can't fetch album names" );
     } );
   }
 
@@ -285,8 +255,7 @@ class GalleryScreen extends Component<Props> {
   render() {
     const {
       error,
-      photos,
-      albumNames
+      photos
     } = this.state;
 
     const { navigation } = this.props;
@@ -326,10 +295,7 @@ class GalleryScreen extends Component<Props> {
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
           // onWillBlur={() => this.resetState()}
-          onWillFocus={() => {
-            this.getAlbumNames();
-            this.checkPermissions();
-          }}
+          onWillFocus={() => this.checkPermissions()}
         />
         <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
@@ -343,7 +309,7 @@ class GalleryScreen extends Component<Props> {
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
           <View style={[styles.center, styles.headerContainer]}>
-            <AlbumPicker albums={albumNames} updateAlbum={this.updateAlbum} />
+            <AlbumPicker updateAlbum={this.updateAlbum} />
           </View>
         </View>
         <View style={styles.galleryContainer}>

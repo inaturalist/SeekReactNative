@@ -5,24 +5,55 @@ import {
   View
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
+import GalleryManager from "react-native-gallery-manager";
 
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/camera/gallery";
 
 type Props = {
-  +updateAlbum: Function,
-  +albums: Array
+  +updateAlbum: Function
 }
 
 class AlbumPicker extends Component<Props> {
-  constructor( { albums }: Props ) {
+  constructor() {
     super();
 
     this.state = {
       album: i18n.t( "gallery.camera_roll" ),
-      albums
+      albumNames: [{
+        label: i18n.t( "gallery.camera_roll" ),
+        value: "All"
+      }]
     };
+  }
+
+  componentDidMount() {
+    this.getAlbumNames();
+  }
+
+  getAlbumNames() {
+    const { albumNames } = this.state;
+
+    GalleryManager.getAlbums().then( ( results ) => {
+      const { albums } = results;
+      if ( albums && albums.length > 0 ) { // attempt to fix error on android
+        albums.forEach( ( album ) => {
+          const { assetCount, title } = album;
+
+          if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+            albumNames.push( {
+              label: title,
+              value: title
+            } );
+          }
+        } );
+      }
+
+      this.setState( { albumNames } );
+    } ).catch( () => {
+      console.log( "can't fetch album names" );
+    } );
   }
 
   setAlbum( album ) {
@@ -33,13 +64,13 @@ class AlbumPicker extends Component<Props> {
   }
 
   render() {
-    const { albums, album } = this.state;
+    const { albumNames, album } = this.state;
 
     return (
       <RNPickerSelect
         hideIcon
         Icon={() => <Image source={icons.dropdownOpen} style={styles.margin} />}
-        items={albums}
+        items={albumNames}
         onValueChange={( value ) => {
           this.setAlbum( value );
         }}

@@ -180,17 +180,6 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
-  localizeSpeciesNearby( taxa ) {
-    const localizedTaxa = taxa.map( species => getTaxonCommonName( species.id )
-      .then( ( commonName ) => {
-        const localizedSpecies = species;
-        localizedSpecies.preferred_common_name = commonName;
-      } ) );
-
-    Promise.all( localizedTaxa ).then( () => this.setTaxa( taxa ) )
-      .catch( e => console.log( e, "couldn't resolve common name" ) );
-  }
-
   fetchSpeciesNearby( params ) {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );

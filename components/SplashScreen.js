@@ -8,7 +8,7 @@ import {
   View,
   Platform
 } from "react-native";
-// import { NavigationActions } from "react-navigation";
+import { NavigationActions } from "react-navigation";
 
 import i18n from "../i18n";
 import styles from "../styles/splash";
@@ -45,11 +45,9 @@ class SplashScreen extends Component<Props> {
   resetRouter( routeName ) {
     const { navigation } = this.props;
 
-    navigation.navigate( routeName );
-
-    // navigation.reset( [
-    //   NavigationActions.navigate( { routeName } )
-    // ], 0 );
+    navigation.reset( [
+      NavigationActions.navigate( { routeName } )
+    ], 0 );
   }
 
   render() {

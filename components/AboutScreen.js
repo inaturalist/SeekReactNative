@@ -31,7 +31,7 @@ class AboutScreen extends Component<Props> {
   render() {
     const { navigation } = this.props;
     const version = "2.3.7";
-    const buildNumber = 68;
+    const buildNumber = 69;
 
     return (
       <React.Fragment>

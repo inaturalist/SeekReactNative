@@ -11,6 +11,7 @@ import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
+import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   +taxa: Array,
@@ -59,10 +60,19 @@ const SpeciesNearbyList = ( {
         }}
         style={styles.gridCell}
       >
-        <Image
-          source={{ uri: item.default_photo.medium_url }}
-          style={styles.cellImage}
-        />
+        {console.log( item.iconic_taxon_id, "item" )}
+
+        {item.default_photo.medium_url ? (
+          <Image
+            source={{ uri: item.default_photo.medium_url }}
+            style={styles.cellImage}
+          />
+        ) : (
+          <Image
+            source={iconicTaxa[item.iconic_taxon_id]}
+            style={styles.cellImage}
+          />
+        )}
         <View style={styles.cellTitle}>
           <Text numberOfLines={3} style={styles.cellTitleText}>
             {capitalizeNames( item.preferred_common_name || item.name )}

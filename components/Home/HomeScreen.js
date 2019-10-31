@@ -22,8 +22,7 @@ import Header from "./Header";
 import {
   checkIfCardShown,
   addARCameraFiles,
-  checkForInternet,
-  getTaxonCommonName
+  checkForInternet
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
 import taxonIds from "../../utility/taxonDict";
@@ -57,16 +56,26 @@ class HomeScreen extends Component<Props> {
     this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
-  setLoading( loading ) {
-    this.setState( { loading } );
+  setLoading( newLoadingStatus ) {
+    const { loading } = this.state;
+    if ( loading !== newLoadingStatus ) {
+      this.setState( { loading: newLoadingStatus } );
+    }
   }
 
-  setLocation( location ) {
-    this.setState( { location } );
+  setLocation( location, latitude, longitude ) {
+    this.setState( {
+      location,
+      latitude,
+      longitude
+    }, () => this.setParamsForSpeciesNearby() );
   }
 
   setTaxa( taxa ) {
-    this.setState( { taxa }, () => this.setLoading( false ) );
+    this.setState( {
+      taxa,
+      loading: false
+    } );
   }
 
   setError( newError ) {
@@ -74,7 +83,12 @@ class HomeScreen extends Component<Props> {
 
     if ( error !== newError ) {
       // this ensures the loading wheel stays in place when its needed
-      this.setState( { error: newError }, () => this.setLoading( false ) );
+      this.setState( {
+        error: newError,
+        loading: false
+      } );
+    } else {
+      this.setLoading( false );
     }
   }
 
@@ -84,36 +98,27 @@ class HomeScreen extends Component<Props> {
 
       if ( latitude && longitude ) {
         this.reverseGeocodeLocation( latitude, longitude );
-        this.setError( null );
-
-        this.setState( {
-          latitude,
-          longitude
-        }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
       }
     } ).catch( ( errorCode ) => {
       if ( errorCode === 1 ) {
         this.setError( "location" );
-        this.setLoading( false );
       } else if ( errorCode === 2 ) {
         this.setError( "no_gps" );
-        this.setLoading( false );
       } else {
         this.setError( "location_timeout" );
-        this.setLoading( false );
       }
     } );
   }
 
-  setParamsForSpeciesNearby( lat, lng ) {
-    const { taxaType } = this.state;
+  setParamsForSpeciesNearby() {
+    const { taxaType, latitude, longitude } = this.state;
     this.setLoading( true );
     this.checkInternetConnection();
 
     const params = {
       per_page: 20,
-      lat,
-      lng,
+      lat: latitude,
+      lng: longitude,
       observed_on: new Date(),
       seek_exceptions: true,
       locale: i18n.locale
@@ -127,13 +132,13 @@ class HomeScreen extends Component<Props> {
   }
 
   requestAndroidPermissions() {
+    this.setError( null );
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
           this.getGeolocation();
         } else {
           this.setError( "location" );
-          this.setLoading( false );
         }
       } );
     } else {
@@ -154,17 +159,14 @@ class HomeScreen extends Component<Props> {
   }
 
   updateTaxaType( taxaType ) {
-    const { latitude, longitude } = this.state;
-
-    this.setLoading( true );
     this.setState( {
       taxaType
-    }, () => this.setParamsForSpeciesNearby( latitude, longitude ) );
+    }, () => this.setParamsForSpeciesNearby() );
   }
 
   reverseGeocodeLocation( lat, lng ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location );
+      this.setLocation( location, lat, lng );
     } ).catch( () => {
       this.checkInternetConnection();
     } );
@@ -174,8 +176,6 @@ class HomeScreen extends Component<Props> {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );
-      } else {
-        this.setError( null );
       }
     } ).catch( () => this.setError( null ) );
   }
@@ -198,22 +198,13 @@ class HomeScreen extends Component<Props> {
     const { modalVisible, error } = this.state;
 
     if ( !error ) {
-      this.setState( {
-        modalVisible: !modalVisible
-      } );
+      this.setState( { modalVisible: !modalVisible } );
     }
   }
 
   updateLocation( latitude, longitude ) {
-    this.setLoading( true );
     this.reverseGeocodeLocation( latitude, longitude );
-    this.setState( {
-      latitude,
-      longitude
-    }, () => {
-      this.toggleLocationPicker();
-      this.setParamsForSpeciesNearby( latitude, longitude );
-    } );
+    this.toggleLocationPicker();
   }
 
   scrollToTop() {
@@ -240,7 +231,6 @@ class HomeScreen extends Component<Props> {
         <StatusBar barStyle="light-content" />
         <SafeAreaView />
         <NavigationEvents
-          onWillBlur={() => this.setLoading( true )}
           onWillFocus={() => {
             this.scrollToTop();
             this.checkForFirstLaunch();

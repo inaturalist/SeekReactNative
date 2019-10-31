@@ -115,7 +115,6 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    // buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "org.inaturalist.seek"
@@ -123,10 +122,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 69
         versionName "2.3.7"
-        // ndk {
-        //     abiFilters "armeabi-v7a", "x86", "x86_64", "arm64-v8a"
-        // }
-        // vectorDrawables.useSupportLibrary = true
     }
     signingConfigs {
         release {
@@ -168,23 +163,11 @@ android {
             }
         }
     }
-    // packagingOptions {
-    //     pickFirst '**/armeabi-v7a/libc++_shared.so'
-    //     pickFirst '**/x86/libc++_shared.so'
-    //     pickFirst '**/arm64-v8a/libc++_shared.so'
-    //     pickFirst '**/x86_64/libc++_shared.so'
-    //     pickFirst '**/x86/libjsc.so'
-    //     pickFirst '**/armeabi-v7a/libjsc.so'
-    // }
 }
 
 dependencies {
     implementation project(':react-native-inat-camera')
-    // implementation fileTree(dir: "libs", include: ["*.jar"])
-    // implementation("com.android.support:appcompat-v7:28.0.0")
-    // implementation("com.android.support:support-v4:28.0.0")
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    // implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     if (enableHermes) {
       def hermesPath = "../../node_modules/hermes-engine/android/";
       debugImplementation files(hermesPath + "hermes-debug.aar")

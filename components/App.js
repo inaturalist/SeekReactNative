@@ -10,10 +10,11 @@ import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 
 class App extends Component {
-  async componentDidMount() {
-    await setupBadges();
-    await setupChallenges();
-    await fetchiNatStats();
+  componentDidMount() {
+    // stop blocking the Splash screen from rendering with setup functions
+    setTimeout( setupBadges, 5000 );
+    setTimeout( setupChallenges, 5000 );
+    setTimeout( fetchiNatStats, 5000 );
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately

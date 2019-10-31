@@ -112,8 +112,6 @@ class HomeScreen extends Component<Props> {
 
   setParamsForSpeciesNearby() {
     const { taxaType, latitude, longitude } = this.state;
-    this.setLoading( true );
-    this.checkInternetConnection();
 
     const params = {
       per_page: 20,
@@ -131,8 +129,16 @@ class HomeScreen extends Component<Props> {
     this.fetchSpeciesNearby( params );
   }
 
+  resetErrorAndLoading() {
+    this.setState( {
+      error: null,
+      loading: true
+    } );
+  }
+
   requestAndroidPermissions() {
-    this.setError( null );
+    this.resetErrorAndLoading();
+
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
@@ -231,8 +237,8 @@ class HomeScreen extends Component<Props> {
         <StatusBar barStyle="light-content" />
         <SafeAreaView />
         <NavigationEvents
+          onWillBlur={() => this.scrollToTop()}
           onWillFocus={() => {
-            this.scrollToTop();
             this.checkForFirstLaunch();
             this.requestAndroidPermissions();
             addARCameraFiles();

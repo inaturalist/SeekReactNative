@@ -31,6 +31,14 @@ const SpeciesNearbyList = ( {
     bounces
     contentContainerStyle={styles.taxonList}
     data={taxa}
+    getItemLayout={( data, index ) => (
+      // skips measurement of dynamic content for faster loading
+      {
+        length: ( 28 + 108 ),
+        offset: ( 28 + 108 ) * index,
+        index
+      }
+    )}
     horizontal
     initialNumToRender={3}
     keyExtractor={taxon => `species-${taxon.id}`}

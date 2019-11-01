@@ -32,13 +32,15 @@ type Props = {
   +ancestors: Array,
   +timesSeen: Number,
   +observationsByMonth: Array,
-  +fetchiNatData: Function
+  +fetchiNatData: Function,
+  +error: string
 }
 
 const NoInternetError = ( {
   stats,
   seenDate,
   about,
+  error,
   isLoggedIn,
   navigation,
   commonName,
@@ -87,15 +89,18 @@ const NoInternetError = ( {
       {id !== 43584 ? (
         <React.Fragment>
           <View style={styles.secondTextContainer}>
-            <SpeciesMap
-              id={id}
-              isLoggedIn={isLoggedIn}
-              navigation={navigation}
-              region={region}
-              seenDate={seenDate}
-            />
+            {error === "location" ? null : (
+              <SpeciesMap
+                id={id}
+                isLoggedIn={isLoggedIn}
+                navigation={navigation}
+                region={region}
+                seenDate={seenDate}
+              />
+            )}
             <SpeciesTaxonomy ancestors={ancestors} />
             <INatObs
+              error={error}
               id={id}
               navigation={navigation}
               region={region}

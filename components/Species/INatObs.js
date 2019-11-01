@@ -18,7 +18,8 @@ type Props = {
   +id: Number,
   +region: Object,
   +timesSeen: Number,
-  +navigation: any
+  +navigation: any,
+  +error: string
 };
 
 class INatObs extends Component<Props> {
@@ -73,7 +74,7 @@ class INatObs extends Component<Props> {
   }
 
   render() {
-    const { navigation, timesSeen } = this.props;
+    const { navigation, timesSeen, error } = this.props;
     const { nearbySpeciesCount, location } = this.state;
 
     return (
@@ -89,15 +90,21 @@ class INatObs extends Component<Props> {
             <Image source={logos.bird} style={styles.image} />
           </TouchableOpacity>
           <View style={styles.textContainer}>
-            <Text style={styles.secondHeaderText}>
-              {i18n.t( "species_detail.near" )}
-              {" "}
-              {location}
+            {error === "location" ? null : (
+              <React.Fragment>
+                <Text style={styles.secondHeaderText}>
+                  {i18n.t( "species_detail.near" )}
+                  {" "}
+                  {location}
+                </Text>
+                <Text style={styles.number}>
+                  {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
+                </Text>
+              </React.Fragment>
+            )}
+            <Text style={[styles.secondHeaderText, !error && { marginTop: 28 }]}>
+              {i18n.t( "species_detail.worldwide" )}
             </Text>
-            <Text style={styles.number}>
-              {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
-            </Text>
-            <Text style={[styles.secondHeaderText, { marginTop: 28 }]}>{i18n.t( "species_detail.worldwide" )}</Text>
             <Text style={styles.number}>
               {i18n.toNumber( timesSeen, { precision: 0 } )}
             </Text>

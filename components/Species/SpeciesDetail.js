@@ -72,11 +72,16 @@ class SpeciesDetail extends Component<Props> {
     this.updateScreen = this.updateScreen.bind( this );
   }
 
-  setError( error ) {
-    this.setState( { error } );
+  setError( newError ) {
+    const { error } = this.state;
+
+    if ( error !== newError ) {
+      this.setState( { error: newError } );
+    }
   }
 
   setRegion( latitude, longitude ) {
+    this.checkIfSpeciesIsNative( latitude, longitude );
     this.setState( {
       region: {
         latitude,
@@ -84,8 +89,6 @@ class SpeciesDetail extends Component<Props> {
         latitudeDelta,
         longitudeDelta
       }
-    }, () => {
-      this.checkIfSpeciesIsNative( latitude, longitude );
     } );
   }
 
@@ -93,11 +96,20 @@ class SpeciesDetail extends Component<Props> {
     this.setState( { stats } );
   }
 
-  setSpeciesId( id ) {
-    this.setState( { id }, () => {
-      this.checkIfSpeciesSeen();
-      this.fetchTaxonDetails();
-      this.fetchHistogram();
+  async setupScreen() {
+    const id = await getSpeciesId();
+
+    this.checkIfSpeciesSeen( id );
+    this.fetchTaxonDetails( id );
+    this.fetchHistogram( id );
+
+    const route = await getRoute();
+    const login = await fetchAccessToken();
+
+    this.setState( {
+      id,
+      route,
+      isLoggedIn: login || false
     } );
   }
 
@@ -127,14 +139,24 @@ class SpeciesDetail extends Component<Props> {
   }
 
   setSeenTaxa( seenTaxa ) {
-    const { taxon } = seenTaxa;
+    const { taxon, latitude, longitude } = seenTaxa;
     const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
+
+    if ( latitude && longitude ) {
+      this.checkIfSpeciesIsNative( latitude, longitude );
+    }
 
     this.setState( {
       commonName: taxon.preferredCommonName,
       scientificName: taxon.name,
       iconicTaxonId: taxon.iconicTaxonId,
-      seenDate
+      seenDate,
+      region: {
+        latitude,
+        longitude,
+        latitudeDelta,
+        longitudeDelta
+      }
     } );
   }
 
@@ -144,17 +166,6 @@ class SpeciesDetail extends Component<Props> {
 
       this.setRegion( latitude, longitude );
     } ).catch( () => this.setError( "location" ) );
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
   }
 
   fetchUserLocation() {
@@ -167,16 +178,6 @@ class SpeciesDetail extends Component<Props> {
     } else {
       this.setUserLocation();
     }
-  }
-
-  async fetchSpeciesId() {
-    const id = await getSpeciesId();
-    this.setSpeciesId( id );
-  }
-
-  async fetchRoute() {
-    const route = await getRoute();
-    this.setState( { route } );
   }
 
   updateScreen() {
@@ -204,31 +205,19 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  checkForLastSeenLocation( seenTaxa ) {
-    const { latitude, longitude } = seenTaxa;
-
-    if ( latitude && longitude ) {
-      this.setRegion( latitude, longitude );
-    }
-  }
-
-  checkIfSpeciesSeen() {
-    const { id } = this.state;
-
+  checkIfSpeciesSeen( id ) {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
 
         if ( seenTaxa ) {
-          this.checkForLastSeenLocation( seenTaxa );
           this.setSeenTaxa( seenTaxa );
         } else {
           this.fetchUserLocation();
         }
 
         let userPhoto;
-
         const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
 
         if ( seenTaxa ) {
@@ -251,8 +240,8 @@ class SpeciesDetail extends Component<Props> {
       } );
   }
 
-  fetchTaxonDetails() {
-    const { id, stats } = this.state;
+  fetchTaxonDetails( id ) {
+    const { stats } = this.state;
 
     const params = {
       locale: i18n.currentLocale()
@@ -303,9 +292,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchHistogram() {
-    const { id } = this.state;
-
+  fetchHistogram( id ) {
     const params = {
       date_field: "observed",
       interval: "month_of_year",
@@ -356,12 +343,11 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchiNatData( screen ) {
+    this.setupScreen();
     this.checkInternetConnection();
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
-    this.fetchSpeciesId();
-    this.fetchRoute();
 
     this.scrollView.scrollTo( {
       x: 0, y: 0, animated: Platform.OS === "android"
@@ -407,10 +393,7 @@ class SpeciesDetail extends Component<Props> {
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <NavigationEvents
             onWillBlur={() => this.resetState()}
-            onWillFocus={() => {
-              this.fetchiNatData();
-              this.getLoggedIn();
-            }}
+            onWillFocus={() => this.fetchiNatData()}
           />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
@@ -455,6 +438,7 @@ class SpeciesDetail extends Component<Props> {
               about={about}
               ancestors={ancestors}
               commonName={commonName}
+              error={error}
               fetchiNatData={this.fetchiNatData}
               id={id}
               isLoggedIn={isLoggedIn}

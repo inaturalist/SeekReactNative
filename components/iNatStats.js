@@ -8,7 +8,8 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
-  Platform
+  Platform,
+  FlatList
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -25,6 +26,7 @@ import LoginCard from "./UIComponents/LoginCard";
 import BackArrow from "./UIComponents/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
+import { dimensions } from "../styles/global";
 
 type Props = {
   +navigation: any
@@ -37,8 +39,7 @@ class iNatStatsScreen extends Component<Props> {
     this.state = {
       observations: i18n.toNumber( 25000000, { precision: 0 } ),
       observers: i18n.toNumber( 700000, { precision: 0 } ),
-      photos: [],
-      loading: true
+      photos: []
     };
   }
 
@@ -91,8 +92,7 @@ class iNatStatsScreen extends Component<Props> {
       } );
 
       this.setState( {
-        photos: shuffleList( photos ),
-        loading: false
+        photos: shuffleList( photos )
       } );
     } ).catch( ( error ) => {
       console.log( error, "couldn't fetch project photos" );
@@ -103,8 +103,7 @@ class iNatStatsScreen extends Component<Props> {
     const {
       observations,
       observers,
-      photos,
-      loading
+      photos
     } = this.state;
     const { navigation } = this.props;
 
@@ -176,21 +175,31 @@ class iNatStatsScreen extends Component<Props> {
               {i18n.t( "inat_stats.about_inat" )}
             </Text>
           </View>
-          {loading ? (
+          {photoList.length === 0 ? (
             <View style={[styles.center, styles.photoContainer]}>
               <LoadingWheel color="black" />
             </View>
           ) : (
             <View>
-              <ScrollView
+              <FlatList
+                bounces={false}
                 contentContainerStyle={styles.photoContainer}
+                data={photoList}
+                getItemLayout={( data, index ) => (
+                  // skips measurement of dynamic content for faster loading
+                  {
+                    length: ( dimensions.width ),
+                    offset: ( dimensions.width ) * index,
+                    index
+                  }
+                )}
                 horizontal
                 indicatorStyle="white"
+                initialNumToRender={1}
                 pagingEnabled
+                renderItem={( { item } ) => item}
                 showsHorizontalScrollIndicator
-              >
-                {photoList}
-              </ScrollView>
+              />
               <Image source={icons.swipeLeft} style={styles.leftArrow} />
               <Image source={icons.swipeRight} style={styles.rightArrow} />
             </View>

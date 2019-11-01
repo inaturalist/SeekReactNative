@@ -23,7 +23,6 @@ import i18n from "../../i18n";
 type Props = {
   +stats: Array,
   +seenDate: Date,
-  +error: string,
   +about: string,
   +isLoggedIn: boolean,
   +navigation: any,
@@ -79,7 +78,6 @@ class NoInternetError extends Component<Props> {
     const {
       stats,
       seenDate,
-      error,
       about,
       isLoggedIn,
       navigation,
@@ -93,15 +91,13 @@ class NoInternetError extends Component<Props> {
     } = this.props;
     const { observationsByMonth } = this.state;
 
-    console.log( observationsByMonth, "obs by month" );
-
     const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
     return (
       <React.Fragment>
         <View style={styles.secondTextContainer}>
-          {showGreenButtons.includes( true ) && !error ? <SpeciesStats stats={stats} /> : null}
-          {seenDate && !error ? (
+          {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
+          {seenDate ? (
             <View style={[
               styles.row,
               styles.rowMargin,
@@ -112,7 +108,7 @@ class NoInternetError extends Component<Props> {
               <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
             </View>
           ) : null}
-          {about && error !== "internet" ? (
+          {about ? (
             <View>
               <View style={styles.headerMargins}>
                 <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
@@ -130,26 +126,21 @@ class NoInternetError extends Component<Props> {
           ) : null}
           {id !== 43584 ? (
             <View>
-              {!error ? (
-                <SpeciesMap
-                  error={error}
-                  id={id}
-                  isLoggedIn={isLoggedIn}
-                  navigation={navigation}
-                  region={region}
-                  seenDate={seenDate}
-                />
-              ) : null}
-              {!error ? <SpeciesTaxonomy ancestors={ancestors} /> : null}
-              {!error ? (
-                <INatObs
-                  id={id}
-                  navigation={navigation}
-                  region={region}
-                  timesSeen={timesSeen}
-                />
-              ) : null}
-              {observationsByMonth.length > 0 && error !== "internet"
+              <SpeciesMap
+                id={id}
+                isLoggedIn={isLoggedIn}
+                navigation={navigation}
+                region={region}
+                seenDate={seenDate}
+              />
+              <SpeciesTaxonomy ancestors={ancestors} />
+              <INatObs
+                id={id}
+                navigation={navigation}
+                region={region}
+                timesSeen={timesSeen}
+              />
+              {observationsByMonth.length > 0
                 ? <SpeciesChart data={observationsByMonth} />
                 : null}
             </View>
@@ -161,7 +152,7 @@ class NoInternetError extends Component<Props> {
             </View>
           ) : null}
         </View>
-        {id !== 43584 && error !== "internet" ? (
+        {id !== 43584 ? (
           <View>
             <SimilarSpecies
               fetchiNatData={fetchiNatData}
@@ -173,6 +164,6 @@ class NoInternetError extends Component<Props> {
       </React.Fragment>
     );
   }
-};
+}
 
 export default NoInternetError;

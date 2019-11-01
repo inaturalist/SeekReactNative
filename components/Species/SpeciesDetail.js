@@ -429,7 +429,6 @@ class SpeciesDetail extends Component<Props> {
               about={about}
               ancestors={ancestors}
               commonName={commonName}
-              error={error}
               fetchiNatData={this.fetchiNatData}
               id={id}
               isLoggedIn={isLoggedIn}

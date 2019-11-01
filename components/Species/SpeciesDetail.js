@@ -19,19 +19,11 @@ import i18n from "../../i18n";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
-import SpeciesStats from "./SpeciesStats";
-import SimilarSpecies from "./SimilarSpecies";
-import SpeciesChart from "./SpeciesChart";
-import SpeciesMap from "./SpeciesMap";
-import SpeciesTaxonomy from "./SpeciesTaxonomy";
 import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
-import INatObs from "./INatObs";
-import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/iOSSpacer";
-import GreenText from "../UIComponents/GreenText";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
@@ -152,6 +144,17 @@ class SpeciesDetail extends Component<Props> {
     } ).catch( () => this.setError( "location" ) );
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
   fetchUserLocation() {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
@@ -161,17 +164,6 @@ class SpeciesDetail extends Component<Props> {
       } );
     } else {
       this.setUserLocation();
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
     }
   }
 

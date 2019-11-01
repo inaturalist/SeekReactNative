@@ -128,11 +128,13 @@ class SpeciesDetail extends Component<Props> {
 
   setSeenTaxa( seenTaxa ) {
     const { taxon } = seenTaxa;
+    const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
 
     this.setState( {
       commonName: taxon.preferredCommonName,
       scientificName: taxon.name,
-      iconicTaxonId: taxon.iconicTaxonId
+      iconicTaxonId: taxon.iconicTaxonId,
+      seenDate
     } );
   }
 
@@ -226,7 +228,6 @@ class SpeciesDetail extends Component<Props> {
         }
 
         let userPhoto;
-        const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
 
         const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
 
@@ -243,12 +244,8 @@ class SpeciesDetail extends Component<Props> {
                 this.setUserPhoto( seenTaxa );
               } );
             }
-          } else {
-            this.setUserPhoto( seenTaxa );
           }
         }
-
-        this.setState( { seenDate } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

@@ -262,7 +262,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   fetchTaxonDetails() {
-    const { id } = this.state;
+    const { id, stats } = this.state;
 
     const params = {
       locale: i18n.currentLocale()
@@ -294,6 +294,8 @@ class SpeciesDetail extends Component<Props> {
           photos.push( photo );
         }
       } );
+      
+      stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
       this.setState( {
         commonName,
@@ -304,9 +306,7 @@ class SpeciesDetail extends Component<Props> {
         timesSeen: taxa.observations_count,
         iconicTaxonId: taxa.iconic_taxon_id,
         ancestors,
-        stats: {
-          endangered: conservationStatus ? conservationStatus.status_name : false
-        }
+        stats
       } );
     } ).catch( () => {
       // console.log( err, "error fetching taxon details" );
@@ -339,7 +339,7 @@ class SpeciesDetail extends Component<Props> {
   }
 
   checkIfSpeciesIsNative( latitude, longitude ) {
-    const { id } = this.state;
+    const { id, stats } = this.state;
 
     const params = {
       per_page: 1,
@@ -353,12 +353,11 @@ class SpeciesDetail extends Component<Props> {
       if ( results.length > 0 ) {
         const { taxon } = results[0];
         if ( taxon ) {
-          const stats = {
-            threatened: taxon.threatened,
-            endemic: taxon.endemic,
-            introduced: taxon.introduced,
-            native: taxon.native
-          };
+          stats.threatened = taxon.threatened;
+          stats.endemic = taxon.endemic;
+          stats.introduced = taxon.introduced;
+          stats.native = taxon.native;
+          console.log( stats, "stats" );
           this.setTaxonStats( stats );
         }
       }

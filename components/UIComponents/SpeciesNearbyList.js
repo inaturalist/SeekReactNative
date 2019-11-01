@@ -50,6 +50,13 @@ const SpeciesNearbyList = ( {
           </Text>
         );
       }
+      if ( fetchiNatData ) {
+        return (
+          <Text style={[styles.cellTitleText, styles.errorText, styles.noTaxon]}>
+            {i18n.t( "species_detail.similar_no_species" )}
+          </Text>
+        );
+      }
       return <LoadingWheel color="black" />;
     }}
     renderItem={ ( { item } ) => (

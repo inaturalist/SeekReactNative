@@ -294,7 +294,7 @@ class SpeciesDetail extends Component<Props> {
           photos.push( photo );
         }
       } );
-      
+
       stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
       this.setState( {
@@ -357,7 +357,6 @@ class SpeciesDetail extends Component<Props> {
           stats.endemic = taxon.endemic;
           stats.introduced = taxon.introduced;
           stats.native = taxon.native;
-          console.log( stats, "stats" );
           this.setTaxonStats( stats );
         }
       }

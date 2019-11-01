@@ -151,6 +151,17 @@ class SpeciesDetail extends Component<Props> {
     } ).catch( () => this.setError( "location" ) );
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
   fetchUserLocation() {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
@@ -160,17 +171,6 @@ class SpeciesDetail extends Component<Props> {
       } );
     } else {
       this.setUserLocation();
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
     }
   }
 

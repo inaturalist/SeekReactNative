@@ -11,15 +11,15 @@ import styles from "../../styles/species/speciesError";
 import icons from "../../assets/icons";
 
 type Props = {
-  seenDate: any,
-  updateScreen: Function
+  +seenDate: any,
+  +updateScreen: Function
 }
 
 const SpeciesError = ( { seenDate, updateScreen }: Props ) => (
   <View>
     <TouchableOpacity
-      style={styles.errorContainer}
       onPress={() => updateScreen()}
+      style={styles.errorContainer}
     >
       <View style={styles.errorRow}>
         <Image source={icons.internet} />

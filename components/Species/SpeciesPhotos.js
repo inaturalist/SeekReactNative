@@ -13,6 +13,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import icons from "../../assets/icons";
+import { dimensions } from "../../styles/global";
 
 type Props = {
   +photos: Array<Object>,
@@ -67,6 +68,14 @@ const SpeciesPhotos = ( {
         bounces={false}
         contentContainerStyle={styles.photoContainer}
         data={photoList}
+        getItemLayout={( data, index ) => (
+          // skips measurement of dynamic content for faster loading
+          {
+            length: ( dimensions.width ),
+            offset: ( dimensions.width ) * index,
+            index
+          }
+        )}
         horizontal
         indicatorStyle="white"
         initialNumToRender={1}

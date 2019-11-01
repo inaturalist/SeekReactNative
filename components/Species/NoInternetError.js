@@ -73,7 +73,7 @@ const NoInternetError = ( {
               <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
             </View>
             <Text style={styles.text}>{about}</Text>
-            {isLoggedIn ? (
+            {isLoggedIn && id !== 43584 ? (
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
                 style={styles.linkContainer}
@@ -83,8 +83,10 @@ const NoInternetError = ( {
             ) : null}
           </View>
         ) : null}
-        {id !== 43584 ? (
-          <View>
+      </View>
+      {id !== 43584 ? (
+        <React.Fragment>
+          <View style={styles.secondTextContainer}>
             <SpeciesMap
               id={id}
               isLoggedIn={isLoggedIn}
@@ -103,23 +105,18 @@ const NoInternetError = ( {
               ? <SpeciesChart data={observationsByMonth} />
               : null}
           </View>
-        ) : null}
-        {id === 43584 ? (
-          <View>
-            <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-            <Padding />
-          </View>
-        ) : null}
-      </View>
-      {id !== 43584 ? (
-        <View>
           <SimilarSpecies
             fetchiNatData={fetchiNatData}
             id={id}
           />
           <View style={styles.bottomPadding} />
+        </React.Fragment>
+      ) : (
+        <View style={styles.secondTextContainer}>
+          <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+          <Padding />
         </View>
-      ) : null}
+      )}
     </React.Fragment>
   );
 };

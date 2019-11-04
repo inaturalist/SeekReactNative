@@ -25,7 +25,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
-import PermissionError from "./PermissionError";
+import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
 import { dirPictures } from "../../utility/dirStorage";
@@ -327,22 +327,6 @@ class ARCamera extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    let errorText;
-
-    if ( error === "permissions" ) {
-      errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "classifier" ) {
-      errorText = i18n.t( "camera.error_classifier" );
-    } else if ( error === "device" ) {
-      errorText = i18n.t( "camera.error_device_support" );
-    } else if ( error === "save" ) {
-      errorText = i18n.t( "camera.error_gallery" );
-    } else if ( error === "camera" && Platform.OS === "ios" ) {
-      errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent}`;
-    } else if ( error === "camera" ) {
-      errorText = i18n.t( "camera.error_old_camera" );
-    }
-
     let helpText;
 
     if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
@@ -386,12 +370,7 @@ class ARCamera extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : null}
-        {error && ( error === "save" || error === "permissions" )
-          ? <PermissionError error={errorText} />
-          : null}
-        {error && error !== "save" && error !== "permissions"
-          ? <Text style={styles.errorText}>{errorText}</Text>
-          : null}
+        {error ? <CameraError error={error} errorEvent={errorEvent} /> : null}
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible

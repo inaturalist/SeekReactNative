@@ -18,7 +18,7 @@ import { getPredictionsForImage } from "react-native-inat-camera";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import PermissionError from "./PermissionError";
+import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import {
   checkCameraRollPermissions,
@@ -99,11 +99,13 @@ class GalleryScreen extends Component<Props> {
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         this.appendPhotos( results.edges, results.page_info );
       } ).catch( ( err ) => {
-        this.setState( {
-          error: err.message
-        } );
+        console.log( err, "error" );
       } );
     }
+  }
+
+  setError( error ) {
+    this.setState( { error } );
   }
 
   requestAndroidPermissions = async () => {
@@ -111,7 +113,7 @@ class GalleryScreen extends Component<Props> {
     if ( permission === true ) {
       this.getPhotos();
     } else {
-      this.showError( permission );
+      this.setError( "save" );
     }
   }
 
@@ -168,12 +170,6 @@ class GalleryScreen extends Component<Props> {
     } else {
       this.getPhotos();
     }
-  }
-
-  showError( err ) {
-    this.setState( {
-      error: err || "Photo access permission denied"
-    } );
   }
 
   navigateToResults( uri, time, location, backupUri ) {
@@ -262,7 +258,7 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <PermissionError error={i18n.t( "camera.error_gallery" )} />;
+      gallery = <CameraError error={error} />;
     } else {
       gallery = (
         <FlatList
@@ -293,7 +289,6 @@ class GalleryScreen extends Component<Props> {
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
-          // onWillBlur={() => this.resetState()}
           onWillFocus={() => this.checkPermissions()}
         />
         <StatusBar barStyle="dark-content" />

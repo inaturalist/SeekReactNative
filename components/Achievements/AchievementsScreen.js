@@ -28,7 +28,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen } from "../../utility/helpers";
-// import { checkMemory } from "../../utility/test";
+import { checkMemory } from "../../utility/test";
 
 type Props = {
   +navigation: any
@@ -184,7 +184,7 @@ class AchievementsScreen extends Component<Props> {
             this.fetchBadges();
             this.fetchChallenges();
             this.fetchSpeciesCount();
-            // checkMemory();
+            checkMemory();
           }}
         />
         <Modal

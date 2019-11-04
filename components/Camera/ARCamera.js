@@ -327,8 +327,6 @@ class ARCamera extends Component<Props> {
     } = this.state;
     const { navigation } = this.props;
 
-    // console.log( pictureTaken, loading );
-
     let errorText;
 
     if ( error === "permissions" ) {
@@ -336,13 +334,13 @@ class ARCamera extends Component<Props> {
     } else if ( error === "classifier" ) {
       errorText = i18n.t( "camera.error_classifier" );
     } else if ( error === "device" ) {
-      errorText = i18n.t( "camera.device_support" );
+      errorText = i18n.t( "camera.error_device_support" );
     } else if ( error === "save" ) {
       errorText = i18n.t( "camera.error_gallery" );
     } else if ( error === "camera" && Platform.OS === "ios" ) {
       errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent}`;
     } else if ( error === "camera" ) {
-      i18n.t( "camera.error_old_camera" );
+      errorText = i18n.t( "camera.error_old_camera" );
     }
 
     let helpText;

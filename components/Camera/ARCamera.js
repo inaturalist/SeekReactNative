@@ -29,6 +29,7 @@ import PermissionError from "./PermissionError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
 import { dirPictures } from "../../utility/dirStorage";
+import { checkMemory } from "../../utility/test";
 
 const { width } = Dimensions.get( "window" );
 
@@ -47,19 +48,14 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
-      focusedScreen: false,
       commonName: null,
       latitude: null,
       longitude: null,
       showWarningModal: false,
       errorEvent: null
     };
-    this.backHandler = null;
-    this.toggleWarningModal = this.toggleWarningModal.bind( this );
-  }
 
-  setFocusedScreen( focusedScreen ) {
-    this.setState( { focusedScreen } );
+    this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
 
   setPictureTaken( pictureTaken ) {
@@ -75,18 +71,18 @@ class ARCamera extends Component<Props> {
   }
 
   setError( error, event ) {
-    this.setLoading( false );
     this.setState( {
       error,
-      errorEvent: event || null
+      errorEvent: event || null,
+      loading: false
     } );
   }
 
-  onTaxaDetected = ( event ) => {
-    const { rankToRender } = this.state;
+  handleTaxaDetected = ( event ) => {
+    const { rankToRender, loading } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
 
-    if ( predictions ) {
+    if ( predictions && loading === true ) {
       this.setLoading( false );
     }
     let predictionSet = false;
@@ -113,7 +109,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onCameraError = ( event ) => {
+  handleCameraError = ( event ) => {
     if ( event ) {
       if ( Platform.OS === "ios" ) {
         this.setError( "camera", event.nativeEvent.error );
@@ -123,17 +119,17 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onCameraPermissionMissing = () => {
+  handleCameraPermissionMissing = () => {
     this.setError( "permissions" );
   }
 
-  onClassifierError = ( event ) => {
+  handleClassifierError = ( event ) => {
     if ( event ) {
       this.setError( "classifier" );
     }
   }
 
-  onDeviceNotSupported = ( event ) => {
+  handleDeviceNotSupported = ( event ) => {
     if ( event ) {
       this.setError( "device" );
     }
@@ -175,7 +171,10 @@ class ARCamera extends Component<Props> {
   }
 
   takePicture = async () => {
-    this.setLoading( true );
+    this.setState( {
+      loading: true,
+      pictureTaken: true
+    } );
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
@@ -222,7 +221,8 @@ class ARCamera extends Component<Props> {
     this.setState( {
       ranks: {},
       rankToRender: null,
-      commonName: null
+      commonName: null,
+      pictureTaken: false
     } );
   }
 
@@ -304,7 +304,7 @@ class ARCamera extends Component<Props> {
   }
 
   closeCameraAndroid() {
-    if ( Platform.OS === "android" ) {
+    if ( Platform.OS === "android" && this.backHandler ) {
       this.backHandler.remove();
     }
   }
@@ -321,12 +321,13 @@ class ARCamera extends Component<Props> {
       loading,
       pictureTaken,
       error,
-      focusedScreen,
       commonName,
       showWarningModal,
       errorEvent
     } = this.state;
     const { navigation } = this.props;
+
+    // console.log( pictureTaken, loading );
 
     let errorText;
 
@@ -362,16 +363,14 @@ class ARCamera extends Component<Props> {
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
-            this.setPictureTaken( false );
-            this.setFocusedScreen( false );
             this.closeCameraAndroid();
           }}
           onWillFocus={() => {
             this.checkForCameraLaunch();
             this.requestAllCameraPermissions();
             this.onResumePreview();
-            this.setFocusedScreen( true );
             this.addListenerForAndroid();
+            checkMemory();
           }}
         />
         <RNModal
@@ -416,10 +415,7 @@ class ARCamera extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.take_photo" )}
             accessible
-            onPress={() => {
-              this.setPictureTaken( true );
-              this.takePicture();
-            }}
+            onPress={() => this.takePicture()}
             style={styles.shutter}
           >
             {ranks && ranks.species
@@ -444,23 +440,21 @@ class ARCamera extends Component<Props> {
             <Image source={icons.cameraHelp} />
           </TouchableOpacity>
         ) : null}
-        {focusedScreen ? (
-          <INatCamera
-            ref={( ref ) => {
-              this.camera = ref;
-            }}
-            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-            onCameraError={this.onCameraError}
-            onCameraPermissionMissing={this.onCameraPermissionMissing}
-            onClassifierError={this.onClassifierError}
-            onDeviceNotSupported={this.onDeviceNotSupported}
-            onTaxaDetected={this.onTaxaDetected}
-            style={styles.camera}
-            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
-          />
-        ) : null}
+        <INatCamera
+          ref={( ref ) => {
+            this.camera = ref;
+          }}
+          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+          modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
+          onCameraError={this.handleCameraError}
+          onCameraPermissionMissing={this.handleCameraPermissionMissing}
+          onClassifierError={this.handleClassifierError}
+          onDeviceNotSupported={this.handleDeviceNotSupported}
+          onTaxaDetected={this.handleTaxaDetected}
+          style={styles.camera}
+          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+          taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
+        />
       </View>
     );
   }

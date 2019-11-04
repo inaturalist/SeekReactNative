@@ -28,6 +28,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen } from "../../utility/helpers";
+// import { checkMemory } from "../../utility/test";
 
 type Props = {
   +navigation: any
@@ -178,11 +179,12 @@ class AchievementsScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <NavigationEvents
+          onWillBlur={() => this.scrollToTop()}
           onWillFocus={() => {
-            this.scrollToTop();
             this.fetchBadges();
             this.fetchChallenges();
             this.fetchSpeciesCount();
+            // checkMemory();
           }}
         />
         <Modal

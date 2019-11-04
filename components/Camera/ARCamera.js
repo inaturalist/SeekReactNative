@@ -404,41 +404,40 @@ class ARCamera extends Component<Props> {
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
         {!error ? (
-          <ARCameraHeader
-            commonName={commonName}
-            ranks={ranks}
-            rankToRender={rankToRender}
-          />
-        ) : null}
-        {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
-        {!pictureTaken && !error ? (
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-            accessible
-            onPress={() => this.takePicture()}
-            style={styles.shutter}
-          >
-            {ranks && ranks.species
-              ? <Image source={icons.arCameraGreen} />
-              : <Image source={icons.arCameraButton} />}
-          </TouchableOpacity>
-        ) : null}
-        {pictureTaken && !error ? (
-          <View style={styles.shutter}>
-            {ranks && ranks.species
-              ? <Image source={icons.arCameraGreen} />
-              : <Image source={icons.arCameraButton} />}
-          </View>
-        ) : null}
-        {!error ? (
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.help" )}
-            accessible
-            onPress={() => navigation.navigate( "CameraHelp" )}
-            style={styles.help}
-          >
-            <Image source={icons.cameraHelp} />
-          </TouchableOpacity>
+          <React.Fragment>
+            <ARCameraHeader
+              commonName={commonName}
+              ranks={ranks}
+              rankToRender={rankToRender}
+            />
+            <Text style={styles.scanText}>{helpText}</Text>
+            {!pictureTaken ? (
+              <TouchableOpacity
+                accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+                accessible
+                onPress={() => this.takePicture()}
+                style={styles.shutter}
+              >
+                {ranks && ranks.species
+                  ? <Image source={icons.arCameraGreen} />
+                  : <Image source={icons.arCameraButton} />}
+              </TouchableOpacity>
+            ) : (
+              <View style={styles.shutter}>
+                {ranks && ranks.species
+                  ? <Image source={icons.arCameraGreen} />
+                  : <Image source={icons.arCameraButton} />}
+              </View>
+            )}
+            <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.help" )}
+              accessible
+              onPress={() => navigation.navigate( "CameraHelp" )}
+              style={styles.help}
+            >
+              <Image source={icons.cameraHelp} />
+            </TouchableOpacity>
+          </React.Fragment>
         ) : null}
         <INatCamera
           ref={( ref ) => {

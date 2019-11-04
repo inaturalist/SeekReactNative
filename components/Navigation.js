@@ -66,7 +66,6 @@ const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
   swipeEnabled: Platform.OS === "ios",
-  lazy: true, // see if this improves performance,
   initialLayout: { // prevents one frame delay
     width,
     height

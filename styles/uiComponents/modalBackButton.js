@@ -5,7 +5,6 @@ export default StyleSheet.create( {
   backButton: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: dimensions.height > 570 ? 15 : 0,
-    padding: 20
+    padding: dimensions.height > 570 ? 26 : 15
   }
 } );

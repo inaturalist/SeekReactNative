@@ -28,6 +28,15 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
     setLevelModal( !showLevelModal );
   };
 
+  const renderModalContent = () => (
+    <LevelModal
+      level={level}
+      screen="achievements"
+      speciesCount={speciesCount}
+      toggleLevelModal={toggleLevelModal}
+    />
+  );
+
   return (
     <TouchableOpacity
       onPress={() => toggleLevelModal()}
@@ -38,12 +47,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
         onSwipeComplete={() => toggleLevelModal()}
         swipeDirection="down"
       >
-        <LevelModal
-          level={level}
-          screen="achievements"
-          speciesCount={speciesCount}
-          toggleLevelModal={toggleLevelModal}
-        />
+        {renderModalContent()}
       </Modal>
       <LinearGradient
         colors={["#22784d", "#38976d"]}

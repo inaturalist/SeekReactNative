@@ -14,7 +14,6 @@ import {
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
-import RNFS from "react-native-fs";
 import { INatCamera } from "react-native-inat-camera";
 import RNModal from "react-native-modal";
 import moment from "moment";
@@ -28,7 +27,7 @@ import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { dirPictures } from "../../utility/dirStorage";
+import { dirPictures, dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import { checkMemory } from "../../utility/test";
 
 const { width } = Dimensions.get( "window" );
@@ -48,6 +47,7 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
+      focusedScreen: false,
       commonName: null,
       latitude: null,
       longitude: null,
@@ -57,6 +57,11 @@ class ARCamera extends Component<Props> {
 
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
+
+  setFocusedScreen( focusedScreen ) {
+    this.setState( { focusedScreen } );
+  }
+
 
   setPictureTaken( pictureTaken ) {
     this.setState( { pictureTaken } );
@@ -164,7 +169,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onResumePreview = () => {
+  handleResumePreview = () => {
     if ( this.camera ) {
       this.camera.resumePreview();
     }
@@ -323,7 +328,8 @@ class ARCamera extends Component<Props> {
       error,
       commonName,
       showWarningModal,
-      errorEvent
+      errorEvent,
+      focusedScreen
     } = this.state;
     const { navigation } = this.props;
 
@@ -345,14 +351,16 @@ class ARCamera extends Component<Props> {
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
+            this.setFocusedScreen( false );
             this.closeCameraAndroid();
           }}
           onWillFocus={() => {
             this.checkForCameraLaunch();
             this.requestAllCameraPermissions();
-            this.onResumePreview();
+            this.handleResumePreview();
+            this.setFocusedScreen( true );
             this.addListenerForAndroid();
-            checkMemory();
+            // checkMemory();
           }}
         />
         <RNModal
@@ -416,21 +424,23 @@ class ARCamera extends Component<Props> {
             </TouchableOpacity>
           </React.Fragment>
         ) : null}
-        <INatCamera
-          ref={( ref ) => {
-            this.camera = ref;
-          }}
-          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-          modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-          onCameraError={this.handleCameraError}
-          onCameraPermissionMissing={this.handleCameraPermissionMissing}
-          onClassifierError={this.handleClassifierError}
-          onDeviceNotSupported={this.handleDeviceNotSupported}
-          onTaxaDetected={this.handleTaxaDetected}
-          style={styles.camera}
-          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-          taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
-        />
+        {focusedScreen ? (
+          <INatCamera
+            ref={( ref ) => {
+              this.camera = ref;
+            }}
+            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+            modelPath={dirModel}
+            onCameraError={this.handleCameraError}
+            onCameraPermissionMissing={this.handleCameraPermissionMissing}
+            onClassifierError={this.handleClassifierError}
+            onDeviceNotSupported={this.handleDeviceNotSupported}
+            onTaxaDetected={this.handleTaxaDetected}
+            style={styles.camera}
+            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+            taxonomyPath={dirTaxonomy}
+          />
+        ) : null}
       </View>
     );
   }

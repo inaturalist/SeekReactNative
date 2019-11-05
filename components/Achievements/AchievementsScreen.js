@@ -184,7 +184,7 @@ class AchievementsScreen extends Component<Props> {
             this.fetchBadges();
             this.fetchChallenges();
             this.fetchSpeciesCount();
-            checkMemory();
+            // checkMemory();
           }}
         />
         <Modal

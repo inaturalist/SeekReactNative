@@ -1,7 +1,7 @@
 
 // @flow
 import React from "react";
-import { ImageBackground } from "react-native";
+import { ImageBackground, View } from "react-native";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 
 import styles from "../../styles/results/fullPhotoLoading";
@@ -15,7 +15,9 @@ const FullPhotoLoading = ( { uri }: Props ) => (
     source={{ uri }}
     style={styles.imageBackground}
   >
-    <LoadingWheel color="white" />
+    <View style={styles.loading}>
+      <LoadingWheel color="white" />
+    </View>
   </ImageBackground>
 );
 

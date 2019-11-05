@@ -343,7 +343,7 @@ class ARCameraResults extends Component<Props> {
   }
 
   render() {
-    const { error, imageForUploading } = this.state;
+    const { error, uri } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -352,13 +352,12 @@ class ARCameraResults extends Component<Props> {
           onWillFocus={() => {
             this.requestAndroidPermissions();
             this.getLoggedIn();
-            // this.resizeImage();
             this.resizeImageForUploading();
           }}
         />
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
-          : <FullPhotoLoading uri={imageForUploading} />}
+          : <FullPhotoLoading uri={uri} />}
       </View>
     );
   }

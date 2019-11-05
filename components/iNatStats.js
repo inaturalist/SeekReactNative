@@ -148,7 +148,7 @@ class iNatStatsScreen extends Component<Props> {
           <StatusBar barStyle="dark-content" />
           <BackArrow green navigation={navigation} />
           <View style={styles.logoContainer}>
-            <Image source={logos.iNat} style={styles.logo} />
+            <Image source={logos.wordmark} style={styles.logo} />
           </View>
           <View style={styles.headerMargin} />
           <Image source={backgrounds.heatMap} style={styles.heatMap} />

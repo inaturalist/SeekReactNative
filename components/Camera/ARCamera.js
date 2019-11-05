@@ -28,7 +28,6 @@ import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
 import { dirPictures, dirModel, dirTaxonomy } from "../../utility/dirStorage";
-import { checkMemory } from "../../utility/test";
 
 const { width } = Dimensions.get( "window" );
 
@@ -360,7 +359,6 @@ class ARCamera extends Component<Props> {
             this.handleResumePreview();
             this.setFocusedScreen( true );
             this.addListenerForAndroid();
-            // checkMemory();
           }}
         />
         <RNModal

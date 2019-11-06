@@ -41,7 +41,7 @@ class iNatStatsScreen extends Component<Props> {
       observations: i18n.toNumber( 25000000, { precision: 0 } ),
       observers: i18n.toNumber( 700000, { precision: 0 } ),
       photos: [],
-      index: 0
+      scrollIndex: 0
     };
   }
 
@@ -101,14 +101,14 @@ class iNatStatsScreen extends Component<Props> {
     } );
   }
 
-  setIndex( index ) {
-    this.setState( { index } );
+  setIndex( scrollIndex ) {
+    this.setState( { scrollIndex } );
   }
 
   scrollRight() {
-    const { index } = this.state;
+    const { scrollIndex } = this.state;
 
-    const nextIndex = index < 8 ? index + 1 : 8;
+    const nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
@@ -119,9 +119,9 @@ class iNatStatsScreen extends Component<Props> {
   }
 
   scrollLeft() {
-    const { index } = this.state;
+    const { scrollIndex } = this.state;
 
-    const prevIndex = index > 0 ? index - 1 : 0;
+    const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
@@ -135,8 +135,7 @@ class iNatStatsScreen extends Component<Props> {
     const {
       observations,
       observers,
-      photos,
-      index
+      photos
     } = this.state;
     const { navigation } = this.props;
 

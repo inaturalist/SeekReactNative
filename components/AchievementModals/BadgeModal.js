@@ -1,12 +1,13 @@
 // @flow
 
-import React from "react";
+import React, { Component } from "react";
 import {
   View,
   Text,
   Image,
   ImageBackground,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
@@ -24,73 +25,88 @@ type Props = {
   +toggleBadgeModal: Function
 };
 
-const BadgeModal = ( { badges, iconicSpeciesCount, toggleBadgeModal }: Props ) => {
-  const badgeList = [];
+class BadgeModal extends Component<Props> {
+  scrollToIndex( index ) {
+    if ( this.flatList ) {
+      this.flatList.scrollToIndex( {
+        index, animated: true
+      } );
+    }
+  }
 
-  badges.forEach( ( badge, i ) => {
-    const badgeInfo = (
-      <View
-        key={`badge${badge}${i}`}
-        style={styles.carousel}
-      >
-        {badge.earned ? (
-          <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
-        ) : (
-          <ImageBackground
-            imageStyle={styles.imageStyle}
-            source={badgeImages[badge.unearnedIconName]}
-            style={styles.image}
-          >
-            <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
-          </ImageBackground>
-        )}
-        <GreenText text={badge.earned
-          ? i18n.t( badge.intlName ).toLocaleUpperCase()
-          : i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
-        />
-        <View style={styles.margin} />
-        <Text style={styles.nameText}>
-          {i18n.t( "badges.observe_species" )}
-          {" "}
-          {i18n.t( badge.infoText )}
-        </Text>
-      </View>
-    );
-    badgeList.push( badgeInfo );
-  } );
+  render() {
+    const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
+    const badgeList = [];
 
-  return (
-    <React.Fragment>
-      <View style={styles.innerContainer}>
-        <BannerHeader
-          modal
-          text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
-        />
-        <FlatList
-          data={badgeList}
-          horizontal
-          pagingEnabled
-          renderItem={( { item } ) => item}
-          showsHorizontalScrollIndicator={false}
-        />
-        <Image source={icons.badgeSwipeRight} style={styles.arrow} />
-        <View style={styles.marginLarge} />
-        <View style={styles.row}>
-          {[0, 1, 2].map( item => (
-            <View key={item}>
-              <Image
-                source={badges[item].earned
-                  ? badgeImages[badges[item].earnedIconName]
-                  : badgeImages[badges[item].unearnedIconName]}
-                style={styles.smallImage}
-              />
-            </View>
-          ) )}
+    badges.forEach( ( badge, i ) => {
+      const badgeInfo = (
+        <View
+          key={`badge${badge}${i}`}
+          style={styles.carousel}
+        >
+          {badge.earned ? (
+            <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
+          ) : (
+            <ImageBackground
+              imageStyle={styles.imageStyle}
+              source={badgeImages[badge.unearnedIconName]}
+              style={styles.image}
+            >
+              <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
+            </ImageBackground>
+          )}
+          <GreenText text={badge.earned
+            ? i18n.t( badge.intlName ).toLocaleUpperCase()
+            : i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+          />
+          <View style={styles.margin} />
+          <Text style={styles.nameText}>
+            {i18n.t( "badges.observe_species" )}
+            {" "}
+            {i18n.t( badge.infoText )}
+          </Text>
         </View>
-      </View>
-      <BackButton toggleModal={toggleBadgeModal} />
-    </React.Fragment>
-  );
-};
+      );
+      badgeList.push( badgeInfo );
+    } );
+
+    return (
+      <React.Fragment>
+        <View style={styles.innerContainer}>
+          <BannerHeader
+            modal
+            text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+          />
+          <FlatList
+            ref={( ref ) => { this.flatList = ref; }}
+            data={badgeList}
+            horizontal
+            pagingEnabled
+            renderItem={( { item } ) => item}
+            showsHorizontalScrollIndicator={false}
+          />
+          <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+          <View style={styles.marginLarge} />
+          <View style={styles.row}>
+            {[0, 1, 2].map( ( item, index ) => (
+              <TouchableOpacity
+                key={item}
+                onPress={() => this.scrollToIndex( index )}
+              >
+                <Image
+                  source={badges[item].earned
+                    ? badgeImages[badges[item].earnedIconName]
+                    : badgeImages[badges[item].unearnedIconName]}
+                  style={styles.smallImage}
+                />
+              </TouchableOpacity>
+            ) )}
+          </View>
+        </View>
+        <BackButton toggleModal={toggleBadgeModal} />
+      </React.Fragment>
+    );
+  }
+}
 
 export default BadgeModal;

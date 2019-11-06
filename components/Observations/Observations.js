@@ -57,8 +57,8 @@ class Observations extends Component<Props> {
   }
 
   scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollToLocation( {
+    if ( this.sectionList ) {
+      this.sectionList.scrollToLocation( {
         sectionIndex: 0,
         itemIndex: 0,
         viewOffset: 70,
@@ -119,14 +119,9 @@ class Observations extends Component<Props> {
       } );
   }
 
-  removeFromObsList() {
-    this.setState( { observations: [] } );
-    this.fetchObservations();
-  }
-
   async deleteObservation( id ) {
     await removeFromCollection( id );
-    this.removeFromObsList();
+    this.fetchObservations();
   }
 
   toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {
@@ -187,7 +182,7 @@ class Observations extends Component<Props> {
     if ( observations.length > 0 ) {
       content = (
         <SectionList
-          ref={( ref ) => { this.scrollView = ref; }}
+          ref={( ref ) => { this.sectionList = ref; }}
           contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
           extraData={observations}
           initialNumToRender={6}
@@ -266,11 +261,11 @@ class Observations extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <NavigationEvents
-          onDidFocus={() => {
+          onDidFocus={() => this.fetchObservations()}
+          onWillBlur={() => {
             this.scrollToTop();
-            this.fetchObservations();
+            this.resetObservations();
           }}
-          onWillBlur={() => this.resetObservations()}
         />
         <GreenHeader
           header={i18n.t( "observations.header" )}

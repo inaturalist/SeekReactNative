@@ -14,9 +14,6 @@ export default StyleSheet.create( {
     paddingTop: 18
   },
   card: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     marginBottom: 18
   },
   commonNameText: {

@@ -19,13 +19,6 @@ export default StyleSheet.create( {
     height: height / 6,
     marginLeft: height < 570 ? 14 : 27
   },
-  commonNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.book,
-    fontSize: height < 570 ? 19 : 21
-  },
   container: {
     backgroundColor: colors.white,
     flex: 1
@@ -39,12 +32,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0
-  },
-  image: {
-    borderRadius: 82 / 2,
-    height: 82,
-    marginRight: height < 570 ? 19 : 22,
-    width: 82
   },
   inputField: {
     color: colors.black,
@@ -61,9 +48,6 @@ export default StyleSheet.create( {
     justifyContent: "center",
     marginLeft: 21,
     width: 211
-  },
-  speciesNameContainer: {
-    maxWidth: 199
   },
   text: {
     color: colors.black,

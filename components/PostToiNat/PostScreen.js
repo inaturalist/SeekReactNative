@@ -29,6 +29,7 @@ import SelectSpecies from "./SelectSpecies";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
+import SpeciesCard from "../UIComponents/SpeciesCard";
 
 type Props = {
   +navigation: any
@@ -452,11 +453,12 @@ class PostScreen extends Component<Props> {
             onPress={() => this.toggleSpeciesModal()}
             style={styles.card}
           >
-            <Image source={{ uri: userImage }} style={styles.image} />
-            <View style={styles.speciesNameContainer}>
-              <Text style={styles.commonNameText}>{commonName}</Text>
-              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-            </View>
+            <SpeciesCard
+              commonName={commonName}
+              handlePress={() => this.toggleSpeciesModal()}
+              photo={{ uri: userImage }}
+              scientificName={taxon.name}
+            />
             <Image source={posting.expand} style={styles.buttonIcon} />
           </TouchableOpacity>
           <TextInput

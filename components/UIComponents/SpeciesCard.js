@@ -15,7 +15,7 @@ import iconicTaxa from "../../assets/iconicTaxa";
 type Props = {
   +handlePress: Function,
   +photo: Object,
-  +iconicTaxonId: Number,
+  +iconicTaxonId: ?Number,
   +commonName: string,
   +scientificName: string
 }
@@ -31,13 +31,15 @@ const SpeciesCard = ( {
     onPress={() => handlePress()}
     style={[styles.touchableArea, styles.row]}
   >
-    <ImageBackground
-      imageStyle={styles.image}
-      source={iconicTaxa[iconicTaxonId]}
-      style={styles.image}
-    >
-      <Image source={photo} style={styles.image} />
-    </ImageBackground>
+    {iconicTaxonId ? (
+      <ImageBackground
+        imageStyle={styles.image}
+        source={iconicTaxa[iconicTaxonId]}
+        style={styles.image}
+      >
+        <Image source={photo} style={styles.image} />
+      </ImageBackground>
+    ) : <Image source={photo} style={styles.image} />}
     <View style={styles.speciesNameContainer}>
       <Text style={styles.commonNameText}>
         {commonName || scientificName}

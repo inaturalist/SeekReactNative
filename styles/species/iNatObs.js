@@ -1,37 +1,37 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import {
+  colors,
+  fonts,
+  row,
+  center
+} from "../global";
 
 export default StyleSheet.create( {
+  bird: {
+    height: 65,
+    resizeMode: "contain",
+    width: 73
+  },
+  center,
   headerMargins: {
     marginBottom: 23,
     marginTop: 45
-  },
-  image: {
-    height: 65,
-    resizeMode: "contain",
-    width: 81
   },
   number: {
     color: colors.black,
     fontFamily: fonts.light,
     fontSize: 20,
-    marginTop: 8
+    lineHeight: 21,
+    marginTop: 7
   },
+  row,
   secondHeaderText: {
     color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 19,
-    letterSpacing: 1.0,
     lineHeight: 24
   },
-  stats: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center"
-  },
   textContainer: {
-    marginLeft: 32
-  },
-  touchable
+    marginLeft: 36
+  }
 } );

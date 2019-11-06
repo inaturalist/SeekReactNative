@@ -1,3 +1,5 @@
+import { getUsedMemory } from "react-native-device-info";
+
 const faker = require( "faker" );
 
 const { createNotification } = require( "./notificationHelpers" );
@@ -57,6 +59,14 @@ const createFakePhotos = () => {
   return taxa;
 };
 
+const checkMemory = () => {
+  getUsedMemory().then( ( usedMemory ) => {
+    console.log( usedMemory / 1000, "used memory" );
+  } ).catch( ( err ) => {
+    console.log( err, "err" );
+  } );
+};
+
 const createFakeNotifications = () => {
   createNotification( "challengeProgress", 0 );
   createNotification( "badgeEarned" );
@@ -67,5 +77,6 @@ const createFakeNotifications = () => {
 export {
   createFakeObservations,
   createFakePhotos,
-  createFakeNotifications
+  createFakeNotifications,
+  checkMemory
 };

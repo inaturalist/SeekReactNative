@@ -2,9 +2,13 @@ import { StyleSheet } from "react-native";
 import { dimensions } from "../global";
 
 export default StyleSheet.create( {
-  backButton: {
+  imageBackground: {
     alignItems: "center",
-    justifyContent: "center",
-    padding: dimensions.height > 570 ? 26 : 15
+    flex: 1,
+    justifyContent: "center"
+  },
+  loading: {
+    position: "absolute",
+    top: dimensions.height / 2 - 50
   }
 } );

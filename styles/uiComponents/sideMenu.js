@@ -30,10 +30,9 @@ export default StyleSheet.create( {
   },
   image: {
     height: 25,
-    marginLeft: 26,
-    marginRight: 23,
+    marginHorizontal: 25,
     resizeMode: "contain",
-    width: 25
+    width: 27
   },
   logo: {
     alignSelf: "center",

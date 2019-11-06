@@ -47,7 +47,7 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
     <View style={styles.button}>
       <GreenButton
         handlePress={() => toggleGetStartedModal()}
-        text={i18n.t( "onboarding.continue" ).toLocaleUpperCase()}
+        text={i18n.t( "onboarding.continue" )}
       />
     </View>
   </View>

@@ -14,6 +14,8 @@ import i18n from "../../i18n";
 import styles from "../../styles/home/error";
 import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
+import GreenButton from "../UIComponents/GreenButton";
+import { colors } from "../../styles/global";
 
 type Props = {
   +error: string,
@@ -51,14 +53,13 @@ const Error = ( {
           <Text style={styles.text}>{text}</Text>
         </View>
         {error === "location" ? (
-          <TouchableOpacity
-            onPress={() => OpenSettings.openSettings()}
-            style={styles.greenButton}
-          >
-            <Text style={styles.buttonText}>
-              {i18n.t( "species_nearby.enable_location" ).toLocaleUpperCase()}
-            </Text>
-          </TouchableOpacity>
+          <View style={styles.greenButton}>
+            <GreenButton
+              color={colors.seekGreen}
+              handlePress={() => OpenSettings.openSettings()}
+              text={i18n.t( "species_nearby.enable_location" )}
+            />
+          </View>
         ) : null}
       </TouchableOpacity>
     </ImageBackground>

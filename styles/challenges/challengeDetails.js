@@ -67,12 +67,14 @@ export default StyleSheet.create( {
   marginHorizontal: {
     marginHorizontal: 36
   },
+  padding: {
+    padding: 25
+  },
   photographerText: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21,
-    marginBottom: 25,
     textAlign: "center"
   },
   row: {

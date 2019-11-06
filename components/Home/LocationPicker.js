@@ -169,7 +169,7 @@ class LocationPicker extends Component<Props> {
               );
             }}
             letterSpacing={0.68}
-            text={i18n.t( "location_picker.button" ).toLocaleUpperCase()}
+            text={i18n.t( "location_picker.button" )}
           />
         </View>
       </View>

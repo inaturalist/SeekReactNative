@@ -20,7 +20,6 @@ type Props = {
   +navigation: any,
   +region: Object,
   +id: number,
-  +error: string,
   +seenDate: string,
   +isLoggedIn: ?boolean
 }
@@ -28,7 +27,6 @@ type Props = {
 const LocationMap = ( {
   region,
   id,
-  error,
   navigation,
   seenDate,
   isLoggedIn
@@ -55,20 +53,18 @@ const LocationMap = ( {
             tileSize={512}
             urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
           />
-          {error ? null : (
-            <Marker
-              coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-            >
-              <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-            </Marker>
-          )}
+          <Marker
+            coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+          >
+            <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+          </Marker>
         </MapView>
       ) : null}
     </View>
     <View style={styles.margin} />
     <GreenButton
       handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-      text={i18n.t( "species_detail.view_map" ).toLocaleUpperCase()}
+      text={i18n.t( "species_detail.view_map" )}
     />
   </View>
 );

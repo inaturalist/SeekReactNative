@@ -58,7 +58,7 @@ class PostToiNat extends Component<Props> {
               <GreenButton
                 color={color}
                 handlePress={() => navigation.navigate( "Post", taxaInfo )}
-                text={i18n.t( "results.post" ).toLocaleUpperCase()}
+                text={i18n.t( "results.post" )}
               />
             </>
           )}

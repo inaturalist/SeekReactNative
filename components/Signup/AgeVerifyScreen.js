@@ -94,7 +94,7 @@ class AgeVerifyScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.next" ).toLocaleUpperCase()}
+            text={i18n.t( "inat_signup.next" )}
           />
           <View style={[styles.row, styles.center]}>
             <Text

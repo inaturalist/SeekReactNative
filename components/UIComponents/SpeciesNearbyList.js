@@ -11,6 +11,7 @@ import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../utility/helpers";
 import LoadingWheel from "./LoadingWheel";
+import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   +taxa: Array,
@@ -30,6 +31,14 @@ const SpeciesNearbyList = ( {
     bounces
     contentContainerStyle={styles.taxonList}
     data={taxa}
+    getItemLayout={( data, index ) => (
+      // skips measurement of dynamic content for faster loading
+      {
+        length: ( 28 + 108 ),
+        offset: ( 28 + 108 ) * index,
+        index
+      }
+    )}
     horizontal
     initialNumToRender={3}
     keyExtractor={taxon => `species-${taxon.id}`}
@@ -38,6 +47,13 @@ const SpeciesNearbyList = ( {
         return (
           <Text style={[styles.cellTitleText, styles.errorText, styles.noTaxon]}>
             {match ? i18n.t( "results.nothing_nearby" ) : i18n.t( "species_nearby.no_species" )}
+          </Text>
+        );
+      }
+      if ( fetchiNatData ) {
+        return (
+          <Text style={[styles.cellTitleText, styles.errorText, styles.noTaxon]}>
+            {i18n.t( "species_detail.similar_no_species" )}
           </Text>
         );
       }
@@ -59,10 +75,17 @@ const SpeciesNearbyList = ( {
         }}
         style={styles.gridCell}
       >
-        <Image
-          source={{ uri: item.default_photo.medium_url }}
-          style={styles.cellImage}
-        />
+        {item.default_photo.medium_url ? (
+          <Image
+            source={{ uri: item.default_photo.medium_url }}
+            style={styles.cellImage}
+          />
+        ) : (
+          <Image
+            source={iconicTaxa[item.iconic_taxon_id]}
+            style={styles.cellImage}
+          />
+        )}
         <View style={styles.cellTitle}>
           <Text numberOfLines={3} style={styles.cellTitleText}>
             {capitalizeNames( item.preferred_common_name || item.name )}

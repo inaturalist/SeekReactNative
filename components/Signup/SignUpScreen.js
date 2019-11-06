@@ -196,7 +196,7 @@ class SignUpScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.sign_up" ).toLocaleUpperCase()}
+            text={i18n.t( "inat_signup.sign_up" )}
           />
         </ScrollView>
       </View>

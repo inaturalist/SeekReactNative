@@ -81,7 +81,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
               navigation.navigate( "ChallengeDetails" );
               toggleChallengeModal();
             }}
-            text={i18n.t( "notifications.view_challenges" ).toLocaleUpperCase() }
+            text={i18n.t( "notifications.view_challenges" )}
           />
         </View>
       ) : (

@@ -8,6 +8,14 @@ import {
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  bird: {
+    height: height > 570 ? 65 : 45,
+    position: "absolute",
+    resizeMode: "contain",
+    right: 4,
+    top: 5,
+    width: 73
+  },
   caption: {
     marginBottom: 20,
     marginTop: 20,
@@ -18,24 +26,14 @@ export default StyleSheet.create( {
   explainImage: {
     marginBottom: 33,
     resizeMode: "contain",
-    width: width - 56
+    width: width - 54
   },
   headerMargin: {
-    marginBottom: 30
+    marginBottom: 24
   },
   heatMap: {
     height: 227,
-    overflow: "hidden",
-    resizeMode: "cover",
     width
-  },
-  iNatLogo: {
-    height: height > 570 ? 65 : 45,
-    position: "absolute",
-    resizeMode: "contain",
-    right: -5,
-    top: 5,
-    width: height > 570 ? 81 : 61
   },
   image: {
     height: 286,
@@ -43,19 +41,23 @@ export default StyleSheet.create( {
     width
   },
   leftArrow: {
-    left: 5,
+    left: 0,
+    paddingBottom: 20,
+    paddingLeft: 5,
+    paddingRight: 20,
+    paddingTop: 20,
     position: "absolute",
-    top: 137,
+    top: 117,
     zIndex: 1
   },
   logo: {
-    height: 34,
+    height: 33,
     resizeMode: "contain",
-    width: 175
+    width: 183
   },
   logoContainer: {
     alignSelf: "center",
-    paddingTop: 18,
+    paddingTop: 20,
     position: "absolute"
   },
   missionContainer: {
@@ -63,7 +65,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     marginBottom: 46,
     marginHorizontal: 27,
-    marginTop: 21
+    marginTop: 24
   },
   missionHeaderText: {
     color: colors.black,
@@ -89,9 +91,13 @@ export default StyleSheet.create( {
     height: 375
   },
   rightArrow: {
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 5,
+    paddingTop: 20,
     position: "absolute",
-    right: 5,
-    top: 137,
+    right: 0,
+    top: 117,
     zIndex: 1
   },
   safeView: {

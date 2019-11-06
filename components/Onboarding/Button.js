@@ -10,15 +10,15 @@ import styles from "../../styles/onboarding";
 import { colors } from "../../styles/global";
 
 type Props = {
-  navigation: any,
-  index: number
+  +navigation: any,
+  +index: number
 }
 
 const Button = ( { navigation, index }: Props ) => (
   <TouchableOpacity
     hitSlop={styles.touchable}
-    style={styles.buttonContainer}
     onPress={() => navigation.navigate( "Login" )}
+    style={styles.buttonContainer}
   >
     {index === 2
       ? (

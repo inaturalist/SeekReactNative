@@ -5,7 +5,6 @@ import { AppRegistry } from "react-native";
 import SeekApp from "./components/App";
 import { name as appName } from "./app.json";
 
-
 const App = ( ) => (
   <SeekApp />
 );

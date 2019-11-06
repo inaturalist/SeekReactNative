@@ -32,7 +32,7 @@ const GreenButton = ( {
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >
     <Text style={[styles.buttonText, letterSpacing && { letterSpacing }, fontSize && { fontSize }]}>
-      {text}
+      {text.toLocaleUpperCase()}
     </Text>
   </TouchableOpacity>
 );

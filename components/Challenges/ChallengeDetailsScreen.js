@@ -141,11 +141,11 @@ class ChallengeDetailsScreen extends Component<Props> {
     let buttonText;
 
     if ( !challengeStarted ) {
-      buttonText = i18n.t( "challenges.start_challenge" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.start_challenge" );
     } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-      buttonText = i18n.t( "challenges.open_camera" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.open_camera" );
     } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-      buttonText = i18n.t( "challenges.view_badge" ).toLocaleUpperCase();
+      buttonText = i18n.t( "challenges.view_badge" );
     }
 
     const button = (
@@ -155,7 +155,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           if ( !challengeStarted ) {
             this.showMission();
           } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-            navigation.navigate( "Camera" )
+            navigation.navigate( "Camera" );
           } else if ( challengeStarted && challenge.percentComplete === 100 ) {
             this.toggleChallengeModal();
           }
@@ -235,6 +235,7 @@ class ChallengeDetailsScreen extends Component<Props> {
               <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
               <TouchableOpacity
                 onPress={() => navigation.navigate( "Challenges" )}
+                style={styles.padding}
               >
                 <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
               </TouchableOpacity>

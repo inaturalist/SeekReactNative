@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ImageBackground, Platform } from "react-native";
+import { View, Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -9,7 +9,6 @@ import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
 import ErrorScreen from "./Error";
-import LoadingWheel from "../UIComponents/LoadingWheel";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -18,6 +17,8 @@ import {
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
+import FullPhotoLoading from "./FullPhotoLoading";
+import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 
 type Props = {
   +navigation: any
@@ -32,8 +33,7 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri,
-      errorCode
+      backupUri
     } = navigation.state.params;
 
     this.state = {
@@ -56,9 +56,29 @@ class ARCameraResults extends Component<Props> {
       imageForUploading: null,
       match: null,
       isLoggedIn: null,
-      errorCode,
+      errorCode: null,
       rank: null
     };
+  }
+
+  setLocationErrorCode( errorCode ) {
+    this.setState( { errorCode }, () => this.resizeImage() );
+  }
+
+  getGeolocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      }
+      this.resizeImage();
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
+    } );
   }
 
   setLoggedIn( isLoggedIn ) {
@@ -269,6 +289,20 @@ class ARCameraResults extends Component<Props> {
       } );
   }
 
+  requestAndroidPermissions() {
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          this.getGeolocation();
+        } else {
+          this.setLocationErrorCode( 1 );
+        }
+      } );
+    } else {
+      this.getGeolocation();
+    }
+  }
+
   navigateTo( route ) {
     const { navigation } = this.props;
     const {
@@ -309,31 +343,21 @@ class ARCameraResults extends Component<Props> {
   }
 
   render() {
-    const { error, imageForUploading } = this.state;
+    const { error, uri } = this.state;
     const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
+            this.requestAndroidPermissions();
             this.getLoggedIn();
-            this.resizeImage();
             this.resizeImageForUploading();
           }}
         />
         {error
           ? <ErrorScreen error={error} navigation={navigation} />
-          : (
-            <ImageBackground
-              imageStyle={styles.cover}
-              source={{ uri: imageForUploading }}
-              style={styles.imageBackground}
-            >
-              <View style={styles.loadingWheel}>
-                <LoadingWheel color="white" />
-              </View>
-            </ImageBackground>
-          )}
+          : <FullPhotoLoading uri={uri} />}
       </View>
     );
   }

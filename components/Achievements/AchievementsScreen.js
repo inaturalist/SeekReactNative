@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
-import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
 import taxonIds from "../../utility/taxonDict";
@@ -20,7 +19,6 @@ import Padding from "../UIComponents/Padding";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
-import LevelModal from "../AchievementModals/LevelModal";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
@@ -43,11 +41,8 @@ class AchievementsScreen extends Component<Props> {
       level: null,
       nextLevelCount: null,
       badgesEarned: null,
-      speciesCount: null,
-      showLevelModal: false
+      speciesCount: null
     };
-
-    this.toggleLevelModal = this.toggleLevelModal.bind( this );
   }
 
   scrollToTop() {
@@ -157,11 +152,6 @@ class AchievementsScreen extends Component<Props> {
       } );
   }
 
-  toggleLevelModal() {
-    const { showLevelModal } = this.state;
-    this.setState( { showLevelModal: !showLevelModal } );
-  }
-
   render() {
     const {
       speciesBadges,
@@ -169,8 +159,7 @@ class AchievementsScreen extends Component<Props> {
       level,
       nextLevelCount,
       badgesEarned,
-      speciesCount,
-      showLevelModal
+      speciesCount
     } = this.state;
     const { navigation } = this.props;
 
@@ -178,33 +167,20 @@ class AchievementsScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <NavigationEvents
+          onWillBlur={() => this.scrollToTop()}
           onWillFocus={() => {
-            this.scrollToTop();
             this.fetchBadges();
             this.fetchChallenges();
             this.fetchSpeciesCount();
           }}
         />
-        <Modal
-          isVisible={showLevelModal}
-          onBackdropPress={() => this.toggleLevelModal()}
-          onSwipeComplete={() => this.toggleLevelModal()}
-          swipeDirection="down"
-        >
-          <LevelModal
-            level={level}
-            screen="achievements"
-            speciesCount={speciesCount}
-            toggleLevelModal={this.toggleLevelModal}
-          />
-        </Modal>
         <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
           <LevelHeader
             level={level}
             nextLevelCount={nextLevelCount}
-            toggleLevelModal={this.toggleLevelModal}
+            speciesCount={speciesCount}
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
           <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />

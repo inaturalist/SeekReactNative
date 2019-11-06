@@ -130,7 +130,7 @@ class ForgotPasswordScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.checkEmail()}
             login
-            text={i18n.t( "inat_login.reset" ).toLocaleUpperCase()}
+            text={i18n.t( "inat_login.reset" )}
           />
         </ScrollView>
       </View>

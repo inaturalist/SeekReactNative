@@ -38,7 +38,7 @@ export default StyleSheet.create( {
     width: 322
   },
   taxonList: {
-    marginLeft: 20,
-    marginTop: 29
+    marginTop: 29,
+    paddingHorizontal: 20
   }
 } );

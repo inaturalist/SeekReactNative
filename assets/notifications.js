@@ -1,5 +1,5 @@
 const notifications = {
-  bird: require( "./logos/logo-inaturalist-bird.png" ),
+  bird: require( "./logos/iNatStatsSpeciesDetail-Bird.png" ),
   badge_empty: require( "./badges/Badge_Empty.png" ),
   op: require( "./logos/logo-OPblack.png" )
 };

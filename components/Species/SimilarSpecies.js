@@ -42,14 +42,14 @@ class SimilarSpecies extends Component<Props> {
     const { id } = this.props;
 
     const params = {
+      per_page: 20,
       taxon_id: id,
       without_taxon_id: 43584,
       locale: i18n.currentLocale()
     };
 
-    inatjs.identifications.similar_species( params ).then( ( response ) => {
-      const shortenedList = response.results.slice( 0, 20 );
-      const taxa = shortenedList.map( r => r.taxon );
+    inatjs.identifications.similar_species( params ).then( ( { results } ) => {
+      const taxa = results.map( r => r.taxon );
       const taxaWithPhotos = [];
       taxa.forEach( ( taxon ) => {
         if ( taxon.default_photo && taxon.default_photo.medium_url ) {

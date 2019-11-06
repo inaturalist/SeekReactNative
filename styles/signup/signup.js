@@ -21,7 +21,10 @@ export default StyleSheet.create( {
   },
   center,
   checkBox: {
-    marginRight: 18
+    paddingBottom: 18,
+    paddingLeft: 34,
+    paddingRight: 18,
+    paddingTop: 18
   },
   container: {
     flex: 1
@@ -90,10 +93,14 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    maxWidth: 253
+    maxWidth: dimensions.width / 2 + 80
+    // maxWidth: 253
   },
   margin: {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 17
+  },
+  marginLeft: {
+    marginLeft: 76
   },
   privacy: {
     color: colors.seekForestGreen,

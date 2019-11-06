@@ -8,7 +8,9 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
-  Platform
+  Platform,
+  FlatList,
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -25,6 +27,7 @@ import LoginCard from "./UIComponents/LoginCard";
 import BackArrow from "./UIComponents/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
+import { dimensions } from "../styles/global";
 
 type Props = {
   +navigation: any
@@ -38,7 +41,8 @@ class iNatStatsScreen extends Component<Props> {
       observations: i18n.toNumber( 25000000, { precision: 0 } ),
       observers: i18n.toNumber( 700000, { precision: 0 } ),
       photos: [],
-      loading: true
+      scrollIndex: 0,
+      scrollOffset: 0
     };
   }
 
@@ -91,20 +95,69 @@ class iNatStatsScreen extends Component<Props> {
       } );
 
       this.setState( {
-        photos: shuffleList( photos ),
-        loading: false
+        photos: shuffleList( photos )
       } );
     } ).catch( ( error ) => {
       console.log( error, "couldn't fetch project photos" );
     } );
   }
 
+  setIndex( scrollIndex, scrollOffset ) {
+    this.setState( {
+      scrollIndex,
+      scrollOffset
+    } );
+  }
+
+  scrollRight() {
+    const { scrollIndex, scrollOffset } = this.state;
+
+    const nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
+    const nextOffset = scrollOffset + dimensions.width;
+
+    if ( this.flatList ) {
+      this.flatList.scrollToIndex( {
+        index: nextIndex, animated: true
+      } );
+      this.setIndex( nextIndex, nextOffset );
+    }
+  }
+
+  scrollLeft() {
+    const { scrollIndex, scrollOffset } = this.state;
+
+    const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+    const prevOffset = scrollOffset - dimensions.width;
+
+    if ( this.flatList ) {
+      this.flatList.scrollToIndex( {
+        index: prevIndex, animated: true
+      } );
+      this.setIndex( prevIndex, prevOffset );
+    }
+  }
+
+  calculateScrollIndex( e ) {
+    const { scrollOffset, scrollIndex } = this.state;
+    const { contentOffset } = e.nativeEvent;
+
+    let nextIndex;
+    let prevIndex;
+
+    if ( contentOffset.x > scrollOffset ) {
+      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
+      this.setIndex( nextIndex, contentOffset.x );
+    } else {
+      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+      this.setIndex( prevIndex, contentOffset.x );
+    }
+  }
+
   render() {
     const {
       observations,
       observers,
-      photos,
-      loading
+      photos
     } = this.state;
     const { navigation } = this.props;
 
@@ -149,13 +202,13 @@ class iNatStatsScreen extends Component<Props> {
           <StatusBar barStyle="dark-content" />
           <BackArrow green navigation={navigation} />
           <View style={styles.logoContainer}>
-            <Image source={logos.iNat} style={styles.logo} />
+            <Image source={logos.wordmark} style={styles.logo} />
           </View>
           <View style={styles.headerMargin} />
           <Image source={backgrounds.heatMap} style={styles.heatMap} />
           <View style={styles.missionContainer}>
             <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
-            <Image source={logos.bird} style={styles.iNatLogo} />
+            <Image source={logos.bird} style={styles.bird} />
             <Text style={styles.numberText}>
               {observations}
               {"+"}
@@ -176,23 +229,45 @@ class iNatStatsScreen extends Component<Props> {
               {i18n.t( "inat_stats.about_inat" )}
             </Text>
           </View>
-          {loading ? (
+          {photoList.length === 0 ? (
             <View style={[styles.center, styles.photoContainer]}>
               <LoadingWheel color="black" />
             </View>
           ) : (
             <View>
-              <ScrollView
+              <FlatList
+                ref={( ref ) => { this.flatList = ref; }}
+                bounces={false}
                 contentContainerStyle={styles.photoContainer}
+                data={photoList}
+                getItemLayout={( data, index ) => (
+                  // skips measurement of dynamic content for faster loading
+                  {
+                    length: ( dimensions.width ),
+                    offset: ( dimensions.width ) * index,
+                    index
+                  }
+                )}
                 horizontal
                 indicatorStyle="white"
+                initialNumToRender={1}
+                onScrollEndDrag={e => this.calculateScrollIndex( e )}
                 pagingEnabled
+                renderItem={( { item } ) => item}
                 showsHorizontalScrollIndicator
+              />
+              <TouchableOpacity
+                onPress={() => this.scrollLeft()}
+                style={styles.leftArrow}
               >
-                {photoList}
-              </ScrollView>
-              <Image source={icons.swipeLeft} style={styles.leftArrow} />
-              <Image source={icons.swipeRight} style={styles.rightArrow} />
+                <Image source={icons.swipeLeft} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.scrollRight()}
+                style={styles.rightArrow}
+              >
+                <Image source={icons.swipeRight} />
+              </TouchableOpacity>
             </View>
           )}
           <LoginCard navigation={navigation} />

@@ -40,7 +40,8 @@ export default StyleSheet.create( {
   buttonContainer: {
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: height > 670 ? 94 : 34
+    marginBottom: height > 670 ? 74 : 14,
+    padding: 20
   },
   carousel: {
     marginTop: 20

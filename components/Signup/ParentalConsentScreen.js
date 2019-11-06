@@ -135,7 +135,7 @@ class ParentalConsentScreen extends Component<Props> {
               }
             }}
             login
-            text={i18n.t( "inat_signup.submit" ).toLocaleUpperCase()}
+            text={i18n.t( "inat_signup.submit" )}
           />
         </ScrollView>
       </View>

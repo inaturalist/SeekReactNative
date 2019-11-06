@@ -3,6 +3,12 @@ import { SafeAreaView } from "react-native";
 
 import styles from "../../styles/uiComponents/safeView";
 
-const SafeView = () => <SafeAreaView style={styles.safeViewTop} />;
+type Props = {
+  +color: ?string
+};
+
+const SafeView = ( { color }: Props ) => (
+  <SafeAreaView style={[styles.safeViewTop, color && { backgroundColor: color }]} />
+);
 
 export default SafeView;

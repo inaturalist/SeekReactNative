@@ -444,6 +444,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "Similar Species",
     "similar_about": "Organisms commonly misidentified as this species.",
+    "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "plant",
     "amphibian": "amphibian",
     "fungi": "fungi",

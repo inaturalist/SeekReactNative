@@ -66,7 +66,6 @@ const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
   swipeEnabled: Platform.OS === "ios",
-  lazy: true, // see if this improves performance,
   initialLayout: { // prevents one frame delay
     width,
     height
@@ -77,11 +76,6 @@ const CameraNavigatorConfig = {
     style: styles.cameraTab,
     indicatorStyle: styles.indicator
   }
-};
-
-const StackNavigatorConfig = {
-  headerMode: "none",
-  transitionConfig: () => fadeIn()
 };
 
 const DrawerNavigatorConfig = {
@@ -257,7 +251,10 @@ const RootStack = createStackNavigator( {
   Main: {
     screen: MenuDrawerNav
   }
-}, StackNavigatorConfig );
+}, {
+  headerMode: "none",
+  transitionConfig: () => fadeIn()
+} );
 
 const App = createAppContainer( RootStack );
 

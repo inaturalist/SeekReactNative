@@ -14,8 +14,7 @@ import {
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
-import RNFS from "react-native-fs";
-import INatCamera from "react-native-inat-camera";
+import { INatCamera } from "react-native-inat-camera";
 import RNModal from "react-native-modal";
 import moment from "moment";
 
@@ -25,11 +24,10 @@ import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
-import PermissionError from "./PermissionError";
+import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
-import { dirPictures } from "../../utility/dirStorage";
+import { dirPictures, dirModel, dirTaxonomy } from "../../utility/dirStorage";
 
 const { width } = Dimensions.get( "window" );
 
@@ -53,16 +51,16 @@ class ARCamera extends Component<Props> {
       latitude: null,
       longitude: null,
       showWarningModal: false,
-      errorCode: null,
       errorEvent: null
     };
-    this.backHandler = null;
+
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen ) {
     this.setState( { focusedScreen } );
   }
+
 
   setPictureTaken( pictureTaken ) {
     this.setState( { pictureTaken } );
@@ -77,37 +75,18 @@ class ARCamera extends Component<Props> {
   }
 
   setError( error, event ) {
-    this.setLoading( false );
     this.setState( {
       error,
-      errorEvent: event || null
+      errorEvent: event || null,
+      loading: false
     } );
   }
 
-  setLocationErrorCode( errorCode ) {
-    this.setState( { errorCode } );
-  }
-
-  getGeolocation() {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords ) {
-        const { latitude, longitude } = coords;
-
-        this.setState( {
-          latitude,
-          longitude
-        } );
-      }
-    } ).catch( ( errorCode ) => {
-      this.setLocationErrorCode( errorCode );
-    } );
-  }
-
-  onTaxaDetected = ( event ) => {
-    const { rankToRender } = this.state;
+  handleTaxaDetected = ( event ) => {
+    const { rankToRender, loading } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
 
-    if ( predictions ) {
+    if ( predictions && loading === true ) {
       this.setLoading( false );
     }
     let predictionSet = false;
@@ -134,7 +113,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onCameraError = ( event ) => {
+  handleCameraError = ( event ) => {
     if ( event ) {
       if ( Platform.OS === "ios" ) {
         this.setError( "camera", event.nativeEvent.error );
@@ -144,17 +123,17 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onCameraPermissionMissing = () => {
+  handleCameraPermissionMissing = () => {
     this.setError( "permissions" );
   }
 
-  onClassifierError = ( event ) => {
+  handleClassifierError = ( event ) => {
     if ( event ) {
       this.setError( "classifier" );
     }
   }
 
-  onDeviceNotSupported = ( event ) => {
+  handleDeviceNotSupported = ( event ) => {
     if ( event ) {
       this.setError( "device" );
     }
@@ -189,14 +168,17 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  onResumePreview = () => {
+  handleResumePreview = () => {
     if ( this.camera ) {
       this.camera.resumePreview();
     }
   }
 
   takePicture = async () => {
-    this.setLoading( true );
+    this.setState( {
+      loading: true,
+      pictureTaken: true
+    } );
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
@@ -217,20 +199,6 @@ class ARCamera extends Component<Props> {
           this.setError( "save" );
         } );
       }
-    }
-  }
-
-  requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setLocationErrorCode( 1 );
-        }
-      } );
-    } else {
-      this.getGeolocation();
     }
   }
 
@@ -257,7 +225,8 @@ class ARCamera extends Component<Props> {
     this.setState( {
       ranks: {},
       rankToRender: null,
-      commonName: null
+      commonName: null,
+      pictureTaken: false
     } );
   }
 
@@ -295,8 +264,7 @@ class ARCamera extends Component<Props> {
     const {
       predictions,
       latitude,
-      longitude,
-      errorCode
+      longitude
     } = this.state;
     const { navigation } = this.props;
 
@@ -306,8 +274,7 @@ class ARCamera extends Component<Props> {
         predictions,
         latitude,
         longitude,
-        backupUri,
-        errorCode
+        backupUri
       } );
     } else {
       navigation.navigate( "GalleryResults", {
@@ -315,8 +282,7 @@ class ARCamera extends Component<Props> {
         time: null,
         latitude,
         longitude,
-        backupUri,
-        errorCode
+        backupUri
       } );
     }
   }
@@ -342,7 +308,7 @@ class ARCamera extends Component<Props> {
   }
 
   closeCameraAndroid() {
-    if ( Platform.OS === "android" ) {
+    if ( Platform.OS === "android" && this.backHandler ) {
       this.backHandler.remove();
     }
   }
@@ -359,28 +325,12 @@ class ARCamera extends Component<Props> {
       loading,
       pictureTaken,
       error,
-      focusedScreen,
       commonName,
       showWarningModal,
-      errorEvent
+      errorEvent,
+      focusedScreen
     } = this.state;
     const { navigation } = this.props;
-
-    let errorText;
-
-    if ( error === "permissions" ) {
-      errorText = i18n.t( "camera.error_camera" );
-    } else if ( error === "classifier" ) {
-      errorText = i18n.t( "camera.error_classifier" );
-    } else if ( error === "device" ) {
-      errorText = i18n.t( "camera.device_support" );
-    } else if ( error === "save" ) {
-      errorText = i18n.t( "camera.error_gallery" );
-    } else if ( error === "camera" && Platform.OS === "ios" ) {
-      errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent}`;
-    } else if ( error === "camera" ) {
-      i18n.t( "camera.error_old_camera" );
-    }
 
     let helpText;
 
@@ -400,15 +350,13 @@ class ARCamera extends Component<Props> {
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
-            this.setPictureTaken( false );
             this.setFocusedScreen( false );
             this.closeCameraAndroid();
           }}
           onWillFocus={() => {
             this.checkForCameraLaunch();
-            this.requestAndroidPermissions(); // separate location from camera permissions
             this.requestAllCameraPermissions();
-            this.onResumePreview();
+            this.handleResumePreview();
             this.setFocusedScreen( true );
             this.addListenerForAndroid();
           }}
@@ -428,12 +376,7 @@ class ARCamera extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : null}
-        {error && ( error === "save" || error === "permissions" )
-          ? <PermissionError error={errorText} />
-          : null}
-        {error && error !== "save" && error !== "permissions"
-          ? <Text style={styles.errorText}>{errorText}</Text>
-          : null}
+        {error ? <CameraError error={error} errorEvent={errorEvent} /> : null}
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
@@ -444,44 +387,40 @@ class ARCamera extends Component<Props> {
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
         {!error ? (
-          <ARCameraHeader
-            commonName={commonName}
-            ranks={ranks}
-            rankToRender={rankToRender}
-          />
-        ) : null}
-        {!error ? <Text style={styles.scanText}>{helpText}</Text> : null}
-        {!pictureTaken && !error ? (
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-            accessible
-            onPress={() => {
-              this.setPictureTaken( true );
-              this.takePicture();
-            }}
-            style={styles.shutter}
-          >
-            {ranks && ranks.species
-              ? <Image source={icons.arCameraGreen} />
-              : <Image source={icons.arCameraButton} />}
-          </TouchableOpacity>
-        ) : null}
-        {pictureTaken && !error ? (
-          <View style={styles.shutter}>
-            {ranks && ranks.species
-              ? <Image source={icons.arCameraGreen} />
-              : <Image source={icons.arCameraButton} />}
-          </View>
-        ) : null}
-        {!error ? (
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.help" )}
-            accessible
-            onPress={() => navigation.navigate( "CameraHelp" )}
-            style={styles.help}
-          >
-            <Image source={icons.cameraHelp} />
-          </TouchableOpacity>
+          <React.Fragment>
+            <ARCameraHeader
+              commonName={commonName}
+              ranks={ranks}
+              rankToRender={rankToRender}
+            />
+            <Text style={styles.scanText}>{helpText}</Text>
+            {!pictureTaken ? (
+              <TouchableOpacity
+                accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+                accessible
+                onPress={() => this.takePicture()}
+                style={styles.shutter}
+              >
+                {ranks && ranks.species
+                  ? <Image source={icons.arCameraGreen} />
+                  : <Image source={icons.arCameraButton} />}
+              </TouchableOpacity>
+            ) : (
+              <View style={styles.shutter}>
+                {ranks && ranks.species
+                  ? <Image source={icons.arCameraGreen} />
+                  : <Image source={icons.arCameraButton} />}
+              </View>
+            )}
+            <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.help" )}
+              accessible
+              onPress={() => navigation.navigate( "CameraHelp" )}
+              style={styles.help}
+            >
+              <Image source={icons.cameraHelp} />
+            </TouchableOpacity>
+          </React.Fragment>
         ) : null}
         {focusedScreen ? (
           <INatCamera
@@ -489,15 +428,15 @@ class ARCamera extends Component<Props> {
               this.camera = ref;
             }}
             confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-            onCameraError={this.onCameraError}
-            onCameraPermissionMissing={this.onCameraPermissionMissing}
-            onClassifierError={this.onClassifierError}
-            onDeviceNotSupported={this.onDeviceNotSupported}
-            onTaxaDetected={this.onTaxaDetected}
+            modelPath={dirModel}
+            onCameraError={this.handleCameraError}
+            onCameraPermissionMissing={this.handleCameraPermissionMissing}
+            onClassifierError={this.handleClassifierError}
+            onDeviceNotSupported={this.handleDeviceNotSupported}
+            onTaxaDetected={this.handleTaxaDetected}
             style={styles.camera}
             taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
+            taxonomyPath={dirTaxonomy}
           />
         ) : null}
       </View>

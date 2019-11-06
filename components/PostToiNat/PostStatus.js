@@ -38,7 +38,7 @@ const PostStatus = ( {
     extraText = i18n.t( "posting.wait" );
   } else if ( !loading && postingSuccess ) {
     headerText = i18n.t( "posting.posting_success" ).toLocaleUpperCase();
-    image = <Image source={posting.iNatuploading} />;
+    image = <Image source={posting.bird} />;
   } else {
     headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
     image = <Image source={posting.uploadfail} />;
@@ -74,7 +74,7 @@ const PostStatus = ( {
                 togglePostModal();
               }
             }}
-            text={i18n.t( "posting.ok" ).toLocaleUpperCase()}
+            text={i18n.t( "posting.ok" )}
           />
         </View>
       ) : null}

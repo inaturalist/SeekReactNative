@@ -51,7 +51,7 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
       <View style={styles.button}>
         <GreenButton
           handlePress={() => toggleWarningModal()}
-          text={i18n.t( "onboarding.continue" ).toLocaleUpperCase()}
+          text={i18n.t( "onboarding.continue" )}
         />
       </View>
     </View>

@@ -122,7 +122,7 @@ class LoginScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.retrieveOAuthToken( username, password )}
             login
-            text={i18n.t( "inat_login.log_in" ).toLocaleUpperCase()}
+            text={i18n.t( "inat_login.log_in" )}
           />
         </ScrollView>
       </View>

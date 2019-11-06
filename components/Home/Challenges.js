@@ -48,8 +48,8 @@ const Challenges = ( { navigation, challenge }: Props ) => (
           navigation.navigate( "ChallengeDetails" );
         }}
         text={challenge.started
-          ? i18n.t( "challenges_card.continue_challenge" ).toLocaleUpperCase()
-          : i18n.t( "challenges_card.take_challenge" ).toLocaleUpperCase()}
+          ? i18n.t( "challenges_card.continue_challenge" )
+          : i18n.t( "challenges_card.take_challenge" )}
       />
     </View>
     <TouchableOpacity

@@ -45,6 +45,7 @@ class ChallengeBadges extends Component<Props> {
   renderChallengesRow( challengeBadges ) {
     return (
       <FlatList
+        alwaysBounceHorizontal={false}
         data={challengeBadges}
         horizontal
         keyExtractor={( challenge, index ) => `${challenge.name}${index}`}

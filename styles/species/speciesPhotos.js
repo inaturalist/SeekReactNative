@@ -35,25 +35,27 @@ export default StyleSheet.create( {
     width
   },
   leftArrow: {
-    left: 5,
+    left: 0,
+    paddingBottom: 20,
+    paddingLeft: 5,
+    paddingRight: 20,
+    paddingTop: 20,
     position: "absolute",
-    top: 120,
+    top: 100,
     zIndex: 1
   },
   photoContainer: {
     backgroundColor: colors.black,
     height: 250
   },
-  // photoOverlay: {
-  //   bottom: 20,
-  //   position: "absolute",
-  //   right: 20,
-  //   zIndex: 1
-  // },
   rightArrow: {
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 5,
+    paddingTop: 20,
     position: "absolute",
-    right: 5,
-    top: 120,
+    right: 0,
+    top: 100,
     zIndex: 1
   }
 } );

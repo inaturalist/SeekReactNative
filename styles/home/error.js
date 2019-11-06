@@ -19,14 +19,7 @@ export default StyleSheet.create( {
   },
   center,
   greenButton: {
-    alignItems: "center",
-    backgroundColor: colors.seekiNatGreen,
-    borderRadius: 24,
-    height: 34,
-    justifyContent: "center",
-    marginTop: 24,
-    paddingTop: Platform.OS === "ios" ? 5 : null,
-    width: 284
+    marginTop: 25
   },
   row,
   text: {

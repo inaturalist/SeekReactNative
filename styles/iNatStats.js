@@ -43,9 +43,13 @@ export default StyleSheet.create( {
     width
   },
   leftArrow: {
-    left: 5,
+    left: 0,
+    paddingBottom: 20,
+    paddingLeft: 5,
+    paddingRight: 20,
+    paddingTop: 20,
     position: "absolute",
-    top: 137,
+    top: 117,
     zIndex: 1
   },
   logo: {
@@ -89,9 +93,13 @@ export default StyleSheet.create( {
     height: 375
   },
   rightArrow: {
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 5,
+    paddingTop: 20,
     position: "absolute",
-    right: 5,
-    top: 137,
+    right: 0,
+    top: 117,
     zIndex: 1
   },
   safeView: {

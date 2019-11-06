@@ -9,7 +9,8 @@ import {
   StatusBar,
   SafeAreaView,
   Platform,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -39,7 +40,8 @@ class iNatStatsScreen extends Component<Props> {
     this.state = {
       observations: i18n.toNumber( 25000000, { precision: 0 } ),
       observers: i18n.toNumber( 700000, { precision: 0 } ),
-      photos: []
+      photos: [],
+      index: 0
     };
   }
 
@@ -99,11 +101,42 @@ class iNatStatsScreen extends Component<Props> {
     } );
   }
 
+  setIndex( index ) {
+    this.setState( { index } );
+  }
+
+  scrollRight() {
+    const { index } = this.state;
+
+    const nextIndex = index < 8 ? index + 1 : 8;
+
+    if ( this.flatList ) {
+      this.flatList.scrollToIndex( {
+        index: nextIndex, animated: true
+      } );
+      this.setIndex( nextIndex );
+    }
+  }
+
+  scrollLeft() {
+    const { index } = this.state;
+
+    const prevIndex = index > 0 ? index - 1 : 0;
+
+    if ( this.flatList ) {
+      this.flatList.scrollToIndex( {
+        index: prevIndex, animated: true
+      } );
+      this.setIndex( prevIndex );
+    }
+  }
+
   render() {
     const {
       observations,
       observers,
-      photos
+      photos,
+      index
     } = this.state;
     const { navigation } = this.props;
 
@@ -182,6 +215,7 @@ class iNatStatsScreen extends Component<Props> {
           ) : (
             <View>
               <FlatList
+                ref={( ref ) => { this.flatList = ref; }}
                 bounces={false}
                 contentContainerStyle={styles.photoContainer}
                 data={photoList}
@@ -200,8 +234,18 @@ class iNatStatsScreen extends Component<Props> {
                 renderItem={( { item } ) => item}
                 showsHorizontalScrollIndicator
               />
-              <Image source={icons.swipeLeft} style={styles.leftArrow} />
-              <Image source={icons.swipeRight} style={styles.rightArrow} />
+              <TouchableOpacity
+                onPress={() => this.scrollLeft()}
+                style={styles.leftArrow}
+              >
+                <Image source={icons.swipeLeft} />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.scrollRight()}
+                style={styles.rightArrow}
+              >
+                <Image source={icons.swipeRight} />
+              </TouchableOpacity>
             </View>
           )}
           <LoginCard navigation={navigation} />

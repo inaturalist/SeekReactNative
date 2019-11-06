@@ -25,38 +25,60 @@ class SpeciesPhotos extends Component<Props> {
     super();
 
     this.state = {
-      scrollIndex: 0
+      scrollIndex: 0,
+      scrollOffset: 0
     };
   }
 
-  setIndex( scrollIndex ) {
-    this.setState( { scrollIndex } );
+  setIndex( scrollIndex, scrollOffset ) {
+    this.setState( {
+      scrollIndex,
+      scrollOffset
+    } );
   }
 
   scrollRight() {
-    const { scrollIndex } = this.state;
+    const { scrollIndex, scrollOffset } = this.state;
     const { photos } = this.props;
 
     const nextIndex = scrollIndex < photos.length - 1 ? scrollIndex + 1 : photos.length - 1;
+    const nextOffset = scrollOffset + dimensions.width;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index: nextIndex, animated: true
       } );
-      this.setIndex( nextIndex );
+      this.setIndex( nextIndex, nextOffset );
     }
   }
 
   scrollLeft() {
-    const { scrollIndex } = this.state;
+    const { scrollIndex, scrollOffset } = this.state;
 
     const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+    const prevOffset = scrollOffset - dimensions.width;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index: prevIndex, animated: true
       } );
-      this.setIndex( prevIndex );
+      this.setIndex( prevIndex, prevOffset );
+    }
+  }
+
+  calculateScrollIndex( e ) {
+    const { scrollOffset, scrollIndex } = this.state;
+    const { contentOffset } = e.nativeEvent;
+
+    let nextIndex;
+    let prevIndex;
+
+    if ( contentOffset.x > scrollOffset ) {
+      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
+      this.setIndex( nextIndex, contentOffset.x );
+    } else {
+      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+      this.setIndex( prevIndex, contentOffset.x );
     }
   }
 
@@ -124,6 +146,7 @@ class SpeciesPhotos extends Component<Props> {
               <LoadingWheel color="white" />
             </View>
           )}
+          onScrollEndDrag={e => this.calculateScrollIndex( e )}
           pagingEnabled
           renderItem={( { item } ) => item}
         />

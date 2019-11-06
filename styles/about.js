@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "./global";
+import { colors, fonts, row } from "./global";
 
 export default StyleSheet.create( {
   block: {
@@ -27,11 +27,7 @@ export default StyleSheet.create( {
   margin: {
     marginBottom: 27
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap"
-  },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,

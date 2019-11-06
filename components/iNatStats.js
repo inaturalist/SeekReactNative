@@ -41,7 +41,8 @@ class iNatStatsScreen extends Component<Props> {
       observations: i18n.toNumber( 25000000, { precision: 0 } ),
       observers: i18n.toNumber( 700000, { precision: 0 } ),
       photos: [],
-      scrollIndex: 0
+      scrollIndex: 0,
+      scrollOffset: 0
     };
   }
 
@@ -101,33 +102,54 @@ class iNatStatsScreen extends Component<Props> {
     } );
   }
 
-  setIndex( scrollIndex ) {
-    this.setState( { scrollIndex } );
+  setIndex( scrollIndex, scrollOffset ) {
+    this.setState( {
+      scrollIndex,
+      scrollOffset
+    } );
   }
 
   scrollRight() {
-    const { scrollIndex } = this.state;
+    const { scrollIndex, scrollOffset } = this.state;
 
     const nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
+    const nextOffset = scrollOffset + dimensions.width;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index: nextIndex, animated: true
       } );
-      this.setIndex( nextIndex );
+      this.setIndex( nextIndex, nextOffset );
     }
   }
 
   scrollLeft() {
-    const { scrollIndex } = this.state;
+    const { scrollIndex, scrollOffset } = this.state;
 
     const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+    const prevOffset = scrollOffset - dimensions.width;
 
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index: prevIndex, animated: true
       } );
-      this.setIndex( prevIndex );
+      this.setIndex( prevIndex, prevOffset );
+    }
+  }
+
+  calculateScrollIndex( e ) {
+    const { scrollOffset, scrollIndex } = this.state;
+    const { contentOffset } = e.nativeEvent;
+
+    let nextIndex;
+    let prevIndex;
+
+    if ( contentOffset.x > scrollOffset ) {
+      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
+      this.setIndex( nextIndex, contentOffset.x );
+    } else {
+      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+      this.setIndex( prevIndex, contentOffset.x );
     }
   }
 
@@ -186,7 +208,7 @@ class iNatStatsScreen extends Component<Props> {
           <Image source={backgrounds.heatMap} style={styles.heatMap} />
           <View style={styles.missionContainer}>
             <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
-            <Image source={logos.bird} style={styles.iNatLogo} />
+            <Image source={logos.bird} style={styles.bird} />
             <Text style={styles.numberText}>
               {observations}
               {"+"}
@@ -229,6 +251,7 @@ class iNatStatsScreen extends Component<Props> {
                 horizontal
                 indicatorStyle="white"
                 initialNumToRender={1}
+                onScrollEndDrag={e => this.calculateScrollIndex( e )}
                 pagingEnabled
                 renderItem={( { item } ) => item}
                 showsHorizontalScrollIndicator

@@ -5,7 +5,7 @@ const posting = {
   error: require( "./posting/icon-error-inatgreen.png" ),
   expand: require( "./posting/icon-expand.png" ),
   geoprivacy: require( "./posting/icon-geoprivacy.png" ),
-  iNatuploading: require( "./posting/icon-iNatuploading.png"),
+  bird: require( "./logos/iNatStatsSpeciesDetail-Bird.png"),
   location: require( "./posting/icon-location.png" ),
   search: require( "./posting/icon-search.png" ),
   searchGreen: require( "./posting/icon-search-green.png" ),

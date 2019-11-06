@@ -82,12 +82,11 @@ class INatObs extends Component<Props> {
         <View style={styles.headerMargins}>
           <GreenText text={i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()} />
         </View>
-        <View style={styles.stats}>
+        <View style={[styles.center, styles.row]}>
           <TouchableOpacity
-            hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "iNatStats" )}
           >
-            <Image source={logos.bird} style={styles.image} />
+            <Image source={logos.bird} style={styles.bird} />
           </TouchableOpacity>
           <View style={styles.textContainer}>
             {error === "location" ? null : (

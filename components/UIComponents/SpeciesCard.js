@@ -11,6 +11,7 @@ import {
 
 import styles from "../../styles/uiComponents/speciesCard";
 import iconicTaxa from "../../assets/iconicTaxa";
+import i18n from "../../i18n";
 
 type Props = {
   +handlePress: Function,
@@ -40,12 +41,20 @@ const SpeciesCard = ( {
         <Image source={photo} style={styles.image} />
       </ImageBackground>
     ) : <Image source={photo} style={styles.image} />}
-    <View style={styles.speciesNameContainer}>
-      <Text style={styles.commonNameText}>
-        {commonName || scientificName}
-      </Text>
-      <Text style={styles.scientificNameText}>{scientificName}</Text>
-    </View>
+    {commonName || scientificName ? (
+      <View style={styles.speciesNameContainer}>
+        <Text style={styles.commonNameText}>
+          {commonName || scientificName}
+        </Text>
+        <Text style={styles.scientificNameText}>{scientificName}</Text>
+      </View>
+    ) : (
+      <View style={styles.speciesNameContainer}>
+        <Text style={styles.commonNameText}>
+          {i18n.t( "posting.unknown" )}
+        </Text>
+      </View>
+    )}
   </TouchableOpacity>
 );
 

@@ -146,7 +146,7 @@ class SelectSpecies extends Component<Props> {
               ) : null}
             {!isSearching ? (
               <SpeciesCard
-                commonName={commonName || i18n.t( "posting.unknown" )}
+                commonName={commonName}
                 handlePress={() => {
                   updateTaxon( seekId, commonName, scientificName );
                   toggleSpeciesModal();
@@ -161,7 +161,7 @@ class SelectSpecies extends Component<Props> {
                   style={styles.card}
                 >
                   <SpeciesCard
-                    commonName={item.commonName || i18n.t( "posting.unknown" )}
+                    commonName={item.commonName}
                     handlePress={() => {
                       updateTaxon( item.id, item.commonName, item.scientificName );
                       toggleSpeciesModal();

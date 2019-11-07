@@ -381,16 +381,6 @@ class PostScreen extends Component<Props> {
       description
     } = this.state;
 
-    let commonName;
-
-    if ( taxon.preferredCommonName ) {
-      commonName = taxon.preferredCommonName;
-    } else if ( taxon.name ) {
-      commonName = taxon.name;
-    } else {
-      commonName = i18n.t( "posting.unknown" );
-    }
-
     return (
       <View style={styles.container}>
         <SafeAreaView />
@@ -454,7 +444,7 @@ class PostScreen extends Component<Props> {
             style={styles.card}
           >
             <SpeciesCard
-              commonName={commonName}
+              commonName={taxon.preferredCommonName}
               handlePress={() => this.toggleSpeciesModal()}
               photo={{ uri: userImage }}
               scientificName={taxon.name}

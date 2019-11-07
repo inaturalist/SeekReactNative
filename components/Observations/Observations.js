@@ -183,8 +183,7 @@ class Observations extends Component<Props> {
       content = (
         <SectionList
           ref={( ref ) => { this.sectionList = ref; }}
-          contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
-          extraData={observations}
+          contentContainerStyle={styles.padding}
           initialNumToRender={6}
           keyExtractor={( item, index ) => item + index}
           renderItem={( { item, section } ) => {
@@ -201,7 +200,13 @@ class Observations extends Component<Props> {
             }
             return null;
           }}
-          renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}
+          renderSectionFooter={( {
+            section: {
+              id,
+              data,
+              open
+            }
+          } ) => this.renderEmptySection( id, data, open )}
           renderSectionHeader={( {
             section: {
               id,
@@ -234,15 +239,13 @@ class Observations extends Component<Props> {
                 </Text>
                 <View style={styles.row}>
                   <Text style={styles.numberText}>{data.length}</Text>
-                  {badgeCount === -1
-                    ? <View style={{ marginRight: 7 }} />
-                    : null}
-                  {badgeCount !== -1
-                    ? <Image source={badge} style={styles.badgeImage} />
-                    : null}
-                  {badgeCount !== -1
-                    ? <View style={{ marginRight: open ? 15 : 19 }} />
-                    : null}
+                  {badgeCount === -1 ? (
+                    <React.Fragment>
+                      <View style={styles.marginSmall} />
+                      <Image source={badge} style={styles.badgeImage} />
+                      <View style={{ marginRight: open ? 15 : 19 }} />
+                    </React.Fragment>
+                  ) : null}
                   <View style={{ marginRight: badge === badges.badge_empty_small ? -1 : null }} />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>

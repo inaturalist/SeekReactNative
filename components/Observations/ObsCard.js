@@ -73,9 +73,8 @@ class ObservationCard extends Component<Props> {
 
   checkForSeekV2Photos() {
     const { item } = this.props;
-    const { taxon } = item;
-    const { defaultPhoto } = taxon;
-    const { backupUri, mediumUrl } = defaultPhoto;
+    const { defaultPhoto } = item.taxon;
+    const { backupUri, mediumUrl } = item.taxon.defaultPhoto;
 
     if ( defaultPhoto ) {
       if ( backupUri ) {

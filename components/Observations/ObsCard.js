@@ -34,7 +34,12 @@ class ObservationCard extends Component<Props> {
   }
 
   componentDidMount() {
-    this.checkForSeekV1Photos();
+    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+    if ( Platform.OS === "ios" && seekv1Photos ) {
+      this.checkForSeekV1Photos( seekv1Photos );
+    } else {
+      this.checkForSeekV2Photos();
+    }
     this.localizeCommonName();
   }
 
@@ -50,46 +55,37 @@ class ObservationCard extends Component<Props> {
     this.setState( { photo } );
   }
 
-  checkForSeekV1Photos() {
+  checkForSeekV1Photos( seekv1Photos ) {
     const { item } = this.props;
 
-    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+    const photoPath = `${seekv1Photos}/${item.uuidString}`;
 
-    if ( Platform.OS === "ios" && seekv1Photos ) {
-      const photoPath = `${seekv1Photos}/${item.uuidString}`;
-      if ( !RNFS.exists( photoPath ) ) {
-        this.checkForSeekV2Photos( item );
-      } else {
-        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => {
-          this.checkForSeekV2Photos( item );
-        } );
-      }
-    } else {
-      this.checkForSeekV2Photos( item );
-    }
+    RNFS.stat( photoPath ).then( () => {
+      RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+        this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+      } ).catch( () => {
+        this.checkForSeekV2Photos();
+      } );
+    } ).catch( () => {
+      this.checkForSeekV2Photos();
+    } );
   }
 
-  checkForSeekV2Photos( item ) {
+  checkForSeekV2Photos() {
+    const { item } = this.props;
     const { taxon } = item;
     const { defaultPhoto } = taxon;
+    const { backupUri, mediumUrl } = defaultPhoto;
 
     if ( defaultPhoto ) {
-      if ( defaultPhoto.backupUri ) {
-        const uri = defaultPhoto.backupUri.split( "/Pictures/" );
+      if ( backupUri ) {
+        const uri = backupUri.split( "/Pictures/" );
         const backupFilepath = `${dirPictures}/${uri[1]}`;
         RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
           this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
         } ).catch( () => this.setPhoto( { uri: backupFilepath } ) );
-      } else if ( defaultPhoto.mediumUrl ) {
-        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => {
-          this.setPhoto( { uri: defaultPhoto.mediumUrl } );
-        } );
-      } else if ( defaultPhoto.squareUrl ) {
-        this.setPhoto( { uri: defaultPhoto.squareUrl } );
+      } else if ( mediumUrl ) {
+        this.setPhoto( { uri: mediumUrl } );
       }
     }
   }
@@ -100,8 +96,6 @@ class ObservationCard extends Component<Props> {
     getTaxonCommonName( item.taxon.id ).then( ( commonName ) => {
       if ( commonName ) {
         this.setState( { commonName } );
-      // } else {
-      //   this.setState( { commonName: item.taxon.name } );
       }
     } );
   }
@@ -141,7 +135,7 @@ class ObservationCard extends Component<Props> {
             setRoute( "MyObservations" );
             navigation.navigate( "Species", { ...navigation.state.params } );
           }}
-          iconicTaxonId={taxon.id}
+          iconicTaxonId={taxon.iconicTaxonId}
           photo={photo}
           scientificName={taxon.name}
         />

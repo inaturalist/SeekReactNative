@@ -63,7 +63,6 @@ class ObservationCard extends Component<Props> {
   checkForSeekV1Photos( seekv1Photos ) {
     const { item } = this.props;
     const { focusedScreen } = this.state;
-    console.log( focusedScreen, "focused" );
 
     const photoPath = `${seekv1Photos}/${item.uuidString}`;
 

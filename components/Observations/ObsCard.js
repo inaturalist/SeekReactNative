@@ -29,7 +29,8 @@ class ObservationCard extends Component<Props> {
 
     this.state = {
       photo: null,
-      commonName: null
+      commonName: null,
+      focusedScreen: true
     };
   }
 
@@ -51,32 +52,41 @@ class ObservationCard extends Component<Props> {
     }
   }
 
+  componentWillUnmount() {
+    this.setState( { focusedScreen: false } );
+  }
+
   setPhoto( photo ) {
     this.setState( { photo } );
   }
 
   checkForSeekV1Photos( seekv1Photos ) {
     const { item } = this.props;
+    const { focusedScreen } = this.state;
+    console.log( focusedScreen, "focused" );
 
     const photoPath = `${seekv1Photos}/${item.uuidString}`;
 
-    RNFS.stat( photoPath ).then( () => {
-      RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-        this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+    if ( focusedScreen ) {
+      RNFS.stat( photoPath ).then( () => {
+        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => {
+          this.checkForSeekV2Photos();
+        } );
       } ).catch( () => {
         this.checkForSeekV2Photos();
       } );
-    } ).catch( () => {
-      this.checkForSeekV2Photos();
-    } );
+    }
   }
 
   checkForSeekV2Photos() {
     const { item } = this.props;
+    const { focusedScreen } = this.state;
     const { defaultPhoto } = item.taxon;
     const { backupUri, mediumUrl } = item.taxon.defaultPhoto;
 
-    if ( defaultPhoto ) {
+    if ( defaultPhoto && focusedScreen ) {
       if ( backupUri ) {
         const uri = backupUri.split( "/Pictures/" );
         const backupFilepath = `${dirPictures}/${uri[1]}`;

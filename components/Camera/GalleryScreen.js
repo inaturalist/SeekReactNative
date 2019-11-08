@@ -59,6 +59,7 @@ class GalleryScreen extends Component<Props> {
     let paths;
     let imagePath;
     let folder;
+    let photoUri;
 
     if ( reactUri ) {
       paths = reactUri.split( "/" );
@@ -67,16 +68,21 @@ class GalleryScreen extends Component<Props> {
     if ( paths ) {
       imagePath = paths.pop();
       folder = paths.join( "/" );
+      photoUri = `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`; // triple check that this works for all images
     }
 
-    getPredictionsForImage( {
-      uri: `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`, // triple check that this works for all images
-      modelFilename: dirModel,
-      taxonomyFilename: dirTaxonomy
-    } ).then( ( { predictions } ) => {
-      this.setState( { predictions } );
-    } ).catch( ( err ) => {
-      console.log( "Error", err );
+    RNFS.stat( photoUri ).then( () => {
+      getPredictionsForImage( {
+        uri: photoUri,
+        modelFilename: dirModel,
+        taxonomyFilename: dirTaxonomy
+      } ).then( ( { predictions } ) => {
+        this.setState( { predictions } );
+      } ).catch( ( err ) => {
+        console.log( "Error", err );
+      } );
+    } ).catch( () => {
+      console.log( "photo path doesn't exist" );
     } );
   }
 

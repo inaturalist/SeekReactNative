@@ -29,7 +29,7 @@ import {
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
-import { dirPictures } from "../../utility/dirStorage";
+import { dirPictures, dirTaxonomy, dirModel } from "../../utility/dirStorage";
 import AlbumPicker from "./AlbumPicker";
 
 type Props = {
@@ -56,14 +56,23 @@ class GalleryScreen extends Component<Props> {
 
   getPredictions( uri ) {
     const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
-    const paths = reactUri.split( "/" );
-    const imagePath = paths.pop();
-    const folder = paths.join( "/" );
+    let paths;
+    let imagePath;
+    let folder;
+
+    if ( reactUri ) {
+      paths = reactUri.split( "/" );
+    }
+
+    if ( paths ) {
+      imagePath = paths.pop();
+      folder = paths.join( "/" );
+    }
 
     getPredictionsForImage( {
       uri: `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`, // triple check that this works for all images
-      modelFilename: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`,
-      taxonomyFilename: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
+      modelFilename: dirModel,
+      taxonomyFilename: dirTaxonomy
     } ).then( ( { predictions } ) => {
       this.setState( { predictions } );
     } ).catch( ( err ) => {

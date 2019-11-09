@@ -7,11 +7,12 @@ import { deleteBadges } from "./badgeHelpers";
 import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
 import { isWithinPastYear } from "./dateHelpers";
+import { fetchAccessToken } from "./loginHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
 const uuid = require( "react-native-uuid" );
-const { Platform } = require( "react-native" );
+const { Platform, Alert, Linking } = require( "react-native" );
 const RNFS = require( "react-native-fs" );
 const moment = require( "moment" );
 
@@ -92,6 +93,32 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
+const createPlayStoreRatingAlert = () => {
+  const url = "https://play.google.com/store/apps/details?id=org.inaturalist.seek";
+
+  Alert.alert(
+    i18n.t( "review.title" ),
+    i18n.t( "review.rate" ),
+    [{
+      text: i18n.t( "review.later" ),
+      style: "default"
+    },
+    {
+      text: i18n.t( "review.rate_now" ),
+      onPress: () => {
+        Linking.canOpenURL( url )
+          .then( ( supported ) => {
+            if ( !supported ) {
+              console.log( "Can't handle url: " + url );
+            } else {
+              return Linking.openURL( url );
+            }
+          } ).catch( err => console.error( 'An error occurred', err ) );
+      }
+    }]
+  );
+};
+
 const updateReviews = ( realm, reviews ) => {
   realm.write( () => {
     if ( reviews.length === 0 ) {
@@ -103,7 +130,11 @@ const updateReviews = ( realm, reviews ) => {
       reviews[0].timesSeen += 1;
     }
   } );
-  StoreReview.requestReview();
+  if ( Platform.OS === "android" ) {
+    createPlayStoreRatingAlert();
+  } else {
+    StoreReview.requestReview();
+  }
 };
 
 const deleteReviews = ( realm, reviews ) => {
@@ -133,6 +164,33 @@ const showAppStoreReview = () => {
     } ).catch( () => {
       console.log( "couldn't show review modal" );
     } );
+};
+
+const showPlayStoreReview = async () => {
+  const login = await fetchAccessToken();
+
+  if ( login ) {
+    Realm.open( realmConfig.default )
+      .then( ( realm ) => {
+        const reviews = realm.objects( "ReviewRealm" );
+
+        if ( reviews.length > 0 ) {
+          const withinYear = isWithinPastYear( reviews[0].date );
+          if ( withinYear ) {
+            if ( reviews[0].timesSeen < 3 ) {
+              updateReviews( realm, reviews );
+            }
+          } else {
+            deleteReviews( realm, reviews );
+            updateReviews( realm, reviews );
+          }
+        } else {
+          updateReviews( realm, reviews );
+        }
+      } ).catch( ( e ) => {
+        console.log( "couldn't show review modal", e );
+      } );
+  }
 };
 
 const checkForPowerUsers = ( length, newLength ) => {
@@ -372,5 +430,6 @@ export {
   sortNewestToOldest,
   searchForRealm,
   showAppStoreReview,
+  showPlayStoreReview,
   fetchNumberSpeciesSeen
 };

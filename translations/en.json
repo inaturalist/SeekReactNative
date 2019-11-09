@@ -541,5 +541,11 @@
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
     "take_photo": "Tap to take photo"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

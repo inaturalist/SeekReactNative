@@ -23,8 +23,8 @@ type Props = {
 
 const AboutScreen = ( { navigation }: Props ) => {
   const scrollViewRef = useRef( null );
-  const version = "2.3.7";
-  const buildNumber = 72;
+  const version = "2.3.8";
+  const buildNumber = 73;
 
   const scrollToTop = () => {
     if ( scrollViewRef ) {

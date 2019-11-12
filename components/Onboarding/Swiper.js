@@ -123,7 +123,11 @@ class Swiper extends Component<Props> {
           <View style={[styles.button, { backgroundColor: colors.seekTeal }]}>
             <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
           </View>
-        ) : <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>}
+        ) : (
+          <View style={styles.buttonHeight}>
+            <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>
+          </View>
+        )}
     </TouchableOpacity>
   )
 

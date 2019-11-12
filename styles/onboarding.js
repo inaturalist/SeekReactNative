@@ -36,11 +36,11 @@ export default StyleSheet.create( {
     width: 293
   },
   buttonContainer: {
-    marginBottom: height > 670 ? 74 : 14,
+    marginBottom: height > 770 ? 74 : 34,
     padding: 20
   },
-  carousel: {
-    marginTop: 20
+  buttonHeight: {
+    height: 50
   },
   center,
   container: {
@@ -76,7 +76,7 @@ export default StyleSheet.create( {
   },
   pagination: {
     flexDirection: "row",
-    marginBottom: height > 570 ? 57 : 27,
+    marginBottom: height > 570 ? 37 : 27,
     marginTop: height > 570 ? 57 : 27
   },
   skip: {
@@ -90,7 +90,6 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
-    marginBottom: 30,
     textAlign: "center",
     textDecorationLine: "underline"
   },

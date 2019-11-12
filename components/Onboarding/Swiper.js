@@ -2,17 +2,21 @@ import React, { Component } from "react";
 import {
   Dimensions,
   ScrollView,
-  View
+  View,
+  TouchableOpacity,
+  Text
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import Button from "./Button";
 import styles from "../../styles/onboarding";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
 
-const { width, height } = Dimensions.get( "window" );
+const { width } = Dimensions.get( "window" );
 
 type Props = {
-  navigation: any
+  +navigation: any,
+  +children:any
 }
 
 const gradientColors = {
@@ -22,30 +26,44 @@ const gradientColors = {
 };
 
 class Swiper extends Component<Props> {
-  static defaultProps = {
-    horizontal: true,
-    pagingEnabled: true,
-    showsHorizontalScrollIndicator: false,
-    showsVerticalScrollIndicator: false,
-    bounces: false,
-    scrollsToTop: false,
-    removeClippedSubviews: true,
-    automaticallyAdjustContentInsets: false
-    // index: 0
-  };
+  constructor() {
+    super();
 
-  state = this.initState( this.props );
+    this.state = this.initState( this.props );
+  }
 
-  initState( props ) {
+  handleScrollEnd = ( e ) => {
+    this.updateIndex( e.nativeEvent.contentOffset
+      ? e.nativeEvent.contentOffset.x
+      // When scrolled with .scrollTo() on Android there is no contentOffset
+      : e.nativeEvent.position * width );
+  }
+
+  updateIndex = ( offset ) => {
+    const diff = offset - this.internals.offset;
+    let { index } = this.state;
+
+    if ( !diff ) {
+      return;
+    }
+
+    index = parseInt( index + Math.round( diff / width ), 10 );
+    this.internals.offset = offset;
+
+    this.setState( {
+      index,
+      colorTop: gradientColors[index][0],
+      colorBottom: gradientColors[index][1]
+    } );
+  }
+
+  initState() {
     const index = 0;
     const offset = width * index;
 
     const state = {
       total: 3,
       index,
-      offset,
-      width,
-      height,
       colorTop: gradientColors[index][0],
       colorBottom: gradientColors[index][1]
     };
@@ -58,46 +76,17 @@ class Swiper extends Component<Props> {
     return state;
   }
 
-  onScrollBegin = () => {
-  }
-
-  onScrollEnd = ( e ) => {
-    this.updateIndex( e.nativeEvent.contentOffset
-      ? e.nativeEvent.contentOffset.x
-      // When scrolled with .scrollTo() on Android there is no contentOffset
-      : e.nativeEvent.position * this.state.width );
-  }
-
-  updateIndex = ( offset ) => {
-    const state = this.state;
-    const diff = offset - this.internals.offset;
-    const step = state.width;
-    let { index } = state;
-
-    if ( !diff ) {
-      return;
-    }
-
-    index = parseInt( index + Math.round( diff / step ), 10 );
-    this.internals.offset = offset;
-
-    this.setState( {
-      index,
-      colorTop: gradientColors[index][0],
-      colorBottom: gradientColors[index][1]
-    } );
-  }
-
-
   renderScrollView = pages => (
     <ScrollView
       ref={( component ) => { this.scrollView = component; }}
-      {...this.props}
-      onMomentumScrollBegin={this.onScrollBegin}
-      onMomentumScrollEnd={this.onScrollEnd}
+      bounces={false}
+      horizontal
+      onMomentumScrollEnd={this.handleScrollEnd}
+      pagingEnabled
+      showsHorizontalScrollIndicator={false}
     >
       {pages.map( ( page, i ) => (
-        <View style={styles.contentContainer} key={`page-${i}`}>
+        <View key={`page-${i}`} style={styles.contentContainer}>
           {page}
         </View>
       ) )}
@@ -118,30 +107,41 @@ class Swiper extends Component<Props> {
     }
 
     return (
-      <View
-        pointerEvents="none"
-        style={[styles.pagination]}
-      >
+      <View style={[styles.pagination, styles.center]}>
         {dots}
       </View>
     );
   }
 
-  render = ( { children, navigation } = this.props, { colorBottom, colorTop, index } = this.state ) => (
-    <LinearGradient
-      colors={[colorTop, colorBottom]}
-      style={styles.container}
+  renderButton = ( index, navigation ) => (
+    <TouchableOpacity
+      onPress={() => navigation.navigate( "Login" )}
+      style={[styles.buttonContainer, styles.center]}
     >
-      <View style={styles.container}>
+      {index === 2
+        ? (
+          <View style={[styles.button, { backgroundColor: colors.seekTeal }]}>
+            <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
+          </View>
+        ) : <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>}
+    </TouchableOpacity>
+  )
+
+  render() {
+    const { children, navigation } = this.props;
+    const { colorBottom, colorTop, index } = this.state;
+
+    return (
+      <LinearGradient
+        colors={[colorTop, colorBottom]}
+        style={styles.container}
+      >
         {this.renderScrollView( children )}
         {this.renderPagination()}
-        <Button
-          navigation={navigation}
-          index={index}
-        />
-      </View>
-    </LinearGradient>
-  )
+        {this.renderButton( index, navigation )}
+      </LinearGradient>
+    );
+  }
 }
 
 export default Swiper;

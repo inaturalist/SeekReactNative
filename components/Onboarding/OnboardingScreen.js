@@ -17,39 +17,30 @@ type Props = {
 
 const OnboardingScreen = ( { navigation }: Props ) => (
   <Swiper navigation={navigation}>
-    <View style={styles.carousel}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={icons.onboarding1}
-          style={styles.image1}
-        />
+    {[0, 1, 2].map( ( item, index ) => (
+      <View key={`${item}+${index}`} style={styles.carousel}>
+        {index === 2 ? (
+          <View style={[styles.banner, styles.center]}>
+            <Image
+              source={logoImages.wwfop}
+              style={styles.image}
+            />
+          </View>
+        ) : (
+          <View style={styles.imageContainer}>
+            <Image
+              source={icons[`onboarding${index + 1}`]}
+              style={styles[`image${index + 1}`]}
+            />
+          </View>
+        )}
+        <View style={[styles.textContainer, styles.center]}>
+          <Text style={styles.text}>
+            {i18n.t( `onboarding.onboarding_${index + 1}` )}
+          </Text>
+        </View>
       </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( "onboarding.onboarding_1" )}</Text>
-      </View>
-    </View>
-    <View style={styles.carousel}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={icons.onboarding2}
-          style={styles.image}
-        />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( "onboarding.onboarding_2" )}</Text>
-      </View>
-    </View>
-    <View style={styles.carousel}>
-      <View style={styles.banner}>
-        <Image
-          source={logoImages.wwfop}
-          style={styles.image}
-        />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( "onboarding.onboarding_3" )}</Text>
-      </View>
-    </View>
+    ) )}
   </Swiper>
 );
 

@@ -138,9 +138,7 @@ class MatchScreen extends Component<Props> {
 
     if ( showLevelModal === true ) {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
-        if ( speciesCount === 3 ) {
-        console.log( "toggling modal" );
-        // if ( speciesCount === 30 || speciesCount === 75 ) {
+        if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
           if ( Platform.OS === "ios" ) {
             showAppStoreReview();

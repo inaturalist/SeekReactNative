@@ -5,15 +5,14 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
-  ImageBackground
+  TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/observations/deleteModal";
-import iconicTaxa from "../../assets/iconicTaxa";
 import icons from "../../assets/icons";
+import SpeciesCard from "../UIComponents/SpeciesCard";
 
 type Props = {
   +toggleDeleteModal: Function,
@@ -39,45 +38,35 @@ const DeleteModal = ( {
 
   return (
     <View style={styles.innerContainer}>
-      <View style={styles.flagHeaderContainer}>
-        <LinearGradient
-          colors={[gradientColorDark, gradientColorLight]}
-          style={styles.flagHeader}
-        >
-          <View style={styles.flagTextContainer}>
-            <Text style={[styles.buttonText, { paddingTop: 9, marginRight: 15 }]}>
-              {i18n.t( "delete.header" ).toLocaleUpperCase()}
-            </Text>
-            <TouchableOpacity
-              hitSlop={styles.touchable}
-              onPress={() => toggleDeleteModal() }
-              style={styles.flagBackButton}
-            >
-              <Image source={icons.closeWhite} />
-            </TouchableOpacity>
-          </View>
-        </LinearGradient>
-      </View>
-      <View style={styles.flagContainer}>
-        <View style={{ marginTop: 27 }} />
-        <View style={styles.row}>
-          <ImageBackground
-            imageStyle={styles.image}
-            source={iconicTaxa[iconicTaxonId]}
-            style={styles.image}
+      <LinearGradient
+        colors={[gradientColorDark, gradientColorLight]}
+        style={styles.flagHeader}
+      >
+        <View style={[styles.flagTextContainer, styles.row]}>
+          <Text style={[styles.buttonText, styles.headerStyling]}>
+            {i18n.t( "delete.header" ).toLocaleUpperCase()}
+          </Text>
+          <TouchableOpacity
+            hitSlop={styles.touchable}
+            onPress={() => toggleDeleteModal() }
+            style={styles.flagBackButton}
           >
-            <Image source={photo} style={styles.image} />
-          </ImageBackground>
-          <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {commonName}
-            </Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
+            <Image source={icons.closeWhite} />
+          </TouchableOpacity>
         </View>
-        <View style={{ marginTop: 26 }} />
+      </LinearGradient>
+      <View style={styles.flagContainer}>
+        <View style={styles.margin} />
+        <SpeciesCard
+          commonName={commonName}
+          handlePress={() => console.log( "pressed card" )}
+          iconicTaxonId={iconicTaxonId}
+          photo={photo}
+          scientificName={scientificName}
+        />
+        <View style={styles.margin} />
         <Text style={styles.text}>{i18n.t( "delete.description" )}</Text>
-        <View style={{ marginTop: 16 }} />
+        <View style={styles.marginSmall} />
         <TouchableOpacity
           onPress={() => {
             deleteObservation( id );
@@ -85,11 +74,11 @@ const DeleteModal = ( {
           }}
           style={styles.largeFlagButton}
         >
-          <Text style={[styles.buttonText, { lineHeight: 24, textAlign: "center" }]}>
+          <Text style={styles.buttonText}>
             {i18n.t( "delete.yes" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 16 }} />
+        <View style={styles.marginSmall} />
         <TouchableOpacity
           onPress={() => toggleDeleteModal()}
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
@@ -98,7 +87,7 @@ const DeleteModal = ( {
             {i18n.t( "delete.no" ).toLocaleUpperCase()}
           </Text>
         </TouchableOpacity>
-        <View style={{ marginTop: 32 }} />
+        <View style={styles.marginLarge} />
       </View>
     </View>
   );

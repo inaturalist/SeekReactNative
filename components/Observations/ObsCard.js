@@ -109,12 +109,14 @@ class ObservationCard extends Component<Props> {
   }
 
   scrollLeft() {
-    const { item, itemScrolledId } = this.props;
+    const { item, itemScrolledId, updateItemScrolledId } = this.props;
 
     if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
       this.scrollView.scrollTo( {
         x: 0, y: 0, duration: 300
       } );
+
+      updateItemScrolledId( null );
     }
   }
 

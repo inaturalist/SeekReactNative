@@ -46,10 +46,12 @@ class Observations extends Component<Props> {
     this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
+  setObservations( observations ) {
+    this.setState( { observations } );
+  }
+
   resetObservations() {
-    this.setState( {
-      observations: []
-    } );
+    this.setState( { observations: [] } );
   }
 
   updateItemScrolledId( itemScrolledId ) {
@@ -112,7 +114,7 @@ class Observations extends Component<Props> {
       .then( ( realm ) => {
         const observations = this.createSectionList( realm );
 
-        this.setState( { observations } );
+        this.setObservations( observations );
       } )
       .catch( () => {
         // console.log( "Err: ", err )
@@ -121,6 +123,7 @@ class Observations extends Component<Props> {
 
   async deleteObservation( id ) {
     await removeFromCollection( id );
+    this.resetObservations();
     this.fetchObservations();
   }
 
@@ -150,9 +153,7 @@ class Observations extends Component<Props> {
       section.open = true;
     }
 
-    this.setState( {
-      observations
-    } );
+    this.setObservations( observations );
   }
 
   renderEmptySection( id, data, open ) {
@@ -264,11 +265,11 @@ class Observations extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <NavigationEvents
-          onDidFocus={() => this.fetchObservations()}
           onWillBlur={() => {
             this.scrollToTop();
             this.resetObservations();
           }}
+          onWillFocus={() => this.fetchObservations()}
         />
         <GreenHeader
           header={i18n.t( "observations.header" )}

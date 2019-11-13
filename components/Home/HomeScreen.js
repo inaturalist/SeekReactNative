@@ -21,7 +21,6 @@ import Padding from "../UIComponents/Padding";
 import Header from "./Header";
 import {
   checkIfCardShown,
-  addARCameraFiles,
   checkForInternet
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
@@ -241,7 +240,6 @@ class HomeScreen extends Component<Props> {
           onWillFocus={() => {
             this.checkForFirstLaunch();
             this.requestAndroidPermissions();
-            addARCameraFiles();
           }}
         />
         <RNModal

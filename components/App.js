@@ -8,6 +8,7 @@ import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
+import { addARCameraFiles } from "../utility/helpers";
 
 class App extends Component {
   componentDidMount() {
@@ -15,6 +16,7 @@ class App extends Component {
     setTimeout( setupBadges, 3000 );
     setTimeout( setupChallenges, 3000 );
     setTimeout( fetchiNatStats, 3000 );
+    setTimeout( addARCameraFiles, 3000 );
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately

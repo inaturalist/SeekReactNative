@@ -57,6 +57,9 @@ const handleCustomTransition = ( { scenes } ) => {
     if ( route.routeName === "Camera" ) {
       return fromBottom( 100 );
     }
+    if ( route.routeName === "Wikipedia" ) {
+      return fromBottom( 100 );
+    }
   }
 
   return fadeIn();

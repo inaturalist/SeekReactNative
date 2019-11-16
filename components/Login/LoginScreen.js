@@ -74,7 +74,7 @@ class LoginScreen extends Component<Props> {
       } );
   }
 
-  submitSuccess() {
+  async submitSuccess() {
     const { navigation } = this.props;
     navigation.navigate( "LoginSuccess" );
   }

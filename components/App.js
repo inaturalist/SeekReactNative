@@ -9,9 +9,11 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 import { addARCameraFiles } from "../utility/helpers";
+import initializeFirebase from "../firebase";
 
 class App extends Component {
   componentDidMount() {
+    initializeFirebase();
     // don't block splash screen with setup
     setTimeout( setupBadges, 3000 );
     setTimeout( setupChallenges, 3000 );
@@ -21,6 +23,7 @@ class App extends Component {
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     setTimeout( setupCommonNames, 5000 );
+
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
     RNLocalize.addEventListener( "change", this.handleLocalizationChange );
   }

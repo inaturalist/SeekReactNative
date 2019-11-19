@@ -125,43 +125,46 @@ class SpeciesPhotos extends Component<Props> {
 
     return (
       <View>
-        <FlatList
-          ref={( ref ) => { this.flatList = ref; }}
-          bounces={false}
-          contentContainerStyle={styles.photoContainer}
-          data={photoList}
-          getItemLayout={( data, index ) => (
-            // skips measurement of dynamic content for faster loading
-            {
-              length: ( dimensions.width ),
-              offset: ( dimensions.width ) * index,
-              index
-            }
-          )}
-          horizontal
-          indicatorStyle="white"
-          initialNumToRender={1}
-          ListEmptyComponent={() => (
-            <View style={[styles.photoContainer, styles.fullWidth]}>
-              <LoadingWheel color="white" />
-            </View>
-          )}
-          onScrollEndDrag={e => this.calculateScrollIndex( e )}
-          pagingEnabled
-          renderItem={( { item } ) => item}
-        />
-        <TouchableOpacity
-          onPress={() => this.scrollLeft()}
-          style={styles.leftArrow}
-        >
-          <Image source={icons.swipeLeft} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.scrollRight()}
-          style={styles.rightArrow}
-        >
-          <Image source={icons.swipeRight} />
-        </TouchableOpacity>
+        {photoList.length === 0 ? (
+          <View style={[styles.photoContainer, styles.fullWidth]}>
+            <LoadingWheel color="white" />
+          </View>
+        ) : (
+          <React.Fragment>
+            <FlatList
+              ref={( ref ) => { this.flatList = ref; }}
+              bounces={false}
+              contentContainerStyle={styles.photoContainer}
+              data={photoList}
+              getItemLayout={( data, index ) => (
+                // skips measurement of dynamic content for faster loading
+                {
+                  length: ( dimensions.width ),
+                  offset: ( dimensions.width ) * index,
+                  index
+                }
+              )}
+              horizontal
+              indicatorStyle="white"
+              initialNumToRender={1}
+              onScrollEndDrag={e => this.calculateScrollIndex( e )}
+              pagingEnabled
+              renderItem={( { item } ) => item}
+            />
+            <TouchableOpacity
+              onPress={() => this.scrollLeft()}
+              style={styles.leftArrow}
+            >
+              <Image source={icons.swipeLeft} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.scrollRight()}
+              style={styles.rightArrow}
+            >
+              <Image source={icons.swipeRight} />
+            </TouchableOpacity>
+          </React.Fragment>
+        )}
       </View>
     );
   }

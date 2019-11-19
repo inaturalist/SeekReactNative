@@ -7,7 +7,6 @@
 
 #import "AppDelegate.h"
 
-#import <Firebase.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
@@ -19,7 +18,6 @@ static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [FIRApp configure];
 
   if (![[NSUserDefaults standardUserDefaults] boolForKey:hasMigratedRealmDatabaseFromContainer]) {
     [self migrateRealmDatabaseFromSharedContainer];

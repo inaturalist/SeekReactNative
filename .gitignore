@@ -71,4 +71,3 @@ taxonomy.json
 *.mlmodel
 utility/common-names.json
 utility/commonNames/*
-firebase-config.js

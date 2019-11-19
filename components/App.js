@@ -9,11 +9,9 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 import { addARCameraFiles } from "../utility/helpers";
-import initializeFirebase from "../firebase";
 
 class App extends Component {
   componentDidMount() {
-    initializeFirebase();
     // don't block splash screen with setup
     setTimeout( setupBadges, 3000 );
     setTimeout( setupChallenges, 3000 );

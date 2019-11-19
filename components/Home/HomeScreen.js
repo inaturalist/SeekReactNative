@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import RNModal from "react-native-modal";
-// import crashlytics from "@react-native-firebase/crashlytics";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";

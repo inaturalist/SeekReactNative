@@ -291,7 +291,8 @@
     "permissions": "Enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_old_camera": "Sorry, we weren't able to load the camera",
-    "error_device_support": "Sorry, the device you are using is not supported"
+    "error_device_support": "Sorry, the device you are using is not supported",
+    "error_save": "Sorry, there was a problem saving your photo"
     },
   "gallery": {
     "label": "Photos",

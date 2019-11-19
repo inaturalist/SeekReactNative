@@ -128,7 +128,7 @@ class GalleryScreen extends Component<Props> {
     if ( permission === true ) {
       this.getPhotos();
     } else {
-      this.setError( "save" );
+      this.setError( "gallery" );
     }
   }
 

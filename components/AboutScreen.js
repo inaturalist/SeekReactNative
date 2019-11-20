@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
@@ -23,8 +24,10 @@ type Props = {
 
 const AboutScreen = ( { navigation }: Props ) => {
   const scrollViewRef = useRef( null );
-  const version = "2.3.9";
-  const buildNumber = 74;
+  const appVersion = getVersion();
+  const buildVersion = getBuildNumber();
+
+  console.log( appVersion, buildVersion, "device-info build versions" );
 
   const scrollToTop = () => {
     if ( scrollViewRef ) {
@@ -67,7 +70,7 @@ const AboutScreen = ( { navigation }: Props ) => {
         <View style={styles.block} />
         <Text style={styles.greenText}>
           {i18n.t( "about.version" ).toLocaleUpperCase()}
-          {` ${version} (${buildNumber})`}
+          {` ${appVersion} (${buildVersion})`}
         </Text>
         <View style={styles.block} />
         <Text style={styles.text}>

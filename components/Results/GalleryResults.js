@@ -22,6 +22,7 @@ import {
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -238,7 +239,9 @@ class Results extends Component<Props> {
   fetchScore( params ) {
     const token = this.createJwtToken();
 
-    inatjs.computervision.score_image( params, { api_token: token } )
+    const options = { api_token: token, user_agent: createUserAgent() };
+
+    inatjs.computervision.score_image( params, options )
       .then( ( response ) => {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;

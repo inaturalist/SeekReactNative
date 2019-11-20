@@ -24,6 +24,7 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 import GreenText from "../UIComponents/GreenText";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +toggleSpeciesModal: Function,
@@ -62,7 +63,9 @@ class SelectSpecies extends Component<Props> {
       locale: i18n.currentLocale()
     };
 
-    inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.taxa.autocomplete( params, options ).then( ( { results } ) => {
       const suggestions = [];
 
       if ( results.length > 0 ) {

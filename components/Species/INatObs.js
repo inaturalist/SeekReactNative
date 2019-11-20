@@ -13,6 +13,7 @@ import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
 import { fetchLocationName } from "../../utility/locationHelpers";
 import GreenText from "../UIComponents/GreenText";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +id: Number,
@@ -66,7 +67,9 @@ class INatObs extends Component<Props> {
       taxon_id: id
     };
 
-    inatjs.observations.speciesCounts( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
       this.setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
     } ).catch( ( err ) => {
       console.log( err, "error fetching species count" );

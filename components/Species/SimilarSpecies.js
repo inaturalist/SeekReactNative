@@ -6,6 +6,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import GreenText from "../UIComponents/GreenText";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +id: ?Number,
@@ -48,7 +49,9 @@ class SimilarSpecies extends Component<Props> {
       locale: i18n.currentLocale()
     };
 
-    inatjs.identifications.similar_species( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
       const taxa = results.map( r => r.taxon );
       const taxaWithPhotos = [];
       taxa.forEach( ( taxon ) => {

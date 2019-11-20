@@ -73,11 +73,12 @@ class iNatStatsScreen extends Component<Props> {
       quality_grade: "research",
       lrank: "species",
       hrank: "species",
-      locale: i18n.currentLocale(),
-      user_agent: createUserAgent()
+      locale: i18n.currentLocale()
     };
 
-    inatjs.observations.search( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.observations.search( params, options ).then( ( { results } ) => {
       const taxa = results.map( r => r.taxon );
       const photos = [];
 

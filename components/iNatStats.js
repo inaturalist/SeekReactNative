@@ -28,6 +28,7 @@ import BackArrow from "./UIComponents/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 import { dimensions } from "../styles/global";
+import createUserAgent from "../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -72,7 +73,8 @@ class iNatStatsScreen extends Component<Props> {
       quality_grade: "research",
       lrank: "species",
       hrank: "species",
-      locale: i18n.currentLocale()
+      locale: i18n.currentLocale(),
+      user_agent: createUserAgent()
     };
 
     inatjs.observations.search( params ).then( ( { results } ) => {

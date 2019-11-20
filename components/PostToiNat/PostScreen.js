@@ -30,6 +30,7 @@ import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import SpeciesCard from "../UIComponents/SpeciesCard";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -311,9 +312,7 @@ class PostScreen extends Component<Props> {
       }
     };
 
-    const version = "2.1.0";
-
-    const options = { api_token: token, user_agent: `Seek/${version}` };
+    const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observations.create( params, options ).then( ( response ) => {
       const { id } = response[0];
@@ -331,7 +330,7 @@ class PostScreen extends Component<Props> {
       date
     } = this.state;
 
-    const options = { api_token: token, user_agent: "Seek" };
+    const options = { api_token: token, user_agent: createUserAgent() };
 
     const params = {
       "observation_photo[observation_id]": obsId,

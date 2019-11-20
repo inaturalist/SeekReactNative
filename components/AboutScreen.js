@@ -27,8 +27,6 @@ const AboutScreen = ( { navigation }: Props ) => {
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
 
-  console.log( appVersion, buildVersion, "device-info build versions" );
-
   const scrollToTop = () => {
     if ( scrollViewRef ) {
       scrollViewRef.current.scrollTo( {

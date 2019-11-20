@@ -27,6 +27,7 @@ import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -189,7 +190,9 @@ class HomeScreen extends Component<Props> {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
 
-    fetch( `${site}?${queryString}` )
+    const options = { headers: { "User-Agent": createUserAgent() } };
+
+    fetch( `${site}?${queryString}`, options )
       .then( response => response.json() )
       .then( ( { results } ) => {
         const taxa = results.map( r => r.taxon );

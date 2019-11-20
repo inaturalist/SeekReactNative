@@ -1,12 +1,16 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
+import createUserAgent from "./userAgent";
+
 const setiNatStats = ( observations, observers ) => {
   AsyncStorage.setItem( "observations", observations.toString() );
   AsyncStorage.setItem( "observers", observers.toString() );
 };
 
 const fetchiNatStats = () => {
-  fetch( "https://www.inaturalist.org/stats/summary.json" )
+  const options = { headers: { "User-Agent": createUserAgent() } };
+
+  fetch( "https://www.inaturalist.org/stats/summary.json", options )
     .then( response => response.json() )
     .then( ( responseJson ) => {
       const { total_observations, total_observers } = responseJson;

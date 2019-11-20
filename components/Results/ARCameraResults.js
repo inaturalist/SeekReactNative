@@ -19,6 +19,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -203,7 +204,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   fetchAdditionalSpeciesInfo( species ) {
-    inatjs.taxa.fetch( species.taxon_id ).then( ( response ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.taxa.fetch( species.taxon_id, options ).then( ( response ) => {
       const taxa = response.results[0];
       this.setSpeciesInfo( species, taxa );
     } ).catch( () => {
@@ -212,7 +215,9 @@ class ARCameraResults extends Component<Props> {
   }
 
   fetchAdditionalAncestorInfo( ancestor ) {
-    inatjs.taxa.fetch( ancestor.taxon_id ).then( ( response ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.taxa.fetch( ancestor.taxon_id, options ).then( ( response ) => {
       const taxa = response.results[0];
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
       this.setCommonAncestor( ancestor, speciesSeenImage );

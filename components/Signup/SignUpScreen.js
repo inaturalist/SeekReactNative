@@ -14,6 +14,7 @@ import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/GreenButton";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -57,14 +58,17 @@ class SignUpScreen extends Component<Props> {
       password
     };
 
+    const headers = {
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
+    };
+
     const site = "https://www.inaturalist.org";
 
     fetch( `${site}/oauth/token`, {
       method: "POST",
       body: JSON.stringify( params ),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      headers
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
@@ -114,7 +118,8 @@ class SignUpScreen extends Component<Props> {
     }
 
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
     };
 
     if ( token ) {

@@ -250,7 +250,8 @@ class PostScreen extends Component<Props> {
 
   fetchJSONWebToken( token ) {
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
     };
 
     const site = "https://www.inaturalist.org";
@@ -330,8 +331,6 @@ class PostScreen extends Component<Props> {
       date
     } = this.state;
 
-    const options = { api_token: token, user_agent: createUserAgent() };
-
     const params = {
       "observation_photo[observation_id]": obsId,
       file: new FileUpload( {
@@ -343,6 +342,8 @@ class PostScreen extends Component<Props> {
       latitude,
       longitude
     };
+
+    const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
       this.setPostSucceeded();

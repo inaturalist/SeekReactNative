@@ -238,7 +238,7 @@
     "take_photo": "Neem een andere foto",
     "common_ancestor": "Maar we konden de exacte soort niet determineren.\n\nJe kunt een andere hoek proberen, in te zoomen of proberen een duidelijkere afbeelding van het organisme te maken.",
     "believe": "Wij geloven dat dit lid is van",
-    "believe_1": "We believe this is a member of",
+    "believe_1": "Wij geloven dat dit lid is van",
     "resighted": "Je hebt een soort opnieuw waargenomen!",
     "date_observed": "Je hebt het voor het eerst op \n{{seenDate}} waargenomen",
     "post_inat": "Als je de originele foto van het organisme hebt genomen kun je Seek op deze soort helpen trainen door de foto in te voeren op iNaturalist, waar de gemeenschap zal helpen deze te determineren en toekomstige versies te verbeteren.",
@@ -255,11 +255,11 @@
     "error_location": "Om jouw waarnemingen op te kunnen slaan moet je locatiebepaling aanstaan. Seek gebruikt je locatie om te onthouden waar je een organisme zag en om bij te dragen aan de burgerwetenschap als je gegevens invoert in iNaturalist.",
     "error_downtime": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{number}} uur.",
     "error_few": "een paar",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
-    "nearby": "Species nearby in this taxon",
-    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "error_gps": "Uw GPS locatie is niet beschikbaar. Ga naar de open lucht en controleer of de GPS van uw apparaat is ingeschakeld zodat je je waarnemingen op kunt slaan.",
+    "error_timeout": "We konden je waarneming niet opslaan door een locatie time-out. Probeer het later nog eens.",
+    "nearby": "Soort in de buurt van dit taxon",
+    "nothing_nearby": "Er zijn nog niet veel soorten waargenomen in de buurt van dit taxon. Probeer een andere foto te nemen of het te plaatsen op iNaturalist.",
+    "tap": "Tik om soorten in de buurt te laden"
   },
   "banner": {
     "view": "Bekijk badge",
@@ -291,7 +291,8 @@
     "permissions": "Verleen toestemming bij instellingen",
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",
     "error_old_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
-    "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund"
+    "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": "Foto’s",
@@ -444,6 +445,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "Dubbelgangers",
     "similar_about": "Organismen die vaak ten onrechte worden aangezien als deze soort.",
+    "similar_no_species": "Waarschijnlijk zijn er geen er op lijkende soorten in de buurt waargenomen!",
     "plant": "plant",
     "amphibian": "amfibie",
     "fungi": "schimmels",
@@ -456,7 +458,7 @@
     "mammal": "zoogdier",
     "species_saved": "Deze soort wordt opgeslagen in jouw waarnemingen.",
     "you": "Hey look, jij bent het! Ga naar buiten en vind wat wilde soorten om nog meer over hen te leren.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen."
   },
   "about": {
     "header": "Over",
@@ -479,8 +481,8 @@
     "no_location": "geen locatie",
     "geoprivacy": "geoprivacy",
     "open": "Open",
-    "obscured": "Verborgen",
-    "private": "Privé",
+    "obscured": "Vervaagd",
+    "private": "Afgeschermd",
     "yes": "Ja",
     "no": "Nee",
     "captive": "in gevangenschap/gekweekt",
@@ -505,12 +507,12 @@
     "date_description": "Elke waarneming op iNaturalist heeft een bepaalde datum en locatie en op die manier zien we duidelijk een globaal beeld van hoe een soort het wereldwijd doet in de loop van de tijd.",
     "geoprivacy": "Geoprivacy",
     "open_header": "Open: ",
-    "obscured_header": "Verborgen: ",
+    "obscured_header": "Vervaagd: ",
     "closed_header": "Gesloten: ",
     "yes_header": "Ja: ",
     "no_header": "Nee: ",
     "open": "Andere gebruikers van iNaturalist kunnen zien waar deze soort is gezien en wetenschappers kunnen deze gegevens gebruiken voor onderzoek.",
-    "obscured": "De exacte locatie van deze waarneming zal worden verborgen voor andere gebruikers van iNaturalist en in plaats daarvan wordt een groter gebied getoond. (De locaties van alle bedreigde en bedreigde soorten worden automatisch vervaagd)",
+    "obscured": "De exacte locatie van deze waarneming zal worden verborgen voor andere gebruikers op iNaturalist en in plaats daarvan wordt een groter gebied getoond. (De locaties van alle bedreigde en kwetsbare soorten worden automatisch vervaagd)",
     "closed": "De locatie van deze waarneming zal niet worden gedeeld met andere gebruikers van iNaturalist.",
     "captive": "In gevangenschap/gekweekt?",
     "no": "Dit is een organisme dat van nature in het wild voorkomt en niet door mensen naar deze locatie is gebracht.",
@@ -532,13 +534,19 @@
   "accessibility": {
     "menu": "Open menu",
     "camera": "Open camera",
-    "notifications": "View notifications",
-    "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect",
-    "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
-    "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "notifications": "Toon meldingen",
+    "iNatStats": "Toon iNat statistieken",
+    "flag": "Markeer deze waarneming als onjuist",
+    "back": "Ga terug naar het vorige scherm",
+    "modal": "Veeg omlaag om modal scherm te sluiten",
+    "user_location": "Keer terug naar je huidige locatie",
+    "help": "Tik om help scherm te tonen",
+    "take_photo": "Tik om een foto te maken"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

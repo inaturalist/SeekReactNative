@@ -259,7 +259,7 @@
     "error_timeout": "Vi kunne ikke gemme din observation på grund af en placerings-timeout. Prøv venligst igen senere.",
     "nearby": "Arter i nærheden fra dette takson",
     "nothing_nearby": "Det ser ud til, at der ikke er observeret ret mange arter fra dette takson i nærheden! Prøv at tage endnu et billede og slå det op på iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "tap": "Tryk for at hente arter i nærheden"
   },
   "banner": {
     "view": "Se mærke",
@@ -291,7 +291,8 @@
     "permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
-    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet"
+    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": "Fotos",
@@ -444,6 +445,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "Lignende arter",
     "similar_about": "Organismer som ofte forveksles med denne art.",
+    "similar_no_species": "Det ser ud til, at der ikke er observeret ret mange lignede arter i nærheden!",
     "plant": "plante",
     "amphibian": "padde",
     "fungi": "svamp",
@@ -530,15 +532,21 @@
     "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide."
   },
   "accessibility": {
-    "menu": "Open menu",
-    "camera": "Open camera",
-    "notifications": "View notifications",
-    "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect",
-    "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
-    "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "menu": "Åbn menu",
+    "camera": "Åbn kamera",
+    "notifications": "Se notifikationer",
+    "iNatStats": "Se iNats statistikside",
+    "flag": "Markér denne observation som ukorrekt",
+    "back": "Vend tilbage til foregående skærm",
+    "modal": "Swipe nedad for at lukke pop op-vindue",
+    "user_location": "Vend tilbage til din nuværende placering",
+    "help": "Tryk for hjælpeskærm",
+    "take_photo": "Tryk for at tage foto"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

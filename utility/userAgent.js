@@ -3,9 +3,9 @@ import {
   getBuildNumber,
   getSystemName,
   getSystemVersion,
-  isTablet
+  getDeviceType
 } from "react-native-device-info";
 
-const createUserAgent = () => `Seek/${getVersion()} ${isTablet() ? "Tablet" : null} (Build ${getBuildNumber()}) ${getSystemName()}/${getSystemVersion()}`;
+const createUserAgent = () => `Seek/${getVersion()} ${getDeviceType()} (Build ${getBuildNumber()}) ${getSystemName()}/${getSystemVersion()}`;
 
 export default createUserAgent;

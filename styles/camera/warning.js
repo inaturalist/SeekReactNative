@@ -6,7 +6,8 @@ import {
 } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
@@ -15,12 +16,12 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   button: {
     marginBottom: 24,
-    marginTop: ( fontScale > 1 ) ? null : 14,
+    marginTop: ( fontScale > 1 || height < 570 ) ? null : 14,
     width: height > 570 ? 285 : 230
   },
   contentContainer: {
     alignItems: "center",
-    marginTop: 31
+    marginTop: height < 570 ? 10 : 31
   },
   header: {
     backgroundColor: colors.seekForestGreen,
@@ -50,12 +51,10 @@ export default StyleSheet.create( {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    marginBottom: 28
+  margin: {
+    marginTop: height > 570 ? 28 : 8
   },
+  row,
   text: {
     color: colors.black,
     flexDirection: "row",

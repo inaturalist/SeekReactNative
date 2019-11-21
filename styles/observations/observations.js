@@ -62,6 +62,7 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    alignItems: "center"
+    alignItems: "center",
+    marginHorizontal: 25
   }
 } );

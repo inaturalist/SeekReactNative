@@ -66,6 +66,9 @@ const AboutScreen = ( { navigation }: Props ) => {
         <Text style={styles.boldText}>{i18n.t( "about.designed_by" )}</Text>
         <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
         <View style={styles.block} />
+        <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
+        <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <View style={styles.block} />
         <Text style={styles.greenText}>
           {i18n.t( "about.version" ).toLocaleUpperCase()}
           {` ${appVersion} (${buildVersion})`}

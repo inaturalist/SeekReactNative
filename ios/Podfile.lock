@@ -200,7 +200,7 @@ PODS:
     - React
   - react-native-maps (0.26.1):
     - React
-  - react-native-netinfo (4.6.0):
+  - react-native-netinfo (3.2.0):
     - React
   - react-native-open-settings (1.0.0):
     - React
@@ -430,7 +430,7 @@ SPEC CHECKSUMS:
   react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
-  react-native-netinfo: bd4c115afdf0821b8ddb6c59ef3ddc5f0a7e8ad0
+  react-native-netinfo: 34cf53b69bd112eaf944e931092a899c024adf8d
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
   react-native-webview: b7ad1323338cb52e370bb07d6141308953ff2440
   React-RCTActionSheet: 7369b7c85f99b6299491333affd9f01f5a130c22

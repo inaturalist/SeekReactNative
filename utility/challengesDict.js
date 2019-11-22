@@ -128,10 +128,10 @@ const challenges = {
     month: "challenges.december_2019",
     description: "challenges.december_description",
     totalSpecies: 20,
-    homeBackgroundName: "img-homechallenge-november",
-    backgroundName: "img-challengedetail-november",
+    homeBackgroundName: "img-homechallenge-december",
+    backgroundName: "img-challengedetail-december",
     unearnedIconName: "badge_empty",
-    earnedIconName: "badge_ourplanet_november",
+    earnedIconName: "badge_ourplanet_december",
     missions: [
       "challenges.mission_1_december"
     ],

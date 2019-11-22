@@ -38,6 +38,8 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
   } else {
     rightIcon = (
       <TouchableOpacity
+        accessibilityLabel={`${i18n.t( "challenges.start_now" )}${item.name}`}
+        accessible
         onPress={() => {
           setChallengeIndex( item.index );
           startChallenge( item.index );

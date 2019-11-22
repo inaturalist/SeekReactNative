@@ -397,7 +397,10 @@ class SpeciesDetail extends Component<Props> {
     return (
       <>
         <SafeAreaView />
-        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+          contentContainerStyle={styles.footerMargin}
+        >
           <NavigationEvents
             onWillBlur={() => this.resetState()}
             onWillFocus={() => this.fetchiNatData()}

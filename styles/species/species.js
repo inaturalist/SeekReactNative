@@ -3,7 +3,8 @@ import {
   colors,
   fonts,
   touchable,
-  row
+  row,
+  footerMargin
 } from "../global";
 
 export default StyleSheet.create( {
@@ -30,6 +31,7 @@ export default StyleSheet.create( {
     lineHeight: 31,
     marginTop: 23
   },
+  footerMargin,
   greenBanner: {
     backgroundColor: colors.seekForestGreen,
     height: 40,

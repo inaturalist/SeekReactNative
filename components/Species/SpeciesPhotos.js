@@ -152,12 +152,16 @@ class SpeciesPhotos extends Component<Props> {
               renderItem={( { item } ) => item}
             />
             <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
+              accessible
               onPress={() => this.scrollLeft()}
               style={styles.leftArrow}
             >
               <Image source={icons.swipeLeft} />
             </TouchableOpacity>
             <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
+              accessible
               onPress={() => this.scrollRight()}
               style={styles.rightArrow}
             >

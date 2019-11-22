@@ -543,7 +543,9 @@
     "modal": "Swipe down to close popup",
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "take_photo": "Tap to take photo",
+    "scroll_left": "Tap to scroll left",
+    "scroll_right": "Tap to scroll right"
   },
   "review": {
     "title": "Rate this app",

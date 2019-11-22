@@ -48,7 +48,8 @@ class GalleryScreen extends Component<Props> {
       stillLoading: false,
       groupTypes: "All",
       album: null,
-      predictions: []
+      predictions: [],
+      loading: false
     };
 
     this.updateAlbum = this.updateAlbum.bind( this );
@@ -199,6 +200,8 @@ class GalleryScreen extends Component<Props> {
       longitude = location.longitude;
     }
 
+    this.setState( { loading: false } );
+
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
         uri,
@@ -220,6 +223,8 @@ class GalleryScreen extends Component<Props> {
 
   selectAndResizeImage( node ) {
     const { timestamp, location, image } = node;
+
+    this.setState( { loading: true } );
 
     if ( Platform.OS === "android" ) {
       this.getPredictions( image.uri );
@@ -265,7 +270,8 @@ class GalleryScreen extends Component<Props> {
   render() {
     const {
       error,
-      photos
+      photos,
+      loading
     } = this.state;
 
     const { navigation } = this.props;
@@ -321,6 +327,11 @@ class GalleryScreen extends Component<Props> {
             <AlbumPicker updateAlbum={this.updateAlbum} />
           </View>
         </View>
+        {loading ? (
+          <View style={styles.loading}>
+            <LoadingWheel color={colors.darkGray} />
+          </View>
+        ) : null}
         <View style={styles.galleryContainer}>
           {gallery}
         </View>

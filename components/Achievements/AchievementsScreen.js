@@ -57,14 +57,14 @@ class AchievementsScreen extends Component<Props> {
         const badges = realm.objects( "BadgeRealm" );
         const badgesEarned = badges.filtered( "iconicTaxonName != null AND earned == true" ).length;
 
-        const taxaIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
+        const iconicTaxonIds = Object.keys( taxonIds ).map( id => taxonIds[id] );
 
         const speciesBadges = [];
 
-        taxaIds.forEach( ( id ) => {
-          const tempBadges = badges.filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` );
-          const sorted = tempBadges.sorted( "earnedDate", true );
-          speciesBadges.push( sorted[0] );
+        iconicTaxonIds.forEach( ( id ) => {
+          const highestEarned = badges.filtered( `iconicTaxonName != null AND iconicTaxonId == ${id}` )
+            .sorted( "earnedDate", true );
+          speciesBadges.push( highestEarned[0] );
         } );
 
         const allLevels = badges.filtered( "iconicTaxonName == null" ).sorted( "index" );
@@ -72,14 +72,7 @@ class AchievementsScreen extends Component<Props> {
         const nextLevel = badges.filtered( "iconicTaxonName == null AND earned == false" ).sorted( "index" );
 
         speciesBadges.sort( ( a, b ) => {
-          if ( a.index < b.index ) {
-            return -1;
-          }
-          return 1;
-        } );
-
-        speciesBadges.sort( ( a, b ) => {
-          if ( a.earned > b.earned ) {
+          if ( a.index < b.index && a.earned > b.earned ) {
             return -1;
           }
           return 1;

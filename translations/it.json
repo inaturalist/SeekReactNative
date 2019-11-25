@@ -224,7 +224,7 @@
     "join": "Accedi con iNaturalist",
     "by": "da",
     "thanks": "La comunità iNaturalist è composta da persone come te! Unisciti alla comunità e aggiungi le tue osservazioni su iNaturalist.org!",
-    "logged_in": "Ha effettuato l'accesso in Seek con il tuo account iNaturalist. Grazie per far parte di questa comunità!",
+    "logged_in": "Hai effettuato l'accesso in Seek con il tuo account iNaturalist. Grazie per far parte di questa comunità!",
     "sign_out": "Esci da iNaturalist"
   },
   "results": {
@@ -238,7 +238,7 @@
     "take_photo": "Scatta una nuova foto",
     "common_ancestor": "Ma non possiamo identificare la specie esatta.\n\nPuoi provare un angolo diverso, zoomare di più, o provare ad ottenere un scatto più definito dell'organismo.",
     "believe": "Pensiamo che sia un membro di",
-    "believe_1": "We believe this is a member of",
+    "believe_1": "Pensiamo che sia un membro di",
     "resighted": "Hai rivisto una specie!",
     "date_observed": "Lo hai osservato per la prima il:\n{{seenDate}}",
     "post_inat": "Se hai scattato la foto originale dell'organismo puoi aiutare Seek ad imparare a riconoscere questa specie pubblicandola su iNaturalist, dove la comunità contribuirà all'identificazione e al miglioramento delle versioni future.",
@@ -257,9 +257,9 @@
     "error_few": "alcuni",
     "error_gps": "Non siamo riusciti a trovare la tua posizione GPS. Prova a spostarti in un luogo dove puoi vedere il cielo e controllare che sia attivo il rilevamento della posizione del tuo dispositivo per salvare le osservazioni.",
     "error_timeout": "Non siamo riusciti a salvare la tua osservazione a causa di un ritardo nel rilevamento della posizione. Riprova più tardi.",
-    "nearby": "Species nearby in this taxon",
-    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "nearby": "Specie nelle vicinanze in questo taxon",
+    "nothing_nearby": "Sembra che non ci siano state molte specie osservate nelle vicinanze in questo taxon! Prova a scattare un'altra foto o a postarla su iNaturalist.",
+    "tap": "Tocca per caricare le specie nelle vicinanze"
   },
   "banner": {
     "view": "Mostra Distintivo",
@@ -291,12 +291,13 @@
     "permissions": "Concedi le autorizzazioni nelle impostazioni",
     "error_classifier": "Siamo spiacenti, non siamo in grado di caricare il classificatore",
     "error_old_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
-    "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato"
+    "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": "Foto",
     "choose_photo": "Scegli una foto",
-    "camera_roll": "Camera Roll"
+    "camera_roll": "Rullino Fotocamera"
   },
   "camera_help": {
     "title": "Fotocamera di Seek",
@@ -444,6 +445,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "Specie Simili",
     "similar_about": "Organismi comunemente identificati erroneamente come questa specie.",
+    "similar_no_species": "Sembra che non siano state osservate molte specie simili nelle vicinanze!",
     "plant": "pianta",
     "amphibian": "anfibio",
     "fungi": "fungo",
@@ -456,7 +458,7 @@
     "mammal": "mammifero",
     "species_saved": "Questa specie è salvata nelle tue osservazioni.",
     "you": "Ehi, sei tu! Vai fuori e trova alcune specie selvatiche per saperne di più.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "Abbiamo bisogno di internet per generare la schermata di dettaglio delle specie. Tocca per riprovare."
   },
   "about": {
     "header": "Info su",
@@ -530,15 +532,21 @@
     "tip_3": "Rispetta gli altri esseri viventi non infastidendoli o toccandoli. Alcuni potrebbero pungere o mordere."
   },
   "accessibility": {
-    "menu": "Open menu",
-    "camera": "Open camera",
-    "notifications": "View notifications",
-    "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect",
-    "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
-    "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "menu": "Apri menu",
+    "camera": "Avvia fotocamera",
+    "notifications": "Visualizza notifiche",
+    "iNatStats": "Visualizza la schermata statistiche di iNat",
+    "flag": "Segnala questa osservazione come non corretta",
+    "back": "Torna alla visualizzazione precedente",
+    "modal": "Scorri in basso per chiudere la finestra",
+    "user_location": "Ritorna alla tua posizione corrente",
+    "help": "Tocca per la schermata di aiuto",
+    "take_photo": "Tocca per scattare una foto"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

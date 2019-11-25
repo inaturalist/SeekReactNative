@@ -45,9 +45,9 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     <View style={styles.marginSmall} />
     <TouchableOpacity
       onPress={() => navigation.navigate( "Main" )}
-      style={[styles.whiteButton, { height: 79, borderRadius: 100 }]}
+      style={[styles.whiteButton, styles.whiteButtonLarge]}
     >
-      <Text style={[styles.buttonText, { lineHeight: 24 }]}>
+      <Text style={styles.buttonText}>
         {i18n.t( "login.skip_login" ).toLocaleUpperCase()}
       </Text>
     </TouchableOpacity>

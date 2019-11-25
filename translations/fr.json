@@ -257,9 +257,9 @@
     "error_few": "peu",
     "error_gps": "Nous n’avons pas réussi a vous localiser. Pour enregistrer les observation, merci d’essayer de vous déplacer à un endroit où vous pouvez voir le ciel ainsi que de vérifier si le service de localisation de votre appareil est activé.",
     "error_timeout": "Nous n’avons pas réussi à enregistrer vos observations en raison d’un délai de localisation trop long. Merci de réessayer plus tard.",
-    "nearby": "Species nearby in this taxon",
-    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "nearby": "Espèces proches au sein de ce taxon",
+    "nothing_nearby": "Il semblerait que peu d’espèce de ce taxon aient été observées à proximité. Essayez de prendre une autre photo ou de la poster sur iNaturalist.",
+    "tap": "Appuyez afin de charger les espèces à proximité"
   },
   "banner": {
     "view": "Afficher le badge",
@@ -291,12 +291,13 @@
     "permissions": "Activer les permissions dans les paramètres",
     "error_classifier": "Désolé, nous n’arrivons pas à charger le répertoire",
     "error_old_camera": "Désolé, nous n’avons pas réussi à charger la caméra",
-    "error_device_support": "Désolé, l’appareil utilisé n’est pas pris en charge"
+    "error_device_support": "Désolé, l’appareil utilisé n’est pas pris en charge",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": " Photos",
     "choose_photo": " Choisissez une photo",
-    "camera_roll": "Roll de caméra"
+    "camera_roll": "Galerie"
   },
   "camera_help": {
     "title": "La caméra de Seek",
@@ -441,9 +442,10 @@
     "introduced_about": "Cette espèce a été introduite dans cette région par l'homme et n’est pas naturellement présente ici.",
     "got_it": "Fait !",
     "wikipedia": "{{about}} Source : Wikipedia",
-    "wikipedia_1": "Wikipedia",
+    "wikipedia_1": "Wikipédia",
     "similar": "Espèces similaires",
     "similar_about": "Organisme souvent confondue avec cette espèce.",
+    "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "plante",
     "amphibian": "amphibien",
     "fungi": "champignon",
@@ -456,7 +458,7 @@
     "mammal": "mammifère",
     "species_saved": "Cette espèce est enregistrée dans vos observations.",
     "you": "Regardez - c'est vous ! Sortez et trouvez des espèces sauvages pour en savoir plus sur eux.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer."
   },
   "about": {
     "header": "À propos de",
@@ -530,15 +532,21 @@
     "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre."
   },
   "accessibility": {
-    "menu": "Open menu",
-    "camera": "Open camera",
-    "notifications": "View notifications",
-    "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect",
-    "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
-    "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "menu": "Ouvrir le menu",
+    "camera": "Ouvrir l'appareil photo",
+    "notifications": "Voir les notifications",
+    "iNatStats": "Voir l'écran de statistiques iNat",
+    "flag": "Signaler cette observation comme incorrecte",
+    "back": "Retour à la page précédente",
+    "modal": "Swipe down to close popup",
+    "user_location": "Retourner à votre position actuelle",
+    "help": "Appuyez pour afficher la page d’assistance",
+    "take_photo": "Appuyez pour prendre une photo"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

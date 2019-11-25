@@ -27,6 +27,9 @@ export default StyleSheet.create( {
     flexGrow: 1,
     justifyContent: "center"
   },
+  marginSmall: {
+    marginRight: 7
+  },
   numberText: {
     color: colors.black,
     fontFamily: fonts.light,
@@ -34,6 +37,9 @@ export default StyleSheet.create( {
     letterSpacing: 0.78,
     marginRight: 6,
     marginTop: Platform.OS === "ios" ? 4 : 0
+  },
+  padding: {
+    paddingBottom: Platform.OS === "android" ? 40 : 60
   },
   row: {
     alignItems: "center",
@@ -56,6 +62,7 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    alignItems: "center"
+    alignItems: "center",
+    marginHorizontal: 25
   }
 } );

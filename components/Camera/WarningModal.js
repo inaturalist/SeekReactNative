@@ -32,6 +32,7 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
           </Text>
         </View>
       </View>
+      <View style={styles.margin} />
       <View style={styles.row}>
         <Image source={icons.warningEat} style={styles.image} />
         <View style={styles.textContainer}>
@@ -40,6 +41,7 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
           </Text>
         </View>
       </View>
+      <View style={styles.margin} />
       <View style={styles.row}>
         <Image source={icons.warningTouch} style={styles.image} />
         <View style={styles.textContainer}>
@@ -48,6 +50,7 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
           </Text>
         </View>
       </View>
+      <View style={styles.margin} />
       <View style={styles.button}>
         <GreenButton
           handlePress={() => toggleWarningModal()}

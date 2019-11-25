@@ -34,6 +34,7 @@ import {
 import { dirPictures } from "../../utility/dirStorage";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import NoInternetError from "./NoInternetError";
+import createUserAgent from "../../utility/userAgent";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -247,7 +248,9 @@ class SpeciesDetail extends Component<Props> {
       locale: i18n.currentLocale()
     };
 
-    inatjs.taxa.fetch( id, params ).then( ( response ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
       const taxa = response.results[0];
       const commonName = capitalizeNames( taxa.preferred_common_name || taxa.name );
       const scientificName = taxa.name;
@@ -299,7 +302,9 @@ class SpeciesDetail extends Component<Props> {
       taxon_id: id
     };
 
-    inatjs.observations.histogram( params ).then( ( response ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.observations.histogram( params, options ).then( ( response ) => {
       const countsByMonth = response.results.month_of_year;
       const observationsByMonth = [];
 
@@ -326,7 +331,9 @@ class SpeciesDetail extends Component<Props> {
       taxon_id: id
     };
 
-    inatjs.observations.search( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.observations.search( params, options ).then( ( { results } ) => {
       if ( results.length > 0 ) {
         const { taxon } = results[0];
         if ( taxon ) {
@@ -390,7 +397,10 @@ class SpeciesDetail extends Component<Props> {
     return (
       <>
         <SafeAreaView />
-        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+        <ScrollView
+          ref={( ref ) => { this.scrollView = ref; }}
+          contentContainerStyle={styles.footerMargin}
+        >
           <NavigationEvents
             onWillBlur={() => this.resetState()}
             onWillFocus={() => this.fetchiNatData()}

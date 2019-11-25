@@ -13,6 +13,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
+    lineHeight: 24,
     paddingHorizontal: 26,
     paddingTop: padding.iOSPadding,
     textAlign: "center"
@@ -48,5 +49,9 @@ export default StyleSheet.create( {
     height: 52,
     justifyContent: "center",
     width: dimensions.width - 70
+  },
+  whiteButtonLarge: {
+    borderRadius: 100,
+    height: 79
   }
 } );

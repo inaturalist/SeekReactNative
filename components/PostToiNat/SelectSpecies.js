@@ -20,10 +20,11 @@ import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import postingIcons from "../../assets/posting";
 import Padding from "../UIComponents/Padding";
-import SpeciesCard from "./SpeciesCard";
+import SpeciesCard from "../UIComponents/SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 import GreenText from "../UIComponents/GreenText";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +toggleSpeciesModal: Function,
@@ -62,7 +63,9 @@ class SelectSpecies extends Component<Props> {
       locale: i18n.currentLocale()
     };
 
-    inatjs.taxa.autocomplete( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.taxa.autocomplete( params, options ).then( ( { results } ) => {
       const suggestions = [];
 
       if ( results.length > 0 ) {
@@ -146,25 +149,31 @@ class SelectSpecies extends Component<Props> {
               ) : null}
             {!isSearching ? (
               <SpeciesCard
-                commonName={commonName || scientificName}
-                id={seekId}
-                image={image}
+                commonName={commonName}
+                handlePress={() => {
+                  updateTaxon( seekId, commonName, scientificName );
+                  toggleSpeciesModal();
+                }}
+                photo={{ uri: image }}
                 scientificName={scientificName}
-                toggleSpeciesModal={toggleSpeciesModal}
-                updateTaxon={updateTaxon}
               />
             ) : (
               suggestions.map( ( item, index ) => (
-                <SpeciesCard
+                <View
                   key={`${item.scientificName}${index}`}
-                  commonName={item.commonName}
-                  iconicTaxonId={item.iconicTaxonId}
-                  id={item.id}
-                  image={item.image}
-                  scientificName={item.scientificName}
-                  toggleSpeciesModal={toggleSpeciesModal}
-                  updateTaxon={updateTaxon}
-                />
+                  style={styles.card}
+                >
+                  <SpeciesCard
+                    commonName={item.commonName}
+                    handlePress={() => {
+                      updateTaxon( item.id, item.commonName, item.scientificName );
+                      toggleSpeciesModal();
+                    }}
+                    iconicTaxonId={item.iconicTaxonId}
+                    photo={{ uri: item.image }}
+                    scientificName={item.scientificName}
+                  />
+                </View>
               ) ) )}
           </View>
           <Padding />

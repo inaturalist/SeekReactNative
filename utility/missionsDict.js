@@ -68,13 +68,13 @@ const missions = {
       number: 10,
       types: ["Pinales", "Arecaceae", "Fagales", "Sapindales", "Magnoliales", "Aquifoliales", "Sorbus", "Prunus", "Pyrus", "Malus", "Celtis", "Populus", "Salix", "Laurales", "Ulmaceae", "Rhamnaceae", "Moraceae", "Rhizophoraceae", "Combretaceae", "Cornales"]
     }
+  },
+  7: {
+    0: {
+      number: 20,
+      types: ["plants"]
+    }
   }
-  // 7: {
-  //   0: {
-  //     number: 20,
-  //     types: ["plants"]
-  //   }
-  // }
 };
 
 export default missions;

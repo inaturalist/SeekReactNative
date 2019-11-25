@@ -29,6 +29,8 @@ import SelectSpecies from "./SelectSpecies";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
+import SpeciesCard from "../UIComponents/SpeciesCard";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -248,7 +250,8 @@ class PostScreen extends Component<Props> {
 
   fetchJSONWebToken( token ) {
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
     };
 
     const site = "https://www.inaturalist.org";
@@ -310,9 +313,7 @@ class PostScreen extends Component<Props> {
       }
     };
 
-    const version = "2.1.0";
-
-    const options = { api_token: token, user_agent: `Seek/${version}` };
+    const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observations.create( params, options ).then( ( response ) => {
       const { id } = response[0];
@@ -330,8 +331,6 @@ class PostScreen extends Component<Props> {
       date
     } = this.state;
 
-    const options = { api_token: token, user_agent: "Seek" };
-
     const params = {
       "observation_photo[observation_id]": obsId,
       file: new FileUpload( {
@@ -343,6 +342,8 @@ class PostScreen extends Component<Props> {
       latitude,
       longitude
     };
+
+    const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
       this.setPostSucceeded();
@@ -379,16 +380,6 @@ class PostScreen extends Component<Props> {
       postingSuccess,
       description
     } = this.state;
-
-    let commonName;
-
-    if ( taxon.preferredCommonName ) {
-      commonName = taxon.preferredCommonName;
-    } else if ( taxon.name ) {
-      commonName = taxon.name;
-    } else {
-      commonName = i18n.t( "posting.unknown" );
-    }
 
     return (
       <View style={styles.container}>
@@ -452,11 +443,12 @@ class PostScreen extends Component<Props> {
             onPress={() => this.toggleSpeciesModal()}
             style={styles.card}
           >
-            <Image source={{ uri: userImage }} style={styles.image} />
-            <View style={styles.speciesNameContainer}>
-              <Text style={styles.commonNameText}>{commonName}</Text>
-              {taxon.name ? <Text style={styles.text}>{taxon.name}</Text> : null}
-            </View>
+            <SpeciesCard
+              commonName={taxon.preferredCommonName}
+              handlePress={() => this.toggleSpeciesModal()}
+              photo={{ uri: userImage }}
+              scientificName={taxon.name}
+            />
             <Image source={posting.expand} style={styles.buttonIcon} />
           </TouchableOpacity>
           <TextInput

@@ -18,6 +18,7 @@ static NSString *appGroupId = @"group.org.inaturalist.CardsSharing";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
   if (![[NSUserDefaults standardUserDefaults] boolForKey:hasMigratedRealmDatabaseFromContainer]) {
     [self migrateRealmDatabaseFromSharedContainer];
   }

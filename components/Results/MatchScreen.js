@@ -34,7 +34,8 @@ import {
   setRoute,
   removeFromCollection,
   fetchNumberSpeciesSeen,
-  showAppStoreReview
+  showAppStoreReview,
+  showPlayStoreReview
 } from "../../utility/helpers";
 import {
   createLocationPermissionsAlert,
@@ -139,7 +140,11 @@ class MatchScreen extends Component<Props> {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
-          showAppStoreReview();
+          if ( Platform.OS === "ios" ) {
+            showAppStoreReview();
+          } else {
+            showPlayStoreReview();
+          }
         }
       } );
     }

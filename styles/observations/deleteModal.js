@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  padding,
+  row,
   touchable
 } from "../global";
 
@@ -12,15 +12,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
+    lineHeight: 24,
     paddingTop: Platform.OS === "ios" ? 7 : 0,
     textAlign: "center"
-  },
-  commonNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.book,
-    fontSize: 21
   },
   flagBackButton: {
     marginLeft: 33,
@@ -42,40 +36,20 @@ export default StyleSheet.create( {
     borderTopRightRadius: 40,
     height: 62
   },
-  flagHeaderContainer: {
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
-  },
   flagTextContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "flex-end",
     marginTop: 15
   },
-  headerText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    marginBottom: 24,
-    paddingTop: padding.iOSPadding,
-    textAlign: "center"
-  },
-  image: {
-    borderRadius: 80 / 2,
-    height: 80,
-    marginRight: 20,
-    width: 80
+  headerStyling: {
+    marginRight: 15,
+    paddingTop: 9
   },
   innerContainer: {
     backgroundColor: colors.white,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    overflow: "hidden"
+    borderTopRightRadius: 40
   },
   largeFlagButton: {
     alignItems: "center",
@@ -85,25 +59,16 @@ export default StyleSheet.create( {
     justifyContent: "center",
     width: 278
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    marginLeft: 23,
-    width: 292
+  margin: {
+    marginTop: 27
   },
-  scientificNameText: {
-    color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    fontFamily: fonts.bookItalic,
-    fontSize: 16,
-    lineHeight: 21,
-    marginTop: 5
+  marginLarge: {
+    marginTop: 32
   },
-  speciesNameContainer: {
-    maxWidth: 223
+  marginSmall: {
+    marginTop: 16
   },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,

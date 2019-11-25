@@ -41,7 +41,7 @@ const LocationMap = ( {
       {region.latitude ? (
         <MapView
           maxZoomLevel={7}
-          onPress={() => navigation.navigate( "RangeMap", { region, id } )}
+          onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
           provider={PROVIDER_DEFAULT}
           region={region}
           rotateEnabled={false}

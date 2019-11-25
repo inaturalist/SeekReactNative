@@ -3,7 +3,7 @@ import {
   colors,
   fonts,
   padding,
-  touchable
+  center
 } from "./global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -16,13 +16,11 @@ export default StyleSheet.create( {
     width: 10
   },
   banner: {
-    alignItems: "center",
     backgroundColor: colors.white,
     elevation: 10,
     flexDirection: "row",
     flexWrap: "nowrap",
     height: 150,
-    justifyContent: "center",
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.8,
@@ -38,21 +36,19 @@ export default StyleSheet.create( {
     width: 293
   },
   buttonContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: height > 670 ? 74 : 14,
+    marginBottom: height > 770 ? 74 : 34,
     padding: 20
   },
-  carousel: {
-    marginTop: 20
+  buttonHeight: {
+    height: 50
   },
+  center,
   container: {
     flex: 1
   },
   contentContainer: {
     alignItems: "center",
     justifyContent: "flex-end",
-    paddingBottom: 57,
     width
   },
   dot: {
@@ -79,13 +75,9 @@ export default StyleSheet.create( {
     marginHorizontal: 22
   },
   pagination: {
-    alignItems: "center",
-    bottom: height > 670 ? 190 : 130,
     flexDirection: "row",
-    justifyContent: "center",
-    left: 0,
-    position: "absolute",
-    right: 0
+    marginBottom: height > 570 ? 37 : 27,
+    marginTop: height > 570 ? 57 : 27
   },
   skip: {
     color: colors.white,
@@ -98,7 +90,6 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
-    marginBottom: 30,
     textAlign: "center",
     textDecorationLine: "underline"
   },
@@ -111,14 +102,9 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "center",
-    marginBottom: 57,
-    marginLeft: 42,
-    marginRight: 42,
+    marginHorizontal: 42,
     marginTop: 29
-  },
-  touchable
+  }
 } );

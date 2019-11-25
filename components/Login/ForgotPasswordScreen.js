@@ -18,6 +18,7 @@ import ErrorMessage from "../Signup/ErrorMessage";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/GreenButton";
+import createUserAgent from "../../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -70,7 +71,8 @@ class ForgotPasswordScreen extends Component<Props> {
     };
 
     const headers = {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
     };
 
     if ( token ) {

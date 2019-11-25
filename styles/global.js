@@ -57,3 +57,7 @@ export const row = {
   flexDirection: "row",
   flexWrap: "nowrap"
 };
+
+export const footerMargin = {
+  marginBottom: 74
+};

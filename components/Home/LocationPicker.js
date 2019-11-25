@@ -52,16 +52,6 @@ class LocationPicker extends Component<Props> {
     this.returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  handleRegionChange( region ) {
-    this.setState( {
-      region
-    }, () => {
-      if ( Platform.OS === "android" ) {
-        this.reverseGeocodeLocation( region.latitude, region.longitude );
-      }
-    } );
-  }
-
   setLocationUndefined() {
     this.setState( { location: i18n.t( "location_picker.undefined" ) } );
   }
@@ -88,6 +78,16 @@ class LocationPicker extends Component<Props> {
       } );
     } ).catch( ( e ) => {
       console.log( e, "error" );
+    } );
+  }
+
+  handleRegionChange( region ) {
+    this.setState( {
+      region
+    }, () => {
+      if ( Platform.OS === "android" ) {
+        this.reverseGeocodeLocation( region.latitude, region.longitude );
+      }
     } );
   }
 
@@ -146,6 +146,8 @@ class LocationPicker extends Component<Props> {
           <View style={styles.row}>
             <Image source={icons.locationWhite} />
             <TextInput
+              accessibilityLabel={location}
+              accessible
               autoCapitalize="words"
               onChangeText={text => this.setCoordsByLocationName( text )}
               placeholder={location}

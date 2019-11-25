@@ -159,8 +159,8 @@ class ARCamera extends Component<Props> {
           this.setError( "permissions" );
         }
 
-        if ( granted[cameraRollRetrieve] !== results.GRANTED ) {
-          this.setError( "save" );
+        if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== results.GRANTED ) {
+          this.setError( "gallery" );
         }
       } catch ( e ) {
         this.setError( "camera" );
@@ -245,10 +245,10 @@ class ARCamera extends Component<Props> {
       if ( imageMoved ) {
         this.navigateToResults( uri, backupFilepath );
       } else {
-        this.setError( "save" );
+        this.navigateToResults( uri );
       }
-    } catch ( error ) {
-      this.setError( "save" );
+    } catch ( e ) {
+      this.navigateToResults( uri );
     }
   }
 

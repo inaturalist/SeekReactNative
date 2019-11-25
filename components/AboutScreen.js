@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
@@ -23,8 +24,8 @@ type Props = {
 
 const AboutScreen = ( { navigation }: Props ) => {
   const scrollViewRef = useRef( null );
-  const version = "2.3.8";
-  const buildNumber = 73;
+  const appVersion = getVersion();
+  const buildVersion = getBuildNumber();
 
   const scrollToTop = () => {
     if ( scrollViewRef ) {
@@ -65,9 +66,12 @@ const AboutScreen = ( { navigation }: Props ) => {
         <Text style={styles.boldText}>{i18n.t( "about.designed_by" )}</Text>
         <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
         <View style={styles.block} />
+        <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
+        <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <View style={styles.block} />
         <Text style={styles.greenText}>
           {i18n.t( "about.version" ).toLocaleUpperCase()}
-          {` ${version} (${buildNumber})`}
+          {` ${appVersion} (${buildVersion})`}
         </Text>
         <View style={styles.block} />
         <Text style={styles.text}>

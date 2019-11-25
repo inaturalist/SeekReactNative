@@ -291,7 +291,8 @@
     "permissions": "在設定中啟用權限",
     "error_classifier": "很抱歉，我們無法載入分類器",
     "error_old_camera": "很抱歉，我們無法開啟相機",
-    "error_device_support": "很抱歉，您使用的裝置並不支援"
+    "error_device_support": "很抱歉，您使用的裝置並不支援",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": "照片",
@@ -444,6 +445,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "相似物種",
     "similar_about": "通常被誤以為此物种的生物。",
+    "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "植物",
     "amphibian": "兩棲動物",
     "fungi": "菌類",
@@ -536,9 +538,15 @@
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
+    "modal": "Swipe down to close popup",
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
     "take_photo": "Tap to take photo"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

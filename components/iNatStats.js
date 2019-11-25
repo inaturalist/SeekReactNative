@@ -28,6 +28,7 @@ import BackArrow from "./UIComponents/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 import { dimensions } from "../styles/global";
+import createUserAgent from "../utility/userAgent";
 
 type Props = {
   +navigation: any
@@ -75,7 +76,9 @@ class iNatStatsScreen extends Component<Props> {
       locale: i18n.currentLocale()
     };
 
-    inatjs.observations.search( params ).then( ( { results } ) => {
+    const options = { user_agent: createUserAgent() };
+
+    inatjs.observations.search( params, options ).then( ( { results } ) => {
       const taxa = results.map( r => r.taxon );
       const photos = [];
 
@@ -257,12 +260,16 @@ class iNatStatsScreen extends Component<Props> {
                 showsHorizontalScrollIndicator
               />
               <TouchableOpacity
+                accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
+                accessible
                 onPress={() => this.scrollLeft()}
                 style={styles.leftArrow}
               >
                 <Image source={icons.swipeLeft} />
               </TouchableOpacity>
               <TouchableOpacity
+                accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
+                accessible
                 onPress={() => this.scrollRight()}
                 style={styles.rightArrow}
               >

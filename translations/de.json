@@ -6,13 +6,13 @@
   "species_nearby": {
     "header": "Arten in der Nähe",
     "location_error": "Um Ihnen Arten in der Nähe anzeigen zu können, benötigen wir Ihren Standort.",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
+    "location_device": "Seek benötigt deinen Standort, um Arten in deiner Umgebung anzuzeigen und um Beobachtungen hinzuzufügen. Bitte stelle sicher, dass der Standort deines Geräts eingeschaltet ist.",
     "enable_location": "Standort in den Einstellungen aktivieren",
     "internet_error": "Um Arten in der Nähe zu generieren, benötigen wir das Internet. Tippen Sie, um es erneut zu versuchen.",
     "no_location": "Kein Standort",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuchen Sie, Ihren Standort zu ändern oder den Artenfilter zu erweitern.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "no_gps": "GPS-Signal nicht gefunden.",
+    "location_timeout": "Ihre Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut."
   },
   "get_started": {
     "header": "Erste Schritte",
@@ -75,20 +75,20 @@
     "parent_instructions": "Wir haben Deinen Eltern eine E-Mail mit einer Anleitung zugesandt.",
     "continue_no_log_in": "Mit der Anmeldung fortfahren",
     "terms": "Nutzungsbedingungen",
-    "linked_account": "You’ve linked an iNaturalist account to Seek!",
-    "posting": "Posting to iNaturalist",
-    "posting_details": "You can post observations made in Seek to iNaturalist immediately after you’ve added them to your observations. If you’d like to post them to iNaturalist later, please use the iNaturalist app or website.",
+    "linked_account": "Du hast ein iNaturalist-Konto mit Seek verknüpft!",
+    "posting": "In iNaturalist veröffentlichen",
+    "posting_details": "Sie können Beobachtungen, die in Seek gemacht wurden, sofort nach dem Hinzufügen zu Ihren Beobachtungen, auch in iNaturalist veröffentlichen. Falls Sie Beobachtungen später in iNaturalist veröffentlichen möchten, verwenden Sie bitte die iNaturalist-App oder die Website.",
     "observations": "Observations Saved on Device",
-    "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
-    "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "observations_1": "Ihre Beobachtungen in Seek werden auf Ihrem Gerät gespeichert und sind NICHT online gesichert.",
+    "observations_2": "Das Löschen der App löscht alle in Seek gemachten Beobachtungen.",
+    "observations_3": "Seek synchronisiert Ihre Beobachtungen nicht mit anderen Geräten."
   },
   "inat_login": {
     "log_in_with_inat": "Beim iNaturalist-Konto anmelden",
     "username": "Benutzername",
     "password": "Kennwort",
     "forgot_password_header": "Kennwort vergessen",
-    "forgot_password": "Forgot your password?",
+    "forgot_password": "Passwort vergessen?",
     "log_in": "Anmelden",
     "email": "E-Mail-Adresse",
     "no_worries": "Keine Sorge. Wir senden eine Anleitung zum Zurücksetzen des Kontos an Ihre E-Mail-Adresse.",
@@ -144,12 +144,12 @@
     "badge": "Abzeichen",
     "connectivity": "Verbindungsherausforderung",
     "biodiversity": "Biodiversitätsherausforderung",
-    "productivity": "Community Challenge",
-    "resilience": "Forests Challenge",
-    "farming": "Grasslands Challenge",
-    "flow": "Freshwater Challenge",
-    "hotspots": "High Seas Challenge",
-    "ice": "Climate Challenge",
+    "productivity": "Gemeinschafts Herausforderung",
+    "resilience": "Wald Herausforderung",
+    "farming": "Wiesen Herausforderung",
+    "flow": "Süsswasser Herausforderung",
+    "hotspots": "Hochsee Herausforderung",
+    "ice": "Klima Herausforderung",
     "op": "Unser Planet",
     "start_now": "Jetzt beginnen",
     "april_2019": "Apr-19",
@@ -238,28 +238,28 @@
     "take_photo": "Weiteres Foto aufnehmen",
     "common_ancestor": "Wir konnten die genaue Art nicht ermitteln.\n \nSie können es aus einem anderen Winkel versuchen oder das Bild vergrößern. Oder versuchen Sie, eine deutlicher Aufnahme des Lebewesens zu machen.",
     "believe": "Wir vermuten, es gehört zu",
-    "believe_1": "We believe this is a member of",
+    "believe_1": "Wir glauben das ist ein",
     "resighted": "Sie haben eine Art erneut beobachtet!",
     "date_observed": "Sie haben Sie erstmals beobachtet am:\n{{seenDate}}",
     "post_inat": "Wenn du derjenige warst, der das Foto des Organismus aufgenommen hast, kannst du mithelfen, Seek zu trainieren, indem du die Art an iNaturalist schickst, wo die Gemeinschaft helfen wird, es zu identifizieren und zukünftige Versionen zu verbessern.",
     "post": "An iNaturalist senden",
-    "flag": "Misidentification",
-    "incorrect": "Was this species misidentified?",
-    "yes": "Yes, remove it from my observations",
-    "yes_resighted": "Yes, this species was misidentified",
-    "no": "No, It's correct",
+    "flag": "Fehlbestimmung",
+    "incorrect": "Wurde diese Beobachtung falsch identifiziert?",
+    "yes": "Ja, aus meinen Beobachtungen entfernen",
+    "yes_resighted": "Ja, diese Beobachtung wurde falsch identifiziert",
+    "no": "Nein, es ist richtig",
     "enable_location": "Standort zum Speichern von Beobachtungen aktivieren",
     "error_server": "Leider können wir das Bild nicht bewerten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_location": "Um Arten zu deinen Beobachtungen hinzuzufügen, musst du deinen Standort aktivieren. Seek benutzt deinen Standort, um dich daran zu erinnern, wo du einen Organismus gesehen hast, und um zu helfen, zu Citizen Science Projekten beizutragen, wenn du auf iNaturalist postest.",
-    "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
+    "error_downtime": "Dienst vorübergehend nicht verfügbar. Bitte versuchen Sie es in {{number}} Stunden erneut.",
     "error_few": "a few",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
-    "nearby": "Species nearby in this taxon",
-    "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "error_gps": "Wir konnten deinen GPS-Standort nicht finden. Um Beobachtungen zu speichern, versuche bitte an einen Ort zu gehen, an dem du den Himmel sehen kannst, und überprüfe, ob der Standort deines Geräts eingeschaltet ist.",
+    "error_timeout": "Wir konnten deine Beobachtung nicht speichern, da die Standortabfrage das Zeitlimit erreicht hat. Bitte versuche es später erneut.",
+    "nearby": "Beobachtungen dieser Art in der Umgebung",
+    "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
+    "tap": "Tippe, um Arten in der Umgebung zu laden"
   },
   "banner": {
     "view": "Auszeichnung anzeigen",
@@ -291,12 +291,13 @@
     "permissions": "Berechtigungen in den Einstellungen aktivieren",
     "error_classifier": "Leider können wir den Klassifikator nicht laden",
     "error_old_camera": "Wir konnten die Kamera leider nicht laden",
-    "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt"
+    "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt",
+    "error_save": "Sorry, there was a problem saving your photo"
   },
   "gallery": {
     "label": "Fotos",
     "choose_photo": "Foto auswählen",
-    "camera_roll": "Camera Roll"
+    "camera_roll": "Fotoalbum"
   },
   "camera_help": {
     "title": "Seek-Kamera",
@@ -330,10 +331,10 @@
   },
   "badges": {
     "your_level": "Ihr Level",
-    "login": "Log in with iNaturalist to post observations to the online community!",
+    "login": "Melden Sie sich mit iNaturalist an, um Beobachtungen in der Internet-Gemeinschaft zu veröffentlichen!",
     "achievements": "Erfolge",
     "observe": "Beobachten Sie {{number}} Arten, um die nächste Stufe zu erreichen!",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "Du hast das maximale Level in Seek erreicht!",
     "observe_species": "Beobachtung",
     "species_badges": "Spezies Abzeichen",
     "challenge_badges": "Herausforderungs Abzeichen",
@@ -444,6 +445,7 @@
     "wikipedia_1": "Wikipedia",
     "similar": "Ähnliche Arten",
     "similar_about": "Organismen, die häufig als diese Art falsch identifiziert wurden.",
+    "similar_no_species": "Sieht so aus, als ob in der Nähe nicht viele ähnliche Beobachtungen gemacht wurden!",
     "plant": "Pflanze ",
     "amphibian": "Amphibie",
     "fungi": "Pilz",
@@ -456,7 +458,7 @@
     "mammal": "Säugetier",
     "species_saved": "Diese Art wird in deinen Beobachtungen gespeichert.",
     "you": "Hey, schauen Sie - Sie sind es! Gehen Sie hinaus und finden Sie einige wilde Arten, um noch mehr über sie zu erfahren.",
-    "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
+    "internet_error": "Wir brauchen das Internet, um Details zu dieser Art zu zeigen. Tippe um es erneut zu versuchen."
   },
   "about": {
     "header": "Über",
@@ -468,7 +470,7 @@
     "designed_by": "Entworfen und entwickelt vom iNaturalist Team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
-    "help": "For help with Seek, please email help+seek@inaturalist.org."
+    "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org."
   },
   "posting": {
     "header": "An iNaturalist senden",
@@ -518,27 +520,33 @@
     "addendum": "*Das Hinzufügen von Beobachtungen zu Projekten wird in Seek nicht unterstützt. Wenn Sie Ihre Beobachtungen zu einem Projekt hinzufügen möchten, bitte tun Sie dies auf iNaturalist.org oder verwenden Sie die iNaturalist-App."
   },
   "delete": {
-    "header": "Delete species?",
-    "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
-    "yes": "Yes, delete it from my observations",
-    "no": "Cancel"
+    "header": "Beobachtung löschen?",
+    "description": "Möchtest du diese Beobachtung aus deinen Beobachtungen löschen? Dies kann deine Herausforderungen und Abzeichen beeinflussen.",
+    "yes": "Ja, diese Beobachtung löschen",
+    "no": "Abbrechen"
   },
   "warning": {
-    "remember": "Remember",
-    "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite."
+    "remember": "Denke daran",
+    "tip_1": "Achte immer auf deine Umgebung und deine Sicherheit, betritt keine umzäunten Grundstücke.",
+    "tip_2": "Iss nichts, was du in freier Wildbahn findest.",
+    "tip_3": "Respektiere andere Lebewesen, indem Du sie nicht belästigst oder berührst. Einige können stechen oder beißen."
   },
   "accessibility": {
-    "menu": "Open menu",
-    "camera": "Open camera",
-    "notifications": "View notifications",
+    "menu": "Menü öffnen",
+    "camera": "Kamera öffnen",
+    "notifications": "Benachrichtigungen anzeigen",
     "iNatStats": "View iNat stats screen",
-    "flag": "Flag this observation incorrect",
-    "back": "Go back to previous screen",
-    "modal": "Swipe down to close modal",
-    "user_location": "Return to your current location",
-    "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "flag": "Diese Beobachtung als falsch markieren",
+    "back": "Zurück zur vorherigen Ansicht",
+    "modal": "Nach unten wischen, um Popup zu schließen",
+    "user_location": "Zurück zum gegenwärtigen Standort",
+    "help": "Tippe für Hilfeseite",
+    "take_photo": "Tippe um ein Foto zu machen"
+  },
+  "review": {
+    "title": "Rate this app",
+    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate_now": "Rate now",
+    "later": "Later"
   }
 }

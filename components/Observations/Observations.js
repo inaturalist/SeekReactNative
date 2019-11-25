@@ -46,10 +46,12 @@ class Observations extends Component<Props> {
     this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
+  setObservations( observations ) {
+    this.setState( { observations } );
+  }
+
   resetObservations() {
-    this.setState( {
-      observations: []
-    } );
+    this.setState( { observations: [] } );
   }
 
   updateItemScrolledId( itemScrolledId ) {
@@ -57,8 +59,8 @@ class Observations extends Component<Props> {
   }
 
   scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollToLocation( {
+    if ( this.sectionList ) {
+      this.sectionList.scrollToLocation( {
         sectionIndex: 0,
         itemIndex: 0,
         viewOffset: 70,
@@ -112,21 +114,17 @@ class Observations extends Component<Props> {
       .then( ( realm ) => {
         const observations = this.createSectionList( realm );
 
-        this.setState( { observations } );
+        this.setObservations( observations );
       } )
       .catch( () => {
         // console.log( "Err: ", err )
       } );
   }
 
-  removeFromObsList() {
-    this.setState( { observations: [] } );
-    this.fetchObservations();
-  }
-
   async deleteObservation( id ) {
     await removeFromCollection( id );
-    this.removeFromObsList();
+    this.resetObservations();
+    this.fetchObservations();
   }
 
   toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {
@@ -155,9 +153,7 @@ class Observations extends Component<Props> {
       section.open = true;
     }
 
-    this.setState( {
-      observations
-    } );
+    this.setObservations( observations );
   }
 
   renderEmptySection( id, data, open ) {
@@ -187,9 +183,8 @@ class Observations extends Component<Props> {
     if ( observations.length > 0 ) {
       content = (
         <SectionList
-          ref={( ref ) => { this.scrollView = ref; }}
-          contentContainerStyle={{ paddingBottom: Platform.OS === "android" ? 40 : 60 }}
-          extraData={observations}
+          ref={( ref ) => { this.sectionList = ref; }}
+          contentContainerStyle={styles.padding}
           initialNumToRender={6}
           keyExtractor={( item, index ) => item + index}
           renderItem={( { item, section } ) => {
@@ -206,7 +201,13 @@ class Observations extends Component<Props> {
             }
             return null;
           }}
-          renderSectionFooter={( { section: { id, data, open } } ) => this.renderEmptySection( id, data, open )}
+          renderSectionFooter={( {
+            section: {
+              id,
+              data,
+              open
+            }
+          } ) => this.renderEmptySection( id, data, open )}
           renderSectionHeader={( {
             section: {
               id,
@@ -239,15 +240,13 @@ class Observations extends Component<Props> {
                 </Text>
                 <View style={styles.row}>
                   <Text style={styles.numberText}>{data.length}</Text>
-                  {badgeCount === -1
-                    ? <View style={{ marginRight: 7 }} />
-                    : null}
-                  {badgeCount !== -1
-                    ? <Image source={badge} style={styles.badgeImage} />
-                    : null}
-                  {badgeCount !== -1
-                    ? <View style={{ marginRight: open ? 15 : 19 }} />
-                    : null}
+                  {badgeCount === -1 ? (
+                    <React.Fragment>
+                      <View style={styles.marginSmall} />
+                      <Image source={badge} style={styles.badgeImage} />
+                      <View style={{ marginRight: open ? 15 : 19 }} />
+                    </React.Fragment>
+                  ) : null}
                   <View style={{ marginRight: badge === badges.badge_empty_small ? -1 : null }} />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>
@@ -266,11 +265,11 @@ class Observations extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <NavigationEvents
-          onDidFocus={() => {
+          onWillBlur={() => {
             this.scrollToTop();
-            this.fetchObservations();
+            this.resetObservations();
           }}
-          onWillBlur={() => this.resetObservations()}
+          onWillFocus={() => this.fetchObservations()}
         />
         <GreenHeader
           header={i18n.t( "observations.header" )}

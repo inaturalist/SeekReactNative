@@ -27,7 +27,7 @@ const CameraError = ( { error, errorEvent }: Props ) => {
   } else if ( error === "device" ) {
     errorText = i18n.t( "camera.error_device_support" );
   } else if ( error === "save" ) {
-    errorText = i18n.t( "camera.error_gallery" );
+    errorText = i18n.t( "camera.error_save" );
   } else if ( error === "camera" && Platform.OS === "ios" ) {
     errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent}`;
   } else if ( error === "camera" ) {

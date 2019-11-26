@@ -56,35 +56,41 @@ class GalleryScreen extends Component<Props> {
   }
 
   getPredictions( uri ) {
-    const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
-    let paths;
-    let imagePath;
-    let folder;
-    let photoUri;
+    console.log( uri, "react uri" );
+    const path = uri.split( "file://" );
+    const reactUri = path[1];
+    console.log( reactUri, "react uri" );
+    // const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
+    // let paths;
+    // let imagePath;
+    // let folder;
+    // let photoUri;
 
-    if ( reactUri ) {
-      paths = reactUri.split( "/" );
-    }
+    // if ( reactUri ) {
+    //   paths = reactUri.split( "/" );
+    // }
 
-    if ( paths ) {
-      imagePath = paths.pop();
-      folder = paths.join( "/" );
-      photoUri = `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`; // triple check that this works for all images
-    }
+    // if ( paths ) {
+    //   imagePath = paths.pop();
+    //   folder = paths.join( "/" );
+    //   photoUri = `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`; // triple check that this works for all images
+    // }
 
-    RNFS.stat( photoUri ).then( () => {
-      getPredictionsForImage( {
-        uri: photoUri,
-        modelFilename: dirModel,
-        taxonomyFilename: dirTaxonomy
-      } ).then( ( { predictions } ) => {
-        this.setState( { predictions } );
-      } ).catch( ( err ) => {
-        console.log( "Error", err );
-      } );
-    } ).catch( () => {
-      console.log( "photo path doesn't exist" );
+    // console.log( photoUri, "transformed uri in react" );
+
+    // RNFS.stat( photoUri ).then( () => {
+    getPredictionsForImage( {
+      uri: reactUri,
+      modelFilename: dirModel,
+      taxonomyFilename: dirTaxonomy
+    } ).then( ( { predictions } ) => {
+      this.setState( { predictions } );
+    } ).catch( ( err ) => {
+      console.log( "Error", err );
     } );
+    // } ).catch( () => {
+    //   console.log( "photo path doesn't exist" );
+    // } );
   }
 
   getPhotos() {

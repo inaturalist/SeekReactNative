@@ -15,7 +15,6 @@ import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import moment from "moment";
 import { getPredictionsForImage } from "react-native-inat-camera";
-import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
 import CameraError from "./CameraError";
@@ -56,29 +55,9 @@ class GalleryScreen extends Component<Props> {
   }
 
   getPredictions( uri ) {
-    console.log( uri, "react uri" );
     const path = uri.split( "file://" );
     const reactUri = path[1];
-    console.log( reactUri, "react uri" );
-    // const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
-    // let paths;
-    // let imagePath;
-    // let folder;
-    // let photoUri;
 
-    // if ( reactUri ) {
-    //   paths = reactUri.split( "/" );
-    // }
-
-    // if ( paths ) {
-    //   imagePath = paths.pop();
-    //   folder = paths.join( "/" );
-    //   photoUri = `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`; // triple check that this works for all images
-    // }
-
-    // console.log( photoUri, "transformed uri in react" );
-
-    // RNFS.stat( photoUri ).then( () => {
     getPredictionsForImage( {
       uri: reactUri,
       modelFilename: dirModel,
@@ -88,9 +67,6 @@ class GalleryScreen extends Component<Props> {
     } ).catch( ( err ) => {
       console.log( "Error", err );
     } );
-    // } ).catch( () => {
-    //   console.log( "photo path doesn't exist" );
-    // } );
   }
 
   getPhotos() {

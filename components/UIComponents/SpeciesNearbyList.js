@@ -75,7 +75,7 @@ const SpeciesNearbyList = ( {
         }}
         style={styles.gridCell}
       >
-        {item.default_photo.medium_url ? (
+        {item.default_photo && item.default_photo.medium_url ? (
           <Image
             source={{ uri: item.default_photo.medium_url }}
             style={styles.cellImage}

@@ -14,6 +14,12 @@ Seek is an app built for iOS and Android.
 8. Add AR Camera model files to the project. On Android, these files are named `optimized_model.tflite` and `taxonomy_data.csv`, and they should be placed in a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`). On iOS, these files are named `optimized_model.mlmodel` and `taxonomy.json` and should be added to the Resources folder in XCode. 
 9. Add 8 common names files to `Seek/utility/commonNames` to allow the AR camera to load common names in localized languages. These files are titled `commonNamesDict-0.js` to `commonNamesDict-7.js`.
 
+## Manual Linking
+Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). There are two exceptions, which are listed in the [react-native.config.js](https://github.com/inaturalist/SeekReactNative/blob/master/react-native.config.js) file. 
+
+1. Realm on iOS will need to be manually linked in XCode following [these instructions](https://facebook.github.io/react-native/docs/linking-libraries-ios). 
+2. [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is also manually linked.
+
 ## Troubleshooting
 
 1. Third-party libraries in React Native often use linking. All libraries in this project have already been linked, but if this setup isn't working on your local machine, it's possible that the links are broken. You can run `react-native link` followed by the name of the missing library, but be aware that this will likely cause duplicate project references in the Android gradle. If the issue is only happening on iOS, you can use XCode to go into Seek > Build Phases > Link Binary With Libraries and check that the libraries are linked correctly. 

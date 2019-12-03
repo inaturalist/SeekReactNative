@@ -22,6 +22,7 @@ import backgrounds from "../assets/backgrounds";
 import logos from "../assets/logos";
 import Padding from "./UIComponents/Padding";
 import { capitalizeNames, shuffleList } from "../utility/helpers";
+import { localizeAttributions } from "../utility/photoHelpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
 import BackArrow from "./UIComponents/BackArrow";
@@ -84,14 +85,19 @@ class iNatStatsScreen extends Component<Props> {
 
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;
+
         if ( defaultPhoto.license_code && defaultPhoto.license_code !== "cc0" ) {
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
+
             photos.push( {
               photoUrl: defaultPhoto.medium_url,
               commonName: photo.preferred_common_name
                 ? capitalizeNames( photo.preferred_common_name )
                 : capitalizeNames( photo.iconic_taxon_name ),
-              attribution: defaultPhoto.attribution
+              attribution: localizeAttributions(
+                defaultPhoto.attribution,
+                defaultPhoto.license_code
+              )
             } );
           }
         }

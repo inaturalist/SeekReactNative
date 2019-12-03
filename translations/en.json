@@ -566,5 +566,9 @@
     "10": "Oct",
     "11": "Nov",
     "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

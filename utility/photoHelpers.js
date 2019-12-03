@@ -1,6 +1,7 @@
 import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { dirPictures } from "./dirStorage";
+import i18n from "../i18n";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
 
@@ -67,9 +68,17 @@ const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   } )
 );
 
+const localizeAttributions = ( attribution, licenseCode ) => {
+  const userName = attribution.split( "," )[0];
+  const name = userName.split( ") " )[1];
+
+  return `${name} · ${i18n.t( "attributions.some" )} (${licenseCode.toUpperCase()})`;
+};
+
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
   resizeImage,
-  movePhotoToAppStorage
+  movePhotoToAppStorage,
+  localizeAttributions
 };

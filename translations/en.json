@@ -307,7 +307,7 @@
     "header_1": "How does it work?",
     "how_works": "Seek’s identification model works directly using the tree of life.\n\nEach dot on the identification bar represents a taxonomic level on the tree of life. As Seek is able to confidently identify the species you’re looking at at each level, it will add another dot to the bar. When the organism is identified to species, take a photo!",
     "header_2": "Tips and Tricks",
-    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better! Soon, you'll be able to post to iNaturalist from within Seek.",
+    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better!",
     "header_3": "Remember",
     "tip_1": "Always be aware of your surroundings and stay safe!",
     "tip_2": "Don’t eat anything you find in the wild.",

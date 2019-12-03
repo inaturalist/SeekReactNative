@@ -1,4 +1,6 @@
-const moment = require( "moment" );
+import moment from "moment";
+
+import i18n from "../i18n";
 
 const requiresParent = ( birthday ) => {
   const today = moment().format( "YYYY-MM-DD" );
@@ -25,8 +27,30 @@ const isWithinPastYear = ( reviewShownDate ) => {
   return false;
 };
 
+const setMonthLocales = () => {
+  const monthsShort = [
+    i18n.t( "months_short.1" ),
+    i18n.t( "months_short.2" ),
+    i18n.t( "months_short.3" ),
+    i18n.t( "months_short.4" ),
+    i18n.t( "months_short.5" ),
+    i18n.t( "months_short.6" ),
+    i18n.t( "months_short.7" ),
+    i18n.t( "months_short.8" ),
+    i18n.t( "months_short.9" ),
+    i18n.t( "months_short.10" ),
+    i18n.t( "months_short.11" ),
+    i18n.t( "months_short.12" )
+  ];
+
+  moment.updateLocale( i18n.locale, {
+    monthsShort
+  } );
+};
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
-  isWithinPastYear
+  isWithinPastYear,
+  setMonthLocales
 };

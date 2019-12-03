@@ -9,6 +9,7 @@ import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 import GreenText from "../UIComponents/GreenText";
+import { capitalizeNames } from "../../utility/helpers";
 
 type Props = {
   +data: Array<Object>
@@ -17,7 +18,7 @@ type Props = {
 const SpeciesChart = ( { data }: Props ) => {
   const formatXAxis = ( index ) => {
     const allMonths = moment.monthsShort();
-    return allMonths[index][0];
+    return capitalizeNames( allMonths[index][0] );
   };
 
   const Decorator = ( { x, y } ) => data.map( value => (

@@ -548,5 +548,19 @@
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "Enero",
+    "2": "Feb",
+    "3": "Marzo",
+    "4": "Abr",
+    "5": "Mayo",
+    "6": "Jun",
+    "7": "Jul",
+    "8": "Agosto",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dic"
   }
 }

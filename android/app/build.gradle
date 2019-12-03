@@ -122,7 +122,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 78
         versionName "2.3.10"
-        resConfigs "da", "de", "en", "es", "fr", "hi", "it", "nl", "pt", "pt-BR", "ru", "tr", "zh", 
+        resConfigs "da", "de", "en", "es", "fr", "hi", "it", "nl", "pt", "ru", "tr", "zh" 
     }
     signingConfigs {
         release {
@@ -145,8 +145,7 @@ android {
             manifestPlaceholders = [usesCleartextTraffic:"true"]
         }
         release {
-            shrinkResources true
-            minifyEnabled true
+            minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             signingConfig signingConfigs.release
             manifestPlaceholders = [usesCleartextTraffic:"false"]

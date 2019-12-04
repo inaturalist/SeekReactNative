@@ -327,12 +327,7 @@ class PostScreen extends Component<Props> {
   }
 
   addPhotoToObservation( obsId, token ) {
-    const {
-      image,
-      latitude,
-      longitude,
-      date
-    } = this.state;
+    const { image } = this.state;
 
     const params = {
       "observation_photo[observation_id]": obsId,
@@ -340,18 +335,12 @@ class PostScreen extends Component<Props> {
         uri: image,
         name: "photo.jpeg",
         type: "image/jpeg"
-      } ),
-      observed_on: date.toString(),
-      latitude,
-      longitude
+      } )
     };
-
-    console.log( params, "params" );
 
     const options = { api_token: token, user_agent: createUserAgent() };
 
-    inatjs.observation_photos.create( params, options ).then( ( response ) => {
-      console.log( response, "response" );
+    inatjs.observation_photos.create( params, options ).then( () => {
       this.setPostSucceeded();
     } ).catch( ( e ) => {
       this.setPostFailed( e, "duringPhotoUpload" );

@@ -14,6 +14,7 @@ import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import icons from "../../assets/icons";
 import { dimensions } from "../../styles/global";
+import { localizeAttributions } from "../../utility/photoHelpers";
 
 type Props = {
   +photos: Array<Object>,
@@ -108,7 +109,7 @@ class SpeciesPhotos extends Component<Props> {
           <TouchableOpacity
             onPress={() => Alert.alert(
               i18n.t( "species_detail.license" ),
-              photo.photo.attribution
+              localizeAttributions( photo.photo.attribution, photo.photo.license_code, "SpeciesDetail" )
             )}
             style={styles.ccButton}
           >

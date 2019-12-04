@@ -88,7 +88,6 @@ class iNatStatsScreen extends Component<Props> {
 
         if ( defaultPhoto.license_code && defaultPhoto.license_code !== "cc0" ) {
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
-
             photos.push( {
               photoUrl: defaultPhoto.medium_url,
               commonName: photo.preferred_common_name
@@ -96,7 +95,8 @@ class iNatStatsScreen extends Component<Props> {
                 : capitalizeNames( photo.iconic_taxon_name ),
               attribution: localizeAttributions(
                 defaultPhoto.attribution,
-                defaultPhoto.license_code
+                defaultPhoto.license_code,
+                "iNatStats"
               )
             } );
           }

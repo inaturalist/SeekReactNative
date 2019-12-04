@@ -68,11 +68,23 @@ const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   } )
 );
 
-const localizeAttributions = ( attribution, licenseCode ) => {
+const localizeAttributions = ( attribution, licenseCode, screen ) => {
   const userName = attribution.split( "," )[0];
   const name = userName.split( ") " )[1];
 
-  return `${name} · ${i18n.t( "attributions.some" )} (${licenseCode.toUpperCase()})`;
+  let licenseText;
+
+  if ( licenseCode === "cc0" ) {
+    licenseText = i18n.t( "attributions.all" );
+  } else {
+    licenseText = i18n.t( "attributions.some" );
+  }
+
+  if ( screen === "iNatStats" ) {
+    return `${name} · ${licenseText} (${licenseCode.toUpperCase()})`;
+  }
+
+  return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
 export {

@@ -190,7 +190,8 @@ class GalleryScreen extends Component<Props> {
         predictions,
         latitude,
         longitude,
-        backupUri
+        backupUri,
+        time
       } );
     } else {
       navigation.navigate( "GalleryResults", {

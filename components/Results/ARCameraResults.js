@@ -34,7 +34,8 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri
+      backupUri,
+      time
     } = navigation.state.params;
 
     this.state = {
@@ -42,7 +43,7 @@ class ARCameraResults extends Component<Props> {
       predictions,
       uri,
       backupUri,
-      time: moment().format( "X" ),
+      time,
       latitude,
       longitude,
       userImage: null,

@@ -19,14 +19,18 @@ type Props = {
   +loading: boolean,
   +postingSuccess: boolean,
   +togglePostModal: Function,
-  +navigation: any
+  +navigation: any,
+  +status: string,
+  +errorText: string
 };
 
 const PostStatus = ( {
   loading,
   postingSuccess,
   togglePostModal,
-  navigation
+  navigation,
+  status,
+  errorText
 }: Props ) => {
   let headerText;
   let image;
@@ -39,10 +43,18 @@ const PostStatus = ( {
   } else if ( !loading && postingSuccess ) {
     headerText = i18n.t( "posting.posting_success" ).toLocaleUpperCase();
     image = <Image source={posting.bird} />;
-  } else {
+  } else if ( status === "duringPhotoUpload" ) {
     headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
     image = <Image source={posting.uploadfail} />;
-    extraText = i18n.t( "posting.internet" );
+    extraText = `${i18n.t( "posting.error_photo_upload" )} ${errorText}`;
+  } else if ( status === "beforePhotoAdded" ) {
+    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+    image = <Image source={posting.uploadfail} />;
+    extraText = `${i18n.t( "posting.error_observation" )} ${errorText}`;
+  } else if ( status === "beforeObservation" ) {
+    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+    image = <Image source={posting.uploadfail} />;
+    extraText = `${i18n.t( "posting.error_token" )} ${errorText}`;
   }
 
   return (

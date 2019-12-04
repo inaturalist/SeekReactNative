@@ -56,7 +56,7 @@ class PostScreen extends Component<Props> {
       latitude,
       longitude,
       location: null,
-      date: moment.unix( time ).format( "YYYY-MM-DD" ),
+      date: moment.unix( time ),
       captive: null,
       geoprivacy: null,
       image,
@@ -78,7 +78,8 @@ class PostScreen extends Component<Props> {
       showSpeciesModal: false,
       loading: false,
       postingSuccess: null,
-      description: null
+      description: null,
+      status: null
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -152,12 +153,14 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setPostFailed() {
+  setPostFailed( errorText, status ) {
     savePostingSuccess( false );
 
     this.setState( {
       postingSuccess: false,
-      loading: false
+      loading: false,
+      errorText,
+      status
     } );
   }
 
@@ -265,8 +268,8 @@ class PostScreen extends Component<Props> {
       .then( ( responseJson ) => {
         const { api_token } = responseJson;
         this.createObservation( api_token );
-      } ).catch( () => {
-        this.setPostFailed();
+      } ).catch( ( e ) => {
+        this.setPostFailed( e, "beforeObservation" );
       } );
   }
 
@@ -318,8 +321,8 @@ class PostScreen extends Component<Props> {
     inatjs.observations.create( params, options ).then( ( response ) => {
       const { id } = response[0];
       this.addPhotoToObservation( id, token ); // get the obs id, then add photo
-    } ).catch( () => {
-      this.setPostFailed();
+    } ).catch( ( e ) => {
+      this.setPostFailed( e, "beforePhotoAdded" );
     } );
   }
 
@@ -338,17 +341,20 @@ class PostScreen extends Component<Props> {
         name: "photo.jpeg",
         type: "image/jpeg"
       } ),
-      observed_on: date,
+      observed_on: date.toString(),
       latitude,
       longitude
     };
 
+    console.log( params, "params" );
+
     const options = { api_token: token, user_agent: createUserAgent() };
 
     inatjs.observation_photos.create( params, options ).then( ( response ) => {
+      console.log( response, "response" );
       this.setPostSucceeded();
-    } ).catch( () => {
-      this.setPostFailed();
+    } ).catch( ( e ) => {
+      this.setPostFailed( e, "duringPhotoUpload" );
     } );
   }
 
@@ -378,7 +384,9 @@ class PostScreen extends Component<Props> {
       showSpeciesModal,
       loading,
       postingSuccess,
-      description
+      description,
+      status,
+      errorText
     } = this.state;
 
     return (
@@ -420,9 +428,11 @@ class PostScreen extends Component<Props> {
           visible={showPostModal}
         >
           <PostStatus
+            errorText={errorText}
             loading={loading}
             navigation={navigation}
             postingSuccess={postingSuccess}
+            status={status}
             togglePostModal={this.togglePostModal}
           />
         </Modal>
@@ -471,7 +481,7 @@ class PostScreen extends Component<Props> {
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.text}>
-                {date}
+                {moment( new Date( date ) ).format( "YYYY-MM-DD" )}
               </Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />

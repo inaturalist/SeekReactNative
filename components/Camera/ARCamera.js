@@ -347,6 +347,7 @@ class ARCamera extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavigationEvents
+          onDidFocus={() => this.checkForCameraLaunch()}
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
@@ -354,7 +355,6 @@ class ARCamera extends Component<Props> {
             this.closeCameraAndroid();
           }}
           onWillFocus={() => {
-            this.checkForCameraLaunch();
             this.requestAllCameraPermissions();
             this.handleResumePreview();
             this.setFocusedScreen( true );

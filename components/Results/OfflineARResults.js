@@ -15,7 +15,6 @@ import {
   checkForIconicTaxonId
 } from "../../utility/helpers";
 import { resizeImage } from "../../utility/photoHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
@@ -55,7 +54,6 @@ class OfflineARResults extends Component<Props> {
       scientificName: null,
       imageForUploading: null,
       match: null,
-      isLoggedIn: null,
       errorCode: null,
       rank: null
     };
@@ -79,17 +77,6 @@ class OfflineARResults extends Component<Props> {
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
     } );
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
   }
 
   setImageForUploading( imageForUploading ) {
@@ -318,7 +305,6 @@ class OfflineARResults extends Component<Props> {
       latitude,
       longitude,
       match,
-      isLoggedIn,
       errorCode,
       rank
     } = this.state;
@@ -336,7 +322,6 @@ class OfflineARResults extends Component<Props> {
       longitude,
       commonAncestor,
       match,
-      isLoggedIn,
       errorCode,
       rank
     } );
@@ -350,7 +335,6 @@ class OfflineARResults extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.requestAndroidPermissions();
-            this.getLoggedIn();
             this.resizeImageForUploading();
           }}
         />

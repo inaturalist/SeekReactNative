@@ -29,6 +29,7 @@ import i18n from "../../i18n";
 import Spacer from "../UIComponents/iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import {
   setSpeciesId,
   setRoute,
@@ -66,7 +67,7 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn,
+      // isLoggedIn,
       errorCode,
       rank
     } = navigation.state.params;
@@ -92,15 +93,27 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       challengeShown: false,
-      isLoggedIn,
+      // isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn: null
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
     this.toggleFlagModal = this.toggleFlagModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
   }
 
   setNavigationPath( navigationPath ) {
@@ -339,12 +352,14 @@ class MatchScreen extends Component<Props> {
             }}
             onWillFocus={() => {
               this.scrollToTop();
+              this.getLoggedIn();
             }}
           />
         ) : (
           <NavigationEvents
             onWillFocus={() => {
               this.scrollToTop();
+              this.getLoggedIn();
             }}
           />
         )}

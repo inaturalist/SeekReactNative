@@ -21,7 +21,6 @@ import {
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import createUserAgent from "../../utility/userAgent";
 
 type Props = {
@@ -58,7 +57,6 @@ class OnlineServerResults extends Component<Props> {
       imageForUploading: null,
       match: null,
       clicked: false,
-      isLoggedIn: null,
       numberOfHours: null,
       errorCode: null,
       rank: null
@@ -95,17 +93,6 @@ class OnlineServerResults extends Component<Props> {
       } else {
         this.getGeolocation();
       }
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
     }
   }
 
@@ -330,7 +317,6 @@ class OnlineServerResults extends Component<Props> {
       longitude,
       time,
       match,
-      isLoggedIn,
       errorCode,
       rank
     } = this.state;
@@ -348,7 +334,6 @@ class OnlineServerResults extends Component<Props> {
       time,
       commonAncestor,
       match,
-      isLoggedIn,
       errorCode,
       rank
     } );
@@ -369,7 +354,6 @@ class OnlineServerResults extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
-            this.getLoggedIn();
             this.resizeImage();
             this.resizeImageForUploading();
           }}

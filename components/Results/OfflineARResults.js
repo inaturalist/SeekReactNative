@@ -8,7 +8,6 @@ import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models";
-import ErrorScreen from "./Error";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -53,7 +52,6 @@ class OfflineARResults extends Component<Props> {
       taxaName: null,
       commonAncestor: null,
       seenDate: null,
-      error: null,
       scientificName: null,
       imageForUploading: null,
       match: null,
@@ -104,10 +102,6 @@ class OfflineARResults extends Component<Props> {
 
   setSeenDate( seenDate ) {
     this.setState( { seenDate } );
-  }
-
-  setError( error ) {
-    this.setState( { error } );
   }
 
   setMatch( match ) {
@@ -247,9 +241,9 @@ class OfflineARResults extends Component<Props> {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
-        this.setError( "image" );
+        console.log( "error resizing image" );
       }
-    } ).catch( () => this.setError( "image" ) );
+    } ).catch( () => console.log( "error resizing image" ) );
   }
 
   resizeImageForUploading() {
@@ -259,9 +253,9 @@ class OfflineARResults extends Component<Props> {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
-        this.setError( "image" );
+        console.log( "error resizing image" );
       }
-    } ).catch( () => this.setError( "image" ) );
+    } ).catch( () => console.log( "error resizing image" ) );
   }
 
   addObservation() {
@@ -349,8 +343,7 @@ class OfflineARResults extends Component<Props> {
   }
 
   render() {
-    const { error, uri } = this.state;
-    const { navigation } = this.props;
+    const { uri } = this.state;
 
     return (
       <View style={styles.container}>
@@ -361,9 +354,7 @@ class OfflineARResults extends Component<Props> {
             this.resizeImageForUploading();
           }}
         />
-        {error
-          ? <ErrorScreen error={error} navigation={navigation} />
-          : <FullPhotoLoading uri={uri} />}
+        <FullPhotoLoading uri={uri} />
       </View>
     );
   }

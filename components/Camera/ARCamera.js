@@ -140,7 +140,7 @@ class ARCamera extends Component<Props> {
   }
 
   handleResumePreview = () => {
-    if ( this.camera ) {
+    if ( this.camera && Platform.OS === "android" ) {
       this.camera.resumePreview();
     }
   }

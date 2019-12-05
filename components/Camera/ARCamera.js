@@ -132,6 +132,12 @@ class ARCamera extends Component<Props> {
     }
   }
 
+  handleResumePreview = () => {
+    if ( this.camera ) {
+      this.camera.resumePreview();
+    }
+  }
+
   requestAllCameraPermissions = async () => {
     const permissions = PermissionsAndroid.PERMISSIONS;
     const results = PermissionsAndroid.RESULTS;
@@ -259,6 +265,8 @@ class ARCamera extends Component<Props> {
 
     const time = moment().format( "X" ); // add current time to AR camera photos
 
+    console.log( "navigation to new screen" );
+
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
         uri,
@@ -323,7 +331,10 @@ class ARCamera extends Component<Props> {
             this.resetPredictions();
             this.setError( null );
           }}
-          onWillFocus={() => this.requestAllCameraPermissions()}
+          onWillFocus={() => {
+            this.requestAllCameraPermissions();
+            this.handleResumePreview();
+          }}
         />
         <RNModal
           isVisible={showWarningModal}
@@ -331,9 +342,7 @@ class ARCamera extends Component<Props> {
           onSwipeComplete={() => this.toggleWarningModal()}
           swipeDirection="down"
         >
-          <WarningModal
-            toggleWarningModal={this.toggleWarningModal}
-          />
+          <WarningModal toggleWarningModal={this.toggleWarningModal} />
         </RNModal>
         {loading ? (
           <View style={styles.loading}>

@@ -9,7 +9,6 @@ import {
   Text,
   Platform,
   NativeModules,
-  BackHandler,
   Dimensions
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
@@ -46,7 +45,6 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
-      focusedScreen: false,
       commonName: null,
       latitude: null,
       longitude: null,
@@ -56,11 +54,6 @@ class ARCamera extends Component<Props> {
 
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
-
-  setFocusedScreen( focusedScreen ) {
-    this.setState( { focusedScreen } );
-  }
-
 
   setPictureTaken( pictureTaken ) {
     this.setState( { pictureTaken } );
@@ -168,12 +161,6 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  handleResumePreview = () => {
-    if ( this.camera ) {
-      this.camera.resumePreview();
-    }
-  }
-
   takePicture = async () => {
     this.setState( {
       loading: true,
@@ -194,8 +181,10 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
+          console.log( photo, "photo" );
           this.savePhoto( photo );
-        } ).catch( () => {
+        } ).catch( ( e ) => {
+          console.log( e, "error taking photo" );
           this.setError( "save" );
         } );
       }
@@ -290,30 +279,10 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  async closeCamera() {
+  closeCamera() {
     const { navigation } = this.props;
-    if ( Platform.OS === "android" ) {
-      if ( this.camera ) {
-        await this.camera.stopCamera();
-      }
-    }
 
     navigation.navigate( "Main" );
-  }
-
-  addListenerForAndroid() {
-    if ( Platform.OS === "android" ) {
-      this.backHandler = BackHandler.addEventListener( "hardwareBackPress", () => {
-        this.closeCamera();
-        return true;
-      } );
-    }
-  }
-
-  closeCameraAndroid() {
-    if ( Platform.OS === "android" && this.backHandler ) {
-      this.backHandler.remove();
-    }
   }
 
   toggleWarningModal() {
@@ -330,8 +299,7 @@ class ARCamera extends Component<Props> {
       error,
       commonName,
       showWarningModal,
-      errorEvent,
-      focusedScreen
+      errorEvent
     } = this.state;
     const { navigation } = this.props;
 
@@ -354,15 +322,8 @@ class ARCamera extends Component<Props> {
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
-            this.setFocusedScreen( false );
-            this.closeCameraAndroid();
           }}
-          onWillFocus={() => {
-            this.requestAllCameraPermissions();
-            this.handleResumePreview();
-            this.setFocusedScreen( true );
-            this.addListenerForAndroid();
-          }}
+          onWillFocus={() => this.requestAllCameraPermissions()}
         />
         <RNModal
           isVisible={showWarningModal}
@@ -425,23 +386,21 @@ class ARCamera extends Component<Props> {
             </TouchableOpacity>
           </React.Fragment>
         ) : null}
-        {focusedScreen ? (
-          <INatCamera
-            ref={( ref ) => {
-              this.camera = ref;
-            }}
-            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-            modelPath={dirModel}
-            onCameraError={this.handleCameraError}
-            onCameraPermissionMissing={this.handleCameraPermissionMissing}
-            onClassifierError={this.handleClassifierError}
-            onDeviceNotSupported={this.handleDeviceNotSupported}
-            onTaxaDetected={this.handleTaxaDetected}
-            style={styles.camera}
-            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            taxonomyPath={dirTaxonomy}
-          />
-        ) : null}
+        <INatCamera
+          ref={( ref ) => {
+            this.camera = ref;
+          }}
+          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+          modelPath={dirModel}
+          onCameraError={this.handleCameraError}
+          onCameraPermissionMissing={this.handleCameraPermissionMissing}
+          onClassifierError={this.handleClassifierError}
+          onDeviceNotSupported={this.handleDeviceNotSupported}
+          onTaxaDetected={this.handleTaxaDetected}
+          style={styles.camera}
+          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+          taxonomyPath={dirTaxonomy}
+        />
       </View>
     );
   }

@@ -49,10 +49,15 @@ class ARCamera extends Component<Props> {
       latitude: null,
       longitude: null,
       showWarningModal: false,
-      errorEvent: null
+      errorEvent: null,
+      focusedScreen: false
     };
 
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
+  }
+
+  setFocusedScreen( focusedScreen ) {
+    this.setState( { focusedScreen } );
   }
 
   setPictureTaken() {
@@ -140,7 +145,7 @@ class ARCamera extends Component<Props> {
   }
 
   handleResumePreview = () => {
-    if ( this.camera && Platform.OS === "android" ) {
+    if ( this.camera ) {
       this.camera.resumePreview();
     }
   }
@@ -306,7 +311,8 @@ class ARCamera extends Component<Props> {
       error,
       commonName,
       showWarningModal,
-      errorEvent
+      errorEvent,
+      focusedScreen
     } = this.state;
     const { navigation } = this.props;
 
@@ -329,10 +335,12 @@ class ARCamera extends Component<Props> {
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
+            this.setFocusedScreen( false );
           }}
           onWillFocus={() => {
             this.requestAllCameraPermissions();
             this.handleResumePreview();
+            this.setFocusedScreen( true );
           }}
         />
         <RNModal
@@ -397,21 +405,23 @@ class ARCamera extends Component<Props> {
             </TouchableOpacity>
           </React.Fragment>
         ) : null}
-        <INatCamera
-          ref={( ref ) => {
-            this.camera = ref;
-          }}
-          confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-          modelPath={dirModel}
-          onCameraError={this.handleCameraError}
-          onCameraPermissionMissing={this.handleCameraPermissionMissing}
-          onClassifierError={this.handleClassifierError}
-          onDeviceNotSupported={this.handleDeviceNotSupported}
-          onTaxaDetected={this.handleTaxaDetected}
-          style={styles.camera}
-          taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-          taxonomyPath={dirTaxonomy}
-        />
+        {focusedScreen ? ( // this is necessary for handleResumePreview to work properly in iOS
+          <INatCamera
+            ref={( ref ) => {
+              this.camera = ref;
+            }}
+            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
+            modelPath={dirModel}
+            onCameraError={this.handleCameraError}
+            onCameraPermissionMissing={this.handleCameraPermissionMissing}
+            onClassifierError={this.handleClassifierError}
+            onDeviceNotSupported={this.handleDeviceNotSupported}
+            onTaxaDetected={this.handleTaxaDetected}
+            style={styles.camera}
+            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
+            taxonomyPath={dirTaxonomy}
+          />
+        ) : null}
       </View>
     );
   }

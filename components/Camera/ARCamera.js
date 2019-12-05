@@ -55,8 +55,11 @@ class ARCamera extends Component<Props> {
     this.toggleWarningModal = this.toggleWarningModal.bind( this );
   }
 
-  setPictureTaken( pictureTaken ) {
-    this.setState( { pictureTaken } );
+  setPictureTaken() {
+    this.setState( {
+      loading: true,
+      pictureTaken: true
+    } );
   }
 
   setImagePredictions( predictions ) {
@@ -76,8 +79,12 @@ class ARCamera extends Component<Props> {
   }
 
   handleTaxaDetected = ( event ) => {
-    const { rankToRender, loading } = this.state;
+    const { rankToRender, loading, pictureTaken } = this.state;
     const predictions = Object.assign( {}, event.nativeEvent );
+
+    if ( pictureTaken ) {
+      return;
+    }
 
     if ( predictions && loading === true ) {
       this.setLoading( false );
@@ -168,10 +175,6 @@ class ARCamera extends Component<Props> {
   }
 
   takePicture = async () => {
-    this.setState( {
-      loading: true,
-      pictureTaken: true
-    } );
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
@@ -187,10 +190,8 @@ class ARCamera extends Component<Props> {
         this.camera.takePictureAsync( {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
-          console.log( photo, "photo" );
           this.savePhoto( photo );
-        } ).catch( ( e ) => {
-          console.log( e, "error taking photo" );
+        } ).catch( () => {
           this.setError( "save" );
         } );
       }
@@ -264,8 +265,6 @@ class ARCamera extends Component<Props> {
     const { navigation } = this.props;
 
     const time = moment().format( "X" ); // add current time to AR camera photos
-
-    console.log( "navigation to new screen" );
 
     if ( predictions && predictions.length > 0 ) {
       navigation.navigate( "ARCameraResults", {
@@ -371,7 +370,10 @@ class ARCamera extends Component<Props> {
               <TouchableOpacity
                 accessibilityLabel={i18n.t( "accessibility.take_photo" )}
                 accessible
-                onPress={() => this.takePicture()}
+                onPress={() => {
+                  this.setPictureTaken();
+                  this.takePicture();
+                }}
                 style={styles.shutter}
               >
                 {ranks && ranks.species

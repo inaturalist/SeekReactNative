@@ -46,8 +46,6 @@ class ARCamera extends Component<Props> {
       pictureTaken: false,
       error: null,
       commonName: null,
-      latitude: null,
-      longitude: null,
       showWarningModal: false,
       errorEvent: null,
       focusedScreen: false
@@ -262,32 +260,21 @@ class ARCamera extends Component<Props> {
   }
 
   navigateToResults( uri, backupUri ) {
-    const {
-      predictions,
-      latitude,
-      longitude
-    } = this.state;
+    const { predictions } = this.state;
     const { navigation } = this.props;
 
-    const time = moment().format( "X" ); // add current time to AR camera photos
+    const results = {
+      time: moment().format( "X" ), // add current time to AR camera photos,
+      uri,
+      backupUri
+    };
 
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "OfflineARResults", {
-        uri,
-        predictions,
-        latitude,
-        longitude,
-        backupUri,
-        time
-      } );
+      results.predictions = predictions;
+
+      navigation.navigate( "OfflineARResults", results );
     } else {
-      navigation.navigate( "OnlineServerResults", {
-        uri,
-        time,
-        latitude,
-        longitude,
-        backupUri
-      } );
+      navigation.navigate( "OnlineServerResults", results );
     }
   }
 

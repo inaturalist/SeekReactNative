@@ -67,7 +67,6 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      // isLoggedIn,
       errorCode,
       rank
     } = navigation.state.params;
@@ -93,7 +92,6 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       challengeShown: false,
-      // isLoggedIn,
       errorCode,
       rank,
       isLoggedIn: null

@@ -267,7 +267,7 @@ class ARCamera extends Component<Props> {
     const time = moment().format( "X" ); // add current time to AR camera photos
 
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "ARCameraResults", {
+      navigation.navigate( "OfflineARResults", {
         uri,
         predictions,
         latitude,
@@ -276,7 +276,7 @@ class ARCamera extends Component<Props> {
         time
       } );
     } else {
-      navigation.navigate( "GalleryResults", {
+      navigation.navigate( "OnlineServerResults", {
         uri,
         time,
         latitude,

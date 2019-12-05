@@ -28,7 +28,7 @@ type Props = {
   +navigation: any
 }
 
-class Results extends Component<Props> {
+class OnlineServerResults extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -142,7 +142,7 @@ class Results extends Component<Props> {
     this.setState( { errorCode } );
   }
 
-  setOnlineVisionSpeciesResults( species ) {
+  setOnlineVisionSpeciesOnlineServerResults( species ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
@@ -395,4 +395,4 @@ class Results extends Component<Props> {
   }
 }
 
-export default Results;
+export default OnlineServerResults;

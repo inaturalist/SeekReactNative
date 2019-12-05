@@ -185,7 +185,7 @@ class GalleryScreen extends Component<Props> {
     this.setState( { loading: false } );
 
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "ARCameraResults", {
+      navigation.navigate( "OfflineARResults", {
         uri,
         predictions,
         latitude,
@@ -194,7 +194,7 @@ class GalleryScreen extends Component<Props> {
         time
       } );
     } else {
-      navigation.navigate( "GalleryResults", {
+      navigation.navigate( "OnlineServerResults", {
         uri,
         time,
         latitude, // double check that this still works

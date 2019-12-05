@@ -25,7 +25,7 @@ type Props = {
   +navigation: any
 }
 
-class ARCameraResults extends Component<Props> {
+class OfflineARResults extends Component<Props> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -369,4 +369,4 @@ class ARCameraResults extends Component<Props> {
   }
 }
 
-export default ARCameraResults;
+export default OfflineARResults;

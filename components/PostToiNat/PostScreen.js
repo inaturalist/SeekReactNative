@@ -112,7 +112,7 @@ class PostScreen extends Component<Props> {
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
     } else {
-      this.checkPermissions();
+      this.setLocationUndefined();
     }
   }
 

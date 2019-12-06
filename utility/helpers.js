@@ -67,7 +67,7 @@ const addARCameraFiles = () => {
       .then( ( result ) => {
         // console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // Alert.alert( error, "err in AR camera files" );
+        // console.log( error, "err in AR camera files" );
       } );
 
     RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )

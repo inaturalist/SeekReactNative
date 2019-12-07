@@ -104,6 +104,20 @@ const createLocationTimeoutAlert = () => {
   );
 };
 
+const checkForTruncatedCoordinates = ( latitude ) => {
+  console.log( latitude, "lat in check" );
+  if ( latitude ) {
+    const string = latitude.toString();
+    const split = string.split( "." );
+
+    if ( split[1] && split[1].length === 2 ) {
+      return true;
+    }
+    return false;
+  }
+  return false;
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
@@ -112,5 +126,6 @@ export {
   createLocationPermissionsAlert,
   checkLocationPermissions,
   createGPSAlert,
-  createLocationTimeoutAlert
+  createLocationTimeoutAlert,
+  checkForTruncatedCoordinates
 };

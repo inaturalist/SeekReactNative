@@ -32,7 +32,6 @@ class OfflineARResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri,
       time
     } = navigation.state.params;
 
@@ -40,7 +39,6 @@ class OfflineARResults extends Component<Props> {
       threshold: 0.7,
       predictions,
       uri,
-      backupUri,
       time,
       latitude,
       longitude,
@@ -52,7 +50,6 @@ class OfflineARResults extends Component<Props> {
       commonAncestor: null,
       seenDate: null,
       scientificName: null,
-      imageForUploading: null,
       match: null,
       errorCode: null,
       rank: null
@@ -77,10 +74,6 @@ class OfflineARResults extends Component<Props> {
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
     } );
-  }
-
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
   }
 
   setImageUri( uri ) {
@@ -233,30 +226,17 @@ class OfflineARResults extends Component<Props> {
     } ).catch( () => console.log( "error resizing image" ) );
   }
 
-  resizeImageForUploading() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 2048 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageForUploading( userImage );
-      } else {
-        console.log( "error resizing image" );
-      }
-    } ).catch( () => console.log( "error resizing image" ) );
-  }
-
   addObservation() {
     const {
       latitude,
       longitude,
       observation,
       uri,
-      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time, backupUri );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
@@ -300,7 +280,7 @@ class OfflineARResults extends Component<Props> {
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      imageForUploading,
+      uri,
       scientificName,
       latitude,
       longitude,
@@ -311,7 +291,7 @@ class OfflineARResults extends Component<Props> {
 
     navigation.push( route, {
       userImage,
-      image: imageForUploading,
+      uri,
       taxaName,
       taxaId,
       time,
@@ -333,10 +313,7 @@ class OfflineARResults extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavigationEvents
-          onWillFocus={() => {
-            this.requestAndroidPermissions();
-            this.resizeImageForUploading();
-          }}
+          onWillFocus={() => this.requestAndroidPermissions()}
         />
         <FullPhotoLoading uri={uri} />
       </View>

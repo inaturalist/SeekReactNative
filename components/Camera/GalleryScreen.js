@@ -13,7 +13,6 @@ import {
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
-import moment from "moment";
 import { getPredictionsForImage } from "react-native-inat-camera";
 
 import i18n from "../../i18n";
@@ -21,14 +20,12 @@ import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import {
   checkCameraRollPermissions,
-  checkForPhotoMetaData,
-  movePhotoToAppStorage,
-  resizeImage
+  checkForPhotoMetaData
 } from "../../utility/photoHelpers";
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
-import { dirPictures, dirTaxonomy, dirModel } from "../../utility/dirStorage";
+import { dirTaxonomy, dirModel } from "../../utility/dirStorage";
 import AlbumPicker from "./AlbumPicker";
 
 type Props = {
@@ -170,7 +167,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  navigateToResults( uri, time, location, backupUri ) {
+  navigateToResults( uri, time, location ) {
     const { navigation } = this.props;
     const { predictions } = this.state;
 
@@ -184,23 +181,19 @@ class GalleryScreen extends Component<Props> {
 
     this.setState( { loading: false } );
 
+    const results = {
+      time,
+      uri,
+      latitude,
+      longitude
+    };
+
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "OfflineARResults", {
-        uri,
-        predictions,
-        latitude,
-        longitude,
-        backupUri,
-        time
-      } );
+      results.predictions = predictions;
+
+      navigation.navigate( "OfflineARResults", results );
     } else {
-      navigation.navigate( "OnlineServerResults", {
-        uri,
-        time,
-        latitude, // double check that this still works
-        longitude,
-        backupUri
-      } );
+      navigation.navigate( "OnlineServerResults", results );
     }
   }
 
@@ -213,26 +206,7 @@ class GalleryScreen extends Component<Props> {
       this.getPredictions( image.uri );
     }
 
-    resizeImage( image.uri, dimensions.width, 250 ).then( ( resizedImage ) => {
-      this.saveImageToAppDirectory( image.uri, resizedImage, node );
-    } ).catch( () => {
-      this.navigateToResults( image.uri, timestamp, location );
-    } );
-  }
-
-  async saveImageToAppDirectory( uri, resizedImageUri, node ) {
-    const { timestamp, location } = node;
-    try {
-      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
-      const backupFilepath = `${dirPictures}/${newImageName}`;
-      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
-
-      if ( imageMoved ) {
-        this.navigateToResults( uri, timestamp, location, backupFilepath );
-      }
-    } catch ( error ) {
-      console.log( error, "error making backup" );
-    }
+    this.navigateToResults( image.uri, timestamp, location );
   }
 
   renderItem = ( { item } ) => (

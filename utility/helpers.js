@@ -8,6 +8,7 @@ import { recalculateChallenges } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
 import { isWithinPastYear } from "./dateHelpers";
 import { fetchAccessToken } from "./loginHelpers";
+import { createBackupUri } from "./photoHelpers";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -201,9 +202,11 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, uri, time, backupUri ) => {
+const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
+
+  const backupUri = await createBackupUri( uri );
 
   Realm.open( realmConfig.default )
     .then( ( realm ) => {

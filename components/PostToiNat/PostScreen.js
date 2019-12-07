@@ -17,7 +17,13 @@ import inatjs, { FileUpload } from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
-import { fetchUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
+import {
+  fetchUserLocation,
+  fetchLocationName,
+  checkLocationPermissions,
+  checkForTruncatedCoordinates
+} from "../../utility/locationHelpers";
+import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
@@ -43,7 +49,7 @@ class PostScreen extends Component<Props> {
     const {
       taxaName,
       taxaId,
-      image,
+      uri,
       userImage,
       scientificName,
       latitude,
@@ -52,6 +58,8 @@ class PostScreen extends Component<Props> {
       commonAncestor
     } = navigation.state.params;
 
+    console.log( latitude, longitude, "latlng in post screen" );
+
     this.state = {
       latitude,
       longitude,
@@ -59,7 +67,7 @@ class PostScreen extends Component<Props> {
       date: moment.unix( time ),
       captive: null,
       geoprivacy: null,
-      image,
+      uri,
       userImage,
       taxon: {
         preferredCommonName: taxaName || commonAncestor,
@@ -79,7 +87,8 @@ class PostScreen extends Component<Props> {
       loading: false,
       postingSuccess: null,
       description: null,
-      status: null
+      status: null,
+      imageForUploading: null
     };
 
     this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -107,10 +116,14 @@ class PostScreen extends Component<Props> {
 
   getLocation() {
     const { latitude, longitude } = this.state;
-    const truncated = this.checkForTruncatedCoordinates( latitude );
+    const truncated = checkForTruncatedCoordinates( latitude );
+
+    console.log( truncated, "truncated" );
 
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
+    } else if ( truncated ) {
+      this.setUserLocation();
     } else {
       this.setLocationUndefined();
     }
@@ -164,6 +177,10 @@ class PostScreen extends Component<Props> {
     } );
   }
 
+  setImageForUploading( imageForUploading ) {
+    this.setState( { imageForUploading } );
+  }
+
   toggleDateTimePicker = () => {
     const { isDateTimePickerVisible } = this.state;
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
@@ -177,6 +194,19 @@ class PostScreen extends Component<Props> {
     }
   };
 
+  resizeImageForUploading() {
+    const { uri } = this.state;
+
+    resizeImage( uri, 2048 ).then( ( userImage ) => {
+      if ( userImage ) {
+        console.log( userImage, "resized image" );
+        this.setImageForUploading( userImage );
+      } else {
+        console.log( "couldn't resize image for uploading" );
+      }
+    } ).catch( () => console.log( "couldn't resize image for uploading" ) );
+  }
+
   checkPermissions() {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
@@ -187,19 +217,6 @@ class PostScreen extends Component<Props> {
     } else {
       this.setUserLocation();
     }
-  }
-
-  checkForTruncatedCoordinates( latitude ) {
-    if ( latitude ) {
-      const string = latitude.toString();
-      const split = string.split( "." );
-
-      if ( split[1] && split[1].length === 2 ) {
-        return true;
-      }
-      return false;
-    }
-    return false;
   }
 
   togglePostModal() {
@@ -224,6 +241,8 @@ class PostScreen extends Component<Props> {
 
   updateLocation( latitude, longitude ) {
     this.reverseGeocodeLocation( latitude, longitude );
+
+    console.log( latitude, longitude, "latlng update" );
 
     this.setState( {
       latitude,
@@ -327,12 +346,12 @@ class PostScreen extends Component<Props> {
   }
 
   addPhotoToObservation( obsId, token ) {
-    const { image } = this.state;
+    const { imageForUploading } = this.state;
 
     const params = {
       "observation_photo[observation_id]": obsId,
       file: new FileUpload( {
-        uri: image,
+        uri: imageForUploading,
         name: "photo.jpeg",
         type: "image/jpeg"
       } )
@@ -380,6 +399,12 @@ class PostScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
+        <NavigationEvents
+          onWillFocus={() => {
+            this.getLocation();
+            this.resizeImageForUploading();
+          }}
+        />
         <SafeAreaView />
         <DateTimePicker
           datetime
@@ -425,9 +450,6 @@ class PostScreen extends Component<Props> {
             togglePostModal={this.togglePostModal}
           />
         </Modal>
-        <NavigationEvents
-          onWillFocus={() => this.getLocation()}
-        />
         <GreenHeader
           header={i18n.t( "posting.header" )}
           navigation={navigation}

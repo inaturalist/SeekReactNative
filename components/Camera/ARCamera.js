@@ -8,8 +8,7 @@ import {
   PermissionsAndroid,
   Text,
   Platform,
-  NativeModules,
-  Dimensions
+  NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
@@ -25,10 +24,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
-import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { dirPictures, dirModel, dirTaxonomy } from "../../utility/dirStorage";
-
-const { width } = Dimensions.get( "window" );
+import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 
 type Props = {
   +navigation: any
@@ -229,44 +225,21 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  resizeImageForBackup( uri ) {
-    resizeImage( uri, width, 250 ).then( ( resizedImage ) => {
-      this.saveImageToAppDirectory( uri, resizedImage );
-    } ).catch( () => this.navigateToResults( uri ) );
-  }
-
-  async saveImageToAppDirectory( uri, resizedImageUri ) {
-    try {
-      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
-      const backupFilepath = `${dirPictures}/${newImageName}`;
-      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
-
-      if ( imageMoved ) {
-        this.navigateToResults( uri, backupFilepath );
-      } else {
-        this.navigateToResults( uri );
-      }
-    } catch ( e ) {
-      this.navigateToResults( uri );
-    }
-  }
-
   savePhoto( photo ) {
     this.setImagePredictions( photo.predictions );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( uri => this.resizeImageForBackup( uri ) )
+      .then( uri => this.navigateToResults( uri ) )
       .catch( () => this.setError( "save" ) );
   }
 
-  navigateToResults( uri, backupUri ) {
+  navigateToResults( uri ) {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
     const results = {
       time: moment().format( "X" ), // add current time to AR camera photos,
-      uri,
-      backupUri
+      uri
     };
 
     if ( predictions && predictions.length > 0 ) {

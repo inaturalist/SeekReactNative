@@ -39,7 +39,7 @@ const CameraError = ( { error, errorEvent }: Props ) => {
   return (
     <View style={styles.blackBackground}>
       <Text style={styles.errorText}>{errorText}</Text>
-      {error === "permissions" || error === "save" ? (
+      {error === "permissions" ? (
         <TouchableOpacity
           onPress={() => OpenSettings.openSettings()}
           style={styles.greenButton}

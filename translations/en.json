@@ -260,7 +260,6 @@
   "banner": {
     "view": "View badge",
     "badge": "Badge",
-    "species": "species",
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",

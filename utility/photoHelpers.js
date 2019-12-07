@@ -1,7 +1,10 @@
 import ImageResizer from "react-native-image-resizer";
+import moment from "moment";
 import RNFS from "react-native-fs";
+
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
+import { dimensions } from "../styles/global";
 
 const { PermissionsAndroid, Platform } = require( "react-native" );
 
@@ -53,18 +56,20 @@ const resizeImage = ( imageUri, width, height ) => (
 
 const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   new Promise( ( resolve ) => {
-    RNFS.mkdir( dirPictures )
+    // RNFS.mkdir( dirPictures )
+    //   .then( () => {
+    RNFS.moveFile( filePath, newFilepath )
       .then( () => {
-        RNFS.moveFile( filePath, newFilepath )
-          .then( () => {
-            resolve( true );
-          } )
-          .catch( ( error ) => {
-            resolve( error );
-          } );
-      } ).catch( ( err ) => {
-        resolve( err );
+        resolve( true );
+      } )
+      .catch( ( error ) => {
+        console.log( error, "starts with error 1" );
+        resolve( error );
       } );
+    // } ).catch( ( err ) => {
+    //   console.log( err, "starts with error 2" );
+    //   resolve( err );
+    // } );
   } )
 );
 
@@ -87,10 +92,30 @@ const localizeAttributions = ( attribution, licenseCode, screen ) => {
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
+const createBackupUri = async ( uri ) => {
+  try {
+    const resizedImage = await resizeImage( uri, dimensions.width, 250 );
+
+    if ( resizedImage ) {
+      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
+      const backupFilepath = `${dirPictures}/${newImageName}`;
+      const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
+      if ( imageMoved ) {
+        return backupFilepath;
+      }
+      return null;
+    }
+    return null;
+  } catch ( e ) {
+    console.log( e, "couldn't resize image" );
+  }
+};
+
 export {
   checkCameraRollPermissions,
   checkForPhotoMetaData,
   resizeImage,
   movePhotoToAppStorage,
-  localizeAttributions
+  localizeAttributions,
+  createBackupUri
 };

@@ -35,13 +35,11 @@ class OnlineServerResults extends Component<Props> {
       uri,
       time,
       latitude,
-      longitude,
-      backupUri
+      longitude
     } = navigation.state.params;
 
     this.state = {
       uri,
-      backupUri,
       time,
       latitude,
       longitude,
@@ -54,7 +52,6 @@ class OnlineServerResults extends Component<Props> {
       seenDate: null,
       error: null,
       scientificName: null,
-      imageForUploading: null,
       match: null,
       clicked: false,
       numberOfHours: null,
@@ -103,10 +100,6 @@ class OnlineServerResults extends Component<Props> {
         this.checkForMatches();
       }
     } );
-  }
-
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
   }
 
   setImageUri( uri ) {
@@ -201,18 +194,6 @@ class OnlineServerResults extends Component<Props> {
     } ).catch( () => this.setError( "image" ) );
   }
 
-  resizeImageForUploading() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 2048 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageForUploading( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
-  }
-
   createJwtToken() {
     const claims = {
       application: "SeekRN",
@@ -265,12 +246,11 @@ class OnlineServerResults extends Component<Props> {
       longitude,
       observation,
       uri,
-      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time, backupUri );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
@@ -311,7 +291,7 @@ class OnlineServerResults extends Component<Props> {
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      imageForUploading,
+      uri,
       scientificName,
       latitude,
       longitude,
@@ -323,7 +303,7 @@ class OnlineServerResults extends Component<Props> {
 
     navigation.push( route, {
       userImage,
-      image: imageForUploading,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -341,7 +321,7 @@ class OnlineServerResults extends Component<Props> {
 
   render() {
     const {
-      imageForUploading,
+      uri,
       error,
       match,
       clicked,
@@ -355,7 +335,6 @@ class OnlineServerResults extends Component<Props> {
           onWillFocus={() => {
             this.getLocation();
             this.resizeImage();
-            this.resizeImageForUploading();
           }}
         />
         {error
@@ -369,7 +348,7 @@ class OnlineServerResults extends Component<Props> {
             <ConfirmScreen
               checkForMatches={this.checkForMatches}
               clicked={clicked}
-              image={imageForUploading}
+              image={uri}
               match={match}
               navigation={navigation}
             />

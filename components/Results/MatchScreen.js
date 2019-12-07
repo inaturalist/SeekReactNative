@@ -56,7 +56,7 @@ class MatchScreen extends Component<Props> {
 
     const {
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -80,7 +80,7 @@ class MatchScreen extends Component<Props> {
       showFlagModal: false,
       navigationPath: null,
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -269,7 +269,7 @@ class MatchScreen extends Component<Props> {
       challenge,
       challengeInProgress,
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -490,7 +490,7 @@ class MatchScreen extends Component<Props> {
                 taxaInfo={{
                   taxaName,
                   taxaId,
-                  image,
+                  uri,
                   userImage,
                   scientificName,
                   latitude,

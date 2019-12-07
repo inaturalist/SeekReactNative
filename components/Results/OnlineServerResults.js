@@ -122,7 +122,7 @@ class OnlineServerResults extends Component<Props> {
     this.setState( { errorCode } );
   }
 
-  setOnlineVisionSpeciesOnlineServerResults( species ) {
+  setOnlineVisionSpeciesResults( species ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 

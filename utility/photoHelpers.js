@@ -56,20 +56,20 @@ const resizeImage = ( imageUri, width, height ) => (
 
 const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   new Promise( ( resolve ) => {
-    // RNFS.mkdir( dirPictures )
-    //   .then( () => {
-    RNFS.moveFile( filePath, newFilepath )
+    RNFS.mkdir( dirPictures )
       .then( () => {
-        resolve( true );
-      } )
-      .catch( ( error ) => {
-        console.log( error, "starts with error 1" );
-        resolve( error );
+        RNFS.moveFile( filePath, newFilepath )
+          .then( () => {
+            resolve( true );
+          } )
+          .catch( ( error ) => {
+            console.log( error, "starts with error 1" );
+            resolve( error );
+          } );
+      } ).catch( ( err ) => {
+        console.log( err, "starts with error 2" );
+        resolve( err );
       } );
-    // } ).catch( ( err ) => {
-    //   console.log( err, "starts with error 2" );
-    //   resolve( err );
-    // } );
   } )
 );
 

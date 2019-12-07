@@ -234,6 +234,8 @@ class SpeciesDetail extends Component<Props> {
                 this.setUserPhoto( seenTaxa );
               } );
             }
+          } else if ( Platform.OS === "android" ) {
+            this.setUserPhoto( seenTaxa );
           }
         }
       } ).catch( () => {

@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import { View, Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import jwt from "react-native-jwt-io";
 import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
@@ -11,13 +10,13 @@ import { NavigationEvents } from "react-navigation";
 import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
-import config from "../../config";
 import styles from "../../styles/results/confirm";
 import {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName
+  getTaxonCommonName,
+  createJwtToken
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
@@ -62,7 +61,7 @@ class OnlineServerResults extends Component<Props> {
     this.checkForMatches = this.checkForMatches.bind( this );
   }
 
-  getGeolocation() {
+  getUserLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -84,11 +83,11 @@ class OnlineServerResults extends Component<Props> {
       if ( Platform.OS === "android" ) {
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
-            this.getGeolocation();
+            this.getUserLocation();
           }
         } );
       } else {
-        this.getGeolocation();
+        this.getUserLocation();
       }
     }
   }
@@ -194,18 +193,8 @@ class OnlineServerResults extends Component<Props> {
     } ).catch( () => this.setError( "image" ) );
   }
 
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
   fetchScore( params ) {
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const options = { api_token: token, user_agent: createUserAgent() };
 

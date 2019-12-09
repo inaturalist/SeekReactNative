@@ -1,6 +1,7 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import * as StoreReview from "react-native-store-review";
+import jwt from "react-native-jwt-io";
 
 import i18n from "../i18n";
 import { deleteBadges } from "./badgeHelpers";
@@ -9,6 +10,7 @@ import iconicTaxaIds from "./iconicTaxonDictById";
 import { isWithinPastYear } from "./dateHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { createBackupUri } from "./photoHelpers";
+import config from "../config";
 
 const { FileUpload } = require( "inaturalistjs" );
 const Realm = require( "realm" );
@@ -412,6 +414,16 @@ const fetchNumberSpeciesSeen = () => (
   } )
 );
 
+const createJwtToken = () => {
+  const claims = {
+    application: "SeekRN",
+    exp: new Date().getTime() / 1000 + 300
+  };
+
+  const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+  return token;
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -434,5 +446,6 @@ export {
   searchForRealm,
   showAppStoreReview,
   showPlayStoreReview,
-  fetchNumberSpeciesSeen
+  fetchNumberSpeciesSeen,
+  createJwtToken
 };

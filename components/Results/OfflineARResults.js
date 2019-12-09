@@ -35,6 +35,8 @@ class OfflineARResults extends Component<Props> {
       time
     } = navigation.state.params;
 
+    console.log( latitude, longitude, "latlng from photos" );
+
     this.state = {
       threshold: 0.7,
       predictions,
@@ -60,7 +62,7 @@ class OfflineARResults extends Component<Props> {
     this.setState( { errorCode }, () => this.resizeImage() );
   }
 
-  getGeolocation() {
+  getUserLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -76,8 +78,8 @@ class OfflineARResults extends Component<Props> {
     } );
   }
 
-  setImageUri( uri ) {
-    this.setState( { userImage: uri }, () => this.setARCameraVisionResults() );
+  setImageUri( userImage ) {
+    this.setState( { userImage }, () => this.setARCameraVisionResults() );
   }
 
   setSeenDate( seenDate ) {
@@ -235,9 +237,7 @@ class OfflineARResults extends Component<Props> {
       time
     } = this.state;
 
-    if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time );
-    }
+    addToCollection( observation, latitude, longitude, uri, time );
   }
 
   checkDateSpeciesSeen( taxaId ) {
@@ -257,16 +257,20 @@ class OfflineARResults extends Component<Props> {
   }
 
   requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setLocationErrorCode( 1 );
-        }
-      } );
-    } else {
-      this.getGeolocation();
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude || !longitude ) { // Android photo gallery images should already have lat/lng
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            this.getUserLocation();
+          } else {
+            this.setLocationErrorCode( 1 );
+          }
+        } );
+      } else {
+        this.getUserLocation();
+      }
     }
   }
 

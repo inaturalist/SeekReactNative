@@ -17,6 +17,7 @@ import {
   getTaxonCommonName,
   createJwtToken
 } from "../../utility/helpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
@@ -54,10 +55,22 @@ class OnlineServerResults extends Component<Props> {
       clicked: false,
       numberOfHours: null,
       errorCode: null,
-      rank: null
+      rank: null,
+      isLoggedIn: null
     };
 
     this.checkForMatches = this.checkForMatches.bind( this );
+  }
+
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
   }
 
   getUserLocation() {
@@ -170,14 +183,14 @@ class OnlineServerResults extends Component<Props> {
 
     if ( !seenDate ) {
       await this.addObservation();
-      this.navigateTo( "Match" );
+      this.navigateTo();
     } else {
-      this.navigateTo( "Match" );
+      this.navigateTo();
     }
   }
 
   showNoMatch() {
-    this.navigateTo( "Match" );
+    this.navigateTo();
   }
 
   resizeImage() {
@@ -270,7 +283,7 @@ class OnlineServerResults extends Component<Props> {
     }
   }
 
-  navigateTo( route ) {
+  navigateTo() {
     const { navigation } = this.props;
     const {
       userImage,
@@ -286,10 +299,11 @@ class OnlineServerResults extends Component<Props> {
       time,
       match,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = this.state;
 
-    navigation.push( route, {
+    navigation.push( "Match", {
       userImage,
       uri,
       taxaName,
@@ -303,7 +317,8 @@ class OnlineServerResults extends Component<Props> {
       commonAncestor,
       match,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } );
   }
 
@@ -321,6 +336,7 @@ class OnlineServerResults extends Component<Props> {
       <>
         <NavigationEvents
           onWillFocus={() => {
+            this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
           }}

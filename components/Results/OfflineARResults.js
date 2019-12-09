@@ -14,8 +14,8 @@ import {
   getTaxonCommonName,
   checkForIconicTaxonId
 } from "../../utility/helpers";
-import { resizeImage } from "../../utility/photoHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
+import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 
@@ -35,8 +35,6 @@ class OfflineARResults extends Component<Props> {
       time
     } = navigation.state.params;
 
-    console.log( latitude, longitude, "latlng from photos" );
-
     this.state = {
       threshold: 0.7,
       predictions,
@@ -44,7 +42,6 @@ class OfflineARResults extends Component<Props> {
       time,
       latitude,
       longitude,
-      userImage: null,
       speciesSeenImage: null,
       observation: null,
       taxaId: null,
@@ -54,12 +51,24 @@ class OfflineARResults extends Component<Props> {
       scientificName: null,
       match: null,
       errorCode: null,
-      rank: null
+      rank: null,
+      isLoggedIn: null
     };
   }
 
+  setLoggedIn( isLoggedIn ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
   setLocationErrorCode( errorCode ) {
-    this.setState( { errorCode }, () => this.resizeImage() );
+    this.setState( { errorCode } );
   }
 
   getUserLocation() {
@@ -72,14 +81,9 @@ class OfflineARResults extends Component<Props> {
           longitude
         } );
       }
-      this.resizeImage();
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
     } );
-  }
-
-  setImageUri( userImage ) {
-    this.setState( { userImage }, () => this.setARCameraVisionResults() );
   }
 
   setSeenDate( seenDate ) {
@@ -160,14 +164,14 @@ class OfflineARResults extends Component<Props> {
 
     if ( !seenDate ) {
       await this.addObservation();
-      this.navigateTo( "Match" );
+      this.navigateTo();
     } else {
-      this.navigateTo( "Match" );
+      this.navigateTo();
     }
   }
 
   showNoMatch() {
-    this.navigateTo( "Match" );
+    this.navigateTo();
   }
 
   checkForMatches() {
@@ -216,18 +220,6 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  resizeImage() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 299 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageUri( userImage );
-      } else {
-        console.log( "error resizing image" );
-      }
-    } ).catch( () => console.log( "error resizing image" ) );
-  }
-
   addObservation() {
     const {
       latitude,
@@ -274,10 +266,9 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  navigateTo( route ) {
+  navigateTo() {
     const { navigation } = this.props;
     const {
-      userImage,
       taxaName,
       taxaId,
       time,
@@ -290,11 +281,12 @@ class OfflineARResults extends Component<Props> {
       longitude,
       match,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = this.state;
 
-    navigation.push( route, {
-      userImage,
+    navigation.push( "Match", {
+      userImage: uri,
       uri,
       taxaName,
       taxaId,
@@ -307,7 +299,8 @@ class OfflineARResults extends Component<Props> {
       commonAncestor,
       match,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } );
   }
 
@@ -317,7 +310,11 @@ class OfflineARResults extends Component<Props> {
     return (
       <View style={styles.container}>
         <NavigationEvents
-          onWillFocus={() => this.requestAndroidPermissions()}
+          onWillFocus={() => {
+            this.getLoggedIn();
+            this.setARCameraVisionResults();
+            this.requestAndroidPermissions();
+          }}
         />
         <FullPhotoLoading uri={uri} />
       </View>

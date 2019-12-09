@@ -29,7 +29,6 @@ import i18n from "../../i18n";
 import Spacer from "../UIComponents/iOSSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import {
   setSpeciesId,
   setRoute,
@@ -68,7 +67,8 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -94,24 +94,13 @@ class MatchScreen extends Component<Props> {
       challengeShown: false,
       errorCode,
       rank,
-      isLoggedIn: null
+      isLoggedIn
     };
 
     this.toggleLevelModal = this.toggleLevelModal.bind( this );
     this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
     this.toggleFlagModal = this.toggleFlagModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
   }
 
   setNavigationPath( navigationPath ) {
@@ -338,29 +327,21 @@ class MatchScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
-        {match && !seenDate ? (
-          <NavigationEvents
-            onDidFocus={() => {
+        <NavigationEvents
+          onDidFocus={() => {
+            if ( match && !seenDate ) {
               this.checkForChallengesCompleted();
               this.checkForNewBadges();
               this.checkLocationPermissions();
-            }}
-            onWillBlur={() => {
+            }
+          }}
+          onWillBlur={() => {
+            if ( match && !seenDate ) {
               setChallengeProgress( "none" );
-            }}
-            onWillFocus={() => {
-              this.scrollToTop();
-              this.getLoggedIn();
-            }}
-          />
-        ) : (
-          <NavigationEvents
-            onWillFocus={() => {
-              this.scrollToTop();
-              this.getLoggedIn();
-            }}
-          />
-        )}
+            }
+          }}
+          onWillFocus={() => this.scrollToTop()}
+        />
         {match && !seenDate && latitude ? (
           <Banner
             badge={badge}

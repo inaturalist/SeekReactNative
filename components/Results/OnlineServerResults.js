@@ -183,14 +183,14 @@ class OnlineServerResults extends Component<Props> {
 
     if ( !seenDate ) {
       await this.addObservation();
-      this.navigateTo();
+      this.navigateToMatch();
     } else {
-      this.navigateTo();
+      this.navigateToMatch();
     }
   }
 
   showNoMatch() {
-    this.navigateTo();
+    this.navigateToMatch();
   }
 
   resizeImage() {
@@ -283,7 +283,7 @@ class OnlineServerResults extends Component<Props> {
     }
   }
 
-  navigateTo() {
+  navigateToMatch() {
     const { navigation } = this.props;
     const {
       userImage,

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Platform } from "react-native";
+import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import moment from "moment";
@@ -10,7 +10,6 @@ import { NavigationEvents } from "react-navigation";
 import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
-import styles from "../../styles/results/confirm";
 import {
   addToCollection,
   capitalizeNames,
@@ -319,7 +318,7 @@ class OnlineServerResults extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
+      <>
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
@@ -342,7 +341,7 @@ class OnlineServerResults extends Component<Props> {
               navigation={navigation}
             />
           )}
-      </View>
+      </>
     );
   }
 }

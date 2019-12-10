@@ -469,15 +469,14 @@ class MatchScreen extends Component<Props> {
                 color={gradientColorLight}
                 navigation={navigation}
                 taxaInfo={{
-                  taxaName,
+                  preferredCommonName: taxaName || commonAncestor,
                   taxaId,
                   uri,
                   userImage,
                   scientificName,
                   latitude,
                   longitude,
-                  time,
-                  commonAncestor
+                  time
                 }}
               />
             ) : null}

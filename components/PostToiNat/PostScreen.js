@@ -47,18 +47,15 @@ class PostScreen extends Component<Props> {
     super();
 
     const {
-      taxaName,
+      preferredCommonName,
       taxaId,
       uri,
       userImage,
       scientificName,
       latitude,
       longitude,
-      time,
-      commonAncestor
+      time
     } = navigation.state.params;
-
-    console.log( latitude, longitude, "latlng in post screen" );
 
     this.state = {
       latitude,
@@ -70,12 +67,12 @@ class PostScreen extends Component<Props> {
       uri,
       userImage,
       taxon: {
-        preferredCommonName: taxaName || commonAncestor,
+        preferredCommonName,
         name: scientificName,
         taxaId
       },
       seekId: {
-        preferredCommonName: taxaName || commonAncestor,
+        preferredCommonName,
         name: scientificName,
         taxaId
       },
@@ -197,7 +194,6 @@ class PostScreen extends Component<Props> {
 
     resizeImage( uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
-        console.log( userImage, "resized image" );
         this.setImageForUploading( userImage );
       } else {
         console.log( "couldn't resize image for uploading" );
@@ -239,8 +235,6 @@ class PostScreen extends Component<Props> {
 
   updateLocation( latitude, longitude ) {
     this.reverseGeocodeLocation( latitude, longitude );
-
-    console.log( latitude, longitude, "latlng update" );
 
     this.setState( {
       latitude,

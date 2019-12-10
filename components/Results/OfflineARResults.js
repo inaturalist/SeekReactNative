@@ -1,11 +1,10 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Platform } from "react-native";
+import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 
-import styles from "../../styles/results/results";
 import {
   addToCollection,
   getTaxonCommonName,
@@ -282,7 +281,7 @@ class OfflineARResults extends Component<Props> {
     const { uri } = this.state;
 
     return (
-      <View style={styles.container}>
+      <>
         <NavigationEvents
           onWillFocus={() => {
             this.getLoggedIn();
@@ -291,7 +290,7 @@ class OfflineARResults extends Component<Props> {
           }}
         />
         <FullPhotoLoading uri={uri} />
-      </View>
+      </>
     );
   }
 }

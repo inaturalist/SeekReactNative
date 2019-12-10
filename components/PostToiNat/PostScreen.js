@@ -118,8 +118,6 @@ class PostScreen extends Component<Props> {
     const { latitude, longitude } = this.state;
     const truncated = checkForTruncatedCoordinates( latitude );
 
-    console.log( truncated, "truncated" );
-
     if ( latitude && longitude && !truncated ) {
       this.reverseGeocodeLocation( latitude, longitude );
     } else if ( truncated ) {

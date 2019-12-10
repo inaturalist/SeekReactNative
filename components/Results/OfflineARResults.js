@@ -91,7 +91,7 @@ class OfflineARResults extends Component<Props> {
   }
 
   setMatch( match ) {
-    this.setState( { match }, () => this.checkForMatches() );
+    this.setState( { match }, () => this.showMatch() );
   }
 
   setCommonAncestor( ancestor, speciesSeenImage ) {
@@ -164,23 +164,9 @@ class OfflineARResults extends Component<Props> {
 
     if ( !seenDate ) {
       await this.addObservation();
-      this.navigateTo();
+      this.navigateToMatch();
     } else {
-      this.navigateTo();
-    }
-  }
-
-  showNoMatch() {
-    this.navigateTo();
-  }
-
-  checkForMatches() {
-    const { match } = this.state;
-
-    if ( match === true ) {
-      this.showMatch();
-    } else if ( match === false ) {
-      this.showNoMatch();
+      this.navigateToMatch();
     }
   }
 
@@ -266,7 +252,7 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  navigateTo() {
+  navigateToMatch() {
     const { navigation } = this.props;
     const {
       taxaName,

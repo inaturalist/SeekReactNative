@@ -181,7 +181,7 @@ class ARCamera extends Component<Props> {
           const photo = await CameraManager.takePictureAsync();
           this.savePhoto( photo );
         } catch ( e ) {
-          this.setError( "save" );
+          this.setError( "save", e );
         }
       }
     } else if ( Platform.OS === "android" ) {
@@ -190,9 +190,7 @@ class ARCamera extends Component<Props> {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
           this.savePhoto( photo );
-        } ).catch( () => {
-          this.setError( "save" );
-        } );
+        } ).catch( e => this.setError( "save", e ) );
       }
     }
   }
@@ -230,7 +228,7 @@ class ARCamera extends Component<Props> {
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( uri => this.navigateToResults( uri ) )
-      .catch( () => this.setError( "save" ) );
+      .catch( e => this.setError( "save", e ) );
   }
 
   navigateToResults( uri ) {

@@ -105,7 +105,6 @@ const createLocationTimeoutAlert = () => {
 };
 
 const checkForTruncatedCoordinates = ( latitude ) => {
-  console.log( latitude, "lat in check" );
   if ( latitude ) {
     const string = latitude.toString();
     const split = string.split( "." );

@@ -18,6 +18,10 @@ type Props = {
 const SpeciesChart = ( { data }: Props ) => {
   const formatXAxis = ( index ) => {
     const allMonths = moment.monthsShort();
+
+    if ( i18n.locale === "ja" ) {
+      return capitalizeNames( allMonths[index] );
+    }
     return capitalizeNames( allMonths[index][0] );
   };
 
@@ -57,7 +61,7 @@ const SpeciesChart = ( { data }: Props ) => {
               formatLabel={value => formatXAxis( value - 1 )}
               style={styles.xAxis}
               svg={{
-                fontSize: 18,
+                fontSize: i18n.locale === "ja" ? 12 : 18,
                 fill: colors.seekTeal
               }}
               xAccessor={( { item } ) => item.month }

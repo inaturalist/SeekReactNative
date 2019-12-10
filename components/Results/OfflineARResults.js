@@ -3,11 +3,8 @@
 import React, { Component } from "react";
 import { View, Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import Realm from "realm";
-import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import realmConfig from "../../models";
 import styles from "../../styles/results/results";
 import {
   addToCollection,
@@ -18,6 +15,7 @@ import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
+import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -124,7 +122,7 @@ class OfflineARResults extends Component<Props> {
       if ( Platform.OS === "ios" ) {
         species.ancestor_ids = ancestorIds.sort();
       }
-      this.checkDateSpeciesSeen( Number( species.taxon_id ) );
+      this.checkSpeciesSeen( Number( species.taxon_id ) );
       this.fetchAdditionalSpeciesInfo( species );
     } else {
       this.checkForCommonAncestor();
@@ -218,20 +216,10 @@ class OfflineARResults extends Component<Props> {
     addToCollection( observation, latitude, longitude, uri, time );
   }
 
-  checkDateSpeciesSeen( taxaId ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        if ( seenTaxaIds.includes( taxaId ) ) {
-          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
-          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          this.setSeenDate( seenDate );
-        } else {
-          this.setSeenDate( null );
-        }
-      } ).catch( () => {
-        this.setSeenDate( null );
-      } );
+  checkSpeciesSeen( taxaId ) {
+    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+      this.setSeenDate( date );
+    } );
   }
 
   requestAndroidPermissions() {

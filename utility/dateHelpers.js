@@ -1,6 +1,8 @@
 import moment from "moment";
+import Realm from "realm";
 
 import i18n from "../i18n";
+import realmConfig from "../models/index";
 
 const requiresParent = ( birthday ) => {
   const today = moment().format( "YYYY-MM-DD" );
@@ -48,9 +50,28 @@ const setMonthLocales = () => {
   } );
 };
 
+const fetchSpeciesSeenDate = taxaId => (
+  new Promise( ( resolve ) => {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        if ( seenTaxaIds.includes( taxaId ) ) {
+          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
+          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          resolve( seenDate );
+        } else {
+          resolve( null );
+        }
+      } ).catch( () => {
+        resolve( null );
+      } );
+  } )
+);
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
   isWithinPastYear,
-  setMonthLocales
+  setMonthLocales,
+  fetchSpeciesSeenDate
 };

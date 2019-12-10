@@ -3,11 +3,9 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import Realm from "realm";
 import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
 import {
@@ -21,6 +19,7 @@ import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
+import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -216,7 +215,7 @@ class OnlineServerResults extends Component<Props> {
         const commonAncestor = response.common_ancestor;
 
         if ( species.combined_score > 85 ) {
-          this.checkDateSpeciesSeen( species.taxon.id );
+          this.checkSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
           this.setOnlineVisionAncestorResults( commonAncestor );
@@ -255,20 +254,10 @@ class OnlineServerResults extends Component<Props> {
     }
   }
 
-  checkDateSpeciesSeen( taxaId ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        if ( seenTaxaIds.includes( taxaId ) ) {
-          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
-          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          this.setSeenDate( seenDate );
-        } else {
-          this.setSeenDate( null );
-        }
-      } ).catch( () => {
-        this.setSeenDate( null );
-      } );
+  checkSpeciesSeen( taxaId ) {
+    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+      this.setSeenDate( date );
+    } );
   }
 
   checkForMatches() {

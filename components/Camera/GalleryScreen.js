@@ -44,14 +44,13 @@ class GalleryScreen extends Component<Props> {
       stillLoading: false,
       groupTypes: "All",
       album: null,
-      predictions: [],
       loading: false
     };
 
     this.updateAlbum = this.updateAlbum.bind( this );
   }
 
-  getPredictions( uri ) {
+  getPredictions( uri, timestamp, location ) {
     const path = uri.split( "file://" );
     const reactUri = path[1];
 
@@ -60,7 +59,7 @@ class GalleryScreen extends Component<Props> {
       modelFilename: dirModel,
       taxonomyFilename: dirTaxonomy
     } ).then( ( { predictions } ) => {
-      this.setState( { predictions } );
+      this.navigateToResults( uri, timestamp, location, predictions );
     } ).catch( ( err ) => {
       console.log( "Error", err );
     } );
@@ -132,8 +131,7 @@ class GalleryScreen extends Component<Props> {
       error: null,
       hasNextPage: true,
       lastCursor: null,
-      stillLoading: false,
-      predictions: []
+      stillLoading: false
     }, () => this.getPhotos() );
   }
 
@@ -167,9 +165,8 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  navigateToResults( uri, time, location ) {
+  navigateToResults( uri, time, location, predictions ) {
     const { navigation } = this.props;
-    const { predictions } = this.state;
 
     let latitude = null;
     let longitude = null;
@@ -203,10 +200,10 @@ class GalleryScreen extends Component<Props> {
     this.setState( { loading: true } );
 
     if ( Platform.OS === "android" ) {
-      this.getPredictions( image.uri );
+      this.getPredictions( image.uri, timestamp, location );
+    } else {
+      this.navigateToResults( image.uri, timestamp, location );
     }
-
-    this.navigateToResults( image.uri, timestamp, location );
   }
 
   renderItem = ( { item } ) => (

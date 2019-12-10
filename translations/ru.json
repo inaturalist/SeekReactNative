@@ -22,7 +22,7 @@
   },
   "challenges_card": {
     "header": "Соревнование",
-    "join": "Добавьте наблюдения с камерой Seek, чтобы заработать значок «Наша Планета»!",
+    "join": "Добавьте наблюдения с помощью камеры Seek, чтобы заработать значок «Наша планета»!",
     "take_challenge": "Участвовать в соревновании",
     "continue_challenge": "Продолжить соревнование",
     "view_all": "Все соревнования"
@@ -31,12 +31,8 @@
     "header": "Уведомления",
     "learn_more": "Больше узнать об iNaturalist",
     "earned_badges": "Вы заработали много значков! Вам наверняка нравится iNaturalist!",
-    "new_challenge": "Новое соревнование «Наша Планета» и WWF уже тут!",
-    "check_out": "Смотреть сейчас!",
     "almost_finished": "Вы почти закончили соревнование!",
     "view_progress": "Посмотреть прогресс",
-    "observation_identified": "Ваше наблюдение было идентифицировано на iNaturalist!",
-    "badges_updated": "Спасибо за помощь в улучшении нашей модели! Ваши значки могут быть обновлены.",
     "challenge_completed": "Поздравляем! Вы завершили соревнование",
     "view_challenges": "Просмотреть соревнование",
     "none": "У Вас нет уведомлений!",
@@ -57,13 +53,10 @@
     "permission": "Для записи вам должно, быть как минимум 13 лет.",
     "privacy": "Политика конфиденциальности",
     "continue": "Продолжить",
-    "need_permission": "Необходимо разрешение ваших родителей.",
     "enter_email": "Пожалуйста, введите адрес электронной почты ваших родителей",
-    "send_email": "Отправить e-mail",
     "parent_email": "Адрес электронной почты родителя/опекуна",
     "under_13": "Посколько вам меньше 13 лет, вам необходимо попросить разрешение родителя или опекуна для создания аккаунта.",
     "sign_up": "Регистрация",
-    "sign_up_inat": "Зарегистрируйтесь в iNaturalist",
     "next": "Далее",
     "submit": "Отправить",
     "email": "Адрес электронной почты",
@@ -126,14 +119,14 @@
     "plants": "растения",
     "amphibians": "земноводные",
     "fungi": "грибы",
-    "fish": "рыба",
-    "reptiles": "рептилии",
+    "fish": "рыбы",
+    "reptiles": "пресмыкающиеся",
     "arachnids": "паукообразные",
     "birds": "птицы",
     "insects": "насекомые",
     "mollusks": "моллюски",
-    "mammals": "млекопитающее",
-    "other": "другие"
+    "mammals": "млекопитающие",
+    "other": "другие виды"
   },
   "challenges": {
     "header": "Соревнования",
@@ -151,7 +144,7 @@
     "hotspots": "Испытание в открытом море",
     "ice": "Климатическое испытание",
     "op": "Наша планета",
-    "start_now": "Поехали!",
+    "start_now": "Пуск",
     "april_2019": "Апрель 2019",
     "may_2019": "Май 2019",
     "june_2019": "Июнь 2019",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Посмотреть значок",
     "badge": "Значок",
-    "species": "вид",
     "challenge_progress": "Вы нашли другие виды!",
     "challenge_view": "Посмотреть ваши успехи",
     "level_up": "Ваш уровень вырос!",
@@ -285,18 +277,16 @@
     "family": "семейство",
     "genus": "род",
     "species": "вид",
-    "loading": "Камера Seek загружается...",
     "error_camera": "Нам нужен доступ к камере, чтобы помочь вам определить виды!",
     "error_gallery": "Нам нужен доступ к вашей фотогалерее для сохранения фото, которые вы делаете!",
     "permissions": "Задайте разрешения в настройках",
     "error_classifier": "К сожалению, мы не можем загрузить классификатор",
     "error_old_camera": "К сожалению, мы не смогли загрузить камеру",
     "error_device_support": "К сожалению, устройство, которое вы используете, не поддерживается",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Сожалеем, возникла проблема при сохранении вашего фото"
   },
   "gallery": {
     "label": "Фото",
-    "choose_photo": "Выбрать фото",
     "camera_roll": "Галерея"
   },
   "camera_help": {
@@ -307,8 +297,8 @@
     "header_1": "Как это работает?",
     "how_works": "Модель идентификации Seek работает непосредственно с деревом жизни.\n\nКаждая точка на полоске идентификации представляет таксономический уровень дерева жизни. Поскольку Seek способен уверенно идентифицировать вид, на который вы смотрите на каждом уровне, он добавляет по одной точке на полоске. Когда организм идентифицирован до вида, делайте фото!",
     "header_2": "Советы и рекомендации",
-    "tips": "Seek лучше всего идентифицирует фото с хорошим освещением и четкой съёмкой вида, так что попробуйте разные углы, пока не получите правильный снимок.\n\nSeek всё ещё учится, поэтому если точки не заполняют полоску полностью, вероятно, вы смотрите на организм, который обычно не встречается в базе данных iNaturalist. Вы можете публиковать наблюдения в iNaturalist, чтобы помочь Seek научиться идентифицировать лучше! Скоро вы сможете размещать их в iNaturalist из программы Seek.",
-    "header_3": "Запомнить",
+    "tips": "Seek лучше всего идентифицирует фото с хорошим освещением и четкой съёмкой вида, так что попробуйте разные углы обзора, пока не получите правильный снимок.\n\nSeek всё ещё учится, поэтому если точки не заполняют полоску полностью, вероятно, вы смотрите на организм, который обычно не встречается в базе данных iNaturalist. Вы можете публиковать наблюдения в iNaturalist, чтобы помочь Seek научиться идентифицировать лучше!",
+    "header_3": "Помните",
     "tip_1": "Будьте всегда в курсе вашего окружения и оставайтесь в безопасности!",
     "tip_2": "Не употребляйте в пищу ничего, что вы находите в дикой природе.",
     "tip_3": "Не нарушайте границы.",
@@ -339,7 +329,7 @@
     "species_badges": "Значки видов",
     "challenge_badges": "Значки испытаний",
     "observed": "Наблюдаемые виды",
-    "earned": "Значки\nЗаработано",
+    "earned": "Заработанные\nЗначки",
     "you_found": "Вы нашли",
     "bird_1": "1 bird!",
     "bird_5": "5 птиц!",
@@ -470,15 +460,15 @@
     "designed_by": "Дизайн и разработка команды iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особая благодарность Visipedia и сообществу iNaturalist.",
     "version": "Версия",
-    "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org."
+    "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Опубликовать в iNaturalist",
     "notes": "Добавить примечания",
     "date": "дата",
-    "at": "в",
     "location": "местоположение",
-    "no_location": "нет местоположения",
     "geoprivacy": "приватность местоположения",
     "open": "Открытый",
     "obscured": "Скрытый",
@@ -494,7 +484,9 @@
     "posting": "Публикация вашего наблюдения",
     "posting_success": "Опубликовано в iNaturalist!",
     "posting_failure": "Публикация в iNaturalist не удалась",
-    "internet": "Проверьте свое подключение к Интернету и попробуйте снова",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Удачно",
     "wait": "Это может занять до минуты",
     "look_up": "Поиск вида по названию"
@@ -538,29 +530,34 @@
     "iNatStats": "Просмотр статистики iNat",
     "flag": "Пометить это наблюдение некорректным",
     "back": "Вернуться к предыдущему экрану",
-    "modal": "Потяните вниз, чтобы закрыть всплывающее окно",
     "user_location": "Вернуться к текущему местоположению",
     "help": "Нажмите для справки",
-    "take_photo": "Нажмите, чтобы сделать фото"
+    "take_photo": "Нажмите, чтобы сделать фото",
+    "scroll_left": "Tap to scroll left",
+    "scroll_right": "Tap to scroll right"
   },
   "review": {
-    "title": "Rate this app",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
-    "rate_now": "Rate now",
-    "later": "Later"
+    "title": "Оценить приложение",
+    "rate": "Если вам нравится это приложение, пожалуйста, найдите минутку, чтобы оценить его в Play Store. Спасибо за вашу поддержку!",
+    "rate_now": "Оценить сейчас",
+    "later": "Позже"
   },
   "months_short": {
-    "1": "янв",
-    "2": "февр",
-    "3": "март",
-    "4": "апр",
-    "5": "май",
-    "6": "июнь",
-    "7": "июль",
-    "8": "авг",
-    "9": "сент",
-    "10": "окт",
-    "11": "ноябрь",
-    "12": "дек"
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "May",
+    "6": "June",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

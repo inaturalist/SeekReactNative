@@ -31,12 +31,8 @@
     "header": "Meldingen",
     "learn_more": "Lees meer over iNaturalist",
     "earned_badges": "Je hebt veel badges verdiend! Je vindt iNaturalist vast ook leuk!",
-    "new_challenge": "Er is een nieuwe uitdaging van 'Our Planet' & WWF!",
-    "check_out": "Probeer het nu!",
     "almost_finished": "Je bent bijna klaar met je uitdaging!",
     "view_progress": "Volg jouw voortgang",
-    "observation_identified": "Je waarneming werd gedetermineerd op soort op iNaturalist!",
-    "badges_updated": "Bedankt voor het helpen verbeteren van ons model! Je badges zijn mogelijk bijgewerkt.",
     "challenge_completed": "Gefeliciteerd! Je hebt een uitdaging voltooid",
     "view_challenges": "Bekijk alle uitdagingen",
     "none": "Je hebt nog geen meldingen!",
@@ -45,7 +41,7 @@
   "login": {
     "log_in": "Aanmelden met iNaturalist",
     "sign_up": "Meld je aan voor iNaturalist",
-    "about": " Door je aan te melden bij iNaturalist, kunt je waarnemingen invoeren in de online gemeenschap met Seek.",
+    "about": " Als je je aanmeld bij iNaturalist kun je waarnemingen doorgeven aan de online gemeenschap met Seek.",
     "skip_login": "Ga verder zonder aan te melden",
     "error_email": "Vul een geldig e-mailadres in a.u.b.",
     "error_credentials": "Onjuiste gebruikersnaam of wachtwoord",
@@ -57,13 +53,10 @@
     "permission": "Je moet minimaal 13 jaar zijn om een account te maken.",
     "privacy": "Privacybeleid",
     "continue": "Doorgaan",
-    "need_permission": "We hebben de toestemming van je ouders nodig.",
     "enter_email": "Geef het e-mailadres van je ouders op",
-    "send_email": "Stuur e-mail",
     "parent_email": "Ouder/Voogd's Email",
     "under_13": "Omdat je jonger bent dan 13, moeten we de toestemming van je ouder of voogd krijgen voordat je een account maakt.",
     "sign_up": "Aanmelden",
-    "sign_up_inat": "Meld je aan voor iNaturalist",
     "next": "Volgende",
     "submit": "Verzenden",
     "email": "E-mail",
@@ -155,11 +148,11 @@
     "april_2019": "April 2019",
     "may_2019": "Mei 2019",
     "june_2019": "Juni 2019",
-    "november_2019": "november 2019",
+    "november_2019": "November 2019",
     "august_2019": "Augustus 2019",
     "september_2019": "September 2019",
     "october_2019": "Oktober 2019",
-    "december_2019": "december 2018",
+    "december_2019": "December 2019",
     "mission_1_april": "Vind 10 nieuwe soorten!",
     "april_description": "We zijn niet alleen op onze planeet! Natuur is altijd om ons heen of we het opmerken of niet. In onze huizen, tuinen, steden en parken zijn verborgen werelden te ontdekken. Zoek in en rond je huis en je zal verbaasd zijn over hoeveel wilde buren die je vindt.\n\nZoek planten, paddenstoelen, kranswieren, vogels en dieren. Kijk eens uit naar tekens van meer ongrijpbaar leven – poep, haren, nesten, sporen en webben zijn allemaal aanwijzingen dat andere wezens hun thuis met je delen.",
     "start_challenge": "Neem de uitdaging aan",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Bekijk badge",
     "badge": "Badge",
-    "species": "soort",
     "challenge_progress": "Je hebt een andere soort gevonden!",
     "challenge_view": "Volg jouw voortgang",
     "level_up": "Je bereikt een hoger level!",
@@ -285,18 +277,16 @@
     "family": "familie",
     "genus": "genus",
     "species": "soort",
-    "loading": "Seek's Camera wordt geladen...",
     "error_camera": "We hebben toegang tot de camera nodig om je te helpen bij het determineren van soorten!",
     "error_gallery": "Er is toegang tot opslag nodig om je foto's op te slaan!",
     "permissions": "Verleen toestemming bij instellingen",
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",
     "error_old_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
     "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Sorry, er was een probleem bij het bewaren van je foto"
   },
   "gallery": {
     "label": "Foto’s",
-    "choose_photo": "Kies een foto",
     "camera_roll": "Filmrol"
   },
   "camera_help": {
@@ -307,7 +297,7 @@
     "header_1": "Hoe werkt het?",
     "how_works": "Het determinatiemodel van de Seek werkt direct met behulp van de boom van het leven.\n\nElke stip op de determinatiebalk vertegenwoordigt een taxonomisch niveau in de boom van het leven. Als Seek in staat is de soorten die je bekijkt trefzeker te determineren op elk niveau, dan zal het een nieuw punt toevoegen aan de balk. Wanneer het organisme is geïdentificeerd op soortsniveau, neem dan een foto!",
     "header_2": "Tips en Trucs",
-    "tips": "Seek werkt het beste met foto's die goed belicht zijn en een duidelijke weergave van de soort dus probeer verschillende hoeken totdat je de juiste afbeelding krijgt.\n\nSeek leert nog steeds, dus als de puntjes niet zich allemaal kunnen vullen kijk je waarschijnlijk naar een organisme dat niet veel voorkomt in de iNaturalist database. Je kunt waarnemingen plaatsen op iNaturalist om Seek te helpen deze beter te leren herkennen! Binnenkort kun je naar iNaturalist posten vanuit Seek.",
+    "tips": "Seek werkt het beste met foto's die goed belicht zijn en de soort goed weergeven dus probeer verschillende hoeken uit totdat je de juiste afbeelding krijgt.\n\nSeek leert nog steeds, dus als de puntjes zich niet allemaal kunnen vullen kijk je waarschijnlijk naar een organisme dat niet veel voorkomt in de iNaturalist database. Je kunt waarnemingen plaatsen op iNaturalist om Seek te helpen deze beter te leren herkennen! Binnenkort kun je naar iNaturalist posten vanuit Seek.",
     "header_3": "Onthoud",
     "tip_1": "Wees altijd bewust van je omgeving en doe voorzichtig!",
     "tip_2": "Eet niets dat je in de natuur vindt.",
@@ -470,15 +460,15 @@
     "designed_by": "Ontworpen & ontwikkeld door het team van iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Speciale dank aan Visipedia en de iNaturalist gemeenschap.",
     "version": "Versie",
-    "help": "Vragen over Seek kun je sturen naar help+seek@inaturalist.org."
+    "help": "Vragen over Seek kun je sturen naar help+seek@inaturalist.org.",
+    "translations": "We zijn dankbaar voor de vertaalhulp die wordt geboden door de crowdin.com-gemeenschap, in het bijzonder Carnifex, Daniele Seglie, katunchik, Lekkim, Marcel Hospers, Martin Reith, Sakatur en Yulia.",
+    "join_crowdin": "Om deel te nemen aan het Seek-vertaalteam bezoek https://crowdin.com/project/search"
   },
   "posting": {
     "header": "Invoeren in iNaturalist",
     "notes": "Maak hier aantekeningen",
     "date": "datum",
-    "at": "op",
     "location": "locatie",
-    "no_location": "geen locatie",
     "geoprivacy": "geoprivacy",
     "open": "Open",
     "obscured": "Vervaagd",
@@ -494,7 +484,9 @@
     "posting": "Jouw waarneming aan het verzenden",
     "posting_success": "Verzonden naar iNaturalist!",
     "posting_failure": "Invoeren op iNaturalist mislukt",
-    "internet": "Controleer je internetverbinding en probeer het opnieuw.",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "Dit kan een paar minuten duren",
     "look_up": "Opzoeken van een soort op basis van de naam"
@@ -538,15 +530,34 @@
     "iNatStats": "Toon iNat statistieken",
     "flag": "Markeer deze waarneming als onjuist",
     "back": "Ga terug naar het vorige scherm",
-    "modal": "Veeg omlaag om modal scherm te sluiten",
     "user_location": "Keer terug naar je huidige locatie",
     "help": "Tik om help scherm te tonen",
-    "take_photo": "Tik om een foto te maken"
+    "take_photo": "Tik om een foto te maken",
+    "scroll_left": "Tik om naar links te scrollen",
+    "scroll_right": "Tik om naar rechts te scrollen"
   },
   "review": {
-    "title": "Rate this app",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
-    "rate_now": "Rate now",
+    "title": "Beoordeel deze app",
+    "rate": "Als je deze app leuk vindt, neem dan even de tijd om deze te beoordelen in de Play Store. Bedankt voor je steun!",
+    "rate_now": "Beoordeel nu",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "jan",
+    "2": "feb",
+    "3": "mrt",
+    "4": "apr",
+    "5": "mei",
+    "6": "juni",
+    "7": "juli",
+    "8": "aug",
+    "9": "sept",
+    "10": "okt",
+    "11": "nov",
+    "12": "dec"
+  },
+  "attributions": {
+    "all": "alle rechten voorbehouden",
+    "some": "enkele rechten voorbehouden"
   }
 }

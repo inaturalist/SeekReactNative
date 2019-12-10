@@ -31,12 +31,8 @@
     "header": "अधिसूचनाएँ",
     "learn_more": "iNaturalist के बारे में अधिक जानें",
     "earned_badges": "आपने कई बैज जीत लिये हैं! iNaturalist आपको पसंद आ सकता हैं!",
-    "new_challenge": "Our Planet और WWF की ओर से पेश है एक नयी चुनौती!",
-    "check_out": "इसे देखें... अभी!",
     "almost_finished": "आपकी चुनौती बस ख़त्म होने वाली है!",
     "view_progress": "अपना विकास देखें",
-    "observation_identified": "iNaturalist पर आपके अवलोकन को प्रजातियों के लिए पहचाना गया!",
-    "badges_updated": "हमारे मॉडल को बेहतर बनाने के लिए धन्यवाद! आपके बैज को अपडेट कर दिया गया होगा।",
     "challenge_completed": "बधाई! आपने एक चुनौती पूरी कर ली",
     "view_challenges": "चुनौती देखें",
     "none": "आपके लिए अभी कोई सूचना नहीं है!",
@@ -57,13 +53,10 @@
     "permission": "अकाउंट बनाने के लिए कम-से-कम 13 साल की उम्र होना अनिवार्य है।",
     "privacy": "गोपनीयता नीति",
     "continue": "आगे बढ़ें",
-    "need_permission": "हमें आपके माता-पिता की अनुमति चाहिए।",
     "enter_email": "कृपया अपने माता-पिता का ई-मेल आईडी लिखें",
-    "send_email": "ई-मेल भेजें",
     "parent_email": "Parent/Guardian's Email",
     "under_13": "Because you’re under 13, we need to get your parent or guardian’s permission before creating an account.",
     "sign_up": "साइन अप",
-    "sign_up_inat": "iNaturalist के लिए साइन-अप करें",
     "next": "अगला",
     "submit": "Submit",
     "email": "ई-मेल",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "बैज देखें",
     "badge": "बैज",
-    "species": "प्रजाति",
     "challenge_progress": "आपने एक और प्रजाति खोजी है!",
     "challenge_view": "अपनी प्रगति देखें",
     "level_up": "आपका लेवल ऊपर हुआ!",
@@ -285,7 +277,6 @@
     "family": "परिवार",
     "genus": "वंश",
     "species": "प्रजातियां",
-    "loading": "Seek का कैमरा लोड हो रहा है...",
     "error_camera": "प्रजाति की पहचान करने में आपकी मदद के लिए हमें कैमरा तक पहुंच करने की जरूरत है!",
     "error_gallery": "आपके लिए गए फोटो सहेजने के लिए हमें आपके कैमरा रोल तक पहुँच करने की जरूरत है!",
     "permissions": "सेटिंग्स में नुमतियां सक्षम करें",
@@ -296,7 +287,6 @@
   },
   "gallery": {
     "label": "फोटो",
-    "choose_photo": "एक फोटो चुनें",
     "camera_roll": "Camera Roll"
   },
   "camera_help": {
@@ -307,7 +297,7 @@
     "header_1": "यह कैसे काम करता है?",
     "how_works": "Seek का पहचान मॉडल सीधे-सीधे ट्री ऑफ लाइफ के प्रयोग से काम करता है।\\n\\nपहचान बार पर बना हर बिंदु ट्री ऑफ लाइफ पर नामकरण स्तर को दर्शाता है। चूँकि अब Seek हर उस स्तर की प्रजाति की पहचान कर सकता है, जिसे आप खोज रहे हैं, वह बार में एक बिंदु लगाता जाएगा। जीव और प्रजाति का मेल होने पर फोटो लें!",
     "header_2": "सलाह और युक्तियाँ",
-    "tips": "Seek श्रेष्ठ है वो फोटो पहचानने में जिसकी रोशनी अच्छी हो और प्रजाति का शॉट स्पष्ट आया हो, इसलिए सटीक शॉट मिलने तक अलग-अलग कोणों से कोशिश करते रहें।\\n\\nSeek अभी भी सीख रहा है, तो यदि आपको लगता है कि बिंदु भर नहीं रहे, तो शायद आप कोई ऐसी प्रजाति देख रहे हैं, जो iNaturalist के डेटाबेस में आमतौर पर नहीं रहता है। आप अपना पर्यवेक्षण iNaturalist पर पोस्ट कर सकते हैं, ताकि Seek बेहतर पहचान करके सीख सके!",
+    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better!",
     "header_3": "याद रखें",
     "tip_1": "अपने परिवेश के बरे में हमेशा जागरुक रहें और सुरक्षित रहें!",
     "tip_2": "जंगल में मिला कुछ भी मत खाएँ।",
@@ -470,15 +460,15 @@
     "designed_by": "रूपरेखा और तैयारकर्ता iNaturalist टीम:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary और Yaron Budowski. Visipedia और iNaturalist समुदाय का विशेष आभार।",
     "version": "Version",
-    "help": "For help with Seek, please email help+seek@inaturalist.org."
+    "help": "For help with Seek, please email help+seek@inaturalist.org.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Post to iNaturalist",
     "notes": "Add notes here",
     "date": "date",
-    "at": "at",
     "location": "location",
-    "no_location": "no location",
     "geoprivacy": "geoprivacy",
     "open": "Open",
     "obscured": "Obscured",
@@ -494,7 +484,9 @@
     "posting": "Posting your Observation",
     "posting_success": "Posted to iNaturalist!",
     "posting_failure": "Posting to iNaturalist failed",
-    "internet": "Try checking your internet connection and try again",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "This may take up to a minute",
     "look_up": "Look up a species by name"
@@ -538,15 +530,34 @@
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
-    "modal": "Swipe down to close popup",
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "take_photo": "Tap to take photo",
+    "scroll_left": "Tap to scroll left",
+    "scroll_right": "Tap to scroll right"
   },
   "review": {
     "title": "Rate this app",
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "May",
+    "6": "June",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

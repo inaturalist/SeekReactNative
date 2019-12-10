@@ -31,12 +31,8 @@
     "header": "Bildirimler",
     "learn_more": "iNaturalist hakkında daha fazlasını öğren",
     "earned_badges": "Birçok rozet kazandın! iNaturalist'i sevebilirsin!",
-    "new_challenge": "Bizim Gezegenimiz ve WWF'den yeni bir mücadele var!",
-    "check_out": "Şimdi bak!",
     "almost_finished": "Mücadeleni neredeyse tamamladın!",
     "view_progress": "İlerlemene bak",
-    "observation_identified": "Gözlemin, iNaturalist'te tür olarak tanımlandı!",
-    "badges_updated": "Modelimizi geliştirmemize yardım ettiğin için teşekkürler! Rozetlerin güncellenmiş olabilir.",
     "challenge_completed": "Tebrikler! Bir mücadeleyi tamamladın",
     "view_challenges": "Mücadeleye bak",
     "none": "Henüz hiç bildiriminiz yok!",
@@ -57,13 +53,10 @@
     "permission": "Hesap yaratmak için en az 13 yaşında olmalısınız.",
     "privacy": "Gizlilik Politikası",
     "continue": "Devam et",
-    "need_permission": "Ebeveynlerinin iznine ihtiyacımız var.",
     "enter_email": "Lütfen ebeveyninin e-posta adresini gir",
-    "send_email": "E-posta gönder",
     "parent_email": "Ebeveyn/Vasi e-postası",
     "under_13": "13 yaşının altında olduğun için hesap yaratmadan önce ebeveyninin ya da vasinin iznini almamız gerekiyor.",
     "sign_up": "Kaydol",
-    "sign_up_inat": "iNaturalist'e kaydol",
     "next": "İleri",
     "submit": "Gönder",
     "email": "Eposta Adresi",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Rozeti göster",
     "badge": "Rozet",
-    "species": "türler",
     "challenge_progress": "Başka bir tür buldunuz!",
     "challenge_view": "İlerlemene bak",
     "level_up": "Düzey atladınız!",
@@ -285,18 +277,16 @@
     "family": "aile",
     "genus": "cins",
     "species": "tür",
-    "loading": "Seek'in Kamerası yükleniyor...",
     "error_camera": "Türleri tanımlamanıza yardımcı olması için kameraya erişmemiz gerekiyor!",
     "error_gallery": "Çektiğiniz fotoğrafları kaydetmek için galeriye erişmemiz gerekiyor!",
     "permissions": "Ayarlardan izinleri etkinleştir",
     "error_classifier": "Üzgünüz, sınıflandırıcıyı yükleyemiyoruz",
     "error_old_camera": "Üzgünüz, kamerayı yükleyemedik",
     "error_device_support": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu"
   },
   "gallery": {
     "label": "Fotoğraflar",
-    "choose_photo": "Fotoğraf seç",
     "camera_roll": "Galeri"
   },
   "camera_help": {
@@ -307,7 +297,7 @@
     "header_1": "Nasıl çalışır?",
     "how_works": "Seek’in tanımlama modeli doğrudan yaşam ağacını kullanarak çalışır.\n\nTanımlama çubuğundaki her nokta, yaşam ağacı üzerindeki sınıflandırmasal bir düzeyi gösterir. Seek, her düzeyde bakmakta olduğunuz türü güvenle tanımlayabildiğinden, çubuğa başka bir nokta ekleyecektir. Organizma türüne göre tanımlandığında, bir fotoğraf çekin!",
     "header_2": "İpuçları ve Püf noktalar",
-    "tips": "Seek, iyi ışıklandırmalı ve türlerin net bir çekimi ile fotoğrafları tanımlamakta en iyisidir, bu yüzden doğru çekime ulaşana kadar farklı açılar deneyin.\n\nSeek hala öğreniyor, bu yüzden noktalar tamamen dolmuyor gibi görünüyorsa, olasılıkla iNaturalist veritabanında bulunmayan bir organizmaya bakıyorsunuzdur. Seek'in bunları daha iyi tanımayı öğrenmesine yardımcı olmak için iNaturalist'e gözlemler gönderebilirsiniz! Yakında, iNaturalist’e Seek içinden gönderi gönderebileceksiniz.",
+    "tips": "Seek, iyi ışıklandırma ve türlerin net bir çekimi ile fotoğrafları tanımlamakta en iyisidir, bu yüzden doğru çekime ulaşana kadar değişik açılar deneyin.\n\nSeek hâlâ öğreniyor, bu yüzden noktalar tamamen dolmuyor gibi görünüyorsa, olasılıkla iNaturalist veri tabanında bulunmayan bir organizmaya bakıyorsunuzdur. Seek'in bunları daha iyi tanımayı öğrenmesine yardımcı olmak için gözlemleri iNaturalist'e gönderebilirsiniz! Yakında, iNaturalist’e Seek içinden gönderebileceksiniz.",
     "header_3": "Anımsa",
     "tip_1": "Sürekli çevrenizden haberdar olun ve güvende kalın!",
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
@@ -470,15 +460,15 @@
     "designed_by": "iNaturalist ekibi tarafından tasarlandı ve geliştirildi:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
-    "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin."
+    "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
+    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarızi, özellikle: Carnifex, Daniele Seglie, katunchik, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia.",
+    "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {
     "header": "iNaturalist'e gönder",
     "notes": "Not ekleyin",
     "date": "tarih",
-    "at": "at",
     "location": "konum",
-    "no_location": "konum yok",
     "geoprivacy": "Coğrafi gizlilik\n",
     "open": "Açık",
     "obscured": "Gizlenmiş",
@@ -494,7 +484,9 @@
     "posting": "Gözlemini gönder",
     "posting_success": "iNaturalist'e gönderildi!",
     "posting_failure": "iNaturalist'e gönderme başarısız",
-    "internet": "Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin",
+    "error_photo_upload": "Gözleminiz iNaturalist'e gönderildi, ancak fotoğrafınız maalesef karşıya yüklenemedi.\n\nGözleminizi görüntülemek ve bir fotoğraf eklemek için iNaturalist web veya mobil uygulamasına giriş yapmayı deneyin.",
+    "error_observation": "Gözleminiz iNaturalist'e gönderilmedi. İnternet bağlantınızı kontrol edin ve tekrar deneyin.",
+    "error_token": "iNaturalist sunucusuyla kimliği doğrulanmış bir bağlantı kuramadık. Lütfen daha sonra tekrar deneyin.",
     "ok": "Tamam",
     "wait": "Bu birkaç dakika sürebilir",
     "look_up": "Adına göre bir türe bak"
@@ -538,15 +530,34 @@
     "iNatStats": "iNat istatistik ekranını görüntüle",
     "flag": "Bu gözlemi yanlış olarak işaretle",
     "back": "Önceki ekrana dön",
-    "modal": "Açılır pencereyi kapatmak için aşağı kaydırın",
     "user_location": "Var olan konuma dön",
     "help": "Yardım ekranı için dokunun",
-    "take_photo": "Fotoğraf çekmek için dokunun"
+    "take_photo": "Fotoğraf çekmek için dokunun",
+    "scroll_left": "Sola kaydırmak için dokunun",
+    "scroll_right": "Sağa kaydırmak için dokunun"
   },
   "review": {
-    "title": "Rate this app",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
-    "rate_now": "Rate now",
-    "later": "Later"
+    "title": "Bu uygulamayı oylayın",
+    "rate": "Bu uygulamayı beğendiysen, lütfen Play Store'de değerlendirmek için bir dakikanızı ayırın. Desteğin için teşekkürler!",
+    "rate_now": "Şimdi oyla",
+    "later": "Sonra"
+  },
+  "months_short": {
+    "1": "Oca",
+    "2": "Şub",
+    "3": "Mart",
+    "4": "Nis",
+    "5": "May",
+    "6": "Haz",
+    "7": "Tem",
+    "8": "Ağu",
+    "9": "Eyl",
+    "10": "Eki",
+    "11": "Kas",
+    "12": "Ara"
+  },
+  "attributions": {
+    "all": "tük hakları saklıdır",
+    "some": "bazı haklar saklıdır"
   }
 }

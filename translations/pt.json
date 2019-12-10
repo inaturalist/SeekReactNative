@@ -31,12 +31,8 @@
     "header": "Notificações",
     "learn_more": "Sabe mais sobre iNaturalist",
     "earned_badges": "Ganhaste bastantes distintivos! Deverás gostar de iNaturalist!",
-    "new_challenge": "Há um novo desafio de Our Planet e WWF!",
-    "check_out": "Confere agora!",
     "almost_finished": "Está quase a terminar o teu desafio!",
     "view_progress": "Ver o teu progresso",
-    "observation_identified": "A tua observação foi identificada como espécie em iNaturalist!",
-    "badges_updated": "Obrigado por ajudar a melhorar o nosso modelo! Os teus distintivos podem ter sido atualizados.",
     "challenge_completed": "Parabéns! Completou um desafio",
     "view_challenges": "Visualizar desafio",
     "none": "Ainda não tem quaisquer notificações!",
@@ -57,13 +53,10 @@
     "permission": "Tens de ter pelo menos 13 anos para criar uma conta.",
     "privacy": "Política de Privacidade",
     "continue": "Continuar",
-    "need_permission": "Precisamos da autorização dos teus pais.",
     "enter_email": "Insere o email dos teus pais ",
-    "send_email": "Enviar email",
     "parent_email": "Parent/Guardian's Email",
     "under_13": "Because you’re under 13, we need to get your parent or guardian’s permission before creating an account.",
     "sign_up": "Subscrever",
-    "sign_up_inat": "Subscrever iNaturalist",
     "next": "Seguinte",
     "submit": "Submit",
     "email": "Email",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Ver distintivo",
     "badge": "Distintivo",
-    "species": "espécies",
     "challenge_progress": "Encontrou outra espécie!",
     "challenge_view": "Veja o seu progresso",
     "level_up": "Subiu de nível!",
@@ -285,7 +277,6 @@
     "family": "família",
     "genus": "género",
     "species": "espécie",
-    "loading": "A Câmera de Seek está a carregar...",
     "error_camera": "Temos de aceder à câmara para o ajudar a identificar as espécies!",
     "error_gallery": "Temos de aceder ao rolo da sua câmara para guardar as fotos que tirar!",
     "permissions": "Ative permissões em configurações",
@@ -296,7 +287,6 @@
   },
   "gallery": {
     "label": "Fotos",
-    "choose_photo": "Escolhe uma foto",
     "camera_roll": "Camera Roll"
   },
   "camera_help": {
@@ -307,7 +297,7 @@
     "header_1": "Como funciona?",
     "how_works": "O modelo de identificação de Seeek funciona usando diretamente a árvore da vida. Cada ponto na barra de identificação representa um nível taxonómico na árvore da vida. Conforme o Seek for capaz de identificar com confiança a espécie que está a focar em cada nível, irá adicionar outro ponto à barra. Quando o organismo for identificada com a espécie, tire uma foto!",
     "header_2": "Dicas e Truques",
-    "tips": "Seek é melhor a identificar fotos com boa iluminação e uma imagem clara da espécie, por isso tente diferentes ângulos até obter o disparo correto. Seek ainda está a aprender, por isso, se os pontos não conseguirem encher até ao fim, provavelmente está a olhar para um organismo que não se encontra normalmente na base de dados de iNaturalist. Pode postar observações em iNaturalist para ajudar - em breve conseguirá postar em iNaturalist a partir de Seek.",
+    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better!",
     "header_3": "Lembra-te",
     "tip_1": "Fica sempre atento ao que está à tua volta e permanece em segurança!",
     "tip_2": "Não comas nada que encontres em estado selvagem.",
@@ -470,15 +460,15 @@
     "designed_by": "Concebido e desenvolvido pela equipa de iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary e Yaron Budowski. Agradecimentos especiais à Visiopedia e à comunidade iNaturalist.",
     "version": "Versão",
-    "help": "For help with Seek, please email help+seek@inaturalist.org."
+    "help": "For help with Seek, please email help+seek@inaturalist.org.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Post to iNaturalist",
     "notes": "Add notes here",
     "date": "date",
-    "at": "at",
     "location": "location",
-    "no_location": "no location",
     "geoprivacy": "geoprivacy",
     "open": "Open",
     "obscured": "Obscured",
@@ -494,7 +484,9 @@
     "posting": "Posting your Observation",
     "posting_success": "Posted to iNaturalist!",
     "posting_failure": "Posting to iNaturalist failed",
-    "internet": "Try checking your internet connection and try again",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "This may take up to a minute",
     "look_up": "Look up a species by name"
@@ -538,15 +530,34 @@
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
-    "modal": "Swipe down to close popup",
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
-    "take_photo": "Tap to take photo"
+    "take_photo": "Tap to take photo",
+    "scroll_left": "Tap to scroll left",
+    "scroll_right": "Tap to scroll right"
   },
   "review": {
     "title": "Rate this app",
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "May",
+    "6": "June",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

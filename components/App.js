@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
+import moment from "moment";
 
 import i18n from "../i18n";
 import RootStack from "./Navigation";

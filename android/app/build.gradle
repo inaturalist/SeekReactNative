@@ -120,7 +120,7 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 80
+        versionCode 81
         versionName "2.4.0"
         // resConfigs "da", "de", "en", "es", "fr", "hi", "it", "ja", "nl", "pt", "ru", "tr", "zh" 
     }

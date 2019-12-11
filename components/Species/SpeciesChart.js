@@ -16,14 +16,14 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  const locale = i18n.locale.split( "-" )[0];
+  // const locale = i18n.locale.split( "-" )[0];
 
   const formatXAxis = ( index ) => {
     const allMonths = moment.monthsShort();
 
-    if ( locale === "ja" ) {
-      return capitalizeNames( allMonths[index] );
-    }
+    // if ( locale === "ja" ) {
+    //   return capitalizeNames( allMonths[index] );
+    // }
     return capitalizeNames( allMonths[index][0] );
   };
 
@@ -63,7 +63,7 @@ const SpeciesChart = ( { data }: Props ) => {
               formatLabel={value => formatXAxis( value - 1 )}
               style={styles.xAxis}
               svg={{
-                fontSize: locale === "ja" ? 12 : 18,
+                fontSize: 18,
                 fill: colors.seekTeal
               }}
               xAccessor={( { item } ) => item.month }

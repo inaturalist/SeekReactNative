@@ -47,6 +47,8 @@ const setMonthLocales = () => {
 
   const locale = i18n.locale.split( "-" )[0];
 
+  moment.locale( locale );
+
   moment.updateLocale( locale, {
     monthsShort
   } );

@@ -2,27 +2,23 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import * as StoreReview from "react-native-store-review";
 import jwt from "react-native-jwt-io";
+import { FileUpload } from "inaturalistjs";
+import Realm from "realm";
+import uuid from "react-native-uuid";
+import { Platform, Alert, Linking } from "react-native";
+import RNFS from "react-native-fs";
+import moment from "moment";
 
 import i18n from "../i18n";
-import { deleteBadges } from "./badgeHelpers";
-import { recalculateChallenges } from "./challengeHelpers";
+import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
+import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
 import { isWithinPastYear } from "./dateHelpers";
 import { fetchAccessToken } from "./loginHelpers";
 import { createBackupUri } from "./photoHelpers";
 import config from "../config";
-
-const { FileUpload } = require( "inaturalistjs" );
-const Realm = require( "realm" );
-const uuid = require( "react-native-uuid" );
-const { Platform, Alert, Linking } = require( "react-native" );
-const RNFS = require( "react-native-fs" );
-const moment = require( "moment" );
-
-const realmConfig = require( "../models/index" );
-const { createNotification } = require( "./notificationHelpers" );
-const { checkNumberOfBadgesEarned } = require( "./badgeHelpers" );
-const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );
+import realmConfig from "../models/index";
+import { createNotification } from "./notificationHelpers";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -138,7 +134,7 @@ const deleteReviews = ( realm, reviews ) => {
 };
 
 const showAppStoreReview = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const reviews = realm.objects( "ReviewRealm" );
 
@@ -164,7 +160,7 @@ const showPlayStoreReview = async () => {
   const login = await fetchAccessToken();
 
   if ( login ) {
-    Realm.open( realmConfig.default )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         const reviews = realm.objects( "ReviewRealm" );
 
@@ -196,18 +192,19 @@ const checkForPowerUsers = ( length, newLength ) => {
 };
 
 const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
+  const { taxon } = observation;
+  const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
+
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
-  const backupUri = await createBackupUri( uri );
-
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );
 
       realm.write( () => {
         let defaultPhoto;
-        const p = observation.taxon.default_photo;
+        const p = taxon.default_photo;
         if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p ? p.medium_url : null,
@@ -215,18 +212,21 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
             backupUri: backupUri || null
           } );
         }
-        const taxon = realm.create( "TaxonRealm", {
-          id: observation.taxon.id,
-          name: observation.taxon.name,
-          preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
-          iconicTaxonId: observation.taxon.iconic_taxon_id,
-          ancestorIds: observation.taxon.ancestor_ids,
+        const newTaxon = realm.create( "TaxonRealm", {
+          id: taxon.id,
+          name: taxon.name,
+          preferredCommonName:
+            taxon.preferred_common_name
+              ? capitalizeNames( taxon.preferred_common_name )
+              : null,
+          iconicTaxonId: taxon.iconic_taxon_id,
+          ancestorIds: taxon.ancestor_ids,
           defaultPhoto
         } );
-        const species = realm.create( "ObservationRealm", {
+        realm.create( "ObservationRealm", {
           uuidString: uuid.v1(),
           date: time ? moment.unix( time ).format() : new Date(),
-          taxon,
+          taxon: newTaxon,
           latitude,
           longitude,
           placeName: null
@@ -240,7 +240,7 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
 };
 
 const removeFromCollection = ( id ) => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       realm.write( () => {
         const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
@@ -328,7 +328,7 @@ const checkIfCardShown = async () => {
 
 const getTaxonCommonName = taxonID => (
   new Promise( ( resolve ) => {
-    Realm.open( realmConfig.default )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
         // look up common names for predicted taxon in the current locale
@@ -395,7 +395,7 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
 
 const fetchNumberSpeciesSeen = () => (
   new Promise( ( resolve ) => {
-    Realm.open( realmConfig.default )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         const { length } = realm.objects( "TaxonRealm" );
         resolve( length );

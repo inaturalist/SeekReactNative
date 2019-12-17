@@ -24,7 +24,8 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "./DeleteModal";
-import { sortNewestToOldest, removeFromCollection } from "../../utility/helpers";
+import { removeFromCollection } from "../../utility/helpers";
+import createSectionList from "../../utility/observationHelpers";
 
 type Props = {
   +navigation: any
@@ -69,50 +70,50 @@ class Observations extends Component<Props> {
     }
   }
 
-  createSectionList( realm ) {
-    const observations = [];
-    const species = realm.objects( "ObservationRealm" );
+  // createSectionList( realm ) {
+  //   const observations = [];
+  //   const species = realm.objects( "ObservationRealm" );
 
-    const taxaIdList = Object.keys( taxaIds ).reverse();
-    taxaIdList.pop();
+  //   const taxaIdList = Object.keys( taxaIds ).reverse();
+  //   taxaIdList.pop();
 
-    taxaIdList.forEach( ( id ) => {
-      const data = species
-        .filtered( `taxon.iconicTaxonId == ${id}` )
-        .sorted( "date", true );
+  //   taxaIdList.forEach( ( id ) => {
+  //     const data = species
+  //       .filtered( `taxon.iconicTaxonId == ${id}` )
+  //       .sorted( "date", true );
 
-      const badgeCount = realm.objects( "BadgeRealm" )
-        .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
+  //     const badgeCount = realm.objects( "BadgeRealm" )
+  //       .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
 
-      observations.push( {
-        id,
-        data: data.length > 0 ? data : [],
-        badgeCount,
-        open: true
-      } );
-    } );
+  //     observations.push( {
+  //       id,
+  //       data: data.length > 0 ? data : [],
+  //       badgeCount,
+  //       open: true
+  //     } );
+  //   } );
 
-    sortNewestToOldest( observations );
+  //   sortNewestToOldest( observations );
 
-    const otherData = species
-      .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
-      .sorted( "date", true );
-    // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
+  //   const otherData = species
+  //     .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
+  //     .sorted( "date", true );
+  //   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-    observations.push( {
-      id: 1,
-      data: otherData,
-      badgeCount: -1,
-      open: true
-    } );
+  //   observations.push( {
+  //     id: 1,
+  //     data: otherData,
+  //     badgeCount: -1,
+  //     open: true
+  //   } );
 
-    return species.length > 0 ? observations : [];
-  }
+  //   return species.length > 0 ? observations : [];
+  // }
 
   fetchObservations() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const observations = this.createSectionList( realm );
+        const observations = createSectionList( realm );
 
         this.setObservations( observations );
       } )

@@ -74,6 +74,15 @@ const fetchPostingSuccess = async () => {
   }
 };
 
+const formatError = ( error ) => {
+  let newError;
+
+  if ( error.includes( "\n" ) ) {
+    newError = error.replace( /\n/g, " " );
+  }
+  return newError || error;
+};
+
 export {
   saveAccessToken,
   fetchAccessToken,
@@ -84,5 +93,6 @@ export {
   setSeenLogin,
   checkIfFirstLogin,
   savePostingSuccess,
-  fetchPostingSuccess
+  fetchPostingSuccess,
+  formatError
 };

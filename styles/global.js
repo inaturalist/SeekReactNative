@@ -19,7 +19,8 @@ export const colors = {
   red: "#973838",
   transparent: "transparent",
   linkText: "#9b9b9b",
-  speciesError: "#102b1f"
+  speciesError: "#102b1f",
+  textShadow: "rgba(0, 0, 0, 0.75)"
 };
 
 export const fonts = {

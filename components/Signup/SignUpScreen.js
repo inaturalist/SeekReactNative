@@ -11,7 +11,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
-import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
+import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
@@ -145,15 +145,6 @@ class SignUpScreen extends Component<Props> {
     }
   }
 
-  formatError( error ) {
-    let newError;
-
-    if ( error.includes( "\n" ) ) {
-      newError = error.replace( /\n/g, " " );
-    }
-    return newError || error;
-  }
-
   render() {
     const { navigation } = this.props;
     const { username, password, error } = this.state;
@@ -186,7 +177,7 @@ class SignUpScreen extends Component<Props> {
             type="password"
           />
           {error
-            ? <ErrorMessage error={this.formatError( error )} />
+            ? <ErrorMessage error={formatError( error )} />
             : <View style={styles.greenButtonMargin} />}
           <GreenButton
             handlePress={() => this.submit()}

@@ -79,7 +79,7 @@ class ARCamera extends Component<Props> {
 
   handleTaxaDetected = ( event ) => {
     const { rankToRender, loading, pictureTaken } = this.state;
-    const predictions = Object.assign( {}, event.nativeEvent );
+    const predictions = { ...event.nativeEvent };
 
     if ( pictureTaken ) {
       return;

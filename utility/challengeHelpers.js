@@ -276,11 +276,11 @@ const checkForChallengesCompleted = async () => {
             const incompleteChallenges = realm.objects( "ChallengeRealm" )
               .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 
-            challengeInProgress = incompleteChallenges[0];
+            [challengeInProgress] = incompleteChallenges;
           }
 
           if ( challenges.length > prevChallengesCompleted ) {
-            challengeComplete = challenges[0];
+            [challengeComplete] = challenges;
           }
 
           resolve( {

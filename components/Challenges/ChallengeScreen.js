@@ -103,7 +103,7 @@ class ChallengeScreen extends Component<Props> {
           <View>
             {challengesStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}`}
+                key={`${item.name}`}
                 item={item}
                 navigation={navigation}
               />
@@ -132,7 +132,7 @@ class ChallengeScreen extends Component<Props> {
           <View>
             {challengesNotStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}`}
+                key={`${item.name}`}
                 fetchChallenges={this.fetchChallenges}
                 item={item}
                 navigation={navigation}
@@ -162,7 +162,7 @@ class ChallengeScreen extends Component<Props> {
         {challengesCompleted.length > 0 ? (
           challengesCompleted.map( ( item ) => (
             <ChallengeProgressCard
-              key={`${item}`}
+              key={`${item.name}`}
               item={item}
               navigation={navigation}
             />

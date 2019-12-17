@@ -24,7 +24,6 @@ const ChallengeFooter = ( { navigation }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.menu" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
           style={styles.leftIcon}
         >
@@ -41,7 +40,6 @@ const ChallengeFooter = ( { navigation }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => navigation.navigate( "iNatStats" )}
           style={styles.rightIcon}
         >

@@ -25,7 +25,6 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.menu" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
           style={styles.leftIcon}
         >
@@ -42,7 +41,6 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.flag" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => toggleFlagModal()}
           style={styles.flagPadding}
         >

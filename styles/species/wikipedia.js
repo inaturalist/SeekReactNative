@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   back: {
@@ -22,6 +22,5 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     top: 19
-  },
-  touchable
+  }
 } );

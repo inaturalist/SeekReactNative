@@ -1,4 +1,4 @@
-const { Platform, Dimensions } = require( "react-native" );
+import { Platform, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -35,13 +35,6 @@ export const fonts = {
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
   iOSButtonPadding: Platform.OS === "ios" ? 7 : 0
-};
-
-export const touchable = {
-  left: 23,
-  right: 23,
-  top: 23,
-  bottom: 23
 };
 
 export const dimensions = {

@@ -1,8 +1,7 @@
 import { StyleSheet, Platform, PixelRatio } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 const fontScale = PixelRatio.getFontScale();
@@ -106,6 +105,5 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center",
     width: 292
-  },
-  touchable
+  }
 } );

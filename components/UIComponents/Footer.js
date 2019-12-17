@@ -47,7 +47,6 @@ const Footer = ( { navigation }: Props ) => {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.menu" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.openDrawer()}
             style={styles.leftIcon}
           >
@@ -64,7 +63,6 @@ const Footer = ( { navigation }: Props ) => {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.notifications" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Notifications" )}
             style={styles.notificationPadding}
           >

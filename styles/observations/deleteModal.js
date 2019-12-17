@@ -2,8 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  row,
-  touchable
+  row
 } from "../global";
 
 export default StyleSheet.create( {
@@ -76,6 +75,5 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center",
     width: 292
-  },
-  touchable
+  }
 } );

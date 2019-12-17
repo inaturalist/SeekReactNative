@@ -47,7 +47,6 @@ const DeleteModal = ( {
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            hitSlop={styles.touchable}
             onPress={() => toggleDeleteModal()}
             style={styles.flagBackButton}
           >

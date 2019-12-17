@@ -44,7 +44,6 @@ const FlagModal = ( {
             {i18n.t( "results.flag" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            hitSlop={styles.touchable}
             onPress={() => toggleFlagModal()}
             style={styles.flagBackButton}
           >

@@ -19,7 +19,6 @@ const CustomBackArrow = ( { navigation, route }: Props ) => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
-    hitSlop={styles.touchable}
     onPress={() => navigation.navigate( route )}
     style={styles.backButton}
   >

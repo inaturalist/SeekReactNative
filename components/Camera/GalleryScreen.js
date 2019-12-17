@@ -271,7 +271,6 @@ class GalleryScreen extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Main" )}
             style={styles.backButton}
           >

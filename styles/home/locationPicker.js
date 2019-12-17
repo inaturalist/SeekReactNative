@@ -2,7 +2,6 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  touchable,
   dimensions
 } from "../global";
 
@@ -109,7 +108,6 @@ export default StyleSheet.create( {
     position: "absolute",
     top: Platform.OS === "ios" ? 25 : 21
   },
-  touchable,
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"

@@ -318,7 +318,6 @@ class ARCamera extends Component<Props> {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => this.closeCamera()}
           style={styles.backButton}
         >

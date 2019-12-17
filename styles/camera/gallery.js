@@ -4,7 +4,6 @@ import {
   center,
   row,
   fonts,
-  touchable,
   dimensions
 } from "../global";
 
@@ -67,6 +66,5 @@ export default StyleSheet.create( {
   safeViewTop: {
     backgroundColor: colors.white,
     flex: 0
-  },
-  touchable
+  }
 } );

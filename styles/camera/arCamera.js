@@ -4,7 +4,7 @@ import {
   Platform,
   PixelRatio
 } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import { colors, fonts } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
@@ -112,6 +112,5 @@ export default StyleSheet.create( {
     bottom: 18,
     position: "absolute",
     zIndex: 1
-  },
-  touchable
+  }
 } );

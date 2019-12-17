@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  touchable,
   center
 } from "../global";
 
@@ -90,6 +89,5 @@ export default StyleSheet.create( {
   },
   textContainer: {
     marginHorizontal: 41
-  },
-  touchable
+  }
 } );

@@ -27,7 +27,6 @@ const WikipediaView = ( { navigation }: Props ) => {
       <View style={styles.header}>
         <Text style={styles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
         <TouchableOpacity
-          hitSlop={styles.touchable}
           onPress={() => navigation.goBack()}
           style={styles.back}
         >

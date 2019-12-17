@@ -82,7 +82,6 @@ class LocationPicker extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={backStyles.touchable}
             onPress={() => toggleLocationPicker()}
             style={backStyles.backButton}
           >

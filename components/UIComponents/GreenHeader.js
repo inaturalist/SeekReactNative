@@ -30,7 +30,6 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.help" )}
         accessible
-        hitSlop={styles.touchable}
         onPress={() => navigation.navigate( "PostingHelp" )}
         style={styles.help}
       >

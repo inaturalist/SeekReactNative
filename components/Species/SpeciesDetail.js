@@ -411,7 +411,6 @@ class SpeciesDetail extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => {
               if ( route === "Match" ) {
                 navigation.navigate( route, { ...navigation.state.params } );

@@ -19,7 +19,6 @@ const BackArrow = ( { navigation, green }: Props ) => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
-    hitSlop={styles.touchable}
     onPress={() => navigation.goBack()}
     style={styles.backButton}
   >

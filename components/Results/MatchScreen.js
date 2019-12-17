@@ -401,7 +401,6 @@ class MatchScreen extends Component<Props> {
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.back" )}
               accessible
-              hitSlop={styles.touchable}
               onPress={() => this.setNavigationPath( "Camera" )}
               style={styles.backButton}
             >

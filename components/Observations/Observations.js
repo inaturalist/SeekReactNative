@@ -241,11 +241,11 @@ class Observations extends Component<Props> {
                 <View style={styles.row}>
                   <Text style={styles.numberText}>{data.length}</Text>
                   {badgeCount === -1 ? (
-                    <React.Fragment>
+                    <>
                       <View style={styles.marginSmall} />
                       <Image source={badge} style={styles.badgeImage} />
                       <View style={{ marginRight: open ? 15 : 19 }} />
-                    </React.Fragment>
+                    </>
                   ) : null}
                   <View style={{ marginRight: badge === badges.badge_empty_small ? -1 : null }} />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />

@@ -17,7 +17,7 @@ type Props = {
 }
 
 const Legend = ( { toggleModal }: Props ) => (
-  <React.Fragment>
+  <>
     <View style={styles.legendHeader}>
       <Text style={styles.whiteText}>
         {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
@@ -46,7 +46,7 @@ const Legend = ( { toggleModal }: Props ) => (
       <View style={{ marginTop: 29 }} />
     </View>
     <BackButton toggleModal={toggleModal} />
-  </React.Fragment>
+  </>
 );
 
 export default Legend;

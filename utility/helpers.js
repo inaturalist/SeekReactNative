@@ -32,7 +32,7 @@ const checkForInternet = () => (
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
-    .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
+    .map( ( string ) => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );
   return titleCaseName;
 };
@@ -103,7 +103,7 @@ const createPlayStoreRatingAlert = () => {
             } else {
               return Linking.openURL( url );
             }
-          } ).catch( err => console.error( "An error occurred", err ) );
+          } ).catch( ( err ) => console.error( "An error occurred", err ) );
       }
     }]
   );
@@ -326,7 +326,7 @@ const checkIfCardShown = async () => {
   }
 };
 
-const getTaxonCommonName = taxonID => (
+const getTaxonCommonName = ( taxonID ) => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
@@ -388,7 +388,7 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
     newTaxaList.push( Number( id ) );
   } );
 
-  const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
+  const iconicTaxonId = newTaxaList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
 
   return iconicTaxonId[0] || 1;
 };

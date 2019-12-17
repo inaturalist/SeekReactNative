@@ -27,7 +27,7 @@ const LevelModal = ( {
   toggleLevelModal,
   screen
 }: Props ) => (
-  <React.Fragment>
+  <>
     <View style={[styles.innerContainer, styles.modalTop]}>
       <View style={styles.headerMargins}>
         <GreenText text={screen === "achievements"
@@ -50,7 +50,7 @@ const LevelModal = ( {
       <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
     </View>
     <BackButton toggleModal={toggleLevelModal} />
-  </React.Fragment>
+  </>
 );
 
 export default LevelModal;

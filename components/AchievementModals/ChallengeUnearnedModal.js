@@ -29,7 +29,7 @@ type Props = {
 };
 
 const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }: Props ) => (
-  <React.Fragment>
+  <>
     <View style={styles.innerContainer}>
       <View style={styles.center}>
         <BannerHeader
@@ -91,7 +91,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
       )}
     </View>
     <BackButton toggleModal={toggleChallengeModal} />
-  </React.Fragment>
+  </>
 );
 
 export default ChallengeUnearnedModal;

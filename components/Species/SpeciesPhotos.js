@@ -99,9 +99,9 @@ class SpeciesPhotos extends Component<Props> {
       );
     }
 
-    photos.forEach( ( photo, i ) => {
+    photos.forEach( ( photo ) => {
       const image = (
-        <View key={`image${photo.taxon_id}-${i}`}>
+        <View key={`image${photo.photo.original_url}`}>
           <Image
             source={{ uri: photo.photo.original_url }}
             style={styles.image}
@@ -131,7 +131,7 @@ class SpeciesPhotos extends Component<Props> {
             <LoadingWheel color="white" />
           </View>
         ) : (
-          <React.Fragment>
+          <>
             <FlatList
               ref={( ref ) => { this.flatList = ref; }}
               bounces={false}
@@ -168,7 +168,7 @@ class SpeciesPhotos extends Component<Props> {
             >
               <Image source={icons.swipeRight} />
             </TouchableOpacity>
-          </React.Fragment>
+          </>
         )}
       </View>
     );

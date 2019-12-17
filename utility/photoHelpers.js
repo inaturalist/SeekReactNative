@@ -108,6 +108,7 @@ const createBackupUri = async ( uri ) => {
     return null;
   } catch ( e ) {
     console.log( e, "couldn't resize image" );
+    return null;
   }
 };
 

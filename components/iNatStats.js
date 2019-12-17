@@ -172,7 +172,7 @@ class iNatStatsScreen extends Component<Props> {
       if ( i <= 8 ) {
         const image = (
           <View
-            key={`image${photo.photoUrl}${i}`}
+            key={`image${photo.photoUrl}`}
             style={styles.center}
           >
             <Image

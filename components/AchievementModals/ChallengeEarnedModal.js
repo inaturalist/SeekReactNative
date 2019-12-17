@@ -20,7 +20,7 @@ type Props = {
 };
 
 const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
-  <React.Fragment>
+  <>
     <LinearGradient
       colors={["#67c5ca", "#3ca2ab"]}
       style={[styles.header, styles.modalTop]}
@@ -48,7 +48,7 @@ const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
       <View style={styles.marginBottom} />
     </View>
     <BackButton toggleModal={toggleChallengeModal} />
-  </React.Fragment>
+  </>
 );
 
 export default ChallengeEarnedModal;

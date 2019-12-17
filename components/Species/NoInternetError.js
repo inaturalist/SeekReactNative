@@ -55,7 +55,7 @@ const NoInternetError = ( {
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
   return (
-    <React.Fragment>
+    <>
       <View style={styles.secondTextContainer}>
         {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
         {seenDate ? (
@@ -87,7 +87,7 @@ const NoInternetError = ( {
         ) : null}
       </View>
       {id !== 43584 ? (
-        <React.Fragment>
+        <>
           <View style={styles.secondTextContainer}>
             {error === "location" ? null : (
               <SpeciesMap
@@ -115,14 +115,14 @@ const NoInternetError = ( {
             id={id}
           />
           <View style={styles.bottomPadding} />
-        </React.Fragment>
+        </>
       ) : (
         <View style={styles.secondTextContainer}>
           <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
           <Padding />
         </View>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

@@ -84,7 +84,7 @@ const setupBadges = () => {
           const badges = badgesDict[badgeType];
 
           try {
-            const badge = realm.create( "BadgeRealm", {
+            realm.create( "BadgeRealm", {
               name: badges.name,
               intlName: badges.intlName,
               iconicTaxonName: badges.iconicTaxonName,
@@ -149,11 +149,11 @@ const checkForNewBadges = async () => {
             .sorted( "earnedDate", true );
 
           if ( badgesEarned < earnedBadges.length ) {
-            latestBadge = badges[0];
+            [latestBadge] = badges;
           }
 
           if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
-            latestLevel = newestLevels[0];
+            [latestLevel] = newestLevels;
           }
 
           resolve( {

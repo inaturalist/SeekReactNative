@@ -93,7 +93,7 @@ class INatObs extends Component<Props> {
           </TouchableOpacity>
           <View style={styles.textContainer}>
             {error === "location" ? null : (
-              <React.Fragment>
+              <>
                 <Text style={styles.secondHeaderText}>
                   {i18n.t( "species_detail.near" )}
                   {" "}
@@ -102,7 +102,7 @@ class INatObs extends Component<Props> {
                 <Text style={styles.number}>
                   {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
                 </Text>
-              </React.Fragment>
+              </>
             )}
             <Text style={[styles.secondHeaderText, !error && { marginTop: 28 }]}>
               {i18n.t( "species_detail.worldwide" )}

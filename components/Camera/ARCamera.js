@@ -319,13 +319,13 @@ class ARCamera extends Component<Props> {
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
           hitSlop={styles.touchable}
-          onPress={() => this.closeCamera() }
+          onPress={() => this.closeCamera()}
           style={styles.backButton}
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
         {!error ? (
-          <React.Fragment>
+          <>
             <ARCameraHeader
               commonName={commonName}
               ranks={ranks}
@@ -361,7 +361,7 @@ class ARCamera extends Component<Props> {
             >
               <Image source={icons.cameraHelp} />
             </TouchableOpacity>
-          </React.Fragment>
+          </>
         ) : null}
         {focusedScreen ? ( // this is necessary for handleResumePreview to work properly in iOS
           <INatCamera

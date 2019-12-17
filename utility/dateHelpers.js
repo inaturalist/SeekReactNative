@@ -54,11 +54,11 @@ const setMonthLocales = () => {
   } );
 };
 
-const fetchSpeciesSeenDate = taxaId => (
+const fetchSpeciesSeenDate = ( taxaId ) => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
+        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
           const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
           const seenDate = moment( seenTaxa[0].date ).format( "ll" );

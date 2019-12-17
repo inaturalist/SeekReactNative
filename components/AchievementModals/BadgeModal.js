@@ -38,10 +38,10 @@ class BadgeModal extends Component<Props> {
     const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
     const badgeList = [];
 
-    badges.forEach( ( badge, i ) => {
+    badges.forEach( ( badge ) => {
       const badgeInfo = (
         <View
-          key={`badge${badge}${i}`}
+          key={`badge${badge.earnedIconName}`}
           style={styles.carousel}
         >
           {badge.earned ? (
@@ -71,7 +71,7 @@ class BadgeModal extends Component<Props> {
     } );
 
     return (
-      <React.Fragment>
+      <>
         <View style={styles.innerContainer}>
           <BannerHeader
             modal
@@ -104,7 +104,7 @@ class BadgeModal extends Component<Props> {
           </View>
         </View>
         <BackButton toggleModal={toggleBadgeModal} />
-      </React.Fragment>
+      </>
     );
   }
 }

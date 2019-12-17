@@ -1,4 +1,4 @@
-import ImageResizer from "react-native-image-resizer";
+import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import moment from "moment";
 import RNFS from "react-native-fs";
 

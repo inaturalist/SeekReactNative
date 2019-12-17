@@ -1,13 +1,12 @@
 import AsyncStorage from "@react-native-community/async-storage";
+import Realm from "realm";
 
-const Realm = require( "realm" );
-
-const { createNotification } = require( "./notificationHelpers" );
-const taxonDict = require( "./taxonDictForMissions" );
-const missionsDict = require( "./missionsDict" );
-const realmConfig = require( "../models/index" );
-const challengesDict = require( "./challengesDict" );
-const { checkIfChallengeAvailable } = require( "./dateHelpers" );
+import { createNotification } from "./notificationHelpers";
+import taxonDict from "./taxonDictForMissions";
+import missionsDict from "./missionsDict";
+import realmConfig from "../models/index";
+import challengesDict from "./challengesDict";
+import { checkIfChallengeAvailable } from "./dateHelpers";
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
@@ -96,7 +95,7 @@ const checkForAncestors = ( seenTaxa, taxaId ) => {
   return matchingAncestors;
 };
 
-const calculateTaxaSeenPerMission = ( types, seenTaxa ) => { 
+const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
   let count = 0;
 
   types.forEach( ( taxa ) => {
@@ -105,7 +104,7 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
     if ( taxa === "all" ) {
       taxaPerMission = seenTaxa.length;
     } else {
-      const taxaId = taxonDict.default[taxa];
+      const taxaId = taxonDict[taxa];
       const taxaTypeSeen = seenTaxa.filter( t => ( t.taxon && t.taxon.iconicTaxonId === taxaId ) );
       const matchingAncestors = checkForAncestors( seenTaxa, taxaId );
       if ( taxaTypeSeen.length > 0 ) {
@@ -123,7 +122,7 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
 };
 
 const recalculateChallenges = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const incompleteChallenges = fetchIncompleteChallenges( realm );
 
@@ -134,7 +133,7 @@ const recalculateChallenges = () => {
           realm.delete( challenge.numbersObserved );
           // deleting numbers observed each time to update with fresh results
           const { index } = challenge;
-          const challengeMonth = missionsDict.default[index];
+          const challengeMonth = missionsDict[index];
           const challengeMonthMissionList = Object.keys( challengeMonth );
 
           challengeMonthMissionList.forEach( ( mission ) => {
@@ -151,7 +150,7 @@ const recalculateChallenges = () => {
 };
 
 const startChallenge = ( index ) => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
 
@@ -168,17 +167,17 @@ const startChallenge = ( index ) => {
 };
 
 const setupChallenges = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       realm.write( () => {
-        const dict = Object.keys( challengesDict.default );
+        const dict = Object.keys( challengesDict );
 
         dict.forEach( ( challengesType ) => {
-          const challenges = challengesDict.default[challengesType];
+          const challenges = challengesDict[challengesType];
           const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
           if ( isAvailable ) {
-            const challenge = realm.create( "ChallengeRealm", {
+            realm.create( "ChallengeRealm", {
               name: challenges.name,
               month: challenges.month,
               description: challenges.description,
@@ -206,7 +205,7 @@ const setChallengesCompleted = ( challenges ) => {
 };
 
 const checkNumberOfChallengesCompleted = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" ).length;
 
@@ -260,7 +259,7 @@ const checkForChallengesCompleted = async () => {
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig.default )
+      Realm.open( realmConfig )
         .then( ( realm ) => {
           let challengeInProgress;
           let challengeComplete;

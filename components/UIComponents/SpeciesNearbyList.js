@@ -59,9 +59,9 @@ const SpeciesNearbyList = ( {
       }
       return <LoadingWheel color="black" />;
     }}
-    renderItem={ ( { item } ) => (
+    renderItem={( { item } ) => (
       <TouchableOpacity
-        onPress={ () => {
+        onPress={() => {
           setSpeciesId( item.id );
           if ( match ) {
             setRoute( "Match" );

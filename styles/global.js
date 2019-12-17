@@ -18,7 +18,8 @@ export const colors = {
   circleGray: "#f0f0f0",
   red: "#973838",
   transparent: "transparent",
-  linkText: "#9b9b9b"
+  linkText: "#9b9b9b",
+  speciesError: "#102b1f"
 };
 
 export const fonts = {

@@ -38,7 +38,7 @@ const InputField = ( {
       autoCorrect={false}
       autoFocus={type !== "password"}
       keyboardType={keyboardType}
-      onChangeText={ value => handleTextChange( value )}
+      onChangeText={value => handleTextChange( value )}
       placeholder={placeholder}
       placeholderTextColor="#828282"
       secureTextEntry={type === "password"}

@@ -14,6 +14,7 @@ import logos from "../../assets/logos";
 import { fetchLocationName } from "../../utility/locationHelpers";
 import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
+import { seti18nNumber } from "../../utility/helpers";
 
 type Props = {
   +id: Number,
@@ -100,15 +101,15 @@ class INatObs extends Component<Props> {
                   {location}
                 </Text>
                 <Text style={styles.number}>
-                  {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
+                  {seti18nNumber( nearbySpeciesCount )}
                 </Text>
               </>
             )}
-            <Text style={[styles.secondHeaderText, !error && { marginTop: 28 }]}>
+            <Text style={[styles.secondHeaderText, !error && styles.margin]}>
               {i18n.t( "species_detail.worldwide" )}
             </Text>
             <Text style={styles.number}>
-              {i18n.toNumber( timesSeen, { precision: 0 } )}
+              {seti18nNumber( timesSeen )}
             </Text>
           </View>
         </View>

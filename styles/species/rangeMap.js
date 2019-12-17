@@ -44,6 +44,9 @@ export default StyleSheet.create( {
     height: height - 75,
     width
   },
+  margin: {
+    marginBottom: 23
+  },
   row: {
     alignItems: "center",
     flexDirection: "row",

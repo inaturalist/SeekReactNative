@@ -130,7 +130,7 @@ class RangeMap extends Component<Props> {
                   longitude: userLocation.longitude
                 }}
               >
-                <Image source={icons.locationPin} style={{ marginBottom: 23 }} />
+                <Image source={icons.locationPin} style={styles.margin} />
               </Marker>
             ) : null}
           </MapView>

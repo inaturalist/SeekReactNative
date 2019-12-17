@@ -8,7 +8,7 @@ import {
 export default StyleSheet.create( {
   errorContainer: {
     alignItems: "center",
-    backgroundColor: "#102b1f",
+    backgroundColor: colors.speciesError,
     height: 109,
     justifyContent: "center",
     marginTop: 15
@@ -32,7 +32,8 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21
+    lineHeight: 21,
+    textAlign: "center"
   },
   textContainer: {
     marginHorizontal: 28,

@@ -6,19 +6,18 @@ import {
   View,
   ScrollView
 } from "react-native";
-import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import config from "../../config";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "../Signup/ErrorMessage";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -38,16 +37,6 @@ class ForgotPasswordScreen extends Component<Props> {
     this.setState( { error } );
   }
 
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
   checkEmail() {
     const { email } = this.state;
 
@@ -62,7 +51,7 @@ class ForgotPasswordScreen extends Component<Props> {
   emailForgotPassword() {
     const { email } = this.state;
 
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       user: {

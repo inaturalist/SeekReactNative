@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import { View, ScrollView } from "react-native";
-import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import config from "../../config";
@@ -15,6 +14,7 @@ import ErrorMessage from "./ErrorMessage";
 import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -37,16 +37,6 @@ class SignUpScreen extends Component<Props> {
 
   setError( error ) {
     this.setState( { error } );
-  }
-
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
   }
 
   retrieveOAuthToken( username, password ) {
@@ -101,7 +91,7 @@ class SignUpScreen extends Component<Props> {
       password
     } = this.state;
 
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       user: {

@@ -6,9 +6,7 @@ import {
   Text,
   ScrollView
 } from "react-native";
-import jwt from "react-native-jwt-io";
 
-import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
@@ -19,6 +17,7 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenText from "../UIComponents/GreenText";
 import InputField from "../UIComponents/InputField";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -43,21 +42,11 @@ class ParentalConsentScreen extends Component<Props> {
     this.setState( { loading } );
   }
 
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
   shareEmailWithiNat() {
     const { email } = this.state;
 
     this.setLoading( true );
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       email

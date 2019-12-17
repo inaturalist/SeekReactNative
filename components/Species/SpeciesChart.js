@@ -52,8 +52,8 @@ const SpeciesChart = ( { data }: Props ) => {
               data={data}
               style={styles.chart}
               svg={{ stroke: colors.seekForestGreen }}
-              xAccessor={( { item } ) => item.month }
-              yAccessor={ ( { item } ) => item.count }
+              xAccessor={( { item } ) => item.month}
+              yAccessor={( { item } ) => item.count}
             >
               <Decorator />
             </LineChart>
@@ -66,7 +66,7 @@ const SpeciesChart = ( { data }: Props ) => {
                 fontSize: 18,
                 fill: colors.seekTeal
               }}
-              xAccessor={( { item } ) => item.month }
+              xAccessor={( { item } ) => item.month}
             />
           </View>
         ) : null}

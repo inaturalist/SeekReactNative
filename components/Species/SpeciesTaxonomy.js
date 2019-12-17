@@ -17,9 +17,9 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   let margin = 0;
 
   if ( ancestors.length > 0 ) {
-    ancestors.forEach( ( ancestor, i ) => {
+    ancestors.forEach( ( ancestor ) => {
       const rank = (
-        <View key={`taxon-${ancestor.rank}-${i}`} style={[{ marginLeft: margin }, styles.taxonomyRow]}>
+        <View key={`taxon-${ancestor.rank}`} style={[{ marginLeft: margin }, styles.taxonomyRow]}>
           <Image source={icons.taxonomyCircle} style={styles.bullets} />
           <View>
             <Text style={styles.taxonomyHeader}>

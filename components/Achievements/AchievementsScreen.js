@@ -105,40 +105,6 @@ class AchievementsScreen extends Component<Props> {
           challengeBadges.push( challenge );
         } );
 
-        if ( challenges.length < 8 ) {
-          const oct = {
-            month: "challenges.october_2019",
-            availableDate: new Date( 2019, 9, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          const nov = {
-            month: "challenges.november_2019",
-            availableDate: new Date( 2019, 10, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          const dec = {
-            month: "challenges.december_2019",
-            availableDate: new Date( 2019, 11, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          if ( checkIfChallengeAvailable( nov.availableDate ) ) {
-            challengeBadges.push( dec );
-          } else if ( checkIfChallengeAvailable( oct.availableDate ) ) {
-            challengeBadges.push( nov, dec );
-          } else {
-            challengeBadges.push( oct, nov, dec );
-          }
-        }
-
         this.setState( { challengeBadges } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );

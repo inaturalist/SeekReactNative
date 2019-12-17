@@ -27,6 +27,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.dividerGray,
     height: 1
   },
+  extraMargin: {
+    marginHorizontal: 5
+  },
   greenText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,

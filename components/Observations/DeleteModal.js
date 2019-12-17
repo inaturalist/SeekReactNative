@@ -48,7 +48,7 @@ const DeleteModal = ( {
           </Text>
           <TouchableOpacity
             hitSlop={styles.touchable}
-            onPress={() => toggleDeleteModal() }
+            onPress={() => toggleDeleteModal()}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />

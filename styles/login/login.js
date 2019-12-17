@@ -27,6 +27,11 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
+  email: {
+    color: colors.black,
+    marginHorizontal: 57,
+    marginTop: 21
+  },
   flexCenter: {
     flexGrow: 1,
     justifyContent: "center"

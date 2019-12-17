@@ -158,9 +158,9 @@ class SelectSpecies extends Component<Props> {
                 scientificName={scientificName}
               />
             ) : (
-              suggestions.map( ( item, index ) => (
+              suggestions.map( ( item ) => (
                 <View
-                  key={`${item.scientificName}${index}`}
+                  key={`${item.scientificName}${item.id}`}
                   style={styles.card}
                 >
                   <SpeciesCard

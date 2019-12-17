@@ -45,7 +45,7 @@ const FlagModal = ( {
           </Text>
           <TouchableOpacity
             hitSlop={styles.touchable}
-            onPress={() => toggleFlagModal() }
+            onPress={() => toggleFlagModal()}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />

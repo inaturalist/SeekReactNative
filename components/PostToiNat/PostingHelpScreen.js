@@ -55,7 +55,7 @@ class PostingHelpScreen extends Component<Props> {
             <Text style={styles.text}>{i18n.t( "posting_help.id_description" )}</Text>
             <View style={styles.row}>
               <Image source={icons.date} style={styles.icon} />
-              <View style={{ marginRight: 10 }} />
+              <View style={styles.marginRight} />
               <Image source={icons.location} style={styles.icon} />
               <Text style={styles.headerText}>{i18n.t( "posting_help.date" ).toLocaleUpperCase()}</Text>
             </View>
@@ -64,7 +64,7 @@ class PostingHelpScreen extends Component<Props> {
               <Image source={icons.geoprivacy} style={styles.icon} />
               <Text style={styles.headerText}>{i18n.t( "posting_help.geoprivacy" ).toLocaleUpperCase()}</Text>
             </View>
-            <View style={{ marginTop: 16 }} />
+            <View style={styles.paragraph} />
             <Text style={styles.paragraph}>
               <Text style={styles.boldText}>{i18n.t( "posting_help.open_header" )}</Text>
               <Text style={styles.text}>{i18n.t( "posting_help.open" )}</Text>
@@ -77,12 +77,12 @@ class PostingHelpScreen extends Component<Props> {
               <Text style={styles.boldText}>{i18n.t( "posting_help.closed_header" )}</Text>
               <Text style={styles.text}>{i18n.t( "posting_help.closed" )}</Text>
             </Text>
-            <View style={{ marginTop: 19 }} />
+            <View style={styles.margin} />
             <View style={styles.row}>
               <Image source={icons.captive} style={styles.icon} />
               <Text style={styles.headerText}>{i18n.t( "posting_help.captive" ).toLocaleUpperCase()}</Text>
             </View>
-            <View style={{ marginTop: 16 }} />
+            <View style={styles.paragraph} />
             <Text style={styles.paragraph}>
               <Text style={styles.boldText}>{i18n.t( "posting_help.no_header" )}</Text>
               <Text style={styles.text}>{i18n.t( "posting_help.no" )}</Text>
@@ -91,7 +91,7 @@ class PostingHelpScreen extends Component<Props> {
               <Text style={styles.boldText}>{i18n.t( "posting_help.yes_header" )}</Text>
               <Text style={styles.text}>{i18n.t( "posting_help.yes" )}</Text>
             </Text>
-            <View style={{ marginTop: 19 }} />
+            <View style={styles.margin} />
             <Text style={styles.italicText}>{i18n.t( "posting_help.addendum" )}</Text>
           </View>
           <Padding />

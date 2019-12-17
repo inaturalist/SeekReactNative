@@ -322,7 +322,8 @@ class PostScreen extends Component<Props> {
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version
-        owners_identification_from_vision_requested: true, // this shows that the id is recommended by computer vision
+        owners_identification_from_vision_requested: true,
+        // this shows that the id is recommended by computer vision
         description
       }
     };
@@ -467,7 +468,7 @@ class PostScreen extends Component<Props> {
           <TextInput
             keyboardType="default"
             multiline
-            onChangeText={ value => this.setState( { description: value } )}
+            onChangeText={value => this.setState( { description: value } )}
             placeholder={i18n.t( "posting.notes" )}
             placeholderTextColor="#828282"
             style={styles.inputField}
@@ -494,7 +495,7 @@ class PostScreen extends Component<Props> {
             onPress={() => this.toggleLocationPicker()}
             style={styles.thinCard}
           >
-            <Image source={posting.location} style={[styles.icon, { marginHorizontal: 5 }]} />
+            <Image source={posting.location} style={[styles.icon, styles.extraMargin]} />
             <View style={styles.row}>
               <Text style={styles.greenText}>
                 {i18n.t( "posting.location" ).toLocaleUpperCase()}

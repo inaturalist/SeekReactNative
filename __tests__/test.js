@@ -1,7 +1,7 @@
-const faker = require( "faker" );
+import faker from "faker";
 
-const { createNotification } = require( "./notificationHelpers" );
-const { addToCollection } = require( "./helpers" );
+import { createNotification } from "../utility/notificationHelpers";
+import { addToCollection } from "../utility/helpers";
 
 const createFakeObservations = () => {
   for ( let i = 0; i < 15; i += 1 ) {

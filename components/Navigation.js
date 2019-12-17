@@ -178,7 +178,7 @@ const MainStack = createStackNavigator( {
   }
 }, {
   headerMode: "none",
-  transitionConfig: nav => handleCustomTransition( nav )
+  transitionConfig: ( nav ) => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {

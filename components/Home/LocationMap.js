@@ -25,7 +25,7 @@ const LocationMap = ( {
   <View style={styles.container}>
     {region.latitude ? (
       <MapView
-        onRegionChangeComplete={region => onRegionChange( region )}
+        onRegionChangeComplete={r => onRegionChange( r )}
         provider={PROVIDER_DEFAULT}
         region={region}
         style={styles.map}

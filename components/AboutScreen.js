@@ -36,7 +36,7 @@ const AboutScreen = ( { navigation }: Props ) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <SafeAreaView />
       <NavigationEvents onWillBlur={() => scrollToTop()} />
       <GreenHeader header={i18n.t( "about.header" )} navigation={navigation} />
@@ -80,7 +80,7 @@ const AboutScreen = ( { navigation }: Props ) => {
         <View style={styles.block} />
         <Padding />
       </ScrollView>
-    </React.Fragment>
+    </>
   );
 };
 

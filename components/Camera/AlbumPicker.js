@@ -51,7 +51,7 @@ class AlbumPicker extends Component<Props> {
       }
 
       this.setState( { albumNames } );
-    } ).catch( ( e ) => {
+    } ).catch( () => {
       this.setState( { albumNames } );
     } );
   }

@@ -21,7 +21,7 @@ import icons from "../assets/icons";
 import backgrounds from "../assets/backgrounds";
 import logos from "../assets/logos";
 import Padding from "./UIComponents/Padding";
-import { capitalizeNames, shuffleList } from "../utility/helpers";
+import { capitalizeNames, shuffleList, seti18nNumber } from "../utility/helpers";
 import { localizeAttributions } from "../utility/photoHelpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
@@ -40,24 +40,18 @@ class iNatStatsScreen extends Component<Props> {
     super();
 
     this.state = {
-      observations: i18n.toNumber( 25000000, { precision: 0 } ),
-      observers: i18n.toNumber( 700000, { precision: 0 } ),
+      observations: seti18nNumber( 25000000 ),
+      observers: seti18nNumber( 700000 ),
       photos: [],
       scrollIndex: 0,
       scrollOffset: 0
     };
   }
 
-  seti18nNumber( number ) {
-    return i18n.toNumber( number, { precision: 0 } );
-  }
-
-  async fetchiNatStats() {
-    const { observations, observers } = await getiNatStats();
-
+  setIndex( scrollIndex, scrollOffset ) {
     this.setState( {
-      observations: this.seti18nNumber( observations ),
-      observers: this.seti18nNumber( observers )
+      scrollIndex,
+      scrollOffset
     } );
   }
 
@@ -80,7 +74,7 @@ class iNatStatsScreen extends Component<Props> {
     const options = { user_agent: createUserAgent() };
 
     inatjs.observations.search( params, options ).then( ( { results } ) => {
-      const taxa = results.map( r => r.taxon );
+      const taxa = results.map( ( r ) => r.taxon );
       const photos = [];
 
       taxa.forEach( ( photo ) => {
@@ -111,10 +105,12 @@ class iNatStatsScreen extends Component<Props> {
     } );
   }
 
-  setIndex( scrollIndex, scrollOffset ) {
+  async fetchiNatStats() {
+    const { observations, observers } = await getiNatStats();
+
     this.setState( {
-      scrollIndex,
-      scrollOffset
+      observations: seti18nNumber( observations ),
+      observers: seti18nNumber( observers )
     } );
   }
 
@@ -260,7 +256,7 @@ class iNatStatsScreen extends Component<Props> {
                 horizontal
                 indicatorStyle="white"
                 initialNumToRender={1}
-                onScrollEndDrag={e => this.calculateScrollIndex( e )}
+                onScrollEndDrag={( e ) => this.calculateScrollIndex( e )}
                 pagingEnabled
                 renderItem={( { item } ) => item}
                 showsHorizontalScrollIndicator

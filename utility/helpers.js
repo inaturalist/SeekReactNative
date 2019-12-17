@@ -415,6 +415,8 @@ const createJwtToken = () => {
   return token;
 };
 
+const seti18nNumber = ( number ) => i18n.toNumber( number, { precision: 0 } );
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -437,5 +439,6 @@ export {
   showAppStoreReview,
   showPlayStoreReview,
   fetchNumberSpeciesSeen,
-  createJwtToken
+  createJwtToken,
+  seti18nNumber
 };

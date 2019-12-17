@@ -1,12 +1,11 @@
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import moment from "moment";
 import RNFS from "react-native-fs";
+import { PermissionsAndroid, Platform } from "react-native";
 
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
-
-const { PermissionsAndroid, Platform } = require( "react-native" );
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {

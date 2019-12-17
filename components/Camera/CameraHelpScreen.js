@@ -70,8 +70,8 @@ class CameraHelpScreen extends Component<Props> {
             <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
             <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
             <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
-            {tips.map( ( tip, index ) => (
-              <View key={`${tip}${index}`} style={styles.tips}>
+            {tips.map( ( tip ) => (
+              <View key={`${tip}`} style={styles.tips}>
                 <Text style={styles.bullets}>&#8226;</Text>
                 <View style={styles.tipContainer}>
                   <Text style={styles.text}>{tip}</Text>

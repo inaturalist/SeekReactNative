@@ -46,7 +46,7 @@ const AboutScreen = ( { navigation }: Props ) => {
       >
         <View style={styles.row}>
           <Image source={logos.opBlack} />
-          <Image source={logos.wwf} style={{ marginLeft: 20 }} />
+          <Image source={logos.wwf} style={styles.marginLeft} />
         </View>
         <View style={styles.margin} />
         <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>

@@ -108,7 +108,7 @@ class SpeciesBadges extends Component<Props> {
         {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}
         {this.renderBadgesRow( speciesBadges.slice( 5, 8 ) )}
         {this.renderBadgesRow( speciesBadges.slice( 8, 10 ) )}
-        <View style={{ marginTop: 12 }} />
+        <View style={styles.margin} />
       </View>
     );
   }

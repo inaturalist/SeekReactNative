@@ -104,7 +104,7 @@ class ChallengeBadges extends Component<Props> {
         {this.renderChallengesRow( challengeBadges.slice( 0, 3 ) )}
         {this.renderChallengesRow( challengeBadges.slice( 3, 5 ) )}
         {this.renderChallengesRow( challengeBadges.slice( 5, 8 ) )}
-        <View style={{ marginTop: 42 }} />
+        <View style={styles.marginLarge} />
       </View>
     );
   }

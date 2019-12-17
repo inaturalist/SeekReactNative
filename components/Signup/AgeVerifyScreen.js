@@ -76,7 +76,7 @@ class AgeVerifyScreen extends Component<Props> {
           <Text style={styles.text}>
             {i18n.t( "inat_signup.permission" )}
           </Text>
-          <View style={{ marginBottom: 68 }} />
+          <View style={styles.marginLarge} />
           <View style={styles.center}>
             <TouchableOpacity
               onPress={() => this.toggleDateTimePicker()}
@@ -90,7 +90,7 @@ class AgeVerifyScreen extends Component<Props> {
             onDatePicked={this.handleDatePicked}
             toggleDateTimePicker={this.toggleDateTimePicker}
           />
-          <View style={{ marginBottom: 98 }} />
+          <View style={styles.marginExtraLarge} />
           <GreenButton
             handlePress={() => this.submit()}
             login
@@ -105,7 +105,7 @@ class AgeVerifyScreen extends Component<Props> {
             </Text>
             <Text
               onPress={() => navigation.navigate( "TermsOfService" )}
-              style={[styles.privacy, { marginLeft: 14 }]}
+              style={[styles.privacy, styles.marginLeftSmall]}
             >
               {i18n.t( "inat_signup.terms" )}
             </Text>

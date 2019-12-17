@@ -25,6 +25,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
+  flex: {
+    flex: 0
+  },
   header: {
     height: 186,
     overflow: "visible"

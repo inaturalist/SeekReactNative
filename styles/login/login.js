@@ -12,12 +12,6 @@ const { height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   center,
-  clickableText: {
-    bottom: 10,
-    left: 10,
-    right: 10,
-    top: 10
-  },
   container: {
     flex: 1
   },
@@ -106,6 +100,24 @@ export default StyleSheet.create( {
   margin: {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 22
   },
+  marginExtraLarge: {
+    marginTop: 31
+  },
+  marginHorizontal: {
+    marginHorizontal: 23
+  },
+  marginLarge: {
+    marginTop: 29
+  },
+  marginLeft: {
+    marginLeft: 14
+  },
+  marginMedium: {
+    marginTop: 25
+  },
+  marginSmall: {
+    marginTop: 5
+  },
   rightTextContainer: {
     alignSelf: "flex-end",
     flexDirection: "row",
@@ -141,6 +153,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 17,
     marginTop: 26,
+    textDecorationLine: "underline"
+  },
+  underline: {
     textDecorationLine: "underline"
   }
 } );

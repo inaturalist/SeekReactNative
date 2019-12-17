@@ -23,7 +23,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
     <View style={styles.flexCenter}>
       <Text style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</Text>
       <Text style={styles.text}>{i18n.t( "inat_signup.parent_instructions" )}</Text>
-      <View style={{ marginTop: 51  }} />
+      <View style={styles.marginTop} />
       <GreenButton
         fontSize={16}
         handlePress={() => navigation.navigate( "Main" )}

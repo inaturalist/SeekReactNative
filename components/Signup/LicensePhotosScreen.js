@@ -86,13 +86,13 @@ class LicensePhotosScreen extends Component<Props> {
           <View style={[styles.row, styles.marginLeft]}>
             <Text
               onPress={() => navigation.navigate( "Privacy" )}
-              style={[styles.privacy, { marginTop: 2 }]}
+              style={[styles.privacy, styles.marginSmall]}
             >
               {i18n.t( "inat_signup.privacy" )}
             </Text>
             <Text
               onPress={() => navigation.navigate( "TermsOfService" )}
-              style={[styles.privacy, { marginTop: 2, marginLeft: 14 }]}
+              style={[styles.privacy, styles.marginSmall, styles.marginLeftSmall]}
             >
               {i18n.t( "inat_signup.terms" )}
             </Text>

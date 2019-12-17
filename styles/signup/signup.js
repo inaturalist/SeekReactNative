@@ -94,13 +94,27 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     maxWidth: dimensions.width / 2 + 80
-    // maxWidth: 253
   },
   margin: {
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 17
   },
+  marginExtraLarge: {
+    marginBottom: 98
+  },
+  marginLarge: {
+    marginBottom: 68
+  },
   marginLeft: {
     marginLeft: 76
+  },
+  marginLeftSmall: {
+    marginLeft: 14
+  },
+  marginSmall: {
+    marginTop: 2
+  },
+  marginTop: {
+    marginTop: 51
   },
   privacy: {
     color: colors.seekForestGreen,

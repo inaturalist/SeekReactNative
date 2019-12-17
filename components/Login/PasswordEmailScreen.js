@@ -22,8 +22,7 @@ const PasswordEmailScreen = ( { navigation }: Props ) => (
     <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
     <View style={styles.flexCenter}>
       <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
-      <Text style={[styles.secondHeaderText, styles.email]}
-      >
+      <Text style={[styles.secondHeaderText, styles.email]}>
         {i18n.t( "inat_login.reset_instructions" )}
       </Text>
       <View style={styles.greenButtonMargin} />

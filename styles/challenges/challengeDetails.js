@@ -67,6 +67,9 @@ export default StyleSheet.create( {
   marginHorizontal: {
     marginHorizontal: 36
   },
+  marginTop: {
+    marginTop: 16
+  },
   padding: {
     padding: 25
   },

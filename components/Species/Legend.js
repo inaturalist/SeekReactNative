@@ -24,9 +24,9 @@ const Legend = ( { toggleModal }: Props ) => (
       </Text>
     </View>
     <View style={styles.innerContainer}>
-      <View style={{ marginTop: 7 }} />
+      <View style={styles.marginSmall} />
       <View style={styles.row}>
-        <Image source={icons.legendLocation} style={{ marginHorizontal: 4.5 }} />
+        <Image source={icons.legendLocation} style={styles.marginHorizontal} />
         <Text style={styles.text}>
           {i18n.t( "species_detail.current_location" )}
         </Text>
@@ -43,7 +43,7 @@ const Legend = ( { toggleModal }: Props ) => (
           {i18n.t( "species_detail.obs_inat" )}
         </Text>
       </View>
-      <View style={{ marginTop: 29 }} />
+      <View style={styles.marginLarge} />
     </View>
     <BackButton toggleModal={toggleModal} />
   </>

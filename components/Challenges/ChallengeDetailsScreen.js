@@ -81,8 +81,12 @@ class ChallengeDetailsScreen extends Component<Props> {
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
         const challenge = challenges[0];
-        const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
-        const observationsList = Object.keys( challenge.numbersObserved ).map( number => challenge.numbersObserved[number] );
+        const missionList = Object.keys( challenge.missions ).map(
+          mission => challenge.missions[mission]
+        );
+        const observationsList = Object.keys( challenge.numbersObserved ).map(
+          number => challenge.numbersObserved[number]
+        );
 
         const missions = [];
 
@@ -110,7 +114,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           challengeStarted: challenge.started
         } );
       } ).catch( ( err ) => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
@@ -226,7 +230,7 @@ class ChallengeDetailsScreen extends Component<Props> {
             <View style={styles.secondHeader}>
               <GreenText text={i18n.t( "challenges.get_involved" ).toLocaleUpperCase()} />
             </View>
-            <View style={{ marginTop: 16 }} />
+            <View style={styles.marginTop} />
             <Text style={styles.descriptionText}>
               {i18n.t( challenge.action )}
             </Text>

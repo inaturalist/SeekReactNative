@@ -18,5 +18,9 @@ export default StyleSheet.create( {
     fontSize: 19,
     letterSpacing: 1.12,
     textAlign: "center"
+  },
+  modal: {
+    marginBottom: 26,
+    marginTop: 32
   }
 } );

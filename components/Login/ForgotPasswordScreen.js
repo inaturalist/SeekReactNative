@@ -103,10 +103,10 @@ class ForgotPasswordScreen extends Component<Props> {
         />
         <ScrollView>
           <View style={styles.margin} />
-          <Text style={[styles.header, { marginHorizontal: 23 }]}>
+          <Text style={[styles.header, styles.marginHorizontal]}>
             {i18n.t( "inat_login.no_worries" )}
           </Text>
-          <View style={[styles.leftTextMargins, { marginTop: 31 }]}>
+          <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
             <GreenText smaller text={i18n.t( "inat_login.email" ).toLocaleUpperCase()} />
           </View>
           <InputField
@@ -117,7 +117,7 @@ class ForgotPasswordScreen extends Component<Props> {
           />
           {error
             ? <ErrorMessage error="email" />
-            : <View style={{ marginTop: 29 }} />}
+            : <View style={styles.marginLarge} />}
           <GreenButton
             handlePress={() => this.checkEmail()}
             login

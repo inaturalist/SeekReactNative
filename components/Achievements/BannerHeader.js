@@ -17,7 +17,7 @@ type Props = {
 const BannerHeader = ( { text, modal }: Props ) => (
   <ImageBackground
     source={icons.titleBanner}
-    style={[styles.banner, modal && { marginTop: 32, marginBottom: 26 }]}
+    style={[styles.banner, modal && styles.modal]}
   >
     <Text style={styles.bannerText}>{text}</Text>
   </ImageBackground>

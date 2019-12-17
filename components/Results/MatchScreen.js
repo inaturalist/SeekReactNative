@@ -326,7 +326,7 @@ class MatchScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
+        <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
         <NavigationEvents
           onDidFocus={() => {
             if ( match && !seenDate ) {

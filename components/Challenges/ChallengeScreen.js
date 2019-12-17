@@ -101,9 +101,9 @@ class ChallengeScreen extends Component<Props> {
         </View>
         {challengesStarted.length > 0 ? (
           <View>
-            {challengesStarted.map( ( item, index ) => (
+            {challengesStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}${index}`}
+                key={`${item}`}
                 item={item}
                 navigation={navigation}
               />
@@ -130,9 +130,9 @@ class ChallengeScreen extends Component<Props> {
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
-            {challengesNotStarted.map( ( item, index ) => (
+            {challengesNotStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}${index}`}
+                key={`${item}`}
                 fetchChallenges={this.fetchChallenges}
                 item={item}
                 navigation={navigation}
@@ -160,9 +160,9 @@ class ChallengeScreen extends Component<Props> {
           <GreenText text={i18n.t( "challenges.completed" ).toLocaleUpperCase()} />
         </View>
         {challengesCompleted.length > 0 ? (
-          challengesCompleted.map( ( item, index ) => (
+          challengesCompleted.map( ( item ) => (
             <ChallengeProgressCard
-              key={`${item}${index}`}
+              key={`${item}`}
               item={item}
               navigation={navigation}
             />
@@ -192,7 +192,7 @@ class ChallengeScreen extends Component<Props> {
         />
         <ScrollView>
           <NavigationEvents
-            onWillFocus={ () => {
+            onWillFocus={() => {
               recalculateChallenges();
               this.fetchChallenges();
             }}

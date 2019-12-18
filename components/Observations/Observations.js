@@ -117,19 +117,6 @@ class Observations extends Component<Props> {
     this.setObservations( observations );
   }
 
-  renderEmptySection( id, data, open ) {
-    if ( data.length === 0 && open ) {
-      return (
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-          </Text>
-        </View>
-      );
-    }
-    return null;
-  }
-
   render() {
     const {
       observations,
@@ -168,7 +155,18 @@ class Observations extends Component<Props> {
               data,
               open
             }
-          } ) => this.renderEmptySection( id, data, open )}
+          } ) => {
+            if ( data.length === 0 && open ) {
+              return (
+                <View style={styles.textContainer}>
+                  <Text style={styles.text}>
+                    {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+                  </Text>
+                </View>
+              );
+            }
+            return null;
+          }}
           renderSectionHeader={( {
             section: {
               id,
@@ -179,9 +177,7 @@ class Observations extends Component<Props> {
           } ) => {
             let badge;
 
-            if ( badgeCount === -1 ) {
-              badge = null;
-            } else if ( badgeCount === 0 ) {
+            if ( badgeCount === 0 ) {
               badge = badges.badge_empty_small;
             } else if ( badgeCount === 1 ) {
               badge = badges.badge_bronze;
@@ -201,7 +197,7 @@ class Observations extends Component<Props> {
                 </Text>
                 <View style={styles.row}>
                   <Text style={styles.numberText}>{data.length}</Text>
-                  {badgeCount === -1 ? (
+                  {badgeCount !== -1 ? (
                     <>
                       <View style={styles.marginSmall} />
                       <Image source={badge} style={styles.badgeImage} />
@@ -210,7 +206,7 @@ class Observations extends Component<Props> {
                   ) : null}
                   <View style={[
                     styles.noMargin,
-                    badge === badges.badge_empty_small && styles.marginBadgeEmpty]}
+                    badgeCount === -1 && styles.marginBadgeEmpty]}
                   />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>

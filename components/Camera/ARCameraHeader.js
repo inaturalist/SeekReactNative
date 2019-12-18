@@ -39,19 +39,34 @@ const ARCameraHeader = ( {
     {ranks && rankToRender ? (
       <View style={styles.dotRow}>
         <Image
-          source={ranks.kingdom || ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          source={
+            ranks.kingdom || ranks.phylum || ranks.class
+            || ranks.order || ranks.family || ranks.genus
+            || ranks.species
+              ? icons.greenDot
+              : icons.whiteDot
+          }
           style={styles.dots}
         />
         <Image
-          source={ranks.phylum || ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          source={
+            ranks.phylum || ranks.class || ranks.order
+            || ranks.family || ranks.genus || ranks.species
+              ? icons.greenDot
+              : icons.whiteDot
+          }
           style={styles.dots}
         />
         <Image
-          source={ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          source={ranks.class || ranks.order || ranks.family || ranks.genus || ranks.species
+            ? icons.greenDot
+            : icons.whiteDot}
           style={styles.dots}
         />
         <Image
-          source={ranks.order || ranks.family || ranks.genus || ranks.species ? icons.greenDot : icons.whiteDot}
+          source={ranks.order || ranks.family || ranks.genus || ranks.species
+            ? icons.greenDot
+            : icons.whiteDot}
           style={styles.dots}
         />
         <Image

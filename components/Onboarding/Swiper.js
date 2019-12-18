@@ -85,8 +85,8 @@ class Swiper extends Component<Props> {
       pagingEnabled
       showsHorizontalScrollIndicator={false}
     >
-      {pages.map( ( page, i ) => (
-        <View key={`page-${i}`} style={styles.contentContainer}>
+      {pages.map( ( page ) => (
+        <View key={`page-${page}`} style={styles.contentContainer}>
           {page}
         </View>
       ) )}

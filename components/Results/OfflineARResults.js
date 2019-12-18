@@ -12,7 +12,8 @@ import {
 } from "../../utility/helpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchAccessToken } from "../../utility/loginHelpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/helpers.android";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 

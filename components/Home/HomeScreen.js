@@ -23,7 +23,8 @@ import {
   checkIfCardShown,
   checkForInternet
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/helpers.android";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";

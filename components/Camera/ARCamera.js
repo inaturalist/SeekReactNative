@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   View,
-  PermissionsAndroid,
   Text,
   Platform,
   NativeModules
@@ -24,6 +23,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
+import { requestAllCameraPermissions } from "../../utility/helpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 
 type Props = {
@@ -144,35 +144,6 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  requestAllCameraPermissions = async () => {
-    const permissions = PermissionsAndroid.PERMISSIONS;
-    const results = PermissionsAndroid.RESULTS;
-
-    if ( Platform.OS === "android" ) {
-      const camera = permissions.CAMERA;
-      const cameraRollSave = permissions.WRITE_EXTERNAL_STORAGE;
-      const cameraRollRetrieve = permissions.READ_EXTERNAL_STORAGE;
-
-      try {
-        const granted = await PermissionsAndroid.requestMultiple( [
-          camera,
-          cameraRollSave,
-          cameraRollRetrieve
-        ] );
-
-        if ( granted[camera] !== results.GRANTED ) {
-          this.setError( "permissions" );
-        }
-
-        if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== results.GRANTED ) {
-          this.setError( "gallery" );
-        }
-      } catch ( e ) {
-        this.setError( "camera" );
-      }
-    }
-  }
-
   takePicture = async () => {
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
@@ -260,6 +231,12 @@ class ARCamera extends Component<Props> {
     this.setState( { showWarningModal: !showWarningModal } );
   }
 
+  requestAndroidPermissions() {
+    requestAllCameraPermissions().then( ( result ) => {
+      this.setError( result );
+    } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
+  }
+
   render() {
     const {
       ranks,
@@ -296,7 +273,7 @@ class ARCamera extends Component<Props> {
             this.setFocusedScreen( false );
           }}
           onWillFocus={() => {
-            this.requestAllCameraPermissions();
+            this.requestAndroidPermissions();
             this.handleResumePreview();
             this.setFocusedScreen( true );
           }}

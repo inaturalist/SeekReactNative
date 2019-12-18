@@ -16,7 +16,8 @@ import moment from "moment";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/helpers.android";
 import iconicTaxaNames from "../../utility/iconicTaxonDict";
 import realmConfig from "../../models/index";
 import SpeciesPhotos from "./SpeciesPhotos";

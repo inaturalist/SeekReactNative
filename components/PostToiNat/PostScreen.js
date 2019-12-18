@@ -20,9 +20,9 @@ import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers
 import {
   fetchUserLocation,
   fetchLocationName,
-  checkLocationPermissions,
   checkForTruncatedCoordinates
 } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/helpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";

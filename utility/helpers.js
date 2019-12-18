@@ -41,30 +41,30 @@ const addARCameraFiles = () => {
   if ( Platform.OS === "android" ) {
     RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
 
     RNFS.copyFileAssets( "camera/taxonomy.csv", `${RNFS.DocumentDirectoryPath}/taxonomy.csv` )
       .then( ( result ) => {
-        // console.log( result, "taxonomy in AR camera files" );
+        console.log( result, "taxonomy in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
   } else if ( Platform.OS === "ios" ) {
     RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
 
     RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
   }
 };

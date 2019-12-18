@@ -1,7 +1,7 @@
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import moment from "moment";
 import RNFS from "react-native-fs";
-import { PermissionsAndroid, Platform } from "react-native";
+import { Platform } from "react-native";
 
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
@@ -15,24 +15,6 @@ const checkForPhotoMetaData = ( location ) => {
     return false;
   }
   return false;
-};
-
-const checkCameraRollPermissions = async () => {
-  const save = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
-  const retrieve = PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE;
-
-  try {
-    const granted = await PermissionsAndroid.requestMultiple( [
-      save,
-      retrieve
-    ] );
-    if ( granted[retrieve] === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return JSON.stringify( granted );
-  } catch ( err ) {
-    return err;
-  }
 };
 
 const resizeImage = ( imageUri, width, height ) => (
@@ -112,7 +94,6 @@ const createBackupUri = async ( uri ) => {
 };
 
 export {
-  checkCameraRollPermissions,
   checkForPhotoMetaData,
   resizeImage,
   movePhotoToAppStorage,

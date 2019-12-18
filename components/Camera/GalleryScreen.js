@@ -18,10 +18,8 @@ import { getPredictionsForImage } from "react-native-inat-camera";
 import i18n from "../../i18n";
 import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import {
-  checkCameraRollPermissions,
-  checkForPhotoMetaData
-} from "../../utility/photoHelpers";
+import { checkForPhotoMetaData } from "../../utility/photoHelpers";
+import { checkCameraRollPermissions } from "../../utility/helpers.android";
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";

@@ -20,19 +20,19 @@ const truncateCoordinates = ( coordinate ) => {
   return Number( coordinate.toFixed( 2 ) );
 };
 
-const checkLocationPermissions = async () => {
-  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
+// const checkLocationPermissions = async () => {
+//   const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
 
-  try {
-    const granted = await PermissionsAndroid.request( location );
-    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return false;
-  } catch ( err ) {
-    return err;
-  }
-};
+//   try {
+//     const granted = await PermissionsAndroid.request( location );
+//     if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+//       return true;
+//     }
+//     return false;
+//   } catch ( err ) {
+//     return err;
+//   }
+// };
 
 const fetchTruncatedUserLocation = () => (
   new Promise( ( resolve, reject ) => {
@@ -123,7 +123,7 @@ export {
   fetchLocationName,
   fetchTruncatedUserLocation,
   createLocationPermissionsAlert,
-  checkLocationPermissions,
+  // checkLocationPermissions,
   createGPSAlert,
   createLocationTimeoutAlert,
   checkForTruncatedCoordinates

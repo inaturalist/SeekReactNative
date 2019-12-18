@@ -158,9 +158,9 @@ class OfflineARResults extends Component<Props> {
   }
 
   async showMatch() {
-    const { seenDate } = this.state;
+    const { seenDate, match } = this.state;
 
-    if ( !seenDate ) {
+    if ( !seenDate && match ) {
       await this.addObservation();
       this.navigateToMatch();
     } else {
@@ -213,7 +213,9 @@ class OfflineARResults extends Component<Props> {
       time
     } = this.state;
 
-    addToCollection( observation, latitude, longitude, uri, time );
+    if ( latitude && longitude ) {
+      addToCollection( observation, latitude, longitude, uri, time );
+    }
   }
 
   checkSpeciesSeen( taxaId ) {

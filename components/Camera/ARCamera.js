@@ -232,9 +232,11 @@ class ARCamera extends Component<Props> {
   }
 
   requestAndroidPermissions() {
-    requestAllCameraPermissions().then( ( result ) => {
-      this.setError( result );
-    } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
+    if ( Platform.OS === "android" ) {
+      requestAllCameraPermissions().then( ( result ) => {
+        this.setError( result );
+      } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
+    }
   }
 
   render() {

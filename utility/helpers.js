@@ -16,6 +16,7 @@ import { createBackupUri } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
 import { createNotification } from "./notificationHelpers";
+import { dirModel, dirTaxonomy } from "./dirStorage";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -36,28 +37,28 @@ const capitalizeNames = ( name ) => {
 
 const addARCameraFiles = () => {
   if ( Platform.OS === "android" ) {
-    RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+    RNFS.copyFileAssets( "camera/optimized_model.tflite", dirModel )
       .then( ( result ) => {
         console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFileAssets( "camera/taxonomy.csv", `${RNFS.DocumentDirectoryPath}/taxonomy.csv` )
+    RNFS.copyFileAssets( "camera/taxonomy.csv", dirTaxonomy )
       .then( ( result ) => {
         console.log( result, "taxonomy in AR camera files" );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
   } else if ( Platform.OS === "ios" ) {
-    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, dirModel )
       .then( ( result ) => {
         console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, dirTaxonomy )
       .then( ( result ) => {
         console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {

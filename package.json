@@ -39,7 +39,7 @@
     "react-native-store-review": "^0.1.5",
     "react-native-svg": "^9.13.3",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
-    "react-native-uuid": "^1.4.9",
+    "react-native-uuid-generator": "^6.1.1",
     "react-native-webview": "^7.5.2",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",

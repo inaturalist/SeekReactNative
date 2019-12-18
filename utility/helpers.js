@@ -3,10 +3,10 @@ import AsyncStorage from "@react-native-community/async-storage";
 import jwt from "react-native-jwt-io";
 import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
-import uuid from "react-native-uuid";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import moment from "moment";
+import UUIDGenerator from "react-native-uuid-generator";
 
 import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
@@ -27,6 +27,15 @@ const checkForInternet = () => (
     } );
   } )
 );
+
+const createUUID = async () => {
+  try {
+    const uuidGen = await UUIDGenerator.getRandomUUID();
+    return uuidGen;
+  } catch ( e ) {
+    return null;
+  }
+};
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -92,6 +101,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
+  const uuid = await createUUID();
 
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
@@ -122,7 +132,7 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
           defaultPhoto
         } );
         realm.create( "ObservationRealm", {
-          uuidString: uuid.v1(),
+          uuidString: uuid,
           date: time ? moment.unix( time ).format() : new Date(),
           taxon: newTaxon,
           latitude,

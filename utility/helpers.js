@@ -1,11 +1,10 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
-import * as StoreReview from "react-native-store-review";
 import jwt from "react-native-jwt-io";
 import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
 import uuid from "react-native-uuid";
-import { Platform, Alert, Linking } from "react-native";
+import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import moment from "moment";
 
@@ -13,8 +12,6 @@ import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
-import { isWithinPastYear } from "./dateHelpers";
-import { fetchAccessToken } from "./loginHelpers";
 import { createBackupUri } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
@@ -81,106 +78,6 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
     longitude
   };
   return params;
-};
-
-const createPlayStoreRatingAlert = () => {
-  const url = "https://play.google.com/store/apps/details?id=org.inaturalist.seek";
-
-  Alert.alert(
-    i18n.t( "review.title" ),
-    i18n.t( "review.rate" ),
-    [{
-      text: i18n.t( "review.later" ),
-      style: "default"
-    },
-    {
-      text: i18n.t( "review.rate_now" ),
-      onPress: () => {
-        Linking.canOpenURL( url )
-          .then( ( supported ) => {
-            if ( !supported ) {
-              console.log( "Can't handle url: ", url );
-            } else {
-              return Linking.openURL( url );
-            }
-          } ).catch( ( err ) => console.error( "An error occurred", err ) );
-      }
-    }]
-  );
-};
-
-const updateReviews = ( realm, reviews ) => {
-  realm.write( () => {
-    if ( reviews.length === 0 ) {
-      realm.create( "ReviewRealm", {
-        date: new Date(),
-        timesSeen: 1
-      } );
-    } else {
-      reviews[0].timesSeen += 1;
-    }
-  } );
-  if ( Platform.OS === "android" ) {
-    createPlayStoreRatingAlert();
-  } else {
-    StoreReview.requestReview();
-  }
-};
-
-const deleteReviews = ( realm, reviews ) => {
-  realm.write( () => {
-    realm.delete( reviews );
-  } );
-};
-
-const showAppStoreReview = () => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const reviews = realm.objects( "ReviewRealm" );
-
-      if ( reviews.length > 0 ) {
-        const withinYear = isWithinPastYear( reviews[0].date );
-        if ( withinYear && StoreReview.isAvailable ) {
-          if ( reviews[0].timesSeen < 3 ) {
-            updateReviews( realm, reviews );
-          }
-        } else if ( StoreReview.isAvailable ) {
-          deleteReviews( realm, reviews );
-          updateReviews( realm, reviews );
-        }
-      } else if ( StoreReview.isAvailable ) {
-        updateReviews( realm, reviews );
-      }
-    } ).catch( () => {
-      console.log( "couldn't show review modal" );
-    } );
-};
-
-const showPlayStoreReview = async () => {
-  const login = await fetchAccessToken();
-
-  if ( login ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const reviews = realm.objects( "ReviewRealm" );
-
-        if ( reviews.length > 0 ) {
-          const withinYear = isWithinPastYear( reviews[0].date );
-          if ( withinYear ) {
-            if ( reviews[0].timesSeen < 3 ) {
-              updateReviews( realm, reviews );
-            }
-          } else {
-            deleteReviews( realm, reviews );
-            updateReviews( realm, reviews );
-          }
-        } else {
-          updateReviews( realm, reviews );
-        }
-      } ).catch( ( e ) => {
-        console.log( "couldn't show review modal", e );
-      } );
-  }
 };
 
 const checkForPowerUsers = ( length, newLength ) => {
@@ -436,8 +333,6 @@ export {
   checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest,
-  showAppStoreReview,
-  showPlayStoreReview,
   fetchNumberSpeciesSeen,
   createJwtToken,
   seti18nNumber

@@ -33,10 +33,12 @@ import {
   setSpeciesId,
   setRoute,
   removeFromCollection,
-  fetchNumberSpeciesSeen,
+  fetchNumberSpeciesSeen
+} from "../../utility/helpers";
+import {
   showAppStoreReview,
   showPlayStoreReview
-} from "../../utility/helpers";
+} from "../../utility/reviewHelpers";
 import {
   createLocationPermissionsAlert,
   createGPSAlert,

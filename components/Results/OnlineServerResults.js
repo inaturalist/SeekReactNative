@@ -17,7 +17,7 @@ import {
 } from "../../utility/helpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/helpers.android";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";

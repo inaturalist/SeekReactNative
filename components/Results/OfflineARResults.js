@@ -13,7 +13,7 @@ import {
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/helpers.android";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 

@@ -22,7 +22,7 @@ import {
   fetchLocationName,
   checkForTruncatedCoordinates
 } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/helpers.android";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";

@@ -1,6 +1,5 @@
-import Realm from "realm";
-
-import realmConfig from "../models/index";
+const Realm = require( "realm" );
+const realmConfig = require( "../models/index" );
 
 const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
@@ -13,7 +12,7 @@ const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
 };
 
 const setupCommonNames = () => {
-  Realm.open( realmConfig )
+  Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
         // check to see if names are already in Realm. There are about 70k names.
@@ -24,21 +23,21 @@ const setupCommonNames = () => {
           // load names from each file. React-native requires need to be strings
           // so each file is listed here instead of some kind of loop
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-0" ) );
+            require( "./commonNames/commonNamesDict-0" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-1" ) );
+            require( "./commonNames/commonNamesDict-1" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-2" ) );
+            require( "./commonNames/commonNamesDict-2" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-3" ) );
+            require( "./commonNames/commonNamesDict-3" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-4" ) );
+            require( "./commonNames/commonNamesDict-4" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-5" ) );
+            require( "./commonNames/commonNamesDict-5" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-6" ) );
+            require( "./commonNames/commonNamesDict-6" ).default );
           addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-7" ) );
+            require( "./commonNames/commonNamesDict-7" ).default );
         }
       } );
     } ).catch( ( err ) => {

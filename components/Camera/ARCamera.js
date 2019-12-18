@@ -23,7 +23,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
-import { requestAllCameraPermissions } from "../../utility/helpers.android";
+import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 
 type Props = {

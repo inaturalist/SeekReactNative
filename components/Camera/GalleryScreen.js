@@ -19,7 +19,7 @@ import i18n from "../../i18n";
 import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { checkForPhotoMetaData } from "../../utility/photoHelpers";
-import { checkCameraRollPermissions } from "../../utility/helpers.android";
+import { checkCameraRollPermissions } from "../../utility/androidHelpers.android";
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";

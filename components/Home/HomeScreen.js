@@ -24,7 +24,7 @@ import {
   checkForInternet
 } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/helpers.android";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";

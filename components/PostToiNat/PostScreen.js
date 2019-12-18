@@ -277,8 +277,8 @@ class PostScreen extends Component<Props> {
     fetch( `${site}/users/api_token`, { headers } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        const { api_token } = responseJson;
-        this.createObservation( api_token );
+        const apiToken = responseJson.api_token;
+        this.createObservation( apiToken );
       } ).catch( ( e ) => {
         this.setPostFailed( e, "beforeObservation" );
       } );

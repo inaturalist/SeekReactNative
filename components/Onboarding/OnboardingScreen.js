@@ -18,7 +18,7 @@ type Props = {
 const OnboardingScreen = ( { navigation }: Props ) => (
   <Swiper navigation={navigation}>
     {[0, 1, 2].map( ( item, index ) => (
-      <View key={`${item}+${index}`}>
+      <View key={`${item}`}>
         {index === 2 ? (
           <View style={[styles.banner, styles.center]}>
             <Image

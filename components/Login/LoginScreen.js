@@ -69,8 +69,8 @@ class LoginScreen extends Component<Props> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        const { access_token } = responseJson;
-        saveAccessToken( access_token );
+        const accessToken = responseJson.access_token;
+        saveAccessToken( accessToken );
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {

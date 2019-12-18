@@ -13,9 +13,10 @@ const fetchiNatStats = () => {
   fetch( "https://www.inaturalist.org/stats/summary.json", options )
     .then( response => response.json() )
     .then( ( responseJson ) => {
-      const { total_observations, total_observers } = responseJson;
-      const observations = Math.round( total_observations / 1000000 ) * 1000000;
-      const observers = Math.round( total_observers / 10000 ) * 10000;
+      const totalObservations = responseJson.total_observations;
+      const totalObservers = responseJson.total_observers;
+      const observations = Math.round( totalObservations / 1000000 ) * 1000000;
+      const observers = Math.round( totalObservers / 10000 ) * 10000;
 
       setiNatStats( observations, observers );
     } )

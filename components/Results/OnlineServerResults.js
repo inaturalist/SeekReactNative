@@ -179,15 +179,18 @@ class OnlineServerResults extends Component<Props> {
   }
 
   async showMatch() {
-    const { seenDate, match } = this.state;
-    console.log( seenDate, match, "match" );
+    const { seenDate } = this.state;
 
-    if ( !seenDate && match ) {
+    if ( !seenDate ) {
       await this.addObservation();
       this.navigateToMatch();
     } else {
       this.navigateToMatch();
     }
+  }
+
+  showNoMatch() {
+    this.navigateToMatch();
   }
 
   resizeImage() {
@@ -259,7 +262,15 @@ class OnlineServerResults extends Component<Props> {
   }
 
   checkForMatches() {
-    this.setState( { clicked: true }, () => this.showMatch() );
+    const { match } = this.state;
+
+    this.setState( { clicked: true } );
+
+    if ( match === true ) {
+      this.showMatch();
+    } else if ( match === false ) {
+      this.showNoMatch();
+    }
   }
 
   navigateToMatch() {

@@ -24,7 +24,7 @@ import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import { dirTaxonomy, dirModel } from "../../utility/dirStorage";
-import AlbumPicker from "./AlbumPicker";
+import AlbumPicker from "./AlbumPickerHooks";
 
 type Props = {
   +navigation: any

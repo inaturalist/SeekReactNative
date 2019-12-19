@@ -117,7 +117,7 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p ? p.medium_url : null,
             mediumUrl: uri,
-            backupUri: backupUri || null
+            backupUri
           } );
         }
         const newTaxon = realm.create( "TaxonRealm", {

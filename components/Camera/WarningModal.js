@@ -13,10 +13,10 @@ import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  +closeWarningModal: Function
+  +closeModal: Function
 }
 
-const WarningModal = ( { closeWarningModal }: Props ) => (
+const WarningModal = ( { closeModal }: Props ) => (
   <View style={styles.innerContainer}>
     <View style={styles.header}>
       <Text style={styles.headerText}>
@@ -53,7 +53,7 @@ const WarningModal = ( { closeWarningModal }: Props ) => (
       <View style={styles.margin} />
       <View style={styles.button}>
         <GreenButton
-          handlePress={() => closeWarningModal()}
+          handlePress={() => closeModal()}
           text={i18n.t( "onboarding.continue" )}
         />
       </View>

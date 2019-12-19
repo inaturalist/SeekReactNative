@@ -14,10 +14,10 @@ import GreenButton from "../UIComponents/GreenButton";
 import DescriptionText from "../UIComponents/DescriptionText";
 
 type Props = {
-  +toggleGetStartedModal: Function
+  +closeModal: Function
 }
 
-const GetStarted = ( { toggleGetStartedModal }: Props ) => (
+const GetStarted = ( { closeModal }: Props ) => (
   <View style={styles.container}>
     <View style={styles.headerMargin}>
       <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
@@ -45,7 +45,7 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
     </View>
     <View style={styles.button}>
       <GreenButton
-        handlePress={() => toggleGetStartedModal()}
+        handlePress={() => closeModal()}
         text={i18n.t( "onboarding.continue" )}
       />
     </View>

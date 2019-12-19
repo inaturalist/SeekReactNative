@@ -9,7 +9,6 @@ import {
   StatusBar
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -29,6 +28,7 @@ import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import createUserAgent from "../../utility/userAgent";
+import RNModal from "../UIComponents/Modal";
 
 type Props = {
   +navigation: any
@@ -47,13 +47,13 @@ class HomeScreen extends Component<Props> {
       loading: true,
       modalVisible: false,
       error: null,
-      showGetStartedModal: false
+      showModal: false
     };
 
     this.updateTaxaType = this.updateTaxaType.bind( this );
     this.updateLocation = this.updateLocation.bind( this );
     this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
-    this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
     this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
@@ -153,15 +153,18 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  toggleGetStartedModal() {
-    const { showGetStartedModal } = this.state;
-    this.setState( { showGetStartedModal: !showGetStartedModal } );
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     if ( isFirstLaunch ) {
-      this.toggleGetStartedModal();
+      this.openModal();
     }
   }
 
@@ -231,7 +234,7 @@ class HomeScreen extends Component<Props> {
       taxa,
       modalVisible,
       error,
-      showGetStartedModal
+      showModal
     } = this.state;
     const { navigation } = this.props;
 
@@ -247,13 +250,10 @@ class HomeScreen extends Component<Props> {
           }}
         />
         <RNModal
-          isVisible={showGetStartedModal}
-          onBackdropPress={() => this.toggleGetStartedModal()}
-        >
-          <GetStarted
-            toggleGetStartedModal={this.toggleGetStartedModal}
-          />
-        </RNModal>
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={<GetStarted closeModal={this.closeModal} />}
+        />
         <Modal
           onRequestClose={() => this.toggleLocationPicker()}
           visible={modalVisible}

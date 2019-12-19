@@ -12,7 +12,6 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { INatCamera } from "react-native-inat-camera";
-import RNModal from "react-native-modal";
 import moment from "moment";
 
 import LoadingWheel from "../UIComponents/LoadingWheel";
@@ -25,6 +24,7 @@ import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
 import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
+import Modal from "../UIComponents/Modal";
 
 type Props = {
   +navigation: any
@@ -42,12 +42,12 @@ class ARCamera extends Component<Props> {
       pictureTaken: false,
       error: null,
       commonName: null,
-      showWarningModal: false,
+      showModal: false,
       errorEvent: null,
       focusedScreen: false
     };
 
-    this.closeWarningModal = this.closeWarningModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen ) {
@@ -169,7 +169,7 @@ class ARCamera extends Component<Props> {
   async checkForCameraLaunch() {
     const isFirstCameraLaunch = await checkIfCameraLaunched();
     if ( isFirstCameraLaunch ) {
-      this.openWarningModal();
+      this.openModal();
     }
   }
 
@@ -226,12 +226,12 @@ class ARCamera extends Component<Props> {
     navigation.navigate( "Main" );
   }
 
-  openWarningModal() {
-    this.setState( { showWarningModal: true } );
+  openModal() {
+    this.setState( { showModal: true } );
   }
 
-  closeWarningModal() {
-    this.setState( { showWarningModal: false } );
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   requestAndroidPermissions() {
@@ -250,7 +250,7 @@ class ARCamera extends Component<Props> {
       pictureTaken,
       error,
       commonName,
-      showWarningModal,
+      showModal,
       errorEvent,
       focusedScreen
     } = this.state;
@@ -283,14 +283,11 @@ class ARCamera extends Component<Props> {
             this.setFocusedScreen( true );
           }}
         />
-        <RNModal
-          isVisible={showWarningModal}
-          onBackdropPress={() => this.closeWarningModal()}
-          onSwipeComplete={() => this.closeWarningModal()}
-          swipeDirection="down"
-        >
-          <WarningModal closeWarningModal={this.closeWarningModal} />
-        </RNModal>
+        <Modal
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={<WarningModal closeModal={this.closeModal} />}
+        />
         {loading ? (
           <View style={styles.loading}>
             <LoadingWheel color="white" />

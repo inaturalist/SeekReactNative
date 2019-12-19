@@ -100,22 +100,25 @@ const getAlbumNames = async () => {
     value: "All"
   }];
 
-  const { albums } = await GalleryManager.getAlbums();
+  try {
+    const { albums } = await GalleryManager.getAlbums();
 
-  if ( albums && albums.length > 0 ) { // attempt to fix error on android
-    albums.forEach( ( album ) => {
-      const { assetCount, title } = album;
+    if ( albums && albums.length > 0 ) { // attempt to fix error on android
+      albums.forEach( ( album ) => {
+        const { assetCount, title } = album;
 
-      if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-        albumNames.push( {
-          label: title,
-          value: title
-        } );
-      }
-    } );
+        if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+          albumNames.push( {
+            label: title,
+            value: title
+          } );
+        }
+      } );
+    }
+    return albumNames;
+  } catch ( e ) {
+    return albumNames;
   }
-
-  return albumNames;
 };
 
 export {

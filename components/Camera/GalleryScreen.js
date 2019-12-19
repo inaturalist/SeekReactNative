@@ -18,13 +18,13 @@ import { getPredictionsForImage } from "react-native-inat-camera";
 import i18n from "../../i18n";
 import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import { checkForPhotoMetaData } from "../../utility/photoHelpers";
+import { checkForPhotoMetaData, getAlbumNames } from "../../utility/photoHelpers";
 import { checkCameraRollPermissions } from "../../utility/androidHelpers.android";
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import { dirTaxonomy, dirModel } from "../../utility/dirStorage";
-import AlbumPicker from "./AlbumPickerHooks";
+import AlbumPicker from "./AlbumPicker";
 
 type Props = {
   +navigation: any
@@ -42,7 +42,8 @@ class GalleryScreen extends Component<Props> {
       stillLoading: false,
       groupTypes: "All",
       album: null,
-      loading: false
+      loading: false,
+      albumNames: []
     };
 
     this.updateAlbum = this.updateAlbum.bind( this );
@@ -219,11 +220,17 @@ class GalleryScreen extends Component<Props> {
     </TouchableHighlight>
   );
 
+  async fetchAlbumNames() {
+    const albumNames = await getAlbumNames();
+    this.setState( { albumNames } );
+  }
+
   render() {
     const {
       error,
       photos,
-      loading
+      loading,
+      albumNames
     } = this.state;
 
     const { navigation } = this.props;
@@ -262,7 +269,10 @@ class GalleryScreen extends Component<Props> {
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
-          onWillFocus={() => this.checkPermissions()}
+          onWillFocus={() => {
+            this.checkPermissions();
+            this.fetchAlbumNames();
+          }}
         />
         <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
@@ -274,9 +284,11 @@ class GalleryScreen extends Component<Props> {
           >
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
-          <View style={[styles.center, styles.headerContainer]}>
-            <AlbumPicker updateAlbum={this.updateAlbum} />
-          </View>
+          {albumNames.length > 0 ? (
+            <View style={[styles.center, styles.headerContainer]}>
+              <AlbumPicker albumNames={albumNames} updateAlbum={this.updateAlbum} />
+            </View>
+          ) : null}
         </View>
         {loading ? (
           <View style={styles.loading}>

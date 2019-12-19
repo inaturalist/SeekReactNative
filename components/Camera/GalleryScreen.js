@@ -146,7 +146,7 @@ class GalleryScreen extends Component<Props> {
   appendPhotos( data, pageInfo ) {
     const { photos } = this.state;
 
-    if ( photos.length === 0 && data.length === 0 ) {
+    if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
       this.setError( "noPhotos" );
     }
 

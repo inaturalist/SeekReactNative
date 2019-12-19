@@ -2,6 +2,7 @@ import ImageResizer from "react-native-image-resizer"; // eslint-disable-line im
 import moment from "moment";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
+import GalleryManager from "react-native-gallery-manager";
 
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
@@ -93,10 +94,35 @@ const createBackupUri = async ( uri ) => {
   }
 };
 
+const getAlbumNames = async () => {
+  const albumNames = [{
+    label: i18n.t( "gallery.camera_roll" ),
+    value: "All"
+  }];
+
+  const { albums } = await GalleryManager.getAlbums();
+
+  if ( albums && albums.length > 0 ) { // attempt to fix error on android
+    albums.forEach( ( album ) => {
+      const { assetCount, title } = album;
+
+      if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+        albumNames.push( {
+          label: title,
+          value: title
+        } );
+      }
+    } );
+  }
+
+  return albumNames;
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
   movePhotoToAppStorage,
   localizeAttributions,
-  createBackupUri
+  createBackupUri,
+  getAlbumNames
 };

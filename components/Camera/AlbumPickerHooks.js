@@ -45,10 +45,7 @@ const getAlbumNames = ( setAlbumNames ) => {
 
 const AlbumPicker = ( { updateAlbum }: Props ) => {
   const [album, setAlbum] = useState( i18n.t( "gallery.camera_roll" ).toLocaleUpperCase() );
-  const [albumNames, setAlbumNames] = useState( [{
-    label: i18n.t( "gallery.camera_roll" ),
-    value: "All"
-  }] );
+  const [albumNames, setAlbumNames] = useState( [] );
 
   useEffect( () => {
     getAlbumNames( setAlbumNames );

@@ -47,7 +47,7 @@ class ARCamera extends Component<Props> {
       focusedScreen: false
     };
 
-    this.toggleWarningModal = this.toggleWarningModal.bind( this );
+    this.closeWarningModal = this.closeWarningModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen ) {
@@ -169,7 +169,7 @@ class ARCamera extends Component<Props> {
   async checkForCameraLaunch() {
     const isFirstCameraLaunch = await checkIfCameraLaunched();
     if ( isFirstCameraLaunch ) {
-      this.toggleWarningModal();
+      this.openWarningModal();
     }
   }
 
@@ -226,9 +226,12 @@ class ARCamera extends Component<Props> {
     navigation.navigate( "Main" );
   }
 
-  toggleWarningModal() {
-    const { showWarningModal } = this.state;
-    this.setState( { showWarningModal: !showWarningModal } );
+  openWarningModal() {
+    this.setState( { showWarningModal: true } );
+  }
+
+  closeWarningModal() {
+    this.setState( { showWarningModal: false } );
   }
 
   requestAndroidPermissions() {
@@ -282,11 +285,11 @@ class ARCamera extends Component<Props> {
         />
         <RNModal
           isVisible={showWarningModal}
-          onBackdropPress={() => this.toggleWarningModal()}
-          onSwipeComplete={() => this.toggleWarningModal()}
+          onBackdropPress={() => this.closeWarningModal()}
+          onSwipeComplete={() => this.closeWarningModal()}
           swipeDirection="down"
         >
-          <WarningModal toggleWarningModal={this.toggleWarningModal} />
+          <WarningModal closeWarningModal={this.closeWarningModal} />
         </RNModal>
         {loading ? (
           <View style={styles.loading}>

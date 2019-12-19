@@ -283,7 +283,8 @@
     "error_classifier": "Üzgünüz, sınıflandırıcıyı yükleyemiyoruz",
     "error_old_camera": "Üzgünüz, kamerayı yükleyemedik",
     "error_device_support": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
-    "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu"
+    "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Fotoğraflar",

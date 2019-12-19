@@ -283,7 +283,8 @@
     "error_classifier": "很抱歉，我們無法載入分類器",
     "error_old_camera": "很抱歉，我們無法開啟相機",
     "error_device_support": "很抱歉，您使用的裝置並不支援",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Sorry, there was a problem saving your photo",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "照片",

@@ -283,7 +283,8 @@
     "error_classifier": "Leider können wir den Klassifikator nicht laden",
     "error_old_camera": "Wir konnten die Kamera leider nicht laden",
     "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Sorry, there was a problem saving your photo",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Fotos",

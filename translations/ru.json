@@ -111,8 +111,8 @@
   },
   "location_picker": {
     "species_nearby": "Виды поблизости",
-    "button": "Поиск место положения по близости",
-    "undefined": "Местоположения не найдено"
+    "button": "Поиск местоположения поблизости",
+    "undefined": "Местоположение не найдено"
   },
   "taxon_picker": {
     "all": "Все виды",
@@ -283,7 +283,8 @@
     "error_classifier": "К сожалению, мы не можем загрузить классификатор",
     "error_old_camera": "К сожалению, мы не смогли загрузить камеру",
     "error_device_support": "К сожалению, устройство, которое вы используете, не поддерживается",
-    "error_save": "Сожалеем, возникла проблема при сохранении вашего фото"
+    "error_save": "Сожалеем, возникла проблема при сохранении вашего фото",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Фото",
@@ -461,7 +462,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особая благодарность Visipedia и сообществу iNaturalist.",
     "version": "Версия",
     "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "translations": "Мы благодарны за помощь в переводе сообществу crowdin.com, в частности, Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur и Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {

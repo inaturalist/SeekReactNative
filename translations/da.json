@@ -283,7 +283,8 @@
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
     "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
-    "error_save": "Beklager, der opstod et problem med at gemme dit billede"
+    "error_save": "Beklager, der opstod et problem med at gemme dit billede",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Fotos",

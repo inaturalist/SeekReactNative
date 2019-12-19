@@ -283,7 +283,8 @@
     "error_classifier": "Siamo spiacenti, non siamo in grado di caricare il classificatore",
     "error_old_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
     "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato",
-    "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto"
+    "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Foto",
@@ -484,9 +485,9 @@
     "posting": "Pubblicando la tua Osservazione",
     "posting_success": "Pubblicato su iNaturalist!",
     "posting_failure": "Pubblicazione su iNaturalist fallita",
-    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
-    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
-    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
+    "error_photo_upload": "La tua osservazione è stata pubblicata su iNaturalist, ma purtroppo la foto non può essere caricata.\n\nProva ad accedere attraverso la versione web di iNaturalist o l'applicazione mobile per visualizzare la tua osservazione ed aggiungere una foto.",
+    "error_observation": "La tua osservazione non è stata pubblicata su iNaturalist. Prova a controllare la tua connessione internet e riprova.",
+    "error_token": "Non siamo stati in grado di effettuare una connessione autenticata al server iNaturalist. Riprova più tardi.",
     "ok": "Ok",
     "wait": "Questo potrebbe richiedere fino a un minuto",
     "look_up": "Cerca una specie per nome"

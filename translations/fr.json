@@ -283,7 +283,8 @@
     "error_classifier": "Désolé, nous n’arrivons pas à charger le répertoire",
     "error_old_camera": "Désolé, nous n’avons pas réussi à charger la caméra",
     "error_device_support": "Désolé, l’appareil utilisé n’est pas pris en charge",
-    "error_save": "Désolé, il y a eu un problème lors de la sauvegarde de votre photo"
+    "error_save": "Désolé, il y a eu un problème lors de la sauvegarde de votre photo",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": " Photos",

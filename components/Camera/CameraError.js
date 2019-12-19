@@ -34,6 +34,8 @@ const CameraError = ( { error, errorEvent }: Props ) => {
     errorText = i18n.t( "camera.error_old_camera" );
   } else if ( error === "gallery" ) {
     errorText = i18n.t( "camera.error_gallery" );
+  } else if ( error === "noPhotos" ) {
+    errorText = i18n.t( "camera.error_no_photos" );
   }
 
   return (

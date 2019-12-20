@@ -18,7 +18,7 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 type Props = {
   +navigation: any,
   +item: Object,
-  +toggleDeleteModal: Function,
+  +openModal: Function,
   +updateItemScrolledId: Function,
   +itemScrolledId: Number
 }
@@ -124,7 +124,7 @@ class ObservationCard extends Component<Props> {
     const {
       navigation,
       item,
-      toggleDeleteModal,
+      openModal,
       updateItemScrolledId
     } = this.props;
     const { photo, commonName } = this.state;
@@ -150,7 +150,7 @@ class ObservationCard extends Component<Props> {
           scientificName={taxon.name}
         />
         <TouchableOpacity
-          onPress={() => toggleDeleteModal(
+          onPress={() => openModal(
             item.taxon.id,
             photo,
             commonName,

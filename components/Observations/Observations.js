@@ -23,7 +23,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../Modals/DeleteModal";
 import { removeFromCollection } from "../../utility/helpers";
 import createSectionList from "../../utility/observationHelpers";
 
@@ -37,12 +37,13 @@ class Observations extends Component<Props> {
 
     this.state = {
       observations: [],
-      showDeleteModal: false,
+      showModal: false,
       itemToDelete: null,
       itemScrolledId: null
     };
 
-    this.toggleDeleteModal = this.toggleDeleteModal.bind( this );
+    this.openModal = this.openModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
     this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
@@ -88,11 +89,9 @@ class Observations extends Component<Props> {
     this.fetchObservations();
   }
 
-  toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {
-    const { showDeleteModal } = this.state;
-
+  openModal( id, photo, commonName, scientificName, iconicTaxonId ) {
     this.setState( {
-      showDeleteModal: !showDeleteModal,
+      showModal: true,
       itemToDelete: {
         id,
         photo,
@@ -101,6 +100,10 @@ class Observations extends Component<Props> {
         iconicTaxonId
       }
     } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   toggleSection( id ) {
@@ -120,7 +123,7 @@ class Observations extends Component<Props> {
   render() {
     const {
       observations,
-      showDeleteModal,
+      showModal,
       itemToDelete,
       itemScrolledId
     } = this.state;
@@ -142,7 +145,7 @@ class Observations extends Component<Props> {
                   item={item}
                   itemScrolledId={itemScrolledId}
                   navigation={navigation}
-                  toggleDeleteModal={this.toggleDeleteModal}
+                  openModal={this.openModal}
                   updateItemScrolledId={this.updateItemScrolledId}
                 />
               );
@@ -235,11 +238,11 @@ class Observations extends Component<Props> {
           header={i18n.t( "observations.header" )}
           navigation={navigation}
         />
-        <Modal isVisible={showDeleteModal}>
+        <Modal isVisible={showModal}>
           <DeleteModal
             deleteObservation={this.deleteObservation}
             itemToDelete={itemToDelete}
-            toggleDeleteModal={this.toggleDeleteModal}
+            closeModal={this.closeModal}
           />
         </Modal>
         {content}

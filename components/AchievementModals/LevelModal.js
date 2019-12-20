@@ -17,14 +17,14 @@ import GreenText from "../UIComponents/GreenText";
 type Props = {
   +level: Object,
   +speciesCount: number,
-  +toggleLevelModal: Function,
+  +closeModal: Function,
   +screen: string
 };
 
 const LevelModal = ( {
   level,
   speciesCount,
-  toggleLevelModal,
+  closeModal,
   screen
 }: Props ) => (
   <>
@@ -49,7 +49,7 @@ const LevelModal = ( {
     <View style={[styles.innerContainer, styles.modalBottom]}>
       <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
     </View>
-    <BackButton toggleModal={toggleLevelModal} />
+    <BackButton toggleModal={closeModal} />
   </>
 );
 

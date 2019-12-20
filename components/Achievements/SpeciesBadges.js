@@ -26,12 +26,12 @@ class SpeciesBadges extends Component<Props> {
     super();
 
     this.state = {
-      showBadgeModal: false,
+      showModal: false,
       iconicTaxonBadges: [],
       iconicSpeciesCount: null
     };
 
-    this.toggleBadgeModal = this.toggleBadgeModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
   }
 
   fetchBadgesByIconicId( taxaId ) {
@@ -44,15 +44,18 @@ class SpeciesBadges extends Component<Props> {
         this.setState( {
           iconicTaxonBadges: badges,
           iconicSpeciesCount: collection
-        }, () => this.toggleBadgeModal() );
+        }, () => this.openModal() );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   }
 
-  toggleBadgeModal() {
-    const { showBadgeModal } = this.state;
-    this.setState( { showBadgeModal: !showBadgeModal } );
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   renderBadgesRow( data ) {
@@ -87,19 +90,19 @@ class SpeciesBadges extends Component<Props> {
 
   render() {
     const { speciesBadges } = this.props;
-    const { iconicTaxonBadges, showBadgeModal, iconicSpeciesCount } = this.state;
+    const { iconicTaxonBadges, showModal, iconicSpeciesCount } = this.state;
 
     return (
       <View style={styles.center}>
         {iconicTaxonBadges.length > 0 ? (
           <Modal
-            isVisible={showBadgeModal}
-            onBackdropPress={() => this.toggleBadgeModal()}
+            isVisible={showModal}
+            onBackdropPress={() => this.closeModal()}
           >
             <BadgeModal
               badges={iconicTaxonBadges}
               iconicSpeciesCount={iconicSpeciesCount}
-              toggleBadgeModal={this.toggleBadgeModal}
+              closeModal={this.closeModal}
             />
           </Modal>
         ) : null}

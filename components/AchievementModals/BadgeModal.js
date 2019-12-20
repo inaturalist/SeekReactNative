@@ -22,7 +22,7 @@ import GreenText from "../UIComponents/GreenText";
 type Props = {
   +badges: Array<Object>,
   +iconicSpeciesCount: number,
-  +toggleBadgeModal: Function
+  +closeModal: Function
 };
 
 class BadgeModal extends Component<Props> {
@@ -35,7 +35,7 @@ class BadgeModal extends Component<Props> {
   }
 
   render() {
-    const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
+    const { badges, iconicSpeciesCount, closeModal } = this.props;
     const badgeList = [];
 
     badges.forEach( ( badge ) => {
@@ -103,7 +103,7 @@ class BadgeModal extends Component<Props> {
             ) )}
           </View>
         </View>
-        <BackButton toggleModal={toggleBadgeModal} />
+        <BackButton toggleModal={closeModal} />
       </>
     );
   }

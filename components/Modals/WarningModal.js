@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/camera/warning";
+import styles from "../../styles/modals/warningModal";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
 

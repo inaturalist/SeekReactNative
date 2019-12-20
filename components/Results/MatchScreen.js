@@ -14,9 +14,9 @@ import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
 import { NavigationEvents } from "react-navigation";
 
-import LevelModal from "../AchievementModals/LevelModal";
-import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
-import FlagModal from "./FlagModal";
+import LevelModal from "../Modals/LevelModal";
+import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
+import FlagModal from "../Modals/FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
@@ -78,6 +78,7 @@ class MatchScreen extends Component<Props> {
       latestLevel: null,
       challenge: null,
       challengeInProgress: null,
+      showChallengeModal: false,
       showLevelModal: false,
       showFlagModal: false,
       navigationPath: null,
@@ -99,8 +100,8 @@ class MatchScreen extends Component<Props> {
       isLoggedIn
     };
 
-    this.toggleLevelModal = this.toggleLevelModal.bind( this );
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    this.closeLevelModal = this.closeLevelModal.bind( this );
+    this.closeChallengeModal = this.closeChallengeModal.bind( this );
     this.toggleFlagModal = this.toggleFlagModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
   }
@@ -129,16 +130,16 @@ class MatchScreen extends Component<Props> {
     this.setState( { challengeInProgress } );
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
-
-    this.setState( { showChallengeModal: !showChallengeModal } );
+  openChallengeModal() {
+    this.setState( { showChallengeModal: true } );
   }
 
-  toggleLevelModal() {
-    const { showLevelModal } = this.state;
+  closeChallengeModal() {
+    this.setState( { showChallengeModal: false } );
+  }
 
-    if ( showLevelModal === true ) {
+  openLevelModal() {
+    this.setState( { showLevelModal: true }, () => {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
@@ -149,9 +150,11 @@ class MatchScreen extends Component<Props> {
           }
         }
       } );
-    }
+    } );
+  }
 
-    this.setState( { showLevelModal: !showLevelModal } );
+  closeLevelModal() {
+    this.setState( { showLevelModal: false } );
   }
 
   showFailureScreen() {
@@ -217,9 +220,9 @@ class MatchScreen extends Component<Props> {
     if ( ( !challenge && !latestLevel ) || challengeShown ) {
       this.navigateTo();
     } else if ( challenge ) {
-      this.toggleChallengeModal();
+      this.openChallengeModal();
     } else if ( latestLevel ) {
-      this.toggleLevelModal();
+      this.openLevelModal();
     }
   }
 
@@ -354,29 +357,29 @@ class MatchScreen extends Component<Props> {
         {match && !seenDate && latitude ? (
           <Modal
             isVisible={showChallengeModal}
-            onBackdropPress={() => this.toggleChallengeModal()}
+            onBackdropPress={() => this.closeChallengeModal()}
             onModalHide={() => this.setChallengeCompleteShown( true )}
-            onSwipeComplete={() => this.toggleChallengeModal()}
+            onSwipeComplete={() => this.closeChallengeModal()}
             swipeDirection="down"
           >
             <ChallengeEarnedModal
               challenge={challenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeChallengeModal}
             />
           </Modal>
         ) : null}
         {match && !seenDate && latitude ? (
           <Modal
             isVisible={showLevelModal}
-            onBackdropPress={() => this.toggleLevelModal()}
+            onBackdropPress={() => this.closeLevelModal()}
             onModalHide={() => this.navigateTo()}
-            onSwipeComplete={() => this.toggleLevelModal()}
+            onSwipeComplete={() => this.closeLevelModal()}
             swipeDirection="down"
           >
             <LevelModal
               level={latestLevel}
               speciesCount={latestLevel ? latestLevel.count : 0}
-              toggleLevelModal={this.toggleLevelModal}
+              closeModal={this.closeLevelModal}
             />
           </Modal>
         ) : null}

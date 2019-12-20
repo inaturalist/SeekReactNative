@@ -13,7 +13,7 @@ import Modal from "react-native-modal";
 import i18n from "../../i18n";
 import realmConfig from "../../models";
 import BannerHeader from "./BannerHeader";
-import BadgeModal from "../AchievementModals/BadgeModal";
+import BadgeModal from "../Modals/BadgeModal";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 

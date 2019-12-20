@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import styles from "../../styles/badges/challengeBadgeEarned";
+import styles from "../../styles/modals/challengeEarnedModal";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";

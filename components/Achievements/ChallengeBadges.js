@@ -9,8 +9,8 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import ChallengeModal from "../AchievementModals/ChallengeEarnedModal";
-import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
+import ChallengeModal from "../Modals/ChallengeEarnedModal";
+import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";

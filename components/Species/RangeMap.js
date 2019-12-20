@@ -15,7 +15,7 @@ import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import icons from "../../assets/icons";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import Legend from "./Legend";
+import Legend from "../Modals/LegendModal";
 import Modal from "../UIComponents/Modal";
 
 const latitudeDelta = 0.2;

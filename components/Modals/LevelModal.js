@@ -9,7 +9,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/level";
+import styles from "../../styles/modals/levelModal";
 import badgeImages from "../../assets/badges";
 import BackButton from "../UIComponents/ModalBackButton";
 import GreenText from "../UIComponents/GreenText";

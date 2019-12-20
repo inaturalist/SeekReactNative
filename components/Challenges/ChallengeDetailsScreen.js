@@ -23,7 +23,7 @@ import BackArrow from "../UIComponents/BackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
+import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import Padding from "../UIComponents/Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";

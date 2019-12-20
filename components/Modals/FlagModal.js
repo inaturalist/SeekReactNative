@@ -10,7 +10,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/flagModal";
+import styles from "../../styles/modals/flagModal";
 import icons from "../../assets/icons";
 
 type Props = {

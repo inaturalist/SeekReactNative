@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import LevelModal from "../AchievementModals/LevelModal";
+import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";

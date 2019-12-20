@@ -11,7 +11,7 @@ import moment from "moment";
 import ProgressCircle from "react-native-progress-circle";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/challengeBadgeUnearned";
+import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable } from "../../utility/dateHelpers";

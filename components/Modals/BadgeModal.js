@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/badgeModal";
+import styles from "../../styles/modals/badgeModal";
 import badgeImages from "../../assets/badges";
 import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";

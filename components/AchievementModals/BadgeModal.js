@@ -103,7 +103,7 @@ class BadgeModal extends Component<Props> {
             ) )}
           </View>
         </View>
-        <BackButton toggleModal={closeModal} />
+        <BackButton closeModal={closeModal} />
       </>
     );
   }

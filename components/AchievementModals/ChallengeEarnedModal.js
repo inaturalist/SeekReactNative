@@ -47,7 +47,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => (
       <Image source={logos.wwfop} style={[styles.logo, styles.center]} />
       <View style={styles.marginBottom} />
     </View>
-    <BackButton toggleModal={closeModal} />
+    <BackButton closeModal={closeModal} />
   </>
 );
 

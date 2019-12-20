@@ -90,7 +90,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         </Text>
       )}
     </View>
-    <BackButton toggleModal={closeModal} />
+    <BackButton closeModal={closeModal} />
   </>
 );
 

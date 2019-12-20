@@ -49,7 +49,7 @@ const LevelModal = ( {
     <View style={[styles.innerContainer, styles.modalBottom]}>
       <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
     </View>
-    <BackButton toggleModal={closeModal} />
+    <BackButton closeModal={closeModal} />
   </>
 );
 

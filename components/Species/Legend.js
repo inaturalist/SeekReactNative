@@ -45,7 +45,7 @@ const Legend = ( { closeModal }: Props ) => (
       </View>
       <View style={styles.marginLarge} />
     </View>
-    <BackButton toggleModal={closeModal} />
+    <BackButton closeModal={closeModal} />
   </>
 );
 

@@ -91,7 +91,7 @@ class SpeciesBadges extends Component<Props> {
 
     return (
       <View style={styles.center}>
-        { iconicTaxonBadges.length > 0 ? (
+        {iconicTaxonBadges.length > 0 ? (
           <Modal
             isVisible={showBadgeModal}
             onBackdropPress={() => this.toggleBadgeModal()}

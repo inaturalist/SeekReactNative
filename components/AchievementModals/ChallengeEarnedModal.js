@@ -15,11 +15,11 @@ import icons from "../../assets/icons";
 import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
-  +toggleChallengeModal: Function,
+  +closeModal: Function,
   +challenge: Object
 };
 
-const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
+const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => (
   <>
     <LinearGradient
       colors={["#67c5ca", "#3ca2ab"]}
@@ -47,7 +47,7 @@ const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
       <Image source={logos.wwfop} style={[styles.logo, styles.center]} />
       <View style={styles.marginBottom} />
     </View>
-    <BackButton toggleModal={toggleChallengeModal} />
+    <BackButton toggleModal={closeModal} />
   </>
 );
 

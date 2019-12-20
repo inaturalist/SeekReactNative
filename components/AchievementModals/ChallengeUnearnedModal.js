@@ -23,12 +23,12 @@ import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  +toggleChallengeModal: Function,
+  +closeModal: Function,
   +challenge: Object,
   +navigation: any
 };
 
-const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }: Props ) => (
+const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) => (
   <>
     <View style={styles.innerContainer}>
       <View style={styles.center}>
@@ -79,7 +79,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
             handlePress={() => {
               setChallengeIndex( challenge.index );
               navigation.navigate( "ChallengeDetails" );
-              toggleChallengeModal();
+              closeModal();
             }}
             text={i18n.t( "notifications.view_challenges" )}
           />
@@ -90,7 +90,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
         </Text>
       )}
     </View>
-    <BackButton toggleModal={toggleChallengeModal} />
+    <BackButton toggleModal={closeModal} />
   </>
 );
 

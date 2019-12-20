@@ -13,7 +13,6 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
-import Modal from "react-native-modal";
 import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
@@ -31,6 +30,7 @@ import Spacer from "../UIComponents/iOSSpacer";
 import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
+import Modal from "../UIComponents/Modal";
 
 type Props = {
   +navigation: any
@@ -44,11 +44,11 @@ class ChallengeDetailsScreen extends Component<Props> {
       challenge: {},
       missions: {},
       challengeStarted: false,
-      showChallengeModal: false,
+      showModal: false,
       index: null
     };
 
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
   }
 
   resetState() {
@@ -56,7 +56,7 @@ class ChallengeDetailsScreen extends Component<Props> {
       challenge: {},
       missions: {},
       challengeStarted: false,
-      showChallengeModal: false,
+      showModal: false,
       index: null
     } );
   }
@@ -125,18 +125,18 @@ class ChallengeDetailsScreen extends Component<Props> {
     this.fetchChallengeDetails();
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
+  openModal() {
+    this.setState( { showModal: true } );
+  }
 
-    this.setState( {
-      showChallengeModal: !showChallengeModal
-    } );
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   render() {
     const {
       challengeStarted,
-      showChallengeModal,
+      showModal,
       challenge,
       missions
     } = this.state;
@@ -161,7 +161,7 @@ class ChallengeDetailsScreen extends Component<Props> {
           } else if ( challengeStarted && challenge.percentComplete < 100 ) {
             navigation.navigate( "Camera" );
           } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-            this.toggleChallengeModal();
+            this.openModal();
           }
         }}
         text={buttonText}
@@ -181,16 +181,15 @@ class ChallengeDetailsScreen extends Component<Props> {
             }}
           />
           <Modal
-            isVisible={showChallengeModal}
-            onBackdropPress={() => this.toggleChallengeModal()}
-            onSwipeComplete={() => this.toggleChallengeModal()}
-            swipeDirection="down"
-          >
-            <ChallengeEarnedModal
-              challenge={challenge}
-              toggleChallengeModal={this.toggleChallengeModal}
-            />
-          </Modal>
+            showModal={showModal}
+            closeModal={this.closeModal}
+            modal={(
+              <ChallengeEarnedModal
+                challenge={challenge}
+                closeModal={this.closeModal}
+              />
+            )}
+          />
           {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
           <ImageBackground
             source={backgrounds[challenge.backgroundName]}

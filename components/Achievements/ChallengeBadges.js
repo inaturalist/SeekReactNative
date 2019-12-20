@@ -7,7 +7,6 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
-import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
 import ChallengeModal from "../AchievementModals/ChallengeEarnedModal";
@@ -15,6 +14,7 @@ import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal"
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
+import Modal from "../UIComponents/Modal";
 
 type Props = {
   +challengeBadges: Array<Object>,
@@ -26,20 +26,23 @@ class ChallengeBadges extends Component<Props> {
     super();
 
     this.state = {
-      showChallengeModal: false,
+      showModal: false,
       selectedChallenge: null
     };
 
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
   }
 
   setChallenge( selectedChallenge ) {
     this.setState( { selectedChallenge } );
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
-    this.setState( { showChallengeModal: !showChallengeModal } );
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   renderChallengesRow( challengeBadges ) {
@@ -59,7 +62,7 @@ class ChallengeBadges extends Component<Props> {
           return (
             <TouchableOpacity
               onPress={() => {
-                this.toggleChallengeModal();
+                this.openModal();
                 this.setChallenge( item );
               }}
               style={styles.gridCell}
@@ -77,29 +80,26 @@ class ChallengeBadges extends Component<Props> {
 
   render() {
     const { challengeBadges, navigation } = this.props;
-    const { showChallengeModal, selectedChallenge } = this.state;
+    const { showModal, selectedChallenge } = this.state;
 
     return (
       <View style={styles.center}>
         <Modal
-          isVisible={showChallengeModal}
-          onBackdropPress={() => this.toggleChallengeModal()}
-          onSwipeComplete={() => this.toggleChallengeModal()}
-          swipeDirection="down"
-        >
-          {selectedChallenge && selectedChallenge.percentComplete === 100 ? (
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
             <ChallengeModal
               challenge={selectedChallenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeModal}
             />
           ) : (
             <ChallengeUnearnedModal
               challenge={selectedChallenge}
               navigation={navigation}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeModal}
             />
           )}
-        </Modal>
+        />
         <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
         {this.renderChallengesRow( challengeBadges.slice( 0, 3 ) )}
         {this.renderChallengesRow( challengeBadges.slice( 3, 5 ) )}

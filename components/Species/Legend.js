@@ -13,10 +13,10 @@ import icons from "../../assets/icons";
 import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
-  +toggleModal: Function
+  +closeModal: Function
 }
 
-const Legend = ( { toggleModal }: Props ) => (
+const Legend = ( { closeModal }: Props ) => (
   <>
     <View style={styles.legendHeader}>
       <Text style={styles.whiteText}>
@@ -45,7 +45,7 @@ const Legend = ( { toggleModal }: Props ) => (
       </View>
       <View style={styles.marginLarge} />
     </View>
-    <BackButton toggleModal={toggleModal} />
+    <BackButton toggleModal={closeModal} />
   </>
 );
 

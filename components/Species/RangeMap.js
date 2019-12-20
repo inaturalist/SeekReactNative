@@ -7,7 +7,6 @@ import {
   Text
 } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import Modal from "react-native-modal";
 import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
@@ -17,6 +16,7 @@ import icons from "../../assets/icons";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import Legend from "./Legend";
+import Modal from "../UIComponents/Modal";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -44,7 +44,7 @@ class RangeMap extends Component<Props> {
       seenDate
     };
 
-    this.toggleModal = this.toggleModal.bind( this );
+    this.closeModal = this.closeModal.bind( this );
   }
 
   getUserLocation() {
@@ -70,9 +70,12 @@ class RangeMap extends Component<Props> {
     this.setState( { region: userLocation } );
   }
 
-  toggleModal() {
-    const { showModal } = this.state;
-    this.setState( { showModal: !showModal } );
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   render() {
@@ -93,13 +96,10 @@ class RangeMap extends Component<Props> {
           onWillFocus={() => this.getUserLocation()}
         />
         <Modal
-          isVisible={showModal}
-          onBackdropPress={() => this.toggleModal()}
-          onSwipeComplete={() => this.toggleModal()}
-          swipeDirection="down"
-        >
-          <Legend toggleModal={this.toggleModal} />
-        </Modal>
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={<Legend closeModal={this.closeModal} />}
+        />
         <GreenHeader
           header={i18n.t( "species_detail.range_map" )}
           navigation={navigation}
@@ -136,7 +136,7 @@ class RangeMap extends Component<Props> {
           </MapView>
         ) : null}
         <TouchableOpacity
-          onPress={() => this.toggleModal()}
+          onPress={() => this.openModal()}
           style={[styles.legend, styles.legendPosition]}
         >
           <Text style={styles.whiteText}>

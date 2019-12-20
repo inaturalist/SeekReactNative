@@ -15,10 +15,10 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   +navigation: any,
-  +toggleFlagModal: Function
+  +openFlagModal: Function
 }
 
-const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
+const MatchFooter = ( { navigation, openFlagModal }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
@@ -41,7 +41,7 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.flag" )}
           accessible
-          onPress={() => toggleFlagModal()}
+          onPress={() => openFlagModal()}
           style={styles.flagPadding}
         >
           <Image source={icons.flag} />

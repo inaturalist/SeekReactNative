@@ -14,7 +14,7 @@ import styles from "../../styles/modals/flagModal";
 import icons from "../../assets/icons";
 
 type Props = {
-  +toggleFlagModal: Function,
+  +closeModal: Function,
   +deleteObservation: Function,
   +userImage: string,
   +speciesSeenImage: string,
@@ -23,7 +23,7 @@ type Props = {
 };
 
 const FlagModal = ( {
-  toggleFlagModal,
+  closeModal,
   deleteObservation,
   userImage,
   speciesSeenImage,
@@ -44,7 +44,7 @@ const FlagModal = ( {
             {i18n.t( "results.flag" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            onPress={() => toggleFlagModal()}
+            onPress={() => closeModal()}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />
@@ -71,10 +71,10 @@ const FlagModal = ( {
         <TouchableOpacity
           onPress={() => {
             if ( seenDate ) {
-              toggleFlagModal( true );
+              closeModal( true );
             } else {
               deleteObservation();
-              toggleFlagModal( true );
+              closeModal( true );
             }
           }}
           style={styles.largeFlagButton}
@@ -87,7 +87,7 @@ const FlagModal = ( {
         </TouchableOpacity>
         <View style={styles.marginSmall} />
         <TouchableOpacity
-          onPress={() => toggleFlagModal()}
+          onPress={() => closeModal()}
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
         >
           <Text style={styles.buttonText}>

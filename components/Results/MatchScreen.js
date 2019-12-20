@@ -102,7 +102,8 @@ class MatchScreen extends Component<Props> {
 
     this.closeLevelModal = this.closeLevelModal.bind( this );
     this.closeChallengeModal = this.closeChallengeModal.bind( this );
-    this.toggleFlagModal = this.toggleFlagModal.bind( this );
+    this.closeFlagModal = this.closeFlagModal.bind( this );
+    this.openFlagModal = this.openFlagModal.bind( this );
     this.deleteObservation = this.deleteObservation.bind( this );
   }
 
@@ -166,14 +167,16 @@ class MatchScreen extends Component<Props> {
     } );
   }
 
-  toggleFlagModal( showFailure ) {
-    const { showFlagModal } = this.state;
+  openFlagModal() {
+    this.setState( { showFlagModal: true } );
+  }
 
-    this.setState( { showFlagModal: !showFlagModal } );
-
-    if ( showFailure ) {
-      this.showFailureScreen();
-    }
+  closeFlagModal( showFailure ) {
+    this.setState( { showFlagModal: false }, () => {
+      if ( showFailure ) {
+        this.showFailureScreen();
+      }
+    } );
   }
 
   checkForNewBadges() {
@@ -390,7 +393,7 @@ class MatchScreen extends Component<Props> {
               seenDate={seenDate}
               speciesSeenImage={speciesSeenImage}
               speciesText={speciesText}
-              toggleFlagModal={this.toggleFlagModal}
+              closeModal={this.closeFlagModal}
               userImage={userImage}
             />
           </Modal>
@@ -488,7 +491,7 @@ class MatchScreen extends Component<Props> {
           <Padding />
         </ScrollView>
         {match || seenDate
-          ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
+          ? <MatchFooter navigation={navigation} openFlagModal={this.openFlagModal} />
           : <Footer navigation={navigation} />}
       </View>
     );

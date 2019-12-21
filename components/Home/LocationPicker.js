@@ -93,6 +93,7 @@ class LocationPicker extends Component<Props> {
 
   reverseGeocodeLocation( lat, lng ) {
     const { location } = this.state;
+
     fetchLocationName( lat, lng ).then( ( newLocation ) => {
       if ( newLocation === null ) {
         this.setLocationUndefined();

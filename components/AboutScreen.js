@@ -38,8 +38,8 @@ const AboutScreen = ( { navigation }: Props ) => {
   return (
     <>
       <SafeAreaView />
-      <NavigationEvents onWillBlur={() => scrollToTop()} />
       <GreenHeader header={i18n.t( "about.header" )} navigation={navigation} />
+      <NavigationEvents onWillBlur={() => scrollToTop()} />
       <ScrollView
         ref={scrollViewRef}
         contentContainerStyle={styles.textContainer}

@@ -5,10 +5,16 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react-native/all", "plugin:react/recommended"],
+  "extends": [
+    "airbnb",
+    "plugin:react-native/all",
+    "plugin:react/recommended",
+    "plugin:jest/recommended"
+  ],
   "plugins": [
     "react",
-    "react-native"
+    "react-native",
+    "jest"
   ],
   "rules": {
     "quotes": [2, "double"],

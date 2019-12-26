@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -8,7 +8,6 @@ import {
   View,
   Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import styles from "../styles/about";
@@ -35,11 +34,16 @@ const AboutScreen = ( { navigation }: Props ) => {
     }
   };
 
+  useEffect( () => {
+    navigation.addListener( "willFocus", () => {
+      scrollToTop();
+    } );
+  }, [] );
+
   return (
     <>
       <SafeAreaView />
       <GreenHeader header={i18n.t( "about.header" )} navigation={navigation} />
-      <NavigationEvents onWillBlur={() => scrollToTop()} />
       <ScrollView
         ref={scrollViewRef}
         contentContainerStyle={styles.textContainer}

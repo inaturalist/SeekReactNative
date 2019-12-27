@@ -17,7 +17,7 @@ import icons from "../../assets/icons";
 type Props = {
   +navigation: any,
   +item: Object,
-  +fetchChallenges: ?Function
+  +fetchChallenges?: Function
 }
 
 const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) => {
@@ -35,7 +35,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         <PercentCircle challenge={item} />
       </View>
     );
-  } else {
+  } else if ( fetchChallenges ) {
     rightIcon = (
       <TouchableOpacity
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${item.name}`}
@@ -43,9 +43,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         onPress={() => {
           setChallengeIndex( item.index );
           startChallenge( item.index );
-          if ( fetchChallenges ) {
-            fetchChallenges();
-          }
+          fetchChallenges();
           recalculateChallenges();
           navigation.navigate( "ChallengeDetails" );
         }}
@@ -78,6 +76,10 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
       {rightIcon}
     </TouchableOpacity>
   );
+};
+
+ChallengeProgressCard.defaultProps = {
+  fetchChallenges: () => {}
 };
 
 export default ChallengeProgressCard;

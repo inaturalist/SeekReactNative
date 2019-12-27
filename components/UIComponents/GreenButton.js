@@ -10,12 +10,12 @@ import {
 import styles from "../../styles/uiComponents/greenButton";
 
 type Props = {
-  +color: ?Object,
+  +color?: ?Object,
   +handlePress: Function,
-  +letterSpacing: ?Number,
+  +letterSpacing?: ?number,
   +text: string,
-  +login: ?boolean,
-  +fontSize: ?boolean
+  +login?: boolean,
+  +fontSize?: ?number
 }
 
 const GreenButton = ( {
@@ -35,5 +35,12 @@ const GreenButton = ( {
     </Text>
   </TouchableOpacity>
 );
+
+GreenButton.defaultProps = {
+  fontSize: null,
+  login: false,
+  letterSpacing: null,
+  color: null
+};
 
 export default GreenButton;

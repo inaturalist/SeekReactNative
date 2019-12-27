@@ -103,12 +103,7 @@ class ChallengeScreen extends Component<Props, State> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText
-            text="challenges.in_progress"
-            center={null}
-            smaller={null}
-            color={null}
-          />
+          <GreenText text="challenges.in_progress" />
         </View>
         {challengesStarted.length > 0 ? (
           <View>
@@ -117,7 +112,6 @@ class ChallengeScreen extends Component<Props, State> {
                 key={`${item.name}`}
                 item={item}
                 navigation={navigation}
-                fetchChallenges={null}
               />
             ) )}
             <View style={styles.margin} />
@@ -138,12 +132,7 @@ class ChallengeScreen extends Component<Props, State> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText
-            text="challenges.not_started"
-            center={null}
-            smaller={null}
-            color={null}
-          />
+          <GreenText text="challenges.not_started" />
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
@@ -174,12 +163,7 @@ class ChallengeScreen extends Component<Props, State> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText
-            text="challenges.completed"
-            center={null}
-            smaller={null}
-            color={null}
-          />
+          <GreenText text="challenges.completed" />
         </View>
         {challengesCompleted.length > 0 ? (
           challengesCompleted.map( ( item ) => (
@@ -187,7 +171,6 @@ class ChallengeScreen extends Component<Props, State> {
               key={`${item.name}`}
               item={item}
               navigation={navigation}
-              fetchChallenges={null}
             />
           ) )
         ) : (

@@ -1,6 +1,6 @@
 [ignore]
 ; We fork some components by platform
-.*/*[.]android.js
+.*/node_modules/.*/*[.]android.js
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
@@ -68,6 +68,7 @@ module.file_ext=.js
 module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.native.js
+module.file_ext=.android.js
 
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe

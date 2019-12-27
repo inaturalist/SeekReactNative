@@ -25,12 +25,7 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
 
   return (
     <View style={styles.header}>
-      <GreenText
-        text="challenges.your_mission"
-        center={null}
-        smaller={null}
-        color={null}
-      />
+      <GreenText text="challenges.your_mission" />
       <View style={styles.textContainer}>
         {missions.map( ( item, index ) => (
           <View key={`${item}${index.toString()}`} style={styles.row}>

@@ -197,8 +197,7 @@ class GalleryScreen extends Component<Props, State> {
       time,
       uri,
       latitude,
-      longitude,
-      predictions: []
+      longitude
     };
 
     if ( predictions && predictions.length > 0 ) {

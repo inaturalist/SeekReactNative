@@ -166,9 +166,6 @@ class ChallengeDetailsScreen extends Component<Props, State> {
           }
         }}
         text={buttonText}
-        fontSize={null}
-        letterSpacing={null}
-        login={null}
       />
     );
 
@@ -231,12 +228,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
               <Text style={styles.descriptionText}>{challenge.description}</Text>
             </View>
             <View style={styles.secondHeader}>
-              <GreenText
-                text="challenges.get_involved"
-                center={null}
-                smaller={null}
-                color={null}
-              />
+              <GreenText text="challenges.get_involved" />
             </View>
             <View style={styles.marginTop} />
             <Text style={styles.descriptionText}>

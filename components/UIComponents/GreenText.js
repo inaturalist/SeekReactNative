@@ -8,9 +8,9 @@ import i18n from "../../i18n";
 
 type Props = {
   +text: string,
-  +smaller: ?boolean,
-  +center: ?boolean,
-  +color: ?string
+  +smaller?: boolean,
+  +center?: boolean,
+  +color?: ?string
 }
 
 const GreenText = ( {
@@ -29,5 +29,11 @@ const GreenText = ( {
     {i18n.t( text ).toLocaleUpperCase()}
   </Text>
 );
+
+GreenText.defaultProps = {
+  color: null,
+  center: false,
+  smaller: false
+};
 
 export default GreenText;

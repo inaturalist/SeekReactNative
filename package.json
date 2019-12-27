@@ -51,9 +51,12 @@
     "realm": "^3.6.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
     "@babel/preset-flow": "^7.7.4",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^18.0.1",

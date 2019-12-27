@@ -4,5 +4,8 @@ module.exports = {
   setupFiles: ["<rootDir>/jest.setup.js"],
   transformIgnorePatterns: [
     "node_modules/(?!(@react-native-community|react-native|react-navigation|@react-navigation/.*))"
-  ]
+  ],
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  }
 };

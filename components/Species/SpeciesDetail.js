@@ -70,8 +70,8 @@ class SpeciesDetail extends Component<Props> {
       wikiUrl: null
     };
 
-    this.fetchiNatData = this.fetchiNatData.bind( this );
-    this.updateScreen = this.updateScreen.bind( this );
+    ( this:any ).fetchiNatData = this.fetchiNatData.bind( this );
+    ( this:any ).updateScreen = this.updateScreen.bind( this );
   }
 
   setError( newError ) {

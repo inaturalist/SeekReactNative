@@ -59,7 +59,7 @@ class OnlineServerResults extends Component<Props> {
       isLoggedIn: null
     };
 
-    this.checkForMatches = this.checkForMatches.bind( this );
+    ( this:any ).checkForMatches = this.checkForMatches.bind( this );
   }
 
   setLoggedIn( isLoggedIn ) {

@@ -100,11 +100,11 @@ class MatchScreen extends Component<Props> {
       isLoggedIn
     };
 
-    this.closeLevelModal = this.closeLevelModal.bind( this );
-    this.closeChallengeModal = this.closeChallengeModal.bind( this );
-    this.closeFlagModal = this.closeFlagModal.bind( this );
-    this.openFlagModal = this.openFlagModal.bind( this );
-    this.deleteObservation = this.deleteObservation.bind( this );
+    ( this:any ).closeLevelModal = this.closeLevelModal.bind( this );
+    ( this:any ).closeChallengeModal = this.closeChallengeModal.bind( this );
+    ( this:any ).closeFlagModal = this.closeFlagModal.bind( this );
+    ( this:any ).openFlagModal = this.openFlagModal.bind( this );
+    ( this:any ).deleteObservation = this.deleteObservation.bind( this );
   }
 
   setNavigationPath( navigationPath ) {

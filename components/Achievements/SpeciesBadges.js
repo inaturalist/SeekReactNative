@@ -37,7 +37,7 @@ class SpeciesBadges extends Component<Props, State> {
       iconicSpeciesCount: null
     };
 
-    this.closeModal = this.closeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
   fetchBadgesByIconicId( taxaId ) {

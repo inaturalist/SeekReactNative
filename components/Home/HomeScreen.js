@@ -34,7 +34,21 @@ type Props = {
   +navigation: any
 }
 
-class HomeScreen extends Component<Props> {
+type State = {
+  latitude: ?number,
+  longitude: ?number,
+  location: ?string,
+  taxa: Array<Object>,
+  taxaType: string,
+  loading: boolean,
+  modalVisible: boolean,
+  error: ?string,
+  showModal: boolean
+}
+
+class HomeScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -50,21 +64,21 @@ class HomeScreen extends Component<Props> {
       showModal: false
     };
 
-    this.updateTaxaType = this.updateTaxaType.bind( this );
-    this.updateLocation = this.updateLocation.bind( this );
-    this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
-    this.closeModal = this.closeModal.bind( this );
-    this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
+    ( this:any ).updateTaxaType = this.updateTaxaType.bind( this );
+    ( this:any ).updateLocation = this.updateLocation.bind( this );
+    ( this:any ).toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
+    ( this:any ).requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
-  setLoading( newLoadingStatus ) {
+  setLoading( newLoadingStatus: boolean ) {
     const { loading } = this.state;
     if ( loading !== newLoadingStatus ) {
       this.setState( { loading: newLoadingStatus } );
     }
   }
 
-  setLocation( location, latitude, longitude ) {
+  setLocation( location: string, latitude: number, longitude: number ) {
     this.setState( {
       location,
       latitude,
@@ -72,14 +86,14 @@ class HomeScreen extends Component<Props> {
     }, () => this.setParamsForSpeciesNearby() );
   }
 
-  setTaxa( taxa ) {
+  setTaxa( taxa: Array<Object> ) {
     this.setState( {
       taxa,
       loading: false
     } );
   }
 
-  setError( newError ) {
+  setError( newError: ?string ) {
     const { error } = this.state;
 
     if ( error !== newError ) {
@@ -124,6 +138,7 @@ class HomeScreen extends Component<Props> {
     };
 
     if ( taxonIds[taxaType] ) {
+      // $FlowFixMe
       params.taxon_id = taxonIds[taxaType];
     }
 
@@ -168,13 +183,13 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  updateTaxaType( taxaType ) {
+  updateTaxaType( taxaType: string ) {
     this.setState( {
       taxaType
     }, () => this.setParamsForSpeciesNearby() );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
+  reverseGeocodeLocation( lat: number, lng: number ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
       this.setLocation( location, lat, lng );
     } ).catch( () => {
@@ -190,7 +205,7 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
-  fetchSpeciesNearby( params ) {
+  fetchSpeciesNearby( params: Object ) {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
 
@@ -214,15 +229,17 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude ) {
+  updateLocation( latitude: number, longitude: number ) {
     this.reverseGeocodeLocation( latitude, longitude );
     this.toggleLocationPicker();
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   render() {

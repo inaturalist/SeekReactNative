@@ -23,9 +23,9 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +latitude: number,
-  +longitude: number,
-  +location: string,
+  +latitude: ?number,
+  +longitude: ?number,
+  +location: ?string,
   +updateLocation: Function,
   +toggleLocationPicker: Function
 }
@@ -48,8 +48,8 @@ class LocationPicker extends Component<Props> {
       location
     };
 
-    this.handleRegionChange = this.handleRegionChange.bind( this );
-    this.returnToUserLocation = this.returnToUserLocation.bind( this );
+    ( this:any ).handleRegionChange = this.handleRegionChange.bind( this );
+    ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
   setLocationUndefined() {

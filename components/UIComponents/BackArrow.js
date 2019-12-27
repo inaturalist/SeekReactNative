@@ -12,7 +12,7 @@ import icons from "../../assets/icons";
 
 type Props = {
   +navigation: any,
-  +green: ?boolean
+  +green?: boolean
 }
 
 const BackArrow = ( { navigation, green }: Props ) => (
@@ -25,5 +25,9 @@ const BackArrow = ( { navigation, green }: Props ) => (
     <Image source={green ? icons.backButtonGreen : icons.backButton} />
   </TouchableOpacity>
 );
+
+BackArrow.defaultProps = {
+  green: false
+};
 
 export default BackArrow;

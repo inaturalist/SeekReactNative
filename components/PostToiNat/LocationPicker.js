@@ -44,8 +44,8 @@ class LocationPicker extends Component<Props> {
       }
     };
 
-    this.handleRegionChange = this.handleRegionChange.bind( this );
-    this.returnToUserLocation = this.returnToUserLocation.bind( this );
+    ( this:any ).handleRegionChange = this.handleRegionChange.bind( this );
+    ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
   handleRegionChange( newRegion ) {

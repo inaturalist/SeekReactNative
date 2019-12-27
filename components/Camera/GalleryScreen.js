@@ -58,7 +58,7 @@ class GalleryScreen extends Component<Props, State> {
       albumNames: []
     };
 
-    this.updateAlbum = this.updateAlbum.bind( this );
+    ( this:any ).updateAlbum = this.updateAlbum.bind( this );
   }
 
   getPredictions( uri: string, timestamp: Date, location: string ) {

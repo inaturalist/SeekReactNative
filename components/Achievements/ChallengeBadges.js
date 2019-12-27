@@ -35,7 +35,7 @@ class ChallengeBadges extends Component<Props, State> {
       selectedChallenge: null
     };
 
-    this.closeModal = this.closeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
   setChallenge( selectedChallenge ) {

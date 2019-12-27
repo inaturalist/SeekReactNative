@@ -57,7 +57,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
       index: null
     };
 
-    this.closeModal = this.closeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
   resetState() {

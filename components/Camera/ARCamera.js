@@ -60,7 +60,7 @@ class ARCamera extends Component<Props, State> {
       focusedScreen: false
     };
 
-    this.closeModal = this.closeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
   setFocusedScreen( focusedScreen: boolean ) {

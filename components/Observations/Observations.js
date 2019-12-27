@@ -42,10 +42,10 @@ class Observations extends Component<Props> {
       itemScrolledId: null
     };
 
-    this.openModal = this.openModal.bind( this );
-    this.closeModal = this.closeModal.bind( this );
-    this.deleteObservation = this.deleteObservation.bind( this );
-    this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
+    ( this:any ).openModal = this.openModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
+    ( this:any ).deleteObservation = this.deleteObservation.bind( this );
+    ( this:any ).updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
   setObservations( observations ) {

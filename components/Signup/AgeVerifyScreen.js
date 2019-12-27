@@ -29,8 +29,8 @@ class AgeVerifyScreen extends Component<Props> {
       isDateTimePickerVisible: false
     };
 
-    this.handleDatePicked = this.handleDatePicked.bind( this );
-    this.toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
+    ( this:any ).handleDatePicked = this.handleDatePicked.bind( this );
+    ( this:any ).toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
   }
 
 

@@ -44,7 +44,7 @@ class RangeMap extends Component<Props> {
       seenDate
     };
 
-    this.closeModal = this.closeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
   getUserLocation() {

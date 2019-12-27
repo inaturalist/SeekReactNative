@@ -88,15 +88,15 @@ class PostScreen extends Component<Props> {
       imageForUploading: null
     };
 
-    this.updateGeoprivacy = this.updateGeoprivacy.bind( this );
-    this.updateCaptive = this.updateCaptive.bind( this );
-    this.updateLocation = this.updateLocation.bind( this );
-    this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
-    this.togglePostModal = this.togglePostModal.bind( this );
-    this.toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
-    this.updateTaxon = this.updateTaxon.bind( this );
-    this.handleDatePicked = this.handleDatePicked.bind( this );
-    this.toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
+    ( this:any ).updateGeoprivacy = this.updateGeoprivacy.bind( this );
+    ( this:any ).updateCaptive = this.updateCaptive.bind( this );
+    ( this:any ).updateLocation = this.updateLocation.bind( this );
+    ( this:any ).toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    ( this:any ).togglePostModal = this.togglePostModal.bind( this );
+    ( this:any ).toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
+    ( this:any ).updateTaxon = this.updateTaxon.bind( this );
+    ( this:any ).handleDatePicked = this.handleDatePicked.bind( this );
+    ( this:any ).toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
   }
 
   setUserLocation() {

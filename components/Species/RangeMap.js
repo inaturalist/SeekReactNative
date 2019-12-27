@@ -25,8 +25,16 @@ type Props = {
   +navigation: any
 }
 
+type State = {
+  region: Object,
+  id: number,
+  showModal: boolean,
+  obsLocation: Object,
+  userLocation: Object,
+  seenDate: ?string
+};
 
-class RangeMap extends Component<Props> {
+class RangeMap extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 

@@ -23,22 +23,28 @@ type Props = {
   +navigation: any
 }
 
-class ParentalConsentScreen extends Component<Props> {
+type State = {
+  email: string,
+  error: ?string,
+  loading: boolean
+}
+
+class ParentalConsentScreen extends Component<Props, State> {
   constructor() {
     super();
 
     this.state = {
       email: "",
-      error: false,
+      error: null,
       loading: false
     };
   }
 
-  setError( error ) {
+  setError( error: ?string ) {
     this.setState( { error } );
   }
 
-  setLoading( loading ) {
+  setLoading( loading: boolean ) {
     this.setState( { loading } );
   }
 
@@ -118,7 +124,7 @@ class ParentalConsentScreen extends Component<Props> {
           <GreenButton
             handlePress={() => {
               if ( checkIsEmailValid( email ) ) {
-                this.setError( false );
+                this.setError( null );
                 this.shareEmailWithiNat();
               } else {
                 this.setError( "email" );

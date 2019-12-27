@@ -20,6 +20,10 @@ type Props = {
 }
 
 class Toasts extends Component<Props> {
+  animatedBadge: ?any
+
+  animatedChallenge: ?any
+
   constructor() {
     super();
 
@@ -27,7 +31,7 @@ class Toasts extends Component<Props> {
     this.animatedChallenge = new Animated.Value( -130 );
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { badge, incompleteChallenge } = this.props;
     if ( prevProps.badge !== badge ) {
       this.showToasts();

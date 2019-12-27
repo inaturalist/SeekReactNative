@@ -17,7 +17,7 @@ import BackArrow from "../UIComponents/BackArrow";
 type Props = {
   +image: Object,
   +navigation: any,
-  +match: boolean,
+  +match: ?boolean,
   +checkForMatches: Function,
   +clicked: boolean
 }

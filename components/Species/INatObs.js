@@ -24,7 +24,12 @@ type Props = {
   +error: string
 };
 
-class INatObs extends Component<Props> {
+type State = {
+  nearbySpeciesCount: ?number,
+  location: ?string
+}
+
+class INatObs extends Component<Props, State> {
   constructor() {
     super();
 
@@ -34,7 +39,7 @@ class INatObs extends Component<Props> {
     };
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { region } = this.props;
 
     if ( region !== prevProps.region ) {
@@ -43,15 +48,15 @@ class INatObs extends Component<Props> {
     }
   }
 
-  setLocation( location ) {
+  setLocation( location: ?string ) { 
     this.setState( { location } );
   }
 
-  setNearbySpeciesCount( nearbySpeciesCount ) {
+  setNearbySpeciesCount( nearbySpeciesCount: number ) {
     this.setState( { nearbySpeciesCount } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
+  reverseGeocodeLocation( lat: number, lng: number ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
       this.setLocation( location );
     } ).catch( () => this.setLocation( null ) );

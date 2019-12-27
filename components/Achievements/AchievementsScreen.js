@@ -30,7 +30,18 @@ type Props = {
   +navigation: any
 }
 
-class AchievementsScreen extends Component<Props> {
+type State = {
+  speciesBadges: Array<Object>,
+  challengeBadges: Array<Object>,
+  level: ?Object,
+  nextLevelCount: ?number,
+  badgesEarned: ?number,
+  speciesCount: ?number
+}
+
+class AchievementsScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -45,9 +56,11 @@ class AchievementsScreen extends Component<Props> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   fetchBadges() {

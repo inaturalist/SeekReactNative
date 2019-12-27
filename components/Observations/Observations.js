@@ -65,7 +65,7 @@ class Observations extends Component<Props, State> {
     this.setState( { observations: [] } );
   }
 
-  updateItemScrolledId( itemScrolledId ) {
+  updateItemScrolledId( itemScrolledId: number ) {
     this.setState( { itemScrolledId } );
   }
 
@@ -92,7 +92,7 @@ class Observations extends Component<Props, State> {
       } );
   }
 
-  async deleteObservation( id ) {
+  async deleteObservation( id: number ) {
     await removeFromCollection( id );
     this.resetObservations();
     this.fetchObservations();
@@ -121,7 +121,7 @@ class Observations extends Component<Props, State> {
     this.setState( { showModal: false } );
   }
 
-  toggleSection( id ) {
+  toggleSection( id: number ) {
     const { observations } = this.state;
 
     const section = observations.find( item => item.id === id );

@@ -26,7 +26,29 @@ type Props = {
   +navigation: any
 }
 
-class OnlineServerResults extends Component<Props> {
+type State = {
+  uri: string,
+  time: Date,
+  latitude: number,
+  longitude: number,
+  userImage: ?string,
+  speciesSeenImage: ?string,
+  observation: ?Object,
+  taxaId: ?number,
+  taxaName: ?string,
+  commonAncestor: ?string,
+  seenDate: ?string,
+  error: ?string,
+  scientificName: ?string,
+  match: ?boolean,
+  clicked: boolean,
+  numberOfHours: ?string,
+  errorCode: ?number,
+  rank: ?number,
+  isLoggedIn: ?boolean
+};
+
+class OnlineServerResults extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -62,7 +84,7 @@ class OnlineServerResults extends Component<Props> {
     ( this:any ).checkForMatches = this.checkForMatches.bind( this );
   }
 
-  setLoggedIn( isLoggedIn ) {
+  setLoggedIn( isLoggedIn: boolean ) {
     this.setState( { isLoggedIn } );
   }
 
@@ -104,7 +126,7 @@ class OnlineServerResults extends Component<Props> {
     }
   }
 
-  setMatch( match ) {
+  setMatch( match: boolean ) {
     const { clicked } = this.state;
     this.setState( { match }, () => {
       if ( clicked ) {
@@ -113,27 +135,27 @@ class OnlineServerResults extends Component<Props> {
     } );
   }
 
-  setImageUri( uri ) {
+  setImageUri( uri: string ) {
     this.setState( { userImage: uri }, () => this.getParamsForOnlineVision() );
   }
 
-  setSeenDate( seenDate ) {
+  setSeenDate( seenDate: ?string ) {
     this.setState( { seenDate } );
   }
 
-  setNumberOfHours( numberOfHours ) {
+  setNumberOfHours( numberOfHours: string ) {
     this.setState( { numberOfHours } );
   }
 
-  setError( error ) {
+  setError( error: string ) {
     this.setState( { error } );
   }
 
-  setLocationErrorCode( errorCode ) {
+  setLocationErrorCode( errorCode: number ) {
     this.setState( { errorCode } );
   }
 
-  setOnlineVisionSpeciesResults( species ) {
+  setOnlineVisionSpeciesResults( species: Object ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
@@ -148,7 +170,7 @@ class OnlineServerResults extends Component<Props> {
     } );
   }
 
-  setOnlineVisionAncestorResults( commonAncestor ) {
+  setOnlineVisionAncestorResults( commonAncestor: Object ) {
     const { taxon } = commonAncestor;
     const photo = taxon.default_photo;
 
@@ -205,7 +227,7 @@ class OnlineServerResults extends Component<Props> {
     } ).catch( () => this.setError( "image" ) );
   }
 
-  fetchScore( params ) {
+  fetchScore( params: Object ) {
     const token = createJwtToken();
 
     const options = { api_token: token, user_agent: createUserAgent() };
@@ -255,7 +277,7 @@ class OnlineServerResults extends Component<Props> {
     }
   }
 
-  checkSpeciesSeen( taxaId ) {
+  checkSpeciesSeen( taxaId: number ) {
     fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
       this.setSeenDate( date );
     } );

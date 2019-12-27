@@ -20,7 +20,7 @@ type Props = {
   +item: Object,
   +openModal: Function,
   +updateItemScrolledId: Function,
-  +itemScrolledId: number
+  +itemScrolledId: ?number
 }
 
 type State = {

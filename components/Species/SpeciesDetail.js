@@ -44,8 +44,30 @@ type Props = {
   +navigation: any
 }
 
-class SpeciesDetail extends Component<Props> {
-  constructor( { navigation } ) {
+type State = {
+  id: number,
+  photos: Array<Object>,
+  commonName: ?string,
+  scientificName: ?string,
+  about: ?string,
+  seenDate: ?string,
+  timesSeen: ?number,
+  region: Object,
+  observationsByMonth: Array<Object>,
+  error: ?string,
+  userPhoto: ?string,
+  stats: Object,
+  ancestors: Array<Object>,
+  route: ?string,
+  iconicTaxonId: ?number,
+  isLoggedIn: ?boolean,
+  wikiUrl: ?string
+};
+
+class SpeciesDetail extends Component<Props, State> {
+  scrollView: ?any
+
+  constructor( { navigation }: Props ) {
     super();
 
     const { id } = navigation.state.params;
@@ -74,7 +96,7 @@ class SpeciesDetail extends Component<Props> {
     ( this:any ).updateScreen = this.updateScreen.bind( this );
   }
 
-  setError( newError ) {
+  setError( newError: ?string ) {
     const { error } = this.state;
 
     if ( error !== newError ) {
@@ -82,7 +104,7 @@ class SpeciesDetail extends Component<Props> {
     }
   }
 
-  setRegion( latitude, longitude ) {
+  setRegion( latitude: number, longitude: number ) {
     this.checkIfSpeciesIsNative( latitude, longitude );
     this.setState( {
       region: {
@@ -94,7 +116,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  setTaxonStats( stats ) {
+  setTaxonStats( stats: Object ) {
     this.setState( { stats } );
   }
 
@@ -115,7 +137,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  setUserPhoto( seenTaxa ) {
+  setUserPhoto( seenTaxa: Object ) {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
 
@@ -140,7 +162,7 @@ class SpeciesDetail extends Component<Props> {
     }
   }
 
-  setSeenTaxa( seenTaxa ) {
+  setSeenTaxa( seenTaxa: Object ) {
     const { taxon, latitude, longitude } = seenTaxa;
     const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
 
@@ -207,7 +229,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  checkIfSpeciesSeen( id ) {
+  checkIfSpeciesSeen( id: number ) {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
@@ -244,7 +266,7 @@ class SpeciesDetail extends Component<Props> {
       } );
   }
 
-  fetchTaxonDetails( id ) {
+  fetchTaxonDetails( id: number ) {
     const { stats } = this.state;
 
     const params = {
@@ -298,7 +320,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchHistogram( id ) {
+  fetchHistogram( id: number ) {
     const params = {
       date_field: "observed",
       interval: "month_of_year",
@@ -323,7 +345,7 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  checkIfSpeciesIsNative( latitude, longitude ) {
+  checkIfSpeciesIsNative( latitude: number, longitude: number ) {
     const { id, stats } = this.state;
 
     const params = {
@@ -352,16 +374,18 @@ class SpeciesDetail extends Component<Props> {
     } );
   }
 
-  fetchiNatData( screen ) {
+  fetchiNatData( screen: ?string ) {
     this.setupScreen();
     this.checkInternetConnection();
     if ( screen === "similarSpecies" ) {
       this.resetState();
     }
 
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   checkInternetConnection() {

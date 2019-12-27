@@ -20,18 +20,18 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 
 type Props = {
-  +stats: Array,
-  +seenDate: Date,
-  +about: string,
+  +stats: Object,
+  +seenDate: ?string,
+  +about: ?string,
   +isLoggedIn: boolean,
   +navigation: any,
-  +commonName: string,
+  +commonName: ?string,
   +wikiUrl: string,
   +id:number,
   +region: Object,
-  +ancestors: Array,
+  +ancestors: Array<Object>,
   +timesSeen:number,
-  +observationsByMonth: Array,
+  +observationsByMonth: Array<Object>,
   +fetchiNatData: Function,
   +error: string
 }

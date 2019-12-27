@@ -18,7 +18,7 @@ type Props = {
   +level: Object,
   +speciesCount: number,
   +closeModal: Function,
-  +screen: string
+  +screen?: string
 };
 
 const LevelModal = ( {
@@ -52,5 +52,9 @@ const LevelModal = ( {
     <BackButton closeModal={closeModal} />
   </>
 );
+
+LevelModal.defaultProps = {
+  screen: null
+};
 
 export default LevelModal;

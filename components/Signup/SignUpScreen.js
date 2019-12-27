@@ -20,7 +20,15 @@ type Props = {
   +navigation: any
 }
 
-class SignUpScreen extends Component<Props> {
+type State = {
+  email: string,
+  licensePhotos: boolean,
+  username: string,
+  password: string,
+  error: ?string
+}
+
+class SignUpScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -35,11 +43,11 @@ class SignUpScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: ?string ) {
     this.setState( { error } );
   }
 
-  retrieveOAuthToken( username, password ) {
+  retrieveOAuthToken( username: string, password: string ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -67,7 +75,7 @@ class SignUpScreen extends Component<Props> {
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
-        this.setError();
+        this.setError( null );
       } );
   }
 

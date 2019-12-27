@@ -18,7 +18,11 @@ type Props = {
   +taxaInfo: Object
 }
 
-class PostToiNat extends Component<Props> {
+type State = {
+  postingSuccess: boolean
+}
+
+class PostToiNat extends Component<Props, State> {
   constructor() {
     super();
 

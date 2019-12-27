@@ -11,7 +11,7 @@ import styles from "../../styles/results/error";
 type Props = {
   +error: string,
   +navigation: any,
-  +number: Number
+  +number: ?string
 }
 
 const ErrorScreen = ( { error, navigation, number }: Props ) => {

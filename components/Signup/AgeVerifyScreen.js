@@ -20,7 +20,12 @@ type Props = {
   +navigation: any
 }
 
-class AgeVerifyScreen extends Component<Props> {
+type State = {
+  date: string,
+  isDateTimePickerVisible: boolean
+}
+
+class AgeVerifyScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -39,7 +44,7 @@ class AgeVerifyScreen extends Component<Props> {
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
-  handleDatePicked = ( date ) => {
+  handleDatePicked = ( date: Date ) => {
     if ( date ) {
       this.setState( {
         date: moment( date ).format( "YYYY-MM-DD" )

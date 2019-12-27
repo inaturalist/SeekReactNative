@@ -24,6 +24,8 @@ type Props = {
 
 
 class CameraHelpScreen extends Component<Props> {
+  scrollView: ?any
+
   scrollToTop() {
     if ( this.scrollView ) {
       this.scrollView.scrollTo( {

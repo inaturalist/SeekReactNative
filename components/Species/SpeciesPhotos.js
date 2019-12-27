@@ -18,10 +18,17 @@ import { localizeAttributions } from "../../utility/photoHelpers";
 
 type Props = {
   +photos: Array<Object>,
-  +userPhoto: string
+  +userPhoto: ?string
 };
 
-class SpeciesPhotos extends Component<Props> {
+type State = {
+  scrollIndex: number,
+  scrollOffset: number
+}
+
+class SpeciesPhotos extends Component<Props, State> {
+  flatList: ?any
+
   constructor() {
     super();
 
@@ -31,7 +38,7 @@ class SpeciesPhotos extends Component<Props> {
     };
   }
 
-  setIndex( scrollIndex, scrollOffset ) {
+  setIndex( scrollIndex: number, scrollOffset: number ) {
     this.setState( {
       scrollIndex,
       scrollOffset

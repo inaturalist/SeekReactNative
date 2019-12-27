@@ -23,7 +23,7 @@ class SimilarSpecies extends Component<Props> {
     };
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { id } = this.props;
 
     if ( id !== prevProps.id ) {

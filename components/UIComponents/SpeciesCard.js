@@ -17,7 +17,7 @@ type Props = {
   +handlePress: Function,
   +photo: Object,
   +iconicTaxonId?: ?number,
-  +commonName: string,
+  +commonName: ?string,
   +scientificName: string
 }
 

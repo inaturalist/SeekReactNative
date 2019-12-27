@@ -22,7 +22,13 @@ type Props = {
   +navigation: any
 }
 
-class LicensePhotosScreen extends Component<Props> {
+type State = {
+  email: string,
+  licensePhotos: boolean,
+  error: boolean
+}
+
+class LicensePhotosScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -33,7 +39,7 @@ class LicensePhotosScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: boolean ) {
     this.setState( { error } );
   }
 

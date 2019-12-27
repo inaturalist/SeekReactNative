@@ -8,13 +8,11 @@
   "extends": [
     "airbnb",
     "plugin:react-native/all",
-    "plugin:react/recommended",
-    "plugin:jest/recommended"
+    "plugin:react/recommended"
   ],
   "plugins": [
     "react",
-    "react-native",
-    "jest"
+    "react-native"
   ],
   "rules": {
     "quotes": [2, "double"],

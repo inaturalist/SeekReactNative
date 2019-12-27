@@ -31,6 +31,7 @@ import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
+import setChallengeDetailsButtonText from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any
@@ -150,15 +151,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     } = this.state;
     const { navigation } = this.props;
 
-    let buttonText;
-
-    if ( !challengeStarted ) {
-      buttonText = i18n.t( "challenges.start_challenge" );
-    } else if ( challengeStarted && challenge.percentComplete < 100 ) {
-      buttonText = i18n.t( "challenges.open_camera" );
-    } else if ( challengeStarted && challenge.percentComplete === 100 ) {
-      buttonText = i18n.t( "challenges.view_badge" );
-    }
+    const buttonText = setChallengeDetailsButtonText( challenge, challengeStarted );
 
     const button = (
       <GreenButton

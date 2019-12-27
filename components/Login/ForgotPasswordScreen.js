@@ -70,6 +70,7 @@ class ForgotPasswordScreen extends Component<Props, State> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 

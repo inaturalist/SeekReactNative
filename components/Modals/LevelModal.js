@@ -16,7 +16,7 @@ import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +level: Object,
-  +speciesCount: number,
+  +speciesCount: ?number,
   +closeModal: Function,
   +screen?: ?string
 };

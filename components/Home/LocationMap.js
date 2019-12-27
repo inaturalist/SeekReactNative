@@ -13,7 +13,7 @@ type Props = {
   +region: Object,
   +onRegionChange: Function,
   +returnToUserLocation: Function,
-  +posting: ?boolean
+  +posting?: boolean
 }
 
 const LocationMap = ( {
@@ -48,5 +48,9 @@ const LocationMap = ( {
     </View>
   </View>
 );
+
+LocationMap.defaultProps = {
+  posting: false
+};
 
 export default LocationMap;

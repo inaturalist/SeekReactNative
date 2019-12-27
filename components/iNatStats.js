@@ -293,7 +293,7 @@ class iNatStatsScreen extends Component<Props, State> {
               </TouchableOpacity>
             </View>
           )}
-          <LoginCard navigation={navigation} />
+          <LoginCard navigation={navigation} screen="iNatStats" />
           <Padding />
         </ScrollView>
       </SafeAreaView>

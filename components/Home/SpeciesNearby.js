@@ -14,7 +14,7 @@ type Props = {
   +loading: boolean,
   +navigation: any,
   +requestAndroidPermissions: Function,
-  +error: string
+  +error: ?string
 }
 
 const SpeciesNearby = ( {

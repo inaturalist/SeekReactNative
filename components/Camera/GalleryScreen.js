@@ -43,6 +43,8 @@ type State = {
 }
 
 class GalleryScreen extends Component<Props, State> {
+  camera: ?any
+
   constructor() {
     super();
 
@@ -92,15 +94,18 @@ class GalleryScreen extends Component<Props, State> {
     };
 
     if ( album ) { // append for cases where album is null
+      // $FlowFixMe
       photoOptions.groupName = album;
     }
 
     if ( lastCursor ) {
+      // $FlowFixMe
       photoOptions.after = lastCursor;
     }
 
     if ( hasNextPage && !stillLoading ) {
       this.setState( { stillLoading: true } );
+      // $FlowFixMe
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         this.appendPhotos( results.edges, results.page_info );
       } ).catch( ( err ) => {
@@ -180,7 +185,7 @@ class GalleryScreen extends Component<Props, State> {
     }
   }
 
-  navigateToResults( uri: string, time: Date, location: Object, predictions: Array<Object> ) {
+  navigateToResults( uri: string, time: Date, location: Object, predictions: ?Array<Object> ) {
     const { navigation } = this.props;
 
     let latitude = null;
@@ -201,6 +206,7 @@ class GalleryScreen extends Component<Props, State> {
     };
 
     if ( predictions && predictions.length > 0 ) {
+      // $FlowFixMe
       results.predictions = predictions;
 
       navigation.navigate( "OfflineARResults", results );

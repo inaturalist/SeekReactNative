@@ -5,7 +5,7 @@ import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import moment from "moment";
 
-import i18n from "../../i18n";
+// import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 import GreenText from "../UIComponents/GreenText";
@@ -27,6 +27,7 @@ const SpeciesChart = ( { data }: Props ) => {
     return capitalizeNames( allMonths[index][0] );
   };
 
+  // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( value => (
     <Circle
       key={`circle-${value.month}`}

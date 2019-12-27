@@ -21,7 +21,7 @@ import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +badges: Array<Object>,
-  +iconicSpeciesCount: number,
+  +iconicSpeciesCount: ?number,
   +closeModal: Function
 };
 

@@ -17,11 +17,11 @@ import createUserAgent from "../../utility/userAgent";
 import { seti18nNumber } from "../../utility/helpers";
 
 type Props = {
-  +id:number,
+  +id: number,
   +region: Object,
-  +timesSeen:number,
+  +timesSeen: ?number,
   +navigation: any,
-  +error: string
+  +error: ?string
 };
 
 type State = {

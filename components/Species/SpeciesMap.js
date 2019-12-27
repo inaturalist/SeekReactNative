@@ -20,7 +20,7 @@ type Props = {
   +navigation: any,
   +region: Object,
   +id: number,
-  +seenDate: string,
+  +seenDate: ?string,
   +isLoggedIn: ?boolean
 }
 

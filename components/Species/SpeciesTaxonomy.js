@@ -5,7 +5,6 @@ import { View, Text, Image } from "react-native";
 import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
-import i18n from "../../i18n";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
@@ -27,7 +26,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
               {ancestor.rank !== "species" ? " " : null}
               {ancestor.name}
             </Text>
-            <Text numOfLines={1} style={styles.taxonomyText}>
+            <Text style={styles.taxonomyText}>
               {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
             </Text>
           </View>

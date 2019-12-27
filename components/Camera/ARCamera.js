@@ -44,6 +44,8 @@ type State = {
 }
 
 class ARCamera extends Component<Props, State> {
+  camera: ?any
+
   constructor() {
     super();
 
@@ -225,6 +227,7 @@ class ARCamera extends Component<Props, State> {
     };
 
     if ( predictions && predictions.length > 0 ) {
+      // $FlowFixMe
       results.predictions = predictions;
 
       navigation.navigate( "OfflineARResults", results );

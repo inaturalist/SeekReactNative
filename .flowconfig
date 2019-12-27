@@ -21,8 +21,18 @@ node_modules/react-native/Libraries/polyfills/.*
 node_modules/warning/.*
 ; Flow doesn't support platforms
 .*/Libraries/Utilities/HMRLoadingView.js
+.*/Libraries/Utilities/LoadingView.js
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
+.*/node_modules/react-native/Libraries/Animated/src/.*/.*
+.*/node_modules/react-native/Libraries/Lists/.*
+.*/node_modules/react-native/Libraries/ReactNative/.*
+.*/node_modules/react-native/Libraries/Modal/.*
+.*/node_modules/react-native/Libraries/Components/ScrollView/.*
+.*/node_modules/react-native/Libraries/Components/Touchable/.*
+.*/node_modules/react-native/Libraries/Components/View/.*
+.*/node_modules/react-native/Libraries/PermissionsAndroid/.*
+.*/node_modules/react-native-check-box/.*
 
 [include]
 

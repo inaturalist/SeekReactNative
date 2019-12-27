@@ -22,13 +22,13 @@ type Props = {
 };
 
 const AboutScreen = ( { navigation }: Props ) => {
-  const scrollViewRef = useRef( null );
+  const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
 
   const scrollToTop = () => {
-    if ( scrollViewRef ) {
-      scrollViewRef.current.scrollTo( {
+    if ( scrollView && scrollView.current !== null ) {
+      scrollView.current.scrollTo( {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
@@ -45,7 +45,7 @@ const AboutScreen = ( { navigation }: Props ) => {
       <SafeAreaView />
       <GreenHeader header={i18n.t( "about.header" )} navigation={navigation} />
       <ScrollView
-        ref={scrollViewRef}
+        ref={scrollView}
         contentContainerStyle={styles.textContainer}
       >
         <View style={styles.row}>

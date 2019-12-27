@@ -46,6 +46,8 @@ type State = {
 }
 
 class ChallengeDetailsScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -71,9 +73,11 @@ class ChallengeDetailsScreen extends Component<Props, State> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   async fetchChallengeIndex() {

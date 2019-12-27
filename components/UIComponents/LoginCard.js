@@ -14,7 +14,7 @@ import GreenButton from "./GreenButton";
 
 type Props = {
   +navigation: any,
-  +screen?: ?string
+  +screen: string
 }
 
 type State = {
@@ -87,9 +87,5 @@ class LoginCard extends Component<Props, State> {
     );
   }
 }
-
-LoginCard.defaultProps = {
-  screen: null
-};
 
 export default LoginCard;

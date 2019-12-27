@@ -32,7 +32,7 @@ type Props = {
 
 type State = {
   region: Object,
-  location: string
+  location: ?string
 }
 
 class LocationPicker extends Component<Props, State> {

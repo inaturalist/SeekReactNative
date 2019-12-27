@@ -12,10 +12,10 @@ import styles from "../../styles/uiComponents/greenButton";
 type Props = {
   +color?: ?Object,
   +handlePress: Function,
-  +letterSpacing?: ?number,
+  +letterSpacing?: number,
   +text: string,
   +login?: boolean,
-  +fontSize?: ?number
+  +fontSize?: number
 }
 
 const GreenButton = ( {
@@ -30,16 +30,16 @@ const GreenButton = ( {
     onPress={() => handlePress()}
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >
-    <Text style={[styles.buttonText, letterSpacing && { letterSpacing }, fontSize && { fontSize }]}>
+    <Text style={[styles.buttonText, { letterSpacing }, { fontSize }]}>
       {text.toLocaleUpperCase()}
     </Text>
   </TouchableOpacity>
 );
 
 GreenButton.defaultProps = {
-  fontSize: null,
+  fontSize: 18,
   login: false,
-  letterSpacing: null,
+  letterSpacing: 1.0,
   color: null
 };
 

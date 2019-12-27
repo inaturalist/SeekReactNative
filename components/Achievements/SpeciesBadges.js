@@ -40,7 +40,7 @@ class SpeciesBadges extends Component<Props, State> {
     ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
-  fetchBadgesByIconicId( taxaId ) {
+  fetchBadgesByIconicId( taxaId: number ) {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
@@ -64,7 +64,7 @@ class SpeciesBadges extends Component<Props, State> {
     this.setState( { showModal: false } );
   }
 
-  renderBadgesRow( data ) {
+  renderBadgesRow( data: Array<Object> ) {
     return (
       <FlatList
         alwaysBounceHorizontal={false}

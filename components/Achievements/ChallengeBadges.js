@@ -38,7 +38,7 @@ class ChallengeBadges extends Component<Props, State> {
     ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
-  setChallenge( selectedChallenge ) {
+  setChallenge( selectedChallenge: Object ) {
     this.setState( { selectedChallenge } );
   }
 
@@ -50,7 +50,7 @@ class ChallengeBadges extends Component<Props, State> {
     this.setState( { showModal: false } );
   }
 
-  renderChallengesRow( challengeBadges ) {
+  renderChallengesRow( challengeBadges: Array<Object> ) {
     return (
       <FlatList
         alwaysBounceHorizontal={false}

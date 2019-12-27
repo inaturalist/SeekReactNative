@@ -15,7 +15,7 @@ import CustomBackArrow from "./CustomBackArrow";
 import posting from "../../assets/posting";
 
 type Props = {
-  +header: string,
+  +header?: ?string,
   +navigation: any,
   +route?: ?string
 }
@@ -40,7 +40,8 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
 );
 
 GreenHeader.defaultProps = {
-  route: null
+  route: null,
+  header: null
 };
 
 export default GreenHeader;

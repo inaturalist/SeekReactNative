@@ -17,9 +17,9 @@ type Props = {
   +closeModal: Function,
   +deleteObservation: Function,
   +userImage: string,
-  +speciesSeenImage: string,
-  +speciesText: string,
-  +seenDate: string
+  +speciesSeenImage?: ?string,
+  +speciesText?: ?string,
+  +seenDate?: ?string
 };
 
 const FlagModal = ( {
@@ -98,6 +98,12 @@ const FlagModal = ( {
       </View>
     </View>
   );
+};
+
+FlagModal.defaultProps = {
+  seenDate: null,
+  speciesSeenImage: null,
+  speciesText: null
 };
 
 export default FlagModal;

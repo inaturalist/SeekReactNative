@@ -51,7 +51,36 @@ type Props = {
   +navigation: any
 }
 
-class MatchScreen extends Component<Props> {
+type State = {
+  badge: ?Object,
+  latestLevel: ?Object,
+  challenge: ?Object,
+  challengeInProgress: ?Object,
+  showChallengeModal: boolean,
+  showLevelModal: boolean,
+  showFlagModal: boolean,
+  navigationPath: ?string,
+  userImage: string,
+  uri: string,
+  taxaName: string,
+  taxaId: number,
+  speciesSeenImage: ?string,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number,
+  seenDate: ?string,
+  commonAncestor: ?string,
+  match: boolean,
+  challengeShown: boolean,
+  errorCode: number,
+  rank: number,
+  isLoggedIn: boolean
+};
+
+class MatchScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor( { navigation }: Props ) {
     super();
 
@@ -107,27 +136,27 @@ class MatchScreen extends Component<Props> {
     ( this:any ).deleteObservation = this.deleteObservation.bind( this );
   }
 
-  setNavigationPath( navigationPath ) {
+  setNavigationPath( navigationPath: string ) {
     this.setState( { navigationPath }, () => this.checkModals() );
   }
 
-  setLatestBadge( badge ) {
+  setLatestBadge( badge: Object ) {
     this.setState( { badge } );
   }
 
-  setLatestChallenge( challenge ) {
+  setLatestChallenge( challenge: Object ) {
     this.setState( { challenge } );
   }
 
-  setChallengeCompleteShown( challengeShown ) {
+  setChallengeCompleteShown( challengeShown: boolean ) {
     this.setState( { challengeShown }, () => this.checkModals() );
   }
 
-  setLatestLevel( latestLevel ) {
+  setLatestLevel( latestLevel: Object ) {
     this.setState( { latestLevel } );
   }
 
-  setChallengeInProgress( challengeInProgress ) {
+  setChallengeInProgress( challengeInProgress: Object ) {
     this.setState( { challengeInProgress } );
   }
 
@@ -171,7 +200,7 @@ class MatchScreen extends Component<Props> {
     this.setState( { showFlagModal: true } );
   }
 
-  closeFlagModal( showFailure ) {
+  closeFlagModal( showFailure: boolean ) {
     this.setState( { showFlagModal: false }, () => {
       if ( showFailure ) {
         this.showFailureScreen();
@@ -244,9 +273,11 @@ class MatchScreen extends Component<Props> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   deleteObservation() {

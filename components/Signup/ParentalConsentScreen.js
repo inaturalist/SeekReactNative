@@ -57,6 +57,7 @@ class ParentalConsentScreen extends Component<Props> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 

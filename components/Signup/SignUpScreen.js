@@ -104,6 +104,7 @@ class SignUpScreen extends Component<Props> {
     };
 
     if ( licensePhotos ) {
+      // $FlowFixMe
       params.user.preferred_photo_license = "CC-BY-NC";
     }
 
@@ -113,6 +114,7 @@ class SignUpScreen extends Component<Props> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 

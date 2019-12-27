@@ -296,6 +296,7 @@ class PostScreen extends Component<Props, State> {
     const site = "https://www.inaturalist.org";
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Bearer ${token}`;
     }
 

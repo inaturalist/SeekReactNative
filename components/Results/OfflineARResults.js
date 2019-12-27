@@ -21,7 +21,27 @@ type Props = {
   +navigation: any
 }
 
-class OfflineARResults extends Component<Props> {
+type State = {
+  threshold: number,
+  predictions: Array<Object>,
+  uri: string,
+  time: string,
+  latitude: number,
+  longitude: number,
+  speciesSeenImage: ?string,
+  observation: Object,
+  taxaId: ?number,
+  taxaName: ?string,
+  commonAncestor: ?string,
+  seenDate: ?string,
+  scientificName: ?string,
+  match: ?boolean,
+  errorCode: ?number,
+  rank: ?number,
+  isLoggedIn: ?boolean
+};
+
+class OfflineARResults extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -54,7 +74,7 @@ class OfflineARResults extends Component<Props> {
     };
   }
 
-  setLoggedIn( isLoggedIn ) {
+  setLoggedIn( isLoggedIn: boolean ) {
     this.setState( { isLoggedIn } );
   }
 
@@ -65,7 +85,7 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  setLocationErrorCode( errorCode ) {
+  setLocationErrorCode( errorCode: number ) {
     this.setState( { errorCode } );
   }
 
@@ -84,15 +104,15 @@ class OfflineARResults extends Component<Props> {
     } );
   }
 
-  setSeenDate( seenDate ) {
+  setSeenDate( seenDate: string ) {
     this.setState( { seenDate } );
   }
 
-  setMatch( match ) {
+  setMatch( match: boolean ) {
     this.setState( { match }, () => this.showMatch() );
   }
 
-  setCommonAncestor( ancestor, speciesSeenImage ) {
+  setCommonAncestor( ancestor: Object, speciesSeenImage: ?string ) {
     getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
       this.setState( {
         commonAncestor: commonName || ancestor.name,
@@ -129,7 +149,7 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  setSpeciesInfo( species, taxa ) {
+  setSpeciesInfo( species: Object, taxa: Object ) {
     const taxaId = Number( species.taxon_id );
 
     const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
@@ -168,7 +188,7 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  fetchAdditionalSpeciesInfo( species ) {
+  fetchAdditionalSpeciesInfo( species: Object ) {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( species.taxon_id, options ).then( ( response ) => {
@@ -179,7 +199,7 @@ class OfflineARResults extends Component<Props> {
     } );
   }
 
-  fetchAdditionalAncestorInfo( ancestor ) {
+  fetchAdditionalAncestorInfo( ancestor: Object ) {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( ancestor.taxon_id, options ).then( ( response ) => {
@@ -218,7 +238,7 @@ class OfflineARResults extends Component<Props> {
     }
   }
 
-  checkSpeciesSeen( taxaId ) {
+  checkSpeciesSeen( taxaId: number ) {
     fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
       this.setSeenDate( date );
     } );

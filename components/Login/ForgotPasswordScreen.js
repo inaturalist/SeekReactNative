@@ -23,7 +23,12 @@ type Props = {
   +navigation: any
 }
 
-class ForgotPasswordScreen extends Component<Props> {
+type State = {
+  email: string,
+  error: boolean
+}
+
+class ForgotPasswordScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -33,7 +38,7 @@ class ForgotPasswordScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: boolean ) {
     this.setState( { error } );
   }
 

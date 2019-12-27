@@ -11,8 +11,8 @@ import styles from "../../styles/uiComponents/emptyState";
 import GreenButton from "./GreenButton";
 
 type Props = {
-  +navigation: ?any,
-  +screen: ?string
+  +navigation?: ?any,
+  +screen?: ?string
 }
 
 const EmptyState = ( { navigation, screen }: Props ) => (
@@ -37,5 +37,10 @@ const EmptyState = ( { navigation, screen }: Props ) => (
     ) : null}
   </View>
 );
+
+EmptyState.defaultProps = {
+  navigation: null,
+  screen: null
+};
 
 export default EmptyState;

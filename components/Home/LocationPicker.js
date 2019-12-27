@@ -30,7 +30,12 @@ type Props = {
   +toggleLocationPicker: Function
 }
 
-class LocationPicker extends Component<Props> {
+type State = {
+  region: Object,
+  location: string
+}
+
+class LocationPicker extends Component<Props, State> {
   constructor( {
     latitude,
     longitude,
@@ -56,11 +61,11 @@ class LocationPicker extends Component<Props> {
     this.setState( { location: i18n.t( "location_picker.undefined" ) } );
   }
 
-  setLocation( location ) {
+  setLocation( location: string ) {
     this.setState( { location } );
   }
 
-  setCoordsByLocationName( location ) {
+  setCoordsByLocationName( location: string ) {
     Geocoder.geocodeAddress( location ).then( ( result ) => {
       if ( result.length === 0 ) {
         this.setLocationUndefined();
@@ -81,7 +86,7 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  handleRegionChange( region ) {
+  handleRegionChange( region: Object ) {
     this.setState( {
       region
     }, () => {
@@ -91,7 +96,7 @@ class LocationPicker extends Component<Props> {
     } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
+  reverseGeocodeLocation( lat: number, lng: number ) {
     const { location } = this.state;
 
     fetchLocationName( lat, lng ).then( ( newLocation ) => {

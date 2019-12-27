@@ -31,7 +31,16 @@ type Props = {
   +navigation: any
 }
 
-class Observations extends Component<Props> {
+type State = {
+  observations: Array<Object>,
+  showModal: boolean,
+  itemToDelete: ?Object,
+  itemScrolledId: ?number
+}
+
+class Observations extends Component<Props, State> {
+  sectionList: ?any
+
   constructor() {
     super();
 
@@ -48,7 +57,7 @@ class Observations extends Component<Props> {
     ( this:any ).updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
-  setObservations( observations ) {
+  setObservations( observations: Array<Object> ) {
     this.setState( { observations } );
   }
 
@@ -89,7 +98,13 @@ class Observations extends Component<Props> {
     this.fetchObservations();
   }
 
-  openModal( id, photo, commonName, scientificName, iconicTaxonId ) {
+  openModal(
+    id: number,
+    photo: string,
+    commonName: string,
+    scientificName: string,
+    iconicTaxonId: number
+  ) {
     this.setState( {
       showModal: true,
       itemToDelete: {
@@ -111,9 +126,12 @@ class Observations extends Component<Props> {
 
     const section = observations.find( item => item.id === id );
 
+    // $FlowFixMe
     if ( section.open === true ) {
+      // $FlowFixMe
       section.open = false;
     } else {
+      // $FlowFixMe
       section.open = true;
     }
 

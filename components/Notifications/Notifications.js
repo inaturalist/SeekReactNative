@@ -22,7 +22,13 @@ type Props = {
   +navigation: any
 }
 
-class NotificationsScreen extends Component<Props> {
+type State = {
+  notifications: Array<Object>
+}
+
+class NotificationsScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 

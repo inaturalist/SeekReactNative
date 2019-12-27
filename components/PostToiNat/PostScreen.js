@@ -42,7 +42,31 @@ type Props = {
   +navigation: any
 };
 
-class PostScreen extends Component<Props> {
+type State = {
+  latitude: number,
+  longitude: number,
+  location: ?string,
+  date: string,
+  captive: ?boolean,
+  geoprivacy: ?boolean,
+  uri: string,
+  userImage: string,
+  taxon: Object,
+  seekId: Object,
+  modalVisible: boolean,
+  isDateTimePickerVisible: boolean,
+  error: ?boolean,
+  showPostModal: boolean,
+  showSpeciesModal: boolean,
+  loading: boolean,
+  postingSuccess: ?boolean,
+  description: ?string,
+  status: ?string,
+  imageForUploading: ?string,
+  errorText: ?string
+};
+
+class PostScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -85,7 +109,8 @@ class PostScreen extends Component<Props> {
       postingSuccess: null,
       description: null,
       status: null,
-      imageForUploading: null
+      imageForUploading: null,
+      errorText: null
     };
 
     ( this:any ).updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -132,15 +157,15 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  setLoading( loading ) {
+  setLoading( loading: boolean ) {
     this.setState( { loading } );
   }
 
-  setLatitude( latitude ) {
+  setLatitude( latitude: number ) {
     this.setState( { latitude } );
   }
 
-  setLongitude( longitude ) {
+  setLongitude( longitude: number ) {
     this.setState( { longitude } );
   }
 
@@ -148,7 +173,7 @@ class PostScreen extends Component<Props> {
     this.setState( { location: i18n.t( "location_picker.undefined" ) } );
   }
 
-  setLocation( location ) {
+  setLocation( location: string ) {
     this.setState( { location } );
   }
 
@@ -161,7 +186,7 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setPostFailed( errorText, status ) {
+  setPostFailed( errorText: string, status: string ) {
     savePostingSuccess( false );
 
     this.setState( {
@@ -172,7 +197,7 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  setImageForUploading( imageForUploading ) {
+  setImageForUploading( imageForUploading: string ) {
     this.setState( { imageForUploading } );
   }
 
@@ -181,7 +206,7 @@ class PostScreen extends Component<Props> {
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
-  handleDatePicked = ( date ) => {
+  handleDatePicked = ( date: Date ) => {
     if ( date ) {
       this.setState( {
         date: date.toString()
@@ -233,7 +258,7 @@ class PostScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude ) {
+  updateLocation( latitude: number, longitude: number ) {
     this.reverseGeocodeLocation( latitude, longitude );
 
     this.setState( {
@@ -242,15 +267,15 @@ class PostScreen extends Component<Props> {
     }, () => this.toggleLocationPicker() );
   }
 
-  updateGeoprivacy( geoprivacy ) {
+  updateGeoprivacy( geoprivacy: boolean ) {
     this.setState( { geoprivacy } );
   }
 
-  updateCaptive( captive ) {
+  updateCaptive( captive: boolean ) {
     this.setState( { captive } );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
+  reverseGeocodeLocation( lat: number, lng: number ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
       if ( location ) {
         this.setLocation( location );
@@ -262,7 +287,7 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  fetchJSONWebToken( token ) {
+  fetchJSONWebToken( token: string ) {
     const headers = {
       "Content-Type": "application/json",
       "User-Agent": createUserAgent()
@@ -284,7 +309,7 @@ class PostScreen extends Component<Props> {
       } );
   }
 
-  createObservation( token ) {
+  createObservation( token: string ) {
     const {
       geoprivacy,
       captive,
@@ -338,7 +363,7 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  addPhotoToObservation( obsId, token ) {
+  addPhotoToObservation( obsId: number, token: string ) {
     const { imageForUploading } = this.state;
 
     const params = {
@@ -359,7 +384,7 @@ class PostScreen extends Component<Props> {
     } );
   }
 
-  updateTaxon( taxaId, preferredCommonName, name ) {
+  updateTaxon( taxaId: number, preferredCommonName: string, name: string ) {
     this.setState( {
       taxon: {
         taxaId,

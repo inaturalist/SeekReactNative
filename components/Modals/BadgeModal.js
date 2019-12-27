@@ -26,7 +26,9 @@ type Props = {
 };
 
 class BadgeModal extends Component<Props> {
-  scrollToIndex( index ) {
+  flatList: ?any
+
+  scrollToIndex( index: number ) {
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index, animated: true

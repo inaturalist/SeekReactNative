@@ -35,8 +35,15 @@ type Props = {
   +seekId: Number
 }
 
+type State = {
+  suggestions: Array<Object>,
+  isSearching: boolean
+}
 
-class SelectSpecies extends Component<Props> {
+
+class SelectSpecies extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -54,7 +61,7 @@ class SelectSpecies extends Component<Props> {
     }
   }
 
-  searchForSpecies( speciesName ) {
+  searchForSpecies( speciesName: string ) {
     this.setState( { isSearching: true } );
     const params = {
       q: speciesName,

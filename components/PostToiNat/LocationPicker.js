@@ -28,7 +28,11 @@ type Props = {
   +toggleLocationPicker: Function
 }
 
-class LocationPicker extends Component<Props> {
+type State = {
+  region: Object
+}
+
+class LocationPicker extends Component<Props, State> {
   constructor( {
     latitude,
     longitude
@@ -48,7 +52,7 @@ class LocationPicker extends Component<Props> {
     ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  handleRegionChange( newRegion ) {
+  handleRegionChange( newRegion: Object ) {
     this.setState( { region: newRegion } );
   }
 

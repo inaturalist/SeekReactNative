@@ -20,10 +20,18 @@ type Props = {
   +item: Object,
   +openModal: Function,
   +updateItemScrolledId: Function,
-  +itemScrolledId: Number
+  +itemScrolledId: number
 }
 
-class ObservationCard extends Component<Props> {
+type State = {
+  photo: ?Object,
+  commonName?: ?string,
+  focusedScreen: boolean
+}
+
+class ObservationCard extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -44,7 +52,7 @@ class ObservationCard extends Component<Props> {
     this.localizeCommonName();
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { itemScrolledId } = this.props;
 
     if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
@@ -56,11 +64,11 @@ class ObservationCard extends Component<Props> {
     this.setState( { focusedScreen: false } );
   }
 
-  setPhoto( photo ) {
+  setPhoto( photo: Object ) {
     this.setState( { photo } );
   }
 
-  checkForSeekV1Photos( seekv1Photos ) {
+  checkForSeekV1Photos( seekv1Photos: string ) {
     const { item } = this.props;
     const { focusedScreen } = this.state;
 

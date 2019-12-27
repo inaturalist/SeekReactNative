@@ -10,7 +10,7 @@ import { colors } from "../../styles/global";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 
 type Props = {
-  +taxa: Array,
+  +taxa: Array<Object>,
   +loading: boolean,
   +navigation: any,
   +requestAndroidPermissions: Function,

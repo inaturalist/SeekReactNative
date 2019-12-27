@@ -24,7 +24,13 @@ type Props = {
   +navigation: any
 }
 
-class LoginScreen extends Component<Props> {
+type State = {
+  username: string,
+  password: string,
+  error: boolean
+}
+
+class LoginScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -46,7 +52,7 @@ class LoginScreen extends Component<Props> {
     } );
   }
 
-  retrieveOAuthToken( username, password ) {
+  retrieveOAuthToken( username: string, password: string ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,

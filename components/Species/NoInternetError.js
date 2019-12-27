@@ -27,10 +27,10 @@ type Props = {
   +navigation: any,
   +commonName: string,
   +wikiUrl: string,
-  +id: Number,
+  +id:number,
   +region: Object,
   +ancestors: Array,
-  +timesSeen: Number,
+  +timesSeen:number,
   +observationsByMonth: Array,
   +fetchiNatData: Function,
   +error: string

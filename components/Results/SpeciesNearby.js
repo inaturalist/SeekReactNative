@@ -12,9 +12,9 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 
 type Props = {
-  +ancestorId: Number,
-  +lat: Number,
-  +lng: Number,
+  +ancestorId:number,
+  +lat:number,
+  +lng:number,
   +navigation: any
 }
 

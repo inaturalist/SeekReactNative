@@ -17,7 +17,7 @@ import icons from "../../assets/icons";
 type Props = {
   +navigation: any,
   +item: Object,
-  +fetchChallenges: Function
+  +fetchChallenges: ?Function
 }
 
 const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) => {
@@ -43,7 +43,9 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         onPress={() => {
           setChallengeIndex( item.index );
           startChallenge( item.index );
-          fetchChallenges();
+          if ( fetchChallenges ) {
+            fetchChallenges();
+          }
           recalculateChallenges();
           navigation.navigate( "ChallengeDetails" );
         }}

@@ -25,7 +25,13 @@ type Props = {
   +navigation: any
 }
 
-class ChallengeScreen extends Component<Props> {
+type State = {
+  challengesNotStarted: Array<Object>,
+  challengesStarted: Array<Object>,
+  challengesCompleted: Array<Object>
+}
+
+class ChallengeScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -97,7 +103,12 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()} />
+          <GreenText
+            text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()}
+            center={null}
+            smaller={null}
+            color={null}
+          />
         </View>
         {challengesStarted.length > 0 ? (
           <View>
@@ -106,6 +117,7 @@ class ChallengeScreen extends Component<Props> {
                 key={`${item.name}`}
                 item={item}
                 navigation={navigation}
+                fetchChallenges={null}
               />
             ) )}
             <View style={styles.margin} />
@@ -126,7 +138,12 @@ class ChallengeScreen extends Component<Props> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()} />
+          <GreenText
+            text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()}
+            center={null}
+            smaller={null}
+            color={null}
+          />
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
@@ -165,6 +182,7 @@ class ChallengeScreen extends Component<Props> {
               key={`${item.name}`}
               item={item}
               navigation={navigation}
+              fetchChallenges={null}
             />
           ) )
         ) : (

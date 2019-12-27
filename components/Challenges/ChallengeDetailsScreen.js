@@ -36,7 +36,15 @@ type Props = {
   +navigation: any
 }
 
-class ChallengeDetailsScreen extends Component<Props> {
+type State = {
+  challenge: Object,
+  missions: Object,
+  challengeStarted: boolean,
+  showModal: boolean,
+  index: ?string
+}
+
+class ChallengeDetailsScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -79,7 +87,7 @@ class ChallengeDetailsScreen extends Component<Props> {
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+        const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${String( index )}` );
         const challenge = challenges[0];
         const missionList = Object.keys( challenge.missions ).map(
           mission => challenge.missions[mission]
@@ -165,6 +173,9 @@ class ChallengeDetailsScreen extends Component<Props> {
           }
         }}
         text={buttonText}
+        fontSize={null}
+        letterSpacing={null}
+        login={null}
       />
     );
 
@@ -227,7 +238,12 @@ class ChallengeDetailsScreen extends Component<Props> {
               <Text style={styles.descriptionText}>{challenge.description}</Text>
             </View>
             <View style={styles.secondHeader}>
-              <GreenText text={i18n.t( "challenges.get_involved" ).toLocaleUpperCase()} />
+              <GreenText
+                text={i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}
+                center={null}
+                smaller={null}
+                color={null}
+              />
             </View>
             <View style={styles.marginTop} />
             <Text style={styles.descriptionText}>

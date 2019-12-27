@@ -30,7 +30,19 @@ type Props = {
   +navigation: any
 }
 
-class GalleryScreen extends Component<Props> {
+type State = {
+  photos: Array<Object>,
+  error: ?string,
+  hasNextPage: boolean,
+  lastCursor: null,
+  stillLoading: boolean,
+  groupTypes: string,
+  album: ?string,
+  loading: boolean,
+  albumNames: Array<String>
+}
+
+class GalleryScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -49,7 +61,7 @@ class GalleryScreen extends Component<Props> {
     this.updateAlbum = this.updateAlbum.bind( this );
   }
 
-  getPredictions( uri, timestamp, location ) {
+  getPredictions( uri: string, timestamp: Date, location: string ) {
     const path = uri.split( "file://" );
     const reactUri = path[1];
 
@@ -97,7 +109,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  setError( error ) {
+  setError( error: string ) {
     this.setState( { error } );
   }
 
@@ -110,7 +122,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  updateAlbum( album ) {
+  updateAlbum( album: string ) {
     if ( album !== "All" ) {
       this.setState( {
         groupTypes: "Album",
@@ -134,7 +146,7 @@ class GalleryScreen extends Component<Props> {
     }, () => this.getPhotos() );
   }
 
-  updatePhotos( photos, pageInfo ) {
+  updatePhotos( photos: Array<Object>, pageInfo: Object ) {
     this.setState( {
       photos,
       stillLoading: false,
@@ -143,7 +155,7 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  appendPhotos( data, pageInfo ) {
+  appendPhotos( data: Array<Object>, pageInfo: Object ) {
     const { photos } = this.state;
 
     if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
@@ -168,7 +180,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  navigateToResults( uri, time, location, predictions ) {
+  navigateToResults( uri: string, time: Date, location: Object, predictions: Array<Object> ) {
     const { navigation } = this.props;
 
     let latitude = null;
@@ -185,7 +197,8 @@ class GalleryScreen extends Component<Props> {
       time,
       uri,
       latitude,
-      longitude
+      longitude,
+      predictions: []
     };
 
     if ( predictions && predictions.length > 0 ) {
@@ -197,7 +210,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  selectAndResizeImage( node ) {
+  selectAndResizeImage( node: Object ) {
     const { timestamp, location, image } = node;
 
     this.setState( { loading: true } );
@@ -209,7 +222,7 @@ class GalleryScreen extends Component<Props> {
     }
   }
 
-  renderItem = ( { item } ) => (
+  renderItem = ( { item }: Object ) => (
     <TouchableHighlight
       accessibilityLabel={item.node.image.filename}
       accessible
@@ -242,7 +255,7 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <CameraError error={error} />;
+      gallery = <CameraError error={error} errorEvent={null} />;
     } else {
       gallery = (
         <FlatList

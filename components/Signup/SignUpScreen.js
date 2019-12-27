@@ -158,7 +158,7 @@ class SignUpScreen extends Component<Props> {
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.username" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { username: value } )}
@@ -167,7 +167,7 @@ class SignUpScreen extends Component<Props> {
             type="username"
           />
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.password" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { password: value } )}

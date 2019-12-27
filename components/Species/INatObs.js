@@ -84,7 +84,7 @@ class INatObs extends Component<Props> {
     return (
       <View>
         <View style={styles.headerMargins}>
-          <GreenText text={i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()} />
+          <GreenText text="species_detail.inat_obs" />
         </View>
         <View style={[styles.center, styles.row]}>
           <TouchableOpacity

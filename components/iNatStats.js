@@ -212,13 +212,13 @@ class iNatStatsScreen extends Component<Props> {
           <View style={styles.headerMargin} />
           <Image source={backgrounds.heatMap} style={styles.heatMap} />
           <View style={styles.missionContainer}>
-            <GreenText smaller text={i18n.t( "inat_stats.global_observations" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_stats.global_observations" />
             <Image source={logos.bird} style={styles.bird} />
             <Text style={styles.numberText}>
               {observations}
               {"+"}
             </Text>
-            <GreenText smaller text={i18n.t( "inat_stats.naturalists_worldwide" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_stats.naturalists_worldwide" />
             <Text style={styles.numberText}>
               {observers}
               {"+"}

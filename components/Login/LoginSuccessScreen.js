@@ -31,11 +31,11 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
         <Text style={styles.linkedAccountHeader}>{i18n.t( "inat_signup.linked_account" )}</Text>
       </View>
       <View style={styles.textContainer}>
-        <GreenText smaller text={i18n.t( "inat_signup.posting" ).toLocaleUpperCase()} />
+        <GreenText smaller text="inat_signup.posting" />
         <View style={styles.marginSmall} />
         <Text style={styles.descriptionText}>{i18n.t( "inat_signup.posting_details" )}</Text>
         <View style={styles.marginMedium} />
-        <GreenText smaller text={i18n.t( "inat_signup.observations" ).toLocaleUpperCase()} />
+        <GreenText smaller text="inat_signup.observations" />
         <View style={styles.marginSmall} />
         <Text style={styles.descriptionText}>
           {i18n.t( "inat_signup.observations_1" )}

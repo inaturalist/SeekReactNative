@@ -104,7 +104,7 @@ class ChallengeScreen extends Component<Props, State> {
       <View>
         <View style={styles.header}>
           <GreenText
-            text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()}
+            text="challenges.in_progress"
             center={null}
             smaller={null}
             color={null}
@@ -139,7 +139,7 @@ class ChallengeScreen extends Component<Props, State> {
       <View>
         <View style={styles.header}>
           <GreenText
-            text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()}
+            text="challenges.not_started"
             center={null}
             smaller={null}
             color={null}
@@ -174,7 +174,12 @@ class ChallengeScreen extends Component<Props, State> {
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.completed" ).toLocaleUpperCase()} />
+          <GreenText
+            text="challenges.completed"
+            center={null}
+            smaller={null}
+            color={null}
+          />
         </View>
         {challengesCompleted.length > 0 ? (
           challengesCompleted.map( ( item ) => (

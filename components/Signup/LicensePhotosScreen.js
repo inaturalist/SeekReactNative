@@ -64,7 +64,7 @@ class LicensePhotosScreen extends Component<Props> {
         <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
         <ScrollView>
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_signup.email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}

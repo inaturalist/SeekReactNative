@@ -107,7 +107,7 @@ class ForgotPasswordScreen extends Component<Props> {
             {i18n.t( "inat_login.no_worries" )}
           </Text>
           <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
-            <GreenText smaller text={i18n.t( "inat_login.email" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}

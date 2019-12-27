@@ -56,8 +56,8 @@ class BadgeModal extends Component<Props> {
             </ImageBackground>
           )}
           <GreenText text={badge.earned
-            ? i18n.t( badge.intlName ).toLocaleUpperCase()
-            : i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+            ? badge.intlName
+            : "badges.to_earn"}
           />
           <View style={styles.margin} />
           <Text style={styles.nameText}>

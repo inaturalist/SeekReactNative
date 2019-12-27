@@ -102,7 +102,7 @@ class ParentalConsentScreen extends Component<Props> {
           </Text>
           <View style={styles.margin} />
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_signup.parent_email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}

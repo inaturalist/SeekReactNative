@@ -41,7 +41,7 @@ const SpeciesChart = ( { data }: Props ) => {
     <View>
       <View style={styles.headerMargins}>
         <GreenText
-          text={i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}
+          text="species_detail.monthly_obs"
         />
       </View>
       <View style={styles.container}>

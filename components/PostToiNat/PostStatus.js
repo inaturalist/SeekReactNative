@@ -37,22 +37,22 @@ const PostStatus = ( {
   let extraText;
 
   if ( loading ) {
-    headerText = i18n.t( "posting.posting" ).toLocaleUpperCase();
+    headerText = "posting.posting";
     image = <LoadingWheel color={colors.seekiNatGreen} />;
     extraText = i18n.t( "posting.wait" );
   } else if ( !loading && postingSuccess ) {
-    headerText = i18n.t( "posting.posting_success" ).toLocaleUpperCase();
+    headerText = "posting.posting_success";
     image = <Image source={posting.bird} />;
   } else if ( status === "duringPhotoUpload" ) {
-    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+    headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
     extraText = `${i18n.t( "posting.error_photo_upload" )} ${errorText}`;
   } else if ( status === "beforePhotoAdded" ) {
-    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+    headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
     extraText = `${i18n.t( "posting.error_observation" )} ${errorText}`;
   } else if ( status === "beforeObservation" ) {
-    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+    headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
     extraText = `${i18n.t( "posting.error_token" )} ${errorText}`;
   }

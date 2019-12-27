@@ -239,7 +239,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
             </View>
             <View style={styles.secondHeader}>
               <GreenText
-                text={i18n.t( "challenges.get_involved" ).toLocaleUpperCase()}
+                text="challenges.get_involved"
                 center={null}
                 smaller={null}
                 color={null}

@@ -67,7 +67,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
       <View style={styles.margins}>
         <GreenText
           center
-          text={i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+          text="badges.to_earn"
         />
       </View>
       <Text style={styles.nameText}>

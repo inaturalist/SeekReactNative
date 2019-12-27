@@ -26,7 +26,7 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
   return (
     <View style={styles.header}>
       <GreenText
-        text={i18n.t( "challenges.your_mission" ).toLocaleUpperCase()}
+        text="challenges.your_mission"
         center={null}
         smaller={null}
         color={null}

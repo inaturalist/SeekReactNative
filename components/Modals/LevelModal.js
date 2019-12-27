@@ -31,8 +31,8 @@ const LevelModal = ( {
     <View style={[styles.innerContainer, styles.modalTop]}>
       <View style={styles.headerMargins}>
         <GreenText text={screen === "achievements"
-          ? i18n.t( "badges.your_level" ).toLocaleUpperCase()
-          : i18n.t( "banner.level_up" ).toLocaleUpperCase()}
+          ? "badges.your_level"
+          : "banner.level_up"}
         />
       </View>
     </View>

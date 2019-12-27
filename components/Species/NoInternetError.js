@@ -72,7 +72,7 @@ const NoInternetError = ( {
         {about ? (
           <View>
             <View style={styles.headerMargins}>
-              <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
+              <GreenText text="species_detail.about" />
             </View>
             <Text style={styles.text}>{about}</Text>
             {isLoggedIn && id !== 43584 ? (

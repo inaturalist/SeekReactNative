@@ -147,11 +147,11 @@ class AchievementsScreen extends Component<Props> {
               onPress={() => navigation.navigate( "MyObservations" )}
               style={styles.secondHeaderText}
             >
-              <GreenText center smaller text={i18n.t( "badges.observed" ).toLocaleUpperCase()} />
+              <GreenText center smaller text="badges.observed" />
               <Text style={styles.number}>{speciesCount}</Text>
             </TouchableOpacity>
             <View style={styles.secondHeaderText}>
-              <GreenText center smaller text={i18n.t( "badges.earned" ).toLocaleUpperCase()} />
+              <GreenText center smaller text="badges.earned" />
               <Text style={styles.number}>{badgesEarned}</Text>
             </View>
           </View>

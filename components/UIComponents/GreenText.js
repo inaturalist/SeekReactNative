@@ -4,6 +4,7 @@ import React from "react";
 import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/greenText";
+import i18n from "../../i18n";
 
 type Props = {
   +text: string,
@@ -25,7 +26,7 @@ const GreenText = ( {
     color && { color }
   ]}
   >
-    {text}
+    {i18n.t( text ).toLocaleUpperCase()}
   </Text>
 );
 

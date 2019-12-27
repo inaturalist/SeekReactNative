@@ -44,7 +44,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
     <View>
       <View style={styles.headerMargins}>
         <GreenText
-          text={i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}
+          text="species_detail.taxonomy"
         />
       </View>
       {taxonomy}

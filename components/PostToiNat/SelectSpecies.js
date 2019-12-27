@@ -143,7 +143,7 @@ class SelectSpecies extends Component<Props> {
             {!isSearching
               ? (
                 <View style={styles.headerMargins}>
-                  <GreenText text={i18n.t( "posting.id" ).toLocaleUpperCase()} />
+                  <GreenText text="posting.id" />
                 </View>
               ) : null}
             {!isSearching ? (

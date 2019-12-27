@@ -34,7 +34,7 @@ const ConfirmScreen = ( {
     <View style={styles.header}>
       <BackArrow green navigation={navigation} />
       <View style={styles.headerText}>
-        <GreenText smaller text={i18n.t( "confirm.identify" ).toLocaleUpperCase()} />
+        <GreenText smaller text="confirm.identify" />
       </View>
       <View />
     </View>

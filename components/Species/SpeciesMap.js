@@ -34,7 +34,7 @@ const LocationMap = ( {
   <View>
     <View style={[styles.headerMargins, isLoggedIn && styles.smallMargins]}>
       <GreenText
-        text={i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}
+        text="species_detail.range_map"
       />
     </View>
     <View style={styles.mapContainer}>

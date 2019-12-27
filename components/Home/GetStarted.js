@@ -20,7 +20,7 @@ type Props = {
 const GetStarted = ( { closeModal }: Props ) => (
   <View style={styles.container}>
     <View style={styles.headerMargin}>
-      <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
+      <GreenText text="get_started.header" />
     </View>
     <View style={styles.marginTop} />
     <View style={[styles.row, styles.margin]}>

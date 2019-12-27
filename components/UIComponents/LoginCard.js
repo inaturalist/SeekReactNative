@@ -14,10 +14,14 @@ import GreenButton from "./GreenButton";
 
 type Props = {
   +navigation: any,
-  +screen: ?string
+  +screen?: ?string
 }
 
-class LoginCard extends Component<Props> {
+type State = {
+  isLoggedIn: boolean
+}
+
+class LoginCard extends Component<Props, State> {
   constructor() {
     super();
 
@@ -33,7 +37,7 @@ class LoginCard extends Component<Props> {
     }
   }
 
-  setLoggedIn( isLoggedIn ) {
+  setLoggedIn( isLoggedIn: boolean ) {
     this.setState( { isLoggedIn } );
   }
 
@@ -83,5 +87,9 @@ class LoginCard extends Component<Props> {
     );
   }
 }
+
+LoginCard.defaultProps = {
+  screen: null
+};
 
 export default LoginCard;

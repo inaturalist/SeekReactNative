@@ -23,17 +23,17 @@ type Props = {
   +stats: Object,
   +seenDate: ?string,
   +about: ?string,
-  +isLoggedIn: boolean,
+  +isLoggedIn: ?boolean,
   +navigation: any,
   +commonName: ?string,
-  +wikiUrl: string,
+  +wikiUrl: ?string,
   +id:number,
   +region: Object,
   +ancestors: Array<Object>,
-  +timesSeen:number,
+  +timesSeen: ?number,
   +observationsByMonth: Array<Object>,
   +fetchiNatData: Function,
-  +error: string
+  +error: ?string
 }
 
 const NoInternetError = ( {

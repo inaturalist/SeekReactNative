@@ -23,7 +23,7 @@ const InputField = ( {
 }: Props ) => {
   let keyboardType = "default";
 
-  if ( type === "email" ) {
+  if ( type === "emailAddress" ) {
     keyboardType = "email-address";
   } else if ( Platform.OS === "android" && type !== "password" ) {
     // adding this to turn off autosuggestions on Android

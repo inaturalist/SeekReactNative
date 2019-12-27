@@ -17,8 +17,8 @@ import Modal from "../UIComponents/Modal";
 
 type Props = {
   +level: Object,
-  +nextLevelCount: number,
-  +speciesCount: number
+  +nextLevelCount: ?number,
+  +speciesCount: ?number
 }
 
 const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {

@@ -35,7 +35,19 @@ type Props = {
   +navigation: any
 }
 
-class iNatStatsScreen extends Component<Props> {
+type State = {
+  observations: number,
+  observers: number,
+  photos: Array<Object>,
+  scrollIndex: number,
+  scrollOffset: number
+};
+
+class iNatStatsScreen extends Component<Props, State> {
+  scrollView: ?any
+
+  flatList: ?any
+
   constructor() {
     super();
 
@@ -48,7 +60,7 @@ class iNatStatsScreen extends Component<Props> {
     };
   }
 
-  setIndex( scrollIndex, scrollOffset ) {
+  setIndex( scrollIndex: number, scrollOffset: number ) {
     this.setState( {
       scrollIndex,
       scrollOffset
@@ -56,9 +68,11 @@ class iNatStatsScreen extends Component<Props> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   fetchProjectPhotos() {
@@ -142,7 +156,7 @@ class iNatStatsScreen extends Component<Props> {
     }
   }
 
-  calculateScrollIndex( e ) {
+  calculateScrollIndex( e: Object ) {
     const { scrollOffset, scrollIndex } = this.state;
     const { contentOffset } = e.nativeEvent;
 

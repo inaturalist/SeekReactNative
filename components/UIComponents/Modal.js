@@ -5,7 +5,7 @@ import RNModal from "react-native-modal";
 type Props = {
   +showModal: boolean,
   +closeModal: Function,
-  +modal: React.Element
+  +modal: any
 }
 
 const Modal = ( { showModal, closeModal, modal }: Props ) => (

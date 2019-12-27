@@ -27,7 +27,7 @@ const EmptyState = ( { navigation, screen }: Props ) => (
         ? i18n.t( "observations.help" )
         : i18n.t( "notifications.about" )}
     </Text>
-    {screen === "observations" ? (
+    {screen === "observations" && navigation ? (
       <View style={styles.margin}>
         <GreenButton
           handlePress={() => navigation.navigate( "Camera" )}

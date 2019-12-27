@@ -20,7 +20,7 @@ type Props = {
 }
 
 class SideMenu extends Component<Props> {
-  navigateTo( route ) {
+  navigateTo( route: string ) {
     const { navigation } = this.props;
 
     navigation.navigate( route );

@@ -18,7 +18,7 @@ type Props = {
   +level: Object,
   +speciesCount: number,
   +closeModal: Function,
-  +screen?: string
+  +screen?: ?string
 };
 
 const LevelModal = ( {

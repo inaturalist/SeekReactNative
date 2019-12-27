@@ -74,7 +74,7 @@ class SpeciesPhotos extends Component<Props, State> {
     }
   }
 
-  calculateScrollIndex( e ) {
+  calculateScrollIndex( e: Object ) {
     const { scrollOffset, scrollIndex } = this.state;
     const { contentOffset } = e.nativeEvent;
 

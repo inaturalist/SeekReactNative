@@ -13,9 +13,9 @@ import icons from "../../assets/icons";
 import rankDict from "../../utility/rankDict";
 
 type Props = {
-  +commonName: string,
+  +commonName: ?string,
   +ranks: Object,
-  +rankToRender: string
+  +rankToRender: ?string
 }
 
 const ARCameraHeader = ( {

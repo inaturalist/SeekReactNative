@@ -17,7 +17,7 @@ import posting from "../../assets/posting";
 type Props = {
   +header: string,
   +navigation: any,
-  +route: string
+  +route: ?string
 }
 
 const GreenHeader = ( { header, navigation, route }: Props ) => (

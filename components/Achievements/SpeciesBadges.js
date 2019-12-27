@@ -21,7 +21,13 @@ type Props = {
   +speciesBadges: Array<Object>
 }
 
-class SpeciesBadges extends Component<Props> {
+type State = {
+  showModal: boolean,
+  iconicTaxonBadges: Array<Object>,
+  iconicSpeciesCount: ?number
+}
+
+class SpeciesBadges extends Component<Props, State> {
   constructor() {
     super();
 

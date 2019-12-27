@@ -11,7 +11,7 @@ import icons from "../../assets/icons";
 
 type Props = {
   +text: string,
-  +modal: boolean
+  +modal: ?boolean
 }
 
 const BannerHeader = ( { text, modal }: Props ) => (

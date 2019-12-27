@@ -21,7 +21,12 @@ type Props = {
   +navigation: any
 }
 
-class ChallengeBadges extends Component<Props> {
+type State = {
+  showModal: boolean,
+  selectedChallenge: Object
+}
+
+class ChallengeBadges extends Component<Props, State> {
   constructor() {
     super();
 

@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "lint": "eslint './assets/**/*.js' './components/**/*.js' './styles/**/*.js' './utility/**/*.js' --ignore-path .gitignore",
-    "flow": "flow",
-    "test": "jest"
+    "flow": "flow"
   },
   "dependencies": {
     "@babel/runtime": "^7.7.7",
@@ -64,6 +63,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-native": "^3.8.1",
+    "flow-bin": "^0.114.0",
     "metro-react-native-babel-preset": "^0.56.0"
   }
 }

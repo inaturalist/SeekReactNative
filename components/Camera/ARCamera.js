@@ -30,7 +30,20 @@ type Props = {
   +navigation: any
 }
 
-class ARCamera extends Component<Props> {
+type State = {
+  ranks: Object,
+  rankToRender: ?string,
+  loading: boolean,
+  predictions: Array<Object>,
+  pictureTaken: boolean,
+  error: ?string,
+  commonName: ?string,
+  showModal: boolean,
+  errorEvent: ?string,
+  focusedScreen: boolean
+}
+
+class ARCamera extends Component<Props, State> {
   constructor() {
     super();
 
@@ -50,7 +63,7 @@ class ARCamera extends Component<Props> {
     this.closeModal = this.closeModal.bind( this );
   }
 
-  setFocusedScreen( focusedScreen ) {
+  setFocusedScreen( focusedScreen: boolean ) {
     this.setState( { focusedScreen } );
   }
 
@@ -61,15 +74,15 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  setImagePredictions( predictions ) {
+  setImagePredictions( predictions: Object ) {
     this.setState( { predictions } );
   }
 
-  setLoading( loading ) {
+  setLoading( loading: boolean ) {
     this.setState( { loading } );
   }
 
-  setError( error, event ) {
+  setError( error: ?string, event: Object ) {
     this.setState( {
       error,
       errorEvent: event || null,
@@ -77,7 +90,7 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  handleTaxaDetected = ( event ) => {
+  handleTaxaDetected = ( event: Object ) => {
     const { rankToRender, loading, pictureTaken } = this.state;
     const predictions = { ...event.nativeEvent };
 
@@ -112,7 +125,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  handleCameraError = ( event ) => {
+  handleCameraError = ( event: Object ) => {
     if ( event ) {
       if ( Platform.OS === "ios" ) {
         this.setError( "camera", event.nativeEvent.error );
@@ -126,13 +139,13 @@ class ARCamera extends Component<Props> {
     this.setError( "permissions" );
   }
 
-  handleClassifierError = ( event ) => {
+  handleClassifierError = ( event: Object ) => {
     if ( event ) {
       this.setError( "classifier" );
     }
   }
 
-  handleDeviceNotSupported = ( event ) => {
+  handleDeviceNotSupported = ( event: Object ) => {
     if ( event ) {
       this.setError( "device" );
     }
@@ -173,7 +186,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  updateUI( prediction, rank ) {
+  updateUI( prediction: Object, rank: string ) {
     getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
       this.setState( {
         ranks: {
@@ -194,7 +207,7 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  savePhoto( photo ) {
+  savePhoto( photo: Object ) {
     this.setImagePredictions( photo.predictions );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
@@ -202,7 +215,7 @@ class ARCamera extends Component<Props> {
       .catch( e => this.setError( "save", e ) );
   }
 
-  navigateToResults( uri ) {
+  navigateToResults( uri: string ) {
     const { predictions } = this.state;
     const { navigation } = this.props;
 

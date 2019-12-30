@@ -16,7 +16,6 @@ import BackArrow from "../UIComponents/BackArrow";
 
 type Props = {
   +image: Object,
-  +navigation: any,
   +match: ?boolean,
   +checkForMatches: Function,
   +clicked: boolean
@@ -25,14 +24,13 @@ type Props = {
 const ConfirmScreen = ( {
   image,
   checkForMatches,
-  navigation,
   match,
   clicked
 }: Props ) => (
   <View>
     <SafeAreaView style={styles.safeViewTop} />
     <View style={styles.header}>
-      <BackArrow green navigation={navigation} />
+      <BackArrow green />
       <View style={styles.headerText}>
         <GreenText smaller text="confirm.identify" />
       </View>

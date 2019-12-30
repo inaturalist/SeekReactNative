@@ -219,7 +219,7 @@ class iNatStatsScreen extends Component<Props, State> {
             }}
           />
           <StatusBar barStyle="dark-content" />
-          <BackArrow green navigation={navigation} />
+          <BackArrow green />
           <View style={styles.logoContainer}>
             <Image source={logos.wordmark} style={styles.logo} />
           </View>

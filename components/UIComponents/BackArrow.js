@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/backArrow";
@@ -30,4 +31,4 @@ BackArrow.defaultProps = {
   green: false
 };
 
-export default BackArrow;
+export default withNavigation( BackArrow );

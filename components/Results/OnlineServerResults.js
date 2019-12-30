@@ -366,7 +366,6 @@ class OnlineServerResults extends Component<Props, State> {
               clicked={clicked}
               image={uri}
               match={match}
-              navigation={navigation}
             />
           )}
       </>

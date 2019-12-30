@@ -200,7 +200,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
             source={backgrounds[challenge.backgroundName]}
             style={styles.challengeBackground}
           >
-            <BackArrow navigation={navigation} />
+            <BackArrow />
             <View style={styles.margin} />
             <View style={styles.logoContainer}>
               <Image source={logos.op} style={styles.logo} />

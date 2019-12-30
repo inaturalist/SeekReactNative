@@ -18,7 +18,7 @@ import Padding from "./UIComponents/Padding";
 import SafeAreaView from "./UIComponents/SafeAreaView";
 
 type Props = {
-  +navigation: any
+  +navigation: Object
 };
 
 const AboutScreen = ( { navigation }: Props ) => {

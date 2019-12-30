@@ -24,7 +24,7 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
     {route && route !== "post"
       ? <CustomBackArrow navigation={navigation} route={route} />
-      : <BackArrow navigation={navigation} />}
+      : <BackArrow />}
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
       <TouchableOpacity

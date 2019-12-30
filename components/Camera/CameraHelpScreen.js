@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 import {
   ScrollView,
@@ -18,12 +16,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
 
-type Props = {
-  +navigation: any
-}
-
-
-class CameraHelpScreen extends Component<Props> {
+class CameraHelpScreen extends Component {
   scrollView: ?any
 
   scrollToTop() {
@@ -35,8 +28,6 @@ class CameraHelpScreen extends Component<Props> {
   }
 
   render() {
-    const { navigation } = this.props;
-
     const tips = [
       i18n.t( "camera_help.tip_1" ),
       i18n.t( "camera_help.tip_2" ),
@@ -53,7 +44,6 @@ class CameraHelpScreen extends Component<Props> {
         />
         <GreenHeader
           header={i18n.t( "camera_help.title" )}
-          navigation={navigation}
           route="Camera"
         />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>

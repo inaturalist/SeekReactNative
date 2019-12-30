@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
@@ -23,7 +24,7 @@ type Props = {
 const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
     {route && route !== "post"
-      ? <CustomBackArrow navigation={navigation} route={route} />
+      ? <CustomBackArrow route={route} />
       : <BackArrow />}
     <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
@@ -44,4 +45,4 @@ GreenHeader.defaultProps = {
   header: null
 };
 
-export default GreenHeader;
+export default withNavigation( GreenHeader );

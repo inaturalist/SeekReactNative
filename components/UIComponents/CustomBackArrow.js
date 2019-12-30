@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/backArrow";
@@ -26,4 +27,4 @@ const CustomBackArrow = ( { navigation, route }: Props ) => (
   </TouchableOpacity>
 );
 
-export default CustomBackArrow;
+export default withNavigation( CustomBackArrow );

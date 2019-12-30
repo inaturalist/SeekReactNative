@@ -72,7 +72,6 @@ class AgeVerifyScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader
           header={i18n.t( "login.sign_up" )}
-          navigation={navigation}
         />
         <View style={styles.flexCenter}>
           <Text style={styles.header}>

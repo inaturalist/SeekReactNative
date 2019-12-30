@@ -471,7 +471,6 @@ class PostScreen extends Component<Props, State> {
         </Modal>
         <GreenHeader
           header={i18n.t( "posting.header" )}
-          navigation={navigation}
           route="post"
         />
         <ScrollView

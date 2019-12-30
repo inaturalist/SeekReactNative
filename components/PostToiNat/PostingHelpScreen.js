@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 import {
   ScrollView,
@@ -18,11 +16,6 @@ import icons from "../../assets/posting";
 import Padding from "../UIComponents/Padding";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 
-type Props = {
-  +navigation: any
-}
-
-
 class PostingHelpScreen extends Component<Props> {
   scrollView: ?any
 
@@ -35,8 +28,6 @@ class PostingHelpScreen extends Component<Props> {
   }
 
   render() {
-    const { navigation } = this.props;
-
     return (
       <View style={styles.container}>
         <SafeAreaView />
@@ -44,10 +35,7 @@ class PostingHelpScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => this.scrollToTop()}
         />
-        <GreenHeader
-          header={i18n.t( "posting_help.header" )}
-          navigation={navigation}
-        />
+        <GreenHeader header={i18n.t( "posting_help.header" )} />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <View style={styles.textContainer}>
             <View style={styles.row}>

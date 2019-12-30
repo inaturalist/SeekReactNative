@@ -97,7 +97,6 @@ class ForgotPasswordScreen extends Component<Props, State> {
   }
 
   render() {
-    const { navigation } = this.props;
     const { email, error } = this.state;
 
     return (
@@ -105,7 +104,6 @@ class ForgotPasswordScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader
           header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
-          navigation={navigation}
         />
         <ScrollView>
           <View style={styles.margin} />

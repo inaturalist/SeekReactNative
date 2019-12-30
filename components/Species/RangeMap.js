@@ -95,7 +95,6 @@ class RangeMap extends Component<Props, State> {
       userLocation,
       seenDate
     } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -110,7 +109,6 @@ class RangeMap extends Component<Props, State> {
         />
         <GreenHeader
           header={i18n.t( "species_detail.range_map" )}
-          navigation={navigation}
           route="Species"
         />
         {region.latitude ? (

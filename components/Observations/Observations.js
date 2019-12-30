@@ -254,7 +254,6 @@ class Observations extends Component<Props, State> {
         />
         <GreenHeader
           header={i18n.t( "observations.header" )}
-          navigation={navigation}
         />
         <Modal isVisible={showModal}>
           <DeleteModal

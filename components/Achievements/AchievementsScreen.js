@@ -145,7 +145,7 @@ class AchievementsScreen extends Component<Props, State> {
             this.fetchSpeciesCount();
           }}
         />
-        <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
+        <GreenHeader header={i18n.t( "badges.achievements" )} />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
           <LevelHeader

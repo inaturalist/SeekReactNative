@@ -67,7 +67,7 @@ class NotificationsScreen extends Component<Props, State> {
           onDidFocus={() => this.scrollToTop()}
           onWillFocus={() => this.fetchNotifications()}
         />
-        <GreenHeader header={i18n.t( "notifications.header" )} navigation={navigation} />
+        <GreenHeader header={i18n.t( "notifications.header" )} />
         {notifications.length > 0 ? (
           <FlatList
             ref={( ref ) => { this.scrollView = ref; }}

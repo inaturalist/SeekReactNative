@@ -156,7 +156,6 @@ class SignUpScreen extends Component<Props, State> {
   }
 
   render() {
-    const { navigation } = this.props;
     const { username, password, error } = this.state;
 
     return (
@@ -164,7 +163,6 @@ class SignUpScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader
           header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
-          navigation={navigation}
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>

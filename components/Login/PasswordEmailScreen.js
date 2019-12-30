@@ -19,7 +19,7 @@ type Props = {
 const PasswordEmailScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView />
-    <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+    <GreenHeader header={i18n.t( "login.sign_up" )} />
     <View style={styles.flexCenter}>
       <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
       <Text style={[styles.secondHeaderText, styles.email]}>

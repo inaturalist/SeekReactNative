@@ -184,7 +184,6 @@ class ChallengeScreen extends Component<Props, State> {
 
   render() {
     const { challengesNotStarted, challengesStarted } = this.state;
-    const { navigation } = this.props;
 
     const noChallenges = challengesNotStarted.length === 0 && challengesStarted.length === 0;
 
@@ -193,7 +192,6 @@ class ChallengeScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader
           header={i18n.t( "challenges.header" )}
-          navigation={navigation}
           route="Main"
         />
         <ScrollView>

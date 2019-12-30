@@ -92,13 +92,12 @@ class ParentalConsentScreen extends Component<Props, State> {
   }
 
   render() {
-    const { navigation } = this.props;
     const { email, error, loading } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+        <GreenHeader header={i18n.t( "login.sign_up" )} />
         <ScrollView>
           <View style={styles.margin} />
           <Text style={styles.header}>

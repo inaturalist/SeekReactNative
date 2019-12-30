@@ -12,7 +12,7 @@ import { NavigationEvents } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
-import LocationPicker from "./LocationPicker";
+import LocationPicker from "./LocationPickerHooks";
 import SpeciesNearby from "./SpeciesNearby";
 import GetStarted from "./GetStarted";
 import ChallengeCard from "./ChallengeCard";

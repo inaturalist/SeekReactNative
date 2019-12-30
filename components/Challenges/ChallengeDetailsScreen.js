@@ -19,7 +19,7 @@ import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import badges from "../../assets/badges";
-import BackArrow from "../UIComponents/BackArrow";
+import CustomBackArrow from "../UIComponents/CustomBackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeMissionCard from "./ChallengeMissionCard";
@@ -32,6 +32,7 @@ import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
 import setChallengeDetailsButtonText from "../../utility/textHelpers";
+import { getRoute } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -42,7 +43,8 @@ type State = {
   missions: Object,
   challengeStarted: boolean,
   showModal: boolean,
-  index: ?string
+  index: ?string,
+  route: ?string
 }
 
 class ChallengeDetailsScreen extends Component<Props, State> {
@@ -56,10 +58,19 @@ class ChallengeDetailsScreen extends Component<Props, State> {
       missions: {},
       challengeStarted: false,
       showModal: false,
-      index: null
+      index: null,
+      route: null
     };
 
     ( this:any ).closeModal = this.closeModal.bind( this );
+  }
+
+  async setupScreen() {
+    const index = await getChallengeIndex();
+    const route = await getRoute();
+    this.setState( { index, route }, () => {
+      this.fetchChallengeDetails();
+    } );
   }
 
   resetState() {
@@ -68,7 +79,8 @@ class ChallengeDetailsScreen extends Component<Props, State> {
       missions: {},
       challengeStarted: false,
       showModal: false,
-      index: null
+      index: null,
+      route: null
     } );
   }
 
@@ -78,13 +90,6 @@ class ChallengeDetailsScreen extends Component<Props, State> {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
-  }
-
-  async fetchChallengeIndex() {
-    const index = await getChallengeIndex();
-    this.setState( { index }, () => {
-      this.fetchChallengeDetails();
-    } );
   }
 
   fetchChallengeDetails() {
@@ -151,7 +156,8 @@ class ChallengeDetailsScreen extends Component<Props, State> {
       challengeStarted,
       showModal,
       challenge,
-      missions
+      missions,
+      route
     } = this.state;
     const { navigation } = this.props;
 
@@ -182,7 +188,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
             onWillFocus={() => {
               this.scrollToTop();
               recalculateChallenges();
-              this.fetchChallengeIndex();
+              this.setupScreen();
             }}
           />
           <Modal
@@ -200,7 +206,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
             source={backgrounds[challenge.backgroundName]}
             style={styles.challengeBackground}
           >
-            <BackArrow />
+            <CustomBackArrow navigation={navigation} route={route} />
             <View style={styles.margin} />
             <View style={styles.logoContainer}>
               <Image source={logos.op} style={styles.logo} />

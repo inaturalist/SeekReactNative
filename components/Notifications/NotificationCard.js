@@ -12,6 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
   +navigation: any,
@@ -23,6 +24,7 @@ const NotificationCard = ( { navigation, item }: Props ) => (
     <TouchableOpacity
       onPress={() => {
         if ( item.nextScreen === "ChallengeDetails" ) {
+          setRoute( "Notifications" );
           setChallengeIndex( item.challengeIndex );
         }
         navigation.navigate( item.nextScreen );

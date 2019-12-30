@@ -12,6 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
 import PercentCircle from "./PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
+import { setRoute } from "../../utility/helpers";
 import icons from "../../assets/icons";
 
 type Props = {
@@ -42,6 +43,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
         accessible
         onPress={() => {
           setChallengeIndex( item.index );
+          setRoute( "Challenges" );
           startChallenge( item.index );
           fetchChallenges();
           recalculateChallenges();
@@ -58,6 +60,7 @@ const ChallengeProgressCard = ( { navigation, item, fetchChallenges }: Props ) =
     <TouchableOpacity
       onPress={() => {
         setChallengeIndex( item.index );
+        setRoute( "Challenges" );
         navigation.navigate( "ChallengeDetails" );
       }}
       style={[styles.card, styles.row]}

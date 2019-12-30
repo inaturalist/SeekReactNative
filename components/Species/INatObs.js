@@ -48,7 +48,7 @@ class INatObs extends Component<Props, State> {
     }
   }
 
-  setLocation( location: ?string ) { 
+  setLocation( location: ?string ) {
     this.setState( { location } );
   }
 

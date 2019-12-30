@@ -17,6 +17,8 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
 
+type Props = {}
+
 type State = {
   notifications: Array<Object>
 }

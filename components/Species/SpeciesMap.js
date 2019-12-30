@@ -10,7 +10,6 @@ import MapView, {
   Marker
 } from "react-native-maps";
 
-import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
 import GreenButton from "../UIComponents/GreenButton";

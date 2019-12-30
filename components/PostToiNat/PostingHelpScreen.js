@@ -16,7 +16,7 @@ import icons from "../../assets/posting";
 import Padding from "../UIComponents/Padding";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 
-class PostingHelpScreen extends Component<Props> {
+class PostingHelpScreen extends Component {
   scrollView: ?any
 
   scrollToTop() {

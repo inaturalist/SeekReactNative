@@ -10,8 +10,13 @@ module.exports = ( api ) => {
     "@babel/transform-flow-strip-types"
   ];
 
+  if ( api.env( "production" ) ) {
+    return {
+      presets,
+      plugins
+    };
+  }
   return {
-    presets,
-    plugins
+    presets
   };
 };

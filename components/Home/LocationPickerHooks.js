@@ -46,12 +46,8 @@ const LocationPicker = ( {
 
   const [loc, setLocation] = useState( location );
 
-  const updateState = ( newLocation, newRegion ) => {
-    setLocation( newLocation );
-    setRegion( newRegion );
-  };
-
   const setCoordsByLocationName = ( newLocation ) => {
+    console.log( newLocation, "new location" );
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
       console.log( result, "result" );
       if ( result.length === 0 && newLocation.length > 1 ) {
@@ -61,7 +57,8 @@ const LocationPicker = ( {
       const { locality, subAdminArea, position } = result[0];
       const { lng, lat } = position;
 
-      updateState( locality || subAdminArea, {
+      setLocation( locality || subAdminArea );
+      setRegion( {
         latitude: lat,
         longitude: lng,
         latitudeDelta,

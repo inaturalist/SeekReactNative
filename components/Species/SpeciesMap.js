@@ -64,7 +64,7 @@ const LocationMap = ( {
     <View style={styles.margin} />
     <GreenButton
       handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-      text={i18n.t( "species_detail.view_map" )}
+      text="species_detail.view_map"
     />
   </View>
 );

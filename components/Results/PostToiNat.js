@@ -60,7 +60,7 @@ class PostToiNat extends Component<Props, State> {
               <GreenButton
                 color={color}
                 handlePress={() => navigation.navigate( "Post", taxaInfo )}
-                text={i18n.t( "results.post" )}
+                text="results.post"
               />
             </>
           )}

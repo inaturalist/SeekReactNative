@@ -51,7 +51,7 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
       <GreenButton
         handlePress={() => navigation.navigate( "Main" )}
         login
-        text={i18n.t( "inat_signup.continue" )}
+        text="inat_signup.continue"
       />
       <View style={[styles.center, styles.row]}>
         <TouchableOpacity

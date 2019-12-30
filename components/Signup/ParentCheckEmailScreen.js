@@ -28,7 +28,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
         fontSize={16}
         handlePress={() => navigation.navigate( "Main" )}
         login
-        text={i18n.t( "inat_signup.continue_no_log_in" )}
+        text="inat_signup.continue_no_log_in"
       />
     </View>
   </View>

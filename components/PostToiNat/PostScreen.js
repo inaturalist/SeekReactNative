@@ -542,7 +542,7 @@ class PostScreen extends Component<Props, State> {
                 this.getToken();
                 this.togglePostModal();
               }}
-              text={i18n.t( "posting.header" )}
+              text="posting.header"
             />
           </View>
         </ScrollView>

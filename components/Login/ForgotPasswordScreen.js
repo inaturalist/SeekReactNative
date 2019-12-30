@@ -125,7 +125,7 @@ class ForgotPasswordScreen extends Component<Props, State> {
           <GreenButton
             handlePress={() => this.checkEmail()}
             login
-            text={i18n.t( "inat_login.reset" )}
+            text="inat_login.reset"
           />
         </ScrollView>
       </View>

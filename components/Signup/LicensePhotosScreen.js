@@ -107,7 +107,7 @@ class LicensePhotosScreen extends Component<Props, State> {
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.next" )}
+            text="inat_signup.next"
           />
         </ScrollView>
       </View>

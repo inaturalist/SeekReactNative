@@ -86,7 +86,7 @@ const PostStatus = ( {
                 togglePostModal();
               }
             }}
-            text={i18n.t( "posting.ok" )}
+            text="posting.ok"
           />
         </View>
       ) : null}

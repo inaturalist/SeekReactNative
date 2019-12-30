@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenButton";
 
 type Props = {
@@ -31,7 +32,7 @@ const GreenButton = ( {
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >
     <Text style={[styles.buttonText, { letterSpacing }, { fontSize }]}>
-      {text.toLocaleUpperCase()}
+      {i18n.t( text ).toLocaleUpperCase()}
     </Text>
   </TouchableOpacity>
 );

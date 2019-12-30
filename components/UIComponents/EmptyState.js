@@ -31,7 +31,7 @@ const EmptyState = ( { navigation, screen }: Props ) => (
       <View style={styles.margin}>
         <GreenButton
           handlePress={() => navigation.navigate( "Camera" )}
-          text={i18n.t( "observations.open_camera" )}
+          text="observations.open_camera"
         />
       </View>
     ) : null}

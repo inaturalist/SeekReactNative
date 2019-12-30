@@ -130,7 +130,7 @@ class ParentalConsentScreen extends Component<Props, State> {
               }
             }}
             login
-            text={i18n.t( "inat_signup.submit" )}
+            text="inat_signup.submit"
           />
         </ScrollView>
       </View>

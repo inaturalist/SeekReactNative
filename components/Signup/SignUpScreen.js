@@ -190,7 +190,7 @@ class SignUpScreen extends Component<Props, State> {
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.sign_up" )}
+            text="inat_signup.sign_up"
           />
         </ScrollView>
       </View>

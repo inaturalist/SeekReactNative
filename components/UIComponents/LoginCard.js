@@ -80,8 +80,8 @@ class LoginCard extends Component<Props, State> {
             }
           }}
           text={isLoggedIn
-            ? i18n.t( "inat_stats.sign_out" )
-            : i18n.t( "inat_stats.join" )}
+            ? "inat_stats.sign_out"
+            : "inat_stats.join"}
         />
       </View>
     );

@@ -472,13 +472,13 @@ class MatchScreen extends Component<Props, State> {
               <GreenButton
                 color={gradientColorLight}
                 handlePress={() => this.setNavigationPath( "Species" )}
-                text={i18n.t( "results.view_species" )}
+                text="results.view_species"
               />
             ) : (
               <GreenButton
                 color={gradientColorLight}
                 handlePress={() => navigation.navigate( "Camera" )}
-                text={i18n.t( "results.take_photo" )}
+                text="results.take_photo"
               />
             )}
           </View>

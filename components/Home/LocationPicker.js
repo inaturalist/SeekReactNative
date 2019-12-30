@@ -176,7 +176,7 @@ class LocationPicker extends Component<Props, State> {
               );
             }}
             letterSpacing={0.68}
-            text={i18n.t( "location_picker.button" )}
+            text="location_picker.button"
           />
         </View>
       </View>

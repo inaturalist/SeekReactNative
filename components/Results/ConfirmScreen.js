@@ -53,7 +53,7 @@ const ConfirmScreen = ( {
       <GreenButton
         color={clicked ? "#38976d33" : null}
         handlePress={() => checkForMatches()}
-        text={i18n.t( "confirm.button" )}
+        text="confirm.button"
       />
     </View>
   </View>

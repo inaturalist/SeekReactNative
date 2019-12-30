@@ -3,13 +3,11 @@ module.exports = ( api ) => {
 
   const presets = [
     "module:metro-react-native-babel-preset",
-    "@babel/flow",
-    "@babel/preset-env"
+    "@babel/flow"
   ];
   const plugins = [
     "transform-remove-console",
-    "@babel/transform-flow-strip-types",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/transform-flow-strip-types"
   ];
 
   return {

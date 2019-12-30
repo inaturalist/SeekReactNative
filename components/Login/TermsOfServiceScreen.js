@@ -6,7 +6,6 @@ import {
 } from "react-native";
 
 import styles from "../../styles/login/privacy";
-import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import Padding from "../UIComponents/Padding";
@@ -33,7 +32,7 @@ const TermsOfServiceScreen = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView />
-      <GreenHeader header={i18n.t( "inat_signup.terms" )} />
+      <GreenHeader header="inat_signup.terms" />
       <ScrollView contentContainerStyle={styles.textContainer}>
         <Text style={styles.text}>Last modified June 16, 2016</Text>
         <Text style={styles.text}>{"\nWelcome to the iNaturalist.org website. The following terms and conditions of use, in conjunction with the Terms and Conditions of Use of the California Academy of Sciences website, available at http://www.calacademy.org/terms-of-use, govern all use of the California Academy of Sciences’ iNaturalist.org website, all related applications, and all content, services and products available at or through the website (collectively, the \"Website\" ). The Website is owned and operated by the California Academy of Sciences (the \"Academy\" ). The Website is offered subject to your acceptance without modification of all of the terms and conditions contained herein and all other operating rules, policies (including, without limitation, the privacy policy) and procedures that may be published from time to time on this Site by iNaturalist and by the Academy (collectively, the “Agreement”).\n\nPlease read this Agreement carefully before accessing or using the Website. By accessing or using any part of the Website, each user (\"You\" , \"Your\"  or \"User\" ) agree to the terms and conditions of this Agreement. If You do not agree to all the terms and conditions of this Agreement, You should not access the Website or use any services made available via the Website. The Website is available only to individuals who are at least 13 years old."}</Text>

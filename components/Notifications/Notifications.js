@@ -9,7 +9,6 @@ import {
 import Realm from "realm";
 import { NavigationEvents } from "react-navigation";
 
-import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
@@ -17,10 +16,6 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
-
-type Props = {
-  +navigation: any
-}
 
 type State = {
   notifications: Array<Object>
@@ -57,7 +52,6 @@ class NotificationsScreen extends Component<Props, State> {
 
   render() {
     const { notifications } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -67,14 +61,14 @@ class NotificationsScreen extends Component<Props, State> {
           onDidFocus={() => this.scrollToTop()}
           onWillFocus={() => this.fetchNotifications()}
         />
-        <GreenHeader header={i18n.t( "notifications.header" )} />
+        <GreenHeader header="notifications.header" />
         {notifications.length > 0 ? (
           <FlatList
             ref={( ref ) => { this.scrollView = ref; }}
             data={notifications}
             keyExtractor={( item, i ) => `${item}${i}`}
             renderItem={( { item } ) => (
-              <NotificationCard item={item} navigation={navigation} />
+              <NotificationCard item={item} />
             )}
           />
         ) : <EmptyState />}

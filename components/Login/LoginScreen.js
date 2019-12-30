@@ -97,7 +97,7 @@ class LoginScreen extends Component<Props, State> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
+          header="login.log_in"
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>

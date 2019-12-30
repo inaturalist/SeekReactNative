@@ -103,7 +103,7 @@ class ForgotPasswordScreen extends Component<Props, State> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
+          header="inat_login.forgot_password_header"
         />
         <ScrollView>
           <View style={styles.margin} />

@@ -43,7 +43,7 @@ const AboutScreen = ( { navigation }: Props ) => {
   return (
     <>
       <SafeAreaView />
-      <GreenHeader header={i18n.t( "about.header" )} />
+      <GreenHeader header="about.header" />
       <ScrollView
         ref={scrollView}
         contentContainerStyle={styles.textContainer}

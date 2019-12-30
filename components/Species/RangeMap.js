@@ -108,7 +108,7 @@ class RangeMap extends Component<Props, State> {
           modal={<Legend closeModal={this.closeModal} />}
         />
         <GreenHeader
-          header={i18n.t( "species_detail.range_map" )}
+          header="species_detail.range_map"
           route="Species"
         />
         {region.latitude ? (

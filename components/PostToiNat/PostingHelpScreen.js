@@ -35,7 +35,7 @@ class PostingHelpScreen extends Component<Props> {
         <NavigationEvents
           onWillFocus={() => this.scrollToTop()}
         />
-        <GreenHeader header={i18n.t( "posting_help.header" )} />
+        <GreenHeader header="posting_help.header" />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <View style={styles.textContainer}>
             <View style={styles.row}>

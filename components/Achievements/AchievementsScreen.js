@@ -11,7 +11,6 @@ import {
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
-import i18n from "../../i18n";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
@@ -145,7 +144,7 @@ class AchievementsScreen extends Component<Props, State> {
             this.fetchSpeciesCount();
           }}
         />
-        <GreenHeader header={i18n.t( "badges.achievements" )} />
+        <GreenHeader header="badges.achievements" />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
           <LevelHeader

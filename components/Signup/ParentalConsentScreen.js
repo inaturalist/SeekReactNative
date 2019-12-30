@@ -97,7 +97,7 @@ class ParentalConsentScreen extends Component<Props, State> {
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <GreenHeader header={i18n.t( "login.sign_up" )} />
+        <GreenHeader header="login.sign_up" />
         <ScrollView>
           <View style={styles.margin} />
           <Text style={styles.header}>

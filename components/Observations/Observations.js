@@ -253,7 +253,7 @@ class Observations extends Component<Props, State> {
           onWillFocus={() => this.fetchObservations()}
         />
         <GreenHeader
-          header={i18n.t( "observations.header" )}
+          header="observations.header"
         />
         <Modal isVisible={showModal}>
           <DeleteModal

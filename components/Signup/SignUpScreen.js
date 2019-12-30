@@ -162,7 +162,7 @@ class SignUpScreen extends Component<Props, State> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
+          header="login.sign_up"
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>

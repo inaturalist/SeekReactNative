@@ -26,7 +26,7 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
     {route && route !== "post"
       ? <CustomBackArrow route={route} />
       : <BackArrow />}
-    <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
+    <Text style={styles.text}>{header ? i18n.t( header ).toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.help" )}

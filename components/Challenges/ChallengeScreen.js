@@ -191,7 +191,7 @@ class ChallengeScreen extends Component<Props, State> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "challenges.header" )}
+          header="challenges.header"
           route="Main"
         />
         <ScrollView>

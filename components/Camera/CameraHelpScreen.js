@@ -43,7 +43,7 @@ class CameraHelpScreen extends Component {
           onWillFocus={() => this.scrollToTop()}
         />
         <GreenHeader
-          header={i18n.t( "camera_help.title" )}
+          header="camera_help.title"
           route="Camera"
         />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>

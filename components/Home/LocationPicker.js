@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -23,165 +23,139 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +latitude: ?number,
-  +longitude: ?number,
-  +location: ?string,
+  +latitude: number,
+  +longitude: number,
+  +location: string,
   +updateLocation: Function,
   +toggleLocationPicker: Function
 }
 
-type State = {
-  region: Object,
-  location: ?string
-}
-
-class LocationPicker extends Component<Props, State> {
-  constructor( {
+const LocationPicker = ( {
+  latitude,
+  longitude,
+  location,
+  updateLocation,
+  toggleLocationPicker
+}: Props ) => {
+  const [region, setRegion] = useState( {
+    latitudeDelta,
+    longitudeDelta,
     latitude,
-    longitude,
-    location
-  }: Props ) {
-    super();
+    longitude
+  } );
 
-    this.state = {
-      region: {
-        latitudeDelta,
-        longitudeDelta,
-        latitude,
-        longitude
-      },
-      location
-    };
+  const [loc, setLocation] = useState( location );
 
-    ( this:any ).handleRegionChange = this.handleRegionChange.bind( this );
-    ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
-  }
-
-  setLocationUndefined() {
-    this.setState( { location: i18n.t( "location_picker.undefined" ) } );
-  }
-
-  setLocation( location: string ) {
-    this.setState( { location } );
-  }
-
-  setCoordsByLocationName( location: string ) {
-    Geocoder.geocodeAddress( location ).then( ( result ) => {
+  const setCoordsByLocationName = ( newLocation ) => {
+    console.log( newLocation, "new location" );
+    Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
+      console.log( result, "result" );
       if ( result.length === 0 ) {
-        this.setLocationUndefined();
+        return;
       }
       const { locality, subAdminArea, position } = result[0];
       const { lng, lat } = position;
-      this.setState( {
-        location: locality || subAdminArea,
-        region: {
-          latitude: truncateCoordinates( lat ),
-          longitude: truncateCoordinates( lng ),
-          latitudeDelta,
-          longitudeDelta
-        }
+
+      setLocation( locality || subAdminArea );
+      setRegion( {
+        latitude: lat,
+        longitude: lng,
+        latitudeDelta,
+        longitudeDelta
       } );
     } ).catch( ( e ) => {
       console.log( e, "error" );
     } );
-  }
+  };
 
-  handleRegionChange( region: Object ) {
-    this.setState( {
-      region
-    }, () => {
-      if ( Platform.OS === "android" ) {
-        this.reverseGeocodeLocation( region.latitude, region.longitude );
-      }
-    } );
-  }
-
-  reverseGeocodeLocation( lat: number, lng: number ) {
-    const { location } = this.state;
-
+  const reverseGeocodeLocation = ( lat, lng ) => {
     fetchLocationName( lat, lng ).then( ( newLocation ) => {
       if ( newLocation === null ) {
-        this.setLocationUndefined();
-      } else if ( location !== newLocation ) {
-        this.setLocation( newLocation );
+        setLocation( i18n.t( "location_picker.undefined" ) );
+      } else if ( loc !== newLocation ) {
+        setLocation( newLocation );
       }
     } ).catch( ( e ) => {
       console.log( e, "error" );
     } );
-  }
+  };
 
-  returnToUserLocation() {
+  const handleRegionChange = ( newRegion ) => {
+    if ( Platform.OS === "android" ) {
+      reverseGeocodeLocation( newRegion.latitude, newRegion.longitude );
+    }
+
+    setRegion( newRegion );
+  };
+
+  const returnToUserLocation = () => {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
-        const { latitude, longitude } = coords;
+        const lat = coords.latitude;
+        const long = coords.longitude;
+        reverseGeocodeLocation( lat, long );
 
-        this.reverseGeocodeLocation( latitude, longitude );
-
-        this.setState( {
-          region: {
-            latitude,
-            longitude,
-            latitudeDelta,
-            longitudeDelta
-          }
+        setRegion( {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta,
+          longitudeDelta
         } );
       }
     } );
-  }
+  };
 
-  render() {
-    const { region, location } = this.state;
-    const { updateLocation, toggleLocationPicker } = this.props;
-
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <View style={styles.header}>
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.back" )}
-            accessible
-            onPress={() => toggleLocationPicker()}
-            style={styles.backButton}
-          >
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={styles.headerText}>{i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}</Text>
-          </View>
-          <View style={styles.row}>
-            <Image source={icons.locationWhite} />
-            <TextInput
-              accessibilityLabel={location}
-              accessible
-              autoCapitalize="words"
-              onChangeText={text => this.setCoordsByLocationName( text )}
-              placeholder={location}
-              placeholderTextColor="#828282"
-              style={styles.inputField}
-              textContentType="addressCity"
-            />
-          </View>
+  return (
+    <View style={styles.container}>
+      <SafeAreaView />
+      <View style={styles.header}>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.back" )}
+          accessible
+          onPress={() => toggleLocationPicker()}
+          style={styles.backButton}
+        >
+          <Image source={icons.backButton} />
+        </TouchableOpacity>
+        <View style={styles.textContainer}>
+          <Text style={styles.headerText}>
+            {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
+          </Text>
         </View>
-        <LocationMap
-          onRegionChange={this.handleRegionChange}
-          region={region}
-          returnToUserLocation={this.returnToUserLocation}
-        />
-        <View style={styles.footer}>
-          <GreenButton
-            handlePress={() => {
-              updateLocation(
-                truncateCoordinates( region.latitude ),
-                truncateCoordinates( region.longitude )
-              );
-            }}
-            letterSpacing={0.68}
-            text="location_picker.button"
+        <View style={styles.row}>
+          <Image source={icons.locationWhite} />
+          <TextInput
+            accessibilityLabel={location}
+            accessible
+            autoCapitalize="words"
+            onChangeText={text => setCoordsByLocationName( text )}
+            placeholder={loc}
+            placeholderTextColor="#828282"
+            style={styles.inputField}
+            textContentType="addressCity"
           />
         </View>
       </View>
-    );
-  }
-}
+      <LocationMap
+        onRegionChange={handleRegionChange}
+        region={region}
+        returnToUserLocation={returnToUserLocation}
+      />
+      <View style={styles.footer}>
+        <GreenButton
+          handlePress={() => {
+            updateLocation(
+              truncateCoordinates( region.latitude ),
+              truncateCoordinates( region.longitude )
+            );
+          }}
+          letterSpacing={0.68}
+          text="location_picker.button"
+        />
+      </View>
+    </View>
+  );
+};
+
 
 export default LocationPicker;

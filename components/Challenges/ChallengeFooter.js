@@ -12,6 +12,7 @@ import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -40,7 +41,10 @@ const ChallengeFooter = ( { navigation }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
           accessible
-          onPress={() => navigation.navigate( "iNatStats" )}
+          onPress={() => {
+            setRoute( "Challenges" );
+            navigation.navigate( "iNatStats" );
+          }}
           style={styles.rightIcon}
         >
           <Image source={icons.birdTeal} />

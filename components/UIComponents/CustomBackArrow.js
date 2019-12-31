@@ -13,18 +13,23 @@ import icons from "../../assets/icons";
 
 type Props = {
   +navigation: any,
-  +route: string
+  +route: string,
+  +green?: boolean
 }
 
-const CustomBackArrow = ( { navigation, route }: Props ) => (
+const CustomBackArrow = ( { navigation, route, green }: Props ) => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
     onPress={() => navigation.navigate( route )}
     style={styles.backButton}
   >
-    <Image source={icons.backButton} />
+    <Image source={green ? icons.backButtonGreen : icons.backButton} />
   </TouchableOpacity>
 );
+
+CustomBackArrow.defaultProps = {
+  green: false
+};
 
 export default withNavigation( CustomBackArrow );

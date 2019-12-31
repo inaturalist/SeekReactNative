@@ -21,11 +21,16 @@ import icons from "../assets/icons";
 import backgrounds from "../assets/backgrounds";
 import logos from "../assets/logos";
 import Padding from "./UIComponents/Padding";
-import { capitalizeNames, shuffleList, seti18nNumber } from "../utility/helpers";
+import {
+  capitalizeNames,
+  shuffleList,
+  seti18nNumber,
+  getRoute
+} from "../utility/helpers";
 import { localizeAttributions } from "../utility/photoHelpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
-import BackArrow from "./UIComponents/BackArrow";
+import CustomBackArrow from "./UIComponents/CustomBackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 import { dimensions } from "../styles/global";
@@ -38,7 +43,8 @@ type State = {
   observers: number,
   photos: Array<Object>,
   scrollIndex: number,
-  scrollOffset: number
+  scrollOffset: number,
+  route: ?string
 };
 
 class iNatStatsScreen extends Component<Props, State> {
@@ -54,7 +60,8 @@ class iNatStatsScreen extends Component<Props, State> {
       observers: seti18nNumber( 700000 ),
       photos: [],
       scrollIndex: 0,
-      scrollOffset: 0
+      scrollOffset: 0,
+      route: null
     };
   }
 
@@ -119,10 +126,12 @@ class iNatStatsScreen extends Component<Props, State> {
 
   async fetchiNatStats() {
     const { observations, observers } = await getiNatStats();
+    const route = await getRoute();
 
     this.setState( {
       observations: seti18nNumber( observations ),
-      observers: seti18nNumber( observers )
+      observers: seti18nNumber( observers ),
+      route
     } );
   }
 
@@ -174,7 +183,8 @@ class iNatStatsScreen extends Component<Props, State> {
     const {
       observations,
       observers,
-      photos
+      photos,
+      route
     } = this.state;
 
     const photoList = [];
@@ -216,7 +226,7 @@ class iNatStatsScreen extends Component<Props, State> {
             }}
           />
           <StatusBar barStyle="dark-content" />
-          <BackArrow green />
+          <CustomBackArrow green route={route} />
           <View style={styles.logoContainer}>
             <Image source={logos.wordmark} style={styles.logo} />
           </View>

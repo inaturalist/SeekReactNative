@@ -24,8 +24,8 @@ const NotificationCard = ( { navigation, item }: Props ) => (
   <View>
     <TouchableOpacity
       onPress={() => {
+        setRoute( "Notifications" );
         if ( item.nextScreen === "ChallengeDetails" ) {
-          setRoute( "Notifications" );
           setChallengeIndex( item.challengeIndex );
         }
         navigation.navigate( item.nextScreen );

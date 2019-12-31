@@ -6,22 +6,26 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import styles from "../../styles/iNatStats";
+import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import { dimensions } from "../../styles/global";
 
 type Props = {
-  photoList: Array<Object>
+  photoList: Array<Object>,
+  screen: string
 }
 
-const HorizontalScroll = ( { photoList }: Props ) => {
-  const flatList = useRef( null );
+const HorizontalScroll = ( { photoList, screen }: Props ) => {
   const [scrollIndex, setScrollIndex] = useState( 0 );
   const [scrollOffset, setScrollOffset] = useState( 0 );
 
+  const flatList = useRef( null );
+  const length = photoList.length - 1;
+  const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
+  const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+
   const scrollRight = () => {
-    const nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
     const nextOffset = scrollOffset + dimensions.width;
 
     if ( flatList && flatList.current !== null ) {
@@ -29,13 +33,14 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         index: nextIndex, animated: true
       } );
 
-      setScrollIndex( nextIndex );
-      setScrollOffset( nextOffset );
+      if ( nextIndex !== scrollIndex ) {
+        setScrollIndex( nextIndex );
+        setScrollOffset( nextOffset );
+      }
     }
   };
 
   const scrollLeft = () => {
-    const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
     const prevOffset = scrollOffset - dimensions.width;
 
     if ( flatList && flatList.current !== null ) {
@@ -43,23 +48,20 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         index: prevIndex, animated: true
       } );
 
-      setScrollIndex( prevIndex );
-      setScrollOffset( prevOffset );
+      if ( prevIndex !== scrollIndex ) {
+        setScrollIndex( prevIndex );
+        setScrollOffset( prevOffset );
+      }
     }
   };
 
   const calculateScrollIndex = ( e ) => {
     const { contentOffset } = e.nativeEvent;
 
-    let nextIndex;
-    let prevIndex;
-
     if ( contentOffset.x > scrollOffset ) {
-      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
       setScrollIndex( nextIndex );
       setScrollOffset( contentOffset.x );
-    } else {
-      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
+    } else if ( contentOffset.x < scrollOffset ) {
       setScrollIndex( prevIndex );
       setScrollOffset( contentOffset.x );
     }
@@ -70,7 +72,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
       <FlatList
         ref={flatList}
         bounces={false}
-        contentContainerStyle={styles.photoContainer}
+        contentContainerStyle={screen === "SpeciesPhotos" ? styles.speciesPhotoContainer : styles.photoContainer}
         data={photoList}
         getItemLayout={( data, index ) => (
           // skips measurement of dynamic content for faster loading
@@ -86,13 +88,13 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         onScrollEndDrag={( e ) => calculateScrollIndex( e )}
         pagingEnabled
         renderItem={( { item } ) => item}
-        showsHorizontalScrollIndicator
+        showsHorizontalScrollIndicator={screen === "iNatStats"}
       />
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
         accessible
         onPress={() => scrollLeft()}
-        style={styles.leftArrow}
+        style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
       >
         <Image source={icons.swipeLeft} />
       </TouchableOpacity>
@@ -100,7 +102,7 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
         accessible
         onPress={() => scrollRight()}
-        style={styles.rightArrow}
+        style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
       >
         <Image source={icons.swipeRight} />
       </TouchableOpacity>

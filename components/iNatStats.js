@@ -200,7 +200,7 @@ class iNatStatsScreen extends Component<Props, State> {
             <View style={[styles.center, styles.photoContainer]}>
               <LoadingWheel color="black" />
             </View>
-          ) : <HorizontalScroll photoList={photoList} />}
+          ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
           <LoginCard screen="iNatStats" />
           <Padding />
         </ScrollView>

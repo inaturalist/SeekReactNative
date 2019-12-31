@@ -8,9 +8,7 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
-  Platform,
-  FlatList,
-  TouchableOpacity
+  Platform
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
@@ -33,8 +31,8 @@ import LoginCard from "./UIComponents/LoginCard";
 import CustomBackArrow from "./UIComponents/CustomBackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
-import { dimensions } from "../styles/global";
 import createUserAgent from "../utility/userAgent";
+import HorizontalScroll from "./UIComponents/HorizontalScroll";
 
 type Props = {}
 
@@ -42,15 +40,11 @@ type State = {
   observations: number,
   observers: number,
   photos: Array<Object>,
-  scrollIndex: number,
-  scrollOffset: number,
   route: ?string
 };
 
 class iNatStatsScreen extends Component<Props, State> {
   scrollView: ?any
-
-  flatList: ?any
 
   constructor() {
     super();
@@ -59,17 +53,8 @@ class iNatStatsScreen extends Component<Props, State> {
       observations: seti18nNumber( 25000000 ),
       observers: seti18nNumber( 700000 ),
       photos: [],
-      scrollIndex: 0,
-      scrollOffset: 0,
       route: null
     };
-  }
-
-  setIndex( scrollIndex: number, scrollOffset: number ) {
-    this.setState( {
-      scrollIndex,
-      scrollOffset
-    } );
   }
 
   scrollToTop() {
@@ -133,50 +118,6 @@ class iNatStatsScreen extends Component<Props, State> {
       observers: seti18nNumber( observers ),
       route
     } );
-  }
-
-  scrollRight() {
-    const { scrollIndex, scrollOffset } = this.state;
-
-    const nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
-    const nextOffset = scrollOffset + dimensions.width;
-
-    if ( this.flatList ) {
-      this.flatList.scrollToIndex( {
-        index: nextIndex, animated: true
-      } );
-      this.setIndex( nextIndex, nextOffset );
-    }
-  }
-
-  scrollLeft() {
-    const { scrollIndex, scrollOffset } = this.state;
-
-    const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
-    const prevOffset = scrollOffset - dimensions.width;
-
-    if ( this.flatList ) {
-      this.flatList.scrollToIndex( {
-        index: prevIndex, animated: true
-      } );
-      this.setIndex( prevIndex, prevOffset );
-    }
-  }
-
-  calculateScrollIndex( e: Object ) {
-    const { scrollOffset, scrollIndex } = this.state;
-    const { contentOffset } = e.nativeEvent;
-
-    let nextIndex;
-    let prevIndex;
-
-    if ( contentOffset.x > scrollOffset ) {
-      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
-      this.setIndex( nextIndex, contentOffset.x );
-    } else {
-      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
-      this.setIndex( prevIndex, contentOffset.x );
-    }
   }
 
   render() {
@@ -259,47 +200,7 @@ class iNatStatsScreen extends Component<Props, State> {
             <View style={[styles.center, styles.photoContainer]}>
               <LoadingWheel color="black" />
             </View>
-          ) : (
-            <View>
-              <FlatList
-                ref={( ref ) => { this.flatList = ref; }}
-                bounces={false}
-                contentContainerStyle={styles.photoContainer}
-                data={photoList}
-                getItemLayout={( data, index ) => (
-                  // skips measurement of dynamic content for faster loading
-                  {
-                    length: ( dimensions.width ),
-                    offset: ( dimensions.width ) * index,
-                    index
-                  }
-                )}
-                horizontal
-                indicatorStyle="white"
-                initialNumToRender={1}
-                onScrollEndDrag={( e ) => this.calculateScrollIndex( e )}
-                pagingEnabled
-                renderItem={( { item } ) => item}
-                showsHorizontalScrollIndicator
-              />
-              <TouchableOpacity
-                accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
-                accessible
-                onPress={() => this.scrollLeft()}
-                style={styles.leftArrow}
-              >
-                <Image source={icons.swipeLeft} />
-              </TouchableOpacity>
-              <TouchableOpacity
-                accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
-                accessible
-                onPress={() => this.scrollRight()}
-                style={styles.rightArrow}
-              >
-                <Image source={icons.swipeRight} />
-              </TouchableOpacity>
-            </View>
-          )}
+          ) : <HorizontalScroll photoList={photoList} />}
           <LoginCard screen="iNatStats" />
           <Padding />
         </ScrollView>

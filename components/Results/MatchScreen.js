@@ -46,6 +46,7 @@ import {
 } from "../../utility/locationHelpers";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/GreenButton";
+import { setAncestorRankText } from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any
@@ -317,21 +318,8 @@ class MatchScreen extends Component<Props, State> {
     let gradientColorLight;
     let text;
     let speciesText;
-    let ancestorRank;
 
-    if ( rank === 20 ) {
-      ancestorRank = i18n.t( "camera.genus" );
-    } else if ( rank === 30 ) {
-      ancestorRank = i18n.t( "camera.family" );
-    } else if ( rank === 40 ) {
-      ancestorRank = i18n.t( "camera.order" );
-    } else if ( rank === 50 ) {
-      ancestorRank = i18n.t( "camera.class" );
-    } else if ( rank === 60 ) {
-      ancestorRank = i18n.t( "camera.phylum" );
-    } else if ( rank === 70 ) {
-      ancestorRank = i18n.t( "camera.kingdom" );
-    }
+    const ancestorRank = setAncestorRankText( rank );
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();

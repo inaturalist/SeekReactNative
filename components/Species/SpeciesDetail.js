@@ -30,7 +30,8 @@ import {
   getSpeciesId,
   capitalizeNames,
   getRoute,
-  checkForInternet
+  checkForInternet,
+  setRoute
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -439,6 +440,9 @@ class SpeciesDetail extends Component<Props, State> {
             onPress={() => {
               if ( route === "Match" ) {
                 navigation.navigate( route, { ...navigation.state.params } );
+              } else if ( route === "Species" ) {
+                setRoute( "Main" );
+                navigation.navigate( "Main" );
               } else if ( route ) {
                 navigation.navigate( route );
               } else {

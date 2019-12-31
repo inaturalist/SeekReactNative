@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/home/challenges";
 import realmConfig from "../../models/index";
@@ -45,10 +46,10 @@ const ChallengeCard = ( { navigation }: Props ) => {
         <GreenText text="challenges_card.header" />
       </TouchableOpacity>
       {challenge
-        ? <Challenges challenge={challenge} navigation={navigation} />
+        ? <Challenges challenge={challenge} />
         : <NoChallenges />}
     </View>
   );
 };
 
-export default ChallengeCard;
+export default withNavigation( ChallengeCard );

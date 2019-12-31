@@ -8,6 +8,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/challenges";
@@ -61,4 +62,4 @@ const Challenges = ( { navigation, challenge }: Props ) => (
   </ImageBackground>
 );
 
-export default Challenges;
+export default withNavigation( Challenges );

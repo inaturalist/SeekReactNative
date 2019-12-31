@@ -7,6 +7,7 @@ import {
   Text
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/onboarding";
 import i18n from "../../i18n";
@@ -148,4 +149,4 @@ class Swiper extends Component<Props> {
   }
 }
 
-export default Swiper;
+export default withNavigation( Swiper );

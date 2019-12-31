@@ -153,7 +153,7 @@ class AchievementsScreen extends Component<Props, State> {
             speciesCount={speciesCount}
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
-          <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
+          <ChallengeBadges challengeBadges={challengeBadges} />
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
               onPress={() => navigation.navigate( "MyObservations" )}
@@ -168,7 +168,7 @@ class AchievementsScreen extends Component<Props, State> {
             </View>
           </View>
           <View style={styles.center}>
-            <LoginCard navigation={navigation} screen="achievements" />
+            <LoginCard screen="achievements" />
           </View>
           <Padding />
         </ScrollView>

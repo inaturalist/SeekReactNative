@@ -23,9 +23,9 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +latitude: number,
-  +longitude: number,
-  +location: string,
+  +latitude: ?number,
+  +longitude: ?number,
+  +location: ?string,
   +updateLocation: Function,
   +toggleLocationPicker: Function
 }
@@ -47,9 +47,7 @@ const LocationPicker = ( {
   const [loc, setLocation] = useState( location );
 
   const setCoordsByLocationName = ( newLocation ) => {
-    console.log( newLocation, "new location" );
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
-      console.log( result, "result" );
       if ( result.length === 0 ) {
         return;
       }

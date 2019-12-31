@@ -31,9 +31,7 @@ import { getiNatStats } from "../utility/iNatStatsHelpers";
 import { dimensions } from "../styles/global";
 import createUserAgent from "../utility/userAgent";
 
-type Props = {
-  +navigation: any
-}
+type Props = {}
 
 type State = {
   observations: number,
@@ -178,7 +176,6 @@ class iNatStatsScreen extends Component<Props, State> {
       observers,
       photos
     } = this.state;
-    const { navigation } = this.props;
 
     const photoList = [];
 
@@ -293,7 +290,7 @@ class iNatStatsScreen extends Component<Props, State> {
               </TouchableOpacity>
             </View>
           )}
-          <LoginCard navigation={navigation} screen="iNatStats" />
+          <LoginCard screen="iNatStats" />
           <Padding />
         </ScrollView>
       </SafeAreaView>

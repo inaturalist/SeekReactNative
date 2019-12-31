@@ -7,6 +7,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/iNatObs";
@@ -123,4 +124,4 @@ class INatObs extends Component<Props, State> {
   }
 }
 
-export default INatObs;
+export default withNavigation( INatObs );

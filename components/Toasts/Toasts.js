@@ -14,7 +14,6 @@ import styles from "../../styles/toasts/badgeToast";
 const { height } = Dimensions.get( "window" );
 
 type Props = {
-  +navigation: any,
   +badge: ?Object,
   +incompleteChallenge: ?Object
 }
@@ -95,7 +94,7 @@ class Toasts extends Component<Props> {
   }
 
   render() {
-    const { navigation, badge, incompleteChallenge } = this.props;
+    const { badge, incompleteChallenge } = this.props;
 
     return (
       <View style={Platform.OS === "ios" ? styles.topContainer : null}>
@@ -108,7 +107,6 @@ class Toasts extends Component<Props> {
           >
             <BadgeToast
               badge={badge}
-              navigation={navigation}
             />
           </Animated.View>
         ) : null}
@@ -121,7 +119,6 @@ class Toasts extends Component<Props> {
           >
             <ChallengeToast
               challenge={incompleteChallenge}
-              navigation={navigation}
             />
           </Animated.View>
         ) : null}

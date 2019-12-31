@@ -8,6 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import Realm from "realm";
+import { withNavigation } from "react-navigation";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -76,4 +77,4 @@ const Footer = ( { navigation }: Props ) => {
   );
 };
 
-export default Footer;
+export default withNavigation( Footer );

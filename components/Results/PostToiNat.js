@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents, withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
@@ -69,4 +69,4 @@ class PostToiNat extends Component<Props, State> {
   }
 }
 
-export default PostToiNat;
+export default withNavigation( PostToiNat );

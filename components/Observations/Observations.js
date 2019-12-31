@@ -27,9 +27,7 @@ import DeleteModal from "../Modals/DeleteModal";
 import { removeFromCollection } from "../../utility/helpers";
 import createSectionList from "../../utility/observationHelpers";
 
-type Props = {
-  +navigation: any
-}
+type Props = {}
 
 type State = {
   observations: Array<Object>,
@@ -145,7 +143,6 @@ class Observations extends Component<Props, State> {
       itemToDelete,
       itemScrolledId
     } = this.state;
-    const { navigation } = this.props;
 
     let content;
 
@@ -162,7 +159,6 @@ class Observations extends Component<Props, State> {
                 <ObservationCard
                   item={item}
                   itemScrolledId={itemScrolledId}
-                  navigation={navigation}
                   openModal={this.openModal}
                   updateItemScrolledId={this.updateItemScrolledId}
                 />
@@ -239,7 +235,7 @@ class Observations extends Component<Props, State> {
         />
       );
     } else {
-      content = <EmptyState navigation={navigation} screen="observations" />;
+      content = <EmptyState screen="observations" />;
     }
 
     return (

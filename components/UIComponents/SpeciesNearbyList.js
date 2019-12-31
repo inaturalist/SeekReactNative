@@ -6,6 +6,7 @@ import {
   FlatList,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
@@ -96,4 +97,4 @@ const SpeciesNearbyList = ( {
   />
 );
 
-export default SpeciesNearbyList;
+export default withNavigation( SpeciesNearbyList );

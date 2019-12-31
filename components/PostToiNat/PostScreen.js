@@ -396,7 +396,6 @@ class PostScreen extends Component<Props, State> {
   }
 
   render() {
-    const { navigation } = this.props;
     const {
       taxon,
       seekId,
@@ -463,7 +462,6 @@ class PostScreen extends Component<Props, State> {
           <PostStatus
             errorText={errorText}
             loading={loading}
-            navigation={navigation}
             postingSuccess={postingSuccess}
             status={status}
             togglePostModal={this.togglePostModal}

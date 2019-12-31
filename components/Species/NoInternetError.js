@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -93,7 +94,6 @@ const NoInternetError = ( {
               <SpeciesMap
                 id={id}
                 isLoggedIn={isLoggedIn}
-                navigation={navigation}
                 region={region}
                 seenDate={seenDate}
               />
@@ -102,7 +102,6 @@ const NoInternetError = ( {
             <INatObs
               error={error}
               id={id}
-              navigation={navigation}
               region={region}
               timesSeen={timesSeen}
             />
@@ -126,4 +125,4 @@ const NoInternetError = ( {
   );
 };
 
-export default NoInternetError;
+export default withNavigation( NoInternetError );

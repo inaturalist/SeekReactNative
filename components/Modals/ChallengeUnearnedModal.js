@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import moment from "moment";
 import ProgressCircle from "react-native-progress-circle";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
@@ -83,7 +84,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
               navigation.navigate( "ChallengeDetails" );
               closeModal();
             }}
-            text={i18n.t( "notifications.view_challenges" )}
+            text="notifications.view_challenges"
           />
         </View>
       ) : (
@@ -96,4 +97,4 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
   </>
 );
 
-export default ChallengeUnearnedModal;
+export default withNavigation( ChallengeUnearnedModal );

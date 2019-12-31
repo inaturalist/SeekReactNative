@@ -357,7 +357,6 @@ class OnlineServerResults extends Component<Props, State> {
           ? (
             <ErrorScreen
               error={error}
-              navigation={navigation}
               number={numberOfHours}
             />
           ) : (

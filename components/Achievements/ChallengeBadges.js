@@ -17,8 +17,7 @@ import styles from "../../styles/badges/badges";
 import Modal from "../UIComponents/Modal";
 
 type Props = {
-  +challengeBadges: Array<Object>,
-  +navigation: any
+  +challengeBadges: Array<Object>
 }
 
 type State = {
@@ -84,7 +83,7 @@ class ChallengeBadges extends Component<Props, State> {
   }
 
   render() {
-    const { challengeBadges, navigation } = this.props;
+    const { challengeBadges } = this.props;
     const { showModal, selectedChallenge } = this.state;
 
     return (
@@ -100,7 +99,6 @@ class ChallengeBadges extends Component<Props, State> {
           ) : (
             <ChallengeUnearnedModal
               challenge={selectedChallenge}
-              navigation={navigation}
               closeModal={this.closeModal}
             />
           )}

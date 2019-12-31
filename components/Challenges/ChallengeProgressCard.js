@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
@@ -85,4 +86,4 @@ ChallengeProgressCard.defaultProps = {
   fetchChallenges: () => {}
 };
 
-export default ChallengeProgressCard;
+export default withNavigation( ChallengeProgressCard );

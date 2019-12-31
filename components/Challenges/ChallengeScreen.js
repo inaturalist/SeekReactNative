@@ -21,9 +21,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/NoChallenges";
 
-type Props = {
-  +navigation: any
-}
+type Props = {}
 
 type State = {
   challengesNotStarted: Array<Object>,
@@ -98,7 +96,6 @@ class ChallengeScreen extends Component<Props, State> {
 
   renderChallengesStarted() {
     const { challengesStarted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
@@ -111,7 +108,6 @@ class ChallengeScreen extends Component<Props, State> {
               <ChallengeProgressCard
                 key={`${item.name}`}
                 item={item}
-                navigation={navigation}
               />
             ) )}
             <View style={styles.margin} />
@@ -127,7 +123,6 @@ class ChallengeScreen extends Component<Props, State> {
 
   renderChallengesNotStarted() {
     const { challengesNotStarted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
@@ -141,7 +136,6 @@ class ChallengeScreen extends Component<Props, State> {
                 key={`${item.name}`}
                 fetchChallenges={this.fetchChallenges}
                 item={item}
-                navigation={navigation}
               />
             ) )}
             <View style={styles.margin} />
@@ -158,7 +152,6 @@ class ChallengeScreen extends Component<Props, State> {
 
   renderChallengesCompleted() {
     const { challengesCompleted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
@@ -170,7 +163,6 @@ class ChallengeScreen extends Component<Props, State> {
             <ChallengeProgressCard
               key={`${item.name}`}
               item={item}
-              navigation={navigation}
             />
           ) )
         ) : (

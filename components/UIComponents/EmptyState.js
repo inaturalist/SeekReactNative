@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/emptyState";
@@ -43,4 +44,4 @@ EmptyState.defaultProps = {
   screen: null
 };
 
-export default EmptyState;
+export default withNavigation( EmptyState );

@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents, withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
@@ -88,4 +88,4 @@ class LoginCard extends Component<Props, State> {
   }
 }
 
-export default LoginCard;
+export default withNavigation( LoginCard );

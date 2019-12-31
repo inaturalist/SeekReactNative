@@ -9,6 +9,7 @@ import MapView, {
   UrlTile,
   Marker
 } from "react-native-maps";
+import { withNavigation } from "react-navigation";
 
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
@@ -23,7 +24,7 @@ type Props = {
   +isLoggedIn: ?boolean
 }
 
-const LocationMap = ( {
+const SpeciesMap = ( {
   region,
   id,
   navigation,
@@ -68,4 +69,4 @@ const LocationMap = ( {
   </View>
 );
 
-export default LocationMap;
+export default withNavigation( SpeciesMap );

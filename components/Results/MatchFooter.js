@@ -7,6 +7,7 @@ import {
   ImageBackground,
   SafeAreaView
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
@@ -51,4 +52,4 @@ const MatchFooter = ( { navigation, openFlagModal }: Props ) => (
   </SafeAreaView>
 );
 
-export default MatchFooter;
+export default withNavigation( MatchFooter );

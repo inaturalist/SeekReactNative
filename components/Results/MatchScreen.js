@@ -385,7 +385,6 @@ class MatchScreen extends Component<Props, State> {
           <Banner
             badge={badge}
             incompleteChallenge={challengeInProgress}
-            navigation={navigation}
           />
         ) : null}
         {match && !seenDate && latitude ? (
@@ -488,7 +487,6 @@ class MatchScreen extends Component<Props, State> {
               ancestorId={taxaId}
               lat={latitude}
               lng={longitude}
-              navigation={navigation}
               params={navigation.state.params}
             />
           ) : null}
@@ -505,7 +503,6 @@ class MatchScreen extends Component<Props, State> {
             {isLoggedIn ? (
               <PostToiNat
                 color={gradientColorLight}
-                navigation={navigation}
                 taxaInfo={{
                   preferredCommonName: taxaName || commonAncestor,
                   taxaId,
@@ -522,8 +519,8 @@ class MatchScreen extends Component<Props, State> {
           <Padding />
         </ScrollView>
         {match || seenDate
-          ? <MatchFooter navigation={navigation} openFlagModal={this.openFlagModal} />
-          : <Footer navigation={navigation} />}
+          ? <MatchFooter openFlagModal={this.openFlagModal} />
+          : <Footer />}
       </View>
     );
   }

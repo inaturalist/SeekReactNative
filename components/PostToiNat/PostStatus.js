@@ -5,6 +5,7 @@ import {
   Image,
   StatusBar
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postStatus";
@@ -94,4 +95,4 @@ const PostStatus = ( {
   );
 };
 
-export default PostStatus;
+export default withNavigation( PostStatus );

@@ -478,7 +478,6 @@ class SpeciesDetail extends Component<Props, State> {
               fetchiNatData={this.fetchiNatData}
               id={id}
               isLoggedIn={isLoggedIn}
-              navigation={navigation}
               observationsByMonth={observationsByMonth}
               region={region}
               seenDate={seenDate}

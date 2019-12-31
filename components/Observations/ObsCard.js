@@ -8,6 +8,7 @@ import {
   ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
+import { withNavigation } from "react-navigation";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -174,4 +175,4 @@ class ObservationCard extends Component<Props, State> {
   }
 }
 
-export default ObservationCard;
+export default withNavigation( ObservationCard );

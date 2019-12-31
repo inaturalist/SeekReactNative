@@ -12,7 +12,6 @@ import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 type Props = {
   +taxa: Array<Object>,
   +loading: boolean,
-  +navigation: any,
   +requestAndroidPermissions: Function,
   +error: ?string
 }
@@ -20,7 +19,6 @@ type Props = {
 const SpeciesNearby = ( {
   taxa,
   loading,
-  navigation,
   requestAndroidPermissions,
   error
 }: Props ) => {
@@ -39,7 +37,7 @@ const SpeciesNearby = ( {
     );
   } else {
     species = (
-      <SpeciesNearbyList navigation={navigation} taxa={taxa} />
+      <SpeciesNearbyList taxa={taxa} />
     );
   }
 

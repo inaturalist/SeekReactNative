@@ -30,9 +30,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import createUserAgent from "../../utility/userAgent";
 import RNModal from "../UIComponents/Modal";
 
-type Props = {
-  +navigation: any
-}
+type Props = {}
 
 type State = {
   latitude: ?number,
@@ -230,6 +228,7 @@ class HomeScreen extends Component<Props, State> {
   }
 
   updateLocation( latitude: number, longitude: number ) {
+    this.setLoading( true );
     this.reverseGeocodeLocation( latitude, longitude );
     this.toggleLocationPicker();
   }
@@ -253,7 +252,6 @@ class HomeScreen extends Component<Props, State> {
       error,
       showModal
     } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -295,12 +293,11 @@ class HomeScreen extends Component<Props, State> {
           <SpeciesNearby
             error={error}
             loading={loading}
-            navigation={navigation}
             requestAndroidPermissions={this.requestAndroidPermissions}
             taxa={taxa}
           />
           <View style={styles.greenMargin} />
-          <ChallengeCard navigation={navigation} />
+          <ChallengeCard />
           <Padding />
         </ScrollView>
       </View>

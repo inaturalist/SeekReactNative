@@ -20,7 +20,7 @@ import FlagModal from "../Modals/FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
-import Banner from "../Toasts/Toasts";
+import Toasts from "../Toasts/Toasts";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
@@ -33,7 +33,8 @@ import {
   setSpeciesId,
   setRoute,
   removeFromCollection,
-  fetchNumberSpeciesSeen
+  fetchNumberSpeciesSeen,
+  getRoute
 } from "../../utility/helpers";
 import {
   showAppStoreReview,
@@ -76,7 +77,8 @@ type State = {
   challengeShown: boolean,
   errorCode: number,
   rank: number,
-  isLoggedIn: boolean
+  isLoggedIn: boolean,
+  route: ?string
 };
 
 class MatchScreen extends Component<Props, State> {
@@ -127,7 +129,8 @@ class MatchScreen extends Component<Props, State> {
       challengeShown: false,
       errorCode,
       rank,
-      isLoggedIn
+      isLoggedIn,
+      route: null
     };
 
     ( this:any ).closeLevelModal = this.closeLevelModal.bind( this );
@@ -135,6 +138,11 @@ class MatchScreen extends Component<Props, State> {
     ( this:any ).closeFlagModal = this.closeFlagModal.bind( this );
     ( this:any ).openFlagModal = this.openFlagModal.bind( this );
     ( this:any ).deleteObservation = this.deleteObservation.bind( this );
+  }
+
+  async getRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
   }
 
   setNavigationPath( navigationPath: string ) {
@@ -248,9 +256,14 @@ class MatchScreen extends Component<Props, State> {
   }
 
   checkModals() {
-    const { challenge, latestLevel, challengeShown } = this.state;
+    const {
+      challenge,
+      latestLevel,
+      challengeShown,
+      route
+    } = this.state;
 
-    if ( ( !challenge && !latestLevel ) || challengeShown ) {
+    if ( ( !challenge && !latestLevel ) || challengeShown || route === "Match" ) {
       this.navigateTo();
     } else if ( challenge ) {
       this.openChallengeModal();
@@ -310,7 +323,8 @@ class MatchScreen extends Component<Props, State> {
       commonAncestor,
       match,
       isLoggedIn,
-      rank
+      rank,
+      route
     } = this.state;
 
     let headerText;
@@ -367,10 +381,13 @@ class MatchScreen extends Component<Props, State> {
               setChallengeProgress( "none" );
             }
           }}
-          onWillFocus={() => this.scrollToTop()}
+          onWillFocus={() => {
+            this.scrollToTop();
+            this.getRoute();
+          }}
         />
-        {match && !seenDate && latitude ? (
-          <Banner
+        {match && !seenDate && latitude && route !== "Match" && route !== "PostStatus" ? (
+          <Toasts
             badge={badge}
             incompleteChallenge={challengeInProgress}
           />

@@ -15,6 +15,7 @@ import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
   +loading: boolean,
@@ -82,6 +83,7 @@ const PostStatus = ( {
             color={!loading && !postingSuccess ? colors.seekTeal : null}
             handlePress={() => {
               if ( postingSuccess ) {
+                setRoute( "PostStatus" );
                 navigation.goBack();
               } else {
                 togglePostModal();

@@ -16,7 +16,7 @@ import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   +taxa: Array,
-  +navigation: ?any,
+  +navigation: any,
   +fetchiNatData: ?Function,
   +match: boolean
 }
@@ -67,15 +67,16 @@ const SpeciesNearbyList = ( {
           if ( match ) {
             setRoute( "Match" );
             navigation.navigate( "Species", { ...navigation.state.params } );
-          } else if ( navigation ) {
+          } else if ( fetchiNatData ) {
+            fetchiNatData();
+          } else {
             setRoute( "Main" );
             navigation.navigate( "Species", { ...navigation.state.params } );
-          } else {
-            fetchiNatData();
           }
         }}
         style={styles.gridCell}
       >
+        {console.log( match, fetchiNatData, "props in species nearby" )}
         {item.default_photo && item.default_photo.medium_url ? (
           <Image
             source={{ uri: item.default_photo.medium_url }}

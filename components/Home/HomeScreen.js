@@ -183,7 +183,8 @@ class HomeScreen extends Component<Props, State> {
 
   updateTaxaType( taxaType: string ) {
     this.setState( {
-      taxaType
+      taxaType,
+      loading: true
     }, () => this.setParamsForSpeciesNearby() );
   }
 

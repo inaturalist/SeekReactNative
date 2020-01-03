@@ -142,7 +142,6 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
       } );
       const newLength = realm.objects( "TaxonRealm" ).length;
       checkForPowerUsers( length, newLength );
-      console.log( realm.objects( "ObservationRealm" ), "observations" );
     } ).catch( ( e ) => {
       console.log( e, "error adding to collection" );
     } );

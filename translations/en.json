@@ -402,7 +402,7 @@
     "not_seen": "You haven’t observed any {{iconicTaxon}} yet!"
   },
   "species_detail": {
-    "near": "Near {{location}}",
+    "near": "Nearby",
     "about": "About",
     "range_map": "Range map",
     "range_about": "A map of observations of this species seen on iNaturalist.",

@@ -105,9 +105,7 @@ class INatObs extends Component<Props, State> {
             {error === "location" ? null : (
               <>
                 <Text style={styles.secondHeaderText}>
-                  {i18n.t( "species_detail.near" )}
-                  {" "}
-                  {location}
+                  {i18n.t( "species_detail.near", { location } )}
                 </Text>
                 <Text style={styles.number}>
                   {seti18nNumber( nearbySpeciesCount )}

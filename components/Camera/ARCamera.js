@@ -12,7 +12,6 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { INatCamera } from "react-native-inat-camera";
-import moment from "moment";
 
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import WarningModal from "../Modals/WarningModal";
@@ -25,6 +24,8 @@ import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers
 import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import Modal from "../UIComponents/Modal";
+import { createTimestamp } from "../../utility/dateHelpers";
+import { setCameraHelpText } from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any
@@ -222,7 +223,7 @@ class ARCamera extends Component<Props, State> {
     const { navigation } = this.props;
 
     const results = {
-      time: moment().format( "X" ), // add current time to AR camera photos,
+      time: createTimestamp(), // add current time to AR camera photos,
       uri
     };
 
@@ -272,17 +273,7 @@ class ARCamera extends Component<Props, State> {
     } = this.state;
     const { navigation } = this.props;
 
-    let helpText;
-
-    if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
-      helpText = i18n.t( "camera.scan_class" );
-    } else if ( rankToRender === "genus" ) {
-      helpText = i18n.t( "camera.scan_genus" );
-    } else if ( rankToRender === "species" ) {
-      helpText = i18n.t( "camera.scan_species" );
-    } else {
-      helpText = i18n.t( "camera.scan" );
-    }
+    const helpText = setCameraHelpText( rankToRender );
 
     return (
       <View style={styles.container}>

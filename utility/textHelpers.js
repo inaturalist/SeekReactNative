@@ -34,7 +34,24 @@ const setAncestorRankText = ( rank ) => {
   return i18n.t( ancestorRank );
 };
 
+const setCameraHelpText = ( rankToRender ) => {
+  let helpText;
+
+  if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
+    helpText = "camera.scan_class";
+  } else if ( rankToRender === "genus" ) {
+    helpText = "camera.scan_genus";
+  } else if ( rankToRender === "species" ) {
+    helpText = "camera.scan_species";
+  } else {
+    helpText = "camera.scan";
+  }
+
+  return i18n.t( helpText );
+};
+
 export {
   setChallengeDetailsButtonText,
-  setAncestorRankText
+  setAncestorRankText,
+  setCameraHelpText
 };

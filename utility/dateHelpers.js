@@ -72,10 +72,19 @@ const fetchSpeciesSeenDate = ( taxaId ) => (
   } )
 );
 
+const createTimestamp = () => moment().format( "X" );
+
+const namePhotoByTime = () => moment().format( "DDMMYY_HHmmSSS" );
+
+const setISOTime = ( time ) => moment.unix( time ).format();
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
   isWithinPastYear,
   setMonthLocales,
-  fetchSpeciesSeenDate
+  fetchSpeciesSeenDate,
+  createTimestamp,
+  namePhotoByTime,
+  setISOTime
 };

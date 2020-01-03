@@ -5,7 +5,6 @@ import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
-import moment from "moment";
 import UUIDGenerator from "react-native-uuid-generator";
 
 import i18n from "../i18n";
@@ -17,6 +16,7 @@ import config from "../config";
 import realmConfig from "../models/index";
 import { createNotification } from "./notificationHelpers";
 import { dirModel, dirTaxonomy } from "./dirStorage";
+import { setISOTime } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -133,7 +133,7 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
         } );
         realm.create( "ObservationRealm", {
           uuidString: uuid,
-          date: time ? moment.unix( time ).format() : new Date(),
+          date: time ? setISOTime( time ) : new Date(),
           taxon: newTaxon,
           latitude,
           longitude,
@@ -142,6 +142,7 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
       } );
       const newLength = realm.objects( "TaxonRealm" ).length;
       checkForPowerUsers( length, newLength );
+      console.log( realm.objects( "ObservationRealm" ), "observations" );
     } ).catch( ( e ) => {
       console.log( e, "error adding to collection" );
     } );

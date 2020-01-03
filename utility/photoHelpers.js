@@ -1,5 +1,4 @@
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
-import moment from "moment";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import GalleryManager from "react-native-gallery-manager";
@@ -7,6 +6,7 @@ import GalleryManager from "react-native-gallery-manager";
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
+import { namePhotoByTime } from "./dateHelpers";
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -79,7 +79,8 @@ const createBackupUri = async ( uri ) => {
     const resizedImage = await resizeImage( uri, dimensions.width, 250 );
 
     if ( resizedImage ) {
-      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
+      const timestamp = namePhotoByTime();
+      const newImageName = `${timestamp}.jpg`;
       const backupFilepath = `${dirPictures}/${newImageName}`;
       const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
       if ( imageMoved ) {

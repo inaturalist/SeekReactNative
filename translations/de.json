@@ -402,7 +402,7 @@
     "not_seen": "Sie haben noch kein {{iconicTaxon}}} beobachtet!"
   },
   "species_detail": {
-    "near": "In der Nähe",
+    "near": "Nearby",
     "about": "Über",
     "range_map": "Reichweitenkarte",
     "range_about": "Eine Karte der Beobachtungen dieser Art auf iNaturalist.",

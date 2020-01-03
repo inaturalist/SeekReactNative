@@ -402,7 +402,7 @@
     "not_seen": "您尚未觀察到任何 {{iconicTaxon}}！"
   },
   "species_detail": {
-    "near": "附近",
+    "near": "Nearby",
     "about": "關於",
     "range_map": "範圍圖",
     "range_about": "在 iNaturalist 上看到的此物种的觀察結果圖。",

@@ -402,7 +402,7 @@
     "not_seen": "आपने अभी तक किसी {{iconicTaxon}} का पर्यवेक्षण नहीं किया है!"
   },
   "species_detail": {
-    "near": "निकट",
+    "near": "Nearby",
     "about": "परिचय",
     "range_map": "रेंज मैप",
     "range_about": "इस प्रजाति के पर्यवेक्षणों को एक मैप iNaturalist पर देखा जा सकता है।",

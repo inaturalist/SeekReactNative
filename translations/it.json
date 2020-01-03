@@ -284,7 +284,7 @@
     "error_old_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
     "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato",
     "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_no_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso."
   },
   "gallery": {
     "label": "Foto",
@@ -402,7 +402,7 @@
     "not_seen": "Non hai ancora osservato nessun {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nelle vicinanze",
+    "near": "Nearby",
     "about": "Info su",
     "range_map": "Mappa dell'areale",
     "range_about": "Una mappa delle osservazioni di questa specie su iNaturalist.",

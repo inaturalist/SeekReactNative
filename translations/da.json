@@ -284,7 +284,7 @@
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
     "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
     "error_save": "Beklager, der opstod et problem med at gemme dit billede",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_no_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album."
   },
   "gallery": {
     "label": "Fotos",
@@ -402,7 +402,7 @@
     "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nær",
+    "near": "Nearby",
     "about": "Om",
     "range_map": "Udbredelseskort",
     "range_about": "Et kort over observationer af denne art på iNaturalist.",

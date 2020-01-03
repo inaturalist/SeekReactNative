@@ -228,7 +228,7 @@
     "back": "Terug naar Camera",
     "no_identification": "We konden deze soort niet determineren",
     "sorry": "Sorry, Seek leert nog steeds!\n\nJe kunt een andere hoek proberen, in te zoomen of proberen een duidelijkere afbeelding van het organisme te krijgen.",
-    "take_photo": "Neem een andere foto",
+    "take_photo": "Neem nog een foto",
     "common_ancestor": "Maar we konden de exacte soort niet determineren.\n\nJe kunt een andere hoek proberen, in te zoomen of proberen een duidelijkere afbeelding van het organisme te maken.",
     "believe": "Wij geloven dat dit lid is van",
     "believe_1": "Wij geloven dat dit lid is van",
@@ -251,7 +251,7 @@
     "error_gps": "Uw GPS locatie is niet beschikbaar. Ga naar de open lucht en controleer of de GPS van uw apparaat is ingeschakeld zodat je je waarnemingen op kunt slaan.",
     "error_timeout": "We konden je waarneming niet opslaan door een locatie time-out. Probeer het later nog eens.",
     "nearby": "Soort in de buurt van dit taxon",
-    "nothing_nearby": "Er zijn nog niet veel soorten waargenomen in de buurt van dit taxon. Probeer een andere foto te nemen of het te plaatsen op iNaturalist.",
+    "nothing_nearby": "Er zijn weinig soorten waargenomen in de buurt van dit taxon. Neem nog een foto of plaats ze op iNaturalist.",
     "tap": "Tik om soorten in de buurt te laden"
   },
   "banner": {
@@ -284,7 +284,7 @@
     "error_old_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
     "error_device_support": "Het spijt ons, uw apparaat wordt niet ondersteund",
     "error_save": "Sorry, er was een probleem bij het bewaren van je foto",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_no_photos": "Er zijn geen foto's gevonden in dit fotoalbum. Probeer een ander album."
   },
   "gallery": {
     "label": "Foto’s",
@@ -402,7 +402,7 @@
     "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!"
   },
   "species_detail": {
-    "near": "Vlakbij",
+    "near": "Nearby",
     "about": "Over",
     "range_map": "Verspreidingskaart",
     "range_about": "Een kaart van waarnemingen van deze soort die op iNaturalist zijn gezien.",

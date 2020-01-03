@@ -284,7 +284,7 @@
     "error_old_camera": "申し訳ございません。カメラを起動することができませんでした。",
     "error_device_support": "申し訳ございません。お使いの端末はサポートされていません。",
     "error_save": "申し訳ございません。写真を保存することができませんでした。",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_no_photos": "このアルバムには写真がありません。他のアルバムを選択してください。"
   },
   "gallery": {
     "label": "写真",
@@ -402,7 +402,7 @@
     "not_seen": "あなたはまだ{{iconicTaxon}}の生き物を観察していません！"
   },
   "species_detail": {
-    "near": "付近",
+    "near": "Nearby",
     "about": "この種について",
     "range_map": "生息地",
     "range_about": "この種がiNaturalistで記録された場所を示す地図。",

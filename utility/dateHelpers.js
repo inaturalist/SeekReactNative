@@ -5,28 +5,19 @@ import i18n from "../i18n";
 import realmConfig from "../models/index";
 
 const requiresParent = ( birthday ) => {
-  const today = moment().format( "YYYY-MM-DD" );
-  const thirteen = moment( today ).subtract( 13, "year" ).format( "YYYY-MM-DD" );
-  if ( moment( birthday ).isAfter( thirteen ) ) {
-    return true;
-  }
-  return false;
+  const today = moment();
+  const thirteen = moment( today ).subtract( 13, "year" );
+
+  return moment( birthday ).isAfter( thirteen );
 };
 
-const checkIfChallengeAvailable = ( date ) => {
-  if ( date <= new Date() ) {
-    return true;
-  }
-  return false;
-};
+const checkIfChallengeAvailable = ( date ) => date <= new Date();
 
 const isWithinPastYear = ( reviewShownDate ) => {
-  const today = moment().format( "YYYY-MM-DD" );
-  const lastYear = moment( today ).subtract( 1, "year" ).format( "YYYY-MM-DD" );
-  if ( moment( reviewShownDate ).isAfter( lastYear ) ) {
-    return true;
-  }
-  return false;
+  const today = moment();
+  const lastYear = moment( today ).subtract( 1, "year" );
+
+  return moment( reviewShownDate ).isAfter( lastYear );
 };
 
 const setMonthLocales = () => {
@@ -80,18 +71,18 @@ const setISOTime = ( time ) => moment.unix( time ).format();
 
 const setISOTimeUnformatted = ( time ) => moment.unix( time );
 
-const formatYearMonthDay = ( date ) => {
-  if ( date ) {
-    return moment( date ).format( "YYYY-MM-DD" );
-  }
-  return moment().format( "YYYY-MM-DD" );
-};
-
 const setTime = ( time ) => {
   if ( time ) {
     return moment( time );
   }
   return moment();
+};
+
+const formatYearMonthDay = ( date ) => {
+  if ( date ) {
+    return moment( date ).format( "YYYY-MM-DD" );
+  }
+  return moment().format( "YYYY-MM-DD" );
 };
 
 const formatMonthDayYear = ( date ) => moment( date ).format( "MMMM DD, YYYY" );

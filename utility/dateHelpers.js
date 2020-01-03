@@ -69,8 +69,6 @@ const namePhotoByTime = () => moment().format( "DDMMYY_HHmmSSS" );
 
 const setISOTime = ( time ) => moment.unix( time ).format();
 
-const setISOTimeUnformatted = ( time ) => moment.unix( time );
-
 const setTime = ( time ) => {
   if ( time ) {
     return moment( time );
@@ -101,7 +99,6 @@ export {
   namePhotoByTime,
   setISOTime,
   formatYearMonthDay,
-  setISOTimeUnformatted,
   setTime,
   formatMonthDayYear,
   formatShortMonthDayYear,

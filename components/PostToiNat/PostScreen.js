@@ -36,7 +36,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import createUserAgent from "../../utility/userAgent";
-import { formatYearMonthDay, setISOTimeUnformatted } from "../../utility/dateHelpers";
+import { formatYearMonthDay, setISOTime } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -85,7 +85,7 @@ class PostScreen extends Component<Props, State> {
       latitude,
       longitude,
       location: null,
-      date: setISOTimeUnformatted( time ),
+      date: setISOTime( time ),
       captive: null,
       geoprivacy: null,
       uri,

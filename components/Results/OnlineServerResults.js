@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
 import ConfirmScreen from "./ConfirmScreen";
@@ -20,7 +19,7 @@ import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
-import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate, setTime } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -248,8 +247,8 @@ class OnlineServerResults extends Component<Props, State> {
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
           const gmtTime = response.headers.map["retry-after"];
-          const currentTime = moment();
-          const retryAfter = moment( gmtTime );
+          const currentTime = setTime();
+          const retryAfter = setTime( gmtTime );
 
           const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
 

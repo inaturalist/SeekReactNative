@@ -78,6 +78,28 @@ const namePhotoByTime = () => moment().format( "DDMMYY_HHmmSSS" );
 
 const setISOTime = ( time ) => moment.unix( time ).format();
 
+const setISOTimeUnformatted = ( time ) => moment.unix( time );
+
+const formatYearMonthDay = ( date ) => {
+  if ( date ) {
+    return moment( date ).format( "YYYY-MM-DD" );
+  }
+  return moment().format( "YYYY-MM-DD" );
+};
+
+const setTime = ( time ) => {
+  if ( time ) {
+    return moment( time );
+  }
+  return moment();
+};
+
+const formatMonthDayYear = ( date ) => moment( date ).format( "MMMM DD, YYYY" );
+
+const formatShortMonthDayYear = ( date ) => moment( date ).format( "ll" );
+
+const createShortMonthsList = () => moment.monthsShort();
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
@@ -86,5 +108,11 @@ export {
   fetchSpeciesSeenDate,
   createTimestamp,
   namePhotoByTime,
-  setISOTime
+  setISOTime,
+  formatYearMonthDay,
+  setISOTimeUnformatted,
+  setTime,
+  formatMonthDayYear,
+  formatShortMonthDayYear,
+  createShortMonthsList
 };

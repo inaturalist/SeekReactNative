@@ -12,7 +12,6 @@ import {
 import { NavigationEvents } from "react-navigation";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
-import moment from "moment";
 import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
@@ -37,6 +36,7 @@ import { dirPictures } from "../../utility/dirStorage";
 import { fetchAccessToken } from "../../utility/loginHelpers";
 import NoInternetError from "./NoInternetError";
 import createUserAgent from "../../utility/userAgent";
+import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -165,7 +165,7 @@ class SpeciesDetail extends Component<Props, State> {
 
   setSeenTaxa( seenTaxa: Object ) {
     const { taxon, latitude, longitude } = seenTaxa;
-    const seenDate = seenTaxa ? moment( seenTaxa.date ).format( "ll" ) : null;
+    const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
 
     if ( latitude && longitude ) {
       this.checkIfSpeciesIsNative( latitude, longitude );

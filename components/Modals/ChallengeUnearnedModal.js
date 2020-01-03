@@ -7,7 +7,6 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import moment from "moment";
 import ProgressCircle from "react-native-progress-circle";
 import { withNavigation } from "react-navigation";
 
@@ -15,7 +14,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
+import { checkIfChallengeAvailable, formatMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
@@ -89,7 +88,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         </View>
       ) : (
         <Text style={[styles.italicText, styles.centerSelf]}>
-          {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}
+          {i18n.t( "challenges.released", { date: formatMonthDayYear( challenge.availableDate ) } )}
         </Text>
       )}
     </View>

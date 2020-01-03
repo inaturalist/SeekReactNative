@@ -3,13 +3,13 @@ import React from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
-import moment from "moment";
 
 // import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 import GreenText from "../UIComponents/GreenText";
 import { capitalizeNames } from "../../utility/helpers";
+import { createShortMonthsList } from "../../utility/dateHelpers";
 
 type Props = {
   +data: Array<Object>
@@ -19,7 +19,7 @@ const SpeciesChart = ( { data }: Props ) => {
   // const locale = i18n.locale.split( "-" )[0];
 
   const formatXAxis = ( index ) => {
-    const allMonths = moment.monthsShort();
+    const allMonths = createShortMonthsList();
 
     // if ( locale === "ja" ) {
     //   return capitalizeNames( allMonths[index] );

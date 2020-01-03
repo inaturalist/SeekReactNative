@@ -6,10 +6,9 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import moment from "moment";
 
 import i18n from "../../i18n";
-import { requiresParent } from "../../utility/dateHelpers";
+import { requiresParent, formatYearMonthDay } from "../../utility/dateHelpers";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenButton from "../UIComponents/GreenButton";
@@ -30,7 +29,7 @@ class AgeVerifyScreen extends Component<Props, State> {
     super();
 
     this.state = {
-      date: moment().format( "YYYY-MM-DD" ),
+      date: formatYearMonthDay(),
       isDateTimePickerVisible: false
     };
 
@@ -47,7 +46,7 @@ class AgeVerifyScreen extends Component<Props, State> {
   handleDatePicked = ( date: Date ) => {
     if ( date ) {
       this.setState( {
-        date: moment( date ).format( "YYYY-MM-DD" )
+        date: formatYearMonthDay( date )
       }, this.toggleDateTimePicker() );
     }
   };

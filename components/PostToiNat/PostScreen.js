@@ -12,7 +12,6 @@ import {
   Keyboard
 } from "react-native";
 import { NavigationEvents, ScrollView } from "react-navigation";
-import moment from "moment";
 import inatjs, { FileUpload } from "inaturalistjs";
 
 import styles from "../../styles/posting/postToiNat";
@@ -37,6 +36,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import createUserAgent from "../../utility/userAgent";
+import { formatYearMonthDay, setISOTimeUnformatted } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -85,7 +85,7 @@ class PostScreen extends Component<Props, State> {
       latitude,
       longitude,
       location: null,
-      date: moment.unix( time ),
+      date: setISOTimeUnformatted( time ),
       captive: null,
       geoprivacy: null,
       uri,
@@ -508,7 +508,7 @@ class PostScreen extends Component<Props, State> {
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.text}>
-                {moment( new Date( date ) ).format( "YYYY-MM-DD" )}
+                {formatYearMonthDay( new Date( date ) )}
               </Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />

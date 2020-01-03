@@ -31,7 +31,7 @@ import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
-import setChallengeDetailsButtonText from "../../utility/textHelpers";
+import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
 import { getRoute } from "../../utility/helpers";
 
 type Props = {

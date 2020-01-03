@@ -12,7 +12,6 @@ import { withNavigation } from "react-navigation";
 import i18n from "../../i18n";
 import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
-import { fetchLocationName } from "../../utility/locationHelpers";
 import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
 import { seti18nNumber, setRoute } from "../../utility/helpers";
@@ -26,8 +25,7 @@ type Props = {
 };
 
 type State = {
-  nearbySpeciesCount: ?number,
-  location: ?string
+  nearbySpeciesCount: ?number
 }
 
 class INatObs extends Component<Props, State> {
@@ -35,8 +33,7 @@ class INatObs extends Component<Props, State> {
     super();
 
     this.state = {
-      nearbySpeciesCount: null,
-      location: null
+      nearbySpeciesCount: null
     };
   }
 
@@ -44,23 +41,12 @@ class INatObs extends Component<Props, State> {
     const { region } = this.props;
 
     if ( region !== prevProps.region ) {
-      this.reverseGeocodeLocation( region.latitude, region.longitude );
       this.fetchNearbySpeciesCount();
     }
   }
 
-  setLocation( location: ?string ) {
-    this.setState( { location } );
-  }
-
   setNearbySpeciesCount( nearbySpeciesCount: number ) {
     this.setState( { nearbySpeciesCount } );
-  }
-
-  reverseGeocodeLocation( lat: number, lng: number ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location );
-    } ).catch( () => this.setLocation( null ) );
   }
 
   fetchNearbySpeciesCount() {
@@ -85,7 +71,7 @@ class INatObs extends Component<Props, State> {
 
   render() {
     const { navigation, timesSeen, error } = this.props;
-    const { nearbySpeciesCount, location } = this.state;
+    const { nearbySpeciesCount } = this.state;
 
     return (
       <View>

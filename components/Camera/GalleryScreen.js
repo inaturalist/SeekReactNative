@@ -78,7 +78,7 @@ class GalleryScreen extends Component<Props, State> {
     } );
   }
 
-  getPhotos() {
+  setPhotoParams() {
     const {
       lastCursor,
       hasNextPage,
@@ -104,14 +104,19 @@ class GalleryScreen extends Component<Props, State> {
     }
 
     if ( hasNextPage && !stillLoading ) {
-      this.setState( { stillLoading: true } );
-      // $FlowFixMe
-      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-        this.appendPhotos( results.edges, results.page_info );
-      } ).catch( ( err ) => {
-        console.log( err, "error" );
-      } );
+      this.setState( {
+        stillLoading: true
+      }, () => this.getPhotos( photoOptions ) );
     }
+  }
+
+  getPhotos( photoOptions: Object ) {
+    // $FlowFixMe
+    CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+      this.appendPhotos( results.edges, results.page_info );
+    } ).catch( ( err ) => {
+      console.log( err, "error" );
+    } );
   }
 
   setError( error: string ) {
@@ -121,7 +126,7 @@ class GalleryScreen extends Component<Props, State> {
   requestAndroidPermissions = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
-      this.getPhotos();
+      this.setPhotoParams();
     } else {
       this.setError( "gallery" );
     }
@@ -148,7 +153,7 @@ class GalleryScreen extends Component<Props, State> {
       hasNextPage: true,
       lastCursor: null,
       stillLoading: false
-    }, () => this.getPhotos() );
+    }, () => this.setPhotoParams() );
   }
 
   updatePhotos( photos: Array<Object>, pageInfo: Object ) {
@@ -165,9 +170,7 @@ class GalleryScreen extends Component<Props, State> {
 
     if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
       this.setError( "noPhotos" );
-    }
-
-    if ( photos.length > 0 ) {
+    } else if ( photos.length > 0 ) {
       data.forEach( ( photo ) => {
         photos.push( photo );
       } );
@@ -181,7 +184,7 @@ class GalleryScreen extends Component<Props, State> {
     if ( Platform.OS === "android" ) {
       this.requestAndroidPermissions();
     } else {
-      this.getPhotos();
+      this.setPhotoParams();
     }
   }
 
@@ -264,6 +267,7 @@ class GalleryScreen extends Component<Props, State> {
     } else {
       gallery = (
         <FlatList
+          contentContainerStyle={styles.galleryContainer}
           data={photos}
           getItemLayout={( data, index ) => (
             // skips measurement of dynamic content for faster loading
@@ -281,7 +285,7 @@ class GalleryScreen extends Component<Props, State> {
             </View>
           )}
           numColumns={4}
-          onEndReached={() => this.getPhotos()}
+          onEndReached={() => this.setPhotoParams()}
           renderItem={this.renderItem}
         />
       );
@@ -317,9 +321,7 @@ class GalleryScreen extends Component<Props, State> {
             <LoadingWheel color={colors.darkGray} />
           </View>
         ) : null}
-        <View style={styles.galleryContainer}>
-          {gallery}
-        </View>
+        {gallery}
       </View>
     );
   }

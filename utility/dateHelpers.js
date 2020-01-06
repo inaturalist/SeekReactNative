@@ -1,23 +1,25 @@
 import moment from "moment";
 import Realm from "realm";
+import { subYears, isAfter, parseISO } from "date-fns";
 
 import i18n from "../i18n";
 import realmConfig from "../models/index";
 
-const requiresParent = ( birthday ) => {
-  const today = moment();
-  const thirteen = moment( today ).subtract( 13, "year" );
+const today = new Date();
 
-  return moment( birthday ).isAfter( thirteen );
+const requiresParent = ( birthday ) => {
+  const thirteen = subYears( today, 13 );
+  const formattedBirthday = parseISO( birthday );
+
+  return isAfter( formattedBirthday, thirteen );
 };
 
-const checkIfChallengeAvailable = ( date ) => date <= new Date();
+const checkIfChallengeAvailable = ( date ) => date <= today;
 
 const isWithinPastYear = ( reviewShownDate ) => {
-  const today = moment();
-  const lastYear = moment( today ).subtract( 1, "year" );
+  const lastYear = subYears( today, 1 );
 
-  return moment( reviewShownDate ).isAfter( lastYear );
+  return isAfter( reviewShownDate, lastYear );
 };
 
 const setMonthLocales = () => {

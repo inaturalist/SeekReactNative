@@ -130,11 +130,7 @@ class ARCamera extends Component<Props, State> {
 
   handleCameraError = ( event: Object ) => {
     if ( event ) {
-      if ( Platform.OS === "ios" ) {
-        this.setError( "camera", event.nativeEvent.error );
-      } else {
-        this.setError( "camera" );
-      }
+      this.setError( "camera", event.nativeEvent.error );
     }
   }
 

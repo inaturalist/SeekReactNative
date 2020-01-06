@@ -19,7 +19,7 @@ import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
-import { fetchSpeciesSeenDate, setTime } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate, createTimestamp } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
@@ -247,8 +247,8 @@ class OnlineServerResults extends Component<Props, State> {
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
           const gmtTime = response.headers.map["retry-after"];
-          const currentTime = setTime();
-          const retryAfter = setTime( gmtTime );
+          const currentTime = createTimestamp();
+          const retryAfter = createTimestamp( gmtTime );
 
           const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
 

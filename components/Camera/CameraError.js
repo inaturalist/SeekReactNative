@@ -4,8 +4,7 @@ import React from "react";
 import {
   Text,
   View,
-  TouchableOpacity,
-  Platform
+  TouchableOpacity
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 

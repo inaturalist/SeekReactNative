@@ -13,11 +13,9 @@ import {
   de,
   es,
   fr,
-  hi,
   it,
   ja,
   nl,
-  pt,
   ru,
   tr,
   zh
@@ -33,11 +31,9 @@ const locales = {
   de,
   es,
   fr,
-  hi,
   it,
   ja,
   nl,
-  pt,
   ru,
   tr,
   zh

@@ -122,7 +122,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 84
         versionName "2.4.4"
-        // resConfigs "da", "de", "en", "es", "fr", "hi", "it", "ja", "nl", "pt", "ru", "tr", "zh" 
     }
     signingConfigs {
         release {

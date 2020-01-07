@@ -543,20 +543,6 @@
     "rate_now": "Rate now",
     "later": "Later"
   },
-  "months_short": {
-    "1": "Jan",
-    "2": "Feb",
-    "3": "Mar",
-    "4": "Apr",
-    "5": "May",
-    "6": "June",
-    "7": "Jul",
-    "8": "Aug",
-    "9": "Sept",
-    "10": "Oct",
-    "11": "Nov",
-    "12": "Dec"
-  },
   "attributions": {
     "all": "all rights reserved",
     "some": "some rights reserved"

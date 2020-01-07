@@ -6,13 +6,10 @@ import fr from "./translations/fr.json";
 import da from "./translations/da.json";
 import de from "./translations/de.json";
 import es from "./translations/es.json";
-import hi from "./translations/hi.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
 import zh from "./translations/zh.json";
-import pt from "./translations/pt.json";
-import ptBR from "./translations/pt-BR.json";
 import ru from "./translations/ru.json";
 import tr from "./translations/tr.json";
 
@@ -22,13 +19,10 @@ i18n.translations = {
   da,
   de,
   es,
-  hi,
   it,
   ja,
   nl,
   zh,
-  pt,
-  ptBR,
   ru,
   tr
 };

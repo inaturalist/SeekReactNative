@@ -10,7 +10,7 @@ import fr from "./translations/fr.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
-import no from "./translations/no.json";
+import nb from "./translations/nb.json";
 import ru from "./translations/ru.json";
 import tr from "./translations/tr.json";
 import zh from "./translations/zh.json";
@@ -25,7 +25,7 @@ i18n.translations = {
   it,
   ja,
   nl,
-  no,
+  nb,
   ru,
   tr,
   zh

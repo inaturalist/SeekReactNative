@@ -16,7 +16,7 @@ import {
   fr,
   it,
   ja,
-  no,
+  nb,
   nl,
   ru,
   tr,
@@ -36,7 +36,7 @@ const locales = {
   fr,
   it,
   ja,
-  no,
+  nb,
   nl,
   ru,
   tr,
@@ -47,6 +47,7 @@ const setLocale = () => {
   if ( locales[i18n.currentLocale()] ) {
     return locales[i18n.currentLocale()];
   }
+
   return null;
 };
 

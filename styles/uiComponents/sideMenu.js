@@ -47,6 +47,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 15 : 18,
     letterSpacing: 1.0,
+    maxWidth: width / 2 + 50,
     paddingTop: padding.iOSPadding
   },
   textContainer: {

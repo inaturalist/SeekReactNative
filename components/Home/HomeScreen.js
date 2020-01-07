@@ -9,6 +9,7 @@ import {
   StatusBar
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import * as RNLocalize from "react-native-localize";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -253,6 +254,8 @@ class HomeScreen extends Component<Props, State> {
       error,
       showModal
     } = this.state;
+
+    console.log( RNLocalize.getLocales(), "get locales" );
 
     return (
       <View style={styles.container}>

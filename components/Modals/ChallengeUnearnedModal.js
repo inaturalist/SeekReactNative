@@ -14,7 +14,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable, formatMonthDayYear } from "../../utility/dateHelpers";
+import { checkIfChallengeAvailable, formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
@@ -88,7 +88,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         </View>
       ) : (
         <Text style={[styles.italicText, styles.centerSelf]}>
-          {i18n.t( "challenges.released", { date: formatMonthDayYear( challenge.availableDate ) } )}
+          {i18n.t( "challenges.released", { date: formatShortMonthDayYear( challenge.availableDate ) } )}
         </Text>
       )}
     </View>

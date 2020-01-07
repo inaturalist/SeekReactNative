@@ -44,7 +44,6 @@ const locales = {
 };
 
 const setLocale = () => {
-  console.log( i18n.translations, "translations" );
   if ( locales[i18n.currentLocale()] ) {
     return locales[i18n.currentLocale()];
   }

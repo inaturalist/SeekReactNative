@@ -23,7 +23,7 @@ import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import Spacer from "../UIComponents/iOSSpacer";
-import { fetchNumberSpeciesSeen } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
@@ -160,11 +160,11 @@ class AchievementsScreen extends Component<Props, State> {
               style={styles.secondHeaderText}
             >
               <GreenText center smaller text="badges.observed" />
-              <Text style={styles.number}>{speciesCount}</Text>
+              <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
             </TouchableOpacity>
             <View style={styles.secondHeaderText}>
               <GreenText center smaller text="badges.earned" />
-              <Text style={styles.number}>{badgesEarned}</Text>
+              <Text style={styles.number}>{localizeNumber( badgesEarned )}</Text>
             </View>
           </View>
           <View style={styles.center}>

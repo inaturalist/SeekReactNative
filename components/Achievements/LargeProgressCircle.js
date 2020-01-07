@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
-import styles from "../../styles/badges/progressCircle";
+import styles from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
 import { calculatePercent } from "../../utility/challengeHelpers";
 
@@ -22,12 +22,12 @@ const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
       bgColor={colors.white}
       borderWidth={3}
       color={colors.seekiNatGreen}
-      outerCircleStyle={styles.circleStyle}
+      outerCircleStyle={styles.largeCircleStyle}
       percent={calculatePercent( iconicSpeciesCount, badge.count )}
       radius={113 / 2}
       shadowColor={colors.circleGray}
     >
-      <Text style={styles.circleText}>
+      <Text style={styles.largeCircleText}>
         {iconicSpeciesCount}
         {"/"}
         {badge.count}

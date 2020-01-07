@@ -4,8 +4,7 @@ import React from "react";
 import {
   Text,
   View,
-  TouchableOpacity,
-  Platform
+  TouchableOpacity
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 
@@ -28,10 +27,8 @@ const CameraError = ( { error, errorEvent }: Props ) => {
     errorText = i18n.t( "camera.error_device_support" );
   } else if ( error === "save" ) {
     errorText = i18n.t( "camera.error_save" );
-  } else if ( error === "camera" && Platform.OS === "ios" ) {
-    errorText = `${i18n.t( "camera.error_old_camera" )}: ${String( errorEvent )}`;
   } else if ( error === "camera" ) {
-    errorText = i18n.t( "camera.error_old_camera" );
+    errorText = `${i18n.t( "camera.error_old_camera" )}: ${String( errorEvent )}`;
   } else if ( error === "gallery" ) {
     errorText = i18n.t( "camera.error_gallery" );
   } else if ( error === "noPhotos" ) {

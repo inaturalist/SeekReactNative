@@ -16,7 +16,8 @@ type Props = {
   +letterSpacing?: number,
   +text: string,
   +login?: boolean,
-  +fontSize?: number
+  +fontSize?: number,
+  +width?: number
 }
 
 const GreenButton = ( {
@@ -25,11 +26,17 @@ const GreenButton = ( {
   letterSpacing,
   login,
   fontSize,
-  text
+  text,
+  width
 }: Props ) => (
   <TouchableOpacity
     onPress={() => handlePress()}
-    style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
+    style={[
+      styles.greenButton, color
+      && { backgroundColor: color },
+      login && styles.loginHeight,
+      width && { width }
+    ]}
   >
     <Text style={[styles.buttonText, { letterSpacing }, { fontSize }]}>
       {i18n.t( text ).toLocaleUpperCase()}
@@ -41,7 +48,8 @@ GreenButton.defaultProps = {
   fontSize: 18,
   login: false,
   letterSpacing: 1.0,
-  color: null
+  color: null,
+  width: null
 };
 
 export default GreenButton;

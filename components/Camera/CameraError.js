@@ -3,13 +3,13 @@
 import React from "react";
 import {
   Text,
-  View,
-  TouchableOpacity
+  View
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 
 import styles from "../../styles/camera/error";
-import i18n from "../../i18n";
+import GreenButton from "../UIComponents/GreenButton";
+import { setCameraErrorText } from "../../utility/textHelpers";
 
 type Props = {
   +error: string,
@@ -17,36 +17,21 @@ type Props = {
 }
 
 const CameraError = ( { error, errorEvent }: Props ) => {
-  let errorText;
-
-  if ( error === "permissions" ) {
-    errorText = i18n.t( "camera.error_camera" );
-  } else if ( error === "classifier" ) {
-    errorText = i18n.t( "camera.error_classifier" );
-  } else if ( error === "device" ) {
-    errorText = i18n.t( "camera.error_device_support" );
-  } else if ( error === "save" ) {
-    errorText = i18n.t( "camera.error_save" );
-  } else if ( error === "camera" ) {
-    errorText = `${i18n.t( "camera.error_old_camera" )}: ${String( errorEvent )}`;
-  } else if ( error === "gallery" ) {
-    errorText = i18n.t( "camera.error_gallery" );
-  } else if ( error === "noPhotos" ) {
-    errorText = i18n.t( "camera.error_no_photos" );
-  }
+  const errorText = setCameraErrorText( error, errorEvent );
 
   return (
-    <View style={styles.blackBackground}>
-      <Text style={styles.errorText}>{errorText}</Text>
-      {error === "permissions" ? (
-        <TouchableOpacity
-          onPress={() => OpenSettings.openSettings()}
-          style={styles.greenButton}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "camera.permissions" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
+    <View style={[styles.blackBackground, styles.center]}>
+      <Text numberOfLines={23} style={styles.errorText}>{errorText}</Text>
+      {error === "permissions" || error === "gallery" ? (
+        <>
+          <View style={styles.margin} />
+          <GreenButton
+            handlePress={() => OpenSettings.openSettings()}
+            text="camera.permissions"
+            fontSize={16}
+            width={323}
+          />
+        </>
       ) : null}
     </View>
   );

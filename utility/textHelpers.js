@@ -50,8 +50,31 @@ const setCameraHelpText = ( rankToRender ) => {
   return i18n.t( helpText );
 };
 
+const setCameraErrorText = ( error, errorEvent ) => {
+  let errorText;
+
+  if ( error === "permissions" ) {
+    errorText = i18n.t( "camera.error_camera" );
+  } else if ( error === "classifier" ) {
+    errorText = i18n.t( "camera.error_classifier" );
+  } else if ( error === "device" ) {
+    errorText = i18n.t( "camera.error_device_support" );
+  } else if ( error === "save" ) {
+    errorText = i18n.t( "camera.error_save" );
+  } else if ( error === "camera" ) {
+    errorText = `${i18n.t( "camera.error_old_camera" )}: ${String( errorEvent )}`;
+  } else if ( error === "gallery" ) {
+    errorText = i18n.t( "camera.error_gallery" );
+  } else if ( error === "noPhotos" ) {
+    errorText = i18n.t( "camera.error_no_photos" );
+  }
+
+  return errorText;
+};
+
 export {
   setChallengeDetailsButtonText,
   setAncestorRankText,
-  setCameraHelpText
+  setCameraHelpText,
+  setCameraErrorText
 };

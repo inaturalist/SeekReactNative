@@ -336,6 +336,8 @@ const localizeNumber = ( number ) => {
   } );
 };
 
+const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -357,5 +359,6 @@ export {
   sortNewestToOldest,
   fetchNumberSpeciesSeen,
   createJwtToken,
-  localizeNumber
+  localizeNumber,
+  localizePercentage
 };

@@ -8,6 +8,7 @@ import ProgressCircle from "react-native-progress-circle";
 
 import styles from "../../styles/uiComponents/percentCircle";
 import { colors } from "../../styles/global";
+import { localizePercentage } from "../../utility/helpers";
 
 type Props = {
   +challenge: Object,
@@ -25,8 +26,7 @@ const PercentCircle = ( { challenge, large }: Props ) => (
     shadowColor={colors.circleGray}
   >
     <Text style={large ? styles.largeCircleText : styles.circleText}>
-      {challenge.percentComplete}
-      {"%"}
+      {localizePercentage( challenge.percentComplete )}
     </Text>
   </ProgressCircle>
 );

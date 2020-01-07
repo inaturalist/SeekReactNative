@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
     "version": "版本",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -542,20 +542,6 @@
     "rate": "如果您喜歡 %s，請花點時間在play商店為其評分。感謝您的支持！",
     "rate_now": "立刻評分",
     "later": "以後再說"
-  },
-  "months_short": {
-    "1": "Jan",
-    "2": "Feb",
-    "3": "Mar",
-    "4": "Apr",
-    "5": "May",
-    "6": "June",
-    "7": "Jul",
-    "8": "Aug",
-    "9": "Sept",
-    "10": "Oct",
-    "11": "Nov",
-    "12": "Dec"
   },
   "attributions": {
     "all": "all rights reserved",

@@ -9,12 +9,14 @@ import {
   fromUnixTime
 } from "date-fns";
 import {
+  ca,
   da,
   de,
   es,
   fr,
   it,
   ja,
+  no,
   nl,
   ru,
   tr,
@@ -27,12 +29,14 @@ import i18n from "../i18n";
 const today = new Date();
 
 const locales = {
+  ca,
   da,
   de,
   es,
   fr,
   it,
   ja,
+  no,
   nl,
   ru,
   tr,
@@ -40,6 +44,7 @@ const locales = {
 };
 
 const setLocale = () => {
+  console.log( i18n.translations, "translations" );
   if ( locales[i18n.currentLocale()] ) {
     return locales[i18n.currentLocale()];
   }

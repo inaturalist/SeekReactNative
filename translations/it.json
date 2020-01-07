@@ -402,7 +402,7 @@
     "not_seen": "Non hai ancora osservato nessun {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "Nelle vicinanze",
     "about": "Info su",
     "range_map": "Mappa dell'areale",
     "range_about": "Una mappa delle osservazioni di questa specie su iNaturalist.",
@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Carnifex, Daniele Seglie, katunchik, Lekim, Marcel Hospers, Martin Reith, Sakatur e Yulia.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -542,20 +542,6 @@
     "rate": "Se ti piace questa app, dedica un momento per valutarla su Play Store. Grazie per il supporto!",
     "rate_now": "Valuta ora",
     "later": "Più tardi"
-  },
-  "months_short": {
-    "1": "Gen",
-    "2": "Feb",
-    "3": "Mar",
-    "4": "Apr",
-    "5": "Mag",
-    "6": "Giu",
-    "7": "Lug",
-    "8": "Ago",
-    "9": "Set",
-    "10": "Ott",
-    "11": "Nov",
-    "12": "Dic"
   },
   "attributions": {
     "all": "tutti i diritti riservati",

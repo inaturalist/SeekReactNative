@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
-    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarızi, özellikle: Carnifex, Daniele Seglie, katunchik, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
     "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {
@@ -542,20 +542,6 @@
     "rate": "Bu uygulamayı beğendiysen, lütfen Play Store'de değerlendirmek için bir dakikanızı ayırın. Desteğin için teşekkürler!",
     "rate_now": "Şimdi oyla",
     "later": "Sonra"
-  },
-  "months_short": {
-    "1": "Oca",
-    "2": "Şub",
-    "3": "Mart",
-    "4": "Nis",
-    "5": "May",
-    "6": "Haz",
-    "7": "Tem",
-    "8": "Ağu",
-    "9": "Eyl",
-    "10": "Eki",
-    "11": "Kas",
-    "12": "Ara"
   },
   "attributions": {
     "all": "tük hakları saklıdır",

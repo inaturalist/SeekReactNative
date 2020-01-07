@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
     "version": "バージョン",
     "help": "Seekのサポートが必要ならば、help+seek@inaturalist.orgまでメールをお送りください。",
-    "translations": "Seekを色々な言語に翻訳するのにCrowdinのコミュニティにお世話になりました。中でも、これらの人たちには特に感謝します：Carnifex、Daniele Seglie、katunchik、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Sakatur、Yulia Lygina。",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
     "join_crowdin": "Seekの翻訳チームに参加するには、以下のURLにアクセスしてください。\nhttps://crowdin.com/project/seek"
   },
   "posting": {
@@ -542,20 +542,6 @@
     "rate": "Seekを気に入っていただけていたら、Play ストアでこのアプリの評価をお願いします。ご支援いただきありがとうございます！",
     "rate_now": "今評価する",
     "later": "今はしない"
-  },
-  "months_short": {
-    "1": "1月",
-    "2": "2月",
-    "3": "3月",
-    "4": "4月",
-    "5": "5月",
-    "6": "6月",
-    "7": "7月",
-    "8": "8月",
-    "9": "9月",
-    "10": "10月",
-    "11": "11月",
-    "12": "12月"
   },
   "attributions": {
     "all": "著作権所有",

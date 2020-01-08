@@ -8,6 +8,7 @@ import {
   ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
+import { withNavigation } from "react-navigation";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -18,12 +19,20 @@ import SpeciesCard from "../UIComponents/SpeciesCard";
 type Props = {
   +navigation: any,
   +item: Object,
-  +toggleDeleteModal: Function,
+  +openModal: Function,
   +updateItemScrolledId: Function,
-  +itemScrolledId: Number
+  +itemScrolledId: ?number
 }
 
-class ObservationCard extends Component<Props> {
+type State = {
+  photo: ?Object,
+  commonName?: ?string,
+  focusedScreen: boolean
+}
+
+class ObservationCard extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -44,7 +53,7 @@ class ObservationCard extends Component<Props> {
     this.localizeCommonName();
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { itemScrolledId } = this.props;
 
     if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
@@ -56,11 +65,11 @@ class ObservationCard extends Component<Props> {
     this.setState( { focusedScreen: false } );
   }
 
-  setPhoto( photo ) {
+  setPhoto( photo: Object ) {
     this.setState( { photo } );
   }
 
-  checkForSeekV1Photos( seekv1Photos ) {
+  checkForSeekV1Photos( seekv1Photos: string ) {
     const { item } = this.props;
     const { focusedScreen } = this.state;
 
@@ -124,7 +133,7 @@ class ObservationCard extends Component<Props> {
     const {
       navigation,
       item,
-      toggleDeleteModal,
+      openModal,
       updateItemScrolledId
     } = this.props;
     const { photo, commonName } = this.state;
@@ -150,7 +159,7 @@ class ObservationCard extends Component<Props> {
           scientificName={taxon.name}
         />
         <TouchableOpacity
-          onPress={() => toggleDeleteModal(
+          onPress={() => openModal(
             item.taxon.id,
             photo,
             commonName,
@@ -166,4 +175,4 @@ class ObservationCard extends Component<Props> {
   }
 }
 
-export default ObservationCard;
+export default withNavigation( ObservationCard );

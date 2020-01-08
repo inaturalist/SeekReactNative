@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/toasts/badgeToast";
@@ -37,4 +38,4 @@ const ChallengeToast = ( { navigation, challenge }: Props ) => (
   </TouchableOpacity>
 );
 
-export default ChallengeToast;
+export default withNavigation( ChallengeToast );

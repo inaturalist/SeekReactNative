@@ -1,8 +1,7 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 const { width } = Dimensions.get( "window" );
@@ -94,6 +93,5 @@ export default StyleSheet.create( {
   textContainer: {
     marginHorizontal: 24,
     marginTop: 27
-  },
-  touchable
+  }
 } );

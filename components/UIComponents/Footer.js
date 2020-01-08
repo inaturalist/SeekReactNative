@@ -8,6 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import Realm from "realm";
+import { withNavigation } from "react-navigation";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -47,7 +48,6 @@ const Footer = ( { navigation }: Props ) => {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.menu" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.openDrawer()}
             style={styles.leftIcon}
           >
@@ -64,7 +64,6 @@ const Footer = ( { navigation }: Props ) => {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.notifications" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Notifications" )}
             style={styles.notificationPadding}
           >
@@ -78,4 +77,4 @@ const Footer = ( { navigation }: Props ) => {
   );
 };
 
-export default Footer;
+export default withNavigation( Footer );

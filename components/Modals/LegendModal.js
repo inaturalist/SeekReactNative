@@ -13,20 +13,20 @@ import icons from "../../assets/icons";
 import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
-  +toggleModal: Function
+  +closeModal: Function
 }
 
-const Legend = ( { toggleModal }: Props ) => (
-  <React.Fragment>
+const Legend = ( { closeModal }: Props ) => (
+  <>
     <View style={styles.legendHeader}>
       <Text style={styles.whiteText}>
         {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
       </Text>
     </View>
     <View style={styles.innerContainer}>
-      <View style={{ marginTop: 7 }} />
+      <View style={styles.marginSmall} />
       <View style={styles.row}>
-        <Image source={icons.legendLocation} style={{ marginHorizontal: 4.5 }} />
+        <Image source={icons.legendLocation} style={styles.marginHorizontal} />
         <Text style={styles.text}>
           {i18n.t( "species_detail.current_location" )}
         </Text>
@@ -43,10 +43,10 @@ const Legend = ( { toggleModal }: Props ) => (
           {i18n.t( "species_detail.obs_inat" )}
         </Text>
       </View>
-      <View style={{ marginTop: 29 }} />
+      <View style={styles.marginLarge} />
     </View>
-    <BackButton toggleModal={toggleModal} />
-  </React.Fragment>
+    <BackButton closeModal={closeModal} />
+  </>
 );
 
 export default Legend;

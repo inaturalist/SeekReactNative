@@ -6,25 +6,29 @@ import {
   View,
   ScrollView
 } from "react-native";
-import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import config from "../../config";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "../Signup/ErrorMessage";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
 }
 
-class ForgotPasswordScreen extends Component<Props> {
+type State = {
+  email: string,
+  error: boolean
+}
+
+class ForgotPasswordScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -34,18 +38,8 @@ class ForgotPasswordScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: boolean ) {
     this.setState( { error } );
-  }
-
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
   }
 
   checkEmail() {
@@ -62,7 +56,7 @@ class ForgotPasswordScreen extends Component<Props> {
   emailForgotPassword() {
     const { email } = this.state;
 
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       user: {
@@ -76,6 +70,7 @@ class ForgotPasswordScreen extends Component<Props> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 
@@ -102,23 +97,21 @@ class ForgotPasswordScreen extends Component<Props> {
   }
 
   render() {
-    const { navigation } = this.props;
     const { email, error } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "inat_login.forgot_password_header" ).toLocaleUpperCase()}
-          navigation={navigation}
+          header="inat_login.forgot_password_header"
         />
         <ScrollView>
           <View style={styles.margin} />
-          <Text style={[styles.header, { marginHorizontal: 23 }]}>
+          <Text style={[styles.header, styles.marginHorizontal]}>
             {i18n.t( "inat_login.no_worries" )}
           </Text>
-          <View style={[styles.leftTextMargins, { marginTop: 31 }]}>
-            <GreenText smaller text={i18n.t( "inat_login.email" ).toLocaleUpperCase()} />
+          <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
+            <GreenText smaller text="inat_login.email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}
@@ -128,11 +121,11 @@ class ForgotPasswordScreen extends Component<Props> {
           />
           {error
             ? <ErrorMessage error="email" />
-            : <View style={{ marginTop: 29 }} />}
+            : <View style={styles.marginLarge} />}
           <GreenButton
             handlePress={() => this.checkEmail()}
             login
-            text={i18n.t( "inat_login.reset" )}
+            text="inat_login.reset"
           />
         </ScrollView>
       </View>

@@ -17,6 +17,9 @@ export default StyleSheet.create( {
     marginBottom: 23,
     marginTop: 45
   },
+  margin: {
+    marginTop: 28
+  },
   number: {
     color: colors.black,
     fontFamily: fonts.light,

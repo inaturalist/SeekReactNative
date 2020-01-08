@@ -9,7 +9,6 @@ import {
   StatusBar
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
-import RNModal from "react-native-modal";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/home";
@@ -23,17 +22,31 @@ import {
   checkIfCardShown,
   checkForInternet
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, fetchLocationName, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import taxonIds from "../../utility/taxonDict";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import createUserAgent from "../../utility/userAgent";
+import RNModal from "../UIComponents/Modal";
 
-type Props = {
-  +navigation: any
+type Props = {}
+
+type State = {
+  latitude: ?number,
+  longitude: ?number,
+  location: ?string,
+  taxa: Array<Object>,
+  taxaType: string,
+  loading: boolean,
+  modalVisible: boolean,
+  error: ?string,
+  showModal: boolean
 }
 
-class HomeScreen extends Component<Props> {
+class HomeScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -46,24 +59,24 @@ class HomeScreen extends Component<Props> {
       loading: true,
       modalVisible: false,
       error: null,
-      showGetStartedModal: false
+      showModal: false
     };
 
-    this.updateTaxaType = this.updateTaxaType.bind( this );
-    this.updateLocation = this.updateLocation.bind( this );
-    this.toggleLocationPicker = this.toggleLocationPicker.bind( this );
-    this.toggleGetStartedModal = this.toggleGetStartedModal.bind( this );
-    this.requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
+    ( this:any ).updateTaxaType = this.updateTaxaType.bind( this );
+    ( this:any ).updateLocation = this.updateLocation.bind( this );
+    ( this:any ).toggleLocationPicker = this.toggleLocationPicker.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
+    ( this:any ).requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
-  setLoading( newLoadingStatus ) {
+  setLoading( newLoadingStatus: boolean ) {
     const { loading } = this.state;
     if ( loading !== newLoadingStatus ) {
       this.setState( { loading: newLoadingStatus } );
     }
   }
 
-  setLocation( location, latitude, longitude ) {
+  setLocation( location: string, latitude: number, longitude: number ) {
     this.setState( {
       location,
       latitude,
@@ -71,14 +84,14 @@ class HomeScreen extends Component<Props> {
     }, () => this.setParamsForSpeciesNearby() );
   }
 
-  setTaxa( taxa ) {
+  setTaxa( taxa: Array<Object> ) {
     this.setState( {
       taxa,
       loading: false
     } );
   }
 
-  setError( newError ) {
+  setError( newError: ?string ) {
     const { error } = this.state;
 
     if ( error !== newError ) {
@@ -123,6 +136,7 @@ class HomeScreen extends Component<Props> {
     };
 
     if ( taxonIds[taxaType] ) {
+      // $FlowFixMe
       params.taxon_id = taxonIds[taxaType];
     }
 
@@ -152,25 +166,29 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  toggleGetStartedModal() {
-    const { showGetStartedModal } = this.state;
-    this.setState( { showGetStartedModal: !showGetStartedModal } );
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
   }
 
   async checkForFirstLaunch() {
     const isFirstLaunch = await checkIfCardShown();
     if ( isFirstLaunch ) {
-      this.toggleGetStartedModal();
+      this.openModal();
     }
   }
 
-  updateTaxaType( taxaType ) {
+  updateTaxaType( taxaType: string ) {
     this.setState( {
-      taxaType
+      taxaType,
+      loading: true
     }, () => this.setParamsForSpeciesNearby() );
   }
 
-  reverseGeocodeLocation( lat, lng ) {
+  reverseGeocodeLocation( lat: number, lng: number ) {
     fetchLocationName( lat, lng ).then( ( location ) => {
       this.setLocation( location, lat, lng );
     } ).catch( () => {
@@ -186,7 +204,7 @@ class HomeScreen extends Component<Props> {
     } ).catch( () => this.setError( null ) );
   }
 
-  fetchSpeciesNearby( params ) {
+  fetchSpeciesNearby( params: Object ) {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
 
@@ -210,15 +228,18 @@ class HomeScreen extends Component<Props> {
     }
   }
 
-  updateLocation( latitude, longitude ) {
+  updateLocation( latitude: number, longitude: number ) {
+    this.setLoading( true );
     this.reverseGeocodeLocation( latitude, longitude );
     this.toggleLocationPicker();
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   render() {
@@ -230,9 +251,8 @@ class HomeScreen extends Component<Props> {
       taxa,
       modalVisible,
       error,
-      showGetStartedModal
+      showModal
     } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -246,13 +266,10 @@ class HomeScreen extends Component<Props> {
           }}
         />
         <RNModal
-          isVisible={showGetStartedModal}
-          onBackdropPress={() => this.toggleGetStartedModal()}
-        >
-          <GetStarted
-            toggleGetStartedModal={this.toggleGetStartedModal}
-          />
-        </RNModal>
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={<GetStarted closeModal={this.closeModal} />}
+        />
         <Modal
           onRequestClose={() => this.toggleLocationPicker()}
           visible={modalVisible}
@@ -277,12 +294,11 @@ class HomeScreen extends Component<Props> {
           <SpeciesNearby
             error={error}
             loading={loading}
-            navigation={navigation}
             requestAndroidPermissions={this.requestAndroidPermissions}
             taxa={taxa}
           />
           <View style={styles.greenMargin} />
-          <ChallengeCard navigation={navigation} />
+          <ChallengeCard />
           <Padding />
         </ScrollView>
       </View>

@@ -44,6 +44,18 @@ export default StyleSheet.create( {
     height: height - 75,
     width
   },
+  margin: {
+    marginBottom: 23
+  },
+  marginHorizontal: {
+    marginHorizontal: 4.5
+  },
+  marginLarge: {
+    marginTop: 29
+  },
+  marginSmall: {
+    marginTop: 7
+  },
   row: {
     alignItems: "center",
     flexDirection: "row",

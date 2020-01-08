@@ -10,20 +10,20 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/flagModal";
+import styles from "../../styles/modals/flagModal";
 import icons from "../../assets/icons";
 
 type Props = {
-  +toggleFlagModal: Function,
+  +closeModal: Function,
   +deleteObservation: Function,
   +userImage: string,
-  +speciesSeenImage: string,
-  +speciesText: string,
-  +seenDate: string
+  +speciesSeenImage?: ?string,
+  +speciesText?: ?string,
+  +seenDate?: ?string
 };
 
 const FlagModal = ( {
-  toggleFlagModal,
+  closeModal,
   deleteObservation,
   userImage,
   speciesSeenImage,
@@ -44,8 +44,7 @@ const FlagModal = ( {
             {i18n.t( "results.flag" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            hitSlop={styles.touchable}
-            onPress={() => toggleFlagModal() }
+            onPress={() => closeModal()}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />
@@ -72,10 +71,10 @@ const FlagModal = ( {
         <TouchableOpacity
           onPress={() => {
             if ( seenDate ) {
-              toggleFlagModal( true );
+              closeModal( true );
             } else {
               deleteObservation();
-              toggleFlagModal( true );
+              closeModal( true );
             }
           }}
           style={styles.largeFlagButton}
@@ -88,7 +87,7 @@ const FlagModal = ( {
         </TouchableOpacity>
         <View style={styles.marginSmall} />
         <TouchableOpacity
-          onPress={() => toggleFlagModal()}
+          onPress={() => closeModal()}
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
         >
           <Text style={styles.buttonText}>
@@ -99,6 +98,12 @@ const FlagModal = ( {
       </View>
     </View>
   );
+};
+
+FlagModal.defaultProps = {
+  seenDate: null,
+  speciesSeenImage: null,
+  speciesText: null
 };
 
 export default FlagModal;

@@ -1,8 +1,0 @@
-{
-  "presets": ["module:metro-react-native-babel-preset", "@babel/flow"],
-  "env": {
-    "production": {
-      "plugins": ["transform-remove-console", "transform-flow-strip-types"]
-    }
-  }
-}

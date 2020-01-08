@@ -7,15 +7,16 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenButton";
 
 type Props = {
-  +color: ?Object,
+  +color?: ?Object,
   +handlePress: Function,
-  +letterSpacing: ?Number,
+  +letterSpacing?: number,
   +text: string,
-  +login: ?boolean,
-  +fontSize: ?boolean
+  +login?: boolean,
+  +fontSize?: number
 }
 
 const GreenButton = ( {
@@ -27,14 +28,20 @@ const GreenButton = ( {
   text
 }: Props ) => (
   <TouchableOpacity
-    hitSlop={styles.touchable}
     onPress={() => handlePress()}
     style={[styles.greenButton, color && { backgroundColor: color }, login && styles.loginHeight]}
   >
-    <Text style={[styles.buttonText, letterSpacing && { letterSpacing }, fontSize && { fontSize }]}>
-      {text.toLocaleUpperCase()}
+    <Text style={[styles.buttonText, { letterSpacing }, { fontSize }]}>
+      {i18n.t( text ).toLocaleUpperCase()}
     </Text>
   </TouchableOpacity>
 );
+
+GreenButton.defaultProps = {
+  fontSize: 18,
+  login: false,
+  letterSpacing: 1.0,
+  color: null
+};
 
 export default GreenButton;

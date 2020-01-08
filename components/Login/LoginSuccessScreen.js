@@ -31,31 +31,30 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
         <Text style={styles.linkedAccountHeader}>{i18n.t( "inat_signup.linked_account" )}</Text>
       </View>
       <View style={styles.textContainer}>
-        <GreenText smaller text={i18n.t( "inat_signup.posting" ).toLocaleUpperCase()} />
-        <View style={{ marginTop: 5 }} />
+        <GreenText smaller text="inat_signup.posting" />
+        <View style={styles.marginSmall} />
         <Text style={styles.descriptionText}>{i18n.t( "inat_signup.posting_details" )}</Text>
-        <View style={{ marginTop: 25 }} />
-        <GreenText smaller text={i18n.t( "inat_signup.observations" ).toLocaleUpperCase()} />
-        <View style={{ marginTop: 5 }} />
+        <View style={styles.marginMedium} />
+        <GreenText smaller text="inat_signup.observations" />
+        <View style={styles.marginSmall} />
         <Text style={styles.descriptionText}>
           {i18n.t( "inat_signup.observations_1" )}
           {" "}
-          <Text style={{ textDecorationLine: "underline" }}>
+          <Text style={styles.underline}>
             {i18n.t( "inat_signup.observations_2" )}
           </Text>
           {" "}
           {i18n.t( "inat_signup.observations_3" )}
         </Text>
       </View>
-      <View style={{ marginTop: 29 }} />
+      <View style={styles.marginLarge} />
       <GreenButton
         handlePress={() => navigation.navigate( "Main" )}
         login
-        text={i18n.t( "inat_signup.continue" )}
+        text="inat_signup.continue"
       />
       <View style={[styles.center, styles.row]}>
         <TouchableOpacity
-          hitSlop={styles.clickableText}
           onPress={() => navigation.navigate( "Privacy" )}
         >
           <Text style={styles.textLink}>
@@ -63,10 +62,9 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          hitSlop={styles.clickableText}
           onPress={() => navigation.navigate( "TermsOfService" )}
         >
-          <Text style={[styles.textLink, { marginLeft: 14 }]}>
+          <Text style={[styles.textLink, styles.marginLeft]}>
             {i18n.t( "inat_signup.terms" )}
           </Text>
         </TouchableOpacity>

@@ -7,6 +7,7 @@ import {
   ImageBackground,
   SafeAreaView
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
@@ -15,17 +16,16 @@ import backgrounds from "../../assets/backgrounds";
 
 type Props = {
   +navigation: any,
-  +toggleFlagModal: Function
+  +openFlagModal: Function
 }
 
-const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
+const MatchFooter = ( { navigation, openFlagModal }: Props ) => (
   <SafeAreaView>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.menu" )}
           accessible
-          hitSlop={styles.touchable}
           onPress={() => navigation.openDrawer()}
           style={styles.leftIcon}
         >
@@ -42,8 +42,7 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.flag" )}
           accessible
-          hitSlop={styles.touchable}
-          onPress={() => toggleFlagModal()}
+          onPress={() => openFlagModal()}
           style={styles.flagPadding}
         >
           <Image source={icons.flag} />
@@ -53,4 +52,4 @@ const MatchFooter = ( { navigation, toggleFlagModal }: Props ) => (
   </SafeAreaView>
 );
 
-export default MatchFooter;
+export default withNavigation( MatchFooter );

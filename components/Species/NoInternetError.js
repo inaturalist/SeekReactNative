@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -20,20 +21,20 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 
 type Props = {
-  +stats: Array,
-  +seenDate: Date,
-  +about: string,
-  +isLoggedIn: boolean,
+  +stats: Object,
+  +seenDate: ?string,
+  +about: ?string,
+  +isLoggedIn: ?boolean,
   +navigation: any,
-  +commonName: string,
-  +wikiUrl: string,
-  +id: Number,
+  +commonName: ?string,
+  +wikiUrl: ?string,
+  +id:number,
   +region: Object,
-  +ancestors: Array,
-  +timesSeen: Number,
-  +observationsByMonth: Array,
+  +ancestors: Array<Object>,
+  +timesSeen: ?number,
+  +observationsByMonth: Array<Object>,
   +fetchiNatData: Function,
-  +error: string
+  +error: ?string
 }
 
 const NoInternetError = ( {
@@ -55,7 +56,7 @@ const NoInternetError = ( {
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
   return (
-    <React.Fragment>
+    <>
       <View style={styles.secondTextContainer}>
         {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
         {seenDate ? (
@@ -72,7 +73,7 @@ const NoInternetError = ( {
         {about ? (
           <View>
             <View style={styles.headerMargins}>
-              <GreenText text={i18n.t( "species_detail.about" ).toLocaleUpperCase()} />
+              <GreenText text="species_detail.about" />
             </View>
             <Text style={styles.text}>{about}</Text>
             {isLoggedIn && id !== 43584 ? (
@@ -87,13 +88,12 @@ const NoInternetError = ( {
         ) : null}
       </View>
       {id !== 43584 ? (
-        <React.Fragment>
+        <>
           <View style={styles.secondTextContainer}>
             {error === "location" ? null : (
               <SpeciesMap
                 id={id}
                 isLoggedIn={isLoggedIn}
-                navigation={navigation}
                 region={region}
                 seenDate={seenDate}
               />
@@ -102,7 +102,6 @@ const NoInternetError = ( {
             <INatObs
               error={error}
               id={id}
-              navigation={navigation}
               region={region}
               timesSeen={timesSeen}
             />
@@ -115,15 +114,15 @@ const NoInternetError = ( {
             id={id}
           />
           <View style={styles.bottomPadding} />
-        </React.Fragment>
+        </>
       ) : (
         <View style={styles.secondTextContainer}>
           <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
           <Padding />
         </View>
       )}
-    </React.Fragment>
+    </>
   );
 };
 
-export default NoInternetError;
+export default withNavigation( NoInternetError );

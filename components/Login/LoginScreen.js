@@ -24,7 +24,13 @@ type Props = {
   +navigation: any
 }
 
-class LoginScreen extends Component<Props> {
+type State = {
+  username: string,
+  password: string,
+  error: boolean
+}
+
+class LoginScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -46,7 +52,7 @@ class LoginScreen extends Component<Props> {
     } );
   }
 
-  retrieveOAuthToken( username, password ) {
+  retrieveOAuthToken( username: string, password: string ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -69,8 +75,8 @@ class LoginScreen extends Component<Props> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        const { access_token } = responseJson;
-        saveAccessToken( access_token );
+        const accessToken = responseJson.access_token;
+        saveAccessToken( accessToken );
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
@@ -91,12 +97,11 @@ class LoginScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "login.log_in" ).toLocaleUpperCase()}
-          navigation={navigation}
+          header="login.log_in"
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.username" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { username: value } )}
@@ -105,7 +110,7 @@ class LoginScreen extends Component<Props> {
             type="username"
           />
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.password" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { password: value } )}
@@ -126,7 +131,7 @@ class LoginScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.retrieveOAuthToken( username, password )}
             login
-            text={i18n.t( "inat_login.log_in" )}
+            text="inat_login.log_in"
           />
         </ScrollView>
       </View>

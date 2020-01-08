@@ -27,6 +27,9 @@ export default StyleSheet.create( {
   margin: {
     marginBottom: 27
   },
+  marginLeft: {
+    marginLeft: 20
+  },
   row,
   text: {
     color: colors.black,

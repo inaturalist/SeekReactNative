@@ -1,25 +1,22 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
-import * as StoreReview from "react-native-store-review";
+import jwt from "react-native-jwt-io";
+import { FileUpload } from "inaturalistjs";
+import Realm from "realm";
+import { Platform } from "react-native";
+import RNFS from "react-native-fs";
+import UUIDGenerator from "react-native-uuid-generator";
 
 import i18n from "../i18n";
-import { deleteBadges } from "./badgeHelpers";
-import { recalculateChallenges } from "./challengeHelpers";
+import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
+import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./iconicTaxonDictById";
-import { isWithinPastYear } from "./dateHelpers";
-import { fetchAccessToken } from "./loginHelpers";
-
-const { FileUpload } = require( "inaturalistjs" );
-const Realm = require( "realm" );
-const uuid = require( "react-native-uuid" );
-const { Platform, Alert, Linking } = require( "react-native" );
-const RNFS = require( "react-native-fs" );
-const moment = require( "moment" );
-
-const realmConfig = require( "../models/index" );
-const { createNotification } = require( "./notificationHelpers" );
-const { checkNumberOfBadgesEarned } = require( "./badgeHelpers" );
-const { checkNumberOfChallengesCompleted } = require( "./challengeHelpers" );
+import { createBackupUri } from "./photoHelpers";
+import config from "../config";
+import realmConfig from "../models/index";
+import { createNotification } from "./notificationHelpers";
+import { dirModel, dirTaxonomy } from "./dirStorage";
+import { setISOTime } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -31,50 +28,50 @@ const checkForInternet = () => (
   } )
 );
 
+const createUUID = async () => {
+  try {
+    const uuidGen = await UUIDGenerator.getRandomUUID();
+    return uuidGen;
+  } catch ( e ) {
+    return null;
+  }
+};
+
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
-    .map( string => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
+    .map( ( string ) => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );
   return titleCaseName;
 };
 
-const searchForRealm = () => {
-  RNFS.readDir( RNFS.DocumentDirectoryPath )
-    .then( ( result ) => {
-      console.log( result, "directories" );
-    } ).catch( ( error ) => {
-      console.log( error, "main directory" );
-    } );
-};
-
 const addARCameraFiles = () => {
   if ( Platform.OS === "android" ) {
-    RNFS.copyFileAssets( "camera/optimized_model.tflite", `${RNFS.DocumentDirectoryPath}/optimized-model.tflite` )
+    RNFS.copyFileAssets( "camera/optimized_model.tflite", dirModel )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFileAssets( "camera/taxonomy.csv", `${RNFS.DocumentDirectoryPath}/taxonomy.csv` )
+    RNFS.copyFileAssets( "camera/taxonomy.csv", dirTaxonomy )
       .then( ( result ) => {
-        // console.log( result, "taxonomy in AR camera files" );
+        console.log( result, "taxonomy in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
   } else if ( Platform.OS === "ios" ) {
-    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc` )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, dirModel )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // Alert.alert( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, `${RNFS.DocumentDirectoryPath}/taxonomy.json` )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, dirTaxonomy )
       .then( ( result ) => {
-        // console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
-        // console.log( error, "err in AR camera files" );
+        console.log( error, "err in AR camera files" );
       } );
   }
 };
@@ -93,106 +90,6 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
   return params;
 };
 
-const createPlayStoreRatingAlert = () => {
-  const url = "https://play.google.com/store/apps/details?id=org.inaturalist.seek";
-
-  Alert.alert(
-    i18n.t( "review.title" ),
-    i18n.t( "review.rate" ),
-    [{
-      text: i18n.t( "review.later" ),
-      style: "default"
-    },
-    {
-      text: i18n.t( "review.rate_now" ),
-      onPress: () => {
-        Linking.canOpenURL( url )
-          .then( ( supported ) => {
-            if ( !supported ) {
-              console.log( "Can't handle url: " + url );
-            } else {
-              return Linking.openURL( url );
-            }
-          } ).catch( err => console.error( 'An error occurred', err ) );
-      }
-    }]
-  );
-};
-
-const updateReviews = ( realm, reviews ) => {
-  realm.write( () => {
-    if ( reviews.length === 0 ) {
-      realm.create( "ReviewRealm", {
-        date: new Date(),
-        timesSeen: 1
-      } );
-    } else {
-      reviews[0].timesSeen += 1;
-    }
-  } );
-  if ( Platform.OS === "android" ) {
-    createPlayStoreRatingAlert();
-  } else {
-    StoreReview.requestReview();
-  }
-};
-
-const deleteReviews = ( realm, reviews ) => {
-  realm.write( () => {
-    realm.delete( reviews );
-  } );
-};
-
-const showAppStoreReview = () => {
-  Realm.open( realmConfig.default )
-    .then( ( realm ) => {
-      const reviews = realm.objects( "ReviewRealm" );
-
-      if ( reviews.length > 0 ) {
-        const withinYear = isWithinPastYear( reviews[0].date );
-        if ( withinYear && StoreReview.isAvailable ) {
-          if ( reviews[0].timesSeen < 3 ) {
-            updateReviews( realm, reviews );
-          }
-        } else if ( StoreReview.isAvailable ) {
-          deleteReviews( realm, reviews );
-          updateReviews( realm, reviews );
-        }
-      } else if ( StoreReview.isAvailable ) {
-        updateReviews( realm, reviews );
-      }
-    } ).catch( () => {
-      console.log( "couldn't show review modal" );
-    } );
-};
-
-const showPlayStoreReview = async () => {
-  const login = await fetchAccessToken();
-
-  if ( login ) {
-    Realm.open( realmConfig.default )
-      .then( ( realm ) => {
-        const reviews = realm.objects( "ReviewRealm" );
-
-        if ( reviews.length > 0 ) {
-          const withinYear = isWithinPastYear( reviews[0].date );
-          if ( withinYear ) {
-            if ( reviews[0].timesSeen < 3 ) {
-              updateReviews( realm, reviews );
-            }
-          } else {
-            deleteReviews( realm, reviews );
-            updateReviews( realm, reviews );
-          }
-        } else {
-          updateReviews( realm, reviews );
-        }
-      } ).catch( ( e ) => {
-        console.log( "couldn't show review modal", e );
-      } );
-  }
-};
-
 const checkForPowerUsers = ( length, newLength ) => {
   if ( length < newLength ) {
     if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
@@ -201,36 +98,43 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = ( observation, latitude, longitude, uri, time, backupUri ) => {
+const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
+  const { taxon } = observation;
+  const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
+  const uuid = await createUUID();
+
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const { length } = realm.objects( "TaxonRealm" );
 
       realm.write( () => {
         let defaultPhoto;
-        const p = observation.taxon.default_photo;
+        const p = taxon.default_photo;
         if ( uri ) {
           defaultPhoto = realm.create( "PhotoRealm", {
             squareUrl: p ? p.medium_url : null,
             mediumUrl: uri,
-            backupUri: backupUri || null
+            backupUri
           } );
         }
-        const taxon = realm.create( "TaxonRealm", {
-          id: observation.taxon.id,
-          name: observation.taxon.name,
-          preferredCommonName: observation.taxon.preferred_common_name ? capitalizeNames( observation.taxon.preferred_common_name ) : null,
-          iconicTaxonId: observation.taxon.iconic_taxon_id,
-          ancestorIds: observation.taxon.ancestor_ids,
+        const newTaxon = realm.create( "TaxonRealm", {
+          id: taxon.id,
+          name: taxon.name,
+          preferredCommonName:
+            taxon.preferred_common_name
+              ? capitalizeNames( taxon.preferred_common_name )
+              : null,
+          iconicTaxonId: taxon.iconic_taxon_id,
+          ancestorIds: taxon.ancestor_ids,
           defaultPhoto
         } );
-        const species = realm.create( "ObservationRealm", {
-          uuidString: uuid.v1(),
-          date: time ? moment.unix( time ).format() : new Date(),
-          taxon,
+        realm.create( "ObservationRealm", {
+          uuidString: uuid,
+          date: time ? setISOTime( time ) : new Date(),
+          taxon: newTaxon,
           latitude,
           longitude,
           placeName: null
@@ -244,7 +148,7 @@ const addToCollection = ( observation, latitude, longitude, uri, time, backupUri
 };
 
 const removeFromCollection = ( id ) => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       realm.write( () => {
         const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
@@ -330,9 +234,9 @@ const checkIfCardShown = async () => {
   }
 };
 
-const getTaxonCommonName = taxonID => (
+const getTaxonCommonName = ( taxonID ) => (
   new Promise( ( resolve ) => {
-    Realm.open( realmConfig.default )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
         // look up common names for predicted taxon in the current locale
@@ -392,14 +296,14 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
     newTaxaList.push( Number( id ) );
   } );
 
-  const iconicTaxonId = newTaxaList.filter( value => ancestorIds.indexOf( value ) !== -1 );
+  const iconicTaxonId = newTaxaList.filter( ( value ) => ancestorIds.indexOf( value ) !== -1 );
 
   return iconicTaxonId[0] || 1;
 };
 
 const fetchNumberSpeciesSeen = () => (
   new Promise( ( resolve ) => {
-    Realm.open( realmConfig.default )
+    Realm.open( realmConfig )
       .then( ( realm ) => {
         const { length } = realm.objects( "TaxonRealm" );
         resolve( length );
@@ -408,6 +312,18 @@ const fetchNumberSpeciesSeen = () => (
       } );
   } )
 );
+
+const createJwtToken = () => {
+  const claims = {
+    application: "SeekRN",
+    exp: new Date().getTime() / 1000 + 300
+  };
+
+  const token = jwt.encode( claims, config.jwtSecret, "HS512" );
+  return token;
+};
+
+const seti18nNumber = ( number ) => i18n.toNumber( number, { precision: 0 } );
 
 export {
   addARCameraFiles,
@@ -428,8 +344,7 @@ export {
   checkForIconicTaxonId,
   removeFromCollection,
   sortNewestToOldest,
-  searchForRealm,
-  showAppStoreReview,
-  showPlayStoreReview,
-  fetchNumberSpeciesSeen
+  fetchNumberSpeciesSeen,
+  createJwtToken,
+  seti18nNumber
 };

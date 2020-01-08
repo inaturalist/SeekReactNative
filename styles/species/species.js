@@ -2,7 +2,6 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  touchable,
   row,
   footerMargin
 } from "../global";
@@ -93,6 +92,5 @@ export default StyleSheet.create( {
   },
   textContainer: {
     marginHorizontal: 28
-  },
-  touchable
+  }
 } );

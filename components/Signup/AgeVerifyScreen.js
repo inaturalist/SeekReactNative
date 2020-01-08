@@ -6,10 +6,9 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import moment from "moment";
 
 import i18n from "../../i18n";
-import { requiresParent } from "../../utility/dateHelpers";
+import { requiresParent, formatYearMonthDay } from "../../utility/dateHelpers";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenButton from "../UIComponents/GreenButton";
@@ -20,17 +19,22 @@ type Props = {
   +navigation: any
 }
 
-class AgeVerifyScreen extends Component<Props> {
+type State = {
+  date: string,
+  isDateTimePickerVisible: boolean
+}
+
+class AgeVerifyScreen extends Component<Props, State> {
   constructor() {
     super();
 
     this.state = {
-      date: moment().format( "YYYY-MM-DD" ),
+      date: formatYearMonthDay(),
       isDateTimePickerVisible: false
     };
 
-    this.handleDatePicked = this.handleDatePicked.bind( this );
-    this.toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
+    ( this:any ).handleDatePicked = this.handleDatePicked.bind( this );
+    ( this:any ).toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
   }
 
 
@@ -39,10 +43,10 @@ class AgeVerifyScreen extends Component<Props> {
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
-  handleDatePicked = ( date ) => {
+  handleDatePicked = ( date: Date ) => {
     if ( date ) {
       this.setState( {
-        date: moment( date ).format( "YYYY-MM-DD" )
+        date: formatYearMonthDay( date )
       }, this.toggleDateTimePicker() );
     }
   };
@@ -66,8 +70,7 @@ class AgeVerifyScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "login.sign_up" )}
-          navigation={navigation}
+          header="login.sign_up"
         />
         <View style={styles.flexCenter}>
           <Text style={styles.header}>
@@ -76,7 +79,7 @@ class AgeVerifyScreen extends Component<Props> {
           <Text style={styles.text}>
             {i18n.t( "inat_signup.permission" )}
           </Text>
-          <View style={{ marginBottom: 68 }} />
+          <View style={styles.marginLarge} />
           <View style={styles.center}>
             <TouchableOpacity
               onPress={() => this.toggleDateTimePicker()}
@@ -90,11 +93,11 @@ class AgeVerifyScreen extends Component<Props> {
             onDatePicked={this.handleDatePicked}
             toggleDateTimePicker={this.toggleDateTimePicker}
           />
-          <View style={{ marginBottom: 98 }} />
+          <View style={styles.marginExtraLarge} />
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.next" )}
+            text="inat_signup.next"
           />
           <View style={[styles.row, styles.center]}>
             <Text
@@ -105,7 +108,7 @@ class AgeVerifyScreen extends Component<Props> {
             </Text>
             <Text
               onPress={() => navigation.navigate( "TermsOfService" )}
-              style={[styles.privacy, { marginLeft: 14 }]}
+              style={[styles.privacy, styles.marginLeftSmall]}
             >
               {i18n.t( "inat_signup.terms" )}
             </Text>

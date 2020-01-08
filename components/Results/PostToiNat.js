@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents, withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/results";
@@ -18,7 +18,11 @@ type Props = {
   +taxaInfo: Object
 }
 
-class PostToiNat extends Component<Props> {
+type State = {
+  postingSuccess: boolean
+}
+
+class PostToiNat extends Component<Props, State> {
   constructor() {
     super();
 
@@ -38,8 +42,6 @@ class PostToiNat extends Component<Props> {
     const { navigation, color, taxaInfo } = this.props;
     const { postingSuccess } = this.state;
 
-    const { latitude, longitude } = taxaInfo;
-
     return (
       <View>
         <NavigationEvents
@@ -47,7 +49,7 @@ class PostToiNat extends Component<Props> {
             this.fetchPostingStatus();
           }}
         />
-        {postingSuccess || !latitude || !longitude
+        {postingSuccess
           ? null
           : (
             <>
@@ -58,7 +60,7 @@ class PostToiNat extends Component<Props> {
               <GreenButton
                 color={color}
                 handlePress={() => navigation.navigate( "Post", taxaInfo )}
-                text={i18n.t( "results.post" )}
+                text="results.post"
               />
             </>
           )}
@@ -67,4 +69,4 @@ class PostToiNat extends Component<Props> {
   }
 }
 
-export default PostToiNat;
+export default withNavigation( PostToiNat );

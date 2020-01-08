@@ -1,4 +1,4 @@
-import { Alert, PermissionsAndroid } from "react-native";
+import { Alert } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
 import Geolocation from "@react-native-community/geolocation";
@@ -18,20 +18,6 @@ const truncateCoordinates = ( coordinate ) => {
     return null;
   }
   return Number( coordinate.toFixed( 2 ) );
-};
-
-const checkLocationPermissions = async () => {
-  const location = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
-
-  try {
-    const granted = await PermissionsAndroid.request( location );
-    if ( granted === PermissionsAndroid.RESULTS.GRANTED ) {
-      return true;
-    }
-    return false;
-  } catch ( err ) {
-    return err;
-  }
 };
 
 const fetchTruncatedUserLocation = () => (
@@ -104,13 +90,26 @@ const createLocationTimeoutAlert = () => {
   );
 };
 
+const checkForTruncatedCoordinates = ( latitude ) => {
+  if ( latitude ) {
+    const string = latitude.toString();
+    const split = string.split( "." );
+
+    if ( split[1] && split[1].length === 2 ) {
+      return true;
+    }
+    return false;
+  }
+  return false;
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation,
   createLocationPermissionsAlert,
-  checkLocationPermissions,
   createGPSAlert,
-  createLocationTimeoutAlert
+  createLocationTimeoutAlert,
+  checkForTruncatedCoordinates
 };

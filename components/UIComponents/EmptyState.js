@@ -5,14 +5,15 @@ import {
   Text,
   View
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/emptyState";
 import GreenButton from "./GreenButton";
 
 type Props = {
-  +navigation: ?any,
-  +screen: ?string
+  +navigation?: ?any,
+  +screen?: ?string
 }
 
 const EmptyState = ( { navigation, screen }: Props ) => (
@@ -27,15 +28,20 @@ const EmptyState = ( { navigation, screen }: Props ) => (
         ? i18n.t( "observations.help" )
         : i18n.t( "notifications.about" )}
     </Text>
-    {screen === "observations" ? (
+    {screen === "observations" && navigation ? (
       <View style={styles.margin}>
         <GreenButton
           handlePress={() => navigation.navigate( "Camera" )}
-          text={i18n.t( "observations.open_camera" )}
+          text="observations.open_camera"
         />
       </View>
     ) : null}
   </View>
 );
 
-export default EmptyState;
+EmptyState.defaultProps = {
+  navigation: null,
+  screen: null
+};
+
+export default withNavigation( EmptyState );

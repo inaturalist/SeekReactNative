@@ -31,12 +31,8 @@
     "header": "Benachrichtigungen",
     "learn_more": "Mehr erfahren über iNaturalist",
     "earned_badges": "Sie haben viele Auszeichnungen gesammelt! iNaturalist könnte Sie interessieren!",
-    "new_challenge": "Es gibt eine neue Herausforderung von „Unser Planet“ und dem WWF!",
-    "check_out": "Sehen Sie sich jetzt an!",
     "almost_finished": "Sie haben die Herausforderung beinahe abgeschlossen!",
     "view_progress": "Fortschritt anzeigen",
-    "observation_identified": "Ihre Beobachtung konnte als in iNaturalist als Art identifiziert werden!",
-    "badges_updated": "Danke für Ihren Beitrag zur Verbesserung unseres Modells! Ihre Auszeichnungen wurden möglicherweise aktualisiert.",
     "challenge_completed": "Herzlichen Glückwunsch! Sie haben eine Herausforderung gemeistert",
     "view_challenges": "Herausforderung ansehen",
     "none": "Sie haben noch keine Benachrichtigungen!",
@@ -57,13 +53,10 @@
     "permission": "Sie müssen mindestens 13 Jahre alt sein, um ein Konto zu erstellen.",
     "privacy": "Datenschutzrichtlinie",
     "continue": "Fortfahren",
-    "need_permission": "Wir benötigen die Zustimmung deiner Eltern.",
     "enter_email": "Gib die E-Mail-Adresse deiner Eltern an",
-    "send_email": "E-Mail senden",
     "parent_email": "E-Mail-Adresse der Aufsichtsperson",
     "under_13": "Da du jünger als 13 Jahre bist, benötigen wir vor dem Erstellen eines Kontos die Zustimmung Deiner Eltern oder Aufsichtsperson.",
     "sign_up": "Anmelden",
-    "sign_up_inat": "Bei iNaturalist registrieren",
     "next": "Weiter",
     "submit": "Senden",
     "email": "E-Mail-Adresse",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Auszeichnung anzeigen",
     "badge": "Auszeichnung",
-    "species": "Art",
     "challenge_progress": "Sie haben eine andere Spezies gefunden.",
     "challenge_view": "Sehen Sie sich Ihren Fortschritt an",
     "level_up": "Sie sind ein Level aufgestiegen!",
@@ -285,18 +277,17 @@
     "family": "Familie",
     "genus": "Geschlecht",
     "species": "Spezies",
-    "loading": "Die Seek-Kamera lädt",
     "error_camera": "Wir brauchen Zugang zur Kamera, um die Arten zu identifizieren!",
     "error_gallery": "Wir benötigen Zugang zu Ihrem Kameraspeicher, um Ihre aufgenommenen Fotos zu speichern!",
     "permissions": "Berechtigungen in den Einstellungen aktivieren",
     "error_classifier": "Leider können wir den Klassifikator nicht laden",
     "error_old_camera": "Wir konnten die Kamera leider nicht laden",
     "error_device_support": "Das Gerät, das du verwendest, wird nicht unterstützt",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Sorry, there was a problem saving your photo",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
   },
   "gallery": {
     "label": "Fotos",
-    "choose_photo": "Foto auswählen",
     "camera_roll": "Fotoalbum"
   },
   "camera_help": {
@@ -307,7 +298,7 @@
     "header_1": "Wie funktioniert das?",
     "how_works": "Das Identifizierungsmodell von Seek beruht direkt auf dem Lebensbaum.\n \nJeder Punkt in der Identifizierungsleiste entspricht einer taxonomischen Ebene des Lebensbaums. Wenn Seek die von Ihnen beobachtete Art auf den einzelnen Ebenen eindeutig identifizieren kann, fügt es der Leiste einen weiteren Punkt hinzu. Nehmen Sie ein Foto auf, wenn der Organismus als Art identifiziert wurde!",
     "header_2": "Tipps und Tricks",
-    "tips": "Seek ist am besten geeignet, Fotos mit guter Beleuchtung und einer klaren Aufnahme der Art zu identifizieren, also probieren Sie verschiedene Winkel aus, bis Sie die richtige Aufnahme erhalten. Seek lernt immer noch, also wenn die Punkte nicht ganz aufgefüllt werden können, schauen Sie wahrscheinlich auf einen Organismus, der nicht häufig in der Datenbank von iNaturalist zu finden ist. Sie können Beobachtungen in iNaturalist posten, um zu helfen - bald können Sie in iNaturalist von Seek aus posten.",
+    "tips": "Seek is best at identifying photos with good lighting and a clear shot of the species, so try different angles until you get the right shot.\n\nSeek is still learning, so if the dots can’t seem to fill up all the way, you’re probably looking at an organism that’s not commonly found in iNaturalist’s database. You can post observations to iNaturalist to help Seek learn to identify these better!",
     "header_3": "Denke daran",
     "tip_1": "Immer auf die Umgebung achten und sicher bleiben!",
     "tip_2": "Nicht essen, was du draußen findest.",
@@ -411,7 +402,7 @@
     "not_seen": "Sie haben noch kein {{iconicTaxon}}} beobachtet!"
   },
   "species_detail": {
-    "near": "In der Nähe",
+    "near": "Nearby",
     "about": "Über",
     "range_map": "Reichweitenkarte",
     "range_about": "Eine Karte der Beobachtungen dieser Art auf iNaturalist.",
@@ -470,15 +461,15 @@
     "designed_by": "Entworfen und entwickelt vom iNaturalist Team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
-    "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org."
+    "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "An iNaturalist senden",
     "notes": "Hier Notizen hinzufügen",
     "date": "Datum",
-    "at": "bei",
     "location": "Standort",
-    "no_location": "kein Standort",
     "geoprivacy": "Geoprivatsphäre",
     "open": "Öffentlich",
     "obscured": "Verdeckt",
@@ -494,7 +485,9 @@
     "posting": "Beobachtung veröffentlichen",
     "posting_success": "An iNaturalist gesendet!",
     "posting_failure": "Senden an iNaturalist fehlgeschlagen",
-    "internet": "Überprüfe Deine Internetverbindung und versuche es erneut",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "Dies kann einen Moment dauern",
     "look_up": "Eine Art nach Namen suchen"
@@ -538,15 +531,34 @@
     "iNatStats": "View iNat stats screen",
     "flag": "Diese Beobachtung als falsch markieren",
     "back": "Zurück zur vorherigen Ansicht",
-    "modal": "Nach unten wischen, um Popup zu schließen",
     "user_location": "Zurück zum gegenwärtigen Standort",
     "help": "Tippe für Hilfeseite",
-    "take_photo": "Tippe um ein Foto zu machen"
+    "take_photo": "Tippe um ein Foto zu machen",
+    "scroll_left": "Tap to scroll left",
+    "scroll_right": "Tap to scroll right"
   },
   "review": {
     "title": "Rate this app",
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "May",
+    "6": "June",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

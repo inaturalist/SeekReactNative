@@ -25,10 +25,10 @@ const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
 
   return (
     <View style={styles.header}>
-      <GreenText text={i18n.t( "challenges.your_mission" ).toLocaleUpperCase()} />
+      <GreenText text="challenges.your_mission" />
       <View style={styles.textContainer}>
         {missions.map( ( item, index ) => (
-          <View key={`${item}${index}`} style={styles.row}>
+          <View key={`${item}${index.toString()}`} style={styles.row}>
             <View style={styles.leftItem}>
               {missionNumbers[index].number === item.observations
                 ? <Image source={icons.checklist} style={styles.checklist} />

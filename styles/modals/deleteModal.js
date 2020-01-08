@@ -1,18 +1,17 @@
-import { StyleSheet, Platform, PixelRatio } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  touchable
+  row
 } from "../global";
-
-const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   buttonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
+    fontSize: 18,
     letterSpacing: 1.0,
+    lineHeight: 24,
     paddingTop: Platform.OS === "ios" ? 7 : 0,
     textAlign: "center"
   },
@@ -27,49 +26,29 @@ export default StyleSheet.create( {
     justifyContent: "center",
     width: 243
   },
-  flagButtonContainer: {
-    marginHorizontal: 22,
-    marginTop: 20
-  },
   flagContainer: {
     alignItems: "center",
-    marginHorizontal: 22
+    marginHorizontal: 30
   },
   flagHeader: {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    height: 167,
-    overflow: "visible"
-  },
-  flagImageCell: {
-    borderRadius: 129 / 2,
-    height: 129,
-    width: 129
+    height: 62
   },
   flagTextContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "flex-end",
     marginTop: 15
   },
-  imageContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-around"
+  headerStyling: {
+    marginRight: 15,
+    paddingTop: 9
   },
   innerContainer: {
     backgroundColor: colors.white,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    overflow: "hidden"
-  },
-  largeButtonHeight: {
-    flexWrap: "wrap",
-    lineHeight: ( fontScale > 1 ) ? 14 : 24
+    borderTopRightRadius: 40
   },
   largeFlagButton: {
     alignItems: "center",
@@ -79,26 +58,16 @@ export default StyleSheet.create( {
     justifyContent: "center",
     width: 278
   },
-  marginLarge: {
-    marginTop: 45
+  margin: {
+    marginTop: 27
   },
-  marginMedium: {
+  marginLarge: {
     marginTop: 32
   },
   marginSmall: {
     marginTop: 16
   },
-  paddingSmall: {
-    paddingTop: 9
-  },
-  speciesText: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 30,
-    lineHeight: 35,
-    marginBottom: 8,
-    textAlign: "center"
-  },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,
@@ -106,6 +75,5 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center",
     width: 292
-  },
-  touchable
+  }
 } );

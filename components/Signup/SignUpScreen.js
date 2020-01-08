@@ -2,7 +2,6 @@
 
 import React, { Component } from "react";
 import { View, ScrollView } from "react-native";
-import jwt from "react-native-jwt-io";
 
 import i18n from "../../i18n";
 import config from "../../config";
@@ -12,15 +11,24 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
-import { checkIsUsernameValid, saveAccessToken } from "../../utility/loginHelpers";
+import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
 }
 
-class SignUpScreen extends Component<Props> {
+type State = {
+  email: string,
+  licensePhotos: boolean,
+  username: string,
+  password: string,
+  error: ?string
+}
+
+class SignUpScreen extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -35,21 +43,11 @@ class SignUpScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: ?string ) {
     this.setState( { error } );
   }
 
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
-  retrieveOAuthToken( username, password ) {
+  retrieveOAuthToken( username: string, password: string ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -72,12 +70,12 @@ class SignUpScreen extends Component<Props> {
     } )
       .then( response => response.json() )
       .then( ( responseJson ) => {
-        const { access_token } = responseJson;
-        saveAccessToken( access_token );
+        const accessToken = responseJson.access_token;
+        saveAccessToken( accessToken );
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
-        this.setError();
+        this.setError( null );
       } );
   }
 
@@ -101,7 +99,7 @@ class SignUpScreen extends Component<Props> {
       password
     } = this.state;
 
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       user: {
@@ -114,6 +112,7 @@ class SignUpScreen extends Component<Props> {
     };
 
     if ( licensePhotos ) {
+      // $FlowFixMe
       params.user.preferred_photo_license = "CC-BY-NC";
     }
 
@@ -123,6 +122,7 @@ class SignUpScreen extends Component<Props> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 
@@ -155,29 +155,18 @@ class SignUpScreen extends Component<Props> {
     }
   }
 
-  formatError( error ) {
-    let newError;
-
-    if ( error.includes( "\n" ) ) {
-      newError = error.replace( /\n/g, " " );
-    }
-    return newError || error;
-  }
-
   render() {
-    const { navigation } = this.props;
     const { username, password, error } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "login.sign_up" ).toLocaleUpperCase()}
-          navigation={navigation}
+          header="login.sign_up"
         />
         <ScrollView>
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.username" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.username" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { username: value } )}
@@ -186,7 +175,7 @@ class SignUpScreen extends Component<Props> {
             type="username"
           />
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_login.password" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_login.password" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { password: value } )}
@@ -196,12 +185,12 @@ class SignUpScreen extends Component<Props> {
             type="password"
           />
           {error
-            ? <ErrorMessage error={this.formatError( error )} />
+            ? <ErrorMessage error={formatError( error )} />
             : <View style={styles.greenButtonMargin} />}
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.sign_up" )}
+            text="inat_signup.sign_up"
           />
         </ScrollView>
       </View>

@@ -9,18 +9,18 @@ import {
   SafeAreaView
 } from "react-native";
 
-
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
 }
 
 class SideMenu extends Component<Props> {
-  navigateTo( route ) {
+  navigateTo( route: string ) {
     const { navigation } = this.props;
 
     navigation.navigate( route );
@@ -92,7 +92,10 @@ class SideMenu extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "menu.inat" )}
             accessible
-            onPress={() => this.navigateTo( "iNatStats" )}
+            onPress={() => {
+              setRoute( "Main" );
+              this.navigateTo( "iNatStats" );
+            }}
             style={[styles.row, styles.height]}
           >
             <Image source={icons.menuiNat} style={styles.image} />

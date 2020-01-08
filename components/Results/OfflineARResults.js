@@ -1,31 +1,47 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Platform } from "react-native";
+import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import Realm from "realm";
-import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import realmConfig from "../../models";
-import ErrorScreen from "./Error";
-import styles from "../../styles/results/results";
 import {
   addToCollection,
   getTaxonCommonName,
   checkForIconicTaxonId
 } from "../../utility/helpers";
-import { resizeImage } from "../../utility/photoHelpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
+import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchTruncatedUserLocation, truncateCoordinates } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
+import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
 }
 
-class ARCameraResults extends Component<Props> {
+type State = {
+  threshold: number,
+  predictions: Array<Object>,
+  uri: string,
+  time: string,
+  latitude: number,
+  longitude: number,
+  speciesSeenImage: ?string,
+  observation: Object,
+  taxaId: ?number,
+  taxaName: ?string,
+  commonAncestor: ?string,
+  seenDate: ?string,
+  scientificName: ?string,
+  match: ?boolean,
+  errorCode: ?number,
+  rank: ?number,
+  isLoggedIn: ?boolean
+};
+
+class OfflineARResults extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -34,55 +50,31 @@ class ARCameraResults extends Component<Props> {
       predictions,
       latitude,
       longitude,
-      backupUri
+      time
     } = navigation.state.params;
 
     this.state = {
       threshold: 0.7,
       predictions,
       uri,
-      backupUri,
-      time: moment().format( "X" ),
+      time,
       latitude,
       longitude,
-      userImage: null,
       speciesSeenImage: null,
       observation: null,
       taxaId: null,
       taxaName: null,
       commonAncestor: null,
       seenDate: null,
-      error: null,
       scientificName: null,
-      imageForUploading: null,
       match: null,
-      isLoggedIn: null,
       errorCode: null,
-      rank: null
+      rank: null,
+      isLoggedIn: null
     };
   }
 
-  setLocationErrorCode( errorCode ) {
-    this.setState( { errorCode }, () => this.resizeImage() );
-  }
-
-  getGeolocation() {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords ) {
-        const { latitude, longitude } = coords;
-
-        this.setState( {
-          latitude,
-          longitude
-        } );
-      }
-      this.resizeImage();
-    } ).catch( ( errorCode ) => {
-      this.setLocationErrorCode( errorCode );
-    } );
-  }
-
-  setLoggedIn( isLoggedIn ) {
+  setLoggedIn( isLoggedIn: boolean ) {
     this.setState( { isLoggedIn } );
   }
 
@@ -93,27 +85,34 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
+  setLocationErrorCode( errorCode: number ) {
+    this.setState( { errorCode } );
   }
 
-  setImageUri( uri ) {
-    this.setState( { userImage: uri }, () => this.setARCameraVisionResults() );
+  getUserLocation() {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords ) {
+        const { latitude, longitude } = coords;
+
+        this.setState( {
+          latitude,
+          longitude
+        } );
+      }
+    } ).catch( ( errorCode ) => {
+      this.setLocationErrorCode( errorCode );
+    } );
   }
 
-  setSeenDate( seenDate ) {
+  setSeenDate( seenDate: string ) {
     this.setState( { seenDate } );
   }
 
-  setError( error ) {
-    this.setState( { error } );
+  setMatch( match: boolean ) {
+    this.setState( { match }, () => this.showMatch() );
   }
 
-  setMatch( match ) {
-    this.setState( { match }, () => this.checkForMatches() );
-  }
-
-  setCommonAncestor( ancestor, speciesSeenImage ) {
+  setCommonAncestor( ancestor: Object, speciesSeenImage: ?string ) {
     getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
       this.setState( {
         commonAncestor: commonName || ancestor.name,
@@ -143,14 +142,14 @@ class ARCameraResults extends Component<Props> {
       if ( Platform.OS === "ios" ) {
         species.ancestor_ids = ancestorIds.sort();
       }
-      this.checkDateSpeciesSeen( Number( species.taxon_id ) );
+      this.checkSpeciesSeen( Number( species.taxon_id ) );
       this.fetchAdditionalSpeciesInfo( species );
     } else {
       this.checkForCommonAncestor();
     }
   }
 
-  setSpeciesInfo( species, taxa ) {
+  setSpeciesInfo( species: Object, taxa: Object ) {
     const taxaId = Number( species.taxon_id );
 
     const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
@@ -179,31 +178,17 @@ class ARCameraResults extends Component<Props> {
   }
 
   async showMatch() {
-    const { seenDate } = this.state;
+    const { seenDate, match } = this.state;
 
-    if ( !seenDate ) {
+    if ( !seenDate && match ) {
       await this.addObservation();
-      this.navigateTo( "Match" );
+      this.navigateToMatch();
     } else {
-      this.navigateTo( "Match" );
+      this.navigateToMatch();
     }
   }
 
-  showNoMatch() {
-    this.navigateTo( "Match" );
-  }
-
-  checkForMatches() {
-    const { match } = this.state;
-
-    if ( match === true ) {
-      this.showMatch();
-    } else if ( match === false ) {
-      this.showNoMatch();
-    }
-  }
-
-  fetchAdditionalSpeciesInfo( species ) {
+  fetchAdditionalSpeciesInfo( species: Object ) {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( species.taxon_id, options ).then( ( response ) => {
@@ -214,7 +199,7 @@ class ARCameraResults extends Component<Props> {
     } );
   }
 
-  fetchAdditionalAncestorInfo( ancestor ) {
+  fetchAdditionalAncestorInfo( ancestor: Object ) {
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( ancestor.taxon_id, options ).then( ( response ) => {
@@ -239,98 +224,66 @@ class ARCameraResults extends Component<Props> {
     }
   }
 
-  resizeImage() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 299 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageUri( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
-  }
-
-  resizeImageForUploading() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 2048 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageForUploading( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
-  }
-
   addObservation() {
     const {
       latitude,
       longitude,
       observation,
       uri,
-      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time, backupUri );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
-  checkDateSpeciesSeen( taxaId ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        if ( seenTaxaIds.includes( taxaId ) ) {
-          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
-          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          this.setSeenDate( seenDate );
-        } else {
-          this.setSeenDate( null );
-        }
-      } ).catch( () => {
-        this.setSeenDate( null );
-      } );
+  checkSpeciesSeen( taxaId: number ) {
+    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+      this.setSeenDate( date );
+    } );
   }
 
   requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setLocationErrorCode( 1 );
-        }
-      } );
-    } else {
-      this.getGeolocation();
+    const { latitude, longitude } = this.state;
+
+    if ( !latitude || !longitude ) { // Android photo gallery images should already have lat/lng
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            this.getUserLocation();
+          } else {
+            this.setLocationErrorCode( 1 );
+          }
+        } );
+      } else {
+        this.getUserLocation();
+      }
     }
   }
 
-  navigateTo( route ) {
+  navigateToMatch() {
     const { navigation } = this.props;
     const {
-      userImage,
       taxaName,
       taxaId,
       time,
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      imageForUploading,
+      uri,
       scientificName,
       latitude,
       longitude,
       match,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = this.state;
 
-    navigation.push( route, {
-      userImage,
-      image: imageForUploading,
+    navigation.push( "Match", {
+      userImage: uri,
+      uri,
       taxaName,
       taxaId,
       time,
@@ -341,31 +294,28 @@ class ARCameraResults extends Component<Props> {
       longitude,
       commonAncestor,
       match,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } );
   }
 
   render() {
-    const { error, uri } = this.state;
-    const { navigation } = this.props;
+    const { uri } = this.state;
 
     return (
-      <View style={styles.container}>
+      <>
         <NavigationEvents
           onWillFocus={() => {
-            this.requestAndroidPermissions();
             this.getLoggedIn();
-            this.resizeImageForUploading();
+            this.setARCameraVisionResults();
+            this.requestAndroidPermissions();
           }}
         />
-        {error
-          ? <ErrorScreen error={error} navigation={navigation} />
-          : <FullPhotoLoading uri={uri} />}
-      </View>
+        <FullPhotoLoading uri={uri} />
+      </>
     );
   }
 }
 
-export default ARCameraResults;
+export default OfflineARResults;

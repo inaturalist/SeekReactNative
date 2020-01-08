@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
+import { withNavigation } from "react-navigation";
 
-import i18n from "../../i18n";
 import styles from "../../styles/home/challenges";
 import realmConfig from "../../models/index";
 import Challenges from "./Challenges";
@@ -43,13 +43,13 @@ const ChallengeCard = ( { navigation }: Props ) => {
         onPress={() => navigation.navigate( "Challenges" )}
         style={styles.header}
       >
-        <GreenText text={i18n.t( "challenges_card.header" ).toLocaleUpperCase()} />
+        <GreenText text="challenges_card.header" />
       </TouchableOpacity>
       {challenge
-        ? <Challenges challenge={challenge} navigation={navigation} />
+        ? <Challenges challenge={challenge} />
         : <NoChallenges />}
     </View>
   );
 };
 
-export default ChallengeCard;
+export default withNavigation( ChallengeCard );

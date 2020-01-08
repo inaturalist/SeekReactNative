@@ -1,177 +1,72 @@
 // @flow
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text,
   Alert,
   Image,
-  TouchableOpacity,
-  FlatList
+  TouchableOpacity
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import icons from "../../assets/icons";
-import { dimensions } from "../../styles/global";
+import { localizeAttributions } from "../../utility/photoHelpers";
+import HorizontalScroll from "../UIComponents/HorizontalScroll";
 
 type Props = {
   +photos: Array<Object>,
-  +userPhoto: string
+  +userPhoto: ?string
 };
 
-class SpeciesPhotos extends Component<Props> {
-  constructor() {
-    super();
+const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
+  const photoList = [];
 
-    this.state = {
-      scrollIndex: 0,
-      scrollOffset: 0
-    };
-  }
-
-  setIndex( scrollIndex, scrollOffset ) {
-    this.setState( {
-      scrollIndex,
-      scrollOffset
-    } );
-  }
-
-  scrollRight() {
-    const { scrollIndex, scrollOffset } = this.state;
-    const { photos } = this.props;
-
-    const nextIndex = scrollIndex < photos.length - 1 ? scrollIndex + 1 : photos.length - 1;
-    const nextOffset = scrollOffset + dimensions.width;
-
-    if ( this.flatList ) {
-      this.flatList.scrollToIndex( {
-        index: nextIndex, animated: true
-      } );
-      this.setIndex( nextIndex, nextOffset );
-    }
-  }
-
-  scrollLeft() {
-    const { scrollIndex, scrollOffset } = this.state;
-
-    const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
-    const prevOffset = scrollOffset - dimensions.width;
-
-    if ( this.flatList ) {
-      this.flatList.scrollToIndex( {
-        index: prevIndex, animated: true
-      } );
-      this.setIndex( prevIndex, prevOffset );
-    }
-  }
-
-  calculateScrollIndex( e ) {
-    const { scrollOffset, scrollIndex } = this.state;
-    const { contentOffset } = e.nativeEvent;
-
-    let nextIndex;
-    let prevIndex;
-
-    if ( contentOffset.x > scrollOffset ) {
-      nextIndex = scrollIndex < 8 ? scrollIndex + 1 : 8;
-      this.setIndex( nextIndex, contentOffset.x );
-    } else {
-      prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
-      this.setIndex( prevIndex, contentOffset.x );
-    }
-  }
-
-  render() {
-    const { photos, userPhoto } = this.props;
-
-    const photoList = [];
-
-    if ( userPhoto ) {
-      photoList.push(
-        <View key="user-image">
-          <Image
-            source={{ uri: userPhoto }}
-            style={styles.image}
-          />
-        </View>
-      );
-    }
-
-    photos.forEach( ( photo, i ) => {
-      const image = (
-        <View key={`image${photo.taxon_id}-${i}`}>
-          <Image
-            source={{ uri: photo.photo.original_url }}
-            style={styles.image}
-          />
-          <TouchableOpacity
-            onPress={() => Alert.alert(
-              i18n.t( "species_detail.license" ),
-              photo.photo.attribution
-            )}
-            style={styles.ccButton}
-          >
-            <View style={styles.ccView}>
-              <Text style={styles.ccButtonText}>
-                {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-      );
-      photoList.push( image );
-    } );
-
-    return (
-      <View>
-        {photoList.length === 0 ? (
-          <View style={[styles.photoContainer, styles.fullWidth]}>
-            <LoadingWheel color="white" />
-          </View>
-        ) : (
-          <React.Fragment>
-            <FlatList
-              ref={( ref ) => { this.flatList = ref; }}
-              bounces={false}
-              contentContainerStyle={styles.photoContainer}
-              data={photoList}
-              getItemLayout={( data, index ) => (
-                // skips measurement of dynamic content for faster loading
-                {
-                  length: ( dimensions.width ),
-                  offset: ( dimensions.width ) * index,
-                  index
-                }
-              )}
-              horizontal
-              indicatorStyle="white"
-              initialNumToRender={1}
-              onScrollEndDrag={e => this.calculateScrollIndex( e )}
-              pagingEnabled
-              renderItem={( { item } ) => item}
-            />
-            <TouchableOpacity
-              accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
-              accessible
-              onPress={() => this.scrollLeft()}
-              style={styles.leftArrow}
-            >
-              <Image source={icons.swipeLeft} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
-              accessible
-              onPress={() => this.scrollRight()}
-              style={styles.rightArrow}
-            >
-              <Image source={icons.swipeRight} />
-            </TouchableOpacity>
-          </React.Fragment>
-        )}
+  if ( userPhoto ) {
+    photoList.push(
+      <View key="user-image">
+        <Image
+          source={{ uri: userPhoto }}
+          style={styles.image}
+        />
       </View>
     );
   }
-}
+
+  photos.forEach( ( photo ) => {
+    const image = (
+      <View key={`image${photo.photo.original_url}`}>
+        <Image
+          source={{ uri: photo.photo.original_url }}
+          style={styles.image}
+        />
+        <TouchableOpacity
+          onPress={() => Alert.alert(
+            i18n.t( "species_detail.license" ),
+            localizeAttributions( photo.photo.attribution, photo.photo.license_code, "SpeciesDetail" )
+          )}
+          style={styles.ccButton}
+        >
+          <View style={styles.ccView}>
+            <Text style={styles.ccButtonText}>
+              {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+    );
+    photoList.push( image );
+  } );
+
+  return (
+    <View>
+      {photoList.length === 0 ? (
+        <View style={[styles.photoContainer, styles.fullWidth]}>
+          <LoadingWheel color="white" />
+        </View>
+      ) : <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />}
+    </View>
+  );
+};
 
 export default SpeciesPhotos;

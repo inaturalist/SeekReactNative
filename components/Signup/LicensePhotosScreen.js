@@ -22,7 +22,13 @@ type Props = {
   +navigation: any
 }
 
-class LicensePhotosScreen extends Component<Props> {
+type State = {
+  email: string,
+  licensePhotos: boolean,
+  error: boolean
+}
+
+class LicensePhotosScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -33,7 +39,7 @@ class LicensePhotosScreen extends Component<Props> {
     };
   }
 
-  setError( error ) {
+  setError( error: boolean ) {
     this.setState( { error } );
   }
 
@@ -61,10 +67,10 @@ class LicensePhotosScreen extends Component<Props> {
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+        <GreenHeader header="login.sign_up" />
         <ScrollView>
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_signup.email" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_signup.email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}
@@ -86,13 +92,13 @@ class LicensePhotosScreen extends Component<Props> {
           <View style={[styles.row, styles.marginLeft]}>
             <Text
               onPress={() => navigation.navigate( "Privacy" )}
-              style={[styles.privacy, { marginTop: 2 }]}
+              style={[styles.privacy, styles.marginSmall]}
             >
               {i18n.t( "inat_signup.privacy" )}
             </Text>
             <Text
               onPress={() => navigation.navigate( "TermsOfService" )}
-              style={[styles.privacy, { marginTop: 2, marginLeft: 14 }]}
+              style={[styles.privacy, styles.marginSmall, styles.marginLeftSmall]}
             >
               {i18n.t( "inat_signup.terms" )}
             </Text>
@@ -101,7 +107,7 @@ class LicensePhotosScreen extends Component<Props> {
           <GreenButton
             handlePress={() => this.submit()}
             login
-            text={i18n.t( "inat_signup.next" )}
+            text="inat_signup.next"
           />
         </ScrollView>
       </View>

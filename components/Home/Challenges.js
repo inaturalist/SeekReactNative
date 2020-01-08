@@ -8,6 +8,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/challenges";
@@ -44,12 +45,12 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         color={colors.seekGreen}
         handlePress={() => {
           setChallengeIndex( challenge.index );
-          setRoute( "Challenges" );
+          setRoute( "Main" );
           navigation.navigate( "ChallengeDetails" );
         }}
         text={challenge.started
-          ? i18n.t( "challenges_card.continue_challenge" )
-          : i18n.t( "challenges_card.take_challenge" )}
+          ? "challenges_card.continue_challenge"
+          : "challenges_card.take_challenge"}
       />
     </View>
     <TouchableOpacity
@@ -61,4 +62,4 @@ const Challenges = ( { navigation, challenge }: Props ) => (
   </ImageBackground>
 );
 
-export default Challenges;
+export default withNavigation( Challenges );

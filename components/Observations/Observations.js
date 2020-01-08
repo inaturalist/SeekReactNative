@@ -23,30 +23,39 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
-import DeleteModal from "./DeleteModal";
-import { sortNewestToOldest, removeFromCollection } from "../../utility/helpers";
+import DeleteModal from "../Modals/DeleteModal";
+import { removeFromCollection } from "../../utility/helpers";
+import createSectionList from "../../utility/observationHelpers";
 
-type Props = {
-  +navigation: any
+type Props = {}
+
+type State = {
+  observations: Array<Object>,
+  showModal: boolean,
+  itemToDelete: ?Object,
+  itemScrolledId: ?number
 }
 
-class Observations extends Component<Props> {
+class Observations extends Component<Props, State> {
+  sectionList: ?any
+
   constructor() {
     super();
 
     this.state = {
       observations: [],
-      showDeleteModal: false,
+      showModal: false,
       itemToDelete: null,
       itemScrolledId: null
     };
 
-    this.toggleDeleteModal = this.toggleDeleteModal.bind( this );
-    this.deleteObservation = this.deleteObservation.bind( this );
-    this.updateItemScrolledId = this.updateItemScrolledId.bind( this );
+    ( this:any ).openModal = this.openModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
+    ( this:any ).deleteObservation = this.deleteObservation.bind( this );
+    ( this:any ).updateItemScrolledId = this.updateItemScrolledId.bind( this );
   }
 
-  setObservations( observations ) {
+  setObservations( observations: Array<Object> ) {
     this.setState( { observations } );
   }
 
@@ -54,7 +63,7 @@ class Observations extends Component<Props> {
     this.setState( { observations: [] } );
   }
 
-  updateItemScrolledId( itemScrolledId ) {
+  updateItemScrolledId( itemScrolledId: number ) {
     this.setState( { itemScrolledId } );
   }
 
@@ -69,50 +78,10 @@ class Observations extends Component<Props> {
     }
   }
 
-  createSectionList( realm ) {
-    const observations = [];
-    const species = realm.objects( "ObservationRealm" );
-
-    const taxaIdList = Object.keys( taxaIds ).reverse();
-    taxaIdList.pop();
-
-    taxaIdList.forEach( ( id ) => {
-      const data = species
-        .filtered( `taxon.iconicTaxonId == ${id}` )
-        .sorted( "date", true );
-
-      const badgeCount = realm.objects( "BadgeRealm" )
-        .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
-
-      observations.push( {
-        id,
-        data: data.length > 0 ? data : [],
-        badgeCount,
-        open: true
-      } );
-    } );
-
-    sortNewestToOldest( observations );
-
-    const otherData = species
-      .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
-      .sorted( "date", true );
-    // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
-
-    observations.push( {
-      id: 1,
-      data: otherData,
-      badgeCount: -1,
-      open: true
-    } );
-
-    return species.length > 0 ? observations : [];
-  }
-
   fetchObservations() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const observations = this.createSectionList( realm );
+        const observations = createSectionList( realm );
 
         this.setObservations( observations );
       } )
@@ -121,17 +90,21 @@ class Observations extends Component<Props> {
       } );
   }
 
-  async deleteObservation( id ) {
+  async deleteObservation( id: number ) {
     await removeFromCollection( id );
     this.resetObservations();
     this.fetchObservations();
   }
 
-  toggleDeleteModal( id, photo, commonName, scientificName, iconicTaxonId ) {
-    const { showDeleteModal } = this.state;
-
+  openModal(
+    id: number,
+    photo: string,
+    commonName: string,
+    scientificName: string,
+    iconicTaxonId: number
+  ) {
     this.setState( {
-      showDeleteModal: !showDeleteModal,
+      showModal: true,
       itemToDelete: {
         id,
         photo,
@@ -142,41 +115,34 @@ class Observations extends Component<Props> {
     } );
   }
 
-  toggleSection( id ) {
+  closeModal() {
+    this.setState( { showModal: false } );
+  }
+
+  toggleSection( id: number ) {
     const { observations } = this.state;
 
     const section = observations.find( item => item.id === id );
 
+    // $FlowFixMe
     if ( section.open === true ) {
+      // $FlowFixMe
       section.open = false;
     } else {
+      // $FlowFixMe
       section.open = true;
     }
 
     this.setObservations( observations );
   }
 
-  renderEmptySection( id, data, open ) {
-    if ( data.length === 0 && open ) {
-      return (
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-          </Text>
-        </View>
-      );
-    }
-    return null;
-  }
-
   render() {
     const {
       observations,
-      showDeleteModal,
+      showModal,
       itemToDelete,
       itemScrolledId
     } = this.state;
-    const { navigation } = this.props;
 
     let content;
 
@@ -193,8 +159,7 @@ class Observations extends Component<Props> {
                 <ObservationCard
                   item={item}
                   itemScrolledId={itemScrolledId}
-                  navigation={navigation}
-                  toggleDeleteModal={this.toggleDeleteModal}
+                  openModal={this.openModal}
                   updateItemScrolledId={this.updateItemScrolledId}
                 />
               );
@@ -207,7 +172,18 @@ class Observations extends Component<Props> {
               data,
               open
             }
-          } ) => this.renderEmptySection( id, data, open )}
+          } ) => {
+            if ( data.length === 0 && open ) {
+              return (
+                <View style={styles.textContainer}>
+                  <Text style={styles.text}>
+                    {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+                  </Text>
+                </View>
+              );
+            }
+            return null;
+          }}
           renderSectionHeader={( {
             section: {
               id,
@@ -218,9 +194,7 @@ class Observations extends Component<Props> {
           } ) => {
             let badge;
 
-            if ( badgeCount === -1 ) {
-              badge = null;
-            } else if ( badgeCount === 0 ) {
+            if ( badgeCount === 0 ) {
               badge = badges.badge_empty_small;
             } else if ( badgeCount === 1 ) {
               badge = badges.badge_bronze;
@@ -240,14 +214,17 @@ class Observations extends Component<Props> {
                 </Text>
                 <View style={styles.row}>
                   <Text style={styles.numberText}>{data.length}</Text>
-                  {badgeCount === -1 ? (
-                    <React.Fragment>
+                  {badgeCount !== -1 ? (
+                    <>
                       <View style={styles.marginSmall} />
                       <Image source={badge} style={styles.badgeImage} />
-                      <View style={{ marginRight: open ? 15 : 19 }} />
-                    </React.Fragment>
+                      <View style={[styles.margin, open && styles.marginOpen]} />
+                    </>
                   ) : null}
-                  <View style={{ marginRight: badge === badges.badge_empty_small ? -1 : null }} />
+                  <View style={[
+                    styles.noMargin,
+                    badgeCount === -1 && styles.marginBadgeEmpty]}
+                  />
                   <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
                 </View>
               </TouchableOpacity>
@@ -258,7 +235,7 @@ class Observations extends Component<Props> {
         />
       );
     } else {
-      content = <EmptyState navigation={navigation} screen="observations" />;
+      content = <EmptyState screen="observations" />;
     }
 
     return (
@@ -272,14 +249,13 @@ class Observations extends Component<Props> {
           onWillFocus={() => this.fetchObservations()}
         />
         <GreenHeader
-          header={i18n.t( "observations.header" )}
-          navigation={navigation}
+          header="observations.header"
         />
-        <Modal isVisible={showDeleteModal}>
+        <Modal isVisible={showModal}>
           <DeleteModal
             deleteObservation={this.deleteObservation}
             itemToDelete={itemToDelete}
-            toggleDeleteModal={this.toggleDeleteModal}
+            closeModal={this.closeModal}
           />
         </Modal>
         {content}

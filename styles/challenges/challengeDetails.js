@@ -5,8 +5,7 @@ import {
 } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
@@ -67,6 +66,9 @@ export default StyleSheet.create( {
   marginHorizontal: {
     marginHorizontal: 36
   },
+  marginTop: {
+    marginTop: 16
+  },
   padding: {
     padding: 25
   },
@@ -101,7 +103,6 @@ export default StyleSheet.create( {
     maxWidth: width - ( 105 + 28 + 74 ),
     textAlign: "center"
   },
-  touchable,
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,

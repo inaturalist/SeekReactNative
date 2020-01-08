@@ -3,7 +3,6 @@
 import React from "react";
 import {
   View,
-  Text,
   Image
 } from "react-native";
 
@@ -15,13 +14,13 @@ import GreenButton from "../UIComponents/GreenButton";
 import DescriptionText from "../UIComponents/DescriptionText";
 
 type Props = {
-  +toggleGetStartedModal: Function
+  +closeModal: Function
 }
 
-const GetStarted = ( { toggleGetStartedModal }: Props ) => (
+const GetStarted = ( { closeModal }: Props ) => (
   <View style={styles.container}>
     <View style={styles.headerMargin}>
-      <GreenText text={i18n.t( "get_started.header" ).toLocaleUpperCase()} />
+      <GreenText text="get_started.header" />
     </View>
     <View style={styles.marginTop} />
     <View style={[styles.row, styles.margin]}>
@@ -46,8 +45,8 @@ const GetStarted = ( { toggleGetStartedModal }: Props ) => (
     </View>
     <View style={styles.button}>
       <GreenButton
-        handlePress={() => toggleGetStartedModal()}
-        text={i18n.t( "onboarding.continue" )}
+        handlePress={() => closeModal()}
+        text="onboarding.continue"
       />
     </View>
   </View>

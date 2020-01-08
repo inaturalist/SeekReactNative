@@ -31,12 +31,8 @@
     "header": "Notifications",
     "learn_more": "Learn more about iNaturalist",
     "earned_badges": "You've earned a lot of badges! You might like iNaturalist!",
-    "new_challenge": "There's a new challenge from Our Planet & WWF!",
-    "check_out": "Check it out now!",
     "almost_finished": "You're almost finished with your challenge!",
     "view_progress": "View your progress",
-    "observation_identified": "Your observation was identified to species on iNaturalist!",
-    "badges_updated": "Thanks for helping improve our model! Your badges may have been updated.",
     "challenge_completed": "Congrats! You completed a challenge",
     "view_challenges": "View challenge",
     "none": "You don’t have any notifications yet!",
@@ -57,13 +53,10 @@
     "permission": "You need to be at least 13 years old to create an account.",
     "privacy": "Privacy Policy",
     "continue": "Continue",
-    "need_permission": "We need your parents' permission.",
     "enter_email": "Please enter your parent's email",
-    "send_email": "Send email",
     "parent_email": "Parent/Guardian's Email",
     "under_13": "Because you’re under 13, we need to get your parent or guardian’s permission before creating an account.",
     "sign_up": "Sign up",
-    "sign_up_inat": "Sign up for iNaturalist",
     "next": "Next",
     "submit": "Submit",
     "email": "Email",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "View badge",
     "badge": "Badge",
-    "species": "species",
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
@@ -285,18 +277,17 @@
     "family": "family",
     "genus": "genus",
     "species": "species",
-    "loading": "Seek's Camera is loading...",
     "error_camera": "We need access to the camera to help you identify species!",
     "error_gallery": "We need access to your camera roll to save photos you take!",
     "permissions": "Enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_old_camera": "Sorry, we weren't able to load the camera",
     "error_device_support": "Sorry, the device you are using is not supported",
-    "error_save": "Sorry, there was a problem saving your photo"
-    },
+    "error_save": "Sorry, there was a problem saving your photo",
+    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+  },
   "gallery": {
     "label": "Photos",
-    "choose_photo": "Choose a photo",
     "camera_roll": "Camera Roll"
   },
   "camera_help": {
@@ -411,7 +402,7 @@
     "not_seen": "You haven’t observed any {{iconicTaxon}} yet!"
   },
   "species_detail": {
-    "near": "Near",
+    "near": "Nearby",
     "about": "About",
     "range_map": "Range map",
     "range_about": "A map of observations of this species seen on iNaturalist.",
@@ -471,16 +462,14 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
     "version": "Version",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Post to iNaturalist",
     "notes": "Add notes here",
     "date": "date",
-    "at": "at",
     "location": "location",
-    "no_location": "no location",
     "geoprivacy": "geoprivacy",
     "open": "Open",
     "obscured": "Obscured",
@@ -496,7 +485,9 @@
     "posting": "Posting your Observation",
     "posting_success": "Posted to iNaturalist!",
     "posting_failure": "Posting to iNaturalist failed",
-    "internet": "Try checking your internet connection and try again",
+    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
+    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
+    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "This may take up to a minute",
     "look_up": "Look up a species by name"
@@ -540,7 +531,6 @@
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",
     "back": "Go back to previous screen",
-    "modal": "Swipe down to close popup",
     "user_location": "Return to your current location",
     "help": "Tap for help screen",
     "take_photo": "Tap to take photo",
@@ -552,5 +542,23 @@
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
+  },
+  "months_short": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "May",
+    "6": "June",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Oct",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "all rights reserved",
+    "some": "some rights reserved"
   }
 }

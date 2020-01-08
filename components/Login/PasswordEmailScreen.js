@@ -19,22 +19,17 @@ type Props = {
 const PasswordEmailScreen = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView />
-    <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+    <GreenHeader header="login.sign_up" />
     <View style={styles.flexCenter}>
       <Text style={styles.greenHeaderText}>{i18n.t( "inat_login.check_email" ).toLocaleUpperCase()}</Text>
-      <Text style={[styles.secondHeaderText, {
-        color: "black",
-        marginHorizontal: 57,
-        marginTop: 21
-      }]}
-      >
+      <Text style={[styles.secondHeaderText, styles.email]}>
         {i18n.t( "inat_login.reset_instructions" )}
       </Text>
       <View style={styles.greenButtonMargin} />
       <GreenButton
         handlePress={() => navigation.navigate( "LoginOrSignup" )}
         login
-        text={i18n.t( "inat_login.return_login" )}
+        text="inat_login.return_login"
       />
     </View>
   </View>

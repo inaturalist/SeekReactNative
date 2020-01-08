@@ -45,6 +45,12 @@ export default StyleSheet.create( {
     letterSpacing: 0.78,
     marginBottom: 10
   },
+  margin: {
+    marginTop: 12
+  },
+  marginLarge: {
+    marginTop: 42
+  },
   number: {
     color: colors.black,
     fontFamily: fonts.light,

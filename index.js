@@ -1,7 +1,5 @@
 import "react-native-gesture-handler";
 
-import "react-native-gesture-handler";
-
 import React from "react";
 import { AppRegistry } from "react-native";
 import SeekApp from "./components/App";

@@ -1,6 +1,6 @@
 [ignore]
 ; We fork some components by platform
-.*/*[.]android.js
+.*/node_modules/.*/*[.]android.js
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
@@ -21,8 +21,18 @@ node_modules/react-native/Libraries/polyfills/.*
 node_modules/warning/.*
 ; Flow doesn't support platforms
 .*/Libraries/Utilities/HMRLoadingView.js
+.*/Libraries/Utilities/LoadingView.js
 [untyped]
 .*/node_modules/@react-native-community/cli/.*/.*
+.*/node_modules/react-native/Libraries/Animated/src/.*/.*
+.*/node_modules/react-native/Libraries/Lists/.*
+.*/node_modules/react-native/Libraries/ReactNative/.*
+.*/node_modules/react-native/Libraries/Modal/.*
+.*/node_modules/react-native/Libraries/Components/ScrollView/.*
+.*/node_modules/react-native/Libraries/Components/Touchable/.*
+.*/node_modules/react-native/Libraries/Components/View/.*
+.*/node_modules/react-native/Libraries/PermissionsAndroid/.*
+.*/node_modules/react-native-check-box/.*
 
 [include]
 
@@ -68,6 +78,7 @@ module.file_ext=.js
 module.file_ext=.jsx
 module.file_ext=.json
 module.file_ext=.native.js
+module.file_ext=.android.js
 
 suppress_type=$FlowIssue
 suppress_type=$FlowFixMe
@@ -98,4 +109,4 @@ unsafe-getters-setters
 untyped-import
 untyped-type-import
 [version]
-^0.98.0
+^0.114.0

@@ -8,15 +8,15 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/camera/warning";
+import styles from "../../styles/modals/warningModal";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
 
 type Props = {
-  +toggleWarningModal: Function
+  +closeModal: Function
 }
 
-const WarningModal = ( { toggleWarningModal }: Props ) => (
+const WarningModal = ( { closeModal }: Props ) => (
   <View style={styles.innerContainer}>
     <View style={styles.header}>
       <Text style={styles.headerText}>
@@ -53,8 +53,8 @@ const WarningModal = ( { toggleWarningModal }: Props ) => (
       <View style={styles.margin} />
       <View style={styles.button}>
         <GreenButton
-          handlePress={() => toggleWarningModal()}
-          text={i18n.t( "onboarding.continue" )}
+          handlePress={() => closeModal()}
+          text="onboarding.continue"
         />
       </View>
     </View>

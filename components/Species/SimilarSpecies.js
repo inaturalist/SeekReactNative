@@ -23,7 +23,7 @@ class SimilarSpecies extends Component<Props> {
     };
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { id } = this.props;
 
     if ( id !== prevProps.id ) {
@@ -80,7 +80,7 @@ class SimilarSpecies extends Component<Props> {
     return (
       <View>
         <View style={styles.similarSpeciesMargins}>
-          <GreenText text={i18n.t( "species_detail.similar" ).toLocaleUpperCase()} />
+          <GreenText text="species_detail.similar" />
         </View>
         <View style={[
           styles.similarSpeciesContainer,

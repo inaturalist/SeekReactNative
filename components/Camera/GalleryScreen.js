@@ -13,30 +13,38 @@ import {
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
-import moment from "moment";
 import { getPredictionsForImage } from "react-native-inat-camera";
-import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
 import CameraError from "./CameraError";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import {
-  checkCameraRollPermissions,
-  checkForPhotoMetaData,
-  movePhotoToAppStorage,
-  resizeImage
-} from "../../utility/photoHelpers";
+import { checkForPhotoMetaData, getAlbumNames } from "../../utility/photoHelpers";
+import { checkCameraRollPermissions } from "../../utility/androidHelpers.android";
 import styles from "../../styles/camera/gallery";
 import { colors, dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
-import { dirPictures, dirTaxonomy, dirModel } from "../../utility/dirStorage";
+import { dirTaxonomy, dirModel } from "../../utility/dirStorage";
 import AlbumPicker from "./AlbumPicker";
 
 type Props = {
   +navigation: any
 }
 
-class GalleryScreen extends Component<Props> {
+type State = {
+  photos: Array<Object>,
+  error: ?string,
+  hasNextPage: boolean,
+  lastCursor: null,
+  stillLoading: boolean,
+  groupTypes: string,
+  album: ?string,
+  loading: boolean,
+  albumNames: Array<String>
+}
+
+class GalleryScreen extends Component<Props, State> {
+  camera: ?any
+
   constructor() {
     super();
 
@@ -48,46 +56,29 @@ class GalleryScreen extends Component<Props> {
       stillLoading: false,
       groupTypes: "All",
       album: null,
-      predictions: [],
-      loading: false
+      loading: false,
+      albumNames: []
     };
 
-    this.updateAlbum = this.updateAlbum.bind( this );
+    ( this:any ).updateAlbum = this.updateAlbum.bind( this );
   }
 
-  getPredictions( uri ) {
-    const reactUri = uri.split( "file:///storage/emulated/0/" )[1];
-    let paths;
-    let imagePath;
-    let folder;
-    let photoUri;
+  getPredictions( uri: string, timestamp: Date, location: string ) {
+    const path = uri.split( "file://" );
+    const reactUri = path[1];
 
-    if ( reactUri ) {
-      paths = reactUri.split( "/" );
-    }
-
-    if ( paths ) {
-      imagePath = paths.pop();
-      folder = paths.join( "/" );
-      photoUri = `${RNFS.ExternalStorageDirectoryPath}/${folder}/${imagePath}`; // triple check that this works for all images
-    }
-
-    RNFS.stat( photoUri ).then( () => {
-      getPredictionsForImage( {
-        uri: photoUri,
-        modelFilename: dirModel,
-        taxonomyFilename: dirTaxonomy
-      } ).then( ( { predictions } ) => {
-        this.setState( { predictions } );
-      } ).catch( ( err ) => {
-        console.log( "Error", err );
-      } );
-    } ).catch( () => {
-      console.log( "photo path doesn't exist" );
+    getPredictionsForImage( {
+      uri: reactUri,
+      modelFilename: dirModel,
+      taxonomyFilename: dirTaxonomy
+    } ).then( ( { predictions } ) => {
+      this.navigateToResults( uri, timestamp, location, predictions );
+    } ).catch( ( err ) => {
+      console.log( "Error", err );
     } );
   }
 
-  getPhotos() {
+  setPhotoParams() {
     const {
       lastCursor,
       hasNextPage,
@@ -103,37 +94,45 @@ class GalleryScreen extends Component<Props> {
     };
 
     if ( album ) { // append for cases where album is null
+      // $FlowFixMe
       photoOptions.groupName = album;
     }
 
     if ( lastCursor ) {
+      // $FlowFixMe
       photoOptions.after = lastCursor;
     }
 
     if ( hasNextPage && !stillLoading ) {
-      this.setState( { stillLoading: true } );
-      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-        this.appendPhotos( results.edges, results.page_info );
-      } ).catch( ( err ) => {
-        console.log( err, "error" );
-      } );
+      this.setState( {
+        stillLoading: true
+      }, () => this.getPhotos( photoOptions ) );
     }
   }
 
-  setError( error ) {
+  getPhotos( photoOptions: Object ) {
+    // $FlowFixMe
+    CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+      this.appendPhotos( results.edges, results.page_info );
+    } ).catch( ( err ) => {
+      console.log( err, "error" );
+    } );
+  }
+
+  setError( error: string ) {
     this.setState( { error } );
   }
 
   requestAndroidPermissions = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
-      this.getPhotos();
+      this.setPhotoParams();
     } else {
       this.setError( "gallery" );
     }
   }
 
-  updateAlbum( album ) {
+  updateAlbum( album: string ) {
     if ( album !== "All" ) {
       this.setState( {
         groupTypes: "Album",
@@ -153,12 +152,11 @@ class GalleryScreen extends Component<Props> {
       error: null,
       hasNextPage: true,
       lastCursor: null,
-      stillLoading: false,
-      predictions: []
-    }, () => this.getPhotos() );
+      stillLoading: false
+    }, () => this.setPhotoParams() );
   }
 
-  updatePhotos( photos, pageInfo ) {
+  updatePhotos( photos: Array<Object>, pageInfo: Object ) {
     this.setState( {
       photos,
       stillLoading: false,
@@ -167,10 +165,12 @@ class GalleryScreen extends Component<Props> {
     } );
   }
 
-  appendPhotos( data, pageInfo ) {
+  appendPhotos( data: Array<Object>, pageInfo: Object ) {
     const { photos } = this.state;
 
-    if ( photos.length > 0 ) {
+    if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
+      this.setError( "noPhotos" );
+    } else if ( photos.length > 0 ) {
       data.forEach( ( photo ) => {
         photos.push( photo );
       } );
@@ -184,13 +184,12 @@ class GalleryScreen extends Component<Props> {
     if ( Platform.OS === "android" ) {
       this.requestAndroidPermissions();
     } else {
-      this.getPhotos();
+      this.setPhotoParams();
     }
   }
 
-  navigateToResults( uri, time, location, backupUri ) {
+  navigateToResults( uri: string, time: Date, location: Object, predictions: ?Array<Object> ) {
     const { navigation } = this.props;
-    const { predictions } = this.state;
 
     let latitude = null;
     let longitude = null;
@@ -202,57 +201,36 @@ class GalleryScreen extends Component<Props> {
 
     this.setState( { loading: false } );
 
+    const results = {
+      time,
+      uri,
+      latitude,
+      longitude
+    };
+
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "ARCameraResults", {
-        uri,
-        predictions,
-        latitude,
-        longitude,
-        backupUri
-      } );
+      // $FlowFixMe
+      results.predictions = predictions;
+
+      navigation.navigate( "OfflineARResults", results );
     } else {
-      navigation.navigate( "GalleryResults", {
-        uri,
-        time,
-        latitude, // double check that this still works
-        longitude,
-        backupUri
-      } );
+      navigation.navigate( "OnlineServerResults", results );
     }
   }
 
-  selectAndResizeImage( node ) {
+  selectAndResizeImage( node: Object ) {
     const { timestamp, location, image } = node;
 
     this.setState( { loading: true } );
 
     if ( Platform.OS === "android" ) {
-      this.getPredictions( image.uri );
-    }
-
-    resizeImage( image.uri, dimensions.width, 250 ).then( ( resizedImage ) => {
-      this.saveImageToAppDirectory( image.uri, resizedImage, node );
-    } ).catch( () => {
+      this.getPredictions( image.uri, timestamp, location );
+    } else {
       this.navigateToResults( image.uri, timestamp, location );
-    } );
-  }
-
-  async saveImageToAppDirectory( uri, resizedImageUri, node ) {
-    const { timestamp, location } = node;
-    try {
-      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
-      const backupFilepath = `${dirPictures}/${newImageName}`;
-      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
-
-      if ( imageMoved ) {
-        this.navigateToResults( uri, timestamp, location, backupFilepath );
-      }
-    } catch ( error ) {
-      console.log( error, "error making backup" );
     }
   }
 
-  renderItem = ( { item } ) => (
+  renderItem = ( { item }: Object ) => (
     <TouchableHighlight
       accessibilityLabel={item.node.image.filename}
       accessible
@@ -267,11 +245,17 @@ class GalleryScreen extends Component<Props> {
     </TouchableHighlight>
   );
 
+  async fetchAlbumNames() {
+    const albumNames = await getAlbumNames();
+    this.setState( { albumNames } );
+  }
+
   render() {
     const {
       error,
       photos,
-      loading
+      loading,
+      albumNames
     } = this.state;
 
     const { navigation } = this.props;
@@ -279,10 +263,11 @@ class GalleryScreen extends Component<Props> {
     let gallery;
 
     if ( error ) {
-      gallery = <CameraError error={error} />;
+      gallery = <CameraError error={error} errorEvent={null} />;
     } else {
       gallery = (
         <FlatList
+          contentContainerStyle={styles.galleryContainer}
           data={photos}
           getItemLayout={( data, index ) => (
             // skips measurement of dynamic content for faster loading
@@ -300,7 +285,7 @@ class GalleryScreen extends Component<Props> {
             </View>
           )}
           numColumns={4}
-          onEndReached={() => this.getPhotos()}
+          onEndReached={() => this.setPhotoParams()}
           renderItem={this.renderItem}
         />
       );
@@ -310,31 +295,33 @@ class GalleryScreen extends Component<Props> {
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
-          onWillFocus={() => this.checkPermissions()}
+          onWillFocus={() => {
+            this.checkPermissions();
+            this.fetchAlbumNames();
+          }}
         />
         <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => navigation.navigate( "Main" )}
             style={styles.backButton}
           >
             <Image source={icons.closeGreen} style={styles.buttonImage} />
           </TouchableOpacity>
-          <View style={[styles.center, styles.headerContainer]}>
-            <AlbumPicker updateAlbum={this.updateAlbum} />
-          </View>
+          {albumNames.length > 0 ? (
+            <View style={[styles.center, styles.headerContainer]}>
+              <AlbumPicker albumNames={albumNames} updateAlbum={this.updateAlbum} />
+            </View>
+          ) : null}
         </View>
         {loading ? (
           <View style={styles.loading}>
             <LoadingWheel color={colors.darkGray} />
           </View>
         ) : null}
-        <View style={styles.galleryContainer}>
-          {gallery}
-        </View>
+        {gallery}
       </View>
     );
   }

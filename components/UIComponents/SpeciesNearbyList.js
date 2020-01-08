@@ -6,6 +6,7 @@ import {
   FlatList,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/speciesNearbyList";
 import i18n from "../../i18n";
@@ -15,7 +16,7 @@ import iconicTaxa from "../../assets/iconicTaxa";
 
 type Props = {
   +taxa: Array,
-  +navigation: ?any,
+  +navigation: any,
   +fetchiNatData: ?Function,
   +match: boolean
 }
@@ -59,23 +60,23 @@ const SpeciesNearbyList = ( {
       }
       return <LoadingWheel color="black" />;
     }}
-    renderItem={ ( { item } ) => (
+    renderItem={( { item } ) => (
       <TouchableOpacity
-        onPress={ () => {
+        onPress={() => {
           setSpeciesId( item.id );
           if ( match ) {
             setRoute( "Match" );
             navigation.navigate( "Species", { ...navigation.state.params } );
-          } else if ( navigation ) {
+          } else if ( fetchiNatData ) {
+            fetchiNatData();
+          } else {
             setRoute( "Main" );
             navigation.navigate( "Species", { ...navigation.state.params } );
-          } else {
-            fetchiNatData();
           }
         }}
         style={styles.gridCell}
       >
-        {item.default_photo.medium_url ? (
+        {item.default_photo && item.default_photo.medium_url ? (
           <Image
             source={{ uri: item.default_photo.medium_url }}
             style={styles.cellImage}
@@ -96,4 +97,4 @@ const SpeciesNearbyList = ( {
   />
 );
 
-export default SpeciesNearbyList;
+export default withNavigation( SpeciesNearbyList );

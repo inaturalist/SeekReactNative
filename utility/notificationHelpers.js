@@ -1,16 +1,16 @@
-const Realm = require( "realm" );
+import Realm from "realm";
 
-const realmConfig = require( "../models/index" );
-const notificationDict = require( "./notificationDict" );
+import realmConfig from "../models/index";
+import notificationDict from "./notificationDict";
 
 const createNotification = ( type, challengeIndex ) => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const notifications = realm.objects( "NotificationRealm" );
 
       realm.write( () => {
-        const newNotification = notificationDict.default[type];
-        const notification = realm.create( "NotificationRealm", {
+        const newNotification = notificationDict[type];
+        realm.create( "NotificationRealm", {
           title: newNotification.title,
           message: newNotification.message,
           iconName: newNotification.iconName,
@@ -26,7 +26,7 @@ const createNotification = ( type, challengeIndex ) => {
 };
 
 const updateNotifications = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const notifications = realm.objects( "NotificationRealm" );
 

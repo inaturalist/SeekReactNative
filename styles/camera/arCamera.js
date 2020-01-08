@@ -4,7 +4,7 @@ import {
   Platform,
   PixelRatio
 } from "react-native";
-import { colors, fonts, touchable } from "../global";
+import { colors, fonts } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
@@ -86,7 +86,7 @@ export default StyleSheet.create( {
     fontSize: 20,
     margin: 23,
     textAlign: "center",
-    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
   },
@@ -104,7 +104,7 @@ export default StyleSheet.create( {
     maxWidth: 293,
     position: "absolute",
     textAlign: "center",
-    textShadowColor: "rgba(0, 0, 0, 0.75)",
+    textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
   },
@@ -112,6 +112,5 @@ export default StyleSheet.create( {
     bottom: 18,
     position: "absolute",
     zIndex: 1
-  },
-  touchable
+  }
 } );

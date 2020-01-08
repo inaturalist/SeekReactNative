@@ -29,7 +29,7 @@ class SplashScreen extends Component<Props> {
     this.transitionScreen( isFirstLaunch, isFirstLogin );
   }
 
-  transitionScreen( isFirstLaunch, isFirstLogin ) {
+  transitionScreen( isFirstLaunch: boolean, isFirstLogin: boolean ) {
     const splashTimer = Platform.OS === "android" ? 2000 : 3000;
 
     if ( isFirstLaunch ) {
@@ -42,7 +42,7 @@ class SplashScreen extends Component<Props> {
     return null;
   }
 
-  resetRouter( routeName ) {
+  resetRouter( routeName: string ) {
     const { navigation } = this.props;
 
     navigation.reset( [

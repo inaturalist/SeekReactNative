@@ -1,8 +1,7 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts,
-  touchable
+  fonts
 } from "../global";
 
 export default StyleSheet.create( {
@@ -25,6 +24,5 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     paddingTop: Platform.OS === "android" ? 18 : 20,
     position: "absolute"
-  },
-  touchable
+  }
 } );

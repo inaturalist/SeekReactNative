@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/badgeModal";
+import styles from "../../styles/modals/badgeModal";
 import badgeImages from "../../assets/badges";
 import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";
@@ -21,12 +21,14 @@ import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +badges: Array<Object>,
-  +iconicSpeciesCount: number,
-  +toggleBadgeModal: Function
+  +iconicSpeciesCount: ?number,
+  +closeModal: Function
 };
 
 class BadgeModal extends Component<Props> {
-  scrollToIndex( index ) {
+  flatList: ?any
+
+  scrollToIndex( index: number ) {
     if ( this.flatList ) {
       this.flatList.scrollToIndex( {
         index, animated: true
@@ -35,13 +37,13 @@ class BadgeModal extends Component<Props> {
   }
 
   render() {
-    const { badges, iconicSpeciesCount, toggleBadgeModal } = this.props;
+    const { badges, iconicSpeciesCount, closeModal } = this.props;
     const badgeList = [];
 
-    badges.forEach( ( badge, i ) => {
+    badges.forEach( ( badge ) => {
       const badgeInfo = (
         <View
-          key={`badge${badge}${i}`}
+          key={`badge${badge.earnedIconName}`}
           style={styles.carousel}
         >
           {badge.earned ? (
@@ -56,8 +58,8 @@ class BadgeModal extends Component<Props> {
             </ImageBackground>
           )}
           <GreenText text={badge.earned
-            ? i18n.t( badge.intlName ).toLocaleUpperCase()
-            : i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+            ? badge.intlName
+            : "badges.to_earn"}
           />
           <View style={styles.margin} />
           <Text style={styles.nameText}>
@@ -71,7 +73,7 @@ class BadgeModal extends Component<Props> {
     } );
 
     return (
-      <React.Fragment>
+      <>
         <View style={styles.innerContainer}>
           <BannerHeader
             modal
@@ -103,8 +105,8 @@ class BadgeModal extends Component<Props> {
             ) )}
           </View>
         </View>
-        <BackButton toggleModal={toggleBadgeModal} />
-      </React.Fragment>
+        <BackButton closeModal={closeModal} />
+      </>
     );
   }
 }

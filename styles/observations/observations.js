@@ -27,8 +27,20 @@ export default StyleSheet.create( {
     flexGrow: 1,
     justifyContent: "center"
   },
+  margin: {
+    marginRight: 19
+  },
+  marginBadgeEmpty: {
+    marginRight: -1
+  },
+  marginOpen: {
+    marginRight: 15
+  },
   marginSmall: {
     marginRight: 7
+  },
+  noMargin: {
+    marginRight: null
   },
   numberText: {
     color: colors.black,

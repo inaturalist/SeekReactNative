@@ -9,8 +9,8 @@ import MapView, {
   UrlTile,
   Marker
 } from "react-native-maps";
+import { withNavigation } from "react-navigation";
 
-import i18n from "../../i18n";
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
 import GreenButton from "../UIComponents/GreenButton";
@@ -20,11 +20,11 @@ type Props = {
   +navigation: any,
   +region: Object,
   +id: number,
-  +seenDate: string,
+  +seenDate: ?string,
   +isLoggedIn: ?boolean
 }
 
-const LocationMap = ( {
+const SpeciesMap = ( {
   region,
   id,
   navigation,
@@ -34,7 +34,7 @@ const LocationMap = ( {
   <View>
     <View style={[styles.headerMargins, isLoggedIn && styles.smallMargins]}>
       <GreenText
-        text={i18n.t( "species_detail.range_map" ).toLocaleUpperCase()}
+        text="species_detail.range_map"
       />
     </View>
     <View style={styles.mapContainer}>
@@ -64,9 +64,9 @@ const LocationMap = ( {
     <View style={styles.margin} />
     <GreenButton
       handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-      text={i18n.t( "species_detail.view_map" )}
+      text="species_detail.view_map"
     />
   </View>
 );
 
-export default LocationMap;
+export default withNavigation( SpeciesMap );

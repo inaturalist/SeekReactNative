@@ -21,11 +21,15 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/NoChallenges";
 
-type Props = {
-  +navigation: any
+type Props = {}
+
+type State = {
+  challengesNotStarted: Array<Object>,
+  challengesStarted: Array<Object>,
+  challengesCompleted: Array<Object>
 }
 
-class ChallengeScreen extends Component<Props> {
+class ChallengeScreen extends Component<Props, State> {
   constructor() {
     super();
 
@@ -92,20 +96,18 @@ class ChallengeScreen extends Component<Props> {
 
   renderChallengesStarted() {
     const { challengesStarted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.in_progress" ).toLocaleUpperCase()} />
+          <GreenText text="challenges.in_progress" />
         </View>
         {challengesStarted.length > 0 ? (
           <View>
-            {challengesStarted.map( ( item, index ) => (
+            {challengesStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}${index}`}
+                key={`${item.name}`}
                 item={item}
-                navigation={navigation}
               />
             ) )}
             <View style={styles.margin} />
@@ -121,21 +123,19 @@ class ChallengeScreen extends Component<Props> {
 
   renderChallengesNotStarted() {
     const { challengesNotStarted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.not_started" ).toLocaleUpperCase()} />
+          <GreenText text="challenges.not_started" />
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
-            {challengesNotStarted.map( ( item, index ) => (
+            {challengesNotStarted.map( ( item ) => (
               <ChallengeProgressCard
-                key={`${item}${index}`}
+                key={`${item.name}`}
                 fetchChallenges={this.fetchChallenges}
                 item={item}
-                navigation={navigation}
               />
             ) )}
             <View style={styles.margin} />
@@ -152,19 +152,17 @@ class ChallengeScreen extends Component<Props> {
 
   renderChallengesCompleted() {
     const { challengesCompleted } = this.state;
-    const { navigation } = this.props;
 
     return (
       <View>
         <View style={styles.header}>
-          <GreenText text={i18n.t( "challenges.completed" ).toLocaleUpperCase()} />
+          <GreenText text="challenges.completed" />
         </View>
         {challengesCompleted.length > 0 ? (
-          challengesCompleted.map( ( item, index ) => (
+          challengesCompleted.map( ( item ) => (
             <ChallengeProgressCard
-              key={`${item}${index}`}
+              key={`${item.name}`}
               item={item}
-              navigation={navigation}
             />
           ) )
         ) : (
@@ -178,7 +176,6 @@ class ChallengeScreen extends Component<Props> {
 
   render() {
     const { challengesNotStarted, challengesStarted } = this.state;
-    const { navigation } = this.props;
 
     const noChallenges = challengesNotStarted.length === 0 && challengesStarted.length === 0;
 
@@ -186,13 +183,12 @@ class ChallengeScreen extends Component<Props> {
       <View style={styles.container}>
         <SafeAreaView />
         <GreenHeader
-          header={i18n.t( "challenges.header" )}
-          navigation={navigation}
+          header="challenges.header"
           route="Main"
         />
         <ScrollView>
           <NavigationEvents
-            onWillFocus={ () => {
+            onWillFocus={() => {
               recalculateChallenges();
               this.fetchChallenges();
             }}

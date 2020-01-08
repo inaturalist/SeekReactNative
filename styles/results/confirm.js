@@ -18,7 +18,7 @@ export default StyleSheet.create( {
     position: "absolute"
   },
   image: {
-    height: height / 3 * 2,
+    height: ( height / 3 ) * 2,
     resizeMode: "contain",
     width
   },

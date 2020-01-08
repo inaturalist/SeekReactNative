@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -8,7 +8,6 @@ import {
   View,
   Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import styles from "../styles/about";
@@ -19,34 +18,39 @@ import Padding from "./UIComponents/Padding";
 import SafeAreaView from "./UIComponents/SafeAreaView";
 
 type Props = {
-  +navigation: any
+  +navigation: Object
 };
 
 const AboutScreen = ( { navigation }: Props ) => {
-  const scrollViewRef = useRef( null );
+  const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
 
   const scrollToTop = () => {
-    if ( scrollViewRef ) {
-      scrollViewRef.current.scrollTo( {
+    if ( scrollView && scrollView.current !== null ) {
+      scrollView.current.scrollTo( {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
   };
 
+  useEffect( () => {
+    navigation.addListener( "willFocus", () => {
+      scrollToTop();
+    } );
+  }, [] );
+
   return (
-    <React.Fragment>
+    <>
       <SafeAreaView />
-      <NavigationEvents onWillBlur={() => scrollToTop()} />
-      <GreenHeader header={i18n.t( "about.header" )} navigation={navigation} />
+      <GreenHeader header="about.header" />
       <ScrollView
-        ref={scrollViewRef}
+        ref={scrollView}
         contentContainerStyle={styles.textContainer}
       >
         <View style={styles.row}>
           <Image source={logos.opBlack} />
-          <Image source={logos.wwf} style={{ marginLeft: 20 }} />
+          <Image source={logos.wwf} style={styles.marginLeft} />
         </View>
         <View style={styles.margin} />
         <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
@@ -80,7 +84,7 @@ const AboutScreen = ( { navigation }: Props ) => {
         <View style={styles.block} />
         <Padding />
       </ScrollView>
-    </React.Fragment>
+    </>
   );
 };
 

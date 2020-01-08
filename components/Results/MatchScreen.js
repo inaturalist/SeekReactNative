@@ -14,13 +14,13 @@ import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
 import { NavigationEvents } from "react-navigation";
 
-import LevelModal from "../AchievementModals/LevelModal";
-import ChallengeEarnedModal from "../AchievementModals/ChallengeEarnedModal";
-import FlagModal from "./FlagModal";
+import LevelModal from "../Modals/LevelModal";
+import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
+import FlagModal from "../Modals/FlagModal";
 import styles from "../../styles/results/results";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
-import Banner from "../Toasts/Toasts";
+import Toasts from "../Toasts/Toasts";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
@@ -34,9 +34,12 @@ import {
   setRoute,
   removeFromCollection,
   fetchNumberSpeciesSeen,
+  getRoute
+} from "../../utility/helpers";
+import {
   showAppStoreReview,
   showPlayStoreReview
-} from "../../utility/helpers";
+} from "../../utility/reviewHelpers";
 import {
   createLocationPermissionsAlert,
   createGPSAlert,
@@ -44,18 +47,49 @@ import {
 } from "../../utility/locationHelpers";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/GreenButton";
+import { setAncestorRankText } from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any
 }
 
-class MatchScreen extends Component<Props> {
+type State = {
+  badge: ?Object,
+  latestLevel: ?Object,
+  challenge: ?Object,
+  challengeInProgress: ?Object,
+  showChallengeModal: boolean,
+  showLevelModal: boolean,
+  showFlagModal: boolean,
+  navigationPath: ?string,
+  userImage: string,
+  uri: string,
+  taxaName: string,
+  taxaId: number,
+  speciesSeenImage: ?string,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number,
+  seenDate: ?string,
+  commonAncestor: ?string,
+  match: boolean,
+  challengeShown: boolean,
+  errorCode: number,
+  rank: number,
+  isLoggedIn: boolean,
+  route: ?string
+};
+
+class MatchScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor( { navigation }: Props ) {
     super();
 
     const {
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -66,9 +100,9 @@ class MatchScreen extends Component<Props> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = navigation.state.params;
 
     this.state = {
@@ -76,11 +110,12 @@ class MatchScreen extends Component<Props> {
       latestLevel: null,
       challenge: null,
       challengeInProgress: null,
+      showChallengeModal: false,
       showLevelModal: false,
       showFlagModal: false,
       navigationPath: null,
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -92,51 +127,58 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       challengeShown: false,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn,
+      route: null
     };
 
-    this.toggleLevelModal = this.toggleLevelModal.bind( this );
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
-    this.toggleFlagModal = this.toggleFlagModal.bind( this );
-    this.deleteObservation = this.deleteObservation.bind( this );
+    ( this:any ).closeLevelModal = this.closeLevelModal.bind( this );
+    ( this:any ).closeChallengeModal = this.closeChallengeModal.bind( this );
+    ( this:any ).closeFlagModal = this.closeFlagModal.bind( this );
+    ( this:any ).openFlagModal = this.openFlagModal.bind( this );
+    ( this:any ).deleteObservation = this.deleteObservation.bind( this );
   }
 
-  setNavigationPath( navigationPath ) {
+  async getRoute() {
+    const route = await getRoute();
+    this.setState( { route } );
+  }
+
+  setNavigationPath( navigationPath: string ) {
     this.setState( { navigationPath }, () => this.checkModals() );
   }
 
-  setLatestBadge( badge ) {
+  setLatestBadge( badge: Object ) {
     this.setState( { badge } );
   }
 
-  setLatestChallenge( challenge ) {
+  setLatestChallenge( challenge: Object ) {
     this.setState( { challenge } );
   }
 
-  setChallengeCompleteShown( challengeShown ) {
+  setChallengeCompleteShown( challengeShown: boolean ) {
     this.setState( { challengeShown }, () => this.checkModals() );
   }
 
-  setLatestLevel( latestLevel ) {
+  setLatestLevel( latestLevel: Object ) {
     this.setState( { latestLevel } );
   }
 
-  setChallengeInProgress( challengeInProgress ) {
+  setChallengeInProgress( challengeInProgress: Object ) {
     this.setState( { challengeInProgress } );
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
-
-    this.setState( { showChallengeModal: !showChallengeModal } );
+  openChallengeModal() {
+    this.setState( { showChallengeModal: true } );
   }
 
-  toggleLevelModal() {
-    const { showLevelModal } = this.state;
+  closeChallengeModal() {
+    this.setState( { showChallengeModal: false } );
+  }
 
-    if ( showLevelModal === true ) {
+  openLevelModal() {
+    this.setState( { showLevelModal: true }, () => {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
@@ -147,9 +189,11 @@ class MatchScreen extends Component<Props> {
           }
         }
       } );
-    }
+    } );
+  }
 
-    this.setState( { showLevelModal: !showLevelModal } );
+  closeLevelModal() {
+    this.setState( { showLevelModal: false } );
   }
 
   showFailureScreen() {
@@ -161,14 +205,16 @@ class MatchScreen extends Component<Props> {
     } );
   }
 
-  toggleFlagModal( showFailure ) {
-    const { showFlagModal } = this.state;
+  openFlagModal() {
+    this.setState( { showFlagModal: true } );
+  }
 
-    this.setState( { showFlagModal: !showFlagModal } );
-
-    if ( showFailure ) {
-      this.showFailureScreen();
-    }
+  closeFlagModal( showFailure: boolean ) {
+    this.setState( { showFlagModal: false }, () => {
+      if ( showFailure ) {
+        this.showFailureScreen();
+      }
+    } );
   }
 
   checkForNewBadges() {
@@ -210,14 +256,19 @@ class MatchScreen extends Component<Props> {
   }
 
   checkModals() {
-    const { challenge, latestLevel, challengeShown } = this.state;
+    const {
+      challenge,
+      latestLevel,
+      challengeShown,
+      route
+    } = this.state;
 
-    if ( ( !challenge && !latestLevel ) || challengeShown ) {
+    if ( ( !challenge && !latestLevel ) || challengeShown || route === "Match" ) {
       this.navigateTo();
     } else if ( challenge ) {
-      this.toggleChallengeModal();
+      this.openChallengeModal();
     } else if ( latestLevel ) {
-      this.toggleLevelModal();
+      this.openLevelModal();
     }
   }
 
@@ -236,9 +287,11 @@ class MatchScreen extends Component<Props> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   deleteObservation() {
@@ -258,7 +311,7 @@ class MatchScreen extends Component<Props> {
       challenge,
       challengeInProgress,
       userImage,
-      image,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -270,7 +323,8 @@ class MatchScreen extends Component<Props> {
       commonAncestor,
       match,
       isLoggedIn,
-      rank
+      rank,
+      route
     } = this.state;
 
     let headerText;
@@ -278,21 +332,8 @@ class MatchScreen extends Component<Props> {
     let gradientColorLight;
     let text;
     let speciesText;
-    let ancestorRank;
 
-    if ( rank === 20 ) {
-      ancestorRank = i18n.t( "camera.genus" );
-    } else if ( rank === 30 ) {
-      ancestorRank = i18n.t( "camera.family" );
-    } else if ( rank === 40 ) {
-      ancestorRank = i18n.t( "camera.order" );
-    } else if ( rank === 50 ) {
-      ancestorRank = i18n.t( "camera.class" );
-    } else if ( rank === 60 ) {
-      ancestorRank = i18n.t( "camera.phylum" );
-    } else if ( rank === 70 ) {
-      ancestorRank = i18n.t( "camera.kingdom" );
-    }
+    const ancestorRank = setAncestorRankText( rank );
 
     if ( seenDate ) {
       headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
@@ -326,61 +367,57 @@ class MatchScreen extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: gradientColorDark }} />
-        {match && !seenDate ? (
-          <NavigationEvents
-            onDidFocus={() => {
+        <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
+        <NavigationEvents
+          onDidFocus={() => {
+            if ( match && !seenDate ) {
               this.checkForChallengesCompleted();
               this.checkForNewBadges();
               this.checkLocationPermissions();
-            }}
-            onWillBlur={() => {
+            }
+          }}
+          onWillBlur={() => {
+            if ( match && !seenDate ) {
               setChallengeProgress( "none" );
-            }}
-            onWillFocus={() => {
-              this.scrollToTop();
-            }}
-          />
-        ) : (
-          <NavigationEvents
-            onWillFocus={() => {
-              this.scrollToTop();
-            }}
-          />
-        )}
-        {match && !seenDate && latitude ? (
-          <Banner
+            }
+          }}
+          onWillFocus={() => {
+            this.scrollToTop();
+            this.getRoute();
+          }}
+        />
+        {match && !seenDate && latitude && route !== "Match" && route !== "PostStatus" ? (
+          <Toasts
             badge={badge}
             incompleteChallenge={challengeInProgress}
-            navigation={navigation}
           />
         ) : null}
         {match && !seenDate && latitude ? (
           <Modal
             isVisible={showChallengeModal}
-            onBackdropPress={() => this.toggleChallengeModal()}
+            onBackdropPress={() => this.closeChallengeModal()}
             onModalHide={() => this.setChallengeCompleteShown( true )}
-            onSwipeComplete={() => this.toggleChallengeModal()}
+            onSwipeComplete={() => this.closeChallengeModal()}
             swipeDirection="down"
           >
             <ChallengeEarnedModal
               challenge={challenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeChallengeModal}
             />
           </Modal>
         ) : null}
         {match && !seenDate && latitude ? (
           <Modal
             isVisible={showLevelModal}
-            onBackdropPress={() => this.toggleLevelModal()}
+            onBackdropPress={() => this.closeLevelModal()}
             onModalHide={() => this.navigateTo()}
-            onSwipeComplete={() => this.toggleLevelModal()}
+            onSwipeComplete={() => this.closeLevelModal()}
             swipeDirection="down"
           >
             <LevelModal
               level={latestLevel}
               speciesCount={latestLevel ? latestLevel.count : 0}
-              toggleLevelModal={this.toggleLevelModal}
+              closeModal={this.closeLevelModal}
             />
           </Modal>
         ) : null}
@@ -391,7 +428,7 @@ class MatchScreen extends Component<Props> {
               seenDate={seenDate}
               speciesSeenImage={speciesSeenImage}
               speciesText={speciesText}
-              toggleFlagModal={this.toggleFlagModal}
+              closeModal={this.closeFlagModal}
               userImage={userImage}
             />
           </Modal>
@@ -407,7 +444,6 @@ class MatchScreen extends Component<Props> {
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.back" )}
               accessible
-              hitSlop={styles.touchable}
               onPress={() => this.setNavigationPath( "Camera" )}
               style={styles.backButton}
             >
@@ -440,13 +476,13 @@ class MatchScreen extends Component<Props> {
               <GreenButton
                 color={gradientColorLight}
                 handlePress={() => this.setNavigationPath( "Species" )}
-                text={i18n.t( "results.view_species" )}
+                text="results.view_species"
               />
             ) : (
               <GreenButton
                 color={gradientColorLight}
                 handlePress={() => navigation.navigate( "Camera" )}
-                text={i18n.t( "results.take_photo" )}
+                text="results.take_photo"
               />
             )}
           </View>
@@ -456,7 +492,6 @@ class MatchScreen extends Component<Props> {
               ancestorId={taxaId}
               lat={latitude}
               lng={longitude}
-              navigation={navigation}
               params={navigation.state.params}
             />
           ) : null}
@@ -473,17 +508,15 @@ class MatchScreen extends Component<Props> {
             {isLoggedIn ? (
               <PostToiNat
                 color={gradientColorLight}
-                navigation={navigation}
                 taxaInfo={{
-                  taxaName,
+                  preferredCommonName: taxaName || commonAncestor,
                   taxaId,
-                  image,
+                  uri,
                   userImage,
                   scientificName,
                   latitude,
                   longitude,
-                  time,
-                  commonAncestor
+                  time
                 }}
               />
             ) : null}
@@ -491,8 +524,8 @@ class MatchScreen extends Component<Props> {
           <Padding />
         </ScrollView>
         {match || seenDate
-          ? <MatchFooter navigation={navigation} toggleFlagModal={this.toggleFlagModal} />
-          : <Footer navigation={navigation} />}
+          ? <MatchFooter openFlagModal={this.openFlagModal} />
+          : <Footer />}
       </View>
     );
   }

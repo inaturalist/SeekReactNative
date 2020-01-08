@@ -7,42 +7,49 @@ import {
   FlatList,
   TouchableOpacity
 } from "react-native";
-import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
-import ChallengeModal from "../AchievementModals/ChallengeEarnedModal";
-import ChallengeUnearnedModal from "../AchievementModals/ChallengeUnearnedModal";
+import ChallengeModal from "../Modals/ChallengeEarnedModal";
+import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
+import Modal from "../UIComponents/Modal";
 
 type Props = {
-  +challengeBadges: Array<Object>,
-  +navigation: any
+  +challengeBadges: Array<Object>
 }
 
-class ChallengeBadges extends Component<Props> {
+type State = {
+  showModal: boolean,
+  selectedChallenge: Object
+}
+
+class ChallengeBadges extends Component<Props, State> {
   constructor() {
     super();
 
     this.state = {
-      showChallengeModal: false,
+      showModal: false,
       selectedChallenge: null
     };
 
-    this.toggleChallengeModal = this.toggleChallengeModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
-  setChallenge( selectedChallenge ) {
+  setChallenge( selectedChallenge: Object ) {
     this.setState( { selectedChallenge } );
   }
 
-  toggleChallengeModal() {
-    const { showChallengeModal } = this.state;
-    this.setState( { showChallengeModal: !showChallengeModal } );
+  openModal() {
+    this.setState( { showModal: true } );
   }
 
-  renderChallengesRow( challengeBadges ) {
+  closeModal() {
+    this.setState( { showModal: false } );
+  }
+
+  renderChallengesRow( challengeBadges: Array<Object> ) {
     return (
       <FlatList
         alwaysBounceHorizontal={false}
@@ -59,7 +66,7 @@ class ChallengeBadges extends Component<Props> {
           return (
             <TouchableOpacity
               onPress={() => {
-                this.toggleChallengeModal();
+                this.openModal();
                 this.setChallenge( item );
               }}
               style={styles.gridCell}
@@ -76,35 +83,31 @@ class ChallengeBadges extends Component<Props> {
   }
 
   render() {
-    const { challengeBadges, navigation } = this.props;
-    const { showChallengeModal, selectedChallenge } = this.state;
+    const { challengeBadges } = this.props;
+    const { showModal, selectedChallenge } = this.state;
 
     return (
       <View style={styles.center}>
         <Modal
-          isVisible={showChallengeModal}
-          onBackdropPress={() => this.toggleChallengeModal()}
-          onSwipeComplete={() => this.toggleChallengeModal()}
-          swipeDirection="down"
-        >
-          {selectedChallenge && selectedChallenge.percentComplete === 100 ? (
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
             <ChallengeModal
               challenge={selectedChallenge}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeModal}
             />
           ) : (
             <ChallengeUnearnedModal
               challenge={selectedChallenge}
-              navigation={navigation}
-              toggleChallengeModal={this.toggleChallengeModal}
+              closeModal={this.closeModal}
             />
           )}
-        </Modal>
+        />
         <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
         {this.renderChallengesRow( challengeBadges.slice( 0, 3 ) )}
         {this.renderChallengesRow( challengeBadges.slice( 3, 5 ) )}
         {this.renderChallengesRow( challengeBadges.slice( 5, 8 ) )}
-        <View style={{ marginTop: 42 }} />
+        <View style={styles.marginLarge} />
       </View>
     );
   }

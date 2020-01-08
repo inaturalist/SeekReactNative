@@ -10,11 +10,10 @@ import styles from "../../styles/results/error";
 
 type Props = {
   +error: string,
-  +navigation: any,
-  +number: Number
+  +number: ?string
 }
 
-const ErrorScreen = ( { error, navigation, number }: Props ) => {
+const ErrorScreen = ( { error, number }: Props ) => {
   let errorText;
 
   if ( error === "onlineVision" ) {
@@ -32,7 +31,7 @@ const ErrorScreen = ( { error, navigation, number }: Props ) => {
   return (
     <View style={styles.container}>
       <SafeAreaView />
-      <GreenHeader navigation={navigation} />
+      <GreenHeader />
       <Text style={styles.errorText}>{errorText}</Text>
     </View>
   );

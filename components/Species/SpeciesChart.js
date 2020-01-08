@@ -3,23 +3,31 @@ import React from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
-import moment from "moment";
 
-import i18n from "../../i18n";
+// import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 import GreenText from "../UIComponents/GreenText";
+import { capitalizeNames } from "../../utility/helpers";
+import { createShortMonthsList } from "../../utility/dateHelpers";
 
 type Props = {
   +data: Array<Object>
 };
 
 const SpeciesChart = ( { data }: Props ) => {
+  // const locale = i18n.locale.split( "-" )[0];
+
   const formatXAxis = ( index ) => {
-    const allMonths = moment.monthsShort();
-    return allMonths[index][0];
+    const allMonths = createShortMonthsList();
+
+    // if ( locale === "ja" ) {
+    //   return capitalizeNames( allMonths[index] );
+    // }
+    return capitalizeNames( allMonths[index][0] );
   };
 
+  // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( value => (
     <Circle
       key={`circle-${value.month}`}
@@ -34,7 +42,7 @@ const SpeciesChart = ( { data }: Props ) => {
     <View>
       <View style={styles.headerMargins}>
         <GreenText
-          text={i18n.t( "species_detail.monthly_obs" ).toLocaleUpperCase()}
+          text="species_detail.monthly_obs"
         />
       </View>
       <View style={styles.container}>
@@ -45,8 +53,8 @@ const SpeciesChart = ( { data }: Props ) => {
               data={data}
               style={styles.chart}
               svg={{ stroke: colors.seekForestGreen }}
-              xAccessor={( { item } ) => item.month }
-              yAccessor={ ( { item } ) => item.count }
+              xAccessor={( { item } ) => item.month}
+              yAccessor={( { item } ) => item.count}
             >
               <Decorator />
             </LineChart>
@@ -59,7 +67,7 @@ const SpeciesChart = ( { data }: Props ) => {
                 fontSize: 18,
                 fill: colors.seekTeal
               }}
-              xAccessor={( { item } ) => item.month }
+              xAccessor={( { item } ) => item.month}
             />
           </View>
         ) : null}

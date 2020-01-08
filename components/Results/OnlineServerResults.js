@@ -1,34 +1,53 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Platform } from "react-native";
+import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import jwt from "react-native-jwt-io";
-import Realm from "realm";
-import moment from "moment";
 import { NavigationEvents } from "react-navigation";
 
-import realmConfig from "../../models";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
-import config from "../../config";
-import styles from "../../styles/results/confirm";
 import {
   addToCollection,
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName
+  getTaxonCommonName,
+  createJwtToken
 } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, checkLocationPermissions } from "../../utility/locationHelpers";
-import { resizeImage } from "../../utility/photoHelpers";
 import { fetchAccessToken } from "../../utility/loginHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../utility/androidHelpers.android";
+import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
+import { fetchSpeciesSeenDate, setTime } from "../../utility/dateHelpers";
 
 type Props = {
   +navigation: any
 }
 
-class Results extends Component<Props> {
+type State = {
+  uri: string,
+  time: Date,
+  latitude: number,
+  longitude: number,
+  userImage: ?string,
+  speciesSeenImage: ?string,
+  observation: ?Object,
+  taxaId: ?number,
+  taxaName: ?string,
+  commonAncestor: ?string,
+  seenDate: ?string,
+  error: ?string,
+  scientificName: ?string,
+  match: ?boolean,
+  clicked: boolean,
+  numberOfHours: ?string,
+  errorCode: ?number,
+  rank: ?number,
+  isLoggedIn: ?boolean
+};
+
+class OnlineServerResults extends Component<Props, State> {
   constructor( { navigation }: Props ) {
     super();
 
@@ -36,13 +55,11 @@ class Results extends Component<Props> {
       uri,
       time,
       latitude,
-      longitude,
-      backupUri
+      longitude
     } = navigation.state.params;
 
     this.state = {
       uri,
-      backupUri,
       time,
       latitude,
       longitude,
@@ -55,19 +72,29 @@ class Results extends Component<Props> {
       seenDate: null,
       error: null,
       scientificName: null,
-      imageForUploading: null,
       match: null,
       clicked: false,
-      isLoggedIn: null,
       numberOfHours: null,
       errorCode: null,
-      rank: null
+      rank: null,
+      isLoggedIn: null
     };
 
-    this.checkForMatches = this.checkForMatches.bind( this );
+    ( this:any ).checkForMatches = this.checkForMatches.bind( this );
   }
 
-  getGeolocation() {
+  setLoggedIn( isLoggedIn: boolean ) {
+    this.setState( { isLoggedIn } );
+  }
+
+  async getLoggedIn() {
+    const login = await fetchAccessToken();
+    if ( login ) {
+      this.setLoggedIn( true );
+    }
+  }
+
+  getUserLocation() {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -89,27 +116,16 @@ class Results extends Component<Props> {
       if ( Platform.OS === "android" ) {
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
-            this.getGeolocation();
+            this.getUserLocation();
           }
         } );
       } else {
-        this.getGeolocation();
+        this.getUserLocation();
       }
     }
   }
 
-  setLoggedIn( isLoggedIn ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setMatch( match ) {
+  setMatch( match: boolean ) {
     const { clicked } = this.state;
     this.setState( { match }, () => {
       if ( clicked ) {
@@ -118,31 +134,27 @@ class Results extends Component<Props> {
     } );
   }
 
-  setImageForUploading( imageForUploading ) {
-    this.setState( { imageForUploading } );
-  }
-
-  setImageUri( uri ) {
+  setImageUri( uri: string ) {
     this.setState( { userImage: uri }, () => this.getParamsForOnlineVision() );
   }
 
-  setSeenDate( seenDate ) {
+  setSeenDate( seenDate: ?string ) {
     this.setState( { seenDate } );
   }
 
-  setNumberOfHours( numberOfHours ) {
+  setNumberOfHours( numberOfHours: string ) {
     this.setState( { numberOfHours } );
   }
 
-  setError( error ) {
+  setError( error: string ) {
     this.setState( { error } );
   }
 
-  setLocationErrorCode( errorCode ) {
+  setLocationErrorCode( errorCode: number ) {
     this.setState( { errorCode } );
   }
 
-  setOnlineVisionSpeciesResults( species ) {
+  setOnlineVisionSpeciesResults( species: Object ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
@@ -157,7 +169,7 @@ class Results extends Component<Props> {
     } );
   }
 
-  setOnlineVisionAncestorResults( commonAncestor ) {
+  setOnlineVisionAncestorResults( commonAncestor: Object ) {
     const { taxon } = commonAncestor;
     const photo = taxon.default_photo;
 
@@ -192,14 +204,14 @@ class Results extends Component<Props> {
 
     if ( !seenDate ) {
       await this.addObservation();
-      this.navigateTo( "Match" );
+      this.navigateToMatch();
     } else {
-      this.navigateTo( "Match" );
+      this.navigateToMatch();
     }
   }
 
   showNoMatch() {
-    this.navigateTo( "Match" );
+    this.navigateToMatch();
   }
 
   resizeImage() {
@@ -214,30 +226,8 @@ class Results extends Component<Props> {
     } ).catch( () => this.setError( "image" ) );
   }
 
-  resizeImageForUploading() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 2048 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageForUploading( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
-  }
-
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
-  }
-
-  fetchScore( params ) {
-    const token = this.createJwtToken();
+  fetchScore( params: Object ) {
+    const token = createJwtToken();
 
     const options = { api_token: token, user_agent: createUserAgent() };
 
@@ -247,7 +237,7 @@ class Results extends Component<Props> {
         const commonAncestor = response.common_ancestor;
 
         if ( species.combined_score > 85 ) {
-          this.checkDateSpeciesSeen( species.taxon.id );
+          this.checkSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
           this.setOnlineVisionAncestorResults( commonAncestor );
@@ -257,8 +247,8 @@ class Results extends Component<Props> {
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
           const gmtTime = response.headers.map["retry-after"];
-          const currentTime = moment();
-          const retryAfter = moment( gmtTime );
+          const currentTime = setTime();
+          const retryAfter = setTime( gmtTime );
 
           const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
 
@@ -278,29 +268,18 @@ class Results extends Component<Props> {
       longitude,
       observation,
       uri,
-      backupUri,
       time
     } = this.state;
 
     if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time, backupUri );
+      addToCollection( observation, latitude, longitude, uri, time );
     }
   }
 
-  checkDateSpeciesSeen( taxaId ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const seenTaxaIds = realm.objects( "TaxonRealm" ).map( t => t.id );
-        if ( seenTaxaIds.includes( taxaId ) ) {
-          const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
-          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
-          this.setSeenDate( seenDate );
-        } else {
-          this.setSeenDate( null );
-        }
-      } ).catch( () => {
-        this.setSeenDate( null );
-      } );
+  checkSpeciesSeen( taxaId: number ) {
+    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+      this.setSeenDate( date );
+    } );
   }
 
   checkForMatches() {
@@ -315,7 +294,7 @@ class Results extends Component<Props> {
     }
   }
 
-  navigateTo( route ) {
+  navigateToMatch() {
     const { navigation } = this.props;
     const {
       userImage,
@@ -324,20 +303,20 @@ class Results extends Component<Props> {
       speciesSeenImage,
       commonAncestor,
       seenDate,
-      imageForUploading,
+      uri,
       scientificName,
       latitude,
       longitude,
       time,
       match,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } = this.state;
 
-    navigation.push( route, {
+    navigation.push( "Match", {
       userImage,
-      image: imageForUploading,
+      uri,
       taxaName,
       taxaId,
       speciesSeenImage,
@@ -348,15 +327,15 @@ class Results extends Component<Props> {
       time,
       commonAncestor,
       match,
-      isLoggedIn,
       errorCode,
-      rank
+      rank,
+      isLoggedIn
     } );
   }
 
   render() {
     const {
-      imageForUploading,
+      uri,
       error,
       match,
       clicked,
@@ -365,34 +344,31 @@ class Results extends Component<Props> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
+      <>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLocation();
             this.getLoggedIn();
+            this.getLocation();
             this.resizeImage();
-            this.resizeImageForUploading();
           }}
         />
         {error
           ? (
             <ErrorScreen
               error={error}
-              navigation={navigation}
               number={numberOfHours}
             />
           ) : (
             <ConfirmScreen
               checkForMatches={this.checkForMatches}
               clicked={clicked}
-              image={imageForUploading}
+              image={uri}
               match={match}
-              navigation={navigation}
             />
           )}
-      </View>
+      </>
     );
   }
 }
 
-export default Results;
+export default OnlineServerResults;

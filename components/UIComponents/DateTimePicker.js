@@ -8,7 +8,7 @@ type Props = {
   +toggleDateTimePicker: Function,
   +onDatePicked: Function,
   +isDateTimePickerVisible: boolean,
-  +datetime: ?boolean
+  +datetime?: boolean
 };
 
 const DatePicker = ( {
@@ -32,6 +32,10 @@ const DatePicker = ( {
       timePickerModeAndroid="spinner"
     />
   );
+};
+
+DatePicker.defaultProps = {
+  datetime: false
 };
 
 export default DatePicker;

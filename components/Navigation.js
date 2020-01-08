@@ -11,8 +11,8 @@ import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import ARCamera from "./Camera/ARCamera";
 import Gallery from "./Camera/GalleryScreen";
-import ARCameraResults from "./Results/ARCameraResults";
-import GalleryResults from "./Results/GalleryResults";
+import OfflineARResults from "./Results/OfflineARResults";
+import OnlineServerResults from "./Results/OnlineServerResults";
 import Match from "./Results/MatchScreen";
 import SpeciesDetail from "./Species/SpeciesDetail";
 import RangeMap from "./Species/RangeMap";
@@ -155,11 +155,11 @@ const MainStack = createStackNavigator( {
   Camera: {
     screen: CameraNav
   },
-  ARCameraResults: {
-    screen: ARCameraResults
+  OfflineARResults: {
+    screen: OfflineARResults
   },
-  GalleryResults: {
-    screen: GalleryResults
+  OnlineServerResults: {
+    screen: OnlineServerResults
   },
   Match: {
     screen: Match
@@ -178,7 +178,7 @@ const MainStack = createStackNavigator( {
   }
 }, {
   headerMode: "none",
-  transitionConfig: nav => handleCustomTransition( nav )
+  transitionConfig: ( nav ) => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {

@@ -28,7 +28,11 @@ type Props = {
   +toggleLocationPicker: Function
 }
 
-class LocationPicker extends Component<Props> {
+type State = {
+  region: Object
+}
+
+class LocationPicker extends Component<Props, State> {
   constructor( {
     latitude,
     longitude
@@ -44,11 +48,11 @@ class LocationPicker extends Component<Props> {
       }
     };
 
-    this.handleRegionChange = this.handleRegionChange.bind( this );
-    this.returnToUserLocation = this.returnToUserLocation.bind( this );
+    ( this:any ).handleRegionChange = this.handleRegionChange.bind( this );
+    ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
   }
 
-  handleRegionChange( newRegion ) {
+  handleRegionChange( newRegion: Object ) {
     this.setState( { region: newRegion } );
   }
 
@@ -82,7 +86,6 @@ class LocationPicker extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={backStyles.touchable}
             onPress={() => toggleLocationPicker()}
             style={backStyles.backButton}
           >
@@ -100,7 +103,7 @@ class LocationPicker extends Component<Props> {
           <View style={styles.margin} />
           <GreenButton
             handlePress={() => updateLocation( region.latitude, region.longitude )}
-            text={i18n.t( "posting.save_location" )}
+            text="posting.save_location"
           />
         </View>
       </View>

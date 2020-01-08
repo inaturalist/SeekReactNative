@@ -1,11 +1,10 @@
 import React from "react";
-import { View, Platform } from "react-native";
+import { View } from "react-native";
+
+import styles from "../../styles/uiComponents/padding";
 
 const Padding = () => (
-  <View style={{
-    marginBottom: Platform.OS === "android" ? 17 : 60
-  }}
-  />
+  <View style={styles.padding} />
 );
 
 export default Padding;

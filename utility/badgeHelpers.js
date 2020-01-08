@@ -1,34 +1,47 @@
 import AsyncStorage from "@react-native-community/async-storage";
+import Realm from "realm";
 
-const Realm = require( "realm" );
+import realmConfig from "../models/index";
+import badgesDict from "./badgesDict";
 
-const realmConfig = require( "../models/index" );
-const badgesDict = require( "./badgesDict" );
+const createNewBadge = ( realm, badge ) => {
+  realm.write( () => {
+    badge.earned = true;
+    badge.earnedDate = new Date();
+  } );
+};
+
+const deleteBadge = ( realm, badge ) => {
+  realm.write( () => {
+    badge.earned = false;
+    badge.earnedDate = null;
+  } );
+};
 
 const recalculateBadges = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
+
+      if ( collectedTaxa.length === 0 ) {
+        return; // don't bother to calculate badges if there are no taxa observed
+      }
 
       const unearnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == false" );
 
       unearnedBadges.forEach( ( badge ) => {
-        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+        if ( !badge || badge.count === 0 ) { // check for !badge so realm doesn't catch error
+          return;
+        }
+
+        if ( badge.iconicTaxonId !== 0 ) {
           const collectionLength = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` ).length;
 
           if ( collectionLength >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
+            createNewBadge( realm, badge );
           }
-        } else if ( badge.count !== 0 ) {
-          if ( collectedTaxa.length >= badge.count ) {
-            realm.write( () => {
-              badge.earned = true;
-              badge.earnedDate = new Date();
-            } );
-          }
+        } else if ( collectedTaxa.length >= badge.count ) {
+          createNewBadge( realm, badge );
         }
       } );
     } ).catch( ( err ) => {
@@ -37,28 +50,24 @@ const recalculateBadges = () => {
 };
 
 const deleteBadges = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const collectedTaxa = realm.objects( "TaxonRealm" );
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true" );
 
       earnedBadges.forEach( ( badge ) => {
-        if ( badge.iconicTaxonId !== 0 && badge.count !== 0 ) {
+        if ( !badge || badge.count === 0 ) { // check for !badge so realm doesn't catch error
+          return;
+        }
+
+        if ( badge.iconicTaxonId !== 0 ) {
           const collectionLength = collectedTaxa.filtered( `iconicTaxonId == ${badge.iconicTaxonId}` ).length;
 
           if ( collectionLength < badge.count ) {
-            realm.write( () => {
-              badge.earned = false;
-              badge.earnedDate = null;
-            } );
+            deleteBadge( realm, badge );
           }
-        } else if ( badge.count !== 0 ) {
-          if ( collectedTaxa.length < badge.count ) {
-            realm.write( () => {
-              badge.earned = false;
-              badge.earnedDate = null;
-            } );
-          }
+        } else if ( collectedTaxa.length < badge.count ) {
+          deleteBadge( realm, badge );
         }
       } );
     } ).catch( ( err ) => {
@@ -67,15 +76,15 @@ const deleteBadges = () => {
 };
 
 const setupBadges = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       realm.write( () => {
-        const dict = Object.keys( badgesDict.default );
+        const dict = Object.keys( badgesDict );
         dict.forEach( ( badgeType ) => {
-          const badges = badgesDict.default[badgeType];
+          const badges = badgesDict[badgeType];
 
           try {
-            const badge = realm.create( "BadgeRealm", {
+            realm.create( "BadgeRealm", {
               name: badges.name,
               intlName: badges.intlName,
               iconicTaxonName: badges.iconicTaxonName,
@@ -88,12 +97,12 @@ const setupBadges = () => {
               earned: badges.earned
             }, true );
           } catch ( e ) {
-            // console.log( "error creating data", e );
+            console.log( "error creating data", e );
           }
         } );
       } );
     } ).catch( ( err ) => {
-      // console.log( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
+      console.log( "[DEBUG] Failed to setup badges, error: ", JSON.stringify( err ) );
     } );
 };
 
@@ -102,7 +111,7 @@ const setBadgesEarned = ( badges ) => {
 };
 
 const checkNumberOfBadgesEarned = () => {
-  Realm.open( realmConfig.default )
+  Realm.open( realmConfig )
     .then( ( realm ) => {
       const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" ).length;
       setBadgesEarned( earnedBadges.toString() );
@@ -126,7 +135,7 @@ const checkForNewBadges = async () => {
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig.default )
+      Realm.open( realmConfig )
         .then( ( realm ) => {
           let latestBadge;
           let latestLevel;
@@ -140,11 +149,11 @@ const checkForNewBadges = async () => {
             .sorted( "earnedDate", true );
 
           if ( badgesEarned < earnedBadges.length ) {
-            latestBadge = badges[0];
+            [latestBadge] = badges;
           }
 
           if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
-            latestLevel = newestLevels[0];
+            [latestLevel] = newestLevels;
           }
 
           resolve( {

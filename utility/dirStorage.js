@@ -7,7 +7,7 @@ export const dirHome = Platform.select( {
 } );
 
 export const dirModel = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc`,
+  ios: `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc`,
   android: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`
 } );
 

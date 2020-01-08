@@ -5,6 +5,7 @@ import {
   Image,
   StatusBar
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postStatus";
@@ -14,35 +15,48 @@ import posting from "../../assets/posting";
 import GreenButton from "../UIComponents/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
   +loading: boolean,
   +postingSuccess: boolean,
   +togglePostModal: Function,
-  +navigation: any
+  +navigation: any,
+  +status: string,
+  +errorText: string
 };
 
 const PostStatus = ( {
   loading,
   postingSuccess,
   togglePostModal,
-  navigation
+  navigation,
+  status,
+  errorText
 }: Props ) => {
   let headerText;
   let image;
   let extraText;
 
   if ( loading ) {
-    headerText = i18n.t( "posting.posting" ).toLocaleUpperCase();
+    headerText = "posting.posting";
     image = <LoadingWheel color={colors.seekiNatGreen} />;
     extraText = i18n.t( "posting.wait" );
   } else if ( !loading && postingSuccess ) {
-    headerText = i18n.t( "posting.posting_success" ).toLocaleUpperCase();
+    headerText = "posting.posting_success";
     image = <Image source={posting.bird} />;
-  } else {
-    headerText = i18n.t( "posting.posting_failure" ).toLocaleUpperCase();
+  } else if ( status === "duringPhotoUpload" ) {
+    headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
-    extraText = i18n.t( "posting.internet" );
+    extraText = `${i18n.t( "posting.error_photo_upload" )} ${errorText}`;
+  } else if ( status === "beforePhotoAdded" ) {
+    headerText = "posting.posting_failure";
+    image = <Image source={posting.uploadfail} />;
+    extraText = `${i18n.t( "posting.error_observation" )} ${errorText}`;
+  } else if ( status === "beforeObservation" ) {
+    headerText = "posting.posting_failure";
+    image = <Image source={posting.uploadfail} />;
+    extraText = `${i18n.t( "posting.error_token" )} ${errorText}`;
   }
 
   return (
@@ -69,12 +83,13 @@ const PostStatus = ( {
             color={!loading && !postingSuccess ? colors.seekTeal : null}
             handlePress={() => {
               if ( postingSuccess ) {
+                setRoute( "PostStatus" );
                 navigation.goBack();
               } else {
                 togglePostModal();
               }
             }}
-            text={i18n.t( "posting.ok" )}
+            text="posting.ok"
           />
         </View>
       ) : null}
@@ -82,4 +97,4 @@ const PostStatus = ( {
   );
 };
 
-export default PostStatus;
+export default withNavigation( PostStatus );

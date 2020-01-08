@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
@@ -15,22 +16,21 @@ import CustomBackArrow from "./CustomBackArrow";
 import posting from "../../assets/posting";
 
 type Props = {
-  +header: string,
+  +header?: ?string,
   +navigation: any,
-  +route: string
+  +route?: ?string
 }
 
 const GreenHeader = ( { header, navigation, route }: Props ) => (
   <View style={styles.container}>
     {route && route !== "post"
-      ? <CustomBackArrow navigation={navigation} route={route} />
-      : <BackArrow navigation={navigation} />}
-    <Text style={styles.text}>{header ? header.toLocaleUpperCase() : null}</Text>
+      ? <CustomBackArrow route={route} />
+      : <BackArrow />}
+    <Text style={styles.text}>{header ? i18n.t( header ).toLocaleUpperCase() : null}</Text>
     {route === "post" ? (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.help" )}
         accessible
-        hitSlop={styles.touchable}
         onPress={() => navigation.navigate( "PostingHelp" )}
         style={styles.help}
       >
@@ -40,4 +40,9 @@ const GreenHeader = ( { header, navigation, route }: Props ) => (
   </View>
 );
 
-export default GreenHeader;
+GreenHeader.defaultProps = {
+  route: null,
+  header: null
+};
+
+export default withNavigation( GreenHeader );

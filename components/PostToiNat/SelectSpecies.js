@@ -35,8 +35,15 @@ type Props = {
   +seekId: Number
 }
 
+type State = {
+  suggestions: Array<Object>,
+  isSearching: boolean
+}
 
-class SelectSpecies extends Component<Props> {
+
+class SelectSpecies extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -54,7 +61,7 @@ class SelectSpecies extends Component<Props> {
     }
   }
 
-  searchForSpecies( speciesName ) {
+  searchForSpecies( speciesName: string ) {
     this.setState( { isSearching: true } );
     const params = {
       q: speciesName,
@@ -112,7 +119,6 @@ class SelectSpecies extends Component<Props> {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
-            hitSlop={styles.touchable}
             onPress={() => toggleSpeciesModal()}
             style={styles.backButton}
           >
@@ -144,7 +150,7 @@ class SelectSpecies extends Component<Props> {
             {!isSearching
               ? (
                 <View style={styles.headerMargins}>
-                  <GreenText text={i18n.t( "posting.id" ).toLocaleUpperCase()} />
+                  <GreenText text="posting.id" />
                 </View>
               ) : null}
             {!isSearching ? (
@@ -158,9 +164,9 @@ class SelectSpecies extends Component<Props> {
                 scientificName={scientificName}
               />
             ) : (
-              suggestions.map( ( item, index ) => (
+              suggestions.map( ( item ) => (
                 <View
-                  key={`${item.scientificName}${index}`}
+                  key={`${item.scientificName}${item.id}`}
                   style={styles.card}
                 >
                   <SpeciesCard

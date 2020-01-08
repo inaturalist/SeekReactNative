@@ -8,24 +8,28 @@ import {
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import Modal from "react-native-modal";
 
-import LevelModal from "../AchievementModals/LevelModal";
+import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
+import Modal from "../UIComponents/Modal";
 
 type Props = {
   +level: Object,
-  +nextLevelCount: number,
-  +speciesCount: number
+  +nextLevelCount: ?number,
+  +speciesCount: ?number
 }
 
 const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
-  const [showLevelModal, setLevelModal] = useState( false );
+  const [showModal, setModal] = useState( false );
 
-  const toggleLevelModal = () => {
-    setLevelModal( !showLevelModal );
+  const openModal = () => {
+    setModal( true );
+  };
+
+  const closeModal = () => {
+    setModal( false );
   };
 
   const renderModalContent = () => (
@@ -33,22 +37,17 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
       level={level}
       screen="achievements"
       speciesCount={speciesCount}
-      toggleLevelModal={toggleLevelModal}
+      closeModal={closeModal}
     />
   );
 
   return (
-    <TouchableOpacity
-      onPress={() => toggleLevelModal()}
-    >
+    <TouchableOpacity onPress={() => openModal()}>
       <Modal
-        isVisible={showLevelModal}
-        onBackdropPress={() => toggleLevelModal()}
-        onSwipeComplete={() => toggleLevelModal()}
-        swipeDirection="down"
-      >
-        {renderModalContent()}
-      </Modal>
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={renderModalContent()}
+      />
       <LinearGradient
         colors={["#22784d", "#38976d"]}
         style={[styles.header, styles.center]}

@@ -57,7 +57,7 @@ const Error = ( {
             <GreenButton
               color={colors.seekGreen}
               handlePress={() => OpenSettings.openSettings()}
-              text={i18n.t( "species_nearby.enable_location" )}
+              text="species_nearby.enable_location"
             />
           </View>
         ) : null}

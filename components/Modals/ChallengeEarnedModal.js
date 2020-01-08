@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
-import styles from "../../styles/badges/challengeBadgeEarned";
+import styles from "../../styles/modals/challengeEarnedModal";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
@@ -15,12 +15,12 @@ import icons from "../../assets/icons";
 import BackButton from "../UIComponents/ModalBackButton";
 
 type Props = {
-  +toggleChallengeModal: Function,
+  +closeModal: Function,
   +challenge: Object
 };
 
-const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
-  <React.Fragment>
+const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => (
+  <>
     <LinearGradient
       colors={["#67c5ca", "#3ca2ab"]}
       style={[styles.header, styles.modalTop]}
@@ -47,8 +47,8 @@ const ChallengeEarnedModal = ( { toggleChallengeModal, challenge }: Props ) => (
       <Image source={logos.wwfop} style={[styles.logo, styles.center]} />
       <View style={styles.marginBottom} />
     </View>
-    <BackButton toggleModal={toggleChallengeModal} />
-  </React.Fragment>
+    <BackButton closeModal={closeModal} />
+  </>
 );
 
 export default ChallengeEarnedModal;

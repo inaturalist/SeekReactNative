@@ -31,12 +31,8 @@
     "header": "Meddelelser",
     "learn_more": "Lær mere om iNaturalist",
     "earned_badges": "Du har optjent mange mærker! Du vil sikkert også kunne lide iNaturalist!",
-    "new_challenge": "Der er en ny udfordring fra Vores Planet & WWF!",
-    "check_out": "Tjek det nu!",
     "almost_finished": "Du er næsten færdig med din udfordring!",
     "view_progress": "Følg dine fremskridt",
-    "observation_identified": "Din observation blev artsbestemt på iNaturalist!",
-    "badges_updated": "Tak fordi du hjælper med at forbedre vores model! Dine mærker er måske blevet opdateret.",
     "challenge_completed": "Tillykke! Du gennemførte en udfordring",
     "view_challenges": "Se udfordring",
     "none": "Du har ingen meddelelser endnu!",
@@ -57,13 +53,10 @@
     "permission": "Du skal være mindst 13 år for at oprette en konto.",
     "privacy": "Privatlivspolitik",
     "continue": "Forsæt",
-    "need_permission": "Vi har brug for dine forældres tilladelse.",
     "enter_email": "Angiv venligst dine forældres e-mail",
-    "send_email": "Send email",
     "parent_email": "Forældre/værges email",
     "under_13": "Da du er under 13 år, har vi brug for dine forældres eller værges tilladelse før oprettelse af en konto.",
     "sign_up": "Tilmeld dig",
-    "sign_up_inat": "Tilmeld dig iNaturalist",
     "next": "Næste",
     "submit": "Indsend",
     "email": "Email",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Se mærke",
     "badge": "Mærke",
-    "species": "art",
     "challenge_progress": "Du fandt endnu en art!",
     "challenge_view": "Følg dine fremskridt",
     "level_up": "Du rykkede et niveau op!",
@@ -285,18 +277,17 @@
     "family": "familie",
     "genus": "slægt",
     "species": "art",
-    "loading": "Seek's kamera loader...",
     "error_camera": "Vi har brug for adgang til dit kamera for at hjælpe dig med at identificere arter!",
     "error_gallery": "Vi skal have adgang til dit billedbibliotek for at gemme de fotos du tager!",
     "permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
     "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
     "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Beklager, der opstod et problem med at gemme dit billede",
+    "error_no_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album."
   },
   "gallery": {
     "label": "Fotos",
-    "choose_photo": "Vælg et foto",
     "camera_roll": "Kamerarulle"
   },
   "camera_help": {
@@ -307,7 +298,7 @@
     "header_1": "Hvordan virker det?",
     "how_works": "Seek's identifikationsmodel udnytter livets træ.\n\nHver prik på identifikationsmåleren svarer til et niveau i det taksonomiske niveau på livets træ. Når Seek med sikkerhed kan bestemme arten, du kigger på, til et niveau, tilføjes endnu en prik til måleren. Tag et foto, når organismen er artsbestemt!",
     "header_2": "Tips og tricks",
-    "tips": "Seek fungerer bedst med fotos, der har god belysning og et klart billede af arten. Så prøv med forskellige vinkler indtil du får det rigtige skud.\n\nSeek lærer stadig, så hvis prikkerne bliver helt fyldt op, har du formentlig fundet en art, som ikke er almindelig i iNaturalist's database. Du kan tilføje observationer til iNaturalist for at hjælpe Seek med at identificere disse bedre. Snart kan du tilføje til iNaturalist direkte fra Seek.",
+    "tips": "Seek kan bedst identificere fotos taget med god belysning, som tydeligt viser arten. Prøv derfor forskellige vinkler, indtil du får det rigtige skud.\n\nSeek lærer stadig, så hvis prikkerne ikke fyldes helt op, er det nok fordi du kigger på en organisme, som ikke almindeligvis optræder i iNaturalist's database. Du kan indsende observationer til iNaturalist og hjælpe Seek med at blive bedre til at identificere disse! Snart vil du kunne poste på iNaturalist inde fra Seek.",
     "header_3": "Husk",
     "tip_1": "Vær altid opmærksom på dine omgivelser og pas på dig selv!",
     "tip_2": "Spis ikke hvad som helst du finder i naturen.",
@@ -411,7 +402,7 @@
     "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nær",
+    "near": "Nearby",
     "about": "Om",
     "range_map": "Udbredelseskort",
     "range_about": "Et kort over observationer af denne art på iNaturalist.",
@@ -470,15 +461,15 @@
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
-    "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org."
+    "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org.",
+    "translations": "Vi er taknemmelige for hjælpen med oversættelse fra crowdin.com-fællesskabet, specielt: Carnifex, Daniele Seglie, katunchik, Lekkim, Marcel Hospers, Martin Reith, Sakatur og Yulia.",
+    "join_crowdin": "Bliv en del af Seek-oversættelsesholdet ved at besøge https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Tilføj til iNaturalist",
     "notes": "Tilføj notater her",
     "date": "dato",
-    "at": "på",
     "location": "placering",
-    "no_location": "ingen placering",
     "geoprivacy": "geofortrolighed",
     "open": "Åben",
     "obscured": "Skjult",
@@ -494,7 +485,9 @@
     "posting": "Tilføjer din observation",
     "posting_success": "Tilføjet til iNaturalist!",
     "posting_failure": "Tilføjelse til iNaturalist mislykkedes",
-    "internet": "Tjek din internetforbindelse og prøv igen",
+    "error_photo_upload": "Din observation blev oprettet på iNaturalist, men dit foto kunne desværre ikke uploades.\n\nPrøv at logge ind iNaturalist-hjemmesiden eller i appen for at se din observation og tilføje et foto.",
+    "error_observation": "Din observation blev ikke oprettet på iNaturalist. Prøv at tjekke din internetforbindelse og forsøg igen.",
+    "error_token": "Vi kunne ikke oprette en godkendt forbindelse til iNaturalist-serveren. Prøv venligst igen senere.",
     "ok": "Ok",
     "wait": "Dette kan tage op til et minut",
     "look_up": "Slå en art op efter navn"
@@ -538,15 +531,34 @@
     "iNatStats": "Se iNats statistikside",
     "flag": "Markér denne observation som ukorrekt",
     "back": "Vend tilbage til foregående skærm",
-    "modal": "Swipe nedad for at lukke pop op-vindue",
     "user_location": "Vend tilbage til din nuværende placering",
     "help": "Tryk for hjælpeskærm",
-    "take_photo": "Tryk for at tage foto"
+    "take_photo": "Tryk for at tage foto",
+    "scroll_left": "Tryk for at scrolle mod venstre",
+    "scroll_right": "Tryk for at scrolle mod højre"
   },
   "review": {
-    "title": "Rate this app",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
-    "rate_now": "Rate now",
-    "later": "Later"
+    "title": "Bedøm denne app",
+    "rate": "Hvis du synes om denne app, så brug venligst et øjeblik på at bedømme den. Tak for din støtte!",
+    "rate_now": "Bedøm nu",
+    "later": "Senere"
+  },
+  "months_short": {
+    "1": "Jan",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "Maj",
+    "6": "Juni",
+    "7": "Jul",
+    "8": "Aug",
+    "9": "Sept",
+    "10": "Okt",
+    "11": "Nov",
+    "12": "Dec"
+  },
+  "attributions": {
+    "all": "alle rettigheder forbeholdes",
+    "some": "nogle rettigheder forbeholdes"
   }
 }

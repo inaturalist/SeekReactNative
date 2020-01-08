@@ -23,7 +23,7 @@ const InputField = ( {
 }: Props ) => {
   let keyboardType = "default";
 
-  if ( type === "email" ) {
+  if ( type === "emailAddress" ) {
     keyboardType = "email-address";
   } else if ( Platform.OS === "android" && type !== "password" ) {
     // adding this to turn off autosuggestions on Android
@@ -38,7 +38,7 @@ const InputField = ( {
       autoCorrect={false}
       autoFocus={type !== "password"}
       keyboardType={keyboardType}
-      onChangeText={ value => handleTextChange( value )}
+      onChangeText={value => handleTextChange( value )}
       placeholder={placeholder}
       placeholderTextColor="#828282"
       secureTextEntry={type === "password"}

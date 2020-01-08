@@ -5,7 +5,6 @@ import { View, Text, Image } from "react-native";
 import { capitalizeNames } from "../../utility/helpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
-import i18n from "../../i18n";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
@@ -17,9 +16,9 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   let margin = 0;
 
   if ( ancestors.length > 0 ) {
-    ancestors.forEach( ( ancestor, i ) => {
+    ancestors.forEach( ( ancestor ) => {
       const rank = (
-        <View key={`taxon-${ancestor.rank}-${i}`} style={[{ marginLeft: margin }, styles.taxonomyRow]}>
+        <View key={`taxon-${ancestor.rank}`} style={[{ marginLeft: margin }, styles.taxonomyRow]}>
           <Image source={icons.taxonomyCircle} style={styles.bullets} />
           <View>
             <Text style={styles.taxonomyHeader}>
@@ -27,7 +26,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
               {ancestor.rank !== "species" ? " " : null}
               {ancestor.name}
             </Text>
-            <Text numOfLines={1} style={styles.taxonomyText}>
+            <Text style={styles.taxonomyText}>
               {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
             </Text>
           </View>
@@ -44,7 +43,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
     <View>
       <View style={styles.headerMargins}>
         <GreenText
-          text={i18n.t( "species_detail.taxonomy" ).toLocaleUpperCase()}
+          text="species_detail.taxonomy"
         />
       </View>
       {taxonomy}

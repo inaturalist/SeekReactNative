@@ -4,7 +4,6 @@ import {
   center,
   row,
   fonts,
-  touchable,
   dimensions
 } from "../global";
 
@@ -28,8 +27,7 @@ export default StyleSheet.create( {
   },
   center,
   galleryContainer: {
-    backgroundColor: colors.lightGray,
-    flex: 1
+    backgroundColor: colors.lightGray
   },
   header: {
     backgroundColor: colors.white,
@@ -67,6 +65,5 @@ export default StyleSheet.create( {
   safeViewTop: {
     backgroundColor: colors.white,
     flex: 0
-  },
-  touchable
+  }
 } );

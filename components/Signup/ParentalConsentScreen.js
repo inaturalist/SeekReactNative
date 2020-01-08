@@ -6,9 +6,7 @@ import {
   Text,
   ScrollView
 } from "react-native";
-import jwt from "react-native-jwt-io";
 
-import config from "../../config";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
@@ -19,45 +17,42 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenText from "../UIComponents/GreenText";
 import InputField from "../UIComponents/InputField";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
+import { createJwtToken } from "../../utility/helpers";
 
 type Props = {
   +navigation: any
 }
 
-class ParentalConsentScreen extends Component<Props> {
+type State = {
+  email: string,
+  error: ?string,
+  loading: boolean
+}
+
+class ParentalConsentScreen extends Component<Props, State> {
   constructor() {
     super();
 
     this.state = {
       email: "",
-      error: false,
+      error: null,
       loading: false
     };
   }
 
-  setError( error ) {
+  setError( error: ?string ) {
     this.setState( { error } );
   }
 
-  setLoading( loading ) {
+  setLoading( loading: boolean ) {
     this.setState( { loading } );
-  }
-
-  createJwtToken() {
-    const claims = {
-      application: "SeekRN",
-      exp: new Date().getTime() / 1000 + 300
-    };
-
-    const token = jwt.encode( claims, config.jwtSecret, "HS512" );
-    return token;
   }
 
   shareEmailWithiNat() {
     const { email } = this.state;
 
     this.setLoading( true );
-    const token = this.createJwtToken();
+    const token = createJwtToken();
 
     const params = {
       email
@@ -68,6 +63,7 @@ class ParentalConsentScreen extends Component<Props> {
     };
 
     if ( token ) {
+      // $FlowFixMe
       headers.Authorization = `Authorization: ${token}`;
     }
 
@@ -96,13 +92,12 @@ class ParentalConsentScreen extends Component<Props> {
   }
 
   render() {
-    const { navigation } = this.props;
     const { email, error, loading } = this.state;
 
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <GreenHeader header={i18n.t( "login.sign_up" )} navigation={navigation} />
+        <GreenHeader header="login.sign_up" />
         <ScrollView>
           <View style={styles.margin} />
           <Text style={styles.header}>
@@ -113,7 +108,7 @@ class ParentalConsentScreen extends Component<Props> {
           </Text>
           <View style={styles.margin} />
           <View style={styles.leftTextMargins}>
-            <GreenText smaller text={i18n.t( "inat_signup.parent_email" ).toLocaleUpperCase()} />
+            <GreenText smaller text="inat_signup.parent_email" />
           </View>
           <InputField
             handleTextChange={value => this.setState( { email: value } )}
@@ -128,14 +123,14 @@ class ParentalConsentScreen extends Component<Props> {
           <GreenButton
             handlePress={() => {
               if ( checkIsEmailValid( email ) ) {
-                this.setError( false );
+                this.setError( null );
                 this.shareEmailWithiNat();
               } else {
                 this.setError( "email" );
               }
             }}
             login
-            text={i18n.t( "inat_signup.submit" )}
+            text="inat_signup.submit"
           />
         </ScrollView>
       </View>

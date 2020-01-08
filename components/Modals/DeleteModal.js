@@ -10,18 +10,18 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
-import styles from "../../styles/observations/deleteModal";
+import styles from "../../styles/modals/deleteModal";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 
 type Props = {
-  +toggleDeleteModal: Function,
+  +closeModal: Function,
   +deleteObservation: Function,
   +itemToDelete: Object
 };
 
 const DeleteModal = ( {
-  toggleDeleteModal,
+  closeModal,
   deleteObservation,
   itemToDelete
 }: Props ) => {
@@ -47,8 +47,7 @@ const DeleteModal = ( {
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
-            hitSlop={styles.touchable}
-            onPress={() => toggleDeleteModal() }
+            onPress={() => closeModal()}
             style={styles.flagBackButton}
           >
             <Image source={icons.closeWhite} />
@@ -70,7 +69,7 @@ const DeleteModal = ( {
         <TouchableOpacity
           onPress={() => {
             deleteObservation( id );
-            toggleDeleteModal( true );
+            closeModal( true );
           }}
           style={styles.largeFlagButton}
         >
@@ -80,7 +79,7 @@ const DeleteModal = ( {
         </TouchableOpacity>
         <View style={styles.marginSmall} />
         <TouchableOpacity
-          onPress={() => toggleDeleteModal()}
+          onPress={() => closeModal()}
           style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
         >
           <Text style={styles.buttonText}>

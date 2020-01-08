@@ -31,12 +31,8 @@
     "header": "Notifiche",
     "learn_more": "Scopri di più su iNaturalist",
     "earned_badges": "Hai guadagnato molti distintivi! Potrebbe piacerti iNaturalist!",
-    "new_challenge": "C'è una nuova sfida lanciata da Il Nostro Pianeta & WWF!",
-    "check_out": "Dai un'occhiata adesso!",
     "almost_finished": "Hai quasi finito con la tua sfida!",
     "view_progress": "Vedi i tuoi progressi",
-    "observation_identified": "La tua osservazione è stata identificata a livello di specie su iNaturalist!",
-    "badges_updated": "Grazie di aiutarci a migliorare il nostro modello! I tuoi distintivi potrebbero essere stati aggiornati.",
     "challenge_completed": "Congratulazioni! Hai completato una sfida",
     "view_challenges": "Vedi la sfida",
     "none": "Non hai ancora alcuna notifica!",
@@ -57,13 +53,10 @@
     "permission": "Devi avere almeno 13 anni per creare un account.",
     "privacy": "Informativa sulla Privacy",
     "continue": "Continua",
-    "need_permission": "Abbiamo bisogno del permesso dei tuoi genitori.",
     "enter_email": "Per favore inserisci l'email del tuo genitore",
-    "send_email": "Invia email",
     "parent_email": "Email del Genitore/Tutore",
     "under_13": "Poiché hai meno di 13 anni dobbiamo ottenere il permesso di un tuo genitore o tutore prima di poter creare un account.",
     "sign_up": "Registrati",
-    "sign_up_inat": "Registrati su iNaturalist",
     "next": "Successivo",
     "submit": "Invia",
     "email": "Email",
@@ -264,7 +257,6 @@
   "banner": {
     "view": "Mostra Distintivo",
     "badge": "Distintivo",
-    "species": "specie",
     "challenge_progress": "Hai trovato un'altra specie!",
     "challenge_view": "Vedi i tuoi progressi",
     "level_up": "Sei salito di livello!",
@@ -285,18 +277,17 @@
     "family": "famiglia",
     "genus": "genere",
     "species": "specie",
-    "loading": "La fotocamera di Seek sta caricando...",
     "error_camera": "Abbiamo bisogno di accedere alla fotocamera per aiutarti a identificare le specie!",
     "error_gallery": "Abbiamo bisogno di accedere alla galleria per salvare le foto che scatti!",
     "permissions": "Concedi le autorizzazioni nelle impostazioni",
     "error_classifier": "Siamo spiacenti, non siamo in grado di caricare il classificatore",
     "error_old_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
     "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato",
-    "error_save": "Sorry, there was a problem saving your photo"
+    "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto",
+    "error_no_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso."
   },
   "gallery": {
     "label": "Foto",
-    "choose_photo": "Scegli una foto",
     "camera_roll": "Rullino Fotocamera"
   },
   "camera_help": {
@@ -307,7 +298,7 @@
     "header_1": "Come funziona?",
     "how_works": "Il modello di identificazione Seek funziona utilizzando direttamente l'albero filogenetico.\n\nOgni punto sulla barra di identificazione rappresenta un livello tassonomico sull'albero della vita. Per ogni livello, Appena Seek riuscirà ad identificare con una certa sicurezza la specie che stai guardando, avanzerà di un altro punto sulla barra. Quando l'organismo è identificato a livello di specie, scatta una foto!",
     "header_2": "Trucchi e consigli",
-    "tips": "Seek funziona nel migliore dei modi nell'identificazione di foto con una buona illuminazione ed una chiara inquadratura della specie, quindi prova con diverse angolazioni fino a quando non ottieni lo scatto giusto.\n\nSeek sta ancora imparando, quindi se l'avanzamento dei punti non arriva alla fine è perchè stai probabilmente guardando un organismo che non è spesso trovato nel database di iNaturalist. Puoi pubblicare le osservazioni su iNaturalist per aiutare Seek ad imparare ad identificarle meglio! Presto, sarai in grado di pubblicare su iNaturalist direttamente da Seek.",
+    "tips": "Seek identifica le foto al meglio se le condizioni di luce sono buone e lo scatto della specie è chiaro, per questo puoi provare angolazioni differenti fino a quando non ottieni lo scatto giusto.\n\nSeek sta ancora imparando, per questo, se sembra che l'avanzamento dei punti non arrivi alla fine, stai probabilmente vedendo un organismo che non è spesso osservato nel database di iNaturalist. Puoi pubblicare l'osservazione su iNaturalist per aiutare Seek ad identificarlo meglio! Presto potrai pubblicare su iNaturalist direttamente da Seek.",
     "header_3": "Ricorda",
     "tip_1": "Tieniti sempre d'occhio l'ambiente che ti circonda e stai attento!",
     "tip_2": "Non mangiare nulla che trovi in natura.",
@@ -411,7 +402,7 @@
     "not_seen": "Non hai ancora osservato nessun {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nelle vicinanze",
+    "near": "Nearby",
     "about": "Info su",
     "range_map": "Mappa dell'areale",
     "range_about": "Una mappa delle osservazioni di questa specie su iNaturalist.",
@@ -470,15 +461,15 @@
     "designed_by": "Progettato e sviluppato dal team iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
-    "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org."
+    "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
+    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Carnifex, Daniele Seglie, katunchik, Lekim, Marcel Hospers, Martin Reith, Sakatur e Yulia.",
+    "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Pubblica su iNaturalist",
     "notes": "Aggiungi note qui",
     "date": "data",
-    "at": "alle",
     "location": "posizione",
-    "no_location": "nessuna posizione",
     "geoprivacy": "geoprivacy",
     "open": "Aperta",
     "obscured": "Oscurata",
@@ -494,7 +485,9 @@
     "posting": "Pubblicando la tua Osservazione",
     "posting_success": "Pubblicato su iNaturalist!",
     "posting_failure": "Pubblicazione su iNaturalist fallita",
-    "internet": "Prova a controlla la tua connessione a Internet e ritenta",
+    "error_photo_upload": "La tua osservazione è stata pubblicata su iNaturalist, ma purtroppo la foto non può essere caricata.\n\nProva ad accedere attraverso la versione web di iNaturalist o l'applicazione mobile per visualizzare la tua osservazione ed aggiungere una foto.",
+    "error_observation": "La tua osservazione non è stata pubblicata su iNaturalist. Prova a controllare la tua connessione internet e riprova.",
+    "error_token": "Non siamo stati in grado di effettuare una connessione autenticata al server iNaturalist. Riprova più tardi.",
     "ok": "Ok",
     "wait": "Questo potrebbe richiedere fino a un minuto",
     "look_up": "Cerca una specie per nome"
@@ -538,15 +531,34 @@
     "iNatStats": "Visualizza la schermata statistiche di iNat",
     "flag": "Segnala questa osservazione come non corretta",
     "back": "Torna alla visualizzazione precedente",
-    "modal": "Scorri in basso per chiudere la finestra",
     "user_location": "Ritorna alla tua posizione corrente",
     "help": "Tocca per la schermata di aiuto",
-    "take_photo": "Tocca per scattare una foto"
+    "take_photo": "Tocca per scattare una foto",
+    "scroll_left": "Tocca per scorrere a sinistra",
+    "scroll_right": "Tocca per scorrere a destra"
   },
   "review": {
-    "title": "Rate this app",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
-    "rate_now": "Rate now",
-    "later": "Later"
+    "title": "Valuta questa applicazione",
+    "rate": "Se ti piace questa app, dedica un momento per valutarla su Play Store. Grazie per il supporto!",
+    "rate_now": "Valuta ora",
+    "later": "Più tardi"
+  },
+  "months_short": {
+    "1": "Gen",
+    "2": "Feb",
+    "3": "Mar",
+    "4": "Apr",
+    "5": "Mag",
+    "6": "Giu",
+    "7": "Lug",
+    "8": "Ago",
+    "9": "Set",
+    "10": "Ott",
+    "11": "Nov",
+    "12": "Dic"
+  },
+  "attributions": {
+    "all": "tutti i diritti riservati",
+    "some": "alcuni diritti riservati"
   }
 }

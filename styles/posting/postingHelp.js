@@ -34,6 +34,12 @@ export default StyleSheet.create( {
     marginHorizontal: 20,
     textAlign: "center"
   },
+  margin: {
+    marginTop: 19
+  },
+  marginRight: {
+    marginRight: 10
+  },
   paragraph: {
     marginBottom: 16
   },

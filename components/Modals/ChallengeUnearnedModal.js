@@ -7,29 +7,30 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import moment from "moment";
 import ProgressCircle from "react-native-progress-circle";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
-import styles from "../../styles/badges/challengeBadgeUnearned";
+import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
+import { checkIfChallengeAvailable, formatMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import { colors } from "../../styles/global";
 import circleStyles from "../../styles/badges/progressCircle";
 import BackButton from "../UIComponents/ModalBackButton";
 import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
+import { setRoute } from "../../utility/helpers";
 
 type Props = {
-  +toggleChallengeModal: Function,
+  +closeModal: Function,
   +challenge: Object,
   +navigation: any
 };
 
-const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }: Props ) => (
-  <React.Fragment>
+const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) => (
+  <>
     <View style={styles.innerContainer}>
       <View style={styles.center}>
         <BannerHeader
@@ -67,7 +68,7 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
       <View style={styles.margins}>
         <GreenText
           center
-          text={i18n.t( "badges.to_earn" ).toLocaleUpperCase()}
+          text="badges.to_earn"
         />
       </View>
       <Text style={styles.nameText}>
@@ -78,20 +79,21 @@ const ChallengeUnearnedModal = ( { toggleChallengeModal, challenge, navigation }
           <GreenButton
             handlePress={() => {
               setChallengeIndex( challenge.index );
+              setRoute( "Achievements" );
               navigation.navigate( "ChallengeDetails" );
-              toggleChallengeModal();
+              closeModal();
             }}
-            text={i18n.t( "notifications.view_challenges" )}
+            text="notifications.view_challenges"
           />
         </View>
       ) : (
         <Text style={[styles.italicText, styles.centerSelf]}>
-          {i18n.t( "challenges.released", { date: moment( challenge.availableDate ).format( "MMMM DD, YYYY" ) } )}
+          {i18n.t( "challenges.released", { date: formatMonthDayYear( challenge.availableDate ) } )}
         </Text>
       )}
     </View>
-    <BackButton toggleModal={toggleChallengeModal} />
-  </React.Fragment>
+    <BackButton closeModal={closeModal} />
+  </>
 );
 
-export default ChallengeUnearnedModal;
+export default withNavigation( ChallengeUnearnedModal );

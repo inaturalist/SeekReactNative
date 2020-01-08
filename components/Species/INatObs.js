@@ -7,53 +7,46 @@ import {
   TouchableOpacity
 } from "react-native";
 import inatjs from "inaturalistjs";
+import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
-import { fetchLocationName } from "../../utility/locationHelpers";
 import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
+import { seti18nNumber, setRoute } from "../../utility/helpers";
 
 type Props = {
-  +id: Number,
+  +id: number,
   +region: Object,
-  +timesSeen: Number,
+  +timesSeen: ?number,
   +navigation: any,
-  +error: string
+  +error: ?string
 };
 
-class INatObs extends Component<Props> {
+type State = {
+  nearbySpeciesCount: ?number
+}
+
+class INatObs extends Component<Props, State> {
   constructor() {
     super();
 
     this.state = {
-      nearbySpeciesCount: null,
-      location: null
+      nearbySpeciesCount: null
     };
   }
 
-  componentDidUpdate( prevProps ) {
+  componentDidUpdate( prevProps: Object ) {
     const { region } = this.props;
 
     if ( region !== prevProps.region ) {
-      this.reverseGeocodeLocation( region.latitude, region.longitude );
       this.fetchNearbySpeciesCount();
     }
   }
 
-  setLocation( location ) {
-    this.setState( { location } );
-  }
-
-  setNearbySpeciesCount( nearbySpeciesCount ) {
+  setNearbySpeciesCount( nearbySpeciesCount: number ) {
     this.setState( { nearbySpeciesCount } );
-  }
-
-  reverseGeocodeLocation( lat, lng ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location );
-    } ).catch( () => this.setLocation( null ) );
   }
 
   fetchNearbySpeciesCount() {
@@ -78,37 +71,38 @@ class INatObs extends Component<Props> {
 
   render() {
     const { navigation, timesSeen, error } = this.props;
-    const { nearbySpeciesCount, location } = this.state;
+    const { nearbySpeciesCount } = this.state;
 
     return (
       <View>
         <View style={styles.headerMargins}>
-          <GreenText text={i18n.t( "species_detail.inat_obs" ).toLocaleUpperCase()} />
+          <GreenText text="species_detail.inat_obs" />
         </View>
         <View style={[styles.center, styles.row]}>
           <TouchableOpacity
-            onPress={() => navigation.navigate( "iNatStats" )}
+            onPress={() => {
+              setRoute( "Species" );
+              navigation.navigate( "iNatStats" );
+            }}
           >
             <Image source={logos.bird} style={styles.bird} />
           </TouchableOpacity>
           <View style={styles.textContainer}>
             {error === "location" ? null : (
-              <React.Fragment>
+              <>
                 <Text style={styles.secondHeaderText}>
                   {i18n.t( "species_detail.near" )}
-                  {" "}
-                  {location}
                 </Text>
                 <Text style={styles.number}>
-                  {i18n.toNumber( nearbySpeciesCount, { precision: 0 } )}
+                  {seti18nNumber( nearbySpeciesCount )}
                 </Text>
-              </React.Fragment>
+              </>
             )}
-            <Text style={[styles.secondHeaderText, !error && { marginTop: 28 }]}>
+            <Text style={[styles.secondHeaderText, !error && styles.margin]}>
               {i18n.t( "species_detail.worldwide" )}
             </Text>
             <Text style={styles.number}>
-              {i18n.toNumber( timesSeen, { precision: 0 } )}
+              {seti18nNumber( timesSeen )}
             </Text>
           </View>
         </View>
@@ -117,4 +111,4 @@ class INatObs extends Component<Props> {
   }
 }
 
-export default INatObs;
+export default withNavigation( INatObs );

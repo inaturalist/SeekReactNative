@@ -7,7 +7,6 @@ import {
   SafeAreaView
 } from "react-native";
 
-import i18n from "../../i18n";
 import styles from "../../styles/results/confirm";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenButton from "../UIComponents/GreenButton";
@@ -16,8 +15,7 @@ import BackArrow from "../UIComponents/BackArrow";
 
 type Props = {
   +image: Object,
-  +navigation: any,
-  +match: boolean,
+  +match: ?boolean,
   +checkForMatches: Function,
   +clicked: boolean
 }
@@ -25,16 +23,15 @@ type Props = {
 const ConfirmScreen = ( {
   image,
   checkForMatches,
-  navigation,
   match,
   clicked
 }: Props ) => (
   <View>
     <SafeAreaView style={styles.safeViewTop} />
     <View style={styles.header}>
-      <BackArrow green navigation={navigation} />
+      <BackArrow green />
       <View style={styles.headerText}>
-        <GreenText smaller text={i18n.t( "confirm.identify" ).toLocaleUpperCase()} />
+        <GreenText smaller text="confirm.identify" />
       </View>
       <View />
     </View>
@@ -55,7 +52,7 @@ const ConfirmScreen = ( {
       <GreenButton
         color={clicked ? "#38976d33" : null}
         handlePress={() => checkForMatches()}
-        text={i18n.t( "confirm.button" )}
+        text="confirm.button"
       />
     </View>
   </View>

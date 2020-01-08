@@ -2,12 +2,16 @@
   "env": {
     "node": true,
     "browser": true,
-    "es6": true,
-    "react-native/react-native": true
+    "es6": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plugin:react-native/all", "plugin:react/all"],
+  "extends": [
+    "airbnb",
+    "plugin:react-native/all",
+    "plugin:react/recommended"
+  ],
   "plugins": [
+    "react",
     "react-native"
   ],
   "rules": {
@@ -16,10 +20,9 @@
     "space-in-parens": [2, "always"],
     "func-names": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/jsx-curly-spacing": 0,
-    "react/jsx-no-literals": "off",
-    "react/no-array-index-key": "off",
-    "react/jsx-fragments": "off",
-    "react/no-set-state": "off"
+    "no-console": "off",
+    "global-require": "off",
+    "no-param-reassign": "off",
+    "arrow-parens": "off"
   }
 }

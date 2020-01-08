@@ -28,7 +28,7 @@ const SpeciesError = ( { seenDate, updateScreen }: Props ) => (
     </TouchableOpacity>
     {seenDate ? (
       <View style={styles.textContainer}>
-        <Text style={[styles.text, { textAlign: "center" }]}>{i18n.t( "species_detail.species_saved" )}</Text>
+        <Text style={styles.text}>{i18n.t( "species_detail.species_saved" )}</Text>
       </View>
     ) : null}
   </View>

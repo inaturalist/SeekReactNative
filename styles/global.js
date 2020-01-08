@@ -1,4 +1,4 @@
-const { Platform, Dimensions } = require( "react-native" );
+import { Platform, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -18,7 +18,9 @@ export const colors = {
   circleGray: "#f0f0f0",
   red: "#973838",
   transparent: "transparent",
-  linkText: "#9b9b9b"
+  linkText: "#9b9b9b",
+  speciesError: "#102b1f",
+  textShadow: "rgba(0, 0, 0, 0.75)"
 };
 
 export const fonts = {
@@ -33,13 +35,6 @@ export const fonts = {
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
   iOSButtonPadding: Platform.OS === "ios" ? 7 : 0
-};
-
-export const touchable = {
-  left: 23,
-  right: 23,
-  top: 23,
-  bottom: 23
 };
 
 export const dimensions = {

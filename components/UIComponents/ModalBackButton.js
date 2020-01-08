@@ -11,14 +11,14 @@ import styles from "../../styles/uiComponents/modalBackButton";
 import icons from "../../assets/icons";
 
 type Props = {
-  +toggleModal: Function
+  +closeModal: Function
 }
 
-const ModalBackButton = ( { toggleModal }: Props ) => (
+const ModalBackButton = ( { closeModal }: Props ) => (
   <TouchableOpacity
     accessibilityLabel={i18n.t( "accessibility.back" )}
     accessible
-    onPress={() => toggleModal()}
+    onPress={() => closeModal()}
     style={styles.backButton}
   >
     <Image source={icons.closeModal} />

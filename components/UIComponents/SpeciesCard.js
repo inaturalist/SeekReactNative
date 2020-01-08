@@ -16,8 +16,8 @@ import i18n from "../../i18n";
 type Props = {
   +handlePress: Function,
   +photo: Object,
-  +iconicTaxonId: ?Number,
-  +commonName: string,
+  +iconicTaxonId?: ?number,
+  +commonName: ?string,
   +scientificName: string
 }
 
@@ -57,5 +57,9 @@ const SpeciesCard = ( {
     )}
   </TouchableOpacity>
 );
+
+SpeciesCard.defaultProps = {
+  iconicTaxonId: null
+};
 
 export default SpeciesCard;

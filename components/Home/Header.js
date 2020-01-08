@@ -14,7 +14,7 @@ import TaxonPicker from "./TaxonPicker";
 import icons from "../../assets/icons";
 
 type Props = {
-  +location: string,
+  +location: ?string,
   +updateTaxaType: Function,
   +toggleLocationPicker: Function
 }

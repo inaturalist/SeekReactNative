@@ -12,10 +12,9 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 
 type Props = {
-  +ancestorId: Number,
-  +lat: Number,
-  +lng: Number,
-  +navigation: any
+  +ancestorId:number,
+  +lat:number,
+  +lng:number
 }
 
 class SpeciesNearby extends Component<Props> {
@@ -72,7 +71,6 @@ class SpeciesNearby extends Component<Props> {
 
   render() {
     const { taxa, loading, notLoaded } = this.state;
-    const { navigation } = this.props;
 
     let species;
 
@@ -93,7 +91,6 @@ class SpeciesNearby extends Component<Props> {
       species = (
         <SpeciesNearbyList
           match
-          navigation={navigation}
           taxa={taxa}
         />
       );

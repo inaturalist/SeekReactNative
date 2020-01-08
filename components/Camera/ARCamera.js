@@ -5,37 +5,48 @@ import {
   Image,
   TouchableOpacity,
   View,
-  PermissionsAndroid,
   Text,
   Platform,
-  NativeModules,
-  BackHandler,
-  Dimensions
+  NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { INatCamera } from "react-native-inat-camera";
-import RNModal from "react-native-modal";
-import moment from "moment";
 
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import WarningModal from "./WarningModal";
+import WarningModal from "../Modals/WarningModal";
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
-import { movePhotoToAppStorage, resizeImage } from "../../utility/photoHelpers";
-import { dirPictures, dirModel, dirTaxonomy } from "../../utility/dirStorage";
-
-const { width } = Dimensions.get( "window" );
+import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
+import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
+import Modal from "../UIComponents/Modal";
+import { createTimestamp } from "../../utility/dateHelpers";
+import { setCameraHelpText } from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any
 }
 
-class ARCamera extends Component<Props> {
+type State = {
+  ranks: Object,
+  rankToRender: ?string,
+  loading: boolean,
+  predictions: Array<Object>,
+  pictureTaken: boolean,
+  error: ?string,
+  commonName: ?string,
+  showModal: boolean,
+  errorEvent: ?string,
+  focusedScreen: boolean
+}
+
+class ARCamera extends Component<Props, State> {
+  camera: ?any
+
   constructor() {
     super();
 
@@ -46,35 +57,35 @@ class ARCamera extends Component<Props> {
       predictions: [],
       pictureTaken: false,
       error: null,
-      focusedScreen: false,
       commonName: null,
-      latitude: null,
-      longitude: null,
-      showWarningModal: false,
-      errorEvent: null
+      showModal: false,
+      errorEvent: null,
+      focusedScreen: false
     };
 
-    this.toggleWarningModal = this.toggleWarningModal.bind( this );
+    ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
-  setFocusedScreen( focusedScreen ) {
+  setFocusedScreen( focusedScreen: boolean ) {
     this.setState( { focusedScreen } );
   }
 
-
-  setPictureTaken( pictureTaken ) {
-    this.setState( { pictureTaken } );
+  setPictureTaken() {
+    this.setState( {
+      loading: true,
+      pictureTaken: true
+    } );
   }
 
-  setImagePredictions( predictions ) {
+  setImagePredictions( predictions: Object ) {
     this.setState( { predictions } );
   }
 
-  setLoading( loading ) {
+  setLoading( loading: boolean ) {
     this.setState( { loading } );
   }
 
-  setError( error, event ) {
+  setError( error: ?string, event: Object ) {
     this.setState( {
       error,
       errorEvent: event || null,
@@ -82,9 +93,13 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  handleTaxaDetected = ( event ) => {
-    const { rankToRender, loading } = this.state;
-    const predictions = Object.assign( {}, event.nativeEvent );
+  handleTaxaDetected = ( event: Object ) => {
+    const { rankToRender, loading, pictureTaken } = this.state;
+    const predictions = { ...event.nativeEvent };
+
+    if ( pictureTaken ) {
+      return;
+    }
 
     if ( predictions && loading === true ) {
       this.setLoading( false );
@@ -113,7 +128,7 @@ class ARCamera extends Component<Props> {
     }
   }
 
-  handleCameraError = ( event ) => {
+  handleCameraError = ( event: Object ) => {
     if ( event ) {
       if ( Platform.OS === "ios" ) {
         this.setError( "camera", event.nativeEvent.error );
@@ -127,44 +142,15 @@ class ARCamera extends Component<Props> {
     this.setError( "permissions" );
   }
 
-  handleClassifierError = ( event ) => {
+  handleClassifierError = ( event: Object ) => {
     if ( event ) {
       this.setError( "classifier" );
     }
   }
 
-  handleDeviceNotSupported = ( event ) => {
+  handleDeviceNotSupported = ( event: Object ) => {
     if ( event ) {
       this.setError( "device" );
-    }
-  }
-
-  requestAllCameraPermissions = async () => {
-    const permissions = PermissionsAndroid.PERMISSIONS;
-    const results = PermissionsAndroid.RESULTS;
-
-    if ( Platform.OS === "android" ) {
-      const camera = permissions.CAMERA;
-      const cameraRollSave = permissions.WRITE_EXTERNAL_STORAGE;
-      const cameraRollRetrieve = permissions.READ_EXTERNAL_STORAGE;
-
-      try {
-        const granted = await PermissionsAndroid.requestMultiple( [
-          camera,
-          cameraRollSave,
-          cameraRollRetrieve
-        ] );
-
-        if ( granted[camera] !== results.GRANTED ) {
-          this.setError( "permissions" );
-        }
-
-        if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== results.GRANTED ) {
-          this.setError( "gallery" );
-        }
-      } catch ( e ) {
-        this.setError( "camera" );
-      }
     }
   }
 
@@ -175,10 +161,6 @@ class ARCamera extends Component<Props> {
   }
 
   takePicture = async () => {
-    this.setState( {
-      loading: true,
-      pictureTaken: true
-    } );
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
@@ -186,7 +168,7 @@ class ARCamera extends Component<Props> {
           const photo = await CameraManager.takePictureAsync();
           this.savePhoto( photo );
         } catch ( e ) {
-          this.setError( "save" );
+          this.setError( "save", e );
         }
       }
     } else if ( Platform.OS === "android" ) {
@@ -195,9 +177,7 @@ class ARCamera extends Component<Props> {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
           this.savePhoto( photo );
-        } ).catch( () => {
-          this.setError( "save" );
-        } );
+        } ).catch( e => this.setError( "save", e ) );
       }
     }
   }
@@ -205,11 +185,11 @@ class ARCamera extends Component<Props> {
   async checkForCameraLaunch() {
     const isFirstCameraLaunch = await checkIfCameraLaunched();
     if ( isFirstCameraLaunch ) {
-      this.toggleWarningModal();
+      this.openModal();
     }
   }
 
-  updateUI( prediction, rank ) {
+  updateUI( prediction: Object, rank: string ) {
     getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
       this.setState( {
         ranks: {
@@ -230,92 +210,53 @@ class ARCamera extends Component<Props> {
     } );
   }
 
-  resizeImageForBackup( uri ) {
-    resizeImage( uri, width, 250 ).then( ( resizedImage ) => {
-      this.saveImageToAppDirectory( uri, resizedImage );
-    } ).catch( () => this.navigateToResults( uri ) );
-  }
-
-  async saveImageToAppDirectory( uri, resizedImageUri ) {
-    try {
-      const newImageName = `${moment().format( "DDMMYY_HHmmSSS" )}.jpg`;
-      const backupFilepath = `${dirPictures}/${newImageName}`;
-      const imageMoved = await movePhotoToAppStorage( resizedImageUri, backupFilepath );
-
-      if ( imageMoved ) {
-        this.navigateToResults( uri, backupFilepath );
-      } else {
-        this.navigateToResults( uri );
-      }
-    } catch ( e ) {
-      this.navigateToResults( uri );
-    }
-  }
-
-  savePhoto( photo ) {
+  savePhoto( photo: Object ) {
     this.setImagePredictions( photo.predictions );
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
-      .then( uri => this.resizeImageForBackup( uri ) )
-      .catch( () => this.setError( "save" ) );
+      .then( uri => this.navigateToResults( uri ) )
+      .catch( e => this.setError( "save", e ) );
   }
 
-  navigateToResults( uri, backupUri ) {
-    const {
-      predictions,
-      latitude,
-      longitude
-    } = this.state;
+  navigateToResults( uri: string ) {
+    const { predictions } = this.state;
     const { navigation } = this.props;
+
+    const results = {
+      time: createTimestamp(), // add current time to AR camera photos,
+      uri
+    };
 
     if ( predictions && predictions.length > 0 ) {
-      navigation.navigate( "ARCameraResults", {
-        uri,
-        predictions,
-        latitude,
-        longitude,
-        backupUri
-      } );
+      // $FlowFixMe
+      results.predictions = predictions;
+
+      navigation.navigate( "OfflineARResults", results );
     } else {
-      navigation.navigate( "GalleryResults", {
-        uri,
-        time: null,
-        latitude,
-        longitude,
-        backupUri
-      } );
+      navigation.navigate( "OnlineServerResults", results );
     }
   }
 
-  async closeCamera() {
+  closeCamera() {
     const { navigation } = this.props;
-    if ( Platform.OS === "android" ) {
-      if ( this.camera ) {
-        await this.camera.stopCamera();
-      }
-    }
 
     navigation.navigate( "Main" );
   }
 
-  addListenerForAndroid() {
+  openModal() {
+    this.setState( { showModal: true } );
+  }
+
+  closeModal() {
+    this.setState( { showModal: false } );
+  }
+
+  requestAndroidPermissions() {
     if ( Platform.OS === "android" ) {
-      this.backHandler = BackHandler.addEventListener( "hardwareBackPress", () => {
-        this.closeCamera();
-        return true;
-      } );
+      requestAllCameraPermissions().then( ( result ) => {
+        this.setError( result );
+      } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
     }
-  }
-
-  closeCameraAndroid() {
-    if ( Platform.OS === "android" && this.backHandler ) {
-      this.backHandler.remove();
-    }
-  }
-
-  toggleWarningModal() {
-    const { showWarningModal } = this.state;
-    this.setState( { showWarningModal: !showWarningModal } );
   }
 
   render() {
@@ -326,51 +267,34 @@ class ARCamera extends Component<Props> {
       pictureTaken,
       error,
       commonName,
-      showWarningModal,
+      showModal,
       errorEvent,
       focusedScreen
     } = this.state;
     const { navigation } = this.props;
 
-    let helpText;
-
-    if ( rankToRender === "class" || rankToRender === "order" || rankToRender === "family" ) {
-      helpText = i18n.t( "camera.scan_class" );
-    } else if ( rankToRender === "genus" ) {
-      helpText = i18n.t( "camera.scan_genus" );
-    } else if ( rankToRender === "species" ) {
-      helpText = i18n.t( "camera.scan_species" );
-    } else {
-      helpText = i18n.t( "camera.scan" );
-    }
+    const helpText = setCameraHelpText( rankToRender );
 
     return (
       <View style={styles.container}>
         <NavigationEvents
+          onDidFocus={() => this.checkForCameraLaunch()}
           onWillBlur={() => {
             this.resetPredictions();
             this.setError( null );
             this.setFocusedScreen( false );
-            this.closeCameraAndroid();
           }}
           onWillFocus={() => {
-            this.checkForCameraLaunch();
-            this.requestAllCameraPermissions();
+            this.requestAndroidPermissions();
             this.handleResumePreview();
             this.setFocusedScreen( true );
-            this.addListenerForAndroid();
           }}
         />
-        <RNModal
-          isVisible={showWarningModal}
-          onBackdropPress={() => this.toggleWarningModal()}
-          onSwipeComplete={() => this.toggleWarningModal()}
-          swipeDirection="down"
-        >
-          <WarningModal
-            toggleWarningModal={this.toggleWarningModal}
-          />
-        </RNModal>
+        <Modal
+          showModal={showModal}
+          closeModal={this.closeModal}
+          modal={<WarningModal closeModal={this.closeModal} />}
+        />
         {loading ? (
           <View style={styles.loading}>
             <LoadingWheel color="white" />
@@ -380,14 +304,13 @@ class ARCamera extends Component<Props> {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          hitSlop={styles.touchable}
-          onPress={() => this.closeCamera() }
+          onPress={() => this.closeCamera()}
           style={styles.backButton}
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
         {!error ? (
-          <React.Fragment>
+          <>
             <ARCameraHeader
               commonName={commonName}
               ranks={ranks}
@@ -398,7 +321,10 @@ class ARCamera extends Component<Props> {
               <TouchableOpacity
                 accessibilityLabel={i18n.t( "accessibility.take_photo" )}
                 accessible
-                onPress={() => this.takePicture()}
+                onPress={() => {
+                  this.setPictureTaken();
+                  this.takePicture();
+                }}
                 style={styles.shutter}
               >
                 {ranks && ranks.species
@@ -420,9 +346,9 @@ class ARCamera extends Component<Props> {
             >
               <Image source={icons.cameraHelp} />
             </TouchableOpacity>
-          </React.Fragment>
+          </>
         ) : null}
-        {focusedScreen ? (
+        {focusedScreen ? ( // this is necessary for handleResumePreview to work properly in iOS
           <INatCamera
             ref={( ref ) => {
               this.camera = ref;

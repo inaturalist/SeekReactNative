@@ -11,7 +11,6 @@ import {
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
-import i18n from "../../i18n";
 import taxonIds from "../../utility/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
@@ -23,7 +22,6 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import { checkIfChallengeAvailable } from "../../utility/dateHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen } from "../../utility/helpers";
 
@@ -31,7 +29,18 @@ type Props = {
   +navigation: any
 }
 
-class AchievementsScreen extends Component<Props> {
+type State = {
+  speciesBadges: Array<Object>,
+  challengeBadges: Array<Object>,
+  level: ?Object,
+  nextLevelCount: ?number,
+  badgesEarned: ?number,
+  speciesCount: ?number
+}
+
+class AchievementsScreen extends Component<Props, State> {
+  scrollView: ?any
+
   constructor() {
     super();
 
@@ -46,9 +55,11 @@ class AchievementsScreen extends Component<Props> {
   }
 
   scrollToTop() {
-    this.scrollView.scrollTo( {
-      x: 0, y: 0, animated: Platform.OS === "android"
-    } );
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
   }
 
   fetchBadges() {
@@ -105,40 +116,6 @@ class AchievementsScreen extends Component<Props> {
           challengeBadges.push( challenge );
         } );
 
-        if ( challenges.length < 8 ) {
-          const oct = {
-            month: "challenges.october_2019",
-            availableDate: new Date( 2019, 9, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          const nov = {
-            month: "challenges.november_2019",
-            availableDate: new Date( 2019, 10, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          const dec = {
-            month: "challenges.december_2019",
-            availableDate: new Date( 2019, 11, 1 ),
-            startedDate: false,
-            percentComplete: 0,
-            unearnedIconName: "badge_empty"
-          };
-
-          if ( checkIfChallengeAvailable( nov.availableDate ) ) {
-            challengeBadges.push( dec );
-          } else if ( checkIfChallengeAvailable( oct.availableDate ) ) {
-            challengeBadges.push( nov, dec );
-          } else {
-            challengeBadges.push( oct, nov, dec );
-          }
-        }
-
         this.setState( { challengeBadges } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -167,7 +144,7 @@ class AchievementsScreen extends Component<Props> {
             this.fetchSpeciesCount();
           }}
         />
-        <GreenHeader header={i18n.t( "badges.achievements" )} navigation={navigation} />
+        <GreenHeader header="badges.achievements" />
         <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
           <LevelHeader
@@ -176,22 +153,22 @@ class AchievementsScreen extends Component<Props> {
             speciesCount={speciesCount}
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
-          <ChallengeBadges challengeBadges={challengeBadges} navigation={navigation} />
+          <ChallengeBadges challengeBadges={challengeBadges} />
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
               onPress={() => navigation.navigate( "MyObservations" )}
               style={styles.secondHeaderText}
             >
-              <GreenText center smaller text={i18n.t( "badges.observed" ).toLocaleUpperCase()} />
+              <GreenText center smaller text="badges.observed" />
               <Text style={styles.number}>{speciesCount}</Text>
             </TouchableOpacity>
             <View style={styles.secondHeaderText}>
-              <GreenText center smaller text={i18n.t( "badges.earned" ).toLocaleUpperCase()} />
+              <GreenText center smaller text="badges.earned" />
               <Text style={styles.number}>{badgesEarned}</Text>
             </View>
           </View>
           <View style={styles.center}>
-            <LoginCard navigation={navigation} screen="achievements" />
+            <LoginCard screen="achievements" />
           </View>
           <Padding />
         </ScrollView>

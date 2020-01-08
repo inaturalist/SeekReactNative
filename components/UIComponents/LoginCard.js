@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents, withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
@@ -14,10 +14,14 @@ import GreenButton from "./GreenButton";
 
 type Props = {
   +navigation: any,
-  +screen: ?string
+  +screen: string
 }
 
-class LoginCard extends Component<Props> {
+type State = {
+  isLoggedIn: boolean
+}
+
+class LoginCard extends Component<Props, State> {
   constructor() {
     super();
 
@@ -33,7 +37,7 @@ class LoginCard extends Component<Props> {
     }
   }
 
-  setLoggedIn( isLoggedIn ) {
+  setLoggedIn( isLoggedIn: boolean ) {
     this.setState( { isLoggedIn } );
   }
 
@@ -76,12 +80,12 @@ class LoginCard extends Component<Props> {
             }
           }}
           text={isLoggedIn
-            ? i18n.t( "inat_stats.sign_out" )
-            : i18n.t( "inat_stats.join" )}
+            ? "inat_stats.sign_out"
+            : "inat_stats.join"}
         />
       </View>
     );
   }
 }
 
-export default LoginCard;
+export default withNavigation( LoginCard );

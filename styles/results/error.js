@@ -1,7 +1,5 @@
-import { StyleSheet, Dimensions } from "react-native";
-import { colors, fonts } from "../global";
-
-const { height } = Dimensions.get( "window" );
+import { StyleSheet } from "react-native";
+import { colors, fonts, dimensions } from "../global";
 
 export default StyleSheet.create( {
   container: {
@@ -15,6 +13,6 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 41,
     textAlign: "center",
-    top: height / 2 - 150
+    top: dimensions.height / 2 - 150
   }
 } );

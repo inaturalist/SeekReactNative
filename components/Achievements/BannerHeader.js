@@ -11,16 +11,20 @@ import icons from "../../assets/icons";
 
 type Props = {
   +text: string,
-  +modal: boolean
+  +modal?: boolean
 }
 
 const BannerHeader = ( { text, modal }: Props ) => (
   <ImageBackground
     source={icons.titleBanner}
-    style={[styles.banner, modal && { marginTop: 32, marginBottom: 26 }]}
+    style={[styles.banner, modal && styles.modal]}
   >
     <Text style={styles.bannerText}>{text}</Text>
   </ImageBackground>
 );
+
+BannerHeader.defaultProps = {
+  modal: false
+};
 
 export default BannerHeader;

@@ -27,9 +27,6 @@ export default StyleSheet.create( {
     padding: 5
   },
   center,
-  // galleryContainer: {
-  //   backgroundColor: colors.lightGray
-  // },
   header: {
     backgroundColor: colors.white,
     height: 55

@@ -60,7 +60,9 @@ const setCameraErrorText = ( error, errorEvent ) => {
   } else if ( error === "device" ) {
     errorText = i18n.t( "camera.error_device_support" );
   } else if ( error === "save" ) {
-    errorText = i18n.t( "camera.error_save" );
+    errorText = `${i18n.t( "camera.error_save" )}: ${errorEvent.toString()}`;
+  } else if ( error === "take" ) {
+    errorText = `${i18n.t( "camera.error_take" )}: ${errorEvent.toString()}`;
   } else if ( error === "camera" ) {
     errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent.toString()}`;
   } else if ( error === "gallery" ) {

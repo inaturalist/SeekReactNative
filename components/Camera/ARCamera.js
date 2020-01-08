@@ -164,7 +164,7 @@ class ARCamera extends Component<Props, State> {
           const photo = await CameraManager.takePictureAsync();
           this.savePhoto( photo );
         } catch ( e ) {
-          this.setError( "save", e );
+          this.setError( "take", e );
         }
       }
     } else if ( Platform.OS === "android" ) {
@@ -173,7 +173,7 @@ class ARCamera extends Component<Props, State> {
           pauseAfterCapture: true
         } ).then( ( photo ) => {
           this.savePhoto( photo );
-        } ).catch( e => this.setError( "save", e ) );
+        } ).catch( e => this.setError( "take", e ) );
       }
     }
   }

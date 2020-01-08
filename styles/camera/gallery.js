@@ -16,6 +16,7 @@ export default StyleSheet.create( {
     position: "absolute"
   },
   background: {
+    backgroundColor: colors.lightGray,
     flex: 1
   },
   button: {
@@ -26,9 +27,9 @@ export default StyleSheet.create( {
     padding: 5
   },
   center,
-  galleryContainer: {
-    backgroundColor: colors.lightGray
-  },
+  // galleryContainer: {
+  //   backgroundColor: colors.lightGray
+  // },
   header: {
     backgroundColor: colors.white,
     height: 55

@@ -178,7 +178,12 @@ const MainStack = createStackNavigator( {
   }
 }, {
   headerMode: "none",
-  transitionConfig: ( nav ) => handleCustomTransition( nav )
+  defaultNavigationOptions: {
+    safeAreaInsets: {
+      bottom: false
+    }
+  }
+  // transitionConfig: ( nav ) => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {
@@ -241,6 +246,14 @@ const LoginStack = createStackNavigator( {
   }
 }, { headerMode: "none" } );
 
+const transitionConfig = {
+  animation: "timing",
+  config: {
+    duration: 300,
+    easing: true
+  }
+};
+
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen
@@ -256,7 +269,10 @@ const RootStack = createStackNavigator( {
   }
 }, {
   headerMode: "none",
-  transitionConfig: () => fadeIn()
+  defaultNavigationOptions: {
+    transitionConfig
+  }
+  // transitionConfig: () => fadeIn()
 } );
 
 const App = createAppContainer( RootStack );

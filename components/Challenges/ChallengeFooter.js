@@ -19,7 +19,7 @@ type Props = {
 }
 
 const ChallengeFooter = ( { navigation }: Props ) => (
-  <SafeAreaView>
+  <SafeAreaView style={styles.safeArea}>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity

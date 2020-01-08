@@ -179,9 +179,12 @@ const MainStack = createStackNavigator( {
 }, {
   headerMode: "none",
   defaultNavigationOptions: {
-    safeAreaInsets: {
-      bottom: false
-    }
+    // safeAreaInsets: {
+    //   top: 0,
+    //   bottom: 500,
+    //   left: 0,
+    //   right: 0
+    // }
   }
   // transitionConfig: ( nav ) => handleCustomTransition( nav )
 } );

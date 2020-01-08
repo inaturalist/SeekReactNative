@@ -36,5 +36,8 @@ export default StyleSheet.create( {
     padding: 20,
     right: 10
   },
-  row
+  row,
+  safeArea: {
+    backgroundColor: colors.white
+  }
 } );

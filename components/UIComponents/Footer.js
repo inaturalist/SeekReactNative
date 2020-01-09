@@ -8,7 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import Realm from "realm";
-import { withNavigation } from "react-navigation";
+import { NavigationTabScreenProps } from "react-navigation-tabs";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -16,11 +16,7 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
-type Props = {
-  +navigation: any
-}
-
-const Footer = ( { navigation }: Props ) => {
+const Footer = ( { navigation }: NavigationTabScreenProps ) => {
   const [notifications, setNotifications] = useState( false );
 
   const fetchNotifications = () => {
@@ -77,4 +73,4 @@ const Footer = ( { navigation }: Props ) => {
   );
 };
 
-export default withNavigation( Footer );
+export default Footer;

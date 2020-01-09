@@ -7,6 +7,7 @@ import {
   ImageBackground,
   SafeAreaView
 } from "react-native";
+import { NavigationTabScreenProps } from "react-navigation-tabs";
 
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
@@ -14,11 +15,7 @@ import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 import { setRoute } from "../../utility/helpers";
 
-type Props = {
-  +navigation: any
-}
-
-const ChallengeFooter = ( { navigation }: Props ) => (
+const ChallengeFooter = ( { navigation }: NavigationTabScreenProps ) => (
   <SafeAreaView style={styles.safeArea}>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>

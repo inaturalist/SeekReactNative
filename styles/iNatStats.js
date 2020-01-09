@@ -8,6 +8,9 @@ import {
 const { width, height } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
+  background: {
+    backgroundColor: colors.white
+  },
   bird: {
     height: height > 570 ? 65 : 45,
     position: "absolute",
@@ -81,7 +84,7 @@ export default StyleSheet.create( {
     height: 375
   },
   safeView: {
-    backgroundColor: colors.transparent,
+    backgroundColor: colors.white,
     flex: 0
   }
 } );

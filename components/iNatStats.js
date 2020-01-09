@@ -157,6 +157,7 @@ class iNatStatsScreen extends Component<Props, State> {
     return (
       <SafeAreaView style={styles.safeView}>
         <ScrollView
+          contentContainerStyle={styles.background}
           ref={( ref ) => { this.scrollView = ref; }}
         >
           <NavigationEvents

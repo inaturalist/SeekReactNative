@@ -180,7 +180,10 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     );
 
     return (
-      <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
+      <ScrollView
+        contentContainerStyle={styles.background}
+        ref={( ref ) => { this.scrollView = ref; }}
+      >
         <SafeAreaView style={styles.safeView}>
           <StatusBar barStyle="light-content" />
           <NavigationEvents

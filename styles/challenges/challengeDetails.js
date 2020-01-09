@@ -12,6 +12,9 @@ const { width, height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
+  background: {
+    backgroundColor: colors.white
+  },
   badge: {
     height: 105,
     resizeMode: "contain",

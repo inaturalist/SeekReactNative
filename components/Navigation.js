@@ -2,7 +2,7 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
-import { Platform, Dimensions } from "react-native";
+import { Platform, Dimensions, Easing } from "react-native";
 import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
 
 import styles from "../styles/navigation";
@@ -45,6 +45,23 @@ import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 import WikipediaView from "./Species/WikipediaView";
 
 const { width, height } = Dimensions.get( "window" );
+
+const transitionSpec = {
+  open: {
+    animation: "timing",
+    config: {
+      duration: 300,
+      easing: Easing.out( Easing.poly( 4 ) )
+    }
+  },
+  close: {
+    animation: "timing",
+    config: {
+      duration: 300,
+      easing: Easing.out( Easing.poly( 4 ) )
+    }
+  }
+};
 
 const handleCustomTransition = ( { scenes } ) => {
   const nextScene = scenes[scenes.length - 1];
@@ -179,14 +196,9 @@ const MainStack = createStackNavigator( {
 }, {
   headerMode: "none",
   defaultNavigationOptions: {
-    // safeAreaInsets: {
-    //   top: 0,
-    //   bottom: 500,
-    //   left: 0,
-    //   right: 0
-    // }
+    animationEnabled: false,
+    transitionSpec
   }
-  // transitionConfig: ( nav ) => handleCustomTransition( nav )
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {
@@ -249,14 +261,6 @@ const LoginStack = createStackNavigator( {
   }
 }, { headerMode: "none" } );
 
-const transitionConfig = {
-  animation: "timing",
-  config: {
-    duration: 300,
-    easing: true
-  }
-};
-
 const RootStack = createStackNavigator( {
   Home: {
     screen: SplashScreen
@@ -273,9 +277,9 @@ const RootStack = createStackNavigator( {
 }, {
   headerMode: "none",
   defaultNavigationOptions: {
-    transitionConfig
+    animationEnabled: false,
+    transitionSpec
   }
-  // transitionConfig: () => fadeIn()
 } );
 
 const App = createAppContainer( RootStack );

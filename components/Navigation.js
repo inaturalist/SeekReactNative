@@ -173,7 +173,17 @@ const MainStack = createStackNavigator( {
     screen: ChallengeFooterTabNav
   },
   Camera: {
-    screen: CameraNav
+    screen: CameraNav,
+    navigationOptions: {
+      gestureEnabled: false,
+      transitionSpec: {
+        open: Platform.OS === "android" ? TransitionPresets.RevealFromBottomAndroid : TransitionPresets.ModalSlideFromBottomIOS,
+        close: Platform.OS === "android" ? TransitionPresets.RevealFromBottomAndroid : TransitionPresets.ModalSlideFromBottomIOS
+      },
+      cardStyleInterpolator: ( { current: { progress } } ) => ( {
+        cardStyle: { opacity: progress }
+      } )
+    }
   },
   OfflineARResults: {
     screen: OfflineARResults
@@ -197,11 +207,11 @@ const MainStack = createStackNavigator( {
     screen: WikipediaView
   }
 }, {
-  headerMode: "none",
-  defaultNavigationOptions: {
-    animationEnabled: false,
-    transitionSpec
-  }
+  headerMode: "none"
+  // defaultNavigationOptions: {
+  //   animationEnabled: false,
+  //   transitionSpec
+  // }
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {

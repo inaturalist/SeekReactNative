@@ -1,5 +1,5 @@
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import { createStackNavigator, TransitionPresets } from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
 import { Platform, Dimensions, Easing } from "react-native";
@@ -143,7 +143,10 @@ const FooterTabNav = createBottomTabNavigator( {
     screen: CameraHelpScreen
   },
   Notifications: {
-    screen: NotificationsScreen
+    screen: NotificationsScreen,
+    navigationOptions: () => ( {
+      // something
+    } )
   },
   iNatStats: {
     screen: iNatStatsScreen

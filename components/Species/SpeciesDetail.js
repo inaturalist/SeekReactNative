@@ -10,6 +10,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import RNFS from "react-native-fs";
@@ -41,10 +42,6 @@ import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-type Props = {
-  +navigation: any
-}
-
 type State = {
   id: number,
   photos: Array<Object>,
@@ -65,16 +62,14 @@ type State = {
   wikiUrl: ?string
 };
 
-class SpeciesDetail extends Component<Props, State> {
+class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
   scrollView: ?any
 
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
-    const { id } = navigation.state.params;
-
     this.state = {
-      id,
+      id: null,
       photos: [],
       commonName: null,
       scientificName: null,
@@ -105,8 +100,8 @@ class SpeciesDetail extends Component<Props, State> {
     }
   }
 
-  setRegion( latitude: number, longitude: number ) {
-    this.checkIfSpeciesIsNative( latitude, longitude );
+  setRegion( latitude: number, longitude: number, id: number ) {
+    this.checkIfSpeciesIsNative( latitude, longitude, id );
     this.setState( {
       region: {
         latitude,
@@ -163,12 +158,12 @@ class SpeciesDetail extends Component<Props, State> {
     }
   }
 
-  setSeenTaxa( seenTaxa: Object ) {
+  setSeenTaxa( seenTaxa: Object, id: number ) {
     const { taxon, latitude, longitude } = seenTaxa;
     const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
 
     if ( latitude && longitude ) {
-      this.checkIfSpeciesIsNative( latitude, longitude );
+      this.checkIfSpeciesIsNative( latitude, longitude, id );
     }
 
     this.setState( {
@@ -185,23 +180,23 @@ class SpeciesDetail extends Component<Props, State> {
     } );
   }
 
-  setUserLocation() {
+  setUserLocation( id: number ) {
     fetchTruncatedUserLocation().then( ( coords ) => {
       const { latitude, longitude } = coords;
 
-      this.setRegion( latitude, longitude );
+      this.setRegion( latitude, longitude, id );
     } ).catch( () => this.setError( "location" ) );
   }
 
-  fetchUserLocation() {
+  fetchUserLocation( id: number ) {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
-          this.setUserLocation();
+          this.setUserLocation( id );
         }
       } );
     } else {
-      this.setUserLocation();
+      this.setUserLocation( id );
     }
   }
 
@@ -237,9 +232,9 @@ class SpeciesDetail extends Component<Props, State> {
         const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
 
         if ( seenTaxa ) {
-          this.setSeenTaxa( seenTaxa );
+          this.setSeenTaxa( seenTaxa, id );
         } else {
-          this.fetchUserLocation();
+          this.fetchUserLocation( id );
         }
 
         let userPhoto;
@@ -346,8 +341,8 @@ class SpeciesDetail extends Component<Props, State> {
     } );
   }
 
-  checkIfSpeciesIsNative( latitude: number, longitude: number ) {
-    const { id, stats } = this.state;
+  checkIfSpeciesIsNative( latitude: number, longitude: number, id: number ) {
+    const { stats } = this.state;
 
     const params = {
       per_page: 1,

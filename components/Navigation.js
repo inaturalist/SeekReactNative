@@ -1,9 +1,12 @@
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator, TransitionPresets } from "react-navigation-stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+  CardStyleInterpolators
+} from "react-navigation-stack";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { createMaterialTopTabNavigator, createBottomTabNavigator } from "react-navigation-tabs";
-import { Platform, Dimensions, Easing } from "react-native";
-import { fadeIn, fromRight, fromBottom } from "react-navigation-transitions";
+import { Platform, Dimensions } from "react-native";
 
 import styles from "../styles/navigation";
 import i18n from "../i18n";
@@ -46,40 +49,12 @@ import WikipediaView from "./Species/WikipediaView";
 
 const { width, height } = Dimensions.get( "window" );
 
-const transitionSpec = {
-  open: {
-    animation: "timing",
-    config: {
-      duration: 300,
-      easing: Easing.out( Easing.poly( 4 ) )
-    }
-  },
-  close: {
-    animation: "timing",
-    config: {
-      duration: 300,
-      easing: Easing.out( Easing.poly( 4 ) )
-    }
-  }
-};
+const forFade = ( { current } ) => ( {
+  cardStyle: { opacity: current.progress }
+} );
 
-const handleCustomTransition = ( { scenes } ) => {
-  const nextScene = scenes[scenes.length - 1];
-  const { route } = nextScene;
-
-  if ( route ) {
-    if ( route.routeName === "Notifications" ) {
-      return fromRight( 200 );
-    }
-    if ( route.routeName === "Camera" ) {
-      return fromBottom( 100 );
-    }
-    if ( route.routeName === "Wikipedia" ) {
-      return fromBottom( 100 );
-    }
-  }
-
-  return fadeIn();
+const defaultNavigation = {
+  cardStyleInterpolator: forFade
 };
 
 const CameraNavigatorConfig = {
@@ -142,12 +117,6 @@ const FooterTabNav = createBottomTabNavigator( {
   CameraHelp: {
     screen: CameraHelpScreen
   },
-  Notifications: {
-    screen: NotificationsScreen,
-    navigationOptions: () => ( {
-      // something
-    } )
-  },
   iNatStats: {
     screen: iNatStatsScreen
   },
@@ -170,19 +139,20 @@ const MainStack = createStackNavigator( {
     screen: FooterTabNav
   },
   ChallengeFooter: {
-    screen: ChallengeFooterTabNav
+    screen: ChallengeFooterTabNav,
+    navigationOptions: () => ( {
+      cardStyleInterpolator: forFade
+    } )
+  },
+  Notifications: { // moved out of FooterTabNav to add animation
+    screen: NotificationsScreen,
+    navigationOptions: TransitionPresets.SlideFromRightIOS
   },
   Camera: {
     screen: CameraNav,
     navigationOptions: {
       gestureEnabled: false,
-      transitionSpec: {
-        open: Platform.OS === "android" ? TransitionPresets.RevealFromBottomAndroid : TransitionPresets.ModalSlideFromBottomIOS,
-        close: Platform.OS === "android" ? TransitionPresets.RevealFromBottomAndroid : TransitionPresets.ModalSlideFromBottomIOS
-      },
-      cardStyleInterpolator: ( { current: { progress } } ) => ( {
-        cardStyle: { opacity: progress }
-      } )
+      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
     }
   },
   OfflineARResults: {
@@ -204,14 +174,15 @@ const MainStack = createStackNavigator( {
     screen: PostingHelpScreen
   },
   Wikipedia: {
-    screen: WikipediaView
+    screen: WikipediaView,
+    navigationOptions: {
+      gestureEnabled: false,
+      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
+    }
   }
 }, {
-  headerMode: "none"
-  // defaultNavigationOptions: {
-  //   animationEnabled: false,
-  //   transitionSpec
-  // }
+  headerMode: "none",
+  defaultNavigationOptions: defaultNavigation
 } );
 
 const MenuDrawerNav = createDrawerNavigator( {
@@ -289,10 +260,7 @@ const RootStack = createStackNavigator( {
   }
 }, {
   headerMode: "none",
-  defaultNavigationOptions: {
-    animationEnabled: false,
-    transitionSpec
-  }
+  defaultNavigationOptions: defaultNavigation
 } );
 
 const App = createAppContainer( RootStack );

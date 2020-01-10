@@ -34,6 +34,7 @@ const WikipediaView = ( { navigation }: Props ) => {
         </TouchableOpacity>
       </View>
       <WebView
+        startInLoadingState
         source={{ uri: wikiUrl }}
       />
       <View style={styles.bottom} />

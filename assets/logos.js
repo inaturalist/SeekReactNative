@@ -7,8 +7,6 @@ const logos = {
   iNat: require( "./logos/logo-inaturalist.png" ),
   casNatGeo: require( "./logos/logos-CAS-NatGeo.png" ),
   hhmi: require( "./logos/logo-hhmi.png" ),
-  netflix: require( "./logos/logo-netflix.png" ),
-  wwf: require( "./logos/logo-wwf.png" ),
   wordmark: require( "./logos/iNatStats-Wordmark.png" )
 };
 

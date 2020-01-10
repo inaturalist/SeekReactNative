@@ -16,6 +16,8 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
+import Footer from "../UIComponents/Footer";
+import Padding from "../UIComponents/Padding";
 
 type Props = {}
 
@@ -69,11 +71,13 @@ class NotificationsScreen extends Component<Props, State> {
             ref={( ref ) => { this.scrollView = ref; }}
             data={notifications}
             keyExtractor={( item, i ) => `${item}${i}`}
+            ListFooterComponent={() => <Padding />}
             renderItem={( { item } ) => (
               <NotificationCard item={item} />
             )}
           />
         ) : <EmptyState />}
+        <Footer />
       </View>
     );
   }

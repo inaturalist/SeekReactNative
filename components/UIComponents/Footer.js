@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 import { NavigationTabScreenProps } from "react-navigation-tabs";
+import { withNavigation } from "react-navigation";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -73,4 +74,4 @@ const Footer = ( { navigation }: NavigationTabScreenProps ) => {
   );
 };
 
-export default Footer;
+export default withNavigation( Footer );

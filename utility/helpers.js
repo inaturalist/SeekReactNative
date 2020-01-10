@@ -104,8 +104,6 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
   const uuid = await createUUID();
 
-  console.log( time, "time" );
-
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
@@ -144,7 +142,6 @@ const addToCollection = async ( observation, latitude, longitude, uri, time ) =>
         } );
       } );
       const newLength = realm.objects( "TaxonRealm" ).length;
-      console.log( realm.objects( "ObservationRealm" ).filtered( "taxon.id == 42866" ) );
       checkForPowerUsers( length, newLength );
     } ).catch( ( e ) => {
       console.log( e, "error adding to collection" );

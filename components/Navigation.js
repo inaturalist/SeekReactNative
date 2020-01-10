@@ -110,7 +110,7 @@ const ChallengeFooterTabNav = createBottomTabNavigator( {
   }
 }, ChallengeFooterTabConfig );
 
-const FooterTabNav = createBottomTabNavigator( {
+const FooterTabNav = createBottomTabNavigator( { // these are screens that need access to the footer
   Main: {
     screen: HomeScreen
   },
@@ -120,6 +120,9 @@ const FooterTabNav = createBottomTabNavigator( {
   iNatStats: {
     screen: iNatStatsScreen
   },
+  // Notifications: {
+  //   screen: NotificationsScreen
+  // },
   Achievements: {
     screen: AchievementsScreen
   },

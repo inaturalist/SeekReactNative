@@ -370,6 +370,14 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     } );
   }
 
+  scrollToTop() {
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
+  }
+
   fetchiNatData( screen: ?string ) {
     this.setupScreen();
     this.checkInternetConnection();
@@ -377,10 +385,11 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       this.resetState();
     }
 
-    if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
+    if ( Platform.OS === "android" ) {
+      setTimeout( () => this.scrollToTop(), 1 );
+      // hacky but this fixes scroll not getting to top of screen
+    } else {
+      this.scrollToTop();
     }
   }
 
@@ -420,14 +429,14 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     return (
       <>
         <SafeAreaView />
+        <NavigationEvents
+          onWillBlur={() => this.resetState()}
+          onWillFocus={() => this.fetchiNatData()}
+        />
         <ScrollView
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={styles.footerMargin}
         >
-          <NavigationEvents
-            onWillBlur={() => this.resetState()}
-            onWillFocus={() => this.fetchiNatData()}
-          />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}

@@ -230,7 +230,7 @@
     "sorry": "Désolé, Seek est toujours en train d'apprendre !\n\nVous pouvez essayer un angle différent, zoomer ou essayer d'obtenir une photo plus nette de l'organisme.",
     "take_photo": "Prendre une autre photo",
     "common_ancestor": "Nous n'avons pas pu identifier l’espèce exacte. \n\nVous pouvez essayer un angle différent, zoomer ou essayer d’obtenir une photo plus nette de l’organisme.",
-    "believe": " Nous croyons qu'il s'agit d'un nouveau membre de",
+    "believe": "Nous croyons qu'il s'agit d'un nouveau membre de {{ancestorRank}}",
     "believe_1": "Nous pensons que c'est un membre de",
     "resighted": " Vous avez réobservé une espèce !",
     "date_observed": "Vous l'avez observé(e) pour la première fois le :\n{{seenDate}}",

@@ -242,7 +242,7 @@
     "yes_resighted": "はい、この種は誤った生物判定をされています。",
     "no": "いいえ、正しいです。",
     "enable_location": "観察を保存するには、位置情報サービスをオンにしてください。",
-    "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
+    "error_server": "申しわけございません。画像を処理することができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_image": "申しわけございません。画像を処理することができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_species": "申しわけございません。この写真の種の詳細を読み込むことができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_location": "位置情報をオンにしないと観察記録に種を追加できません。Seekはあなたがどこで生き物を観察したかを記録して、iNaturalistに投稿されたら市民科学に貢献することを手がけています。",
@@ -402,7 +402,7 @@
     "not_seen": "あなたはまだ{{iconicTaxon}}の生き物を観察していません！"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "この付近で",
     "about": "この種について",
     "range_map": "生息地",
     "range_about": "この種がiNaturalistで記録された場所を示す地図。",
@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
     "version": "バージョン",
     "help": "Seekのサポートが必要ならば、help+seek@inaturalist.orgまでメールをお送りください。",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "Seekを色々な言語に翻訳するのにCrowdinのコミュニティにお世話になりました。中でも、これらの人たちには特に感謝します：Carnifex、Daniele Seglie、Eduardo Martínez、katunchik、Kiara Suzuki、Lekkim、Marcel Hospers、Martin Reith、Sakatur、Wouter Koch、Yulia Lygina。",
     "join_crowdin": "Seekの翻訳チームに参加するには、以下のURLにアクセスしてください。\nhttps://crowdin.com/project/seek"
   },
   "posting": {

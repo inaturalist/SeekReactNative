@@ -402,7 +402,7 @@
     "not_seen": "Henüz herhangi bir {{iconicTaxon}} gözlemlemedin!"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "Yakında",
     "about": "Hakkında",
     "range_map": "Alan haritası",
     "range_about": "iNaturalist'te görülen bu türün gözlemlerinin bir haritası.",
@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarız, özellikle: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur ve Wouter Koch, Yulia Lygina.",
     "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {

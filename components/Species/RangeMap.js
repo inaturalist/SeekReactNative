@@ -120,7 +120,7 @@ class RangeMap extends Component<Props, State> {
           >
             <UrlTile
               tileSize={512}
-              urlTemplate={`https://api.inaturalist.org/v1/colored_heatmap/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300`}
+              urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
             />
             {seenDate && obsLocation.latitude ? (
               <Marker

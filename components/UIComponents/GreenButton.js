@@ -17,7 +17,7 @@ type Props = {
   +text: string,
   +login?: boolean,
   +fontSize?: number,
-  +width?: number
+  +width?: ?number
 }
 
 const GreenButton = ( {

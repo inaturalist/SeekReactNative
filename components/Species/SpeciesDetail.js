@@ -31,7 +31,8 @@ import {
   capitalizeNames,
   getRoute,
   checkForInternet,
-  setRoute
+  setRoute,
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -43,7 +44,7 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type State = {
-  id: number,
+  id: ?number,
   photos: Array<Object>,
   commonName: ?string,
   scientificName: ?string,
@@ -166,18 +167,20 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       this.checkIfSpeciesIsNative( latitude, longitude, id );
     }
 
-    this.setState( {
-      commonName: taxon.preferredCommonName,
-      scientificName: taxon.name,
-      iconicTaxonId: taxon.iconicTaxonId,
-      seenDate,
-      region: {
-        latitude,
-        longitude,
-        latitudeDelta,
-        longitudeDelta
-      }
-    } );
+    getTaxonCommonName( id ).then( ( deviceCommonName ) => {
+      this.setState( {
+        commonName: deviceCommonName,
+        scientificName: taxon.name,
+        iconicTaxonId: taxon.iconicTaxonId,
+        seenDate,
+        region: {
+          latitude,
+          longitude,
+          latitudeDelta,
+          longitudeDelta
+        }
+      } );
+    } ).catch( () => console.log( "couldn't fetch device common name" ) );
   }
 
   setUserLocation( id: number ) {
@@ -300,20 +303,22 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
 
       stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
-      this.setState( {
-        commonName,
-        scientificName,
-        photos,
-        wikiUrl: taxa.wikipedia_url,
-        about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
-        timesSeen: taxa.observations_count,
-        iconicTaxonId: taxa.iconic_taxon_id,
-        ancestors,
-        stats
+      getTaxonCommonName( id ).then( ( deviceCommonName ) => {
+        this.setState( {
+          commonName: deviceCommonName || commonName,
+          scientificName,
+          photos,
+          wikiUrl: taxa.wikipedia_url,
+          about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
+          timesSeen: taxa.observations_count,
+          iconicTaxonId: taxa.iconic_taxon_id,
+          ancestors,
+          stats
+        } );
+      } ).catch( () => {
+        // console.log( err, "error fetching taxon details" );
       } );
-    } ).catch( () => {
-      // console.log( err, "error fetching taxon details" );
-    } );
+    } ).catch( ( e ) => console.log( "couldn't fetch common name from device", e ) );
   }
 
   fetchHistogram( id: number ) {
@@ -469,7 +474,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
             ) : null}
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.commonNameText}>{commonName}</Text>
+            <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
             <Text style={styles.scientificNameText}>{scientificName}</Text>
           </View>
           {error === "internet" ? (

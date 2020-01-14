@@ -7,7 +7,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    
+    <!--
+      Note: you might need to add android:usesCleartextTraffic="true" in Android 9 for local dev. Please don't commit that, though.
+    -->
     <application
       android:name="org.inaturalist.seek.MainApplication"
       android:usesCleartextTraffic="${usesCleartextTraffic}"

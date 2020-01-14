@@ -235,20 +235,11 @@ const checkIfCardShown = async () => {
   }
 };
 
-const setSearchLocale = () => {
-  const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
-
-  if ( searchLocale === "nb" ) { // norwegian
-    return "no";
-  }
-  return searchLocale;
-};
-
 const getTaxonCommonName = ( taxonID ) => (
   new Promise( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const searchLocale = setSearchLocale();
+        const searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
         // look up common names for predicted taxon in the current locale
         const commonNames = realm.objects( "CommonNamesRealm" )
           .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );

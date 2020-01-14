@@ -28,7 +28,6 @@ import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
-  capitalizeNames,
   getRoute,
   checkForInternet,
   setRoute,
@@ -276,7 +275,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
 
     inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
       const taxa = response.results[0];
-      const commonName = capitalizeNames( taxa.preferred_common_name || taxa.name );
+      const commonName = taxa.preferred_common_name;
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];

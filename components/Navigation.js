@@ -73,6 +73,11 @@ const CameraNavigatorConfig = {
   }
 };
 
+const StackNavigatorConfig = {
+  headerMode: "none",
+  defaultNavigationOptions: defaultNavigation
+};
+
 const DrawerNavigatorConfig = {
   contentComponent: SideMenu,
   headerMode: "none"
@@ -120,9 +125,6 @@ const FooterTabNav = createBottomTabNavigator( { // these are screens that need 
   iNatStats: {
     screen: iNatStatsScreen
   },
-  // Notifications: {
-  //   screen: NotificationsScreen
-  // },
   Achievements: {
     screen: AchievementsScreen
   },
@@ -183,10 +185,7 @@ const MainStack = createStackNavigator( {
       cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
     }
   }
-}, {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-} );
+}, StackNavigatorConfig );
 
 const MenuDrawerNav = createDrawerNavigator( {
   Main: {
@@ -246,7 +245,7 @@ const LoginStack = createStackNavigator( {
   TermsOfService: {
     screen: TermsOfServiceScreen
   }
-}, { headerMode: "none" } );
+}, StackNavigatorConfig );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -261,10 +260,7 @@ const RootStack = createStackNavigator( {
   Main: {
     screen: MenuDrawerNav
   }
-}, {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-} );
+}, StackNavigatorConfig );
 
 const App = createAppContainer( RootStack );
 

@@ -61,6 +61,7 @@ const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
   swipeEnabled: Platform.OS === "ios",
+  animationEnabled: false,
   initialLayout: { // prevents one frame delay
     width,
     height
@@ -119,9 +120,6 @@ const FooterTabNav = createBottomTabNavigator( { // these are screens that need 
   Main: {
     screen: HomeScreen
   },
-  CameraHelp: {
-    screen: CameraHelpScreen
-  },
   iNatStats: {
     screen: iNatStatsScreen
   },
@@ -152,6 +150,9 @@ const MainStack = createStackNavigator( {
   Notifications: { // moved out of FooterTabNav to add animation
     screen: NotificationsScreen,
     navigationOptions: TransitionPresets.SlideFromRightIOS
+  },
+  CameraHelp: { // moved out of FooterTabNav to see if this helps with stutter
+    screen: CameraHelpScreen
   },
   Camera: {
     screen: CameraNav,

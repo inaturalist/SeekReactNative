@@ -15,6 +15,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
+import Footer from "../UIComponents/Footer";
 
 class CameraHelpScreen extends Component {
   scrollView: ?any
@@ -73,6 +74,7 @@ class CameraHelpScreen extends Component {
           </View>
           <Padding />
         </ScrollView>
+        <Footer />
       </View>
     );
   }

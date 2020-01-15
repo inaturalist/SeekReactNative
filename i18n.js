@@ -1,36 +1,34 @@
 import * as RNLocalize from "react-native-localize";
 import i18n from "i18n-js";
 
-import en from "./translations/en.json";
-import fr from "./translations/fr.json";
+import ca from "./translations/ca.json";
 import da from "./translations/da.json";
 import de from "./translations/de.json";
+import en from "./translations/en.json";
 import es from "./translations/es.json";
-import hi from "./translations/hi.json";
+import fr from "./translations/fr.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
-import zh from "./translations/zh.json";
-import pt from "./translations/pt.json";
-import ptBR from "./translations/pt-BR.json";
+import nb from "./translations/nb.json";
 import ru from "./translations/ru.json";
 import tr from "./translations/tr.json";
+import zh from "./translations/zh.json";
 
 i18n.translations = {
-  en,
-  fr,
+  ca,
   da,
   de,
+  en,
   es,
-  hi,
+  fr,
   it,
   ja,
   nl,
-  zh,
-  pt,
-  ptBR,
+  nb,
   ru,
-  tr
+  tr,
+  zh
 };
 i18n.fallbacks = true;
 

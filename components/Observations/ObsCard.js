@@ -152,7 +152,7 @@ class ObservationCard extends Component<Props, State> {
           handlePress={() => {
             setSpeciesId( taxon.id );
             setRoute( "MyObservations" );
-            navigation.navigate( "Species", { ...navigation.state.params } );
+            navigation.navigate( "Species" );
           }}
           iconicTaxonId={taxon.iconicTaxonId}
           photo={photo}

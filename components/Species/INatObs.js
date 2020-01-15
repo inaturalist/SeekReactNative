@@ -14,7 +14,7 @@ import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
 import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
-import { seti18nNumber, setRoute } from "../../utility/helpers";
+import { localizeNumber, setRoute } from "../../utility/helpers";
 
 type Props = {
   +id: number,
@@ -94,7 +94,7 @@ class INatObs extends Component<Props, State> {
                   {i18n.t( "species_detail.near" )}
                 </Text>
                 <Text style={styles.number}>
-                  {seti18nNumber( nearbySpeciesCount )}
+                  {localizeNumber( nearbySpeciesCount )}
                 </Text>
               </>
             )}
@@ -102,7 +102,7 @@ class INatObs extends Component<Props, State> {
               {i18n.t( "species_detail.worldwide" )}
             </Text>
             <Text style={styles.number}>
-              {seti18nNumber( timesSeen )}
+              {localizeNumber( timesSeen )}
             </Text>
           </View>
         </View>

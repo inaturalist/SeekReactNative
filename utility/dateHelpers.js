@@ -1,49 +1,72 @@
-import moment from "moment";
 import Realm from "realm";
+import {
+  subYears,
+  isAfter,
+  parseISO,
+  format,
+  getUnixTime,
+  formatISO,
+  fromUnixTime
+} from "date-fns";
+import {
+  ca,
+  da,
+  de,
+  es,
+  fr,
+  it,
+  ja,
+  nb,
+  nl,
+  ru,
+  tr,
+  zh
+} from "date-fns/locale";
 
-import i18n from "../i18n";
 import realmConfig from "../models/index";
+import i18n from "../i18n";
+
+const today = new Date();
+
+const locales = {
+  ca,
+  da,
+  de,
+  es,
+  fr,
+  it,
+  ja,
+  nb,
+  nl,
+  ru,
+  tr,
+  zh
+};
+
+const setLocale = () => {
+  if ( locales[i18n.currentLocale()] ) {
+    return locales[i18n.currentLocale()];
+  }
+
+  return null;
+};
 
 const requiresParent = ( birthday ) => {
-  const today = moment();
-  const thirteen = moment( today ).subtract( 13, "year" );
+  const thirteen = subYears( today, 13 );
+  const formattedBirthday = parseISO( birthday );
 
-  return moment( birthday ).isAfter( thirteen );
+  return isAfter( formattedBirthday, thirteen );
 };
 
-const checkIfChallengeAvailable = ( date ) => date <= new Date();
+const checkIfChallengeAvailable = ( date ) => date <= today;
 
 const isWithinPastYear = ( reviewShownDate ) => {
-  const today = moment();
-  const lastYear = moment( today ).subtract( 1, "year" );
+  const lastYear = subYears( today, 1 );
 
-  return moment( reviewShownDate ).isAfter( lastYear );
+  return isAfter( reviewShownDate, lastYear );
 };
 
-const setMonthLocales = () => {
-  const monthsShort = [
-    i18n.t( "months_short.1" ),
-    i18n.t( "months_short.2" ),
-    i18n.t( "months_short.3" ),
-    i18n.t( "months_short.4" ),
-    i18n.t( "months_short.5" ),
-    i18n.t( "months_short.6" ),
-    i18n.t( "months_short.7" ),
-    i18n.t( "months_short.8" ),
-    i18n.t( "months_short.9" ),
-    i18n.t( "months_short.10" ),
-    i18n.t( "months_short.11" ),
-    i18n.t( "months_short.12" )
-  ];
-
-  const locale = i18n.locale.split( "-" )[0];
-
-  moment.locale( locale );
-
-  moment.updateLocale( locale, {
-    monthsShort
-  } );
-};
+const formatShortMonthDayYear = ( date ) => format( date, "PP", { locale: setLocale() } );
 
 const fetchSpeciesSeenDate = ( taxaId ) => (
   new Promise( ( resolve ) => {
@@ -52,7 +75,7 @@ const fetchSpeciesSeenDate = ( taxaId ) => (
         const seenTaxaIds = realm.objects( "TaxonRealm" ).map( ( t ) => t.id );
         if ( seenTaxaIds.includes( taxaId ) ) {
           const seenTaxa = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${taxaId}` );
-          const seenDate = moment( seenTaxa[0].date ).format( "ll" );
+          const seenDate = formatShortMonthDayYear( seenTaxa[0].date );
           resolve( seenDate );
         } else {
           resolve( null );
@@ -63,44 +86,45 @@ const fetchSpeciesSeenDate = ( taxaId ) => (
   } )
 );
 
-const createTimestamp = () => moment().format( "X" );
-
-const namePhotoByTime = () => moment().format( "DDMMYY_HHmmSSS" );
-
-const setISOTime = ( time ) => moment.unix( time ).format();
-
-const setTime = ( time ) => {
+const createTimestamp = ( time ) => {
   if ( time ) {
-    return moment( time );
+    return getUnixTime( time );
   }
-  return moment();
+  return getUnixTime( today );
 };
+
+const namePhotoByTime = () => format( today, "ddMMyy_HHmmSSS" );
+
+const setISOTime = ( time ) => formatISO( fromUnixTime( time ) );
 
 const formatYearMonthDay = ( date ) => {
   if ( date ) {
-    return moment( date ).format( "YYYY-MM-DD" );
+    return format( date, "yyyy-MM-dd" );
   }
-  return moment().format( "YYYY-MM-DD" );
+  return format( today, "yyyy-MM-dd" );
 };
 
-const formatMonthDayYear = ( date ) => moment( date ).format( "MMMM DD, YYYY" );
+const createShortMonthsList = () => {
+  const months = [];
 
-const formatShortMonthDayYear = ( date ) => moment( date ).format( "ll" );
+  for ( let i = 0; i <= 11; i += 1 ) {
+    const month = format( new Date( 2020, i, 1 ), "MMMMM", { locale: setLocale() } );
 
-const createShortMonthsList = () => moment.monthsShort();
+    months.push( month );
+  }
+
+  return months;
+};
 
 export {
   checkIfChallengeAvailable,
   requiresParent,
   isWithinPastYear,
-  setMonthLocales,
   fetchSpeciesSeenDate,
   createTimestamp,
   namePhotoByTime,
   setISOTime,
   formatYearMonthDay,
-  setTime,
-  formatMonthDayYear,
   formatShortMonthDayYear,
   createShortMonthsList
 };

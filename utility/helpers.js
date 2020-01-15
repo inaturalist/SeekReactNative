@@ -6,6 +6,7 @@ import Realm from "realm";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import UUIDGenerator from "react-native-uuid-generator";
+import * as RNLocalize from "react-native-localize";
 
 import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
@@ -323,7 +324,16 @@ const createJwtToken = () => {
   return token;
 };
 
-const seti18nNumber = ( number ) => i18n.toNumber( number, { precision: 0 } );
+const localizeNumber = ( number ) => {
+  const { decimalSeparator, groupingSeparator } = RNLocalize.getNumberFormatSettings();
+  return i18n.toNumber( number, {
+    precision: 0,
+    delimiter: groupingSeparator,
+    separator: decimalSeparator
+  } );
+};
+
+const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
 
 export {
   addARCameraFiles,
@@ -346,5 +356,6 @@ export {
   sortNewestToOldest,
   fetchNumberSpeciesSeen,
   createJwtToken,
-  seti18nNumber
+  localizeNumber,
+  localizePercentage
 };

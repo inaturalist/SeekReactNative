@@ -7,20 +7,18 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import ProgressCircle from "react-native-progress-circle";
 import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable, formatMonthDayYear } from "../../utility/dateHelpers";
+import { checkIfChallengeAvailable, formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import { colors } from "../../styles/global";
-import circleStyles from "../../styles/badges/progressCircle";
 import BackButton from "../UIComponents/ModalBackButton";
 import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
+import PercentCircle from "../UIComponents/PercentCircle";
 import { setRoute } from "../../utility/helpers";
 
 type Props = {
@@ -41,22 +39,9 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
           <ImageBackground
             imageStyle={styles.imageStyle}
             source={badgeImages[challenge.unearnedIconName]}
-            style={[styles.image, circleStyles.center]}
+            style={[styles.image, styles.center]}
           >
-            <ProgressCircle
-              bgColor={colors.white}
-              borderWidth={3}
-              color={colors.seekiNatGreen}
-              outerCircleStyle={circleStyles.circleStyle}
-              percent={challenge.percentComplete}
-              radius={113 / 2}
-              shadowColor={colors.circleGray}
-            >
-              <Text style={circleStyles.circleText}>
-                {challenge.percentComplete}
-                {" %"}
-              </Text>
-            </ProgressCircle>
+            <PercentCircle challenge={challenge} large />
           </ImageBackground>
         ) : (
           <Image
@@ -88,7 +73,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         </View>
       ) : (
         <Text style={[styles.italicText, styles.centerSelf]}>
-          {i18n.t( "challenges.released", { date: formatMonthDayYear( challenge.availableDate ) } )}
+          {i18n.t( "challenges.released", { date: formatShortMonthDayYear( challenge.availableDate ) } )}
         </Text>
       )}
     </View>

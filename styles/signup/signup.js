@@ -27,6 +27,7 @@ export default StyleSheet.create( {
     paddingTop: 18
   },
   container: {
+    backgroundColor: colors.white,
     flex: 1
   },
   darkText: {

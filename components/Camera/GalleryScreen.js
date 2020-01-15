@@ -267,7 +267,6 @@ class GalleryScreen extends Component<Props, State> {
     } else {
       gallery = (
         <FlatList
-          contentContainerStyle={styles.galleryContainer}
           data={photos}
           getItemLayout={( data, index ) => (
             // skips measurement of dynamic content for faster loading

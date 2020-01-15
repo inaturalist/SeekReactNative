@@ -22,7 +22,7 @@ import Padding from "./UIComponents/Padding";
 import {
   capitalizeNames,
   shuffleList,
-  seti18nNumber,
+  localizeNumber,
   getRoute
 } from "../utility/helpers";
 import { localizeAttributions } from "../utility/photoHelpers";
@@ -50,8 +50,8 @@ class iNatStatsScreen extends Component<Props, State> {
     super();
 
     this.state = {
-      observations: seti18nNumber( 25000000 ),
-      observers: seti18nNumber( 700000 ),
+      observations: localizeNumber( 25000000 ),
+      observers: localizeNumber( 700000 ),
       photos: [],
       route: null
     };
@@ -114,8 +114,8 @@ class iNatStatsScreen extends Component<Props, State> {
     const route = await getRoute();
 
     this.setState( {
-      observations: seti18nNumber( observations ),
-      observers: seti18nNumber( observers ),
+      observations: localizeNumber( observations ),
+      observers: localizeNumber( observers ),
       route
     } );
   }
@@ -157,6 +157,7 @@ class iNatStatsScreen extends Component<Props, State> {
     return (
       <SafeAreaView style={styles.safeView}>
         <ScrollView
+          contentContainerStyle={styles.background}
           ref={( ref ) => { this.scrollView = ref; }}
         >
           <NavigationEvents

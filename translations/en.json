@@ -463,7 +463,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
     "version": "Version",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -543,20 +543,6 @@
     "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
     "rate_now": "Rate now",
     "later": "Later"
-  },
-  "months_short": {
-    "1": "Jan",
-    "2": "Feb",
-    "3": "Mar",
-    "4": "Apr",
-    "5": "May",
-    "6": "June",
-    "7": "Jul",
-    "8": "Aug",
-    "9": "Sept",
-    "10": "Oct",
-    "11": "Nov",
-    "12": "Dec"
   },
   "attributions": {
     "all": "all rights reserved",

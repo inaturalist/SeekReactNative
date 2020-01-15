@@ -41,17 +41,14 @@ const AboutScreen = ( { navigation }: Props ) => {
   }, [] );
 
   return (
-    <>
+    <View style={styles.background}>
       <SafeAreaView />
       <GreenHeader header="about.header" />
       <ScrollView
         ref={scrollView}
         contentContainerStyle={styles.textContainer}
       >
-        <View style={styles.row}>
-          <Image source={logos.opBlack} />
-          <Image source={logos.wwf} style={styles.marginLeft} />
-        </View>
+        <Image source={logos.wwfop} />
         <View style={styles.margin} />
         <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
         <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>
@@ -84,7 +81,7 @@ const AboutScreen = ( { navigation }: Props ) => {
         <View style={styles.block} />
         <Padding />
       </ScrollView>
-    </>
+    </View>
   );
 };
 

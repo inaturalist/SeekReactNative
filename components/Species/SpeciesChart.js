@@ -16,7 +16,6 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-  // const locale = i18n.locale.split( "-" )[0];
 
   const formatXAxis = ( index ) => {
     const allMonths = createShortMonthsList();
@@ -24,7 +23,8 @@ const SpeciesChart = ( { data }: Props ) => {
     // if ( locale === "ja" ) {
     //   return capitalizeNames( allMonths[index] );
     // }
-    return capitalizeNames( allMonths[index][0] );
+    return capitalizeNames( allMonths[index] );
+    // return capitalizeNames( allMonths[index][0] );
   };
 
   // $FlowFixMe

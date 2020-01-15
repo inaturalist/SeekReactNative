@@ -14,6 +14,7 @@ import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/badges";
 import Modal from "../UIComponents/Modal";
+import { localizeNumber } from "../../utility/helpers";
 
 type Props = {
   +level: Object,
@@ -61,7 +62,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
               <Text style={styles.text}>
                 {level.count >= 150
                   ? i18n.t( "badges.observe_max" )
-                  : i18n.t( "badges.observe", { number: nextLevelCount } )}
+                  : i18n.t( "badges.observe", { number: localizeNumber( nextLevelCount ) } )}
               </Text>
             </View>
           </View>

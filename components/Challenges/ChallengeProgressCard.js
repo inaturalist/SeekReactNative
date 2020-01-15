@@ -11,7 +11,7 @@ import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
-import PercentCircle from "./PercentCircle";
+import PercentCircle from "../UIComponents/PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
 import { setRoute } from "../../utility/helpers";
 import icons from "../../assets/icons";

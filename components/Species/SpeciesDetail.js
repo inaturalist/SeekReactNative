@@ -10,6 +10,7 @@ import {
   TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import RNFS from "react-native-fs";
@@ -27,10 +28,10 @@ import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
-  capitalizeNames,
   getRoute,
   checkForInternet,
-  setRoute
+  setRoute,
+  getTaxonCommonName
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
 import { fetchAccessToken } from "../../utility/loginHelpers";
@@ -41,12 +42,8 @@ import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-type Props = {
-  +navigation: any
-}
-
 type State = {
-  id: number,
+  id: ?number,
   photos: Array<Object>,
   commonName: ?string,
   scientificName: ?string,
@@ -65,16 +62,14 @@ type State = {
   wikiUrl: ?string
 };
 
-class SpeciesDetail extends Component<Props, State> {
+class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
   scrollView: ?any
 
-  constructor( { navigation }: Props ) {
+  constructor() {
     super();
 
-    const { id } = navigation.state.params;
-
     this.state = {
-      id,
+      id: null,
       photos: [],
       commonName: null,
       scientificName: null,
@@ -105,8 +100,8 @@ class SpeciesDetail extends Component<Props, State> {
     }
   }
 
-  setRegion( latitude: number, longitude: number ) {
-    this.checkIfSpeciesIsNative( latitude, longitude );
+  setRegion( latitude: number, longitude: number, id: number ) {
+    this.checkIfSpeciesIsNative( latitude, longitude, id );
     this.setState( {
       region: {
         latitude,
@@ -163,45 +158,47 @@ class SpeciesDetail extends Component<Props, State> {
     }
   }
 
-  setSeenTaxa( seenTaxa: Object ) {
+  setSeenTaxa( seenTaxa: Object, id: number ) {
     const { taxon, latitude, longitude } = seenTaxa;
     const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
 
     if ( latitude && longitude ) {
-      this.checkIfSpeciesIsNative( latitude, longitude );
+      this.checkIfSpeciesIsNative( latitude, longitude, id );
     }
 
-    this.setState( {
-      commonName: taxon.preferredCommonName,
-      scientificName: taxon.name,
-      iconicTaxonId: taxon.iconicTaxonId,
-      seenDate,
-      region: {
-        latitude,
-        longitude,
-        latitudeDelta,
-        longitudeDelta
-      }
-    } );
+    getTaxonCommonName( id ).then( ( deviceCommonName ) => {
+      this.setState( {
+        commonName: deviceCommonName,
+        scientificName: taxon.name,
+        iconicTaxonId: taxon.iconicTaxonId,
+        seenDate,
+        region: {
+          latitude,
+          longitude,
+          latitudeDelta,
+          longitudeDelta
+        }
+      } );
+    } ).catch( () => console.log( "couldn't fetch device common name" ) );
   }
 
-  setUserLocation() {
+  setUserLocation( id: number ) {
     fetchTruncatedUserLocation().then( ( coords ) => {
       const { latitude, longitude } = coords;
 
-      this.setRegion( latitude, longitude );
+      this.setRegion( latitude, longitude, id );
     } ).catch( () => this.setError( "location" ) );
   }
 
-  fetchUserLocation() {
+  fetchUserLocation( id: number ) {
     if ( Platform.OS === "android" ) {
       checkLocationPermissions().then( ( granted ) => {
         if ( granted ) {
-          this.setUserLocation();
+          this.setUserLocation( id );
         }
       } );
     } else {
-      this.setUserLocation();
+      this.setUserLocation( id );
     }
   }
 
@@ -237,9 +234,9 @@ class SpeciesDetail extends Component<Props, State> {
         const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
 
         if ( seenTaxa ) {
-          this.setSeenTaxa( seenTaxa );
+          this.setSeenTaxa( seenTaxa, id );
         } else {
-          this.fetchUserLocation();
+          this.fetchUserLocation( id );
         }
 
         let userPhoto;
@@ -278,7 +275,7 @@ class SpeciesDetail extends Component<Props, State> {
 
     inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
       const taxa = response.results[0];
-      const commonName = capitalizeNames( taxa.preferred_common_name || taxa.name );
+      const commonName = taxa.preferred_common_name;
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = [];
@@ -305,20 +302,22 @@ class SpeciesDetail extends Component<Props, State> {
 
       stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
-      this.setState( {
-        commonName,
-        scientificName,
-        photos,
-        wikiUrl: taxa.wikipedia_url,
-        about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
-        timesSeen: taxa.observations_count,
-        iconicTaxonId: taxa.iconic_taxon_id,
-        ancestors,
-        stats
+      getTaxonCommonName( id ).then( ( deviceCommonName ) => {
+        this.setState( {
+          commonName: deviceCommonName || commonName,
+          scientificName,
+          photos,
+          wikiUrl: taxa.wikipedia_url,
+          about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
+          timesSeen: taxa.observations_count,
+          iconicTaxonId: taxa.iconic_taxon_id,
+          ancestors,
+          stats
+        } );
+      } ).catch( () => {
+        // console.log( err, "error fetching taxon details" );
       } );
-    } ).catch( () => {
-      // console.log( err, "error fetching taxon details" );
-    } );
+    } ).catch( ( e ) => console.log( "couldn't fetch common name from device", e ) );
   }
 
   fetchHistogram( id: number ) {
@@ -346,8 +345,8 @@ class SpeciesDetail extends Component<Props, State> {
     } );
   }
 
-  checkIfSpeciesIsNative( latitude: number, longitude: number ) {
-    const { id, stats } = this.state;
+  checkIfSpeciesIsNative( latitude: number, longitude: number, id: number ) {
+    const { stats } = this.state;
 
     const params = {
       per_page: 1,
@@ -375,6 +374,14 @@ class SpeciesDetail extends Component<Props, State> {
     } );
   }
 
+  scrollToTop() {
+    if ( this.scrollView ) {
+      this.scrollView.scrollTo( {
+        x: 0, y: 0, animated: Platform.OS === "android"
+      } );
+    }
+  }
+
   fetchiNatData( screen: ?string ) {
     this.setupScreen();
     this.checkInternetConnection();
@@ -382,10 +389,11 @@ class SpeciesDetail extends Component<Props, State> {
       this.resetState();
     }
 
-    if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
+    if ( Platform.OS === "android" ) {
+      setTimeout( () => this.scrollToTop(), 1 );
+      // hacky but this fixes scroll not getting to top of screen
+    } else {
+      this.scrollToTop();
     }
   }
 
@@ -425,14 +433,14 @@ class SpeciesDetail extends Component<Props, State> {
     return (
       <>
         <SafeAreaView />
+        <NavigationEvents
+          onWillBlur={() => this.resetState()}
+          onWillFocus={() => this.fetchiNatData()}
+        />
         <ScrollView
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={styles.footerMargin}
         >
-          <NavigationEvents
-            onWillBlur={() => this.resetState()}
-            onWillFocus={() => this.fetchiNatData()}
-          />
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
@@ -465,7 +473,7 @@ class SpeciesDetail extends Component<Props, State> {
             ) : null}
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.commonNameText}>{commonName}</Text>
+            <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
             <Text style={styles.scientificNameText}>{scientificName}</Text>
           </View>
           {error === "internet" ? (

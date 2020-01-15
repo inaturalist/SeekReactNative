@@ -13,6 +13,7 @@ const { height } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   center,
   container: {
+    backgroundColor: colors.white,
     flex: 1
   },
   descriptionText: {

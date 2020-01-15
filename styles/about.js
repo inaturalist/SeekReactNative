@@ -2,6 +2,10 @@ import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "./global";
 
 export default StyleSheet.create( {
+  background: {
+    backgroundColor: colors.white,
+    flex: 1
+  },
   block: {
     marginBottom: 34
   },
@@ -41,6 +45,6 @@ export default StyleSheet.create( {
   textContainer: {
     alignItems: "center",
     marginHorizontal: 34,
-    marginTop: 27
+    marginTop: 31
   }
 } );

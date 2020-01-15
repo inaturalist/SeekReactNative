@@ -10,7 +10,7 @@ import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/toasts/badgeToast";
-import PercentCircle from "../Challenges/PercentCircle";
+import PercentCircle from "../UIComponents/PercentCircle";
 
 type Props = {
   +navigation: any,

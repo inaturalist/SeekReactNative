@@ -10,13 +10,18 @@ import realmConfig from "../../models/index";
 import Challenges from "./Challenges";
 import GreenText from "../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
+import LoadingWheel from "../UIComponents/LoadingWheel";
+import { colors } from "../../styles/global";
 
 type Props = {
   +navigation: any
 };
 
 const ChallengeCard = ( { navigation }: Props ) => {
-  const [challenge, setChallenge] = useState( null );
+  const [state, setState] = useState( {
+    challenge: null,
+    loading: true
+  } );
 
   const fetchLatestChallenge = () => {
     Realm.open( realmConfig )
@@ -24,13 +29,34 @@ const ChallengeCard = ( { navigation }: Props ) => {
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
         if ( incompleteChallenges.length > 0 ) {
           const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
-          setChallenge( latestChallenge[0] );
+          setState( {
+            challenge: latestChallenge[0],
+            loading: false
+          } );
         } else {
-          setChallenge( null );
+          setState( {
+            loading: false
+          } );
         }
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
+  };
+
+  const renderChallenge = () => {
+    if ( state.loading ) {
+      return (
+        <View style={styles.loading}>
+          <LoadingWheel color={colors.black} />
+        </View>
+      );
+    }
+
+    if ( state.challenge ) {
+      return <Challenges challenge={state.challenge} />;
+    }
+
+    return <NoChallenges />;
   };
 
   useEffect( () => {
@@ -45,9 +71,7 @@ const ChallengeCard = ( { navigation }: Props ) => {
       >
         <GreenText text="challenges_card.header" />
       </TouchableOpacity>
-      {challenge
-        ? <Challenges challenge={challenge} />
-        : <NoChallenges />}
+      {renderChallenge()}
     </View>
   );
 };

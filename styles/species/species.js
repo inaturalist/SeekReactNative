@@ -15,6 +15,9 @@ export default StyleSheet.create( {
     position: "absolute",
     zIndex: 1
   },
+  background: {
+    backgroundColor: colors.white
+  },
   bottomPadding: {
     backgroundColor: colors.seekForestGreen,
     height: Platform.OS === "android" ? 17 : 60

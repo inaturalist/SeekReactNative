@@ -439,7 +439,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
         />
         <ScrollView
           ref={( ref ) => { this.scrollView = ref; }}
-          contentContainerStyle={styles.footerMargin}
+          contentContainerStyle={[styles.footerMargin, styles.background]}
         >
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity

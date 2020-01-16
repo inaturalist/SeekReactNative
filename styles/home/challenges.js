@@ -55,6 +55,9 @@ export default StyleSheet.create( {
     textAlign: "center",
     width: 204
   },
+  loading: {
+    height: 332
+  },
   margin: {
     marginBottom: 14
   },

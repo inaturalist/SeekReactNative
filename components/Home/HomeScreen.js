@@ -38,8 +38,6 @@ class HomeScreen extends Component<Props, State> {
     ( this:any ).closeModal = this.closeModal.bind( this );
   }
 
-  // static whyDidYouRender = true;
-
   openModal() {
     this.setState( { showModal: true } );
   }

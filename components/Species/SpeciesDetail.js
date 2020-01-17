@@ -92,8 +92,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     ( this:any ).updateScreen = this.updateScreen.bind( this );
   }
 
-  static whyDidYouRender = true;
-
   setError( newError: ?string ) {
     const { error } = this.state;
 

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Modal, Platform } from "react-native";
+import { View, Platform } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/home/speciesNearby";
@@ -10,7 +10,6 @@ import Error from "./Error";
 import { colors } from "../../styles/global";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import i18n from "../../i18n";
-import LocationPicker from "./LocationPicker";
 import Header from "./Header";
 import { checkForInternet } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
@@ -236,27 +235,21 @@ class SpeciesNearby extends Component<Props, State> {
       );
     }
 
+    console.log( this.state, "state" );
+
     return (
       <>
-        <Modal
-          onRequestClose={() => this.toggleLocationPicker()}
-          visible={modalVisible}
-        >
-          <LocationPicker
-            latitude={latitude}
-            location={location}
-            longitude={longitude}
-            toggleLocationPicker={this.toggleLocationPicker}
-            updateLocation={this.updateLocation}
-          />
-        </Modal>
         <NavigationEvents
-          onWillFocus={() => this.requestAndroidPermissions()}
+          onWillFocus={this.requestAndroidPermissions}
         />
         <Header
           location={location}
           toggleLocationPicker={this.toggleLocationPicker}
           updateTaxaType={this.updateTaxaType}
+          latitude={latitude}
+          longitude={longitude}
+          modalVisible={modalVisible}
+          updateLocation={this.updateLocation}
         />
         <View style={styles.speciesNearbyContainer}>
           {species}

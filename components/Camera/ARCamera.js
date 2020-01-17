@@ -198,12 +198,22 @@ class ARCamera extends Component<Props, State> {
   }
 
   resetPredictions() {
-    this.setState( {
-      ranks: {},
-      rankToRender: null,
-      commonName: null,
-      pictureTaken: false
-    } );
+    const {
+      ranks,
+      rankToRender,
+      commonName,
+      pictureTaken
+    } = this.state;
+    if ( Object.keys( ranks ).length !== 0 || rankToRender !== null
+      || commonName !== null || pictureTaken !== false ) {
+      // only rerender if state has different values than before
+      this.setState( {
+        ranks: {},
+        rankToRender: null,
+        commonName: null,
+        pictureTaken: false
+      } );
+    }
   }
 
   savePhoto( photo: Object ) {

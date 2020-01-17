@@ -13,8 +13,8 @@ import { addARCameraFiles } from "../utility/helpers";
 if ( process.env.NODE_ENV !== "production" ) {
   const whyDidYouRender = require( "@welldone-software/why-did-you-render" );
   whyDidYouRender( React, {
-    collapseGroups: true,
-    include: [/.*/]
+    collapseGroups: true
+    // include: [/.*/]
   } );
 }
 

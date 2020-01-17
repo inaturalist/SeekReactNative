@@ -92,6 +92,8 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     ( this:any ).updateScreen = this.updateScreen.bind( this );
   }
 
+  static whyDidYouRender = true;
+
   setError( newError: ?string ) {
     const { error } = this.state;
 
@@ -113,6 +115,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
   }
 
   setTaxonStats( stats: Object ) {
+    // this is causing a second render because it's being set in two places
     this.setState( { stats } );
   }
 
@@ -152,8 +155,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
         } ).catch( () => {
           this.setState( { userPhoto: defaultPhoto.mediumUrl } );
         } );
-      } else {
-        this.setState( { userPhoto: null } );
       }
     }
   }

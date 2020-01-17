@@ -235,8 +235,6 @@ class SpeciesNearby extends Component<Props, State> {
       );
     }
 
-    console.log( this.state, "state" );
-
     return (
       <>
         <NavigationEvents

@@ -238,7 +238,7 @@ class SpeciesNearby extends Component<Props, State> {
     return (
       <>
         <NavigationEvents
-          onWillFocus={this.requestAndroidPermissions}
+          onWillFocus={() => this.requestAndroidPermissions()}
         />
         <Header
           location={location}

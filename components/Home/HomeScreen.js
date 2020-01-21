@@ -70,7 +70,7 @@ class HomeScreen extends Component<Props, State> {
         <SafeAreaView />
         <NavigationEvents
           onWillBlur={() => this.scrollToTop()}
-          onWillFocus={this.checkForFirstLaunch}
+          onWillFocus={() => this.checkForFirstLaunch()}
         />
         <RNModal
           showModal={showModal}

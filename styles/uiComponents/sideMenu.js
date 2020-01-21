@@ -47,11 +47,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 15 : 18,
     letterSpacing: 1.0,
-    // maxWidth: Platform.OS === "ios" ? width / 2 + 50 : 150,
-    paddingTop: padding.iOSPadding
+    paddingTop: padding.iOSPadding,
+    width: width / 2 + 30
   },
   textContainer: {
-    marginBottom: ( height / 11 ) * 1.5,
-    width: width / 2 + 30
+    marginBottom: ( height / 11 ) * 1.5
   }
 } );

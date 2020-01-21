@@ -113,6 +113,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
   }
 
   setTaxonStats( stats: Object ) {
+    // this is causing a second render because it's being set in two places
     this.setState( { stats } );
   }
 
@@ -152,8 +153,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
         } ).catch( () => {
           this.setState( { userPhoto: defaultPhoto.mediumUrl } );
         } );
-      } else {
-        this.setState( { userPhoto: null } );
       }
     }
   }
@@ -439,7 +438,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
         />
         <ScrollView
           ref={( ref ) => { this.scrollView = ref; }}
-          contentContainerStyle={styles.footerMargin}
+          contentContainerStyle={[styles.footerMargin, styles.background]}
         >
           {Platform.OS === "ios" && <Spacer />}
           <TouchableOpacity

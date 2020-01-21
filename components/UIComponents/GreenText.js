@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { memo } from "react";
 import { Text } from "react-native";
 
 import styles from "../../styles/uiComponents/greenText";
@@ -36,4 +36,4 @@ GreenText.defaultProps = {
   smaller: false
 };
 
-export default GreenText;
+export default memo<Props>( GreenText );

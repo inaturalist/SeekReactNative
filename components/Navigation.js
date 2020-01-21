@@ -61,6 +61,7 @@ const CameraNavigatorConfig = {
   initialRouteName: "CAMERA",
   tabBarPosition: "bottom",
   swipeEnabled: Platform.OS === "ios",
+  animationEnabled: false,
   initialLayout: { // prevents one frame delay
     width,
     height
@@ -71,6 +72,11 @@ const CameraNavigatorConfig = {
     style: styles.cameraTab,
     indicatorStyle: styles.indicator
   }
+};
+
+const StackNavigatorConfig = {
+  headerMode: "none",
+  defaultNavigationOptions: defaultNavigation
 };
 
 const DrawerNavigatorConfig = {
@@ -114,15 +120,9 @@ const FooterTabNav = createBottomTabNavigator( { // these are screens that need 
   Main: {
     screen: HomeScreen
   },
-  CameraHelp: {
-    screen: CameraHelpScreen
-  },
   iNatStats: {
     screen: iNatStatsScreen
   },
-  // Notifications: {
-  //   screen: NotificationsScreen
-  // },
   Achievements: {
     screen: AchievementsScreen
   },
@@ -150,6 +150,9 @@ const MainStack = createStackNavigator( {
   Notifications: { // moved out of FooterTabNav to add animation
     screen: NotificationsScreen,
     navigationOptions: TransitionPresets.SlideFromRightIOS
+  },
+  CameraHelp: { // moved out of FooterTabNav to see if this helps with stutter
+    screen: CameraHelpScreen
   },
   Camera: {
     screen: CameraNav,
@@ -183,10 +186,7 @@ const MainStack = createStackNavigator( {
       cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
     }
   }
-}, {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-} );
+}, StackNavigatorConfig );
 
 const MenuDrawerNav = createDrawerNavigator( {
   Main: {
@@ -246,7 +246,7 @@ const LoginStack = createStackNavigator( {
   TermsOfService: {
     screen: TermsOfServiceScreen
   }
-}, { headerMode: "none" } );
+}, StackNavigatorConfig );
 
 const RootStack = createStackNavigator( {
   Home: {
@@ -261,10 +261,7 @@ const RootStack = createStackNavigator( {
   Main: {
     screen: MenuDrawerNav
   }
-}, {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-} );
+}, StackNavigatorConfig );
 
 const App = createAppContainer( RootStack );
 

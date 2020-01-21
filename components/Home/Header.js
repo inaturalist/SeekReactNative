@@ -5,26 +5,45 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  Modal
 } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/home/header";
 import TaxonPicker from "./TaxonPicker";
 import icons from "../../assets/icons";
+import LocationPicker from "./LocationPicker";
 
 type Props = {
   +location: ?string,
   +updateTaxaType: Function,
-  +toggleLocationPicker: Function
+  +toggleLocationPicker: Function,
+  +modalVisible: boolean,
+  +latitude: ?number,
+  +longitude: ?number,
+  +updateLocation: Function
 }
 
-const SpeciesNearby = ( {
+const SpeciesNearbyHeader = ( {
   location,
   updateTaxaType,
-  toggleLocationPicker
+  toggleLocationPicker,
+  modalVisible,
+  latitude,
+  longitude,
+  updateLocation
 }: Props ) => (
   <View style={styles.container}>
+    <Modal visible={modalVisible}>
+      <LocationPicker
+        latitude={latitude}
+        location={location}
+        longitude={longitude}
+        toggleLocationPicker={toggleLocationPicker}
+        updateLocation={updateLocation}
+      />
+    </Modal>
     <Text style={[styles.headerText, styles.header]}>
       {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
     </Text>
@@ -44,4 +63,4 @@ const SpeciesNearby = ( {
   </View>
 );
 
-export default SpeciesNearby;
+export default SpeciesNearbyHeader;

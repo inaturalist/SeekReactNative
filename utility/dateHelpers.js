@@ -6,7 +6,8 @@ import {
   format,
   getUnixTime,
   formatISO,
-  fromUnixTime
+  fromUnixTime,
+  subDays
 } from "date-fns";
 import {
   ca,
@@ -64,6 +65,12 @@ const isWithinPastYear = ( reviewShownDate ) => {
   const lastYear = subYears( today, 1 );
 
   return isAfter( reviewShownDate, lastYear );
+};
+
+const isWithin7Days = ( date ) => {
+  const sevenDaysAgo = subDays( today, 7 );
+
+  return isAfter( date, sevenDaysAgo );
 };
 
 const formatShortMonthDayYear = ( date ) => format( date, "PP", { locale: setLocale() } );
@@ -126,5 +133,6 @@ export {
   setISOTime,
   formatYearMonthDay,
   formatShortMonthDayYear,
-  createShortMonthsList
+  createShortMonthsList,
+  isWithin7Days
 };

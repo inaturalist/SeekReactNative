@@ -21,7 +21,7 @@ import SafeAreaView from "./UIComponents/SafeAreaView";
 import { fetchAccessToken } from "../utility/loginHelpers";
 
 const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
-  const [login, setLogin] = useState( false );
+  const [login, setLogin] = useState( null );
   const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
@@ -36,15 +36,14 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
 
   const fetchLogin = async () => {
     const isLoggedIn = await fetchAccessToken();
-    if ( isLoggedIn ) {
+    if ( isLoggedIn !== login ) {
       setLogin( isLoggedIn );
     }
   };
 
   useEffect( () => {
-    fetchLogin();
-
     navigation.addListener( "willFocus", () => {
+      fetchLogin();
       scrollToTop();
     } );
   }, [] );
@@ -78,7 +77,6 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
         <View style={styles.block} />
         <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
         <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
-        <View style={styles.block} />
         {Platform.OS === "android" && login ? (
           <TouchableOpacity
             onPress={() => navigation.navigate( "DebugAndroid" )}
@@ -90,12 +88,15 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
             </Text>
           </TouchableOpacity>
         ) : (
-          <Text style={styles.greenText}>
-            {i18n.t( "about.version" ).toLocaleUpperCase()}
-            {` ${appVersion} (${buildVersion})`}
-          </Text>
+          <>
+            <View style={styles.block} />
+            <Text style={styles.greenText}>
+              {i18n.t( "about.version" ).toLocaleUpperCase()}
+              {` ${appVersion} (${buildVersion})`}
+            </Text>
+            <View style={styles.block} />
+          </>
         )}
-        <View style={styles.block} />
         <Text style={styles.text}>
           {i18n.t( "about.help" )}
         </Text>

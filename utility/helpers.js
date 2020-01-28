@@ -16,8 +16,8 @@ import { createBackupUri } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
 import { createNotification } from "./notificationHelpers";
-import { dirModel, dirTaxonomy } from "./dirStorage";
-import { setISOTime } from "./dateHelpers";
+import { dirModel, dirTaxonomy, dirDebugLogs } from "./dirStorage";
+import { setISOTime, isWithin7Days } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -335,6 +335,35 @@ const localizeNumber = ( number ) => {
 
 const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
 
+// const checkIfDebugLogExists = () => {
+//   RNFS.stat( dirDebugLogs ).then( ( { path } ) => {
+//     console.log( path, "path of debug logs" );
+//   } ).catch( ( e ) => {
+//     console.log( e, "error checking if debug logs exists" );
+//   } );
+// };
+
+const writeToDebugLog = ( newLine ) => {
+  RNFS.appendFile( dirDebugLogs, `\n${newLine}` ).then( () => {
+    // console.log( result, "result of appending debug log" );
+  } ).catch( ( e ) => {
+    console.log( e, "error while appending debug log" );
+  } );
+};
+
+const deleteDebugLogAfter7Days = () => {
+  RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
+    if ( !isWithin7Days( ctime ) ) {
+      RNFS.unlink( dirDebugLogs )
+        .then( () => {
+          console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
+        } ).catch( ( err ) => {
+          console.log( err.message );
+        } );
+    }
+  } );
+};
+
 export {
   addARCameraFiles,
   addToCollection,
@@ -357,5 +386,7 @@ export {
   fetchNumberSpeciesSeen,
   createJwtToken,
   localizeNumber,
-  localizePercentage
+  localizePercentage,
+  writeToDebugLog,
+  deleteDebugLogAfter7Days
 };

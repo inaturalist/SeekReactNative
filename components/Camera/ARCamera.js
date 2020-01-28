@@ -20,7 +20,7 @@ import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
-import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
+import { getTaxonCommonName, checkIfCameraLaunched, writeToDebugLog } from "../../utility/helpers";
 import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import Modal from "../UIComponents/Modal";
@@ -157,7 +157,9 @@ class ARCamera extends Component<Props, State> {
   }
 
   handleLog = ( event: Object ) => {
-    console.log( event, "log event" );
+    if ( Platform.OS === "android" ) {
+      writeToDebugLog( event.nativeEvent.log );
+    }
   }
 
   takePicture = async () => {

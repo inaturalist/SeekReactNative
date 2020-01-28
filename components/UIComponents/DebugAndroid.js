@@ -6,34 +6,26 @@ import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import GreenButton from "./GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
+import { dirDebugLogs } from "../../utility/dirStorage";
 
 const DebugAndroid = () => {
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
-  const helpEmail = "help+seek@inaturalist.org";
 
   const emailParams = {
-    subject: `Android Debug Logs${appVersion} ${buildVersion}`,
-    body: "",
-    bcc: "amanda@inaturalist.org"
+    subject: `Seek Android Logs (version ${appVersion} - ${buildVersion})`,
+    helpEmail: "help+seek@inaturalist.org"
   };
 
   const sendEmailAttachment = () => {
-    const dirAndroid = `${RNFS.ExternalStorageDirectoryPath}`;
-    const fakeUrl = `${dirAndroid}/Pictures/a0854a25-b02c-42c0-b2fd-8121a9fd38d1.jpg`;
-
-    console.log( fakeUrl, "fake url" );
-
     Mailer.mail( {
       subject: emailParams.subject,
-      recipients: [emailParams.bcc],
+      recipients: [emailParams.helpEmail],
       bccRecipients: [],
-      body: "<b>Debug logs</b>",
       isHTML: true,
       attachment: {
-        path: fakeUrl, // The absolute path of the file from which to read data.
-        type: "jpg", // Mime Type: jpg, png, doc, ppt, html, pdf, csv
-        name: "Test Url" // Optional: Custom filename for attachment
+        path: dirDebugLogs, // The absolute path of the file from which to read data.
+        type: "log" // Mime Type: jpg, png, doc, ppt, html, pdf, csv
       }
     }, ( error, event ) => {
       Alert.alert(

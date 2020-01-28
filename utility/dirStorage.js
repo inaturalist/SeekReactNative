@@ -16,4 +16,8 @@ export const dirTaxonomy = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
 } );
 
+export const dirDebugLogs = Platform.select( {
+  android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
+} );
+
 export const dirPictures = `${dirHome}/Pictures`;

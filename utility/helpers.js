@@ -352,16 +352,18 @@ const writeToDebugLog = ( newLine ) => {
 };
 
 const deleteDebugLogAfter7Days = () => {
-  RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
-    if ( !isWithin7Days( ctime ) ) {
-      RNFS.unlink( dirDebugLogs )
-        .then( () => {
-          console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
-        } ).catch( ( err ) => {
-          console.log( err.message );
-        } );
-    }
-  } );
+  if ( Platform.OS === "android" ) {
+    RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
+      if ( !isWithin7Days( ctime ) ) {
+        RNFS.unlink( dirDebugLogs )
+          .then( () => {
+            console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
+          } ).catch( ( err ) => {
+            console.log( err.message );
+          } );
+      }
+    } );
+  }
 };
 
 export {

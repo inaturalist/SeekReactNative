@@ -156,6 +156,10 @@ class ARCamera extends Component<Props, State> {
     }
   }
 
+  handleLog = ( event: Object ) => {
+    console.log( event, "log event" );
+  }
+
   takePicture = async () => {
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
@@ -366,6 +370,7 @@ class ARCamera extends Component<Props, State> {
             onClassifierError={this.handleClassifierError}
             onDeviceNotSupported={this.handleDeviceNotSupported}
             onTaxaDetected={this.handleTaxaDetected}
+            onLog={this.handleLog}
             style={styles.camera}
             taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
             taxonomyPath={dirTaxonomy}

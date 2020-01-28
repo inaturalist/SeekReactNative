@@ -2,15 +2,18 @@ import React from "react";
 import { View, Alert } from "react-native";
 import Mailer from "react-native-mail";
 import RNFS from "react-native-fs";
+import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import GreenButton from "./GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
 
 const DebugAndroid = () => {
+  const appVersion = getVersion();
+  const buildVersion = getBuildNumber();
   const helpEmail = "help+seek@inaturalist.org";
 
   const emailParams = {
-    subject: "Android: Debug Logs for AR Camera",
+    subject: `Android Debug Logs${appVersion} ${buildVersion}`,
     body: "",
     bcc: "amanda@inaturalist.org"
   };
@@ -46,11 +49,13 @@ const DebugAndroid = () => {
   };
 
   return (
-    <View style={[styles.background, styles.center]}>
-      <GreenButton
-        handlePress={() => sendEmailAttachment()}
-        text="debug.logs"
-      />
+    <View style={styles.background}>
+      <View style={styles.center}>
+        <GreenButton
+          handlePress={() => sendEmailAttachment()}
+          text="debug.logs"
+        />
+      </View>
     </View>
   );
 };

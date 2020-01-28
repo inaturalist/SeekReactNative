@@ -46,7 +46,7 @@ type State = {
   latitude: number,
   longitude: number,
   location: ?string,
-  date: string,
+  date: ?string,
   captive: ?boolean,
   geoprivacy: ?boolean,
   uri: string,
@@ -85,7 +85,7 @@ class PostScreen extends Component<Props, State> {
       latitude,
       longitude,
       location: null,
-      date: setISOTime( time ),
+      date: time ? setISOTime( time ) : null,
       captive: null,
       geoprivacy: null,
       uri,
@@ -508,7 +508,7 @@ class PostScreen extends Component<Props, State> {
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.text}>
-                {formatYearMonthDay( new Date( date ) )}
+                {date ? formatYearMonthDay( new Date( date ) ) : null}
               </Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />

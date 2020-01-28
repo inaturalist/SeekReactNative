@@ -198,6 +198,8 @@ PODS:
     - React
   - react-native-inat-camera (1.0.0):
     - React
+  - react-native-mail (4.1.0):
+    - React
   - react-native-maps (0.26.1):
     - React
   - react-native-netinfo (3.2.0):
@@ -249,6 +251,8 @@ PODS:
     - React
   - RNCMaskedView (0.1.5):
     - React
+  - RNDateTimePicker (2.1.0):
+    - React
   - RNDeviceInfo (5.4.0):
     - React
   - RNFS (2.16.2):
@@ -290,6 +294,7 @@ DEPENDENCIES:
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-inat-camera (from `../node_modules/react-native-inat-camera`)
+  - react-native-mail (from `../node_modules/react-native-mail`)
   - react-native-maps (from `../node_modules/react-native-maps`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-open-settings (from `../node_modules/react-native-open-settings`)
@@ -309,6 +314,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -367,6 +373,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-resizer"
   react-native-inat-camera:
     :path: "../node_modules/react-native-inat-camera"
+  react-native-mail:
+    :path: "../node_modules/react-native-mail"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
   react-native-netinfo:
@@ -403,6 +411,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
     :path: "../node_modules/react-native-device-info"
   RNFS:
@@ -444,6 +454,7 @@ SPEC CHECKSUMS:
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
+  react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   react-native-netinfo: 34cf53b69bd112eaf944e931092a899c024adf8d
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
@@ -462,6 +473,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNCMaskedView: c8b53164b85ecf94c9a44d67082df0f03c1f74cc
+  RNDateTimePicker: 68e542a59ff1b73563744145bfc45c2b88a3deea
   RNDeviceInfo: d0fff8432ccdf276cb342a52e665ea6dd311472e
   RNFS: 0d4191b1052bef9ce70deff00a5b4169c62bbd9b
   RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6

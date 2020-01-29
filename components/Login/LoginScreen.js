@@ -19,6 +19,7 @@ import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 import createUserAgent from "../../utility/userAgent";
+import UserContext from "../UserContext";
 
 type Props = {
   +navigation: any
@@ -52,7 +53,7 @@ class LoginScreen extends Component<Props, State> {
     } );
   }
 
-  retrieveOAuthToken( username: string, password: string ) {
+  retrieveOAuthToken( username: string, password: string, user: Object ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -77,6 +78,7 @@ class LoginScreen extends Component<Props, State> {
       .then( ( responseJson ) => {
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
+        user.toggleLogin();
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
@@ -94,47 +96,51 @@ class LoginScreen extends Component<Props, State> {
     const { navigation } = this.props;
 
     return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <GreenHeader
-          header="login.log_in"
-        />
-        <ScrollView>
-          <View style={styles.leftTextMargins}>
-            <GreenText smaller text="inat_login.username" />
+      <UserContext.Consumer>
+        {user => (
+          <View style={styles.container}>
+            <SafeAreaView />
+            <GreenHeader
+              header="login.log_in"
+            />
+            <ScrollView>
+              <View style={styles.leftTextMargins}>
+                <GreenText smaller text="inat_login.username" />
+              </View>
+              <InputField
+                handleTextChange={value => this.setState( { username: value } )}
+                placeholder={i18n.t( "inat_login.username" )}
+                text={username}
+                type="username"
+              />
+              <View style={styles.leftTextMargins}>
+                <GreenText smaller text="inat_login.password" />
+              </View>
+              <InputField
+                handleTextChange={value => this.setState( { password: value } )}
+                placeholder="*********"
+                secureTextEntry
+                text={password}
+                type="password"
+              />
+              <TouchableOpacity
+                onPress={() => navigation.navigate( "Forgot" )}
+                style={styles.rightTextContainer}
+              >
+                <Text style={styles.forgotPasswordText}>
+                  {i18n.t( "inat_login.forgot_password" )}
+                </Text>
+              </TouchableOpacity>
+              {error ? <ErrorMessage error="credentials" /> : <View style={styles.greenButtonMargin} />}
+              <GreenButton
+                handlePress={() => this.retrieveOAuthToken( username, password, user )}
+                login
+                text="inat_login.log_in"
+              />
+            </ScrollView>
           </View>
-          <InputField
-            handleTextChange={value => this.setState( { username: value } )}
-            placeholder={i18n.t( "inat_login.username" )}
-            text={username}
-            type="username"
-          />
-          <View style={styles.leftTextMargins}>
-            <GreenText smaller text="inat_login.password" />
-          </View>
-          <InputField
-            handleTextChange={value => this.setState( { password: value } )}
-            placeholder="*********"
-            secureTextEntry
-            text={password}
-            type="password"
-          />
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "Forgot" )}
-            style={styles.rightTextContainer}
-          >
-            <Text style={styles.forgotPasswordText}>
-              {i18n.t( "inat_login.forgot_password" )}
-            </Text>
-          </TouchableOpacity>
-          {error ? <ErrorMessage error="credentials" /> : <View style={styles.greenButtonMargin} />}
-          <GreenButton
-            handlePress={() => this.retrieveOAuthToken( username, password )}
-            login
-            text="inat_login.log_in"
-          />
-        </ScrollView>
-      </View>
+        ) }
+      </UserContext.Consumer>
     );
   }
 }

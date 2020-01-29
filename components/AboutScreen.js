@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Image,
   ScrollView,
@@ -18,10 +18,9 @@ import i18n from "../i18n";
 import GreenHeader from "./UIComponents/GreenHeader";
 import Padding from "./UIComponents/Padding";
 import SafeAreaView from "./UIComponents/SafeAreaView";
-import { fetchAccessToken } from "../utility/loginHelpers";
+import UserContext from "./UserContext";
 
 const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
-  const [login, setLogin] = useState( null );
   const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
@@ -34,76 +33,72 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
     }
   };
 
-  const fetchLogin = async () => {
-    const isLoggedIn = await fetchAccessToken();
-    if ( isLoggedIn !== login ) {
-      setLogin( isLoggedIn );
-    }
-  };
-
   useEffect( () => {
     navigation.addListener( "willFocus", () => {
-      fetchLogin();
       scrollToTop();
     } );
   }, [] );
 
   return (
-    <View style={styles.background}>
-      <SafeAreaView />
-      <GreenHeader header="about.header" />
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={styles.textContainer}
-      >
-        <Image source={logos.wwfop} />
-        <View style={styles.margin} />
-        <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>
-        <View style={styles.block} />
-        <Image source={logos.iNat} />
-        <View style={styles.margin} />
-        <Text style={styles.boldText}>{i18n.t( "about.seek" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
-        <View style={styles.block} />
-        <Image source={logos.casNatGeo} style={styles.image} />
-        <View style={styles.margin} />
-        <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
-        <View style={styles.margin} />
-        <Image source={logos.hhmi} />
-        <View style={styles.block} />
-        <Text style={styles.boldText}>{i18n.t( "about.designed_by" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
-        <View style={styles.block} />
-        <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
-        <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
-        {Platform.OS === "android" && login ? (
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "DebugAndroid" )}
-            style={styles.debug}
+    <UserContext.Consumer>
+      {user => (
+        <View style={styles.background}>
+          <SafeAreaView />
+          <GreenHeader header="about.header" />
+          <ScrollView
+            ref={scrollView}
+            contentContainerStyle={styles.textContainer}
           >
-            <Text style={styles.greenText}>
-              {i18n.t( "about.version" ).toLocaleUpperCase()}
-              {` ${appVersion} (${buildVersion})`}
-            </Text>
-          </TouchableOpacity>
-        ) : (
-          <>
+            <Image source={logos.wwfop} />
+            <View style={styles.margin} />
+            <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
+            <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>
             <View style={styles.block} />
-            <Text style={styles.greenText}>
-              {i18n.t( "about.version" ).toLocaleUpperCase()}
-              {` ${appVersion} (${buildVersion})`}
+            <Image source={logos.iNat} />
+            <View style={styles.margin} />
+            <Text style={styles.boldText}>{i18n.t( "about.seek" )}</Text>
+            <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
+            <View style={styles.block} />
+            <Image source={logos.casNatGeo} style={styles.image} />
+            <View style={styles.margin} />
+            <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
+            <View style={styles.margin} />
+            <Image source={logos.hhmi} />
+            <View style={styles.block} />
+            <Text style={styles.boldText}>{i18n.t( "about.designed_by" )}</Text>
+            <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
+            <View style={styles.block} />
+            <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
+            <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+            {Platform.OS === "android" && user.login ? (
+              <TouchableOpacity
+                onPress={() => navigation.navigate( "DebugAndroid" )}
+                style={styles.debug}
+              >
+                <Text style={styles.greenText}>
+                  {i18n.t( "about.version" ).toLocaleUpperCase()}
+                  {` ${appVersion} (${buildVersion})`}
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <>
+                <View style={styles.block} />
+                <Text style={styles.greenText}>
+                  {i18n.t( "about.version" ).toLocaleUpperCase()}
+                  {` ${appVersion} (${buildVersion})`}
+                </Text>
+                <View style={styles.block} />
+              </>
+            )}
+            <Text style={styles.text}>
+              {i18n.t( "about.help" )}
             </Text>
             <View style={styles.block} />
-          </>
-        )}
-        <Text style={styles.text}>
-          {i18n.t( "about.help" )}
-        </Text>
-        <View style={styles.block} />
-        <Padding />
-      </ScrollView>
-    </View>
+            <Padding />
+          </ScrollView>
+        </View>
+      ) }
+    </UserContext.Consumer>
   );
 };
 

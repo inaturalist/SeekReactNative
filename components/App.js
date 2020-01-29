@@ -9,6 +9,8 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 import { addARCameraFiles, deleteDebugLogAfter7Days } from "../utility/helpers";
+import { fetchAccessToken } from "../utility/loginHelpers";
+import UserContext from "./UserContext";
 
 if ( process.env.NODE_ENV !== "production" ) {
   const whyDidYouRender = require( "@welldone-software/why-did-you-render" );
@@ -19,7 +21,21 @@ if ( process.env.NODE_ENV !== "production" ) {
 }
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.toggleLogin = () => {
+      this.getLoggedIn();
+    };
+
+    this.state = {
+      login: null,
+      toggleLogin: this.toggleLogin
+    };
+  }
+
   componentDidMount() {
+    this.getLoggedIn();
     // don't block splash screen with setup
     setTimeout( setupBadges, 3000 );
     setTimeout( setupChallenges, 3000 );
@@ -47,6 +63,11 @@ class App extends Component {
     RNLocalize.removeEventListener( "change", this.handleLocalizationChange );
   }
 
+  getLoggedIn = async () => {
+    const login = await fetchAccessToken();
+    this.setState( { login } );
+  }
+
   handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
@@ -56,7 +77,9 @@ class App extends Component {
 
   render() {
     return (
-      <RootStack />
+      <UserContext.Provider value={this.state}>
+        <RootStack />
+      </UserContext.Provider>
     );
   }
 }

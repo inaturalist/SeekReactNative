@@ -15,6 +15,7 @@ import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utilit
 import GreenButton from "../UIComponents/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
+import UserContext from "../UserContext";
 
 type Props = {
   +navigation: any
@@ -47,7 +48,7 @@ class SignUpScreen extends Component<Props, State> {
     this.setState( { error } );
   }
 
-  retrieveOAuthToken( username: string, password: string ) {
+  retrieveOAuthToken( username: string, password: string, user: Object ) {
     const params = {
       client_id: config.appId,
       client_secret: config.appSecret,
@@ -72,6 +73,7 @@ class SignUpScreen extends Component<Props, State> {
       .then( ( responseJson ) => {
         const accessToken = responseJson.access_token;
         saveAccessToken( accessToken );
+        user.toggleLogin();
         this.resetForm();
         this.submitSuccess();
       } ).catch( () => {
@@ -91,7 +93,7 @@ class SignUpScreen extends Component<Props, State> {
     navigation.navigate( "LoginSuccess" );
   }
 
-  createNewiNatUser() {
+  createNewiNatUser( user: Object ) {
     const {
       email,
       licensePhotos,
@@ -139,17 +141,17 @@ class SignUpScreen extends Component<Props, State> {
         if ( errors && errors.length > 0 ) {
           this.setError( errors[0].toString() );
         } else if ( id ) {
-          this.retrieveOAuthToken( username, password );
+          this.retrieveOAuthToken( username, password, user );
         }
       } ).catch( ( err ) => {
         this.setError( err );
       } );
   }
 
-  submit() {
+  submit( user: Object ) {
     const { username } = this.state;
     if ( checkIsUsernameValid( username ) ) {
-      this.createNewiNatUser();
+      this.createNewiNatUser( user );
     } else {
       this.setError( "username" );
     }
@@ -159,41 +161,45 @@ class SignUpScreen extends Component<Props, State> {
     const { username, password, error } = this.state;
 
     return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <GreenHeader
-          header="login.sign_up"
-        />
-        <ScrollView>
-          <View style={styles.leftTextMargins}>
-            <GreenText smaller text="inat_login.username" />
+      <UserContext.Consumer>
+        {user => (
+          <View style={styles.container}>
+            <SafeAreaView />
+            <GreenHeader
+              header="login.sign_up"
+            />
+            <ScrollView>
+              <View style={styles.leftTextMargins}>
+                <GreenText smaller text="inat_login.username" />
+              </View>
+              <InputField
+                handleTextChange={value => this.setState( { username: value } )}
+                placeholder={i18n.t( "inat_login.username" )}
+                text={username}
+                type="username"
+              />
+              <View style={styles.leftTextMargins}>
+                <GreenText smaller text="inat_login.password" />
+              </View>
+              <InputField
+                handleTextChange={value => this.setState( { password: value } )}
+                placeholder="*********"
+                secureTextEntry
+                text={password}
+                type="password"
+              />
+              {error
+                ? <ErrorMessage error={formatError( error )} />
+                : <View style={styles.greenButtonMargin} />}
+              <GreenButton
+                handlePress={() => this.submit( user )}
+                login
+                text="inat_signup.sign_up"
+              />
+            </ScrollView>
           </View>
-          <InputField
-            handleTextChange={value => this.setState( { username: value } )}
-            placeholder={i18n.t( "inat_login.username" )}
-            text={username}
-            type="username"
-          />
-          <View style={styles.leftTextMargins}>
-            <GreenText smaller text="inat_login.password" />
-          </View>
-          <InputField
-            handleTextChange={value => this.setState( { password: value } )}
-            placeholder="*********"
-            secureTextEntry
-            text={password}
-            type="password"
-          />
-          {error
-            ? <ErrorMessage error={formatError( error )} />
-            : <View style={styles.greenButtonMargin} />}
-          <GreenButton
-            handlePress={() => this.submit()}
-            login
-            text="inat_signup.sign_up"
-          />
-        </ScrollView>
-      </View>
+        ) }
+      </UserContext.Consumer>
     );
   }
 }

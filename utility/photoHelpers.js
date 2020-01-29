@@ -75,12 +75,13 @@ const localizeAttributions = ( attribution, licenseCode, screen ) => {
 };
 
 const createBackupUri = async ( uri ) => {
+  const timestamp = namePhotoByTime();
+  const newImageName = `${timestamp}.jpg`;
+
   try {
     const resizedImage = await resizeImage( uri, dimensions.width, 250 );
 
     if ( resizedImage ) {
-      const timestamp = namePhotoByTime();
-      const newImageName = `${timestamp}.jpg`;
       const backupFilepath = `${dirPictures}/${newImageName}`;
       const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
       if ( imageMoved ) {

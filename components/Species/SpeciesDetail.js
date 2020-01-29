@@ -34,7 +34,6 @@ import {
   getTaxonCommonName
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import NoInternetError from "./NoInternetError";
 import createUserAgent from "../../utility/userAgent";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
@@ -58,7 +57,6 @@ type State = {
   ancestors: Array<Object>,
   route: ?string,
   iconicTaxonId: ?number,
-  isLoggedIn: ?boolean,
   wikiUrl: ?string
 };
 
@@ -84,7 +82,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       ancestors: [],
       route: null,
       iconicTaxonId: null,
-      isLoggedIn: null,
       wikiUrl: null
     };
 
@@ -125,12 +122,10 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     this.fetchHistogram( id );
 
     const route = await getRoute();
-    const login = await fetchAccessToken();
 
     this.setState( {
       id,
-      route,
-      isLoggedIn: login || false
+      route
     } );
   }
 
@@ -221,7 +216,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       ancestors: [],
       route: null,
       iconicTaxonId: null,
-      isLoggedIn: null,
       wikiUrl: null
     } );
   }
@@ -423,7 +417,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       stats,
       route,
       iconicTaxonId,
-      isLoggedIn,
       wikiUrl
     } = this.state;
 
@@ -488,7 +481,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
               error={error}
               fetchiNatData={this.fetchiNatData}
               id={id}
-              isLoggedIn={isLoggedIn}
               observationsByMonth={observationsByMonth}
               region={region}
               seenDate={seenDate}

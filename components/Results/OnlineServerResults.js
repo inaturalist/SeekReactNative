@@ -14,7 +14,6 @@ import {
   getTaxonCommonName,
   createJwtToken
 } from "../../utility/helpers";
-import { fetchAccessToken } from "../../utility/loginHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
@@ -43,8 +42,7 @@ type State = {
   clicked: boolean,
   numberOfHours: ?string,
   errorCode: ?number,
-  rank: ?number,
-  isLoggedIn: ?boolean
+  rank: ?number
 };
 
 class OnlineServerResults extends Component<Props, State> {
@@ -76,22 +74,10 @@ class OnlineServerResults extends Component<Props, State> {
       clicked: false,
       numberOfHours: null,
       errorCode: null,
-      rank: null,
-      isLoggedIn: null
+      rank: null
     };
 
     ( this:any ).checkForMatches = this.checkForMatches.bind( this );
-  }
-
-  setLoggedIn( isLoggedIn: boolean ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
   }
 
   getUserLocation() {
@@ -310,8 +296,7 @@ class OnlineServerResults extends Component<Props, State> {
       time,
       match,
       errorCode,
-      rank,
-      isLoggedIn
+      rank
     } = this.state;
 
     navigation.push( "Match", {
@@ -328,8 +313,7 @@ class OnlineServerResults extends Component<Props, State> {
       commonAncestor,
       match,
       errorCode,
-      rank,
-      isLoggedIn
+      rank
     } );
   }
 
@@ -341,13 +325,11 @@ class OnlineServerResults extends Component<Props, State> {
       clicked,
       numberOfHours
     } = this.state;
-    const { navigation } = this.props;
 
     return (
       <>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLoggedIn();
             this.getLocation();
             this.resizeImage();
           }}

@@ -2,10 +2,10 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Realm from "realm";
 
 import { createNotification } from "./notificationHelpers";
-import taxonDict from "./taxonDictForMissions";
-import missionsDict from "./missionsDict";
+import taxonDict from "./dictionaries/taxonDictForMissions";
+import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
-import challengesDict from "./challengesDict";
+import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable } from "./dateHelpers";
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;

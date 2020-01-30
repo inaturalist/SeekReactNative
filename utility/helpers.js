@@ -11,7 +11,7 @@ import * as RNLocalize from "react-native-localize";
 import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
-import iconicTaxaIds from "./iconicTaxonDictById";
+import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import { createBackupUri } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
@@ -360,24 +360,6 @@ const deleteDebugLogAfter7Days = () => {
   }
 };
 
-// const moveAndroidFilesToInternalStorage = () => {
-//   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-//   // find all the files in the Seek Android directory
-//   if ( Platform.OS === "android" ) {
-//     RNFS.readDir( oldAndroidDir ).then( ( files ) => {
-//       files.forEach( ( file ) => {
-//         const { name } = file;
-//         console.log( name, "name of file" );
-//       } );
-//     } );
-//   }
-//   // move those files to the internal storage directory
-//   // make sure internal storage is used going forward
-//   // make sure all the backupURIs stored in realm match the new directory name
-//   // I probably should start deleting these backupUris when the user deletes an observation ->
-//   // check to see if the backup URI matches an existing file, and if not, delete it
-// };
-
 export {
   addARCameraFiles,
   addToCollection,
@@ -403,5 +385,4 @@ export {
   localizePercentage,
   writeToDebugLog,
   deleteDebugLogAfter7Days
-  // moveAndroidFilesToInternalStorage
 };

@@ -14,7 +14,7 @@ import Header from "./Header";
 import { checkForInternet } from "../../utility/helpers";
 import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import taxonIds from "../../utility/taxonDict";
+import taxonIds from "../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../utility/userAgent";
 
 type Props = {}

@@ -1,4 +1,4 @@
-import taxaIds from "./iconicTaxonDictById";
+import taxaIds from "./dictionaries/iconicTaxonDictById";
 import { sortNewestToOldest } from "./helpers";
 
 const createSectionList = ( realm ) => {

@@ -8,8 +8,9 @@ import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
-import { addARCameraFiles, deleteDebugLogAfter7Days, moveAndroidFilesToInternalStorage } from "../utility/helpers";
+import { addARCameraFiles, deleteDebugLogAfter7Days } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
+import { moveAndroidFilesToInternalStorage } from "../utility/photoHelpers";
 import UserContext from "./UserContext";
 
 if ( process.env.NODE_ENV !== "production" ) {
@@ -29,8 +30,8 @@ class App extends Component {
     };
 
     this.state = {
-      login: null,
-      toggleLogin: this.toggleLogin
+      login: null, // eslint-disable-line
+      toggleLogin: this.toggleLogin // eslint-disable-line
     };
   }
 
@@ -42,7 +43,7 @@ class App extends Component {
     setTimeout( fetchiNatStats, 3000 );
     setTimeout( addARCameraFiles, 3000 );
     setTimeout( deleteDebugLogAfter7Days, 3000 );
-    // setTimeout( moveAndroidFilesToInternalStorage, 3000 );
+    setTimeout( moveAndroidFilesToInternalStorage, 3000 );
 
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
@@ -66,7 +67,7 @@ class App extends Component {
 
   getLoggedIn = async () => {
     const login = await fetchAccessToken();
-    this.setState( { login } );
+    this.setState( { login } ); // eslint-disable-line
   }
 
   handleLocalizationChange = () => {

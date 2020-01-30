@@ -18,7 +18,7 @@ import realmConfig from "../../models";
 import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import taxaIds from "../../utility/iconicTaxonDictById";
+import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";

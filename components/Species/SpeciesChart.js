@@ -4,7 +4,6 @@ import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 
-// import i18n from "../../i18n";
 import { colors } from "../../styles/global";
 import styles from "../../styles/species/speciesChart";
 import GreenText from "../UIComponents/GreenText";
@@ -16,15 +15,9 @@ type Props = {
 };
 
 const SpeciesChart = ( { data }: Props ) => {
-
   const formatXAxis = ( index ) => {
     const allMonths = createShortMonthsList();
-
-    // if ( locale === "ja" ) {
-    //   return capitalizeNames( allMonths[index] );
-    // }
     return capitalizeNames( allMonths[index] );
-    // return capitalizeNames( allMonths[index][0] );
   };
 
   // $FlowFixMe

@@ -98,7 +98,7 @@ const createTimestamp = ( time ) => {
   return getUnixTime( new Date() );
 };
 
-const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmss" );
+const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSS" );
 
 const setISOTime = ( time ) => formatISO( fromUnixTime( time ) );
 

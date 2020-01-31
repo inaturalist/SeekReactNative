@@ -3,6 +3,7 @@ import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import GalleryManager from "react-native-gallery-manager";
 import Realm from "realm";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
@@ -208,6 +209,74 @@ const moveAndroidFilesToInternalStorage = async () => {
   }
 };
 
+const setBackupsRegenerated = () => {
+  AsyncStorage.setItem( "regenerated_backups", "true" );
+};
+
+const checkIfFirstBackupRegenerationLaunch = async () => {
+  try {
+    const regenerated = await AsyncStorage.getItem( "regenerated_backups" );
+    if ( regenerated === null ) {
+      setBackupsRegenerated();
+      return true;
+    }
+    return false;
+  } catch ( error ) {
+    return false;
+  }
+};
+
+const getThumbnailName = ( thumbnail ) => {
+  if ( thumbnail === null ) { // some photos were added before we started implementing backups
+    return null;
+  }
+  const uri = thumbnail.split( "Pictures/" )[1]; // should work for both iOS and Android
+  return uri;
+};
+
+const findDuplicates = ( list ) => {
+  const duplicates = [];
+  for ( let i = 0; i < list.length - 1; i += 1 ) {
+    if ( list[i + 1] === list[i] && list[i] !== null ) {
+      duplicates.push( list[i] );
+    }
+  }
+  return duplicates;
+};
+
+const createNewBackup = async ( realm, photo ) => {
+  const { mediumUrl } = photo;
+  const newBackup = await createBackupUri( mediumUrl );
+  // console.log( newBackup, "new backup being created..." );
+
+  realm.write( () => {
+    photo.backupUri = newBackup;
+  } );
+};
+
+const regenerateBackupUris = async () => {
+  const notYetRegenerated = await checkIfFirstBackupRegenerationLaunch();
+
+  if ( notYetRegenerated ) {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const databasePhotos = realm.objects( "PhotoRealm" );
+        const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+
+        const duplicates = findDuplicates( backups );
+
+        if ( duplicates.length > 0 ) {
+          duplicates.forEach( ( duplicate ) => {
+            const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
+            filteredPhotoObjects.forEach( ( photo ) => {
+              createNewBackup( realm, photo );
+            } );
+          } );
+        }
+      } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
+  }
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
@@ -216,5 +285,6 @@ export {
   createBackupUri,
   getAlbumNames,
   moveAndroidFilesToInternalStorage,
-  deleteFile
+  deleteFile,
+  regenerateBackupUris
 };

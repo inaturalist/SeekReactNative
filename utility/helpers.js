@@ -107,7 +107,6 @@ const checkForPowerUsers = ( length, newLength ) => {
 const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
-  console.log( backupUri, "backup uri when creating observation" );
   const uuid = await createUUID();
 
   checkNumberOfBadgesEarned();

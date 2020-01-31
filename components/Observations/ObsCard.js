@@ -96,7 +96,7 @@ class ObservationCard extends Component<Props, State> {
 
     if ( defaultPhoto && focusedScreen ) {
       if ( backupUri ) {
-        const uri = backupUri.split( "/Pictures/" );
+        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
         const backupFilepath = `${dirPictures}/${uri[1]}`;
         RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
           this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );

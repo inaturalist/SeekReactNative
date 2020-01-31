@@ -2,11 +2,14 @@ import ImageResizer from "react-native-image-resizer"; // eslint-disable-line im
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import GalleryManager from "react-native-gallery-manager";
+import Realm from "realm";
 
+import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
 import { namePhotoByTime } from "./dateHelpers";
+import { checkCameraRollPermissions } from "./androidHelpers.android";
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -123,22 +126,86 @@ const getAlbumNames = async () => {
   }
 };
 
-const moveAndroidFilesToInternalStorage = () => {
+const moveFileAndUpdateRealm = ( uriString, photo, realm ) => {
+  // how can I test that this is working???
+  // if it doesn't I will accidentally delete all the thumbnails...
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-  // find all the files in the Seek Android directory
-  if ( Platform.OS === "android" ) {
-    RNFS.readDir( oldAndroidDir ).then( ( files ) => {
-      files.forEach( ( file ) => {
-        const { name } = file;
-        console.log( name, "name of file" );
-      } );
+  const oldFile = `${oldAndroidDir}/${uriString}`;
+  const newFile = `${dirPictures}/${uriString}`;
+
+  RNFS.moveFile( oldFile, newFile ).then( () => {
+    realm.write( () => {
+      photo.backupUri = newFile;
     } );
+  } ).catch( ( e ) => console.log( e, "couldn't move backup uri to new filepath" ) );
+};
+
+const deleteFile = ( filepath ) => {
+  RNFS.unlink( filepath ).then( () => {
+    console.log( "unused backup filepath deleted: ", filepath );
+  } ).catch( ( err ) => {
+    console.log( err.message );
+  } );
+};
+
+const updateDatabasePhotoUris = ( fileNames ) => {
+  Realm.open( realmConfig )
+    .then( ( realm ) => {
+      const databasePhotos = realm.objects( "PhotoRealm" );
+
+      databasePhotos.forEach( ( photo ) => {
+        const { backupUri } = photo;
+        const uri = backupUri.split( "/Pictures/" ); // this will only move old external photos
+
+        if ( uri.length === 1 ) { // this means backup can't be split by old directory
+          return;
+        }
+
+        const uriString = uri[1].toString();
+
+        if ( uriString && fileNames.includes( uriString ) ) {
+          moveFileAndUpdateRealm( uriString, photo, realm );
+        }
+      } );
+    } ).then( () => {
+      const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+
+      fileNames.forEach( ( file ) => {
+        const oldFile = `${oldAndroidDir}/${file}`;
+        deleteFile( oldFile );
+      } );
+    } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
+};
+
+const checkForExternalSeekDirectory = async ( dir ) => {
+  try {
+    const exists = await RNFS.stat( dir );
+    if ( exists ) {
+      return true;
+    }
+    return false;
+  } catch ( e ) {
+    console.log( e, "directory does not exist: ", dir );
+    return false;
   }
-  // move those files to the internal storage directory
-  // make sure internal storage is used going forward
-  // make sure all the backupURIs stored in realm match the new directory name
-  // I probably should start deleting these backupUris when the user deletes an observation ->
-  // check to see if the backup URI matches an existing file, and if not, delete it
+};
+
+const moveAndroidFilesToInternalStorage = async () => {
+  const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+
+  if ( Platform.OS === "android" ) {
+    const dirExists = await checkForExternalSeekDirectory( oldAndroidDir );
+
+    if ( dirExists ) {
+      const permission = await checkCameraRollPermissions();
+      if ( permission === true ) {
+        RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
+          const fileNames = files.map( file => file.name );
+          updateDatabasePhotoUris( fileNames );
+        } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
+      }
+    }
+  }
 };
 
 export {
@@ -148,5 +215,6 @@ export {
   localizeAttributions,
   createBackupUri,
   getAlbumNames,
-  moveAndroidFilesToInternalStorage
+  moveAndroidFilesToInternalStorage,
+  deleteFile
 };

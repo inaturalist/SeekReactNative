@@ -12,11 +12,16 @@ import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
-import { createBackupUri } from "./photoHelpers";
+import { createBackupUri, deleteFile } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
 import { createNotification } from "./notificationHelpers";
-import { dirModel, dirTaxonomy, dirDebugLogs } from "./dirStorage";
+import {
+  dirModel,
+  dirTaxonomy,
+  dirDebugLogs,
+  dirPictures
+} from "./dirStorage";
 import { setISOTime, isWithin7Days } from "./dateHelpers";
 
 const checkForInternet = () => (
@@ -102,6 +107,7 @@ const checkForPowerUsers = ( length, newLength ) => {
 const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
+  console.log( backupUri, "backup uri when creating observation" );
   const uuid = await createUUID();
 
   checkNumberOfBadgesEarned();
@@ -155,6 +161,12 @@ const removeFromCollection = ( id ) => {
         const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
         const taxonToDelete = obsToDelete[0].taxon;
         const photoObjToDelete = taxonToDelete.defaultPhoto;
+
+        const { backupUri } = photoObjToDelete;
+        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+
+        deleteFile( backupFilepath );
 
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );

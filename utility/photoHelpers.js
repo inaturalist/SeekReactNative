@@ -235,10 +235,14 @@ const getThumbnailName = ( thumbnail ) => {
 };
 
 const findDuplicates = ( list ) => {
+  const sorted = list.slice().sort();
+  // 220120 was release date
+  console.log( sorted, "sorted" );
+
   const duplicates = [];
-  for ( let i = 0; i < list.length - 1; i += 1 ) {
-    if ( list[i + 1] === list[i] && list[i] !== null ) {
-      duplicates.push( list[i] );
+  for ( let i = 0; i < sorted.length - 1; i += 1 ) {
+    if ( sorted[i + 1] === sorted[i] && sorted[i] !== null ) {
+      duplicates.push( sorted[i] );
     }
   }
   return duplicates;
@@ -246,8 +250,9 @@ const findDuplicates = ( list ) => {
 
 const createNewBackup = async ( realm, photo ) => {
   const { mediumUrl } = photo;
+  console.log( photo, "medium url" );
   const newBackup = await createBackupUri( mediumUrl );
-  // console.log( newBackup, "new backup being created..." );
+  console.log( newBackup, "new backup url..." );
 
   realm.write( () => {
     photo.backupUri = newBackup;
@@ -256,25 +261,28 @@ const createNewBackup = async ( realm, photo ) => {
 
 const regenerateBackupUris = async () => {
   const notYetRegenerated = await checkIfFirstBackupRegenerationLaunch();
+  console.log( notYetRegenerated, "not yet" );
 
-  if ( notYetRegenerated ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const databasePhotos = realm.objects( "PhotoRealm" );
-        const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+  // if ( notYetRegenerated ) {
+  Realm.open( realmConfig )
+    .then( ( realm ) => {
+      const databasePhotos = realm.objects( "PhotoRealm" );
+      const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
 
-        const duplicates = findDuplicates( backups );
+      const duplicates = findDuplicates( backups );
+      console.log( duplicates, "duplicates" );
 
-        if ( duplicates.length > 0 ) {
-          duplicates.forEach( ( duplicate ) => {
-            const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
-            filteredPhotoObjects.forEach( ( photo ) => {
-              createNewBackup( realm, photo );
-            } );
+      if ( duplicates.length > 0 ) {
+        duplicates.forEach( ( duplicate ) => {
+          const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
+          // console.log( filteredPhotoObjects, "filtered" );
+          filteredPhotoObjects.forEach( ( photo ) => {
+            createNewBackup( realm, photo );
           } );
-        }
-      } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
-  }
+        } );
+      }
+    } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
+  // }
 };
 
 export {

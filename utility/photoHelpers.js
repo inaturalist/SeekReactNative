@@ -193,18 +193,15 @@ const checkForExternalSeekDirectory = async ( dir ) => {
 
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+  const dirExists = await checkForExternalSeekDirectory( oldAndroidDir );
 
-  if ( Platform.OS === "android" ) {
-    const dirExists = await checkForExternalSeekDirectory( oldAndroidDir );
-
-    if ( dirExists ) {
-      const permission = await checkCameraRollPermissions();
-      if ( permission === true ) {
-        RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
-          const fileNames = files.map( file => file.name );
-          updateDatabasePhotoUris( fileNames );
-        } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
-      }
+  if ( dirExists ) {
+    const permission = await checkCameraRollPermissions();
+    if ( permission === true ) {
+      RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
+        const fileNames = files.map( file => file.name );
+        updateDatabasePhotoUris( fileNames );
+      } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
     }
   }
 };
@@ -250,18 +247,20 @@ const findDuplicates = ( list ) => {
 
 const createNewBackup = async ( realm, photo ) => {
   const { mediumUrl } = photo;
-  console.log( photo, "medium url" );
+  console.log( "creating new backup: ", mediumUrl );
   const newBackup = await createBackupUri( mediumUrl );
   console.log( newBackup, "new backup url..." );
 
-  realm.write( () => {
-    photo.backupUri = newBackup;
-  } );
+  if ( newBackup ) {
+    realm.write( () => {
+      photo.backupUri = newBackup;
+    } );
+  }
 };
 
 const regenerateBackupUris = async () => {
-  const notYetRegenerated = await checkIfFirstBackupRegenerationLaunch();
-  console.log( notYetRegenerated, "not yet" );
+  // AsyncStorage.removeItem( "regenerated_backups" );
+  // const notYetRegenerated = await checkIfFirstBackupRegenerationLaunch();
 
   // if ( notYetRegenerated ) {
   Realm.open( realmConfig )
@@ -277,9 +276,13 @@ const regenerateBackupUris = async () => {
           const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
           // console.log( filteredPhotoObjects, "filtered" );
           filteredPhotoObjects.forEach( ( photo ) => {
-            createNewBackup( realm, photo );
+            setTimeout( () => createNewBackup( realm, photo ), 1000 );
           } );
         } );
+      }
+    } ).then( () => {
+      if ( Platform.OS === "android" ) {
+        moveAndroidFilesToInternalStorage();
       }
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
   // }

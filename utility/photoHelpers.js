@@ -161,6 +161,7 @@ const updateDatabasePhotoUris = ( fileNames ) => {
 
       databasePhotos.forEach( ( photo ) => {
         const { backupUri } = photo;
+        console.log( backupUri, ": are backups all still in the old directory" );
         const uri = backupUri.split( "/Pictures/" ); // this will only move old external photos
 
         if ( uri.length === 1 ) { // this means backup can't be split by old directory
@@ -174,12 +175,12 @@ const updateDatabasePhotoUris = ( fileNames ) => {
         }
       } );
     } ).then( () => {
-      const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+      // const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
 
-      fileNames.forEach( ( file ) => {
-        const oldFile = `${oldAndroidDir}/${file}`;
-        deleteFile( oldFile );
-      } );
+      // fileNames.forEach( ( file ) => {
+      //   const oldFile = `${oldAndroidDir}/${file}`;
+      //   deleteFile( oldFile );
+      // } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
@@ -204,9 +205,9 @@ const moveAndroidFilesToInternalStorage = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
       RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
-        console.log( files, "files in dir android" );
         if ( files.length > 0 ) {
           const fileNames = files.map( file => file.name );
+          console.log( fileNames, ": filenames in dir android" );
           updateDatabasePhotoUris( fileNames );
         }
       } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
@@ -286,16 +287,18 @@ const regenerateBackupUris = async () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
-      console.log( "backups: ", databasePhotos.map( photo => photo.backupUri ) );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
-
+      console.log( "backups: ", backups );
+      
       const duplicates = findDuplicates( backups );
+      console.log( duplicates, "duplicates" );
 
       let filteredPhotoObjects;
 
       if ( duplicates.length > 0 ) {
         duplicates.forEach( ( duplicate ) => {
           filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
+          console.log( filteredPhotoObjects, "filtered" );
 
           filteredPhotoObjects.forEach( ( photo ) => {
             createNewBackup( realm, photo );
@@ -303,6 +306,7 @@ const regenerateBackupUris = async () => {
         } );
       }
     } ).then( () => {
+      console.log( "making sure duplicate stuff is really finished" );
       if ( Platform.OS === "android" ) {
         moveAndroidFilesToInternalStorage();
       }

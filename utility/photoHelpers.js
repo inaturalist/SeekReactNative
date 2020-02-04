@@ -155,28 +155,25 @@ const deleteFile = ( filepath ) => {
   } );
 };
 
-const updateDatabasePhotoUris = ( fileNames ) => {
+const updateRealmBackupUris = ( thumbnailsExternal ) => {
+  console.log( thumbnailsExternal, ": filenames in android external storage" );
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
-      const backups = databasePhotos.map( photo => photo.backupUri );
-      console.log( "backups: ", backups );
+      // const backups = databasePhotos.map( photo => photo.backupUri );
 
-      backups.forEach( ( fileName ) => {
-        console.log( fileName, ": are backups all still in the old directory" );
-        const uri = fileName.split( "/Pictures/" ); // this will only move old external photos
+      let filtered;
 
-        if ( uri.length === 1 ) { // this means backup can't be split by old directory
-          return;
-        }
-
-        const uriString = uri[1].toString();
-        console.log( uriString, "uri string" );
-
-        if ( uriString && fileNames.includes( uriString ) ) {
-          moveFileAndUpdateRealm( uriString, fileName, realm );
-        }
+      thumbnailsExternal.forEach( ( thumbnail ) => {
+        filtered = databasePhotos.filtered( `backupUri ENDSWITH "${thumbnail}"` );
       } );
+
+      console.log( "realm: ", filtered );
+      // const uri = fileName.split( "/Pictures/" ); // this will only move old external photos
+
+      // backups.forEach( ( fileName ) => {
+      //   moveFileAndUpdateRealm( fileName, realm );
+      // } );
     } ).then( () => {
       // const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
 
@@ -203,15 +200,15 @@ const checkForExternalSeekDirectory = async ( dir ) => {
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForExternalSeekDirectory( oldAndroidDir );
+  // check if photos are still stored externally
 
   if ( dirExists ) {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
       RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
         if ( files.length > 0 ) {
-          const fileNames = files.map( file => file.name );
-          console.log( fileNames, ": filenames in dir android" );
-          updateDatabasePhotoUris( fileNames );
+          const thumbnailsExternal = files.map( file => file.name );
+          updateRealmBackupUris( thumbnailsExternal );
         }
       } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
     }
@@ -266,14 +263,11 @@ const createNewBackup = async ( realm, photo ) => {
     uuid = uriParts[2];
   } else {
     const uriParts = mediumUrl.split( "Pictures/" );
-    console.log( uriParts, "uri parts" );
     const id = uriParts[1].split( "." );
-    console.log( id, "id" );
     uuid = id[0];
   }
 
   const newBackup = await createBackupUri( mediumUrl, uuid );
-  console.log( newBackup, ": new backup created" );
 
   if ( newBackup ) {
     realm.write( () => {
@@ -291,10 +285,8 @@ const regenerateBackupUris = async () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
-      console.log( "backups: ", backups );
-      
+
       const duplicates = findDuplicates( backups );
-      console.log( duplicates, "duplicates" );
 
       let filteredPhotoObjects;
 
@@ -309,7 +301,6 @@ const regenerateBackupUris = async () => {
         } );
       }
     } ).then( () => {
-      console.log( "making sure duplicate stuff is really finished" );
       if ( Platform.OS === "android" ) {
         moveAndroidFilesToInternalStorage();
       }

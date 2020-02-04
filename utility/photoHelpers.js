@@ -152,21 +152,32 @@ const deleteFile = ( filepath ) => {
   } );
 };
 
-const updateRealmThumbnails = ( thumbnailsExternal ) => {
-  console.log( thumbnailsExternal, ": external thumbnails in dir android" );
+const updateRealmThumbnails = () => {
+  // console.log( thumbnailsExternal, ": external thumbnails in dir android" );
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
+      const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
 
-      thumbnailsExternal.forEach( ( thumbnail ) => {
-        const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${thumbnail}"` );
+      console.log( filtered, "filtered photos" );
 
-        if ( filteredPhotoObjects.length > 0 ) {
-          const [photo] = filteredPhotoObjects;
-          console.log( photo, "filtered by: ", thumbnail );
-          moveFileAndUpdateRealm( thumbnail, photo, realm );
-        }
+      filtered.forEach( ( photo ) => {
+        const { backupUri } = photo;
+        const thumbnail = backupUri.split( "/Pictures/" );
+        console.log( thumbnail, photo, "thumbnail and photo" );
+
+        moveFileAndUpdateRealm( thumbnail, photo, realm );
       } );
+
+      // thumbnailsExternal.forEach( ( thumbnail ) => {
+      //   const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${thumbnail}"` );
+
+      //   if ( filteredPhotoObjects.length > 0 ) {
+      //     const [photo] = filteredPhotoObjects;
+      //     console.log( photo, "filtered by: ", thumbnail );
+      //     moveFileAndUpdateRealm( thumbnail, photo, realm );
+      //   }
+      // } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
@@ -190,12 +201,13 @@ const moveAndroidFilesToInternalStorage = async () => {
   if ( dirExists ) {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
-      RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
-        if ( files.length > 0 ) {
-          const thumbnailsExternal = files.map( file => file.name );
-          updateRealmThumbnails( thumbnailsExternal );
-        }
-      } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
+      updateRealmThumbnails();
+      // RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
+      //   if ( files.length > 0 ) {
+      //     const thumbnailsExternal = files.map( file => file.name );
+      //     updateRealmThumbnails( thumbnailsExternal );
+      //   }
+      // } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
     }
   }
 };

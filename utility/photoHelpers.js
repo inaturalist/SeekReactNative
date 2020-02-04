@@ -137,6 +137,7 @@ const moveFileAndUpdateRealm = ( uriString, photo, realm ) => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${uriString}`;
   const newFile = `${dirPictures}/${uriString}`;
+  console.log( oldFile, newFile, "old and new" );
 
   RNFS.moveFile( oldFile, newFile ).then( () => {
     console.log( "file successfully moved to: ", newFile );
@@ -158,20 +159,22 @@ const updateDatabasePhotoUris = ( fileNames ) => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
+      const backups = databasePhotos.map( photo => photo.backupUri );
+      console.log( "backups: ", backups );
 
-      databasePhotos.forEach( ( photo ) => {
-        const { backupUri } = photo;
-        console.log( backupUri, ": are backups all still in the old directory" );
-        const uri = backupUri.split( "/Pictures/" ); // this will only move old external photos
+      backups.forEach( ( fileName ) => {
+        console.log( fileName, ": are backups all still in the old directory" );
+        const uri = fileName.split( "/Pictures/" ); // this will only move old external photos
 
         if ( uri.length === 1 ) { // this means backup can't be split by old directory
           return;
         }
 
         const uriString = uri[1].toString();
+        console.log( uriString, "uri string" );
 
         if ( uriString && fileNames.includes( uriString ) ) {
-          moveFileAndUpdateRealm( uriString, photo, realm );
+          moveFileAndUpdateRealm( uriString, fileName, realm );
         }
       } );
     } ).then( () => {

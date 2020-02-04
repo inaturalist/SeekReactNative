@@ -42,19 +42,15 @@ const resizeImage = ( imageUri, width, height ) => (
 
 const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   new Promise( ( resolve ) => {
-    RNFS.mkdir( dirPictures )
+    RNFS.mkdir( dirPictures ) // doesn't throw error if directory already exists
       .then( () => {
         RNFS.moveFile( filePath, newFilepath )
           .then( () => {
             resolve( true );
-          } )
-          .catch( ( error ) => {
-            console.log( error, "starts with error 1" );
+          } ).catch( ( error ) => {
+            console.log( error, "error moving file from ", filePath, " to : ", newFilepath );
             resolve( error );
           } );
-      } ).catch( ( err ) => {
-        console.log( err, "starts with error 2" );
-        resolve( err );
       } );
   } )
 );
@@ -78,17 +74,25 @@ const localizeAttributions = ( attribution, licenseCode, screen ) => {
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
-const createBackupUri = async ( uri ) => {
+const createBackupUri = async ( uri, uuid ) => {
+  let newImageName;
+
   const timestamp = namePhotoByTime();
-  const newImageName = `${timestamp}.jpg`;
+
+  if ( uuid ) {
+    newImageName = `${uuid}.jpg`;
+  } else {
+    newImageName = `${timestamp}.jpg`;
+  }
 
   try {
-    const resizedImage = await resizeImage( uri, dimensions.width, 250 );
+    const resizedImage = await resizeImage( uri, dimensions.width, 250 ); // stored in cache
 
     if ( resizedImage ) {
-      const backupFilepath = `${dirPictures}/${newImageName}`;
+      const backupFilepath = `${dirPictures}/${newImageName}`; // stored in document directory
       const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
       if ( imageMoved ) {
+        console.log( imageMoved, "image moved to document directory: ", backupFilepath );
         return backupFilepath;
       }
       return null;
@@ -135,6 +139,7 @@ const moveFileAndUpdateRealm = ( uriString, photo, realm ) => {
   const newFile = `${dirPictures}/${uriString}`;
 
   RNFS.moveFile( oldFile, newFile ).then( () => {
+    console.log( "file successfully moved to: ", newFile );
     realm.write( () => {
       photo.backupUri = newFile;
     } );
@@ -199,8 +204,11 @@ const moveAndroidFilesToInternalStorage = async () => {
     const permission = await checkCameraRollPermissions();
     if ( permission === true ) {
       RNFS.readDir( oldAndroidDir ).then( ( files ) => { // requires storage permissions
-        const fileNames = files.map( file => file.name );
-        updateDatabasePhotoUris( fileNames );
+        console.log( files, "files in dir android" );
+        if ( files.length > 0 ) {
+          const fileNames = files.map( file => file.name );
+          updateDatabasePhotoUris( fileNames );
+        }
       } ).catch( ( e ) => console.log( "couldn't read external storage directory android", e ) );
     }
   }
@@ -233,13 +241,13 @@ const getThumbnailName = ( thumbnail ) => {
 
 const findDuplicates = ( list ) => {
   const sorted = list.slice().sort();
-  // 220120 was release date
-  console.log( sorted, "sorted" );
 
   const duplicates = [];
   for ( let i = 0; i < sorted.length - 1; i += 1 ) {
     if ( sorted[i + 1] === sorted[i] && sorted[i] !== null ) {
-      duplicates.push( sorted[i] );
+      if ( !duplicates.includes( sorted[i] ) ) {
+        duplicates.push( sorted[i] );
+      }
     }
   }
   return duplicates;
@@ -247,9 +255,18 @@ const findDuplicates = ( list ) => {
 
 const createNewBackup = async ( realm, photo ) => {
   const { mediumUrl } = photo;
-  console.log( "creating new backup: ", mediumUrl );
-  const newBackup = await createBackupUri( mediumUrl );
-  console.log( newBackup, "new backup url..." );
+  let uuid;
+
+  if ( Platform.OS === "ios" ) {
+    const uriParts = mediumUrl.split( "/" );
+    uuid = uriParts[2];
+  } else {
+    const uriParts = mediumUrl.split( "Pictures/" );
+    const id = uriParts[1].split( "." );
+    uuid = id[0];
+  }
+
+  const newBackup = await createBackupUri( mediumUrl, uuid );
 
   if ( newBackup ) {
     realm.write( () => {
@@ -266,17 +283,19 @@ const regenerateBackupUris = async () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
+      console.log( "backup URLS: ", databasePhotos.map( photo => photo.backupUri ) );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
 
       const duplicates = findDuplicates( backups );
-      console.log( duplicates, "duplicates" );
+
+      let filteredPhotoObjects;
 
       if ( duplicates.length > 0 ) {
         duplicates.forEach( ( duplicate ) => {
-          const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
-          // console.log( filteredPhotoObjects, "filtered" );
+          filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
+
           filteredPhotoObjects.forEach( ( photo ) => {
-            setTimeout( () => createNewBackup( realm, photo ), 1000 );
+            createNewBackup( realm, photo );
           } );
         } );
       }

@@ -167,13 +167,6 @@ const updateRealmThumbnails = ( thumbnailsExternal ) => {
           moveFileAndUpdateRealm( thumbnail, photo, realm );
         }
       } );
-    } ).then( () => {
-      const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-
-      thumbnailsExternal.forEach( ( thumbnail ) => {
-        const unusedFile = `${oldAndroidDir}/${thumbnail}`;
-        deleteFile( unusedFile );
-      } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
@@ -255,6 +248,7 @@ const createNewBackup = async ( realm, photo ) => {
     uuid = uriParts[2];
   } else {
     const uriParts = mediumUrl.split( "Pictures/" );
+    console.log( uriParts, "uri parts" );
     const id = uriParts[1].split( "." );
     uuid = id[0];
   }

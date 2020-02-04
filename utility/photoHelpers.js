@@ -131,13 +131,10 @@ const getAlbumNames = async () => {
   }
 };
 
-const moveFileAndUpdateRealm = ( uriString, photo, realm ) => {
-  // how can I test that this is working???
-  // if it doesn't I will accidentally delete all the thumbnails...
+const moveFileAndUpdateRealm = ( timestamp, photo, realm ) => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-  const oldFile = `${oldAndroidDir}/${uriString}`;
-  const newFile = `${dirPictures}/${uriString}`;
-  console.log( oldFile, newFile, "old and new" );
+  const oldFile = `${oldAndroidDir}/${timestamp}`;
+  const newFile = `${dirPictures}/${timestamp}`;
 
   RNFS.moveFile( oldFile, newFile ).then( () => {
     console.log( "file successfully moved to: ", newFile );
@@ -161,20 +158,22 @@ const updateRealmThumbnails = ( thumbnailsExternal ) => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
 
-      let filteredPhotoObjects;
-
       thumbnailsExternal.forEach( ( thumbnail ) => {
-        filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${thumbnail}"` );
-        // moveFileAndUpdateRealm( thumbnail, realm );
-        console.log( filteredPhotoObjects, "filtered by: ", thumbnail );
+        const filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${thumbnail}"` );
+
+        if ( filteredPhotoObjects.length > 0 ) {
+          const [photo] = filteredPhotoObjects;
+          console.log( photo, "filtered by: ", thumbnail );
+          moveFileAndUpdateRealm( thumbnail, photo, realm );
+        }
       } );
     } ).then( () => {
-      // const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+      const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
 
-      // thumbnailsExternal.forEach( ( file ) => {
-      //   const oldFile = `${oldAndroidDir}/${file}`;
-      //   deleteFile( oldFile );
-      // } );
+      thumbnailsExternal.forEach( ( thumbnail ) => {
+        const unusedFile = `${oldAndroidDir}/${thumbnail}`;
+        deleteFile( unusedFile );
+      } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 

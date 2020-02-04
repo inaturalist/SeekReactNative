@@ -262,11 +262,14 @@ const createNewBackup = async ( realm, photo ) => {
     uuid = uriParts[2];
   } else {
     const uriParts = mediumUrl.split( "Pictures/" );
+    console.log( uriParts, "uri parts" );
     const id = uriParts[1].split( "." );
+    console.log( id, "id" );
     uuid = id[0];
   }
 
   const newBackup = await createBackupUri( mediumUrl, uuid );
+  console.log( newBackup, ": new backup created" );
 
   if ( newBackup ) {
     realm.write( () => {
@@ -283,7 +286,7 @@ const regenerateBackupUris = async () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
-      console.log( "backup URLS: ", databasePhotos.map( photo => photo.backupUri ) );
+      console.log( "backups: ", databasePhotos.map( photo => photo.backupUri ) );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
 
       const duplicates = findDuplicates( backups );

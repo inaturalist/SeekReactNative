@@ -3,7 +3,6 @@ import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import GalleryManager from "react-native-gallery-manager";
 import Realm from "realm";
-import AsyncStorage from "@react-native-community/async-storage";
 
 import realmConfig from "../models/index";
 import { dirPictures } from "./dirStorage";
@@ -48,8 +47,7 @@ const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
           .then( () => {
             resolve( true );
           } ).catch( ( error ) => {
-            console.log( error, "error moving file from ", filePath, " to : ", newFilepath );
-            resolve( error );
+            resolve( `${error} : error moving file from ${filePath} to: ${newFilepath}` );
           } );
       } );
   } )
@@ -92,7 +90,7 @@ const createBackupUri = async ( uri, uuid ) => {
       const backupFilepath = `${dirPictures}/${newImageName}`; // stored in document directory
       const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
       if ( imageMoved ) {
-        console.log( imageMoved, "image moved to document directory: ", backupFilepath );
+        console.log( imageMoved );
         return backupFilepath;
       }
       return null;
@@ -221,23 +219,6 @@ const moveAndroidFilesToInternalStorage = async () => {
   }
 };
 
-const setBackupsRegenerated = () => {
-  AsyncStorage.setItem( "regenerated_backups", "true" );
-};
-
-const checkIfFirstBackupRegenerationLaunch = async () => {
-  try {
-    const regenerated = await AsyncStorage.getItem( "regenerated_backups" );
-    if ( regenerated === null ) {
-      setBackupsRegenerated();
-      return true;
-    }
-    return false;
-  } catch ( error ) {
-    return false;
-  }
-};
-
 const createNewBackup = async ( realm, photo ) => {
   const { mediumUrl } = photo;
   let uuid;
@@ -261,10 +242,6 @@ const createNewBackup = async ( realm, photo ) => {
 };
 
 const regenerateBackupUris = async () => {
-  // AsyncStorage.removeItem( "regenerated_backups" );
-  // const notYetRegenerated = await checkIfFirstBackupRegenerationLaunch();
-
-  // if ( notYetRegenerated ) {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
@@ -277,7 +254,6 @@ const regenerateBackupUris = async () => {
       if ( duplicates.length > 0 ) {
         duplicates.forEach( ( duplicate ) => {
           filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
-          console.log( filteredPhotoObjects, "filtered" );
 
           filteredPhotoObjects.forEach( ( photo ) => {
             createNewBackup( realm, photo );
@@ -289,7 +265,6 @@ const regenerateBackupUris = async () => {
         moveAndroidFilesToInternalStorage();
       }
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
-  // }
 };
 
 export {

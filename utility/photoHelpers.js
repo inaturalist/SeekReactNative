@@ -131,19 +131,19 @@ const getAlbumNames = async () => {
   }
 };
 
-const moveFileAndUpdateRealm = ( timestamp, photo, realm ) => {
+const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${timestamp}`;
   const newFile = `${dirPictures}/${timestamp}`;
-  console.log( oldFile, "old file" );
-  console.log( newFile, "new file" );
+  console.log( oldFile, "old file", newFile );
 
-  RNFS.moveFile( oldFile, newFile ).then( () => {
-    console.log( "file successfully moved to: ", newFile );
+  const imageMoved = await movePhotoToAppStorage( oldFile, newFile );
+  console.log( imageMoved, "did image move in moveFileAndUpdateRealm" );
+  if ( imageMoved ) {
     realm.write( () => {
       photo.backupUri = newFile;
     } );
-  } ).catch( ( e ) => console.log( e, "couldn't move backup uri to new filepath" ) );
+  }
 };
 
 const deleteFile = ( filepath ) => {
@@ -243,7 +243,6 @@ const createNewBackup = async ( realm, photo ) => {
     uuid = uriParts[2];
   } else {
     const uriParts = mediumUrl.split( "Pictures/" );
-    console.log( uriParts, "uri parts" );
     const id = uriParts[1].split( "." );
     uuid = id[0];
   }

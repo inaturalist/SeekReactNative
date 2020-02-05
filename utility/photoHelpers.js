@@ -154,6 +154,28 @@ const deleteFile = ( filepath ) => {
   } );
 };
 
+const getThumbnailName = ( thumbnail ) => {
+  if ( thumbnail === null ) { // some photos were added before we started implementing backups
+    return null;
+  }
+  const uri = thumbnail.split( "Pictures/" )[1]; // should work for both iOS and Android
+  return uri;
+};
+
+const findDuplicates = ( list ) => {
+  const sorted = list.slice().sort();
+
+  const duplicates = [];
+  for ( let i = 0; i < sorted.length - 1; i += 1 ) {
+    if ( sorted[i + 1] === sorted[i] && sorted[i] !== null ) {
+      if ( !duplicates.includes( sorted[i] ) ) {
+        duplicates.push( sorted[i] );
+      }
+    }
+  }
+  return duplicates;
+};
+
 const updateRealmThumbnails = () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
@@ -167,18 +189,14 @@ const updateRealmThumbnails = () => {
         const { backupUri } = photo;
         const thumbnail = backupUri.split( "/Pictures/" )[1];
 
-        console.log( duplicates.includes( thumbnail ), "is thumbnail on duplicate list" );
-
         if ( !duplicates.includes( thumbnail ) ) {
-          console.log( thumbnail, photo, "thumbnail and photo" );
-  
           moveFileAndUpdateRealm( thumbnail, photo, realm );
         }
       } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
-const checkForExternalSeekDirectory = async ( dir ) => {
+const checkForDirectory = async ( dir ) => {
   try {
     const exists = await RNFS.stat( dir );
     if ( exists ) {
@@ -193,7 +211,7 @@ const checkForExternalSeekDirectory = async ( dir ) => {
 
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
-  const dirExists = await checkForExternalSeekDirectory( oldAndroidDir );
+  const dirExists = await checkForDirectory( oldAndroidDir );
 
   if ( dirExists ) {
     const permission = await checkCameraRollPermissions();
@@ -218,28 +236,6 @@ const checkIfFirstBackupRegenerationLaunch = async () => {
   } catch ( error ) {
     return false;
   }
-};
-
-const getThumbnailName = ( thumbnail ) => {
-  if ( thumbnail === null ) { // some photos were added before we started implementing backups
-    return null;
-  }
-  const uri = thumbnail.split( "Pictures/" )[1]; // should work for both iOS and Android
-  return uri;
-};
-
-const findDuplicates = ( list ) => {
-  const sorted = list.slice().sort();
-
-  const duplicates = [];
-  for ( let i = 0; i < sorted.length - 1; i += 1 ) {
-    if ( sorted[i + 1] === sorted[i] && sorted[i] !== null ) {
-      if ( !duplicates.includes( sorted[i] ) ) {
-        duplicates.push( sorted[i] );
-      }
-    }
-  }
-  return duplicates;
 };
 
 const createNewBackup = async ( realm, photo ) => {
@@ -273,7 +269,6 @@ const regenerateBackupUris = async () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
-      console.log( databasePhotos.map( photo => photo.backupUri, "backups" ) );
 
       const duplicates = findDuplicates( backups );
 
@@ -282,6 +277,7 @@ const regenerateBackupUris = async () => {
       if ( duplicates.length > 0 ) {
         duplicates.forEach( ( duplicate ) => {
           filteredPhotoObjects = databasePhotos.filtered( `backupUri ENDSWITH "${duplicate}"` );
+          console.log( filteredPhotoObjects, "filtered" );
 
           filteredPhotoObjects.forEach( ( photo ) => {
             createNewBackup( realm, photo );
@@ -305,5 +301,6 @@ export {
   getAlbumNames,
   moveAndroidFilesToInternalStorage,
   deleteFile,
-  regenerateBackupUris
+  regenerateBackupUris,
+  checkForDirectory
 };

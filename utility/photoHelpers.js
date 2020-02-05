@@ -135,6 +135,8 @@ const moveFileAndUpdateRealm = ( timestamp, photo, realm ) => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${timestamp}`;
   const newFile = `${dirPictures}/${timestamp}`;
+  console.log( oldFile, "old file" );
+  console.log( newFile, "new file" );
 
   RNFS.moveFile( oldFile, newFile ).then( () => {
     console.log( "file successfully moved to: ", newFile );
@@ -157,8 +159,6 @@ const updateRealmThumbnails = () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
-
-      console.log( filtered, "filtered photos" );
 
       filtered.forEach( ( photo ) => {
         const { backupUri } = photo;

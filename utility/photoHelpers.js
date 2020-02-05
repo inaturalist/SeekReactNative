@@ -158,14 +158,22 @@ const updateRealmThumbnails = () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
+      const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+      const duplicates = findDuplicates( backups );
+
       const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
 
       filtered.forEach( ( photo ) => {
         const { backupUri } = photo;
         const thumbnail = backupUri.split( "/Pictures/" )[1];
-        console.log( thumbnail, photo, "thumbnail and photo" );
 
-        moveFileAndUpdateRealm( thumbnail, photo, realm );
+        console.log( duplicates.includes( thumbnail ), "is thumbnail on duplicate list" );
+
+        if ( !duplicates.includes( thumbnail ) ) {
+          console.log( thumbnail, photo, "thumbnail and photo" );
+  
+          moveFileAndUpdateRealm( thumbnail, photo, realm );
+        }
       } );
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
@@ -265,6 +273,7 @@ const regenerateBackupUris = async () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+      console.log( databasePhotos.map( photo => photo.backupUri, "backups" ) );
 
       const duplicates = findDuplicates( backups );
 

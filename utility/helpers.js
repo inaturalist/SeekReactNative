@@ -12,7 +12,7 @@ import i18n from "../i18n";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
-import { createBackupUri, deleteFile, checkForDirectory } from "./photoHelpers";
+import { createBackupUri, deleteFile } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
 import { createNotification } from "./notificationHelpers";

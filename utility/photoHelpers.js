@@ -10,6 +10,7 @@ import i18n from "../i18n";
 import { dimensions } from "../styles/global";
 import { namePhotoByTime } from "./dateHelpers";
 import { checkCameraRollPermissions } from "./androidHelpers.android";
+import { writeToDebugLog } from "./helpers";
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -135,6 +136,8 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const newFile = `${dirPictures}/${timestamp}`;
 
   const imageMoved = await movePhotoToAppStorage( oldFile, newFile );
+  console.log( imageMoved, "image moved" );
+  writeToDebugLog( `${imageMoved}: image moved to new location` );
 
   if ( imageMoved ) {
     realm.write( () => {
@@ -178,6 +181,9 @@ const updateRealmThumbnails = () => {
     .then( ( realm ) => {
       const databasePhotos = realm.objects( "PhotoRealm" );
       const backups = databasePhotos.map( photo => getThumbnailName( photo.backupUri ) );
+      writeToDebugLog( `${databasePhotos.map( photo => photo.backupUri )}: all backups in realm` );
+      // check out backup names in realm
+
       const duplicates = findDuplicates( backups );
 
       const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
@@ -209,6 +215,7 @@ const checkForDirectory = async ( dir ) => {
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForDirectory( oldAndroidDir );
+  writeToDebugLog( `${dirExists}: does /Seek/Pictures still exist` );
 
   if ( dirExists ) {
     const permission = await checkCameraRollPermissions();

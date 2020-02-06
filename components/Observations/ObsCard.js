@@ -10,7 +10,7 @@ import {
 import RNFS from "react-native-fs";
 import { withNavigation } from "react-navigation";
 
-import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
+import { setSpeciesId, setRoute, getTaxonCommonName, writeToDebugLog } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
@@ -87,6 +87,7 @@ class ObservationCard extends PureComponent<Props, State> {
           const backupFilepath = `${dirPictures}/${uri[1]}`;
           this.setPhoto( { uri: backupFilepath } );
         } else {
+          writeToDebugLog( backupUri );
           RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
             this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
           } ).catch( ( e ) => console.log( e ) );

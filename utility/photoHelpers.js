@@ -5,12 +5,36 @@ import GalleryManager from "react-native-gallery-manager";
 import Realm from "realm";
 
 import realmConfig from "../models/index";
-import { dirPictures } from "./dirStorage";
+import { dirPictures, dirDebugLogs } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
-import { namePhotoByTime } from "./dateHelpers";
+import { namePhotoByTime, isWithin7Days } from "./dateHelpers";
 import { checkCameraRollPermissions } from "./androidHelpers.android";
-import { writeToDebugLog } from "./helpers";
+
+const writeToDebugLog = ( newLine ) => {
+  RNFS.appendFile( dirDebugLogs, `\n${newLine}` ).then( () => {
+    // console.log( result, "result of appending debug log" );
+  } ).catch( ( e ) => {
+    console.log( e, "error while appending debug log" );
+  } );
+};
+
+const deleteDebugLogAfter7Days = () => {
+  if ( Platform.OS === "android" ) {
+    RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
+      if ( !isWithin7Days( ctime ) ) {
+        RNFS.unlink( dirDebugLogs )
+          .then( () => {
+            console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
+          } ).catch( ( err ) => {
+            console.log( err.message );
+          } );
+      }
+    } ).catch( () => {
+      // console.log( e, "debug log file does not exist" );
+    } );
+  }
+};
 
 const checkForPhotoMetaData = ( location ) => {
   if ( location ) {
@@ -283,5 +307,7 @@ export {
   moveAndroidFilesToInternalStorage,
   deleteFile,
   regenerateBackupUris,
-  checkForDirectory
+  checkForDirectory,
+  writeToDebugLog,
+  deleteDebugLogAfter7Days
 };

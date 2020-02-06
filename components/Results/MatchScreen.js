@@ -32,10 +32,10 @@ import { checkForChallengesCompleted, setChallengeProgress } from "../../utility
 import {
   setSpeciesId,
   setRoute,
-  removeFromCollection,
   fetchNumberSpeciesSeen,
   getRoute
 } from "../../utility/helpers";
+import { removeFromCollection } from "../../utility/observationHelpers";
 import {
   showAppStoreReview,
   showPlayStoreReview

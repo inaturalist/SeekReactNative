@@ -24,8 +24,7 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "../Modals/DeleteModal";
-import { removeFromCollection } from "../../utility/helpers";
-import createSectionList from "../../utility/observationHelpers";
+import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {}
 

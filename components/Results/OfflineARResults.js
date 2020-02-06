@@ -6,10 +6,10 @@ import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 
 import {
-  addToCollection,
   getTaxonCommonName,
   checkForIconicTaxonId
 } from "../../utility/helpers";
+import { addToCollection } from "../../utility/observationHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";

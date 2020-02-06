@@ -5,24 +5,16 @@ import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
-import UUIDGenerator from "react-native-uuid-generator";
 import * as RNLocalize from "react-native-localize";
 
 import i18n from "../i18n";
-import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
-import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
-import { createBackupUri, deleteFile } from "./photoHelpers";
 import config from "../config";
 import realmConfig from "../models/index";
-import { createNotification } from "./notificationHelpers";
 import {
   dirModel,
-  dirTaxonomy,
-  dirDebugLogs,
-  dirPictures
+  dirTaxonomy
 } from "./dirStorage";
-import { setISOTime, isWithin7Days } from "./dateHelpers";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -33,15 +25,6 @@ const checkForInternet = () => (
     } );
   } )
 );
-
-const createUUID = async () => {
-  try {
-    const uuidGen = await UUIDGenerator.getRandomUUID();
-    return uuidGen;
-  } catch ( e ) {
-    return null;
-  }
-};
 
 const capitalizeNames = ( name ) => {
   const titleCaseName = name.split( " " )
@@ -94,88 +77,6 @@ const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
     longitude
   };
   return params;
-};
-
-const checkForPowerUsers = ( length, newLength ) => {
-  if ( length < newLength ) {
-    if ( newLength === 50 || newLength === 100 || newLength === 150 ) {
-      createNotification( "badgeEarned" );
-    }
-  }
-};
-
-const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
-  const { taxon } = observation;
-  const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
-  const uuid = await createUUID();
-
-  checkNumberOfBadgesEarned();
-  checkNumberOfChallengesCompleted();
-
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const { length } = realm.objects( "TaxonRealm" );
-
-      realm.write( () => {
-        let defaultPhoto;
-        const p = taxon.default_photo;
-        if ( uri ) {
-          defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p ? p.medium_url : null,
-            mediumUrl: uri,
-            backupUri
-          } );
-        }
-        const newTaxon = realm.create( "TaxonRealm", {
-          id: taxon.id,
-          name: taxon.name,
-          preferredCommonName:
-            taxon.preferred_common_name
-              ? capitalizeNames( taxon.preferred_common_name )
-              : null,
-          iconicTaxonId: taxon.iconic_taxon_id,
-          ancestorIds: taxon.ancestor_ids,
-          defaultPhoto
-        } );
-        realm.create( "ObservationRealm", {
-          uuidString: uuid,
-          date: time ? setISOTime( time ) : new Date(),
-          taxon: newTaxon,
-          latitude,
-          longitude,
-          placeName: null
-        } );
-      } );
-      const newLength = realm.objects( "TaxonRealm" ).length;
-      checkForPowerUsers( length, newLength );
-    } ).catch( ( e ) => {
-      console.log( e, "error adding to collection" );
-    } );
-};
-
-const removeFromCollection = ( id ) => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      realm.write( () => {
-        const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
-        const taxonToDelete = obsToDelete[0].taxon;
-        const photoObjToDelete = taxonToDelete.defaultPhoto;
-
-        const { backupUri } = photoObjToDelete;
-        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-
-        deleteFile( backupFilepath );
-
-        realm.delete( photoObjToDelete );
-        realm.delete( obsToDelete );
-        realm.delete( taxonToDelete );
-        deleteBadges();
-        recalculateChallenges();
-      } );
-    } ).catch( ( e ) => {
-      console.log( e, "error removing from collection" );
-    } );
 };
 
 const shuffleList = ( list ) => {
@@ -346,34 +247,8 @@ const localizeNumber = ( number ) => {
 
 const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
 
-const writeToDebugLog = ( newLine ) => {
-  RNFS.appendFile( dirDebugLogs, `\n${newLine}` ).then( () => {
-    // console.log( result, "result of appending debug log" );
-  } ).catch( ( e ) => {
-    console.log( e, "error while appending debug log" );
-  } );
-};
-
-const deleteDebugLogAfter7Days = () => {
-  if ( Platform.OS === "android" ) {
-    RNFS.stat( dirDebugLogs ).then( ( { ctime } ) => {
-      if ( !isWithin7Days( ctime ) ) {
-        RNFS.unlink( dirDebugLogs )
-          .then( () => {
-            console.log( "deleted debug logs that were 7 days old", dirDebugLogs );
-          } ).catch( ( err ) => {
-            console.log( err.message );
-          } );
-      }
-    } ).catch( () => {
-      // console.log( e, "debug log file does not exist" );
-    } );
-  }
-};
-
 export {
   addARCameraFiles,
-  addToCollection,
   capitalizeNames,
   flattenUploadParameters,
   getTaxonCommonName,
@@ -388,12 +263,9 @@ export {
   getRoute,
   checkForInternet,
   checkForIconicTaxonId,
-  removeFromCollection,
   sortNewestToOldest,
   fetchNumberSpeciesSeen,
   createJwtToken,
   localizeNumber,
-  localizePercentage,
-  writeToDebugLog,
-  deleteDebugLogAfter7Days
+  localizePercentage
 };

@@ -10,7 +10,8 @@ import {
 import RNFS from "react-native-fs";
 import { withNavigation } from "react-navigation";
 
-import { setSpeciesId, setRoute, getTaxonCommonName, writeToDebugLog } from "../../utility/helpers";
+import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
+import { writeToDebugLog } from "../../utility/photoHelpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";

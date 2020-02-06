@@ -8,12 +8,12 @@ import { NavigationEvents } from "react-navigation";
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
 import {
-  addToCollection,
   capitalizeNames,
   flattenUploadParameters,
   getTaxonCommonName,
   createJwtToken
 } from "../../utility/helpers";
+import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";

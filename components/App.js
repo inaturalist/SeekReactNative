@@ -8,9 +8,9 @@ import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { fetchiNatStats } from "../utility/iNatStatsHelpers";
-import { addARCameraFiles, deleteDebugLogAfter7Days } from "../utility/helpers";
+import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { regenerateBackupUris } from "../utility/photoHelpers";
+import { regenerateBackupUris, deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import UserContext from "./UserContext";
 
 if ( process.env.NODE_ENV !== "production" ) {

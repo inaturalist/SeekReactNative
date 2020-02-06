@@ -132,22 +132,21 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
   setUserPhoto( seenTaxa: Object ) {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
+    const { backupUri, mediumUrl } = defaultPhoto;
 
     if ( defaultPhoto ) {
-      if ( defaultPhoto.backupUri ) {
-        const uri = defaultPhoto.backupUri.split( "/Pictures/" );
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => {
+      if ( backupUri ) {
+        if ( Platform.OS === "ios" ) {
+          const uri = backupUri.split( "/Pictures/" );
+          const backupFilepath = `${dirPictures}/${uri[1]}`;
           this.setState( { userPhoto: backupFilepath } );
-        } );
-      } else if ( defaultPhoto.mediumUrl ) {
-        RNFS.readFile( defaultPhoto.mediumUrl, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => {
-          this.setState( { userPhoto: defaultPhoto.mediumUrl } );
-        } );
+        } else {
+          RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
+            this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
+          } ).catch( ( e ) => console.log( e ) );
+        }
+      } else if ( mediumUrl ) {
+        this.setState( { userPhoto: mediumUrl } );
       }
     }
   }

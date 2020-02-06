@@ -82,11 +82,16 @@ class ObservationCard extends PureComponent<Props, State> {
 
     if ( defaultPhoto ) {
       if ( backupUri ) {
-        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => this.setPhoto( { uri: backupFilepath } ) );
+        if ( Platform.OS === "ios" ) {
+          const uri = backupUri.split( "Pictures/" );
+          const backupFilepath = `${dirPictures}/${uri[1]}`;
+          this.setPhoto( { uri: backupFilepath } );
+        } else {
+          RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
+            console.log( backupUri, "backup uri" );
+            this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          } ).catch( ( e ) => console.log( e ) );
+        }
       } else if ( mediumUrl ) {
         this.setPhoto( { uri: mediumUrl } );
       }

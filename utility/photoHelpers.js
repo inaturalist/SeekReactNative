@@ -8,11 +8,24 @@ import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
 import i18n from "../i18n";
 import { dimensions } from "../styles/global";
-import { namePhotoByTime, isWithin7Days } from "./dateHelpers";
+import {
+  namePhotoByTime,
+  isWithin7Days,
+  formatYearMonthDay,
+  formatHourMonthSecond
+} from "./dateHelpers";
 import { checkCameraRollPermissions } from "./androidHelpers.android";
 
 const writeToDebugLog = ( newLine ) => {
-  RNFS.appendFile( dirDebugLogs, `\n${newLine}` ).then( () => {
+  let line = newLine;
+
+  const date = newLine.split( " " );
+
+  if ( date[0] !== formatYearMonthDay() ) {
+    line = `${formatYearMonthDay()} ${formatHourMonthSecond()}: ${newLine}`;
+  }
+
+  RNFS.appendFile( dirDebugLogs, `\n${line}` ).then( () => {
     // console.log( result, "result of appending debug log" );
   } ).catch( ( e ) => {
     console.log( e, "error while appending debug log" );
@@ -160,7 +173,6 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const newFile = `${dirPictures}/${timestamp}`;
 
   const imageMoved = await movePhotoToAppStorage( oldFile, newFile );
-  console.log( imageMoved, "image moved" );
   writeToDebugLog( `${imageMoved}: image moved to new location` );
 
   if ( imageMoved ) {
@@ -271,6 +283,20 @@ const createNewBackup = async ( realm, photo ) => {
   }
 };
 
+const debugAndroidDirectories = () => {
+  const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
+
+  RNFS.readDir( oldAndroidDir ).then( ( results ) => {
+    const path = results.map( ( file => file.path ) );
+    writeToDebugLog( `${path}: filepaths still in /Seek/Pictures` );
+  } ).catch( ( e ) => writeToDebugLog( `${e}: error opening /Seek/Pictures` ) );
+
+  RNFS.readDir( dirPictures ).then( ( results ) => {
+    const path = results.map( ( file => file.path ) );
+    writeToDebugLog( `${path}: filepaths in SeekPictures` );
+  } ).catch( ( e ) => writeToDebugLog( `${e}: error opening SeekPictures` ) );
+};
+
 const regenerateBackupUris = async () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
@@ -293,6 +319,7 @@ const regenerateBackupUris = async () => {
     } ).then( () => {
       if ( Platform.OS === "android" ) {
         moveAndroidFilesToInternalStorage();
+        debugAndroidDirectories();
       }
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };

@@ -109,6 +109,8 @@ const formatYearMonthDay = ( date ) => {
   return format( new Date(), "yyyy-MM-dd" );
 };
 
+const formatHourMonthSecond = () => format( new Date(), "H:mm:ss" );
+
 const createShortMonthsList = () => {
   const months = [];
 
@@ -132,5 +134,6 @@ export {
   formatYearMonthDay,
   formatShortMonthDayYear,
   createShortMonthsList,
-  isWithin7Days
+  isWithin7Days,
+  formatHourMonthSecond
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Alert } from "react-native";
 import Mailer from "react-native-mail";
-import RNFS from "react-native-fs";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 
 import GreenButton from "./GreenButton";

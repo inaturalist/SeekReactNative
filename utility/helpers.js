@@ -52,53 +52,33 @@ const capitalizeNames = ( name ) => {
 
 const addARCameraFiles = async () => {
   if ( Platform.OS === "android" ) {
-    const modelFile = "camera/optimized_model.tflite";
-    const taxonomyFile = "camera/taxonomy.csv";
+    RNFS.copyFileAssets( "camera/optimized_model.tflite", dirModel )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
 
-    RNFS.readDirAssets( "camera" ).then( ( files ) => {
-      const paths = files.map( file => file.path );
-
-      if ( !paths.includes( modelFile ) || !paths.includes( taxonomyFile ) ) {
-        RNFS.copyFileAssets( modelFile, dirModel )
-          .then( ( result ) => {
-            console.log( result, "model in AR camera files" );
-          } ).catch( ( error ) => {
-            console.log( error, "err in AR camera files" );
-          } );
-
-        RNFS.copyFileAssets( taxonomyFile, dirTaxonomy )
-          .then( ( result ) => {
-            console.log( result, "taxonomy in AR camera files" );
-          } ).catch( ( error ) => {
-            console.log( error, "err in AR camera files" );
-          } );
-      }
-    } );
+    RNFS.copyFileAssets( "camera/taxonomy.csv", dirTaxonomy )
+      .then( ( result ) => {
+        console.log( result, "taxonomy in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
   } else if ( Platform.OS === "ios" ) {
-    const modelFile = `${RNFS.MainBundlePath}/optimized_model.mlmodelc`;
-    const taxonomyFile = `${RNFS.MainBundlePath}/taxonomy.json`;
+    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, dirModel )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
 
-    const modelExists = await checkForDirectory( modelFile );
-
-    if ( !modelExists ) {
-      RNFS.copyFile( modelFile, dirModel )
-        .then( ( result ) => {
-          console.log( result, "model in AR camera files" );
-        } ).catch( ( error ) => {
-          console.log( error, "err in AR camera files" );
-        } );
-    }
-
-    const taxonomyExists = await checkForDirectory( taxonomyFile );
-
-    if ( !taxonomyExists ) {
-      RNFS.copyFile( taxonomyFile, dirTaxonomy )
-        .then( ( result ) => {
-          console.log( result, "model in AR camera files" );
-        } ).catch( ( error ) => {
-          console.log( error, "err in AR camera files" );
-        } );
-    }
+    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, dirTaxonomy )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
   }
 };
 

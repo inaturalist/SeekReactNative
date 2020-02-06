@@ -12,7 +12,8 @@
   ],
   "plugins": [
     "react",
-    "react-native"
+    "react-native",
+    "react-hooks"
   ],
   "rules": {
     "quotes": [2, "double"],
@@ -23,6 +24,8 @@
     "no-console": "off",
     "global-require": "off",
     "no-param-reassign": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

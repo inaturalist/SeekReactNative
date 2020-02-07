@@ -223,11 +223,9 @@ class OnlineServerResults extends Component<Props, State> {
         const commonAncestor = response.common_ancestor;
 
         if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
-          console.log( species.combined_score, "combined score: ", species.taxon.rank );
           this.checkSpeciesSeen( species.taxon.id );
           this.setOnlineVisionSpeciesResults( species );
         } else if ( commonAncestor ) {
-          console.log( "common ancestor found", commonAncestor );
           this.setOnlineVisionAncestorResults( commonAncestor );
         } else {
           this.setMatch( false );

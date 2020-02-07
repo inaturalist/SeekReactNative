@@ -37,7 +37,7 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
     navigation.addListener( "willFocus", () => {
       scrollToTop();
     } );
-  }, [] );
+  } );
 
   return (
     <UserContext.Consumer>

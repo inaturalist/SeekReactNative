@@ -111,6 +111,7 @@ class ObservationCard extends PureComponent<Props, State> {
 
   scrollLeft() {
     const { item, itemScrolledId, updateItemScrolledId } = this.props;
+    console.log( itemScrolledId, item.taxon.id, "does rerender happen in normal card?" );
 
     if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
       this.scrollView.scrollTo( {

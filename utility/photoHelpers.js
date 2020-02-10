@@ -318,7 +318,7 @@ const regenerateBackupUris = async () => {
       }
     } ).then( () => {
       if ( Platform.OS === "android" ) {
-        moveAndroidFilesToInternalStorage();
+        // moveAndroidFilesToInternalStorage(); // taking this out for the release build
         debugAndroidDirectories();
       }
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );

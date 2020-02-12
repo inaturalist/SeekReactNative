@@ -1,13 +1,13 @@
-// @flow
-
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Image,
   FlatList,
   TouchableOpacity
 } from "react-native";
+import Realm from "realm";
 
+import realmConfig from "../../models";
 import i18n from "../../i18n";
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
@@ -16,101 +16,90 @@ import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modal";
 
-type Props = {
-  +challengeBadges: Array<Object>
-}
+const ChallengeBadges = () => {
+  const [showModal, setModal] = useState( false );
+  const [selectedChallenge, setChallenge] = useState( null );
+  const [challengeBadges, setChallengeBadges] = useState( [] );
 
-type State = {
-  showModal: boolean,
-  selectedChallenge: Object
-}
+  const openModal = () => {
+    setModal( true );
+  };
 
-class ChallengeBadges extends Component<Props, State> {
-  constructor() {
-    super();
+  const closeModal = () => {
+    setModal( false );
+  };
 
-    this.state = {
-      showModal: false,
-      selectedChallenge: null
-    };
+  const fetchChallenges = () => {
+    Realm.open( realmConfig )
+      .then( ( realm ) => {
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
+        const badges = challenges.map( ( challenge ) => challenge );
 
-    ( this:any ).closeModal = this.closeModal.bind( this );
-  }
+        setChallengeBadges( badges );
+      } ).catch( () => {
+        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } );
+  };
 
-  setChallenge( selectedChallenge: Object ) {
-    this.setState( { selectedChallenge } );
-  }
+  useEffect( () => {
+    fetchChallenges();
+  }, [] );
 
-  openModal() {
-    this.setState( { showModal: true } );
-  }
+  const renderChallengesRow = ( start, finish ) => (
+    <FlatList
+      alwaysBounceHorizontal={false}
+      data={challengeBadges.slice( start, finish )}
+      horizontal
+      keyExtractor={( challenge, index ) => `${challenge.name}${index}`}
+      renderItem={( { item } ) => {
+        let badgeIcon;
+        if ( item.percentComplete === 100 ) {
+          badgeIcon = badgeImages[item.earnedIconName];
+        } else {
+          badgeIcon = badgeImages[item.unearnedIconName];
+        }
+        return (
+          <TouchableOpacity
+            onPress={() => {
+              openModal();
+              setChallenge( item );
+            }}
+            style={styles.gridCell}
+          >
+            <Image
+              source={badgeIcon}
+              style={styles.badgeIcon}
+            />
+          </TouchableOpacity>
+        );
+      }}
+    />
+  );
 
-  closeModal() {
-    this.setState( { showModal: false } );
-  }
-
-  renderChallengesRow( challengeBadges: Array<Object> ) {
-    return (
-      <FlatList
-        alwaysBounceHorizontal={false}
-        data={challengeBadges}
-        horizontal
-        keyExtractor={( challenge, index ) => `${challenge.name}${index}`}
-        renderItem={( { item } ) => {
-          let badgeIcon;
-          if ( item.percentComplete === 100 ) {
-            badgeIcon = badgeImages[item.earnedIconName];
-          } else {
-            badgeIcon = badgeImages[item.unearnedIconName];
-          }
-          return (
-            <TouchableOpacity
-              onPress={() => {
-                this.openModal();
-                this.setChallenge( item );
-              }}
-              style={styles.gridCell}
-            >
-              <Image
-                source={badgeIcon}
-                style={styles.badgeIcon}
-              />
-            </TouchableOpacity>
-          );
-        }}
+  return (
+    <View style={styles.center}>
+      <Modal
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
+          <ChallengeModal
+            challenge={selectedChallenge}
+            closeModal={closeModal}
+          />
+        ) : (
+          <ChallengeUnearnedModal
+            challenge={selectedChallenge}
+            closeModal={closeModal}
+          />
+        )}
       />
-    );
-  }
-
-  render() {
-    const { challengeBadges } = this.props;
-    const { showModal, selectedChallenge } = this.state;
-
-    return (
-      <View style={styles.center}>
-        <Modal
-          showModal={showModal}
-          closeModal={this.closeModal}
-          modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
-            <ChallengeModal
-              challenge={selectedChallenge}
-              closeModal={this.closeModal}
-            />
-          ) : (
-            <ChallengeUnearnedModal
-              challenge={selectedChallenge}
-              closeModal={this.closeModal}
-            />
-          )}
-        />
-        <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
-        {this.renderChallengesRow( challengeBadges.slice( 0, 3 ) )}
-        {this.renderChallengesRow( challengeBadges.slice( 3, 5 ) )}
-        {this.renderChallengesRow( challengeBadges.slice( 5, 8 ) )}
-        <View style={styles.marginLarge} />
-      </View>
-    );
-  }
-}
+      <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+      {renderChallengesRow( 0, 3 )}
+      {renderChallengesRow( 3, 5 )}
+      {renderChallengesRow( 5, 8 )}
+      <View style={styles.marginLarge} />
+    </View>
+  );
+};
 
 export default ChallengeBadges;

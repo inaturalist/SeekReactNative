@@ -31,7 +31,6 @@ type Props = {
 
 type State = {
   speciesBadges: Array<Object>,
-  challengeBadges: Array<Object>,
   level: ?Object,
   nextLevelCount: ?number,
   badgesEarned: ?number,
@@ -46,7 +45,6 @@ class AchievementsScreen extends Component<Props, State> {
 
     this.state = {
       speciesBadges: [],
-      challengeBadges: [],
       level: null,
       nextLevelCount: null,
       badgesEarned: null,
@@ -106,26 +104,9 @@ class AchievementsScreen extends Component<Props, State> {
     } );
   }
 
-  fetchChallenges() {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const challengeBadges = [];
-        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
-
-        challenges.forEach( ( challenge ) => {
-          challengeBadges.push( challenge );
-        } );
-
-        this.setState( { challengeBadges } );
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-  }
-
   render() {
     const {
       speciesBadges,
-      challengeBadges,
       level,
       nextLevelCount,
       badgesEarned,
@@ -140,7 +121,6 @@ class AchievementsScreen extends Component<Props, State> {
           onWillBlur={() => this.scrollToTop()}
           onWillFocus={() => {
             this.fetchBadges();
-            this.fetchChallenges();
             this.fetchSpeciesCount();
           }}
         />
@@ -153,7 +133,7 @@ class AchievementsScreen extends Component<Props, State> {
             speciesCount={speciesCount}
           />
           <SpeciesBadges speciesBadges={speciesBadges} />
-          <ChallengeBadges challengeBadges={challengeBadges} />
+          <ChallengeBadges />
           <View style={[styles.row, styles.center]}>
             <TouchableOpacity
               onPress={() => navigation.navigate( "MyObservations" )}

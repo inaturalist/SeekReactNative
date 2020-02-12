@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../global";
+import { colors, dimensions } from "../global";
 
 export default StyleSheet.create( {
   innerContainer: {
@@ -8,6 +8,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     borderRadius: 40,
     maxHeight: 536,
-    width: 366
+    maxWidth: 366,
+    width: dimensions.width - dimensions.width * 0.1
+    // this creates margins on smaller screen sizes
   }
 } );

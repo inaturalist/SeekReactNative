@@ -21,16 +21,10 @@ export default StyleSheet.create( {
     lineHeight: 34,
     textAlign: "center"
   },
-  center: {
-    alignItems: "center",
-    marginTop: 10
-  },
   header: {
     alignItems: "center",
-    backgroundColor: colors.seekTeal,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    justifyContent: "center",
     width: "100%"
   },
   headerText: {
@@ -49,31 +43,20 @@ export default StyleSheet.create( {
     marginTop: 25,
     width: 140
   },
-  innerContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white
-  },
   logo: {
     height: 70,
     resizeMode: "contain",
     width: 209
   },
   marginBottom: {
-    marginBottom: 30
-  },
-  modalBottom: {
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40
-  },
-  modalTop: {
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
+    marginBottom: 33
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
+    marginBottom: 29,
     marginHorizontal: 24,
     marginTop: 18,
     textAlign: "center"

@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import BackButton from "../UIComponents/ModalBackButton";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +closeModal: Function,
@@ -20,10 +20,10 @@ type Props = {
 };
 
 const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => (
-  <>
+  <WhiteModal closeModal={closeModal}>
     <LinearGradient
       colors={["#67c5ca", "#3ca2ab"]}
-      style={[styles.header, styles.modalTop]}
+      style={styles.header}
     >
       <Image
         source={badges[challenge.earnedIconName]}
@@ -37,18 +37,15 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => (
         </Text>
       </ImageBackground>
     </LinearGradient>
-    <View style={[styles.innerContainer, styles.modalBottom]}>
-      <Text style={styles.headerText}>
-        {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
-      </Text>
-      <Text style={styles.text}>
-        {i18n.t( "challenges.thanks" )}
-      </Text>
-      <Image source={logos.wwfop} style={[styles.logo, styles.center]} />
-      <View style={styles.marginBottom} />
-    </View>
-    <BackButton closeModal={closeModal} />
-  </>
+    <Text style={styles.headerText}>
+      {i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
+    </Text>
+    <Text style={styles.text}>
+      {i18n.t( "challenges.thanks" )}
+    </Text>
+    <Image source={logos.wwfop} style={styles.logo} />
+    <View style={styles.marginBottom} />
+  </WhiteModal>
 );
 
 export default ChallengeEarnedModal;

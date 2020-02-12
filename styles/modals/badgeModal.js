@@ -15,7 +15,9 @@ export default StyleSheet.create( {
   },
   carousel: {
     alignItems: "center",
-    width: width < 366 ? ( width - ( width * 0.1 ) ) : ( 400 - ( 400 * 0.1 ) )
+    maxWidth: 366,
+    width: width < 500 ? ( width - ( width * 0.1 ) ) : 400 - 400 * 0.1
+    // 500 because Android Pixel XL has 411.5 width
   },
   image: {
     height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),

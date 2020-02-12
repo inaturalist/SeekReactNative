@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -8,7 +8,6 @@ import {
   ScrollView,
   Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
@@ -29,38 +28,25 @@ type Props = {
   +navigation: any
 }
 
-type State = {
-  speciesBadges: Array<Object>,
-  level: ?Object,
-  nextLevelCount: ?number,
-  badgesEarned: ?number,
-  speciesCount: ?number
-}
+const AchievementsScreen = ( { navigation }: Props ) => {
+  const scrollView = useRef( null );
+  const [speciesCount, setSpeciesCount] = useState( null );
+  const [state, setState] = useState( {
+    speciesBadges: [],
+    level: null,
+    nextLevelCount: null,
+    badgesEarned: null
+  } );
 
-class AchievementsScreen extends Component<Props, State> {
-  scrollView: ?any
-
-  constructor() {
-    super();
-
-    this.state = {
-      speciesBadges: [],
-      level: null,
-      nextLevelCount: null,
-      badgesEarned: null,
-      speciesCount: null
-    };
-  }
-
-  scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
+  const scrollToTop = () => {
+    if ( scrollView && scrollView.current !== null ) {
+      scrollView.current.scrollTo( {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
-  }
+  };
 
-  fetchBadges() {
+  const fetchBadges = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" );
@@ -87,7 +73,7 @@ class AchievementsScreen extends Component<Props, State> {
           return 1;
         } );
 
-        this.setState( {
+        setState( {
           speciesBadges,
           level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
@@ -96,65 +82,53 @@ class AchievementsScreen extends Component<Props, State> {
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
-  }
+  };
 
-  fetchSpeciesCount() {
-    fetchNumberSpeciesSeen().then( ( speciesCount ) => {
-      this.setState( { speciesCount } );
+  const fetchSpeciesCount = () => {
+    fetchNumberSpeciesSeen().then( ( species ) => {
+      setSpeciesCount( species );
     } );
-  }
+  };
 
-  render() {
-    const {
-      speciesBadges,
-      level,
-      nextLevelCount,
-      badgesEarned,
-      speciesCount
-    } = this.state;
-    const { navigation } = this.props;
+  useEffect( () => {
+    scrollToTop();
+    fetchBadges();
+    fetchSpeciesCount();
+  }, [] );
 
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <NavigationEvents
-          onWillBlur={() => this.scrollToTop()}
-          onWillFocus={() => {
-            this.fetchBadges();
-            this.fetchSpeciesCount();
-          }}
+  return (
+    <View style={styles.container}>
+      <SafeAreaView />
+      <GreenHeader header="badges.achievements" />
+      <ScrollView ref={scrollView}>
+        {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
+        <LevelHeader
+          level={state.level}
+          nextLevelCount={state.nextLevelCount}
+          speciesCount={speciesCount}
         />
-        <GreenHeader header="badges.achievements" />
-        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
-          {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
-          <LevelHeader
-            level={level}
-            nextLevelCount={nextLevelCount}
-            speciesCount={speciesCount}
-          />
-          <SpeciesBadges speciesBadges={speciesBadges} />
-          <ChallengeBadges />
-          <View style={[styles.row, styles.center]}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate( "MyObservations" )}
-              style={styles.secondHeaderText}
-            >
-              <GreenText center smaller text="badges.observed" />
-              <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
-            </TouchableOpacity>
-            <View style={styles.secondHeaderText}>
-              <GreenText center smaller text="badges.earned" />
-              <Text style={styles.number}>{localizeNumber( badgesEarned )}</Text>
-            </View>
+        <SpeciesBadges speciesBadges={state.speciesBadges} />
+        <ChallengeBadges />
+        <View style={[styles.row, styles.center]}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "MyObservations" )}
+            style={styles.secondHeaderText}
+          >
+            <GreenText center smaller text="badges.observed" />
+            <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
+          </TouchableOpacity>
+          <View style={styles.secondHeaderText}>
+            <GreenText center smaller text="badges.earned" />
+            <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>
           </View>
-          <View style={styles.center}>
-            <LoginCard screen="achievements" />
-          </View>
-          <Padding />
-        </ScrollView>
-      </View>
-    );
-  }
-}
+        </View>
+        <View style={styles.center}>
+          <LoginCard screen="achievements" />
+        </View>
+        <Padding />
+      </ScrollView>
+    </View>
+  );
+};
 
 export default AchievementsScreen;

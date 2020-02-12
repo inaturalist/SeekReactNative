@@ -40,6 +40,7 @@ export default StyleSheet.create( {
     fontSize: 17,
     lineHeight: 19,
     marginHorizontal: 30,
+    maxWidth: 317,
     textAlign: "center"
   },
   whiteButton: {
@@ -48,6 +49,7 @@ export default StyleSheet.create( {
     borderRadius: 34,
     height: 52,
     justifyContent: "center",
+    maxWidth: 317,
     width: dimensions.width - 70
   },
   whiteButtonLarge: {

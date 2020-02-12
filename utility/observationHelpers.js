@@ -87,6 +87,7 @@ const removeFromCollection = ( id ) => {
 
         const { backupUri } = photoObjToDelete;
         const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
+
         const backupFilepath = `${dirPictures}/${uri[1]}`;
 
         deleteFile( backupFilepath );

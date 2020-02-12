@@ -13,7 +13,7 @@ import Realm from "realm";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
-import styles from "../../styles/badges/badges";
+import styles from "../../styles/badges/achievements";
 import Padding from "../UIComponents/Padding";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";

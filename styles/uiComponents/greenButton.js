@@ -16,10 +16,13 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   greenButton: {
+    alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
     borderRadius: 34,
     height: 46,
-    justifyContent: "center"
+    justifyContent: "center",
+    maxWidth: 317,
+    width: 293
   },
   loginHeight: {
     height: 52,

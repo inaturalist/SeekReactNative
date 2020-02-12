@@ -49,7 +49,7 @@ export default StyleSheet.create( {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-around"
+    justifyContent: "center"
   },
   innerContainer: {
     backgroundColor: colors.white,
@@ -68,6 +68,9 @@ export default StyleSheet.create( {
   },
   marginLarge: {
     marginTop: 50
+  },
+  marginLeft: {
+    marginLeft: 47
   },
   marginMedium: {
     marginBottom: 28

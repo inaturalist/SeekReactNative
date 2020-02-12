@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/home/getStarted";
+import styles from "../../styles/modals/getStarted";
 import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/GreenButton";

@@ -454,7 +454,7 @@ class MatchScreen extends Component<Props, State> {
               {speciesSeenImage ? (
                 <Image
                   source={{ uri: speciesSeenImage }}
-                  style={styles.imageCell}
+                  style={[styles.imageCell, styles.marginLeft]}
                 />
               ) : null}
             </View>

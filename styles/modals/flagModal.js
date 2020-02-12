@@ -59,12 +59,14 @@ export default StyleSheet.create( {
     justifyContent: "space-around"
   },
   innerContainer: {
+    alignSelf: "center",
     backgroundColor: colors.white,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    overflow: "hidden"
+    overflow: "hidden",
+    width: 366
   },
   largeButtonHeight: {
     flexWrap: "wrap",

@@ -15,21 +15,24 @@ export default StyleSheet.create( {
   },
   carousel: {
     alignItems: "center",
-    width: width - ( width * 0.1 )
+    width: width < 366 ? ( width - ( width * 0.1 ) ) : ( 400 - ( 400 * 0.1 ) )
   },
   image: {
-    height: width / 2,
+    height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
     justifyContent: "center",
     marginBottom: 25,
-    width: width / 2
+    width: width < 366 ? ( width / 2 ) : ( 366 / 2 )
   },
   imageStyle: {
     resizeMode: "contain"
   },
   innerContainer: {
     alignItems: "center",
+    alignSelf: "center",
     backgroundColor: colors.white,
-    borderRadius: 40
+    borderRadius: 40,
+    maxHeight: 536,
+    maxWidth: 366
   },
   margin: {
     marginBottom: 9

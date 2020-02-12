@@ -16,8 +16,7 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   button: {
     marginBottom: 24,
-    marginTop: ( fontScale > 1 || height < 570 ) ? null : 14,
-    width: height > 570 ? 285 : 230
+    marginTop: ( fontScale > 1 || height < 570 ) ? null : 14
   },
   contentContainer: {
     alignItems: "center",
@@ -45,11 +44,13 @@ export default StyleSheet.create( {
     width: 39
   },
   innerContainer: {
+    alignSelf: "center",
     backgroundColor: colors.white,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
+    borderTopRightRadius: 40,
+    width: 366
   },
   margin: {
     marginTop: height > 570 ? 28 : 8

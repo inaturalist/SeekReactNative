@@ -13,7 +13,7 @@ import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/badges";
+import styles from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modal";
 
 type Props = {

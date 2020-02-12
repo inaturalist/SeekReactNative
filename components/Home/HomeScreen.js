@@ -11,7 +11,7 @@ import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby";
-import GetStarted from "./GetStarted";
+import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";

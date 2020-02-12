@@ -12,7 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/badges";
+import styles from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modal";
 import { localizeNumber } from "../../utility/helpers";
 

@@ -10,7 +10,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/camera/arCamera";
 import icons from "../../assets/icons";
-import rankDict from "../../utility/rankDict";
+import rankDict from "../../utility/dictionaries/rankDict";
 
 type Props = {
   +commonName: ?string,

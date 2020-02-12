@@ -6,7 +6,8 @@ import {
   format,
   getUnixTime,
   formatISO,
-  fromUnixTime
+  fromUnixTime,
+  subDays
 } from "date-fns";
 import {
   ca,
@@ -25,8 +26,6 @@ import {
 
 import realmConfig from "../models/index";
 import i18n from "../i18n";
-
-const today = new Date();
 
 const locales = {
   ca,
@@ -52,18 +51,24 @@ const setLocale = () => {
 };
 
 const requiresParent = ( birthday ) => {
-  const thirteen = subYears( today, 13 );
+  const thirteen = subYears( new Date(), 13 );
   const formattedBirthday = parseISO( birthday );
 
   return isAfter( formattedBirthday, thirteen );
 };
 
-const checkIfChallengeAvailable = ( date ) => date <= today;
+const checkIfChallengeAvailable = ( date ) => date <= new Date();
 
 const isWithinPastYear = ( reviewShownDate ) => {
-  const lastYear = subYears( today, 1 );
+  const lastYear = subYears( new Date(), 1 );
 
   return isAfter( reviewShownDate, lastYear );
+};
+
+const isWithin7Days = ( date ) => {
+  const sevenDaysAgo = subDays( new Date(), 7 );
+
+  return isAfter( date, sevenDaysAgo );
 };
 
 const formatShortMonthDayYear = ( date ) => format( date, "PP", { locale: setLocale() } );
@@ -90,10 +95,10 @@ const createTimestamp = ( time ) => {
   if ( time ) {
     return getUnixTime( time );
   }
-  return getUnixTime( today );
+  return getUnixTime( new Date() );
 };
 
-const namePhotoByTime = () => format( today, "ddMMyy_HHmmSSS" );
+const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
 
 const setISOTime = ( time ) => formatISO( fromUnixTime( time ) );
 
@@ -101,8 +106,10 @@ const formatYearMonthDay = ( date ) => {
   if ( date ) {
     return format( date, "yyyy-MM-dd" );
   }
-  return format( today, "yyyy-MM-dd" );
+  return format( new Date(), "yyyy-MM-dd" );
 };
+
+const formatHourMonthSecond = () => format( new Date(), "H:mm:ss" );
 
 const createShortMonthsList = () => {
   const months = [];
@@ -126,5 +133,7 @@ export {
   setISOTime,
   formatYearMonthDay,
   formatShortMonthDayYear,
-  createShortMonthsList
+  createShortMonthsList,
+  isWithin7Days,
+  formatHourMonthSecond
 };

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import {
   Image,
   TouchableOpacity,
@@ -11,6 +11,7 @@ import RNFS from "react-native-fs";
 import { withNavigation } from "react-navigation";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
+import { writeToDebugLog } from "../../utility/photoHelpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import { dirPictures } from "../../utility/dirStorage";
@@ -26,11 +27,10 @@ type Props = {
 
 type State = {
   photo: ?Object,
-  commonName?: ?string,
-  focusedScreen: boolean
+  commonName?: ?string
 }
 
-class ObservationCard extends Component<Props, State> {
+class ObservationCard extends PureComponent<Props, State> {
   scrollView: ?any
 
   constructor() {
@@ -38,8 +38,7 @@ class ObservationCard extends Component<Props, State> {
 
     this.state = {
       photo: null,
-      commonName: null,
-      focusedScreen: true
+      commonName: null
     };
   }
 
@@ -61,46 +60,39 @@ class ObservationCard extends Component<Props, State> {
     }
   }
 
-  componentWillUnmount() {
-    this.setState( { focusedScreen: false } );
-  }
-
   setPhoto( photo: Object ) {
     this.setState( { photo } );
   }
 
   checkForSeekV1Photos( seekv1Photos: string ) {
     const { item } = this.props;
-    const { focusedScreen } = this.state;
 
     const photoPath = `${seekv1Photos}/${item.uuidString}`;
 
-    if ( focusedScreen ) {
-      RNFS.stat( photoPath ).then( () => {
-        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => {
-          this.checkForSeekV2Photos();
-        } );
-      } ).catch( () => {
-        this.checkForSeekV2Photos();
-      } );
-    }
+    RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+      this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+    } ).catch( () => {
+      this.checkForSeekV2Photos();
+    } );
   }
 
   checkForSeekV2Photos() {
     const { item } = this.props;
-    const { focusedScreen } = this.state;
     const { defaultPhoto } = item.taxon;
     const { backupUri, mediumUrl } = item.taxon.defaultPhoto;
 
-    if ( defaultPhoto && focusedScreen ) {
+    if ( defaultPhoto ) {
       if ( backupUri ) {
-        const uri = backupUri.split( "/Pictures/" );
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-        RNFS.readFile( backupFilepath, { encoding: "base64" } ).then( ( encodedData ) => {
-          this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => this.setPhoto( { uri: backupFilepath } ) );
+        if ( Platform.OS === "ios" ) {
+          const uri = backupUri.split( "Pictures/" );
+          const backupFilepath = `${dirPictures}/${uri[1]}`;
+          this.setPhoto( { uri: backupFilepath } );
+        } else {
+          writeToDebugLog( backupUri );
+          RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
+            this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          } ).catch( ( e ) => console.log( e ) );
+        }
       } else if ( mediumUrl ) {
         this.setPhoto( { uri: mediumUrl } );
       }

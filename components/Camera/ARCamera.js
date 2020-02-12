@@ -21,6 +21,7 @@ import icons from "../../assets/icons";
 import ARCameraHeader from "./ARCameraHeader";
 import CameraError from "./CameraError";
 import { getTaxonCommonName, checkIfCameraLaunched } from "../../utility/helpers";
+import { writeToDebugLog } from "../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import Modal from "../UIComponents/Modal";
@@ -153,6 +154,12 @@ class ARCamera extends Component<Props, State> {
   handleResumePreview = () => {
     if ( this.camera ) {
       this.camera.resumePreview();
+    }
+  }
+
+  handleLog = ( event: Object ) => {
+    if ( Platform.OS === "android" ) {
+      writeToDebugLog( event.nativeEvent.log );
     }
   }
 
@@ -366,6 +373,7 @@ class ARCamera extends Component<Props, State> {
             onClassifierError={this.handleClassifierError}
             onDeviceNotSupported={this.handleDeviceNotSupported}
             onTaxaDetected={this.handleTaxaDetected}
+            onLog={this.handleLog}
             style={styles.camera}
             taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
             taxonomyPath={dirTaxonomy}

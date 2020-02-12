@@ -6,13 +6,12 @@ import inatjs from "inaturalistjs";
 import { NavigationEvents } from "react-navigation";
 
 import {
-  addToCollection,
   getTaxonCommonName,
   checkForIconicTaxonId
 } from "../../utility/helpers";
+import { addToCollection } from "../../utility/observationHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
-import { fetchAccessToken } from "../../utility/loginHelpers";
-import { fetchTruncatedUserLocation, truncateCoordinates } from "../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
@@ -37,8 +36,7 @@ type State = {
   scientificName: ?string,
   match: ?boolean,
   errorCode: ?number,
-  rank: ?number,
-  isLoggedIn: ?boolean
+  rank: ?number
 };
 
 class OfflineARResults extends Component<Props, State> {
@@ -69,20 +67,8 @@ class OfflineARResults extends Component<Props, State> {
       scientificName: null,
       match: null,
       errorCode: null,
-      rank: null,
-      isLoggedIn: null
+      rank: null
     };
-  }
-
-  setLoggedIn( isLoggedIn: boolean ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
   }
 
   setLocationErrorCode( errorCode: number ) {
@@ -277,8 +263,7 @@ class OfflineARResults extends Component<Props, State> {
       longitude,
       match,
       errorCode,
-      rank,
-      isLoggedIn
+      rank
     } = this.state;
 
     navigation.push( "Match", {
@@ -295,8 +280,7 @@ class OfflineARResults extends Component<Props, State> {
       commonAncestor,
       match,
       errorCode,
-      rank,
-      isLoggedIn
+      rank
     } );
   }
 
@@ -307,7 +291,6 @@ class OfflineARResults extends Component<Props, State> {
       <>
         <NavigationEvents
           onWillFocus={() => {
-            this.getLoggedIn();
             this.setARCameraVisionResults();
             this.requestAndroidPermissions();
           }}

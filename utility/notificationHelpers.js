@@ -1,7 +1,7 @@
 import Realm from "realm";
 
 import realmConfig from "../models/index";
-import notificationDict from "./notificationDict";
+import notificationDict from "./dictionaries/notificationDict";
 
 const createNotification = ( type, challengeIndex ) => {
   Realm.open( realmConfig )

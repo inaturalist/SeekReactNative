@@ -12,7 +12,7 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import PercentCircle from "../UIComponents/PercentCircle";
 import GreenText from "../UIComponents/GreenText";
-import missionsDict from "../../utility/missionsDict";
+import missionsDict from "../../utility/dictionaries/missionsDict";
 
 type Props = {
   +challenge: Object,

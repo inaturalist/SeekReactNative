@@ -46,6 +46,7 @@ import TermsOfServiceScreen from "./Login/TermsOfServiceScreen";
 import PostScreen from "./PostToiNat/PostScreen";
 import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 import WikipediaView from "./Species/WikipediaView";
+import DebugAndroid from "./UIComponents/DebugAndroid";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -134,6 +135,9 @@ const FooterTabNav = createBottomTabNavigator( { // these are screens that need 
   },
   Species: {
     screen: SpeciesDetail
+  },
+  DebugAndroid: {
+    screen: DebugAndroid
   }
 }, FooterTabConfig );
 

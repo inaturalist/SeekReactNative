@@ -17,6 +17,9 @@ export default StyleSheet.create( {
     marginBottom: 5,
     textAlign: "center"
   },
+  debug: {
+    padding: 34
+  },
   greenText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,

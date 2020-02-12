@@ -18,14 +18,13 @@ import realmConfig from "../../models";
 import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import taxaIds from "../../utility/iconicTaxonDictById";
+import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import GreenHeader from "../UIComponents/GreenHeader";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import DeleteModal from "../Modals/DeleteModal";
-import { removeFromCollection } from "../../utility/helpers";
-import createSectionList from "../../utility/observationHelpers";
+import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {}
 

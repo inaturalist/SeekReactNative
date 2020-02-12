@@ -547,5 +547,8 @@
   "attributions": {
     "all": "all rights reserved",
     "some": "some rights reserved"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
   }
 }

@@ -32,10 +32,10 @@ import { checkForChallengesCompleted, setChallengeProgress } from "../../utility
 import {
   setSpeciesId,
   setRoute,
-  removeFromCollection,
   fetchNumberSpeciesSeen,
   getRoute
 } from "../../utility/helpers";
+import { removeFromCollection } from "../../utility/observationHelpers";
 import {
   showAppStoreReview,
   showPlayStoreReview
@@ -48,6 +48,7 @@ import {
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/GreenButton";
 import { setAncestorRankText } from "../../utility/textHelpers";
+import UserContext from "../UserContext";
 
 type Props = {
   +navigation: any
@@ -77,7 +78,6 @@ type State = {
   challengeShown: boolean,
   errorCode: number,
   rank: number,
-  isLoggedIn: boolean,
   route: ?string
 };
 
@@ -101,8 +101,7 @@ class MatchScreen extends Component<Props, State> {
       commonAncestor,
       match,
       errorCode,
-      rank,
-      isLoggedIn
+      rank
     } = navigation.state.params;
 
     this.state = {
@@ -129,7 +128,6 @@ class MatchScreen extends Component<Props, State> {
       challengeShown: false,
       errorCode,
       rank,
-      isLoggedIn,
       route: null
     };
 
@@ -322,7 +320,6 @@ class MatchScreen extends Component<Props, State> {
       seenDate,
       commonAncestor,
       match,
-      isLoggedIn,
       rank,
       route
     } = this.state;
@@ -505,21 +502,27 @@ class MatchScreen extends Component<Props, State> {
                 <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
             ) : null}
-            {isLoggedIn ? (
-              <PostToiNat
-                color={gradientColorLight}
-                taxaInfo={{
-                  preferredCommonName: taxaName || commonAncestor,
-                  taxaId,
-                  uri,
-                  userImage,
-                  scientificName,
-                  latitude,
-                  longitude,
-                  time
-                }}
-              />
-            ) : null}
+            <UserContext.Consumer>
+              {user => (
+                <>
+                  {user.login ? (
+                    <PostToiNat
+                      color={gradientColorLight}
+                      taxaInfo={{
+                        preferredCommonName: taxaName || commonAncestor,
+                        taxaId,
+                        uri,
+                        userImage,
+                        scientificName,
+                        latitude,
+                        longitude,
+                        time
+                      }}
+                    />
+                  ) : null}
+                </>
+              ) }
+            </UserContext.Consumer>
           </View>
           <Padding />
         </ScrollView>

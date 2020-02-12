@@ -19,12 +19,12 @@ import GreenText from "../UIComponents/GreenText";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
+import UserContext from "../UserContext";
 
 type Props = {
   +stats: Object,
   +seenDate: ?string,
   +about: ?string,
-  +isLoggedIn: ?boolean,
   +navigation: any,
   +commonName: ?string,
   +wikiUrl: ?string,
@@ -42,7 +42,6 @@ const NoInternetError = ( {
   seenDate,
   about,
   error,
-  isLoggedIn,
   navigation,
   commonName,
   wikiUrl,
@@ -71,20 +70,24 @@ const NoInternetError = ( {
           </View>
         ) : null}
         {about ? (
-          <View>
-            <View style={styles.headerMargins}>
-              <GreenText text="species_detail.about" />
-            </View>
-            <Text style={styles.text}>{about}</Text>
-            {isLoggedIn && id !== 43584 ? (
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
-                style={styles.linkContainer}
-              >
-                <Text style={styles.linkText}>{commonName}</Text>
-              </TouchableOpacity>
-            ) : null}
-          </View>
+          <UserContext.Consumer>
+            {user => (
+              <>
+                <View style={styles.headerMargins}>
+                  <GreenText text="species_detail.about" />
+                </View>
+                <Text style={styles.text}>{about}</Text>
+                {user.login && id !== 43584 ? (
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
+                    style={styles.linkContainer}
+                  >
+                    <Text style={styles.linkText}>{commonName}</Text>
+                  </TouchableOpacity>
+                ) : null}
+              </>
+            ) }
+          </UserContext.Consumer>
         ) : null}
       </View>
       {id !== 43584 ? (
@@ -93,7 +96,6 @@ const NoInternetError = ( {
             {error === "location" ? null : (
               <SpeciesMap
                 id={id}
-                isLoggedIn={isLoggedIn}
                 region={region}
                 seenDate={seenDate}
               />

@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Realm from "realm";
 
 import realmConfig from "../models/index";
-import badgesDict from "./badgesDict";
+import badgesDict from "./dictionaries/badgesDict";
 
 const createNewBadge = ( realm, badge ) => {
   realm.write( () => {

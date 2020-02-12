@@ -11,7 +11,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 import Realm from "realm";
 
-import taxonIds from "../../utility/taxonDict";
+import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/badges";
 import Padding from "../UIComponents/Padding";

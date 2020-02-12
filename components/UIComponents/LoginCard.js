@@ -1,91 +1,65 @@
 // @flow
 
-import React, { Component } from "react";
+import React from "react";
 import {
   View,
   Text
 } from "react-native";
-import { NavigationEvents, withNavigation } from "react-navigation";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
-import { fetchAccessToken, removeAccessToken } from "../../utility/loginHelpers";
+import { removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./GreenButton";
+import UserContext from "../UserContext";
 
 type Props = {
   +navigation: any,
   +screen: string
 }
 
-type State = {
-  isLoggedIn: boolean
-}
-
-class LoginCard extends Component<Props, State> {
-  constructor() {
-    super();
-
-    this.state = {
-      isLoggedIn: false
-    };
-  }
-
-  async getLoggedIn() {
-    const login = await fetchAccessToken();
-    if ( login ) {
-      this.setLoggedIn( true );
-    }
-  }
-
-  setLoggedIn( isLoggedIn: boolean ) {
-    this.setState( { isLoggedIn } );
-  }
-
-  async logUserOut() {
+const LoginCard = ( { navigation, screen }: Props ) => {
+  const logUserOut = async ( user: Object ) => {
     const loggedOut = await removeAccessToken();
     if ( loggedOut === null ) {
-      this.setLoggedIn( false );
+      user.toggleLogin();
     }
-  }
+  };
 
-  render() {
-    const { isLoggedIn } = this.state;
-    const { navigation, screen } = this.props;
-
-    return (
-      <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => this.getLoggedIn()}
-        />
-        {screen === "achievements" ? (
-          <Text style={styles.loginText}>
-            {isLoggedIn
-              ? i18n.t( "inat_stats.logged_in" )
-              : i18n.t( "badges.login" )}
-          </Text>
-        ) : (
-          <Text style={styles.italicText}>
-            {isLoggedIn
-              ? i18n.t( "inat_stats.logged_in" )
-              : i18n.t( "inat_stats.thanks" )}
-          </Text>
-        )}
-        {screen !== "achievements" ? <View style={styles.margin} /> : null}
-        <GreenButton
-          handlePress={() => {
-            if ( isLoggedIn ) {
-              this.logUserOut();
-            } else {
-              navigation.navigate( "LoginOrSignup" );
-            }
-          }}
-          text={isLoggedIn
-            ? "inat_stats.sign_out"
-            : "inat_stats.join"}
-        />
-      </View>
-    );
-  }
-}
+  return (
+    <UserContext.Consumer>
+      {user => (
+        <View style={styles.container}>
+          {screen === "achievements" ? (
+            <Text style={styles.loginText}>
+              {user.login
+                ? i18n.t( "inat_stats.logged_in" )
+                : i18n.t( "badges.login" )}
+            </Text>
+          ) : (
+            <Text style={styles.italicText}>
+              {user.login
+                ? i18n.t( "inat_stats.logged_in" )
+                : i18n.t( "inat_stats.thanks" )}
+            </Text>
+          )}
+          {screen !== "achievements" ? <View style={styles.margin} /> : null}
+          <GreenButton
+            handlePress={() => {
+              if ( user.login ) {
+                logUserOut( user );
+              } else {
+                navigation.navigate( "LoginOrSignup" );
+              }
+            }}
+            text={user.login
+              ? "inat_stats.sign_out"
+              : "inat_stats.join"}
+          />
+        </View>
+      )}
+    </UserContext.Consumer>
+  );
+};
 
 export default withNavigation( LoginCard );

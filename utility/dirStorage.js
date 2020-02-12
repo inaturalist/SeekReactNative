@@ -3,7 +3,8 @@ import RNFS from "react-native-fs";
 
 export const dirHome = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/Seek`,
-  android: `${RNFS.ExternalStorageDirectoryPath}/Seek`
+  android: `${RNFS.DocumentDirectoryPath}/Seek` // start using internal storage
+  // android: `${RNFS.ExternalStorageDirectoryPath}/Seek`
 } );
 
 export const dirModel = Platform.select( {
@@ -16,4 +17,11 @@ export const dirTaxonomy = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
 } );
 
-export const dirPictures = `${dirHome}/Pictures`;
+export const dirDebugLogs = Platform.select( {
+  android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
+} );
+
+export const dirPictures = Platform.select( {
+  ios: `${dirHome}/Pictures`,
+  android: `${dirHome}/SeekPictures`
+} );

@@ -21,15 +21,14 @@ const DatePicker = ( {
 
   return (
     <DateTimePicker
-      datePickerModeAndroid="spinner"
-      hideTitleContainerIOS
+      display="spinner"
+      customHeaderIOS={() => <></>}
       isDarkModeEnabled={colorScheme === "dark"}
       isVisible={isDateTimePickerVisible}
       maximumDate={new Date()}
       mode={datetime ? "datetime" : "date"}
       onCancel={toggleDateTimePicker}
       onConfirm={onDatePicked}
-      timePickerModeAndroid="spinner"
     />
   );
 };

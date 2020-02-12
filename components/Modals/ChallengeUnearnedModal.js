@@ -15,11 +15,11 @@ import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable, formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import BackButton from "../UIComponents/ModalBackButton";
 import GreenButton from "../UIComponents/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { setRoute } from "../../utility/helpers";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +closeModal: Function,
@@ -28,57 +28,54 @@ type Props = {
 };
 
 const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) => (
-  <>
-    <View style={styles.innerContainer}>
-      <View style={styles.center}>
-        <BannerHeader
-          modal
-          text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
-        />
-        {challenge.started && challenge.percentComplete !== 100 ? (
-          <ImageBackground
-            imageStyle={styles.imageStyle}
-            source={badgeImages[challenge.unearnedIconName]}
-            style={[styles.image, styles.center]}
-          >
-            <PercentCircle challenge={challenge} large />
-          </ImageBackground>
-        ) : (
-          <Image
-            source={badgeImages[challenge.unearnedIconName]}
-            style={[styles.image, styles.imageStyle]}
-          />
-        )}
-      </View>
-      <View style={styles.margins}>
-        <GreenText
-          center
-          text="badges.to_earn"
-        />
-      </View>
-      <Text style={styles.nameText}>
-        {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
-      </Text>
-      {checkIfChallengeAvailable( challenge.availableDate ) ? (
-        <View style={styles.container}>
-          <GreenButton
-            handlePress={() => {
-              setChallengeIndex( challenge.index );
-              setRoute( "Achievements" );
-              navigation.navigate( "ChallengeDetails" );
-              closeModal();
-            }}
-            text="notifications.view_challenges"
-          />
-        </View>
+  <WhiteModal closeModal={closeModal}>
+    <View style={styles.center}>
+      <BannerHeader
+        modal
+        text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
+      />
+      {challenge.started && challenge.percentComplete !== 100 ? (
+        <ImageBackground
+          imageStyle={styles.imageStyle}
+          source={badgeImages[challenge.unearnedIconName]}
+          style={[styles.image, styles.center]}
+        >
+          <PercentCircle challenge={challenge} large />
+        </ImageBackground>
       ) : (
-        <Text style={[styles.italicText, styles.centerSelf]}>
-          {i18n.t( "challenges.released", { date: formatShortMonthDayYear( challenge.availableDate ) } )}
-        </Text>
+        <Image
+          source={badgeImages[challenge.unearnedIconName]}
+          style={[styles.image, styles.imageStyle]}
+        />
       )}
     </View>
-    <BackButton closeModal={closeModal} />
-  </>
+    <View style={styles.margins}>
+      <GreenText
+        center
+        text="badges.to_earn"
+      />
+    </View>
+    <Text style={styles.nameText}>
+      {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
+    </Text>
+    {checkIfChallengeAvailable( challenge.availableDate ) ? (
+      <View style={styles.container}>
+        <GreenButton
+          handlePress={() => {
+            setChallengeIndex( challenge.index );
+            setRoute( "Achievements" );
+            navigation.navigate( "ChallengeDetails" );
+            closeModal();
+          }}
+          text="notifications.view_challenges"
+        />
+      </View>
+    ) : (
+      <Text style={[styles.italicText, styles.centerSelf]}>
+        {i18n.t( "challenges.released", { date: formatShortMonthDayYear( challenge.availableDate ) } )}
+      </Text>
+    )}
+  </WhiteModal>
 );
 
 export default withNavigation( ChallengeUnearnedModal );

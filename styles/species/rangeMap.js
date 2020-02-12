@@ -7,11 +7,6 @@ export default StyleSheet.create( {
   container: {
     flex: 1
   },
-  innerContainer: {
-    backgroundColor: colors.white,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40
-  },
   legend: {
     backgroundColor: colors.seekForestGreen,
     borderTopRightRadius: 40,
@@ -22,7 +17,8 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    height: 56
+    height: 56,
+    width: 366
   },
   legendPosition: {
     bottom: 0,

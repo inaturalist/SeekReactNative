@@ -9,8 +9,7 @@ const { height } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   backgroundColor: {
     alignItems: "center",
-    justifyContent: "center",
-    width: "100%"
+    width: 366
   },
   headerMargins: {
     marginBottom: Platform.OS === "android" ? 19 : 15,
@@ -21,18 +20,6 @@ export default StyleSheet.create( {
     marginTop: height > 570 ? 50 : 30,
     resizeMode: "contain",
     width: height > 640 ? 258 : 215
-  },
-  innerContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white
-  },
-  modalBottom: {
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40
-  },
-  modalTop: {
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
   },
   nameText: {
     color: colors.white,

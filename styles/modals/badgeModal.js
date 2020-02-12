@@ -26,14 +26,6 @@ export default StyleSheet.create( {
   imageStyle: {
     resizeMode: "contain"
   },
-  innerContainer: {
-    alignItems: "center",
-    alignSelf: "center",
-    backgroundColor: colors.white,
-    borderRadius: 40,
-    maxHeight: 536,
-    maxWidth: 366
-  },
   margin: {
     marginBottom: 9
   },

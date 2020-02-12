@@ -34,9 +34,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginBottom: 20,
+    marginBottom: 24,
     marginHorizontal: 40,
-    marginTop: 20,
+    marginTop: 16,
     textAlign: "center"
   }
 } );

@@ -13,6 +13,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/deleteModal";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +closeModal: Function,
@@ -37,6 +38,7 @@ const DeleteModal = ( {
   } = itemToDelete;
 
   return (
+    <WhiteModal noButton>
     <View style={styles.innerContainer}>
       <LinearGradient
         colors={[gradientColorDark, gradientColorLight]}
@@ -89,6 +91,7 @@ const DeleteModal = ( {
         <View style={styles.marginLarge} />
       </View>
     </View>
+    </WhiteModal>
   );
 };
 

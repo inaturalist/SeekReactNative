@@ -39,7 +39,6 @@ const DeleteModal = ( {
 
   return (
     <WhiteModal noButton>
-    <View style={styles.innerContainer}>
       <LinearGradient
         colors={[gradientColorDark, gradientColorLight]}
         style={styles.flagHeader}
@@ -90,7 +89,6 @@ const DeleteModal = ( {
         </TouchableOpacity>
         <View style={styles.marginLarge} />
       </View>
-    </View>
     </WhiteModal>
   );
 };

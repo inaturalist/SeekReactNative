@@ -27,7 +27,8 @@ export default StyleSheet.create( {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     height: 62,
-    justifyContent: "center"
+    justifyContent: "center",
+    width: 366
   },
   headerText: {
     color: colors.white,
@@ -42,15 +43,6 @@ export default StyleSheet.create( {
     marginRight: 22,
     resizeMode: "contain",
     width: 39
-  },
-  innerContainer: {
-    alignSelf: "center",
-    backgroundColor: colors.white,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    width: 366
   },
   margin: {
     marginTop: height > 570 ? 28 : 8

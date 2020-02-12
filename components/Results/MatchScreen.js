@@ -17,7 +17,7 @@ import { NavigationEvents } from "react-navigation";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
-import styles from "../../styles/results/results";
+import styles from "../../styles/results/match";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import Toasts from "../Toasts/Toasts";

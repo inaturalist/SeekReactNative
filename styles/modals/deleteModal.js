@@ -33,7 +33,8 @@ export default StyleSheet.create( {
   flagHeader: {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    height: 62
+    height: 62,
+    width: 366
   },
   flagTextContainer: {
     justifyContent: "flex-end",
@@ -42,13 +43,6 @@ export default StyleSheet.create( {
   headerStyling: {
     marginRight: 15,
     paddingTop: 9
-  },
-  innerContainer: {
-    backgroundColor: colors.white,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
   },
   largeFlagButton: {
     alignItems: "center",

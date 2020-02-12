@@ -11,13 +11,14 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/warningModal";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/GreenButton";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +closeModal: Function
 }
 
 const WarningModal = ( { closeModal }: Props ) => (
-  <View style={styles.innerContainer}>
+  <WhiteModal closeModal={closeModal} noButton>
     <View style={styles.header}>
       <Text style={styles.headerText}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
@@ -58,7 +59,7 @@ const WarningModal = ( { closeModal }: Props ) => (
         />
       </View>
     </View>
-  </View>
+  </WhiteModal>
 );
 
 export default WarningModal;

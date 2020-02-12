@@ -51,14 +51,6 @@ export default StyleSheet.create( {
     flexWrap: "nowrap",
     justifyContent: "center"
   },
-  innerContainer: {
-    backgroundColor: colors.white,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    overflow: "hidden"
-  },
   linkText: {
     alignSelf: "center",
     color: colors.linkText,
@@ -91,6 +83,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    marginHorizontal: 41
+    alignSelf: "center",
+    marginHorizontal: 41,
+    maxWidth: 317
   }
 } );

@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
@@ -62,7 +63,7 @@ export default StyleSheet.create( {
     marginTop: 50
   },
   marginLeft: {
-    marginLeft: 47
+    marginLeft: dimensions.width < 350 ? 15 : 47
   },
   marginMedium: {
     marginBottom: 28

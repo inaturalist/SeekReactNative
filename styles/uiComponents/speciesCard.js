@@ -20,6 +20,9 @@ export default StyleSheet.create( {
     marginRight: 24,
     width: 80
   },
+  notTouchable: {
+    width: 276
+  },
   row,
   scientificNameText: {
     color: colors.black,

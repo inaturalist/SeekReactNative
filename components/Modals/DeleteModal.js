@@ -59,7 +59,6 @@ const DeleteModal = ( {
       <View style={styles.margin} />
       <SpeciesCard
         commonName={commonName}
-        handlePress={() => console.log( "pressed card" )}
         iconicTaxonId={iconicTaxonId}
         photo={photo}
         scientificName={scientificName}

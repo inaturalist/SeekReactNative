@@ -1,7 +1,8 @@
 import { StyleSheet, Platform } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  dimensions
 } from "../../global";
 
 export default StyleSheet.create( {
@@ -31,5 +32,9 @@ export default StyleSheet.create( {
   largeButton: {
     height: 79,
     width: 278
+  },
+  login: {
+    maxWidth: 317,
+    width: dimensions.width - 70
   }
 } );

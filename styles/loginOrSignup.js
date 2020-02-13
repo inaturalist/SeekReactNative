@@ -8,16 +8,16 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
-  buttonText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    lineHeight: 24,
-    paddingHorizontal: 26,
-    paddingTop: padding.iOSPadding,
-    textAlign: "center"
-  },
+  // buttonText: {
+  //   color: colors.seekForestGreen,
+  //   fontFamily: fonts.semibold,
+  //   fontSize: 18,
+  //   letterSpacing: 1.0,
+  //   lineHeight: 24,
+  //   paddingHorizontal: 26,
+  //   paddingTop: padding.iOSPadding,
+  //   textAlign: "center"
+  // },
   container: {
     alignItems: "center",
     flex: 1,
@@ -43,17 +43,17 @@ export default StyleSheet.create( {
     maxWidth: 317,
     textAlign: "center"
   },
-  whiteButton: {
-    alignItems: "center",
-    backgroundColor: colors.white,
-    borderRadius: 34,
-    height: 52,
-    justifyContent: "center",
-    maxWidth: 317,
-    width: dimensions.width - 70
-  },
-  whiteButtonLarge: {
-    borderRadius: 100,
-    height: 79
-  }
+  // whiteButton: {
+  //   alignItems: "center",
+  //   backgroundColor: colors.white,
+  //   borderRadius: 34,
+  //   height: 52,
+  //   justifyContent: "center",
+  //   maxWidth: 317,
+  //   width: dimensions.width - 70
+  // },
+  // whiteButtonLarge: {
+  //   borderRadius: 100,
+  //   height: 79
+  // }
 } );

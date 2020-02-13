@@ -31,6 +31,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
       text="login.log_in"
       color={colors.white}
       greenText
+      login
     />
     <View style={styles.marginSmall} />
     <Button
@@ -38,6 +39,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
       text="login.sign_up"
       color={colors.white}
       greenText
+      login
     />
     <View style={styles.marginSmall} />
     <Button
@@ -46,6 +48,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
       large
       color={colors.white}
       greenText
+      login
     />
     <View style={styles.margin} />
     <Text style={styles.text}>

@@ -14,7 +14,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/home/error";
 import icons from "../../assets/icons";
 import backgrounds from "../../assets/backgrounds";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 
 type Props = {

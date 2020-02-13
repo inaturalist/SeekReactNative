@@ -10,7 +10,7 @@ import { withNavigation } from "react-navigation";
 import i18n from "../../i18n";
 import styles from "../../styles/results/match";
 import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
   +navigation: any,

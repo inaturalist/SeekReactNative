@@ -16,7 +16,7 @@ import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
   +navigation: any

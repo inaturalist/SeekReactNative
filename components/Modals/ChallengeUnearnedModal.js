@@ -15,7 +15,7 @@ import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
 import { checkIfChallengeAvailable, formatShortMonthDayYear } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { setRoute } from "../../utility/helpers";

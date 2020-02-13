@@ -6,9 +6,9 @@ import {
   Image
 } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/uiComponents/modalBackButton";
-import icons from "../../assets/icons";
+import i18n from "../../../i18n";
+import styles from "../../../styles/uiComponents/buttons/modalBackButton";
+import icons from "../../../assets/icons";
 
 type Props = {
   +closeModal: Function

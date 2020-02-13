@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { dimensions } from "../global";
+import { dimensions } from "../../global";
 
 export default StyleSheet.create( {
   backButton: {

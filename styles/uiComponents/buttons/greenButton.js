@@ -4,7 +4,7 @@ import {
   fonts,
   padding,
   dimensions
-} from "../global";
+} from "../../global";
 
 export default StyleSheet.create( {
   buttonText: {
@@ -22,7 +22,7 @@ export default StyleSheet.create( {
     height: 46,
     justifyContent: "center",
     maxWidth: 317,
-    width: 293
+    width: dimensions.width < 500 ? 293 : 317
   },
   loginHeight: {
     height: 52,

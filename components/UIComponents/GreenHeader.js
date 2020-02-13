@@ -11,8 +11,8 @@ import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
-import BackArrow from "./BackArrow";
-import CustomBackArrow from "./CustomBackArrow";
+import BackArrow from "./Buttons/BackArrow";
+import CustomBackArrow from "./Buttons/CustomBackArrow";
 import posting from "../../assets/posting";
 
 type Props = {

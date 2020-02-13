@@ -46,7 +46,7 @@ import {
   createLocationTimeoutAlert
 } from "../../utility/locationHelpers";
 import SpeciesNearby from "./SpeciesNearby";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { setAncestorRankText } from "../../utility/textHelpers";
 import UserContext from "../UserContext";
 

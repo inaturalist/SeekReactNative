@@ -14,6 +14,7 @@ import styles from "../../styles/modals/deleteModal";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import WhiteModal from "../UIComponents/WhiteModal";
+import Button from "../UIComponents/Buttons/Button";
 
 type Props = {
   +closeModal: Function,
@@ -55,40 +56,32 @@ const DeleteModal = ( {
           </TouchableOpacity>
         </View>
       </LinearGradient>
-      <View style={styles.flagContainer}>
-        <View style={styles.margin} />
-        <SpeciesCard
-          commonName={commonName}
-          handlePress={() => console.log( "pressed card" )}
-          iconicTaxonId={iconicTaxonId}
-          photo={photo}
-          scientificName={scientificName}
-        />
-        <View style={styles.margin} />
-        <Text style={styles.text}>{i18n.t( "delete.description" )}</Text>
-        <View style={styles.marginSmall} />
-        <TouchableOpacity
-          onPress={() => {
-            deleteObservation( id );
-            closeModal( true );
-          }}
-          style={styles.largeFlagButton}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "delete.yes" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-        <View style={styles.marginSmall} />
-        <TouchableOpacity
-          onPress={() => closeModal()}
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "delete.no" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-        <View style={styles.marginLarge} />
-      </View>
+      <View style={styles.margin} />
+      <SpeciesCard
+        commonName={commonName}
+        handlePress={() => console.log( "pressed card" )}
+        iconicTaxonId={iconicTaxonId}
+        photo={photo}
+        scientificName={scientificName}
+      />
+      <View style={styles.margin} />
+      <Text style={styles.text}>{i18n.t( "delete.description" )}</Text>
+      <View style={styles.marginSmall} />
+      <Button
+        handlePress={() => {
+          deleteObservation( id );
+          closeModal( true );
+        }}
+        text="delete.yes"
+        large
+      />
+      <View style={styles.marginSmall} />
+      <Button
+        handlePress={() => closeModal()}
+        text="delete.no"
+        color={gradientColorLight}
+      />
+      <View style={styles.marginLarge} />
     </WhiteModal>
   );
 };

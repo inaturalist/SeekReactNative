@@ -4,7 +4,7 @@ import React from "react";
 import { View } from "react-native";
 
 import styles from "../../styles/uiComponents/whiteModal";
-import BackButton from "./ModalBackButton";
+import BackButton from "./Buttons/ModalBackButton";
 
 type Props = {
   +children: any,

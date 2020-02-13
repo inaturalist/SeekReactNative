@@ -10,7 +10,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
 import GreenHeader from "../UIComponents/GreenHeader";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import ErrorMessage from "./ErrorMessage";
 import LoadingWheel from "../UIComponents/LoadingWheel";

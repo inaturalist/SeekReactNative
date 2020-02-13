@@ -10,7 +10,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/modals/warningModal";
 import icons from "../../assets/icons";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {

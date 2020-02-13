@@ -9,7 +9,9 @@ export default StyleSheet.create( {
     borderRadius: 40,
     maxHeight: 536,
     maxWidth: 366,
-    width: dimensions.width - dimensions.width * 0.1
+    width: dimensions.width > 350
+      ? dimensions.width - dimensions.width * 0.1
+      : dimensions.width
     // this creates margins on smaller screen sizes
   }
 } );

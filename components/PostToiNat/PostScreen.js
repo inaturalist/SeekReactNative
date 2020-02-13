@@ -31,7 +31,7 @@ import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 import PostStatus from "./PostStatus";
 import SelectSpecies from "./SelectSpecies";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import SpeciesCard from "../UIComponents/SpeciesCard";

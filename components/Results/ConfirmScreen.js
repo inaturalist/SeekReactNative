@@ -9,9 +9,9 @@ import {
 
 import styles from "../../styles/results/confirm";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
-import BackArrow from "../UIComponents/BackArrow";
+import BackArrow from "../UIComponents/Buttons/BackArrow";
 
 type Props = {
   +image: Object,

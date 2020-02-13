@@ -10,7 +10,7 @@ import { withNavigation } from "react-navigation";
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
 import { removeAccessToken } from "../../utility/loginHelpers";
-import GreenButton from "./GreenButton";
+import GreenButton from "./Buttons/GreenButton";
 import UserContext from "../UserContext";
 
 type Props = {

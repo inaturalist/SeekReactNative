@@ -12,7 +12,7 @@ import styles from "../../styles/posting/postStatus";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
 import { setRoute } from "../../utility/helpers";

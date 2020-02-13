@@ -28,7 +28,7 @@ export default StyleSheet.create( {
     borderTopRightRadius: 40,
     height: 62,
     justifyContent: "center",
-    width: 366
+    width: "100%"
   },
   headerText: {
     color: colors.white,

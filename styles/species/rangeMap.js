@@ -18,7 +18,7 @@ export default StyleSheet.create( {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     height: 56,
-    width: 366
+    width: "100%"
   },
   legendPosition: {
     bottom: 0,

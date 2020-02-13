@@ -19,22 +19,11 @@ export default StyleSheet.create( {
     marginLeft: 33,
     marginRight: 29
   },
-  flagButton: {
-    alignItems: "center",
-    borderRadius: 40,
-    height: 46,
-    justifyContent: "center",
-    width: 243
-  },
-  flagContainer: {
-    alignItems: "center",
-    marginHorizontal: 30
-  },
   flagHeader: {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     height: 62,
-    width: 366
+    width: "100%"
   },
   flagTextContainer: {
     justifyContent: "flex-end",
@@ -43,14 +32,6 @@ export default StyleSheet.create( {
   headerStyling: {
     marginRight: 15,
     paddingTop: 9
-  },
-  largeFlagButton: {
-    alignItems: "center",
-    backgroundColor: colors.red,
-    borderRadius: 40,
-    height: 79,
-    justifyContent: "center",
-    width: 278
   },
   margin: {
     marginTop: 27

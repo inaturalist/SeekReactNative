@@ -9,7 +9,7 @@ const { height } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   backgroundColor: {
     alignItems: "center",
-    width: 366
+    width: "100%"
   },
   headerMargins: {
     marginBottom: Platform.OS === "android" ? 19 : 15,

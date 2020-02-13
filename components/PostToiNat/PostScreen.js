@@ -81,11 +81,13 @@ class PostScreen extends Component<Props, State> {
       time
     } = navigation.state.params;
 
+    const date = time ? setISOTime( time ) : null;
+
     this.state = {
       latitude,
       longitude,
       location: null,
-      date: time ? setISOTime( time ) : null,
+      date,
       captive: null,
       geoprivacy: null,
       uri,
@@ -322,6 +324,8 @@ class PostScreen extends Component<Props, State> {
       description
     } = this.state;
 
+    console.log( date, "date in state" );
+
     let captiveState;
     let geoprivacyState;
 
@@ -338,6 +342,9 @@ class PostScreen extends Component<Props, State> {
     } else {
       geoprivacyState = "open";
     }
+
+    console.log( date, "date formatting in params" );
+    console.log( typeof date, "date type" );
 
     const params = {
       observation: {
@@ -508,7 +515,7 @@ class PostScreen extends Component<Props, State> {
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
               <Text style={styles.text}>
-                {date ? formatYearMonthDay( new Date( date ) ) : null}
+                {date ? formatYearMonthDay( date ) : null}
               </Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />

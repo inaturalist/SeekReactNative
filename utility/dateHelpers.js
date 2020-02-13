@@ -103,7 +103,10 @@ const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
 const setISOTime = ( time ) => formatISO( fromUnixTime( time ) );
 
 const formatYearMonthDay = ( date ) => {
-  if ( date ) {
+  if ( date && typeof date === "string" ) {
+    return format( new Date( date ), "yyyy-MM-dd" );
+  }
+  if ( date && typeof date === "object" ) {
     return format( date, "yyyy-MM-dd" );
   }
   return format( new Date(), "yyyy-MM-dd" );

@@ -1,7 +1,8 @@
 import { StyleSheet, Platform, PixelRatio } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "../global";
 
 const fontScale = PixelRatio.getFontScale();
@@ -24,8 +25,7 @@ export default StyleSheet.create( {
     marginTop: 20
   },
   flagContainer: {
-    alignItems: "center",
-    marginHorizontal: 22
+    alignItems: "center"
   },
   flagHeader: {
     borderTopLeftRadius: 40,
@@ -39,17 +39,8 @@ export default StyleSheet.create( {
     width: 129
   },
   flagTextContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "flex-end",
     marginTop: 15
-  },
-  imageContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-around"
   },
   innerContainer: {
     alignSelf: "center",
@@ -58,11 +49,14 @@ export default StyleSheet.create( {
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    overflow: "hidden",
-    width: 366
+    maxWidth: 366,
+    overflow: "hidden"
   },
   marginLarge: {
     marginTop: 45
+  },
+  marginLeft: {
+    marginLeft: 17
   },
   marginMedium: {
     marginTop: 32
@@ -73,6 +67,7 @@ export default StyleSheet.create( {
   paddingSmall: {
     paddingTop: 9
   },
+  row,
   speciesText: {
     color: colors.black,
     fontFamily: fonts.book,

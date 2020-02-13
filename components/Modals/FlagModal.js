@@ -40,7 +40,7 @@ const FlagModal = ( {
         colors={[gradientColorDark, gradientColorLight]}
         style={styles.flagHeader}
       >
-        <View style={styles.flagTextContainer}>
+        <View style={[styles.flagTextContainer, styles.row]}>
           <Text style={[styles.buttonText, styles.paddingSmall]}>
             {i18n.t( "results.flag" ).toLocaleUpperCase()}
           </Text>
@@ -51,7 +51,7 @@ const FlagModal = ( {
             <Image source={icons.closeWhite} />
           </TouchableOpacity>
         </View>
-        <View style={[styles.imageContainer, styles.flagButtonContainer]}>
+        <View style={[styles.flagButtonContainer, styles.row]}>
           <Image
             source={{ uri: userImage }}
             style={styles.flagImageCell}
@@ -59,7 +59,7 @@ const FlagModal = ( {
           {speciesSeenImage ? (
             <Image
               source={{ uri: speciesSeenImage }}
-              style={styles.flagImageCell}
+              style={[styles.flagImageCell, styles.marginLeft]}
             />
           ) : null}
         </View>

@@ -22,7 +22,7 @@ type Props = {
 const LoginOrSignupScreen = ( { navigation }: Props ) => (
   <ImageBackground
     source={backgrounds.splash}
-    style={styles.container}
+    style={[styles.container, styles.center]}
   >
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.margin} />

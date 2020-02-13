@@ -16,7 +16,7 @@ type Props = {
   +large?: boolean,
   +greenText?: boolean,
   +text: string,
-  +login: boolean
+  +login?: boolean
 }
 
 const GreenButton = ( {
@@ -46,7 +46,8 @@ const GreenButton = ( {
 GreenButton.defaultProps = {
   large: false,
   greenText: false,
-  color: null
+  color: null,
+  login: false
 };
 
 export default GreenButton;

@@ -12,6 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 import i18n from "../../i18n";
 import styles from "../../styles/modals/flagModal";
 import icons from "../../assets/icons";
+import Button from "../UIComponents/Buttons/Button";
 
 type Props = {
   +closeModal: Function,
@@ -68,8 +69,8 @@ const FlagModal = ( {
         <Text style={styles.speciesText}>{speciesText}</Text>
         <Text style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
         <View style={styles.marginSmall} />
-        <TouchableOpacity
-          onPress={() => {
+        <Button
+          handlePress={() => {
             if ( seenDate ) {
               closeModal( true );
             } else {
@@ -77,23 +78,17 @@ const FlagModal = ( {
               closeModal( true );
             }
           }}
-          style={styles.largeFlagButton}
-        >
-          <Text style={[styles.buttonText, styles.largeButtonHeight]}>
-            {seenDate
-              ? i18n.t( "results.yes_resighted" ).toLocaleUpperCase()
-              : i18n.t( "results.yes" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
+          text={seenDate
+            ? "results.yes_resighted"
+            : "results.yes"}
+          large
+        />
         <View style={styles.marginSmall} />
-        <TouchableOpacity
-          onPress={() => closeModal()}
-          style={[styles.flagButton, { backgroundColor: gradientColorLight }]}
-        >
-          <Text style={styles.buttonText}>
-            {i18n.t( "results.no" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
+        <Button
+          handlePress={() => closeModal()}
+          text="results.no"
+          color={gradientColorLight}
+        />
         <View style={styles.marginMedium} />
       </View>
     </View>

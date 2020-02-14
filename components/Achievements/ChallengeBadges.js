@@ -78,21 +78,23 @@ const ChallengeBadges = () => {
 
   return (
     <View style={styles.center}>
-      <Modal
-        showModal={showModal}
-        closeModal={closeModal}
-        modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
-          <ChallengeModal
-            challenge={selectedChallenge}
-            closeModal={closeModal}
-          />
-        ) : (
-          <ChallengeUnearnedModal
-            challenge={selectedChallenge}
-            closeModal={closeModal}
-          />
-        )}
-      />
+      {selectedChallenge && (
+        <Modal
+          showModal={showModal}
+          closeModal={closeModal}
+          modal={selectedChallenge && selectedChallenge.percentComplete === 100 ? (
+            <ChallengeModal
+              challenge={selectedChallenge}
+              closeModal={closeModal}
+            />
+          ) : (
+            <ChallengeUnearnedModal
+              challenge={selectedChallenge}
+              closeModal={closeModal}
+            />
+          )}
+        />
+      )}
       <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
       {renderChallengesRow( 0, 3 )}
       {renderChallengesRow( 3, 5 )}

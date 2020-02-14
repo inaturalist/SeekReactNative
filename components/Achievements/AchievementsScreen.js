@@ -102,11 +102,13 @@ const AchievementsScreen = ( { navigation }: Props ) => {
       <GreenHeader header="badges.achievements" />
       <ScrollView ref={scrollView}>
         {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
-        <LevelHeader
-          level={state.level}
-          nextLevelCount={state.nextLevelCount}
-          speciesCount={speciesCount}
-        />
+        {state.level && (
+          <LevelHeader
+            level={state.level}
+            nextLevelCount={state.nextLevelCount}
+            speciesCount={speciesCount}
+          />
+        )}
         <SpeciesBadges speciesBadges={state.speciesBadges} />
         <ChallengeBadges />
         <View style={[styles.row, styles.center]}>

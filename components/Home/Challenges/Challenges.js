@@ -10,14 +10,14 @@ import {
 } from "react-native";
 import { withNavigation } from "react-navigation";
 
-import i18n from "../../i18n";
-import styles from "../../styles/home/challenges";
-import logos from "../../assets/logos";
-import backgrounds from "../../assets/backgrounds";
-import { setChallengeIndex } from "../../utility/challengeHelpers";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { colors } from "../../styles/global";
-import { setRoute } from "../../utility/helpers";
+import i18n from "../../../i18n";
+import styles from "../../../styles/home/challenges";
+import logos from "../../../assets/logos";
+import backgrounds from "../../../assets/backgrounds";
+import { setChallengeIndex } from "../../../utility/challengeHelpers";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import { colors } from "../../../styles/global";
+import { setRoute } from "../../../utility/helpers";
 
 
 type Props = {

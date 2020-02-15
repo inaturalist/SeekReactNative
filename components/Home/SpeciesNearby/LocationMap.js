@@ -4,10 +4,10 @@ import React from "react";
 import { View, Image, TouchableHighlight } from "react-native";
 import MapView, { PROVIDER_DEFAULT } from "react-native-maps";
 
-import styles from "../../styles/home/locationPicker";
-import icons from "../../assets/icons";
-import postingIcons from "../../assets/posting";
-import i18n from "../../i18n";
+import styles from "../../../styles/home/locationPicker";
+import icons from "../../../assets/icons";
+import postingIcons from "../../../assets/posting";
+import i18n from "../../../i18n";
 
 type Props = {
   +region: Object,

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import LocationMap from "../Home/LocationMap";
+import LocationMap from "../Home/SpeciesNearby/LocationMap";
 import { fetchUserLocation } from "../../utility/locationHelpers";
 import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/uiComponents/greenHeader";

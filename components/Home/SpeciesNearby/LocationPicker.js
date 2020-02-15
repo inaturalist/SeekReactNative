@@ -11,13 +11,13 @@ import {
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
-import i18n from "../../i18n";
+import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
-import icons from "../../assets/icons";
-import styles from "../../styles/home/locationPicker";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import SafeAreaView from "../UIComponents/SafeAreaView";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/home/locationPicker";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import SafeAreaView from "../../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

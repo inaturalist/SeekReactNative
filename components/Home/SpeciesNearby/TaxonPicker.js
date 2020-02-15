@@ -7,9 +7,9 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import styles from "../../styles/home/header";
+import i18n from "../../../i18n";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/home/speciesNearby";
 
 type Props = {
   +updateTaxaType: Function

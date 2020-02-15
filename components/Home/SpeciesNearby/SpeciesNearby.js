@@ -1,21 +1,30 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, Platform } from "react-native";
+import {
+  View,
+  Platform,
+  Text,
+  TouchableOpacity,
+  Image,
+  Modal
+} from "react-native";
 import { NavigationEvents } from "react-navigation";
 
-import styles from "../../styles/home/speciesNearby";
-import LoadingWheel from "../UIComponents/LoadingWheel";
+import styles from "../../../styles/home/speciesNearby";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
 import Error from "./Error";
-import { colors } from "../../styles/global";
-import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
-import i18n from "../../i18n";
-import Header from "./Header";
-import { checkForInternet } from "../../utility/helpers";
-import { fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import taxonIds from "../../utility/dictionaries/taxonDict";
-import createUserAgent from "../../utility/userAgent";
+import { colors } from "../../../styles/global";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
+import i18n from "../../../i18n";
+import { checkForInternet } from "../../../utility/helpers";
+import { fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import { checkLocationPermissions } from "../../../utility/androidHelpers.android";
+import taxonIds from "../../../utility/dictionaries/taxonDict";
+import createUserAgent from "../../../utility/userAgent";
+import TaxonPicker from "./TaxonPicker";
+import icons from "../../../assets/icons";
+import LocationPicker from "./LocationPicker";
 
 type Props = {}
 
@@ -240,15 +249,33 @@ class SpeciesNearby extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={() => this.requestAndroidPermissions()}
         />
-        <Header
-          location={location}
-          toggleLocationPicker={this.toggleLocationPicker}
-          updateTaxaType={this.updateTaxaType}
-          latitude={latitude}
-          longitude={longitude}
-          modalVisible={modalVisible}
-          updateLocation={this.updateLocation}
-        />
+        <View style={styles.container}>
+          <Modal visible={modalVisible}>
+            <LocationPicker
+              latitude={latitude}
+              location={location}
+              longitude={longitude}
+              toggleLocationPicker={this.toggleLocationPicker}
+              updateLocation={this.updateLocation}
+            />
+          </Modal>
+          <Text style={[styles.headerText, styles.header]}>
+            {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+          </Text>
+          <TouchableOpacity
+            onPress={() => this.toggleLocationPicker()}
+            style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}
+          >
+            <Image source={icons.locationWhite} style={styles.image} />
+            <View style={styles.whiteButton}>
+              {location
+                ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
+                : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
+            </View>
+          </TouchableOpacity>
+          <TaxonPicker updateTaxaType={this.updateTaxaType} />
+          <View style={styles.marginBottom} />
+        </View>
         <View style={styles.speciesNearbyContainer}>
           {species}
         </View>

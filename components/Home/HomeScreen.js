@@ -10,9 +10,9 @@ import {
 import { NavigationEvents } from "react-navigation";
 
 import styles from "../../styles/home/home";
-import SpeciesNearby from "./SpeciesNearby";
+import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
 import GetStarted from "../Modals/GetStarted";
-import ChallengeCard from "./ChallengeCard";
+import ChallengeCard from "./Challenges/ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";
 import Spacer from "../UIComponents/iOSSpacer";

@@ -7,9 +7,9 @@ import {
   Image
 } from "react-native";
 
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import styles from "../../styles/home/noChallenges";
+import i18n from "../../../i18n";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/home/noChallenges";
 
 const NoChallenges = () => (
   <View style={[styles.row, styles.center]}>

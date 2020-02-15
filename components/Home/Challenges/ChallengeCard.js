@@ -5,13 +5,13 @@ import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import { withNavigation } from "react-navigation";
 
-import styles from "../../styles/home/challenges";
-import realmConfig from "../../models/index";
+import styles from "../../../styles/home/challenges";
+import realmConfig from "../../../models";
 import Challenges from "./Challenges";
-import GreenText from "../UIComponents/GreenText";
+import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
-import LoadingWheel from "../UIComponents/LoadingWheel";
-import { colors } from "../../styles/global";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +navigation: any

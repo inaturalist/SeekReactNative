@@ -27,7 +27,7 @@ type Props = {
   +longitude: ?number,
   +location: ?string,
   +updateLocation: Function,
-  +toggleLocationPicker: Function
+  +closeLocationPicker: Function
 }
 
 const LocationPicker = ( {
@@ -35,7 +35,7 @@ const LocationPicker = ( {
   longitude,
   location,
   updateLocation,
-  toggleLocationPicker
+  closeLocationPicker
 }: Props ) => {
   const [region, setRegion] = useState( {
     latitudeDelta,
@@ -110,7 +110,7 @@ const LocationPicker = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          onPress={() => toggleLocationPicker()}
+          onPress={() => closeLocationPicker()}
           style={styles.backButton}
         >
           <Image source={icons.backButton} />
@@ -146,6 +146,7 @@ const LocationPicker = ( {
               truncateCoordinates( region.latitude ),
               truncateCoordinates( region.longitude )
             );
+            closeLocationPicker();
           }}
           letterSpacing={0.68}
           text="location_picker.button"

@@ -4,10 +4,7 @@ import React, { Component } from "react";
 import {
   View,
   Platform,
-  Text,
-  TouchableOpacity,
-  Image,
-  Modal
+  Text
 } from "react-native";
 import { NavigationEvents } from "react-navigation";
 
@@ -18,24 +15,21 @@ import { colors } from "../../../styles/global";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
 import i18n from "../../../i18n";
 import { checkForInternet } from "../../../utility/helpers";
-import { fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../../utility/androidHelpers.android";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../../utility/userAgent";
 import TaxonPicker from "./TaxonPicker";
-import icons from "../../../assets/icons";
-import LocationPicker from "./LocationPicker";
+import LocationPickerButton from "./LocationPickerButton";
 
 type Props = {}
 
 type State = {
   latitude: ?number,
   longitude: ?number,
-  location: ?string,
   taxa: Array<Object>,
   taxaType: string,
   loading: boolean,
-  modalVisible: boolean,
   error: ?string
 }
 
@@ -46,17 +40,14 @@ class SpeciesNearby extends Component<Props, State> {
     this.state = {
       latitude: null,
       longitude: null,
-      location: null,
       taxa: [],
       taxaType: "all",
       loading: true,
-      modalVisible: false,
       error: null
     };
 
     ( this:any ).updateTaxaType = this.updateTaxaType.bind( this );
     ( this:any ).updateLocation = this.updateLocation.bind( this );
-    ( this:any ).toggleLocationPicker = this.toggleLocationPicker.bind( this );
     ( this:any ).requestAndroidPermissions = this.requestAndroidPermissions.bind( this );
   }
 
@@ -67,9 +58,8 @@ class SpeciesNearby extends Component<Props, State> {
     }
   }
 
-  setLocation( location: string, latitude: number, longitude: number ) {
+  setLocation( latitude: number, longitude: number ) {
     this.setState( {
-      location,
       latitude,
       longitude
     }, () => this.setParamsForSpeciesNearby() );
@@ -101,7 +91,8 @@ class SpeciesNearby extends Component<Props, State> {
       const { latitude, longitude } = coords;
 
       if ( latitude && longitude ) {
-        this.reverseGeocodeLocation( latitude, longitude );
+        this.setLocation( latitude, longitude );
+        // this.reverseGeocodeLocation( latitude, longitude );
       }
     } ).catch( ( errorCode ) => {
       if ( errorCode === 1 ) {
@@ -168,14 +159,6 @@ class SpeciesNearby extends Component<Props, State> {
     }, () => this.setParamsForSpeciesNearby() );
   }
 
-  reverseGeocodeLocation( lat: number, lng: number ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      this.setLocation( location, lat, lng );
-    } ).catch( () => {
-      this.checkInternetConnection();
-    } );
-  }
-
   checkInternetConnection() {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
@@ -200,27 +183,16 @@ class SpeciesNearby extends Component<Props, State> {
       } );
   }
 
-  toggleLocationPicker() {
-    const { modalVisible, error } = this.state;
-
-    if ( !error ) {
-      this.setState( { modalVisible: !modalVisible } );
-    }
-  }
-
   updateLocation( latitude: number, longitude: number ) {
     this.setLoading( true );
-    this.reverseGeocodeLocation( latitude, longitude );
-    this.toggleLocationPicker();
+    this.setLocation( latitude, longitude );
   }
 
   render() {
     const {
       loading,
       error,
-      location,
       taxa,
-      modalVisible,
       latitude,
       longitude
     } = this.state;
@@ -250,29 +222,15 @@ class SpeciesNearby extends Component<Props, State> {
           onWillFocus={() => this.requestAndroidPermissions()}
         />
         <View style={styles.container}>
-          <Modal visible={modalVisible}>
-            <LocationPicker
-              latitude={latitude}
-              location={location}
-              longitude={longitude}
-              toggleLocationPicker={this.toggleLocationPicker}
-              updateLocation={this.updateLocation}
-            />
-          </Modal>
           <Text style={[styles.headerText, styles.header]}>
             {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
           </Text>
-          <TouchableOpacity
-            onPress={() => this.toggleLocationPicker()}
-            style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}
-          >
-            <Image source={icons.locationWhite} style={styles.image} />
-            <View style={styles.whiteButton}>
-              {location
-                ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-                : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
-            </View>
-          </TouchableOpacity>
+          <LocationPickerButton
+            latitude={latitude}
+            longitude={longitude}
+            updateLocation={this.updateLocation}
+            error={error}
+          />
           <TaxonPicker updateTaxaType={this.updateTaxaType} />
           <View style={styles.marginBottom} />
         </View>

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import {
   Image,
   ScrollView,
@@ -19,25 +19,14 @@ import GreenHeader from "./UIComponents/GreenHeader";
 import Padding from "./UIComponents/Padding";
 import SafeAreaView from "./UIComponents/SafeAreaView";
 import UserContext from "./UserContext";
+import useScrollToTop from "../utility/customHooks";
 
 const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
   const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
 
-  const scrollToTop = () => {
-    if ( scrollView && scrollView.current !== null ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  };
-
-  useEffect( () => {
-    navigation.addListener( "willFocus", () => {
-      scrollToTop();
-    } );
-  } );
+  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   return (
     <UserContext.Consumer>

@@ -45,7 +45,11 @@ const LocationPickerButton = ( {
     // reverseGeocodeLocation
     fetchLocationName( latitude, longitude ).then( ( locationName ) => {
       if ( isCurrent ) {
-        setLocation( locationName );
+        if ( locationName === null ) {
+          setLocation( i18n.t( "location_picker.undefined" ) ); // for oceans
+        } else {
+          setLocation( locationName );
+        }
       }
     } ).catch( () => {
       if ( isCurrent ) {
@@ -69,28 +73,20 @@ const LocationPickerButton = ( {
           updateLocation={updateLocation}
         />
       </Modal>
-      {!error ? (
-        <TouchableOpacity
-          onPress={() => openLocationPicker()}
-          style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}
-        >
-          <Image source={icons.locationWhite} style={styles.image} />
-          <View style={styles.whiteButton}>
+      <TouchableOpacity
+        onPress={() => openLocationPicker()}
+        style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}
+        disabled={error !== null}
+      >
+        <Image source={icons.locationWhite} style={styles.image} />
+        <View style={styles.whiteButton}>
+          <Text style={styles.buttonText}>
             {location
-              ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
-          </View>
-        </TouchableOpacity>
-      ) : (
-        <View style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}>
-          <Image source={icons.locationWhite} style={styles.image} />
-          <View style={styles.whiteButton}>
-            {location
-              ? <Text style={styles.buttonText}>{location.toLocaleUpperCase()}</Text>
-              : <Text style={styles.buttonText}>{i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}</Text>}
-          </View>
+              ? location.toLocaleUpperCase()
+              : i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}
+          </Text>
         </View>
-      )}
+      </TouchableOpacity>
     </>
   );
 };

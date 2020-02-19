@@ -9,6 +9,7 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
@@ -23,12 +24,9 @@ import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
+import useScrollToTop from "../../utility/customHooks";
 
-type Props = {
-  +navigation: any
-}
-
-const AchievementsScreen = ( { navigation }: Props ) => {
+const AchievementsScreen = ( { navigation }: NavigationStackScreenProps ) => {
   const scrollView = useRef( null );
   const [speciesCount, setSpeciesCount] = useState( null );
   const [state, setState] = useState( {
@@ -38,13 +36,7 @@ const AchievementsScreen = ( { navigation }: Props ) => {
     badgesEarned: null
   } );
 
-  const scrollToTop = () => {
-    if ( scrollView && scrollView.current !== null ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  };
+  useScrollToTop( scrollView, navigation );
 
   const fetchBadges = () => {
     Realm.open( realmConfig )
@@ -91,7 +83,6 @@ const AchievementsScreen = ( { navigation }: Props ) => {
   };
 
   useEffect( () => {
-    scrollToTop();
     fetchBadges();
     fetchSpeciesCount();
   }, [] );

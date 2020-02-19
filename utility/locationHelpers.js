@@ -40,14 +40,12 @@ const fetchTruncatedUserLocation = () => (
 const fetchLocationName = ( lat, lng ) => (
   new Promise( ( resolve, reject ) => {
     Geocoder.geocodePosition( { lat, lng } ).then( ( result ) => {
-      // Alert.alert( JSON.stringify( result ), "location name" );
       if ( result.length === 0 ) {
         resolve( null );
       }
       const { locality, subAdminArea } = result[0];
       resolve( locality || subAdminArea );
     } ).catch( ( e ) => {
-      // Alert.alert( JSON.stringify( e ), "location name error" );
       reject( e );
     } );
   } )

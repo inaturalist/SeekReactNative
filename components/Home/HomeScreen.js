@@ -1,13 +1,13 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   ScrollView,
   Platform,
   StatusBar
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationStackScreenProps } from "react-navigation-stack";
 
 import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
@@ -18,76 +18,49 @@ import { checkIfCardShown } from "../../utility/helpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import RNModal from "../UIComponents/Modal";
+import useScrollToTop from "../../utility/customHooks";
 
-type Props = {}
+const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
+  const scrollView = useRef( null );
+  const [showModal, setModal] = useState( false );
 
-type State = {
-  showModal: boolean
-}
+  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
-class HomeScreen extends Component<Props, State> {
-  scrollView: ?any
+  const openModal = () => {
+    setModal( true );
+  };
 
-  constructor() {
-    super();
+  const closeModal = () => {
+    setModal( false );
+  };
 
-    this.state = {
-      showModal: false
+  useEffect( () => {
+    const checkForFirstLaunch = async () => {
+      const isFirstLaunch = await checkIfCardShown();
+      if ( isFirstLaunch ) {
+        openModal();
+      }
     };
+    checkForFirstLaunch();
+  }, [] );
 
-    ( this:any ).closeModal = this.closeModal.bind( this );
-  }
-
-  openModal() {
-    this.setState( { showModal: true } );
-  }
-
-  closeModal() {
-    this.setState( { showModal: false } );
-  }
-
-  async checkForFirstLaunch() {
-    const isFirstLaunch = await checkIfCardShown();
-    if ( isFirstLaunch ) {
-      this.openModal();
-    }
-  }
-
-  scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  }
-
-  render() {
-    const { showModal } = this.state;
-
-    return (
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <SafeAreaView />
-        <NavigationEvents
-          onWillBlur={() => this.scrollToTop()}
-          onWillFocus={() => this.checkForFirstLaunch()}
-        />
-        <RNModal
-          showModal={showModal}
-          closeModal={this.closeModal}
-          modal={<GetStarted closeModal={this.closeModal} />}
-        />
-        <ScrollView
-          ref={( ref ) => { this.scrollView = ref; }}
-        >
-          {Platform.OS === "ios" && <Spacer />}
-          <SpeciesNearby />
-          <ChallengeCard />
-          <Padding />
-        </ScrollView>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView />
+      <RNModal
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={<GetStarted closeModal={closeModal} />}
+      />
+      <ScrollView ref={scrollView}>
+        {Platform.OS === "ios" && <Spacer />}
+        <SpeciesNearby />
+        <ChallengeCard />
+        <Padding />
+      </ScrollView>
+    </View>
+  );
+};
 
 export default HomeScreen;

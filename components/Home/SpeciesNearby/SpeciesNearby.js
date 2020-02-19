@@ -92,7 +92,6 @@ class SpeciesNearby extends Component<Props, State> {
 
       if ( latitude && longitude ) {
         this.setLocation( latitude, longitude );
-        // this.reverseGeocodeLocation( latitude, longitude );
       }
     } ).catch( ( errorCode ) => {
       if ( errorCode === 1 ) {

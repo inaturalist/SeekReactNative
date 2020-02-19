@@ -308,12 +308,12 @@ class ARCamera extends Component<Props, State> {
           closeModal={this.closeModal}
           modal={<WarningModal closeModal={this.closeModal} />}
         />
-        {loading ? (
+        {loading && (
           <View style={styles.loading}>
             <LoadingWheel color="white" />
           </View>
-        ) : null}
-        {error ? <CameraError error={error} errorEvent={errorEvent} /> : null}
+        )}
+        {error && <CameraError error={error} errorEvent={errorEvent} />}
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
@@ -322,7 +322,7 @@ class ARCamera extends Component<Props, State> {
         >
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
-        {!error ? (
+        {!error && (
           <>
             <ARCameraHeader
               commonName={commonName}
@@ -330,27 +330,20 @@ class ARCamera extends Component<Props, State> {
               rankToRender={rankToRender}
             />
             <Text style={styles.scanText}>{helpText}</Text>
-            {!pictureTaken ? (
-              <TouchableOpacity
-                accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-                accessible
-                onPress={() => {
-                  this.setPictureTaken();
-                  this.takePicture();
-                }}
-                style={styles.shutter}
-              >
-                {ranks && ranks.species
-                  ? <Image source={icons.arCameraGreen} />
-                  : <Image source={icons.arCameraButton} />}
-              </TouchableOpacity>
-            ) : (
-              <View style={styles.shutter}>
-                {ranks && ranks.species
-                  ? <Image source={icons.arCameraGreen} />
-                  : <Image source={icons.arCameraButton} />}
-              </View>
-            )}
+            <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+              accessible
+              onPress={() => {
+                this.setPictureTaken();
+                this.takePicture();
+              }}
+              style={styles.shutter}
+              disabled={pictureTaken}
+            >
+              {ranks && ranks.species
+                ? <Image source={icons.arCameraGreen} />
+                : <Image source={icons.arCameraButton} />}
+            </TouchableOpacity>
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.help" )}
               accessible
@@ -360,8 +353,8 @@ class ARCamera extends Component<Props, State> {
               <Image source={icons.cameraHelp} />
             </TouchableOpacity>
           </>
-        ) : null}
-        {focusedScreen ? ( // this is necessary for handleResumePreview to work properly in iOS
+        )}
+        {focusedScreen && ( // this is necessary for handleResumePreview to work properly in iOS
           <INatCamera
             ref={( ref ) => {
               this.camera = ref;
@@ -378,7 +371,7 @@ class ARCamera extends Component<Props, State> {
             taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
             taxonomyPath={dirTaxonomy}
           />
-        ) : null}
+        )}
       </View>
     );
   }

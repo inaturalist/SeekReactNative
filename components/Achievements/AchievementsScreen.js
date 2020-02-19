@@ -24,7 +24,7 @@ import LoginCard from "../UIComponents/LoginCard";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
-import useScrollToTop from "../../utility/customHooks";
+import { useScrollToTop } from "../../utility/customHooks";
 
 const AchievementsScreen = ( { navigation }: NavigationStackScreenProps ) => {
   const scrollView = useRef( null );

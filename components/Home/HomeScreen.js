@@ -18,7 +18,7 @@ import { checkIfCardShown } from "../../utility/helpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import RNModal from "../UIComponents/Modal";
-import useScrollToTop from "../../utility/customHooks";
+import { useScrollToTop } from "../../utility/customHooks";
 
 const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
   const scrollView = useRef( null );

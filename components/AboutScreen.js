@@ -19,7 +19,7 @@ import GreenHeader from "./UIComponents/GreenHeader";
 import Padding from "./UIComponents/Padding";
 import SafeAreaView from "./UIComponents/SafeAreaView";
 import UserContext from "./UserContext";
-import useScrollToTop from "../utility/customHooks";
+import { useScrollToTop } from "../utility/customHooks";
 
 const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
   const scrollView = useRef( null );
@@ -59,26 +59,16 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
             <View style={styles.block} />
             <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
             <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
-            {Platform.OS === "android" && user.login ? (
-              <TouchableOpacity
-                onPress={() => navigation.navigate( "DebugAndroid" )}
-                style={styles.debug}
-              >
-                <Text style={styles.greenText}>
-                  {i18n.t( "about.version" ).toLocaleUpperCase()}
-                  {` ${appVersion} (${buildVersion})`}
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <>
-                <View style={styles.block} />
-                <Text style={styles.greenText}>
-                  {i18n.t( "about.version" ).toLocaleUpperCase()}
-                  {` ${appVersion} (${buildVersion})`}
-                </Text>
-                <View style={styles.block} />
-              </>
-            )}
+            <TouchableOpacity
+              onPress={() => navigation.navigate( "DebugAndroid" )}
+              style={styles.debug}
+              disabled={Platform.OS === "ios" || !user.login}
+            >
+              <Text style={styles.greenText}>
+                {i18n.t( "about.version" ).toLocaleUpperCase()}
+                {` ${appVersion} (${buildVersion})`}
+              </Text>
+            </TouchableOpacity>
             <Text style={styles.text}>
               {i18n.t( "about.help" )}
             </Text>

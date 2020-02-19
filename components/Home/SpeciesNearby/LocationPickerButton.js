@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -13,7 +13,7 @@ import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
-import { fetchLocationName } from "../../../utility/locationHelpers";
+import { useLocationName } from "../../../utility/customHooks";
 
 type Props = {
   latitude: ?number,
@@ -28,8 +28,8 @@ const LocationPickerButton = ( {
   updateLocation,
   error
 }: Props ) => {
-  const [location, setLocation] = useState( null );
   const [showModal, setModal] = useState( false );
+  const location = useLocationName( latitude, longitude );
 
   const openLocationPicker = () => {
     setModal( true );
@@ -38,29 +38,6 @@ const LocationPickerButton = ( {
   const closeLocationPicker = () => {
     setModal( false );
   };
-
-  useEffect( () => {
-    let isCurrent = true;
-
-    // reverseGeocodeLocation
-    fetchLocationName( latitude, longitude ).then( ( locationName ) => {
-      if ( isCurrent ) {
-        if ( locationName === null ) {
-          setLocation( i18n.t( "location_picker.undefined" ) ); // for oceans
-        } else {
-          setLocation( locationName );
-        }
-      }
-    } ).catch( () => {
-      if ( isCurrent ) {
-        setLocation( null );
-      }
-    } );
-
-    return () => {
-      isCurrent = false;
-    };
-  }, [latitude, longitude] );
 
   return (
     <>

@@ -23,14 +23,14 @@ const LocationMap = ( {
   posting
 }: Props ) => (
   <View style={styles.container}>
-    {region.latitude ? (
+    {region.latitude && (
       <MapView
         onRegionChangeComplete={r => onRegionChange( r )}
         provider={PROVIDER_DEFAULT}
-        region={region}
+        initialRegion={region}
         style={styles.map}
       />
-    ) : null}
+    )}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>
       {posting
         ? <Image source={postingIcons.crosshair} />

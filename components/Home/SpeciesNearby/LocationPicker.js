@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -44,7 +44,7 @@ const LocationPicker = ( {
     longitude
   } );
 
-  const [loc, setLocation] = useState( location );
+  const [inputLocation, setInputLocation] = useState( location );
 
   const setCoordsByLocationName = ( newLocation ) => {
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
@@ -54,7 +54,7 @@ const LocationPicker = ( {
       const { locality, subAdminArea, position } = result[0];
       const { lng, lat } = position;
 
-      setLocation( locality || subAdminArea );
+      setInputLocation( locality || subAdminArea );
       setRegion( {
         latitude: lat,
         longitude: lng,
@@ -69,9 +69,9 @@ const LocationPicker = ( {
   const reverseGeocodeLocation = ( lat, lng ) => {
     fetchLocationName( lat, lng ).then( ( newLocation ) => {
       if ( newLocation === null ) {
-        setLocation( i18n.t( "location_picker.undefined" ) );
-      } else if ( loc !== newLocation ) {
-        setLocation( newLocation );
+        setInputLocation( i18n.t( "location_picker.undefined" ) );
+      } else if ( inputLocation !== newLocation ) {
+        setInputLocation( newLocation );
       }
     } ).catch( ( e ) => {
       console.log( e, "error" );
@@ -103,6 +103,8 @@ const LocationPicker = ( {
     } );
   };
 
+  console.log( region, inputLocation, "region and input loc" );
+
   return (
     <View style={styles.container}>
       <SafeAreaView />
@@ -123,11 +125,11 @@ const LocationPicker = ( {
         <View style={styles.row}>
           <Image source={icons.locationWhite} />
           <TextInput
-            accessibilityLabel={location}
+            accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
             onChangeText={text => setCoordsByLocationName( text )}
-            placeholder={loc}
+            placeholder={inputLocation}
             placeholderTextColor="#828282"
             style={styles.inputField}
             textContentType="addressCity"

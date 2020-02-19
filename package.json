@@ -11,7 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.8.3",
     "@react-native-community/async-storage": "^1.7.1",
-    "@react-native-community/cameraroll": "^1.3.1",
+    "@react-native-community/cameraroll": "^1.4.1",
     "@react-native-community/datetimepicker": "^2.1.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.5",
@@ -21,7 +21,6 @@
     "flow-typed": "^2.6.2",
     "i18n-js": "^3.5.1",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
-    "install": "^0.13.0",
     "react": "^16.9.0",
     "react-native": "^0.61.5",
     "react-native-appearance": "^0.3.2",
@@ -55,7 +54,7 @@
     "react-navigation-drawer": "^2.3.3",
     "react-navigation-stack": "^2.0.16",
     "react-navigation-tabs": "^2.7.0",
-    "realm": "^3.6.3"
+    "realm": "^3.6.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

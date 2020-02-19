@@ -45,14 +45,12 @@ const Error = ( {
       source={backgrounds.noSpeciesNearby}
       style={[styles.background, styles.center]}
     >
-      <TouchableOpacity
-        onPress={() => requestAndroidPermissions()}
-      >
+      <TouchableOpacity onPress={() => requestAndroidPermissions()}>
         <View style={styles.row}>
           <Image source={error === "internet" ? icons.internet : icons.error} />
           <Text style={styles.text}>{text}</Text>
         </View>
-        {error === "location" ? (
+        {error === "location" && (
           <View style={styles.greenButton}>
             <GreenButton
               color={colors.seekGreen}
@@ -60,7 +58,7 @@ const Error = ( {
               text="species_nearby.enable_location"
             />
           </View>
-        ) : null}
+        )}
       </TouchableOpacity>
     </ImageBackground>
   );

@@ -70,10 +70,10 @@ export default StyleSheet.create( {
   help: {
     bottom: 0,
     paddingBottom: 35,
-    paddingHorizontal: 48,
+    paddingHorizontal: 10,
     paddingTop: 35,
     position: "absolute",
-    right: 64 - 48,
+    right: 64 - 10,
     zIndex: 1
   },
   loading: {
@@ -109,7 +109,10 @@ export default StyleSheet.create( {
     textShadowRadius: 3
   },
   shutter: {
-    bottom: 18,
+    bottom: 0,
+    paddingBottom: 18,
+    paddingHorizontal: 48,
+    paddingTop: 18,
     position: "absolute",
     zIndex: 1
   }

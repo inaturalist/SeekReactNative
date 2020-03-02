@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -102,8 +102,6 @@ const LocationPicker = ( {
       }
     } );
   };
-
-  console.log( region, inputLocation, "region and input loc" );
 
   return (
     <View style={styles.container}>

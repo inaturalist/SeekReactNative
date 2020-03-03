@@ -65,6 +65,7 @@ class SpeciesNearby extends Component<Props, State> {
       fetchTruncatedUserLocation().then( ( coords ) => {
         if ( coords.latitude && coords.longitude ) {
           this.setLocation( coords.latitude, coords.longitude );
+          this.checkForInternetError();
         }
       } ).catch( ( errorCode ) => {
         if ( errorCode === 1 ) {
@@ -100,9 +101,7 @@ class SpeciesNearby extends Component<Props, State> {
     this.setLocation( latitude, longitude );
   }
 
-  checkForErrors() {
-    this.requestAndroidPermissions();
-
+  checkForInternetError() {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
         this.setError( "internet" );
@@ -112,6 +111,10 @@ class SpeciesNearby extends Component<Props, State> {
     } ).catch( () => this.setError( null ) );
   }
 
+  checkForErrors() {
+    this.requestAndroidPermissions();
+  }
+
   render() {
     const {
       error,
@@ -119,6 +122,8 @@ class SpeciesNearby extends Component<Props, State> {
       longitude,
       taxaType
     } = this.state;
+
+    // console.log( this.state, "state in species nearby" );
 
     return (
       <>

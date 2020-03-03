@@ -54,6 +54,8 @@ const NoInternetError = ( {
 }: Props ) => {
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
+  console.log( about, "about string" );
+
   return (
     <>
       <View style={styles.secondTextContainer}>

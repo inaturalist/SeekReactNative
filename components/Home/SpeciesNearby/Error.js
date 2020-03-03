@@ -19,12 +19,12 @@ import { colors } from "../../../styles/global";
 
 type Props = {
   +error: string,
-  +requestAndroidPermissions: Function
+  +checkForErrors: Function
 }
 
 const Error = ( {
   error,
-  requestAndroidPermissions
+  checkForErrors
 }: Props ) => {
   let text;
 
@@ -45,7 +45,7 @@ const Error = ( {
       source={backgrounds.noSpeciesNearby}
       style={[styles.background, styles.center]}
     >
-      <TouchableOpacity onPress={() => requestAndroidPermissions()}>
+      <TouchableOpacity onPress={() => checkForErrors()}>
         <View style={styles.row}>
           <Image source={error === "internet" ? icons.internet : icons.error} />
           <Text style={styles.text}>{text}</Text>

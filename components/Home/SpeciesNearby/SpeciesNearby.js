@@ -13,6 +13,7 @@ import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
 import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
+import { useLocationName } from "../../../utility/customHooks";
 
 const SpeciesNearby = () => {
   const [latLng, setLatLng] = useState( {
@@ -21,8 +22,9 @@ const SpeciesNearby = () => {
   } );
   const [taxaType, setTaxaType] = useState( "all" );
   const [error, setError] = useState( null );
+  const location = useLocationName( latLng.latitude, latLng.longitude );
 
-  const updateLocation = ( latitude, longitude ) => {
+  const updateLatLng = ( latitude, longitude ) => {
     setLatLng( {
       latitude,
       longitude
@@ -47,7 +49,7 @@ const SpeciesNearby = () => {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords.latitude && coords.longitude ) {
         setError( null );
-        updateLocation( coords.latitude, coords.longitude );
+        updateLatLng( coords.latitude, coords.longitude );
       }
     } ).catch( ( errorCode ) => {
       setLocationError( errorCode );
@@ -55,7 +57,6 @@ const SpeciesNearby = () => {
   };
 
   const requestAndroidPermissions = () => {
-    console.log( error === "internet", "internet plus latlng", latLng );
     if ( !latLng.latitude || !latLng.longitude ) {
       // only update location if user has not selected a location already
       if ( Platform.OS === "android" ) {
@@ -76,7 +77,7 @@ const SpeciesNearby = () => {
     if ( error === "internet" ) {
       setError( null );
     }
-    requestAndroidPermissions();
+    requestAndroidPermissions(); // 16 seconds to load location on Android due to old API
   };
 
   const checkForInternetError = () => {
@@ -89,10 +90,6 @@ const SpeciesNearby = () => {
     } ).catch( () => resetInternetErrorAndFetchLocation() );
   };
 
-  const checkForErrors = () => {
-    checkForInternetError();
-  };
-
   return (
     <>
       <View style={styles.container}>
@@ -102,8 +99,9 @@ const SpeciesNearby = () => {
         <LocationPickerButton
           latitude={latLng.latitude}
           longitude={latLng.longitude}
-          updateLocation={updateLocation}
+          updateLatLng={updateLatLng}
           error={error}
+          location={location}
         />
         <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
         <View style={styles.marginBottom} />
@@ -113,7 +111,7 @@ const SpeciesNearby = () => {
         latitude={latLng.latitude}
         longitude={latLng.longitude}
         error={error}
-        checkForErrors={checkForErrors}
+        checkForErrors={checkForInternetError}
       />
       <View style={styles.greenMargin} />
     </>

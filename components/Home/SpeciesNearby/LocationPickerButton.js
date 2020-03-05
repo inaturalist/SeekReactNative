@@ -13,23 +13,23 @@ import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
-import { useLocationName } from "../../../utility/customHooks";
 
 type Props = {
   latitude: ?number,
   longitude: ?number,
-  updateLocation: Function,
-  error?: ?string
+  updateLatLng: Function,
+  error?: ?string,
+  location: ?string
 }
 
 const LocationPickerButton = ( {
   latitude,
   longitude,
-  updateLocation,
-  error
+  updateLatLng,
+  error,
+  location
 }: Props ) => {
   const [showModal, setModal] = useState( false );
-  const location = useLocationName( latitude, longitude );
 
   const openLocationPicker = () => setModal( true );
   const closeLocationPicker = () => setModal( false );
@@ -42,7 +42,7 @@ const LocationPickerButton = ( {
           location={location}
           longitude={longitude}
           closeLocationPicker={closeLocationPicker}
-          updateLocation={updateLocation}
+          updateLatLng={updateLatLng}
         />
       </Modal>
       <TouchableOpacity

@@ -26,7 +26,7 @@ type Props = {
   +latitude: ?number,
   +longitude: ?number,
   +location: ?string,
-  +updateLocation: Function,
+  +updateLatLng: Function,
   +closeLocationPicker: Function
 }
 
@@ -34,7 +34,7 @@ const LocationPicker = ( {
   latitude,
   longitude,
   location,
-  updateLocation,
+  updateLatLng,
   closeLocationPicker
 }: Props ) => {
   const [region, setRegion] = useState( {
@@ -142,7 +142,7 @@ const LocationPicker = ( {
       <View style={styles.footer}>
         <GreenButton
           handlePress={() => {
-            updateLocation(
+            updateLatLng(
               truncateCoordinates( region.latitude ),
               truncateCoordinates( region.longitude )
             );

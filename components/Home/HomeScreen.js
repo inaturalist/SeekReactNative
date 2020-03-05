@@ -26,13 +26,8 @@ const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
 
   useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
-  const openModal = () => {
-    setModal( true );
-  };
-
-  const closeModal = () => {
-    setModal( false );
-  };
+  const openModal = () => setModal( true );
+  const closeModal = () => setModal( false );
 
   useEffect( () => {
     const checkForFirstLaunch = async () => {

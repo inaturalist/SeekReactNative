@@ -2,7 +2,7 @@ import { NativeModules } from "react-native";
 import mockAsyncStorage from "@react-native-community/async-storage/jest/async-storage-mock";
 
 NativeModules.RNCNetInfo = {
-  getCurrentState: jest.fn( () => Promise.resolve() ),
+  // getCurrentState: jest.fn( () => Promise.resolve() ),
   addListener: jest.fn(),
   removeListeners: jest.fn()
 };

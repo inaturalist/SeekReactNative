@@ -1,159 +1,123 @@
-// @flow
-
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   View,
   Platform,
   Text
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
 
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
-import { checkForInternet } from "../../../utility/helpers";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../../utility/androidHelpers.android";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
 import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
+import { checkForInternet } from "../../../utility/helpers";
 
-type Props = {}
+const SpeciesNearby = () => {
+  const [latLng, setLatLng] = useState( {
+    latitude: null,
+    longitude: null
+  } );
+  const [taxaType, setTaxaType] = useState( "all" );
+  const [error, setError] = useState( null );
 
-type State = {
-  latitude: ?number,
-  longitude: ?number,
-  taxaType: string,
-  error: ?string
-}
-
-class SpeciesNearby extends Component<Props, State> {
-  constructor() {
-    super();
-
-    this.state = {
-      latitude: null,
-      longitude: null,
-      taxaType: "all",
-      error: null
-    };
-
-    ( this:any ).updateTaxaType = this.updateTaxaType.bind( this );
-    ( this:any ).updateLocation = this.updateLocation.bind( this );
-    ( this:any ).checkForErrors = this.checkForErrors.bind( this );
-  }
-
-  setLocation( latitude: number, longitude: number ) {
-    this.setState( {
+  const updateLocation = ( latitude, longitude ) => {
+    setLatLng( {
       latitude,
       longitude
     } );
-  }
+  };
 
-  setError( newError: ?string ) {
-    const { error } = this.state;
+  const updateTaxaType = ( type ) => {
+    setTaxaType( type );
+  };
 
-    if ( error !== newError ) {
-      // this ensures the loading wheel stays in place when its needed
-      this.setState( { error: newError } );
-    }
-  }
-
-  getGeolocation() {
-    const { latitude, longitude } = this.state;
-    if ( !latitude || !longitude ) {
-      // only update location if user has not selected a location already
-      fetchTruncatedUserLocation().then( ( coords ) => {
-        if ( coords.latitude && coords.longitude ) {
-          this.setLocation( coords.latitude, coords.longitude );
-          this.checkForInternetError();
-        }
-      } ).catch( ( errorCode ) => {
-        if ( errorCode === 1 ) {
-          this.setError( "location" );
-        } else if ( errorCode === 2 ) {
-          this.setError( "no_gps" );
-        } else {
-          this.setError( "location_timeout" );
-        }
-      } );
-    }
-  }
-
-  requestAndroidPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.getGeolocation();
-        } else {
-          this.setError( "location" );
-        }
-      } );
+  const setLocationError = ( errorCode ) => {
+    if ( errorCode === 1 ) {
+      setError( "location" );
+    } else if ( errorCode === 2 ) {
+      setError( "no_gps" );
     } else {
-      this.getGeolocation();
+      setError( "location_timeout" );
     }
-  }
+  };
 
-  updateTaxaType( taxaType: string ) {
-    this.setState( { taxaType } );
-  }
+  const getGeolocation = () => {
+    fetchTruncatedUserLocation().then( ( coords ) => {
+      if ( coords.latitude && coords.longitude ) {
+        setError( null );
+        updateLocation( coords.latitude, coords.longitude );
+      }
+    } ).catch( ( errorCode ) => {
+      setLocationError( errorCode );
+    } );
+  };
 
-  updateLocation( latitude: number, longitude: number ) {
-    this.setLocation( latitude, longitude );
-  }
+  const requestAndroidPermissions = () => {
+    console.log( error === "internet", "internet plus latlng", latLng );
+    if ( !latLng.latitude || !latLng.longitude ) {
+      // only update location if user has not selected a location already
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            getGeolocation();
+          } else {
+            setError( "location" );
+          }
+        } );
+      } else {
+        getGeolocation();
+      }
+    }
+  };
 
-  checkForInternetError() {
+  const resetInternetErrorAndFetchLocation = () => {
+    if ( error === "internet" ) {
+      setError( null );
+    }
+    requestAndroidPermissions();
+  };
+
+  const checkForInternetError = () => {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
-        this.setError( "internet" );
+        setError( "internet" );
       } else {
-        this.setError( null );
+        resetInternetErrorAndFetchLocation();
       }
-    } ).catch( () => this.setError( null ) );
-  }
+    } ).catch( () => resetInternetErrorAndFetchLocation() );
+  };
 
-  checkForErrors() {
-    this.requestAndroidPermissions();
-  }
+  const checkForErrors = () => {
+    checkForInternetError();
+  };
 
-  render() {
-    const {
-      error,
-      latitude,
-      longitude,
-      taxaType
-    } = this.state;
-
-    // console.log( this.state, "state in species nearby" );
-
-    return (
-      <>
-        <NavigationEvents
-          onWillFocus={() => this.checkForErrors()}
-        />
-        <View style={styles.container}>
-          <Text style={[styles.headerText, styles.header]}>
-            {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
-          </Text>
-          <LocationPickerButton
-            latitude={latitude}
-            longitude={longitude}
-            updateLocation={this.updateLocation}
-            error={error}
-          />
-          <TaxonPicker updateTaxaType={this.updateTaxaType} error={error} />
-          <View style={styles.marginBottom} />
-        </View>
-        <SpeciesNearbyContainer
-          taxaType={taxaType}
-          latitude={latitude}
-          longitude={longitude}
+  return (
+    <>
+      <View style={styles.container}>
+        <Text style={[styles.headerText, styles.header]}>
+          {i18n.t( "species_nearby.header" ).toLocaleUpperCase()}
+        </Text>
+        <LocationPickerButton
+          latitude={latLng.latitude}
+          longitude={latLng.longitude}
+          updateLocation={updateLocation}
           error={error}
-          checkForErrors={this.checkForErrors}
         />
-        <View style={styles.greenMargin} />
-      </>
-    );
-  }
-}
+        <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
+        <View style={styles.marginBottom} />
+      </View>
+      <SpeciesNearbyContainer
+        taxaType={taxaType}
+        latitude={latLng.latitude}
+        longitude={latLng.longitude}
+        error={error}
+        checkForErrors={checkForErrors}
+      />
+      <View style={styles.greenMargin} />
+    </>
+  );
+};
 
 export default SpeciesNearby;

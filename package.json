@@ -15,7 +15,7 @@
     "@react-native-community/datetimepicker": "^2.1.0",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.5",
-    "@react-native-community/netinfo": "^3.2.0",
+    "@react-native-community/netinfo": "^5.5.1",
     "@welldone-software/why-did-you-render": "^3.5.0",
     "date-fns": "^2.9.0",
     "flow-typed": "^2.6.2",

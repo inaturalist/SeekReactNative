@@ -41,11 +41,7 @@ const SpeciesNearbyContainer = ( {
       .then( response => response.json() )
       .then( ( { results } ) => {
         setTaxa( results.map( r => r.taxon ) );
-        // setLoading( false );
-      } ).catch( () => {
-        console.log( "checking for erorrs" );
-        checkForErrors();
-      } );
+      } ).catch( () => checkForErrors() );
   }, [checkForErrors] );
 
   const setParamsForSpeciesNearby = useCallback( () => {
@@ -73,19 +69,18 @@ const SpeciesNearbyContainer = ( {
   }, [loading, setParamsForSpeciesNearby] );
 
   useEffect( () => {
-    setLoading( true ); // set loading when user changes location or taxaType
-  }, [taxaType, latitude, longitude] );
+    if ( !error && latitude ) {
+      setLoading( true ); // set loading when user changes location or taxaType
+    } else {
+      checkForErrors();
+    }
+  }, [taxaType, latitude, longitude, error, checkForErrors] );
 
   useEffect( () => {
     if ( taxa.length > 0 ) {
       setLoading( false );
-    } else if ( error ) {
-      setTaxa( [] );
-      setLoading( false );
-    } else {
-      setLoading( true ); // set loading when error changes to null
     }
-  }, [error, taxa] );
+  }, [taxa] );
 
   const renderSpeciesContainer = () => {
     let species;
@@ -108,8 +103,6 @@ const SpeciesNearbyContainer = ( {
     }
     return species;
   };
-
-  // console.log( loading, "loading", error, "error", taxa.length, "taxa#" );
 
   return (
     <View style={styles.speciesNearbyContainer}>

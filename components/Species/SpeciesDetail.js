@@ -294,8 +294,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
 
       stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
-      console.log( taxa.wikipedia_summary, "wiki summary" );
-
       getTaxonCommonName( id ).then( ( deviceCommonName ) => {
         this.setState( {
           commonName: deviceCommonName || commonName,

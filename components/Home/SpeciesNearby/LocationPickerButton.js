@@ -31,13 +31,8 @@ const LocationPickerButton = ( {
   const [showModal, setModal] = useState( false );
   const location = useLocationName( latitude, longitude );
 
-  const openLocationPicker = () => {
-    setModal( true );
-  };
-
-  const closeLocationPicker = () => {
-    setModal( false );
-  };
+  const openLocationPicker = () => setModal( true );
+  const closeLocationPicker = () => setModal( false );
 
   return (
     <>

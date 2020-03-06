@@ -21,13 +21,8 @@ const ChallengeBadges = () => {
   const [selectedChallenge, setChallenge] = useState( null );
   const [challengeBadges, setChallengeBadges] = useState( [] );
 
-  const openModal = () => {
-    setModal( true );
-  };
-
-  const closeModal = () => {
-    setModal( false );
-  };
+  const openModal = () => setModal( true );
+  const closeModal = () => setModal( false );
 
   const fetchChallenges = () => {
     Realm.open( realmConfig )

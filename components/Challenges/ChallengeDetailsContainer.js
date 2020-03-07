@@ -18,43 +18,45 @@ import GreenText from "../UIComponents/GreenText";
 type Props = {
   +navigation: any,
   challenge: Object,
-  challengeStarted: boolean,
   missions: Array<Object>
 }
 
 const ChallengeDetailsContainer = ( {
   challenge,
-  challengeStarted,
   navigation,
   missions
 }: Props ) => (
   <View style={styles.whiteContainer}>
-    {challengeStarted && (
-      <ChallengeMissionCard
-        challenge={challenge}
-        missions={missions}
-      />
+    {challenge && (
+      <>
+        {challenge.started && (
+          <ChallengeMissionCard
+            challenge={challenge}
+            missions={missions}
+          />
+        )}
+        <View style={styles.descriptionContainer}>
+          <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
+        </View>
+        <View style={styles.secondHeader}>
+          <GreenText text="challenges.get_involved" />
+        </View>
+        <View style={styles.marginTop} />
+        <Text style={styles.descriptionText}>
+          {i18n.t( challenge.action )}
+        </Text>
+        <View style={styles.descriptionContainer}>
+          <Image source={logos.wwfop} style={styles.row} />
+          <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate( "Challenges" )}
+            style={styles.padding}
+          >
+            <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
+          </TouchableOpacity>
+        </View>
+      </>
     )}
-    <View style={styles.descriptionContainer}>
-      <Text style={styles.descriptionText}>{challenge.description}</Text>
-    </View>
-    <View style={styles.secondHeader}>
-      <GreenText text="challenges.get_involved" />
-    </View>
-    <View style={styles.marginTop} />
-    <Text style={styles.descriptionText}>
-      {i18n.t( challenge.action )}
-    </Text>
-    <View style={styles.descriptionContainer}>
-      <Image source={logos.wwfop} style={styles.row} />
-      <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
-      <TouchableOpacity
-        onPress={() => navigation.navigate( "Challenges" )}
-        style={styles.padding}
-      >
-        <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
-      </TouchableOpacity>
-    </View>
     <Padding />
   </View>
 );

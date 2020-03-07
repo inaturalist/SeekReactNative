@@ -2,10 +2,6 @@
 
 import React, { Component } from "react";
 import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
   ScrollView,
   SafeAreaView,
   StatusBar,
@@ -16,14 +12,9 @@ import { NavigationEvents } from "react-navigation";
 
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challengeDetails";
-import i18n from "../../i18n";
-import logos from "../../assets/logos";
-import ChallengeMissionCard from "./ChallengeMissionCard";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
-import Padding from "../UIComponents/Padding";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
-import GreenText from "../UIComponents/GreenText";
 import { getRoute } from "../../utility/helpers";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 
@@ -34,7 +25,6 @@ type Props = {
 type State = {
   challenge: Object,
   missions: Object,
-  challengeStarted: boolean,
   index: ?string,
   route: ?string
 }
@@ -48,7 +38,6 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     this.state = {
       challenge: {},
       missions: {},
-      challengeStarted: false,
       index: null,
       route: null
     };
@@ -67,8 +56,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
   resetState() {
     this.setState( {
       challenge: {},
-      missions: {},
-      challengeStarted: false,
+      missions: [],
       index: null,
       route: null
     } );
@@ -82,45 +70,35 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     }
   }
 
+  fetchMissions( challenge: Object ) {
+    const missionList = Object.keys( challenge.missions ).map(
+      mission => challenge.missions[mission]
+    );
+    const observationsList = Object.keys( challenge.numbersObserved ).map(
+      number => challenge.numbersObserved[number]
+    );
+
+    const missions = [];
+
+    missionList.forEach( ( mission, i ) => {
+      missions.push( {
+        mission,
+        observations: observationsList[i]
+      } );
+    } );
+
+    this.setState( { missions } );
+  }
+
   fetchChallengeDetails() {
     const { index } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${String( index )}` );
-        const challenge = challenges[0];
-        const missionList = Object.keys( challenge.missions ).map(
-          mission => challenge.missions[mission]
-        );
-        const observationsList = Object.keys( challenge.numbersObserved ).map(
-          number => challenge.numbersObserved[number]
-        );
+        this.fetchMissions( challenges[0] );
 
-        const missions = [];
-
-        missionList.forEach( ( mission, i ) => {
-          missions.push( {
-            mission,
-            observations: observationsList[i]
-          } );
-        } );
-
-        this.setState( {
-          challenge: {
-            month: challenge.month,
-            name: challenge.name,
-            description: i18n.t( challenge.description ),
-            earnedIconName: challenge.earnedIconName,
-            started: challenge.started,
-            percentComplete: challenge.percentComplete,
-            backgroundName: challenge.backgroundName,
-            photographer: challenge.photographer,
-            action: challenge.action,
-            index: challenge.index
-          },
-          missions,
-          challengeStarted: challenge.started
-        } );
+        this.setState( { challenge: challenges[0] } );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -135,12 +113,13 @@ class ChallengeDetailsScreen extends Component<Props, State> {
 
   render() {
     const {
-      challengeStarted,
       challenge,
       missions,
       route
     } = this.state;
     const { navigation } = this.props;
+
+    // console.log( this.state.index, "index" );
 
     return (
       <ScrollView
@@ -160,14 +139,12 @@ class ChallengeDetailsScreen extends Component<Props, State> {
           {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
           <ChallengeDetailsHeader
             challenge={challenge}
-            challengeStarted={challengeStarted}
             navigation={navigation}
             route={route}
             showMission={this.showMission}
           />
           <ChallengeDetailsContainer
             challenge={challenge}
-            challengeStarted={challengeStarted}
             navigation={navigation}
             missions={missions}
           />

@@ -48,15 +48,15 @@ const PostStatus = ( {
   } else if ( status === "duringPhotoUpload" ) {
     headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
-    extraText = `${i18n.t( "posting.error_photo_upload" )} ${errorText}`;
+    extraText = `${i18n.t( "posting.error_photo_upload" )} \n\n${errorText}`;
   } else if ( status === "beforePhotoAdded" ) {
     headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
-    extraText = `${i18n.t( "posting.error_observation" )} ${errorText}`;
+    extraText = `${i18n.t( "posting.error_observation" )} \n\n${errorText}`;
   } else if ( status === "beforeObservation" ) {
     headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
-    extraText = `${i18n.t( "posting.error_token" )} ${errorText}`;
+    extraText = `${i18n.t( "posting.error_token" )} \n\n${errorText}`;
   }
 
   return (

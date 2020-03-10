@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { NavigationEvents, ScrollView } from "react-navigation";
 import inatjs, { FileUpload } from "inaturalistjs";
+import { formatISO, isAfter } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
@@ -208,10 +209,26 @@ class PostScreen extends Component<Props, State> {
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
+  isAndroidDateInFuture = ( date: Date ) => {
+    if ( Platform.OS === "android" && isAfter( date, new Date() ) ) {
+      return true;
+    }
+    return false;
+  }
+
   handleDatePicked = ( date: Date ) => {
     if ( date ) {
+      let newDate;
+      const isFuture = this.isAndroidDateInFuture( date );
+
+      if ( isFuture ) {
+        newDate = formatISO( new Date() );
+      } else {
+        newDate = formatISO( date );
+      }
+
       this.setState( {
-        date: date.toString()
+        date: newDate.toString()
       }, this.toggleDateTimePicker() );
     }
   };
@@ -324,8 +341,6 @@ class PostScreen extends Component<Props, State> {
       description
     } = this.state;
 
-    console.log( date, "date in state" );
-
     let captiveState;
     let geoprivacyState;
 
@@ -342,9 +357,6 @@ class PostScreen extends Component<Props, State> {
     } else {
       geoprivacyState = "open";
     }
-
-    console.log( date, "date formatting in params" );
-    console.log( typeof date, "date type" );
 
     const params = {
       observation: {
@@ -421,6 +433,8 @@ class PostScreen extends Component<Props, State> {
       status,
       errorText
     } = this.state;
+
+    const dateToDisplay = date && formatYearMonthDay( date );
 
     return (
       <View style={styles.container}>
@@ -514,9 +528,7 @@ class PostScreen extends Component<Props, State> {
               <Text style={styles.greenText}>
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
-              <Text style={styles.text}>
-                {date ? formatYearMonthDay( date ) : null}
-              </Text>
+              <Text style={styles.text}>{dateToDisplay}</Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />
           </TouchableOpacity>

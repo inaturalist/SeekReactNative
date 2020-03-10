@@ -115,6 +115,8 @@ class SignUpScreen extends Component<Props, State> {
 
     if ( licensePhotos ) {
       // $FlowFixMe
+      params.user.preferred_observation_license = "CC-BY-NC";
+      // $FlowFixMe
       params.user.preferred_photo_license = "CC-BY-NC";
     }
 

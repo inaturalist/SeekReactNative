@@ -12,7 +12,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/login/login";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
   +navigation: any

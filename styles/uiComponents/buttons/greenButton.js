@@ -4,7 +4,7 @@ import {
   fonts,
   padding,
   dimensions
-} from "../global";
+} from "../../global";
 
 export default StyleSheet.create( {
   buttonText: {
@@ -16,10 +16,13 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   greenButton: {
+    alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
     borderRadius: 34,
     height: 46,
-    justifyContent: "center"
+    justifyContent: "center",
+    maxWidth: 317,
+    width: dimensions.width < 500 ? 293 : 317
   },
   loginHeight: {
     height: 52,

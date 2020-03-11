@@ -10,21 +10,21 @@ import {
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 
-import i18n from "../../i18n";
-import styles from "../../styles/home/error";
-import icons from "../../assets/icons";
-import backgrounds from "../../assets/backgrounds";
-import GreenButton from "../UIComponents/GreenButton";
-import { colors } from "../../styles/global";
+import i18n from "../../../i18n";
+import styles from "../../../styles/home/error";
+import icons from "../../../assets/icons";
+import backgrounds from "../../../assets/backgrounds";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +error: string,
-  +requestAndroidPermissions: Function
+  +checkForErrors: Function
 }
 
 const Error = ( {
   error,
-  requestAndroidPermissions
+  checkForErrors
 }: Props ) => {
   let text;
 
@@ -45,14 +45,12 @@ const Error = ( {
       source={backgrounds.noSpeciesNearby}
       style={[styles.background, styles.center]}
     >
-      <TouchableOpacity
-        onPress={() => requestAndroidPermissions()}
-      >
+      <TouchableOpacity onPress={() => checkForErrors()}>
         <View style={styles.row}>
           <Image source={error === "internet" ? icons.internet : icons.error} />
           <Text style={styles.text}>{text}</Text>
         </View>
-        {error === "location" ? (
+        {error === "location" && (
           <View style={styles.greenButton}>
             <GreenButton
               color={colors.seekGreen}
@@ -60,7 +58,7 @@ const Error = ( {
               text="species_nearby.enable_location"
             />
           </View>
-        ) : null}
+        )}
       </TouchableOpacity>
     </ImageBackground>
   );

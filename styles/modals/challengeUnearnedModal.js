@@ -19,17 +19,13 @@ export default StyleSheet.create( {
     marginTop: 37
   },
   image: {
-    height: width / 2,
+    height: width < 366 ? ( width / 2 ) : ( 366 / 2 ),
     justifyContent: "center",
     marginBottom: 25,
-    width: width / 2
+    width: width < 366 ? ( width / 2 ) : ( 366 / 2 )
   },
   imageStyle: {
     resizeMode: "contain"
-  },
-  innerContainer: {
-    backgroundColor: colors.white,
-    borderRadius: 40
   },
   italicText: {
     color: colors.black,

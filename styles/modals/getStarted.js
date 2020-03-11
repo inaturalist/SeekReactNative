@@ -13,8 +13,10 @@ export default StyleSheet.create( {
     marginTop: 21
   },
   container: {
+    alignSelf: "center",
     backgroundColor: colors.white,
-    borderRadius: 40
+    borderRadius: 40,
+    maxWidth: 366
   },
   headerMargin: {
     alignSelf: "center",

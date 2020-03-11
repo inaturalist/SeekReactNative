@@ -8,7 +8,7 @@ import {
 import OpenSettings from "react-native-open-settings";
 
 import styles from "../../styles/camera/error";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { setCameraErrorText } from "../../utility/textHelpers";
 
 type Props = {

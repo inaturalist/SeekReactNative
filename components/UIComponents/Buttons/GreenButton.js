@@ -7,8 +7,8 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/uiComponents/greenButton";
+import i18n from "../../../i18n";
+import styles from "../../../styles/uiComponents/buttons/greenButton";
 
 type Props = {
   +color?: ?Object,

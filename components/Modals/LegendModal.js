@@ -10,14 +10,14 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
-import BackButton from "../UIComponents/ModalBackButton";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +closeModal: Function
 }
 
 const Legend = ( { closeModal }: Props ) => (
-  <>
+  <WhiteModal closeModal={closeModal}>
     <View style={styles.legendHeader}>
       <Text style={styles.whiteText}>
         {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
@@ -45,8 +45,7 @@ const Legend = ( { closeModal }: Props ) => (
       </View>
       <View style={styles.marginLarge} />
     </View>
-    <BackButton closeModal={closeModal} />
-  </>
+  </WhiteModal>
 );
 
 export default Legend;

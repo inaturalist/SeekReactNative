@@ -4,15 +4,16 @@ import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   Image,
   ImageBackground
 } from "react-native";
 
 import i18n from "../i18n";
+import { colors } from "../styles/global";
 import styles from "../styles/loginOrSignup";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
+import Button from "./UIComponents/Buttons/Button";
 
 type Props = {
   +navigation: any
@@ -21,36 +22,34 @@ type Props = {
 const LoginOrSignupScreen = ( { navigation }: Props ) => (
   <ImageBackground
     source={backgrounds.splash}
-    style={styles.container}
+    style={[styles.container, styles.center]}
   >
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.margin} />
-    <TouchableOpacity
-      onPress={() => navigation.navigate( "LoginScreen" )}
-      style={styles.whiteButton}
-    >
-      <Text style={styles.buttonText}>
-        {i18n.t( "login.log_in" ).toLocaleUpperCase()}
-      </Text>
-    </TouchableOpacity>
+    <Button
+      handlePress={() => navigation.navigate( "LoginScreen" )}
+      text="login.log_in"
+      color={colors.white}
+      greenText
+      login
+    />
     <View style={styles.marginSmall} />
-    <TouchableOpacity
-      onPress={() => navigation.navigate( "Age" )}
-      style={styles.whiteButton}
-    >
-      <Text style={styles.buttonText}>
-        {i18n.t( "login.sign_up" ).toLocaleUpperCase()}
-      </Text>
-    </TouchableOpacity>
+    <Button
+      handlePress={() => navigation.navigate( "Age" )}
+      text="login.sign_up"
+      color={colors.white}
+      greenText
+      login
+    />
     <View style={styles.marginSmall} />
-    <TouchableOpacity
-      onPress={() => navigation.navigate( "Main" )}
-      style={[styles.whiteButton, styles.whiteButtonLarge]}
-    >
-      <Text style={styles.buttonText}>
-        {i18n.t( "login.skip_login" ).toLocaleUpperCase()}
-      </Text>
-    </TouchableOpacity>
+    <Button
+      handlePress={() => navigation.navigate( "Main" )}
+      text="login.skip_login"
+      large
+      color={colors.white}
+      greenText
+      login
+    />
     <View style={styles.margin} />
     <Text style={styles.text}>
       {i18n.t( "login.about" )}

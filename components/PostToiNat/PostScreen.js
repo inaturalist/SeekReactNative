@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { NavigationEvents, ScrollView } from "react-navigation";
 import inatjs, { FileUpload } from "inaturalistjs";
+import { formatISO, isAfter } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
@@ -31,7 +32,7 @@ import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 import PostStatus from "./PostStatus";
 import SelectSpecies from "./SelectSpecies";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
 import SpeciesCard from "../UIComponents/SpeciesCard";
@@ -81,11 +82,13 @@ class PostScreen extends Component<Props, State> {
       time
     } = navigation.state.params;
 
+    const date = time ? setISOTime( time ) : null;
+
     this.state = {
       latitude,
       longitude,
       location: null,
-      date: time ? setISOTime( time ) : null,
+      date,
       captive: null,
       geoprivacy: null,
       uri,
@@ -206,10 +209,26 @@ class PostScreen extends Component<Props, State> {
     this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
   };
 
+  isAndroidDateInFuture = ( date: Date ) => {
+    if ( Platform.OS === "android" && isAfter( date, new Date() ) ) {
+      return true;
+    }
+    return false;
+  }
+
   handleDatePicked = ( date: Date ) => {
     if ( date ) {
+      let newDate;
+      const isFuture = this.isAndroidDateInFuture( date );
+
+      if ( isFuture ) {
+        newDate = formatISO( new Date() );
+      } else {
+        newDate = formatISO( date );
+      }
+
       this.setState( {
-        date: date.toString()
+        date: newDate.toString()
       }, this.toggleDateTimePicker() );
     }
   };
@@ -415,6 +434,8 @@ class PostScreen extends Component<Props, State> {
       errorText
     } = this.state;
 
+    const dateToDisplay = date && formatYearMonthDay( date );
+
     return (
       <View style={styles.container}>
         <NavigationEvents
@@ -507,9 +528,7 @@ class PostScreen extends Component<Props, State> {
               <Text style={styles.greenText}>
                 {i18n.t( "posting.date" ).toLocaleUpperCase()}
               </Text>
-              <Text style={styles.text}>
-                {date ? formatYearMonthDay( new Date( date ) ) : null}
-              </Text>
+              <Text style={styles.text}>{dateToDisplay}</Text>
             </View>
             <Image source={posting.expand} style={styles.buttonIcon} />
           </TouchableOpacity>

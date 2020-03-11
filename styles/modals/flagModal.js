@@ -1,7 +1,8 @@
 import { StyleSheet, Platform, PixelRatio } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "../global";
 
 const fontScale = PixelRatio.getFontScale();
@@ -19,20 +20,12 @@ export default StyleSheet.create( {
     marginLeft: 33,
     marginRight: 29
   },
-  flagButton: {
-    alignItems: "center",
-    borderRadius: 40,
-    height: 46,
-    justifyContent: "center",
-    width: 243
-  },
   flagButtonContainer: {
     marginHorizontal: 22,
     marginTop: 20
   },
   flagContainer: {
-    alignItems: "center",
-    marginHorizontal: 22
+    alignItems: "center"
   },
   flagHeader: {
     borderTopLeftRadius: 40,
@@ -46,40 +39,24 @@ export default StyleSheet.create( {
     width: 129
   },
   flagTextContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
     justifyContent: "flex-end",
     marginTop: 15
   },
-  imageContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-around"
-  },
   innerContainer: {
+    alignSelf: "center",
     backgroundColor: colors.white,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+    maxWidth: 366,
     overflow: "hidden"
-  },
-  largeButtonHeight: {
-    flexWrap: "wrap",
-    lineHeight: ( fontScale > 1 ) ? 14 : 24
-  },
-  largeFlagButton: {
-    alignItems: "center",
-    backgroundColor: colors.red,
-    borderRadius: 40,
-    height: 79,
-    justifyContent: "center",
-    width: 278
   },
   marginLarge: {
     marginTop: 45
+  },
+  marginLeft: {
+    marginLeft: 17
   },
   marginMedium: {
     marginTop: 32
@@ -90,6 +67,7 @@ export default StyleSheet.create( {
   paddingSmall: {
     paddingTop: 9
   },
+  row,
   speciesText: {
     color: colors.black,
     fontFamily: fonts.book,

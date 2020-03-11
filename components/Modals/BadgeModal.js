@@ -16,8 +16,8 @@ import badgeImages from "../../assets/badges";
 import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";
 import icons from "../../assets/icons";
-import BackButton from "../UIComponents/ModalBackButton";
 import GreenText from "../UIComponents/GreenText";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +badges: Array<Object>,
@@ -73,40 +73,37 @@ class BadgeModal extends Component<Props> {
     } );
 
     return (
-      <>
-        <View style={styles.innerContainer}>
-          <BannerHeader
-            modal
-            text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
-          />
-          <FlatList
-            ref={( ref ) => { this.flatList = ref; }}
-            data={badgeList}
-            horizontal
-            pagingEnabled
-            renderItem={( { item } ) => item}
-            showsHorizontalScrollIndicator={false}
-          />
-          <Image source={icons.badgeSwipeRight} style={styles.arrow} />
-          <View style={styles.marginLarge} />
-          <View style={styles.row}>
-            {[0, 1, 2].map( ( item, index ) => (
-              <TouchableOpacity
-                key={item}
-                onPress={() => this.scrollToIndex( index )}
-              >
-                <Image
-                  source={badges[item].earned
-                    ? badgeImages[badges[item].earnedIconName]
-                    : badgeImages[badges[item].unearnedIconName]}
-                  style={styles.smallImage}
-                />
-              </TouchableOpacity>
-            ) )}
-          </View>
+      <WhiteModal closeModal={closeModal}>
+        <BannerHeader
+          modal
+          text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+        />
+        <FlatList
+          ref={( ref ) => { this.flatList = ref; }}
+          data={badgeList}
+          horizontal
+          pagingEnabled
+          renderItem={( { item } ) => item}
+          showsHorizontalScrollIndicator={false}
+        />
+        <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+        <View style={styles.marginLarge} />
+        <View style={styles.row}>
+          {[0, 1, 2].map( ( item, index ) => (
+            <TouchableOpacity
+              key={item}
+              onPress={() => this.scrollToIndex( index )}
+            >
+              <Image
+                source={badges[item].earned
+                  ? badgeImages[badges[item].earnedIconName]
+                  : badgeImages[badges[item].unearnedIconName]}
+                style={styles.smallImage}
+              />
+            </TouchableOpacity>
+          ) )}
         </View>
-        <BackButton closeModal={closeModal} />
-      </>
+      </WhiteModal>
     );
   }
 }

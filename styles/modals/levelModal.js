@@ -9,7 +9,6 @@ const { height } = Dimensions.get( "window" );
 export default StyleSheet.create( {
   backgroundColor: {
     alignItems: "center",
-    justifyContent: "center",
     width: "100%"
   },
   headerMargins: {
@@ -21,18 +20,6 @@ export default StyleSheet.create( {
     marginTop: height > 570 ? 50 : 30,
     resizeMode: "contain",
     width: height > 640 ? 258 : 215
-  },
-  innerContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white
-  },
-  modalBottom: {
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40
-  },
-  modalTop: {
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
   },
   nameText: {
     color: colors.white,
@@ -47,9 +34,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginBottom: 20,
+    marginBottom: 24,
     marginHorizontal: 40,
-    marginTop: 20,
+    marginTop: 16,
     textAlign: "center"
   }
 } );

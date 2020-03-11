@@ -15,7 +15,7 @@ import realmConfig from "../../models";
 import BannerHeader from "./BannerHeader";
 import BadgeModal from "../Modals/BadgeModal";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/badges";
+import styles from "../../styles/badges/achievements";
 
 type Props = {
   +speciesBadges: Array<Object>

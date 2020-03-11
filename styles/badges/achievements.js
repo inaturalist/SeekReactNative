@@ -10,9 +10,9 @@ const { width } = Dimensions.get( "window" );
 
 export default StyleSheet.create( {
   badgeIcon: {
-    height: width / 4,
+    height: width < 455 ? ( width / 4 ) : ( 455 / 4 ),
     resizeMode: "contain",
-    width: width / 4
+    width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
   },
   center,
   container: {
@@ -20,9 +20,9 @@ export default StyleSheet.create( {
     flex: 1
   },
   gridCell: {
-    height: width / 4,
+    height: width < 455 ? ( width / 4 ) : ( 455 / 4 ),
     marginHorizontal: 6,
-    width: width / 4
+    width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
   },
   header: {
     height: 203

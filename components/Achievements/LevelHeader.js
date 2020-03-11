@@ -12,7 +12,7 @@ import LinearGradient from "react-native-linear-gradient";
 import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
-import styles from "../../styles/badges/badges";
+import styles from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modal";
 import { localizeNumber } from "../../utility/helpers";
 
@@ -53,7 +53,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
         colors={["#22784d", "#38976d"]}
         style={[styles.header, styles.center]}
       >
-        {level ? (
+        {level && (
           <View style={styles.row}>
             <Image source={badgeImages[level.earnedIconName]} style={styles.levelImage} />
             <View style={styles.textContainer}>
@@ -66,7 +66,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
               </Text>
             </View>
           </View>
-        ) : null}
+        )}
       </LinearGradient>
     </TouchableOpacity>
   );

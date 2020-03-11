@@ -86,11 +86,12 @@ const removeFromCollection = ( id ) => {
         const photoObjToDelete = taxonToDelete.defaultPhoto;
 
         const { backupUri } = photoObjToDelete;
-        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
 
-        const backupFilepath = `${dirPictures}/${uri[1]}`;
-
-        deleteFile( backupFilepath );
+        if ( backupUri !== null ) { // for simulators and pre-backup observations
+          const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
+          const backupFilepath = `${dirPictures}/${uri[1]}`;
+          deleteFile( backupFilepath );
+        }
 
         realm.delete( photoObjToDelete );
         realm.delete( obsToDelete );

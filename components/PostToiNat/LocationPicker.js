@@ -9,13 +9,13 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import LocationMap from "../Home/LocationMap";
+import LocationMap from "../Home/SpeciesNearby/LocationMap";
 import { fetchUserLocation } from "../../utility/locationHelpers";
 import styles from "../../styles/home/locationPicker";
 import headerStyles from "../../styles/uiComponents/greenHeader";
-import backStyles from "../../styles/uiComponents/backArrow";
+import backStyles from "../../styles/uiComponents/buttons/backArrow";
 import icons from "../../assets/icons";
-import GreenButton from "../UIComponents/GreenButton";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;

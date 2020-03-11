@@ -7,12 +7,13 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import styles from "../../styles/home/header";
+import i18n from "../../../i18n";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/home/speciesNearby";
 
 type Props = {
-  +updateTaxaType: Function
+  +updateTaxaType: Function,
+  +error: ?string
 }
 
 class TaxonPicker extends Component<Props> {
@@ -81,6 +82,7 @@ class TaxonPicker extends Component<Props> {
 
   render() {
     const { types, taxonType } = this.state;
+    const { error } = this.props;
 
     return (
       <RNPickerSelect
@@ -95,6 +97,7 @@ class TaxonPicker extends Component<Props> {
         placeholder={{}}
         useNativeAndroidPickerStyle={false}
         value={taxonType}
+        disabled={error !== null}
       >
         <TouchableOpacity style={[styles.row, styles.marginLeft, styles.paddingBottom]}>
           <Image source={icons.filter} style={styles.image} />

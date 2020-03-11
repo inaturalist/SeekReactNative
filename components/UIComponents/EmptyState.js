@@ -9,7 +9,7 @@ import { withNavigation } from "react-navigation";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/emptyState";
-import GreenButton from "./GreenButton";
+import GreenButton from "./Buttons/GreenButton";
 
 type Props = {
   +navigation?: ?any,

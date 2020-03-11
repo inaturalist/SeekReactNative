@@ -90,22 +90,26 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={screen === "iNatStats"}
       />
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
-        accessible
-        onPress={() => scrollLeft()}
-        style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
-      >
-        <Image source={icons.swipeLeft} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
-        accessible
-        onPress={() => scrollRight()}
-        style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
-      >
-        <Image source={icons.swipeRight} />
-      </TouchableOpacity>
+      {scrollIndex !== 0 && (
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
+          accessible
+          onPress={() => scrollLeft()}
+          style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
+        >
+          <Image source={icons.swipeLeft} />
+        </TouchableOpacity>
+      )}
+      {scrollIndex !== photoList.length - 1 && (
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
+          accessible
+          onPress={() => scrollRight()}
+          style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
+        >
+          <Image source={icons.swipeRight} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

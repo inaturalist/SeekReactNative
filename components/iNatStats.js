@@ -28,7 +28,7 @@ import {
 import { localizeAttributions } from "../utility/photoHelpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
-import CustomBackArrow from "./UIComponents/CustomBackArrow";
+import CustomBackArrow from "./UIComponents/Buttons/CustomBackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 import createUserAgent from "../utility/userAgent";

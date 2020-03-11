@@ -34,10 +34,11 @@ const capitalizeNames = ( name ) => {
 };
 
 const addARCameraFiles = async () => {
+  console.log( "copying" );
   if ( Platform.OS === "android" ) {
     RNFS.copyFileAssets( "camera/optimized_model.tflite", dirModel )
       .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
+        console.log( result, "model in AR camera files", dirModel );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );

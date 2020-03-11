@@ -11,13 +11,13 @@ import {
 } from "react-native";
 import Geocoder from "react-native-geocoder";
 
-import i18n from "../../i18n";
+import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
-import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../utility/locationHelpers";
-import icons from "../../assets/icons";
-import styles from "../../styles/home/locationPicker";
-import GreenButton from "../UIComponents/GreenButton";
-import SafeAreaView from "../UIComponents/SafeAreaView";
+import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/home/locationPicker";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import SafeAreaView from "../../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -26,16 +26,16 @@ type Props = {
   +latitude: ?number,
   +longitude: ?number,
   +location: ?string,
-  +updateLocation: Function,
-  +toggleLocationPicker: Function
+  +updateLatLng: Function,
+  +closeLocationPicker: Function
 }
 
 const LocationPicker = ( {
   latitude,
   longitude,
   location,
-  updateLocation,
-  toggleLocationPicker
+  updateLatLng,
+  closeLocationPicker
 }: Props ) => {
   const [region, setRegion] = useState( {
     latitudeDelta,
@@ -44,7 +44,7 @@ const LocationPicker = ( {
     longitude
   } );
 
-  const [loc, setLocation] = useState( location );
+  const [inputLocation, setInputLocation] = useState( location );
 
   const setCoordsByLocationName = ( newLocation ) => {
     Geocoder.geocodeAddress( newLocation ).then( ( result ) => {
@@ -54,7 +54,7 @@ const LocationPicker = ( {
       const { locality, subAdminArea, position } = result[0];
       const { lng, lat } = position;
 
-      setLocation( locality || subAdminArea );
+      setInputLocation( locality || subAdminArea );
       setRegion( {
         latitude: lat,
         longitude: lng,
@@ -69,9 +69,9 @@ const LocationPicker = ( {
   const reverseGeocodeLocation = ( lat, lng ) => {
     fetchLocationName( lat, lng ).then( ( newLocation ) => {
       if ( newLocation === null ) {
-        setLocation( i18n.t( "location_picker.undefined" ) );
-      } else if ( loc !== newLocation ) {
-        setLocation( newLocation );
+        setInputLocation( i18n.t( "location_picker.undefined" ) );
+      } else if ( inputLocation !== newLocation ) {
+        setInputLocation( newLocation );
       }
     } ).catch( ( e ) => {
       console.log( e, "error" );
@@ -110,7 +110,7 @@ const LocationPicker = ( {
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible
-          onPress={() => toggleLocationPicker()}
+          onPress={() => closeLocationPicker()}
           style={styles.backButton}
         >
           <Image source={icons.backButton} />
@@ -123,11 +123,11 @@ const LocationPicker = ( {
         <View style={styles.row}>
           <Image source={icons.locationWhite} />
           <TextInput
-            accessibilityLabel={location}
+            accessibilityLabel={inputLocation}
             accessible
             autoCapitalize="words"
             onChangeText={text => setCoordsByLocationName( text )}
-            placeholder={loc}
+            placeholder={inputLocation}
             placeholderTextColor="#828282"
             style={styles.inputField}
             textContentType="addressCity"
@@ -142,10 +142,11 @@ const LocationPicker = ( {
       <View style={styles.footer}>
         <GreenButton
           handlePress={() => {
-            updateLocation(
+            updateLatLng(
               truncateCoordinates( region.latitude ),
               truncateCoordinates( region.longitude )
             );
+            closeLocationPicker();
           }}
           letterSpacing={0.68}
           text="location_picker.button"

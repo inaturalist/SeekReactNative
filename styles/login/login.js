@@ -147,7 +147,9 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    marginHorizontal: 31
+    alignSelf: "center",
+    marginHorizontal: 31,
+    maxWidth: 455
   },
   textLink: {
     color: colors.black,

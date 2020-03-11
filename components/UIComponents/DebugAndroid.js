@@ -3,7 +3,7 @@ import { View, Alert } from "react-native";
 import Mailer from "react-native-mail";
 import { getVersion, getBuildNumber } from "react-native-device-info";
 
-import GreenButton from "./GreenButton";
+import GreenButton from "./Buttons/GreenButton";
 import styles from "../../styles/uiComponents/debugAndroid";
 import { dirDebugLogs } from "../../utility/dirStorage";
 

@@ -11,8 +11,8 @@ import LinearGradient from "react-native-linear-gradient";
 import i18n from "../../i18n";
 import styles from "../../styles/modals/levelModal";
 import badgeImages from "../../assets/badges";
-import BackButton from "../UIComponents/ModalBackButton";
 import GreenText from "../UIComponents/GreenText";
+import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
   +level: Object,
@@ -27,14 +27,12 @@ const LevelModal = ( {
   closeModal,
   screen
 }: Props ) => (
-  <>
-    <View style={[styles.innerContainer, styles.modalTop]}>
-      <View style={styles.headerMargins}>
-        <GreenText text={screen === "achievements"
-          ? "badges.your_level"
-          : "banner.level_up"}
-        />
-      </View>
+  <WhiteModal closeModal={closeModal}>
+    <View style={styles.headerMargins}>
+      <GreenText text={screen === "achievements"
+        ? "badges.your_level"
+        : "banner.level_up"}
+      />
     </View>
     <LinearGradient
       colors={["#38976d", "#22784d"]}
@@ -46,11 +44,10 @@ const LevelModal = ( {
       />
       <Text style={styles.nameText}>{i18n.t( level.intlName ).toLocaleUpperCase()}</Text>
     </LinearGradient>
-    <View style={[styles.innerContainer, styles.modalBottom]}>
+    <View style={styles.modalBottom}>
       <Text style={styles.text}>{i18n.t( "banner.number_seen", { number: speciesCount } )}</Text>
     </View>
-    <BackButton closeModal={closeModal} />
-  </>
+  </WhiteModal>
 );
 
 LevelModal.defaultProps = {

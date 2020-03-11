@@ -19,7 +19,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
-import NoChallenges from "../Home/NoChallenges";
+import NoChallenges from "../Home/Challenges/NoChallenges";
 
 type Props = {}
 

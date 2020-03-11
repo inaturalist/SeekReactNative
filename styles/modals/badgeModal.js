@@ -6,30 +6,43 @@ import {
 
 const { width } = Dimensions.get( "window" );
 
+const setImageWidth = () => {
+  if ( width < 366 ) {
+    return width / 2;
+  }
+  return 366 / 2;
+};
+
+const setCarouselWidth = () => {
+  if ( width < 325 ) {
+    return width;
+  }
+  // Android Pixel XL has 411.5 width
+  // iPhone XS has 375 width
+  // iPhone SE has 320 width
+  return width - ( width * 0.1 );
+};
+
 export default StyleSheet.create( {
   arrow: {
     position: "absolute",
     right: 27,
-    top: 198,
+    top: 190,
     zIndex: 1
   },
   carousel: {
     alignItems: "center",
-    width: width - ( width * 0.1 )
+    maxWidth: 366,
+    width: setCarouselWidth()
   },
   image: {
-    height: width / 2,
+    height: setImageWidth(),
     justifyContent: "center",
     marginBottom: 25,
-    width: width / 2
+    width: setImageWidth()
   },
   imageStyle: {
     resizeMode: "contain"
-  },
-  innerContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white,
-    borderRadius: 40
   },
   margin: {
     marginBottom: 9

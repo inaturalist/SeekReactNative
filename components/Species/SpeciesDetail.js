@@ -300,7 +300,11 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
           scientificName,
           photos,
           wikiUrl: taxa.wikipedia_url,
-          about: taxa.wikipedia_summary ? i18n.t( "species_detail.wikipedia", { about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ) } ) : null,
+          about: taxa.wikipedia_summary
+            ? i18n.t( "species_detail.wikipedia", {
+              about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
+            } )
+            : null,
           timesSeen: taxa.observations_count,
           iconicTaxonId: taxa.iconic_taxon_id,
           ancestors,
@@ -457,11 +461,11 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
             userPhoto={userPhoto}
           />
           <View style={styles.greenBanner}>
-            {iconicTaxonId ? (
+            {iconicTaxonId && (
               <Text style={styles.iconicTaxaText}>
                 {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
               </Text>
-            ) : null}
+            )}
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.commonNameText}>{commonName || scientificName}</Text>

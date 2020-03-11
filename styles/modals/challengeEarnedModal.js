@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
@@ -21,37 +22,27 @@ export default StyleSheet.create( {
     lineHeight: 34,
     textAlign: "center"
   },
-  center: {
-    alignItems: "center",
-    marginTop: 10
-  },
   header: {
     alignItems: "center",
-    backgroundColor: colors.seekTeal,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    justifyContent: "center",
     width: "100%"
   },
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
-    fontSize: 18,
+    fontSize: dimensions.width < 350 ? 16 : 18,
     letterSpacing: 1.0,
-    lineHeight: 24,
+    lineHeight: dimensions.width < 350 ? 18 : 24,
     marginHorizontal: 24,
     marginTop: 24,
     textAlign: "center"
   },
   image: {
-    height: 158,
+    height: dimensions.width < 350 ? 140 : 158,
     marginBottom: 35,
     marginTop: 25,
     width: 140
-  },
-  innerContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white
   },
   logo: {
     height: 70,
@@ -59,23 +50,16 @@ export default StyleSheet.create( {
     width: 209
   },
   marginBottom: {
-    marginBottom: 30
-  },
-  modalBottom: {
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40
-  },
-  modalTop: {
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40
+    marginBottom: dimensions.width < 350 ? 15 : 33
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
+    fontSize: dimensions.width < 350 ? 14 : 16,
+    lineHeight: dimensions.width < 350 ? 18 : 21,
+    marginBottom: 15,
     marginHorizontal: 24,
-    marginTop: 18,
+    marginTop: dimensions.width < 350 ? 12 : 18,
     textAlign: "center"
   }
 } );

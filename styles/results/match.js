@@ -2,13 +2,14 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  dimensions
 } from "../global";
 
 export default StyleSheet.create( {
   backButton: {
+    left: 23,
     paddingBottom: 18,
-    paddingLeft: 23,
     paddingTop: 18,
     position: "absolute"
   },
@@ -49,15 +50,7 @@ export default StyleSheet.create( {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-around"
-  },
-  innerContainer: {
-    backgroundColor: colors.white,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    overflow: "hidden"
+    justifyContent: "center"
   },
   linkText: {
     alignSelf: "center",
@@ -68,6 +61,9 @@ export default StyleSheet.create( {
   },
   marginLarge: {
     marginTop: 50
+  },
+  marginLeft: {
+    marginLeft: dimensions.width < 350 ? 15 : 47
   },
   marginMedium: {
     marginBottom: 28
@@ -88,6 +84,8 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    marginHorizontal: 41
+    alignSelf: "center",
+    marginHorizontal: 41,
+    maxWidth: 317
   }
 } );

@@ -24,10 +24,12 @@ export default StyleSheet.create( {
     marginTop: 32
   },
   text: {
+    alignSelf: "center",
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
     marginTop: 24,
+    maxWidth: 455,
     textAlign: "center"
   }
 } );

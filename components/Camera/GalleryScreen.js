@@ -169,7 +169,7 @@ class GalleryScreen extends Component<Props, State> {
     const { photos } = this.state;
 
     if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
-      this.setError( "noPhotos" );
+      this.setError( "photos" );
     } else if ( photos.length > 0 ) {
       data.forEach( ( photo ) => {
         photos.push( photo );

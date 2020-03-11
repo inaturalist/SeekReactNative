@@ -130,23 +130,34 @@ class ARCamera extends Component<Props, State> {
   }
 
   handleCameraError = ( event: Object ) => {
-    if ( event ) {
+    const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
+    // iOS camera permissions error is handled by handleCameraError, not permission missing
+
+    if ( event.nativeEvent.error === permissions ) {
+      this.setError( "permissions" );
+    } else {
       this.setError( "camera", event.nativeEvent.error );
     }
   }
 
   handleCameraPermissionMissing = () => {
+    // event.nativeEvent.error is not implemented on Android
+    // it shows up via handleCameraError on iOS
     this.setError( "permissions" );
   }
 
   handleClassifierError = ( event: Object ) => {
-    if ( event ) {
+    if ( event.nativeEvent && event.nativeEvent.error ) {
+      this.setError( "classifier", event.nativeEvent.error );
+    } else {
       this.setError( "classifier" );
     }
   }
 
   handleDeviceNotSupported = ( event: Object ) => {
-    if ( event ) {
+    if ( event.nativeEvent && event.nativeEvent.error ) {
+      this.setError( "device", event.nativeEvent.error );
+    } else {
       this.setError( "device" );
     }
   }
@@ -228,7 +239,16 @@ class ARCamera extends Component<Props, State> {
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( uri => this.navigateToResults( uri ) )
-      .catch( e => this.setError( "save", e ) );
+      .catch( e => {
+        const gallery = "Error: Access to photo library was denied";
+
+        if ( e.toString() === gallery ) {
+          // check for camera roll permissions error
+          this.setError( "gallery" );
+        } else {
+          this.setError( "save", e );
+        }
+      } );
   }
 
   navigateToResults( uri: string ) {

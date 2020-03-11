@@ -51,24 +51,10 @@ const setCameraHelpText = ( rankToRender ) => {
 };
 
 const setCameraErrorText = ( error, errorEvent ) => {
-  let errorText;
+  let errorText = i18n.t( `camera.error_${error}` );
 
-  if ( error === "permissions" ) {
-    errorText = i18n.t( "camera.error_camera" );
-  } else if ( error === "classifier" ) {
-    errorText = i18n.t( "camera.error_classifier" );
-  } else if ( error === "device" ) {
-    errorText = i18n.t( "camera.error_device_support" );
-  } else if ( error === "save" ) {
-    errorText = `${i18n.t( "camera.error_save" )}: ${errorEvent.toString()}`;
-  } else if ( error === "take" ) {
-    errorText = `${i18n.t( "camera.error_take" )}: ${errorEvent.toString()}`;
-  } else if ( error === "camera" ) {
-    errorText = `${i18n.t( "camera.error_old_camera" )}: ${errorEvent.toString()}`;
-  } else if ( error === "gallery" ) {
-    errorText = i18n.t( "camera.error_gallery" );
-  } else if ( error === "noPhotos" ) {
-    errorText = i18n.t( "camera.error_no_photos" );
+  if ( errorEvent ) {
+    errorText += `\n\n${errorEvent.toString()}`;
   }
 
   return errorText;

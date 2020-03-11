@@ -12,6 +12,7 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { INatCamera } from "react-native-inat-camera";
+import { getSystemVersion } from "react-native-device-info";
 
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import WarningModal from "../Modals/WarningModal";
@@ -130,8 +131,13 @@ class ARCamera extends Component<Props, State> {
   }
 
   handleCameraError = ( event: Object ) => {
+    const { error } = this.state;
     const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
     // iOS camera permissions error is handled by handleCameraError, not permission missing
+    if ( error === "device" ) {
+      // do nothing if there is already a device error
+      return;
+    }
 
     if ( event.nativeEvent.error === permissions ) {
       this.setError( "permissions" );
@@ -155,10 +161,17 @@ class ARCamera extends Component<Props, State> {
   }
 
   handleDeviceNotSupported = ( event: Object ) => {
+    let textOS;
+
+    if ( Platform.OS === "ios" ) {
+      const OS = getSystemVersion();
+      textOS = i18n.t( "camera.error_version", { OS } );
+    }
+
     if ( event.nativeEvent && event.nativeEvent.error ) {
       this.setError( "device", event.nativeEvent.error );
     } else {
-      this.setError( "device" );
+      this.setError( "device", textOS );
     }
   }
 

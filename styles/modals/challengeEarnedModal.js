@@ -57,7 +57,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: dimensions.width < 350 ? 14 : 16,
     lineHeight: dimensions.width < 350 ? 18 : 21,
-    marginBottom: dimensions.width < 350 ? 15 : 29,
+    marginBottom: 15,
     marginHorizontal: 24,
     marginTop: dimensions.width < 350 ? 12 : 18,
     textAlign: "center"

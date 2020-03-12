@@ -55,13 +55,10 @@ export default StyleSheet.create( {
   logo: {
     alignSelf: "center",
     height: 58,
+    position: "absolute",
     resizeMode: "contain",
+    top: 18,
     width: 116
-  },
-  logoContainer: {
-    alignSelf: "center",
-    paddingTop: 18,
-    position: "absolute"
   },
   margin: {
     marginTop: 50

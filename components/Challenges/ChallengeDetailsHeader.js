@@ -87,29 +87,25 @@ const ChallengeDetailsHeader = ( {
       >
         <CustomBackArrow route={route} />
         <View style={styles.margin} />
-        <View style={styles.logoContainer}>
-          <Image source={logos.op} style={styles.logo} />
+        <Image source={logos.op} style={styles.logo} />
+        <Text style={styles.challengeHeader}>
+          {challenge && i18n.t( challenge.month ).toLocaleUpperCase()}
+        </Text>
+        <Text style={styles.challengeName}>
+          {challenge && i18n.t( challenge.name ).toLocaleUpperCase()}
+        </Text>
+        <View style={[styles.row, styles.marginHorizontal]}>
+          <Image
+            source={
+              challenge && challenge.percentComplete === 100
+                ? badges[challenge.earnedIconName]
+                : badges["badge-empty-white"]
+            }
+            style={styles.badge}
+          />
+          <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
         </View>
-        {challenge && (
-          <>
-            <Text style={styles.challengeHeader}>
-              {i18n.t( challenge.month ).toLocaleUpperCase()}
-            </Text>
-            <Text style={styles.challengeName}>
-              {i18n.t( challenge.name ).toLocaleUpperCase()}
-            </Text>
-            <View style={[styles.row, styles.marginHorizontal]}>
-              <Image
-                source={challenge.percentComplete === 100 ? badges[challenge.earnedIconName] : badges["badge-empty-white"]}
-                style={styles.badge}
-              />
-              <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-            </View>
-            <View style={styles.marginHorizontal}>
-              {renderButton()}
-            </View>
-          </>
-        )}
+        {challenge && renderButton()}
       </ImageBackground>
     </>
   );

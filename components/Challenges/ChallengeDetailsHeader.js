@@ -21,6 +21,7 @@ import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
 import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
 import { getRoute } from "../../utility/helpers";
+import { startChallenge } from "../../utility/challengeHelpers";
 
 type Props = {
   +navigation: any,
@@ -52,7 +53,8 @@ const ChallengeDetailsHeader = ( {
         color={colors.seekGreen}
         handlePress={() => {
           if ( !challenge.started ) {
-            showMission();
+            startChallenge( challenge.index );
+            showMission( challenge.index );
           } else if ( challenge.started && challenge.percentComplete < 100 ) {
             navigation.navigate( "Camera" );
           } else if ( challenge.started && challenge.percentComplete === 100 ) {

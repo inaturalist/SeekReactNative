@@ -50,7 +50,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
         {missions.length > 0 && missions.map( ( item, index ) => (
           <View key={`${item}${index.toString()}`} style={styles.row}>
             <View style={styles.leftItem}>
-              {missionNumbers[index].number === item.observations
+              {missionNumbers[index] && missionNumbers[index].number === item.observations
                 ? <Image source={icons.checklist} style={styles.checklist} />
                 : <Text style={styles.bullets}>&#8226;</Text>}
             </View>

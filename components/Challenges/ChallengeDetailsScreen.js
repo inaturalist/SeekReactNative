@@ -1,6 +1,11 @@
 // @flow
 
-import React, { Component } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from "react";
 import {
   ScrollView,
   SafeAreaView,
@@ -8,106 +13,67 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
-import { NavigationEvents } from "react-navigation";
+import { useNavigation, useIsFocused } from "react-navigation-hooks";
 
-import realmConfig from "../../models/index";
+import realmConfig from "../../models";
 import styles from "../../styles/challenges/challengeDetails";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
-import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
+import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
+import { useScrollToTop } from "../../utility/customHooks";
 
-type State = {
-  challenge: Object,
-  index: ?string
-}
+const ChallengeDetailsScreen = () => {
+  const navigation = useNavigation();
+  const isFocused = useIsFocused();
+  const scrollView = useRef( null );
+  const [challenge, setChallenge] = useState( null );
 
-class ChallengeDetailsScreen extends Component<Props, State> {
-  scrollView: ?any
+  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
-  constructor() {
-    super();
-
-    this.state = {
-      challenge: null,
-      index: null
-    };
-
-    ( this:any ).showMission = this.showMission.bind( this );
-  }
-
-  async setupScreen() {
-    const index = await getChallengeIndex();
-    this.setState( { index }, () => {
-      this.fetchChallengeDetails();
-    } );
-  }
-
-  resetState() {
-    this.setState( {
-      challenge: null,
-      index: null
-    } );
-  }
-
-  scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  }
-
-  fetchChallengeDetails() {
-    const { index } = this.state;
-
+  const fetchChallenge = ( index ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${String( index )}` );
-
-        this.setState( { challenge: challenges[0] } );
+        setChallenge( challenges[0] );
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
-  }
+  };
 
-  showMission() {
-    const { index } = this.state;
+  const setupScreen = useCallback( async () => {
+    recalculateChallenges();
+    const index = await getChallengeIndex();
 
-    startChallenge( index );
-    this.fetchChallengeDetails();
-  }
+    if ( !challenge || challenge.index !== index ) {
+      fetchChallenge( index );
+    }
+  }, [challenge] );
 
-  render() {
-    const { challenge } = this.state;
+  useEffect( () => {
+    if ( isFocused ) { // need this for screens where challenge index must change
+      setupScreen();
+    }
+  }, [setupScreen, isFocused] );
 
-    return (
-      <ScrollView
-        contentContainerStyle={styles.background}
-        ref={( ref ) => { this.scrollView = ref; }}
-      >
-        <SafeAreaView style={styles.safeView}>
-          <StatusBar barStyle="light-content" />
-          <NavigationEvents
-            onWillBlur={() => this.resetState()}
-            onWillFocus={() => {
-              this.scrollToTop();
-              recalculateChallenges();
-              this.setupScreen();
-            }}
-          />
-          {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
-          <ChallengeDetailsHeader
-            challenge={challenge}
-            showMission={this.showMission}
-          />
-          <ChallengeDetailsContainer
-            challenge={challenge}
-          />
-        </SafeAreaView>
-      </ScrollView>
-    );
-  }
-}
+  return (
+    <ScrollView
+      contentContainerStyle={styles.background}
+      ref={scrollView}
+    >
+      <SafeAreaView style={styles.safeView}>
+        <StatusBar barStyle="light-content" />
+        {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
+        <ChallengeDetailsHeader
+          challenge={challenge}
+          showMission={fetchChallenge}
+        />
+        <ChallengeDetailsContainer
+          challenge={challenge}
+        />
+      </SafeAreaView>
+    </ScrollView>
+  );
+};
 
 export default ChallengeDetailsScreen;

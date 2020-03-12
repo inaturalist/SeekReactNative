@@ -81,33 +81,36 @@ const ChallengeDetailsHeader = ( {
           />
         )}
       />
-      {challenge && (
-        <ImageBackground
-          source={backgrounds[challenge.backgroundName]}
-          style={styles.challengeBackground}
-        >
-          <CustomBackArrow route={route} />
-          <View style={styles.margin} />
-          <View style={styles.logoContainer}>
-            <Image source={logos.op} style={styles.logo} />
-          </View>
-          <Text style={styles.challengeHeader}>
-            {i18n.t( challenge.month ).toLocaleUpperCase()}
-          </Text>
-          <Text style={styles.challengeName}>
-            {i18n.t( challenge.name ).toLocaleUpperCase()}
-          </Text>
-          <View style={[styles.row, styles.marginHorizontal]}>
-            {challenge.percentComplete === 100
-              ? <Image source={badges[challenge.earnedIconName]} style={styles.badge} />
-              : <Image source={badges["badge-empty-white"]} style={styles.badge} />}
-            <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-          </View>
-          <View style={styles.marginHorizontal}>
-            {renderButton()}
-          </View>
-        </ImageBackground>
-      )}
+      <ImageBackground
+        source={challenge ? backgrounds[challenge.backgroundName] : null}
+        style={styles.challengeBackground}
+      >
+        <CustomBackArrow route={route} />
+        <View style={styles.margin} />
+        <View style={styles.logoContainer}>
+          <Image source={logos.op} style={styles.logo} />
+        </View>
+        {challenge && (
+          <>
+            <Text style={styles.challengeHeader}>
+              {i18n.t( challenge.month ).toLocaleUpperCase()}
+            </Text>
+            <Text style={styles.challengeName}>
+              {i18n.t( challenge.name ).toLocaleUpperCase()}
+            </Text>
+            <View style={[styles.row, styles.marginHorizontal]}>
+              <Image
+                source={challenge.percentComplete === 100 ? badges[challenge.earnedIconName] : badges["badge-empty-white"]}
+                style={styles.badge}
+              />
+              <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
+            </View>
+            <View style={styles.marginHorizontal}>
+              {renderButton()}
+            </View>
+          </>
+        )}
+      </ImageBackground>
     </>
   );
 };

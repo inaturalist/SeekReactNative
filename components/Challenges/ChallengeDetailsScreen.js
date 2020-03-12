@@ -33,7 +33,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     super();
 
     this.state = {
-      challenge: {},
+      challenge: null,
       index: null
     };
 
@@ -49,7 +49,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
 
   resetState() {
     this.setState( {
-      challenge: {},
+      challenge: null,
       index: null
     } );
   }

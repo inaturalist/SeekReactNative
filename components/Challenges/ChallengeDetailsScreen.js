@@ -119,8 +119,6 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     } = this.state;
     const { navigation } = this.props;
 
-    // console.log( this.state.index, "index" );
-
     return (
       <ScrollView
         contentContainerStyle={styles.background}

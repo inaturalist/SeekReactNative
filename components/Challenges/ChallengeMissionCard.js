@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -15,19 +15,39 @@ import GreenText from "../UIComponents/GreenText";
 import missionsDict from "../../utility/dictionaries/missionsDict";
 
 type Props = {
-  +challenge: Object,
-  +missions: Array<Object>
+  +challenge: Object
 };
 
-const ChallengeMissionCard = ( { challenge, missions }: Props ) => {
+const ChallengeMissionCard = ( { challenge }: Props ) => {
+  const [missions, setMissions] = useState( [] );
   const missionNumbers = Object.keys( missionsDict[challenge.index] )
     .map( mission => missionsDict[challenge.index][mission] );
+
+  useEffect( () => {
+    const missionList = Object.keys( challenge.missions ).map(
+      mission => challenge.missions[mission]
+    );
+    const observationsList = Object.keys( challenge.numbersObserved ).map(
+      number => challenge.numbersObserved[number]
+    );
+
+    const newMissions = [];
+
+    missionList.forEach( ( mission, i ) => {
+      newMissions.push( {
+        mission,
+        observations: observationsList[i]
+      } );
+    } );
+
+    setMissions( newMissions );
+  }, [challenge] );
 
   return (
     <View style={styles.header}>
       <GreenText text="challenges.your_mission" />
       <View style={styles.textContainer}>
-        {missions && missions.map( ( item, index ) => (
+        {missions.length > 0 && missions.map( ( item, index ) => (
           <View key={`${item}${index.toString()}`} style={styles.row}>
             <View style={styles.leftItem}>
               {missionNumbers[index].number === item.observations

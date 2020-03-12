@@ -77,7 +77,7 @@ const ChallengeDetailsHeader = ( {
           source={backgrounds[challenge.backgroundName]}
           style={styles.challengeBackground}
         >
-          <CustomBackArrow route={route} />
+          {route && <CustomBackArrow route={route} />}
           <View style={styles.margin} />
           <View style={styles.logoContainer}>
             <Image source={logos.op} style={styles.logo} />

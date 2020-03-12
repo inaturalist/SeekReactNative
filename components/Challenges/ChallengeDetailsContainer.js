@@ -17,24 +17,17 @@ import GreenText from "../UIComponents/GreenText";
 
 type Props = {
   +navigation: any,
-  challenge: Object,
-  missions: Array<Object>
+  challenge: Object
 }
 
 const ChallengeDetailsContainer = ( {
   challenge,
-  navigation,
-  missions
+  navigation
 }: Props ) => (
   <View style={styles.whiteContainer}>
     {challenge && (
       <>
-        {challenge.started && (
-          <ChallengeMissionCard
-            challenge={challenge}
-            missions={missions}
-          />
-        )}
+        {challenge.started && <ChallengeMissionCard challenge={challenge} />}
         <View style={styles.descriptionContainer}>
           <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
         </View>

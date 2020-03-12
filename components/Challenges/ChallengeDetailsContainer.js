@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
@@ -54,4 +55,4 @@ const ChallengeDetailsContainer = ( {
   </View>
 );
 
-export default ChallengeDetailsContainer;
+export default withNavigation( ChallengeDetailsContainer );

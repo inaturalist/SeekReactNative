@@ -17,10 +17,6 @@ import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../
 import Spacer from "../UIComponents/iOSSpacer";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 
-type Props = {
-  +navigation: any
-}
-
 type State = {
   challenge: Object,
   index: ?string
@@ -84,7 +80,6 @@ class ChallengeDetailsScreen extends Component<Props, State> {
 
   render() {
     const { challenge } = this.state;
-    const { navigation } = this.props;
 
     return (
       <ScrollView
@@ -104,12 +99,10 @@ class ChallengeDetailsScreen extends Component<Props, State> {
           {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
           <ChallengeDetailsHeader
             challenge={challenge}
-            navigation={navigation}
             showMission={this.showMission}
           />
           <ChallengeDetailsContainer
             challenge={challenge}
-            navigation={navigation}
           />
         </SafeAreaView>
       </ScrollView>

@@ -7,6 +7,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
+import { withNavigation } from "react-navigation";
 
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
@@ -111,4 +112,4 @@ const ChallengeDetailsHeader = ( {
   );
 };
 
-export default ChallengeDetailsHeader;
+export default withNavigation( ChallengeDetailsHeader );

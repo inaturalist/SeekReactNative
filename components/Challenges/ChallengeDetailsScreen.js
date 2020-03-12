@@ -15,7 +15,6 @@ import styles from "../../styles/challenges/challengeDetails";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import { startChallenge, getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/iOSSpacer";
-import { getRoute } from "../../utility/helpers";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 
 type Props = {
@@ -24,9 +23,7 @@ type Props = {
 
 type State = {
   challenge: Object,
-  missions: Object,
-  index: ?string,
-  route: ?string
+  index: ?string
 }
 
 class ChallengeDetailsScreen extends Component<Props, State> {
@@ -37,9 +34,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
 
     this.state = {
       challenge: {},
-      missions: {},
-      index: null,
-      route: null
+      index: null
     };
 
     ( this:any ).showMission = this.showMission.bind( this );
@@ -47,8 +42,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
 
   async setupScreen() {
     const index = await getChallengeIndex();
-    const route = await getRoute();
-    this.setState( { index, route }, () => {
+    this.setState( { index }, () => {
       this.fetchChallengeDetails();
     } );
   }
@@ -56,9 +50,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
   resetState() {
     this.setState( {
       challenge: {},
-      missions: [],
-      index: null,
-      route: null
+      index: null
     } );
   }
 
@@ -70,33 +62,12 @@ class ChallengeDetailsScreen extends Component<Props, State> {
     }
   }
 
-  fetchMissions( challenge: Object ) {
-    const missionList = Object.keys( challenge.missions ).map(
-      mission => challenge.missions[mission]
-    );
-    const observationsList = Object.keys( challenge.numbersObserved ).map(
-      number => challenge.numbersObserved[number]
-    );
-
-    const missions = [];
-
-    missionList.forEach( ( mission, i ) => {
-      missions.push( {
-        mission,
-        observations: observationsList[i]
-      } );
-    } );
-
-    this.setState( { missions } );
-  }
-
   fetchChallengeDetails() {
     const { index } = this.state;
 
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${String( index )}` );
-        this.fetchMissions( challenges[0] );
 
         this.setState( { challenge: challenges[0] } );
       } ).catch( ( err ) => {
@@ -112,11 +83,7 @@ class ChallengeDetailsScreen extends Component<Props, State> {
   }
 
   render() {
-    const {
-      challenge,
-      missions,
-      route
-    } = this.state;
+    const { challenge } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -138,13 +105,11 @@ class ChallengeDetailsScreen extends Component<Props, State> {
           <ChallengeDetailsHeader
             challenge={challenge}
             navigation={navigation}
-            route={route}
             showMission={this.showMission}
           />
           <ChallengeDetailsContainer
             challenge={challenge}
             navigation={navigation}
-            missions={missions}
           />
         </SafeAreaView>
       </ScrollView>

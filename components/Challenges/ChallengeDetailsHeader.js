@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -19,24 +19,29 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
 import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
+import { getRoute } from "../../utility/helpers";
 
 type Props = {
   +navigation: any,
   challenge: Object,
-  route: ?string,
   showMission: Function
 }
 
 const ChallengeDetailsHeader = ( {
   challenge,
   navigation,
-  route,
   showMission
 }: Props ) => {
   const [showModal, setModal] = useState( false );
+  const [route, setRoute] = useState( null );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
+
+  const fetchRoute = async () => {
+    const r = await getRoute();
+    setRoute( r );
+  };
 
   const renderButton = () => {
     const buttonText = setChallengeDetailsButtonText( challenge, challenge.started );
@@ -60,6 +65,10 @@ const ChallengeDetailsHeader = ( {
     return button;
   };
 
+  useEffect( () => {
+    fetchRoute();
+  }, [] );
+
   return (
     <>
       <Modal
@@ -77,7 +86,7 @@ const ChallengeDetailsHeader = ( {
           source={backgrounds[challenge.backgroundName]}
           style={styles.challengeBackground}
         >
-          {route && <CustomBackArrow route={route} />}
+          <CustomBackArrow route={route} />
           <View style={styles.margin} />
           <View style={styles.logoContainer}>
             <Image source={logos.op} style={styles.logo} />

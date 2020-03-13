@@ -7,8 +7,9 @@ export default StyleSheet.create( {
     width: dimensions.width
   },
   loading: {
-    alignItems: "center",
-    flex: 1,
-    justifyContent: "center"
+    left: dimensions.width / 2 - 15,
+    position: "absolute",
+    top: dimensions.height / 2 - 50,
+    zIndex: 1
   }
 } );

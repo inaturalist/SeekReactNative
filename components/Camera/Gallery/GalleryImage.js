@@ -15,10 +15,10 @@ import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 
 type Props = {
   item: Object,
-  toggleLoading: Function
+  startLoading: Function
 }
 
-const GalleryImage = ( { item, toggleLoading }: Props ) => {
+const GalleryImage = ( { item, startLoading }: Props ) => {
   const navigation = useNavigation();
 
   const navigateToResults = (
@@ -34,8 +34,6 @@ const GalleryImage = ( { item, toggleLoading }: Props ) => {
       latitude = location.latitude;
       longitude = location.longitude;
     }
-
-    toggleLoading();
 
     const results = {
       time,
@@ -84,7 +82,8 @@ const GalleryImage = ( { item, toggleLoading }: Props ) => {
       accessibilityLabel={item.node.image.filename}
       accessible
       onPress={() => {
-        toggleLoading();
+        console.log( "setting loading to true because pressed an image" );
+        startLoading();
         selectAndResizeImage( item.node );
       }}
       style={styles.button}

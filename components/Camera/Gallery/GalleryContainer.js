@@ -5,6 +5,7 @@ import {
   FlatList,
   View
 } from "react-native";
+import { useIsFocused } from "react-navigation-hooks";
 
 import CameraError from "../CameraError";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
@@ -23,9 +24,10 @@ const GalleryContainer = ( {
   error,
   photos
 }: Props ) => {
-  const [loading, setLoading] = useState( true );
+  const isFocused = useIsFocused();
+  const [loading, setLoading] = useState( false );
 
-  const toggleLoading = () => setLoading( !loading );
+  const startLoading = () => setLoading( true );
 
   useEffect( () => {
     if ( photos.length > 0 && !error ) {
@@ -33,9 +35,12 @@ const GalleryContainer = ( {
     }
   }, [photos, error] );
 
-  const renderImage = ( { item }: Object ) => (
-    <GalleryImage item={item} toggleLoading={toggleLoading} />
-  );
+  useEffect( () => {
+    if ( !isFocused ) {
+      setLoading( false );
+    }
+  }, [isFocused] );
+
 
   const renderLoadingWheel = () => (
     <View style={styles.loadingWheel}>
@@ -43,38 +48,31 @@ const GalleryContainer = ( {
     </View>
   );
 
-  const renderGallery = () => {
-    let gallery;
-
-    if ( error ) {
-      gallery = <CameraError error={error} errorEvent={null} />;
-    } else {
-      gallery = (
-        <FlatList
-          data={photos}
-          getItemLayout={( data, index ) => (
-            // skips measurement of dynamic content for faster loading
-            {
-              length: ( dimensions.width / 4 - 2 ),
-              offset: ( dimensions.width / 4 - 2 ) * index,
-              index
-            }
-          )}
-          initialNumToRender={20}
-          keyExtractor={( item, index ) => `${item}${index}`}
-          numColumns={4}
-          onEndReached={() => setPhotoParams()}
-          renderItem={renderImage}
-        />
-      );
-    }
-    return gallery;
-  };
+  const renderGallery = () => (
+    <FlatList
+      data={photos}
+      getItemLayout={( data, index ) => (
+        // skips measurement of dynamic content for faster loading
+        {
+          length: ( dimensions.width / 4 - 2 ),
+          offset: ( dimensions.width / 4 - 2 ) * index,
+          index
+        }
+      )}
+      initialNumToRender={20}
+      keyExtractor={( item, index ) => `${item}${index}`}
+      numColumns={4}
+      onEndReached={() => setPhotoParams()}
+      renderItem={( { item } ) => (
+        <GalleryImage item={item} startLoading={startLoading} />
+      )}
+    />
+  );
 
   return (
     <>
       {loading && renderLoadingWheel()}
-      {renderGallery()}
+      {error ? <CameraError error={error} errorEvent={null} /> : renderGallery()}
     </>
   );
 };

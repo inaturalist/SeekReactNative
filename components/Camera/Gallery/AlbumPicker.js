@@ -6,9 +6,9 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-import i18n from "../../i18n";
-import icons from "../../assets/icons";
-import styles from "../../styles/camera/gallery";
+import i18n from "../../../i18n";
+import icons from "../../../assets/icons";
+import styles from "../../../styles/camera/gallery";
 
 type Props = {
   +updateAlbum: Function,

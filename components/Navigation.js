@@ -13,7 +13,7 @@ import i18n from "../i18n";
 import SplashScreen from "./SplashScreen";
 import HomeScreen from "./Home/HomeScreen";
 import ARCamera from "./Camera/ARCamera";
-import Gallery from "./Camera/GalleryScreen";
+import Gallery from "./Camera/Gallery/GalleryScreen";
 import OfflineARResults from "./Results/OfflineARResults";
 import OnlineServerResults from "./Results/OnlineServerResults";
 import Match from "./Results/MatchScreen";

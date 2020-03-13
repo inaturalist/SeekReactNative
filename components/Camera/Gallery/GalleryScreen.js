@@ -10,7 +10,6 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 
-import { getAlbumNames } from "../../../utility/photoHelpers";
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
@@ -25,8 +24,7 @@ type State = {
   lastCursor: null,
   stillLoading: boolean,
   groupTypes: string,
-  album: ?string,
-  albumNames: Array<String>
+  album: ?string
 }
 
 class GalleryScreen extends Component<Props, State> {
@@ -42,8 +40,7 @@ class GalleryScreen extends Component<Props, State> {
       lastCursor: null,
       stillLoading: false,
       groupTypes: "All",
-      album: null,
-      albumNames: []
+      album: null
     };
 
     ( this:any ).updateAlbum = this.updateAlbum.bind( this );
@@ -160,29 +157,20 @@ class GalleryScreen extends Component<Props, State> {
     }
   }
 
-  async fetchAlbumNames() {
-    const albumNames = await getAlbumNames();
-    this.setState( { albumNames } );
-  }
-
   render() {
     const {
       error,
-      photos,
-      albumNames
+      photos
     } = this.state;
 
     return (
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
         <NavigationEvents
-          onWillFocus={() => {
-            this.checkPermissions();
-            this.fetchAlbumNames();
-          }}
+          onWillFocus={() => this.checkPermissions()}
         />
         <StatusBar barStyle="dark-content" />
-        <GalleryHeader albumNames={albumNames} updateAlbum={this.updateAlbum} />
+        <GalleryHeader updateAlbum={this.updateAlbum} />
         <GalleryContainer
           setPhotoParams={this.setPhotoParams}
           error={error}

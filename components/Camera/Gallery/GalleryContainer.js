@@ -1,10 +1,8 @@
 // @flow
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Image,
   FlatList,
-  TouchableHighlight,
   View
 } from "react-native";
 
@@ -12,35 +10,37 @@ import CameraError from "../CameraError";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import styles from "../../../styles/camera/gallery";
 import { colors, dimensions } from "../../../styles/global";
+import GalleryImage from "./GalleryImage";
 
 type Props = {
   photos: Array<Object>,
   error: ?string,
-  loading: boolean,
-  setPhotoParams: Function,
-  selectAndResizeImage: Function
+  setPhotoParams: Function
 }
 
 const GalleryContainer = ( {
   setPhotoParams,
-  selectAndResizeImage,
   error,
-  loading,
   photos
 }: Props ) => {
-  const renderItem = ( { item }: Object ) => (
-    <TouchableHighlight
-      accessibilityLabel={item.node.image.filename}
-      accessible
-      onPress={() => selectAndResizeImage( item.node )}
-      style={styles.button}
-      underlayColor="transparent"
-    >
-      <Image
-        source={{ uri: item.node.image.uri }}
-        style={styles.image}
-      />
-    </TouchableHighlight>
+  const [loading, setLoading] = useState( true );
+
+  const toggleLoading = () => setLoading( !loading );
+
+  useEffect( () => {
+    if ( photos.length > 0 && !error ) {
+      setLoading( false );
+    }
+  }, [photos, error] );
+
+  const renderImage = ( { item }: Object ) => (
+    <GalleryImage item={item} toggleLoading={toggleLoading} />
+  );
+
+  const renderLoadingWheel = () => (
+    <View style={styles.loadingWheel}>
+      <LoadingWheel color={colors.darkGray} />
+    </View>
   );
 
   const renderGallery = () => {
@@ -62,14 +62,9 @@ const GalleryContainer = ( {
           )}
           initialNumToRender={20}
           keyExtractor={( item, index ) => `${item}${index}`}
-          ListEmptyComponent={() => (
-            <View style={styles.loadingWheel}>
-              <LoadingWheel color={colors.darkGray} />
-            </View>
-          )}
           numColumns={4}
           onEndReached={() => setPhotoParams()}
-          renderItem={renderItem}
+          renderItem={renderImage}
         />
       );
     }
@@ -78,11 +73,7 @@ const GalleryContainer = ( {
 
   return (
     <>
-      {loading ? (
-        <View style={styles.loading}>
-          <LoadingWheel color={colors.darkGray} />
-        </View>
-      ) : null}
+      {loading && renderLoadingWheel()}
       {renderGallery()}
     </>
   );

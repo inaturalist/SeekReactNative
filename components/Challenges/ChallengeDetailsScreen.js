@@ -53,6 +53,8 @@ const ChallengeDetailsScreen = () => {
   useEffect( () => {
     if ( isFocused ) { // need this for screens where challenge index must change
       setupScreen();
+    } else {
+      setChallenge( null ); // reset necessary for race condition on iOS
     }
   }, [setupScreen, isFocused] );
 

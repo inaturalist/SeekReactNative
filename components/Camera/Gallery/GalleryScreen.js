@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import {
   Platform,
   Image,
-  FlatList,
   TouchableHighlight,
   View,
   StatusBar,
@@ -14,14 +13,12 @@ import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { getPredictionsForImage } from "react-native-inat-camera";
 
-import CameraError from "../CameraError";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { checkForPhotoMetaData, getAlbumNames } from "../../../utility/photoHelpers";
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
-import { colors, dimensions } from "../../../styles/global";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 import GalleryHeader from "./GalleryHeader";
+import GalleryContainer from "./GalleryContainer";
 
 type Props = {
   +navigation: any
@@ -58,6 +55,8 @@ class GalleryScreen extends Component<Props, State> {
     };
 
     ( this:any ).updateAlbum = this.updateAlbum.bind( this );
+    ( this:any ).setPhotoParams = this.setPhotoParams.bind( this );
+    ( this:any ).selectAndResizeImage = this.selectAndResizeImage.bind( this );
   }
 
   getPredictions( uri: string, timestamp: Date, location: string ) {
@@ -255,36 +254,6 @@ class GalleryScreen extends Component<Props, State> {
       albumNames
     } = this.state;
 
-    let gallery;
-
-    if ( error ) {
-      gallery = <CameraError error={error} errorEvent={null} />;
-    } else {
-      gallery = (
-        <FlatList
-          data={photos}
-          getItemLayout={( data, index ) => (
-            // skips measurement of dynamic content for faster loading
-            {
-              length: ( dimensions.width / 4 - 2 ),
-              offset: ( dimensions.width / 4 - 2 ) * index,
-              index
-            }
-          )}
-          initialNumToRender={20}
-          keyExtractor={( item, index ) => `${item}${index}`}
-          ListEmptyComponent={() => (
-            <View style={styles.loadingWheel}>
-              <LoadingWheel color={colors.darkGray} />
-            </View>
-          )}
-          numColumns={4}
-          onEndReached={() => this.setPhotoParams()}
-          renderItem={this.renderItem}
-        />
-      );
-    }
-
     return (
       <View style={styles.background}>
         <SafeAreaView style={styles.safeViewTop} />
@@ -296,12 +265,13 @@ class GalleryScreen extends Component<Props, State> {
         />
         <StatusBar barStyle="dark-content" />
         <GalleryHeader albumNames={albumNames} updateAlbum={this.updateAlbum} />
-        {loading ? (
-          <View style={styles.loading}>
-            <LoadingWheel color={colors.darkGray} />
-          </View>
-        ) : null}
-        {gallery}
+        <GalleryContainer
+          setPhotoParams={this.setPhotoParams}
+          selectAndResizeImage={this.selectAndResizeImage}
+          error={error}
+          loading={loading}
+          photos={photos}
+        />
       </View>
     );
   }

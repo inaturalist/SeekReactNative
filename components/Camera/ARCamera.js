@@ -28,6 +28,7 @@ import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import Modal from "../UIComponents/Modal";
 import { createTimestamp } from "../../utility/dateHelpers";
 import { setCameraHelpText } from "../../utility/textHelpers";
+import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
   +navigation: any
@@ -43,7 +44,8 @@ type State = {
   commonName: ?string,
   showModal: boolean,
   errorEvent: ?string,
-  focusedScreen: boolean
+  focusedScreen: boolean,
+  scientificNames: boolean
 }
 
 class ARCamera extends Component<Props, State> {
@@ -62,7 +64,8 @@ class ARCamera extends Component<Props, State> {
       commonName: null,
       showModal: false,
       errorEvent: null,
-      focusedScreen: false
+      focusedScreen: false,
+      scientificNames: false
     };
 
     ( this:any ).closeModal = this.closeModal.bind( this );
@@ -93,6 +96,11 @@ class ARCamera extends Component<Props, State> {
       errorEvent: event || null,
       loading: false
     } );
+  }
+
+  setScientificNames = async () => {
+    const scientificNames = await getScientificNames();
+    this.setState( { scientificNames } );
   }
 
   handleTaxaDetected = ( event: Object ) => {
@@ -217,15 +225,27 @@ class ARCamera extends Component<Props, State> {
   }
 
   updateUI( prediction: Object, rank: string ) {
-    getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+    const { scientificNames } = this.state;
+
+    if ( scientificNames ) {
       this.setState( {
         ranks: {
           [rank]: [prediction]
         },
-        commonName,
+        commonName: prediction.name,
         rankToRender: rank
       } );
-    } );
+    } else {
+      getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+        this.setState( {
+          ranks: {
+            [rank]: [prediction]
+          },
+          commonName,
+          rankToRender: rank
+        } );
+      } );
+    }
   }
 
   resetPredictions() {
@@ -334,6 +354,7 @@ class ARCamera extends Component<Props, State> {
             this.requestAndroidPermissions();
             this.handleResumePreview();
             this.setFocusedScreen( true );
+            this.setScientificNames();
           }}
         />
         <Modal

@@ -6,13 +6,13 @@
   "species_nearby": {
     "header": "附近物種",
     "location_error": "為顯示你附近的物種，我們必須使用你的位置資訊。",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
+    "location_device": "Seek 需要知道您所在的地點來顯示物種和添加觀察記錄。請確認您的裝置已開啟位置資訊。",
     "enable_location": "在設定中開啟位置資訊",
     "internet_error": "我們必須使用網路來顯示你附近的物種。請點按以重試。",
     "no_location": "沒有位置資訊",
     "no_species": "似乎尚未在附近觀察到大量物种！請嘗試變更您所在位置或擴大物種篩選範圍。",
     "no_gps": "無法取得GPS訊號",
-    "location_timeout": "Your location request timed out. Please try again."
+    "location_timeout": "已超過搜尋位置的時間。請再試一次。"
   },
   "get_started": {
     "header": "開始",
@@ -325,7 +325,7 @@
     "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "成就",
     "observe": "觀察 {{number}} 物种以到達下一級別！",
-    "observe_max": "You’ve reached the max level on Seek!",
+    "observe_max": "您已經達到 Seek 的最高等級！",
     "observe_species": "觀察",
     "species_badges": "物種獎牌",
     "challenge_badges": "挑戰獎牌",
@@ -402,15 +402,15 @@
     "not_seen": "您尚未觀察到任何 {{iconicTaxon}}！"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "附近的",
     "about": "關於",
     "range_map": "範圍圖",
     "range_about": "在 iNaturalist 上看到的此物种的觀察結果圖。",
     "view_map": "檢視範圍圖",
-    "legend": "Legend",
+    "legend": "圖例",
     "current_location": "目前位置",
-    "obs": "My Seek Observation",
-    "obs_inat": "Observations on iNaturalist",
+    "obs": "我的 Seek 觀察記錄",
+    "obs_inat": "在 iNaturalist 上的觀察記錄",
     "cc": "抄送",
     "license": "許可證",
     "taxonomy": "分類",

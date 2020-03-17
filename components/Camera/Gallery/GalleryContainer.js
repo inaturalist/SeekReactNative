@@ -41,7 +41,6 @@ const GalleryContainer = ( {
     }
   }, [isFocused] );
 
-
   const renderLoadingWheel = () => (
     <View style={styles.loadingWheel}>
       <LoadingWheel color={colors.darkGray} />
@@ -68,6 +67,8 @@ const GalleryContainer = ( {
       )}
     />
   );
+
+  console.log( photos.length, "photos" );
 
   return (
     <>

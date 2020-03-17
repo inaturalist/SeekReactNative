@@ -10,6 +10,7 @@ import {
   subDays
 } from "date-fns";
 import {
+  af,
   ca,
   da,
   de,
@@ -28,6 +29,7 @@ import realmConfig from "../models/index";
 import i18n from "../i18n";
 
 const locales = {
+  af,
   ca,
   da,
   de,

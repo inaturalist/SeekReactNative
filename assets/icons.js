@@ -24,6 +24,7 @@ const icons = {
   menuiNat: require( "./icons/icon-menu-inaturalist.png" ),
   menuObservations: require( "./icons/icon-menu-observations.png" ),
   menuSeek: require( "./icons/icon-menu-seek.png" ),
+  menuSettings: require( "./icons/icon-menu-settings.png" ),
   closeGreen: require( "./icons/icon-close-green.png" ),
   closeWhite: require( "./icons/icon-close-white.png" ),
   closeModal: require( "./icons/icon-close-modal.png" ),

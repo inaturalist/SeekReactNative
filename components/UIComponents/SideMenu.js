@@ -106,6 +106,18 @@ const SideMenu = ( { navigation }: DrawerContentComponentProps ) => (
           {i18n.t( "menu.about" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
+      <View style={styles.divider} />
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "menu.settings" )}
+        accessible
+        onPress={() => navigation.navigate( "Settings" )}
+        style={[styles.row, styles.height]}
+      >
+        <Image source={icons.menuSettings} style={styles.image} />
+        <Text adjustsFontSizeToFit style={styles.text}>
+          {i18n.t( "menu.settings" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
     </View>
   </View>
 );

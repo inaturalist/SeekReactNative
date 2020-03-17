@@ -47,6 +47,7 @@ import PostScreen from "./PostToiNat/PostScreen";
 import PostingHelpScreen from "./PostToiNat/PostingHelpScreen";
 import WikipediaView from "./Species/WikipediaView";
 import DebugAndroid from "./UIComponents/DebugAndroid";
+import SettingsScreen from "./Settings";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -138,6 +139,9 @@ const FooterTabNav = createBottomTabNavigator( { // these are screens that need 
   },
   DebugAndroid: {
     screen: DebugAndroid
+  },
+  Settings: {
+    screen: SettingsScreen
   }
 }, FooterTabConfig );
 
@@ -210,6 +214,9 @@ const MenuDrawerNav = createDrawerNavigator( {
   },
   About: {
     screen: AboutScreen
+  },
+  Settings: {
+    screen: SettingsScreen
   }
 }, DrawerNavigatorConfig );
 

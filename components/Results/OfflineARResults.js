@@ -15,6 +15,7 @@ import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
+import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
   +navigation: any
@@ -36,7 +37,8 @@ type State = {
   scientificName: ?string,
   match: ?boolean,
   errorCode: ?number,
-  rank: ?number
+  rank: ?number,
+  scientificNames: boolean
 };
 
 class OfflineARResults extends Component<Props, State> {
@@ -67,12 +69,18 @@ class OfflineARResults extends Component<Props, State> {
       scientificName: null,
       match: null,
       errorCode: null,
-      rank: null
+      rank: null,
+      scientificNames: false
     };
   }
 
   setLocationErrorCode( errorCode: number ) {
     this.setState( { errorCode } );
+  }
+
+  setScientificNames = async () => {
+    const scientificNames = await getScientificNames();
+    this.setState( { scientificNames } );
   }
 
   getUserLocation() {
@@ -99,9 +107,18 @@ class OfflineARResults extends Component<Props, State> {
   }
 
   setCommonAncestor( ancestor: Object, speciesSeenImage: ?string ) {
+    const { scientificNames } = this.state;
+
     getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+      let commonAncestor;
+
+      if ( !scientificNames && commonName ) { // only use common name if toggled on
+        commonAncestor = commonName;
+      } else {
+        commonAncestor = ancestor.name;
+      }
       this.setState( {
-        commonAncestor: commonName || ancestor.name,
+        commonAncestor,
         taxaId: ancestor.taxon_id,
         speciesSeenImage,
         scientificName: ancestor.name,
@@ -136,14 +153,22 @@ class OfflineARResults extends Component<Props, State> {
   }
 
   setSpeciesInfo( species: Object, taxa: Object ) {
+    const { scientificNames } = this.state;
     const taxaId = Number( species.taxon_id );
 
     const iconicTaxonId = checkForIconicTaxonId( species.ancestor_ids );
 
     getTaxonCommonName( species.taxon_id ).then( ( commonName ) => {
+      let taxaName;
+
+      if ( !scientificNames && commonName ) { // only use common name if toggled on
+        taxaName = commonName;
+      } else {
+        taxaName = species.name;
+      }
       this.setState( {
         taxaId,
-        taxaName: commonName || species.name,
+        taxaName,
         scientificName: species.name,
         observation: {
           taxon: {
@@ -293,6 +318,7 @@ class OfflineARResults extends Component<Props, State> {
           onWillFocus={() => {
             this.setARCameraVisionResults();
             this.requestAndroidPermissions();
+            this.setScientificNames();
           }}
         />
         <FullPhotoLoading uri={uri} />

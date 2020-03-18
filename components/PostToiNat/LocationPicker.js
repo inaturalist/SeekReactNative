@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -17,9 +17,10 @@ import backStyles from "../../styles/uiComponents/buttons/backArrow";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
+import { dimensions } from "../../styles/global";
 
-const latitudeDelta = 0.2;
-const longitudeDelta = 0.2;
+const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
+const longitudeDelta = 0.005;
 
 type Props = {
   +latitude: number,
@@ -28,87 +29,90 @@ type Props = {
   +toggleLocationPicker: Function
 }
 
-type State = {
-  region: Object
-}
+const LocationPicker = ( {
+  latitude,
+  longitude,
+  updateLocation,
+  toggleLocationPicker
+}: Props ) => {
+  const [accuracy, setAccuracy] = useState( 90 );
+  // if user zooms out, accuracy should be higher
+  // if user zooms in, accuracy should be lower
+  // calculate accuracy based on pixels on screen and lat delta?
 
-class LocationPicker extends Component<Props, State> {
-  constructor( {
+  // number of meters on screen
+  // number of pixels in the circle picker / radius of circle
+  // zoom level or delta
+
+  const [region, setRegion] = useState( {
+    latitudeDelta,
+    longitudeDelta,
     latitude,
     longitude
-  }: Props ) {
-    super();
+  } );
 
-    this.state = {
-      region: {
-        latitudeDelta,
-        longitudeDelta,
-        latitude,
-        longitude
-      }
-    };
+  const handleRegionChange = ( newRegion ) => {
+    const sizeOfCrossHairIcon = 127;
+    const { width } = dimensions;
 
-    ( this:any ).handleRegionChange = this.handleRegionChange.bind( this );
-    ( this:any ).returnToUserLocation = this.returnToUserLocation.bind( this );
-  }
+    const estimatedAccuracy = newRegion.longitudeDelta * 1000 * (
+      ( sizeOfCrossHairIcon / width / 2 ) * 100
+    );
 
-  handleRegionChange( newRegion: Object ) {
-    this.setState( { region: newRegion } );
-  }
+    // const estimatedAccuracy = newRegion.longitudeDelta * 10000;
+    setRegion( newRegion );
+    setAccuracy( estimatedAccuracy );
+  };
 
-  returnToUserLocation() {
+  const returnToUserLocation = () => {
     fetchUserLocation().then( ( coords ) => {
       if ( coords ) {
-        const { latitude, longitude } = coords;
+        const lat = coords.latitude;
+        const long = coords.longitude;
+        const newAccuracy = coords.accuracy;
 
-        this.setState( {
-          region: {
-            latitude,
-            longitude,
-            latitudeDelta,
-            longitudeDelta
-          }
+        setRegion( {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta,
+          longitudeDelta
         } );
+        setAccuracy( newAccuracy );
       }
-    } ).catch( ( err ) => {
-      console.log( err );
     } );
-  }
+  };
 
-  render() {
-    const { region } = this.state;
-    const { updateLocation, toggleLocationPicker } = this.props;
+  console.log( accuracy, "accuracy in picker" );
 
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <View style={headerStyles.container}>
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.back" )}
-            accessible
-            onPress={() => toggleLocationPicker()}
-            style={backStyles.backButton}
-          >
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-          <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
-        </View>
-        <LocationMap
-          onRegionChange={this.handleRegionChange}
-          posting
-          region={region}
-          returnToUserLocation={this.returnToUserLocation}
-        />
-        <View style={styles.footer}>
-          <View style={styles.margin} />
-          <GreenButton
-            handlePress={() => updateLocation( region.latitude, region.longitude )}
-            text="posting.save_location"
-          />
-        </View>
+  return (
+    <View style={styles.container}>
+      <SafeAreaView />
+      <View style={headerStyles.container}>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.back" )}
+          accessible
+          onPress={() => toggleLocationPicker()}
+          style={backStyles.backButton}
+        >
+          <Image source={icons.backButton} />
+        </TouchableOpacity>
+        <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
       </View>
-    );
-  }
-}
+      <LocationMap
+        onRegionChange={handleRegionChange}
+        posting
+        region={region}
+        returnToUserLocation={returnToUserLocation}
+      />
+      <View style={styles.footer}>
+        <View style={styles.margin} />
+        <GreenButton
+          handlePress={() => updateLocation( region.latitude, region.longitude, accuracy )}
+          text="posting.save_location"
+        />
+      </View>
+    </View>
+  );
+};
 
 export default LocationPicker;

@@ -1,7 +1,6 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
 const toggleScientificNames = ( boolean ) => {
-  console.log( "setting scientific names to boolean: ", boolean );
   AsyncStorage.setItem( "scientific_names", boolean.toString() );
 };
 

@@ -286,12 +286,13 @@ class PostScreen extends Component<Props, State> {
     }
   }
 
-  updateLocation( latitude: number, longitude: number ) {
+  updateLocation( latitude: number, longitude: number, accuracy: number ) {
     this.reverseGeocodeLocation( latitude, longitude );
 
     this.setState( {
       latitude,
-      longitude
+      longitude,
+      accuracy
     }, () => this.toggleLocationPicker() );
   }
 

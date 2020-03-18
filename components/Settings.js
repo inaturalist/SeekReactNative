@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
-import Checkbox from "react-native-check-box";
+import { View, Text, Switch } from "react-native";
 
 import SafeAreaView from "./UIComponents/SafeAreaView";
 import GreenHeader from "./UIComponents/GreenHeader";
@@ -26,16 +25,14 @@ const SettingsScreen = () => {
     <View style={styles.background}>
       <SafeAreaView />
       <GreenHeader header="menu.settings" />
-      <View style={[styles.row, styles.margin]}>
-        <Checkbox
-          checkBoxColor="#979797"
-          isChecked={scientificNames}
-          onClick={() => setScientificNames( !scientificNames )}
-          style={styles.checkBox}
-        />
+      <View style={[styles.row, styles.margin, styles.marginHorizontal]}>
         <Text style={styles.text}>
           {i18n.t( "settings.scientific_names" )}
         </Text>
+        <Switch
+          onValueChange={() => setScientificNames( !scientificNames )}
+          value={scientificNames}
+        />
       </View>
     </View>
   );

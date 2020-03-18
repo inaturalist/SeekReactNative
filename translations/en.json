@@ -553,6 +553,6 @@
     "logs": "Send debug logs by email"
   },
   "settings": {
-    "scientific_names": "Display scientific names in the AR Camera"
+    "scientific_names": "Display scientific names in AR Camera"
   }
 }

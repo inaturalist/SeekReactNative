@@ -11,14 +11,12 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  checkBox: {
-    paddingBottom: 18,
-    paddingLeft: 34,
-    paddingRight: 18,
-    paddingTop: 18
-  },
   margin: {
     marginTop: 30
+  },
+  marginHorizontal: {
+    justifyContent: "space-between",
+    marginHorizontal: 34
   },
   row,
   secondHeaderText: {
@@ -33,6 +31,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    maxWidth: dimensions.width / 2 + 80
+    maxWidth: dimensions.width / 2 + 40
   }
 } );

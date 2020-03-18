@@ -29,6 +29,7 @@ const LocationMap = ( {
         provider={PROVIDER_DEFAULT}
         initialRegion={region}
         style={styles.map}
+        loadingEnabled
       />
     )}
     <View pointerEvents="none" style={posting ? styles.markerFixed : styles.pinFixed}>

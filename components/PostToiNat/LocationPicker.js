@@ -36,13 +36,6 @@ const LocationPicker = ( {
   toggleLocationPicker
 }: Props ) => {
   const [accuracy, setAccuracy] = useState( 90 );
-  // if user zooms out, accuracy should be higher
-  // if user zooms in, accuracy should be lower
-  // calculate accuracy based on pixels on screen and lat delta?
-
-  // number of meters on screen
-  // number of pixels in the circle picker / radius of circle
-  // zoom level or delta
 
   const [region, setRegion] = useState( {
     latitudeDelta,
@@ -59,7 +52,6 @@ const LocationPicker = ( {
       ( sizeOfCrossHairIcon / width / 2 ) * 100
     );
 
-    // const estimatedAccuracy = newRegion.longitudeDelta * 10000;
     setRegion( newRegion );
     setAccuracy( estimatedAccuracy );
   };
@@ -81,8 +73,6 @@ const LocationPicker = ( {
       }
     } );
   };
-
-  console.log( accuracy, "accuracy in picker" );
 
   return (
     <View style={styles.container}>

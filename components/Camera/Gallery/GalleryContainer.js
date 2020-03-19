@@ -68,8 +68,6 @@ const GalleryContainer = ( {
     />
   );
 
-  console.log( photos.length, "photos" );
-
   return (
     <>
       {loading && renderLoadingWheel()}

@@ -1,32 +1,15 @@
-import {
-  StyleSheet,
-  Dimensions,
-  PixelRatio
-} from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts
 } from "../global";
 
-const { width, height } = Dimensions.get( "window" );
-const fontScale = PixelRatio.getFontScale();
-
 export default StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
-  badge: {
-    height: 105,
-    resizeMode: "contain",
-    width: 93
-  },
   challengeBackground: {
-    height: 405
-  },
-  descriptionContainer: {
-    alignItems: "center",
-    backgroundColor: colors.white,
-    marginTop: 21
+    height: 407
   },
   descriptionText: {
     color: colors.black,
@@ -34,8 +17,12 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21
   },
-  image: {
-    padding: 5
+  iNatLogo: {
+    height: 35,
+    width: 191
+  },
+  iNatMargin: {
+    marginTop: 32
   },
   logo: {
     alignSelf: "center",
@@ -48,50 +35,34 @@ export default StyleSheet.create( {
   margin: {
     marginTop: 50
   },
-  marginHorizontal: {
-    marginHorizontal: 36
+  marginLarge: {
+    marginTop: 37
   },
-  marginTop: {
-    marginTop: 16
+  marginMedium: {
+    marginTop: 28
   },
-  padding: {
-    padding: 25
+  marginSmall: {
+    marginTop: 21
+  },
+  opContainer: {
+    alignItems: "center",
+    marginBottom: 29,
+    marginTop: 23
   },
   photographerText: {
-    color: colors.black,
-    fontFamily: fonts.book,
     fontSize: 14,
-    lineHeight: 21,
     textAlign: "center"
-  },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-start",
-    marginBottom: ( fontScale > 1 ) ? 20 : 28,
-    marginTop: ( fontScale > 1 ) ? 15 : 21
   },
   safeView: {
     backgroundColor: colors.black,
     flex: 0
   },
-  secondHeader: {
-    marginTop: 21
-  },
-  text: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: ( fontScale > 1 || height < 570 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 || height < 570 ) ? null : 25,
-    marginLeft: 26,
-    maxWidth: width - ( 105 + 28 + 74 ),
-    textAlign: "center"
-  },
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,
     fontSize: 16,
+    lineHeight: 21,
+    textAlign: "center",
     textDecorationLine: "underline"
   },
   whiteContainer: {

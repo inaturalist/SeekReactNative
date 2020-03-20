@@ -10,18 +10,19 @@ import logos from "../../../assets/logos";
 import badges from "../../../assets/badges";
 
 type Props = {
-  challenge: Object
+  challenge: Object,
+  large: ?boolean
 }
 
-const ChallengeBadgeRow = ( { challenge }: Props ) => {
-  const is2020Challenge = isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
+const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
+  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   return (
     <View style={[styles.row, styles.center]}>
-      {is2020Challenge
-        ? <Image source={badges["badge-empty-white"]} style={styles.badgeSmall} />
+      {is2020Challenge || large
+        ? <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />
         : <Image source={logos.op} style={styles.image} />}
-      <Text style={styles.textSmall}>
+      <Text style={large ? styles.text : styles.textSmall}>
         {is2020Challenge
           ? i18n.t( "challenges_card.new_join" )
           : i18n.t( "challenges_card.join" )}

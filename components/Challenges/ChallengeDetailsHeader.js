@@ -3,15 +3,13 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
   Image,
   ImageBackground
 } from "react-native";
 import { withNavigation } from "react-navigation";
+import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
-import i18n from "../../i18n";
-import badges from "../../assets/badges";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
@@ -23,6 +21,7 @@ import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
 import { getRoute } from "../../utility/helpers";
 import { startChallenge } from "../../utility/challengeHelpers";
 import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
+import ChallengeBadgeRow from "../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
   +navigation: any,
@@ -37,6 +36,7 @@ const ChallengeDetailsHeader = ( {
 }: Props ) => {
   const [showModal, setModal] = useState( false );
   const [route, setRoute] = useState( null );
+  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -90,20 +90,14 @@ const ChallengeDetailsHeader = ( {
         style={styles.challengeBackground}
       >
         <CustomBackArrow route={route} />
-        <View style={styles.margin} />
-        <Image source={logos.op} style={styles.logo} />
+        <View style={is2020Challenge ? styles.iNatMargin : styles.margin} />
+        {is2020Challenge
+          ? <Image source={logos.iNatWhite} style={[styles.logo, styles.iNatLogo]} />
+          : <Image source={logos.op} style={styles.logo} />}
         {challenge && <ChallengeTitle challenge={challenge} />}
-        <View style={[styles.row, styles.marginHorizontal]}>
-          <Image
-            source={
-              challenge && challenge.percentComplete === 100
-                ? badges[challenge.earnedIconName]
-                : badges["badge-empty-white"]
-            }
-            style={styles.badge}
-          />
-          <Text style={styles.text}>{i18n.t( "challenges_card.join" )}</Text>
-        </View>
+        <View style={styles.marginSmall} />
+        <ChallengeBadgeRow challenge={challenge} large />
+        <View style={styles.marginMedium} />
         {challenge && renderButton()}
       </ImageBackground>
     </>

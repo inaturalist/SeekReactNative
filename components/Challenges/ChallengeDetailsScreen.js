@@ -7,6 +7,7 @@ import React, {
   useCallback
 } from "react";
 import {
+  View,
   ScrollView,
   SafeAreaView,
   StatusBar,
@@ -59,22 +60,21 @@ const ChallengeDetailsScreen = () => {
   }, [setupScreen, isFocused] );
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.background}
-      ref={scrollView}
-    >
-      <SafeAreaView style={styles.safeView}>
-        <StatusBar barStyle="light-content" />
-        {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
-        <ChallengeDetailsHeader
-          challenge={challenge}
-          showMission={fetchChallenge}
-        />
-        <ChallengeDetailsContainer
-          challenge={challenge}
-        />
-      </SafeAreaView>
-    </ScrollView>
+    <View style={styles.background}>
+      <ScrollView ref={scrollView}>
+        <SafeAreaView style={styles.safeView}>
+          <StatusBar barStyle="light-content" />
+          {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
+          <ChallengeDetailsHeader
+            challenge={challenge}
+            showMission={fetchChallenge}
+          />
+          <ChallengeDetailsContainer
+            challenge={challenge}
+          />
+        </SafeAreaView>
+      </ScrollView>
+    </View>
   );
 };
 

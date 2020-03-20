@@ -6,7 +6,6 @@ import {
 import {
   colors,
   fonts,
-  dimensions,
   row,
   center
 } from "../global";
@@ -16,15 +15,15 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   badge: {
     height: 105,
-    marginRight: 26,
+    marginRight: 28,
     resizeMode: "contain",
-    width: 93
+    width: 105
   },
   badgeSmall: {
-    height: 73,
+    height: 79,
     marginRight: 29,
     resizeMode: "contain",
-    width: 65
+    width: 79
   },
   center,
   challengeHeader: {
@@ -50,10 +49,11 @@ export default StyleSheet.create( {
   row,
   text: {
     color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: ( fontScale > 1 || dimensions.height < 570 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 || dimensions.height < 570 ) ? null : 24,
-    maxWidth: dimensions.width - ( 116 + 27 + 64 )
+    fontFamily: fonts.medium,
+    fontSize: 16,
+    lineHeight: 24,
+    maxWidth: 178,
+    textAlign: "center"
   },
   textSmall: {
     color: colors.white,

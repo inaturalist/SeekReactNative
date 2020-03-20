@@ -4,10 +4,10 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
-  TouchableOpacity
+  Image
 } from "react-native";
 import { withNavigation } from "react-navigation";
+import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
@@ -24,35 +24,45 @@ type Props = {
 const ChallengeDetailsContainer = ( {
   challenge,
   navigation
-}: Props ) => (
-  <View style={styles.whiteContainer}>
-    {challenge && (
-      <>
-        {challenge.started && <ChallengeMissionCard challenge={challenge} />}
-        <View style={styles.descriptionContainer}>
+}: Props ) => {
+  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
+
+  return (
+    <View style={styles.whiteContainer}>
+      {challenge && (
+        <>
+          {challenge.started && <ChallengeMissionCard challenge={challenge} />}
+          <View style={styles.marginSmall} />
           <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
-        </View>
-        <View style={styles.secondHeader}>
+          <View style={styles.marginLarge} />
           <GreenText text="challenges.get_involved" />
-        </View>
-        <View style={styles.marginTop} />
-        <Text style={styles.descriptionText}>
-          {i18n.t( challenge.action )}
-        </Text>
-        <View style={styles.descriptionContainer}>
-          <Image source={logos.wwfop} style={styles.row} />
-          <Text style={styles.photographerText}>{i18n.t( challenge.photographer )}</Text>
-          <TouchableOpacity
+          <View style={styles.marginSmall} />
+          <Text style={styles.descriptionText}>
+            {i18n.t( challenge.action )}
+          </Text>
+          {!is2020Challenge && (
+            <View style={styles.opContainer}>
+              <Image source={logos.wwfop} />
+            </View>
+          )}
+            {!is2020Challenge
+              && (
+              <Text style={[styles.descriptionText, styles.photographerText]}>
+                {i18n.t( challenge.photographer )}
+              </Text>
+              )}
+          <View style={styles.marginMedium} />
+          <Text
             onPress={() => navigation.navigate( "Challenges" )}
-            style={styles.padding}
+            style={styles.viewText}
           >
-            <Text style={styles.viewText}>{i18n.t( "challenges_card.view_all" )}</Text>
-          </TouchableOpacity>
-        </View>
-      </>
-    )}
-    <Padding />
-  </View>
-);
+            {i18n.t( "challenges_card.view_all" )}
+          </Text>
+        </>
+      )}
+      <Padding />
+    </View>
+  );
+};
 
 export default withNavigation( ChallengeDetailsContainer );

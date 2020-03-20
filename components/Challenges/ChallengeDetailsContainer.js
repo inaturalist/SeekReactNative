@@ -58,6 +58,7 @@ const ChallengeDetailsContainer = ( {
           >
             {i18n.t( "challenges_card.view_all" )}
           </Text>
+          <View style={styles.marginMedium} />
         </>
       )}
       <Padding />

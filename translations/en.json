@@ -25,7 +25,8 @@
     "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
-    "view_all": "View all challenges"
+    "view_all": "View all challenges",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "Notifications",
@@ -554,5 +555,15 @@
   },
   "settings": {
     "scientific_names": "Display scientific names in AR Camera"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "april_2020": "April 2020",
+    "action_april_2020": "April is also normally the month of the City Nature Challenge, but due to the pandemic, CNC 2020 is no longer a competition between cities as it is normally.\n\nIf you are 13 or older, you can still make an iNaturalist account and post observations to iNaturalist between April 24-27 to contribute biodiversity data in whatever way you are able. Make sure to follow any regulations from your local organizations and governments."
   }
 }

@@ -139,6 +139,21 @@ const challenges = {
     photographer: "challenges.photographer_december",
     action: "challenges.action_december",
     index: 7
+  },
+  april2020: {
+    name: "seek_challenges.citizen_science",
+    month: "seek_challenges.april_2020",
+    // new Date( 2020, 3, 1 ),
+    description: "seek_challenges.april_2020_description",
+    totalSpecies: 10,
+    homeBackgroundName: "img-homechallenge-april2020",
+    backgroundName: "img-challengedetail-april2020",
+    unearnedIconName: "badge_empty",
+    earnedIconName: "badge_inaturalist_april2020",
+    missions: ["challenges.mission_1_april"],
+    availableDate: new Date( 2020, 3, 1 ),
+    action: "seek_challenges.action_april_2020",
+    index: 8
   }
 };
 

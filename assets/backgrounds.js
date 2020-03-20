@@ -18,7 +18,9 @@ const backgrounds = {
   "img-homechallenge-september": require( "./backgrounds/img-homechallenge-september.png" ),
   "img-homechallenge-october": require( "./backgrounds/img-homechallenge-october.png" ),
   "img-homechallenge-november": require( "./backgrounds/img-homechallenge-november.png" ),
-  "img-homechallenge-december": require( "./backgrounds/img-homechallenge-december.png" )
+  "img-homechallenge-december": require( "./backgrounds/img-homechallenge-december.png" ),
+  "img-challengedetail-april2020": require( "./backgrounds/img-challengedetail-april2020.png" ),
+  "img-homechallenge-april2020": require( "./backgrounds/img-homechallenge-april2020.png" )
 };
 
 export default backgrounds;

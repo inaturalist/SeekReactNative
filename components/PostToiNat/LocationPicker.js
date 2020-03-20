@@ -95,7 +95,6 @@ const LocationPicker = ( {
         returnToUserLocation={returnToUserLocation}
       />
       <View style={styles.footer}>
-        <View style={styles.margin} />
         <GreenButton
           handlePress={() => updateLocation( region.latitude, region.longitude, accuracy )}
           text="posting.save_location"

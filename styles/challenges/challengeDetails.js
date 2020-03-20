@@ -23,21 +23,6 @@ export default StyleSheet.create( {
   challengeBackground: {
     height: 405
   },
-  challengeHeader: {
-    color: colors.white,
-    fontFamily: fonts.light,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 0.78,
-    marginLeft: 32
-  },
-  challengeName: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 20 : 23,
-    letterSpacing: 1.0,
-    marginHorizontal: 32,
-    marginTop: 5
-  },
   descriptionContainer: {
     alignItems: "center",
     backgroundColor: colors.white,

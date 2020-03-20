@@ -17,8 +17,7 @@ export default StyleSheet.create( {
   },
   footer: {
     backgroundColor: colors.white,
-    marginHorizontal: 23,
-    paddingBottom: dimensions.height > 670 ? 45 : 15,
+    paddingBottom: dimensions.height > 670 ? 35 : 15,
     paddingTop: 15
   },
   greenCircle: {

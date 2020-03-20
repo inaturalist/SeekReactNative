@@ -22,6 +22,7 @@ import Modal from "../UIComponents/Modal";
 import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
 import { getRoute } from "../../utility/helpers";
 import { startChallenge } from "../../utility/challengeHelpers";
+import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
 
 type Props = {
   +navigation: any,
@@ -91,12 +92,7 @@ const ChallengeDetailsHeader = ( {
         <CustomBackArrow route={route} />
         <View style={styles.margin} />
         <Image source={logos.op} style={styles.logo} />
-        <Text style={styles.challengeHeader}>
-          {challenge && i18n.t( challenge.month ).toLocaleUpperCase()}
-        </Text>
-        <Text style={styles.challengeName}>
-          {challenge && i18n.t( challenge.name ).toLocaleUpperCase()}
-        </Text>
+        {challenge && <ChallengeTitle challenge={challenge} />}
         <View style={[styles.row, styles.marginHorizontal]}>
           <Image
             source={

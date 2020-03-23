@@ -6,6 +6,12 @@ import {
 } from "../global";
 
 export default StyleSheet.create( {
+  badge: {
+    height: dimensions.width < 350 ? 140 : 158,
+    marginBottom: 35,
+    marginTop: 25,
+    width: 140
+  },
   banner: {
     bottom: 20,
     height: 48,
@@ -28,6 +34,11 @@ export default StyleSheet.create( {
     borderTopRightRadius: 40,
     width: "100%"
   },
+  headerImage: {
+    alignItems: "center",
+    height: 232,
+    width: "100%"
+  },
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -38,12 +49,6 @@ export default StyleSheet.create( {
     marginTop: 24,
     textAlign: "center"
   },
-  image: {
-    height: dimensions.width < 350 ? 140 : 158,
-    marginBottom: 35,
-    marginTop: 25,
-    width: 140
-  },
   logo: {
     height: 70,
     resizeMode: "contain",
@@ -51,6 +56,24 @@ export default StyleSheet.create( {
   },
   marginBottom: {
     marginBottom: dimensions.width < 350 ? 15 : 33
+  },
+  seekBadge: {
+    // height: dimensions.width < 350 ? 140 : 158,
+    // marginBottom: 35,
+    marginTop: 26,
+    resizeMode: "contain",
+    width: 158
+  },
+  seekBanner: {
+    bottom: 29,
+    height: 48,
+    position: "absolute",
+    width: 300
+  },
+  seekBannerText: {
+    paddingTop: 10,
+    fontSize: 19,
+    letterSpacing: 1.12
   },
   text: {
     color: colors.black,

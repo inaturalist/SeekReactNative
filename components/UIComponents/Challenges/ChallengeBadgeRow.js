@@ -11,7 +11,7 @@ import badges from "../../../assets/badges";
 
 type Props = {
   challenge: Object,
-  large: ?boolean
+  large?: boolean
 }
 
 const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
@@ -31,6 +31,10 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
       </Text>
     </View>
   );
+};
+
+ChallengeBadgeRow.defaultProps = {
+  large: false
 };
 
 export default ChallengeBadgeRow;

@@ -36,17 +36,17 @@ export default StyleSheet.create( {
   },
   headerImage: {
     alignItems: "center",
-    height: 232,
+    height: dimensions.width < 350 ? 200 : 232,
     width: "100%"
   },
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
-    fontSize: dimensions.width < 350 ? 16 : 18,
+    fontSize: 18,
     letterSpacing: 1.0,
-    lineHeight: dimensions.width < 350 ? 18 : 24,
+    lineHeight: 24,
     marginHorizontal: 24,
-    marginTop: 24,
+    marginTop: dimensions.width < 350 ? 12 : 24,
     textAlign: "center"
   },
   logo: {
@@ -55,32 +55,30 @@ export default StyleSheet.create( {
     width: 209
   },
   marginBottom: {
-    marginBottom: dimensions.width < 350 ? 15 : 33
+    marginBottom: dimensions.width < 350 ? 15 : 39
   },
   seekBadge: {
-    // height: dimensions.width < 350 ? 140 : 158,
-    // marginBottom: 35,
     marginTop: 26,
     resizeMode: "contain",
-    width: 158
+    width: dimensions.width < 350 ? 140 : 158
   },
   seekBanner: {
-    bottom: 29,
+    bottom: dimensions.width < 350 ? 12 : 29,
     height: 48,
     position: "absolute",
     width: 300
   },
   seekBannerText: {
-    paddingTop: 10,
     fontSize: 19,
-    letterSpacing: 1.12
+    letterSpacing: 1.12,
+    paddingTop: 10
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
-    fontSize: dimensions.width < 350 ? 14 : 16,
-    lineHeight: dimensions.width < 350 ? 18 : 21,
-    marginBottom: 15,
+    fontSize: 16,
+    lineHeight: 21,
+    marginBottom: dimensions.width < 350 ? 10 : 25,
     marginHorizontal: 24,
     marginTop: dimensions.width < 350 ? 12 : 18,
     textAlign: "center"

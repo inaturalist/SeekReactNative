@@ -21,6 +21,7 @@ import {
   nb,
   nl,
   ru,
+  sv,
   tr,
   zh
 } from "date-fns/locale";
@@ -40,6 +41,7 @@ const locales = {
   nb,
   nl,
   ru,
+  sv,
   tr,
   zh
 };

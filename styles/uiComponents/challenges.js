@@ -15,13 +15,11 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   badge: {
     height: 105,
-    marginRight: 28,
     resizeMode: "contain",
     width: 105
   },
   badgeSmall: {
     height: 79,
-    marginRight: 29,
     resizeMode: "contain",
     width: 79
   },
@@ -43,8 +41,18 @@ export default StyleSheet.create( {
   image: {
     marginRight: 27
   },
+  longText: {
+    fontSize: 14,
+    lineHeight: 21
+  },
   margin: {
     marginHorizontal: 31
+  },
+  marginMiddle: {
+    marginRight: 29
+  },
+  marginMiddleSmall: {
+    marginRight: 14
   },
   row,
   text: {

@@ -17,15 +17,17 @@ type Props = {
 const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
+  const text = is2020Challenge ? i18n.t( "challenges_card.new_join" ) : i18n.t( "challenges_card.join" );
+  const longText = text.length > 70;
+
   return (
     <View style={[styles.row, styles.center]}>
       {is2020Challenge || large
         ? <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />
         : <Image source={logos.op} style={styles.image} />}
-      <Text style={large ? styles.text : styles.textSmall}>
-        {is2020Challenge
-          ? i18n.t( "challenges_card.new_join" )
-          : i18n.t( "challenges_card.join" )}
+      <View style={styles.marginMiddle} />
+      <Text style={[large ? styles.text : styles.textSmall, longText && styles.longText]}>
+        {text}
       </Text>
     </View>
   );

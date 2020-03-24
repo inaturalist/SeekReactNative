@@ -41,7 +41,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
         setRoute( "Main" );
         navigation.navigate( "ChallengeDetails" );
       }}
-      text={challenge.started
+      text={challenge.startedDate
         ? "challenges_card.continue_challenge"
         : "challenges_card.take_challenge"}
     />

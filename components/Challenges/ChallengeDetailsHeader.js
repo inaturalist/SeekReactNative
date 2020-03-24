@@ -47,18 +47,18 @@ const ChallengeDetailsHeader = ( {
   };
 
   const renderButton = () => {
-    const buttonText = setChallengeDetailsButtonText( challenge, challenge.started );
+    const buttonText = setChallengeDetailsButtonText( challenge, challenge.startedDate );
 
     const button = (
       <GreenButton
         color={colors.seekGreen}
         handlePress={() => {
-          if ( !challenge.started ) {
+          if ( !challenge.startedDate ) {
             startChallenge( challenge.index );
             showMission( challenge.index );
-          } else if ( challenge.started && challenge.percentComplete < 100 ) {
+          } else if ( challenge.startedDate && challenge.percentComplete < 100 ) {
             navigation.navigate( "Camera" );
-          } else if ( challenge.started && challenge.percentComplete === 100 ) {
+          } else if ( challenge.startedDate && challenge.percentComplete === 100 ) {
             openModal();
           }
         }}

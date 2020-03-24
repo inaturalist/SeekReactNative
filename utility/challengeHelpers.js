@@ -16,7 +16,7 @@ const setChallengeProgress = async ( index ) => {
 
 const fetchIncompleteChallenges = ( realm ) => {
   const incompleteChallenges = realm.objects( "ChallengeRealm" )
-    .filtered( "percentComplete != 100 AND started == true" );
+    .filtered( "percentComplete != 100 AND startedDate != null" );
 
   return incompleteChallenges;
 };
@@ -160,7 +160,6 @@ const startChallenge = ( index ) => {
 
       challenges.forEach( ( challenge ) => {
         realm.write( () => {
-          challenge.started = true;
           challenge.startedDate = new Date();
           challenge.numbersObserved = [0, 0, 0, 0, 0];
         } );
@@ -183,12 +182,11 @@ const setupChallenges = () => {
           // if ( isAvailable ) {
             realm.create( "ChallengeRealm", {
               name: challenges.name,
-              month: challenges.month,
               description: challenges.description,
               totalSpecies: challenges.totalSpecies,
               homeBackgroundName: challenges.homeBackgroundName,
               backgroundName: challenges.backgroundName,
-              unearnedIconName: challenges.unearnedIconName,
+              unearnedIconName: "badge_empty",
               earnedIconName: challenges.earnedIconName,
               missions: challenges.missions,
               availableDate: challenges.availableDate,
@@ -211,7 +209,7 @@ const setChallengesCompleted = ( challenges ) => {
 const checkNumberOfChallengesCompleted = () => {
   Realm.open( realmConfig )
     .then( ( realm ) => {
-      const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" ).length;
+      const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "startedDate != null AND percentComplete == 100" ).length;
 
       setChallengesCompleted( challengesCompleted.toString() );
       recalculateChallenges();
@@ -269,7 +267,7 @@ const checkForChallengesCompleted = async () => {
           let challengeComplete;
 
           const challenges = realm.objects( "ChallengeRealm" )
-            .filtered( "started == true AND percentComplete == 100" )
+            .filtered( "startedDate != null AND percentComplete == 100" )
             .sorted( "completedDate", true );
 
           if ( challengeProgressIndex !== null ) {

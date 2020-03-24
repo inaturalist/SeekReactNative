@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { isAfter } from "date-fns";
+import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
 
 import styles from "../../styles/modals/challengeEarnedModal";
 import i18n from "../../i18n";
@@ -62,8 +63,8 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
       )}
       <Text style={styles.headerText}>
         {is2020Challenge
-          ? i18n.t( "seek_challenges.header", { date: i18n.t( challenge.month ) } ).toLocaleUpperCase()
-          : i18n.t( "challenges.congrats", { month: i18n.t( challenge.month ).split( " " )[0].toLocaleUpperCase() } ).toLocaleUpperCase()}
+          ? i18n.t( "seek_challenges.header", { date: formatMonthYear( challenge.availableDate ) } ).toLocaleUpperCase()
+          : i18n.t( "challenges.congrats", { month: formatMonth( challenge.availableDate ) } ).toLocaleUpperCase()}
       </Text>
       <Text style={styles.text}>
         {is2020Challenge

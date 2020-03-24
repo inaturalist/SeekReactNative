@@ -13,7 +13,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/challengeUnearnedModal";
 import BannerHeader from "../Achievements/BannerHeader";
 import badgeImages from "../../assets/badges";
-import { checkIfChallengeAvailable, formatShortMonthDayYear } from "../../utility/dateHelpers";
+import { checkIfChallengeAvailable, formatMonthYear, formatMonth } from "../../utility/dateHelpers";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
@@ -34,7 +34,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         modal
         text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
       />
-      {challenge.started && challenge.percentComplete !== 100 ? (
+      {challenge.startedDate && challenge.percentComplete !== 100 ? (
         <ImageBackground
           imageStyle={styles.imageStyle}
           source={badgeImages[challenge.unearnedIconName]}
@@ -56,7 +56,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
       />
     </View>
     <Text style={styles.nameText}>
-      {i18n.t( "challenges.how_to", { month: i18n.t( challenge.month ).split( " " )[0] } )}
+      {i18n.t( "challenges.how_to", { month: formatMonth( challenge.availableDate ) } )}
     </Text>
     {checkIfChallengeAvailable( challenge.availableDate ) ? (
       <View style={styles.container}>
@@ -72,7 +72,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
       </View>
     ) : (
       <Text style={[styles.italicText, styles.centerSelf]}>
-        {i18n.t( "challenges.released", { date: formatShortMonthDayYear( challenge.availableDate ) } )}
+        {i18n.t( "challenges.released", { date: formatMonthYear( challenge.availableDate ) } )}
       </Text>
     )}
   </WhiteModal>

@@ -1,12 +1,10 @@
 const challenges = {
   april: {
     name: "challenges.connectivity",
-    month: "challenges.april_2019",
     description: "challenges.april_description",
     totalSpecies: 10,
     homeBackgroundName: "img-homechallenge-april",
     backgroundName: "img-challengedetail-april",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2019, 3, 1 ),
@@ -16,12 +14,10 @@ const challenges = {
   },
   may: {
     name: "challenges.biodiversity",
-    month: "challenges.may_2019",
     description: "challenges.may_description",
     totalSpecies: 20,
     homeBackgroundName: "img-homechallenge-may",
     backgroundName: "img-challengedetail-may",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_may",
     missions: [
       "challenges.mission_1_may",
@@ -37,12 +33,10 @@ const challenges = {
   },
   june: {
     name: "challenges.productivity",
-    month: "challenges.june_2019",
     description: "challenges.june_description",
     totalSpecies: 13,
     homeBackgroundName: "img-homechallenge-june",
     backgroundName: "img-challengedetail-june",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_june",
     missions: [
       "challenges.mission_1_june",
@@ -57,12 +51,10 @@ const challenges = {
   },
   august: {
     name: "challenges.farming",
-    month: "challenges.august_2019",
     description: "challenges.august_description",
     totalSpecies: 10,
     homeBackgroundName: "img-homechallenge-august",
     backgroundName: "img-challengedetail-august",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_august",
     missions: [
       "challenges.mission_1_august"
@@ -74,12 +66,10 @@ const challenges = {
   },
   september: {
     name: "challenges.flow",
-    month: "challenges.september_2019",
     description: "challenges.september_description",
     totalSpecies: 10,
     homeBackgroundName: "img-homechallenge-september",
     backgroundName: "img-challengedetail-september",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_september",
     missions: [
       "challenges.mission_1_september"
@@ -91,12 +81,10 @@ const challenges = {
   },
   october: {
     name: "challenges.hotspots",
-    month: "challenges.october_2019",
     description: "challenges.october_description",
     totalSpecies: 5,
     homeBackgroundName: "img-homechallenge-october",
     backgroundName: "img-challengedetail-october",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_october",
     missions: [
       "challenges.mission_1_october"
@@ -108,12 +96,10 @@ const challenges = {
   },
   november: {
     name: "challenges.resilience",
-    month: "challenges.november_2019",
     description: "challenges.november_description",
     totalSpecies: 10,
     homeBackgroundName: "img-homechallenge-november",
     backgroundName: "img-challengedetail-november",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_november",
     missions: [
       "challenges.mission_1_november"
@@ -125,12 +111,10 @@ const challenges = {
   },
   december: {
     name: "challenges.ice",
-    month: "challenges.december_2019",
     description: "challenges.december_description",
     totalSpecies: 20,
     homeBackgroundName: "img-homechallenge-december",
     backgroundName: "img-challengedetail-december",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_ourplanet_december",
     missions: [
       "challenges.mission_1_december"
@@ -142,18 +126,28 @@ const challenges = {
   },
   april2020: {
     name: "seek_challenges.citizen_science",
-    month: "seek_challenges.april_2020",
     // new Date( 2020, 3, 1 ),
     description: "seek_challenges.april_2020_description",
     totalSpecies: 10,
     homeBackgroundName: "img-homechallenge-april2020",
     backgroundName: "img-challengedetail-april2020",
-    unearnedIconName: "badge_empty",
     earnedIconName: "badge_inaturalist_april2020",
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2020, 3, 1 ),
     action: "seek_challenges.action_april_2020",
     index: 8
+  },
+  may2020: {
+    name: "seek_challenges.tbd",
+    description: "seek_challenges.april_2020_description",
+    totalSpecies: 10,
+    homeBackgroundName: "img-homechallenge-april2020",
+    backgroundName: "img-challengedetail-april2020",
+    earnedIconName: "badge_inaturalist_april2020",
+    missions: ["challenges.mission_1_april"],
+    availableDate: new Date( 2020, 4, 1 ),
+    action: "seek_challenges.action_april_2020",
+    index: 9
   }
 };
 

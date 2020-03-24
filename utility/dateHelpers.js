@@ -130,6 +130,10 @@ const createShortMonthsList = () => {
   return months;
 };
 
+const formatMonthYear = ( date ) => format( date, "MMMM yyyy", { locale: setLocale() } );
+
+const formatMonth = ( date ) => format( date, "MMMM", { locale: setLocale() } );
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
@@ -142,5 +146,7 @@ export {
   formatShortMonthDayYear,
   createShortMonthsList,
   isWithin7Days,
-  formatHourMonthSecond
+  formatHourMonthSecond,
+  formatMonthYear,
+  formatMonth
 };

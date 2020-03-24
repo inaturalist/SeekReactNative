@@ -146,14 +146,6 @@
     "ice": "Climate Challenge",
     "op": "Our Planet",
     "start_now": "Start now",
-    "april_2019": "April 2019",
-    "may_2019": "May 2019",
-    "june_2019": "June 2019",
-    "november_2019": "November 2019",
-    "august_2019": "August 2019",
-    "september_2019": "September 2019",
-    "october_2019": "October 2019",
-    "december_2019": "December 2019",
     "mission_1_april": "Find 10 new species!",
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
     "start_challenge": "Start the challenge",
@@ -563,7 +555,6 @@
     "citizen_science": "Citizen Science Challenge",
     "completed": "You completed the challenge and earned the challenge badge!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "april_2020": "April 2020",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!"
   }
 }

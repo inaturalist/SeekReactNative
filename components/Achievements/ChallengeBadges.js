@@ -83,14 +83,10 @@ const ChallengeBadges = () => {
               closeModal={closeModal}
             />
           ) : (
-            <ChallengeModal
+            <ChallengeUnearnedModal
               challenge={selectedChallenge}
               closeModal={closeModal}
             />
-            // <ChallengeUnearnedModal
-            //   challenge={selectedChallenge}
-            //   closeModal={closeModal}
-            // />
           )}
         />
       )}
@@ -98,7 +94,7 @@ const ChallengeBadges = () => {
       {renderChallengesRow( 0, 3 )}
       {renderChallengesRow( 3, 5 )}
       {renderChallengesRow( 5, 8 )}
-      {renderChallengesRow( 8, 9 )}
+      {renderChallengesRow( 8, 10 )}
       <View style={styles.marginLarge} />
     </View>
   );

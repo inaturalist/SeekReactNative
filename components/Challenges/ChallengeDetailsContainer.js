@@ -31,7 +31,7 @@ const ChallengeDetailsContainer = ( {
     <View style={styles.whiteContainer}>
       {challenge && (
         <>
-          {challenge.started && <ChallengeMissionCard challenge={challenge} />}
+          {challenge.startedDate && <ChallengeMissionCard challenge={challenge} />}
           <View style={styles.marginSmall} />
           <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
           <View style={styles.marginLarge} />

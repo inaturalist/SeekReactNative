@@ -42,9 +42,10 @@ class ChallengeScreen extends Component<Props, State> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challengesNotStarted = realm.objects( "ChallengeRealm" ).filtered( "startedDate == null" );
-        const challengesStarted = realm.objects( "ChallengeRealm" ).filtered( "startedDate != null AND percentComplete != 100" );
-        const challengesCompleted = realm.objects( "ChallengeRealm" ).filtered( "startedDate != null AND percentComplete == 100" );
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
+        const challengesNotStarted = challenges.filtered( "startedDate == null" );
+        const challengesStarted = challenges.filtered( "startedDate != null AND percentComplete != 100" );
+        const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
         this.setState( {
           challengesNotStarted,

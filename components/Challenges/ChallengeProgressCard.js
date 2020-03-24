@@ -8,6 +8,7 @@ import {
   View
 } from "react-native";
 import { withNavigation } from "react-navigation";
+import { isAfter } from "date-fns";
 
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
@@ -25,6 +26,8 @@ type Props = {
 }
 
 const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Props ) => {
+  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
+
   let rightIcon;
 
   let leftIcon;
@@ -82,7 +85,7 @@ const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Prop
           {i18n.t( challenge.name ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.messageText}>
-          {i18n.t( "challenges.op" )}
+          {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
           {" - "}
           {formatMonthYear( challenge.availableDate )}
         </Text>

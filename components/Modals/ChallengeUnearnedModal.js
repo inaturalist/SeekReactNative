@@ -32,7 +32,7 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
     <View style={styles.center}>
       <BannerHeader
         modal
-        text={`${i18n.t( "challenges.op" ).toLocaleUpperCase()} ${i18n.t( "challenges.badge" ).toLocaleUpperCase()}`}
+        text={i18n.t( "seek_challenges.badge" ).toLocaleUpperCase()}
       />
       {challenge.startedDate && challenge.percentComplete !== 100 ? (
         <ImageBackground

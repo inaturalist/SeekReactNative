@@ -61,6 +61,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           </ImageBackground>
         </LinearGradient>
       )}
+      <View style={styles.marginTop} />
       <Text style={styles.headerText}>
         {is2020Challenge
           ? i18n.t( "seek_challenges.header", { date: formatMonthYear( challenge.availableDate ) } ).toLocaleUpperCase()
@@ -71,8 +72,9 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
           ? i18n.t( "seek_challenges.text" )
           : i18n.t( "challenges.thanks" )}
       </Text>
+      <View style={styles.marginTop} />
       {is2020Challenge
-        ? <Image source={logos.iNatBlack} />
+        ? <Image source={logos.iNatBlack} style={styles.iNatLogo} />
         : <Image source={logos.wwfop} style={styles.logo} />}
       <View style={styles.marginBottom} />
     </WhiteModal>

@@ -46,8 +46,12 @@ export default StyleSheet.create( {
     letterSpacing: 1.0,
     lineHeight: 24,
     marginHorizontal: 24,
-    marginTop: dimensions.width < 350 ? 12 : 24,
     textAlign: "center"
+  },
+  iNatLogo: {
+    height: 45,
+    resizeMode: "contain",
+    width: 246
   },
   logo: {
     height: 70,
@@ -56,6 +60,9 @@ export default StyleSheet.create( {
   },
   marginBottom: {
     marginBottom: dimensions.width < 350 ? 15 : 39
+  },
+  marginTop: {
+    marginTop: dimensions.width < 350 ? 10 : 24
   },
   seekBadge: {
     marginTop: 26,
@@ -78,7 +85,6 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginBottom: dimensions.width < 350 ? 10 : 25,
     marginHorizontal: 24,
     marginTop: dimensions.width < 350 ? 12 : 18,
     textAlign: "center"

@@ -177,9 +177,9 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict[challengesType];
-          // const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
-          // if ( isAvailable ) {
+          if ( isAvailable ) {
             realm.create( "ChallengeRealm", {
               name: challenges.name,
               description: challenges.description,
@@ -194,7 +194,7 @@ const setupChallenges = () => {
               action: challenges.action,
               index: challenges.index
             }, true );
-          // }
+          }
         } );
       } );
     } ).catch( ( err ) => {

@@ -51,6 +51,6 @@ export default StyleSheet.create( {
     width: width / 2 + 30
   },
   textContainer: {
-    marginBottom: ( height / 11 ) * 1.5
+    marginBottom: height / 11
   }
 } );

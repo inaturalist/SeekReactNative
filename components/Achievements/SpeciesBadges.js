@@ -76,7 +76,7 @@ class SpeciesBadges extends Component<Props, State> {
           if ( item.earned ) {
             badgeIcon = badgeImages[item.earnedIconName];
           } else {
-            badgeIcon = badgeImages[item.unearnedIconName];
+            badgeIcon = badgeImages.badge_empty;
           }
           return (
             <TouchableOpacity

@@ -26,7 +26,7 @@ type Props = {
 
 const Challenges = ( { navigation, challenge }: Props ) => (
   <ImageBackground
-    source={backgrounds[challenge.homeBackgroundName]}
+    source={backgrounds[challenge.backgroundName]}
     style={styles.challengeContainer}
   >
     <View style={styles.marginTop} />

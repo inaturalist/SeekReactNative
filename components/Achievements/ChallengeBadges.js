@@ -51,7 +51,7 @@ const ChallengeBadges = () => {
         if ( item.percentComplete === 100 ) {
           badgeIcon = badgeImages[item.earnedIconName];
         } else {
-          badgeIcon = badgeImages[item.unearnedIconName];
+          badgeIcon = badgeImages.badge_empty;
         }
         return (
           <TouchableOpacity

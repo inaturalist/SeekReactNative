@@ -37,14 +37,14 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
       {challenge.startedDate && challenge.percentComplete !== 100 ? (
         <ImageBackground
           imageStyle={styles.imageStyle}
-          source={badgeImages[challenge.unearnedIconName]}
+          source={badgeImages.badge_empty}
           style={[styles.image, styles.center]}
         >
           <PercentCircle challenge={challenge} large />
         </ImageBackground>
       ) : (
         <Image
-          source={badgeImages[challenge.unearnedIconName]}
+          source={badgeImages.badge_empty}
           style={[styles.image, styles.imageStyle]}
         />
       )}

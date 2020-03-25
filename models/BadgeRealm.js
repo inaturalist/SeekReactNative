@@ -11,7 +11,6 @@ BadgeRealm.schema = {
     iconicTaxonId: { type: "int", default: 0 },
     count: { type: "int", default: 0 },
     earnedIconName: "string?",
-    unearnedIconName: "string?",
     infoText: "string?",
     index: { type: "int", default: 0 }
   }

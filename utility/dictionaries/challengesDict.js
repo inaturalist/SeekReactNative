@@ -3,7 +3,6 @@ const challenges = {
     name: "challenges.connectivity",
     description: "challenges.april_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-april",
     backgroundName: "img-challengedetail-april",
     earnedIconName: "badge_ourplanet_april",
     missions: ["challenges.mission_1_april"],
@@ -16,7 +15,6 @@ const challenges = {
     name: "challenges.biodiversity",
     description: "challenges.may_description",
     totalSpecies: 20,
-    homeBackgroundName: "img-homechallenge-may",
     backgroundName: "img-challengedetail-may",
     earnedIconName: "badge_ourplanet_may",
     missions: [
@@ -35,7 +33,6 @@ const challenges = {
     name: "challenges.productivity",
     description: "challenges.june_description",
     totalSpecies: 13,
-    homeBackgroundName: "img-homechallenge-june",
     backgroundName: "img-challengedetail-june",
     earnedIconName: "badge_ourplanet_june",
     missions: [
@@ -53,7 +50,6 @@ const challenges = {
     name: "challenges.farming",
     description: "challenges.august_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-august",
     backgroundName: "img-challengedetail-august",
     earnedIconName: "badge_ourplanet_august",
     missions: [
@@ -68,7 +64,6 @@ const challenges = {
     name: "challenges.flow",
     description: "challenges.september_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-september",
     backgroundName: "img-challengedetail-september",
     earnedIconName: "badge_ourplanet_september",
     missions: [
@@ -83,7 +78,6 @@ const challenges = {
     name: "challenges.hotspots",
     description: "challenges.october_description",
     totalSpecies: 5,
-    homeBackgroundName: "img-homechallenge-october",
     backgroundName: "img-challengedetail-october",
     earnedIconName: "badge_ourplanet_october",
     missions: [
@@ -98,7 +92,6 @@ const challenges = {
     name: "challenges.resilience",
     description: "challenges.november_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-november",
     backgroundName: "img-challengedetail-november",
     earnedIconName: "badge_ourplanet_november",
     missions: [
@@ -113,7 +106,6 @@ const challenges = {
     name: "challenges.ice",
     description: "challenges.december_description",
     totalSpecies: 20,
-    homeBackgroundName: "img-homechallenge-december",
     backgroundName: "img-challengedetail-december",
     earnedIconName: "badge_ourplanet_december",
     missions: [
@@ -126,29 +118,27 @@ const challenges = {
   },
   april2020: {
     name: "seek_challenges.citizen_science",
-    // new Date( 2020, 3, 1 ),
     description: "seek_challenges.april_2020_description",
     totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-april2020",
     backgroundName: "img-challengedetail-april2020",
     earnedIconName: "badge_inaturalist_april2020",
     missions: ["challenges.mission_1_april"],
     availableDate: new Date( 2020, 3, 1 ),
     action: "seek_challenges.action_april_2020",
     index: 8
-  },
-  may2020: {
-    name: "seek_challenges.tbd",
-    description: "seek_challenges.april_2020_description",
-    totalSpecies: 10,
-    homeBackgroundName: "img-homechallenge-april2020",
-    backgroundName: "img-challengedetail-april2020",
-    earnedIconName: "badge_inaturalist_april2020",
-    missions: ["challenges.mission_1_april"],
-    availableDate: new Date( 2020, 4, 1 ),
-    action: "seek_challenges.action_april_2020",
-    index: 9
   }
+  // may2020: {
+  //   name: "seek_challenges.tbd",
+  //   description: "seek_challenges.april_2020_description",
+  //   totalSpecies: 10,
+  //   homeBackgroundName: "img-challengedetail-april2020",
+  //   backgroundName: "img-challengedetail-april2020",
+  //   earnedIconName: "badge_inaturalist_april2020",
+  //   missions: ["challenges.mission_1_april"],
+  //   availableDate: new Date( 2020, 4, 1 ),
+  //   action: "seek_challenges.action_april_2020",
+  //   index: 9
+  // }
 };
 
 export default challenges;

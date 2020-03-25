@@ -30,6 +30,27 @@ const ChallengeBadges = () => {
         const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
         const badges = challenges.map( ( challenge ) => challenge );
 
+        const may2020challenge = {
+          name: "",
+          availableDate: new Date( 2020, 4, 1 ),
+          index: 9
+        };
+
+        const april2020challenge = {
+          name: "seek_challenges.citizen_science",
+          availableDate: new Date( 2020, 3, 1 ),
+          index: 8
+        };
+
+        if ( badges.length === 8 ) {
+          badges.push( april2020challenge );
+          badges.push( may2020challenge );
+        }
+
+        if ( badges.length === 9 ) {
+          badges.push( may2020challenge );
+        }
+
         setChallengeBadges( badges );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );

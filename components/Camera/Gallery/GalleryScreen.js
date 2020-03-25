@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Platform,
   View,
@@ -8,61 +8,55 @@ import {
   SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { NavigationEvents } from "react-navigation";
+import { useIsFocused } from "react-navigation-hooks";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryContainer from "./GalleryContainer";
 
-type Props = {}
+const GalleryScreen = () => {
+  const isFocused = useIsFocused();
+  const [album, setAlbum] = useState( null );
+  const [photos, setPhotos] = useState( [] );
+  const [error, setError] = useState( null );
+  const [hasNextPage, setHasNextPage] = useState( true );
+  const [lastCursor, setLastCursor] = useState( null );
+  const [stillLoading, setStillLoading] = useState( false );
+  const groupTypes = ( album === null ) ? "All" : "Album";
 
-type State = {
-  photos: Array<Object>,
-  error: ?string,
-  hasNextPage: boolean,
-  lastCursor: null,
-  stillLoading: boolean,
-  groupTypes: string,
-  album: ?string
-}
+  const appendPhotos = useCallback( ( data, pageInfo ) => {
+    if ( photos.length === 0 && data.length === 0 && !pageInfo.has_next_page ) {
+      setError( "photos" );
+    } else {
+      const updatedPhotos = photos.concat( data );
+      setPhotos( updatedPhotos );
+      setStillLoading( false );
+    }
+    setHasNextPage( pageInfo.has_next_page );
+    setLastCursor( pageInfo.end_cursor );
+  }, [photos] );
 
-class GalleryScreen extends Component<Props, State> {
-  camera: ?any
+  const fetchPhotos = useCallback( ( photoOptions ) => {
+    if ( hasNextPage && !stillLoading ) {
+      setStillLoading( true );
 
-  constructor() {
-    super();
+      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+        appendPhotos( results.edges, results.page_info );
+      } ).catch( ( err ) => {
+        console.log( err, "error" );
+      } );
+    }
+  }, [hasNextPage, stillLoading, appendPhotos] );
 
-    this.state = {
-      photos: [],
-      error: null,
-      hasNextPage: true,
-      lastCursor: null,
-      stillLoading: false,
-      groupTypes: "All",
-      album: null
-    };
-
-    ( this:any ).updateAlbum = this.updateAlbum.bind( this );
-    ( this:any ).setPhotoParams = this.setPhotoParams.bind( this );
-  }
-
-  setPhotoParams() {
-    const {
-      lastCursor,
-      hasNextPage,
-      stillLoading,
-      groupTypes,
-      album
-    } = this.state;
-
+  const setPhotoParams = useCallback( () => {
     const photoOptions = {
-      first: 50,
+      first: 28, // only 28 at a time can display
       assetType: "Photos",
-      groupTypes // this is required in RN 0.59+
+      groupTypes // this is required in RN 0.59+,
     };
 
-    if ( album ) { // append for cases where album is null
+    if ( album ) { // append for cases where album isn't null
       // $FlowFixMe
       photoOptions.groupName = album;
     }
@@ -72,113 +66,57 @@ class GalleryScreen extends Component<Props, State> {
       photoOptions.after = lastCursor;
     }
 
-    if ( hasNextPage && !stillLoading ) {
-      this.setState( {
-        stillLoading: true
-      }, () => this.getPhotos( photoOptions ) );
+    fetchPhotos( photoOptions );
+  }, [groupTypes, album, lastCursor, fetchPhotos] );
+
+  useEffect( () => {
+    setPhotos( [] );
+    setError( null );
+    setHasNextPage( true );
+    setLastCursor( null );
+    setStillLoading( false );
+  }, [album] );
+
+  const updateAlbum = ( newAlbum: string ) => {
+    setAlbum( newAlbum !== "All" ? newAlbum : null );
+  };
+
+  const setupPhotos = useCallback( () => {
+    if ( photos.length === 0 ) {
+      setPhotoParams();
     }
-  }
+  }, [photos, setPhotoParams] );
 
-  getPhotos( photoOptions: Object ) {
-    // $FlowFixMe
-    CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-      this.appendPhotos( results.edges, results.page_info );
-    } ).catch( ( err ) => {
-      console.log( err, "error" );
-    } );
-  }
-
-  setError( error: string ) {
-    this.setState( { error } );
-  }
-
-  requestAndroidPermissions = async () => {
-    const permission = await checkCameraRollPermissions();
-    if ( permission === true ) {
-      this.setPhotoParams();
-    } else {
-      this.setError( "gallery" );
+  useEffect( () => {
+    if ( isFocused ) {
+      if ( Platform.OS === "android" ) {
+        const requestAndroidPermissions = async () => {
+          const permission = await checkCameraRollPermissions();
+          if ( permission === true ) {
+            setupPhotos();
+          } else {
+            setError( "gallery" );
+          }
+        };
+        requestAndroidPermissions();
+      } else {
+        setupPhotos();
+      }
     }
-  }
+  }, [isFocused, setupPhotos] );
 
-  updateAlbum( album: string ) {
-    if ( album !== "All" ) {
-      this.setState( {
-        groupTypes: "Album",
-        album
-      }, () => this.resetState() );
-    } else {
-      this.setState( {
-        groupTypes: "All",
-        album: null
-      }, () => this.resetState() );
-    }
-  }
-
-  resetState() {
-    this.setState( {
-      photos: [],
-      error: null,
-      hasNextPage: true,
-      lastCursor: null,
-      stillLoading: false
-    }, () => this.setPhotoParams() );
-  }
-
-  updatePhotos( photos: Array<Object>, pageInfo: Object ) {
-    this.setState( {
-      photos,
-      stillLoading: false,
-      hasNextPage: pageInfo.has_next_page,
-      lastCursor: pageInfo.end_cursor
-    } );
-  }
-
-  appendPhotos( data: Array<Object>, pageInfo: Object ) {
-    const { photos } = this.state;
-
-    if ( photos.length === 0 && data.length === 0 && pageInfo.has_next_page === false ) {
-      this.setError( "photos" );
-    } else if ( photos.length > 0 ) {
-      data.forEach( ( photo ) => {
-        photos.push( photo );
-      } );
-      this.updatePhotos( photos, pageInfo );
-    } else {
-      this.updatePhotos( data, pageInfo );
-    }
-  }
-
-  checkPermissions() {
-    if ( Platform.OS === "android" ) {
-      this.requestAndroidPermissions();
-    } else {
-      this.setPhotoParams();
-    }
-  }
-
-  render() {
-    const {
-      error,
-      photos
-    } = this.state;
-
-    return (
-      <View style={styles.background}>
-        <SafeAreaView style={styles.safeViewTop} />
-        <NavigationEvents
-          onWillFocus={() => this.checkPermissions()}
-        />
-        <StatusBar barStyle="dark-content" />
-        <GalleryHeader updateAlbum={this.updateAlbum} />
-        <GalleryContainer
-          setPhotoParams={this.setPhotoParams}
-          error={error}
-          photos={photos}
-        />
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.background}>
+      <SafeAreaView style={styles.safeViewTop} />
+      <StatusBar barStyle="dark-content" />
+      <GalleryHeader updateAlbum={updateAlbum} />
+      <GalleryContainer
+        setPhotoParams={setPhotoParams}
+        error={error}
+        photos={photos}
+      />
+    </View>
+  );
+};
 
 export default GalleryScreen;

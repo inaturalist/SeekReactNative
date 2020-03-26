@@ -3,7 +3,7 @@ import { Platform, Dimensions } from "react-native";
 
 import styles from "../../styles/navigation";
 import i18n from "../../i18n";
-import ARCamera from "../Camera/ARCamera";
+import ARCamera from "../Camera/ARCamera/ARCamera";
 import Gallery from "../Camera/Gallery/GalleryScreen";
 
 const { width, height } = Dimensions.get( "window" );

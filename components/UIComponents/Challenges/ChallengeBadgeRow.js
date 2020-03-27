@@ -20,11 +20,19 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
   const text = is2020Challenge ? i18n.t( "challenges_card.new_join" ) : i18n.t( "challenges_card.join" );
   const longText = text.length > 70;
 
+  let badge;
+
+  if ( challenge && challenge.percentComplete === 100 ) {
+    badge = <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
+  } else if ( large && !is2020Challenge ) {
+    badge = <Image source={logos.op} style={styles.image} />;
+  } else {
+    badge = <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />;
+  }
+
   return (
     <View style={[styles.row, styles.center]}>
-      {is2020Challenge || large
-        ? <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />
-        : <Image source={logos.op} style={styles.image} />}
+      {badge}
       <View style={styles.marginMiddle} />
       <Text style={[large ? styles.text : styles.textSmall, longText && styles.longText]}>
         {text}

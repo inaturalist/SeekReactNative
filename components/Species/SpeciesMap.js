@@ -9,7 +9,8 @@ import MapView, {
   UrlTile,
   Marker
 } from "react-native-maps";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
+// import { withNavigation } from "@react-navigation/compat";
 
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
@@ -18,7 +19,7 @@ import GreenText from "../UIComponents/GreenText";
 import UserContext from "../UserContext";
 
 type Props = {
-  +navigation: any,
+  // +navigation: any,
   +region: Object,
   +id: number,
   +seenDate: ?string
@@ -27,49 +28,53 @@ type Props = {
 const SpeciesMap = ( {
   region,
   id,
-  navigation,
+  // navigation,
   seenDate
-}: Props ) => (
-  <UserContext.Consumer>
-    {user => (
-      <>
-        <View style={[styles.headerMargins, user.login && styles.smallMargins]}>
-          <GreenText
-            text="species_detail.range_map"
-          />
-        </View>
-        <View style={styles.mapContainer}>
-          {region.latitude ? (
-            <MapView
-              maxZoomLevel={7}
-              onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-              provider={PROVIDER_DEFAULT}
-              region={region}
-              rotateEnabled={false}
-              scrollEnabled={false}
-              style={styles.map}
-              zoomEnabled={false}
-            >
-              <UrlTile
-                tileSize={512}
-                urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
-              />
-              <Marker
-                coordinate={{ latitude: region.latitude, longitude: region.longitude }}
-              >
-                <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
-              </Marker>
-            </MapView>
-          ) : null}
-        </View>
-        <View style={styles.margin} />
-        <GreenButton
-          handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
-          text="species_detail.view_map"
-        />
-      </>
-    ) }
-  </UserContext.Consumer>
-);
+}: Props ) => {
+  const navigation = useNavigation();
 
-export default withNavigation( SpeciesMap );
+  return (
+    <UserContext.Consumer>
+      {user => (
+        <>
+          <View style={[styles.headerMargins, user.login && styles.smallMargins]}>
+            <GreenText
+              text="species_detail.range_map"
+            />
+          </View>
+          <View style={styles.mapContainer}>
+            {region.latitude ? (
+              <MapView
+                maxZoomLevel={7}
+                onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
+                provider={PROVIDER_DEFAULT}
+                region={region}
+                rotateEnabled={false}
+                scrollEnabled={false}
+                style={styles.map}
+                zoomEnabled={false}
+              >
+                <UrlTile
+                  tileSize={512}
+                  urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
+                />
+                <Marker
+                  coordinate={{ latitude: region.latitude, longitude: region.longitude }}
+                >
+                  <Image source={seenDate ? icons.cameraOnMap : icons.locationPin} />
+                </Marker>
+              </MapView>
+            ) : null}
+          </View>
+          <View style={styles.margin} />
+          <GreenButton
+            handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
+            text="species_detail.view_map"
+          />
+        </>
+      ) }
+    </UserContext.Consumer>
+  );
+};
+
+export default SpeciesMap;

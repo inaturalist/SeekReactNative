@@ -8,7 +8,6 @@ import {
   View,
   Platform
 } from "react-native";
-// import { NavigationActions } from "@react-navigation/compat";
 
 import i18n from "../i18n";
 import styles from "../styles/splash";

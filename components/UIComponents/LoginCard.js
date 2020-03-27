@@ -54,7 +54,9 @@ const LoginCard = ( { navigation, screen }: Props ) => {
                 if ( user.login ) {
                   logUserOut( user );
                 } else {
-                  navigation.navigate( "LoginOrSignup" );
+                  navigation.navigate( "Login", {
+                    screen: "LoginOrSignup"
+                  } );
                 }
               }}
               text={user.login

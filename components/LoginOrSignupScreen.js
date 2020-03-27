@@ -27,7 +27,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.margin} />
     <Button
-      handlePress={() => navigation.navigate( "LoginScreen" )}
+      handlePress={() => navigation.navigate( "Login" )}
       text="login.log_in"
       color={colors.white}
       greenText

@@ -11,6 +11,10 @@ import Observations from "../Observations/Observations";
 import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings";
+import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
+// import SpeciesDetail from "../Species/SpeciesDetail";
+// import DebugAndroid from "../UIComponents/DebugAndroid";
+// import RangeMap from "../Species/RangeMap";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +27,12 @@ const AchievementsFooter = () => (
 const ChallengesFooter = () => (
   <Tab.Navigator tabBar={props => <Footer {...props} />}>
     <Tab.Screen name="Challenges" component={Challenges} />
+  </Tab.Navigator>
+);
+
+const ChallengeDetailsFooter = () => (
+  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+    <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
   </Tab.Navigator>
 );
 
@@ -50,20 +60,36 @@ const SettingsFooter = () => (
   </Tab.Navigator>
 );
 
+// const DebugAndroidFooter = () => (
+//   <Tab.Navigator tabBar={props => <Footer {...props} />}>
+//     <Tab.Screen name="DebugAndroid" component={DebugAndroid} />
+//   </Tab.Navigator>
+// );
+
+// const SpeciesDetailFooter = () => (
+//   <Tab.Navigator tabBar={props => <Footer {...props} />}>
+//     <Tab.Screen name="Species" component={SpeciesDetail} />
+//   </Tab.Navigator>
+// );
+
 const Drawer = createDrawerNavigator();
 
 const SideMenuDrawer = () => (
   <Drawer.Navigator
-    initialRouteName="Main"
+    initialRouteName="Drawer"
     drawerContent={props => <SideMenu {...props} />}
   >
     <Drawer.Screen name="Main" component={MainStack} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />
     <Drawer.Screen name="Challenges" component={ChallengesFooter} />
+    <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} />
     <Drawer.Screen name="MyObservations" component={ObservationsFooter} />
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />
     <Drawer.Screen name="Settings" component={SettingsFooter} />
+    {/* <Drawer.Screen name="DebugAndroid" component={DebugAndroidFooter} />
+    <Drawer.Screen name="Species" component={SpeciesDetailFooter} />
+    <Drawer.Screen name="RangeMap" component={RangeMap} /> */}
   </Drawer.Navigator>
 );
 

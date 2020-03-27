@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 
 import { colors } from "../../styles/global";
-import MenuDrawerNav from "./SideMenu";
+import SideDrawer from "./SideDrawer";
 import LoginStack from "./LoginStack";
 import SplashScreen from "../SplashScreen";
 import OnboardingScreen from "../Onboarding/OnboardingScreen";
@@ -29,11 +29,11 @@ const Stack = createStackNavigator();
 const App = () => (
   <NavigationContainer theme={MyTheme}>
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Root"
       screenOptions={{ gestureEnabled: false }}
     >
       <Stack.Screen
-        name="Home"
+        name="Splash"
         component={SplashScreen}
         options={{ headerShown: false, defaultFade }}
       />
@@ -49,7 +49,7 @@ const App = () => (
       />
       <Stack.Screen
         name="Drawer"
-        component={MenuDrawerNav}
+        component={SideDrawer}
         options={{ headerShown: false, defaultFade }}
       />
     </Stack.Navigator>

@@ -40,6 +40,9 @@ class RangeMap extends Component<Props, State> {
 
     const { region, id, seenDate } = navigation.state.params;
 
+    console.log( navigation, "nav" );
+    console.log( navigation.state, "state" );
+
     this.state = {
       region,
       id,

@@ -2,7 +2,7 @@ import React from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 
 import CameraNav from "./CameraTab";
-import { ChallengeFooterTabNav, FooterTabNav } from "./FooterTabs";
+import FooterTabNav from "./FooterTabs";
 
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
@@ -35,14 +35,12 @@ const MainStack = () => (
       options={{ headerShown: false, defaultFade }}
     />
     <Stack.Screen
-      name="ChallengeFooter"
-      component={ChallengeFooterTabNav}
-      options={{ headerShown: false, defaultFade }}
-    />
-    <Stack.Screen
       name="Notifications"
       component={Notifications}
-      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}
+      options={{
+        headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}
     />
     <Stack.Screen
       name="CameraHelp"
@@ -69,7 +67,7 @@ const MainStack = () => (
       component={Match}
       options={{ headerShown: false, defaultFade }}
     />
-    <Stack.Screen
+    <Stack.Screen // turn range map into modal, since it only pops up from species screen
       name="RangeMap"
       component={RangeMap}
       options={{ headerShown: false, defaultFade }}

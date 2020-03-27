@@ -29,7 +29,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
     <WhiteModal closeModal={closeModal}>
       {is2020Challenge ? (
         <ImageBackground
-          source={backgrounds[challenge.homeBackgroundName]}
+          source={backgrounds[challenge.backgroundName]}
           imageStyle={styles.header}
           style={styles.headerImage}
         >

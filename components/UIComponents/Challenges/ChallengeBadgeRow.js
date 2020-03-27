@@ -24,8 +24,6 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
 
   if ( challenge && challenge.percentComplete === 100 ) {
     badge = <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
-  } else if ( large && !is2020Challenge ) {
-    badge = <Image source={logos.op} style={styles.image} />;
   } else {
     badge = <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />;
   }

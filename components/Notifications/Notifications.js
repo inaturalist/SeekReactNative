@@ -7,7 +7,7 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";

@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
-import { useNavigation } from "react-navigation-hooks";
+import { useNavigation } from "@react-navigation/native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";

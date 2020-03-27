@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";

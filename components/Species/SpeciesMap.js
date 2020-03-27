@@ -9,7 +9,7 @@ import MapView, {
   UrlTile,
   Marker
 } from "react-native-maps";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";

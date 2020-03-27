@@ -10,7 +10,7 @@ import {
   SafeAreaView,
   Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import inatjs from "inaturalistjs";
 
 import styles from "../styles/iNatStats";

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 import { NavigationTabScreenProps } from "react-navigation-tabs";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";

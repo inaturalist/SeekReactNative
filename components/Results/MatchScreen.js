@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";

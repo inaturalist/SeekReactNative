@@ -8,7 +8,7 @@ import {
   View,
   Platform
 } from "react-native";
-import { NavigationActions } from "react-navigation";
+// import { NavigationActions } from "@react-navigation/compat";
 
 import i18n from "../i18n";
 import styles from "../styles/splash";
@@ -37,7 +37,7 @@ class SplashScreen extends Component<Props> {
     } else if ( isFirstLogin ) {
       setTimeout( () => this.resetRouter( "Login" ), splashTimer );
     } else {
-      setTimeout( () => this.resetRouter( "Main" ), splashTimer );
+      setTimeout( () => this.resetRouter( "Drawer" ), splashTimer );
     }
     return null;
   }
@@ -45,9 +45,9 @@ class SplashScreen extends Component<Props> {
   resetRouter( routeName: string ) {
     const { navigation } = this.props;
 
-    navigation.reset( [
-      NavigationActions.navigate( { routeName } )
-    ], 0 );
+    navigation.reset( {
+      routes: [{ name: routeName }]
+    } );
   }
 
   render() {

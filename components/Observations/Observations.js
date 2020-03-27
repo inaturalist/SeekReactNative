@@ -9,7 +9,7 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import Realm from "realm";
 import Modal from "react-native-modal";
 

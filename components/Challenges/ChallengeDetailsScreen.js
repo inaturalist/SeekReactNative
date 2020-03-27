@@ -13,7 +13,7 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
-import { useNavigation, useIsFocused } from "react-navigation-hooks";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challengeDetails";

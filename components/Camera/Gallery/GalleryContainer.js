@@ -5,7 +5,7 @@ import {
   FlatList,
   View
 } from "react-native";
-import { useIsFocused } from "react-navigation-hooks";
+import { useIsFocused } from "@react-navigation/native";
 
 import CameraError from "../CameraError";
 import LoadingWheel from "../../UIComponents/LoadingWheel";

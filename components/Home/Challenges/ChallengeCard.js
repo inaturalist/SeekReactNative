@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import styles from "../../../styles/home/challenges";
 import realmConfig from "../../../models";

@@ -9,7 +9,7 @@ import {
   Platform,
   TouchableOpacity
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import { NavigationStackScreenProps } from "react-navigation-stack";
 import inatjs from "inaturalistjs";
 import Realm from "realm";

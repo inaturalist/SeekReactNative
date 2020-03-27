@@ -9,7 +9,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import { INatCamera } from "react-native-inat-camera";
 import { getSystemVersion } from "react-native-device-info";
 
@@ -17,7 +17,6 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { getTaxonCommonName } from "../../../utility/helpers";
 import { writeToDebugLog } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";

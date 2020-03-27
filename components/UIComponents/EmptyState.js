@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/emptyState";

@@ -7,7 +7,7 @@ import {
   ScrollView
 } from "react-native";
 import Realm from "realm";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challenges";

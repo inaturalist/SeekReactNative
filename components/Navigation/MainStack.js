@@ -1,8 +1,5 @@
-import {
-  createStackNavigator,
-  TransitionPresets,
-  CardStyleInterpolators
-} from "react-navigation-stack";
+import React from "react";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 
 import CameraNav from "./CameraTab";
 import { ChallengeFooterTabNav, FooterTabNav } from "./FooterTabs";
@@ -11,74 +8,88 @@ import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import Match from "../Results/MatchScreen";
 import RangeMap from "../Species/RangeMap";
-import NotificationsScreen from "../Notifications/Notifications";
-import CameraHelpScreen from "../Camera/CameraHelpScreen";
-import PostScreen from "../PostToiNat/PostScreen";
-import PostingHelpScreen from "../PostToiNat/PostingHelpScreen";
-import WikipediaView from "../Species/WikipediaView";
+import Notifications from "../Notifications/Notifications";
+import CameraHelp from "../Camera/CameraHelpScreen";
+import Post from "../PostToiNat/PostScreen";
+import PostingHelp from "../PostToiNat/PostingHelpScreen";
+import Wikipedia from "../Species/WikipediaView";
+
+const Stack = createStackNavigator();
 
 const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
 } );
 
-const defaultNavigation = {
+const defaultFade = {
   cardStyleInterpolator: forFade
 };
 
-const StackNavigatorConfig = {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-};
-
-const MainStack = createStackNavigator( {
-  Footer: {
-    screen: FooterTabNav
-  },
-  ChallengeFooter: {
-    screen: ChallengeFooterTabNav,
-    navigationOptions: () => ( {
-      cardStyleInterpolator: forFade
-    } )
-  },
-  Notifications: { // moved out of FooterTabNav to add animation
-    screen: NotificationsScreen,
-    navigationOptions: TransitionPresets.SlideFromRightIOS
-  },
-  CameraHelp: { // moved out of FooterTabNav to see if this helps with stutter
-    screen: CameraHelpScreen
-  },
-  Camera: {
-    screen: CameraNav,
-    navigationOptions: {
-      gestureEnabled: false,
-      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
-    }
-  },
-  OfflineARResults: {
-    screen: OfflineARResults
-  },
-  OnlineServerResults: {
-    screen: OnlineServerResults
-  },
-  Match: {
-    screen: Match
-  },
-  RangeMap: {
-    screen: RangeMap
-  },
-  Post: {
-    screen: PostScreen
-  },
-  PostingHelp: {
-    screen: PostingHelpScreen
-  },
-  Wikipedia: {
-    screen: WikipediaView,
-    navigationOptions: {
-      gestureEnabled: false,
-      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
-    }
-  }
-}, StackNavigatorConfig );
+const MainStack = () => (
+  <Stack.Navigator
+    initialRouteName="Footer"
+    screenOptions={{ gestureEnabled: false }}
+  >
+    <Stack.Screen
+      name="Footer"
+      component={FooterTabNav}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="ChallengeFooter"
+      component={ChallengeFooterTabNav}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="Notifications"
+      component={Notifications}
+      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS }}
+    />
+    <Stack.Screen
+      name="CameraHelp"
+      component={CameraHelp}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="Camera"
+      component={CameraNav}
+      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
+    />
+    <Stack.Screen
+      name="OfflineARResults"
+      component={OfflineARResults}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="OnlineServerResults"
+      component={OnlineServerResults}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="Match"
+      component={Match}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="RangeMap"
+      component={RangeMap}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="Post"
+      component={Post}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="PostingHelp"
+      component={PostingHelp}
+      options={{ headerShown: false, defaultFade }}
+    />
+    <Stack.Screen
+      name="Wikipedia"
+      component={Wikipedia}
+      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
+    />
+  </Stack.Navigator>
+);
 
 export default MainStack;

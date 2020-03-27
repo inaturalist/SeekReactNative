@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { useNavigation } from "react-navigation-hooks";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/gallery";

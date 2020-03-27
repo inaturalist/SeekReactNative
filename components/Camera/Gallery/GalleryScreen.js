@@ -8,7 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useIsFocused } from "react-navigation-hooks";
+import { useIsFocused } from "@react-navigation/native";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";

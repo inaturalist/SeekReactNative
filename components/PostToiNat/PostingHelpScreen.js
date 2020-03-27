@@ -7,7 +7,7 @@ import {
   Image,
   Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import styles from "../../styles/posting/postingHelp";
 import i18n from "../../i18n";

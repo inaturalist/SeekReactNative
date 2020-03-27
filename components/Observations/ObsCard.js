@@ -8,7 +8,7 @@ import {
   ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import { writeToDebugLog } from "../../utility/photoHelpers";

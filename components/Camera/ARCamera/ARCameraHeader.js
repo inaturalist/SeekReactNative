@@ -15,14 +15,10 @@ import { getScientificNames } from "../../../utility/settingsHelpers";
 import { getTaxonCommonName } from "../../../utility/helpers";
 
 type Props = {
-  // +commonName: ?string,
   +ranks: Object
 }
 
-const ARCameraHeader = ( {
-  // commonName,
-  ranks
-}: Props ) => {
+const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
@@ -50,8 +46,6 @@ const ARCameraHeader = ( {
       setCommonName( null );
     }
   }, [ranks, rankToRender, scientificNames] );
-
-  console.log( "name", commonName );
 
   return (
     <View style={styles.header}>

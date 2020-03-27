@@ -7,7 +7,7 @@ import {
   Text
 } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";

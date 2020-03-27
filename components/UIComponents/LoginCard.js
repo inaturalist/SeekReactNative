@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";

@@ -9,8 +9,8 @@ import {
   Platform,
   TouchableOpacity
 } from "react-native";
-import { DrawerContentComponentProps } from "react-navigation-drawer";
 import { getVersion, getBuildNumber } from "react-native-device-info";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
@@ -21,7 +21,8 @@ import SafeAreaView from "./UIComponents/SafeAreaView";
 import UserContext from "./UserContext";
 import { useScrollToTop } from "../utility/customHooks";
 
-const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
+const AboutScreen = () => {
+  const navigation = useNavigation();
   const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();

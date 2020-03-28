@@ -8,9 +8,6 @@ import {
   Text,
   SafeAreaView
 } from "react-native";
-import {
-  DrawerContentComponentProps
-} from "react-navigation-drawer";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
@@ -18,13 +15,17 @@ import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { setRoute } from "../../utility/helpers";
 
-const SideMenu = ( { navigation }: DrawerContentComponentProps ) => (
+type Props = {
+  navigation: any
+}
+
+const SideMenu = ( { navigation }: Props ) => (
   <View style={styles.container}>
     <SafeAreaView />
     <TouchableOpacity
       accessibilityLabel={i18n.t( "menu.home" )}
       accessible
-      onPress={() => navigation.navigate( "Main" )}
+      onPress={() => navigation.navigate( "Home" )}
     >
       <Image
         source={logoImages.seek}
@@ -35,7 +36,7 @@ const SideMenu = ( { navigation }: DrawerContentComponentProps ) => (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
-        onPress={() => navigation.navigate( "Main" )}
+        onPress={() => navigation.navigate( "Home" )}
         style={[styles.row, styles.height]}
       >
         <Image source={icons.menuHome} style={styles.image} />

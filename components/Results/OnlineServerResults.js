@@ -21,7 +21,7 @@ import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, createTimestamp } from "../../utility/dateHelpers";
 
 type Props = {
-  +navigation: any
+  +route: any
 }
 
 type State = {
@@ -46,7 +46,7 @@ type State = {
 };
 
 class OnlineServerResults extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
     const {
@@ -54,7 +54,7 @@ class OnlineServerResults extends Component<Props, State> {
       time,
       latitude,
       longitude
-    } = navigation.state.params;
+    } = route.params;
 
     this.state = {
       uri,

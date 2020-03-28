@@ -26,11 +26,11 @@ const defaultFade = {
 
 const MainStack = () => (
   <Stack.Navigator
-    initialRouteName="Footer"
+    initialRouteName="MainStack"
     screenOptions={{ gestureEnabled: false }}
   >
     <Stack.Screen
-      name="Footer"
+      name="MainTab"
       component={FooterTabNav}
       options={{ headerShown: false, defaultFade }}
     />

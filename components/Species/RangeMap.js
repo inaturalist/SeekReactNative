@@ -22,7 +22,7 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +navigation: any
+  +route: any
 }
 
 type State = {
@@ -35,13 +35,10 @@ type State = {
 };
 
 class RangeMap extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
-    const { region, id, seenDate } = navigation.state.params;
-
-    console.log( navigation, "nav" );
-    console.log( navigation.state, "state" );
+    const { region, id, seenDate } = route.params;
 
     this.state = {
       region,

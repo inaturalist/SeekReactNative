@@ -34,7 +34,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "Main" )}
+        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
         style={styles.backButton}
       >
         <Image source={icons.closeGreen} style={styles.buttonImage} />

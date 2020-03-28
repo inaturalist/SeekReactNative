@@ -10,7 +10,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import { NavigationEvents } from "@react-navigation/compat";
-import { NavigationStackScreenProps } from "react-navigation-stack";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import RNFS from "react-native-fs";
@@ -41,6 +40,11 @@ import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
+type Props = {
+  navigation: any,
+  route: any
+}
+
 type State = {
   id: ?number,
   photos: Array<Object>,
@@ -60,7 +64,7 @@ type State = {
   wikiUrl: ?string
 };
 
-class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
+class SpeciesDetail extends Component<Props, State> {
   scrollView: ?any
 
   constructor() {
@@ -442,7 +446,7 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
             accessible
             onPress={() => {
               if ( route === "Match" ) {
-                navigation.navigate( route, { ...navigation.state.params } );
+                navigation.navigate( route, { ...this.props.route.params } );
               } else if ( route === "Species" ) {
                 setRoute( "Main" );
                 navigation.navigate( "Main" );

@@ -9,7 +9,7 @@ import {
   Platform
 } from "react-native";
 import Realm from "realm";
-import { NavigationStackScreenProps } from "react-navigation-stack";
+import { useNavigation } from "@react-navigation/native";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
@@ -26,7 +26,8 @@ import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
 import { useScrollToTop } from "../../utility/customHooks";
 
-const AchievementsScreen = ( { navigation }: NavigationStackScreenProps ) => {
+const AchievementsScreen = () => {
+  const navigation = useNavigation();
   const scrollView = useRef( null );
   const [speciesCount, setSpeciesCount] = useState( null );
   const [state, setState] = useState( {

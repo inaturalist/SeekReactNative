@@ -18,7 +18,7 @@ import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
-  +navigation: any
+  +route: any
 }
 
 type State = {
@@ -42,7 +42,7 @@ type State = {
 };
 
 class OfflineARResults extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
     const {
@@ -51,7 +51,7 @@ class OfflineARResults extends Component<Props, State> {
       latitude,
       longitude,
       time
-    } = navigation.state.params;
+    } = route.params;
 
     this.state = {
       threshold: 0.7,

@@ -18,7 +18,7 @@ const defaultFade = {
 
 const FooterTabNav = () => (
   <Tab.Navigator tabBar={props => <Footer {...props} />}>
-    <Tab.Screen name="Main" component={HomeScreen} />
+    <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="DebugAndroid" component={DebugAndroid} />
     <Tab.Screen name="Species" component={SpeciesDetail} />
   </Tab.Navigator>

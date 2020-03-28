@@ -51,7 +51,8 @@ import { setAncestorRankText } from "../../utility/textHelpers";
 import UserContext from "../UserContext";
 
 type Props = {
-  +navigation: any
+  +navigation: any,
+  +route: any
 }
 
 type State = {
@@ -84,7 +85,7 @@ type State = {
 class MatchScreen extends Component<Props, State> {
   scrollView: ?any
 
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
     const {
@@ -102,7 +103,7 @@ class MatchScreen extends Component<Props, State> {
       match,
       errorCode,
       rank
-    } = navigation.state.params;
+    } = route.params;
 
     this.state = {
       badge: null,
@@ -241,7 +242,7 @@ class MatchScreen extends Component<Props, State> {
 
   navigateTo() {
     const { navigationPath, taxaId } = this.state;
-    const { navigation } = this.props;
+    const { navigation, route } = this.props;
 
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
@@ -249,7 +250,7 @@ class MatchScreen extends Component<Props, State> {
       setSpeciesId( taxaId );
       // return user to match screen
       setRoute( "Match" );
-      navigation.navigate( "Species", { ...navigation.state.params } );
+      navigation.navigate( "Species", { ...route.params } );
     }
   }
 
@@ -489,7 +490,7 @@ class MatchScreen extends Component<Props, State> {
               ancestorId={taxaId}
               lat={latitude}
               lng={longitude}
-              params={navigation.state.params}
+              params={this.props.route.params}
             />
           ) : null}
           {commonAncestor && rank !== ( 60 || 70 ) ? <View style={styles.marginMedium} /> : null}

@@ -7,7 +7,7 @@ import {
   Platform,
   StatusBar
 } from "react-native";
-import { NavigationStackScreenProps } from "react-navigation-stack";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
@@ -20,7 +20,8 @@ import SafeAreaView from "../UIComponents/SafeAreaView";
 import RNModal from "../UIComponents/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
 
-const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
+const HomeScreen = () => {
+  const navigation = useNavigation();
   const scrollView = useRef( null );
   const [showModal, setModal] = useState( false );
 

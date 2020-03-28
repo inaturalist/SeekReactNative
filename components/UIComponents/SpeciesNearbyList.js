@@ -18,14 +18,16 @@ type Props = {
   +taxa: Array,
   +navigation: any,
   +fetchiNatData: ?Function,
-  +match: boolean
+  +match: boolean,
+  +route: any
 }
 
 const SpeciesNearbyList = ( {
   taxa,
   match,
   navigation,
-  fetchiNatData
+  fetchiNatData,
+  route
 }: Props ) => (
   <FlatList
     alwaysBounceHorizontal
@@ -66,12 +68,12 @@ const SpeciesNearbyList = ( {
           setSpeciesId( item.id );
           if ( match ) {
             setRoute( "Match" );
-            navigation.navigate( "Species", { ...navigation.state.params } );
+            navigation.navigate( "Species", { ...route.params } );
           } else if ( fetchiNatData ) {
             fetchiNatData();
           } else {
             setRoute( "Main" );
-            navigation.navigate( "Species", { ...navigation.state.params } );
+            navigation.navigate( "Species", { ...route.params } );
           }
         }}
         style={styles.gridCell}

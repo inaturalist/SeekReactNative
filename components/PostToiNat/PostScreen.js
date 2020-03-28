@@ -40,7 +40,7 @@ import createUserAgent from "../../utility/userAgent";
 import { formatYearMonthDay, setISOTime } from "../../utility/dateHelpers";
 
 type Props = {
-  +navigation: any
+  +route: any
 };
 
 type State = {
@@ -69,7 +69,7 @@ type State = {
 };
 
 class PostScreen extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
     const {
@@ -81,7 +81,7 @@ class PostScreen extends Component<Props, State> {
       latitude,
       longitude,
       time
-    } = navigation.state.params;
+    } = route.params;
 
     const date = time ? setISOTime( time ) : null;
 

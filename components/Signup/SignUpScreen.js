@@ -18,7 +18,7 @@ import { createJwtToken } from "../../utility/helpers";
 import UserContext from "../UserContext";
 
 type Props = {
-  +navigation: any
+  +route: any
 }
 
 type State = {
@@ -30,10 +30,10 @@ type State = {
 }
 
 class SignUpScreen extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
-    const { licensePhotos, email } = navigation.state.params;
+    const { licensePhotos, email } = route.params;
 
     this.state = {
       email,

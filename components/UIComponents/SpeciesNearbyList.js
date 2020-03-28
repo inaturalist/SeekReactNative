@@ -72,7 +72,7 @@ const SpeciesNearbyList = ( {
           } else if ( fetchiNatData ) {
             fetchiNatData();
           } else {
-            setRoute( "Main" );
+            setRoute( "Home" );
             navigation.navigate( "Species", { ...route.params } );
           }
         }}

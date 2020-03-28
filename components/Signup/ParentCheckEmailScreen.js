@@ -26,7 +26,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
       <View style={styles.marginTop} />
       <GreenButton
         fontSize={16}
-        handlePress={() => navigation.navigate( "Main" )}
+        handlePress={() => navigation.navigate( "Home" )}
         login
         text="inat_signup.continue_no_log_in"
       />

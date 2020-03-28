@@ -38,7 +38,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
       color={colors.seekGreen}
       handlePress={() => {
         setChallengeIndex( challenge.index );
-        setRoute( "Main" );
+        setRoute( "Home" );
         navigation.navigate( "ChallengeDetails" );
       }}
       text={challenge.startedDate

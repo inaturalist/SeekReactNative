@@ -49,7 +49,7 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
       </View>
       <View style={styles.marginLarge} />
       <GreenButton
-        handlePress={() => navigation.navigate( "Main" )}
+        handlePress={() => navigation.navigate( "Home" )}
         login
         text="inat_signup.continue"
       />

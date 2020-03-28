@@ -448,12 +448,12 @@ class SpeciesDetail extends Component<Props, State> {
               if ( route === "Match" ) {
                 navigation.navigate( route, { ...this.props.route.params } );
               } else if ( route === "Species" ) {
-                setRoute( "Main" );
-                navigation.navigate( "Main" );
+                setRoute( "Home" );
+                navigation.navigate( "Home" );
               } else if ( route ) {
                 navigation.navigate( route );
               } else {
-                navigation.navigate( "Main" );
+                navigation.navigate( "Home" );
               }
             }}
             style={styles.backButton}

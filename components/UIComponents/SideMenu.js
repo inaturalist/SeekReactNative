@@ -85,7 +85,7 @@ const SideMenu = ( { navigation }: Props ) => (
         accessibilityLabel={i18n.t( "menu.inat" )}
         accessible
         onPress={() => {
-          setRoute( "Main" );
+          setRoute( "Home" );
           navigation.navigate( "iNatStats" );
         }}
         style={[styles.row, styles.height]}

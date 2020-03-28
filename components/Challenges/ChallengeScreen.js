@@ -147,7 +147,7 @@ class ChallengeScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader
           header="challenges.header"
-          route="Main"
+          route="Home"
         />
         <ScrollView>
           <NavigationEvents

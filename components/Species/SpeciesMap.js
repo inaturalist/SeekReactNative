@@ -10,7 +10,6 @@ import MapView, {
   Marker
 } from "react-native-maps";
 import { useNavigation } from "@react-navigation/native";
-// import { withNavigation } from "@react-navigation/compat";
 
 import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
@@ -19,7 +18,6 @@ import GreenText from "../UIComponents/GreenText";
 import UserContext from "../UserContext";
 
 type Props = {
-  // +navigation: any,
   +region: Object,
   +id: number,
   +seenDate: ?string
@@ -28,7 +26,6 @@ type Props = {
 const SpeciesMap = ( {
   region,
   id,
-  // navigation,
   seenDate
 }: Props ) => {
   const navigation = useNavigation();

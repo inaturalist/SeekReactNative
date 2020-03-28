@@ -59,7 +59,7 @@ type State = {
   userPhoto: ?string,
   stats: Object,
   ancestors: Array<Object>,
-  route: ?string,
+  routeName: ?string,
   iconicTaxonId: ?number,
   wikiUrl: ?string
 };
@@ -84,7 +84,7 @@ class SpeciesDetail extends Component<Props, State> {
       userPhoto: null,
       stats: {},
       ancestors: [],
-      route: null,
+      routeName: null,
       iconicTaxonId: null,
       wikiUrl: null
     };
@@ -125,11 +125,11 @@ class SpeciesDetail extends Component<Props, State> {
     this.fetchTaxonDetails( id );
     this.fetchHistogram( id );
 
-    const route = await getRoute();
+    const routeName = await getRoute();
 
     this.setState( {
       id,
-      route
+      routeName
     } );
   }
 
@@ -217,7 +217,7 @@ class SpeciesDetail extends Component<Props, State> {
       userPhoto: null,
       stats: {},
       ancestors: [],
-      route: null,
+      routeName: null,
       iconicTaxonId: null,
       wikiUrl: null
     } );
@@ -422,12 +422,12 @@ class SpeciesDetail extends Component<Props, State> {
       userPhoto,
       ancestors,
       stats,
-      route,
+      routeName,
       iconicTaxonId,
       wikiUrl
     } = this.state;
 
-    const { navigation } = this.props;
+    const { navigation, route } = this.props;
 
     return (
       <>
@@ -445,13 +445,13 @@ class SpeciesDetail extends Component<Props, State> {
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible
             onPress={() => {
-              if ( route === "Match" ) {
-                navigation.navigate( route, { ...this.props.route.params } );
-              } else if ( route === "Species" ) {
+              if ( routeName === "Match" ) {
+                navigation.navigate( routeName, { ...route.params } );
+              } else if ( routeName === "Species" ) {
                 setRoute( "Home" );
                 navigation.navigate( "Home" );
-              } else if ( route ) {
-                navigation.navigate( route );
+              } else if ( routeName ) {
+                navigation.navigate( routeName );
               } else {
                 navigation.navigate( "Home" );
               }

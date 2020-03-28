@@ -5,7 +5,7 @@ import {
   Image,
   StatusBar
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postStatus";
@@ -21,7 +21,6 @@ type Props = {
   +loading: boolean,
   +postingSuccess: boolean,
   +togglePostModal: Function,
-  +navigation: any,
   +status: string,
   +errorText: string
 };
@@ -30,10 +29,11 @@ const PostStatus = ( {
   loading,
   postingSuccess,
   togglePostModal,
-  navigation,
   status,
   errorText
 }: Props ) => {
+  const navigation = useNavigation();
+
   let headerText;
   let image;
   let extraText;
@@ -77,7 +77,7 @@ const PostStatus = ( {
           </Text>
         </View>
       </View>
-      {!loading ? (
+      {!loading && (
         <View style={styles.bottom}>
           <GreenButton
             color={!loading && !postingSuccess ? colors.seekTeal : null}
@@ -92,9 +92,9 @@ const PostStatus = ( {
             text="posting.ok"
           />
         </View>
-      ) : null}
+      )}
     </>
   );
 };
 
-export default withNavigation( PostStatus );
+export default PostStatus;

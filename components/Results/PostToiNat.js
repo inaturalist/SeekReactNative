@@ -5,7 +5,7 @@ import {
   View,
   Text
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/results/match";
@@ -13,12 +13,12 @@ import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelp
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
-  +navigation: any,
   +color: string,
   +taxaInfo: Object
 }
 
-const PostToiNat = ( { navigation, color, taxaInfo }: Props ) => {
+const PostToiNat = ( { color, taxaInfo }: Props ) => {
+  const navigation = useNavigation();
   const [postingSuccess, setPostingSuccess] = useState( false );
 
   const fetchPostingStatus = async () => {
@@ -54,4 +54,4 @@ const PostToiNat = ( { navigation, color, taxaInfo }: Props ) => {
   );
 };
 
-export default withNavigation( PostToiNat );
+export default PostToiNat;

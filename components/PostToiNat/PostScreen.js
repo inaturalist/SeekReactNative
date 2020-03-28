@@ -9,9 +9,10 @@ import {
   Modal,
   Platform,
   TextInput,
-  Keyboard
+  Keyboard,
+  ScrollView
 } from "react-native";
-import { NavigationEvents, ScrollView } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 

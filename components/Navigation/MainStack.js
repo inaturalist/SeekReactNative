@@ -20,7 +20,8 @@ const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
 } );
 
-const defaultFade = {
+const defaultConfig = {
+  headerShown: false,
   cardStyleInterpolator: forFade
 };
 
@@ -32,7 +33,7 @@ const MainStack = () => (
     <Stack.Screen
       name="MainTab"
       component={FooterTabNav}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Notifications"
@@ -45,7 +46,7 @@ const MainStack = () => (
     <Stack.Screen
       name="CameraHelp"
       component={CameraHelp}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Camera"
@@ -55,32 +56,32 @@ const MainStack = () => (
     <Stack.Screen
       name="OfflineARResults"
       component={OfflineARResults}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="OnlineServerResults"
       component={OnlineServerResults}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Match"
       component={Match}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen // turn range map into modal, since it only pops up from species screen
       name="RangeMap"
       component={RangeMap}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Post"
       component={Post}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="PostingHelp"
       component={PostingHelp}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Wikipedia"

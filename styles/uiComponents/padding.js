@@ -1,7 +1,10 @@
 import { StyleSheet, Platform } from "react-native";
 
+import { colors } from "../global";
+
 export default StyleSheet.create( {
   padding: {
-    marginBottom: Platform.OS === "android" ? 17 : 60
+    backgroundColor: colors.white,
+    paddingBottom: Platform.OS === "android" ? 17 : 60
   }
 } );

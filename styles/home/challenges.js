@@ -10,6 +10,7 @@ export default StyleSheet.create( {
     marginTop: 5
   },
   header: {
+    backgroundColor: colors.white,
     paddingBottom: Platform.OS === "ios" ? 19 : 21,
     paddingLeft: 22,
     paddingTop: 21

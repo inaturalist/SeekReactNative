@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
 import SideDrawer from "./SideDrawer";
@@ -20,40 +21,43 @@ const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
 } );
 
-const defaultFade = {
+const defaultConfig = {
+  headerShown: false,
   cardStyleInterpolator: forFade
 };
 
 const Stack = createStackNavigator();
 
 const App = () => (
-  <NavigationContainer theme={MyTheme}>
-    <Stack.Navigator
-      initialRouteName="Root"
-      screenOptions={{ gestureEnabled: false }}
-    >
-      <Stack.Screen
-        name="Splash"
-        component={SplashScreen}
-        options={{ headerShown: false, defaultFade }}
-      />
-      <Stack.Screen
-        name="Onboarding"
-        component={OnboardingScreen}
-        options={{ headerShown: false, defaultFade }}
-      />
-      <Stack.Screen
-        name="Login"
-        component={LoginStack}
-        options={{ headerShown: false, defaultFade }}
-      />
-      <Stack.Screen
-        name="Drawer"
-        component={SideDrawer}
-        options={{ headerShown: false, defaultFade }}
-      />
-    </Stack.Navigator>
-  </NavigationContainer>
+  <SafeAreaProvider>
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator
+        initialRouteName="Root"
+        screenOptions={{ gestureEnabled: false }}
+      >
+        <Stack.Screen
+          name="Splash"
+          component={SplashScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginStack}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Drawer"
+          component={SideDrawer}
+          options={defaultConfig}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </SafeAreaProvider>
 );
 
 export default App;

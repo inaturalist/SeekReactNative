@@ -4,7 +4,8 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
@@ -27,6 +28,26 @@ const SpeciesNearbyList = ( {
 }: Props ) => {
   const navigation = useNavigation();
   const route = useRoute();
+
+  const renderSpeciesImage = ( item ) => {
+    let photo;
+
+    if ( item.default_photo.medium_url && item.default_photo.license_code ) {
+      photo = item.default_photo.medium_url;
+    } else if ( item.taxonPhotos ) {
+      const photoWithLicense = item.taxonPhotos.find( p => p.photo.license_code );
+      if ( photoWithLicense ) {
+        photo = photoWithLicense.photo.medium_url;
+      }
+    }
+
+    return (
+      <Image
+        source={{ uri: photo }}
+        style={styles.cellImage}
+      />
+    );
+  };
 
   return (
     <FlatList
@@ -78,17 +99,13 @@ const SpeciesNearbyList = ( {
           }}
           style={styles.gridCell}
         >
-          {item.default_photo && item.default_photo.medium_url ? (
-            <Image
-              source={{ uri: item.default_photo.medium_url }}
-              style={styles.cellImage}
-            />
-          ) : (
-            <Image
-              source={iconicTaxa[item.iconic_taxon_id]}
-              style={styles.cellImage}
-            />
-          )}
+          <ImageBackground
+            source={iconicTaxa[item.iconic_taxon_id]}
+            style={styles.cellImage}
+            imageStyle={styles.cellImage}
+          >
+            {item.default_photo && renderSpeciesImage( item )}
+          </ImageBackground>
           <View style={styles.cellTitle}>
             <Text numberOfLines={3} style={styles.cellTitleText}>
               {capitalizeNames( item.preferred_common_name || item.name )}

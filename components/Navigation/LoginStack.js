@@ -20,7 +20,8 @@ const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
 } );
 
-const defaultFade = {
+const defaultConfig = {
+  headerShown: false,
   cardStyleInterpolator: forFade
 };
 
@@ -32,62 +33,62 @@ const LoginStack = () => (
     <Stack.Screen
       name="LoginOrSignup"
       component={LoginOrSignupScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Age"
       component={AgeVerifyScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Login"
       component={LoginScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Forgot"
       component={ForgotPasswordScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="PasswordEmail"
       component={PasswordEmailScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="ParentCheck"
       component={ParentCheckEmailScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="LoginSuccess"
       component={LoginSuccessScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Parent"
       component={ParentalConsentScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="LicensePhotos"
       component={LicensePhotosScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Signup"
       component={SignUpScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="Privacy"
       component={PrivacyPolicyScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
     <Stack.Screen
       name="TermsOfService"
       component={TermsOfServiceScreen}
-      options={{ headerShown: false, defaultFade }}
+      options={defaultConfig}
     />
   </Stack.Navigator>
 );

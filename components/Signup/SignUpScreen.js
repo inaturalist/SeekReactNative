@@ -18,7 +18,8 @@ import { createJwtToken } from "../../utility/helpers";
 import UserContext from "../UserContext";
 
 type Props = {
-  +route: any
+  +route: any,
+  +navigation: any
 }
 
 type State = {

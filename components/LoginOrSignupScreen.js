@@ -43,7 +43,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     />
     <View style={styles.marginSmall} />
     <Button
-      handlePress={() => navigation.navigate( "Home" )}
+      handlePress={() => navigation.navigate( "Drawer" )}
       text="login.skip_login"
       large
       color={colors.white}

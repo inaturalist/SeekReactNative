@@ -13,13 +13,13 @@ import { fetchAccessToken } from "../utility/loginHelpers";
 import { regenerateBackupUris, deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import UserContext from "./UserContext";
 
-if ( process.env.NODE_ENV !== "production" ) {
-  const whyDidYouRender = require( "@welldone-software/why-did-you-render" );
-  whyDidYouRender( React, {
-    collapseGroups: true
-    // include: [/.*/]
-  } );
-}
+// if ( process.env.NODE_ENV !== "production" ) {
+//   const whyDidYouRender = require( "@welldone-software/why-did-you-render" );
+//   whyDidYouRender( React, {
+//     collapseGroups: true
+//     // include: [/.*/]
+//   } );
+// }
 
 class App extends Component {
   constructor() {

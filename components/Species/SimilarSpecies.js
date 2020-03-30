@@ -52,16 +52,10 @@ class SimilarSpecies extends Component<Props> {
     const options = { user_agent: createUserAgent() };
 
     inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
-      const taxa = results.map( r => r.taxon );
-      const taxaWithPhotos = [];
-      taxa.forEach( ( taxon ) => {
-        if ( taxon.default_photo && taxon.default_photo.medium_url ) {
-          taxaWithPhotos.push( taxon );
-        }
-      } );
+      const similarSpecies = results.map( r => r.taxon );
 
       this.setState( {
-        similarSpecies: taxaWithPhotos,
+        similarSpecies,
         loading: false
       } );
     } ).catch( ( err ) => {

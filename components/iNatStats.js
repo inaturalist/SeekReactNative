@@ -84,7 +84,7 @@ class iNatStatsScreen extends Component<Props, State> {
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;
 
-        if ( defaultPhoto.license_code && defaultPhoto.license_code !== "cc0" ) {
+        if ( defaultPhoto.license_code ) {
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
             photos.push( {
               photoUrl: defaultPhoto.medium_url,

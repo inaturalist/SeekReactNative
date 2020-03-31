@@ -13,7 +13,6 @@ import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import { setRoute } from "../../utility/helpers";
 import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 
@@ -40,7 +39,6 @@ const NotificationCard = ( { navigation, item }: Props ) => {
     <View>
       <TouchableOpacity
         onPress={() => {
-          setRoute( "Notifications" );
           if ( item.nextScreen === "ChallengeDetails" ) {
             setChallengeIndex( item.challengeIndex );
           }

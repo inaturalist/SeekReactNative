@@ -107,10 +107,7 @@ class RangeMap extends Component<Props, State> {
           closeModal={this.closeModal}
           modal={<Legend closeModal={this.closeModal} />}
         />
-        <GreenHeader
-          header="species_detail.range_map"
-          route="Species"
-        />
+        <GreenHeader header="species_detail.range_map" />
         {region.latitude ? (
           <MapView
             provider={PROVIDER_DEFAULT}

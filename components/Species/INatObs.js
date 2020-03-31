@@ -14,7 +14,7 @@ import styles from "../../styles/species/iNatObs";
 import logos from "../../assets/logos";
 import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
-import { localizeNumber, setRoute } from "../../utility/helpers";
+import { localizeNumber } from "../../utility/helpers";
 
 type Props = {
   +id: number,
@@ -80,10 +80,7 @@ class INatObs extends Component<Props, State> {
         </View>
         <View style={[styles.center, styles.row]}>
           <TouchableOpacity
-            onPress={() => {
-              setRoute( "Species" );
-              navigation.navigate( "iNatStats" );
-            }}
+            onPress={() => navigation.navigate( "iNatStats" )}
           >
             <Image source={logos.bird} style={styles.bird} />
           </TouchableOpacity>

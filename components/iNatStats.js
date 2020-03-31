@@ -22,13 +22,12 @@ import Padding from "./UIComponents/Padding";
 import {
   capitalizeNames,
   shuffleList,
-  localizeNumber,
-  getRoute
+  localizeNumber
 } from "../utility/helpers";
 import { localizeAttributions } from "../utility/photoHelpers";
 import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
-import CustomBackArrow from "./UIComponents/Buttons/CustomBackArrow";
+import BackArrow from "./UIComponents/Buttons/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import { getiNatStats } from "../utility/iNatStatsHelpers";
 import createUserAgent from "../utility/userAgent";
@@ -39,8 +38,7 @@ type Props = {}
 type State = {
   observations: number,
   observers: number,
-  photos: Array<Object>,
-  route: ?string
+  photos: Array<Object>
 };
 
 class iNatStatsScreen extends Component<Props, State> {
@@ -52,8 +50,7 @@ class iNatStatsScreen extends Component<Props, State> {
     this.state = {
       observations: localizeNumber( 25000000 ),
       observers: localizeNumber( 700000 ),
-      photos: [],
-      route: null
+      photos: []
     };
   }
 
@@ -111,12 +108,10 @@ class iNatStatsScreen extends Component<Props, State> {
 
   async fetchiNatStats() {
     const { observations, observers } = await getiNatStats();
-    const route = await getRoute();
 
     this.setState( {
       observations: localizeNumber( observations ),
-      observers: localizeNumber( observers ),
-      route
+      observers: localizeNumber( observers )
     } );
   }
 
@@ -124,8 +119,7 @@ class iNatStatsScreen extends Component<Props, State> {
     const {
       observations,
       observers,
-      photos,
-      route
+      photos
     } = this.state;
 
     const photoList = [];
@@ -168,7 +162,7 @@ class iNatStatsScreen extends Component<Props, State> {
             }}
           />
           <StatusBar barStyle="dark-content" />
-          <CustomBackArrow green route={route} />
+          <BackArrow green />
           <View style={styles.logoContainer}>
             <Image source={logos.wordmark} style={styles.logo} />
           </View>

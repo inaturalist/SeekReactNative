@@ -14,7 +14,6 @@ import backgrounds from "../../../assets/backgrounds";
 import { setChallengeIndex } from "../../../utility/challengeHelpers";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import { colors } from "../../../styles/global";
-import { setRoute } from "../../../utility/helpers";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
@@ -38,7 +37,6 @@ const Challenges = ( { navigation, challenge }: Props ) => (
       color={colors.seekGreen}
       handlePress={() => {
         setChallengeIndex( challenge.index );
-        setRoute( "Home" );
         navigation.navigate( "ChallengeDetails" );
       }}
       text={challenge.startedDate

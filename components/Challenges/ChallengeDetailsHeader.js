@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -10,7 +10,7 @@ import { withNavigation } from "@react-navigation/compat";
 import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
-import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
+import BackArrow from "../UIComponents/Buttons/BackArrow";
 import logos from "../../assets/logos";
 import backgrounds from "../../assets/backgrounds";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
@@ -18,7 +18,6 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
 import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
-import { getRoute } from "../../utility/helpers";
 import { startChallenge } from "../../utility/challengeHelpers";
 import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../UIComponents/Challenges/ChallengeBadgeRow";
@@ -35,16 +34,10 @@ const ChallengeDetailsHeader = ( {
   showMission
 }: Props ) => {
   const [showModal, setModal] = useState( false );
-  const [route, setRoute] = useState( null );
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
-
-  const fetchRoute = async () => {
-    const r = await getRoute();
-    setRoute( r );
-  };
 
   const renderButton = () => {
     const buttonText = setChallengeDetailsButtonText( challenge, challenge.startedDate );
@@ -69,10 +62,6 @@ const ChallengeDetailsHeader = ( {
     return button;
   };
 
-  useEffect( () => {
-    fetchRoute();
-  }, [] );
-
   return (
     <>
       <Modal
@@ -89,7 +78,7 @@ const ChallengeDetailsHeader = ( {
         source={challenge ? backgrounds[challenge.backgroundName] : null}
         style={styles.challengeBackground}
       >
-        <CustomBackArrow route={route} />
+        <BackArrow />
         <View style={is2020Challenge ? styles.iNatMargin : styles.margin} />
         {is2020Challenge
           ? <Image source={logos.iNatWhite} style={[styles.logo, styles.iNatLogo]} />

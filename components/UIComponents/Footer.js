@@ -10,7 +10,6 @@ import {
 import Realm from "realm";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import { setRoute } from "../../utility/helpers";
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
@@ -70,10 +69,7 @@ const Footer = () => {
             <TouchableOpacity
               accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
               accessible
-              onPress={() => {
-                setRoute( "Challenges" );
-                navigation.navigate( "iNatStats" );
-              }}
+              onPress={() => navigation.navigate( "iNatStats" )}
               style={styles.rightIcon}
             >
               <Image source={icons.birdTeal} />

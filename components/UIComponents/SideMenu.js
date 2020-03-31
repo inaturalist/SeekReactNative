@@ -13,7 +13,6 @@ import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
-import { setRoute } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -84,10 +83,7 @@ const SideMenu = ( { navigation }: Props ) => (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.inat" )}
         accessible
-        onPress={() => {
-          setRoute( "Home" );
-          navigation.navigate( "iNatStats" );
-        }}
+        onPress={() => navigation.navigate( "iNatStats" )}
         style={[styles.row, styles.height]}
       >
         <Image source={icons.menuiNat} style={styles.image} />

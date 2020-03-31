@@ -18,7 +18,6 @@ import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
-import { setRoute } from "../../utility/helpers";
 import WhiteModal from "../UIComponents/WhiteModal";
 
 type Props = {
@@ -63,7 +62,6 @@ const ChallengeUnearnedModal = ( { closeModal, challenge, navigation }: Props ) 
         <GreenButton
           handlePress={() => {
             setChallengeIndex( challenge.index );
-            setRoute( "Achievements" );
             navigation.navigate( "ChallengeDetails" );
             closeModal();
           }}

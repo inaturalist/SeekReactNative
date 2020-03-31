@@ -82,7 +82,6 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
       accessibilityLabel={item.node.image.filename}
       accessible
       onPress={() => {
-        console.log( "setting loading to true because pressed an image" );
         startLoading();
         selectAndResizeImage( item.node );
       }}

@@ -16,7 +16,7 @@ const useScrollToTop = ( scrollView, navigation ) => {
   };
 
   useEffect( () => {
-    navigation.addListener( "willFocus", () => {
+    navigation.addListener( "focus", () => {
       scrollToTop();
     } );
   } );
@@ -31,7 +31,7 @@ const useIndex = ( navigation ) => {
   };
 
   useEffect( () => {
-    navigation.addListener( "willFocus", () => {
+    navigation.addListener( "focus", () => {
       setupScreen();
     } );
   } );
@@ -48,7 +48,7 @@ const useRoute = ( navigation ) => {
   };
 
   useEffect( () => {
-    navigation.addListener( "willFocus", () => {
+    navigation.addListener( "focus", () => {
       setupScreen();
     } );
   } );

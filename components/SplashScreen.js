@@ -36,8 +36,7 @@ class SplashScreen extends Component<Props> {
     } else if ( isFirstLogin ) {
       setTimeout( () => this.resetRouter( "Login" ), splashTimer );
     } else {
-      setTimeout( () => this.resetRouter( "Onboarding" ), splashTimer );
-      // setTimeout( () => this.resetRouter( "Drawer" ), splashTimer );
+      setTimeout( () => this.resetRouter( "Drawer" ), splashTimer );
     }
     return null;
   }

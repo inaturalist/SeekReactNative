@@ -12,9 +12,6 @@ import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
-// import SpeciesDetail from "../Species/SpeciesDetail";
-// import DebugAndroid from "../UIComponents/DebugAndroid";
-// import RangeMap from "../Species/RangeMap";
 
 const Tab = createBottomTabNavigator();
 
@@ -60,18 +57,6 @@ const SettingsFooter = () => (
   </Tab.Navigator>
 );
 
-// const DebugAndroidFooter = () => (
-//   <Tab.Navigator tabBar={props => <Footer {...props} />}>
-//     <Tab.Screen name="DebugAndroid" component={DebugAndroid} />
-//   </Tab.Navigator>
-// );
-
-// const SpeciesDetailFooter = () => (
-//   <Tab.Navigator tabBar={props => <Footer {...props} />}>
-//     <Tab.Screen name="Species" component={SpeciesDetail} />
-//   </Tab.Navigator>
-// );
-
 const Drawer = createDrawerNavigator();
 
 const SideMenuDrawer = () => (
@@ -87,9 +72,6 @@ const SideMenuDrawer = () => (
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />
     <Drawer.Screen name="Settings" component={SettingsFooter} />
-    {/* <Drawer.Screen name="DebugAndroid" component={DebugAndroidFooter} />
-    <Drawer.Screen name="Species" component={SpeciesDetailFooter} />
-    <Drawer.Screen name="RangeMap" component={RangeMap} /> */}
   </Drawer.Navigator>
 );
 

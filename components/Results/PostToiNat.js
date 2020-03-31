@@ -30,7 +30,7 @@ const PostToiNat = ( { color, taxaInfo }: Props ) => {
   };
 
   useEffect( () => {
-    navigation.addListener( "willFocus", () => {
+    navigation.addListener( "focus", () => {
       fetchPostingStatus();
     } );
   }, [navigation] );

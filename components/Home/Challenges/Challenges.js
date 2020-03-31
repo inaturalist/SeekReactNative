@@ -33,7 +33,7 @@ const Challenges = ( { navigation, challenge }: Props ) => (
     <ChallengeTitle challenge={challenge} />
     <View style={styles.marginSmall} />
     <ChallengeBadgeRow challenge={challenge} />
-    <View style={styles.marginSmall} />
+    <View style={styles.marginMedium} />
     <GreenButton
       color={colors.seekGreen}
       handlePress={() => {

@@ -5,7 +5,6 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import { isAfter } from "date-fns";
 import { formatMonth, formatMonthYear } from "../../utility/dateHelpers";
 
@@ -27,40 +26,32 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
 
   return (
     <WhiteModal closeModal={closeModal}>
-      {is2020Challenge ? (
+      <ImageBackground
+        source={backgrounds[challenge.backgroundName]}
+        imageStyle={styles.header}
+        style={styles.headerImage}
+      >
+        <Image
+          source={badges[challenge.earnedIconName]}
+          style={[styles.badge, is2020Challenge && styles.seekBadge]}
+        />
         <ImageBackground
-          source={backgrounds[challenge.homeBackgroundName]}
-          imageStyle={styles.header}
-          style={styles.headerImage}
+          source={icons.badgeBanner}
+          style={is2020Challenge ? styles.seekBanner : styles.banner}
         >
-          <Image
-            source={badges[challenge.earnedIconName]}
-            style={[styles.badge, styles.seekBadge]}
-          />
-          <ImageBackground source={icons.badgeBanner} style={styles.seekBanner}>
+          {is2020Challenge ? (
             <Text style={[styles.bannerText, styles.seekBannerText]}>
               {i18n.t( "seek_challenges.badge" ).toLocaleUpperCase()}
             </Text>
-          </ImageBackground>
-        </ImageBackground>
-      ) : (
-        <LinearGradient
-          colors={["#67c5ca", "#3ca2ab"]}
-          style={styles.header}
-        >
-          <Image
-            source={badges[challenge.earnedIconName]}
-            style={styles.badge}
-          />
-          <ImageBackground source={icons.badgeBanner} style={styles.banner}>
+          ) : (
             <Text style={styles.bannerText}>
               {i18n.t( challenge.name ).split( " " )[0].toLocaleUpperCase()}
               {" "}
               {i18n.t( "challenges.badge" ).toLocaleUpperCase() }
             </Text>
-          </ImageBackground>
-        </LinearGradient>
-      )}
+          )}
+        </ImageBackground>
+      </ImageBackground>
       <View style={styles.marginTop} />
       <Text style={styles.headerText}>
         {is2020Challenge

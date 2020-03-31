@@ -18,8 +18,11 @@ export default StyleSheet.create( {
   loading: {
     height: 332
   },
+  marginMedium: {
+    marginTop: 28
+  },
   marginSmall: {
-    marginTop: 24
+    marginTop: 22
   },
   marginTop: {
     marginTop: 31
@@ -30,7 +33,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     paddingBottom: 31,
-    paddingTop: 12,
+    paddingTop: 15,
     textDecorationLine: "underline"
   }
 } );

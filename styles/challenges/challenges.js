@@ -15,8 +15,11 @@ export default StyleSheet.create( {
     marginHorizontal: 20
   },
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
+  },
+  containerWhite: {
+    backgroundColor: colors.white
   },
   greenText: {
     color: colors.seekForestGreen,

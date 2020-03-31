@@ -10,7 +10,6 @@ import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 
-
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";

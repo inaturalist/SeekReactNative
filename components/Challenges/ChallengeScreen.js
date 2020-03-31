@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challenges";
@@ -16,12 +17,14 @@ import ChallengeProgressCard from "./ChallengeProgressCard";
 import Padding from "../UIComponents/Padding";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
-import SafeAreaView from "../UIComponents/SafeAreaView";
+// import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/Challenges/NoChallenges";
 import { useScrollToTop } from "../../utility/customHooks";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 
 const ChallengeScreen = () => {
+  const insets = useSafeArea();
   const navigation = useNavigation();
   const scrollView = useRef( null );
   const [notStarted, setNotStarted] = useState( [] );
@@ -121,13 +124,12 @@ const ChallengeScreen = () => {
   );
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <GreenHeader
         header="challenges.header"
         route="Home"
       />
-      <ScrollView ref={scrollView}>
+      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
         {noChallenges && (
           <View style={styles.margins}>
             <NoChallenges />
@@ -137,6 +139,7 @@ const ChallengeScreen = () => {
         {!noChallenges && renderNotStarted()}
         {renderCompleted()}
         <Padding />
+        <BottomSpacer />
       </ScrollView>
     </View>
   );

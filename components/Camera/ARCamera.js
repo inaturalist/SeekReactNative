@@ -12,6 +12,7 @@ import {
 import CameraRoll from "@react-native-community/cameraroll";
 import { NavigationEvents } from "react-navigation";
 import { INatCamera } from "react-native-inat-camera";
+import { getSystemVersion } from "react-native-device-info";
 
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import WarningModal from "../Modals/WarningModal";
@@ -27,6 +28,7 @@ import { dirModel, dirTaxonomy } from "../../utility/dirStorage";
 import Modal from "../UIComponents/Modal";
 import { createTimestamp } from "../../utility/dateHelpers";
 import { setCameraHelpText } from "../../utility/textHelpers";
+import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
   +navigation: any
@@ -42,7 +44,8 @@ type State = {
   commonName: ?string,
   showModal: boolean,
   errorEvent: ?string,
-  focusedScreen: boolean
+  focusedScreen: boolean,
+  scientificNames: boolean
 }
 
 class ARCamera extends Component<Props, State> {
@@ -61,7 +64,8 @@ class ARCamera extends Component<Props, State> {
       commonName: null,
       showModal: false,
       errorEvent: null,
-      focusedScreen: false
+      focusedScreen: false,
+      scientificNames: false
     };
 
     ( this:any ).closeModal = this.closeModal.bind( this );
@@ -92,6 +96,11 @@ class ARCamera extends Component<Props, State> {
       errorEvent: event || null,
       loading: false
     } );
+  }
+
+  setScientificNames = async () => {
+    const scientificNames = await getScientificNames();
+    this.setState( { scientificNames } );
   }
 
   handleTaxaDetected = ( event: Object ) => {
@@ -130,24 +139,47 @@ class ARCamera extends Component<Props, State> {
   }
 
   handleCameraError = ( event: Object ) => {
-    if ( event ) {
+    const { error } = this.state;
+    const permissions = "Camera Input Failed: This app is not authorized to use Back Camera.";
+    // iOS camera permissions error is handled by handleCameraError, not permission missing
+    if ( error === "device" ) {
+      // do nothing if there is already a device error
+      return;
+    }
+
+    if ( event.nativeEvent.error === permissions ) {
+      this.setError( "permissions" );
+    } else {
       this.setError( "camera", event.nativeEvent.error );
     }
   }
 
   handleCameraPermissionMissing = () => {
+    // event.nativeEvent.error is not implemented on Android
+    // it shows up via handleCameraError on iOS
     this.setError( "permissions" );
   }
 
   handleClassifierError = ( event: Object ) => {
-    if ( event ) {
+    if ( event.nativeEvent && event.nativeEvent.error ) {
+      this.setError( "classifier", event.nativeEvent.error );
+    } else {
       this.setError( "classifier" );
     }
   }
 
   handleDeviceNotSupported = ( event: Object ) => {
-    if ( event ) {
-      this.setError( "device" );
+    let textOS;
+
+    if ( Platform.OS === "ios" ) {
+      const OS = getSystemVersion();
+      textOS = i18n.t( "camera.error_version", { OS } );
+    }
+
+    if ( event.nativeEvent && event.nativeEvent.error ) {
+      this.setError( "device", event.nativeEvent.error );
+    } else {
+      this.setError( "device", textOS );
     }
   }
 
@@ -193,15 +225,27 @@ class ARCamera extends Component<Props, State> {
   }
 
   updateUI( prediction: Object, rank: string ) {
-    getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+    const { scientificNames } = this.state;
+
+    if ( scientificNames ) {
       this.setState( {
         ranks: {
           [rank]: [prediction]
         },
-        commonName,
+        commonName: prediction.name,
         rankToRender: rank
       } );
-    } );
+    } else {
+      getTaxonCommonName( prediction.taxon_id ).then( ( commonName ) => {
+        this.setState( {
+          ranks: {
+            [rank]: [prediction]
+          },
+          commonName,
+          rankToRender: rank
+        } );
+      } );
+    }
   }
 
   resetPredictions() {
@@ -228,7 +272,16 @@ class ARCamera extends Component<Props, State> {
 
     CameraRoll.saveToCameraRoll( photo.uri, "photo" )
       .then( uri => this.navigateToResults( uri ) )
-      .catch( e => this.setError( "save", e ) );
+      .catch( e => {
+        const gallery = "Error: Access to photo library was denied";
+
+        if ( e.toString() === gallery ) {
+          // check for camera roll permissions error
+          this.setError( "gallery" );
+        } else {
+          this.setError( "save", e );
+        }
+      } );
   }
 
   navigateToResults( uri: string ) {
@@ -301,6 +354,7 @@ class ARCamera extends Component<Props, State> {
             this.requestAndroidPermissions();
             this.handleResumePreview();
             this.setFocusedScreen( true );
+            this.setScientificNames();
           }}
         />
         <Modal

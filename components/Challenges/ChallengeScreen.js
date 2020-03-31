@@ -12,7 +12,6 @@ import { NavigationEvents } from "react-navigation";
 import realmConfig from "../../models/index";
 import styles from "../../styles/challenges/challenges";
 import i18n from "../../i18n";
-import badges from "../../assets/badges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import Padding from "../UIComponents/Padding";
 import GreenHeader from "../UIComponents/GreenHeader";
@@ -43,46 +42,10 @@ class ChallengeScreen extends Component<Props, State> {
   fetchChallenges() {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const challengesNotStarted = [];
-        const challengesStarted = [];
-        const challengesCompleted = [];
-        const notStarted = realm.objects( "ChallengeRealm" ).filtered( "started == false" );
-        const started = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete != 100" );
-        const completed = realm.objects( "ChallengeRealm" ).filtered( "started == true AND percentComplete == 100" );
-
-        notStarted.forEach( ( challenge ) => {
-          challengesNotStarted.push( {
-            name: i18n.t( challenge.name ),
-            month: i18n.t( challenge.month ),
-            iconName: badges.badge_empty,
-            started: challenge.started,
-            index: challenge.index
-          } );
-        } );
-
-        started.forEach( ( challenge ) => {
-          challengesStarted.push( {
-            name: i18n.t( challenge.name ),
-            month: i18n.t( challenge.month ),
-            iconName: badges.badge_empty,
-            started: challenge.started,
-            totalSpecies: challenge.totalSpecies,
-            percentComplete: challenge.percentComplete,
-            index: challenge.index
-          } );
-        } );
-
-        completed.forEach( ( challenge ) => {
-          challengesCompleted.push( {
-            name: i18n.t( challenge.name ),
-            month: i18n.t( challenge.month ),
-            iconName: badges[challenge.earnedIconName],
-            started: challenge.started,
-            totalSpecies: challenge.totalSpecies,
-            percentComplete: challenge.percentComplete,
-            index: challenge.index
-          } );
-        } );
+        const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
+        const challengesNotStarted = challenges.filtered( "startedDate == null" );
+        const challengesStarted = challenges.filtered( "startedDate != null AND percentComplete != 100" );
+        const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
         this.setState( {
           challengesNotStarted,
@@ -104,10 +67,10 @@ class ChallengeScreen extends Component<Props, State> {
         </View>
         {challengesStarted.length > 0 ? (
           <View>
-            {challengesStarted.map( ( item ) => (
+            {challengesStarted.map( ( challenge ) => (
               <ChallengeProgressCard
-                key={`${item.name}`}
-                item={item}
+                key={`${challenge.name}`}
+                challenge={challenge}
               />
             ) )}
             <View style={styles.margin} />
@@ -131,11 +94,11 @@ class ChallengeScreen extends Component<Props, State> {
         </View>
         {challengesNotStarted.length > 0 ? (
           <View>
-            {challengesNotStarted.map( ( item ) => (
+            {challengesNotStarted.map( ( challenge ) => (
               <ChallengeProgressCard
-                key={`${item.name}`}
+                key={`${challenge.name}`}
                 fetchChallenges={this.fetchChallenges}
-                item={item}
+                challenge={challenge}
               />
             ) )}
             <View style={styles.margin} />
@@ -159,10 +122,10 @@ class ChallengeScreen extends Component<Props, State> {
           <GreenText text="challenges.completed" />
         </View>
         {challengesCompleted.length > 0 ? (
-          challengesCompleted.map( ( item ) => (
+          challengesCompleted.map( ( challenge ) => (
             <ChallengeProgressCard
-              key={`${item.name}`}
-              item={item}
+              key={`${challenge.name}`}
+              challenge={challenge}
             />
           ) )
         ) : (

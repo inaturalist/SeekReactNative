@@ -74,6 +74,12 @@ const missions = {
       number: 20,
       types: ["plants"]
     }
+  },
+  8: {
+    0: {
+      number: 10,
+      types: ["all"]
+    }
   }
 };
 

@@ -25,7 +25,8 @@
     "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
     "take_challenge": "Take the challenge",
     "continue_challenge": "Continue challenge",
-    "view_all": "View all challenges"
+    "view_all": "View all challenges",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "Notifications",
@@ -145,14 +146,6 @@
     "ice": "Climate Challenge",
     "op": "Our Planet",
     "start_now": "Start now",
-    "april_2019": "April 2019",
-    "may_2019": "May 2019",
-    "june_2019": "June 2019",
-    "november_2019": "November 2019",
-    "august_2019": "August 2019",
-    "september_2019": "September 2019",
-    "october_2019": "October 2019",
-    "december_2019": "December 2019",
     "mission_1_april": "Find 10 new species!",
     "april_description": "We are not alone on our planet! Wildlife is always around us whether we notice it or not. In our homes, gardens, towns and cities there are hidden worlds to be discovered. Seek in and around your home, and you may be surprised by how many wild neighbours you find.\n\nSeek out plants, fungi, bugs, birds and animals. Watch out for signs of more elusive life – poo, fur, nests, tracks and webs can all give clues to other creatures that share your home.",
     "start_challenge": "Start the challenge",
@@ -173,7 +166,7 @@
     "no_new_challenges": "We’ll let you know when new challenges are available.",
     "completed_all": "You’ve completed all available challenges!",
     "number_observed": "{{number}} observed so far",
-    "how_to": "Complete the Our Planet Challenge for {{month}}!",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "This challenge will be released {{date}}.",
     "get_involved": "Get involved",
     "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
@@ -277,15 +270,16 @@
     "family": "family",
     "genus": "genus",
     "species": "species",
-    "error_camera": "We need access to the camera to help you identify species!",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "We need access to your camera roll to save photos you take!",
     "permissions": "Enable permissions in settings",
     "error_classifier": "Sorry, we're unable to load the classifier",
-    "error_old_camera": "Sorry, we weren't able to load the camera",
-    "error_device_support": "Sorry, the device you are using is not supported",
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
     "error_save": "Sorry, there was a problem saving your photo to the camera roll",
     "error_take": "Sorry, we weren't able to capture your photo",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "Photos",
@@ -463,7 +457,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
     "version": "Version",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -550,5 +544,18 @@
   },
   "debug": {
     "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "scientific_names": "Display scientific names in AR Camera"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

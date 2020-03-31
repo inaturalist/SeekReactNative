@@ -91,7 +91,6 @@ const setupBadges = () => {
               iconicTaxonId: badges.iconicTaxonId,
               count: badges.count,
               earnedIconName: badges.earnedIconName,
-              unearnedIconName: badges.unearnedIconName,
               infoText: badges.infoText,
               index: badges.index,
               earned: badges.earned

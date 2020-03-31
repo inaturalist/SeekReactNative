@@ -1,39 +1,10 @@
-import {
-  StyleSheet,
-  Dimensions,
-  PixelRatio,
-  Platform
-} from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
-
-const { width, height } = Dimensions.get( "window" );
-const fontScale = PixelRatio.getFontScale();
+import { StyleSheet, Platform } from "react-native";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
-  centeredContent: {
-    alignItems: "center",
-    paddingBottom: 34,
-    paddingTop: 14
-  },
   challengeContainer: {
     backgroundColor: colors.darkGray,
-    height: 332
-  },
-  challengeHeader: {
-    color: colors.white,
-    fontFamily: fonts.light,
-    fontSize: ( fontScale > 1 ) ? 16 : 18,
-    letterSpacing: 0.78,
-    marginTop: 32
-  },
-  challengeName: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 20 : 23,
-    letterSpacing: 1.0
+    height: 340
   },
   container: {
     marginTop: 5
@@ -43,47 +14,25 @@ export default StyleSheet.create( {
     paddingLeft: 22,
     paddingTop: 21
   },
-  image: {
-    marginRight: 27
-  },
-  lightText: {
-    color: colors.errorGray,
-    fontFamily: fonts.light,
-    fontSize: 16,
-    lineHeight: 18,
-    marginTop: 10,
-    textAlign: "center",
-    width: 204
-  },
   loading: {
     height: 332
   },
-  margin: {
-    marginBottom: 14
+  marginMedium: {
+    marginTop: 28
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "flex-start",
-    marginBottom: ( fontScale > 1 ) ? 10 : 28,
-    marginHorizontal: 32,
-    marginTop: ( fontScale > 1 ) ? 10 : 21
+  marginSmall: {
+    marginTop: 22
   },
-  text: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: ( fontScale > 1 || height < 570 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 || height < 570 ) ? null : 24,
-    maxWidth: width - ( 116 + 27 + 64 )
-  },
-  textContainer: {
-    marginHorizontal: 32
+  marginTop: {
+    marginTop: 31
   },
   viewText: {
+    alignSelf: "center",
     color: colors.white,
     fontFamily: fonts.book,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
+    fontSize: 16,
+    paddingBottom: 31,
+    paddingTop: 15,
     textDecorationLine: "underline"
   }
 } );

@@ -64,7 +64,8 @@ type State = {
   description: ?string,
   status: ?string,
   imageForUploading: ?string,
-  errorText: ?string
+  errorText: ?string,
+  accuracy: ?number
 };
 
 class PostScreen extends Component<Props, State> {
@@ -113,7 +114,8 @@ class PostScreen extends Component<Props, State> {
       description: null,
       status: null,
       imageForUploading: null,
-      errorText: null
+      errorText: null,
+      accuracy: null
     };
 
     ( this:any ).updateGeoprivacy = this.updateGeoprivacy.bind( this );
@@ -131,9 +133,11 @@ class PostScreen extends Component<Props, State> {
     fetchUserLocation().then( ( coords ) => {
       const lat = coords.latitude;
       const long = coords.longitude;
+      const { accuracy } = coords;
       this.reverseGeocodeLocation( lat, long );
       this.setLatitude( lat );
       this.setLongitude( long );
+      this.setAccuracy( accuracy );
     } ).catch( ( err ) => {
       console.log( err );
     } );
@@ -162,6 +166,11 @@ class PostScreen extends Component<Props, State> {
 
   setLoading( loading: boolean ) {
     this.setState( { loading } );
+  }
+
+  setAccuracy( accuracy: number ) {
+    console.log( accuracy, "set accuracy" );
+    this.setState( { accuracy } );
   }
 
   setLatitude( latitude: number ) {
@@ -277,12 +286,13 @@ class PostScreen extends Component<Props, State> {
     }
   }
 
-  updateLocation( latitude: number, longitude: number ) {
+  updateLocation( latitude: number, longitude: number, accuracy: number ) {
     this.reverseGeocodeLocation( latitude, longitude );
 
     this.setState( {
       latitude,
-      longitude
+      longitude,
+      accuracy
     }, () => this.toggleLocationPicker() );
   }
 
@@ -338,7 +348,8 @@ class PostScreen extends Component<Props, State> {
       taxon,
       latitude,
       longitude,
-      description
+      description,
+      accuracy
     } = this.state;
 
     let captiveState;
@@ -358,6 +369,8 @@ class PostScreen extends Component<Props, State> {
       geoprivacyState = "open";
     }
 
+    console.log( accuracy, "accuracy from user location" );
+
     const params = {
       observation: {
         observed_on_string: date,
@@ -367,6 +380,7 @@ class PostScreen extends Component<Props, State> {
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version
+        positional_accuracy: accuracy,
         owners_identification_from_vision_requested: true,
         // this shows that the id is recommended by computer vision
         description

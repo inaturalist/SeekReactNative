@@ -93,6 +93,8 @@
 		37A3172A230F5FB1008A8233 /* RealmReact.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		37A31731230F5FB9008A8233 /* libRealmJS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRealmJS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		37DA6884242AB4CB00F3C235 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = ../af.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		37E6180A23CD006C00B7600B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ../ca.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37E6180B23CD007500B7600B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = ../nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -371,6 +373,8 @@
 				it,
 				ca,
 				nb,
+				sv,
+				af,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -544,6 +548,8 @@
 				37EE91AB2384C357001B7415 /* it */,
 				37E6180A23CD006C00B7600B /* ca */,
 				37E6180B23CD007500B7600B /* nb */,
+				37DA6882242AB4C000F3C235 /* sv */,
+				37DA6884242AB4CB00F3C235 /* af */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

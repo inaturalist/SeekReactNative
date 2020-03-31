@@ -30,6 +30,27 @@ const ChallengeBadges = () => {
         const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
         const badges = challenges.map( ( challenge ) => challenge );
 
+        const may2020challenge = {
+          name: "",
+          availableDate: new Date( 2020, 4, 1 ),
+          index: 9
+        };
+
+        const april2020challenge = {
+          name: "seek_challenges.citizen_science",
+          availableDate: new Date( 2020, 3, 1 ),
+          index: 8
+        };
+
+        if ( badges.length === 8 ) {
+          badges.push( april2020challenge );
+          badges.push( may2020challenge );
+        }
+
+        if ( badges.length === 9 ) {
+          badges.push( may2020challenge );
+        }
+
         setChallengeBadges( badges );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
@@ -51,7 +72,7 @@ const ChallengeBadges = () => {
         if ( item.percentComplete === 100 ) {
           badgeIcon = badgeImages[item.earnedIconName];
         } else {
-          badgeIcon = badgeImages[item.unearnedIconName];
+          badgeIcon = badgeImages.badge_empty;
         }
         return (
           <TouchableOpacity
@@ -94,6 +115,7 @@ const ChallengeBadges = () => {
       {renderChallengesRow( 0, 3 )}
       {renderChallengesRow( 3, 5 )}
       {renderChallengesRow( 5, 8 )}
+      {renderChallengesRow( 8, 10 )}
       <View style={styles.marginLarge} />
     </View>
   );

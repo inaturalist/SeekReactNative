@@ -51,7 +51,7 @@ class BadgeModal extends Component<Props> {
           ) : (
             <ImageBackground
               imageStyle={styles.imageStyle}
-              source={badgeImages[badge.unearnedIconName]}
+              source={badgeImages.badge_empty}
               style={styles.image}
             >
               <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
@@ -97,7 +97,7 @@ class BadgeModal extends Component<Props> {
               <Image
                 source={badges[item].earned
                   ? badgeImages[badges[item].earnedIconName]
-                  : badgeImages[badges[item].unearnedIconName]}
+                  : badgeImages.badge_empty}
                 style={styles.smallImage}
               />
             </TouchableOpacity>

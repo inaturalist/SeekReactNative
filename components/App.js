@@ -3,7 +3,7 @@ import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
 
 import i18n from "../i18n";
-import RootStack from "./Navigation";
+import RootStack from "./Navigation/RootStack";
 import { setupBadges } from "../utility/badgeHelpers";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";

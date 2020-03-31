@@ -7,7 +7,7 @@ export default StyleSheet.create( {
     alignSelf: "center",
     backgroundColor: colors.white,
     borderRadius: 40,
-    maxHeight: 536,
+    maxHeight: 558,
     maxWidth: 366,
     width: dimensions.width > 350
       ? dimensions.width - dimensions.width * 0.1

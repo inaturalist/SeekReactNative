@@ -10,6 +10,7 @@ import {
   subDays
 } from "date-fns";
 import {
+  af,
   ca,
   da,
   de,
@@ -20,6 +21,7 @@ import {
   nb,
   nl,
   ru,
+  sv,
   tr,
   zh
 } from "date-fns/locale";
@@ -28,6 +30,7 @@ import realmConfig from "../models/index";
 import i18n from "../i18n";
 
 const locales = {
+  af,
   ca,
   da,
   de,
@@ -38,6 +41,7 @@ const locales = {
   nb,
   nl,
   ru,
+  sv,
   tr,
   zh
 };
@@ -126,6 +130,10 @@ const createShortMonthsList = () => {
   return months;
 };
 
+const formatMonthYear = ( date ) => format( date, "MMMM yyyy", { locale: setLocale() } );
+
+const formatMonth = ( date ) => format( date, "MMMM", { locale: setLocale() } );
+
 export {
   checkIfChallengeAvailable,
   requiresParent,
@@ -138,5 +146,7 @@ export {
   formatShortMonthDayYear,
   createShortMonthsList,
   isWithin7Days,
-  formatHourMonthSecond
+  formatHourMonthSecond,
+  formatMonthYear,
+  formatMonth
 };

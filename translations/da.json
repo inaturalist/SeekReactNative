@@ -402,7 +402,7 @@
     "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "I nærheden",
     "about": "Om",
     "range_map": "Udbredelseskort",
     "range_about": "Et kort over observationer af denne art på iNaturalist.",
@@ -462,7 +462,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
     "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "Vi er taknemmelige for hjælpen med oversættelse fra crowdin.com-fællesskabet, specielt: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, og Wouter Koch, Yulia Lygina.",
     "join_crowdin": "Bliv en del af Seek-oversættelsesholdet ved at besøge https://crowdin.com/project/seek"
   },
   "posting": {

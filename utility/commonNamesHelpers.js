@@ -15,10 +15,10 @@ const setupCommonNames = () => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        // check to see if names are already in Realm. There are about 75k names.
+        // check to see if names are already in Realm. There are about 96k names.
         const numberInserted = realm.objects( "CommonNamesRealm" ).length;
 
-        if ( numberInserted < 75000 ) {
+        if ( numberInserted < 96000 ) {
           // delete all existing common names from Realm
           realm.delete( realm.objects( "CommonNamesRealm" ) );
           // load names from each file. React-native requires need to be strings
@@ -39,6 +39,10 @@ const setupCommonNames = () => {
             require( "./commonNames/commonNamesDict-6" ).default );
           addCommonNamesFromFile( realm,
             require( "./commonNames/commonNamesDict-7" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-8" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-9" ).default );
         }
       } );
     } ).catch( ( err ) => {

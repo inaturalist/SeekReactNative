@@ -42,8 +42,9 @@ const InputField = ( {
       placeholder={placeholder}
       placeholderTextColor="#828282"
       secureTextEntry={type === "password"}
+      selectTextOnFocus={Platform.OS === "android"}
       style={styles.inputField}
-      textContentType={type}
+      textContentType={type} // iOS only
       value={text}
     />
   );

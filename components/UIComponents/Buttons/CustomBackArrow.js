@@ -23,6 +23,7 @@ const CustomBackArrow = ( { navigation, route, green }: Props ) => (
     accessible
     onPress={() => navigation.navigate( route )}
     style={styles.backButton}
+    disabled={!route}
   >
     <Image source={green ? icons.backButtonGreen : icons.backButton} />
   </TouchableOpacity>

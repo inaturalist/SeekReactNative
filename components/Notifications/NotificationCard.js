@@ -36,7 +36,7 @@ const NotificationCard = ( { navigation, item }: Props ) => {
   }
 
   return (
-    <View>
+    <>
       <TouchableOpacity
         onPress={() => {
           if ( item.nextScreen === "ChallengeDetails" ) {
@@ -58,7 +58,7 @@ const NotificationCard = ( { navigation, item }: Props ) => {
         {item.seen === false ? <View style={styles.greenDot} /> : null}
       </TouchableOpacity>
       <View style={styles.divider} />
-    </View>
+    </>
   );
 };
 

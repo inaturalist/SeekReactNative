@@ -8,12 +8,13 @@ import React, {
 } from "react";
 import {
   ScrollView,
-  SafeAreaView,
+  View,
   StatusBar,
   Platform
 } from "react-native";
 import Realm from "realm";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challengeDetails";
@@ -22,8 +23,10 @@ import { getChallengeIndex, recalculateChallenges } from "../../utility/challeng
 import Spacer from "../UIComponents/iOSSpacer";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 import { useScrollToTop } from "../../utility/customHooks";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 
 const ChallengeDetailsScreen = () => {
+  const insets = useSafeArea();
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const scrollView = useRef( null );
@@ -59,22 +62,20 @@ const ChallengeDetailsScreen = () => {
   }, [setupScreen, isFocused] );
 
   return (
-    <>
-      <SafeAreaView style={styles.safeView} />
-      <SafeAreaView style={styles.background}>
-        <ScrollView ref={scrollView}>
-          <StatusBar barStyle="light-content" />
-          {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
-          <ChallengeDetailsHeader
-            challenge={challenge}
-            showMission={fetchChallenge}
-          />
-          <ChallengeDetailsContainer
-            challenge={challenge}
-          />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <View style={[styles.safeView, { paddingTop: insets.top }]}>
+      <ScrollView ref={scrollView}>
+        <StatusBar barStyle="light-content" />
+        {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
+        <ChallengeDetailsHeader
+          challenge={challenge}
+          showMission={fetchChallenge}
+        />
+        <ChallengeDetailsContainer
+          challenge={challenge}
+        />
+        <BottomSpacer />
+      </ScrollView>
+    </View>
   );
 };
 

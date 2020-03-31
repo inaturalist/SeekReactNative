@@ -249,6 +249,7 @@ class Observations extends Component<Props, State> {
         />
         <GreenHeader
           header="observations.header"
+          route="Home"
         />
         <Modal isVisible={showModal}>
           <DeleteModal

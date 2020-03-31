@@ -143,7 +143,7 @@ class ObservationCard extends PureComponent<Props, State> {
           commonName={commonName}
           handlePress={() => {
             setSpeciesId( taxon.id );
-            setRoute( "MyObservations" );
+            setRoute( "Observations" );
             navigation.navigate( "Species" );
           }}
           iconicTaxonId={taxon.iconicTaxonId}

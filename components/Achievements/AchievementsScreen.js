@@ -105,7 +105,7 @@ const AchievementsScreen = () => {
         <ChallengeBadges />
         <View style={[styles.row, styles.center]}>
           <TouchableOpacity
-            onPress={() => navigation.navigate( "MyObservations" )}
+            onPress={() => navigation.navigate( "Observations" )}
             style={styles.secondHeaderText}
           >
             <GreenText center smaller text="badges.observed" />

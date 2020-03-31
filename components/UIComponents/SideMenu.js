@@ -72,7 +72,7 @@ const SideMenu = ( { navigation }: Props ) => (
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.observations" )}
         accessible
-        onPress={() => navigation.navigate( "MyObservations" )}
+        onPress={() => navigation.navigate( "Observations" )}
         style={[styles.row, styles.height]}
       >
         <Image source={icons.menuObservations} style={styles.image} />

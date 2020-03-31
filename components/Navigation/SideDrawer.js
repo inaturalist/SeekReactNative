@@ -35,7 +35,7 @@ const ChallengeDetailsFooter = () => (
 
 const ObservationsFooter = () => (
   <Tab.Navigator tabBar={props => <Footer {...props} />}>
-    <Tab.Screen name="MyObservations" component={Observations} />
+    <Tab.Screen name="Observations" component={Observations} />
   </Tab.Navigator>
 );
 
@@ -68,7 +68,7 @@ const SideMenuDrawer = () => (
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />
     <Drawer.Screen name="Challenges" component={ChallengesFooter} />
     <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} />
-    <Drawer.Screen name="MyObservations" component={ObservationsFooter} />
+    <Drawer.Screen name="Observations" component={ObservationsFooter} />
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />
     <Drawer.Screen name="Settings" component={SettingsFooter} />

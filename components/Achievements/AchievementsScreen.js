@@ -1,36 +1,29 @@
 // @flow
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView,
   Platform
 } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/achievements";
-import Padding from "../UIComponents/Padding";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
-import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
-import { useScrollToTop } from "../../utility/customHooks";
-import BottomSpacer from "../UIComponents/BottomSpacer";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const AchievementsScreen = () => {
-  const insets = useSafeArea();
   const navigation = useNavigation();
-  const scrollView = useRef( null );
   const [speciesCount, setSpeciesCount] = useState( null );
   const [state, setState] = useState( {
     speciesBadges: [],
@@ -38,8 +31,6 @@ const AchievementsScreen = () => {
     nextLevelCount: null,
     badgesEarned: null
   } );
-
-  useScrollToTop( scrollView, navigation );
 
   const fetchBadges = () => {
     Realm.open( realmConfig )
@@ -91,39 +82,34 @@ const AchievementsScreen = () => {
   }, [] );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <GreenHeader header="badges.achievements" />
-      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
-        {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
-        {state.level && (
-          <LevelHeader
-            level={state.level}
-            nextLevelCount={state.nextLevelCount}
-            speciesCount={speciesCount}
-          />
-        )}
-        <SpeciesBadges speciesBadges={state.speciesBadges} />
-        <ChallengeBadges />
-        <View style={[styles.row, styles.center]}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate( "Observations" )}
-            style={styles.secondHeaderText}
-          >
-            <GreenText center smaller text="badges.observed" />
-            <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
-          </TouchableOpacity>
-          <View style={styles.secondHeaderText}>
-            <GreenText center smaller text="badges.earned" />
-            <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>
-          </View>
+    <ScrollWithHeader header="badges.achievements">
+      {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
+      {state.level && (
+        <LevelHeader
+          level={state.level}
+          nextLevelCount={state.nextLevelCount}
+          speciesCount={speciesCount}
+        />
+      )}
+      <SpeciesBadges speciesBadges={state.speciesBadges} />
+      <ChallengeBadges />
+      <View style={[styles.row, styles.center]}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "Observations" )}
+          style={styles.secondHeaderText}
+        >
+          <GreenText center smaller text="badges.observed" />
+          <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
+        </TouchableOpacity>
+        <View style={styles.secondHeaderText}>
+          <GreenText center smaller text="badges.earned" />
+          <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>
         </View>
-        <View style={styles.center}>
-          <LoginCard screen="achievements" />
-        </View>
-        <Padding />
-        <BottomSpacer />
-      </ScrollView>
-    </View>
+      </View>
+      <View style={styles.center}>
+        <LoginCard screen="achievements" />
+      </View>
+    </ScrollWithHeader>
   );
 };
 

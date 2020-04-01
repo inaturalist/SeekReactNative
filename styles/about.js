@@ -2,10 +2,6 @@ import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "./global";
 
 export default StyleSheet.create( {
-  background: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   block: {
     marginBottom: 34
   },

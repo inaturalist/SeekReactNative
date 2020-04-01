@@ -1,38 +1,26 @@
 // @flow
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
-  ScrollView
+  Text
 } from "react-native";
 import Realm from "realm";
-import { useNavigation } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challenges";
 import i18n from "../../i18n";
 import ChallengeProgressCard from "./ChallengeProgressCard";
-import Padding from "../UIComponents/Padding";
-import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
-// import SafeAreaView from "../UIComponents/SafeAreaView";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/Challenges/NoChallenges";
-import { useScrollToTop } from "../../utility/customHooks";
-import BottomSpacer from "../UIComponents/BottomSpacer";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const ChallengeScreen = () => {
-  const insets = useSafeArea();
-  const navigation = useNavigation();
-  const scrollView = useRef( null );
   const [notStarted, setNotStarted] = useState( [] );
   const [started, setStarted] = useState( [] );
   const [completed, setCompleted] = useState( [] );
   const noChallenges = notStarted.length === 0 && started.length === 0;
-
-  useScrollToTop( scrollView, navigation );
 
   const fetchChallenges = () => {
     Realm.open( realmConfig )
@@ -124,24 +112,19 @@ const ChallengeScreen = () => {
   );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <GreenHeader
-        header="challenges.header"
-        route="Home"
-      />
-      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
-        {noChallenges && (
-          <View style={styles.margins}>
-            <NoChallenges />
-          </View>
-        )}
-        {!noChallenges && renderStarted()}
-        {!noChallenges && renderNotStarted()}
-        {renderCompleted()}
-        <Padding />
-        <BottomSpacer />
-      </ScrollView>
-    </View>
+    <ScrollWithHeader
+      header="challenges.header"
+      route="Home"
+    >
+      {noChallenges && (
+        <View style={styles.margins}>
+          <NoChallenges />
+        </View>
+      )}
+      {!noChallenges && renderStarted()}
+      {!noChallenges && renderNotStarted()}
+      {renderCompleted()}
+    </ScrollWithHeader>
   );
 };
 

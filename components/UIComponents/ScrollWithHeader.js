@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useRef } from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 
@@ -13,10 +13,11 @@ import Padding from "./Padding";
 
 type Props = {
   +children: any,
-  +header: string
+  +header: string,
+  +route?: string
 };
 
-const ScrollWithHeader = ( { children, header }: Props ) => {
+const ScrollWithHeader = ( { children, header, route }: Props ) => {
   const insets = useSafeArea();
   const navigation = useNavigation();
   const scrollView = useRef( null );
@@ -25,14 +26,18 @@ const ScrollWithHeader = ( { children, header }: Props ) => {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <GreenHeader header={header} />
+      <GreenHeader header={header} route={route} />
       <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
         {children}
         <Padding />
-        <BottomSpacer />
+        {Platform.OS === "ios" && <BottomSpacer />}
       </ScrollView>
     </View>
   );
+};
+
+ScrollWithHeader.defaultProps = {
+  route: null
 };
 
 export default ScrollWithHeader;

@@ -13,6 +13,7 @@ export default StyleSheet.create( {
     paddingTop: 23
   },
   container: {
+    backgroundColor: colors.seekForestGreen,
     flex: 1
   },
   footer: {

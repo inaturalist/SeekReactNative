@@ -16,8 +16,11 @@ export default StyleSheet.create( {
   },
   center,
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
+  },
+  containerWhite: {
+    backgroundColor: colors.white
   },
   gridCell: {
     height: width < 455 ? ( width / 4 ) : ( 455 / 4 ),

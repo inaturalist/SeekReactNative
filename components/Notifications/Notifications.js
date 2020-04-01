@@ -81,7 +81,7 @@ const NotificationsScreen = () => {
           )}
           renderItem={( { item } ) => <NotificationCard item={item} />}
         />
-      ) : <EmptyState />}  
+      ) : <EmptyState />}
       <Footer />
     </View>
   );

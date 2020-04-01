@@ -10,6 +10,7 @@ import {
   Platform
 } from "react-native";
 import Geocoder from "react-native-geocoder";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
@@ -17,7 +18,6 @@ import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } fr
 import icons from "../../../assets/icons";
 import styles from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import SafeAreaView from "../../UIComponents/SafeAreaView";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -37,6 +37,7 @@ const LocationPicker = ( {
   updateLatLng,
   closeLocationPicker
 }: Props ) => {
+  const insets = useSafeArea();
   const [region, setRegion] = useState( {
     latitudeDelta,
     longitudeDelta,
@@ -104,8 +105,7 @@ const LocationPicker = ( {
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.header}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}

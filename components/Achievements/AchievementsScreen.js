@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
@@ -21,12 +22,13 @@ import ChallengeBadges from "./ChallengeBadges";
 import GreenHeader from "../UIComponents/GreenHeader";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import Spacer from "../UIComponents/iOSSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
 import { useScrollToTop } from "../../utility/customHooks";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 
 const AchievementsScreen = () => {
+  const insets = useSafeArea();
   const navigation = useNavigation();
   const scrollView = useRef( null );
   const [speciesCount, setSpeciesCount] = useState( null );
@@ -89,10 +91,9 @@ const AchievementsScreen = () => {
   }, [] );
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <GreenHeader header="badges.achievements" />
-      <ScrollView ref={scrollView}>
+      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
         {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
         {state.level && (
           <LevelHeader
@@ -120,6 +121,7 @@ const AchievementsScreen = () => {
           <LoginCard screen="achievements" />
         </View>
         <Padding />
+        <BottomSpacer />
       </ScrollView>
     </View>
   );

@@ -1,9 +1,8 @@
 // @flow
 
-import React, { useRef } from "react";
+import React from "react";
 import {
   Image,
-  ScrollView,
   Text,
   View,
   Platform,
@@ -15,30 +14,19 @@ import { useNavigation } from "@react-navigation/native";
 import styles from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
-import GreenHeader from "./UIComponents/GreenHeader";
-import Padding from "./UIComponents/Padding";
-import SafeAreaView from "./UIComponents/SafeAreaView";
 import UserContext from "./UserContext";
-import { useScrollToTop } from "../utility/customHooks";
+import ScrollWithHeader from "./UIComponents/ScrollWithHeader";
 
 const AboutScreen = () => {
   const navigation = useNavigation();
-  const scrollView = useRef( null );
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
-
-  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   return (
     <UserContext.Consumer>
       {user => (
-        <View style={styles.background}>
-          <SafeAreaView />
-          <GreenHeader header="about.header" />
-          <ScrollView
-            ref={scrollView}
-            contentContainerStyle={styles.textContainer}
-          >
+        <ScrollWithHeader header="about.header">
+          <View style={styles.textContainer}>
             <Image source={logos.wwfop} />
             <View style={styles.margin} />
             <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
@@ -74,9 +62,8 @@ const AboutScreen = () => {
               {i18n.t( "about.help" )}
             </Text>
             <View style={styles.block} />
-            <Padding />
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollWithHeader>
       ) }
     </UserContext.Consumer>
   );

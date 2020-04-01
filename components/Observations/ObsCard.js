@@ -152,7 +152,7 @@ class ObservationCard extends PureComponent<Props, State> {
         />
         <TouchableOpacity
           onPress={() => openModal(
-            item.taxon.id,
+            taxon.id,
             photo,
             commonName,
             taxon.name,

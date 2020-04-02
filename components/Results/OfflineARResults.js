@@ -18,7 +18,8 @@ import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
-  +route: any
+  +route: any,
+  +navigation: any
 }
 
 type State = {

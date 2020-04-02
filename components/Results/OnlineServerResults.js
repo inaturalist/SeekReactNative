@@ -21,7 +21,8 @@ import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, createTimestamp } from "../../utility/dateHelpers";
 
 type Props = {
-  +route: any
+  +route: any,
+  +navigation: any
 }
 
 type State = {

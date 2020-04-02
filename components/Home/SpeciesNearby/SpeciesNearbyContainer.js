@@ -44,7 +44,7 @@ const SpeciesNearbyContainer = ( {
       } ).catch( () => checkForErrors() );
   }, [checkForErrors] );
 
-  const setParamsForSpeciesNearby = useCallback( () => {
+  const setParams = useCallback( () => {
     const params = {
       per_page: 20,
       lat: latitude,
@@ -64,9 +64,9 @@ const SpeciesNearbyContainer = ( {
 
   useEffect( () => {
     if ( loading ) {
-      setParamsForSpeciesNearby();
+      setParams();
     }
-  }, [loading, setParamsForSpeciesNearby] );
+  }, [loading, setParams] );
 
   useEffect( () => {
     if ( !error && latitude ) {

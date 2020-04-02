@@ -5,7 +5,6 @@ import {
   Image
 } from "react-native";
 import inatjs from "inaturalistjs";
-import { useNavigation } from "@react-navigation/native";
 
 import styles from "../styles/iNatStats";
 import i18n from "../i18n";
@@ -28,7 +27,6 @@ import HorizontalScroll from "./UIComponents/HorizontalScroll";
 import ScrollNoHeader from "./UIComponents/ScrollNoHeader";
 
 const INatStatsScreen = () => {
-  const navigation = useNavigation();
   const [observations, setObservations] = useState( null );
   const [observers, setObservers] = useState( null );
   const [photos, setPhotos] = useState( [] );
@@ -70,9 +68,9 @@ const INatStatsScreen = () => {
         }
       } );
 
-      const randomize = shuffleList( projectPhotos );
+      const randomEightPhotos = shuffleList( projectPhotos ).splice( 0, 8 );
 
-      setPhotos( randomize.splice( 0, 8 ) );
+      setPhotos( randomEightPhotos );
     } ).catch( ( error ) => {
       console.log( error, "couldn't fetch project photos" );
     } );
@@ -86,30 +84,26 @@ const INatStatsScreen = () => {
   };
 
   const renderPhotos = () => photos.map( ( photo ) => (
-    <View
-      key={`image${photo.photoUrl}`}
-      style={styles.center}
-    >
+    <View key={`image${photo.photoUrl}`} style={styles.center}>
       <Image
         source={{ uri: photo.photoUrl }}
         style={styles.image}
       />
       <Text style={[styles.missionText, styles.caption]}>
-        {photo.commonName}
-        {" "}
-        {i18n.t( "inat_stats.by" )}
-        {" "}
-        {photo.attribution}
+        {`${photo.commonName} ${i18n.t( "inat_stats.by" )} ${photo.attribution}`}
       </Text>
     </View>
   ) );
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
+    if ( !observations ) {
       fetchiNatStats();
+    }
+
+    if ( photos.length === 0 ) {
       fetchProjectPhotos();
-    } );
-  } );
+    }
+  }, [observations, photos] );
 
   const photoList = renderPhotos();
 
@@ -134,7 +128,7 @@ const INatStatsScreen = () => {
         <Text style={styles.missionHeaderText}>{i18n.t( "inat_stats.seek_data" )}</Text>
         <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
       </View>
-      {photoList.length === 0 ? (
+      {photoList.length !== 8 ? (
         <View style={[styles.center, styles.photoContainer]}>
           <LoadingWheel color="black" />
         </View>

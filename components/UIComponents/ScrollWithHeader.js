@@ -13,7 +13,6 @@ import { useSafeArea } from "react-native-safe-area-context";
 import styles from "../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "./BottomSpacer";
-// import Spacer from "./TopSpacer";
 import GreenHeader from "./GreenHeader";
 import Padding from "./Padding";
 
@@ -36,7 +35,6 @@ const ScrollWithHeader = ( {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* <Spacer backgroundColor={colors.white} />} */}
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>

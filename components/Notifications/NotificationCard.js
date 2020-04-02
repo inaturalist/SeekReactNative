@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/notifications";
@@ -17,11 +17,12 @@ import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 
 type Props = {
-  +navigation: any,
   +item: Object
 }
 
-const NotificationCard = ( { navigation, item }: Props ) => {
+const NotificationCard = ( { item }: Props ) => {
+  const navigation = useNavigation();
+
   let image;
 
   if ( item.title === "notifications.challenge_completed" ) {
@@ -62,4 +63,4 @@ const NotificationCard = ( { navigation, item }: Props ) => {
   );
 };
 
-export default withNavigation( NotificationCard );
+export default NotificationCard;

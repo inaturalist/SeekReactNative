@@ -107,7 +107,7 @@ const AchievementsScreen = () => {
         </View>
       </View>
       <View style={styles.center}>
-        <LoginCard screen="achievements" />
+        <LoginCard />
       </View>
     </ScrollWithHeader>
   );

@@ -12,7 +12,7 @@ import { useRoute, useNavigation } from "@react-navigation/native";
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
 import BackArrow from "./Buttons/BackArrow";
-import CustomBackArrow from "./Buttons/CustomBackArrow";
+// import CustomBackArrow from "./Buttons/CustomBackArrow";
 import posting from "../../assets/posting";
 
 type Props = {
@@ -26,9 +26,7 @@ const GreenHeader = ( { header, route }: Props ) => {
 
   return (
     <View style={styles.container}>
-      {route && name !== "Post"
-        ? <CustomBackArrow route={route} />
-        : <BackArrow />}
+      <BackArrow route={route} />
       {header && <Text style={styles.text}>{i18n.t( header ).toLocaleUpperCase()}</Text>}
       {name === "Post" && (
         <TouchableOpacity

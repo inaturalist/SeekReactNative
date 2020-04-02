@@ -6,7 +6,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
@@ -23,16 +23,15 @@ import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../UIComponents/Challenges/ChallengeBadgeRow";
 
 type Props = {
-  +navigation: any,
   challenge: Object,
   showMission: Function
 }
 
 const ChallengeDetailsHeader = ( {
   challenge,
-  navigation,
   showMission
 }: Props ) => {
+  const navigation = useNavigation();
   const [showModal, setModal] = useState( false );
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
@@ -93,4 +92,4 @@ const ChallengeDetailsHeader = ( {
   );
 };
 
-export default withNavigation( ChallengeDetailsHeader );
+export default ChallengeDetailsHeader;

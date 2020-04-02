@@ -6,7 +6,7 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -25,7 +25,6 @@ type Props = {
   +stats: Object,
   +seenDate: ?string,
   +about: ?string,
-  +navigation: any,
   +commonName: ?string,
   +wikiUrl: ?string,
   +id:number,
@@ -42,7 +41,6 @@ const NoInternetError = ( {
   seenDate,
   about,
   error,
-  navigation,
   commonName,
   wikiUrl,
   id,
@@ -52,13 +50,14 @@ const NoInternetError = ( {
   fetchiNatData,
   observationsByMonth
 }: Props ) => {
+  const navigation = useNavigation();
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
 
   return (
     <>
       <View style={styles.secondTextContainer}>
-        {showGreenButtons.includes( true ) ? <SpeciesStats stats={stats} /> : null}
-        {seenDate ? (
+        {showGreenButtons.includes( true ) && <SpeciesStats stats={stats} />}
+        {seenDate && (
           <View style={[
             styles.row,
             styles.rowMargin,
@@ -68,8 +67,8 @@ const NoInternetError = ( {
             <Image source={icons.checklist} style={styles.checkmark} />
             <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
           </View>
-        ) : null}
-        {about ? (
+        )}
+        {about && (
           <UserContext.Consumer>
             {user => (
               <>
@@ -77,23 +76,23 @@ const NoInternetError = ( {
                   <GreenText text="species_detail.about" />
                 </View>
                 <Text style={styles.text}>{about}</Text>
-                {user.login && id !== 43584 ? (
+                {( user.login && id !== 43584 ) && (
                   <TouchableOpacity
                     onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
                     style={styles.linkContainer}
                   >
                     <Text style={styles.linkText}>{commonName}</Text>
                   </TouchableOpacity>
-                ) : null}
+                )}
               </>
             ) }
           </UserContext.Consumer>
-        ) : null}
+        )}
       </View>
       {id !== 43584 ? (
         <>
           <View style={styles.secondTextContainer}>
-            {error === "location" ? null : (
+            {error !== "location" && (
               <SpeciesMap
                 id={id}
                 region={region}
@@ -107,9 +106,7 @@ const NoInternetError = ( {
               region={region}
               timesSeen={timesSeen}
             />
-            {observationsByMonth.length > 0
-              ? <SpeciesChart data={observationsByMonth} />
-              : null}
+            {observationsByMonth.length > 0 && <SpeciesChart data={observationsByMonth} />}
           </View>
           <SimilarSpecies
             fetchiNatData={fetchiNatData}
@@ -127,4 +124,4 @@ const NoInternetError = ( {
   );
 };
 
-export default withNavigation( NoInternetError );
+export default NoInternetError;

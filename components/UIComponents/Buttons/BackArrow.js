@@ -5,30 +5,41 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
 
 type Props = {
-  +navigation: any,
-  +green?: boolean
+  +green?: boolean,
+  +route?: ?string,
 }
 
-const BackArrow = ( { navigation, green }: Props ) => (
-  <TouchableOpacity
-    accessibilityLabel={i18n.t( "accessibility.back" )}
-    accessible
-    onPress={() => navigation.goBack()}
-    style={styles.backButton}
-  >
-    <Image source={green ? icons.backButtonGreen : icons.backButton} />
-  </TouchableOpacity>
-);
+const BackArrow = ( { green, route }: Props ) => {
+  const navigation = useNavigation();
 
-BackArrow.defaultProps = {
-  green: false
+  return (
+    <TouchableOpacity
+      accessibilityLabel={i18n.t( "accessibility.back" )}
+      accessible
+      onPress={() => {
+        if ( route ) {
+          navigation.navigate( route );
+        } else {
+          navigation.goBack();
+        }
+      }}
+      style={styles.backButton}
+    >
+      <Image source={green ? icons.backButtonGreen : icons.backButton} />
+    </TouchableOpacity>
+  );
 };
 
-export default withNavigation( BackArrow );
+BackArrow.defaultProps = {
+  green: false,
+  route: null
+};
+
+export default BackArrow;

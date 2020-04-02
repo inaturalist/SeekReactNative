@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Platform } from "react-native";
 
-import styles from "../../styles/uiComponents/TopSpacer";
+import styles from "../../styles/uiComponents/topSpacer";
 
 const BottomSpacer = () => {
   if ( Platform.OS === "ios" ) {

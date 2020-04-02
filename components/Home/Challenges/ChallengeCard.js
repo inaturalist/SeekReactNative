@@ -1,9 +1,7 @@
-// @flow
-
 import React, { useState, useEffect } from "react";
 import { View, TouchableOpacity } from "react-native";
 import Realm from "realm";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../../../styles/home/challenges";
 import realmConfig from "../../../models";
@@ -13,11 +11,8 @@ import NoChallenges from "./NoChallenges";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
 
-type Props = {
-  +navigation: any
-};
-
-const ChallengeCard = ( { navigation }: Props ) => {
+const ChallengeCard = () => {
+  const navigation = useNavigation();
   const [state, setState] = useState( {
     challenge: null,
     loading: true
@@ -76,4 +71,4 @@ const ChallengeCard = ( { navigation }: Props ) => {
   );
 };
 
-export default withNavigation( ChallengeCard );
+export default ChallengeCard;

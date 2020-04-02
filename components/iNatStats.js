@@ -133,7 +133,7 @@ const INatStatsScreen = () => {
           <LoadingWheel color="black" />
         </View>
       ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
-      <LoginCard screen="iNatStats" />
+      <LoginCard />
     </ScrollNoHeader>
   );
 };

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import i18n from "../../i18n";
@@ -19,12 +19,12 @@ import { formatMonthYear } from "../../utility/dateHelpers";
 import badges from "../../assets/badges";
 
 type Props = {
-  +navigation: any,
   +challenge: Object,
   +fetchChallenges?: Function
 }
 
-const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Props ) => {
+const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
+  const navigation = useNavigation();
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   let rightIcon;
@@ -96,4 +96,4 @@ ChallengeProgressCard.defaultProps = {
   fetchChallenges: () => {}
 };
 
-export default withNavigation( ChallengeProgressCard );
+export default ChallengeProgressCard;

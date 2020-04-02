@@ -6,7 +6,7 @@ import {
   Text,
   Image
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
@@ -16,14 +16,11 @@ import ChallengeMissionCard from "./ChallengeMissionCard";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  +navigation: any,
   challenge: Object
 }
 
-const ChallengeDetailsContainer = ( {
-  challenge,
-  navigation
-}: Props ) => {
+const ChallengeDetailsContainer = ( { challenge }: Props ) => {
+  const navigation = useNavigation();
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   return (
@@ -64,4 +61,4 @@ const ChallengeDetailsContainer = ( {
   );
 };
 
-export default withNavigation( ChallengeDetailsContainer );
+export default ChallengeDetailsContainer;

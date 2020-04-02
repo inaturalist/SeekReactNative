@@ -8,6 +8,7 @@ import {
   Image
 } from "react-native";
 import { withNavigation } from "@react-navigation/compat";
+import { useRoute } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
@@ -21,24 +22,30 @@ type Props = {
   +route?: ?string
 }
 
-const GreenHeader = ( { header, navigation, route }: Props ) => (
-  <View style={styles.container}>
-    {route && route !== "post"
-      ? <CustomBackArrow route={route} />
-      : <BackArrow />}
-    <Text style={styles.text}>{header ? i18n.t( header ).toLocaleUpperCase() : null}</Text>
-    {route === "post" ? (
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.help" )}
-        accessible
-        onPress={() => navigation.navigate( "PostingHelp" )}
-        style={styles.help}
-      >
-        <Image source={posting.postingHelp} />
-      </TouchableOpacity>
-    ) : null}
-  </View>
-);
+const GreenHeader = ( { header, navigation, route }: Props ) => {
+  const { name } = useRoute();
+
+  console.log( name, route, "route" );
+
+  return (
+    <View style={styles.container}>
+      {route && name !== "Post"
+        ? <CustomBackArrow route={route} />
+        : <BackArrow />}
+      {header && <Text style={styles.text}>{i18n.t( header ).toLocaleUpperCase()}</Text>}
+      {name === "Post" && (
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.help" )}
+          accessible
+          onPress={() => navigation.navigate( "PostingHelp" )}
+          style={styles.help}
+        >
+          <Image source={posting.postingHelp} />
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+};
 
 GreenHeader.defaultProps = {
   route: null,

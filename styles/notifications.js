@@ -23,6 +23,9 @@ export default StyleSheet.create( {
     height: 1,
     marginHorizontal: 23
   },
+  flex: {
+    flex: 1
+  },
   greenDot: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 11 / 2,

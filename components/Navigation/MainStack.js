@@ -1,5 +1,8 @@
 import React from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import Footer from "../UIComponents/Footer";
 
 import CameraNav from "./CameraTab";
 import FooterTabNav from "./FooterTabs";
@@ -13,6 +16,14 @@ import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import Wikipedia from "../Species/WikipediaView";
+
+const Tab = createBottomTabNavigator();
+
+const NotificationsFooter = () => (
+  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+    <Tab.Screen name="Notifications" component={Notifications} />
+  </Tab.Navigator>
+);
 
 const Stack = createStackNavigator();
 
@@ -37,7 +48,7 @@ const MainStack = () => (
     />
     <Stack.Screen
       name="Notifications"
-      component={Notifications}
+      component={NotificationsFooter}
       options={{
         headerShown: false,
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS

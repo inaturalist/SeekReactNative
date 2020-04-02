@@ -99,10 +99,12 @@ const ObservationList = () => {
   };
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
+    const unsub = navigation.addListener( "focus", () => {
       setLoading( true );
       fetchObservations();
     } );
+
+    return unsub;
   } );
 
   const deleteObservation = async ( id ) => {
@@ -165,11 +167,10 @@ const ObservationList = () => {
         )}
         sections={observations}
         stickySectionHeadersEnabled={false}
-        ListEmptyComponent={() => <EmptyState screen="observations" />}
       />
     );
-  // } else {
-  //   content = <EmptyState screen="observations" />;
+  } else {
+    content = <EmptyState />;
   }
 
   return (

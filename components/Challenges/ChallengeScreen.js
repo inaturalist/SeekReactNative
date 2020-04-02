@@ -92,7 +92,7 @@ const ChallengeScreen = () => {
   );
 
   const renderCompleted = () => (
-    <View>
+    <>
       <View style={styles.header}>
         <GreenText text="challenges.completed" />
       </View>
@@ -108,7 +108,7 @@ const ChallengeScreen = () => {
           <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_completed_challenges" )}</Text>
         </View>
       )}
-    </View>
+    </>
   );
 
   return (

@@ -100,9 +100,7 @@ class LoginScreen extends Component<Props, State> {
         {user => (
           <View style={styles.container}>
             <SafeAreaView />
-            <GreenHeader
-              header="login.log_in"
-            />
+            <GreenHeader header="login.log_in" />
             <ScrollView>
               <View style={styles.leftTextMargins}>
                 <GreenText smaller text="inat_login.username" />

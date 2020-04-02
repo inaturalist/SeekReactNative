@@ -503,10 +503,7 @@ class PostScreen extends Component<Props, State> {
             togglePostModal={this.togglePostModal}
           />
         </Modal>
-        <GreenHeader
-          header="posting.header"
-          route="post"
-        />
+        <GreenHeader header="posting.header" />
         <ScrollView
           keyboardDismissMode="on-drag"
           onScroll={() => Keyboard.dismiss()}

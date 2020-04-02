@@ -168,9 +168,7 @@ class SignUpScreen extends Component<Props, State> {
         {user => (
           <View style={styles.container}>
             <SafeAreaView />
-            <GreenHeader
-              header="login.sign_up"
-            />
+            <GreenHeader header="login.sign_up" />
             <ScrollView>
               <View style={styles.leftTextMargins}>
                 <GreenText smaller text="inat_login.username" />

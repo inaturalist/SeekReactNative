@@ -111,6 +111,8 @@ const INatStatsScreen = () => {
     } );
   } );
 
+  const photoList = renderPhotos();
+
   return (
     <ScrollNoHeader>
       <BackArrow green />
@@ -132,11 +134,11 @@ const INatStatsScreen = () => {
         <Text style={styles.missionHeaderText}>{i18n.t( "inat_stats.seek_data" )}</Text>
         <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
       </View>
-      {photos.length === 0 ? (
+      {photoList.length === 0 ? (
         <View style={[styles.center, styles.photoContainer]}>
           <LoadingWheel color="black" />
         </View>
-      ) : <HorizontalScroll photoList={renderPhotos()} screen="iNatStats" />}
+      ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}
       <LoginCard screen="iNatStats" />
     </ScrollNoHeader>
   );

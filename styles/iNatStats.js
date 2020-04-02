@@ -1,18 +1,14 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  center
+  center,
+  dimensions
 } from "./global";
 
-const { width, height } = Dimensions.get( "window" );
-
 export default StyleSheet.create( {
-  background: {
-    backgroundColor: colors.white
-  },
   bird: {
-    height: height > 570 ? 65 : 45,
+    height: dimensions.height > 570 ? 65 : 45,
     position: "absolute",
     resizeMode: "contain",
     right: 4,
@@ -29,19 +25,19 @@ export default StyleSheet.create( {
   explainImage: {
     marginBottom: 33,
     resizeMode: "contain",
-    width: width - 54
+    width: dimensions.width - 54
   },
   headerMargin: {
     marginBottom: 24
   },
   heatMap: {
     height: 227,
-    width
+    width: dimensions.width
   },
   image: {
     height: 286,
     resizeMode: "cover",
-    width
+    width: dimensions.width
   },
   logo: {
     height: 33,
@@ -82,9 +78,5 @@ export default StyleSheet.create( {
   },
   photoContainer: {
     height: 375
-  },
-  safeView: {
-    backgroundColor: colors.white,
-    flex: 0
   }
 } );

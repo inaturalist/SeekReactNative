@@ -13,7 +13,6 @@ import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import Padding from "../UIComponents/Padding";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
@@ -61,7 +60,6 @@ const ChallengeDetailsContainer = ( {
           <View style={styles.marginMedium} />
         </>
       )}
-      <Padding />
     </View>
   );
 };

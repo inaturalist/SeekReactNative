@@ -7,10 +7,10 @@ export default StyleSheet.create( {
     height: 340
   },
   container: {
+    backgroundColor: colors.white,
     marginTop: 5
   },
   header: {
-    backgroundColor: colors.white,
     paddingBottom: Platform.OS === "ios" ? 19 : 21,
     paddingLeft: 22,
     paddingTop: 21

@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { withNavigation } from "@react-navigation/compat";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/greenHeader";
@@ -18,14 +17,12 @@ import posting from "../../assets/posting";
 
 type Props = {
   +header?: ?string,
-  +navigation: any,
   +route?: ?string
 }
 
-const GreenHeader = ( { header, navigation, route }: Props ) => {
+const GreenHeader = ( { header, route }: Props ) => {
+  const navigation = useNavigation();
   const { name } = useRoute();
-
-  console.log( name, route, "route" );
 
   return (
     <View style={styles.container}>
@@ -52,4 +49,4 @@ GreenHeader.defaultProps = {
   header: null
 };
 
-export default withNavigation( GreenHeader );
+export default GreenHeader;

@@ -20,10 +20,11 @@ import realmConfig from "../../models";
 import styles from "../../styles/challenges/challengeDetails";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
-import Spacer from "../UIComponents/iOSSpacer";
+import Spacer from "../UIComponents/TopSpacer";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "../UIComponents/BottomSpacer";
+import Padding from "../UIComponents/Padding";
 
 const ChallengeDetailsScreen = () => {
   const insets = useSafeArea();
@@ -65,7 +66,7 @@ const ChallengeDetailsScreen = () => {
     <View style={[styles.safeView, { paddingTop: insets.top }]}>
       <ScrollView ref={scrollView}>
         <StatusBar barStyle="light-content" />
-        {Platform.OS === "ios" && <Spacer backgroundColor="#000000" />}
+        <Spacer backgroundColor="#000000" />
         <ChallengeDetailsHeader
           challenge={challenge}
           showMission={fetchChallenge}
@@ -73,6 +74,7 @@ const ChallengeDetailsScreen = () => {
         <ChallengeDetailsContainer
           challenge={challenge}
         />
+        <Padding />
         <BottomSpacer />
       </ScrollView>
     </View>

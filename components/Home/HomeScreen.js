@@ -16,7 +16,7 @@ import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";
-import Spacer from "../UIComponents/iOSSpacer";
+import Spacer from "../UIComponents/TopSpacer";
 import RNModal from "../UIComponents/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "../UIComponents/BottomSpacer";
@@ -51,7 +51,7 @@ const HomeScreen = () => {
         modal={<GetStarted closeModal={closeModal} />}
       />
       <ScrollView ref={scrollView}>
-        {Platform.OS === "ios" && <Spacer />}
+        <Spacer />
         <SpeciesNearby />
         <ChallengeCard />
         <Padding />

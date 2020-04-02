@@ -23,7 +23,7 @@ import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
-import Spacer from "../UIComponents/iOSSpacer";
+import Spacer from "../UIComponents/TopSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
@@ -440,7 +440,7 @@ class SpeciesDetail extends Component<Props, State> {
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={[styles.footerMargin, styles.background]}
         >
-          {Platform.OS === "ios" && <Spacer />}
+          <Spacer />
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.back" )}
             accessible

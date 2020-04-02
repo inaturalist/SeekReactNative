@@ -18,7 +18,7 @@ import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
-import Spacer from "../UIComponents/iOSSpacer";
+import Spacer from "../UIComponents/TopSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
@@ -83,7 +83,7 @@ const AchievementsScreen = () => {
 
   return (
     <ScrollWithHeader header="badges.achievements">
-      {Platform.OS === "ios" && <Spacer backgroundColor="#22784d" />}
+      <Spacer backgroundColor="#22784d" />
       {state.level && (
         <LevelHeader
           level={state.level}

@@ -15,6 +15,8 @@ type Props = {
 };
 
 const SpeciesStats = ( { stats }: Props ) => {
+  const statuses = ["endangered", "endemic", "native", "threatened", "introduced"];
+
   const showAlert = ( type ) => {
     const title = `species_detail.${type}`;
     Alert.alert(
@@ -26,46 +28,15 @@ const SpeciesStats = ( { stats }: Props ) => {
 
   return (
     <View style={styles.greenButtonContainer}>
-      {stats.endangered ? (
+      {statuses.map( ( status ) => stats[status] && (
         <TouchableOpacity
-          onPress={() => showAlert( "endangered" )}
+          onPress={() => showAlert( status )}
           style={styles.greenButton}
+          key={status}
         >
-          <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endangered" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.greenButtonText}>{i18n.t( `species_detail.${status}` ).toLocaleUpperCase()}</Text>
         </TouchableOpacity>
-      ) : null}
-      {stats.endemic ? (
-        <TouchableOpacity
-          onPress={() => showAlert( "endemic" )}
-          style={styles.greenButton}
-        >
-          <Text style={styles.greenButtonText}>{i18n.t( "species_detail.endemic" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      ) : null}
-      {stats.native ? (
-        <TouchableOpacity
-          onPress={() => showAlert( "native" )}
-          style={styles.greenButton}
-        >
-          <Text style={styles.greenButtonText}>{i18n.t( "species_detail.native" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      ) : null}
-      {stats.threatened ? (
-        <TouchableOpacity
-          onPress={() => showAlert( "threatened" )}
-          style={styles.greenButton}
-        >
-          <Text style={styles.greenButtonText}>{i18n.t( "species_detail.threatened" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      ) : null}
-      {stats.introduced ? (
-        <TouchableOpacity
-          onPress={() => showAlert( "introduced" )}
-          style={styles.greenButton}
-        >
-          <Text style={styles.greenButtonText}>{i18n.t( "species_detail.introduced" ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      ) : null}
+      ) )}
     </View>
   );
 };

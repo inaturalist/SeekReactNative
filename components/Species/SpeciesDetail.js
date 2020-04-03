@@ -2,12 +2,8 @@
 
 import React, { Component } from "react";
 import {
-  View,
-  Image,
   ScrollView,
-  Text,
-  Platform,
-  TouchableOpacity
+  Platform
 } from "react-native";
 import { NavigationEvents } from "@react-navigation/compat";
 import inatjs from "inaturalistjs";
@@ -17,11 +13,8 @@ import RNFS from "react-native-fs";
 import i18n from "../../i18n";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import realmConfig from "../../models/index";
-import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
-import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
 import Spacer from "../UIComponents/TopSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
@@ -29,21 +22,16 @@ import {
   getSpeciesId,
   getRoute,
   checkForInternet,
-  setRoute,
   getTaxonCommonName
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
 import NoInternetError from "./NoInternetError";
 import createUserAgent from "../../utility/userAgent";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import SpeciesHeader from "./SpeciesHeader";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
-
-type Props = {
-  navigation: any,
-  route: any
-}
 
 type State = {
   id: ?number,
@@ -397,8 +385,6 @@ class SpeciesDetail extends Component<Props, State> {
       wikiUrl
     } = this.state;
 
-    const { navigation, route } = this.props;
-
     return (
       <>
         <SafeAreaView />
@@ -411,40 +397,14 @@ class SpeciesDetail extends Component<Props, State> {
           contentContainerStyle={[styles.footerMargin, styles.background]}
         >
           <Spacer />
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.back" )}
-            accessible
-            onPress={() => {
-              if ( routeName === "Match" ) {
-                navigation.navigate( routeName, { ...route.params } );
-              } else if ( routeName === "Species" ) {
-                setRoute( "Home" );
-                navigation.navigate( "Home" );
-              } else if ( routeName ) {
-                navigation.navigate( routeName );
-              } else {
-                navigation.navigate( "Home" );
-              }
-            }}
-            style={styles.backButton}
-          >
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-          <SpeciesPhotos
-            photos={photos}
+          <SpeciesHeader
             userPhoto={userPhoto}
+            iconicTaxonId={iconicTaxonId}
+            photos={photos}
+            scientificName={scientificName}
+            commonName={commonName}
+            routeName={routeName}
           />
-          <View style={styles.greenBanner}>
-            {iconicTaxonId && (
-              <Text style={styles.iconicTaxaText}>
-                {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-              </Text>
-            )}
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
           {error === "internet" ? (
             <SpeciesError
               seenDate={seenDate}

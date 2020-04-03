@@ -51,7 +51,7 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.0.0-alpha.32",
     "react-native-store-review": "^0.1.5",
-    "react-native-svg": "^10.0.0",
+    "react-native-svg": "^12.0.3",
     "react-native-svg-charts": "git+https://github.com/alburdette619/react-native-svg-charts.git#dev",
     "react-native-tab-view": "^2.13.0",
     "react-native-uuid-generator": "^6.1.1",

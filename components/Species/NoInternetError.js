@@ -31,7 +31,6 @@ type Props = {
   +region: Object,
   +ancestors: Array<Object>,
   +timesSeen: ?number,
-  +observationsByMonth: Array<Object>,
   +fetchiNatData: Function,
   +error: ?string
 }
@@ -47,8 +46,7 @@ const NoInternetError = ( {
   region,
   ancestors,
   timesSeen,
-  fetchiNatData,
-  observationsByMonth
+  fetchiNatData
 }: Props ) => {
   const navigation = useNavigation();
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) );
@@ -106,7 +104,7 @@ const NoInternetError = ( {
               region={region}
               timesSeen={timesSeen}
             />
-            {observationsByMonth.length > 0 && <SpeciesChart data={observationsByMonth} />}
+            {id && <SpeciesChart id={id} />}
           </View>
           <SimilarSpecies
             fetchiNatData={fetchiNatData}

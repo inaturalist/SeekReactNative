@@ -206,7 +206,7 @@ PODS:
     - React
   - react-native-open-settings (1.0.0):
     - React
-  - react-native-safe-area-context (0.6.2):
+  - react-native-safe-area-context (0.7.3):
     - React
   - react-native-uuid-generator (6.1.1):
     - React
@@ -267,7 +267,7 @@ PODS:
     - React
   - RNStoreReview (0.1.5):
     - React
-  - RNSVG (10.0.0):
+  - RNSVG (12.0.3):
     - React
   - Yoga (1.14.0)
 
@@ -463,7 +463,7 @@ SPEC CHECKSUMS:
   react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
   react-native-netinfo: 34cf53b69bd112eaf944e931092a899c024adf8d
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
-  react-native-safe-area-context: a1d322930b8c5d04ebeb77cc47cc97575ad27203
+  react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
   react-native-webview: de308e0b614039e483eef19a3cf6a9b6b166cff0
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
@@ -486,7 +486,7 @@ SPEC CHECKSUMS:
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
   RNScreens: a55364dc1833101f836cee70975ce1fea615a12f
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
-  RNSVG: 9d45f03136ecc9b5497e12f6f20838b568acb9f4
+  RNSVG: 7e16ddfc6e00d5aa69c9eb83e699bcce5dcb85d4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 137277a48ffc68ff192885c42da16a054514f087

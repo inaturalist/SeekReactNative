@@ -54,7 +54,6 @@ type State = {
   seenDate: ?string,
   timesSeen: ?number,
   region: Object,
-  observationsByMonth: Array<Object>,
   error: ?string,
   userPhoto: ?string,
   stats: Object,
@@ -79,7 +78,6 @@ class SpeciesDetail extends Component<Props, State> {
       seenDate: null,
       timesSeen: null,
       region: {},
-      observationsByMonth: [],
       error: null,
       userPhoto: null,
       stats: {},
@@ -123,7 +121,6 @@ class SpeciesDetail extends Component<Props, State> {
 
     this.checkIfSpeciesSeen( id );
     this.fetchTaxonDetails( id );
-    this.fetchHistogram( id );
 
     const routeName = await getRoute();
 
@@ -212,7 +209,6 @@ class SpeciesDetail extends Component<Props, State> {
       seenDate: null,
       timesSeen: null,
       region: {},
-      observationsByMonth: [],
       error: null,
       userPhoto: null,
       stats: {},
@@ -320,31 +316,6 @@ class SpeciesDetail extends Component<Props, State> {
     } ).catch( ( e ) => console.log( "couldn't fetch common name from device", e ) );
   }
 
-  fetchHistogram( id: number ) {
-    const params = {
-      date_field: "observed",
-      interval: "month_of_year",
-      taxon_id: id
-    };
-
-    const options = { user_agent: createUserAgent() };
-
-    inatjs.observations.histogram( params, options ).then( ( response ) => {
-      const countsByMonth = response.results.month_of_year;
-      const observationsByMonth = [];
-
-      for ( let i = 1; i <= 12; i += 1 ) {
-        observationsByMonth.push( {
-          month: i,
-          count: countsByMonth[i]
-        } );
-      }
-      this.setState( { observationsByMonth } );
-    } ).catch( ( err ) => {
-      console.log( err, ": couldn't fetch histogram" );
-    } );
-  }
-
   checkIfSpeciesIsNative( latitude: number, longitude: number, id: number ) {
     const { stats } = this.state;
 
@@ -412,7 +383,6 @@ class SpeciesDetail extends Component<Props, State> {
       about,
       commonName,
       id,
-      observationsByMonth,
       photos,
       region,
       scientificName,
@@ -488,7 +458,6 @@ class SpeciesDetail extends Component<Props, State> {
               error={error}
               fetchiNatData={this.fetchiNatData}
               id={id}
-              observationsByMonth={observationsByMonth}
               region={region}
               seenDate={seenDate}
               stats={stats}

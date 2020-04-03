@@ -200,7 +200,7 @@ PODS:
     - React
   - react-native-mail (4.1.0):
     - React
-  - react-native-maps (0.26.1):
+  - react-native-maps (0.27.1):
     - React
   - react-native-netinfo (3.2.0):
     - React
@@ -210,7 +210,7 @@ PODS:
     - React
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (8.0.3):
+  - react-native-webview (9.0.2):
     - React
   - React-RCTActionSheet (0.61.5):
     - React-Core/RCTActionSheetHeaders (= 0.61.5)
@@ -259,7 +259,7 @@ PODS:
     - React
   - RNGestureHandler (1.5.3):
     - React
-  - RNLocalize (1.3.2):
+  - RNLocalize (1.3.4):
     - React
   - RNReanimated (1.7.0):
     - React
@@ -460,12 +460,12 @@ SPEC CHECKSUMS:
   react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
-  react-native-maps: 6e499eee4eabf422ba8b6f94e993cc768bf35153
+  react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-netinfo: 34cf53b69bd112eaf944e931092a899c024adf8d
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
   react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
-  react-native-webview: de308e0b614039e483eef19a3cf6a9b6b166cff0
+  react-native-webview: 838be111a7805977e5fc4fa6b66ae293f6c17384
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -482,7 +482,7 @@ SPEC CHECKSUMS:
   RNDeviceInfo: d1d8b58e034178d86451fac067bf0b59bdf7699a
   RNFS: 0d4191b1052bef9ce70deff00a5b4169c62bbd9b
   RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
-  RNLocalize: 613a538ad24cb5924cc7707bc57fe8d5eccb4350
+  RNLocalize: d8025bb1ac74c0ad54155ea9862538624ebf74d8
   RNReanimated: 031fe8d9ea93c2bd689a40f05320ef9d96f74d7f
   RNScreens: a55364dc1833101f836cee70975ce1fea615a12f
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8

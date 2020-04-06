@@ -4,12 +4,9 @@ import React, { Component } from "react";
 import {
   Image,
   ImageBackground,
-  Text,
-  View,
   Platform
 } from "react-native";
 
-import i18n from "../i18n";
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
@@ -55,17 +52,14 @@ class SplashScreen extends Component<Props> {
         source={backgrounds.splash}
         style={styles.backgroundImage}
       >
-        <View style={styles.center}>
-          <View style={styles.banner}>
-            <Image source={logoImages.wwfop} style={styles.image} />
-          </View>
-          <Text style={styles.headerText}>{i18n.t( "splash.presents" ).toLocaleUpperCase()}</Text>
-        </View>
         <Image
           source={logoImages.seek}
           style={styles.logo}
         />
-        <Text style={styles.text}>{i18n.t( "splash.initiative" )}</Text>
+        <Image
+          source={logoImages.joint}
+          style={styles.joint}
+        />
       </ImageBackground>
     );
   }

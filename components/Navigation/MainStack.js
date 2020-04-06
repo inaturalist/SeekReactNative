@@ -9,7 +9,7 @@ import FooterTabNav from "./FooterTabs";
 
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
-import Match from "../Results/MatchScreen";
+import Match from "../Match/MatchScreen";
 import RangeMap from "../Species/RangeMap";
 import Notifications from "../Notifications/Notifications";
 import CameraHelp from "../Camera/CameraHelpScreen";

@@ -8,9 +8,10 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/match";
+import styles from "../../styles/match/match";
 import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import UserContext from "../UserContext";
 
 type Props = {
   +color: string,
@@ -36,21 +37,25 @@ const PostToiNat = ( { color, taxaInfo }: Props ) => {
   }, [navigation] );
 
   return (
-    <>
-      {!postingSuccess && (
+    <UserContext.Consumer>
+      {user => (
         <>
-          <Text style={styles.text}>
-            {i18n.t( "results.post_inat" )}
-          </Text>
-          <View style={styles.marginMedium} />
-          <GreenButton
-            color={color}
-            handlePress={() => navigation.navigate( "Post", taxaInfo )}
-            text="results.post"
-          />
+          {( user.login && !postingSuccess ) && (
+            <>
+              <Text style={styles.text}>
+                {i18n.t( "results.post_inat" )}
+              </Text>
+              <View style={styles.marginMedium} />
+              <GreenButton
+                color={color}
+                handlePress={() => navigation.navigate( "Post", taxaInfo )}
+                text="results.post"
+              />
+            </>
+          ) }
         </>
-      )}
-    </>
+      ) }
+    </UserContext.Consumer>
   );
 };
 

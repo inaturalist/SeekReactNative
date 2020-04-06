@@ -6,7 +6,7 @@ import {
 } from "react-native";
 
 import i18n from "../../i18n";
-import styles from "../../styles/results/speciesNearby";
+import styles from "../../styles/match/speciesNearby";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";

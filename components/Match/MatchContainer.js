@@ -1,0 +1,145 @@
+// @flow
+
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+import styles from "../../styles/match/match";
+import PostToiNat from "./PostToiNat";
+import i18n from "../../i18n";
+import SpeciesNearby from "./SpeciesNearby";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
+// import UserContext from "../UserContext";
+import { setAncestorRankText } from "../../utility/textHelpers";
+
+type Props = {
+  userImage: string,
+  uri: string,
+  taxaName: string,
+  taxaId: number,
+  scientificName: string,
+  latitude: number,
+  longitude: number,
+  time: number,
+  seenDate: ?string,
+  commonAncestor: ?string,
+  match: boolean,
+  rank: number,
+  setNavigationPath: Function,
+  gradientColorLight: string
+}
+
+const MatchContainer = ( {
+  seenDate,
+  match,
+  commonAncestor,
+  setNavigationPath,
+  gradientColorLight,
+  rank,
+  uri,
+  taxaId,
+  scientificName,
+  time,
+  latitude,
+  longitude,
+  taxaName,
+  userImage
+}: Props ) => {
+  const navigation = useNavigation();
+
+  let headerText;
+  let text;
+  let speciesText;
+
+  const ancestorRank = setAncestorRankText( rank );
+
+  if ( seenDate ) {
+    headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
+    text = i18n.t( "results.date_observed", { seenDate } );
+    speciesText = taxaName;
+  } else if ( taxaName && match ) {
+    headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
+    text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
+    speciesText = taxaName;
+  } else if ( commonAncestor ) {
+    if ( rank === 20 || rank === 30 || rank === 40 || rank === 50 ) {
+      headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
+    } else {
+      headerText = i18n.t( "results.believe_1" ).toLocaleUpperCase();
+    }
+    text = i18n.t( "results.common_ancestor" );
+    speciesText = commonAncestor;
+  } else {
+    headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
+    text = i18n.t( "results.sorry" );
+    speciesText = null;
+  }
+
+  return (
+    <>
+      <View style={styles.marginLarge} />
+      <View style={styles.textContainer}>
+        <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
+        {( seenDate || match || commonAncestor )
+          && <Text style={styles.speciesText}>{speciesText}</Text>}
+        <Text style={styles.text}>{text}</Text>
+      </View>
+      <View style={styles.marginMedium} />
+      <View style={styles.textContainer}>
+        {seenDate || match ? (
+          <GreenButton
+            color={gradientColorLight}
+            handlePress={() => setNavigationPath( "Species" )}
+            text="results.view_species"
+          />
+        ) : (
+          <GreenButton
+            color={gradientColorLight}
+            handlePress={() => navigation.navigate( "Camera" )}
+            text="results.take_photo"
+          />
+        )}
+      </View>
+      <View style={styles.marginMedium} />
+      {( commonAncestor && rank !== ( 60 || 70 ) ) && (
+        <>
+          <SpeciesNearby
+            ancestorId={taxaId}
+            lat={latitude}
+            lng={longitude}
+          />
+          <View style={styles.marginMedium} />
+        </>
+      )}
+      <View style={styles.textContainer}>
+        {( seenDate || match ) && (
+          <TouchableOpacity
+            onPress={() => setNavigationPath( "Camera" )}
+            style={styles.link}
+          >
+            <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
+          </TouchableOpacity>
+        )}
+        <PostToiNat
+          color={gradientColorLight}
+          taxaInfo={{
+            preferredCommonName: taxaName || commonAncestor,
+            taxaId,
+            uri,
+            userImage,
+            scientificName,
+            latitude,
+            longitude,
+            time
+          }}
+        />
+      </View>
+    </>
+  );
+};
+
+export default MatchContainer;

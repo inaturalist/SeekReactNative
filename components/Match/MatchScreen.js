@@ -3,29 +3,22 @@
 import React, { Component } from "react";
 import {
   View,
-  Image,
   ScrollView,
-  Text,
-  TouchableOpacity,
   SafeAreaView,
   Platform
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import Modal from "react-native-modal";
 import { NavigationEvents } from "@react-navigation/compat";
 
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
-import styles from "../../styles/results/match";
+import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
-import icons from "../../assets/icons";
 import Toasts from "../Toasts/Toasts";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
-import PostToiNat from "./PostToiNat";
-import i18n from "../../i18n";
 import Spacer from "../UIComponents/TopSpacer";
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -45,10 +38,8 @@ import {
   createGPSAlert,
   createLocationTimeoutAlert
 } from "../../utility/locationHelpers";
-import SpeciesNearby from "./SpeciesNearby";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { setAncestorRankText } from "../../utility/textHelpers";
-import UserContext from "../UserContext";
+import MatchHeader from "./MatchHeader";
+import MatchContainer from "./MatchContainer";
 
 type Props = {
   +navigation: any,
@@ -137,6 +128,7 @@ class MatchScreen extends Component<Props, State> {
     ( this:any ).closeFlagModal = this.closeFlagModal.bind( this );
     ( this:any ).openFlagModal = this.openFlagModal.bind( this );
     ( this:any ).deleteObservation = this.deleteObservation.bind( this );
+    ( this:any ).setNavigationPath = this.setNavigationPath.bind( this );
   }
 
   async getRoute() {
@@ -299,8 +291,6 @@ class MatchScreen extends Component<Props, State> {
   }
 
   render() {
-    const { navigation } = this.props;
-
     const {
       badge,
       showChallengeModal,
@@ -325,41 +315,25 @@ class MatchScreen extends Component<Props, State> {
       route
     } = this.state;
 
-    let headerText;
     let gradientColorDark;
     let gradientColorLight;
-    let text;
     let speciesText;
 
-    const ancestorRank = setAncestorRankText( rank );
-
     if ( seenDate ) {
-      headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      text = i18n.t( "results.date_observed", { seenDate } );
       speciesText = taxaName;
     } else if ( taxaName && match ) {
-      headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
-      text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
       speciesText = taxaName;
     } else if ( commonAncestor ) {
-      if ( rank === 20 || rank === 30 || rank === 40 || rank === 50 ) {
-        headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
-      } else {
-        headerText = i18n.t( "results.believe_1" ).toLocaleUpperCase();
-      }
       gradientColorDark = "#175f67";
       gradientColorLight = colors.seekTeal;
-      text = i18n.t( "results.common_ancestor" );
       speciesText = commonAncestor;
     } else {
-      headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
       gradientColorDark = "#404040";
       gradientColorLight = "#5e5e5e";
-      text = i18n.t( "results.sorry" );
       speciesText = null;
     }
 
@@ -384,13 +358,13 @@ class MatchScreen extends Component<Props, State> {
             this.getRoute();
           }}
         />
-        {match && !seenDate && latitude && route !== "Match" && route !== "PostStatus" ? (
+        {( match && !seenDate && latitude && route !== "Match" && route !== "PostStatus" ) && (
           <Toasts
-            badge={badge}
-            incompleteChallenge={challengeInProgress}
+            // badge={badge}
+            // incompleteChallenge={challengeInProgress}
           />
-        ) : null}
-        {match && !seenDate && latitude ? (
+        )}
+        {( match && !seenDate && latitude ) && (
           <Modal
             isVisible={showChallengeModal}
             onBackdropPress={() => this.closeChallengeModal()}
@@ -403,8 +377,8 @@ class MatchScreen extends Component<Props, State> {
               closeModal={this.closeChallengeModal}
             />
           </Modal>
-        ) : null}
-        {match && !seenDate && latitude ? (
+        )}
+        {( match && !seenDate && latitude ) && (
           <Modal
             isVisible={showLevelModal}
             onBackdropPress={() => this.closeLevelModal()}
@@ -418,8 +392,8 @@ class MatchScreen extends Component<Props, State> {
               closeModal={this.closeLevelModal}
             />
           </Modal>
-        ) : null}
-        {match || seenDate ? (
+        )}
+        {( match || seenDate ) && (
           <Modal isVisible={showFlagModal}>
             <FlagModal
               deleteObservation={this.deleteObservation}
@@ -430,101 +404,32 @@ class MatchScreen extends Component<Props, State> {
               userImage={userImage}
             />
           </Modal>
-        ) : null}
-        <ScrollView
-          ref={( ref ) => { this.scrollView = ref; }}
-        >
+        )}
+        <ScrollView ref={( ref ) => { this.scrollView = ref; }}>
           <Spacer backgroundColor={gradientColorDark} />
-          <LinearGradient
-            colors={[gradientColorDark, gradientColorLight]}
-            style={styles.header}
-          >
-            <TouchableOpacity
-              accessibilityLabel={i18n.t( "accessibility.back" )}
-              accessible
-              onPress={() => this.setNavigationPath( "Camera" )}
-              style={styles.backButton}
-            >
-              <Image source={icons.backButton} />
-            </TouchableOpacity>
-            <View style={[styles.imageContainer, styles.buttonContainer]}>
-              <Image
-                source={{ uri: userImage }}
-                style={styles.imageCell}
-              />
-              {speciesSeenImage ? (
-                <Image
-                  source={{ uri: speciesSeenImage }}
-                  style={[styles.imageCell, styles.marginLeft]}
-                />
-              ) : null}
-            </View>
-          </LinearGradient>
-          <View style={styles.marginLarge} />
-          <View style={styles.textContainer}>
-            <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-            {seenDate || match || commonAncestor
-              ? <Text style={styles.speciesText}>{speciesText}</Text>
-              : null}
-            <Text style={styles.text}>{text}</Text>
-          </View>
-          <View style={styles.marginMedium} />
-          <View style={styles.textContainer}>
-            {seenDate || match ? (
-              <GreenButton
-                color={gradientColorLight}
-                handlePress={() => this.setNavigationPath( "Species" )}
-                text="results.view_species"
-              />
-            ) : (
-              <GreenButton
-                color={gradientColorLight}
-                handlePress={() => navigation.navigate( "Camera" )}
-                text="results.take_photo"
-              />
-            )}
-          </View>
-          <View style={styles.marginMedium} />
-          {commonAncestor && rank !== ( 60 || 70 ) ? (
-            <SpeciesNearby
-              ancestorId={taxaId}
-              lat={latitude}
-              lng={longitude}
-              params={this.props.route.params}
-            />
-          ) : null}
-          {commonAncestor && rank !== ( 60 || 70 ) ? <View style={styles.marginMedium} /> : null}
-          <View style={styles.textContainer}>
-            {seenDate || match ? (
-              <TouchableOpacity
-                onPress={() => this.setNavigationPath( "Camera" )}
-                style={styles.link}
-              >
-                <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
-              </TouchableOpacity>
-            ) : null}
-            <UserContext.Consumer>
-              {user => (
-                <>
-                  {user.login ? (
-                    <PostToiNat
-                      color={gradientColorLight}
-                      taxaInfo={{
-                        preferredCommonName: taxaName || commonAncestor,
-                        taxaId,
-                        uri,
-                        userImage,
-                        scientificName,
-                        latitude,
-                        longitude,
-                        time
-                      }}
-                    />
-                  ) : null}
-                </>
-              ) }
-            </UserContext.Consumer>
-          </View>
+          <MatchHeader
+            gradientColorDark={gradientColorDark}
+            gradientColorLight={gradientColorLight}
+            setNavigationPath={this.setNavigationPath}
+            userImage={userImage}
+            speciesSeenImage={speciesSeenImage}
+          />
+          <MatchContainer
+            seenDate={seenDate}
+            match={match}
+            commonAncestor={commonAncestor}
+            setNavigationPath={this.setNavigationPath}
+            gradientColorLight={gradientColorLight}
+            rank={rank}
+            uri={uri}
+            taxaId={taxaId}
+            scientificName={scientificName}
+            time={time}
+            latitude={latitude}
+            longitude={longitude}
+            taxaName={taxaName}
+            userImage={userImage}
+          />
           <Padding />
         </ScrollView>
         {match || seenDate

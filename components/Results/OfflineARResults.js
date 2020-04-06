@@ -246,6 +246,7 @@ class OfflineARResults extends Component<Props, State> {
     } = this.state;
 
     if ( latitude && longitude ) {
+      // bug, user location isn't loading fast enough & sometimes is null
       addToCollection( observation, latitude, longitude, uri, time );
     }
   }

@@ -1,5 +1,6 @@
 const backgrounds = {
   splash: require( "./backgrounds/bg-splash-2020.png" ),
+  login: require( "./backgrounds/bg-login-2020.png" ),
   noSpeciesNearby: require( "./backgrounds/img-speciesnearby-error.png" ),
   navBar: require( "./backgrounds/img-navbar.png" ),
   heatMap: require( "./backgrounds/img-inatheatmap.png" ),

@@ -13,8 +13,6 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-// import UserContext from "../UserContext";
-import { setAncestorRankText } from "../../utility/textHelpers";
 
 type Props = {
   userImage: string,
@@ -50,12 +48,18 @@ const MatchContainer = ( {
   userImage
 }: Props ) => {
   const navigation = useNavigation();
+  const speciesIdentified = seenDate || match;
 
   let headerText;
   let text;
   let speciesText;
 
-  const ancestorRank = setAncestorRankText( rank );
+  const ancestorRank = {
+    20: "genus",
+    30: "family",
+    40: "order",
+    50: "class"
+  };
 
   if ( seenDate ) {
     headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
@@ -66,17 +70,21 @@ const MatchContainer = ( {
     text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
     speciesText = taxaName;
   } else if ( commonAncestor ) {
-    if ( rank === 20 || rank === 30 || rank === 40 || rank === 50 ) {
-      headerText = i18n.t( "results.believe", { ancestorRank } ).toLocaleUpperCase();
-    } else {
-      headerText = i18n.t( "results.believe_1" ).toLocaleUpperCase();
+    headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
+    if ( rank === 20 ) {
+      headerText += ` ${i18n.t( `results.${ancestorRank[rank]}` ).toLocaleUpperCase()}`;
+    } else if ( rank <= 30 ) {
+      headerText += ` ${i18n.t( `results.${ancestorRank[30]}` ).toLocaleUpperCase()}`;
+    } else if ( rank <= 40 ) {
+      headerText += ` ${i18n.t( `results.${ancestorRank[40]}` ).toLocaleUpperCase()}`;
+    } else if ( rank <= 50 ) {
+      headerText += ` ${i18n.t( `results.${ancestorRank[50]}` ).toLocaleUpperCase()}`;
     }
     text = i18n.t( "results.common_ancestor" );
     speciesText = commonAncestor;
   } else {
     headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
     text = i18n.t( "results.sorry" );
-    speciesText = null;
   }
 
   return (
@@ -84,25 +92,22 @@ const MatchContainer = ( {
       <View style={styles.marginLarge} />
       <View style={styles.textContainer}>
         <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-        {( seenDate || match || commonAncestor )
-          && <Text style={styles.speciesText}>{speciesText}</Text>}
+        {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
         <Text style={styles.text}>{text}</Text>
       </View>
       <View style={styles.marginMedium} />
       <View style={styles.textContainer}>
-        {seenDate || match ? (
-          <GreenButton
-            color={gradientColorLight}
-            handlePress={() => setNavigationPath( "Species" )}
-            text="results.view_species"
-          />
-        ) : (
-          <GreenButton
-            color={gradientColorLight}
-            handlePress={() => navigation.navigate( "Camera" )}
-            text="results.take_photo"
-          />
-        )}
+        <GreenButton
+          color={gradientColorLight}
+          handlePress={() => {
+            if ( speciesIdentified ) {
+              setNavigationPath( "Species" );
+            } else {
+              navigation.navigate( "Camera" );
+            }
+          }}
+          text={speciesIdentified ? "results.view_species" : "results.take_photo"}
+        />
       </View>
       <View style={styles.marginMedium} />
       {( commonAncestor && rank !== ( 60 || 70 ) ) && (
@@ -116,7 +121,7 @@ const MatchContainer = ( {
         </>
       )}
       <View style={styles.textContainer}>
-        {( seenDate || match ) && (
+        {( speciesIdentified ) && (
           <TouchableOpacity
             onPress={() => setNavigationPath( "Camera" )}
             style={styles.link}

@@ -2,21 +2,17 @@ import React, { Component } from "react";
 import {
   Dimensions,
   ScrollView,
-  View,
-  TouchableOpacity,
-  Text
+  View
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { withNavigation } from "@react-navigation/compat";
 
 import styles from "../../styles/onboarding";
-import i18n from "../../i18n";
-import { colors } from "../../styles/global";
+import Dots from "./Dots";
+import Button from "./Button";
 
 const { width } = Dimensions.get( "window" );
 
 type Props = {
-  +navigation: any,
   +children:any
 }
 
@@ -51,11 +47,7 @@ class Swiper extends Component<Props> {
     index = parseInt( index + Math.round( diff / width ), 10 );
     this.internals.offset = offset;
 
-    this.setState( {
-      index,
-      colorTop: gradientColors[index][0],
-      colorBottom: gradientColors[index][1]
-    } );
+    this.setState( { index } );
   }
 
   initState() {
@@ -64,9 +56,7 @@ class Swiper extends Component<Props> {
 
     const state = {
       total: 3,
-      index,
-      colorTop: gradientColors[index][0],
-      colorBottom: gradientColors[index][1]
+      index
     };
     // Component internals as a class property,
     // and not state to avoid component re-renders when updated
@@ -94,59 +84,21 @@ class Swiper extends Component<Props> {
     </ScrollView>
   )
 
-  renderPagination = () => {
-    const { index } = this.state;
-    const ActiveDot = <View style={[styles.dot, styles.activeDot]} />;
-    const Dot = <View style={styles.dot} />;
-
-    const dots = [];
-
-    for ( let key = 0; key < 3; key += 1 ) {
-      dots.push( key === index
-        ? React.cloneElement( ActiveDot, { key } )
-        : React.cloneElement( Dot, { key } ) );
-    }
-
-    return (
-      <View style={[styles.pagination, styles.center]}>
-        {dots}
-      </View>
-    );
-  }
-
-  renderButton = ( index, navigation ) => (
-    <TouchableOpacity
-      onPress={() => navigation.navigate( "Login" )}
-      style={[styles.buttonContainer, styles.center]}
-    >
-      {index === 2
-        ? (
-          <View style={[styles.button, { backgroundColor: colors.seekTeal }]}>
-            <Text style={styles.skip}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
-          </View>
-        ) : (
-          <View style={styles.buttonHeight}>
-            <Text style={styles.skipText}>{i18n.t( "onboarding.skip" )}</Text>
-          </View>
-        )}
-    </TouchableOpacity>
-  )
-
   render() {
-    const { children, navigation } = this.props;
-    const { colorBottom, colorTop, index } = this.state;
+    const { children } = this.props;
+    const { index } = this.state;
 
     return (
       <LinearGradient
-        colors={[colorTop, colorBottom]}
+        colors={[gradientColors[index][0], gradientColors[index][1]]}
         style={styles.container}
       >
         {this.renderScrollView( children )}
-        {this.renderPagination()}
-        {this.renderButton( index, navigation )}
+        <Dots index={index} />
+        <Button index={index} />
       </LinearGradient>
     );
   }
 }
 
-export default withNavigation( Swiper );
+export default Swiper;

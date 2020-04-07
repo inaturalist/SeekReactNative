@@ -17,7 +17,7 @@ import createUserAgent from "../../utility/userAgent";
 import { localizeNumber } from "../../utility/helpers";
 
 type Props = {
-  +id: number,
+  +id: ?number,
   +region: Object,
   +timesSeen: ?number,
   +error: ?string

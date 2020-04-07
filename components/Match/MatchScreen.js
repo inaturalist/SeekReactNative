@@ -47,6 +47,8 @@ type Props = {
 }
 
 type State = {
+  taxon: Object,
+  image: Object,
   badge: ?Object,
   latestLevel: ?Object,
   challenge: ?Object,
@@ -55,7 +57,6 @@ type State = {
   showLevelModal: boolean,
   showFlagModal: boolean,
   navigationPath: ?string,
-  userImage: string,
   seenDate: ?string,
   match: boolean,
   challengeShown: boolean,
@@ -71,7 +72,6 @@ class MatchScreen extends Component<Props, State> {
 
     const {
       image,
-      userImage,
       taxon,
       seenDate,
       match,
@@ -89,7 +89,6 @@ class MatchScreen extends Component<Props, State> {
       showLevelModal: false,
       showFlagModal: false,
       navigationPath: null,
-      userImage,
       seenDate,
       match,
       challengeShown: false,
@@ -210,8 +209,10 @@ class MatchScreen extends Component<Props, State> {
   }
 
   navigateTo() {
-    const { navigationPath, taxaId } = this.state;
+    const { navigationPath, taxon } = this.state;
     const { navigation, route } = this.props;
+
+    const { taxaId } = taxon;
 
     if ( navigationPath === "Camera" ) {
       navigation.navigate( "Camera" );
@@ -263,8 +264,8 @@ class MatchScreen extends Component<Props, State> {
   }
 
   deleteObservation() {
-    const { taxaId } = this.state;
-    removeFromCollection( taxaId );
+    const { taxon } = this.state;
+    removeFromCollection( taxon.taxaId );
   }
 
   render() {
@@ -277,7 +278,6 @@ class MatchScreen extends Component<Props, State> {
       latestLevel,
       challenge,
       challengeInProgress,
-      userImage,
       seenDate,
       match,
       route,
@@ -376,7 +376,7 @@ class MatchScreen extends Component<Props, State> {
               speciesSeenImage={speciesSeenImage}
               speciesText={speciesText}
               closeModal={this.closeFlagModal}
-              userImage={userImage}
+              userImage={image.uri}
             />
           </Modal>
         )}
@@ -386,7 +386,7 @@ class MatchScreen extends Component<Props, State> {
             gradientColorDark={gradientColorDark}
             gradientColorLight={gradientColorLight}
             setNavigationPath={this.setNavigationPath}
-            userImage={userImage}
+            userImage={image.uri}
             speciesSeenImage={speciesSeenImage}
           />
           <MatchContainer
@@ -396,7 +396,7 @@ class MatchScreen extends Component<Props, State> {
             match={match}
             setNavigationPath={this.setNavigationPath}
             gradientColorLight={gradientColorLight}
-            userImage={userImage}
+            userImage={image.uri}
           />
           <Padding />
         </ScrollView>

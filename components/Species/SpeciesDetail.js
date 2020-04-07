@@ -33,6 +33,8 @@ import SpeciesHeader from "./SpeciesHeader";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
+type Props = {};
+
 type State = {
   id: ?number,
   photos: Array<Object>,

@@ -19,7 +19,7 @@ import UserContext from "../UserContext";
 
 type Props = {
   +region: Object,
-  +id: number,
+  +id: ?number,
   +seenDate: ?string
 }
 
@@ -40,7 +40,7 @@ const SpeciesMap = ( {
             />
           </View>
           <View style={styles.mapContainer}>
-            {region.latitude ? (
+            {region.latitude && id ? (
               <MapView
                 maxZoomLevel={7}
                 onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}

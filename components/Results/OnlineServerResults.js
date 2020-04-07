@@ -26,6 +26,7 @@ type Props = {
 }
 
 type State = {
+  image: Object,
   taxon: Object,
   userImage: ?string,
   observation: ?Object,
@@ -121,7 +122,7 @@ class OnlineServerResults extends Component<Props, State> {
     this.setState( { errorCode } );
   }
 
-  setTaxon( taxon, match ) {
+  setTaxon( taxon: Object, match: boolean ) {
     this.setState( { taxon }, () => this.setMatch( match ) );
   }
 
@@ -269,7 +270,6 @@ class OnlineServerResults extends Component<Props, State> {
     const {
       image,
       taxon,
-      userImage,
       seenDate,
       match,
       errorCode
@@ -278,7 +278,6 @@ class OnlineServerResults extends Component<Props, State> {
     console.log( taxon, "taxon in results" );
 
     navigation.push( "Match", {
-      userImage,
       image,
       taxon,
       seenDate,

@@ -24,6 +24,7 @@ type Props = {
 }
 
 type State = {
+  image: Object,
   taxon: Object,
   observation: Object,
   seenDate: ?string,
@@ -75,7 +76,7 @@ class OfflineARResults extends Component<Props, State> {
     this.setState( { match }, () => this.showMatch() );
   }
 
-  setTaxon( taxon, match ) {
+  setTaxon( taxon: Object, match: boolean ) {
     this.setState( { taxon }, () => this.setMatch( match ) );
   }
 
@@ -247,7 +248,6 @@ class OfflineARResults extends Component<Props, State> {
 
     navigation.push( "Match", {
       taxon,
-      userImage: image.uri,
       image,
       seenDate,
       match,

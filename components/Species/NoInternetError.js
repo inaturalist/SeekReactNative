@@ -27,7 +27,7 @@ type Props = {
   +about: ?string,
   +commonName: ?string,
   +wikiUrl: ?string,
-  +id:number,
+  +id: ?number,
   +region: Object,
   +ancestors: Array<Object>,
   +timesSeen: ?number,

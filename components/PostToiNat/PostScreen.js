@@ -45,6 +45,7 @@ type Props = {
 };
 
 type State = {
+  image: Object,
   location: ?string,
   date: ?string,
   captive: ?boolean,

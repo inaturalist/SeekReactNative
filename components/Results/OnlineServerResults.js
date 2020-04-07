@@ -26,70 +26,49 @@ type Props = {
 }
 
 type State = {
-  uri: string,
-  time: Date,
-  latitude: number,
-  longitude: number,
+  taxon: Object,
   userImage: ?string,
-  speciesSeenImage: ?string,
   observation: ?Object,
-  taxaId: ?number,
-  taxaName: ?string,
-  commonAncestor: ?string,
   seenDate: ?string,
   error: ?string,
-  scientificName: ?string,
   match: ?boolean,
   clicked: boolean,
   numberOfHours: ?string,
-  errorCode: ?number,
-  rank: ?number
+  errorCode: ?number
 };
 
 class OnlineServerResults extends Component<Props, State> {
   constructor( { route }: Props ) {
     super();
 
-    const {
-      uri,
-      time,
-      latitude,
-      longitude
-    } = route.params;
+    const { image } = route.params;
 
     this.state = {
-      uri,
-      time,
-      latitude,
-      longitude,
+      taxon: {},
+      image,
       userImage: null,
-      speciesSeenImage: null,
       observation: null,
-      taxaId: null,
-      taxaName: null,
-      commonAncestor: null,
       seenDate: null,
       error: null,
-      scientificName: null,
       match: null,
       clicked: false,
       numberOfHours: null,
-      errorCode: null,
-      rank: null
+      errorCode: null
     };
 
     ( this:any ).checkForMatches = this.checkForMatches.bind( this );
   }
 
   getUserLocation() {
+    const { image } = this.state;
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
 
-        this.setState( {
-          latitude,
-          longitude
-        } );
+        image.latitude = latitude;
+        image.longitude = longitude;
+
+        this.setState( { image } );
       }
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
@@ -97,9 +76,10 @@ class OnlineServerResults extends Component<Props, State> {
   }
 
   getLocation() {
-    const { latitude, longitude } = this.state;
+    const { image } = this.state;
 
-    if ( !latitude || !longitude ) { // check to see if there are already photo coordinates
+    if ( !image.latitude || !image.longitude ) {
+      // check to see if there are already photo coordinates
       if ( Platform.OS === "android" ) {
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
@@ -141,18 +121,24 @@ class OnlineServerResults extends Component<Props, State> {
     this.setState( { errorCode } );
   }
 
+  setTaxon( taxon, match ) {
+    this.setState( { taxon }, () => this.setMatch( match ) );
+  }
+
   setOnlineVisionSpeciesResults( species: Object ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
     getTaxonCommonName( taxon.id ).then( ( commonName ) => {
-      this.setState( {
-        observation: species,
+      const newTaxon = {
         taxaId: taxon.id,
         taxaName: capitalizeNames( commonName || taxon.name ),
         scientificName: taxon.name,
         speciesSeenImage: photo ? photo.medium_url : null
-      }, () => this.setMatch( true ) );
+      };
+
+      this.setTaxon( newTaxon, true );
+      this.setState( { observation: species } );
     } );
   }
 
@@ -161,7 +147,7 @@ class OnlineServerResults extends Component<Props, State> {
     const photo = taxon.default_photo;
 
     getTaxonCommonName( taxon.id ).then( ( commonName ) => {
-      this.setState( {
+      const newTaxon = {
         commonAncestor: commonAncestor
           ? capitalizeNames( commonName || taxon.name )
           : null,
@@ -169,19 +155,19 @@ class OnlineServerResults extends Component<Props, State> {
         speciesSeenImage: photo ? photo.medium_url : null,
         scientificName: taxon.name,
         rank: taxon.rank_level
-      }, () => this.setMatch( false ) );
+      };
+
+      this.setTaxon( newTaxon, false );
     } );
   }
 
   getParamsForOnlineVision() {
     const {
       userImage,
-      time,
-      latitude,
-      longitude
+      image
     } = this.state;
 
-    const params = flattenUploadParameters( userImage, time, latitude, longitude );
+    const params = flattenUploadParameters( userImage, image.time, image.latitude, image.longitude );
 
     this.fetchScore( params );
   }
@@ -202,9 +188,9 @@ class OnlineServerResults extends Component<Props, State> {
   }
 
   resizeImage() {
-    const { uri } = this.state;
+    const { image } = this.state;
 
-    resizeImage( uri, 299 ).then( ( userImage ) => {
+    resizeImage( image.uri, 299 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageUri( userImage );
       } else {
@@ -251,15 +237,12 @@ class OnlineServerResults extends Component<Props, State> {
 
   addObservation() {
     const {
-      latitude,
-      longitude,
-      observation,
-      uri,
-      time
+      image,
+      observation
     } = this.state;
 
-    if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time );
+    if ( image.latitude && image.longitude ) {
+      addToCollection( observation, image.latitude, image.longitude, image.uri, image.time );
     }
   }
 
@@ -284,43 +267,29 @@ class OnlineServerResults extends Component<Props, State> {
   navigateToMatch() {
     const { navigation } = this.props;
     const {
+      image,
+      taxon,
       userImage,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
-      commonAncestor,
       seenDate,
-      uri,
-      scientificName,
-      latitude,
-      longitude,
-      time,
       match,
-      errorCode,
-      rank
+      errorCode
     } = this.state;
+
+    console.log( taxon, "taxon in results" );
 
     navigation.push( "Match", {
       userImage,
-      uri,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
+      image,
+      taxon,
       seenDate,
-      scientificName,
-      latitude,
-      longitude,
-      time,
-      commonAncestor,
       match,
-      errorCode,
-      rank
+      errorCode
     } );
   }
 
   render() {
     const {
-      uri,
+      image,
       error,
       match,
       clicked,
@@ -345,7 +314,7 @@ class OnlineServerResults extends Component<Props, State> {
             <ConfirmScreen
               checkForMatches={this.checkForMatches}
               clicked={clicked}
-              image={uri}
+              image={image.uri}
               match={match}
             />
           )}

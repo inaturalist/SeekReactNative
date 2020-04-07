@@ -56,20 +56,10 @@ type State = {
   showFlagModal: boolean,
   navigationPath: ?string,
   userImage: string,
-  uri: string,
-  taxaName: string,
-  taxaId: number,
-  speciesSeenImage: ?string,
-  scientificName: string,
-  latitude: number,
-  longitude: number,
-  time: number,
   seenDate: ?string,
-  commonAncestor: ?string,
   match: boolean,
   challengeShown: boolean,
   errorCode: number,
-  rank: number,
   route: ?string
 };
 
@@ -80,23 +70,17 @@ class MatchScreen extends Component<Props, State> {
     super();
 
     const {
+      image,
       userImage,
-      uri,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
-      scientificName,
-      latitude,
-      longitude,
-      time,
+      taxon,
       seenDate,
-      commonAncestor,
       match,
-      errorCode,
-      rank
+      errorCode
     } = route.params;
 
     this.state = {
+      image,
+      taxon,
       badge: null,
       latestLevel: null,
       challenge: null,
@@ -106,20 +90,10 @@ class MatchScreen extends Component<Props, State> {
       showFlagModal: false,
       navigationPath: null,
       userImage,
-      uri,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
-      scientificName,
-      latitude,
-      longitude,
-      time,
       seenDate,
-      commonAncestor,
       match,
       challengeShown: false,
       errorCode,
-      rank,
       route: null
     };
 
@@ -188,11 +162,14 @@ class MatchScreen extends Component<Props, State> {
   }
 
   showFailureScreen() {
+    const { taxon } = this.state;
+    taxon.commonAncestor = null;
+    taxon.speciesSeenImage = null;
+
     this.setState( {
       seenDate: null,
       match: false,
-      commonAncestor: null,
-      speciesSeenImage: null
+      taxon
     } );
   }
 
@@ -264,9 +241,9 @@ class MatchScreen extends Component<Props, State> {
   }
 
   checkLocationPermissions() {
-    const { latitude, longitude, errorCode } = this.state;
+    const { image, errorCode } = this.state;
 
-    if ( !latitude && !longitude ) {
+    if ( !image.latitude ) {
       if ( errorCode === 1 ) {
         createLocationPermissionsAlert();
       } else if ( errorCode === 2 ) {
@@ -292,6 +269,7 @@ class MatchScreen extends Component<Props, State> {
 
   render() {
     const {
+      image,
       badge,
       showChallengeModal,
       showLevelModal,
@@ -300,20 +278,17 @@ class MatchScreen extends Component<Props, State> {
       challenge,
       challengeInProgress,
       userImage,
-      uri,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
-      scientificName,
-      latitude,
-      longitude,
-      time,
       seenDate,
-      commonAncestor,
       match,
-      rank,
-      route
+      route,
+      taxon
     } = this.state;
+
+    const {
+      taxaName,
+      speciesSeenImage,
+      commonAncestor
+    } = taxon;
 
     let gradientColorDark;
     let gradientColorLight;
@@ -358,13 +333,13 @@ class MatchScreen extends Component<Props, State> {
             this.getRoute();
           }}
         />
-        {( match && !seenDate && latitude && route !== "Match" && route !== "PostStatus" ) && (
+        {( match && !seenDate && image.latitude && route !== "Match" && route !== "PostStatus" ) && (
           <Toasts
-            // badge={badge}
-            // incompleteChallenge={challengeInProgress}
+            badge={badge}
+            incompleteChallenge={challengeInProgress}
           />
         )}
-        {( match && !seenDate && latitude ) && (
+        {( match && !seenDate && image.latitude ) && (
           <Modal
             isVisible={showChallengeModal}
             onBackdropPress={() => this.closeChallengeModal()}
@@ -378,7 +353,7 @@ class MatchScreen extends Component<Props, State> {
             />
           </Modal>
         )}
-        {( match && !seenDate && latitude ) && (
+        {( match && !seenDate && image.latitude ) && (
           <Modal
             isVisible={showLevelModal}
             onBackdropPress={() => this.closeLevelModal()}
@@ -415,19 +390,12 @@ class MatchScreen extends Component<Props, State> {
             speciesSeenImage={speciesSeenImage}
           />
           <MatchContainer
+            image={image}
+            taxon={taxon}
             seenDate={seenDate}
             match={match}
-            commonAncestor={commonAncestor}
             setNavigationPath={this.setNavigationPath}
             gradientColorLight={gradientColorLight}
-            rank={rank}
-            uri={uri}
-            taxaId={taxaId}
-            scientificName={scientificName}
-            time={time}
-            latitude={latitude}
-            longitude={longitude}
-            taxaName={taxaName}
             userImage={userImage}
           />
           <Padding />

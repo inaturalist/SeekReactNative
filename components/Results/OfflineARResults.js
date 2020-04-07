@@ -17,28 +17,19 @@ import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
 import { getScientificNames } from "../../utility/settingsHelpers";
 
+const threshold = 0.7;
+
 type Props = {
   +route: any,
   +navigation: any
 }
 
 type State = {
-  threshold: number,
-  predictions: Array<Object>,
-  uri: string,
-  time: string,
-  latitude: number,
-  longitude: number,
-  speciesSeenImage: ?string,
+  taxon: Object,
   observation: Object,
-  taxaId: ?number,
-  taxaName: ?string,
-  commonAncestor: ?string,
   seenDate: ?string,
-  scientificName: ?string,
   match: ?boolean,
   errorCode: ?number,
-  rank: ?number,
   scientificNames: boolean
 };
 
@@ -46,31 +37,15 @@ class OfflineARResults extends Component<Props, State> {
   constructor( { route }: Props ) {
     super();
 
-    const {
-      uri,
-      predictions,
-      latitude,
-      longitude,
-      time
-    } = route.params;
+    const { image } = route.params;
 
     this.state = {
-      threshold: 0.7,
-      predictions,
-      uri,
-      time,
-      latitude,
-      longitude,
-      speciesSeenImage: null,
+      taxon: {},
+      image,
       observation: null,
-      taxaId: null,
-      taxaName: null,
-      commonAncestor: null,
       seenDate: null,
-      scientificName: null,
       match: null,
       errorCode: null,
-      rank: null,
       scientificNames: false
     };
   }
@@ -85,14 +60,15 @@ class OfflineARResults extends Component<Props, State> {
   }
 
   getUserLocation() {
+    const { image } = this.state;
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
 
-        this.setState( {
-          latitude,
-          longitude
-        } );
+        image.latitude = latitude;
+        image.longitude = longitude;
+
+        this.setState( { image } );
       }
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
@@ -107,6 +83,10 @@ class OfflineARResults extends Component<Props, State> {
     this.setState( { match }, () => this.showMatch() );
   }
 
+  setTaxon( taxon, match ) {
+    this.setState( { taxon }, () => this.setMatch( match ) );
+  }
+
   setCommonAncestor( ancestor: Object, speciesSeenImage: ?string ) {
     const { scientificNames } = this.state;
 
@@ -118,29 +98,32 @@ class OfflineARResults extends Component<Props, State> {
       } else {
         commonAncestor = ancestor.name;
       }
-      this.setState( {
+
+      const newTaxon = {
         commonAncestor,
         taxaId: ancestor.taxon_id,
         speciesSeenImage,
         scientificName: ancestor.name,
         rank: ancestor.rank
-      }, () => this.setMatch( false ) );
+      };
+
+      this.setTaxon( newTaxon, false );
     } );
   }
 
   setARCameraVisionResults() {
-    const { predictions, threshold } = this.state;
+    const { image } = this.state;
 
     const ancestorIds = [];
 
     if ( Platform.OS === "ios" ) {
-      predictions.forEach( ( prediction ) => {
+      image.predictions.forEach( ( prediction ) => {
         ancestorIds.push( Number( prediction.taxon_id ) );
       } );
     }
     // adding ancestor ids to take iOS camera experience offline
 
-    const species = predictions.find( leaf => ( leaf.rank === 10 && leaf.score > threshold ) );
+    const species = image.predictions.find( leaf => ( leaf.rank === 10 && leaf.score > threshold ) );
 
     if ( species ) {
       if ( Platform.OS === "ios" ) {
@@ -167,10 +150,8 @@ class OfflineARResults extends Component<Props, State> {
       } else {
         taxaName = species.name;
       }
+
       this.setState( {
-        taxaId,
-        taxaName,
-        scientificName: species.name,
         observation: {
           taxon: {
             default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
@@ -180,12 +161,20 @@ class OfflineARResults extends Component<Props, State> {
             iconic_taxon_id: iconicTaxonId,
             ancestor_ids: species.ancestor_ids
           }
-        },
+        }
+      } );
+
+      const newTaxon = {
+        taxaId,
+        taxaName,
+        scientificName: species.name,
         speciesSeenImage:
           taxa && taxa.taxon_photos[0]
             ? taxa.taxon_photos[0].photo.medium_url
             : null
-      }, () => this.setMatch( true ) );
+      };
+
+      this.setTaxon( newTaxon, true );
     } );
   }
 
@@ -224,8 +213,8 @@ class OfflineARResults extends Component<Props, State> {
   }
 
   checkForCommonAncestor() {
-    const { predictions, threshold } = this.state;
-    const reversePredictions = predictions.reverse();
+    const { image } = this.state;
+    const reversePredictions = image.predictions.reverse();
 
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
@@ -238,16 +227,13 @@ class OfflineARResults extends Component<Props, State> {
 
   addObservation() {
     const {
-      latitude,
-      longitude,
-      observation,
-      uri,
-      time
+      image,
+      observation
     } = this.state;
 
-    if ( latitude && longitude ) {
+    if ( image.latitude && image.longitude ) {
       // bug, user location isn't loading fast enough & sometimes is null
-      addToCollection( observation, latitude, longitude, uri, time );
+      addToCollection( observation, image );
     }
   }
 
@@ -258,9 +244,10 @@ class OfflineARResults extends Component<Props, State> {
   }
 
   requestAndroidPermissions() {
-    const { latitude, longitude } = this.state;
+    const { image } = this.state;
 
-    if ( !latitude || !longitude ) { // Android photo gallery images should already have lat/lng
+    if ( !image.latitude || !image.longitude ) {
+      // Android photo gallery images should already have lat/lng
       if ( Platform.OS === "android" ) {
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
@@ -278,41 +265,25 @@ class OfflineARResults extends Component<Props, State> {
   navigateToMatch() {
     const { navigation } = this.props;
     const {
-      taxaName,
-      taxaId,
-      time,
-      speciesSeenImage,
-      commonAncestor,
+      taxon,
+      image,
       seenDate,
-      uri,
-      scientificName,
-      latitude,
-      longitude,
       match,
-      errorCode,
-      rank
+      errorCode
     } = this.state;
 
     navigation.push( "Match", {
-      userImage: uri,
-      uri,
-      taxaName,
-      taxaId,
-      time,
-      speciesSeenImage,
+      taxon,
+      userImage: image.uri,
+      image,
       seenDate,
-      scientificName,
-      latitude,
-      longitude,
-      commonAncestor,
       match,
-      errorCode,
-      rank
+      errorCode
     } );
   }
 
   render() {
-    const { uri } = this.state;
+    const { image } = this.state;
 
     return (
       <>
@@ -323,7 +294,7 @@ class OfflineARResults extends Component<Props, State> {
             this.setScientificNames();
           }}
         />
-        <FullPhotoLoading uri={uri} />
+        <FullPhotoLoading uri={image.uri} />
       </>
     );
   }

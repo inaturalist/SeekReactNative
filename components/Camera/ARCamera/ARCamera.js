@@ -234,18 +234,18 @@ class ARCamera extends Component<Props, State> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    const results = {
+    const imageParams = {
       time: createTimestamp(), // add current time to AR camera photos,
       uri
     };
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
-      results.predictions = predictions;
+      imageParams.predictions = predictions;
 
-      navigation.navigate( "OfflineARResults", results );
+      navigation.navigate( "OfflineARResults", { image: imageParams } );
     } else {
-      navigation.navigate( "OnlineServerResults", results );
+      navigation.navigate( "OnlineServerResults", { image: imageParams } );
     }
   }
 

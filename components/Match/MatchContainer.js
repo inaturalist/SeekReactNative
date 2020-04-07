@@ -15,40 +15,34 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
+  image: Object,
+  taxon: Object,
   userImage: string,
-  uri: string,
-  taxaName: string,
-  taxaId: number,
-  scientificName: string,
-  latitude: number,
-  longitude: number,
-  time: number,
   seenDate: ?string,
-  commonAncestor: ?string,
   match: boolean,
-  rank: number,
   setNavigationPath: Function,
   gradientColorLight: string
 }
 
 const MatchContainer = ( {
+  taxon,
   seenDate,
   match,
-  commonAncestor,
   setNavigationPath,
   gradientColorLight,
-  rank,
-  uri,
-  taxaId,
-  scientificName,
-  time,
-  latitude,
-  longitude,
-  taxaName,
+  image,
   userImage
 }: Props ) => {
   const navigation = useNavigation();
   const speciesIdentified = seenDate || match;
+
+  const {
+    taxaName,
+    taxaId,
+    scientificName,
+    commonAncestor,
+    rank
+  } = taxon;
 
   let headerText;
   let text;
@@ -67,7 +61,7 @@ const MatchContainer = ( {
     speciesText = taxaName;
   } else if ( taxaName && match ) {
     headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
-    text = ( latitude && longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
+    text = ( image.latitude && image.longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
     speciesText = taxaName;
   } else if ( commonAncestor ) {
     headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
@@ -114,14 +108,14 @@ const MatchContainer = ( {
         <>
           <SpeciesNearby
             ancestorId={taxaId}
-            lat={latitude}
-            lng={longitude}
+            lat={image.latitude}
+            lng={image.longitude}
           />
           <View style={styles.marginMedium} />
         </>
       )}
       <View style={styles.textContainer}>
-        {( speciesIdentified ) && (
+        {speciesIdentified && (
           <TouchableOpacity
             onPress={() => setNavigationPath( "Camera" )}
             style={styles.link}
@@ -134,12 +128,9 @@ const MatchContainer = ( {
           taxaInfo={{
             preferredCommonName: taxaName || commonAncestor,
             taxaId,
-            uri,
             userImage,
             scientificName,
-            latitude,
-            longitude,
-            time
+            image
           }}
         />
       </View>

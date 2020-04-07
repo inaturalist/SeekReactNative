@@ -35,7 +35,7 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
       longitude = location.longitude;
     }
 
-    const results = {
+    const imageParams = {
       time,
       uri,
       latitude,
@@ -44,11 +44,11 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
-      results.predictions = predictions;
+      imageParams.predictions = predictions;
 
-      navigation.navigate( "OfflineARResults", results );
+      navigation.navigate( "OfflineARResults", { image: imageParams } );
     } else {
-      navigation.navigate( "OnlineServerResults", results );
+      navigation.navigate( "OnlineServerResults", { image: imageParams } );
     }
   };
 

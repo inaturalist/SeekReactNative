@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import { getScientificNames } from "../../utility/settingsHelpers";
 
 type Props = {
   image: Object,
@@ -34,7 +35,13 @@ const MatchContainer = ( {
   userImage
 }: Props ) => {
   const navigation = useNavigation();
+  const [scientificNames, setScientificNames] = useState( false );
   const speciesIdentified = seenDate || match;
+
+  const fetchScientificNames = async () => {
+    const names = await getScientificNames();
+    setScientificNames( names );
+  };
 
   const {
     taxaName,
@@ -55,14 +62,18 @@ const MatchContainer = ( {
     50: "class"
   };
 
+  useEffect( () => {
+    fetchScientificNames();
+  }, [] );
+
   if ( seenDate ) {
     headerText = i18n.t( "results.resighted" ).toLocaleUpperCase();
     text = i18n.t( "results.date_observed", { seenDate } );
-    speciesText = taxaName;
+    speciesText = !scientificNames ? taxaName : scientificName;
   } else if ( taxaName && match ) {
     headerText = i18n.t( "results.observed_species" ).toLocaleUpperCase();
     text = ( image.latitude && image.longitude ) ? i18n.t( "results.learn_more" ) : i18n.t( "results.learn_more_no_location" );
-    speciesText = taxaName;
+    speciesText = !scientificNames ? taxaName : scientificName;
   } else if ( commonAncestor ) {
     headerText = i18n.t( "results.believe" ).toLocaleUpperCase();
     if ( rank === 20 ) {
@@ -75,7 +86,7 @@ const MatchContainer = ( {
       headerText += ` ${i18n.t( `results.${ancestorRank[50]}` ).toLocaleUpperCase()}`;
     }
     text = i18n.t( "results.common_ancestor" );
-    speciesText = commonAncestor;
+    speciesText = !scientificNames ? commonAncestor : scientificName;
   } else {
     headerText = i18n.t( "results.no_identification" ).toLocaleUpperCase();
     text = i18n.t( "results.sorry" );

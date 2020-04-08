@@ -16,7 +16,6 @@ import {
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, createTimestamp } from "../../utility/dateHelpers";
 
@@ -28,7 +27,6 @@ type Props = {
 type State = {
   image: Object,
   taxon: Object,
-  userImage: ?string,
   observation: ?Object,
   seenDate: ?string,
   error: ?string,
@@ -47,7 +45,6 @@ class OnlineServerResults extends Component<Props, State> {
     this.state = {
       taxon: {},
       image,
-      userImage: null,
       observation: null,
       seenDate: null,
       error: null,
@@ -100,10 +97,6 @@ class OnlineServerResults extends Component<Props, State> {
         this.checkForMatches();
       }
     } );
-  }
-
-  setImageUri( uri: string ) {
-    this.setState( { userImage: uri }, () => this.getParamsForOnlineVision() );
   }
 
   setSeenDate( seenDate: ?string ) {
@@ -162,14 +155,10 @@ class OnlineServerResults extends Component<Props, State> {
     } );
   }
 
-  getParamsForOnlineVision() {
-    const {
-      userImage,
-      image
-    } = this.state;
+  async getParamsForOnlineVision() {
+    const { image } = this.state;
 
-    const params = flattenUploadParameters( userImage, image.time, image.latitude, image.longitude );
-
+    const params = await flattenUploadParameters( image );
     this.fetchScore( params );
   }
 
@@ -186,18 +175,6 @@ class OnlineServerResults extends Component<Props, State> {
 
   showNoMatch() {
     this.navigateToMatch();
-  }
-
-  resizeImage() {
-    const { image } = this.state;
-
-    resizeImage( image.uri, 299 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageUri( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
   }
 
   fetchScore( params: Object ) {
@@ -243,7 +220,7 @@ class OnlineServerResults extends Component<Props, State> {
     } = this.state;
 
     if ( image.latitude && image.longitude ) {
-      addToCollection( observation, image.latitude, image.longitude, image.uri, image.time );
+      addToCollection( observation, image );
     }
   }
 
@@ -271,17 +248,13 @@ class OnlineServerResults extends Component<Props, State> {
       image,
       taxon,
       seenDate,
-      match,
       errorCode
     } = this.state;
-
-    console.log( taxon, "taxon in results" );
 
     navigation.push( "Match", {
       image,
       taxon,
       seenDate,
-      match,
       errorCode
     } );
   }
@@ -290,7 +263,6 @@ class OnlineServerResults extends Component<Props, State> {
     const {
       image,
       error,
-      match,
       clicked,
       numberOfHours
     } = this.state;
@@ -300,7 +272,7 @@ class OnlineServerResults extends Component<Props, State> {
         <NavigationEvents
           onWillFocus={() => {
             this.getLocation();
-            this.resizeImage();
+            this.getParamsForOnlineVision();
           }}
         />
         {error
@@ -311,10 +283,9 @@ class OnlineServerResults extends Component<Props, State> {
             />
           ) : (
             <ConfirmScreen
-              checkForMatches={this.checkForMatches}
+              updateClicked={this.checkForMatches}
               clicked={clicked}
               image={image.uri}
-              match={match}
             />
           )}
       </>

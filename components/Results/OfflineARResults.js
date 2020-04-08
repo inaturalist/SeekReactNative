@@ -61,10 +61,13 @@ class OfflineARResults extends Component<Props, State> {
         image.latitude = latitude;
         image.longitude = longitude;
 
-        this.setState( { image } );
+        this.setState( { image }, () => this.setARCameraVisionResults() );
+      } else {
+        this.setARCameraVisionResults();
       }
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
+      this.setARCameraVisionResults();
     } );
   }
 
@@ -233,6 +236,8 @@ class OfflineARResults extends Component<Props, State> {
       } else {
         this.getUserLocation();
       }
+    } else {
+      this.setARCameraVisionResults();
     }
   }
 
@@ -242,7 +247,6 @@ class OfflineARResults extends Component<Props, State> {
       taxon,
       image,
       seenDate,
-      match,
       errorCode
     } = this.state;
 
@@ -250,7 +254,6 @@ class OfflineARResults extends Component<Props, State> {
       taxon,
       image,
       seenDate,
-      match,
       errorCode
     } );
   }
@@ -262,7 +265,6 @@ class OfflineARResults extends Component<Props, State> {
       <>
         <NavigationEvents
           onWillFocus={() => {
-            this.setARCameraVisionResults();
             this.requestAndroidPermissions();
           }}
         />

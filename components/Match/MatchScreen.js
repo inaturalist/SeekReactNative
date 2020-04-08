@@ -74,7 +74,6 @@ class MatchScreen extends Component<Props, State> {
       image,
       taxon,
       seenDate,
-      match,
       errorCode
     } = route.params;
 
@@ -90,7 +89,7 @@ class MatchScreen extends Component<Props, State> {
       showFlagModal: false,
       navigationPath: null,
       seenDate,
-      match,
+      match: taxon.taxaName && !seenDate,
       challengeShown: false,
       errorCode,
       route: null
@@ -294,11 +293,7 @@ class MatchScreen extends Component<Props, State> {
     let gradientColorLight;
     let speciesText;
 
-    if ( seenDate ) {
-      gradientColorDark = "#22784d";
-      gradientColorLight = colors.seekForestGreen;
-      speciesText = taxaName;
-    } else if ( taxaName && match ) {
+    if ( seenDate || match ) {
       gradientColorDark = "#22784d";
       gradientColorLight = colors.seekForestGreen;
       speciesText = taxaName;
@@ -309,7 +304,6 @@ class MatchScreen extends Component<Props, State> {
     } else {
       gradientColorDark = "#404040";
       gradientColorLight = "#5e5e5e";
-      speciesText = null;
     }
 
     return (
@@ -317,14 +311,14 @@ class MatchScreen extends Component<Props, State> {
         <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
         <NavigationEvents
           onDidFocus={() => {
-            if ( match && !seenDate ) {
+            if ( match ) {
               this.checkForChallengesCompleted();
               this.checkForNewBadges();
               this.checkLocationPermissions();
             }
           }}
           onWillBlur={() => {
-            if ( match && !seenDate ) {
+            if ( match ) {
               setChallengeProgress( "none" );
             }
           }}
@@ -333,13 +327,13 @@ class MatchScreen extends Component<Props, State> {
             this.getRoute();
           }}
         />
-        {( match && !seenDate && image.latitude && route !== "Match" && route !== "PostStatus" ) && (
+        {( match && image.latitude && route !== "Match" && route !== "PostStatus" ) && (
           <Toasts
             badge={badge}
             incompleteChallenge={challengeInProgress}
           />
         )}
-        {( match && !seenDate && image.latitude ) && (
+        {( match && image.latitude ) && (
           <Modal
             isVisible={showChallengeModal}
             onBackdropPress={() => this.closeChallengeModal()}
@@ -353,7 +347,7 @@ class MatchScreen extends Component<Props, State> {
             />
           </Modal>
         )}
-        {( match && !seenDate && image.latitude ) && (
+        {( match && image.latitude ) && (
           <Modal
             isVisible={showLevelModal}
             onBackdropPress={() => this.closeLevelModal()}

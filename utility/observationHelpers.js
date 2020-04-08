@@ -39,8 +39,6 @@ const addToCollection = async ( observation, image ) => {
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
   const uuid = await createUUID();
 
-  console.log( image, "image in add to collection" );
-
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 

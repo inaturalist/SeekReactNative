@@ -36,11 +36,13 @@ const MatchContainer = ( {
 }: Props ) => {
   const navigation = useNavigation();
   const [scientificNames, setScientificNames] = useState( false );
+  const [loading, setLoading] = useState( true );
   const speciesIdentified = seenDate || match;
 
   const fetchScientificNames = async () => {
     const names = await getScientificNames();
     setScientificNames( names );
+    setLoading( false );
   };
 
   const {
@@ -63,6 +65,7 @@ const MatchContainer = ( {
   };
 
   useEffect( () => {
+    setLoading( true );
     fetchScientificNames();
   }, [] );
 
@@ -97,7 +100,7 @@ const MatchContainer = ( {
       <View style={styles.marginLarge} />
       <View style={styles.textContainer}>
         <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-        {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
+        <Text style={styles.speciesText}>{( !loading && speciesText ) && speciesText}</Text>
         <Text style={styles.text}>{text}</Text>
       </View>
       <View style={styles.marginMedium} />

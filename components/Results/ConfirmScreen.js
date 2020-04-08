@@ -15,15 +15,13 @@ import BackArrow from "../UIComponents/Buttons/BackArrow";
 
 type Props = {
   +image: Object,
-  +match: ?boolean,
-  +checkForMatches: Function,
+  +updateClicked: Function,
   +clicked: boolean
 }
 
 const ConfirmScreen = ( {
   image,
-  checkForMatches,
-  match,
+  updateClicked,
   clicked
 }: Props ) => (
   <View>
@@ -36,22 +34,22 @@ const ConfirmScreen = ( {
       <View />
     </View>
     <View style={styles.imageContainer}>
-      {clicked && match === null ? (
+      {clicked && (
         <View style={styles.loadingWheel}>
           <LoadingWheel color="white" />
         </View>
-      ) : null}
-      {image ? (
+      )}
+      {image && (
         <Image
           source={{ uri: image }}
           style={styles.image}
         />
-      ) : null}
+      )}
     </View>
     <View style={styles.footer}>
       <GreenButton
         color={clicked ? "#38976d33" : null}
-        handlePress={() => checkForMatches()}
+        handlePress={() => updateClicked()}
         text="confirm.button"
       />
     </View>

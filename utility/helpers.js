@@ -6,6 +6,7 @@ import Realm from "realm";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
+import { resizeImage } from "./photoHelpers";
 
 import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
@@ -66,10 +67,27 @@ const addARCameraFiles = async () => {
   }
 };
 
-const flattenUploadParameters = ( uri, time, latitude, longitude ) => {
+const resizePhoto = async ( uri ) => {
+  try {
+    const image = await resizeImage( uri, 299 );
+    return image;
+  } catch ( e ) {
+    return null;
+  }
+};
+
+const flattenUploadParameters = async ( image ) => {
+  const {
+    latitude,
+    longitude,
+    uri,
+    time
+  } = image;
+  const userImage = await resizePhoto( uri );
+
   const params = {
     image: new FileUpload( {
-      uri,
+      uri: userImage,
       name: "photo.jpeg",
       type: "image/jpeg"
     } ),

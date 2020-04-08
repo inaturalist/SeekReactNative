@@ -5,7 +5,6 @@ import { View } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
-import Error from "./Error";
 import { colors } from "../../../styles/global";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
 import i18n from "../../../i18n";
@@ -16,16 +15,14 @@ type Props = {
   latitude: ?number,
   longitude: ?number,
   taxaType: string,
-  error: ?string,
-  checkForErrors: Function
+  checkInternet: Function
 }
 
 const SpeciesNearbyContainer = ( {
   taxaType,
   latitude,
   longitude,
-  error,
-  checkForErrors
+  checkInternet
 }: Props ) => {
   const [taxa, setTaxa] = useState( [] );
   const [loading, setLoading] = useState( true );
@@ -34,15 +31,13 @@ const SpeciesNearbyContainer = ( {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
     // $FlowFixMe
     const queryString = Object.keys( params ).map( key => `${key}=${params[key]}` ).join( "&" );
-
     const options = { headers: { "User-Agent": createUserAgent() } };
 
     fetch( `${site}?${queryString}`, options )
       .then( response => response.json() )
-      .then( ( { results } ) => {
-        setTaxa( results.map( r => r.taxon ) );
-      } ).catch( () => checkForErrors() );
-  }, [checkForErrors] );
+      .then( ( { results } ) => setTaxa( results.map( r => r.taxon ) ) )
+      .catch( () => checkInternet() );
+  }, [checkInternet] );
 
   const setParams = useCallback( () => {
     const params = {
@@ -63,50 +58,30 @@ const SpeciesNearbyContainer = ( {
   }, [taxaType, latitude, longitude, fetchSpeciesNearby] );
 
   useEffect( () => {
-    if ( loading ) {
+    if ( latitude && loading ) {
+      setParams();
+    } else if ( taxaType && loading ) {
       setParams();
     }
-  }, [loading, setParams] );
+  }, [latitude, taxaType, loading, setParams] );
 
   useEffect( () => {
-    if ( !error && latitude ) {
-      setLoading( true ); // set loading when user changes location or taxaType
-    } else {
-      checkForErrors();
+    if ( latitude || taxaType ) {
+      setLoading( true );
     }
-  }, [taxaType, latitude, longitude, error, checkForErrors] );
+  }, [latitude, taxaType] );
 
   useEffect( () => {
-    if ( taxa.length > 0 ) {
+    if ( taxa && taxa.length > 0 ) {
       setLoading( false );
     }
   }, [taxa] );
 
-  const renderSpeciesContainer = () => {
-    let species;
-
-    if ( error ) {
-      species = (
-        <Error
-          error={error}
-          checkForErrors={checkForErrors}
-        />
-      );
-    } else if ( loading ) {
-      species = (
-        <LoadingWheel color={colors.black} />
-      );
-    } else {
-      species = (
-        <SpeciesNearbyList taxa={taxa} />
-      );
-    }
-    return species;
-  };
-
   return (
     <View style={styles.speciesNearbyContainer}>
-      {renderSpeciesContainer()}
+      {loading
+        ? <LoadingWheel color={colors.black} />
+        : <SpeciesNearbyList taxa={taxa} />}
     </View>
   );
 };

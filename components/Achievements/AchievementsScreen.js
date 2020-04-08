@@ -77,9 +77,11 @@ const AchievementsScreen = () => {
   };
 
   useEffect( () => {
-    fetchBadges();
-    fetchSpeciesCount();
-  }, [] );
+    navigation.addListener( "focus", () => {
+      fetchBadges();
+      fetchSpeciesCount();
+    } );
+  }, [navigation] );
 
   return (
     <ScrollWithHeader header="badges.achievements">

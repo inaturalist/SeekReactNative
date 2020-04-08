@@ -166,7 +166,6 @@ class PostScreen extends Component<Props, State> {
   }
 
   setAccuracy( accuracy: number ) {
-    console.log( accuracy, "set accuracy" );
     this.setState( { accuracy } );
   }
 
@@ -360,8 +359,6 @@ class PostScreen extends Component<Props, State> {
     } else {
       geoprivacyState = "open";
     }
-
-    console.log( accuracy, "accuracy from user location" );
 
     const params = {
       observation: {

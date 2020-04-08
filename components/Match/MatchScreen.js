@@ -141,6 +141,7 @@ class MatchScreen extends Component<Props, State> {
   }
 
   openLevelModal() {
+    console.log( "opening level modal" );
     this.setState( { showLevelModal: true }, () => {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
         if ( speciesCount === 30 || speciesCount === 75 ) {
@@ -227,11 +228,11 @@ class MatchScreen extends Component<Props, State> {
     const {
       challenge,
       latestLevel,
-      challengeShown,
-      route
+      challengeShown
     } = this.state;
 
-    if ( ( !challenge && !latestLevel ) || challengeShown || route === "Match" ) {
+    if ( ( !challenge && !latestLevel ) || challengeShown ) {
+    // removed route === "Match" so latestLevel modal shows, but not sure why that was here
       this.navigateTo();
     } else if ( challenge ) {
       this.openChallengeModal();
@@ -327,10 +328,10 @@ class MatchScreen extends Component<Props, State> {
             this.getRoute();
           }}
         />
-        {( match && image.latitude && route !== "Match" && route !== "PostStatus" ) && (
+        {( match && image.latitude && route !== "PostStatus" ) && ( // also removed route === "Match" here
           <Toasts
             badge={badge}
-            incompleteChallenge={challengeInProgress}
+            challenge={challengeInProgress}
           />
         )}
         {( match && image.latitude ) && (

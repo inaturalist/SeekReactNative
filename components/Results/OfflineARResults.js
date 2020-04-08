@@ -231,6 +231,7 @@ class OfflineARResults extends Component<Props, State> {
             this.getUserLocation();
           } else {
             this.setLocationErrorCode( 1 );
+            this.setARCameraVisionResults();
           }
         } );
       } else {

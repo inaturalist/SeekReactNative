@@ -100,7 +100,7 @@ const MatchContainer = ( {
       <View style={styles.marginLarge} />
       <View style={styles.textContainer}>
         <Text style={[styles.headerText, { color: gradientColorLight }]}>{headerText}</Text>
-        <Text style={styles.speciesText}>{( !loading && speciesText ) && speciesText}</Text>
+        {( !loading && speciesText ) && <Text style={styles.speciesText}>{speciesText}</Text>}
         <Text style={styles.text}>{text}</Text>
       </View>
       <View style={styles.marginMedium} />

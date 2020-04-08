@@ -6,6 +6,7 @@ import {
   Text
 } from "react-native";
 import Realm from "realm";
+import { useNavigation } from "@react-navigation/native";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challenges";
@@ -17,6 +18,7 @@ import NoChallenges from "../Home/Challenges/NoChallenges";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const ChallengeScreen = () => {
+  const navigation = useNavigation();
   const [notStarted, setNotStarted] = useState( [] );
   const [started, setStarted] = useState( [] );
   const [completed, setCompleted] = useState( [] );
@@ -39,9 +41,11 @@ const ChallengeScreen = () => {
   };
 
   useEffect( () => {
-    recalculateChallenges();
-    fetchChallenges();
-  }, [] );
+    navigation.addListener( "focus", () => {
+      recalculateChallenges();
+      fetchChallenges();
+    } );
+  }, [navigation] );
 
   const renderStarted = () => (
     <>

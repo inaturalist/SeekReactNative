@@ -15,17 +15,21 @@ import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "./BottomSpacer";
 import GreenHeader from "./GreenHeader";
 import Padding from "./Padding";
+import LoadingWheel from "./LoadingWheel";
+import { colors } from "../../styles/global";
 
 type Props = {
   +children: any,
   +header: string,
-  +route?: ?string
+  +route?: ?string,
+  +loading?: boolean
 };
 
 const ScrollWithHeader = ( {
   children,
   header,
-  route
+  route,
+  loading
 }: Props ) => {
   const insets = useSafeArea();
   const navigation = useNavigation();
@@ -37,17 +41,24 @@ const ScrollWithHeader = ( {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
-      <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
-        {children}
-        <Padding />
-        {Platform.OS === "ios" && <BottomSpacer />}
-      </ScrollView>
+      {loading ? (
+        <View style={[styles.loadingWheel, styles.containerWhite]}>
+          <LoadingWheel color={colors.darkGray} />
+        </View>
+      ) : (
+        <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
+          {children}
+          <Padding />
+          {Platform.OS === "ios" && <BottomSpacer />}
+        </ScrollView>
+      )}
     </View>
   );
 };
 
 ScrollWithHeader.defaultProps = {
-  route: null
+  route: null,
+  loading: false
 };
 
 export default ScrollWithHeader;

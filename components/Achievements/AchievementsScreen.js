@@ -25,6 +25,7 @@ import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 const AchievementsScreen = () => {
   const navigation = useNavigation();
   const [speciesCount, setSpeciesCount] = useState( null );
+  const [loading, setLoading] = useState( true );
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
@@ -65,6 +66,7 @@ const AchievementsScreen = () => {
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
           badgesEarned
         } );
+        setLoading( false );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -84,7 +86,7 @@ const AchievementsScreen = () => {
   }, [navigation] );
 
   return (
-    <ScrollWithHeader header="badges.achievements">
+    <ScrollWithHeader header="badges.achievements" loading={loading}>
       <Spacer backgroundColor="#22784d" />
       {state.level && (
         <LevelHeader

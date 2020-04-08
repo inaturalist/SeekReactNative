@@ -22,19 +22,21 @@ const ChallengeScreen = () => {
   const [notStarted, setNotStarted] = useState( [] );
   const [started, setStarted] = useState( [] );
   const [completed, setCompleted] = useState( [] );
+  const [loading, setLoading] = useState( true );
   const noChallenges = notStarted.length === 0 && started.length === 0;
 
   const fetchChallenges = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", true );
-        const challengesNotStarted = challenges.filtered( "startedDate == null" );
         const challengesStarted = challenges.filtered( "startedDate != null AND percentComplete != 100" );
+        const challengesNotStarted = challenges.filtered( "startedDate == null" );
         const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
-        setNotStarted( challengesNotStarted );
         setStarted( challengesStarted );
+        setNotStarted( challengesNotStarted );
         setCompleted( challengesCompleted );
+        setLoading( false );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -119,6 +121,7 @@ const ChallengeScreen = () => {
     <ScrollWithHeader
       header="challenges.header"
       route="Home"
+      loading={loading}
     >
       {noChallenges && (
         <View style={styles.margins}>

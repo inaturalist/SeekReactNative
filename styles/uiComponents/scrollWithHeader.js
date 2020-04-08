@@ -8,5 +8,10 @@ export default StyleSheet.create( {
   },
   containerWhite: {
     backgroundColor: colors.white
+  },
+  loadingWheel: {
+    alignItems: "center",
+    flexGrow: 1,
+    justifyContent: "center"
   }
 } );

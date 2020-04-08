@@ -49,7 +49,8 @@ class SpeciesNearby extends Component<Props> {
       observed_on: new Date(),
       seek_exceptions: true,
       locale: i18n.locale,
-      taxon_id: ancestorId
+      taxon_id: ancestorId,
+      all_photos: true // this allows for ARR license filtering
     };
 
     this.fetchSpeciesNearby( params );

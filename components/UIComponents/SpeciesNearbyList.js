@@ -30,20 +30,22 @@ const SpeciesNearbyList = ( {
   const route = useRoute();
 
   const renderSpeciesImage = ( item ) => {
-    let photo;
+    const photo = item.default_photo;
+    const extraPhotos = item.taxonPhotos || item.taxon_photos;
+    let uri;
 
-    if ( item.default_photo.medium_url && item.default_photo.license_code ) {
-      photo = item.default_photo.medium_url;
-    } else if ( item.taxonPhotos ) {
-      const photoWithLicense = item.taxonPhotos.find( p => p.photo.license_code );
-      if ( photoWithLicense ) {
-        photo = photoWithLicense.photo.medium_url;
+    if ( photo.medium_url && photo.license_code ) {
+      uri = photo.medium_url;
+    } else if ( extraPhotos ) {
+      const licensedPhoto = extraPhotos.find( p => p.photo.license_code );
+      if ( licensedPhoto ) {
+        uri = licensedPhoto.photo.medium_url;
       }
     }
 
     return (
       <Image
-        source={{ uri: photo }}
+        source={{ uri }}
         style={styles.cellImage}
       />
     );

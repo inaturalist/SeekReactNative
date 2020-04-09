@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, Text } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 
@@ -11,15 +11,12 @@ import { colors } from "../styles/global";
 import { ScientificNamesContext } from "./UserContext";
 
 const SettingsScreen = () => {
-  const [index, setIndex] = useState( 0 );
-
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
   ];
 
   const updateIndex = ( i, names ) => {
-    setIndex( i );
     if ( i === 0 ) {
       toggleScientificNames( false );
       names.toggleNames( false );
@@ -39,7 +36,6 @@ const SettingsScreen = () => {
       <ScientificNamesContext.Consumer>
         {names => (
           <View style={styles.marginSmall}>
-            {console.log( names, "sci names" )}
             {radioButtons.map( ( obj, i ) => (
               <RadioButton
                 key={`${obj}${i}`}
@@ -48,7 +44,9 @@ const SettingsScreen = () => {
                 <RadioButtonInput
                   obj={obj}
                   index={i}
-                  isSelected={i === index}
+                  isSelected={
+                    ( i === 0 && !names.scientificNames ) || ( i === 1 && names.scientificNames )
+                  }
                   onPress={( value ) => updateIndex( value, names )}
                   borderWidth={1}
                   buttonInnerColor={colors.seekForestGreen}

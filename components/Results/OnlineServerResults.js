@@ -73,23 +73,6 @@ class OnlineServerResults extends Component<Props, State> {
     } );
   }
 
-  getLocation() {
-    const { image } = this.state;
-
-    if ( !image.latitude || !image.longitude ) {
-      // check to see if there are already photo coordinates
-      if ( Platform.OS === "android" ) {
-        checkLocationPermissions().then( ( granted ) => {
-          if ( granted ) {
-            this.getUserLocation();
-          }
-        } );
-      } else {
-        this.getUserLocation();
-      }
-    }
-  }
-
   setMatch( match: boolean ) {
     const { clicked } = this.state;
     this.setState( { match }, () => {
@@ -123,6 +106,8 @@ class OnlineServerResults extends Component<Props, State> {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
+    this.setState( { observation: species } );
+
     getTaxonCommonName( taxon.id ).then( ( commonName ) => {
       const newTaxon = {
         taxaId: taxon.id,
@@ -132,7 +117,6 @@ class OnlineServerResults extends Component<Props, State> {
       };
 
       this.setTaxon( newTaxon, true );
-      this.setState( { observation: species } );
     } );
   }
 
@@ -219,6 +203,8 @@ class OnlineServerResults extends Component<Props, State> {
       observation
     } = this.state;
 
+    console.log( observation, "observation.taxon" );
+
     if ( image.latitude && image.longitude ) {
       addToCollection( observation, image );
     }
@@ -239,6 +225,27 @@ class OnlineServerResults extends Component<Props, State> {
       this.showMatch();
     } else if ( match === false ) {
       this.showNoMatch();
+    }
+  }
+
+  requestAndroidPermissions() {
+    const { image } = this.state;
+
+    if ( !image.latitude || !image.longitude ) {
+      // check to see if there are already photo coordinates
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            this.getUserLocation();
+            this.getParamsForOnlineVision();
+          }
+        } );
+      } else {
+        this.getUserLocation();
+        this.getParamsForOnlineVision();
+      }
+    } else {
+      this.getParamsForOnlineVision();
     }
   }
 
@@ -270,10 +277,7 @@ class OnlineServerResults extends Component<Props, State> {
     return (
       <>
         <NavigationEvents
-          onWillFocus={() => {
-            this.getLocation();
-            this.getParamsForOnlineVision();
-          }}
+          onWillFocus={() => this.requestAndroidPermissions()}
         />
         {error
           ? (

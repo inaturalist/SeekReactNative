@@ -9,9 +9,10 @@ import {
 export default StyleSheet.create( {
   backButton: {
     left: 23,
-    paddingBottom: 18,
-    paddingTop: 18,
-    position: "absolute"
+    paddingBottom: 28,
+    paddingTop: 28,
+    position: "absolute",
+    zIndex: 1
   },
   buttonBlue: {
     backgroundColor: colors.seekTeal

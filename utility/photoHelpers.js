@@ -128,7 +128,6 @@ const createBackupUri = async ( uri, uuid ) => {
       const backupFilepath = `${dirPictures}/${newImageName}`; // stored in document directory
       const imageMoved = await movePhotoToAppStorage( resizedImage, backupFilepath );
       if ( imageMoved ) {
-        console.log( imageMoved );
         return backupFilepath;
       }
       return null;

@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import {
-  Dimensions,
-  ScrollView,
+  FlatList,
   View
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -9,8 +8,6 @@ import LinearGradient from "react-native-linear-gradient";
 import styles from "../../styles/onboarding";
 import Dots from "./Dots";
 import Button from "./Button";
-
-const { width } = Dimensions.get( "window" );
 
 type Props = {
   +children:any
@@ -22,83 +19,53 @@ const gradientColors = {
   2: ["#3ab6bb", "#184b56"]
 };
 
-class Swiper extends Component<Props> {
-  constructor() {
-    super();
+const Swiper = ( { children }: Props ) => {
+  const [index, setIndex] = useState( 0 );
+  const [offset, setOffset] = useState( 0 );
 
-    this.state = this.initState( this.props );
-  }
-
-  handleScrollEnd = ( e ) => {
-    this.updateIndex( e.nativeEvent.contentOffset
-      ? e.nativeEvent.contentOffset.x
-      // When scrolled with .scrollTo() on Android there is no contentOffset
-      : e.nativeEvent.position * width );
-  }
-
-  updateIndex = ( offset ) => {
-    const diff = offset - this.internals.offset;
-    let { index } = this.state;
-
-    if ( !diff ) {
+  const calculateScrollIndex = ( e ) => {
+    const { contentOffset } = e.nativeEvent;
+    const { x } = contentOffset;
+    if ( x === offset ) {
       return;
     }
 
-    index = parseInt( index + Math.round( diff / width ), 10 );
-    this.internals.offset = offset;
+    if ( x === 0 ) {
+      setIndex( 0 );
+    } else if ( x > offset && index < 2 ) {
+      setIndex( index + 1 );
+    } else if ( x < offset && index > 0 ) {
+      setIndex( index - 1 );
+    }
+    setOffset( x );
+  };
 
-    this.setState( { index } );
-  }
-
-  initState() {
-    const index = 0;
-    const offset = width * index;
-
-    const state = {
-      total: 3,
-      index
-    };
-    // Component internals as a class property,
-    // and not state to avoid component re-renders when updated
-    this.internals = {
-      offset
-    };
-
-    return state;
-  }
-
-  renderScrollView = pages => (
-    <ScrollView
-      ref={( component ) => { this.scrollView = component; }}
+  const renderScrollView = ( pages ) => (
+    <FlatList
       bounces={false}
+      data={pages}
       horizontal
-      onMomentumScrollEnd={this.handleScrollEnd}
+      onScrollEndDrag={( e ) => calculateScrollIndex( e )}
       pagingEnabled
-      showsHorizontalScrollIndicator={false}
-    >
-      {pages.map( ( page, i ) => (
-        <View key={`page-${i.toString()}`} style={styles.contentContainer}>
-          {page}
+      renderItem={( { item } ) => (
+        <View style={styles.contentContainer}>
+          {item}
         </View>
-      ) )}
-    </ScrollView>
-  )
+      )}
+      showsHorizontalScrollIndicator={false}
+    />
+  );
 
-  render() {
-    const { children } = this.props;
-    const { index } = this.state;
-
-    return (
-      <LinearGradient
-        colors={[gradientColors[index][0], gradientColors[index][1]]}
-        style={styles.container}
-      >
-        {this.renderScrollView( children )}
-        <Dots index={index} />
-        <Button index={index} />
-      </LinearGradient>
-    );
-  }
-}
+  return (
+    <LinearGradient
+      colors={[gradientColors[index][0], gradientColors[index][1]]}
+      style={styles.container}
+    >
+      {renderScrollView( children )}
+      <Dots index={index} />
+      <Button index={index} />
+    </LinearGradient>
+  );
+};
 
 export default Swiper;

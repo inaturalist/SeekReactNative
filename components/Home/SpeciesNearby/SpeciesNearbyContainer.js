@@ -59,9 +59,7 @@ const SpeciesNearbyContainer = ( {
   }, [taxaType, latitude, longitude, fetchSpeciesNearby] );
 
   useEffect( () => {
-    if ( latitude && loading ) {
-      setParams();
-    } else if ( taxaType && loading ) {
+    if ( latitude !== null && loading ) {
       setParams();
     }
   }, [latitude, taxaType, loading, setParams] );

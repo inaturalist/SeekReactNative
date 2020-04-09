@@ -16,13 +16,13 @@ import realmConfig from "../../models";
 import GreenHeader from "../UIComponents/GreenHeader";
 import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
-import Footer from "../UIComponents/Footer";
 import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 
 const NotificationsScreen = () => {
   const insets = useSafeArea();
   const navigation = useNavigation();
+
   const scrollView = useRef( null );
   const [notifications, setNotifications] = useState( [] );
 
@@ -70,7 +70,7 @@ const NotificationsScreen = () => {
       {notifications.length > 0 ? (
         <FlatList
           ref={scrollView}
-          contentContainerStyle={styles.containerWhite}
+          contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
           data={notifications}
           keyExtractor={( item, i ) => `${item}${i}`}
           ListFooterComponent={() => (

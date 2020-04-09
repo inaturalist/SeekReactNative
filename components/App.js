@@ -44,6 +44,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getLoggedIn();
+    this.fetchScientificNames();
     // don't block splash screen with setup
     setTimeout( setupBadges, 3000 );
     setTimeout( setupChallenges, 3000 );

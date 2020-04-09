@@ -1,9 +1,7 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  row,
-  fonts,
-  dimensions
+  fonts
 } from "./global";
 
 export default StyleSheet.create( {
@@ -11,26 +9,30 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
+  header: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12
+  },
   margin: {
-    marginTop: 30
+    marginTop: 27
   },
   marginHorizontal: {
     justifyContent: "space-between",
-    marginHorizontal: 34
+    marginHorizontal: 28
   },
-  row,
-  secondHeaderText: {
-    color: colors.white,
-    fontFamily: fonts.book,
-    fontSize: 22,
-    lineHeight: 30,
-    textAlign: "center"
+  marginSmall: {
+    marginTop: 19
+  },
+  radioMargin: {
+    marginBottom: 11,
+    marginLeft: 38
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21,
-    maxWidth: dimensions.width / 2 + 40
+    lineHeight: 21
   }
 } );

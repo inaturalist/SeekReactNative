@@ -11,7 +11,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/match/match";
 import { fetchPostingSuccess, savePostingSuccess } from "../../utility/loginHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +color: string,

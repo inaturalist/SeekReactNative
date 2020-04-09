@@ -15,7 +15,7 @@ import icons from "../../assets/icons";
 import styles from "../../styles/species/speciesMap";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +region: Object,

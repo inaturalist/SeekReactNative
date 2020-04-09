@@ -11,7 +11,8 @@ import { fetchiNatStats } from "../utility/iNatStatsHelpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { regenerateBackupUris, deleteDebugLogAfter7Days } from "../utility/photoHelpers";
-import UserContext from "./UserContext";
+import { UserContext, ScientificNamesContext } from "./UserContext";
+import { getScientificNames } from "../utility/settingsHelpers";
 
 // if ( process.env.NODE_ENV !== "production" ) {
 //   const whyDidYouRender = require( "@welldone-software/why-did-you-render" );
@@ -29,9 +30,15 @@ class App extends Component {
       this.getLoggedIn();
     };
 
+    this.toggleNames = () => {
+      this.fetchScientificNames();
+    };
+
     this.state = {
       login: null, // eslint-disable-line
-      toggleLogin: this.toggleLogin // eslint-disable-line
+      toggleLogin: this.toggleLogin, // eslint-disable-line,
+      scientificNames: false, // eslint-disable-line,
+      toggleNames: this.toggleNames, // eslint-disable-line,
     };
   }
 
@@ -70,6 +77,11 @@ class App extends Component {
     this.setState( { login } ); // eslint-disable-line
   }
 
+  fetchScientificNames = async () => {
+    const scientificNames = await getScientificNames();
+    this.setState( { scientificNames } ); // eslint-disable-line
+  }
+
   handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
@@ -80,7 +92,9 @@ class App extends Component {
   render() {
     return (
       <UserContext.Provider value={this.state}>
-        <RootStack />
+        <ScientificNamesContext.Provider value={this.state}>
+          <RootStack />
+        </ScientificNamesContext.Provider>
       </UserContext.Provider>
     );
   }

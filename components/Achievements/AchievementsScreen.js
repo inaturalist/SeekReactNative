@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
-  Platform
+  TouchableOpacity
 } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";

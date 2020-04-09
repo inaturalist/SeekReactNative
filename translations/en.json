@@ -547,7 +547,9 @@
     "logs": "Send debug logs by email"
   },
   "settings": {
-    "scientific_names": "Display scientific names in AR Camera"
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
   },
   "seek_challenges": {
     "badge": "Seek badge",

@@ -11,8 +11,8 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
-import { getScientificNames } from "../../../utility/settingsHelpers";
 import { getTaxonCommonName } from "../../../utility/helpers";
+import { ScientificNamesContext } from "../../UserContext";
 
 type Props = {
   +ranks: Object
@@ -21,58 +21,50 @@ type Props = {
 const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
-  const [scientificNames, setScientificNames] = useState( false );
 
   const rankList = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
 
   useEffect( () => {
-    const displayScientificNames = async () => {
-      const names = await getScientificNames();
-      if ( names ) {
-        setScientificNames( true );
-      }
-    };
-    displayScientificNames();
-  }, [] );
-
-  useEffect( () => {
     if ( rankToRender ) {
-      if ( !scientificNames ) {
-        getTaxonCommonName( ranks[rankToRender][0].taxon_id ).then( ( name ) => {
-          setCommonName( name );
-        } );
-      }
-    } else {
-      setCommonName( null );
+      getTaxonCommonName( ranks[rankToRender][0].taxon_id ).then( ( name ) => {
+        setCommonName( name );
+      } );
     }
-  }, [ranks, rankToRender, scientificNames] );
+  }, [ranks, rankToRender] );
 
   return (
-    <View style={styles.header}>
-      {( ranks && rankToRender ) && (
-        <>
-          <View style={styles.greenButton}>
-            <Text style={styles.greenButtonText}>
-              {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <Text style={styles.predictions}>
-            {( scientificNames || !commonName ) ? ranks[rankToRender][0].name : commonName}
-          </Text>
-          <View style={styles.dotRow}>
-            {rankList.map( ( rank, index ) => (
-              <Image
-                key={rank}
-                source={rankToRender && rankList.includes( rankToRender, index )
-                  ? icons.greenDot
-                  : icons.whiteDot}
-                style={styles.dots}
-              />
-            ) )}
-          </View>
-        </>
-      )}
-    </View>
+    <ScientificNamesContext.Consumer>
+      {names => (
+        <View style={styles.header}>
+          {( ranks && rankToRender ) && (
+            <>
+              {console.log( names, "names in AR camera header" )}
+              <View style={styles.greenButton}>
+                <Text style={styles.greenButtonText}>
+                  {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
+                </Text>
+              </View>
+              <Text style={styles.predictions}>
+                {( names.scientificNames || !commonName )
+                  ? ranks[rankToRender][0].name
+                  : commonName}
+              </Text>
+              <View style={styles.dotRow}>
+                {rankList.map( ( rank, index ) => (
+                  <Image
+                    key={rank}
+                    source={rankToRender && rankList.includes( rankToRender, index )
+                      ? icons.greenDot
+                      : icons.whiteDot}
+                    style={styles.dots}
+                  />
+                ) )}
+              </View>
+            </>
+          )}
+        </View>
+      ) }
+    </ScientificNamesContext.Consumer>
   );
 };
 

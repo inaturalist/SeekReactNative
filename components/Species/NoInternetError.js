@@ -19,7 +19,7 @@ import GreenText from "../UIComponents/GreenText";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +stats: Object,

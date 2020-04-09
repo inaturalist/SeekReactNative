@@ -15,7 +15,7 @@ import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utilit
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +route: any,

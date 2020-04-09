@@ -40,7 +40,6 @@ const SpeciesNearby = () => {
   }, [] );
 
   const getGeolocation = useCallback( () => {
-    console.log( error, "error get geoloc" );
     if ( error && error !== "internet_error" ) {
       setError( null );
     }
@@ -57,7 +56,6 @@ const SpeciesNearby = () => {
     if ( !latLng.latitude || !latLng.longitude ) {
       // only update location if user has not selected a location already
       if ( Platform.OS === "android" ) {
-        console.log( "is location permission popping up twice" );
         checkLocationPermissions().then( ( granted ) => {
           if ( granted ) {
             getGeolocation();
@@ -73,7 +71,6 @@ const SpeciesNearby = () => {
 
   const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {
-      console.log( internet, "internet in check for internet" );
       if ( internet === "none" || internet === "unknown" ) {
         setError( "internet_error" );
       } else if ( error === "internet_error" ) {

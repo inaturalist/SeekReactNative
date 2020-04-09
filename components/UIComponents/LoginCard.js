@@ -11,7 +11,7 @@ import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
 import { removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./Buttons/GreenButton";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 const LoginCard = () => {
   const navigation = useNavigation();

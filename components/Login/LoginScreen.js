@@ -19,7 +19,7 @@ import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 import createUserAgent from "../../utility/userAgent";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +navigation: any

@@ -38,7 +38,6 @@ const ARCameraHeader = ( { ranks }: Props ) => {
         <View style={styles.header}>
           {( ranks && rankToRender ) && (
             <>
-              {console.log( names, "names in AR camera header" )}
               <View style={styles.greenButton}>
                 <Text style={styles.greenButtonText}>
                   {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}

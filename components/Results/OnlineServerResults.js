@@ -17,7 +17,7 @@ import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
-import { fetchSpeciesSeenDate, createTimestamp, serverBackOnlineTime } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 
 type Props = {
   +route: any,

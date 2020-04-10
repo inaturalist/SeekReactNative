@@ -45,13 +45,6 @@ const MatchContainer = ( {
     rank
   } = taxon;
 
-  const ancestorRank = {
-    20: "genus",
-    30: "family",
-    40: "order",
-    50: "class"
-  };
-
   const renderSpeciesText = ( { scientificNames } ) => {
     let speciesText;
 
@@ -70,24 +63,25 @@ const MatchContainer = ( {
     let headerText;
 
     if ( seenDate ) {
-      headerText = i18n.t( "results.resighted" );
+      headerText = "results.resighted";
     } else if ( taxaName && match ) {
-      headerText = i18n.t( "results.observed_species" );
+      headerText = "results.observed_species";
     } else if ( commonAncestor ) {
-      headerText = i18n.t( "results.believe" );
       if ( rank === 20 ) {
-        headerText += ` ${i18n.t( `results.${ancestorRank[rank]}` )}`;
+        headerText = "results.genus";
       } else if ( rank <= 30 ) {
-        headerText += ` ${i18n.t( `results.${ancestorRank[30]}` )}`;
+        headerText = "results.family";
       } else if ( rank <= 40 ) {
-        headerText += ` ${i18n.t( `results.${ancestorRank[40]}` )}`;
+        headerText = "results.order";
       } else if ( rank <= 50 ) {
-        headerText += ` ${i18n.t( `results.${ancestorRank[50]}` )}`;
+        headerText = "results.class";
+      } else {
+        headerText = "results.believe";
       }
     } else {
-      headerText = i18n.t( "results.no_identification" );
+      headerText = "results.no_identification";
     }
-    return headerText.toLocaleUpperCase();
+    return i18n.t( headerText ).toLocaleUpperCase();
   };
 
   const renderText = () => {

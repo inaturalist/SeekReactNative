@@ -15,14 +15,16 @@ type Props = {
   latitude: ?number,
   longitude: ?number,
   taxaType: string,
-  checkInternet: Function
+  checkInternet: Function,
+  updateDowntimeError: Function
 }
 
 const SpeciesNearbyContainer = ( {
   taxaType,
   latitude,
   longitude,
-  checkInternet
+  checkInternet,
+  updateDowntimeError
 }: Props ) => {
   const [taxa, setTaxa] = useState( [] );
   const [loading, setLoading] = useState( true );
@@ -38,13 +40,12 @@ const SpeciesNearbyContainer = ( {
       .then( ( { results } ) => setTaxa( results.map( r => r.taxon ) ) )
       .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
         if ( e instanceof SyntaxError ) { // this is from the iNat server being down
-          // console.log( e.name );
-          // console.log( e.toString() === "SyntaxError: JSON Parse error: Unrecognized token '<'" );
+          updateDowntimeError();
         } else {
           checkInternet();
         }
       } );
-  }, [checkInternet] );
+  }, [checkInternet, updateDowntimeError] );
 
   const setParams = useCallback( () => {
     const params = {

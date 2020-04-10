@@ -29,6 +29,8 @@ const SpeciesNearby = () => {
 
   const updateTaxaType = ( type ) => setTaxaType( type );
 
+  const updateDowntimeError = () => setError( "downtime" );
+
   const setLocationError = useCallback( ( errorCode ) => {
     if ( errorCode === 1 ) {
       setError( "location_error" );
@@ -112,6 +114,7 @@ const SpeciesNearby = () => {
           longitude={latLng.longitude}
           error={error}
           checkInternet={checkInternet}
+          updateDowntimeError={updateDowntimeError}
         />
       )}
       <View style={styles.greenMargin} />

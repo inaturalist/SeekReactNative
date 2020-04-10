@@ -28,13 +28,15 @@ const Error = ( {
   checkInternet,
   checkLocation
 }: Props ) => (
-  <TouchableOpacity onPress={() => {
-    if ( error === "internet_error" ) {
-      checkInternet();
-    } else if ( error ) {
-      checkLocation();
-    }
-  }}
+  <TouchableOpacity
+    onPress={() => {
+      if ( error === "internet_error" ) {
+        checkInternet();
+      } else if ( error ) {
+        checkLocation();
+      }
+    }}
+    disabled={error === "downtime"}
   >
     <ImageBackground
       source={backgrounds.noSpeciesNearby}
@@ -42,7 +44,11 @@ const Error = ( {
     >
       <View style={styles.row}>
         <Image source={error === "internet_error" ? icons.internet : icons.error} />
-        <Text style={styles.text}>{i18n.t( `species_nearby.${error}` )}</Text>
+        <Text style={styles.text}>
+          {error === "downtime"
+            ? i18n.t( "results.error_downtime", { number: i18n.t( "results.error_few" ) } )
+            : i18n.t( `species_nearby.${error}` )}
+        </Text>
       </View>
       {error === "location_error" && (
         <View style={styles.greenButton}>

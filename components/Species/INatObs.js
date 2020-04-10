@@ -51,42 +51,45 @@ const INatObs = ( {
     fetchNearbySpeciesCount();
   }, [region, fetchNearbySpeciesCount] );
 
-  return (
-    <View>
-      {( timesSeen && nearbySpeciesCount ) && (
-        <View style={styles.headerMargins}>
-          <GreenText text="species_detail.inat_obs" />
-        </View>
-      )}
-      {( timesSeen && nearbySpeciesCount ) && (
-      <View style={[styles.center, styles.row]}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "iNatStats" )}
-        >
-          <Image source={logos.bird} style={styles.bird} />
-        </TouchableOpacity>
-        <View style={styles.textContainer}>
-          {error !== "location" && (
-            <>
-              <Text style={styles.secondHeaderText}>
-                {i18n.t( "species_detail.near" )}
+  const renderObs = () => {
+    let obs = null;
+
+    if ( timesSeen && nearbySpeciesCount ) {
+      obs = (
+        <>
+          <View style={styles.headerMargins}>
+            <GreenText text="species_detail.inat_obs" />
+          </View>
+          <View style={[styles.center, styles.row]}>
+            <TouchableOpacity onPress={() => navigation.navigate( "iNatStats" )}>
+              <Image source={logos.bird} style={styles.bird} />
+            </TouchableOpacity>
+            <View style={styles.textContainer}>
+              {error !== "location" && (
+                <>
+                  <Text style={styles.secondHeaderText}>
+                    {i18n.t( "species_detail.near" )}
+                  </Text>
+                  <Text style={styles.number}>
+                    {localizeNumber( nearbySpeciesCount )}
+                  </Text>
+                </>
+              )}
+              <Text style={[styles.secondHeaderText, !error && styles.margin]}>
+                {i18n.t( "species_detail.worldwide" )}
               </Text>
               <Text style={styles.number}>
-                {localizeNumber( nearbySpeciesCount )}
+                {localizeNumber( timesSeen )}
               </Text>
-            </>
-          )}
-          <Text style={[styles.secondHeaderText, !error && styles.margin]}>
-            {i18n.t( "species_detail.worldwide" )}
-          </Text>
-          <Text style={styles.number}>
-            {localizeNumber( timesSeen )}
-          </Text>
-        </View>
-      </View>
-      )}
-    </View>
-  );
+            </View>
+          </View>
+        </>
+      );
+    }
+    return obs;
+  };
+
+  return renderObs();
 };
 
 export default INatObs;

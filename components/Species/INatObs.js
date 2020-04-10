@@ -44,9 +44,7 @@ const INatObs = ( {
 
     inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
       setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
-    } ).catch( ( err ) => {
-      console.log( err, "error fetching species count" );
-    } );
+    } ).catch( () => setNearbySpeciesCount( 0 ) );
   }, [region, id] );
 
   useEffect( () => {
@@ -55,9 +53,12 @@ const INatObs = ( {
 
   return (
     <View>
-      <View style={styles.headerMargins}>
-        <GreenText text="species_detail.inat_obs" />
-      </View>
+      {( timesSeen && nearbySpeciesCount ) && (
+        <View style={styles.headerMargins}>
+          <GreenText text="species_detail.inat_obs" />
+        </View>
+      )}
+      {( timesSeen && nearbySpeciesCount ) && (
       <View style={[styles.center, styles.row]}>
         <TouchableOpacity
           onPress={() => navigation.navigate( "iNatStats" )}
@@ -83,6 +84,7 @@ const INatObs = ( {
           </Text>
         </View>
       </View>
+      )}
     </View>
   );
 };

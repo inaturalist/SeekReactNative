@@ -97,7 +97,7 @@ const NoInternetError = ( {
                 seenDate={seenDate}
               />
             )}
-            <SpeciesTaxonomy ancestors={ancestors} />
+            {ancestors.length > 0 && <SpeciesTaxonomy ancestors={ancestors} />}
             <INatObs
               error={error}
               id={id}
@@ -110,7 +110,6 @@ const NoInternetError = ( {
             fetchiNatData={fetchiNatData}
             id={id}
           />
-          <View style={styles.bottomPadding} />
         </>
       ) : (
         <View style={styles.secondTextContainer}>

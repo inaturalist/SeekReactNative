@@ -1,7 +1,14 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors } from "../global";
 
 export default StyleSheet.create( {
+  bottomPadding: {
+    backgroundColor: colors.seekForestGreen,
+    height: Platform.OS === "android" ? 17 : 60
+  },
+  empty: {
+    backgroundColor: colors.white
+  },
   loading: {
     alignItems: "center",
     justifyContent: "center"

@@ -58,32 +58,38 @@ class SimilarSpecies extends Component<Props> {
         similarSpecies,
         loading: false
       } );
-    } ).catch( ( err ) => {
-      console.log( err, ": couldn't fetch similar species" );
-    } );
+    } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
   }
 
   render() {
     const { similarSpecies, loading } = this.state;
     const { fetchiNatData } = this.props;
+    const { length } = similarSpecies;
 
     const species = (
       <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={similarSpecies} />
     );
 
     return (
-      <View>
-        <View style={styles.similarSpeciesMargins}>
-          <GreenText text="species_detail.similar" />
+      <>
+        <View>
+          {length > 0 && (
+            <View style={styles.similarSpeciesMargins}>
+              <GreenText text="species_detail.similar" />
+            </View>
+          )}
+          {length > 0 && (
+            <View style={[
+              styles.similarSpeciesContainer,
+              loading && styles.loading
+            ]}
+            >
+              {species}
+            </View>
+          )}
         </View>
-        <View style={[
-          styles.similarSpeciesContainer,
-          loading && styles.loading
-        ]}
-        >
-          {species}
-        </View>
-      </View>
+        <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
+      </>
     );
   }
 }

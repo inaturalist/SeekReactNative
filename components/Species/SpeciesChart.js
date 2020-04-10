@@ -64,11 +64,13 @@ const SpeciesChart = ( { id }: Props ) => {
 
   return (
     <>
+      {data.length > 0 && (
       <View style={styles.headerMargins}>
         <GreenText text="species_detail.monthly_obs" />
       </View>
-      <View style={styles.container}>
-        {data.length > 0 && (
+      )}
+      {data.length > 0 && (
+        <View style={styles.container}>
           <View style={styles.chartRow}>
             <LineChart
               contentInset={styles.chartInset}
@@ -92,8 +94,8 @@ const SpeciesChart = ( { id }: Props ) => {
               xAccessor={( { item } ) => item.month}
             />
           </View>
-        )}
-      </View>
+        </View>
+      )}
     </>
   );
 };

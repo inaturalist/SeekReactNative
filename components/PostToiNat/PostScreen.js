@@ -325,6 +325,7 @@ class PostScreen extends Component<Props, State> {
         const apiToken = responseJson.api_token;
         this.createObservation( apiToken );
       } ).catch( ( e ) => {
+        console.log( e, "e for before obs post failed" );
         this.setPostFailed( e, "beforeObservation" );
       } );
   }

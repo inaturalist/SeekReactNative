@@ -36,7 +36,16 @@ const SpeciesNearbyContainer = ( {
     fetch( `${site}?${queryString}`, options )
       .then( response => response.json() )
       .then( ( { results } ) => setTaxa( results.map( r => r.taxon ) ) )
-      .catch( () => checkInternet() );
+      .catch( ( e ) => {
+        if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+          console.log( e.name );
+          console.log( "create an error message for species nearby that says server down" );
+          // console.error( e.name );
+        } else {
+          checkInternet();
+          console.log( JSON.stringify( e ), "err from species nearby" );
+        }
+      } );
   }, [checkInternet] );
 
   const setParams = useCallback( () => {

@@ -57,6 +57,8 @@ const PostStatus = ( {
     headerText = "posting.posting_failure";
     image = <Image source={posting.uploadfail} />;
     extraText = `${i18n.t( "posting.error_token" )} \n\n${errorText}`;
+
+    console.log( errorText, "error text failure" );
   }
 
   return (

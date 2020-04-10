@@ -325,8 +325,11 @@ class PostScreen extends Component<Props, State> {
         const apiToken = responseJson.api_token;
         this.createObservation( apiToken );
       } ).catch( ( e ) => {
-        console.log( e, "e for before obs post failed" );
-        this.setPostFailed( e, "beforeObservation" );
+        if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+          this.setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
+        } else {
+          this.setPostFailed( e, "beforeObservation" );
+        }
       } );
   }
 

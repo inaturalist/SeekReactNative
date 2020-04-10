@@ -81,7 +81,8 @@ class LoginScreen extends Component<Props, State> {
         user.toggleLogin();
         this.resetForm();
         this.submitSuccess();
-      } ).catch( () => {
+      } ).catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
+        // console.log( e, "error in login" );
         this.setError();
       } );
   }

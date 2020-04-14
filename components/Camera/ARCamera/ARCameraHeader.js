@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   View,
   Text,
@@ -21,49 +21,53 @@ type Props = {
 const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
+  const { scientificNames } = useContext( ScientificNamesContext );
+  let id = null;
+
+  if ( rankToRender && !scientificNames ) {
+    id = ranks[rankToRender][0].taxon_id;
+  } else {
+    id = null;
+  }
 
   const rankList = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
 
   useEffect( () => {
-    if ( rankToRender ) {
-      getTaxonCommonName( ranks[rankToRender][0].taxon_id ).then( ( name ) => {
+    if ( id ) { // only update when id changes to avoid camera stutter on Android
+      getTaxonCommonName( id ).then( ( name ) => {
         setCommonName( name );
       } );
     }
-  }, [ranks, rankToRender] );
+  }, [id] );
 
   return (
-    <ScientificNamesContext.Consumer>
-      {names => (
-        <View style={styles.header}>
-          {( ranks && rankToRender ) && (
-            <>
-              <View style={styles.greenButton}>
-                <Text style={styles.greenButtonText}>
-                  {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
-                </Text>
-              </View>
-              <Text style={styles.predictions}>
-                {( names.scientificNames || !commonName )
-                  ? ranks[rankToRender][0].name
-                  : commonName}
-              </Text>
-              <View style={styles.dotRow}>
-                {rankList.map( ( rank, index ) => (
-                  <Image
-                    key={rank}
-                    source={rankToRender && rankList.includes( rankToRender, index )
-                      ? icons.greenDot
-                      : icons.whiteDot}
-                    style={styles.dots}
-                  />
-                ) )}
-              </View>
-            </>
-          )}
-        </View>
-      ) }
-    </ScientificNamesContext.Consumer>
+    <View style={styles.header}>
+      {( ranks && rankToRender ) && (
+        <>
+          <View style={styles.greenButton}>
+            <Text style={styles.greenButtonText}>
+              {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
+            </Text>
+          </View>
+          <Text style={styles.predictions}>
+            {( scientificNames || !commonName )
+              ? ranks[rankToRender][0].name
+              : commonName}
+          </Text>
+          <View style={styles.dotRow}>
+            {rankList.map( ( rank, index ) => (
+              <Image
+                key={rank}
+                source={rankToRender && rankList.includes( rankToRender, index )
+                  ? icons.greenDot
+                  : icons.whiteDot}
+                style={styles.dots}
+              />
+            ) )}
+          </View>
+        </>
+      )}
+    </View>
   );
 };
 

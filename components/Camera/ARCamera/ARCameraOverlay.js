@@ -20,7 +20,6 @@ import ARCameraHeader from "./ARCameraHeader";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
 
 type Props = {
-  setPictureTaken: Function,
   takePicture: Function,
   ranks: Object,
   pictureTaken: boolean,
@@ -28,7 +27,6 @@ type Props = {
 }
 
 const ARCameraOverlay = ( {
-  setPictureTaken,
   takePicture,
   ranks,
   pictureTaken,
@@ -38,7 +36,6 @@ const ARCameraOverlay = ( {
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
-  const [loading, setLoading] = useState( true );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -53,16 +50,6 @@ const ARCameraOverlay = ( {
     checkForFirstCameraLaunch();
   }, [] );
 
-  useEffect( () => {
-    if ( cameraLoaded ) {
-      setLoading( false );
-    }
-
-    if ( pictureTaken ) {
-      setLoading( true );
-    }
-  }, [cameraLoaded, pictureTaken] );
-
   return (
     <>
       <Modal
@@ -70,7 +57,7 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-      {loading && (
+      {( pictureTaken || !cameraLoaded ) && (
         <View style={styles.loading}>
           <LoadingWheel color="white" />
         </View>
@@ -80,16 +67,11 @@ const ARCameraOverlay = ( {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.take_photo" )}
         accessible
-        onPress={() => {
-          setPictureTaken();
-          takePicture();
-        }}
+        onPress={() => takePicture()}
         style={styles.shutter}
         disabled={pictureTaken}
       >
-        {ranks && ranks.species
-          ? <Image source={icons.arCameraGreen} />
-          : <Image source={icons.arCameraButton} />}
+        <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
       </TouchableOpacity>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.help" )}

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   View,
   Image,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  BackHandler
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -34,23 +35,31 @@ const SpeciesHeader = ( {
   const navigation = useNavigation();
   const route = useRoute();
 
+  const backAction = useCallback( () => {
+    if ( routeName === "Match" ) {
+      navigation.navigate( routeName, { ...route.params } );
+    } else if ( routeName === "Species" ) {
+      setRoute( "Home" );
+      navigation.navigate( "Home" );
+    } else if ( routeName ) {
+      navigation.navigate( routeName );
+    } else {
+      navigation.navigate( "Home" );
+    }
+  }, [navigation, route.params, routeName] );
+
+  useEffect( () => {
+    BackHandler.addEventListener( "hardwareBackPress", backAction );
+
+    return () => BackHandler.removeEventListener( "hardwareBackPress", backAction );
+  }, [backAction] );
+
   return (
     <>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => {
-          if ( routeName === "Match" ) {
-            navigation.navigate( routeName, { ...route.params } );
-          } else if ( routeName === "Species" ) {
-            setRoute( "Home" );
-            navigation.navigate( "Home" );
-          } else if ( routeName ) {
-            navigation.navigate( routeName );
-          } else {
-            navigation.navigate( "Home" );
-          }
-        }}
+        onPress={() => backAction()}
         style={styles.backButton}
       >
         <Image source={icons.backButton} />

@@ -4,7 +4,7 @@ Seek is an app built for iOS and Android.
 
 ## Setup
 
-1. Make sure you're running Node v8.12.0.
+1. Make sure you're running Node v10.0.0.
 2. Install dependences with `npm install`
 3. If building for iOS, run `pod install` from within the `ios` directory.
 4. Run `npm start`

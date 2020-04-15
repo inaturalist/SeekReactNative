@@ -12,7 +12,7 @@ Seek is an app built for iOS and Android.
 6. Go to `android/app/src/main/res/values` and rename `config.xml.example` to `config.xml` (and change its values to match your API keys)
 7. Rename `config.example.js` to `config.js` and change the JWT secret.
 8. Add AR Camera model files to the project. On Android, these files are named `optimized_model.tflite` and `taxonomy_data.csv`, and they should be placed in a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`). On iOS, these files are named `optimized_model.mlmodel` and `taxonomy.json` and should be added to the Resources folder in XCode. 
-9. Add 8 common names files to `Seek/utility/commonNames` to allow the AR camera to load common names in localized languages. These files are titled `commonNamesDict-0.js` to `commonNamesDict-7.js`.
+9. Add common names files to `Seek/utility/commonNames` to allow the AR camera to load common names in localized languages. These files are titled `commonNamesDict-0.js` to `commonNamesDict-9.js`.
 
 ## Manual Linking
 Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). There are two exceptions, which are listed in the [react-native.config.js](https://github.com/inaturalist/SeekReactNative/blob/master/react-native.config.js) file. 
@@ -26,11 +26,8 @@ Most third-party libraries use autolinking as of [React Native 0.60.0](https://f
 2. Another common issue in React Native involves libraries not being found by the bundler. If this happens, you will likely see an error message that tells you to clear the cache using the following steps: 
   * Clear watchman: `watchman watch-del-all`
   * Delete and reinstall node_modules: `rm -rf node_modules && npm install`
-  * Reset the bundler cache: `npm start -- --reset-cache`
-  
-## Android Troubleshooting
-
-1. Cleaning the Android project can also help with some build issues. To do this, run `./gradlew clean` from within the `android` directory.
+  * Reset the bundler cache: `npm start --reset-cache`
+3. Cleaning the project can also help with some build issues. To do this on Android, run `./gradlew clean` from within the `android` directory. For iOS, use XCode > Product > Clean Build Folder.
 
 ## Translations
 We do our translations on Crowdin. Head over to https://crowdin.com/project/seek and create an account, and you can start suggesting translations there. We regularly export translations from Crowdin and import them to this project.

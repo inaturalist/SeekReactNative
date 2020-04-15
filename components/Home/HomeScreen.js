@@ -7,7 +7,8 @@ import {
   Platform,
   StatusBar
 } from "react-native";
-import { NavigationStackScreenProps } from "react-navigation-stack";
+import { useNavigation } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
@@ -15,12 +16,14 @@ import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";
-import Spacer from "../UIComponents/iOSSpacer";
-import SafeAreaView from "../UIComponents/SafeAreaView";
+import Spacer from "../UIComponents/TopSpacer";
 import RNModal from "../UIComponents/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 
-const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
+const HomeScreen = () => {
+  const insets = useSafeArea();
+  const navigation = useNavigation();
   const scrollView = useRef( null );
   const [showModal, setModal] = useState( false );
 
@@ -40,19 +43,19 @@ const HomeScreen = ( { navigation }: NavigationStackScreenProps ) => {
   }, [] );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView />
       <RNModal
         showModal={showModal}
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
       <ScrollView ref={scrollView}>
-        {Platform.OS === "ios" && <Spacer />}
+        <Spacer />
         <SpeciesNearby />
         <ChallengeCard />
         <Padding />
+        <BottomSpacer />
       </ScrollView>
     </View>
   );

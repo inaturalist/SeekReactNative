@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { useNavigation } from "react-navigation-hooks";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/gallery";
@@ -34,7 +34,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "Main" )}
+        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
         style={styles.backButton}
       >
         <Image source={icons.closeGreen} style={styles.buttonImage} />

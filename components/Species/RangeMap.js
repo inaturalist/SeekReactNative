@@ -7,7 +7,7 @@ import {
   Text
 } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";
@@ -22,7 +22,7 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +navigation: any
+  +route: any
 }
 
 type State = {
@@ -35,10 +35,10 @@ type State = {
 };
 
 class RangeMap extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
-    const { region, id, seenDate } = navigation.state.params;
+    const { region, id, seenDate } = route.params;
 
     this.state = {
       region,
@@ -107,10 +107,7 @@ class RangeMap extends Component<Props, State> {
           closeModal={this.closeModal}
           modal={<Legend closeModal={this.closeModal} />}
         />
-        <GreenHeader
-          header="species_detail.range_map"
-          route="Species"
-        />
+        <GreenHeader header="species_detail.range_map" />
         {region.latitude ? (
           <MapView
             provider={PROVIDER_DEFAULT}

@@ -7,25 +7,24 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import i18n from "../../i18n";
 import styles from "../../styles/challenges/challenges";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
-import { setRoute } from "../../utility/helpers";
 import icons from "../../assets/icons";
 import { formatMonthYear } from "../../utility/dateHelpers";
 import badges from "../../assets/badges";
 
 type Props = {
-  +navigation: any,
   +challenge: Object,
   +fetchChallenges?: Function
 }
 
-const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Props ) => {
+const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
+  const navigation = useNavigation();
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   let rightIcon;
@@ -57,7 +56,6 @@ const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Prop
         accessible
         onPress={() => {
           setChallengeIndex( challenge.index );
-          setRoute( "Challenges" );
           startChallenge( challenge.index );
           fetchChallenges();
           recalculateChallenges();
@@ -74,7 +72,6 @@ const ChallengeProgressCard = ( { navigation, challenge, fetchChallenges }: Prop
     <TouchableOpacity
       onPress={() => {
         setChallengeIndex( challenge.index );
-        setRoute( "Challenges" );
         navigation.navigate( "ChallengeDetails" );
       }}
       style={[styles.card, styles.row]}
@@ -99,4 +96,4 @@ ChallengeProgressCard.defaultProps = {
   fetchChallenges: () => {}
 };
 
-export default withNavigation( ChallengeProgressCard );
+export default ChallengeProgressCard;

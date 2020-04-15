@@ -9,9 +9,10 @@ import {
   Modal,
   Platform,
   TextInput,
-  Keyboard
+  Keyboard,
+  ScrollView
 } from "react-native";
-import { NavigationEvents, ScrollView } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 
@@ -40,17 +41,15 @@ import createUserAgent from "../../utility/userAgent";
 import { formatYearMonthDay, setISOTime } from "../../utility/dateHelpers";
 
 type Props = {
-  +navigation: any
+  +route: any
 };
 
 type State = {
-  latitude: number,
-  longitude: number,
+  image: Object,
   location: ?string,
   date: ?string,
   captive: ?boolean,
   geoprivacy: ?boolean,
-  uri: string,
   userImage: string,
   taxon: Object,
   seekId: Object,
@@ -69,30 +68,25 @@ type State = {
 };
 
 class PostScreen extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
     const {
       preferredCommonName,
       taxaId,
-      uri,
+      image,
       userImage,
-      scientificName,
-      latitude,
-      longitude,
-      time
-    } = navigation.state.params;
+      scientificName
+    } = route.params;
 
-    const date = time ? setISOTime( time ) : null;
+    const date = image.time ? setISOTime( image.time ) : null;
 
     this.state = {
-      latitude,
-      longitude,
+      image,
       location: null,
       date,
       captive: null,
       geoprivacy: null,
-      uri,
       userImage,
       taxon: {
         preferredCommonName,
@@ -130,13 +124,16 @@ class PostScreen extends Component<Props, State> {
   }
 
   setUserLocation() {
+    const { image } = this.state;
     fetchUserLocation().then( ( coords ) => {
       const lat = coords.latitude;
       const long = coords.longitude;
       const { accuracy } = coords;
       this.reverseGeocodeLocation( lat, long );
-      this.setLatitude( lat );
-      this.setLongitude( long );
+      image.latitude = lat;
+      image.longitude = long;
+
+      this.setState( { image } );
       this.setAccuracy( accuracy );
     } ).catch( ( err ) => {
       console.log( err );
@@ -144,11 +141,11 @@ class PostScreen extends Component<Props, State> {
   }
 
   getLocation() {
-    const { latitude, longitude } = this.state;
-    const truncated = checkForTruncatedCoordinates( latitude );
+    const { image } = this.state;
+    const truncated = checkForTruncatedCoordinates( image.latitude );
 
-    if ( latitude && longitude && !truncated ) {
-      this.reverseGeocodeLocation( latitude, longitude );
+    if ( image.latitude && !truncated ) {
+      this.reverseGeocodeLocation( image.latitude, image.longitude );
     } else if ( truncated ) {
       this.setUserLocation();
     } else {
@@ -169,16 +166,7 @@ class PostScreen extends Component<Props, State> {
   }
 
   setAccuracy( accuracy: number ) {
-    console.log( accuracy, "set accuracy" );
     this.setState( { accuracy } );
-  }
-
-  setLatitude( latitude: number ) {
-    this.setState( { latitude } );
-  }
-
-  setLongitude( longitude: number ) {
-    this.setState( { longitude } );
   }
 
   setLocationUndefined() {
@@ -243,9 +231,9 @@ class PostScreen extends Component<Props, State> {
   };
 
   resizeImageForUploading() {
-    const { uri } = this.state;
+    const { image } = this.state;
 
-    resizeImage( uri, 2048 ).then( ( userImage ) => {
+    resizeImage( image.uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
         this.setImageForUploading( userImage );
       } else {
@@ -287,13 +275,15 @@ class PostScreen extends Component<Props, State> {
   }
 
   updateLocation( latitude: number, longitude: number, accuracy: number ) {
+    const { image } = this.state;
     this.reverseGeocodeLocation( latitude, longitude );
 
-    this.setState( {
-      latitude,
-      longitude,
-      accuracy
-    }, () => this.toggleLocationPicker() );
+    image.latitude = latitude;
+    image.longitude = longitude;
+
+    this.setState( { image } );
+    this.setAccuracy( accuracy );
+    this.toggleLocationPicker();
   }
 
   updateGeoprivacy( geoprivacy: boolean ) {
@@ -335,7 +325,11 @@ class PostScreen extends Component<Props, State> {
         const apiToken = responseJson.api_token;
         this.createObservation( apiToken );
       } ).catch( ( e ) => {
-        this.setPostFailed( e, "beforeObservation" );
+        if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+          this.setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
+        } else {
+          this.setPostFailed( e, "beforeObservation" );
+        }
       } );
   }
 
@@ -346,11 +340,12 @@ class PostScreen extends Component<Props, State> {
       location,
       date,
       taxon,
-      latitude,
-      longitude,
+      image,
       description,
       accuracy
     } = this.state;
+
+    const { latitude, longitude } = image;
 
     let captiveState;
     let geoprivacyState;
@@ -368,8 +363,6 @@ class PostScreen extends Component<Props, State> {
     } else {
       geoprivacyState = "open";
     }
-
-    console.log( accuracy, "accuracy from user location" );
 
     const params = {
       observation: {
@@ -435,8 +428,7 @@ class PostScreen extends Component<Props, State> {
       userImage,
       date,
       location,
-      latitude,
-      longitude,
+      image,
       modalVisible,
       isDateTimePickerVisible,
       showPostModal,
@@ -483,9 +475,9 @@ class PostScreen extends Component<Props, State> {
           visible={modalVisible}
         >
           <LocationPicker
-            latitude={latitude}
+            latitude={image.latitude}
             location={location}
-            longitude={longitude}
+            longitude={image.longitude}
             toggleLocationPicker={this.toggleLocationPicker}
             updateLocation={this.updateLocation}
           />
@@ -502,10 +494,7 @@ class PostScreen extends Component<Props, State> {
             togglePostModal={this.togglePostModal}
           />
         </Modal>
-        <GreenHeader
-          header="posting.header"
-          route="post"
-        />
+        <GreenHeader header="posting.header" />
         <ScrollView
           keyboardDismissMode="on-drag"
           onScroll={() => Keyboard.dismiss()}

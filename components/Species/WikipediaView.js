@@ -15,11 +15,12 @@ import styles from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
 
 type Props = {
-  +navigation: any
+  +navigation: any,
+  +route: any
 };
 
-const WikipediaView = ( { navigation }: Props ) => {
-  const { wikiUrl } = navigation.state.params;
+const WikipediaView = ( { navigation, route }: Props ) => {
+  const { wikiUrl } = route.params;
 
   return (
     <>

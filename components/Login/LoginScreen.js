@@ -19,7 +19,7 @@ import ErrorMessage from "../Signup/ErrorMessage";
 import { saveAccessToken } from "../../utility/loginHelpers";
 import config from "../../config";
 import createUserAgent from "../../utility/userAgent";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
   +navigation: any
@@ -81,7 +81,8 @@ class LoginScreen extends Component<Props, State> {
         user.toggleLogin();
         this.resetForm();
         this.submitSuccess();
-      } ).catch( () => {
+      } ).catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
+        // console.log( e, "error in login" );
         this.setError();
       } );
   }
@@ -100,9 +101,7 @@ class LoginScreen extends Component<Props, State> {
         {user => (
           <View style={styles.container}>
             <SafeAreaView />
-            <GreenHeader
-              header="login.log_in"
-            />
+            <GreenHeader header="login.log_in" />
             <ScrollView>
               <View style={styles.leftTextMargins}>
                 <GreenText smaller text="inat_login.username" />

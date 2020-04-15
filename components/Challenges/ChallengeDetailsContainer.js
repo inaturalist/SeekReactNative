@@ -6,25 +6,21 @@ import {
   Text,
   Image
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import styles from "../../styles/challenges/challengeDetails";
 import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import ChallengeMissionCard from "./ChallengeMissionCard";
-import Padding from "../UIComponents/Padding";
 import GreenText from "../UIComponents/GreenText";
 
 type Props = {
-  +navigation: any,
   challenge: Object
 }
 
-const ChallengeDetailsContainer = ( {
-  challenge,
-  navigation
-}: Props ) => {
+const ChallengeDetailsContainer = ( { challenge }: Props ) => {
+  const navigation = useNavigation();
   const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
 
   return (
@@ -61,9 +57,8 @@ const ChallengeDetailsContainer = ( {
           <View style={styles.marginMedium} />
         </>
       )}
-      <Padding />
     </View>
   );
 };
 
-export default withNavigation( ChallengeDetailsContainer );
+export default ChallengeDetailsContainer;

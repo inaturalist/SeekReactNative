@@ -8,7 +8,7 @@ import {
   ScrollView
 } from "react-native";
 import RNFS from "react-native-fs";
-import { withNavigation } from "react-navigation";
+import { withNavigation } from "@react-navigation/compat";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import { writeToDebugLog } from "../../utility/photoHelpers";
@@ -143,7 +143,7 @@ class ObservationCard extends PureComponent<Props, State> {
           commonName={commonName}
           handlePress={() => {
             setSpeciesId( taxon.id );
-            setRoute( "MyObservations" );
+            setRoute( "Observations" );
             navigation.navigate( "Species" );
           }}
           iconicTaxonId={taxon.iconicTaxonId}
@@ -152,7 +152,7 @@ class ObservationCard extends PureComponent<Props, State> {
         />
         <TouchableOpacity
           onPress={() => openModal(
-            item.taxon.id,
+            taxon.id,
             photo,
             commonName,
             taxon.name,

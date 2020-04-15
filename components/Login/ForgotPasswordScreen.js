@@ -102,9 +102,7 @@ class ForgotPasswordScreen extends Component<Props, State> {
     return (
       <View style={styles.container}>
         <SafeAreaView />
-        <GreenHeader
-          header="inat_login.forgot_password_header"
-        />
+        <GreenHeader header="inat_login.forgot_password_header" />
         <ScrollView>
           <View style={styles.margin} />
           <Text style={[styles.header, styles.marginHorizontal]}>

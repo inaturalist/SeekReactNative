@@ -2,15 +2,10 @@
 
 import React, { Component } from "react";
 import {
-  View,
-  Image,
   ScrollView,
-  Text,
-  Platform,
-  TouchableOpacity
+  Platform
 } from "react-native";
-import { NavigationEvents } from "react-navigation";
-import { NavigationStackScreenProps } from "react-navigation-stack";
+import { NavigationEvents } from "@react-navigation/compat";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import RNFS from "react-native-fs";
@@ -18,28 +13,27 @@ import RNFS from "react-native-fs";
 import i18n from "../../i18n";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import realmConfig from "../../models/index";
-import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
-import icons from "../../assets/icons";
 import SpeciesError from "./SpeciesError";
-import Spacer from "../UIComponents/iOSSpacer";
+import Spacer from "../UIComponents/TopSpacer";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import {
   getSpeciesId,
   getRoute,
   checkForInternet,
-  setRoute,
   getTaxonCommonName
 } from "../../utility/helpers";
 import { dirPictures } from "../../utility/dirStorage";
 import NoInternetError from "./NoInternetError";
 import createUserAgent from "../../utility/userAgent";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import SpeciesHeader from "./SpeciesHeader";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
+
+type Props = {};
 
 type State = {
   id: ?number,
@@ -50,17 +44,16 @@ type State = {
   seenDate: ?string,
   timesSeen: ?number,
   region: Object,
-  observationsByMonth: Array<Object>,
   error: ?string,
   userPhoto: ?string,
   stats: Object,
   ancestors: Array<Object>,
-  route: ?string,
+  routeName: ?string,
   iconicTaxonId: ?number,
   wikiUrl: ?string
 };
 
-class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
+class SpeciesDetail extends Component<Props, State> {
   scrollView: ?any
 
   constructor() {
@@ -75,12 +68,11 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       seenDate: null,
       timesSeen: null,
       region: {},
-      observationsByMonth: [],
       error: null,
       userPhoto: null,
       stats: {},
       ancestors: [],
-      route: null,
+      routeName: null,
       iconicTaxonId: null,
       wikiUrl: null
     };
@@ -119,13 +111,12 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
 
     this.checkIfSpeciesSeen( id );
     this.fetchTaxonDetails( id );
-    this.fetchHistogram( id );
 
-    const route = await getRoute();
+    const routeName = await getRoute();
 
     this.setState( {
       id,
-      route
+      routeName
     } );
   }
 
@@ -208,12 +199,11 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       seenDate: null,
       timesSeen: null,
       region: {},
-      observationsByMonth: [],
       error: null,
       userPhoto: null,
       stats: {},
       ancestors: [],
-      route: null,
+      routeName: null,
       iconicTaxonId: null,
       wikiUrl: null
     } );
@@ -316,31 +306,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
     } ).catch( ( e ) => console.log( "couldn't fetch common name from device", e ) );
   }
 
-  fetchHistogram( id: number ) {
-    const params = {
-      date_field: "observed",
-      interval: "month_of_year",
-      taxon_id: id
-    };
-
-    const options = { user_agent: createUserAgent() };
-
-    inatjs.observations.histogram( params, options ).then( ( response ) => {
-      const countsByMonth = response.results.month_of_year;
-      const observationsByMonth = [];
-
-      for ( let i = 1; i <= 12; i += 1 ) {
-        observationsByMonth.push( {
-          month: i,
-          count: countsByMonth[i]
-        } );
-      }
-      this.setState( { observationsByMonth } );
-    } ).catch( ( err ) => {
-      console.log( err, ": couldn't fetch histogram" );
-    } );
-  }
-
   checkIfSpeciesIsNative( latitude: number, longitude: number, id: number ) {
     const { stats } = this.state;
 
@@ -408,7 +373,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       about,
       commonName,
       id,
-      observationsByMonth,
       photos,
       region,
       scientificName,
@@ -418,12 +382,10 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
       userPhoto,
       ancestors,
       stats,
-      route,
+      routeName,
       iconicTaxonId,
       wikiUrl
     } = this.state;
-
-    const { navigation } = this.props;
 
     return (
       <>
@@ -436,41 +398,15 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
           ref={( ref ) => { this.scrollView = ref; }}
           contentContainerStyle={[styles.footerMargin, styles.background]}
         >
-          {Platform.OS === "ios" && <Spacer />}
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.back" )}
-            accessible
-            onPress={() => {
-              if ( route === "Match" ) {
-                navigation.navigate( route, { ...navigation.state.params } );
-              } else if ( route === "Species" ) {
-                setRoute( "Main" );
-                navigation.navigate( "Main" );
-              } else if ( route ) {
-                navigation.navigate( route );
-              } else {
-                navigation.navigate( "Main" );
-              }
-            }}
-            style={styles.backButton}
-          >
-            <Image source={icons.backButton} />
-          </TouchableOpacity>
-          <SpeciesPhotos
-            photos={photos}
+          <Spacer />
+          <SpeciesHeader
             userPhoto={userPhoto}
+            iconicTaxonId={iconicTaxonId}
+            photos={photos}
+            scientificName={scientificName}
+            commonName={commonName}
+            routeName={routeName}
           />
-          <View style={styles.greenBanner}>
-            {iconicTaxonId && (
-              <Text style={styles.iconicTaxaText}>
-                {i18n.t( iconicTaxaNames[iconicTaxonId] ).toLocaleUpperCase()}
-              </Text>
-            )}
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
           {error === "internet" ? (
             <SpeciesError
               seenDate={seenDate}
@@ -484,7 +420,6 @@ class SpeciesDetail extends Component<NavigationStackScreenProps, State> {
               error={error}
               fetchiNatData={this.fetchiNatData}
               id={id}
-              observationsByMonth={observationsByMonth}
               region={region}
               seenDate={seenDate}
               stats={stats}

@@ -11,7 +11,7 @@ export default StyleSheet.create( {
     width: 22
   },
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
   },
   headerRow: {
@@ -51,6 +51,7 @@ export default StyleSheet.create( {
     marginTop: Platform.OS === "ios" ? 4 : 0
   },
   padding: {
+    backgroundColor: colors.white,
     paddingBottom: Platform.OS === "android" ? 40 : 60
   },
   row: {
@@ -76,5 +77,9 @@ export default StyleSheet.create( {
   textContainer: {
     alignItems: "center",
     marginHorizontal: 25
+  },
+  whiteContainer: {
+    backgroundColor: colors.white,
+    flex: 1
   }
 } );

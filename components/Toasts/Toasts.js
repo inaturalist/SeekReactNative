@@ -15,7 +15,7 @@ const { height } = Dimensions.get( "window" );
 
 type Props = {
   +badge: ?Object,
-  +incompleteChallenge: ?Object
+  +challenge: ?Object
 }
 
 class Toasts extends Component<Props> {
@@ -27,58 +27,47 @@ class Toasts extends Component<Props> {
     super();
 
     this.animatedBadge = new Animated.Value( -120 );
-    this.animatedChallenge = new Animated.Value( -130 );
+    this.animatedChallenge = new Animated.Value( -120 );
   }
 
   componentDidUpdate( prevProps: Object ) {
-    const { badge, incompleteChallenge } = this.props;
+    const { badge, challenge } = this.props;
     if ( prevProps.badge !== badge ) {
       this.showToasts();
     }
-    if ( prevProps.incompleteChallenge !== incompleteChallenge ) {
+    if ( prevProps.challenge !== challenge ) {
       this.showToasts();
     }
   }
 
   showToasts() {
-    const { badge, incompleteChallenge } = this.props;
+    const { badge, challenge } = this.props;
 
     const entranceSpeed = 700;
     const exitSpeed = 1000;
     const displayTime = 3000;
 
+    const entrance = {
+      toValue: 0,
+      duration: entranceSpeed
+    };
+
+    const exit = {
+      toValue: height > 570 ? -170 : -120,
+      delay: displayTime,
+      duration: exitSpeed
+    };
+
     const badgeToast = [
-      Animated.timing(
-        this.animatedBadge, {
-          toValue: 0,
-          duration: entranceSpeed
-        }
-      ),
-      Animated.timing(
-        this.animatedBadge, {
-          toValue: height > 570 ? -170 : -120,
-          delay: displayTime,
-          duration: exitSpeed
-        }
-      )];
+      Animated.timing( this.animatedBadge, entrance ),
+      Animated.timing( this.animatedBadge, exit )];
 
     const challengeToast = [
-      Animated.timing(
-        this.animatedChallenge, {
-          toValue: 0,
-          duration: entranceSpeed
-        }
-      ),
-      Animated.timing(
-        this.animatedChallenge, {
-          toValue: height > 570 ? -180 : -130,
-          delay: displayTime,
-          duration: exitSpeed
-        }
-      )
+      Animated.timing( this.animatedChallenge, entrance ),
+      Animated.timing( this.animatedChallenge, exit )
     ];
 
-    if ( incompleteChallenge && !badge ) {
+    if ( challenge && !badge ) {
       Animated.sequence( [
         challengeToast[0],
         challengeToast[1]
@@ -94,34 +83,30 @@ class Toasts extends Component<Props> {
   }
 
   render() {
-    const { badge, incompleteChallenge } = this.props;
+    const { badge, challenge } = this.props;
 
     return (
       <View style={Platform.OS === "ios" ? styles.topContainer : null}>
-        {badge ? (
+        {badge && (
           <Animated.View style={[
             styles.animatedStyle, {
               transform: [{ translateY: this.animatedBadge }]
             }
           ]}
           >
-            <BadgeToast
-              badge={badge}
-            />
+            <BadgeToast badge={badge} />
           </Animated.View>
-        ) : null}
-        {incompleteChallenge ? (
+        )}
+        {challenge && (
           <Animated.View style={[
             styles.animatedStyle, {
               transform: [{ translateY: this.animatedChallenge }]
             }
           ]}
           >
-            <ChallengeToast
-              challenge={incompleteChallenge}
-            />
+            <ChallengeToast challenge={challenge} />
           </Animated.View>
-        ) : null}
+        )}
       </View>
     );
   }

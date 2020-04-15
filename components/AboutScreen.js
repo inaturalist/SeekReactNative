@@ -1,63 +1,50 @@
 // @flow
 
-import React, { useRef } from "react";
+import React from "react";
 import {
   Image,
-  ScrollView,
   Text,
   View,
   Platform,
   TouchableOpacity
 } from "react-native";
-import { DrawerContentComponentProps } from "react-navigation-drawer";
 import { getVersion, getBuildNumber } from "react-native-device-info";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
-import GreenHeader from "./UIComponents/GreenHeader";
-import Padding from "./UIComponents/Padding";
-import SafeAreaView from "./UIComponents/SafeAreaView";
-import UserContext from "./UserContext";
-import { useScrollToTop } from "../utility/customHooks";
+import { UserContext } from "./UserContext";
+import ScrollWithHeader from "./UIComponents/ScrollWithHeader";
 
-const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
-  const scrollView = useRef( null );
+const AboutScreen = () => {
+  const navigation = useNavigation();
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
-
-  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   return (
     <UserContext.Consumer>
       {user => (
-        <View style={styles.background}>
-          <SafeAreaView />
-          <GreenHeader header="about.header" />
-          <ScrollView
-            ref={scrollView}
-            contentContainerStyle={styles.textContainer}
-          >
-            <Image source={logos.wwfop} />
-            <View style={styles.margin} />
-            <Text style={styles.boldText}>{i18n.t( "about.sponsored" )}</Text>
-            <Text style={styles.text}>{i18n.t( "about.our_planet" )}</Text>
-            <View style={styles.block} />
+        <ScrollWithHeader header="about.header">
+          <View style={styles.textContainer}>
             <Image source={logos.iNat} />
-            <View style={styles.margin} />
-            <Text style={styles.boldText}>{i18n.t( "about.seek" )}</Text>
+            <View style={styles.marginSmall} />
+            <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.seek" )}</Text>
             <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
             <View style={styles.block} />
             <Image source={logos.casNatGeo} style={styles.image} />
-            <View style={styles.margin} />
+            <View style={styles.marginLarge} />
             <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
             <View style={styles.margin} />
+            <Image source={logos.wwfop} style={styles.wwfop} />
+            <View style={styles.marginSmall} />
             <Image source={logos.hhmi} />
-            <View style={styles.block} />
-            <Text style={styles.boldText}>{i18n.t( "about.designed_by" )}</Text>
+            <View style={styles.margin} />
+            <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
             <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
-            <View style={styles.block} />
+            <View style={styles.marginSmallest} />
             <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
+            <View style={styles.marginSmallest} />
             <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
             <TouchableOpacity
               onPress={() => navigation.navigate( "DebugAndroid" )}
@@ -73,9 +60,8 @@ const AboutScreen = ( { navigation }: DrawerContentComponentProps ) => {
               {i18n.t( "about.help" )}
             </Text>
             <View style={styles.block} />
-            <Padding />
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollWithHeader>
       ) }
     </UserContext.Consumer>
   );

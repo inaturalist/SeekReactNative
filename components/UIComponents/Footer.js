@@ -8,8 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import Realm from "realm";
-import { NavigationTabScreenProps } from "react-navigation-tabs";
-import { withNavigation } from "react-navigation";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -17,7 +16,15 @@ import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
 
-const Footer = ( { navigation }: NavigationTabScreenProps ) => {
+const Footer = () => {
+  let challenge;
+  const navigation = useNavigation();
+  const route = useRoute();
+
+  if ( route.name === "Challenges" || route.name === "ChallengeDetails" ) {
+    challenge = true;
+  }
+
   const [notifications, setNotifications] = useState( false );
 
   const fetchNotifications = () => {
@@ -58,20 +65,31 @@ const Footer = ( { navigation }: NavigationTabScreenProps ) => {
           >
             <Image source={icons.cameraGreen} style={styles.cameraImage} />
           </TouchableOpacity>
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.notifications" )}
-            accessible
-            onPress={() => navigation.navigate( "Notifications" )}
-            style={styles.notificationPadding}
-          >
-            {notifications
-              ? <Image source={icons.notifications} />
-              : <Image source={icons.notificationsInactive} />}
-          </TouchableOpacity>
+          {challenge ? (
+            <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.iNatStats" )}
+              accessible
+              onPress={() => navigation.navigate( "iNatStats" )}
+              style={styles.rightIcon}
+            >
+              <Image source={icons.birdTeal} />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              accessibilityLabel={i18n.t( "accessibility.notifications" )}
+              accessible
+              onPress={() => navigation.navigate( "Notifications" )}
+              style={styles.notificationPadding}
+            >
+              {notifications
+                ? <Image source={icons.notifications} />
+                : <Image source={icons.notificationsInactive} />}
+            </TouchableOpacity>
+          )}
         </View>
       </ImageBackground>
     </SafeAreaView>
   );
 };
 
-export default withNavigation( Footer );
+export default Footer;

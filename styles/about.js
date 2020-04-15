@@ -2,23 +2,17 @@ import { StyleSheet } from "react-native";
 import { colors, fonts, row } from "./global";
 
 export default StyleSheet.create( {
-  background: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   block: {
     marginBottom: 34
   },
   boldText: {
-    color: colors.black,
     fontFamily: fonts.semibold,
-    fontSize: 16,
-    lineHeight: 21,
-    marginBottom: 5,
-    textAlign: "center"
+    marginBottom: 5
   },
   debug: {
-    padding: 34
+    paddingBottom: 17,
+    paddingHorizontal: 20,
+    paddingTop: 27
   },
   greenText: {
     color: colors.seekForestGreen,
@@ -27,15 +21,24 @@ export default StyleSheet.create( {
     letterSpacing: 1.0
   },
   image: {
-    height: 51,
+    height: 54,
     resizeMode: "contain",
-    width: 300
+    width: 307
   },
   margin: {
     marginBottom: 27
   },
+  marginLarge: {
+    marginTop: 38
+  },
   marginLeft: {
     marginLeft: 20
+  },
+  marginSmall: {
+    marginTop: 22
+  },
+  marginSmallest: {
+    marginTop: 17
   },
   row,
   text: {
@@ -47,7 +50,12 @@ export default StyleSheet.create( {
   },
   textContainer: {
     alignItems: "center",
-    marginHorizontal: 34,
+    marginHorizontal: 26,
     marginTop: 31
+  },
+  wwfop: {
+    height: 80,
+    resizeMode: "contain",
+    width: 240
   }
 } );

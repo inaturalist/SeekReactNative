@@ -1,84 +1,105 @@
-import {
-  createStackNavigator,
-  TransitionPresets,
-  CardStyleInterpolators
-} from "react-navigation-stack";
+import React from "react";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+import Footer from "../UIComponents/Footer";
 
 import CameraNav from "./CameraTab";
-import { ChallengeFooterTabNav, FooterTabNav } from "./FooterTabs";
+import FooterTabNav from "./FooterTabs";
 
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
-import Match from "../Results/MatchScreen";
+import Match from "../Match/MatchScreen";
 import RangeMap from "../Species/RangeMap";
-import NotificationsScreen from "../Notifications/Notifications";
-import CameraHelpScreen from "../Camera/CameraHelpScreen";
-import PostScreen from "../PostToiNat/PostScreen";
-import PostingHelpScreen from "../PostToiNat/PostingHelpScreen";
-import WikipediaView from "../Species/WikipediaView";
+import Notifications from "../Notifications/Notifications";
+import CameraHelp from "../Camera/CameraHelpScreen";
+import Post from "../PostToiNat/PostScreen";
+import PostingHelp from "../PostToiNat/PostingHelpScreen";
+import Wikipedia from "../Species/WikipediaView";
+
+const Tab = createBottomTabNavigator();
+
+const NotificationsFooter = () => (
+  <Tab.Navigator tabBar={props => <Footer {...props} />}>
+    <Tab.Screen name="Notifications" component={Notifications} />
+  </Tab.Navigator>
+);
+
+const Stack = createStackNavigator();
 
 const forFade = ( { current } ) => ( {
   cardStyle: { opacity: current.progress }
 } );
 
-const defaultNavigation = {
+const defaultConfig = {
+  headerShown: false,
   cardStyleInterpolator: forFade
 };
 
-const StackNavigatorConfig = {
-  headerMode: "none",
-  defaultNavigationOptions: defaultNavigation
-};
-
-const MainStack = createStackNavigator( {
-  Footer: {
-    screen: FooterTabNav
-  },
-  ChallengeFooter: {
-    screen: ChallengeFooterTabNav,
-    navigationOptions: () => ( {
-      cardStyleInterpolator: forFade
-    } )
-  },
-  Notifications: { // moved out of FooterTabNav to add animation
-    screen: NotificationsScreen,
-    navigationOptions: TransitionPresets.SlideFromRightIOS
-  },
-  CameraHelp: { // moved out of FooterTabNav to see if this helps with stutter
-    screen: CameraHelpScreen
-  },
-  Camera: {
-    screen: CameraNav,
-    navigationOptions: {
-      gestureEnabled: false,
-      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
-    }
-  },
-  OfflineARResults: {
-    screen: OfflineARResults
-  },
-  OnlineServerResults: {
-    screen: OnlineServerResults
-  },
-  Match: {
-    screen: Match
-  },
-  RangeMap: {
-    screen: RangeMap
-  },
-  Post: {
-    screen: PostScreen
-  },
-  PostingHelp: {
-    screen: PostingHelpScreen
-  },
-  Wikipedia: {
-    screen: WikipediaView,
-    navigationOptions: {
-      gestureEnabled: false,
-      cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS // slide in from bottom
-    }
-  }
-}, StackNavigatorConfig );
+const MainStack = () => (
+  <Stack.Navigator
+    initialRouteName="MainStack"
+    screenOptions={{ gestureEnabled: false }}
+  >
+    <Stack.Screen
+      name="MainTab"
+      component={FooterTabNav}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Notifications"
+      component={NotificationsFooter}
+      options={{
+        headerShown: false,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}
+    />
+    <Stack.Screen
+      name="CameraHelp"
+      component={CameraHelp}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Camera"
+      component={CameraNav}
+      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
+    />
+    <Stack.Screen
+      name="OfflineARResults"
+      component={OfflineARResults}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="OnlineServerResults"
+      component={OnlineServerResults}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Match"
+      component={Match}
+      options={defaultConfig}
+    />
+    <Stack.Screen // turn range map into modal, since it only pops up from species screen
+      name="RangeMap"
+      component={RangeMap}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Post"
+      component={Post}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="PostingHelp"
+      component={PostingHelp}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Wikipedia"
+      component={Wikipedia}
+      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
+    />
+  </Stack.Navigator>
+);
 
 export default MainStack;

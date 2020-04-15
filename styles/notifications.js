@@ -12,13 +12,22 @@ export default StyleSheet.create( {
     marginHorizontal: 22
   },
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
+  },
+  containerWhite: {
+    backgroundColor: colors.white
   },
   divider: {
     backgroundColor: colors.dividerGray,
     height: 1,
     marginHorizontal: 23
+  },
+  flex: {
+    flex: 1
+  },
+  flexGrow: {
+    flexGrow: 1
   },
   greenDot: {
     backgroundColor: colors.seekiNatGreen,

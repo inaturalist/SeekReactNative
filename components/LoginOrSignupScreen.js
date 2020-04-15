@@ -21,13 +21,13 @@ type Props = {
 
 const LoginOrSignupScreen = ( { navigation }: Props ) => (
   <ImageBackground
-    source={backgrounds.splash}
+    source={backgrounds.login}
     style={[styles.container, styles.center]}
   >
     <Image source={logoImages.seek} style={styles.logo} />
     <View style={styles.margin} />
     <Button
-      handlePress={() => navigation.navigate( "LoginScreen" )}
+      handlePress={() => navigation.navigate( "Login" )}
       text="login.log_in"
       color={colors.white}
       greenText
@@ -43,7 +43,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => (
     />
     <View style={styles.marginSmall} />
     <Button
-      handlePress={() => navigation.navigate( "Main" )}
+      handlePress={() => navigation.navigate( "Drawer" )}
       text="login.skip_login"
       large
       color={colors.white}

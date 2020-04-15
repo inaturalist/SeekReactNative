@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   Platform,
@@ -14,6 +14,7 @@ import LocationPickerButton from "./LocationPickerButton";
 import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
 import { useLocationName } from "../../../utility/customHooks";
+import Error from "./Error";
 
 const SpeciesNearby = () => {
   const [latLng, setLatLng] = useState( {
@@ -24,39 +25,36 @@ const SpeciesNearby = () => {
   const [error, setError] = useState( null );
   const location = useLocationName( latLng.latitude, latLng.longitude );
 
-  const updateLatLng = ( latitude, longitude ) => {
-    setLatLng( {
-      latitude,
-      longitude
-    } );
-  };
+  const updateLatLng = ( latitude, longitude ) => setLatLng( { latitude, longitude } );
 
-  const updateTaxaType = ( type ) => {
-    setTaxaType( type );
-  };
+  const updateTaxaType = ( type ) => setTaxaType( type );
 
-  const setLocationError = ( errorCode ) => {
+  const updateDowntimeError = () => setError( "downtime" );
+
+  const setLocationError = useCallback( ( errorCode ) => {
     if ( errorCode === 1 ) {
-      setError( "location" );
+      setError( "location_error" );
     } else if ( errorCode === 2 ) {
       setError( "no_gps" );
     } else {
       setError( "location_timeout" );
     }
-  };
+  }, [] );
 
-  const getGeolocation = () => {
-    fetchTruncatedUserLocation().then( ( coords ) => {
-      if ( coords.latitude && coords.longitude ) {
-        setError( null );
-        updateLatLng( coords.latitude, coords.longitude );
+  const getGeolocation = useCallback( () => {
+    if ( error && error !== "internet_error" ) {
+      setError( null );
+    }
+    fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
+      if ( latitude && longitude ) {
+        updateLatLng( latitude, longitude );
       }
     } ).catch( ( errorCode ) => {
       setLocationError( errorCode );
     } );
-  };
+  }, [setLocationError, error] );
 
-  const requestAndroidPermissions = () => {
+  const requestAndroidPermissions = useCallback( () => {
     if ( !latLng.latitude || !latLng.longitude ) {
       // only update location if user has not selected a location already
       if ( Platform.OS === "android" ) {
@@ -64,31 +62,28 @@ const SpeciesNearby = () => {
           if ( granted ) {
             getGeolocation();
           } else {
-            setError( "location" );
+            setError( "location_error" );
           }
         } );
       } else {
         getGeolocation();
       }
     }
-  };
+  }, [latLng, getGeolocation] );
 
-  const resetInternetErrorAndFetchLocation = () => {
-    if ( error === "internet" ) {
-      setError( null );
-    }
-    requestAndroidPermissions(); // 16 seconds to load location on Android due to old API
-  };
-
-  const checkForInternetError = () => {
+  const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
-        setError( "internet" );
-      } else {
-        resetInternetErrorAndFetchLocation();
+        setError( "internet_error" );
+      } else if ( error === "internet_error" ) {
+        setError( null );
       }
-    } ).catch( () => resetInternetErrorAndFetchLocation() );
-  };
+    } ).catch( () => setError( null ) );
+  }, [error] );
+
+  useEffect( () => {
+    requestAndroidPermissions();
+  }, [requestAndroidPermissions] );
 
   return (
     <>
@@ -106,13 +101,22 @@ const SpeciesNearby = () => {
         <TaxonPicker updateTaxaType={updateTaxaType} error={error} />
         <View style={styles.marginBottom} />
       </View>
-      <SpeciesNearbyContainer
-        taxaType={taxaType}
-        latitude={latLng.latitude}
-        longitude={latLng.longitude}
-        error={error}
-        checkForErrors={checkForInternetError}
-      />
+      {error ? (
+        <Error
+          error={error}
+          checkInternet={checkInternet}
+          checkLocation={requestAndroidPermissions}
+        />
+      ) : (
+        <SpeciesNearbyContainer
+          taxaType={taxaType}
+          latitude={latLng.latitude}
+          longitude={latLng.longitude}
+          error={error}
+          checkInternet={checkInternet}
+          updateDowntimeError={updateDowntimeError}
+        />
+      )}
       <View style={styles.greenMargin} />
     </>
   );

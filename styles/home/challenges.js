@@ -7,6 +7,7 @@ export default StyleSheet.create( {
     height: 340
   },
   container: {
+    backgroundColor: colors.white,
     marginTop: 5
   },
   header: {

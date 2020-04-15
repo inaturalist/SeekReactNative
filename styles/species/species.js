@@ -18,10 +18,7 @@ export default StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
-  bottomPadding: {
-    backgroundColor: colors.seekForestGreen,
-    height: Platform.OS === "android" ? 17 : 60
-  },
+
   checkmark: {
     marginRight: 10
   },

@@ -1,86 +1,93 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FlatList,
   View,
   Platform
 } from "react-native";
 import Realm from "realm";
-import { NavigationEvents } from "react-navigation";
+import { useNavigation } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import EmptyState from "../UIComponents/EmptyState";
 import { updateNotifications } from "../../utility/notificationHelpers";
-import Footer from "../UIComponents/Footer";
 import Padding from "../UIComponents/Padding";
+import BottomSpacer from "../UIComponents/BottomSpacer";
 
-type Props = {}
+const NotificationsScreen = () => {
+  const insets = useSafeArea();
+  const navigation = useNavigation();
 
-type State = {
-  notifications: Array<Object>
-}
+  const scrollView = useRef( null );
+  const [notifications, setNotifications] = useState( [] );
 
-class NotificationsScreen extends Component<Props, State> {
-  scrollView: ?any
-
-  constructor() {
-    super();
-
-    this.state = {
-      notifications: []
+  const useScrollToTop = () => {
+    const scrollToTop = () => {
+      if ( scrollView && scrollView.current !== null ) {
+        scrollView.current.scrollToOffset( {
+          x: 0, y: 0, animated: Platform.OS === "android"
+        } );
+      }
     };
-  }
 
-  scrollToTop() {
-    if ( this.scrollView ) {
-      this.scrollView.scrollToOffset( {
-        y: 0, animated: Platform.OS === "android"
+    useEffect( () => {
+      navigation.addListener( "focus", () => {
+        scrollToTop();
       } );
-    }
-  }
+    } );
+  };
 
-  fetchNotifications() {
+  useScrollToTop();
+
+  const fetchNotifications = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
-        const notifications = realm.objects( "NotificationRealm" ).sorted( "index", true );
-        this.setState( { notifications } );
+        const notificationList = realm.objects( "NotificationRealm" ).sorted( "index", true );
+        setNotifications( notificationList );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
-  }
+  };
 
-  render() {
-    const { notifications } = this.state;
+  useEffect( () => {
+    fetchNotifications();
+  }, [] );
 
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <NavigationEvents
-          onDidBlur={() => updateNotifications()}
-          onDidFocus={() => this.scrollToTop()}
-          onWillFocus={() => this.fetchNotifications()}
+  useEffect( () => {
+    navigation.addListener( "blur", () => {
+      updateNotifications();
+    } );
+  }, [navigation] );
+
+  return (
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      <GreenHeader header="notifications.header" />
+      {notifications.length > 0 ? (
+        <FlatList
+          ref={scrollView}
+          contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
+          data={notifications}
+          keyExtractor={( item, i ) => `${item}${i}`}
+          ListFooterComponent={() => (
+            <>
+              <Padding />
+              <BottomSpacer />
+            </>
+          )}
+          renderItem={( { item } ) => <NotificationCard item={item} />}
         />
-        <GreenHeader header="notifications.header" />
-        {notifications.length > 0 ? (
-          <FlatList
-            ref={( ref ) => { this.scrollView = ref; }}
-            data={notifications}
-            keyExtractor={( item, i ) => `${item}${i}`}
-            ListFooterComponent={() => <Padding />}
-            renderItem={( { item } ) => (
-              <NotificationCard item={item} />
-            )}
-          />
-        ) : <EmptyState />}
-        <Footer />
-      </View>
-    );
-  }
-}
+      ) : (
+        <View style={[styles.containerWhite, styles.flex]}>
+          <EmptyState />
+        </View>
+      )}
+    </View>
+  );
+};
 
 export default NotificationsScreen;

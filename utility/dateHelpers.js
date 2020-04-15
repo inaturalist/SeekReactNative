@@ -7,7 +7,8 @@ import {
   getUnixTime,
   formatISO,
   fromUnixTime,
-  subDays
+  subDays,
+  differenceInHours
 } from "date-fns";
 import {
   af,
@@ -95,12 +96,9 @@ const fetchSpeciesSeenDate = ( taxaId ) => (
   } )
 );
 
-const createTimestamp = ( time ) => {
-  if ( time ) {
-    return getUnixTime( time );
-  }
-  return getUnixTime( new Date() );
-};
+const createTimestamp = () => getUnixTime( new Date() );
+
+const serverBackOnlineTime = ( gmtTime ) => differenceInHours( new Date( gmtTime ), new Date() );
 
 const namePhotoByTime = () => format( new Date(), "ddMMyy_HHmmSSSS" );
 
@@ -148,5 +146,6 @@ export {
   isWithin7Days,
   formatHourMonthSecond,
   formatMonthYear,
-  formatMonth
+  formatMonth,
+  serverBackOnlineTime
 };

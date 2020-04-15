@@ -5,20 +5,18 @@ import {
   View,
   Text
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import styles from "../../styles/uiComponents/loginCard";
 import i18n from "../../i18n";
 import { removeAccessToken } from "../../utility/loginHelpers";
 import GreenButton from "./Buttons/GreenButton";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
-type Props = {
-  +navigation: any,
-  +screen: string
-}
+const LoginCard = () => {
+  const navigation = useNavigation();
+  const { name } = useRoute();
 
-const LoginCard = ( { navigation, screen }: Props ) => {
   const logUserOut = async ( user: Object ) => {
     const loggedOut = await removeAccessToken();
     if ( loggedOut === null ) {
@@ -32,7 +30,7 @@ const LoginCard = ( { navigation, screen }: Props ) => {
         <View style={styles.container}>
           {user && (
             <>
-              {screen === "achievements" ? (
+              {name === "Achievements" ? (
                 <Text style={styles.loginText}>
                   {user.login
                     ? i18n.t( "inat_stats.logged_in" )
@@ -47,14 +45,16 @@ const LoginCard = ( { navigation, screen }: Props ) => {
               )}
             </>
           )}
-          {screen !== "achievements" ? <View style={styles.margin} /> : null}
+          {name !== "achievements" && <View style={styles.margin} />}
           {user && (
             <GreenButton
               handlePress={() => {
                 if ( user.login ) {
                   logUserOut( user );
                 } else {
-                  navigation.navigate( "LoginOrSignup" );
+                  navigation.navigate( "Login", {
+                    screen: "LoginOrSignup"
+                  } );
                 }
               }}
               text={user.login
@@ -68,4 +68,4 @@ const LoginCard = ( { navigation, screen }: Props ) => {
   );
 };
 
-export default withNavigation( LoginCard );
+export default LoginCard;

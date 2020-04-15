@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
-import { NavigationEvents } from "react-navigation";
+import { NavigationEvents } from "@react-navigation/compat";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
@@ -16,99 +16,61 @@ import {
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import { checkLocationPermissions } from "../../utility/androidHelpers.android";
-import { resizeImage } from "../../utility/photoHelpers";
 import createUserAgent from "../../utility/userAgent";
-import { fetchSpeciesSeenDate, createTimestamp } from "../../utility/dateHelpers";
+import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 
 type Props = {
+  +route: any,
   +navigation: any
 }
 
 type State = {
-  uri: string,
-  time: Date,
-  latitude: number,
-  longitude: number,
-  userImage: ?string,
-  speciesSeenImage: ?string,
+  image: Object,
+  taxon: Object,
   observation: ?Object,
-  taxaId: ?number,
-  taxaName: ?string,
-  commonAncestor: ?string,
   seenDate: ?string,
   error: ?string,
-  scientificName: ?string,
   match: ?boolean,
   clicked: boolean,
   numberOfHours: ?string,
-  errorCode: ?number,
-  rank: ?number
+  errorCode: ?number
 };
 
 class OnlineServerResults extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
-    const {
-      uri,
-      time,
-      latitude,
-      longitude
-    } = navigation.state.params;
+    const { image } = route.params;
 
     this.state = {
-      uri,
-      time,
-      latitude,
-      longitude,
-      userImage: null,
-      speciesSeenImage: null,
+      taxon: {},
+      image,
       observation: null,
-      taxaId: null,
-      taxaName: null,
-      commonAncestor: null,
       seenDate: null,
       error: null,
-      scientificName: null,
       match: null,
       clicked: false,
       numberOfHours: null,
-      errorCode: null,
-      rank: null
+      errorCode: null
     };
 
     ( this:any ).checkForMatches = this.checkForMatches.bind( this );
   }
 
   getUserLocation() {
+    const { image } = this.state;
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
 
-        this.setState( {
-          latitude,
-          longitude
-        } );
+        image.latitude = latitude;
+        image.longitude = longitude;
+
+        this.setState( { image } );
       }
     } ).catch( ( errorCode ) => {
       this.setLocationErrorCode( errorCode );
     } );
-  }
-
-  getLocation() {
-    const { latitude, longitude } = this.state;
-
-    if ( !latitude || !longitude ) { // check to see if there are already photo coordinates
-      if ( Platform.OS === "android" ) {
-        checkLocationPermissions().then( ( granted ) => {
-          if ( granted ) {
-            this.getUserLocation();
-          }
-        } );
-      } else {
-        this.getUserLocation();
-      }
-    }
   }
 
   setMatch( match: boolean ) {
@@ -118,10 +80,6 @@ class OnlineServerResults extends Component<Props, State> {
         this.checkForMatches();
       }
     } );
-  }
-
-  setImageUri( uri: string ) {
-    this.setState( { userImage: uri }, () => this.getParamsForOnlineVision() );
   }
 
   setSeenDate( seenDate: ?string ) {
@@ -140,18 +98,25 @@ class OnlineServerResults extends Component<Props, State> {
     this.setState( { errorCode } );
   }
 
+  setTaxon( taxon: Object, match: boolean ) {
+    this.setState( { taxon }, () => this.setMatch( match ) );
+  }
+
   setOnlineVisionSpeciesResults( species: Object ) {
     const { taxon } = species;
     const photo = taxon.default_photo;
 
+    this.setState( { observation: species } );
+
     getTaxonCommonName( taxon.id ).then( ( commonName ) => {
-      this.setState( {
-        observation: species,
+      const newTaxon = {
         taxaId: taxon.id,
         taxaName: capitalizeNames( commonName || taxon.name ),
         scientificName: taxon.name,
         speciesSeenImage: photo ? photo.medium_url : null
-      }, () => this.setMatch( true ) );
+      };
+
+      this.setTaxon( newTaxon, true );
     } );
   }
 
@@ -160,7 +125,7 @@ class OnlineServerResults extends Component<Props, State> {
     const photo = taxon.default_photo;
 
     getTaxonCommonName( taxon.id ).then( ( commonName ) => {
-      this.setState( {
+      const newTaxon = {
         commonAncestor: commonAncestor
           ? capitalizeNames( commonName || taxon.name )
           : null,
@@ -168,20 +133,16 @@ class OnlineServerResults extends Component<Props, State> {
         speciesSeenImage: photo ? photo.medium_url : null,
         scientificName: taxon.name,
         rank: taxon.rank_level
-      }, () => this.setMatch( false ) );
+      };
+
+      this.setTaxon( newTaxon, false );
     } );
   }
 
-  getParamsForOnlineVision() {
-    const {
-      userImage,
-      time,
-      latitude,
-      longitude
-    } = this.state;
+  async getParamsForOnlineVision() {
+    const { image } = this.state;
 
-    const params = flattenUploadParameters( userImage, time, latitude, longitude );
-
+    const params = await flattenUploadParameters( image );
     this.fetchScore( params );
   }
 
@@ -198,18 +159,6 @@ class OnlineServerResults extends Component<Props, State> {
 
   showNoMatch() {
     this.navigateToMatch();
-  }
-
-  resizeImage() {
-    const { uri } = this.state;
-
-    resizeImage( uri, 299 ).then( ( userImage ) => {
-      if ( userImage ) {
-        this.setImageUri( userImage );
-      } else {
-        this.setError( "image" );
-      }
-    } ).catch( () => this.setError( "image" ) );
   }
 
   fetchScore( params: Object ) {
@@ -233,13 +182,11 @@ class OnlineServerResults extends Component<Props, State> {
       } ).catch( ( { response } ) => {
         if ( response.status && response.status === 503 ) {
           const gmtTime = response.headers.map["retry-after"];
-          const currentTime = createTimestamp();
-          const retryAfter = createTimestamp( gmtTime );
-
-          const hours = ( retryAfter - currentTime ) / 60 / 60 / 1000;
+          console.log( gmtTime, "gmt time" );
+          const hours = serverBackOnlineTime( gmtTime );
 
           if ( hours ) {
-            this.setNumberOfHours( hours.toFixed( 0 ) );
+            this.setNumberOfHours( hours );
           }
           this.setError( "downtime" );
         } else {
@@ -250,15 +197,14 @@ class OnlineServerResults extends Component<Props, State> {
 
   addObservation() {
     const {
-      latitude,
-      longitude,
-      observation,
-      uri,
-      time
+      image,
+      observation
     } = this.state;
 
-    if ( latitude && longitude ) {
-      addToCollection( observation, latitude, longitude, uri, time );
+    console.log( observation, "observation.taxon" );
+
+    if ( image.latitude && image.longitude ) {
+      addToCollection( observation, image );
     }
   }
 
@@ -280,48 +226,48 @@ class OnlineServerResults extends Component<Props, State> {
     }
   }
 
+  requestAndroidPermissions() {
+    const { image } = this.state;
+
+    if ( !image.latitude || !image.longitude ) {
+      // check to see if there are already photo coordinates
+      if ( Platform.OS === "android" ) {
+        checkLocationPermissions().then( ( granted ) => {
+          if ( granted ) {
+            this.getUserLocation();
+            this.getParamsForOnlineVision();
+          }
+        } );
+      } else {
+        this.getUserLocation();
+        this.getParamsForOnlineVision();
+      }
+    } else {
+      this.getParamsForOnlineVision();
+    }
+  }
+
   navigateToMatch() {
     const { navigation } = this.props;
     const {
-      userImage,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
-      commonAncestor,
+      image,
+      taxon,
       seenDate,
-      uri,
-      scientificName,
-      latitude,
-      longitude,
-      time,
-      match,
-      errorCode,
-      rank
+      errorCode
     } = this.state;
 
     navigation.push( "Match", {
-      userImage,
-      uri,
-      taxaName,
-      taxaId,
-      speciesSeenImage,
+      image,
+      taxon,
       seenDate,
-      scientificName,
-      latitude,
-      longitude,
-      time,
-      commonAncestor,
-      match,
-      errorCode,
-      rank
+      errorCode
     } );
   }
 
   render() {
     const {
-      uri,
+      image,
       error,
-      match,
       clicked,
       numberOfHours
     } = this.state;
@@ -329,10 +275,7 @@ class OnlineServerResults extends Component<Props, State> {
     return (
       <>
         <NavigationEvents
-          onWillFocus={() => {
-            this.getLocation();
-            this.resizeImage();
-          }}
+          onWillFocus={() => this.requestAndroidPermissions()}
         />
         {error
           ? (
@@ -342,10 +285,9 @@ class OnlineServerResults extends Component<Props, State> {
             />
           ) : (
             <ConfirmScreen
-              checkForMatches={this.checkForMatches}
+              updateClicked={this.checkForMatches}
               clicked={clicked}
-              image={uri}
-              match={match}
+              image={image.uri}
             />
           )}
       </>

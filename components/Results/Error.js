@@ -14,6 +14,7 @@ type Props = {
 }
 
 const ErrorScreen = ( { error, number }: Props ) => {
+  console.log( number, "number of hours" );
   let errorText;
 
   if ( error === "onlineVision" ) {

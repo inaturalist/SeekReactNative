@@ -15,9 +15,10 @@ import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utilit
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
-import UserContext from "../UserContext";
+import { UserContext } from "../UserContext";
 
 type Props = {
+  +route: any,
   +navigation: any
 }
 
@@ -30,10 +31,10 @@ type State = {
 }
 
 class SignUpScreen extends Component<Props, State> {
-  constructor( { navigation }: Props ) {
+  constructor( { route }: Props ) {
     super();
 
-    const { licensePhotos, email } = navigation.state.params;
+    const { licensePhotos, email } = route.params;
 
     this.state = {
       email,
@@ -167,9 +168,7 @@ class SignUpScreen extends Component<Props, State> {
         {user => (
           <View style={styles.container}>
             <SafeAreaView />
-            <GreenHeader
-              header="login.sign_up"
-            />
+            <GreenHeader header="login.sign_up" />
             <ScrollView>
               <View style={styles.leftTextMargins}>
                 <GreenText smaller text="inat_login.username" />

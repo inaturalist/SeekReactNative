@@ -7,22 +7,22 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { withNavigation } from "react-navigation";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/notifications";
 import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
-import { setRoute } from "../../utility/helpers";
 import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
 
 type Props = {
-  +navigation: any,
   +item: Object
 }
 
-const NotificationCard = ( { navigation, item }: Props ) => {
+const NotificationCard = ( { item }: Props ) => {
+  const navigation = useNavigation();
+
   let image;
 
   if ( item.title === "notifications.challenge_completed" ) {
@@ -37,10 +37,9 @@ const NotificationCard = ( { navigation, item }: Props ) => {
   }
 
   return (
-    <View>
+    <>
       <TouchableOpacity
         onPress={() => {
-          setRoute( "Notifications" );
           if ( item.nextScreen === "ChallengeDetails" ) {
             setChallengeIndex( item.challengeIndex );
           }
@@ -60,8 +59,8 @@ const NotificationCard = ( { navigation, item }: Props ) => {
         {item.seen === false ? <View style={styles.greenDot} /> : null}
       </TouchableOpacity>
       <View style={styles.divider} />
-    </View>
+    </>
   );
 };
 
-export default withNavigation( NotificationCard );
+export default NotificationCard;

@@ -8,33 +8,17 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/onboarding";
 import Swiper from "./Swiper";
-import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 
 const OnboardingScreen = () => (
   <Swiper>
-    {[0, 1, 2].map( ( item, index ) => (
-      <View key={`${item}`}>
-        {index === 2 ? (
-          <View style={[styles.banner, styles.center]}>
-            <Image
-              source={logoImages.wwfop}
-              style={styles.image}
-            />
-          </View>
-        ) : (
-          <View style={styles.imageContainer}>
-            <Image
-              source={icons[`onboarding${index + 1}`]}
-              style={styles[`image${index + 1}`]}
-            />
-          </View>
-        )}
-        <View style={[styles.textContainer, styles.center]}>
-          <Text style={styles.text}>
-            {i18n.t( `onboarding.onboarding_${index + 1}` )}
-          </Text>
-        </View>
+    {[1, 2, 3].map( ( item ) => (
+      <View key={`${item}`} style={styles.image}>
+        <Image source={icons[`onboarding${item}`]} />
+        <View style={styles.margin} />
+        <Text style={[styles.text, styles.center]}>
+          {i18n.t( `onboarding.onboarding_${item}` )}
+        </Text>
       </View>
     ) )}
   </Swiper>

@@ -28,7 +28,13 @@ const checkForPowerUsers = ( length, newLength ) => {
   }
 };
 
-const addToCollection = async ( observation, latitude, longitude, uri, time ) => {
+const addToCollection = async ( observation, image ) => {
+  const {
+    latitude,
+    longitude,
+    uri,
+    time
+  } = image;
   const { taxon } = observation;
   const backupUri = await createBackupUri( uri ); // needs to happen before calculating badges
   const uuid = await createUUID();

@@ -50,6 +50,7 @@ const AboutScreen = () => {
               onPress={() => navigation.navigate( "DebugAndroid" )}
               style={styles.debug}
               disabled={Platform.OS === "ios" || !user.login}
+              testID="debug"
             >
               <Text style={styles.greenText}>
                 {i18n.t( "about.version" ).toLocaleUpperCase()}

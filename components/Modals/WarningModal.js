@@ -24,40 +24,32 @@ const WarningModal = ( { closeModal }: Props ) => (
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
       </Text>
     </View>
-    <View style={styles.contentContainer}>
-      <View style={styles.row}>
-        <Image source={icons.warningTrespass} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "warning.tip_1" )}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.margin} />
-      <View style={styles.row}>
-        <Image source={icons.warningEat} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "warning.tip_2" )}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.margin} />
-      <View style={styles.row}>
-        <Image source={icons.warningTouch} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            {i18n.t( "warning.tip_3" )}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.margin} />
-      <View style={styles.button}>
-        <GreenButton
-          handlePress={() => closeModal()}
-          text="onboarding.continue"
-        />
-      </View>
+    <View style={styles.marginTop} />
+    <View>
+      {[1, 2, 3].map( ( warning ) => {
+        const iconName = icons[`warning_${warning}`];
+        return (
+          <>
+            <View style={styles.row}>
+              <Image source={iconName} style={styles.image} />
+              <Text style={styles.text}>
+                {i18n.t( `warning.tip_${warning}` )}
+              </Text>
+            </View>
+            {warning !== 3 && <View style={styles.margin} />}
+          </>
+        );
+      } )}
+      <View style={styles.marginSmall} />
+      <Text style={[styles.text, styles.wideText]}>
+        {i18n.t( "warning.tip_4" )}
+      </Text>
+    </View>
+    <View style={styles.button}>
+      <GreenButton
+        handlePress={() => closeModal()}
+        text="onboarding.continue"
+      />
     </View>
   </WhiteModal>
 );

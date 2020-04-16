@@ -50,7 +50,7 @@ export default StyleSheet.create( {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 18,
+    lineHeight: 21,
     maxWidth: 206
   },
   wideText: {

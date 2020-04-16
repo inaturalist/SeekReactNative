@@ -34,7 +34,7 @@ const WarningModal = ( { closeModal }: Props ) => (
       {[1, 2, 3].map( ( warning ) => {
         const iconName = icons[`warning_${warning}`];
         return (
-          <>
+          <React.Fragment key={warning}>
             <View style={styles.row}>
               <Image source={iconName} style={styles.image} />
               <Text style={styles.text}>
@@ -42,7 +42,7 @@ const WarningModal = ( { closeModal }: Props ) => (
               </Text>
             </View>
             {warning !== 3 && <View style={styles.margin} />}
-          </>
+          </React.Fragment>
         );
       } )}
       <View style={styles.marginSmall} />

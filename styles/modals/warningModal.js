@@ -11,13 +11,14 @@ import {
 
 export default StyleSheet.create( {
   button: {
-    marginBottom: 24,
-    marginTop: 14
+    marginBottom: dimensions.height > 570 ? 24 : 17,
+    marginTop: dimensions.height > 570 ? 28 : 26
   },
   header: {
     backgroundColor: colors.seekForestGreen,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+    height: 67,
     justifyContent: "center",
     width: "100%"
   },
@@ -26,9 +27,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    marginBottom: 20,
-    marginTop: 18,
-    paddingTop: Platform.OS === "ios" ? 8 : 0,
+    paddingTop: Platform.OS === "ios" ? 9 : 0,
     textAlign: "center"
   },
   image: {
@@ -41,10 +40,10 @@ export default StyleSheet.create( {
     marginTop: 28
   },
   marginSmall: {
-    marginTop: 14
+    marginTop: dimensions.height > 570 ? 18 : 26
   },
   marginTop: {
-    marginTop: 31
+    marginTop: dimensions.height > 570 ? 26 : 24
   },
   row,
   text: {
@@ -52,10 +51,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 18,
-    maxWidth: dimensions.height > 570 ? 198 : 214
+    maxWidth: 206
   },
   wideText: {
-    maxWidth: 278,
+    maxWidth: 270,
     textAlign: "center"
   }
 } );

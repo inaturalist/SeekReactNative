@@ -9,6 +9,7 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/warningModal";
+import { dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import WhiteModal from "../UIComponents/WhiteModal";
@@ -18,7 +19,11 @@ type Props = {
 }
 
 const WarningModal = ( { closeModal }: Props ) => (
-  <WhiteModal closeModal={closeModal} noButton>
+  <WhiteModal
+    closeModal={closeModal}
+    noButton
+    width={dimensions.height > 570 ? 337 : 320}
+  >
     <View style={styles.header}>
       <Text style={styles.headerText}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
@@ -49,6 +54,7 @@ const WarningModal = ( { closeModal }: Props ) => (
       <GreenButton
         handlePress={() => closeModal()}
         text="onboarding.continue"
+        width={dimensions.height < 570 ? 271 : 285}
       />
     </View>
   </WhiteModal>

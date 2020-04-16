@@ -4,7 +4,7 @@ import { render, fireEvent } from "react-native-testing-library";
 import About from "../AboutScreen";
 
 describe( "About", () => {
-  describe( "navigate to debug", () => {
+  describe( "button to navigate to Debug Log", () => {
     let getByTestId;
 
     beforeEach( () => {
@@ -13,7 +13,7 @@ describe( "About", () => {
       fireEvent.press( getByTestId( "debug" ) );
     } );
 
-    it( "navigates to Debug screen on Android", () => {
+    it( "only shows Debug Log screen to Android users", () => {
       if ( Platform.OS === "android" ) {
         expect( getByTestId( "debug" ).props.disabled ).toEqual( false );
       } else {

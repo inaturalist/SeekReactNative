@@ -43,14 +43,13 @@ const ARCameraOverlay = ( {
   const closeModal = () => setModal( false );
 
   useEffect( () => {
-    openModal();
-    // const checkForFirstCameraLaunch = async () => {
-    //   const isFirstLaunch = await checkIfCameraLaunched();
-    //   if ( isFirstLaunch ) {
-    //     openModal();
-    //   }
-    // };
-    // checkForFirstCameraLaunch();
+    const checkForFirstCameraLaunch = async () => {
+      const isFirstLaunch = await checkIfCameraLaunched();
+      if ( isFirstLaunch ) {
+        openModal();
+      }
+    };
+    checkForFirstCameraLaunch();
   }, [] );
 
   return (

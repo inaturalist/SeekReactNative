@@ -48,11 +48,11 @@ const SpeciesHeader = ( {
     }
   }, [navigation, route.params, routeName] );
 
-  useEffect( () => {
-    BackHandler.addEventListener( "hardwareBackPress", backAction );
+  // useEffect( () => {
+  //   BackHandler.addEventListener( "hardwareBackPress", backAction );
 
-    return () => BackHandler.removeEventListener( "hardwareBackPress", backAction );
-  }, [backAction] );
+  //   // return () => BackHandler.removeEventListener( "hardwareBackPress", backAction );
+  // }, [backAction] );
 
   return (
     <>

@@ -6,7 +6,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { colors } from "../../styles/global";
 import SideDrawer from "./SideDrawer";
 import LoginStack from "./LoginStack";
-import SplashScreen from "../SplashScreen";
+import Splash from "../Splash";
 import OnboardingScreen from "../Onboarding/OnboardingScreen";
 
 const MyTheme = {
@@ -37,7 +37,7 @@ const App = () => (
       >
         <Stack.Screen
           name="Splash"
-          component={SplashScreen}
+          component={Splash}
           options={defaultConfig}
         />
         <Stack.Screen

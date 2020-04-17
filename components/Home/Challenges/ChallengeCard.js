@@ -29,12 +29,10 @@ const ChallengeCard = () => {
             loading: false
           } );
         } else {
-          setState( {
-            loading: false
-          } );
+          setState( { loading: false } );
         }
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
+      } ).catch( ( err ) => {
+        console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   };
 
@@ -55,8 +53,12 @@ const ChallengeCard = () => {
   };
 
   useEffect( () => {
-    fetchLatestChallenge();
-  }, [] );
+    const unsub = navigation.addListener( "focus", () => {
+      fetchLatestChallenge();
+    } );
+
+    return unsub;
+  }, [navigation] );
 
   return (
     <View style={styles.container}>

@@ -45,7 +45,7 @@
     "react-native-modal": "^11.5.6",
     "react-native-modal-datetime-picker": "github:mmazzarolo/react-native-modal-datetime-picker",
     "react-native-open-settings": "github:pix-inc/react-native-open-settings",
-    "react-native-picker-select": "github:lawnstarter/react-native-picker-select#cd732000883d6e38639506134133e8ff693fe761",
+    "react-native-picker-select": "github:lawnstarter/react-native-picker-select",
     "react-native-progress-circle": "^2.1.0",
     "react-native-reanimated": "^1.7.1",
     "react-native-safe-area-context": "^0.7.3",

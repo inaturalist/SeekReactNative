@@ -13,7 +13,8 @@ const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: colors.white
+    background: colors.white,
+    text: colors.black
   }
 };
 

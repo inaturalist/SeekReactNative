@@ -80,6 +80,24 @@ const missions = {
       number: 10,
       types: ["all"]
     }
+  },
+  9: {
+    0: {
+      number: 5,
+      types: ["plants"]
+    },
+    1: {
+      number: 2,
+      types: ["insects"]
+    },
+    2: {
+      number: 1,
+      types: ["arachnids"]
+    },
+    3: {
+      number: 2,
+      types: ["birds"]
+    }
   }
 };
 

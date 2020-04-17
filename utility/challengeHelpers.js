@@ -177,6 +177,7 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict[challengesType];
+
           const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
           if ( isAvailable ) {

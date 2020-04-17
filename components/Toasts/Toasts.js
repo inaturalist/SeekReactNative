@@ -49,13 +49,15 @@ class Toasts extends Component<Props> {
 
     const entrance = {
       toValue: 0,
-      duration: entranceSpeed
+      duration: entranceSpeed,
+      useNativeDriver: true
     };
 
     const exit = {
       toValue: height > 570 ? -170 : -120,
       delay: displayTime,
-      duration: exitSpeed
+      duration: exitSpeed,
+      useNativeDriver: true
     };
 
     const badgeToast = [

@@ -71,3 +71,4 @@ taxonomy.json
 *.mlmodel
 utility/common-names.json
 utility/commonNames/*
+crowdin.yml

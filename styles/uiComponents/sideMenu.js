@@ -11,7 +11,7 @@ import {
   row
 } from "../global";
 
-const { width, height } = Dimensions.get( "window" );
+const { height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
@@ -39,7 +39,7 @@ export default StyleSheet.create( {
     height: 79,
     marginTop: 25,
     resizeMode: "contain",
-    width: ( width / 2 ) * 1.5
+    width: 223
   },
   row,
   text: {
@@ -47,8 +47,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 15 : 18,
     letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding,
-    width: width / 2 + 30
+    maxWidth: 226,
+    paddingTop: padding.iOSPadding
   },
   textContainer: {
     marginBottom: height / 11

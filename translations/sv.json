@@ -104,9 +104,9 @@
     "settings": "Inställningar"
   },
   "onboarding": {
-    "onboarding_1": "Använd Seeks kamera för att lära dig om organismerna runt omkring dig",
-    "onboarding_2": "Förtjäna märken genom att observera olika sorters arter",
-    "onboarding_3": "Delta i globala utmaningar med 'Our Planet' och WWF",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Hoppa över för tillfället",
     "continue": "Fortsätt"
   },
@@ -146,14 +146,6 @@
     "ice": "Klimatutmaning",
     "op": "Our Planet",
     "start_now": "Börja nu",
-    "april_2019": "April 2019",
-    "may_2019": "Maj 2019",
-    "june_2019": "Juni 2019",
-    "november_2019": "November 2019",
-    "august_2019": "Augusti 2019",
-    "september_2019": "September 2019",
-    "october_2019": "Oktober 2019",
-    "december_2019": "December 2019",
     "mission_1_april": "Hitta 10 nya arter!",
     "april_description": "Vi är inte ensamma på vår planet! Djurlivet finns alltid omkring oss oavsett om vi märker det eller inte. I våra hem, trädgårdar, samhällen och städer finns dolda världar att upptäcka. Sök i och kring ditt hem – du kanske blir förvånad över hur många vilda grannar du hittar.\n\nLeta reda på växter, svampar, insekter, fåglar och djur. Var uppmärksam på tecken på mer svårfångat liv – bajs, päls, bon, spår och nät kan alla ge ledtrådar till andra varelser som delar ditt hem med dig.",
     "start_challenge": "Starta utmaningen",
@@ -174,7 +166,7 @@
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
     "number_observed": "{{number}} observerade hittills",
-    "how_to": "Slutför Our Planet-utmaningen för {{month}}!",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
     "get_involved": "Engagera dig",
     "action_april": "Kolla om du bor nära en stad som är en med i City Nature Challenge, och håll i så fall ögonen öppna efter natur- och bestämningsaktiviteter för urbant djurliv!",
@@ -231,8 +223,11 @@
     "sorry": "Ber om ursäkt för det, Sök lär sig fortfarande!\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
     "take_photo": "Ta en till bild",
     "common_ancestor": "Men Seek kunde inte bestämma exakt vilken arten.\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
-    "believe": "Vi tror att denna tillhör {{ancestorRank}}",
-    "believe_1": "Vi tror att denna tillhör",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "Du har sett en art igen!",
     "date_observed": "Du observerade den första gången:\n{{seenDate}}",
     "post_inat": "Om du tog originalbilden av organismen, kan du hjälpa till att träna Seek på denna art genom att skicka in till iNaturalist, där gemenskapen kommer att hjälpa till med bestämning och förbättra framtida versioner.",
@@ -456,11 +451,9 @@
   },
   "about": {
     "header": "Om",
-    "sponsored": "Seek presenteras av 'Our Planet' och WWF",
-    "our_planet": "'Our planet' är en banbrytande naturdokumentär som släpptes på Netflix i april 2019. Serien är en Netflix Original producerad av Silverback films och World Wildlife Fund.",
     "seek": "Seek är gjord av iNaturalist-teamet.",
     "joint_initiative": "iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society.",
-    "original": "Seek skapades ursprungligen som en del av HHMI Tangled Bank Studios Backyard Wilderness-initiativ.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
     "version": "Version",
@@ -554,7 +547,9 @@
     "logs": "Send debug logs by email"
   },
   "settings": {
-    "scientific_names": "Display scientific names in AR Camera"
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -563,7 +558,7 @@
     "citizen_science": "Citizen Science Challenge",
     "completed": "You completed the challenge and earned the challenge badge!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "april_2020": "April 2020",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!"
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

@@ -25,7 +25,8 @@
     "join": "Aggiungi osservazioni con la Fotocamera di Seek per guadagnare il distintivo Il Nostro Pianeta!",
     "take_challenge": "Comincia la sfida",
     "continue_challenge": "Continua la sfida",
-    "view_all": "Vedi tutte le sfide"
+    "view_all": "Vedi tutte le sfide",
+    "new_join": "Aggiungi osservazioni con la Fotocamera di Seek per guadagnare il distintivo Sfida!"
   },
   "notifications": {
     "header": "Notifiche",
@@ -103,9 +104,9 @@
     "settings": "Impostazioni"
   },
   "onboarding": {
-    "onboarding_1": "Usa la fotocamera di Seek per conoscere gli organismi che ti circondano",
-    "onboarding_2": "Guadagna distintivi ogni volta che osservi specie diverse",
-    "onboarding_3": "Partecipa alle sfide globali con Il Nostro Pianeta e il WWF",
+    "onboarding_1": "Usa la Fotocamera di Seek per identificare piante, animali e funghi",
+    "onboarding_2": "Scopri le curiosità sugli organismi intorno a te",
+    "onboarding_3": "Guadagna distintivi ogni volta che osservi specie diverse",
     "skip": "Salta per ora",
     "continue": "Continua"
   },
@@ -145,14 +146,6 @@
     "ice": "Sfida Clima",
     "op": "Il Nostro Pianeta",
     "start_now": "Inizia adesso",
-    "april_2019": "Aprile 2019",
-    "may_2019": "Maggio 2019",
-    "june_2019": "Giugno 2019",
-    "november_2019": "Novembre 2019",
-    "august_2019": "Agosto 2019",
-    "september_2019": "Settembre 2019",
-    "october_2019": "Ottobre 2019",
-    "december_2019": "Dicembre 2019",
     "mission_1_april": "Trova 10 nuove specie!",
     "april_description": "Non siamo soli sul nostro pianeta! La natura è sempre intorno a noi che la notiamo o no. Nelle nostre case, giardini, paesi e città ci sono mondi nascosti da scoprire. Cerca a casa tua e tutt'intorno, e sarai sorpreso di quanti vicini selvatici potrai trovare.\n\nCerca piante, funghi, insetti, uccelli e animali. Vai alla ricerca dei segni di forme di vita più elusive - cacca, pelliccia, nidi, tracce e ragnatele possono darti indizi di altre creature che condividono la tua casa.",
     "start_challenge": "Comincia la sfida",
@@ -173,7 +166,7 @@
     "no_new_challenges": "Ti faremo sapere quando saranno disponibili nuove sfide.",
     "completed_all": "Hai completato tutte le sfide disponibili!",
     "number_observed": "{{number}} osservate finora",
-    "how_to": "Completa la Sfida Il Nostro Pianeta per {{month}}!",
+    "how_to": "Completa la Sfida Seek per {{month}}!",
     "released": "Questa sfida verrà aperta il {{date}}.",
     "get_involved": "Partecipa",
     "action_april": "Controlla se vivi vicino ad una città che fa parte della City Nature Challenge, e se così controlla le osservazioni ed identificazioni delle specie selvatiche urbane!",
@@ -231,7 +224,10 @@
     "take_photo": "Scatta una nuova foto",
     "common_ancestor": "Ma non possiamo identificare la specie esatta.\n\nPuoi provare un angolo diverso, zoomare di più, o provare ad ottenere un scatto più definito dell'organismo.",
     "believe": "Pensiamo che sia un membro di",
-    "believe_1": "Pensiamo che sia un membro di",
+    "genus": "Pensiamo che sia un membro del genere",
+    "family": "Pensiamo che sia un membro della famiglia",
+    "order": "Pensiamo che sia un membro dell'ordine",
+    "class": "Pensiamo che sia un membro della classe",
     "resighted": "Hai rivisto una specie!",
     "date_observed": "Lo hai osservato per la prima il:\n{{seenDate}}",
     "post_inat": "Se hai scattato la foto originale dell'organismo puoi aiutare Seek ad imparare a riconoscere questa specie pubblicandola su iNaturalist, dove la comunità contribuirà all'identificazione e al miglioramento delle versioni future.",
@@ -277,14 +273,16 @@
     "family": "famiglia",
     "genus": "genere",
     "species": "specie",
-    "error_camera": "Abbiamo bisogno di accedere alla fotocamera per aiutarti a identificare le specie!",
+    "error_permissions": "Abbiamo bisogno di accedere alla fotocamera per aiutarti a identificare le specie!",
     "error_gallery": "Abbiamo bisogno di accedere alla galleria per salvare le foto che scatti!",
     "permissions": "Concedi le autorizzazioni nelle impostazioni",
     "error_classifier": "Siamo spiacenti, non siamo in grado di caricare il classificatore",
-    "error_old_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
-    "error_device_support": "Spiacenti, il dispositivo che stai usando non è supportato",
+    "error_camera": "Siamo spiacenti, non siamo riusciti a caricare la fotocamera",
+    "error_device": "Spiacenti, il dispositivo che stai usando non è supportato",
     "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto",
-    "error_no_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso."
+    "error_take": "Siamo spiacenti, non siamo riusciti a scattare la tua foto",
+    "error_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso.",
+    "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}."
   },
   "gallery": {
     "label": "Foto",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Info su",
-    "sponsored": "Seek è presentato da Il Nostro Pianeta e dal WWF",
-    "our_planet": "Il Nostro Pianeta è una importante serie TV naturalistica, rilasciata su Netflix nell'aprile 2019. E' una serie Netflix Original prodotta da Silverback films e dal World Wildlife Fund.",
     "seek": "Seek è realizzato dal team iNaturalist.",
     "joint_initiative": "iNaturalist è un' iniziativa congiunta della California Academy of Sciences e della National Geographic Society.",
-    "original": "Seek è stato originariamente realizzato nell'ambito dell'iniziativa HHHMI Tangled Bank Studios Backyard Wilderness.",
+    "original": "Seek è stata creata originariamente con il supporto di Il Nostro pianeta e HHMI Tangled Bank Studios.",
     "designed_by": "Progettato e sviluppato dal team iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "tutti i diritti riservati",
     "some": "alcuni diritti riservati"
+  },
+  "debug": {
+    "logs": "Invia i registri di debug via email"
+  },
+  "settings": {
+    "header": "Fotocamera di Seek",
+    "common_names": "Visualizza Nomi Comuni",
+    "scientific_names": "Visualizza Nomi Scientifici"
+  },
+  "seek_challenges": {
+    "badge": "Distintivo Seek",
+    "header": "Hai completato la Sfida Seek per {{date}}!",
+    "text": "Grazie per aver partecipato alla sfida globale! Seek è qui per aiutarti a connetterti a tutte le specie che ci circondano. Esci, esplora e impara la natura intorno a te!",
+    "citizen_science": "Sfida Citizen Science",
+    "completed": "Hai completato la sfida e hai ottenuto il distintivo della sfida!",
+    "april_2020_description": "Nell'Aprile 2020 ricorre l'anniversario del rilascio del nuovo Seek di iNaturalist! Nell'ultimo anno, siamo cresciuti molto e abbiamo aiutato più di un milione di persone a sentirsi più collegate al mondo intorno a loro. La natura è intorno a te, devi semplicemente Cercarla!\n\nPer iniziare il nostro prossimo ciclo di sfide, vedi se riesci a trovare 10 specie che non hai ancora osservato.",
+    "action_april_2020": "Aprile è il mese della Citizen Science! Puoi contribuire alla conoscenza scientifica della biodiversità come cittadino scienziato pubblicando le tue osservazioni di Seek su iNaturalist.\n\nSe hai 13 anni (o col permesso dei genitori), puoi creare un account iNaturalist e postare osservazioni su iNaturalist per condividere le tue osservazioni con una comunità più ampia, compresi gli scienziati!",
+    "tbd": "Sfida TBD"
   }
 }

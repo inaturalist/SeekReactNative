@@ -17,8 +17,7 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
-    flex: 1,
-    justifyContent: "space-between"
+    flex: 1
   },
   divider: {
     backgroundColor: colors.dividerWhite,
@@ -37,7 +36,7 @@ export default StyleSheet.create( {
   logo: {
     alignSelf: "center",
     height: 79,
-    marginTop: 25,
+    marginTop: 58,
     resizeMode: "contain",
     width: 223
   },
@@ -51,6 +50,7 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPadding
   },
   textContainer: {
-    marginBottom: height / 11
+    marginBottom: height / 11,
+    marginTop: height / 11 / 2
   }
 } );

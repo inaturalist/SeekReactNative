@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import {
   View,
   Image,
@@ -6,14 +6,13 @@ import {
   TouchableOpacity,
   BackHandler
 } from "react-native";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
-import { setRoute } from "../../utility/helpers";
 
 type Props = {
   photos: Array<Object>,
@@ -32,27 +31,30 @@ const SpeciesHeader = ( {
   commonName,
   scientificName
 }: Props ) => {
-  const navigation = useNavigation();
-  const route = useRoute();
+  const { navigate } = useNavigation();
+  const { params } = useRoute();
 
   const backAction = useCallback( () => {
-    if ( routeName === "Match" ) {
-      navigation.navigate( routeName, { ...route.params } );
-    } else if ( routeName === "Species" ) {
-      setRoute( "Home" );
-      navigation.navigate( "Home" );
-    } else if ( routeName ) {
-      navigation.navigate( routeName );
+    if ( routeName ) {
+      navigate( routeName, { ...params } );
     } else {
-      navigation.navigate( "Home" );
+      navigate( "Home" );
     }
-  }, [navigation, route.params, routeName] );
+  }, [navigate, routeName, params] );
 
-  // useEffect( () => {
-  //   BackHandler.addEventListener( "hardwareBackPress", backAction );
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        backAction();
+        return true; // following custom Android back behavior template in React Navigation
+      };
 
-  //   // return () => BackHandler.removeEventListener( "hardwareBackPress", backAction );
-  // }, [backAction] );
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [backAction] )
+  );
+
 
   return (
     <>

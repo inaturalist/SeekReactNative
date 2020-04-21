@@ -9,7 +9,7 @@ export default StyleSheet.create( {
   },
   deleteButton: {
     justifyContent: "center",
-    marginLeft: width - 327 - 25,
+    marginLeft: width - 327 + 1, // width - touchable area of species card
     marginRight: 25,
     width: 72
   }

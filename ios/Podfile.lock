@@ -238,8 +238,6 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
-  - react-native-appearance (0.3.2):
-    - React
   - react-native-cameraroll (1.5.2):
     - React
   - react-native-gallery-manager (1.0.9):
@@ -248,7 +246,7 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
-  - react-native-image-resizer (1.1.0):
+  - react-native-image-resizer (1.2.1):
     - React
   - react-native-inat-camera (1.0.0):
     - React
@@ -264,7 +262,7 @@ PODS:
     - React
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (9.2.1):
+  - react-native-webview (9.2.2):
     - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
@@ -340,11 +338,11 @@ PODS:
     - React
   - RNGestureHandler (1.6.1):
     - React
-  - RNLocalize (1.3.4):
+  - RNLocalize (1.4.0):
     - React
   - RNReanimated (1.8.0):
     - React
-  - RNScreens (2.4.0):
+  - RNScreens (2.5.0):
     - React
   - RNStoreReview (0.1.5):
     - React
@@ -391,7 +389,6 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
-  - react-native-appearance (from `../node_modules/react-native-appearance`)
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
   - react-native-gallery-manager (from `../node_modules/react-native-gallery-manager`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
@@ -477,8 +474,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
-  react-native-appearance:
-    :path: "../node_modules/react-native-appearance"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-community/cameraroll"
   react-native-gallery-manager:
@@ -580,12 +575,11 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
-  react-native-appearance: f03bb953dae4dc696554a190292b513b075d3e93
   react-native-cameraroll: 81c6c271b5b853da398ccecc7ad6a5f765fd3001
   react-native-gallery-manager: 030b6f09cbe458ecbe81b6dcd8248dc17a475f26
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
-  react-native-image-resizer: 9dfb844937574db849fd18a56d8e6c607b0a31d8
+  react-native-image-resizer: 487329f0748d62a075f9d1ba1676c3ab394d169f
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
@@ -593,7 +587,7 @@ SPEC CHECKSUMS:
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
   react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
-  react-native-webview: ac2927a8a5e48fabb738b393b289bd996e14ed32
+  react-native-webview: 70f51702fcd3349102aa66926a81dc790ea6580a
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -611,9 +605,9 @@ SPEC CHECKSUMS:
   RNDeviceInfo: 82e0a23d22ec73b2f71bd686a95d3dd278f223d7
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNLocalize: d8025bb1ac74c0ad54155ea9862538624ebf74d8
+  RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
-  RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
+  RNScreens: ac02d0e4529f08ced69f5580d416f968a6ec3a1d
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   Yoga: 3ebccbdd559724312790e7742142d062476b698e

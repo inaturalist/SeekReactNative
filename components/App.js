@@ -1,3 +1,5 @@
+// @flow strict-local
+
 import React, { Component } from "react";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";

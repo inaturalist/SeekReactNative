@@ -1,3 +1,4 @@
+// @flow
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import jwt from "react-native-jwt-io";

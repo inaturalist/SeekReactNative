@@ -1,3 +1,4 @@
+// @flow
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 

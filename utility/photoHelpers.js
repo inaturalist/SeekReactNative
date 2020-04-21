@@ -1,3 +1,4 @@
+// @flow
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";

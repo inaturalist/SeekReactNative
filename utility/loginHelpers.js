@@ -1,3 +1,4 @@
+// @flow
 import AsyncStorage from "@react-native-community/async-storage";
 
 const checkIsEmailValid = ( email ) => {

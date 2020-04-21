@@ -52,7 +52,7 @@ const SideMenu = ( { navigation }: Props ) => {
                 onPress={() => navigation.navigate( path )}
                 style={[styles.row, styles.height]}
               >
-                <Image source={icons.menuHome} style={styles.image} />
+                <Image source={icons[`menu${capitalizeNames( item )}`]} style={styles.image} />
                 <Text adjustsFontSizeToFit style={styles.text}>
                   {name}
                 </Text>

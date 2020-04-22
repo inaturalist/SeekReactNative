@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {
-  View,
-  Platform,
-  Text
-} from "react-native";
+import React, {
+  useEffect,
+  useCallback,
+  useReducer
+} from "react";
+import { View, Platform, Text } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
@@ -17,73 +17,97 @@ import { useLocationName } from "../../../utility/customHooks";
 import Error from "./Error";
 
 const SpeciesNearby = () => {
-  const [latLng, setLatLng] = useState( {
-    latitude: null,
-    longitude: null
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.type, "action type" );
+    switch ( action.type ) {
+      case "INTERNET_ERROR":
+        return { ...state, error: "internet_error" };
+      case "DOWNTIME_ERROR":
+        return { ...state, error: "downtime" };
+      case "LOCATION_ERROR":
+        return { ...state, error: action.error };
+      case "LOCATION_UPDATED":
+        return {
+          ...state,
+          latLng: action.coordinates,
+          error: state.error === "internet_error" ? "internet_error" : null
+        };
+      case "TAXATYPE_UPDATED":
+        return { ...state, taxaType: action.taxaType };
+      case "NO_ERROR":
+        return { ...state, error: null };
+      default:
+        throw new Error();
+    }
+  }, {
+    latLng: {
+      latitude: null,
+      longitude: null
+    },
+    taxaType: "all",
+    error: null
   } );
-  const [taxaType, setTaxaType] = useState( "all" );
-  const [error, setError] = useState( null );
+
+  const { latLng, error, taxaType } = state;
+
   const location = useLocationName( latLng.latitude, latLng.longitude );
 
-  const updateLatLng = ( latitude, longitude ) => setLatLng( { latitude, longitude } );
+  const updateLatLng = useCallback( ( latitude, longitude ) => {
+    const coordinates = { latitude, longitude };
+    dispatch( { type: "LOCATION_UPDATED", coordinates } );
+  }, [] );
 
-  const updateTaxaType = ( type ) => setTaxaType( type );
+  const updateTaxaType = ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } );
 
-  const updateDowntimeError = () => setError( "downtime" );
+  const updateDowntimeError = () => dispatch( { type: "DOWNTIME_ERROR" } );
 
   const setLocationError = useCallback( ( errorCode ) => {
+    console.log( errorCode, "error code" );
     if ( errorCode === 1 ) {
-      setError( "location_error" );
+      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else if ( errorCode === 2 ) {
-      setError( "no_gps" );
+      dispatch( { type: "LOCATION_ERROR", error: "no_gps" } );
     } else {
-      setError( "location_timeout" );
+      dispatch( { type: "LOCATION_ERROR", error: "location_timeout" } );
     }
   }, [] );
 
   const getGeolocation = useCallback( () => {
-    if ( error && error !== "internet_error" ) {
-      setError( null );
-    }
     fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
-      if ( latitude && longitude ) {
-        updateLatLng( latitude, longitude );
-      }
-    } ).catch( ( errorCode ) => {
-      setLocationError( errorCode );
-    } );
-  }, [setLocationError, error] );
+      updateLatLng( latitude, longitude );
+    } ).catch( ( errorCode ) => setLocationError( errorCode ) );
+  }, [setLocationError, updateLatLng] );
 
   const requestAndroidPermissions = useCallback( () => {
-    if ( !latLng.latitude || !latLng.longitude ) {
-      // only update location if user has not selected a location already
-      if ( Platform.OS === "android" ) {
-        checkLocationPermissions().then( ( granted ) => {
-          if ( granted ) {
-            getGeolocation();
-          } else {
-            setError( "location_error" );
-          }
-        } );
-      } else {
-        getGeolocation();
-      }
+    if ( latLng.latitude ) { return; }
+    // only update location if user has not selected a location already
+    if ( Platform.OS === "android" ) {
+      checkLocationPermissions().then( ( granted ) => {
+        if ( granted ) {
+          getGeolocation();
+        } else {
+          dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
+        }
+      } );
+    } else {
+      getGeolocation();
     }
   }, [latLng, getGeolocation] );
 
   const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
-        setError( "internet_error" );
+        dispatch( { type: "INTERNET_ERROR" } );
       } else if ( error === "internet_error" ) {
-        setError( null );
+        dispatch( { type: "NO_ERROR" } );
       }
-    } ).catch( () => setError( null ) );
+    } ).catch( () => dispatch( { type: "NO_ERROR" } ) );
   }, [error] );
 
-  useEffect( () => {
-    requestAndroidPermissions();
-  }, [requestAndroidPermissions] );
+  useEffect( () => requestAndroidPermissions(), [requestAndroidPermissions] );
+
+  console.log( latLng, taxaType, error, "state", location );
 
   return (
     <>

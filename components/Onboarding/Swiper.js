@@ -1,9 +1,5 @@
-import React, { useState } from "react";
-import {
-  FlatList,
-  ScrollView,
-  View
-} from "react-native";
+import React, { useState, useRef } from "react";
+import { ScrollView, View } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/onboarding";
@@ -21,12 +17,14 @@ const gradientColors = {
 };
 
 const Swiper = ( { children }: Props ) => {
+  const scrollView = useRef( null );
   const [index, setIndex] = useState( 0 );
   const [offset, setOffset] = useState( 0 );
 
   const calculateScrollIndex = ( e ) => {
     const { contentOffset } = e.nativeEvent;
     const { x } = contentOffset;
+
     if ( x === offset ) {
       return;
     }
@@ -43,6 +41,7 @@ const Swiper = ( { children }: Props ) => {
 
   const renderScrollView = ( pages ) => (
     <ScrollView
+      ref={scrollView}
       bounces={false}
       horizontal
       onMomentumScrollEnd={( e ) => calculateScrollIndex( e )}

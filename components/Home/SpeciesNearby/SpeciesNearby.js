@@ -19,7 +19,6 @@ import Error from "./Error";
 const SpeciesNearby = () => {
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.type, "action type" );
     switch ( action.type ) {
       case "INTERNET_ERROR":
         return { ...state, error: "internet_error" };
@@ -106,8 +105,6 @@ const SpeciesNearby = () => {
   }, [error] );
 
   useEffect( () => requestAndroidPermissions(), [requestAndroidPermissions] );
-
-  console.log( latLng, taxaType, error, "state", location );
 
   return (
     <>

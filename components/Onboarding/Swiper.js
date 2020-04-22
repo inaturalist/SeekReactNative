@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   FlatList,
+  ScrollView,
   View
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -41,19 +42,19 @@ const Swiper = ( { children }: Props ) => {
   };
 
   const renderScrollView = ( pages ) => (
-    <FlatList
+    <ScrollView
       bounces={false}
-      data={pages}
       horizontal
-      onScrollEndDrag={( e ) => calculateScrollIndex( e )}
+      onMomentumScrollEnd={( e ) => calculateScrollIndex( e )}
       pagingEnabled
-      renderItem={( { item } ) => (
-        <View style={styles.contentContainer}>
-          {item}
-        </View>
-      )}
       showsHorizontalScrollIndicator={false}
-    />
+    >
+      {pages.map( ( page, i ) => (
+        <View key={`page-${i.toString()}`} style={styles.contentContainer}>
+          {page}
+        </View>
+      ) )}
+    </ScrollView>
   );
 
   return (

@@ -34,15 +34,10 @@ const App = () => {
   };
 
   useEffect( () => {
-    getLoggedIn();
-    fetchScientificNames();
-    setTimeout( setupChallenges, 3000 );
-    setTimeout( addARCameraFiles, 3000 );
-    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
-
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
+    // console.log( new Date().getTime(), "start time for realm" );
     if ( global && global.location && global.location.pathname ) {
       if ( !global.location.pathname.includes( "debugger-ui" ) ) {
         // detect whether Chrome Debugger is open -- it can't run with so many Realm requests
@@ -51,6 +46,11 @@ const App = () => {
     } else {
       setTimeout( setupCommonNames, 5000 );
     }
+    getLoggedIn();
+    fetchScientificNames();
+    setTimeout( setupChallenges, 3000 );
+    setTimeout( addARCameraFiles, 3000 );
+    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
 
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
     RNLocalize.addEventListener( "change", handleLocalizationChange );

@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { useContext } from "react";
 import {
   Image,
   Text,
@@ -21,50 +21,47 @@ const AboutScreen = () => {
   const navigation = useNavigation();
   const appVersion = getVersion();
   const buildVersion = getBuildNumber();
+  const { login } = useContext( UserContext );
 
   return (
-    <UserContext.Consumer>
-      {user => (
-        <ScrollWithHeader header="about.header">
-          <View style={styles.textContainer}>
-            <Image source={logos.iNat} />
-            <View style={styles.marginSmall} />
-            <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.seek" )}</Text>
-            <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
-            <View style={styles.block} />
-            <Image source={logos.casNatGeo} style={styles.image} />
-            <View style={styles.marginLarge} />
-            <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
-            <View style={styles.margin} />
-            <Image source={logos.wwfop} style={styles.wwfop} />
-            <View style={styles.marginSmall} />
-            <Image source={logos.hhmi} />
-            <View style={styles.margin} />
-            <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
-            <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
-            <View style={styles.marginSmallest} />
-            <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
-            <View style={styles.marginSmallest} />
-            <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate( "DebugAndroid" )}
-              style={styles.debug}
-              disabled={Platform.OS === "ios" || !user.login}
-              testID="debug"
-            >
-              <Text style={styles.greenText}>
-                {i18n.t( "about.version" ).toLocaleUpperCase()}
-                {` ${appVersion} (${buildVersion})`}
-              </Text>
-            </TouchableOpacity>
-            <Text style={styles.text}>
-              {i18n.t( "about.help" )}
-            </Text>
-            <View style={styles.block} />
-          </View>
-        </ScrollWithHeader>
-      ) }
-    </UserContext.Consumer>
+    <ScrollWithHeader header="about.header">
+      <View style={styles.textContainer}>
+        <Image source={logos.iNat} />
+        <View style={styles.marginSmall} />
+        <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.seek" )}</Text>
+        <Text style={styles.text}>{i18n.t( "about.joint_initiative" )}</Text>
+        <View style={styles.block} />
+        <Image source={logos.casNatGeo} style={styles.image} />
+        <View style={styles.marginLarge} />
+        <Text style={styles.text}>{i18n.t( "about.original" )}</Text>
+        <View style={styles.margin} />
+        <Image source={logos.wwfop} style={styles.wwfop} />
+        <View style={styles.marginSmall} />
+        <Image source={logos.hhmi} />
+        <View style={styles.margin} />
+        <Text style={[styles.text, styles.boldText]}>{i18n.t( "about.designed_by" )}</Text>
+        <Text style={styles.text}>{i18n.t( "about.inat_team" )}</Text>
+        <View style={styles.marginSmallest} />
+        <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
+        <View style={styles.marginSmallest} />
+        <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate( "DebugAndroid" )}
+          style={styles.debug}
+          disabled={Platform.OS === "ios" || !login}
+          testID="debug"
+        >
+          <Text style={styles.greenText}>
+            {i18n.t( "about.version" ).toLocaleUpperCase()}
+            {` ${appVersion} (${buildVersion})`}
+          </Text>
+        </TouchableOpacity>
+        <Text style={styles.text}>
+          {i18n.t( "about.help" )}
+        </Text>
+        <View style={styles.block} />
+      </View>
+    </ScrollWithHeader>
   );
 };
 

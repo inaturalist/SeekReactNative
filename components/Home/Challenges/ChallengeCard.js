@@ -13,49 +13,24 @@ import { colors } from "../../../styles/global";
 
 const ChallengeCard = () => {
   const navigation = useNavigation();
-  const [state, setState] = useState( {
-    challenge: null,
-    loading: true
-  } );
+  const [challenge, setChallenge] = useState( null );
 
   const fetchLatestChallenge = () => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
         if ( incompleteChallenges.length > 0 ) {
-          const latestChallenge = incompleteChallenges.sorted( "availableDate", true );
-          setState( {
-            challenge: latestChallenge[0],
-            loading: false
-          } );
-        } else {
-          setState( { loading: false } );
+          const latest = incompleteChallenges.sorted( "availableDate", true );
+          console.log( latest[0], "latest challenge" );
+          setChallenge( latest[0] );
         }
       } ).catch( ( err ) => {
         console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
   };
 
-  const renderChallenge = () => {
-    if ( state.loading ) {
-      return (
-        <View style={styles.loading}>
-          <LoadingWheel color={colors.black} />
-        </View>
-      );
-    }
-
-    if ( state.challenge ) {
-      return <Challenges challenge={state.challenge} />;
-    }
-
-    return <NoChallenges />;
-  };
-
   useEffect( () => {
-    const unsub = navigation.addListener( "focus", () => {
-      fetchLatestChallenge();
-    } );
+    const unsub = navigation.addListener( "focus", () => fetchLatestChallenge() );
 
     return unsub;
   }, [navigation] );
@@ -68,7 +43,7 @@ const ChallengeCard = () => {
       >
         <GreenText text="challenges_card.header" />
       </TouchableOpacity>
-      {renderChallenge()}
+      {challenge ? <Challenges challenge={challenge} /> : <NoChallenges />}
     </View>
   );
 };

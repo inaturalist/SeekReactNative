@@ -19,7 +19,7 @@ const BannerHeader = ( { text, modal }: Props ) => (
     source={icons.titleBanner}
     style={[styles.banner, modal && styles.modal]}
   >
-    <Text style={styles.bannerText}>{text}</Text>
+    <Text allowFontScaling={false} style={styles.bannerText}>{text}</Text>
   </ImageBackground>
 );
 

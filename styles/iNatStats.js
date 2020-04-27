@@ -28,7 +28,7 @@ export default StyleSheet.create( {
     width: dimensions.width - 54
   },
   headerMargin: {
-    marginBottom: 24
+    marginBottom: 77
   },
   heatMap: {
     height: 227,

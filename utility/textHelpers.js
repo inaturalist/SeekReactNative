@@ -1,4 +1,8 @@
+import { PixelRatio } from "react-native";
+
 import i18n from "../i18n";
+
+const { getFontScale } = PixelRatio;
 
 const setChallengeDetailsButtonText = ( challenge, challengeStarted ) => {
   let buttonText;
@@ -40,8 +44,11 @@ const setCameraErrorText = ( error, errorEvent ) => {
   return errorText;
 };
 
+const enabledLargeFontSizes = () => getFontScale() > 1;
+
 export {
   setChallengeDetailsButtonText,
   setCameraHelpText,
-  setCameraErrorText
+  setCameraErrorText,
+  enabledLargeFontSizes
 };

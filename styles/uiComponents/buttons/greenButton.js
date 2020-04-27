@@ -1,10 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, PixelRatio } from "react-native";
 import {
   colors,
   fonts,
   padding,
   dimensions
 } from "../../global";
+
+const { getFontScale } = PixelRatio;
+console.log( getFontScale(), "font scale" );
 
 export default StyleSheet.create( {
   buttonText: {
@@ -19,7 +22,7 @@ export default StyleSheet.create( {
     alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
     borderRadius: 34,
-    height: 46,
+    height: getFontScale() > 1 ? 79 : 46,
     justifyContent: "center",
     maxWidth: 317,
     width: dimensions.width < 500 ? 293 : 317

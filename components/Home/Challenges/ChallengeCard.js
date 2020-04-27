@@ -21,7 +21,6 @@ const ChallengeCard = () => {
         const incompleteChallenges = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100" );
         if ( incompleteChallenges.length > 0 ) {
           const latest = incompleteChallenges.sorted( "availableDate", true );
-          console.log( latest[0], "latest challenge" );
           setChallenge( latest[0] );
         }
       } ).catch( ( err ) => {

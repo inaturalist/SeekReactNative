@@ -4,11 +4,11 @@ import {
   Image,
   View
 } from "react-native";
-import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/gallery";
+import Picker from "../../UIComponents/Picker";
 
 type Props = {
   +updateAlbum: Function,
@@ -18,18 +18,19 @@ type Props = {
 const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
   const [album, setAlbum] = useState( i18n.t( "gallery.camera_roll" ).toLocaleUpperCase() );
 
+  const handleValueChange = ( value ) => {
+    setAlbum( value );
+    updateAlbum( value );
+  };
+
+  console.log( "picker rendering" );
+
   return (
-    <RNPickerSelect
-      hideIcon
-      Icon={() => <Image source={icons.dropdownOpen} style={styles.margin} />}
-      items={albumNames}
-      onValueChange={( value ) => {
-        setAlbum( value );
-        updateAlbum( value );
-      }}
-      placeholder={{}}
-      useNativeAndroidPickerStyle={false}
-      value={album}
+    <Picker
+      handleValueChange={handleValueChange}
+      selectedValue={album}
+      icon={<Image source={icons.dropdownOpen} style={styles.margin} />}
+      itemList={albumNames}
     >
       <View style={styles.row}>
         <Text style={styles.headerText}>
@@ -39,7 +40,7 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
         </Text>
         <Image source={icons.dropdownOpen} style={styles.margin} />
       </View>
-    </RNPickerSelect>
+    </Picker>
   );
 };
 

@@ -81,6 +81,8 @@ class PostScreen extends Component<Props, State> {
 
     const date = image.time ? setISOTime( image.time ) : null;
 
+    console.log( date, "existing date", image.time, "image time" );
+
     this.state = {
       image,
       location: null,
@@ -215,14 +217,18 @@ class PostScreen extends Component<Props, State> {
 
   handleDatePicked = ( date: Date ) => {
     if ( date ) {
+      console.log( date, "date picked" );
       let newDate;
       const isFuture = this.isAndroidDateInFuture( date );
 
       if ( isFuture ) {
+        console.log( isFuture, "is future android" );
         newDate = formatISO( new Date() );
       } else {
         newDate = formatISO( date );
       }
+
+      console.log( newDate, "new date" );
 
       this.setState( {
         date: newDate.toString()
@@ -462,10 +468,8 @@ class PostScreen extends Component<Props, State> {
           visible={showSpeciesModal}
         >
           <SelectSpecies
-            commonName={seekId.preferredCommonName}
             image={userImage}
-            scientificName={seekId.name}
-            seekId={seekId.taxaId}
+            seekId={seekId}
             toggleSpeciesModal={this.toggleSpeciesModal}
             updateTaxon={this.updateTaxon}
           />
@@ -476,7 +480,6 @@ class PostScreen extends Component<Props, State> {
         >
           <LocationPicker
             latitude={image.latitude}
-            location={location}
             longitude={image.longitude}
             toggleLocationPicker={this.toggleLocationPicker}
             updateLocation={this.updateLocation}

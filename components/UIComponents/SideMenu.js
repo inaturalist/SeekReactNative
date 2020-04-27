@@ -53,9 +53,7 @@ const SideMenu = ( { navigation }: Props ) => {
                 style={[styles.row, styles.height]}
               >
                 <Image source={icons[`menu${capitalizeNames( item )}`]} style={styles.image} />
-                <Text adjustsFontSizeToFit style={styles.text}>
-                  {name}
-                </Text>
+                <Text allowFontScaling={false} style={styles.text}>{name}</Text>
               </TouchableOpacity>
               {item !== "settings" && <View style={styles.divider} />}
             </React.Fragment>

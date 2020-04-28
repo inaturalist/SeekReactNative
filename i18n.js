@@ -9,7 +9,9 @@ import da from "./translations/da.json";
 import de from "./translations/de.json";
 import en from "./translations/en.json";
 import es from "./translations/es.json";
+import fi from "./translations/fi.json";
 import fr from "./translations/fr.json";
+import he from "./translations/he.json";
 import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
@@ -27,7 +29,9 @@ i18n.translations = {
   de,
   en,
   es,
+  fi,
   fr,
+  he,
   it,
   ja,
   nl,

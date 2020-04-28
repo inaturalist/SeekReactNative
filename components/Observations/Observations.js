@@ -125,7 +125,7 @@ const ObservationList = () => {
     content = (
       <SectionList
         ref={sectionList}
-        contentContainerStyle={styles.padding}
+        contentContainerStyle={[styles.padding, styles.flexGrow]}
         initialNumToRender={6}
         keyExtractor={( item, index ) => item + index}
         renderItem={( { item, section } ) => {
@@ -170,8 +170,6 @@ const ObservationList = () => {
         ListEmptyComponent={() => <EmptyState />}
       />
     );
-  // } else {
-  //   content = <EmptyState />;
   }
 
   return (

@@ -12,7 +12,7 @@ const { width } = dimensions;
 export default StyleSheet.create( {
   cameraTab: {
     backgroundColor: colors.black,
-    paddingHorizontal: width / 10 - 3
+    paddingHorizontal: width / 10
   },
   cameraTabLabel: {
     color: colors.white,

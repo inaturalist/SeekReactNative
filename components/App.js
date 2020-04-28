@@ -1,6 +1,7 @@
 // @flow strict-local
 
 import React, { useState, useEffect } from "react";
+import { I18nManager } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
 
@@ -12,6 +13,8 @@ import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, ScientificNamesContext } from "./UserContext";
 import { getScientificNames } from "../utility/settingsHelpers";
+
+I18nManager.forceRTL( true );
 
 const App = () => {
   const [login, setLogin] = useState( null );

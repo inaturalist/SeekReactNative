@@ -14,6 +14,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     flex: 1
   },
+  flexGrow: {
+    flexGrow: 1
+  },
   headerRow: {
     flexDirection: "row",
     flexWrap: "nowrap",

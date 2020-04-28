@@ -121,7 +121,7 @@ const ObservationList = () => {
         <LoadingWheel color={colors.darkGray} />
       </View>
     );
-  } else if ( observations.length > 0 ) {
+  } else {
     content = (
       <SectionList
         ref={sectionList}
@@ -167,10 +167,11 @@ const ObservationList = () => {
         )}
         sections={observations}
         stickySectionHeadersEnabled={false}
+        ListEmptyComponent={() => <EmptyState />}
       />
     );
-  } else {
-    content = <EmptyState />;
+  // } else {
+  //   content = <EmptyState />;
   }
 
   return (

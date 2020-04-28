@@ -45,7 +45,7 @@ const DeleteModal = ( {
         style={styles.flagHeader}
       >
         <View style={[styles.flagTextContainer, styles.row]}>
-          <Text style={[styles.buttonText, styles.headerStyling]}>
+          <Text allowFontScaling={false} style={[styles.buttonText, styles.headerStyling]}>
             {i18n.t( "delete.header" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
@@ -64,7 +64,7 @@ const DeleteModal = ( {
         scientificName={scientificName}
       />
       <View style={styles.margin} />
-      <Text style={styles.text}>{i18n.t( "delete.description" )}</Text>
+      <Text allowFontScaling={false} style={styles.text}>{i18n.t( "delete.description" )}</Text>
       <View style={styles.marginSmall} />
       <Button
         handlePress={() => {

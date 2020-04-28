@@ -27,7 +27,7 @@ const LocationMap = ( {
       <MapView
         onRegionChangeComplete={r => onRegionChange( r )}
         provider={PROVIDER_DEFAULT}
-        initialRegion={region}
+        region={region} // need region instead of initial region for return to user location
         style={styles.map}
         loadingEnabled
       />

@@ -13,7 +13,7 @@ import icons from "../../../assets/icons";
 
 type Props = {
   +green?: boolean,
-  +route?: ?string,
+  +route?: ?string
 }
 
 const BackArrow = ( { green, route }: Props ) => {

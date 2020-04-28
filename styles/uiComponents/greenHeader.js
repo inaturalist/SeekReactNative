@@ -3,7 +3,8 @@ import {
   center,
   colors,
   fonts,
-  dimensions
+  dimensions,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
@@ -11,7 +12,8 @@ export default StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
     flexDirection: "row",
-    height: 55
+    paddingBottom: 18,
+    paddingTop: 20.5
   },
   help: {
     paddingBottom: 13,
@@ -25,6 +27,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    maxWidth: dimensions.width - 100
+    maxWidth: dimensions.width - 100,
+    paddingTop: padding.iOSPaddingSmall
   }
 } );

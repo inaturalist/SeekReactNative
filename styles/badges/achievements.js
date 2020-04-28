@@ -28,7 +28,7 @@ export default StyleSheet.create( {
     width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
   },
   header: {
-    height: 203
+    flex: 1
   },
   headerText: {
     color: colors.white,
@@ -74,7 +74,9 @@ export default StyleSheet.create( {
     marginTop: 7
   },
   textContainer: {
-    marginLeft: 24,
+    marginLeft: 22,
+    paddingBottom: 26,
+    paddingTop: 25,
     width: 167
   }
 } );

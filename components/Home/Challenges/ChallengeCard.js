@@ -8,8 +8,6 @@ import realmConfig from "../../../models";
 import Challenges from "./Challenges";
 import GreenText from "../../UIComponents/GreenText";
 import NoChallenges from "./NoChallenges";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import { colors } from "../../../styles/global";
 
 const ChallengeCard = () => {
   const navigation = useNavigation();

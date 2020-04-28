@@ -9,7 +9,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   challengeBackground: {
-    height: 407
+    flex: 1
   },
   descriptionText: {
     color: colors.black,
@@ -19,6 +19,7 @@ export default StyleSheet.create( {
   },
   iNatLogo: {
     height: 35,
+    top: 32,
     width: 191
   },
   iNatMargin: {
@@ -29,7 +30,7 @@ export default StyleSheet.create( {
     height: 58,
     position: "absolute",
     resizeMode: "contain",
-    top: 18,
+    top: 20,
     width: 116
   },
   margin: {

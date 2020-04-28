@@ -87,6 +87,7 @@ const ChallengeDetailsHeader = ( {
         <ChallengeBadgeRow challenge={challenge} large />
         <View style={styles.marginMedium} />
         {challenge && renderButton()}
+        <View style={styles.marginLarge} />
       </ImageBackground>
     </>
   );

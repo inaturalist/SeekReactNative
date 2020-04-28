@@ -6,5 +6,8 @@ export default StyleSheet.create( {
     paddingBottom: 18,
     paddingTop: 18,
     position: "absolute"
+  },
+  challengeDetails: {
+    paddingTop: 28
   }
 } );

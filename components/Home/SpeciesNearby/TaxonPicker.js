@@ -101,9 +101,11 @@ class TaxonPicker extends Component<Props> {
       >
         <TouchableOpacity style={[styles.row, styles.marginLeft]}>
           <Image source={icons.filter} style={styles.image} />
-          <Text style={[styles.buttonText, styles.whiteButton]}>
-            {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
-          </Text>
+          <View style={styles.whiteButton}>
+            <Text style={styles.buttonText}>
+              {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
+            </Text>
+          </View>
         </TouchableOpacity>
       </RNPickerSelect>
     );

@@ -54,9 +54,7 @@ const NotificationsScreen = () => {
       } );
   };
 
-  useEffect( () => {
-    fetchNotifications();
-  }, [] );
+  useEffect( () => { fetchNotifications(); }, [] );
 
   useEffect( () => {
     navigation.addListener( "blur", () => {
@@ -67,25 +65,20 @@ const NotificationsScreen = () => {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <GreenHeader header="notifications.header" />
-      {notifications.length > 0 ? (
-        <FlatList
-          ref={scrollView}
-          contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
-          data={notifications}
-          keyExtractor={( item, i ) => `${item}${i}`}
-          ListFooterComponent={() => (
-            <>
-              <Padding />
-              <BottomSpacer />
-            </>
-          )}
-          renderItem={( { item } ) => <NotificationCard item={item} />}
-        />
-      ) : (
-        <View style={[styles.containerWhite, styles.flex]}>
-          <EmptyState />
-        </View>
-      )}
+      <FlatList
+        ref={scrollView}
+        contentContainerStyle={[styles.containerWhite, styles.flexGrow]}
+        data={notifications}
+        keyExtractor={( item, i ) => `${item}${i}`}
+        ListFooterComponent={() => (
+          <>
+            <Padding />
+            <BottomSpacer />
+          </>
+        )}
+        renderItem={( { item } ) => <NotificationCard item={item} />}
+        ListEmptyComponent={() => <EmptyState />}
+      />
     </View>
   );
 };

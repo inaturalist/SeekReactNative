@@ -51,11 +51,13 @@ const LocationPickerButton = ( {
         disabled={error !== null}
       >
         <Image source={icons.locationWhite} style={styles.image} />
-        <Text style={[styles.buttonText, styles.whiteButton]}>
-          {location
-            ? location.toLocaleUpperCase()
-            : i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}
-        </Text>
+        <View style={styles.whiteButton}>
+          <Text style={styles.buttonText}>
+            {location
+              ? location.toLocaleUpperCase()
+              : i18n.t( "species_nearby.no_location" ).toLocaleUpperCase()}
+          </Text>
+        </View>
       </TouchableOpacity>
     </>
   );

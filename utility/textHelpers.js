@@ -44,11 +44,11 @@ const setCameraErrorText = ( error, errorEvent ) => {
   return errorText;
 };
 
-const enabledLargeFontSizes = () => getFontScale() > 1;
+const enabledLargeFonts = () => getFontScale() > 1;
 
 export {
   setChallengeDetailsButtonText,
   setCameraHelpText,
   setCameraErrorText,
-  enabledLargeFontSizes
+  enabledLargeFonts
 };

@@ -105,8 +105,6 @@ const GalleryScreen = () => {
     }
   }, [isFocused, setupPhotos] );
 
-  console.log( photos.length, "photo length" );
-
   return (
     <View style={styles.background}>
       <SafeAreaView style={styles.safeViewTop} />

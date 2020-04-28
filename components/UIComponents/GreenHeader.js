@@ -24,7 +24,7 @@ const GreenHeader = ( { header, route }: Props ) => {
   const { name } = useRoute();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styles.center]}>
       <BackArrow route={route} />
       {header && <Text style={styles.text}>{i18n.t( header ).toLocaleUpperCase()}</Text>}
       {name === "Post" && (

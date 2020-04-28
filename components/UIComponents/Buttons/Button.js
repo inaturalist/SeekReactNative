@@ -19,7 +19,7 @@ type Props = {
   +login?: boolean
 }
 
-const GreenButton = ( {
+const Button = ( {
   color,
   handlePress,
   large,
@@ -31,6 +31,7 @@ const GreenButton = ( {
     onPress={() => handlePress()}
     style={[
       styles.button,
+      styles.center,
       large && styles.largeButton,
       large && styles.extraPadding,
       color && { backgroundColor: color },
@@ -43,11 +44,11 @@ const GreenButton = ( {
   </TouchableOpacity>
 );
 
-GreenButton.defaultProps = {
+Button.defaultProps = {
   large: false,
   greenText: false,
   color: null,
   login: false
 };
 
-export default GreenButton;
+export default Button;

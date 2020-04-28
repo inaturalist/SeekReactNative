@@ -1,21 +1,17 @@
-import { StyleSheet, PixelRatio } from "react-native";
+import { StyleSheet } from "react-native";
 import {
+  center,
   colors,
   fonts,
   dimensions
 } from "../global";
 
-const { getFontScale } = PixelRatio;
-
-console.log( getFontScale() );
-
 export default StyleSheet.create( {
+  center,
   container: {
-    alignItems: "center",
     backgroundColor: colors.seekForestGreen,
     flexDirection: "row",
-    height: 55,
-    justifyContent: "center"
+    height: 55
   },
   help: {
     paddingBottom: 13,

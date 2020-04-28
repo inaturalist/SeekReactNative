@@ -30,7 +30,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
   useEffect( () => { fetchAlbumNames(); }, [] );
 
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, styles.center]}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
@@ -40,7 +40,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
         <Image source={icons.closeGreen} style={styles.buttonImage} />
       </TouchableOpacity>
       {albumNames.length > 0 && (
-        <View style={[styles.center, styles.headerContainer]}>
+        <View>
           <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
         </View>
       )}

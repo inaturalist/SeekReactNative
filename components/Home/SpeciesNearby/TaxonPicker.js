@@ -99,14 +99,11 @@ class TaxonPicker extends Component<Props> {
         value={taxonType}
         disabled={error !== null}
       >
-        <TouchableOpacity style={[styles.row, styles.marginLeft, styles.paddingBottom]}>
+        <TouchableOpacity style={[styles.row, styles.marginLeft]}>
           <Image source={icons.filter} style={styles.image} />
-          <View style={styles.whiteButton}>
-            <Text style={styles.buttonText}>
-              {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
-            </Text>
-          </View>
-          <View style={styles.marginBottom} />
+          <Text style={[styles.buttonText, styles.whiteButton]}>
+            {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
+          </Text>
         </TouchableOpacity>
       </RNPickerSelect>
     );

@@ -16,7 +16,7 @@ import styles from "../styles/loginOrSignup";
 import logoImages from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 import Button from "./UIComponents/Buttons/Button";
-import { enabledLargeFontSizes } from "../utility/textHelpers";
+import { enabledLargeFonts } from "../utility/textHelpers";
 
 type Props = {
   +navigation: any
@@ -33,7 +33,7 @@ const LoginOrSignupScreen = ( { navigation }: Props ) => {
       <ScrollView
         style={{ paddingTop: insets.top }}
         contentContainerStyle={[styles.center, styles.scrollContainer]}
-        scrollEnabled={enabledLargeFontSizes()}
+        scrollEnabled={enabledLargeFonts()}
       >
         <Image source={logoImages.seek} style={styles.logo} />
         <View style={styles.margin} />

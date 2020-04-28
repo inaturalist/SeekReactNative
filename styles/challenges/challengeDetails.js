@@ -22,7 +22,7 @@ export default StyleSheet.create( {
     width: 191
   },
   iNatMargin: {
-    marginTop: 32
+    marginTop: 99
   },
   logo: {
     alignSelf: "center",
@@ -33,7 +33,7 @@ export default StyleSheet.create( {
     width: 116
   },
   margin: {
-    marginTop: 50
+    marginTop: 99
   },
   marginLarge: {
     marginTop: 37

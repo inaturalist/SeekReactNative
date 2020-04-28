@@ -32,9 +32,7 @@ export default StyleSheet.create( {
   },
   footerMargin,
   greenBanner: {
-    backgroundColor: colors.seekForestGreen,
-    height: 40,
-    justifyContent: "center"
+    backgroundColor: colors.seekForestGreen
   },
   headerMargins: {
     marginBottom: 11,
@@ -54,7 +52,8 @@ export default StyleSheet.create( {
     fontSize: 19,
     letterSpacing: 1.12,
     marginLeft: 28,
-    paddingTop: Platform.OS === "ios" ? 7 : 0
+    paddingBottom: Platform.OS === "android" ? 11 : 8,
+    paddingTop: 12
   },
   linkContainer: {
     paddingBottom: 20,

@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { isAfter } from "date-fns";
 
 import i18n from "../../i18n";
-import styles from "../../styles/challenges/challenges";
+import styles from "../../styles/challenges/challengeProgress";
 import PercentCircle from "../UIComponents/PercentCircle";
 import { startChallenge, recalculateChallenges, setChallengeIndex } from "../../utility/challengeHelpers";
 import icons from "../../assets/icons";
@@ -25,53 +25,53 @@ type Props = {
 
 const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
   const navigation = useNavigation();
-  const is2020Challenge = challenge && isAfter( challenge.availableDate, new Date( 2020, 2, 1 ) );
+  const {
+    name,
+    availableDate,
+    percentComplete,
+    startedDate,
+    index,
+    earnedIconName
+  } = challenge;
+  const is2020Challenge = challenge && isAfter( availableDate, new Date( 2020, 2, 1 ) );
 
   let rightIcon;
 
   let leftIcon;
 
-  if ( challenge.startedDate && challenge.percentComplete === 100 ) {
-    leftIcon = badges[challenge.earnedIconName];
+  if ( startedDate && percentComplete === 100 ) {
+    leftIcon = badges[earnedIconName];
   } else {
     leftIcon = badges.badge_empty;
   }
 
-  if ( challenge.percentComplete === 100 ) {
-    rightIcon = (
-      <View style={styles.startButton}>
-        <Image source={icons.completed} />
-      </View>
-    );
-  } else if ( challenge.startedDate && challenge.percentComplete !== 100 ) {
-    rightIcon = (
-      <View style={styles.startButton}>
-        <PercentCircle challenge={challenge} />
-      </View>
-    );
+  if ( percentComplete === 100 ) {
+    rightIcon = <Image source={icons.completed} />;
+  } else if ( startedDate && percentComplete !== 100 ) {
+    rightIcon = <PercentCircle challenge={challenge} />;
   } else if ( fetchChallenges ) {
     rightIcon = (
-      <TouchableOpacity
-        accessibilityLabel={`${i18n.t( "challenges.start_now" )}${challenge.name}`}
+      <Text
+        accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
         accessible
         onPress={() => {
-          setChallengeIndex( challenge.index );
-          startChallenge( challenge.index );
+          setChallengeIndex( index );
+          startChallenge( index );
           fetchChallenges();
           recalculateChallenges();
           navigation.navigate( "ChallengeDetails" );
         }}
-        style={styles.startButton}
+        style={styles.startText}
       >
-        <Text style={styles.greenText}>{i18n.t( "challenges.start_now" ).toLocaleUpperCase()}</Text>
-      </TouchableOpacity>
+        {i18n.t( "challenges.start_now" ).toLocaleUpperCase()}
+      </Text>
     );
   }
 
   return (
     <TouchableOpacity
       onPress={() => {
-        setChallengeIndex( challenge.index );
+        setChallengeIndex( index );
         navigation.navigate( "ChallengeDetails" );
       }}
       style={[styles.card, styles.row]}
@@ -79,15 +79,17 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
       <Image source={leftIcon} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>
-          {i18n.t( challenge.name ).toLocaleUpperCase()}
+          {i18n.t( name ).toLocaleUpperCase()}
         </Text>
         <Text style={styles.messageText}>
           {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
           {" - "}
-          {formatMonthYear( challenge.availableDate )}
+          {formatMonthYear( availableDate )}
         </Text>
       </View>
-      {rightIcon}
+      <View style={styles.startButton}>
+        {rightIcon}
+      </View>
     </TouchableOpacity>
   );
 };

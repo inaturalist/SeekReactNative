@@ -44,34 +44,28 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
   }, [challenge] );
 
   return (
-    <View style={styles.header}>
+    <View style={styles.container}>
       <GreenText text="challenges.your_mission" />
-      <View style={styles.textContainer}>
-        {missions.length > 0 && missions.map( ( item, index ) => (
-          <View key={`${item}${index.toString()}`} style={styles.row}>
-            <View style={styles.leftItem}>
-              {missionNumbers[index] && missionNumbers[index].number === item.observations
-                ? <Image source={icons.checklist} style={styles.checklist} />
-                : <Text style={styles.bullets}>&#8226;</Text>}
-            </View>
-            <View style={styles.missionText}>
-              <Text style={styles.text}>{i18n.t( item.mission )}</Text>
-              <Text style={styles.greenText}>
-                {i18n.t( "challenges.number_observed", { defaultValue: "{{number}}", number: item.observations } )}
-              </Text>
-            </View>
+      {missions.length > 0 && missions.map( ( item, index ) => (
+        <View key={`${item}${index.toString()}`} style={styles.row}>
+          <View style={styles.leftItem}>
+            {missionNumbers[index] && missionNumbers[index].number === item.observations
+              ? <Image source={icons.checklist} style={styles.checklist} />
+              : <Text allowFontScaling={false} style={styles.bullets}>&#8226;</Text>}
           </View>
-        ) )}
+          <View>
+            <Text style={styles.text}>{i18n.t( item.mission )}</Text>
+            <Text style={styles.greenText}>
+              {i18n.t( "challenges.number_observed", { defaultValue: "{{number}}", number: item.observations } )}
+            </Text>
+          </View>
+        </View>
+      ) )}
+      <View style={styles.circleStyle}>
+        {challenge.percentComplete === 100
+          ? <Image source={icons.completed} />
+          : <PercentCircle challenge={challenge} />}
       </View>
-      {challenge.percentComplete === 100 ? (
-        <View style={styles.circleStyle}>
-          <Image source={icons.completed} />
-        </View>
-      ) : (
-        <View style={styles.circleStyle}>
-          <PercentCircle challenge={challenge} />
-        </View>
-      )}
     </View>
   );
 };

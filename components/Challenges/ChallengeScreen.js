@@ -1,21 +1,18 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text
-} from "react-native";
+import { View } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challenges";
-import i18n from "../../i18n";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import GreenText from "../UIComponents/GreenText";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/Challenges/NoChallenges";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import EmptyChallengesCard from "./EmptyChallengesCard";
 
 const ChallengeScreen = () => {
   const navigation = useNavigation();
@@ -64,11 +61,7 @@ const ChallengeScreen = () => {
           ) )}
           <View style={styles.margin} />
         </>
-      ) : (
-        <View style={styles.noChallengeContainer}>
-          <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_challenges_in_progress" )}</Text>
-        </View>
-      )}
+      ) : <EmptyChallengesCard type="no_challenges_in_progress" />}
     </>
   );
 
@@ -88,12 +81,7 @@ const ChallengeScreen = () => {
           ) )}
           <View style={styles.margin} />
         </>
-      ) : (
-        <View style={styles.noChallengeContainer}>
-          <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_new_challenges_header" )}</Text>
-          <Text style={styles.lightText}>{i18n.t( "challenges.no_new_challenges" )}</Text>
-        </View>
-      )}
+      ) : <EmptyChallengesCard type="no_new_challenges_header" />}
     </>
   );
 
@@ -109,11 +97,7 @@ const ChallengeScreen = () => {
             challenge={challenge}
           />
         ) )
-      ) : (
-        <View style={styles.noChallengeContainer}>
-          <Text style={styles.noChallengeText}>{i18n.t( "challenges.no_completed_challenges" )}</Text>
-        </View>
-      )}
+      ) : <EmptyChallengesCard type="no_completed_challenges" />}
     </>
   );
 

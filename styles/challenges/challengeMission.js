@@ -16,12 +16,16 @@ export default StyleSheet.create( {
     height: 59,
     position: "absolute",
     right: 0,
-    top: 42,
+    top: 39,
     width: 59
   },
-  circleText: {
-    fontFamily: fonts.book,
-    fontSize: 20
+  // circleText: {
+  //   fontFamily: fonts.book,
+  //   fontSize: 20
+  // },
+  container: {
+    marginBottom: 20,
+    marginTop: 21
   },
   greenText: {
     color: colors.seekForestGreen,
@@ -30,16 +34,10 @@ export default StyleSheet.create( {
     lineHeight: 21,
     marginTop: 4
   },
-  header: {
-    marginTop: 21
-  },
   leftItem: {
     alignItems: "center",
+    marginRight: 21,
     width: 20
-  },
-  missionText: {
-    marginLeft: 10,
-    width: 205
   },
   row: {
     flexDirection: "row",
@@ -50,10 +48,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginTop: 16
-  },
-  textContainer: {
-    marginBottom: 20,
-    width: 240
+    marginTop: 16,
+    width: 205
   }
 } );

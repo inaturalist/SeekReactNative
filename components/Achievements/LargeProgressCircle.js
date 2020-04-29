@@ -27,7 +27,7 @@ const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (
       radius={113 / 2}
       shadowColor={colors.circleGray}
     >
-      <Text style={styles.largeCircleText}>
+      <Text allowFontScaling={false} style={styles.largeCircleText}>
         {iconicSpeciesCount}
         {"/"}
         {badge.count}

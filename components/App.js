@@ -14,6 +14,21 @@ import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, ScientificNamesContext } from "./UserContext";
 import { getScientificNames } from "../utility/settingsHelpers";
 
+const setRTL = () => {
+  if ( Platform.OS === "android" ) {
+    return;
+  }
+
+  console.log( i18n.locale, "i18n" );
+  if ( i18n.locale === "he" ) {
+    I18nManager.forceRTL( true );
+  } else {
+    I18nManager.forceRTL( false );
+  }
+};
+
+setRTL();
+
 const App = () => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
@@ -27,30 +42,15 @@ const App = () => {
   const userContextValue = { login, toggleLogin };
   const scientificNamesContextValue = { scientificNames, toggleNames };
 
-  const setRTL = () => {
-    if ( Platform.OS === "android" ) {
-      return;
-    }
-
-    if ( i18n.locale === "he" ) {
-      I18nManager.forceRTL( true );
-    } else {
-      I18nManager.forceRTL( false );
-    }
-  };
-
   const handleLocalizationChange = () => {
     console.log( "handling localization change" );
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
     i18n.locale = languageTag;
-    console.log( "setting RTL in detect locale change", i18n.locale );
-    setRTL();
   };
 
   useEffect( () => {
-    RNLocalize.addEventListener( "change", handleLocalizationChange );
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
@@ -68,9 +68,8 @@ const App = () => {
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
     // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
+    RNLocalize.addEventListener( "change", handleLocalizationChange );
 
-    console.log( "setting RTL in app start", i18n.locale );
-    setRTL();
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
 
     return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );

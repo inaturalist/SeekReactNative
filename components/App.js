@@ -40,13 +40,17 @@ const App = () => {
   };
 
   const handleLocalizationChange = () => {
+    console.log( "handling localization change" );
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
     i18n.locale = languageTag;
+    console.log( "setting RTL in detect locale change", i18n.locale );
+    setRTL();
   };
 
   useEffect( () => {
+    RNLocalize.addEventListener( "change", handleLocalizationChange );
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
@@ -63,12 +67,11 @@ const App = () => {
     fetchScientificNames();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
-
-    setRTL();
     // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
 
+    console.log( "setting RTL in app start", i18n.locale );
+    setRTL();
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
-    RNLocalize.addEventListener( "change", handleLocalizationChange );
 
     return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );
   }, [] );

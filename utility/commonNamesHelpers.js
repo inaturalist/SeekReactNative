@@ -51,6 +51,12 @@ const setupCommonNames = () => {
             require( "./commonNames/commonNamesDict-8" ).default );
           addCommonNamesFromFile( realm,
             require( "./commonNames/commonNamesDict-9" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-10" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-11" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-12" ).default );
         }
       } );
     // } ).then( () => {

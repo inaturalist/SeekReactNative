@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import React, { useState, useEffect } from "react";
-import { I18nManager } from "react-native";
+import { I18nManager, Platform } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
 
@@ -13,8 +13,6 @@ import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, ScientificNamesContext } from "./UserContext";
 import { getScientificNames } from "../utility/settingsHelpers";
-
-I18nManager.forceRTL( true );
 
 const App = () => {
   const [login, setLogin] = useState( null );
@@ -28,6 +26,18 @@ const App = () => {
 
   const userContextValue = { login, toggleLogin };
   const scientificNamesContextValue = { scientificNames, toggleNames };
+
+  const setRTL = () => {
+    if ( Platform.OS === "android" ) {
+      return;
+    }
+
+    if ( i18n.locale === "he" ) {
+      I18nManager.forceRTL( true );
+    } else {
+      I18nManager.forceRTL( false );
+    }
+  };
 
   const handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
@@ -53,6 +63,8 @@ const App = () => {
     fetchScientificNames();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
+
+    setRTL();
     // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
 
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );

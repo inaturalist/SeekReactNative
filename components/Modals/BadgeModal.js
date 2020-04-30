@@ -27,7 +27,24 @@ type Props = {
 
 const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
   const [dotIndex, setDotIndex] = useState( 0 );
+  const [scrollOffset, setScrollOffset] = useState( 0 );
   const flatList = useRef( null );
+
+  const length = badges.length - 1;
+  const nextIndex = dotIndex < length ? dotIndex + 1 : length;
+  const prevIndex = dotIndex > 0 ? dotIndex - 1 : 0;
+
+  const calculateScrollIndex = ( e ) => {
+    const { contentOffset } = e.nativeEvent;
+
+    if ( contentOffset.x > scrollOffset ) {
+      setDotIndex( nextIndex );
+      setScrollOffset( contentOffset.x );
+    } else if ( contentOffset.x < scrollOffset ) {
+      setDotIndex( prevIndex );
+      setScrollOffset( contentOffset.x );
+    }
+  };
 
   const scrollToIndex = ( index ) => {
     setDotIndex( index );
@@ -78,12 +95,15 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
       <FlatList
         ref={flatList}
         data={badgeList}
+        bounces={false}
         horizontal
         pagingEnabled
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={false}
+        onScrollEndDrag={( e ) => calculateScrollIndex( e )}
       />
-      <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+      {dotIndex !== 0 && <Image source={icons.badgeSwipeRight} style={styles.leftArrow} />}
+      {dotIndex !== 2 && <Image source={icons.badgeSwipeRight} style={styles.arrow} />}
       <View style={styles.marginLarge} />
       <View style={styles.row}>
         {[0, 1, 2].map( ( item, index ) => (

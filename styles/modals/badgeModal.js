@@ -49,6 +49,13 @@ export default StyleSheet.create( {
   imageStyle: {
     resizeMode: "contain"
   },
+  leftArrow: {
+    left: 27,
+    position: "absolute",
+    top: 190,
+    zIndex: 1,
+    transform: [{ rotate: '180deg' }]
+  },
   margin: {
     marginBottom: 9
   },

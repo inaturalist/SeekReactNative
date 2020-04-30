@@ -54,9 +54,10 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
         <GreenText
           center
           text="badges.to_earn"
+          allowFontScaling={false}
         />
       </View>
-      <Text style={styles.nameText}>
+      <Text allowFontScaling={false} style={styles.nameText}>
         {i18n.t( "challenges.how_to", { month: formatMonth( challenge.availableDate ) } )}
       </Text>
       {checkIfChallengeAvailable( challenge.availableDate ) ? (
@@ -68,10 +69,11 @@ const ChallengeUnearnedModal = ( { closeModal, challenge }: Props ) => {
               closeModal();
             }}
             text="notifications.view_challenges"
+            allowFontScaling={false}
           />
         </View>
       ) : (
-        <Text style={[styles.italicText, styles.centerSelf]}>
+        <Text allowFontScaling={false} style={[styles.italicText, styles.centerSelf]}>
           {i18n.t( "challenges.released", { date: formatMonthYear( challenge.availableDate ) } )}
         </Text>
       )}

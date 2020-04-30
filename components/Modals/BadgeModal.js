@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -25,87 +25,85 @@ type Props = {
   +closeModal: Function
 };
 
-class BadgeModal extends Component<Props> {
-  flatList: ?any
+const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
+  const [dotIndex, setDotIndex] = useState( 0 );
+  const flatList = useRef( null );
 
-  scrollToIndex( index: number ) {
-    if ( this.flatList ) {
-      this.flatList.scrollToIndex( {
+  const scrollToIndex = ( index ) => {
+    setDotIndex( index );
+    if ( flatList && flatList.current ) {
+      flatList.current.scrollToIndex( {
         index, animated: true
       } );
     }
-  }
+  };
 
-  render() {
-    const { badges, iconicSpeciesCount, closeModal } = this.props;
-    const badgeList = [];
-
-    badges.forEach( ( badge ) => {
-      const badgeInfo = (
-        <View
-          key={`badge${badge.earnedIconName}`}
-          style={styles.carousel}
+  const badgeList = badges.map( ( badge ) => (
+    <View
+      key={`badge${badge.earnedIconName}`}
+      style={styles.carousel}
+    >
+      {badge.earned ? (
+        <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
+      ) : (
+        <ImageBackground
+          imageStyle={styles.imageStyle}
+          source={badgeImages.badge_empty}
+          style={styles.image}
         >
-          {badge.earned ? (
-            <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
-          ) : (
-            <ImageBackground
-              imageStyle={styles.imageStyle}
-              source={badgeImages.badge_empty}
-              style={styles.image}
-            >
-              <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
-            </ImageBackground>
-          )}
-          <GreenText text={badge.earned
-            ? badge.intlName
-            : "badges.to_earn"}
-          />
-          <View style={styles.margin} />
-          <Text style={styles.nameText}>
-            {i18n.t( "badges.observe_species" )}
-            {" "}
-            {i18n.t( badge.infoText )}
-          </Text>
-        </View>
-      );
-      badgeList.push( badgeInfo );
-    } );
+          <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
+        </ImageBackground>
+      )}
+      <GreenText
+        text={badge.earned
+          ? badge.intlName
+          : "badges.to_earn"}
+        allowFontScaling={false}
+      />
+      <View style={styles.margin} />
+      <Text allowFontScaling={false} style={styles.nameText}>
+        {i18n.t( "badges.observe_species" )}
+        {" "}
+        {i18n.t( badge.infoText )}
+      </Text>
+    </View>
+  ) );
 
-    return (
-      <WhiteModal closeModal={closeModal}>
-        <BannerHeader
-          modal
-          text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
-        />
-        <FlatList
-          ref={( ref ) => { this.flatList = ref; }}
-          data={badgeList}
-          horizontal
-          pagingEnabled
-          renderItem={( { item } ) => item}
-          showsHorizontalScrollIndicator={false}
-        />
-        <Image source={icons.badgeSwipeRight} style={styles.arrow} />
-        <View style={styles.marginLarge} />
-        <View style={styles.row}>
-          {[0, 1, 2].map( ( item, index ) => (
-            <TouchableOpacity
-              key={item}
-              onPress={() => this.scrollToIndex( index )}
-            >
-              <Image
-                source={badges[item].earned
-                  ? badgeImages[badges[item].earnedIconName]
-                  : badgeImages.badge_empty}
-                style={styles.smallImage}
-              />
-            </TouchableOpacity>
-          ) )}
-        </View>
-      </WhiteModal>
-    );
-  }
-}
+  return (
+    <WhiteModal closeModal={closeModal}>
+      <BannerHeader
+        modal
+        text={i18n.t( badges[0].iconicTaxonName ).toLocaleUpperCase()}
+      />
+      <FlatList
+        ref={flatList}
+        data={badgeList}
+        horizontal
+        pagingEnabled
+        renderItem={( { item } ) => item}
+        showsHorizontalScrollIndicator={false}
+      />
+      <Image source={icons.badgeSwipeRight} style={styles.arrow} />
+      <View style={styles.marginLarge} />
+      <View style={styles.row}>
+        {[0, 1, 2].map( ( item, index ) => (
+          <TouchableOpacity
+            key={item}
+            onPress={() => scrollToIndex( index )}
+          >
+            <Image
+              source={badges[item].earned
+                ? badgeImages[badges[item].earnedIconName]
+                : badgeImages.badge_empty}
+              style={styles.smallImage}
+            />
+            <Text style={[styles.bullets, index !== dotIndex && styles.transparent]}>&#8226;</Text>
+          </TouchableOpacity>
+        ) )}
+      </View>
+      <View style={styles.marginBottom} />
+    </WhiteModal>
+  );
+};
 
 export default BadgeModal;

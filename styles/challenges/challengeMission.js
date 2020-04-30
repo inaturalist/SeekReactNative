@@ -19,10 +19,6 @@ export default StyleSheet.create( {
     top: 39,
     width: 59
   },
-  // circleText: {
-  //   fontFamily: fonts.book,
-  //   fontSize: 20
-  // },
   container: {
     marginBottom: 20,
     marginTop: 21

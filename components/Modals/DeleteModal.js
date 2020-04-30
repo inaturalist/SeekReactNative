@@ -58,6 +58,7 @@ const DeleteModal = ( {
       </LinearGradient>
       <View style={styles.margin} />
       <SpeciesCard
+        allowFontScaling={false} 
         commonName={commonName}
         iconicTaxonId={iconicTaxonId}
         photo={photo}

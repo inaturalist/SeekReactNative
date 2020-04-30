@@ -201,8 +201,6 @@ class OnlineServerResults extends Component<Props, State> {
       observation
     } = this.state;
 
-    console.log( observation, "observation.taxon" );
-
     if ( image.latitude && image.longitude ) {
       addToCollection( observation, image );
     }

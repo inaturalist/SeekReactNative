@@ -25,7 +25,7 @@ const WarningModal = ( { closeModal }: Props ) => (
     width={dimensions.height > 570 ? 337 : 320}
   >
     <View style={styles.header}>
-      <Text style={styles.headerText}>
+      <Text allowFontScaling={false} style={styles.headerText}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
       </Text>
     </View>
@@ -52,6 +52,7 @@ const WarningModal = ( { closeModal }: Props ) => (
     </View>
     <View style={styles.button}>
       <GreenButton
+        allowFontScaling={false}
         handlePress={() => closeModal()}
         text="onboarding.continue"
         width={dimensions.height < 570 ? 271 : 285}

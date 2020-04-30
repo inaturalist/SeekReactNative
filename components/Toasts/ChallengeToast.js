@@ -22,20 +22,19 @@ const ChallengeToast = ( { challenge }: Props ) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate( "Challenges" )}
+      style={styles.row}
     >
-      <View style={styles.row}>
-        <View>
-          <Text style={styles.headerText}>
-            {i18n.t( challenge.name ).toLocaleUpperCase()}
-          </Text>
-          <Text style={styles.description}>
-            {i18n.t( "banner.challenge_progress" )}
-          </Text>
-          <Text style={styles.view}>{i18n.t( "banner.challenge_view" )}</Text>
-        </View>
-        <View style={styles.progress}>
-          <PercentCircle challenge={challenge} />
-        </View>
+      <View>
+        <Text allowFontScaling={false} style={styles.headerText}>
+          {i18n.t( challenge.name ).toLocaleUpperCase()}
+        </Text>
+        <Text allowFontScaling={false} style={styles.description}>
+          {i18n.t( "banner.challenge_progress" )}
+        </Text>
+        <Text allowFontScaling={false} style={styles.view}>{i18n.t( "banner.challenge_view" )}</Text>
+      </View>
+      <View style={styles.progress}>
+        <PercentCircle challenge={challenge} />
       </View>
     </TouchableOpacity>
   );

@@ -10,21 +10,25 @@ type Props = {
   +text: string,
   +smaller?: boolean,
   +center?: boolean,
-  +color?: ?string
+  +color?: ?string,
+  +allowFontScaling?: boolean
 }
 
 const GreenText = ( {
   smaller,
   text,
   center,
-  color
+  color,
+  allowFontScaling
 }: Props ) => (
-  <Text style={[
-    styles.greenHeaderText,
-    smaller && styles.smallerText,
-    center && styles.center,
-    color && { color }
-  ]}
+  <Text
+    style={[
+      styles.greenHeaderText,
+      smaller && styles.smallerText,
+      center && styles.center,
+      color && { color }
+    ]}
+    allowFontScaling={allowFontScaling}
   >
     {i18n.t( text ).toLocaleUpperCase()}
   </Text>
@@ -33,7 +37,8 @@ const GreenText = ( {
 GreenText.defaultProps = {
   color: null,
   center: false,
-  smaller: false
+  smaller: false,
+  allowFontScaling: true
 };
 
 export default memo<Props>( GreenText );

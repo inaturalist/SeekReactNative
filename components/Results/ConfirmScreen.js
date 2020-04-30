@@ -29,7 +29,7 @@ const ConfirmScreen = ( {
     <View style={styles.header}>
       <BackArrow green />
       <View style={styles.headerText}>
-        <GreenText smaller text="confirm.identify" />
+        <GreenText allowFontScaling={false} smaller text="confirm.identify" />
       </View>
       <View />
     </View>

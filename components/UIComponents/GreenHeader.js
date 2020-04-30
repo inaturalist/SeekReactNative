@@ -26,7 +26,11 @@ const GreenHeader = ( { header, route }: Props ) => {
   return (
     <View style={[styles.container, styles.center]}>
       <BackArrow route={route} />
-      {header && <Text style={styles.text}>{i18n.t( header ).toLocaleUpperCase()}</Text>}
+      {header && (
+        <Text allowFontScaling={false} style={styles.text}>
+          {i18n.t( header ).toLocaleUpperCase()}
+        </Text>
+      )}
       {name === "Post" && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.help" )}

@@ -6,7 +6,7 @@ import {
   dimensions
 } from "../global";
 
-const { height } = dimensions;
+const { height, width } = dimensions;
 
 export default StyleSheet.create( {
   card: {
@@ -38,7 +38,7 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   textContainer: {
-    width: 170
+    width: height > 570 ? width - 226 : 170
   },
   titleText: {
     color: colors.seekForestGreen,

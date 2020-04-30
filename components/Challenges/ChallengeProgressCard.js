@@ -54,6 +54,7 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
       <Text
         accessibilityLabel={`${i18n.t( "challenges.start_now" )}${name}`}
         accessible
+        allowFontScaling={false}
         onPress={() => {
           setChallengeIndex( index );
           startChallenge( index );
@@ -76,16 +77,18 @@ const ChallengeProgressCard = ( { challenge, fetchChallenges }: Props ) => {
       }}
       style={[styles.card, styles.row]}
     >
-      <Image source={leftIcon} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.titleText}>
-          {i18n.t( name ).toLocaleUpperCase()}
-        </Text>
-        <Text style={styles.messageText}>
-          {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
-          {" - "}
-          {formatMonthYear( availableDate )}
-        </Text>
+      <View style={styles.row}>
+        <Image source={leftIcon} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.titleText}>
+            {i18n.t( name ).toLocaleUpperCase()}
+          </Text>
+          <Text style={styles.messageText}>
+            {is2020Challenge ? i18n.t( "seek_challenges.badge" ).split( " " )[0] : i18n.t( "challenges.op" )}
+            {" - "}
+            {formatMonthYear( availableDate )}
+          </Text>
+        </View>
       </View>
       <View style={styles.startButton}>
         {rightIcon}

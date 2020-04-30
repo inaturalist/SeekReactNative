@@ -4,8 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   SectionList,
-  Text,
-  Platform
+  Text
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Realm from "realm";
@@ -28,8 +27,8 @@ import GreenHeader from "../UIComponents/GreenHeader";
 
 const ObservationList = () => {
   const insets = useSafeArea();
-  const sectionList = useRef( null );
   const navigation = useNavigation();
+  const sectionList = useRef( null );
   const [itemScrolledId, setItemScrolledId] = useState( null );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );
@@ -47,27 +46,6 @@ const ObservationList = () => {
     setModal( true );
   };
   const closeModal = () => setModal( false );
-
-  const useScrollToTop = () => {
-    const scrollToTop = () => {
-      if ( sectionList && sectionList.current !== null ) {
-        sectionList.current.scrollToLocation( {
-          sectionIndex: 0,
-          itemIndex: 0,
-          viewOffset: 70,
-          animated: Platform.OS === "android"
-        } );
-      }
-    };
-
-    useEffect( () => {
-      navigation.addListener( "focus", () => {
-        scrollToTop();
-      } );
-    } );
-  };
-
-  useScrollToTop();
 
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
@@ -88,14 +66,13 @@ const ObservationList = () => {
   };
 
   const fetchObservations = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const obs = createSectionList( realm );
-        setObservations( obs );
-        setLoading( false );
-      } ).catch( () => {
-        // console.log( "Err: ", err )
-      } );
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const obs = createSectionList( realm );
+      setObservations( obs );
+      setLoading( false );
+    } ).catch( () => {
+      // console.log( "Err: ", err )
+    } );
   };
 
   useEffect( () => {

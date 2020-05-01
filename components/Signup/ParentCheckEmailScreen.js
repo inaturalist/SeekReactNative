@@ -8,18 +8,15 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 type Props = {
   +navigation: any
 }
 
 const ParentCheckEmailScreen = ( { navigation }: Props ) => (
-  <View style={styles.container}>
-    <SafeAreaView />
-    <GreenHeader header="login.sign_up" />
+  <ScrollWithHeader header="login.sign_up">
     <View style={styles.flexCenter}>
       <Text style={styles.headerText}>{i18n.t( "inat_signup.thanks" ).toLocaleUpperCase()}</Text>
       <Text style={styles.text}>{i18n.t( "inat_signup.parent_instructions" )}</Text>
@@ -31,7 +28,7 @@ const ParentCheckEmailScreen = ( { navigation }: Props ) => (
         text="inat_signup.continue_no_log_in"
       />
     </View>
-  </View>
+  </ScrollWithHeader>
 );
 
 export default ParentCheckEmailScreen;

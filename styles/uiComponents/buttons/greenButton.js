@@ -7,7 +7,6 @@ import {
 } from "../../global";
 
 const { getFontScale } = PixelRatio;
-console.log( getFontScale(), "font scale" );
 
 export default StyleSheet.create( {
   buttonText: {

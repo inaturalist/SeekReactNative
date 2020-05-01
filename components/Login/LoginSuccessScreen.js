@@ -1,32 +1,20 @@
 // @flow
 
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
+import { View, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
-type Props = {
-  +navigation: any
-}
+const LoginSuccessScreen = () => {
+  const { navigate } = useNavigation();
 
-const LoginSuccessScreen = ( { navigation }: Props ) => (
-  <View style={styles.container}>
-    <SafeAreaView />
-    <View style={styles.greenHeader}>
-      <Text style={styles.loginSuccessHeaderText}>
-        {i18n.t( "inat_signup.welcome" ).toLocaleUpperCase()}
-      </Text>
-    </View>
-    <ScrollView>
+  return (
+    <ScrollWithHeader header="inat_signup.welcome">
       <View style={styles.center}>
         <Text style={styles.linkedAccountHeader}>{i18n.t( "inat_signup.linked_account" )}</Text>
       </View>
@@ -49,28 +37,28 @@ const LoginSuccessScreen = ( { navigation }: Props ) => (
       </View>
       <View style={styles.marginLarge} />
       <GreenButton
-        handlePress={() => navigation.navigate( "Drawer" )}
+        handlePress={() => navigate( "Drawer" )}
         login
         text="inat_signup.continue"
       />
       <View style={[styles.center, styles.row]}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "Privacy" )}
+        <Text
+          allowFontScaling={false}
+          style={styles.textLink}
+          onPress={() => navigate( "Privacy" )}
         >
-          <Text style={styles.textLink}>
-            {i18n.t( "inat_signup.privacy" )}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate( "TermsOfService" )}
+          {i18n.t( "inat_signup.privacy" )}
+        </Text>
+        <Text
+          allowFontScaling={false}
+          onPress={() => navigate( "TermsOfService" )}
+          style={[styles.textLink, styles.marginLeft]}
         >
-          <Text style={[styles.textLink, styles.marginLeft]}>
-            {i18n.t( "inat_signup.terms" )}
-          </Text>
-        </TouchableOpacity>
+          {i18n.t( "inat_signup.terms" )}
+        </Text>
       </View>
-    </ScrollView>
-  </View>
-);
+    </ScrollWithHeader>
+  );
+};
 
 export default LoginSuccessScreen;

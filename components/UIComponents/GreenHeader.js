@@ -25,7 +25,7 @@ const GreenHeader = ( { header, route }: Props ) => {
 
   return (
     <View style={[styles.container, styles.center]}>
-      <BackArrow route={route} />
+      {name !== "LoginSuccess" && <BackArrow route={route} />}
       {header && (
         <Text allowFontScaling={false} style={styles.text}>
           {i18n.t( header ).toLocaleUpperCase()}

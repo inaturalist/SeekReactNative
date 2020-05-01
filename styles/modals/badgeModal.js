@@ -53,8 +53,8 @@ export default StyleSheet.create( {
     left: 27,
     position: "absolute",
     top: 190,
-    zIndex: 1,
-    transform: [{ rotate: '180deg' }]
+    transform: [{ rotate: "180deg" }],
+    zIndex: 1
   },
   margin: {
     marginBottom: 9

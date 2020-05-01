@@ -35,7 +35,7 @@ const ErrorMessage = ( { error }: Props ) => {
     >
       <Image source={posting.error} style={styles.image} />
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{message}</Text>
+        <Text allowFontScaling={false} style={styles.text}>{message}</Text>
       </View>
     </View>
   );

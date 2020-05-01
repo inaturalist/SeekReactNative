@@ -37,7 +37,8 @@
     "challenge_completed": "Congrats! You completed a challenge",
     "view_challenges": "View challenge",
     "none": "You don’t have any notifications yet!",
-    "about": "Here, you’ll be notified about new challenges as they become available, updates to Seek, and other relevant information."
+    "about": "Here, you’ll be notified about new challenges as they become available, updates to Seek, and other relevant information.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Log in with iNaturalist",

@@ -1,3 +1,4 @@
+// @flow
 import AsyncStorage from "@react-native-community/async-storage";
 import Realm from "realm";
 
@@ -177,6 +178,7 @@ const setupChallenges = () => {
 
         dict.forEach( ( challengesType ) => {
           const challenges = challengesDict[challengesType];
+
           const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
 
           if ( isAvailable ) {

@@ -23,14 +23,16 @@ type Props = {
   takePicture: Function,
   ranks: Object,
   pictureTaken: boolean,
-  cameraLoaded: boolean
+  cameraLoaded: boolean, 
+  error: ?string
 }
 
 const ARCameraOverlay = ( {
   takePicture,
   ranks,
   pictureTaken,
-  cameraLoaded
+  cameraLoaded,
+  error
 }: Props ) => {
   const navigation = useNavigation();
   const rankToRender = Object.keys( ranks )[0] || null;
@@ -57,30 +59,34 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-      {( pictureTaken || !cameraLoaded ) && (
-        <View style={styles.loading}>
-          <LoadingWheel color="white" />
-        </View>
+      {!error && (
+        <>
+          {( pictureTaken || !cameraLoaded ) && (
+            <View style={styles.loading}>
+              <LoadingWheel color="white" />
+            </View>
+          )}
+          <ARCameraHeader ranks={ranks} />
+          <Text style={styles.scanText}>{helpText}</Text>
+          <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+            accessible
+            onPress={() => takePicture()}
+            style={styles.shutter}
+            disabled={pictureTaken}
+          >
+            <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            accessibilityLabel={i18n.t( "accessibility.help" )}
+            accessible
+            onPress={() => navigation.navigate( "CameraHelp" )}
+            style={styles.help}
+          >
+            <Image source={icons.cameraHelp} />
+          </TouchableOpacity>
+        </>
       )}
-      <ARCameraHeader ranks={ranks} />
-      <Text style={styles.scanText}>{helpText}</Text>
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.take_photo" )}
-        accessible
-        onPress={() => takePicture()}
-        style={styles.shutter}
-        disabled={pictureTaken}
-      >
-        <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.help" )}
-        accessible
-        onPress={() => navigation.navigate( "CameraHelp" )}
-        style={styles.help}
-      >
-        <Image source={icons.cameraHelp} />
-      </TouchableOpacity>
     </>
   );
 };

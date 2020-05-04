@@ -25,7 +25,8 @@
     "join": "Добавьте наблюдения с помощью камеры Seek, чтобы заработать значок «Наша планета»!",
     "take_challenge": "Участвовать в испытании",
     "continue_challenge": "Продолжить испытание",
-    "view_all": "Все испытания"
+    "view_all": "Все испытания",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "Уведомления",
@@ -103,9 +104,9 @@
     "settings": "Настройки"
   },
   "onboarding": {
-    "onboarding_1": "Используйте камеру Seek, чтобы узнать об организмах вокруг вас",
-    "onboarding_2": "Зарабатывайте значки, наблюдая за разными видами",
-    "onboarding_3": "Участвуйте в глобальных испытаниях с Our Planet и WWF",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Пропустить сейчас",
     "continue": "Продолжить"
   },
@@ -145,14 +146,6 @@
     "ice": "Климатическое испытание",
     "op": "Наша планета",
     "start_now": "Пуск",
-    "april_2019": "Апрель 2019",
-    "may_2019": "Май 2019",
-    "june_2019": "Июнь 2019",
-    "november_2019": "Ноябрь 2019",
-    "august_2019": "Август 2019",
-    "september_2019": "Сентябрь 2019",
-    "october_2019": "Октябрь 2019",
-    "december_2019": "Декабрь 2019",
     "mission_1_april": "Найдите 10 новых видов!",
     "april_description": "Мы не одиноки на нашей планете! Дикая природа всегда вокруг нас, замечаем мы это или нет. В наших домах, садах, городах и посёлках есть скрытые миры, которые можно обнаружить. Ищите внутри и вокруг вашего дома, и вы будете удивлены тем, сколько диких соседей вы найдёте.\n\nИщите растения, грибы, жуков, птиц и животных. Следите за признаками более неуловимой жизни - помёт, мех, гнезда, следы и паутина могут стать подсказками к другим существам, которые обитают в вашем доме.",
     "start_challenge": "Начните испытание",
@@ -173,7 +166,7 @@
     "no_new_challenges": "Мы сообщим вам, когда появятся новые испытания.",
     "completed_all": "Вы прошли все доступные испытания!",
     "number_observed": "{{number}} наблюдавшихся до сих пор",
-    "how_to": "Вы завершили испытание Наша Планета за {{month}}!",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "Это соревнование начнётся {{date}}.",
     "get_involved": "Участвовать",
     "action_april": "Проверьте, живете ли вы рядом с городом, который является частью Испытания Городской Природы, и если да, то следите за активностью регистрации и идентификации наблюдений дикой природы города!",
@@ -230,8 +223,11 @@
     "sorry": "Извините, Seek все еще учится!\n\nВы можете попробовать другой угол зрения, увеличить масштаб или попытаться получить более четкий снимок организма.",
     "take_photo": "Сделать ещё фото",
     "common_ancestor": "Seek не может идентифицировать вид точно.\n\nВы можете попробовать другой угол зрения, увеличить масштаб или попытаться получить более четкий снимок организма.",
-    "believe": "Мы считаем, что это член {{ancestorRank}}",
-    "believe_1": "Мы считаем, что это член",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "Вы пересмотрели вид!",
     "date_observed": "Впервые вы наблюдали это:\n{{seenDate}}",
     "post_inat": "Если вы сделали подлинное фото организма, вы можете помочь обучить Seek этому виду, отправив сообщение в iNaturalist, где сообщество поможет идентифицировать его и улучшить будущие версии.",
@@ -277,14 +273,16 @@
     "family": "семейство",
     "genus": "род",
     "species": "вид",
-    "error_camera": "Нам нужен доступ к камере, чтобы помочь вам определить виды!",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "Нам нужен доступ к вашей фотогалерее для сохранения фото, которые вы делаете!",
     "permissions": "Задайте разрешения в настройках",
     "error_classifier": "К сожалению, мы не можем загрузить классификатор",
-    "error_old_camera": "К сожалению, мы не смогли загрузить камеру",
-    "error_device_support": "К сожалению, устройство, которое вы используете, не поддерживается",
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
     "error_save": "Сожалеем, возникла проблема при сохранении вашего фото",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "Фото",
@@ -453,16 +451,14 @@
   },
   "about": {
     "header": "Подробно",
-    "sponsored": "Seek представлен Our Planet и WWF",
-    "our_planet": "Our Planet - это знаковый сериал по естественной истории, выпущенный на Netflix в апреле 2019 года. Эта серия является оригиналом Netflix, произведенным Silverback films и Всемирным фондом дикой природы.",
     "seek": "Seek создан командой iNaturalist.",
     "joint_initiative": "iNaturalist - это совместная инициатива Калифорнийской академии наук и общества National Geographic.",
-    "original": "Изначально Seek был создан в рамках инициативы HHMI Tangled Bank Studios Backyard Wilderness.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Дизайн и разработка команды iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особая благодарность Visipedia и сообществу iNaturalist.",
     "version": "Версия",
     "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "all rights reserved",
     "some": "some rights reserved"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

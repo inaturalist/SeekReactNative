@@ -1,3 +1,4 @@
+// @flow
 import AsyncStorage from "@react-native-community/async-storage";
 
 const checkIsEmailValid = ( email ) => {
@@ -44,23 +45,6 @@ const removeAccessToken = async () => {
   }
 };
 
-const setSeenLogin = () => {
-  AsyncStorage.setItem( "has_seen_login", "true" );
-};
-
-const checkIfFirstLogin = async () => {
-  try {
-    const hasSeenLogin = await AsyncStorage.getItem( "has_seen_login" );
-    if ( hasSeenLogin === null ) {
-      setSeenLogin();
-      return true;
-    }
-    return false;
-  } catch ( error ) {
-    return false;
-  }
-};
-
 const savePostingSuccess = ( success ) => {
   AsyncStorage.setItem( "posting_success", success.toString() );
 };
@@ -90,8 +74,6 @@ export {
   setIsLoggedIn,
   checkIsEmailValid,
   checkIsUsernameValid,
-  setSeenLogin,
-  checkIfFirstLogin,
   savePostingSuccess,
   fetchPostingSuccess,
   formatError

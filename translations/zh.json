@@ -25,7 +25,8 @@
     "join": "參加全球觀察挑戰並在Netflix上跟大家一起追蹤！",
     "take_challenge": "參加挑戰",
     "continue_challenge": "繼續挑戰",
-    "view_all": "查看所有挑戰"
+    "view_all": "查看所有挑戰",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "通知",
@@ -103,9 +104,9 @@
     "settings": "設定"
   },
   "onboarding": {
-    "onboarding_1": "拍攝任何生物照片，Seek就會幫助你加以辨識！",
-    "onboarding_2": "觀察不同物種以獲取徽章",
-    "onboarding_3": "與Our Planet及WWF一起參與全球挑戰。",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "先跳過",
     "continue": "繼續"
   },
@@ -145,14 +146,6 @@
     "ice": "氣候挑戰",
     "op": "我們的星球",
     "start_now": "立刻開始",
-    "april_2019": "Apr-19",
-    "may_2019": "May-19",
-    "june_2019": "Jun-19",
-    "november_2019": "2019年十一月",
-    "august_2019": "2019年八月",
-    "september_2019": "2019年九月",
-    "october_2019": "2019年十月",
-    "december_2019": "2019年十一月",
     "mission_1_april": "尋找20種新物種！",
     "april_description": "我們在這行星上並不孤單！不論有沒有注意到，野生生物就在我們的週遭。在我們家裡、花園、城鎮中都隱藏著微觀世界等著我們去發覺。在你家內外四處尋找，你可能會驚奇的發現很多野生鄰居。\n \n搜尋植物、菌類、昆蟲、鳥類與動物。更小心注意有沒有更神秘的生物的糞便、毛髮、巢穴、蹤跡以及殘網，這些都可能是跟你共享一個家的生物留下的提示。",
     "start_challenge": "開始挑戰",
@@ -173,7 +166,7 @@
     "no_new_challenges": "當新的挑戰出現時，我們將會通知你。",
     "completed_all": "你已經完成了所有現有的挑戰！",
     "number_observed": "目前觀察{{number}}次",
-    "how_to": "在 {{month}} 期間完成「我們的星球」挑戰！",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "該項挑戰將於 {{date}} 發佈。",
     "get_involved": "立即參與",
     "action_april": "确認您的居住地所毗鄰的城市是否屬於「城市大自然挑戰」之一部分，如果是，請注意都市野生生物大自然記錄和識別活動！",
@@ -230,8 +223,11 @@
     "sorry": "很抱歉，Seek還在成長！\n \n你可以嘗試拍攝不同角度、近拍，或者照出本有機物更清晰的照片。",
     "take_photo": "再拍一張照片",
     "common_ancestor": "可是我們無法辨識正確的物種。\n \n你可以嘗試拍攝不同角度、近拍，或者照出本有機物更清晰的照片。",
-    "believe": "我們認為這物種屬於",
-    "believe_1": "我們認為這生物屬於",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "你再度觀察到一個物種！",
     "date_observed": "你第一次觀察到這物種是在\n{{seenDate}}",
     "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
@@ -277,14 +273,16 @@
     "family": "科",
     "genus": "屬名",
     "species": "物种",
-    "error_camera": "我們需要相機才能幫助您識別物種！",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "我們需要獲得您的膠卷才能存儲您拍攝的照片！",
     "permissions": "在設定中啟用權限",
     "error_classifier": "很抱歉，我們無法載入分類器",
-    "error_old_camera": "很抱歉，我們無法開啟相機",
-    "error_device_support": "很抱歉，您使用的裝置並不支援",
-    "error_save": "Sorry, there was a problem saving your photo",
-    "error_no_photos": "No photos were found in this photo album. Try selecting a different album."
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
+    "error_save": "Sorry, there was a problem saving your photo to the camera roll",
+    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "照片",
@@ -453,16 +451,14 @@
   },
   "about": {
     "header": "關於",
-    "sponsored": "Seek 在 Netflix 上由「我們的星球」贊助。",
-    "our_planet": "「我們的星球」是於 2019 年四月份在 Netflix 上發佈的地標性大自然演變史電視記錄片係列。此紀錄片係列是 Silverback 電影和世界野生生物基金會攝製的 Netflix 原創作品。",
     "seek": "Seek 由 iNaturalist 團隊創建。",
     "joint_initiative": "iNaturalist 是加州科學院與美國國家地理學會之間的共同創舉。",
-    "original": "Seek 的最初創建得到 HHMI Tangled Bank Studios 的支援。",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "由以下 iNaturalist 團隊成員設計和開發：:",
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
     "version": "版本",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "all rights reserved",
     "some": "some rights reserved"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

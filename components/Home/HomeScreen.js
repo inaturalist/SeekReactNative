@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   ScrollView,
-  Platform,
   StatusBar
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -20,6 +19,7 @@ import Spacer from "../UIComponents/TopSpacer";
 import RNModal from "../UIComponents/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "../UIComponents/BottomSpacer";
+
 
 const HomeScreen = () => {
   const insets = useSafeArea();

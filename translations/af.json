@@ -1,6 +1,6 @@
 {
   "splash": {
-    "presents": "teenwoordig",
+    "presents": "bied aan",
     "initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap"
   },
   "species_nearby": {
@@ -25,7 +25,8 @@
     "join": "Voeg waarnemings met die Seek Kamera toe om die Ons Planeet-kenteken te verdien!",
     "take_challenge": "Aanvaar die uitdaging",
     "continue_challenge": "Sit uitdaging voort",
-    "view_all": "Bekyk alle uitdagings"
+    "view_all": "Bekyk alle uitdagings",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -103,9 +104,9 @@
     "settings": "Instellings"
   },
   "onboarding": {
-    "onboarding_1": "Gebruik Seek se Kamera om meer oor die organismes om u te leer",
-    "onboarding_2": "Verdien wapens deur verskillende tipes spesies waar te neem",
-    "onboarding_3": "Neem deel aan wêreldwye uitdagings met Ons Planeet en WWF",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Slaan oor vir nou",
     "continue": "Gaan voort"
   },
@@ -145,14 +146,6 @@
     "ice": "Klimaatuitdaging",
     "op": "Ons Planeet",
     "start_now": "Begin nou",
-    "april_2019": "April 2019",
-    "may_2019": "Mei 2019",
-    "june_2019": "Junie 2019",
-    "november_2019": "November 2019",
-    "august_2019": "Augustus 2019",
-    "september_2019": "September 2019",
-    "october_2019": "Oktober 2019",
-    "december_2019": "Desember 2019",
     "mission_1_april": "Vind 10 nuwe spesies!",
     "april_description": "Ons is nie alleen op ons planeet nie! Wildlewe is altyd om ons heen, of ons dit opmerk of nie. In ons huise, tuine, stede en parke is verborge wêrelde te ontdek. Soek in en om u huis en u sal verbaas wees oor hoeveel wilde bure u vind.\n\nSoek plante, paddastoele, swamme, voëls en diere. Kyk uit vir tekens van meer ontwykende lewe – mis, pels, neste, spore en webbe is alles leidrade dat ander wesens hulle huis met u deel.",
     "start_challenge": "Begin die uitdaging",
@@ -173,7 +166,7 @@
     "no_new_challenges": "Ons sal u laat weet wanneer nuwe uitdagings beskikbaar is.",
     "completed_all": "U het alle beskikbare uitdagings voltooi!",
     "number_observed": "{{number}} tot dusver waargeneem",
-    "how_to": "Voltooi die Ons Planeet-uitdaging vir {{month}}!",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "Hierdie uitdaging sal op {{date}} vrygestel word.",
     "get_involved": "Raak betrokke",
     "action_april": "Kyk of u naby ’n stad woon wat deel uitmaak van die Stedelike Natuur-uitdaging. Indien wel, wees op die uitkyk vir veldbiologiese aktiwiteite vir stadswildlewe!",
@@ -230,8 +223,11 @@
     "sorry": "Jammer daaroor, Seek leer nog!\n\nU kan ’n ander hoek probeer, zoem in of probeer ’n duideliker beeld van die organisme kry.",
     "take_photo": "Neem nog ’n foto",
     "common_ancestor": "Maar Seek kon nie die presiese spesie identifiseer nie.\n\nU kan ’n ander hoek probeer, zoem in of probeer ’n duideliker beeld van die organisme kry.",
-    "believe": "Ons glo dit is ’n lid van die {{ancestorRank}}",
-    "believe_1": "Ons glo dit is ’n lid van",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "U het die spesie weer waargeneem!",
     "date_observed": "U het dit aanvanklik op {{seenDate}} waargeneem",
     "post_inat": "Indien u die oorspronklike foto van die organisme geneem het kan u Seek oor hierdie spesie help oplei deur dit op iNaturalist te plaas waar die gemeenskap dit sal help identifiseer en toekomstige weergawes kan verbeter.",
@@ -277,14 +273,16 @@
     "family": "familie",
     "genus": "genus",
     "species": "spesies",
-    "error_camera": "Ons benodig toegang tot u kamera om te help om spesies te identifiseer!",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "Ons benodig toegang tot u filmrol om geneemde foto’s te bewaar!",
     "permissions": "Aktiveer toestemmings in instellings",
     "error_classifier": "Jammer, ons kon nie die klassifiseerder laai nie",
-    "error_old_camera": "Jammer, ons kon nie die kamera laai nie",
-    "error_device_support": "Jammer, die toestel wat u gebruik word nie gesteun nie",
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
     "error_save": "Jammer, daar was ’n probleem met die bewaar van u foto",
-    "error_no_photos": "Geen foto’s is in hierdie album gevind nie. Kies asb. ’n ander album."
+    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "Foto’s",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Aangaande",
-    "sponsored": "Seek word aangebied deur Ons Planeet en WWF",
-    "our_planet": "Ons PLaneet is ’n bakentelevisieprogram wat in April 2019 op Netflix vrygestel is. Die reeks is ’n Netflix Original wat deur Silverback films en die Wêreld Wildlewefonds vervaardig is.",
     "seek": "Seek word deur die iNaturalist-span gemaak.",
     "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
-    "original": "Seek is oorspronklik geskep as deel van die HHMI Tangled Bank Studios Backyard Wilderness-inisiatief.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Ontwerp & ontwikkel deur die iNaturalist-span:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Spesiale dank aan Visipedia en die iNaturalist-gemeenskap.",
     "version": "Weergawe",
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "alle regte voorbehou",
     "some": "sommige regte voorbehou"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

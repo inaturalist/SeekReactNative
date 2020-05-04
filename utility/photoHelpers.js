@@ -1,3 +1,4 @@
+// @flow
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
@@ -43,9 +44,7 @@ const deleteDebugLogAfter7Days = () => {
             console.log( err.message );
           } );
       }
-    } ).catch( () => {
-      // console.log( e, "debug log file does not exist" );
-    } );
+    } ).catch( e => console.log( e, "debug log file does not exist" ) );
   }
 };
 

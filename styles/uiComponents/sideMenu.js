@@ -11,14 +11,13 @@ import {
   row
 } from "../global";
 
-const { width, height } = Dimensions.get( "window" );
+const { height } = Dimensions.get( "window" );
 const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   container: {
     backgroundColor: colors.seekForestGreen,
-    flex: 1,
-    justifyContent: "space-between"
+    flex: 1
   },
   divider: {
     backgroundColor: colors.dividerWhite,
@@ -37,9 +36,9 @@ export default StyleSheet.create( {
   logo: {
     alignSelf: "center",
     height: 79,
-    marginTop: 25,
+    marginTop: 58,
     resizeMode: "contain",
-    width: ( width / 2 ) * 1.5
+    width: 223
   },
   row,
   text: {
@@ -47,10 +46,11 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: ( fontScale > 1 ) ? 15 : 18,
     letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding,
-    width: width / 2 + 30
+    maxWidth: 226,
+    paddingTop: padding.iOSPadding
   },
   textContainer: {
-    marginBottom: height / 11
+    marginBottom: height / 11,
+    marginTop: height / 11 / 2
   }
 } );

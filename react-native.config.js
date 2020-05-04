@@ -10,11 +10,6 @@ module.exports = {
       platforms: {
         android: null
       }
-    },
-    realm: {
-      platforms: {
-        ios: null
-      }
     }
   }
 };

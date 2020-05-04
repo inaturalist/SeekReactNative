@@ -1,13 +1,21 @@
+// @flow
+import * as RNLocalize from "react-native-localize";
+
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
 const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
+  const { languageCode } = RNLocalize.getLocales()[0];
+  console.log( languageCode, "language code" );
   commonNamesDict.forEach( ( commonNameRow ) => {
-    realm.create( "CommonNamesRealm", {
-      taxon_id: commonNameRow.i,
-      locale: commonNameRow.l,
-      name: commonNameRow.n
-    }, true );
+    if ( commonNameRow.l === languageCode ) {
+      // only create realm objects if language matches current locale
+      realm.create( "CommonNamesRealm", {
+        taxon_id: commonNameRow.i,
+        locale: commonNameRow.l,
+        name: commonNameRow.n
+      }, true );
+    }
   } );
 };
 
@@ -45,6 +53,8 @@ const setupCommonNames = () => {
             require( "./commonNames/commonNamesDict-9" ).default );
         }
       } );
+    // } ).then( () => {
+    //   console.log( new Date().getTime(), "end time for realm" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );
     } );

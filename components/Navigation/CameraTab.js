@@ -9,16 +9,13 @@ import Gallery from "../Camera/Gallery/GalleryScreen";
 
 const Tab = createMaterialTopTabNavigator();
 
-const { width, height } = Dimensions.get( "window" );
+const { width, length } = Dimensions.get( "window" );
 
 const CameraNav = () => (
   <Tab.Navigator
     tabBarPosition="bottom"
     swipeEnabled={Platform.OS === "ios"}
-    initialLayout={{
-      width,
-      height
-    }}
+    initialLayout={{ width, length }}
     tabBarOptions={{
       scrollEnabled: true,
       labelStyle: styles.cameraTabLabel,

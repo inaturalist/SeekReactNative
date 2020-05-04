@@ -1,7 +1,8 @@
-import React from "react";
+// @flow
+import { createContext } from "react";
 
-const UserContext = React.createContext();
-const ScientificNamesContext = React.createContext();
+const UserContext = createContext();
+const ScientificNamesContext = createContext();
 
 export {
   UserContext,

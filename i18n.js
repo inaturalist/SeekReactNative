@@ -1,8 +1,10 @@
+// @flow
 import * as RNLocalize from "react-native-localize";
 import i18n from "i18n-js";
 
 import af from "./translations/af.json";
 import ca from "./translations/ca.json";
+import cs from "./translations/cs.json";
 import da from "./translations/da.json";
 import de from "./translations/de.json";
 import en from "./translations/en.json";
@@ -20,6 +22,7 @@ import zh from "./translations/zh.json";
 i18n.translations = {
   af,
   ca,
+  cs,
   da,
   de,
   en,

@@ -12,42 +12,35 @@ type Props = {
 };
 
 const SpeciesTaxonomy = ( { ancestors }: Props ) => {
-  const taxonomy = [];
-  let margin = 0;
-
-  if ( ancestors.length > 0 ) {
-    ancestors.forEach( ( ancestor ) => {
-      const rank = (
-        <View key={`taxon-${ancestor.rank}`} style={[{ marginLeft: margin }, styles.taxonomyRow]}>
-          <Image source={icons.taxonomyCircle} style={styles.bullets} />
-          <View>
-            <Text style={styles.taxonomyHeader}>
-              {ancestor.rank !== "species" ? capitalizeNames( ancestor.rank ) : null}
-              {ancestor.rank !== "species" ? " " : null}
-              {ancestor.name}
-            </Text>
-            <Text style={styles.taxonomyText}>
-              {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
-            </Text>
-          </View>
-        </View>
-      );
-
-      margin += 15;
-
-      taxonomy.push( rank );
-    } );
-  }
+  let marginLeft = 0;
 
   return (
-    <View>
+    <>
       <View style={styles.headerMargins}>
-        <GreenText
-          text="species_detail.taxonomy"
-        />
+        <GreenText text="species_detail.taxonomy" />
       </View>
-      {taxonomy}
-    </View>
+      {ancestors.map( ( ancestor, index ) => {
+        marginLeft += 15;
+
+        return (
+          <View
+            key={`taxon-${ancestor.rank}`}
+            style={[{ marginLeft }, styles.row, index !== 0 && styles.marginTop]}
+          >
+            <Image source={icons.taxonomyCircle} style={styles.bullet} />
+            <View>
+              <Text style={styles.taxonomyHeader}>
+                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank )} `}
+                {ancestor.name}
+              </Text>
+              <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>
+                {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
+              </Text>
+            </View>
+          </View>
+        );
+      } )}
+    </>
   );
 };
 

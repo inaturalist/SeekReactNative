@@ -9,12 +9,18 @@ import BackButton from "./Buttons/ModalBackButton";
 type Props = {
   +children: any,
   +closeModal?: Function,
-  +noButton?: boolean
+  +noButton?: boolean,
+  +width?: ?number
 };
 
-const WhiteModal = ( { children, closeModal, noButton }: Props ) => (
+const WhiteModal = ( {
+  children,
+  closeModal,
+  noButton,
+  width
+}: Props ) => (
   <>
-    <View style={styles.innerContainer}>
+    <View style={[styles.innerContainer, width && { width }]}>
       {children}
     </View>
     {!noButton && <BackButton closeModal={closeModal} />}
@@ -23,7 +29,8 @@ const WhiteModal = ( { children, closeModal, noButton }: Props ) => (
 
 WhiteModal.defaultProps = {
   noButton: false,
-  closeModal: () => {}
+  closeModal: () => {},
+  width: null
 };
 
 export default WhiteModal;

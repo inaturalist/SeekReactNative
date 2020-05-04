@@ -1,32 +1,24 @@
 import {
   StyleSheet,
-  Platform,
-  Dimensions,
-  PixelRatio
+  Platform
 } from "react-native";
 import {
   colors,
   fonts,
-  row
+  row,
+  dimensions
 } from "../global";
-
-const { height } = Dimensions.get( "window" );
-const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   button: {
-    marginBottom: 24,
-    marginTop: ( fontScale > 1 || height < 570 ) ? null : 14
-  },
-  contentContainer: {
-    alignItems: "center",
-    marginTop: height < 570 ? 10 : 31
+    marginBottom: dimensions.height > 570 ? 24 : 17,
+    marginTop: dimensions.height > 570 ? 28 : 26
   },
   header: {
     backgroundColor: colors.seekForestGreen,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    height: 62,
+    height: 67,
     justifyContent: "center",
     width: "100%"
   },
@@ -35,28 +27,34 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 5 : 0,
+    paddingTop: Platform.OS === "ios" ? 9 : 0,
     textAlign: "center"
   },
   image: {
-    height: 39,
+    height: 40,
     marginRight: 22,
     resizeMode: "contain",
-    width: 39
+    width: 40
   },
   margin: {
-    marginTop: height > 570 ? 28 : 8
+    marginTop: 28
+  },
+  marginSmall: {
+    marginTop: dimensions.height > 570 ? 18 : 26
+  },
+  marginTop: {
+    marginTop: dimensions.height > 570 ? 26 : 24
   },
   row,
   text: {
     color: colors.black,
-    flexDirection: "row",
-    flexWrap: "wrap",
     fontFamily: fonts.book,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: ( fontScale > 1 ) ? null : 21
+    fontSize: 16,
+    lineHeight: 21,
+    maxWidth: 206
   },
-  textContainer: {
-    width: height > 570 ? 198 : 150
+  wideText: {
+    maxWidth: 270,
+    textAlign: "center"
   }
 } );

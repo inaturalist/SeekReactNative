@@ -25,7 +25,8 @@
     "join": "Seekカメラで観察をしてOur Planetバッジをゲットしよう！",
     "take_challenge": "チャレンジを受ける",
     "continue_challenge": "チャレンジを続ける",
-    "view_all": "すべてのチャレンジを表示"
+    "view_all": "すべてのチャレンジを表示",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "通知",
@@ -103,9 +104,9 @@
     "settings": "設定"
   },
   "onboarding": {
-    "onboarding_1": "Seekカメラを使って、身の回りの生き物を知りましょう。",
-    "onboarding_2": "色々な種を観察してバッジをゲット。",
-    "onboarding_3": "Our PlanetとWWFのグローバルチャレンジに参加しよう。",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "今はスキップする",
     "continue": "次へ"
   },
@@ -145,14 +146,6 @@
     "ice": "「気候」チャレンジ",
     "op": "Our Planet",
     "start_now": "今すぐ始める",
-    "april_2019": "2019年4月",
-    "may_2019": "2019年5月",
-    "june_2019": "2019年6月",
-    "november_2019": "2019年11月",
-    "august_2019": "2019年8月",
-    "september_2019": "2019年9月",
-    "october_2019": "2019年10月",
-    "december_2019": "2019年12月",
     "mission_1_april": "観察したことがない10種の生き物を見つけよう！",
     "april_description": "地球に住んでいるのは、私たち人間だけではありません。気づいていなくても、自然は常に私たちの周りにあります。私たちの家、庭、町や都市には色々な発見を秘めた、隠れた世界が存在します。家の周りをSeekすると、近所にいる野生の生き物の数にびっくりするかもしれません。\n\n植物、菌類、虫、鳥、動物をSeekしよう。滅多に見られない生き物が残す糞、毛、巣や跡は周りにいる生き物の手がかりになるよ。",
     "start_challenge": "チャレンジ開始",
@@ -173,7 +166,7 @@
     "no_new_challenges": "新しいチャレンジが出てきたら通知します。",
     "completed_all": "開催されているチャレンジ全部を達成しました！",
     "number_observed": "{{number}} 種観察済み",
-    "how_to": "{{month}} 月のOur Planetチャレンジをしよう！",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "このチャレンジは{{date}}に公開されます。",
     "get_involved": "活動に参加する",
     "action_april": "都会自然チャレンジに参加している都市の近くに住んでいるか確認して、自然記録や判定の活動に交わろう！",
@@ -230,8 +223,11 @@
     "sorry": "申しわけございません、Seekはまだ学習中です。\n\nもっと生き物をはっきり撮ろうとしてみたり、違う角度を試したり、ズームをしてみてください。",
     "take_photo": "新しい写真を撮る",
     "common_ancestor": "残念なことに、Seekは種まで判定できませんでした。\n\nもっと生き物をはっきり撮ろうとしてみたり、違う角度を試したり、ズームをしてみてください。",
-    "believe": "{{ancestorRank}}の中の一種と考えられます。",
-    "believe_1": "{}の中の一種と考えられます。",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "また同じ種を観察しました！",
     "date_observed": "{{seenDate}}に初めて観察しました。",
     "post_inat": "今の写真があなたのものであれば、iNaturalistにその観察をぜひ投稿してください。そうしたら、コミュニティが種判定をして、その生き物のSeekの判定が上達します。",
@@ -277,14 +273,16 @@
     "family": "科",
     "genus": "属",
     "species": "種",
-    "error_camera": "種判定をする為に、カメラのアクセスが必要です。",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "撮った写真を保存をする為に、カメラロールのアクセスが必要です。",
     "permissions": "設定から許可をしてください。",
     "error_classifier": "申し訳ございません。判定ツールをを起動することができませんでした。",
-    "error_old_camera": "申し訳ございません。カメラを起動することができませんでした。",
-    "error_device_support": "申し訳ございません。お使いの端末はサポートされていません。",
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
     "error_save": "申し訳ございません。写真を保存することができませんでした。",
-    "error_no_photos": "このアルバムには写真がありません。他のアルバムを選択してください。"
+    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "写真",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Seekについて",
-    "sponsored": "SeekはOur PlanetとWWFに提供されています。",
-    "our_planet": "『OUR PLANET 私たちの地球』は2019年4月よりネットフリックスで配信開始したドキュメンタリーシリーズです。このネットフリックス・オリジナルはSilverback films と WWFによって製作されました。",
     "seek": "SeekはiNaturalistのチームによって作られています。",
     "joint_initiative": "iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。",
-    "original": "Seekは元来HHMI Tangled Bank StudiosのBackyard Wildernessイニシアチブの一部として開発されました。",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "iNaturalistチームによってデザイン・開発されました：",
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
     "version": "バージョン",
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "著作権所有",
     "some": "著作権一部所有"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

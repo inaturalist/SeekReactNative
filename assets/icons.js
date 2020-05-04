@@ -21,9 +21,9 @@ const icons = {
   menuHome: require( "./icons/icon-menu-home.png" ),
   menuAchievements: require( "./icons/icon-menu-achievements.png" ),
   menuChallenges: require( "./icons/icon-menu-challenges.png" ),
-  menuiNat: require( "./icons/icon-menu-inaturalist.png" ),
+  menuInat: require( "./icons/icon-menu-inaturalist.png" ),
   menuObservations: require( "./icons/icon-menu-observations.png" ),
-  menuSeek: require( "./icons/icon-menu-seek.png" ),
+  menuAbout: require( "./icons/icon-menu-seek.png" ),
   menuSettings: require( "./icons/icon-menu-settings.png" ),
   closeGreen: require( "./icons/icon-close-green.png" ),
   closeWhite: require( "./icons/icon-close-white.png" ),
@@ -51,9 +51,9 @@ const icons = {
   dropdownOpen: require( "./icons/icon-dropdown-open.png" ),
   dropdownClosed: require( "./icons/icon-dropdown-closed.png" ),
   delete: require( "./icons/button-deleteobservation.png" ),
-  warningEat: require( "./icons/icon-donteat.png" ),
-  warningTouch: require( "./icons/icon-donttouch.png" ),
-  warningTrespass: require( "./icons/icon-donttrespass.png" )
+  warning_1: require( "./icons/icon-donttrespass.png" ),
+  warning_2: require( "./icons/icon-donteat.png" ),
+  warning_3: require( "./icons/icon-donttouch.png" )
 };
 
 export default icons;

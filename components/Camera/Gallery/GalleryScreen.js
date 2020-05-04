@@ -77,9 +77,9 @@ const GalleryScreen = () => {
     setStillLoading( false );
   }, [album] );
 
-  const updateAlbum = ( newAlbum: string ) => {
+  const updateAlbum = useCallback( ( newAlbum: string ) => {
     setAlbum( newAlbum !== "All" ? newAlbum : null );
-  };
+  }, [] );
 
   const setupPhotos = useCallback( () => {
     if ( photos.length === 0 ) {
@@ -104,6 +104,8 @@ const GalleryScreen = () => {
       }
     }
   }, [isFocused, setupPhotos] );
+
+  console.log( photos.length, "photo length" );
 
   return (
     <View style={styles.background}>

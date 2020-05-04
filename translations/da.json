@@ -18,19 +18,20 @@
     "header": "Kom i gang",
     "tip_1": "Tag fotos med Seek's kamera for at identificere de levende ting omkring dig.",
     "tip_2": "Lær mere om arterne, som er blevet observeret omkring dig, med Arter i nærheden.",
-    "tip_3": "Optjen mærker og stig i graderne ved at identificere forskellige arter og ved at deltage i udfordringer."
+    "tip_3": "Optjen duelighedsmærker og stig i graderne ved at identificere forskellige arter og ved at deltage i udfordringer."
   },
   "challenges_card": {
     "header": "Udfordringer",
-    "join": "Tilføj observationer med Seek kameraet for at modtage Vores Planet-mærket!",
+    "join": "Tilføj observationer med Seek-kameraet for at modtage Vores Planet-mærket!",
     "take_challenge": "Tag imod udfordringen",
     "continue_challenge": "Fortsæt udfordring",
-    "view_all": "Se alle udfordringer"
+    "view_all": "Se alle udfordringer",
+    "new_join": "Tilføj observationer med Seek-kameraet for at modtage Udfordringsmærket!"
   },
   "notifications": {
     "header": "Meddelelser",
     "learn_more": "Lær mere om iNaturalist",
-    "earned_badges": "Du har optjent mange mærker! Du vil sikkert også kunne lide iNaturalist!",
+    "earned_badges": "Du har optjent mange duelighedsmærker! Du vil sikkert også kunne lide iNaturalist!",
     "almost_finished": "Du er næsten færdig med din udfordring!",
     "view_progress": "Følg dine fremskridt",
     "challenge_completed": "Tillykke! Du gennemførte en udfordring",
@@ -103,9 +104,9 @@
     "settings": "Indstillinger"
   },
   "onboarding": {
-    "onboarding_1": "Brug Seek's kamera til at blive klogere på organismerne omkring dig",
-    "onboarding_2": "Optjen mærker ved at observere forskellige arter",
-    "onboarding_3": "Deltag i globale udfordringer med Vores Planet & WWF",
+    "onboarding_1": "Bruge kameraet i Seek til at identificere planter, dyr og svampe",
+    "onboarding_2": "Lær om organismerne der er overalt omkring dig",
+    "onboarding_3": "Optjen duelighedsmærker ved at observere forskellige arter",
     "skip": "Spring over for nu",
     "continue": "Forsæt"
   },
@@ -134,7 +135,7 @@
     "not_started": "Ikke startet",
     "completed": "Udført",
     "challenge": "Udfordr",
-    "badge": "Mærke",
+    "badge": "Duelighedsmærke",
     "connectivity": "Sammenhænge-udfordring",
     "biodiversity": "Biodiversitetsudfordring",
     "productivity": "Fællesskabsudfordring",
@@ -145,19 +146,11 @@
     "ice": "Klimaudfordring",
     "op": "Vores Planet",
     "start_now": "Start nu",
-    "april_2019": "April 2019",
-    "may_2019": "Maj 2019",
-    "june_2019": "Juni 2019",
-    "november_2019": "november 2019",
-    "august_2019": "August 2019",
-    "september_2019": "September 2019",
-    "october_2019": "Oktober 2019",
-    "december_2019": "december 2019",
     "mission_1_april": "Find 10 nye arter!",
     "april_description": "Vi er ikke alene på vores planet! Der er altid liv omkring os, uanset om vi lægger mærke til det eller ej. I vores hjem, haver, landsbyer og storbyer er der verdener, som venter på at blive opdaget. Søger du i og omkring dit hjem, vil du sikkert blive overrasket over, hvor mange naboer du finder.\n\nFind planter, svampe, insekter, fugle og andre dyr. Hold også udkig efter andre spor på liv - ekskrementer, hår, reder, fodspor og spindelvæv kan fortælle dig mere om de skabninger, som du deler dit hjem med.",
     "start_challenge": "Start udfordringen",
     "open_camera": "Åbn kamera",
-    "view_badge": "Se mærke",
+    "view_badge": "Se duelighedsmærke",
     "your_mission": "Din mission",
     "mission_1_may": "Find 4 forskellige typer fugle, pattedyr, krybdyr, padder eller fisk",
     "mission_2_may": "Find 4 forskellige insekter",
@@ -168,12 +161,12 @@
     "congrats": "Du fuldførte Vores Planet udfordringen for {{month}}!",
     "thanks": "Tak for din deltagelse! Vi kan alle give naturen en hjælpende hånd. Følg med på rejsen på Netflix's Vores Planet og lær mere på ourplanet.com.",
     "no_completed_challenges": "Dine fuldførte udfordringer vil blive vist her.",
-    "no_challenges_in_progress": "Start en ny udfordring nedenfor for at optjene mærker!",
+    "no_challenges_in_progress": "Start en ny udfordring nedenfor for at optjene duelighedsmærker!",
     "no_new_challenges_header": "Du har ingen nye udfordringer.",
     "no_new_challenges": "Vi giver dig besked, når der er nye udfordringer.",
     "completed_all": "Du har fuldført alle tilgængelige udfordringer!",
     "number_observed": "{{number}} observeret indtil videre",
-    "how_to": "Fuldfør Vores Planet udfordringen for {{month}}!",
+    "how_to": "Fuldfør Seek-udfordringen for {{month}}!",
     "released": "Denne udfordring frigives {{date}}.",
     "get_involved": "Deltag",
     "action_april": "Tjek om du bor nær en by, som er en del af Bynatur-udfordringen, og hold i så fald øje med natur- og identifikationsaktiviteter for byens dyre- og planteliv!",
@@ -231,7 +224,10 @@
     "take_photo": "Tag et billede mere",
     "common_ancestor": "Men vi kunne ikke identificere den præcise art.\n\nDu kan prøve en anden vinkel, zoome ind eller prøve at få et skarpere foto af organismen.",
     "believe": "Vi mener, at dette er et medlem af",
-    "believe_1": "Vi mener, at dette er et medlem af",
+    "genus": "Vi mener, at dette er et medlem af slægten",
+    "family": "Vi mener, at dette er et medlem af familien",
+    "order": "Vi mener, at dette er et medlem af ordenen",
+    "class": "Vi mener, at dette er et medlem af klassen",
     "resighted": "Du genfandt en art!",
     "date_observed": "Du så denne første gang: {{seenDate}}",
     "post_inat": "Hvis du tog det originale foto af organismen, kan du hjælpe med at træne Seek på denne art ved at tilføje den til iNaturalist, hvor fællesskabet vil hjælpe med at identificere den og dermed forbedre fremtidige udgaver.",
@@ -255,8 +251,8 @@
     "tap": "Tryk for at hente arter i nærheden"
   },
   "banner": {
-    "view": "Se mærke",
-    "badge": "Mærke",
+    "view": "Se duelighedsmærke",
+    "badge": "Duelighedsmærke",
     "challenge_progress": "Du fandt endnu en art!",
     "challenge_view": "Følg dine fremskridt",
     "level_up": "Du rykkede et niveau op!",
@@ -277,14 +273,16 @@
     "family": "familie",
     "genus": "slægt",
     "species": "art",
-    "error_camera": "Vi har brug for adgang til dit kamera for at hjælpe dig med at identificere arter!",
+    "error_permissions": "Vi har brug for adgang til kameraet for at hjælpe dig med at identificere arter!",
     "error_gallery": "Vi skal have adgang til dit billedbibliotek for at gemme de fotos du tager!",
     "permissions": "Giv tilladelse i indstillinger",
     "error_classifier": "Beklager, vi kunne ikke loade den classifier",
-    "error_old_camera": "Beklager, vi kunne ikke starte kameraet",
-    "error_device_support": "Beklager, den enhed du bruger er ikke understøttet",
+    "error_camera": "Beklager, vi kunne ikke starte kameraet",
+    "error_device": "Beklager, den enhed du bruger er ikke understøttet",
     "error_save": "Beklager, der opstod et problem med at gemme dit billede",
-    "error_no_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album."
+    "error_take": "Beklager, vi kunne ikke tage dit foto",
+    "error_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album.",
+    "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}."
   },
   "gallery": {
     "label": "Fotos",
@@ -330,7 +328,7 @@
     "species_badges": "Artsmærker",
     "challenge_badges": "Udfordringsmærker",
     "observed": "Arter\nObserveret",
-    "earned": "Mærker\nOptjent",
+    "earned": "Duelighedsmærker\nOptjent",
     "you_found": "Du fandt",
     "bird_1": "1 fugl!",
     "bird_5": "5 fugle!",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Om",
-    "sponsored": "Seek præsenteres af Vores Planet og WWF",
-    "our_planet": "Vores Planet er en milepæl inden for naturdokumentarer, som havde premiere på Netflix i april 2019. Dette er en Netflix Original produceret af Silverback films og Wold Wildlife Fund.",
     "seek": "Seek er skabt af holdet bag iNaturalist.",
     "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
-    "original": "Seek blev oprindeligt skabt som en del af HHMI Tangled Bank Studios Backyard Wilderness initiative.",
+    "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
@@ -514,7 +510,7 @@
   },
   "delete": {
     "header": "Slet art?",
-    "description": "Ønsker du at slette denne art fra dine observationer? Dette kan påvirke dine udfordringer og mærker.",
+    "description": "Ønsker du at slette denne art fra dine observationer? Dette kan påvirke dine udfordringer og duelighedsmærker.",
     "yes": "Ja, slet den fra mine observationer",
     "no": "Annuller"
   },
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "alle rettigheder forbeholdes",
     "some": "nogle rettigheder forbeholdes"
+  },
+  "debug": {
+    "logs": "Send fejlloggen med email"
+  },
+  "settings": {
+    "header": "Seek-kamera",
+    "common_names": "Vis almindelige navne",
+    "scientific_names": "Vis videnskabelige navne"
+  },
+  "seek_challenges": {
+    "badge": "Seek-duelighedsmærke",
+    "header": "Du fuldførte Seek-udfordringen for {{date}}!",
+    "text": "Tak for din deltagelse i den globale udfordring! Seek er til for at hjælpe dig med at knytte forbindelse til alle de arter, der omgiver os. Gå udenfor, udforsk og lær om naturen rundt omkring dig!",
+    "citizen_science": "Borgervidenskabsudfordring",
+    "completed": "Du fuldførte udfordringen og har gjort dig fortjent til udfordringens duelighedsmærke!",
+    "april_2020_description": "April 2020 er 1 års jubilæet for udgivelsen af den nye Seek af iNaturalist! I det forgangne år er vi vokset betragteligt og har hjulpet over en million mennesker med at føle sig mere forbundet til verden omkring dem. Du er omgivet af natur, som bare venter på, at du går på opdagelse med Seek!\n\nDen første af vores næste runde udfordringer lyder således: Se om du kan finde 10 arter, som du ikke har observeret endnu.",
+    "action_april_2020": "April er borgervidenskabsmåned! Du kan bidrage til den videnskabelige forståelse af biodiversitet som borgervidenskabsmand ved at tilføje dine Seek-observationer til iNaturalist.\n\nHvis du er 13 eller ældre (eller med dine forældres tilladelse), kan du oprette en iNaturalist-konto og tilføje observationer til iNaturalist for at dele dine observationer med et bredere publikum, inklusiv videnskabsfolk!",
+    "tbd": "TBD-udfordring"
   }
 }

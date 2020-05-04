@@ -15,10 +15,9 @@ Seek is an app built for iOS and Android.
 9. Add common names files to `Seek/utility/commonNames` to allow the AR camera to load common names in localized languages. These files are titled `commonNamesDict-0.js` to `commonNamesDict-9.js`.
 
 ## Manual Linking
-Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). There are two exceptions, which are listed in the [react-native.config.js](https://github.com/inaturalist/SeekReactNative/blob/master/react-native.config.js) file. 
+Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). There is one exception, which is listed in the [react-native.config.js](https://github.com/inaturalist/SeekReactNative/blob/master/react-native.config.js) file. 
 
-1. Realm on iOS will need to be manually linked in XCode following [these instructions](https://facebook.github.io/react-native/docs/linking-libraries-ios). 
-2. [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is also manually linked.
+1. [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is manually linked.
 
 ## Troubleshooting
 
@@ -26,7 +25,7 @@ Most third-party libraries use autolinking as of [React Native 0.60.0](https://f
 2. Another common issue in React Native involves libraries not being found by the bundler. If this happens, you will likely see an error message that tells you to clear the cache using the following steps: 
   * Clear watchman: `watchman watch-del-all`
   * Delete and reinstall node_modules: `rm -rf node_modules && npm install`
-  * Reset the bundler cache: `npm start --reset-cache`
+  * Reset the bundler cache: `npm start -- --reset-cache`
 3. Cleaning the project can also help with some build issues. To do this on Android, run `./gradlew clean` from within the `android` directory. For iOS, use XCode > Product > Clean Build Folder.
 
 ## Translations

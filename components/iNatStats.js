@@ -21,7 +21,6 @@ import LoadingWheel from "./UIComponents/LoadingWheel";
 import LoginCard from "./UIComponents/LoginCard";
 import BackArrow from "./UIComponents/Buttons/BackArrow";
 import GreenText from "./UIComponents/GreenText";
-import { getiNatStats } from "../utility/iNatStatsHelpers";
 import createUserAgent from "../utility/userAgent";
 import HorizontalScroll from "./UIComponents/HorizontalScroll";
 import ScrollNoHeader from "./UIComponents/ScrollNoHeader";
@@ -31,7 +30,7 @@ const INatStatsScreen = () => {
   const [observers, setObservers] = useState( null );
   const [photos, setPhotos] = useState( [] );
 
-  const fetchProjectPhotos = () => {
+  const fetchProjectPhotos = ( isSubscribed ) => {
     const params = {
       project_id: 29905,
       photos: true,
@@ -51,7 +50,8 @@ const INatStatsScreen = () => {
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;
 
-        if ( defaultPhoto.license_code ) {
+        if ( defaultPhoto.license_code && defaultPhoto.original_dimensions ) {
+          // some original dimensions can be null
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {
             projectPhotos.push( {
               photoUrl: defaultPhoto.medium_url,
@@ -70,17 +70,28 @@ const INatStatsScreen = () => {
 
       const randomEightPhotos = shuffleList( projectPhotos ).splice( 0, 8 );
 
-      setPhotos( randomEightPhotos );
-    } ).catch( ( error ) => {
-      console.log( error, "couldn't fetch project photos" );
-    } );
+      if ( isSubscribed ) {
+        setPhotos( randomEightPhotos );
+      }
+    } ).catch( ( e ) => console.log( e, "couldn't fetch project photos" ) );
   };
 
-  const fetchiNatStats = async () => {
-    const stats = await getiNatStats();
+  const fetchiNatStats = ( isSubscribed ) => {
+    const options = { headers: { "User-Agent": createUserAgent() } };
 
-    setObservations( `${localizeNumber( stats.observations )}+` );
-    setObservers( `${localizeNumber( stats.observers )}+` );
+    fetch( "https://www.inaturalist.org/stats/summary.json", options )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const totalObservations = responseJson.total_observations;
+        const totalObservers = responseJson.total_observers;
+        const roundedObservations = Math.round( totalObservations / 1000000 ) * 1000000;
+        const roundedObservers = Math.round( totalObservers / 10000 ) * 10000;
+
+        if ( isSubscribed ) {
+          setObservations( `${localizeNumber( roundedObservations )}+` );
+          setObservers( `${localizeNumber( roundedObservers )}+` );
+        }
+      } ).catch( ( e ) => console.log( e ) );
   };
 
   const renderPhotos = () => photos.map( ( photo ) => (
@@ -96,13 +107,16 @@ const INatStatsScreen = () => {
   ) );
 
   useEffect( () => {
+    let isSubscribed = true;
+
     if ( !observations ) {
-      fetchiNatStats();
+      fetchiNatStats( isSubscribed );
     }
 
     if ( photos.length === 0 ) {
-      fetchProjectPhotos();
+      fetchProjectPhotos( isSubscribed );
     }
+    return () => isSubscribed = false;
   }, [observations, photos] );
 
   const photoList = renderPhotos();

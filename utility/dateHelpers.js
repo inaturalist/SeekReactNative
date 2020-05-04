@@ -13,6 +13,7 @@ import {
 import {
   af,
   ca,
+  cs,
   da,
   de,
   es,
@@ -33,6 +34,7 @@ import i18n from "../i18n";
 const locales = {
   af,
   ca,
+  cs,
   da,
   de,
   es,

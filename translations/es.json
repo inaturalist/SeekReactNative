@@ -25,7 +25,8 @@
     "join": "¡⁄nete al desafío de observación global y síguelo con Our Planet en Netflix!",
     "take_challenge": "Acepta el desafío",
     "continue_challenge": "Continuar con el desafío",
-    "view_all": "Ver todos los desafíos"
+    "view_all": "Ver todos los desafíos",
+    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
   },
   "notifications": {
     "header": "Notificaciones",
@@ -103,9 +104,9 @@
     "settings": "Ajustes"
   },
   "onboarding": {
-    "onboarding_1": "Toma una foto de cualquier ser viviente y Seek te ayudar a identificarlo.",
-    "onboarding_2": "Gana insignias por ver diferentes especies",
-    "onboarding_3": "Participa en desafíos globales con Our Planet y WWF",
+    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
+    "onboarding_2": "Learn about the organisms all around you",
+    "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Omitir por ahora",
     "continue": "Continuar"
   },
@@ -145,14 +146,6 @@
     "ice": "Desafío climático",
     "op": "Nuestro planeta",
     "start_now": "Empezar ahora",
-    "april_2019": "Apr-19",
-    "may_2019": "May-19",
-    "june_2019": "Jun-19",
-    "november_2019": "Noviembre 2019",
-    "august_2019": "Agosto de 2019",
-    "september_2019": "Septiembre de 2019",
-    "october_2019": "Octubre 2019",
-    "december_2019": "Diciembre de 2019",
     "mission_1_april": "¡Encuentra 20 nuevas especies!",
     "april_description": "¡No estamos solos en nuestro planeta! La vida silvestre siempre est a nuestro alrededor, ya sea que lo notemos o no. En nuestros hogares, jardines, pueblos y ciudades hay mundos ocultos por descubrir. Explora dentro y alrededor de tu casa, y te sorprender la cantidad de vecinos salvajes que encontrars.\n\nBusca plantas, hongos, insectos, aves y animales. Observa los signos de una vida ms escurridiza: pelaje, nidos, pistas y tejidos, todo puede darte pistas de otras criaturas que comparten el hogar contigo.",
     "start_challenge": "Empieza el desafío",
@@ -173,7 +166,7 @@
     "no_new_challenges": "Te avisaremos cuando haya nuevos desafíos disponibles.",
     "completed_all": "Has completado todos los desafíos disponibles.",
     "number_observed": "{{number}} observado(s) hasta ahora",
-    "how_to": "¡Completa el desafío de Our Planet para el mes de {{month}}!",
+    "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "Este desafío será lanzado el {{date}}.",
     "get_involved": "Participa",
     "action_april": "Verifica si vives cerca de una ciudad que forma parte del City Nature Challenge y, de ser así, presta atención a las actividades de identificación y registro de la naturaleza para la vida silvestre urbana.",
@@ -230,8 +223,11 @@
     "sorry": "Lo sentimos. ¡Seek todavía est aprendiendo!\n\nPuedes intentar un ngulo diferente, acercar, o intentar obtener una imagen ms clara del organismo.",
     "take_photo": "Toma otra foto",
     "common_ancestor": "Pero no pudimos identificar la especie exacta.\n\nPuedes intentar un ngulo diferente, acercar, o intentar obtener una imagen ms clara del organismo.",
-    "believe": "Creemos que este es un miembro de",
-    "believe_1": "Creemos que es un miembro de",
+    "believe": "We believe this is a member of",
+    "genus": "We believe this is a member of the genus",
+    "family": "We believe this is a member of the family",
+    "order": "We believe this is a member of the order",
+    "class": "We believe this is a member of the class",
     "resighted": "¡Has vuelto a ver una especie!",
     "date_observed": "La observaste primero el:\n{{seenDate}}",
     "post_inat": "Si tomaste una foto original del organismo, puedes ayudar a entrenar a Seek en esta especie publicándola en iNaturalist, donde la comunidad ayudará a identificarla y a mejorar las versiones futuras.",
@@ -277,14 +273,16 @@
     "family": "familia",
     "genus": "género",
     "species": "especies",
-    "error_camera": "¡Necesitamos acceso a la cámara para ayudarte a identificar las especies!",
+    "error_permissions": "We need access to the camera to help you identify species!",
     "error_gallery": "¡Necesitamos acceso a tu carrete para guardar las fotos que tomes!",
     "permissions": "Habilitar permisos en los ajustes",
     "error_classifier": "Lo sentimos, no hemos podido cargar el clasificador",
-    "error_old_camera": "Lo sentimos, no hemos podido cargar la cámara",
-    "error_device_support": "Lo sentimos, el dispositivo que estás usando no es compatible",
+    "error_camera": "Sorry, we weren't able to load the camera",
+    "error_device": "Sorry, the device you are using is not supported",
     "error_save": "Lo sentimos, hubo un problema al guardar tu foto",
-    "error_no_photos": "No se encontraron fotos en este álbum de fotos. Intenta seleccionar un álbum diferente."
+    "error_take": "Sorry, we weren't able to capture your photo",
+    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
   },
   "gallery": {
     "label": "Fotos",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Acerca de",
-    "sponsored": "Seek es presentada por \"Nuestro Planeta\" y WWF",
-    "our_planet": "Our Planet es una serie televisiva de historia natural estrenada en Netflix en abril de 2019. Esta serie es una serie original de Netflix producida por los estudios Silverback y World Wildlife Fund.",
     "seek": "Seek fue creada por el equipo de iNaturalist.",
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
-    "original": "Seek se creó originalmente con el apoyo del HHMI Tangled Bank Studios.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Diseñada y desarrollada por el equipo de iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecemos especialmente a Visipedia y la comunidad iNaturalist.",
     "version": "Versión",
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "todos los derechos reservados",
     "some": "algunos derechos reservados"
+  },
+  "debug": {
+    "logs": "Send debug logs by email"
+  },
+  "settings": {
+    "header": "Seek Camera",
+    "common_names": "Display Common Names",
+    "scientific_names": "Display Scientific Names"
+  },
+  "seek_challenges": {
+    "badge": "Seek badge",
+    "header": "You completed the Seek Challenge for {{date}}!",
+    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
+    "citizen_science": "Citizen Science Challenge",
+    "completed": "You completed the challenge and earned the challenge badge!",
+    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
+    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
+    "tbd": "TBD Challenge"
   }
 }

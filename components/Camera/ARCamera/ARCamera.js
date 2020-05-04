@@ -218,14 +218,13 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
-      {!error && (
-        <ARCameraOverlay
-          ranks={ranks}
-          pictureTaken={pictureTaken}
-          takePicture={takePicture}
-          cameraLoaded={cameraLoaded}
-        />
-      )}
+      <ARCameraOverlay
+        ranks={ranks}
+        pictureTaken={pictureTaken}
+        takePicture={takePicture}
+        cameraLoaded={cameraLoaded}
+        error={error}
+      />
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
           ref={camera}

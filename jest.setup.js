@@ -7,6 +7,18 @@ NativeModules.RNCNetInfo = {
   removeListeners: jest.fn()
 };
 
+jest.mock( "@react-navigation/native", () => ( {
+  useNavigation: jest.fn( () => ( {
+    addListener: jest.fn(),
+    navigate: jest.fn()
+  } ) ),
+  useRoute: jest.fn().mockReturnValue( { name: "About" } )
+} ) );
+
+jest.mock( "react-native-safe-area-context", () => ( {
+  useSafeArea: jest.fn().mockReturnValue( { insets: { top: 1 } } )
+} ) );
+
 jest.mock( "@react-native-community/async-storage", () => mockAsyncStorage );
 
 jest.mock( "react-native-fs", () => ( {
@@ -19,7 +31,12 @@ jest.mock( "react-native-device-info", () => ( {
   getBuildNumber: jest.fn()
 } ) );
 
-jest.mock( "react-navigation", () => ( {
-  withNavigation: component => component,
-  addListener: jest.fn()
-} ) );
+NativeModules.RNCGeolocation = {
+  addListener: jest.fn(),
+  getCurrentPosition: jest.fn(),
+  removeListeners: jest.fn(),
+  requestAuthorization: jest.fn(),
+  setConfiguration: jest.fn(),
+  startObserving: jest.fn(),
+  stopObserving: jest.fn()
+};

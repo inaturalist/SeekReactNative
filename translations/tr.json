@@ -25,7 +25,8 @@
     "join": "Seek kamerası ile gözlemler ekleyip Bizim Gezegenimiz rozetini kazan!",
     "take_challenge": "Mücadeleyi kabul et",
     "continue_challenge": "Mücadeleye devam et",
-    "view_all": "Tüm mücadeleleri gör"
+    "view_all": "Tüm mücadeleleri gör",
+    "new_join": "Mücadele rozetini kazanmak için Seek Kamerası ile gözlemler ekleyin!"
   },
   "notifications": {
     "header": "Bildirimler",
@@ -103,9 +104,9 @@
     "settings": "Ayarlar"
   },
   "onboarding": {
-    "onboarding_1": "Dört bir yanındaki organizmalar hakkında öğrenmek için Seek'in kamerasını kullan",
-    "onboarding_2": "Farklı türleri gözlemleyerek rozetler kazan",
-    "onboarding_3": "Bizim Gezegenimiz ve WWF ile küresel mücadelelerde yer al",
+    "onboarding_1": "Bitkileri, hayvanları ve mantarları tanımlamak için Seek Kamerasını kullanın",
+    "onboarding_2": "Çevrenizdeki organizmalarla ilgili bilgi edinin",
+    "onboarding_3": "Farklı türleri gözlemleyerek rozetler kazan",
     "skip": "Şimdilik atla",
     "continue": "Devam et"
   },
@@ -145,14 +146,6 @@
     "ice": "İklim Mücadelesi",
     "op": "Bizim Gezeginimiz",
     "start_now": "Şimdi başla",
-    "april_2019": "Nisan 2019",
-    "may_2019": "Mayıs 2019",
-    "june_2019": "Haziran 2019",
-    "november_2019": "Kasım 2019",
-    "august_2019": "Ağustos 2019",
-    "september_2019": "Eylül 2019",
-    "october_2019": "Ekim 2019",
-    "december_2019": "Aralık 2019",
     "mission_1_april": "10 yeni tür bul!",
     "april_description": "Gezeginimizde yalnız değiliz! Farkında olalım ya da olmayalım vahşi yaşam hep çevremizde. Evlerimizde, bahçelerimizde, köylerimizde ve şehirlerimizde keşfedilmeyi bekleyen gizli dünyalar var. Evinin içinde ve civarında göz gezdirirsen ne kadar vahşi komşu bulacağına şaşırabilirsin.\n\nBitkileri, mantarları, böcekleri, kuşları ve hayvanları ara. Bulunması zor canlılardan izler için dikkatli ol; dışkı, tüy, yuvalar, ayak izleri ve ağlar seninle evini paylaşan yaratıklara dair ipuçları verebilir.",
     "start_challenge": "Mücadeleyi başlat",
@@ -173,7 +166,7 @@
     "no_new_challenges": "Yeni mücadeleler ulaşılabilir olduğunda sana haber vereceğiz.",
     "completed_all": "Ulaşılabilir tüm mücadeleleri tamamladın!",
     "number_observed": "Şimdiye kadar {{number}} gözlem yaptın",
-    "how_to": "{{month}} ayı için Bizim Gezegenimiz Mücadelesini tamamla!",
+    "how_to": "{{month}} için Seek Mücadelesini tamamlayın!",
     "released": "Bu mücadele {{date}} tarihinde çıkacak.",
     "get_involved": "Dahil Ol",
     "action_april": "Şehir Doğa Mücadelesi'ne yakın olup olmadığını görmek için kontrol et, eğer yakınsan şehir vahşi yaşamı doğa kaydı yapma ve tanımlama aktiviteleri için gözlerini dört aç!",
@@ -230,8 +223,11 @@
     "sorry": "Bunun için üzgünüm, Seek hâlâ öğreniyor!\n\nDeğişik bir açı deneyebilir, yakınlaştırabilir ya da organizmayı daha net bir şekilde çekmeye çalışabilirsiniz.\n\n",
     "take_photo": "Başka bir fotoğraf çek",
     "common_ancestor": "Ancak kesin türü tespit edemedik.\n\nDeğişik bir açı deneyebilir, yakınlaştırabilir ya da organizmayı daha net bir şekilde çekmeye çalışabilirsiniz.",
-    "believe": "{{ancestorRank}} üyesi olduğuna inanıyoruz",
-    "believe_1": "Şunun bir üyesi olduğuna inanıyoruz:",
+    "believe": "Şunun bir üyesi olduğuna inanıyoruz:",
+    "genus": "Şu cinsin bir üyesi olduğuna inanıyoruz:",
+    "family": "Şu ailenin bir üyesi olduğuna inanıyoruz:",
+    "order": "Şu takımın bir üyesi olduğuna inanıyoruz:",
+    "class": "Şu sınıfın bir üyesi olduğuna inanıyoruz:",
     "resighted": "Bir tür gözlemlediniz!",
     "date_observed": "İlk gözleminiz:\n{{seenDate}}",
     "post_inat": "Organizmanın asıl fotoğrafını çektiyseniz, topluluğun onu tanımlamaya ve gelecekteki sürümleri iyileştirmeye yardımcı olacağı iNaturalist'e göndererek, bu türler üzerinde Seek'i eğitmeye yardım edebilirsiniz.",
@@ -277,14 +273,16 @@
     "family": "aile",
     "genus": "cins",
     "species": "tür",
-    "error_camera": "Türleri tanımlamanıza yardımcı olması için kameraya erişmemiz gerekiyor!",
+    "error_permissions": "Türleri tanımlamanıza yardımcı olması için kameraya erişmemiz gerekiyor!",
     "error_gallery": "Çektiğiniz fotoğrafları kaydetmek için galeriye erişmemiz gerekiyor!",
     "permissions": "Ayarlardan izinleri etkinleştir",
     "error_classifier": "Üzgünüz, sınıflandırıcıyı yükleyemiyoruz",
-    "error_old_camera": "Üzgünüz, kamerayı yükleyemedik",
-    "error_device_support": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
+    "error_camera": "Üzgünüz, kamerayı yükleyemedik",
+    "error_device": "Üzgünüz, kullandığınız cihaz desteklenmiyor",
     "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu",
-    "error_no_photos": "Bu albümde hiç fotoğraf bulunamadı. Farklı bir albüm seçmeyi deneyin."
+    "error_take": "Üzgünüz, fotoğrafınızı çekemedik",
+    "error_photos": "Bu albümde hiç fotoğraf bulunamadı. Farklı bir albüm seçmeyi deneyin.",
+    "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor."
   },
   "gallery": {
     "label": "Fotoğraflar",
@@ -453,11 +451,9 @@
   },
   "about": {
     "header": "Hakkında",
-    "sponsored": "Seek, Our Planet ve WWF tarafından sunulmaktadır.",
-    "our_planet": "Our Planet, Nisan 2019'da Netflix'te yayınlanan önemli bir doğa tarihi dizisidir. Bu dizi Silverback film ve World Wildlife Fund tarafından üretilen bir Netflix Original'dir.",
     "seek": "Seek, iNaturalist ekibi tarafından yaratılmıştır.",
     "joint_initiative": "iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir.",
-    "original": "Seek, başlangıçta HHMI Tangled Bank Studios Backyard Wilderness girişiminin bir parçası olarak kuruldu.",
+    "original": "Seek aslında Netflix'teki Gezegenimiz, WWF ve HHMI Tangled Bank Studios'taki destekle yaratıldı.",
     "designed_by": "iNaturalist ekibi tarafından tasarlandı ve geliştirildi:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
@@ -546,5 +542,23 @@
   "attributions": {
     "all": "tük hakları saklıdır",
     "some": "bazı haklar saklıdır"
+  },
+  "debug": {
+    "logs": "Hata ayıklamalarını e-postayla gönder"
+  },
+  "settings": {
+    "header": "Seek Kamerası",
+    "common_names": "Yaygın Adları Görüntüle",
+    "scientific_names": "Bilimsel Adları Görüntüle"
+  },
+  "seek_challenges": {
+    "badge": "Rozet ara",
+    "header": "{{date}} için Seek Mücadelesini tamamladın!",
+    "text": "Küresel mücadeleye katıldığınız için teşekkür ederiz! Bizi çevreleyen tüm türlerle bağlantı kurmanıza yardımcı olmak için buradayız. Dışarı çıkın, çevrenizdeki doğayı keşfedin ve öğrenin!",
+    "citizen_science": "Vatandaş Bilimi Mücadelesi",
+    "completed": "Mücadeleyi tamamladın ve mücadele rozetini kazandın!",
+    "april_2020_description": "Nisan 2020, yeni Seek'in iNaturalist tarafından piyasaya sürülmesinin ilk yıl dönümüdür! Geçtiğimiz yıl, çok büyüdük ve bir milyondan çok insanın çevresindeki dünyayla daha bağlantılı hissetmesine yardımcı olduk. Doğa her yerdedir, yalnızca Arayın!\n\nBir sonraki mücadelenize başlamak için henüz gözlemlemediğiniz 10 türü bulabilecek misiniz?",
+    "action_april_2020": "Nisan, Vatandaş Bilim Ayı! Bir vatandaş bilimci olarak biyoçeşitliliğin bilimsel olarak anlaşılmasına iNaturalist'e Seek gözlemlerinizi göndererek katkıda bulunabilirsiniz.\n\n13 yaşında ya da daha büyükseniz (ya da ebeveyn izniyle), iNaturalist'te bir hesap açabilir ve gözlemlerinizi bilim adamlarını da içermek üzere daha geniş bir toplulukla paylaşmak için iNaturalist'e gönderebilirsiniz!",
+    "tbd": "TBD Mücadelesi"
   }
 }

@@ -21,8 +21,8 @@ const CameraError = ( { error, errorEvent }: Props ) => {
 
   return (
     <View style={[styles.blackBackground, styles.center]}>
-      <Text numberOfLines={23} style={styles.errorText}>{errorText}</Text>
-      {error === "permissions" || error === "gallery" ? (
+      <Text allowFontScaling={false} numberOfLines={23} style={styles.errorText}>{errorText}</Text>
+      {( error === "permissions" || error === "gallery" ) && (
         <>
           <View style={styles.margin} />
           <GreenButton
@@ -32,7 +32,7 @@ const CameraError = ( { error, errorEvent }: Props ) => {
             width={323}
           />
         </>
-      ) : null}
+      )}
     </View>
   );
 };

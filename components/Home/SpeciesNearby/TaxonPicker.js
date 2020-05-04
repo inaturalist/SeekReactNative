@@ -89,11 +89,11 @@ class TaxonPicker extends Component<Props> {
         ref={( el ) => {
           this.inputRefs.picker2 = el;
         }}
-        hideIcon
         items={types}
         onValueChange={( value ) => {
           this.setTaxonType( value );
         }}
+        Icon={() => <></>}
         placeholder={{}}
         useNativeAndroidPickerStyle={false}
         value={taxonType}

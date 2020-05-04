@@ -16,7 +16,7 @@ const OnboardingScreen = () => (
       <View key={`${item}`} style={styles.image}>
         <Image source={icons[`onboarding${item}`]} />
         <View style={styles.margin} />
-        <Text style={[styles.text, styles.center]}>
+        <Text allowFontScaling={false} style={[styles.text, styles.center]}>
           {i18n.t( `onboarding.onboarding_${item}` )}
         </Text>
       </View>

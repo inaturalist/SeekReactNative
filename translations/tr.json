@@ -84,7 +84,7 @@
     "forgot_password_header": "Parolayı unuttum",
     "forgot_password": "Parolanızı mı unuttunuz?",
     "log_in": "Oturum aç",
-    "email": "E-Posta",
+    "email": "Email",
     "no_worries": "Endişe yok. Parola sıfırlama talimatlarını e-posta adresinize göndereceğiz.",
     "reset": "Parolamı sıfırla",
     "check_email": "E-postanı kontrol et!",
@@ -92,12 +92,12 @@
     "return_login": "Giriş sayfasına dön"
   },
   "privacy": {
-    "header": "Gizlilik Politikası"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Ana Sayfa",
     "achievements": "Başarımlar",
-    "challenges": "Mücadeleler",
+    "challenges": "Challenges",
     "observations": "Gözlemlerim",
     "inat": "iNaturalist",
     "about": "Hakkında",
@@ -108,10 +108,10 @@
     "onboarding_2": "Çevrenizdeki organizmalarla ilgili bilgi edinin",
     "onboarding_3": "Farklı türleri gözlemleyerek rozetler kazan",
     "skip": "Şimdilik atla",
-    "continue": "Devam et"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Yakındaki türler",
+    "species_nearby": "Species nearby",
     "button": "Yakındaki konumu tara",
     "undefined": "Tanımlanmamış konum"
   },
@@ -130,7 +130,7 @@
     "other": "diğer"
   },
   "challenges": {
-    "header": "Mücadeleler",
+    "header": "Challenges",
     "in_progress": "Devam ediyor",
     "not_started": "Başlamadı",
     "completed": "Tamamlandı",
@@ -207,7 +207,7 @@
     "seek_data": "Seek verilerini iNaturalist'ten alıyor.",
     "about_inat": "iNaturalist, dünyadaki doğacılar için en büyük topluluktur. Kullanıcılar dünya genelindeki organizmaların fotoğraflarını yükler ve topluluğumuz onları tanımlamak için birlikte çalışır. Bu gözlemler, tanımlama modelimizi eğitmek, alan haritalarını göstermek ve Seek'de yakın gözlemler yapmak için kullandığımız şeylerdir.",
     "contribute": "Küresel bir doğacı topluluğu ile vatandaş bilimine katkıda bulunmak ister misiniz?",
-    "join": "iNaturalist ile giriş yap",
+    "join": "Log in with iNaturalist",
     "by": "tarafından",
     "thanks": "iNaturalist topluluğu senin gibi insanlardan oluşuyor! Topluluğa katılın ve kendi gözlemlerinizi inaturalist.org adresinde ekleyin!",
     "logged_in": "Seek'e iNaturalist hesabınız ile giriş yaptınız. Topluluğumuzun bir parçası olduğunuz için teşekkürler!",
@@ -251,10 +251,10 @@
     "tap": "Yakındaki türleri yüklemek için dokunun"
   },
   "banner": {
-    "view": "Rozeti göster",
-    "badge": "Rozet",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "Başka bir tür buldunuz!",
-    "challenge_view": "İlerlemene bak",
+    "challenge_view": "View your progress",
     "level_up": "Düzey atladınız!",
     "number_seen": "{{number}} tür gördünüz!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Düzeyin",
     "login": "iNaturalist'e giriş yaparak, gözlemlerini çevrimiçi topluluğa gönderebilirsin!",
-    "achievements": "Başarılar",
+    "achievements": "Achievements",
     "observe": "Bir sonraki düzeye geçmek için {{number}} tür gözlemleyin!",
     "observe_max": "Seek'de en yüksek düzeye ulaştınız!",
     "observe_species": "Gözlemle",
@@ -393,7 +393,7 @@
     "to_earn": "Bu rozeti kazanmak için:"
   },
   "observations": {
-    "header": "Gözlemlerim",
+    "header": "My Observations",
     "no_obs": "Henüz herhangi bir gözleminiz yok!",
     "help": "Bir bitkinin, hayvanın ya da kameranızı kullanarak yaşayan herhangi bir şeyin fotoğrafını çekin; YZ modelimiz bunu tanımlamanıza yardımcı olacaktır!",
     "open_camera": "Kamerayı Aç",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Yakında",
-    "about": "Hakkında",
+    "about": "About",
     "range_map": "Alan haritası",
     "range_about": "iNaturalist'te görülen bu türün gözlemlerinin bir haritası.",
     "view_map": "Alan haritasında göster",
@@ -437,8 +437,8 @@
     "similar_no_species": "Yakında gözlemlenen benzer türlere rastlanmadı!",
     "plant": "bitki",
     "amphibian": "yüzergezer",
-    "fungi": "mantar",
-    "fish": "balık",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "sürüngen",
     "arachnid": "eklembacaklı",
     "bird": "kuş",
@@ -450,10 +450,10 @@
     "internet_error": "Tür ayrıntı ekranını oluşturmak için internete gereksinimimiz var. Tekrar denemek için dokunun."
   },
   "about": {
-    "header": "Hakkında",
+    "header": "About",
     "seek": "Seek, iNaturalist ekibi tarafından yaratılmıştır.",
-    "joint_initiative": "iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir.",
-    "original": "Seek aslında Netflix'teki Gezegenimiz, WWF ve HHMI Tangled Bank Studios'taki destekle yaratıldı.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "iNaturalist ekibi tarafından tasarlandı ve geliştirildi:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
@@ -462,7 +462,7 @@
     "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {
-    "header": "iNaturalist'e gönder",
+    "header": "Post to iNaturalist",
     "notes": "Not ekleyin",
     "date": "tarih",
     "location": "konum",
@@ -506,7 +506,7 @@
     "captive": "Kısıtlanmış/Ekili?",
     "no": "Bu, doğal olarak vahşi doğada ortaya çıkan ve bu yere insanlar tarafından getirilmeyen bir organizmadır.",
     "yes": "Bu organizma bu yere insanlar tarafından getirildi. Bu; bahçe bitkileri, evcil hayvanlar ve hayvanat bahçesi hayvanları gibi şeyler için geçerlidir.",
-    "addendum": "* Tasarılara gözlem eklemek, Seek'de desteklenmiyor. Gözlemlerinizi bir tasarıya eklemek isterseniz, lütfen bunu iNaturalist.org'da ya da iNaturalist uygulamasını kullanarak yapın."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Tür silinsin mi?",
@@ -515,15 +515,15 @@
     "no": "Vazgeç"
   },
   "warning": {
-    "remember": "Anımsa",
+    "remember": "Remember",
     "tip_1": "Sürekli çevrenizin farkında olun, güvende kalın ve izinsiz girmeyin.",
-    "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
-    "tip_3": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Menüyü Aç",
-    "camera": "Kamerayı aç",
+    "camera": "Open camera",
     "notifications": "Bildirimleri görüntüle",
     "iNatStats": "iNat istatistik ekranını görüntüle",
     "flag": "Bu gözlemi yanlış olarak işaretle",

@@ -518,7 +518,8 @@
     "remember": "Onthoud",
     "tip_1": "Wees altijd bewust van je omgeving, doe geen domme dingen en betreed terreinen alleen met toestemming.",
     "tip_2": "Eet geen wilde planten of dieren.",
-    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten."
+    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten.",
+    "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Open menu",
@@ -559,6 +560,12 @@
     "completed": "Je hebt de uitdaging voltooid en de challenge badge verdiend!",
     "april_2020_description": "April 2020 wordt het het nieuwe Seek door iNaturalist! één jaar. Het afgelopen jaar zijn we flink gegroeid en hebben we meer dan een miljoen mensen geholpen zich meer verbonden te voelen met de wereld om hen heen. De natuur is om je heen, je moet die gewoon zoeken!\n\nKijk of je 10 soorten kunt vinden die je nog niet eerder hebt gezien.",
     "action_april_2020": "April is Citizen Science Maand! Je kunt bijdragen aan wetenschappelijke informatie over biodiversiteit als burgerwetenschapper door jouw Seek waarnemingen op iNaturalist te plaatsen.\n\nAls je 13 of ouder bent (of ouderlijk recht hebt) kun je een iNaturalist account maken en waarnemingen posten in iNaturalist om jouw waarnemingen te delen met een bredere gemeenschap, inclusief wetenschappers!",
-    "tbd": "TBD Uitdaging"
+    "backyard": "Backyard Challenge",
+    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
+    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
+    "mission_1_may_2020": "Find 5 plants",
+    "mission_2_may_2020": "Find 2 insects",
+    "mission_3_may_2020": "Find 1 arachnid",
+    "mission_4_may_2020": "Find 2 birds"
   }
 }

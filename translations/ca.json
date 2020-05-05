@@ -84,7 +84,7 @@
     "forgot_password_header": "Contrasenya oblidada",
     "forgot_password": "Has oblidat la teva contrasenya?",
     "log_in": "Inicia la sessió",
-    "email": "Email",
+    "email": "Adreça electrònica",
     "no_worries": "No et preocupis. T'enviarem les instruccions per restablir la teva contrasenya al teu correu electrònic.",
     "reset": "Restablir la meva contrasenya",
     "check_email": "Comprova el teu correu electrònic!",
@@ -92,12 +92,12 @@
     "return_login": "Torna a l'inici de sessió"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Política de privadesa"
   },
   "menu": {
     "home": "Inici",
     "achievements": "Fites",
-    "challenges": "Challenges",
+    "challenges": "Reptes",
     "observations": "Les meves observacions",
     "inat": "iNaturalist",
     "about": "Quant a",
@@ -108,10 +108,10 @@
     "onboarding_2": "Aprèn sobre els organismes del teu voltant",
     "onboarding_3": "Guanya insígnies per observar diferents tipus d'espècies",
     "skip": "Ometre per ara",
-    "continue": "Continue"
+    "continue": "Continua"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Espècies a prop",
     "button": "Cerca prop de la ubicació",
     "undefined": "Localització no definida"
   },
@@ -130,7 +130,7 @@
     "other": "altres espècies"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Reptes",
     "in_progress": "En curs",
     "not_started": "No s'ha iniciat",
     "completed": "Completat",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Foto © Netflix / Silverback Films",
+    "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek obté les teves dades d'iNaturalist.",
     "about_inat": "iNaturalist és la major comunitat de naturalistes del món. Els usuaris carreguen fotografies d’organismes de tot el món i la comunitat col·labora conjuntament per identificar-les. Aquestes observacions són les que fem servir per entrenar el nostre model d’identificació, mostrar mapes de distribució i generar les observacions properes que es mostren a Seek.",
     "contribute": "Estàs interessat a contribuir a la ciència ciutadana des d'una comunitat global de naturalistes?",
-    "join": "Log in with iNaturalist",
+    "join": "Entra amb iNaturalist",
     "by": "per",
     "thanks": "La comunitat d'iNaturalist està formada per persones com tu! Uneix-te a la comunitat i afegeix les teves observacions a inaturalist.org!",
     "logged_in": "Heu entrat a Seek amb el vostre compte d'iNaturalist. Gràcies per formar part d'aquesta comunitat!",
@@ -251,10 +251,10 @@
     "tap": "Prem per carregar espècies properes"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Veure insignia",
+    "badge": "Insígnia",
     "challenge_progress": "Has trobat una altra espècie!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Veure el teu progrès",
     "level_up": "Has passat de nivell!",
     "number_seen": "Has vist {{number}} espècies!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "El teu nivell",
     "login": "Entra amb iNaturalist per enviar observacions a la comunitat en línia!",
-    "achievements": "Achievements",
+    "achievements": "Fites",
     "observe": "Observa {{number}} especies per passar al següent nivell!",
     "observe_max": "Has assolit el màxim nivell a Seek!",
     "observe_species": "Observa",
@@ -393,7 +393,7 @@
     "to_earn": "Per guanyar aquesta insígnia:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Les meves observacions",
     "no_obs": "Encara no tens observacions!",
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Propera",
-    "about": "About",
+    "about": "Quant a",
     "range_map": "Mapa de distribució",
     "range_about": "Un mapa de les observacions d'aquesta espècie a iNaturalist.",
     "view_map": "Veure mapa de distribució",
@@ -437,8 +437,8 @@
     "similar_no_species": "Sembla que no hi ha moltes espècies similars observades a prop!",
     "plant": "planta",
     "amphibian": "amfibi",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "fongs",
+    "fish": "peixos",
     "reptile": "rèptil",
     "arachnid": "aràcnid",
     "bird": "ocell",
@@ -450,9 +450,9 @@
     "internet_error": "Necessitem accés a internet per mostrar informació detallada de l'espècie. Toca per intentar-ho de nou."
   },
   "about": {
-    "header": "About",
+    "header": "Quant a",
     "seek": "Seek ha estat creat per l'equip d'iNaturalist.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "joint_initiative": "iNaturalist és una iniciativa conjunts de la California Academy of Sciences i la National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Dissenyat i desenvolupat per l'equip d'iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, i Yaron Budowski. Un agraiment especial a Visipedia i la comunitat d'iNaturalist.",
@@ -462,7 +462,7 @@
     "join_crowdin": "Per unir-te a l'equip de traducció de Seek, si us plau, visiteu https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Envia a iNaturalist",
     "notes": "Afegeix notes aquí",
     "date": "data",
     "location": "ubicació",
@@ -515,15 +515,15 @@
     "no": "Cancel·la"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Recorda",
     "tip_1": "Estigues sempre atent al teu voltant, estigues segur i no entris en propietats privades.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "No mengis res que trobis al camp.",
+    "tip_3": "Respecte totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Obre el menú",
-    "camera": "Open camera",
+    "camera": "Obre la càmera",
     "notifications": "Mostra les notificacions",
     "iNatStats": "Veure pantalla d'estadístiques d'iNat",
     "flag": "Marcar aquesta observació com incorrecta",

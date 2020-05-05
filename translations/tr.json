@@ -84,7 +84,7 @@
     "forgot_password_header": "Parolayı unuttum",
     "forgot_password": "Parolanızı mı unuttunuz?",
     "log_in": "Oturum aç",
-    "email": "Eposta Adresi",
+    "email": "E-Posta",
     "no_worries": "Endişe yok. Parola sıfırlama talimatlarını e-posta adresinize göndereceğiz.",
     "reset": "Parolamı sıfırla",
     "check_email": "E-postanı kontrol et!",
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Düzeyin",
     "login": "iNaturalist'e giriş yaparak, gözlemlerini çevrimiçi topluluğa gönderebilirsin!",
-    "achievements": "Başarımlar",
+    "achievements": "Başarılar",
     "observe": "Bir sonraki düzeye geçmek için {{number}} tür gözlemleyin!",
     "observe_max": "Seek'de en yüksek düzeye ulaştınız!",
     "observe_species": "Gözlemle",
@@ -437,7 +437,7 @@
     "similar_no_species": "Yakında gözlemlenen benzer türlere rastlanmadı!",
     "plant": "bitki",
     "amphibian": "yüzergezer",
-    "fungi": "mantarlar",
+    "fungi": "mantar",
     "fish": "balık",
     "reptile": "sürüngen",
     "arachnid": "eklembacaklı",
@@ -452,8 +452,8 @@
   "about": {
     "header": "Hakkında",
     "seek": "Seek, iNaturalist ekibi tarafından yaratılmıştır.",
-    "joint_initiative": "iNaturalist, California Academy of Sciences(Kaliforniya Bilim Akademisi) ve National Geographic Topluluğu'nun ortak girişimidir.",
-    "original": "Seek asıl olarak HHMI Tangled Bank Studios'un desteğiyle yaratıldı ve Netflix ve WWF yapımı Gezegenimiz desteğiyle geliştirildi.",
+    "joint_initiative": "iNaturalist, Kaliforniya Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir.",
+    "original": "Seek aslında Netflix'teki Gezegenimiz, WWF ve HHMI Tangled Bank Studios'taki destekle yaratıldı.",
     "designed_by": "iNaturalist ekibi tarafından tasarlandı ve geliştirildi:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
@@ -506,7 +506,7 @@
     "captive": "Kısıtlanmış/Ekili?",
     "no": "Bu, doğal olarak vahşi doğada ortaya çıkan ve bu yere insanlar tarafından getirilmeyen bir organizmadır.",
     "yes": "Bu organizma bu yere insanlar tarafından getirildi. Bu; bahçe bitkileri, evcil hayvanlar ve hayvanat bahçesi hayvanları gibi şeyler için geçerlidir.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "* Tasarılara gözlem eklemek, Seek'de desteklenmiyor. Gözlemlerinizi bir tasarıya eklemek isterseniz, lütfen bunu iNaturalist.org'da ya da iNaturalist uygulamasını kullanarak yapın."
   },
   "delete": {
     "header": "Tür silinsin mi?",

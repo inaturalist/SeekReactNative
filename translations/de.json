@@ -108,7 +108,7 @@
     "onboarding_2": "Erfahre mehr über die Natur um dich herum",
     "onboarding_3": "Verdiene dir Abzeichen für das Entdecken verschiedener Arten",
     "skip": "Vorerst überspringen",
-    "continue": "Weiter"
+    "continue": "Fortfahren"
   },
   "location_picker": {
     "species_nearby": "Arten in der Nähe",
@@ -393,7 +393,7 @@
     "to_earn": "Um dieses Abzeichen zu <br>\nerhalten:"
   },
   "observations": {
-    "header": "Beobachtungen",
+    "header": "Meine Beobachtungen",
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
@@ -437,8 +437,8 @@
     "similar_no_species": "Sieht so aus, als ob in der Nähe nicht viele ähnliche Arten beobachtet wurden!",
     "plant": "Pflanze ",
     "amphibian": "Amphibie",
-    "fungi": "Pilze",
-    "fish": "Fische",
+    "fungi": "Pilz",
+    "fish": "Fisch",
     "reptile": "Reptil",
     "arachnid": "Spinne",
     "bird": "Vogel",
@@ -450,10 +450,10 @@
     "internet_error": "Eine Internetverbindung wird benötigt, um Details zu dieser Art zu zeigen. Tippe, um es erneut zu versuchen."
   },
   "about": {
-    "header": "Info",
+    "header": "Über",
     "seek": "Seek wurde vom iNaturalist Team entwickelt.",
-    "joint_initiative": "iNaturalist ist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society.",
-    "original": "Seek wurde ursprünglich mit Unterstützung von HHMI Tangled Bank Studios erstellt und verbessert mit der Unterstützung von 'Our Planet' auf Netflix und WWF.",
+    "joint_initiative": "iNaturalist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society.",
+    "original": "Seek wurde ursprünglich mit Unterstützung von OurPlanet auf Netflix und HHMI Tangled Bank Studios entwickelt.",
     "designed_by": "Entworfen und entwickelt vom iNaturalist Team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
@@ -517,8 +517,8 @@
   "warning": {
     "remember": "Denke daran",
     "tip_1": "Achte immer auf deine Umgebung und deine Sicherheit, betrete keine umzäunten Grundstücke!",
-    "tip_2": "Nichts essen, was du draußen findest.",
-    "tip_3": "Respektiere andere Lebewesen, indem du sie nicht ärgerst oder berührst. Einige können stechen oder beißen.",
+    "tip_2": "Iss nichts, was du in freier Wildbahn findest.",
+    "tip_3": "Respektiere andere Lebewesen, indem Du sie nicht belästigst oder berührst. Einige können stechen oder beißen.",
     "tip_4": "Kinder könnten die Aufsicht einer erwachsenen Person benötigen."
   },
   "accessibility": {

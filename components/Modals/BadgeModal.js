@@ -95,7 +95,6 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
       <FlatList
         ref={flatList}
         data={badgeList}
-        bounces={false}
         horizontal
         pagingEnabled
         renderItem={( { item } ) => item}

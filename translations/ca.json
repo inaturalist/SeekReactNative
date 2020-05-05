@@ -111,7 +111,7 @@
     "continue": "Continua"
   },
   "location_picker": {
-    "species_nearby": "Espècies a prop",
+    "species_nearby": "Espècies poperes",
     "button": "Cerca prop de la ubicació",
     "undefined": "Localització no definida"
   },
@@ -254,7 +254,7 @@
     "view": "Veure insignia",
     "badge": "Insígnia",
     "challenge_progress": "Has trobat una altra espècie!",
-    "challenge_view": "Veure el teu progrès",
+    "challenge_view": "Veure el teu progrés",
     "level_up": "Has passat de nivell!",
     "number_seen": "Has vist {{number}} espècies!"
   },
@@ -437,8 +437,8 @@
     "similar_no_species": "Sembla que no hi ha moltes espècies similars observades a prop!",
     "plant": "planta",
     "amphibian": "amfibi",
-    "fungi": "fongs",
-    "fish": "peixos",
+    "fungi": "fong",
+    "fish": "peix",
     "reptile": "rèptil",
     "arachnid": "aràcnid",
     "bird": "ocell",
@@ -452,8 +452,8 @@
   "about": {
     "header": "Quant a",
     "seek": "Seek ha estat creat per l'equip d'iNaturalist.",
-    "joint_initiative": "iNaturalist és una iniciativa conjunts de la California Academy of Sciences i la National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "iNaturalist és una iniciativa conjunta de la California Academy of Sciences i National Geographic Society.",
+    "original": "Seek fou creada originalment amb el suport de \"Nuestro Planeta\" de Netflix i HHMI Tangled Bank Studios.",
     "designed_by": "Dissenyat i desenvolupat per l'equip d'iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, i Yaron Budowski. Un agraiment especial a Visipedia i la comunitat d'iNaturalist.",
     "version": "Versió",
@@ -506,7 +506,7 @@
     "captive": "Captiva/conreada?",
     "no": "Aquest és un organisme que es presenta naturalment en estat salvatge i que els humans no l'han portat a aquesta ubicació.",
     "yes": "Aquest organisme ha estat posat en aquesta localització pels humans. Això és aplicable a les plantes de jardins, animals de companyia i en zoològics.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*La incorporació d'observacions a projectes no està suportada per iSeek. Si vols afegir les teves observacions a un projecte, pots fer-ho des d'iNaturalist.org o utilitzant l'App iNaturalist."
   },
   "delete": {
     "header": "Esborrar especie?",
@@ -518,7 +518,7 @@
     "remember": "Recorda",
     "tip_1": "Estigues sempre atent al teu voltant, estigues segur i no entris en propietats privades.",
     "tip_2": "No mengis res que trobis al camp.",
-    "tip_3": "Respecte totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",
+    "tip_3": "Respecta totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {

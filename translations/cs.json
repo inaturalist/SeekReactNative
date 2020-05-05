@@ -92,12 +92,12 @@
     "return_login": "Návrat na přihlášení"
   },
   "privacy": {
-    "header": "Zásady ochrany osobních údajů"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Domů",
     "achievements": "Úspěchy",
-    "challenges": "Výzvy",
+    "challenges": "Challenges",
     "observations": "Moje pozorování",
     "inat": "iNaturalist",
     "about": "O aplikaci",
@@ -108,10 +108,10 @@
     "onboarding_2": "Poznávejte okolní organismy",
     "onboarding_3": "Získejte odznaky za pozorování různých druhů",
     "skip": "Prozatím přeskočit",
-    "continue": "Pokračovat"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Druhy poblíž",
+    "species_nearby": "Species nearby",
     "button": "Hledat blízko lokace",
     "undefined": "Nedefinovaná poloha"
   },
@@ -130,7 +130,7 @@
     "other": "ostatní druhy"
   },
   "challenges": {
-    "header": "Výzvy",
+    "header": "Challenges",
     "in_progress": "Rozpracováno",
     "not_started": "Nezahájeno",
     "completed": "Dokončeno",
@@ -197,8 +197,8 @@
     "photographer_june": "Fotografie © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Fotografie © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Fotografie © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Fotografie © Netflix / Silverback Films",
-    "photographer_october": "Fotografie © Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Fotografie © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek svá data získává z iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Máte zájem přispívat k občanské vědě společně s globální komunitou přírodovědců?",
-    "join": "Přihlásit se pomocí iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "od",
     "thanks": "Komunita iNaturalist se skládá z lidí, jako jste Vy! Připojte se ke komunitě a přidejte své vlastní pozorování na inaturalist.org!",
     "logged_in": "K Seeku jste přihlášeni pomocí svého iNaturalist účtu. Děkujeme, že jste součástí této komunity!",
@@ -251,10 +251,10 @@
     "tap": "Klepnutím načtete druhy poblíž"
   },
   "banner": {
-    "view": "Zobrazit odznak",
-    "badge": "Odznak",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "Našli jste další druh!",
-    "challenge_view": "Zobrazit váš postup",
+    "challenge_view": "View your progress",
     "level_up": "Jste o úroveň výš!",
     "number_seen": "Viděli jste už {{number}} druhů!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Vaše úroveň",
     "login": "Přihlaste se pomocí iNaturalist a přidávejte pozorování do online komunity!",
-    "achievements": "Úspěchy",
+    "achievements": "Achievements",
     "observe": "Pozorujte {{number}} druhů, abyste se dostali na další úroveň!",
     "observe_max": "Dosáhli jste maximální úrovně na Seeku!",
     "observe_species": "Pozorovat",
@@ -393,7 +393,7 @@
     "to_earn": "K získání tohoto odznaku:"
   },
   "observations": {
-    "header": "Má pozorování",
+    "header": "My Observations",
     "no_obs": "Zatím nemáte žádná pozorování!",
     "help": "Vyfoťte rostlinu, zvíře nebo cokoli žijícího pomocí našeho fotoaparátu a náš AI model Vám ji pomůže identifikovat!",
     "open_camera": "Otevřít fotoaparát",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Poblíž",
-    "about": "O organismu",
+    "about": "About",
     "range_map": "Range map",
     "range_about": "A map of observations of this species seen on iNaturalist.",
     "view_map": "View range map",
@@ -437,8 +437,8 @@
     "similar_no_species": "Zdá se, že v blízkosti nebylo pozorováno mnoho podobných druhů!",
     "plant": "rostlina",
     "amphibian": "obojživelník",
-    "fungi": "houba",
-    "fish": "ryba",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "plaz",
     "arachnid": "pavoukovec",
     "bird": "pták",
@@ -450,10 +450,10 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "O aplikaci",
+    "header": "About",
     "seek": "Seek je vytvořen týmem iNaturalist.",
-    "joint_initiative": "iNaturalist je společná iniciativa Kalifornské akademie věd a Národní geografické společnosti.",
-    "original": "Seek bylo původně vytvořen s podporou OurPlanet na Netflixu a HHMI Tangled Bank Studios.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Navrženo a vyvinuto týmem iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary a Yaron Budowski. Zvláštní poděkování Visipedii a komunitě iNaturalist.",
     "version": "Verze",
@@ -462,7 +462,7 @@
     "join_crowdin": "Chcete-li se připojit k týmu překladatelů, navštivte prosím https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Poslat na iNaturalist",
+    "header": "Post to iNaturalist",
     "notes": "Zde přidejte poznámky",
     "date": "datum",
     "location": "poloha",
@@ -506,7 +506,7 @@
     "captive": "V zajetí/pěstovaný?",
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "Tento organismus sem umístili lidé. Týká se to takových organismů, jakou jsou zahradní rostliny, zvířata v zájmovém chovu a zvířata chovaná v zoologických zahradách.",
-    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Smazat druh?",
@@ -515,15 +515,15 @@
     "no": "Zrušit"
   },
   "warning": {
-    "remember": "Pamatujte si",
+    "remember": "Remember",
     "tip_1": "Dávejte vždy pozor na tom, kam vstupujete, dbejte na své bezpečí a nevstupujte bez povolení na soukromé pozemky a do zakázaných oblastí.",
-    "tip_2": "Nejezte nic, co najdete ve volné přírodě.",
-    "tip_3": "Respektuje ostatní živé organismy, neobtěžujte je a nedotýkejte se jich. Některé mohou štípat nebo kousat.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Otevřít nabídku",
-    "camera": "Otevřít fotoaparát",
+    "camera": "Open camera",
     "notifications": "Zobrazit oznámení",
     "iNatStats": "View iNat stats screen",
     "flag": "Označit toto pozorování jako nesprávné",
@@ -553,7 +553,7 @@
     "scientific_names": "Zobrazit vědecké názvy"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
+    "badge": "Odznak Seeku",
     "header": "You completed the Seek Challenge for {{date}}!",
     "text": "Děkujeme, že jste se podíleli na globální výzvě! Seek je zde proto, aby Vám pomohl připojit ke všem druhům, které nás obklopují. Běžte ven, prozkoumávejte a poznávejte okolní přírodu!",
     "citizen_science": "Výzva občanské vědy",

@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Dit niveau",
     "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
-    "achievements": "Præstationer",
+    "achievements": "Resultater",
     "observe": "Observer {{number}} arter for at nå til det næste niveau!",
     "observe_max": "Du har nået det højeste niveau på Seek!",
     "observe_species": "Observer",
@@ -437,7 +437,7 @@
     "similar_no_species": "Det ser ud til, at der ikke er observeret ret mange lignede arter i nærheden!",
     "plant": "plante",
     "amphibian": "padde",
-    "fungi": "svampe",
+    "fungi": "svamp",
     "fish": "fisk",
     "reptile": "krybdyr",
     "arachnid": "spindler",
@@ -453,7 +453,7 @@
     "header": "Om",
     "seek": "Seek er skabt af holdet bag iNaturalist.",
     "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
-    "original": "Seek blev oprindeligt skabt med støtte fra HHMI Tangled Bank Studios og forbedret med støtte fra Our Planet på Netflix og WWF.",
+    "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
@@ -506,7 +506,7 @@
     "captive": "I fangenskab/dyrket?",
     "no": "Dette er en organisme som naturligt lever vildt i naturen og ikke blev anbragt her af mennesker.",
     "yes": "Denne organisme blev anbragt her af mennesker. Det gælder for eksempel for haveplanter, kæledyr og dyr i zoologiske haver.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Tilføjelse af observationer til projekter er ikke undersøttet i Seek. Hvis du gerne vil tilføje dine observationer til et projekt, kan du gøre det på iNaturalist.org eller ved at bruge iNaturalist appen."
   },
   "delete": {
     "header": "Slet art?",
@@ -517,7 +517,7 @@
   "warning": {
     "remember": "Husk",
     "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
-    "tip_2": "Spis ikke hvad som helst du finder i naturen.",
+    "tip_2": "Spis ikke alt du finder i naturen.",
     "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide.",
     "tip_4": "Children may require adult supervision."
   },

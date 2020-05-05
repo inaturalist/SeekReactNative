@@ -84,7 +84,7 @@
     "forgot_password_header": "パスワードをお忘れの場合",
     "forgot_password": "パスワードをお忘れですか?",
     "log_in": "ログイン",
-    "email": "Email",
+    "email": "メールアドレス",
     "no_worries": "ご登録のアドレスにパスワードリセット方法を送信しました。",
     "reset": "パスワードをリセットする",
     "check_email": "メールをご確認ください。",
@@ -92,12 +92,12 @@
     "return_login": "ログインに戻る"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "プライバシー ポリシー"
   },
   "menu": {
     "home": "ホーム",
     "achievements": "アチーブメント",
-    "challenges": "Challenges",
+    "challenges": "チャレンジ",
     "observations": "観察記録",
     "inat": "iNaturalist",
     "about": "Seekについて",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "今はスキップする",
-    "continue": "Continue"
+    "continue": "次へ"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "近くの生き物",
     "button": "場所の周辺を検索",
     "undefined": "位置情報なし"
   },
@@ -130,7 +130,7 @@
     "other": "他の種"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "チャレンジ",
     "in_progress": "進行中",
     "not_started": "スタートされていません",
     "completed": "完了済み",
@@ -197,8 +197,8 @@
     "photographer_june": "© Grace Frank, ネットフリックス / Silverback Films",
     "photographer_november": "© Jeff Wilson, ネットフリックス / Silverback Films",
     "photographer_august": "© Ben Macdonald, ネットフリックス / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "© ネットフリックス / Silverback Films",
+    "photographer_october": "© ネットフリックス / Silverback Films",
     "photographer_december": "© Sophie Lanfear, ネットフリックス / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "SeekはiNaturalistからデータを引用しています。",
     "about_inat": "iNaturalistは世界で一番大きいナチュラリストのコミュニティです。iNaturalistでは世界中のユーザーがあらゆる場所の生き物の写真を投稿して、コミュニティが一緒にその生き物の種を判定しています。これらの観察記録が判定モデルのトレーニングに使われ、生息地の地図や「近くの観察」リストを作成しています。",
     "contribute": "世界中のナチュラリストのコミュニティと共に市民科学に貢献することに興味はありますか？",
-    "join": "Log in with iNaturalist",
+    "join": "iNaturalistでログイン",
     "by": "by",
     "thanks": "iNaturalistのコミュニティはあなたのような人達で出来上がっています。inaturalist.orgでコミュニティに参加して観察を投稿しましょう！",
     "logged_in": "iNaturalistアカウントでSeekにログインされています。このコミュニティの一部になっていただき、ありがとうございます！",
@@ -251,10 +251,10 @@
     "tap": "タップして近くの生き物をロードしてください。"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "バッジを表示",
+    "badge": "バッジ",
     "challenge_progress": "新しい種を見つけました！",
-    "challenge_view": "View your progress",
+    "challenge_view": "プログレスを見る",
     "level_up": "レベルアップしました！",
     "number_seen": "あなたは{{number}}種見つけました！"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "レベル",
     "login": "iNaturalistでログインしてオンラインコミュニティに観察を投稿しよう！",
-    "achievements": "Achievements",
+    "achievements": "アチーブメント",
     "observe": "レベルアップまで{{number}}種観察が必要！",
     "observe_max": "Seekの最高レベルに達しました！",
     "observe_species": "観察",
@@ -393,7 +393,7 @@
     "to_earn": "このバッジをゲットするには："
   },
   "observations": {
-    "header": "My Observations",
+    "header": "観察記録",
     "no_obs": "観察記録がまだありません。",
     "help": "植物や動物など、生き物ならなんでもSeekで写真を撮りましょう。SeekのAIのモデルが種判定をしてくれます！",
     "open_camera": "カメラを起動",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "この付近で",
-    "about": "About",
+    "about": "Seekについて",
     "range_map": "生息地",
     "range_about": "この種がiNaturalistで記録された場所を示す地図。",
     "view_map": "生息地を表示",
@@ -437,8 +437,8 @@
     "similar_no_species": "この周辺で、似たような生き物は観察されていないようです。",
     "plant": "植物",
     "amphibian": "両生類",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "菌類",
+    "fish": "魚",
     "reptile": "爬虫類",
     "arachnid": "クモ形類",
     "bird": "鳥",
@@ -450,9 +450,9 @@
     "internet_error": "種の詳細画面を画面を読み込むには、インターネットへの接続が必要です。再試行するにはタップしてください。"
   },
   "about": {
-    "header": "About",
+    "header": "Seekについて",
     "seek": "SeekはiNaturalistのチームによって作られています。",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "joint_initiative": "iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "iNaturalistチームによってデザイン・開発されました：",
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
@@ -462,7 +462,7 @@
     "join_crowdin": "Seekの翻訳チームに参加するには、以下のURLにアクセスしてください。\nhttps://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "iNaturalistに投稿する",
     "notes": "メモを追加",
     "date": "日付",
     "location": "場所",
@@ -515,15 +515,15 @@
     "no": "キャンセル"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "注意",
     "tip_1": "常に周りに注意を配り、安全を第一に考え、不法侵入はしないでください。",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "野外で見つけたものを食べるのは危険です。",
+    "tip_3": "他の生き物を大切にしましょう。触ったり、いじめないでください。刺したり、咬む生き物もいます。",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "メニューを開ける",
-    "camera": "Open camera",
+    "camera": "カメラを起動",
     "notifications": "通知を表示する",
     "iNatStats": "iNatの統計画面を表示",
     "flag": "「この判定が誤っている」とフラグを付ける",

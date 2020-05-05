@@ -207,7 +207,7 @@
     "seek_data": "Seek obtiene tus datos de iNaturalist.",
     "about_inat": "iNaturalist es la comunidad ms grande para los naturalistas en el mundo. Los usuarios cargan fotos de especies en todo el mundo y nuestra comunidad trabaja en conjunto para identificarlas. Estos datos son los que utilizamos para entrenar el AI de identificación, mostrar los datos de mapas y generar datos de observaciones cercanas en Seek.",
     "contribute": "¡Ests interesado en contribuir con la ciencia ciudadana en una comunidad global de naturalistas?",
-    "join": "Inicia sesión en iNaturalist",
+    "join": "Iniciar sesión con iNaturalist",
     "by": "por",
     "thanks": "¡La comunidad de iNaturalist está formada por personas como tú! ¡Únete a la comunidad y añade tus propias observaciones en inaturalist.org!",
     "logged_in": "Has iniciado sesión en Seek con tu cuenta de iNaturalist. ¡Gracias por formar parte de esta comunidad!",
@@ -393,7 +393,7 @@
     "to_earn": "Para ganar esta insignia:"
   },
   "observations": {
-    "header": "Observaciones",
+    "header": "Mis observaciones",
     "no_obs": "¡Aún no tienes observaciones!",
     "help": "Toma una foto de una planta, animal o cualquier ser vivo con tu cámara y nuestro modelo AI te ayudará a identificarlo.",
     "open_camera": "Cámara abierta",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Cercano",
-    "about": "Quiénes somos",
+    "about": "Acerca de",
     "range_map": "Mapa de área de distribución",
     "range_about": "Un mapa de observaciones de esta especie visto en iNaturalist.",
     "view_map": "Ver mapa",
@@ -437,8 +437,8 @@
     "similar_no_species": "¡Parece que no hay muchas especies parecidas observadas cerca!",
     "plant": "planta",
     "amphibian": "anfibio",
-    "fungi": "hongos",
-    "fish": "peces",
+    "fungi": "hongo",
+    "fish": "pez",
     "reptile": "reptil",
     "arachnid": "arácnido",
     "bird": "ave",
@@ -450,10 +450,10 @@
     "internet_error": "Necesitamos Internet para generar la pantalla de información de la especie. Pulsa para intentarlo de nuevo."
   },
   "about": {
-    "header": "Quiénes somos",
+    "header": "Acerca de",
     "seek": "Seek fue creada por el equipo de iNaturalist.",
     "joint_initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Diseñada y desarrollada por el equipo de iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecemos especialmente a Visipedia y la comunidad iNaturalist.",
     "version": "Versión",
@@ -506,7 +506,7 @@
     "captive": "Cautiva/cultivada?",
     "no": "Se trata de un organismo que naturalmente ocurre en la naturaleza, y que los humanos no han traído a este lugar.",
     "yes": "Este organismo fue colocado en este lugar por los seres humanos. Esto se aplica a plantas de jardín y animales de compañía y de zoológicos.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "* Añadir observaciones a proyectos no es compatible con Seek. Si quieres añadir tus observaciones a un proyecto, hazlo en iNaturalist.org o usando la aplicación de iNaturalist."
   },
   "delete": {
     "header": "¿Eliminar especie?",
@@ -517,13 +517,13 @@
   "warning": {
     "remember": "Recuerda",
     "tip_1": "Vigila siempre a to alrededor, permanece seguro y no entres en propiedades privadas.",
-    "tip_2": "No comas nada que encuentres en la naturaleza.",
-    "tip_3": "Respeta a los dems seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",
+    "tip_2": "No comas nada de lo que encuentres en la naturaleza.",
+    "tip_3": "Respeta a todos los seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Abrir menú",
-    "camera": "cámara abierta",
+    "camera": "Abrir cámara",
     "notifications": "Ver notificaciones",
     "iNatStats": "Ver pantalla de estadísticas de iNat",
     "flag": "Marcar esta observación como incorrecta",

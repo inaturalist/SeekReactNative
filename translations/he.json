@@ -92,7 +92,7 @@
     "return_login": "חזרה לדף הכניסה"
   },
   "privacy": {
-    "header": "מדיניות פרטיות"
+    "header": "מדיניות הפרטיות"
   },
   "menu": {
     "home": "דף הבית",
@@ -111,7 +111,7 @@
     "continue": "המשך"
   },
   "location_picker": {
-    "species_nearby": "מינים הנמצאים בסביבה",
+    "species_nearby": "מינים בסביבה",
     "button": "חפשו סביב מיקום",
     "undefined": "אזור לא מוגדר"
   },
@@ -207,7 +207,7 @@
     "seek_data": "Seek מקבלת מידע מ iNaturalist.",
     "about_inat": "iNaturalist היא הקהילה הגדולה ביותר של אוהבי טבע בעולם. משתמשים מעלים תמונות של יצורים חיים מסביב לעולם, והקהילה שלנו עובדת יחדיו לזהות אותם. תצפיות אלו הם מה שאנו משתמשים בו כדי לאמן את מודל הזיהוי שלנו, להציג מפות ותצפיות קרובות באפליקציית Seek.",
     "contribute": "מעונייים לתרום למען מדע אזרחי עם קהילת עולמית של אנשי טבע?",
-    "join": "כניסה עם איי-נטורליסט",
+    "join": "כניסה עם iNaturalist",
     "by": "מאת",
     "thanks": "קהילת iNaturalist מורכבת מאנשים כמוכם! הצטרפו של הקהילה והוסיפו תצפיות שלכם ב inaturalist.org!",
     "logged_in": "התחברתם ל Seek עם חשבון ה iNaturalist שלכם. תודה שאתם חלק מהקהילה!",
@@ -254,7 +254,7 @@
     "view": "הצג תג",
     "badge": "תג",
     "challenge_progress": "מצאתם מין נוסף!",
-    "challenge_view": "צפה במעקב התקדמות",
+    "challenge_view": "מעקב התקדמות",
     "level_up": "עליתם בדרגה!",
     "number_seen": "ראיתם {{number}} מינים!"
   },
@@ -452,8 +452,8 @@
   "about": {
     "header": "אודות",
     "seek": "Seek פותחה על ידי צוות iNaturalist.",
-    "joint_initiative": "זהו שיתוף פעולה בין האקדמיה למדעים של קליפורניה והחברה הגיאוגרפית.",
-    "original": "Seek במקור פותחה עם תמיכה של HHMI Tangled Bank Studios ושופרה בתמיכתח הסדרה הכוכב שלנו בהפקת Netflix וארגון WWF.",
+    "joint_initiative": "iNaturalist הוא יוזמה משותפת של California Academy of Sciences and National Geographic Society ו National Geographic.",
+    "original": "Seek פותחה במקור עם תמיכה של HHMI Tangled Bank Studios ושופרה בתמיכת הסדרה הכוכב שלנו בהפקת Netflix וארגון WWF.",
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. תודות מיוחדות ל Visipedia וקהילת iNatalist.",
     "version": "גירסה",

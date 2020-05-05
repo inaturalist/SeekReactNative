@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Il tuo livello",
     "login": "Effettua l'accesso con iNaturalist per mostrare le osservazioni alla comunità online!",
-    "achievements": "Successi",
+    "achievements": "Progressi",
     "observe": "Osserva {{number}} specie per raggiungere il livello successivo!",
     "observe_max": "Hai raggiunto il livello massimo su Seek!",
     "observe_species": "Osserva",
@@ -437,8 +437,8 @@
     "similar_no_species": "Sembra che non siano state osservate molte specie simili nelle vicinanze!",
     "plant": "pianta",
     "amphibian": "anfibio",
-    "fungi": "funghi",
-    "fish": "pesci",
+    "fungi": "fungo",
+    "fish": "pesce",
     "reptile": "rettile",
     "arachnid": "aracnide",
     "bird": "uccello",
@@ -452,8 +452,8 @@
   "about": {
     "header": "Info su",
     "seek": "Seek è realizzato dal team iNaturalist.",
-    "joint_initiative": "iNaturalist è un'iniziativa congiunta della California Academy of Sciences e della National Geographic Society.",
-    "original": "Seek è stato originariamente creato con il supporto di HHMI Tangled Bank Studios e potenziato con il supporto di Il Nostro Pianeta su Netflix e WWF.",
+    "joint_initiative": "iNaturalist è un' iniziativa congiunta della California Academy of Sciences e della National Geographic Society.",
+    "original": "Seek è stata creata originariamente con il supporto di Il Nostro pianeta e HHMI Tangled Bank Studios.",
     "designed_by": "Progettato e sviluppato dal team iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
@@ -506,7 +506,7 @@
     "captive": "In Cattività/Coltivato?",
     "no": "Si tratta di un organismo che vive naturalmente selvatico e non è stato portato qui dall'uomo.",
     "yes": "Questo organismo è stato portato qui dagli esseri umani. Questo vale ad esempio per le piante da giardino, gli animali da compagnia e gli animali degli zoo.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Aggiungere le osservazioni ai progetti non è supportato in Seek. Se desideri aggiungere le tue osservazioni ad un progetto, per favore fallo su iNaturalist.org o utilizza l'app iNaturalist."
   },
   "delete": {
     "header": "Elimina specie?",

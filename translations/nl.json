@@ -207,7 +207,7 @@
     "seek_data": "Seek krijgt zijn gegevens van iNaturalist.",
     "about_inat": "iNaturalist is 's werelds grootste gemeenschap voor naturalisten. Gebruikers uploaden foto's van organismen over de hele wereld, en onze gemeenschap werkt samen om ze te determineren. Deze waarnemingen worden gebruikt om ons identificatiemodel te trainen, verspreidingskaarten weer te geven, en om waarnemingen in de buurt te tonen in Seek.",
     "contribute": "Geïnteresseerd om bij te dragen aan de citizenscience met een wereldwijde gemeenschap van naturalisten?",
-    "join": "Inloggen met iNaturalist",
+    "join": "Aanmelden met iNaturalist",
     "by": "door",
     "thanks": "De iNaturalist community bestaat uit mensen zoals jij! Word lid van de gemeenschap en voeg je eigen waarnemingen toe aan iNaturalist.org!",
     "logged_in": "Je heb je aangemeld in Seek met je iNaturalist account. Bedankt dat je deel wil uitmaken van deze gemeenschap!",
@@ -452,8 +452,8 @@
   "about": {
     "header": "Over",
     "seek": "Seek wordt gemaakt door het iNaturalist team.",
-    "joint_initiative": "iNaturalist is een gezamenlijk initiatief van de Californië Academy of Sciences en de National Geographic Society.",
-    "original": "Seek werd oorspronkelijk gemaakt met steun van HHHMI Tangled Bank Studios en verrijkt met de steun van Our Planet op Netflix en WWF.",
+    "joint_initiative": "iNaturalist is een gezamenlijk initiatief van de California Academy of Sciences en de National Geographic Society.",
+    "original": "Oorspronkelijk werd Seek gemaakt met steun van OurPlanet op Netflix en HHMI Tangled Bank Studios.",
     "designed_by": "Ontworpen & ontwikkeld door het team van iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Speciale dank aan Visipedia en de iNaturalist gemeenschap.",
     "version": "Versie",
@@ -506,7 +506,7 @@
     "captive": "In gevangenschap/gekweekt?",
     "no": "Dit is een organisme dat van nature in het wild voorkomt en niet door mensen naar deze locatie is gebracht.",
     "yes": "Dit organisme is op deze locatie gebracht door mensen. Dit geldt voor tuinplanten, huisdieren en dierentuindieren.",
-    "addendum": "*Het toevoegen van waarnemingen aan projecten wordt niet ondersteund in Seek. Als jij je waarnemingen aan een project wilt toevoegen, doe dat dan op iNaturalist.org of met de iNaturalist app."
+    "addendum": "*Het toevoegen van waarnemingen aan projecten wordt niet ondersteund in Seek. Als jij je waarnemingen aan een project wilt toevoegen, doe dat dan op iNaturalist.org of via de iNaturalist app."
   },
   "delete": {
     "header": "Verwijder soorten?",
@@ -517,8 +517,8 @@
   "warning": {
     "remember": "Onthoud",
     "tip_1": "Wees altijd bewust van je omgeving, doe geen domme dingen en betreed terreinen alleen met toestemming.",
-    "tip_2": "Eet niets dat je in de natuur vindt.",
-    "tip_3": "Respecteer andere levende wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten.",
+    "tip_2": "Eet geen wilde planten of dieren.",
+    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten.",
     "tip_4": "Kinderen kunnen meedoen onder toezicht van een volwassene."
   },
   "accessibility": {

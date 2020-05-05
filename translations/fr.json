@@ -84,7 +84,7 @@
     "forgot_password_header": "Mot de passe oublié",
     "forgot_password": "Vous avez oublié votre mot de passe ?",
     "log_in": " Se connecter",
-    "email": "Email",
+    "email": "E-mail",
     "no_worries": " Aucun souci. Nous vous enverrons les instructions de réinitialisation du mot de passe à votre adresse électronique.",
     "reset": " Réinitialiser mon mot de passe",
     "check_email": "Consultez vos e-mails !",
@@ -92,12 +92,12 @@
     "return_login": "Revenir à la page de connexion"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": " Politique de confidentialité"
   },
   "menu": {
     "home": " Accueil",
     "achievements": "Progrès",
-    "challenges": "Challenges",
+    "challenges": " Défis",
     "observations": "Mes observations",
     "inat": " iNaturalist",
     "about": "À propos",
@@ -108,10 +108,10 @@
     "onboarding_2": "Découvrez les organismes qui vous entourent",
     "onboarding_3": "Gagnez des badges en observant différents types d'espèces",
     "skip": "Ignorer pour le moment",
-    "continue": "Continue"
+    "continue": " continuer"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Espèces à proximité",
     "button": "Rechercher à proximité",
     "undefined": "Localisation inconnue"
   },
@@ -130,7 +130,7 @@
     "other": "autres espèces"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": " Défis",
     "in_progress": " En cours",
     "not_started": "Pas encore commencé",
     "completed": " Terminé",
@@ -207,7 +207,7 @@
     "seek_data": " Seek obtient ses données d'iNaturalist.",
     "about_inat": "iNaturalist est la plus grosse communauté de naturalistes dans le monde. Les utilisateurs téléchargent des photos d'organismes observés à travers le monde et notre communauté collabore pour les identifier. Ces observations nous permettent d'améliorer notre modèle d’identification, afficher des données cartographiques et générer des observations semblables enregistrées dans Seek.",
     "contribute": "Intéressé(e) à contribuer à aux sciences participatives aux côtés d'une communauté mondiale de naturalistes ?",
-    "join": "Log in with iNaturalist",
+    "join": " Se connecter sur iNaturalist",
     "by": " par",
     "thanks": "La communauté d’iNaturalist est composée de gens comme vous ! Rejoignez la communauté et ajoutez vos propres observations sur inaturalist.org !",
     "logged_in": "Vous êtes connecté à Seek avec votre compte iNaturalist. Merci de faire partie de cette communauté !",
@@ -251,10 +251,10 @@
     "tap": "Appuyez afin de charger les espèces proches"
   },
   "banner": {
-    "view": "View badge",
+    "view": " Afficher le badge",
     "badge": "Badge",
     "challenge_progress": "Vous avez trouvé une autre espèce !",
-    "challenge_view": "View your progress",
+    "challenge_view": " Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
     "number_seen": "Vous avez observé {{number}} espèce(s) !"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Votre niveau",
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
-    "achievements": "Achievements",
+    "achievements": "Progrès",
     "observe": "Observez {{number}} espèce(s) pour accéder au prochain niveau !",
     "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
@@ -393,7 +393,7 @@
     "to_earn": "Pour gagner ce badge :"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Mes observations",
     "no_obs": "Vous n'avez pas encore d'observations !",
     "help": "Prenez la photo d'une plante, d’un animal ou de tout autre être vivant en utilisant notre caméra et notre modèle informatique vous aidera à l'identifier !",
     "open_camera": "Ouvrir la caméra",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "A proximité",
-    "about": "About",
+    "about": "À propos",
     "range_map": "Carte générale",
     "range_about": "Une carte des observations de cette espèce vue sur iNaturalist.",
     "view_map": "Voir la carte générale",
@@ -437,8 +437,8 @@
     "similar_no_species": "On dirait qu'il n'y a pas eu beaucoup d'espèces similaires observées à proximité !",
     "plant": "plante",
     "amphibian": "amphibien",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": " champignons",
+    "fish": " poissons",
     "reptile": "reptile",
     "arachnid": "araignée",
     "bird": "oiseau",
@@ -450,10 +450,10 @@
     "internet_error": "Nous avons besoin d’Internet pour générer la page des détails de l’espèce. Appuyez pour réessayer."
   },
   "about": {
-    "header": "About",
+    "header": "À propos",
     "seek": "Seek a été créé par l’équipe d’iNaturalist.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society.",
+    "original": "Seek à été originellement créé avec l'aide du HHMI Tangled Bank Studios et amélioré avec le soutien de Our Planet sur Netflix et de la WWF.",
     "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary et Yaron Budowski. Nous remercions tout particulièrement Visipedia et la communauté iNaturalist.",
     "version": "Version",
@@ -462,7 +462,7 @@
     "join_crowdin": "Pour rejoindre l'équipe de traduction de Seek, rendez-vous sur https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Publier sur iNaturalist",
     "notes": "Ajouter des commentaires",
     "date": "date",
     "location": "localisation",
@@ -515,15 +515,15 @@
     "no": "Annuler"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Rappel",
     "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
+    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Ouvrir le menu",
-    "camera": "Open camera",
+    "camera": "Ouvrir la camera",
     "notifications": "Voir les notifications",
     "iNatStats": "Voir l'écran de statistiques iNat",
     "flag": "Signaler cette observation comme incorrecte",

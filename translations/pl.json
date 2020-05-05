@@ -84,7 +84,7 @@
     "forgot_password_header": "Zapomniałem hasła",
     "forgot_password": "Nie pamiętasz hasła?",
     "log_in": "Zaloguj się",
-    "email": "Email",
+    "email": "Adres e-mail",
     "no_worries": "Nie ma problemu. Wyślemy instrukcje resetowania hasła na twój adres e-mail.",
     "reset": "Zresetuj moje hasło",
     "check_email": "Sprawdź swoją pocztę e-mail!",
@@ -92,12 +92,12 @@
     "return_login": "Powrót do logowania"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Polityka prywatności"
   },
   "menu": {
     "home": "Strona główna",
     "achievements": "Osiągnięcia",
-    "challenges": "Challenges",
+    "challenges": "Wyzwania",
     "observations": "Moje Obserwacje",
     "inat": "iNaturalist",
     "about": "O aplikacji",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Na razie pomiń",
-    "continue": "Continue"
+    "continue": "Dalej"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Gatunki w pobliżu",
     "button": "Szukaj w pobliżu",
     "undefined": "Nieznana lokalizacja"
   },
@@ -130,7 +130,7 @@
     "other": "pozostałe"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Wyzwania",
     "in_progress": "W trakcie",
     "not_started": "Nierozpoczęte",
     "completed": "Ukończone",
@@ -197,8 +197,8 @@
     "photographer_june": "Zdjęcie © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Zdjęcie © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Zdjęcie © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Zdjęcie © Netflix / Silverback Films",
+    "photographer_october": "Zdjęcie © Netflix / Silverback Films",
     "photographer_december": "Zdjęcie © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek pobiera dane z iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
-    "join": "Log in with iNaturalist",
+    "join": "Zaloguj się z iNaturalist",
     "by": "by",
     "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
@@ -251,10 +251,10 @@
     "tap": "Tap to load species nearby"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Pokaż odznakę",
+    "badge": "Odznaka",
     "challenge_progress": "Znalazłeś kolejny gatunek!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Zobacz swoje postępy",
     "level_up": "Zdobyto nowy poziom!",
     "number_seen": "You’ve seen {{number}} species!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Twój poziom",
     "login": "Log in with iNaturalist to post observations to the online community!",
-    "achievements": "Achievements",
+    "achievements": "Osiągnięcia",
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Obserwuj",
@@ -393,7 +393,7 @@
     "to_earn": "Aby otrzymać tą odznakę:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Moje Obserwacje",
     "no_obs": "Nie masz jeszcze żadnych obserwacji!",
     "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
     "open_camera": "Uruchom aparat",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Nearby",
-    "about": "About",
+    "about": "O aplikacji",
     "range_map": "Zasięg występowania",
     "range_about": "A map of observations of this species seen on iNaturalist.",
     "view_map": "Zobacz mapę występowania",
@@ -437,8 +437,8 @@
     "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "roślina",
     "amphibian": "płaz",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "grzyby",
+    "fish": "ryby",
     "reptile": "gad",
     "arachnid": "pajęczak",
     "bird": "ptak",
@@ -450,7 +450,7 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "About",
+    "header": "O aplikacji",
     "seek": "Seek został stworzony przez zespół iNaturalist.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
@@ -462,7 +462,7 @@
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Wyślij do iNaturalist",
     "notes": "Dodaj notatki",
     "date": "data",
     "location": "położenie",
@@ -515,15 +515,15 @@
     "no": "Anuluj"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Zapamiętaj",
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
-    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_2": "Nie jedz niczego, co znajdujesz w środowisku naturalnym.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Open menu",
-    "camera": "Open camera",
+    "camera": "Uruchom aparat",
     "notifications": "View notifications",
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",

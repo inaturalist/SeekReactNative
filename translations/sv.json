@@ -26,7 +26,7 @@
     "take_challenge": "Anta utmaningen",
     "continue_challenge": "Fortsätt utmaningen",
     "view_all": "Visa alla utmaningar",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Lägg till observationer med Seek-kameran för att förtjäna Utmaningsmärket!"
   },
   "notifications": {
     "header": "Meddelanden",
@@ -84,7 +84,7 @@
     "forgot_password_header": "Glömt lösenord",
     "forgot_password": "Glömt ditt lösenord?",
     "log_in": "Logga in",
-    "email": "E-post",
+    "email": "Email",
     "no_worries": "Inga problem. Vi skickar instruktioner för återställning av lösenord till din e-post.",
     "reset": "Återställ mitt lösenord",
     "check_email": "Kolla din e-post!",
@@ -92,26 +92,26 @@
     "return_login": "Tillbaka till inloggningssidan"
   },
   "privacy": {
-    "header": "Integritetspolicy"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Hem",
     "achievements": "Prestationer",
-    "challenges": "Utmaningar",
+    "challenges": "Challenges",
     "observations": "Mina observationer",
     "inat": "iNaturalist",
     "about": "Om",
     "settings": "Inställningar"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "Använd Seeks kamera för att bestämma växter, djur och svampar",
+    "onboarding_2": "Lär dig om organismerna runt omkring dig",
+    "onboarding_3": "Förtjäna märken genom att observera olika sorters arter",
     "skip": "Hoppa över för tillfället",
-    "continue": "Fortsätt"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Arter i närheten",
+    "species_nearby": "Species nearby",
     "button": "Sök i närheten",
     "undefined": "Odefinierad plats"
   },
@@ -130,7 +130,7 @@
     "other": "andra arter"
   },
   "challenges": {
-    "header": "Utmaningar",
+    "header": "Challenges",
     "in_progress": "Pågående",
     "not_started": "Inte påbörjad",
     "completed": "Avklarad",
@@ -166,7 +166,7 @@
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
     "number_observed": "{{number}} observerade hittills",
-    "how_to": "Complete the Seek Challenge for {{month}}!",
+    "how_to": "Slutför Seek-utmaningen i {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
     "get_involved": "Engagera dig",
     "action_april": "Kolla om du bor nära en stad som är en med i City Nature Challenge, och håll i så fall ögonen öppna efter natur- och bestämningsaktiviteter för urbant djurliv!",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Foto © Netflix / Silverback Films",
-    "photographer_october": "Foto © Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Sök hämtar data från iNaturalist.",
     "about_inat": "iNaturalist är den största gemenskapen för naturforskare i världen. Användare ladda upp bilder av organismer från hela världen, och vår gemenskap jobbar tillsammans för att bestämma dem. Dessa observationer är de vi använder för att träna vår bestämningsmodell, visa kartor och generera observationer i närheten i Seek.",
     "contribute": "Intresserad av att bidra till medborgarvetenskap i en global gemenskap av naturforskare?",
-    "join": "Logga in med iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "av",
     "thanks": "iNaturalist-gemenskapen utgörs av människor som du! Gå med i gemenskapen och lägg till dina egna observationer på inaturalist.org!",
     "logged_in": "Du är inloggad på Seek med ditt iNaturalist-konto. Tack för att du är en del av denna gemenskap!",
@@ -223,11 +223,11 @@
     "sorry": "Ber om ursäkt för det, Sök lär sig fortfarande!\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
     "take_photo": "Ta en till bild",
     "common_ancestor": "Men Seek kunde inte bestämma exakt vilken arten.\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Vi tror att denna tillhör",
+    "genus": "Vi tror att denna tillhör släktet",
+    "family": "Vi tror att denna tillhör familjen",
+    "order": "Vi tror att denna tillhör ordningen",
+    "class": "Vi tror att denna tillhör klassen",
     "resighted": "Du har sett en art igen!",
     "date_observed": "Du observerade den första gången:\n{{seenDate}}",
     "post_inat": "Om du tog originalbilden av organismen, kan du hjälpa till att träna Seek på denna art genom att skicka in till iNaturalist, där gemenskapen kommer att hjälpa till med bestämning och förbättra framtida versioner.",
@@ -251,10 +251,10 @@
     "tap": "Tryck för att ladda arter i närheten"
   },
   "banner": {
-    "view": "Visa märke",
-    "badge": "Märke",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "Du hittade en till art!",
-    "challenge_view": "Se dina framsteg",
+    "challenge_view": "View your progress",
     "level_up": "Du har levlat upp!",
     "number_seen": "Du har sett {{number}} arter!"
   },
@@ -273,16 +273,16 @@
     "family": "familj",
     "genus": "släkte",
     "species": "art",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Vi behöver tillgång till kameran för att hjälpa dig med artbestämning!",
     "error_gallery": "Vi behöver tillgång till din kamerarulle för att spara de bilder du tar!",
     "permissions": "Aktivera behörigheter i inställningarna",
     "error_classifier": "Tyvärr, det går inte att ladda klassificeraren",
-    "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_camera": "Tyvärr, vi kunde inte ladda kameran",
+    "error_device": "Tyvärr, enheten du använder stöds inte",
     "error_save": "Tyvärr, det gick inte att spara din bild",
-    "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_take": "Tyvärr, vi kunde inte ta din bild",
+    "error_photos": "Inga bilder hittades i detta fotoalbum. Försök välja ett annat album.",
+    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}."
   },
   "gallery": {
     "label": "Bilder",
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
-    "achievements": "Prestationer",
+    "achievements": "Achievements",
     "observe": "Observera {{number}} arter för att komma till nästa nivå!",
     "observe_max": "Du har nått maxnivån på Seek!",
     "observe_species": "Observera",
@@ -393,7 +393,7 @@
     "to_earn": "För att förtjäna detta märke:"
   },
   "observations": {
-    "header": "Mina observationer",
+    "header": "My Observations",
     "no_obs": "Du har inga observationer ännu!",
     "help": "Ta en bild av en växt, ett djur eller något annat levande med vår kamera så hjälper vår AI-modell dig att bestämma den!",
     "open_camera": "Öppna kameran",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Närliggande",
-    "about": "Om",
+    "about": "About",
     "range_map": "Utbredningskarta",
     "range_about": "En karta över observationer av denna art som setts på iNaturalist.",
     "view_map": "Visa utbredningskarta",
@@ -437,8 +437,8 @@
     "similar_no_species": "Ser inte ut som att många liknande arter har observeras i närheten!",
     "plant": "växt",
     "amphibian": "groddjur",
-    "fungi": "svamp",
-    "fish": "fisk",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "reptil",
     "arachnid": "spindeldjur",
     "bird": "fågel",
@@ -450,10 +450,10 @@
     "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen."
   },
   "about": {
-    "header": "Om",
+    "header": "About",
     "seek": "Seek är gjord av iNaturalist-teamet.",
-    "joint_initiative": "iNaturalist är ett gemensamt initiativ av California Academy of Sciences och National Geographic Society.",
-    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
     "version": "Version",
@@ -462,7 +462,7 @@
     "join_crowdin": "Besök https://crowdin.com/project/seek för att gå med i översättningsteamet för Seek,"
   },
   "posting": {
-    "header": "Publicera på iNaturalist",
+    "header": "Post to iNaturalist",
     "notes": "Lägg till anteckningar här",
     "date": "datum",
     "location": "plats",
@@ -506,7 +506,7 @@
     "captive": "I fångenskap/Odlad?",
     "no": "Detta är en organism som naturligt förekommer i det vilda, och fördes inte till denna plats av människor.",
     "yes": "Denna organism placerades på denna plats av människor. Detta gäller för sådant som trädgårdsväxter, husdjur och djurparksdjur.",
-    "addendum": "*Att lägga till observationer i projekt stöds inte i Seek. Om du vill lägga till dina observationer i ett projekt, gör det på iNaturalist.org eller använd iNaturalist-appen."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Radera art?",
@@ -515,15 +515,15 @@
     "no": "Avbryt"
   },
   "warning": {
-    "remember": "Kom ihåg",
+    "remember": "Remember",
     "tip_1": "Var alltid medveten om din omgivning, var försiktig och gör inte intrång.",
-    "tip_2": "Ät inte något du hittar i naturen.",
-    "tip_3": "Respektera andra levande ting genom att inte störa eller röra dem. En del kan stickas eller bitas.",
-    "tip_4": "Children may require adult supervision."
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_4": "Barn kan behöva en vuxens tillsyn."
   },
   "accessibility": {
     "menu": "Öppna menyn",
-    "camera": "Öppna kameran",
+    "camera": "Open camera",
     "notifications": "Visa aviseringar",
     "iNatStats": "Visa sidan iNat-statistik",
     "flag": "Flagga denna observation som felaktig",
@@ -545,27 +545,27 @@
     "some": "vissa rättigheter förbehållna"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Skicka felsökningsloggar via e-post"
   },
   "settings": {
-    "header": "Seek Camera",
-    "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "header": "Seek-kamera",
+    "common_names": "Visa vardagliga namn",
+    "scientific_names": "Visa vetenskapliga namn"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
-    "completed": "You completed the challenge and earned the challenge badge!",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "backyard": "Backyard Challenge",
-    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
-    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "badge": "Seek-märke",
+    "header": "Du slutförde Seek-utmaningen för {{date}}!",
+    "text": "Tack för att du deltar i den globala utmaningen! Seek är här för att hjälpa dig att komma i kontakt med alla arter som omger oss. Ge dig ut, utforska och lär dig om naturen runt omkring dig!",
+    "citizen_science": "Medborgarforskningsutmaning",
+    "completed": "Du klarade utmaningen och fick utmaningsmärket!",
+    "april_2020_description": "April 2020 innebär ettårsjubileum sedan iNaturalists nya Seek släpptes! Under det senaste året har vi växt mycket och hjälpt över en miljon människor att känna sig mer i kontakt med världen omkring dem. Naturen finns runt omkring dig, det är bara att söka upp den!\n\nVi sätter igång vår nästa omgång av utmaningar med att se om du kan hitta 10 arter du ännu inte har observerat.",
+    "action_april_2020": "April är medborgarforskningens månad! Du kan bidra till vetenskaplig förståelse av biologisk mångfald som medborgarforskare genom att lägga upp dina Seek-observationer på iNaturalist.\n\nOm du är 13 eller äldre (eller med förälders tillåtelse), kan du skapa ett iNaturalist-konto och lägga upp observationer på iNaturalist för att dela observationerna med en bredare gemenskap, inklusive forskare!",
+    "backyard": "Bakgårdsutmaning",
+    "may_2020_description": "Du behöver inte gå långt för att hitta natur runt omkring dig. Till och med på din bakgård eller i ditt grannskap hittar du växter, fåglar och insekter som som du samsas med.",
+    "action_may_2020": "Använd Seeks Arter i Närheten på startskärmen för att lära dig om alla fåglar, växter, och insekter som har setts omkring dig och kolla in deras artsidor. Vilken tid på året är de mest observerade? Försök sedan utforska ett nytt ställe: vilka arter kan du hitta nära Kairo, Paris eller Jakarta?",
+    "mission_1_may_2020": "Hitta 5 växter",
+    "mission_2_may_2020": "Hitta 2 insekter",
+    "mission_3_may_2020": "Hitta 1 spindeldjur",
+    "mission_4_may_2020": "Hitta 2 fåglar"
   }
 }

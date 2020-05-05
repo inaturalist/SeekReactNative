@@ -84,7 +84,7 @@
     "forgot_password_header": "Forgot password",
     "forgot_password": "Forgot your password?",
     "log_in": "Log in",
-    "email": "邮箱",
+    "email": "Email",
     "no_worries": "No worries. We’ll send password reset instructions to your email.",
     "reset": "Reset my password",
     "check_email": "Check your email!",
@@ -92,12 +92,12 @@
     "return_login": "Return to Login"
   },
   "privacy": {
-    "header": "隐私条款"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Home",
     "achievements": "成就",
-    "challenges": "挑战",
+    "challenges": "Challenges",
     "observations": "我的观察记录",
     "inat": "iNaturalist",
     "about": "关于我们",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "下次再说",
-    "continue": "继续"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "附近的物种",
+    "species_nearby": "Species nearby",
     "button": "搜索附近的定位",
     "undefined": "Undefined location"
   },
@@ -130,7 +130,7 @@
     "other": "other species"
   },
   "challenges": {
-    "header": "挑战",
+    "header": "Challenges",
     "in_progress": "In progress",
     "not_started": "Not started",
     "completed": "Completed",
@@ -207,7 +207,7 @@
     "seek_data": "Seek gets its data from iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
-    "join": "使用 iNaturalist 账户登录",
+    "join": "Log in with iNaturalist",
     "by": "by",
     "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
@@ -251,10 +251,10 @@
     "tap": "Tap to load species nearby"
   },
   "banner": {
-    "view": "查看徽章",
+    "view": "View badge",
     "badge": "Badge",
     "challenge_progress": "You found another species!",
-    "challenge_view": "查看你的进度",
+    "challenge_view": "View your progress",
     "level_up": "You leveled up!",
     "number_seen": "You’ve seen {{number}} species!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Your Level",
     "login": "Log in with iNaturalist to post observations to the online community!",
-    "achievements": "成就",
+    "achievements": "Achievements",
     "observe": "Observe {{number}} species to get to the next level!",
     "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observe",
@@ -393,7 +393,7 @@
     "to_earn": "To earn this badge:"
   },
   "observations": {
-    "header": "我的观察记录",
+    "header": "My Observations",
     "no_obs": "You don’t have any observations yet!",
     "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
     "open_camera": "Open Camera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Nearby",
-    "about": "关于我们",
+    "about": "About",
     "range_map": "Range map",
     "range_about": "A map of observations of this species seen on iNaturalist.",
     "view_map": "View range map",
@@ -450,7 +450,7 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "关于我们",
+    "header": "About",
     "seek": "Seek is created by the iNaturalist team.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
@@ -523,7 +523,7 @@
   },
   "accessibility": {
     "menu": "Open menu",
-    "camera": "打开摄像头",
+    "camera": "Open camera",
     "notifications": "View notifications",
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",

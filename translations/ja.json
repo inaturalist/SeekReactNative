@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "この付近で",
-    "about": "Seekについて",
+    "about": "この種について",
     "range_map": "生息地",
     "range_about": "この種がiNaturalistで記録された場所を示す地図。",
     "view_map": "生息地を表示",
@@ -453,7 +453,7 @@
     "header": "Seekについて",
     "seek": "SeekはiNaturalistのチームによって作られています。",
     "joint_initiative": "iNaturalistはカリフォルニア科学アカデミーとナショナル ジオグラフィック協会によって共同設立されたものです。",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "iNaturalistチームによってデザイン・開発されました：",
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
     "version": "バージョン",
@@ -506,7 +506,7 @@
     "captive": "飼育・栽培?",
     "no": "この生き物は野生に自然といて、この場所に人間によって持ってこられていません。",
     "yes": "この生き物は人間によって、ここに置かれました。庭の植物、ペット、動物園の動物などに当てはまります。",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "プロジェクトに観察記録を追加するのはSeekでサポートされていません。プロジェクトに観察記録を追加する場合は、iNaturalist.orgのウェブサイトかiNaturalistアプリから追加してください。"
   },
   "delete": {
     "header": "種を削除？",
@@ -523,7 +523,7 @@
   },
   "accessibility": {
     "menu": "メニューを開ける",
-    "camera": "カメラを起動",
+    "camera": "カメラを起動する",
     "notifications": "通知を表示する",
     "iNatStats": "iNatの統計画面を表示",
     "flag": "「この判定が誤っている」とフラグを付ける",

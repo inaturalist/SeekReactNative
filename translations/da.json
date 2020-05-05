@@ -92,12 +92,12 @@
     "return_login": "Vend tilbage til log ind"
   },
   "privacy": {
-    "header": "Privatlivspolitik"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Hjem",
     "achievements": "Præstationer",
-    "challenges": "Udfordringer",
+    "challenges": "Challenges",
     "observations": "Mine observationer",
     "inat": "iNaturalist",
     "about": "Om",
@@ -108,10 +108,10 @@
     "onboarding_2": "Lær om organismerne der er overalt omkring dig",
     "onboarding_3": "Optjen duelighedsmærker ved at observere forskellige arter",
     "skip": "Spring over for nu",
-    "continue": "Forsæt"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Arter i nærheden",
+    "species_nearby": "Species nearby",
     "button": "Søg nær placering",
     "undefined": "Udefineret placering"
   },
@@ -130,7 +130,7 @@
     "other": "anden"
   },
   "challenges": {
-    "header": "Udfordringer",
+    "header": "Challenges",
     "in_progress": "Igangværende",
     "not_started": "Ikke startet",
     "completed": "Udført",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Foto © Netflix / Silverback Films",
-    "photographer_october": "Foto © Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek får sin data fra iNaturalist.",
     "about_inat": "iNaturalist er det største fællesskab for naturalister i verden. Brugere uploader billeder af organismer over hele kloden, og vores fællesskab arbejder sammen om at identificere dem. Det er disse observationer, vi bruger til at træne vores identifikationsmodel, vise udbredelseskort og generere nærliggende observationer i Seek.",
     "contribute": "Interesseret i at bidrage til borgervidenskab med et globalt fællesskab af naturalister?",
-    "join": "Log ind med iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "af",
     "thanks": "iNaturalist fællesskabet består af folk som dig! Slut dig til fællesskabet og tilføj dine egne observationer på inaturalist.org!",
     "logged_in": "Du er logget ind på Seek med din iNaturalist-konto. Tak fordi du er del af dette fællesskab!",
@@ -251,10 +251,10 @@
     "tap": "Tryk for at hente arter i nærheden"
   },
   "banner": {
-    "view": "Se duelighedsmærke",
-    "badge": "Duelighedsmærke",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "Du fandt endnu en art!",
-    "challenge_view": "Følg dine fremskridt",
+    "challenge_view": "View your progress",
     "level_up": "Du rykkede et niveau op!",
     "number_seen": "Du har set {{number}} arter!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Dit niveau",
     "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
-    "achievements": "Resultater",
+    "achievements": "Achievements",
     "observe": "Observer {{number}} arter for at nå til det næste niveau!",
     "observe_max": "Du har nået det højeste niveau på Seek!",
     "observe_species": "Observer",
@@ -393,7 +393,7 @@
     "to_earn": "For at optjene dette mærke:"
   },
   "observations": {
-    "header": "Mine observationer",
+    "header": "My Observations",
     "no_obs": "Du har ingen observationer endnu!",
     "help": "Tag et foto af en plante, et dyr eller noget andet levende med vores kamera. Så vil vores AI-model hjælpe dig med at identificere det!",
     "open_camera": "Åbn kamera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "I nærheden",
-    "about": "Om",
+    "about": "About",
     "range_map": "Udbredelseskort",
     "range_about": "Et kort over observationer af denne art på iNaturalist.",
     "view_map": "Se udbredelseskort",
@@ -437,8 +437,8 @@
     "similar_no_species": "Det ser ud til, at der ikke er observeret ret mange lignede arter i nærheden!",
     "plant": "plante",
     "amphibian": "padde",
-    "fungi": "svamp",
-    "fish": "fisk",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "krybdyr",
     "arachnid": "spindler",
     "bird": "fugl",
@@ -450,10 +450,10 @@
     "internet_error": "Vi har brug for internetforbindelse for at kunne vise siden med artsdetaljer. Tryk for at prøve igen."
   },
   "about": {
-    "header": "Om",
+    "header": "About",
     "seek": "Seek er skabt af holdet bag iNaturalist.",
-    "joint_initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society.",
-    "original": "Seek blev oprindeligt til med støtte fra OurPlanet på Netflix og HHMI Tangled Bank Studios.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Designet & udviklet af iNaturalist holdet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
@@ -462,7 +462,7 @@
     "join_crowdin": "Bliv en del af Seek-oversættelsesholdet ved at besøge https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Tilføj til iNaturalist",
+    "header": "Post to iNaturalist",
     "notes": "Tilføj notater her",
     "date": "dato",
     "location": "placering",
@@ -506,7 +506,7 @@
     "captive": "I fangenskab/dyrket?",
     "no": "Dette er en organisme som naturligt lever vildt i naturen og ikke blev anbragt her af mennesker.",
     "yes": "Denne organisme blev anbragt her af mennesker. Det gælder for eksempel for haveplanter, kæledyr og dyr i zoologiske haver.",
-    "addendum": "*Tilføjelse af observationer til projekter er ikke undersøttet i Seek. Hvis du gerne vil tilføje dine observationer til et projekt, kan du gøre det på iNaturalist.org eller ved at bruge iNaturalist appen."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Slet art?",
@@ -515,15 +515,15 @@
     "no": "Annuller"
   },
   "warning": {
-    "remember": "Husk",
+    "remember": "Remember",
     "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
-    "tip_2": "Spis ikke alt du finder i naturen.",
-    "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Åbn menu",
-    "camera": "Åbn kamera",
+    "camera": "Open camera",
     "notifications": "Se notifikationer",
     "iNatStats": "Se iNats statistikside",
     "flag": "Markér denne observation som ukorrekt",
@@ -563,9 +563,9 @@
     "backyard": "Backyard Challenge",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
+    "mission_1_may_2020": "Find 5 planter",
+    "mission_2_may_2020": "Find 2 insekter",
     "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_4_may_2020": "Find 2 fugle"
   }
 }

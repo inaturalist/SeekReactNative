@@ -506,7 +506,7 @@
     "captive": "Captive/Cultivated?",
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
-    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Delete species?",

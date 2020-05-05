@@ -393,7 +393,7 @@
     "to_earn": "K získání tohoto odznaku:"
   },
   "observations": {
-    "header": "Moje pozorování",
+    "header": "Má pozorování",
     "no_obs": "Zatím nemáte žádná pozorování!",
     "help": "Vyfoťte rostlinu, zvíře nebo cokoli žijícího pomocí našeho fotoaparátu a náš AI model Vám ji pomůže identifikovat!",
     "open_camera": "Otevřít fotoaparát",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Poblíž",
-    "about": "O aplikaci",
+    "about": "O organismu",
     "range_map": "Range map",
     "range_about": "A map of observations of this species seen on iNaturalist.",
     "view_map": "View range map",
@@ -437,8 +437,8 @@
     "similar_no_species": "Zdá se, že v blízkosti nebylo pozorováno mnoho podobných druhů!",
     "plant": "rostlina",
     "amphibian": "obojživelník",
-    "fungi": "houby",
-    "fish": "ryby",
+    "fungi": "houba",
+    "fish": "ryba",
     "reptile": "plaz",
     "arachnid": "pavoukovec",
     "bird": "pták",
@@ -453,7 +453,7 @@
     "header": "O aplikaci",
     "seek": "Seek je vytvořen týmem iNaturalist.",
     "joint_initiative": "iNaturalist je společná iniciativa Kalifornské akademie věd a Národní geografické společnosti.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "original": "Seek bylo původně vytvořen s podporou OurPlanet na Netflixu a HHMI Tangled Bank Studios.",
     "designed_by": "Navrženo a vyvinuto týmem iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary a Yaron Budowski. Zvláštní poděkování Visipedii a komunitě iNaturalist.",
     "version": "Verze",
@@ -506,7 +506,7 @@
     "captive": "V zajetí/pěstovaný?",
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "Tento organismus sem umístili lidé. Týká se to takových organismů, jakou jsou zahradní rostliny, zvířata v zájmovém chovu a zvířata chovaná v zoologických zahradách.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
   },
   "delete": {
     "header": "Smazat druh?",

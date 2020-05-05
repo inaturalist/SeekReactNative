@@ -108,7 +108,7 @@
     "onboarding_2": "Découvrez les organismes qui vous entourent",
     "onboarding_3": "Gagnez des badges en observant différents types d'espèces",
     "skip": "Ignorer pour le moment",
-    "continue": " continuer"
+    "continue": " Continuer"
   },
   "location_picker": {
     "species_nearby": "Espèces à proximité",
@@ -207,7 +207,7 @@
     "seek_data": " Seek obtient ses données d'iNaturalist.",
     "about_inat": "iNaturalist est la plus grosse communauté de naturalistes dans le monde. Les utilisateurs téléchargent des photos d'organismes observés à travers le monde et notre communauté collabore pour les identifier. Ces observations nous permettent d'améliorer notre modèle d’identification, afficher des données cartographiques et générer des observations semblables enregistrées dans Seek.",
     "contribute": "Intéressé(e) à contribuer à aux sciences participatives aux côtés d'une communauté mondiale de naturalistes ?",
-    "join": " Se connecter sur iNaturalist",
+    "join": "Se connecter sur iNaturalist",
     "by": " par",
     "thanks": "La communauté d’iNaturalist est composée de gens comme vous ! Rejoignez la communauté et ajoutez vos propres observations sur inaturalist.org !",
     "logged_in": "Vous êtes connecté à Seek avec votre compte iNaturalist. Merci de faire partie de cette communauté !",
@@ -251,10 +251,10 @@
     "tap": "Appuyez afin de charger les espèces proches"
   },
   "banner": {
-    "view": " Afficher le badge",
-    "badge": "Badge",
+    "view": "Afficher le badge",
+    "badge": " Badge",
     "challenge_progress": "Vous avez trouvé une autre espèce !",
-    "challenge_view": " Afficher vos progrès",
+    "challenge_view": "Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
     "number_seen": "Vous avez observé {{number}} espèce(s) !"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Votre niveau",
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
-    "achievements": "Progrès",
+    "achievements": "Progression",
     "observe": "Observez {{number}} espèce(s) pour accéder au prochain niveau !",
     "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
@@ -437,8 +437,8 @@
     "similar_no_species": "On dirait qu'il n'y a pas eu beaucoup d'espèces similaires observées à proximité !",
     "plant": "plante",
     "amphibian": "amphibien",
-    "fungi": " champignons",
-    "fish": " poissons",
+    "fungi": "champignon",
+    "fish": "poisson",
     "reptile": "reptile",
     "arachnid": "araignée",
     "bird": "oiseau",
@@ -453,7 +453,7 @@
     "header": "À propos",
     "seek": "Seek a été créé par l’équipe d’iNaturalist.",
     "joint_initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society.",
-    "original": "Seek à été originellement créé avec l'aide du HHMI Tangled Bank Studios et amélioré avec le soutien de Our Planet sur Netflix et de la WWF.",
+    "original": "Seek a été créé à l’origine avec le soutien de \"Notre Planète\", série diffusée sur Netflix et HHMI Tangled Bank Studios.",
     "designed_by": "Conçu et développé par l'équipe d'iNaturalist :",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary et Yaron Budowski. Nous remercions tout particulièrement Visipedia et la communauté iNaturalist.",
     "version": "Version",
@@ -506,7 +506,7 @@
     "captive": "En captivité/cultivé?",
     "no": "C’est un organisme naturellement présent dans l’environnement et qui n’a pas été amené ici par l’Homme.",
     "yes": "Cet organisme a été amené ici par l’Homme. Cela s’applique aux plantes de jardin, animaux de compagnie et animaux de zoos.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "* L'ajout d'observations à des projets n'est pas pris en charge par Seek. Si vous souhaitez ajouter vos observations à un projet, veuillez le faire sur iNaturalist.org ou en utilisant l’application iNaturalist."
   },
   "delete": {
     "header": "Supprimer l'espèce ?",
@@ -515,7 +515,7 @@
     "no": "Annuler"
   },
   "warning": {
-    "remember": "Rappel",
+    "remember": "Mémoriser",
     "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
     "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
     "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre.",
@@ -523,7 +523,7 @@
   },
   "accessibility": {
     "menu": "Ouvrir le menu",
-    "camera": "Ouvrir la camera",
+    "camera": "Ouvrir la caméra",
     "notifications": "Voir les notifications",
     "iNatStats": "Voir l'écran de statistiques iNat",
     "flag": "Signaler cette observation comme incorrecte",

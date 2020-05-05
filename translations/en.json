@@ -498,7 +498,7 @@
     "geoprivacy": "Geoprivacy",
     "open_header": "Open: ",
     "obscured_header": "Obscured: ",
-    "closed_header": "Closed: ",
+    "closed_header": "Private: ",
     "yes_header": "Yes: ",
     "no_header": "No: ",
     "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",

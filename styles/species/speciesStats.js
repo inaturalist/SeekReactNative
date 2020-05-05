@@ -6,6 +6,7 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
     flexDirection: "row",
+    marginBottom: 6,
     marginRight: 10,
     paddingBottom: 4,
     paddingTop: 4

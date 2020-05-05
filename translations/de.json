@@ -84,7 +84,7 @@
     "forgot_password_header": "Kennwort vergessen",
     "forgot_password": "Passwort vergessen?",
     "log_in": "Anmelden",
-    "email": "Email",
+    "email": "E-Mail-Adresse",
     "no_worries": "Keine Sorge. Wir senden eine Anleitung zum Zurücksetzen des Kontos an deine E-Mail-Adresse.",
     "reset": "Kennwort zurücksetzen",
     "check_email": "Überprüfe dein E-Mail-Postfach!",
@@ -92,12 +92,12 @@
     "return_login": "Zurück zur Anmeldung"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Datenschutzrichtlinie"
   },
   "menu": {
     "home": "Startseite",
     "achievements": "Erreichte Ziele",
-    "challenges": "Challenges",
+    "challenges": "Missionen",
     "observations": "Beobachtungen",
     "inat": "iNaturalist",
     "about": "Info",
@@ -108,10 +108,10 @@
     "onboarding_2": "Erfahre mehr über die Natur um dich herum",
     "onboarding_3": "Verdiene dir Abzeichen für das Entdecken verschiedener Arten",
     "skip": "Vorerst überspringen",
-    "continue": "Continue"
+    "continue": "Weiter"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Arten in der Nähe",
     "button": "Neuen Standort suchen",
     "undefined": "Unbestimmter Standort\n"
   },
@@ -130,7 +130,7 @@
     "other": "andere"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Missionen",
     "in_progress": "Aktiv",
     "not_started": "Nicht begonnen",
     "completed": "Abgeschlossen",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Foto © Netflix / Silverback Films",
+    "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek bezieht seine Daten von iNaturalist.",
     "about_inat": "iNaturalist ist die weltweit größte Gemeinschaft von Naturbeobachtern. Die Benutzer laden Fotos von Arten in aller Welt hoch, und wir arbeiten gemeinschaftlich daran, sie zu identifizieren. Anhand dieser Daten lernt die Bestimmungs-Software, werden Kartendaten angezeigt, und in Seek Beobachtungen in deiner Nähe generiert.",
     "contribute": "Möchtest du zu Citizen Science-Projekten gemeinsam mit einer weltweiten Community von Naturbeobachtern beitragen?",
-    "join": "Log in with iNaturalist",
+    "join": "Mit iNaturalist anmelden",
     "by": "von",
     "thanks": "Die iNaturalist-Community besteht aus Menschen wie Dir! Werde Mitglied der Community und fügen deine eigenen Beobachtungen unter inaturalist.org hinzu!",
     "logged_in": "Du bist mit deinem iNaturalist-Konto in Seek eingeloggt. Vielen Dank, dass du Teil dieser Gemeinschaft bist!",
@@ -251,10 +251,10 @@
     "tap": "Tippe, um Arten in der Umgebung zu laden"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Abzeichen ansehen",
+    "badge": "Abzeichen",
     "challenge_progress": "Du hast eine weitere Art gefunden!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Fortschritt anzeigen",
     "level_up": "Du bist ein Level aufgestiegen!",
     "number_seen": "Du hast {{number}} Arten gesehen!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Dein Level",
     "login": "Melde dich über iNaturalist an, um Beobachtungen mit der weltweiten Community zu teilen!",
-    "achievements": "Achievements",
+    "achievements": "Erreichte Ziele",
     "observe": "Beobachte {{number}} Arten, um die nächste Stufe zu erreichen!",
     "observe_max": "Glückwunsch! Du hast das höchste Level in Seek erreicht!",
     "observe_species": "beobachte",
@@ -393,7 +393,7 @@
     "to_earn": "Um dieses Abzeichen zu <br>\nerhalten:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Beobachtungen",
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "In der Nähe",
-    "about": "About",
+    "about": "Info",
     "range_map": "Verbreitungskarte",
     "range_about": "Eine Karte der Beobachtungen dieser Art auf iNaturalist.",
     "view_map": "Verbreitungskarte anzeigen",
@@ -437,8 +437,8 @@
     "similar_no_species": "Sieht so aus, als ob in der Nähe nicht viele ähnliche Arten beobachtet wurden!",
     "plant": "Pflanze ",
     "amphibian": "Amphibie",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "Pilze",
+    "fish": "Fische",
     "reptile": "Reptil",
     "arachnid": "Spinne",
     "bird": "Vogel",
@@ -450,10 +450,10 @@
     "internet_error": "Eine Internetverbindung wird benötigt, um Details zu dieser Art zu zeigen. Tippe, um es erneut zu versuchen."
   },
   "about": {
-    "header": "About",
+    "header": "Info",
     "seek": "Seek wurde vom iNaturalist Team entwickelt.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "iNaturalist ist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society.",
+    "original": "Seek wurde ursprünglich mit Unterstützung von HHMI Tangled Bank Studios erstellt und verbessert mit der Unterstützung von 'Our Planet' auf Netflix und WWF.",
     "designed_by": "Entworfen und entwickelt vom iNaturalist Team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
@@ -462,7 +462,7 @@
     "join_crowdin": "Um dem Übersetzungsteam von Seek beizutreten, besuche bitte https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "An iNaturalist senden",
     "notes": "Hier Notizen hinzufügen",
     "date": "Datum",
     "location": "Standort",
@@ -515,15 +515,15 @@
     "no": "Abbrechen"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Denke daran",
     "tip_1": "Achte immer auf deine Umgebung und deine Sicherheit, betrete keine umzäunten Grundstücke!",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "Nichts essen, was du draußen findest.",
+    "tip_3": "Respektiere andere Lebewesen, indem du sie nicht ärgerst oder berührst. Einige können stechen oder beißen.",
     "tip_4": "Kinder könnten die Aufsicht einer erwachsenen Person benötigen."
   },
   "accessibility": {
     "menu": "Menü öffnen",
-    "camera": "Open camera",
+    "camera": "Kamera öffnen",
     "notifications": "Benachrichtigungen anzeigen",
     "iNatStats": "iNat-Statistiken anzeigen",
     "flag": "Diese Beobachtung als falsch melden",

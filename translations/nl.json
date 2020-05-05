@@ -84,7 +84,7 @@
     "forgot_password_header": "Wachtwoord vergeten",
     "forgot_password": "Je wachtwoord vergeten?",
     "log_in": "Aanmelden",
-    "email": "E-mail",
+    "email": "Email",
     "no_worries": "Geen zorgen. We sturen wachtwoordresetinstructies naar je e-mail.",
     "reset": "Mijn wachtwoord opnieuw instellen",
     "check_email": "Controleer je e-mail!",
@@ -92,12 +92,12 @@
     "return_login": "Keer terug naar aanmelden"
   },
   "privacy": {
-    "header": "Privacybeleid"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Thuis",
     "achievements": "Prestaties",
-    "challenges": "Uitdagingen",
+    "challenges": "Challenges",
     "observations": "Mijn Waarnemingen",
     "inat": "iNaturalist",
     "about": "Over",
@@ -108,10 +108,10 @@
     "onboarding_2": "Leer meer over de organismen om je heen",
     "onboarding_3": "Verdien badges voor het vinden van verschillende soorten",
     "skip": "Sla voorlopig over",
-    "continue": "Doorgaan"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Soorten in de buurt",
+    "species_nearby": "Species nearby",
     "button": "Zoek locatie in de buurt",
     "undefined": "Niet-gedefinieerde locatie"
   },
@@ -130,7 +130,7 @@
     "other": "overig"
   },
   "challenges": {
-    "header": "Uitdagingen",
+    "header": "Challenges",
     "in_progress": "In uitvoering",
     "not_started": "Niet begonnen",
     "completed": "Voltooid",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Foto © Netflix / Silverback Films",
-    "photographer_october": "Foto © Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek krijgt zijn gegevens van iNaturalist.",
     "about_inat": "iNaturalist is 's werelds grootste gemeenschap voor naturalisten. Gebruikers uploaden foto's van organismen over de hele wereld, en onze gemeenschap werkt samen om ze te determineren. Deze waarnemingen worden gebruikt om ons identificatiemodel te trainen, verspreidingskaarten weer te geven, en om waarnemingen in de buurt te tonen in Seek.",
     "contribute": "Geïnteresseerd om bij te dragen aan de citizenscience met een wereldwijde gemeenschap van naturalisten?",
-    "join": "Aanmelden met iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "door",
     "thanks": "De iNaturalist community bestaat uit mensen zoals jij! Word lid van de gemeenschap en voeg je eigen waarnemingen toe aan iNaturalist.org!",
     "logged_in": "Je heb je aangemeld in Seek met je iNaturalist account. Bedankt dat je deel wil uitmaken van deze gemeenschap!",
@@ -251,10 +251,10 @@
     "tap": "Tik om soorten in de buurt te laden"
   },
   "banner": {
-    "view": "Bekijk badge",
+    "view": "View badge",
     "badge": "Badge",
     "challenge_progress": "Je hebt nog een soort gevonden!",
-    "challenge_view": "Bekijk je voortgang",
+    "challenge_view": "View your progress",
     "level_up": "Je bereikt een hoger level!",
     "number_seen": "Je hebt {{number}} soorten gezien!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Jouw niveau",
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
-    "achievements": "Prestaties",
+    "achievements": "Achievements",
     "observe": "Nog {{number}} soorten waarnemen om het volgende niveau te halen!",
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
     "observe_species": "Waarnemen",
@@ -393,7 +393,7 @@
     "to_earn": "Om deze badge te verdienen:"
   },
   "observations": {
-    "header": "Mijn Waarnemingen",
+    "header": "My Observations",
     "no_obs": "Je hebt nog geen waarnemingen!",
     "help": "Neem een foto van een plant, dier, Cthulhu, Ophiocistioidea of iets dat leeft met onze camera en ons AI-model geeft het een naam!",
     "open_camera": "Open Camera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "In de buurt",
-    "about": "Over",
+    "about": "About",
     "range_map": "Verspreidingskaart",
     "range_about": "Een kaart van waarnemingen van deze soort die op iNaturalist zijn gezien.",
     "view_map": "Bekijk verspreidingskaart",
@@ -437,8 +437,8 @@
     "similar_no_species": "Zo te zien zijn er niet veel soorten in de buurt waargenomen die hierop lijken!",
     "plant": "plant",
     "amphibian": "amfibie",
-    "fungi": "schimmels",
-    "fish": "vissen",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "reptiel",
     "arachnid": "spinachtigen",
     "bird": "vogel",
@@ -450,10 +450,10 @@
     "internet_error": "Internet is nodig om het detailscherm te tonen. Tik om het opnieuw te proberen."
   },
   "about": {
-    "header": "Over",
+    "header": "About",
     "seek": "Seek wordt gemaakt door het iNaturalist team.",
-    "joint_initiative": "iNaturalist is een gezamenlijk initiatief van de California Academy of Sciences en de National Geographic Society.",
-    "original": "Oorspronkelijk werd Seek gemaakt met steun van OurPlanet op Netflix en HHMI Tangled Bank Studios.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Ontworpen & ontwikkeld door het team van iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Speciale dank aan Visipedia en de iNaturalist gemeenschap.",
     "version": "Versie",
@@ -462,7 +462,7 @@
     "join_crowdin": "Om deel te nemen aan het Seek-vertaalteam bezoek https://crowdin.com/project/search"
   },
   "posting": {
-    "header": "Invoeren in iNaturalist",
+    "header": "Post to iNaturalist",
     "notes": "Maak hier aantekeningen",
     "date": "datum",
     "location": "locatie",
@@ -506,7 +506,7 @@
     "captive": "In gevangenschap/gekweekt?",
     "no": "Dit is een organisme dat van nature in het wild voorkomt en niet door mensen naar deze locatie is gebracht.",
     "yes": "Dit organisme is op deze locatie gebracht door mensen. Dit geldt voor tuinplanten, huisdieren en dierentuindieren.",
-    "addendum": "*Het toevoegen van waarnemingen aan projecten wordt niet ondersteund in Seek. Als jij je waarnemingen aan een project wilt toevoegen, doe dat dan op iNaturalist.org of via de iNaturalist app."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Verwijder soorten?",
@@ -515,10 +515,10 @@
     "no": "Annuleren"
   },
   "warning": {
-    "remember": "Onthoud",
+    "remember": "Remember",
     "tip_1": "Wees altijd bewust van je omgeving, doe geen domme dingen en betreed terreinen alleen met toestemming.",
-    "tip_2": "Eet geen wilde planten of dieren.",
-    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {

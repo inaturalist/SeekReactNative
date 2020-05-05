@@ -84,7 +84,7 @@
     "forgot_password_header": "Unohtunut salasana",
     "forgot_password": "Unohditko salasanasi?",
     "log_in": "Kirjaudu sisään",
-    "email": "Email",
+    "email": "Sähköposti",
     "no_worries": "Ei hätää. Lähetämme salasanan palautusohjeet sähköpostiisi.",
     "reset": "Nollaa salasanani",
     "check_email": "Tarkista sähköpostisi!",
@@ -92,12 +92,12 @@
     "return_login": "Palaa kirjautumiseen"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Tietosuojakäytäntö"
   },
   "menu": {
     "home": "Koti",
     "achievements": "Saavutukset",
-    "challenges": "Challenges",
+    "challenges": "Haasteet",
     "observations": "Omat havainnot",
     "inat": "iNaturalist",
     "about": "Tietoja",
@@ -108,10 +108,10 @@
     "onboarding_2": "Opi kaikkialla ympärilläsi olevista organismeista",
     "onboarding_3": "Ansaitse merkkejä erityyppisten lajien tarkkailemisesta",
     "skip": "Ohita toistaiseksi",
-    "continue": "Continue"
+    "continue": "Jatka"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Lähellä olevat lajit",
     "button": "Hae lähellä sijaintia",
     "undefined": "Määrittämätön sijainti"
   },
@@ -130,7 +130,7 @@
     "other": "muu laji"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Haasteet",
     "in_progress": "Käynnissä",
     "not_started": "Ei aloitettu",
     "completed": "Suoritettu",
@@ -197,8 +197,8 @@
     "photographer_june": "Kuva © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Kuva © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Kuva © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Kuva © Netflix / Silverback Films",
+    "photographer_october": "Kuva © Netflix / Silverback Films",
     "photographer_december": "Kuva © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek saa tiedot iNaturalistilta.",
     "about_inat": "iNaturalist on suurin luonnontieteilijöiden yhteisö maailmassa. Käyttäjät lähettävät valokuvia organismeista ympäri maailmaa, ja yhteisömme tunnistaa ne yhdessä. Näitä havaintoja käytetään tunnistusmallimme opettamisessa, etäisyyskarttojen näyttämisessä ja lähellä olevien havaintojen tuottamisessa Seekissä.",
     "contribute": "Oletko kiinnostunut osallistumaan kansalaistieteeseen globaalin luonnontieteilijäyhteisön kanssa?",
-    "join": "Log in with iNaturalist",
+    "join": "Kirjaudu sisälle iNaturalistilla",
     "by": "by",
     "thanks": "iNaturalist-yhteisö koostuu kaltaisistasi ihmisistä! Liity yhteisöön ja lisää omat havaintosi inaturalist.org-sivustolle!",
     "logged_in": "Olet kirjautunut sisään Seekiin iNaturalist-tilisi kautta. Kiitos, että olet osa tätä yhteisöä!",
@@ -251,10 +251,10 @@
     "tap": "Napauta ladataksesi lähellä olevia lajeja"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Näytä merkki",
+    "badge": "Merkki",
     "challenge_progress": "Löysit uuden lajin!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Tarkastele edistymistäsi",
     "level_up": "Pääsit seuraavalle tasolle!",
     "number_seen": "Olet nähnyt {{number}} lajia!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Sinun tasosi",
     "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
-    "achievements": "Achievements",
+    "achievements": "Saavutukset",
     "observe": "Havainnoi {{number}} lajia päästäksesi seuraavalle tasolle!",
     "observe_max": "Olet saavuttanut Seekin korkeimman tason!",
     "observe_species": "Havainnoi",
@@ -393,7 +393,7 @@
     "to_earn": "Ansaitaksesi tämän merkin:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Omat havainnot",
     "no_obs": "Sinulla ei ole vielä havaintoja!",
     "help": "Ota valokuva kasvista, eläimestä tai muusta elävästä kamerallamme. Tekoälymalli auttaa sinua tunnistamaan sen!",
     "open_camera": "Avaa kamera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Lähistöllä",
-    "about": "About",
+    "about": "Tietoja",
     "range_map": "Aluekartta",
     "range_about": "Kartta tämän lajin havainnoista iNaturalistissa.",
     "view_map": "Näytä aluekartta",
@@ -437,8 +437,8 @@
     "similar_no_species": "Näyttää siltä, että lähellä ei ole havaittu monia samanlaisia lajeja!",
     "plant": "kasvi",
     "amphibian": "sammakkoeläin",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "sienet",
+    "fish": "kala",
     "reptile": "matelija",
     "arachnid": "hämähäkkieläin",
     "bird": "lintu",
@@ -450,10 +450,10 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "About",
+    "header": "Tietoja",
     "seek": "Seek on iNaturalist-tiimin luoma.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "iNaturalist on Kalifornian tiedeakatemian ja National Geographic Societyn yhteishanke.",
+    "original": "Seek on alun perin luotu HHMI Tangled Bank Studios -tuella ja sitä on paranneltu Netflixin Our Planet -sarjan ja WWF:n tuella.",
     "designed_by": "Designed & developed by the iNaturalist team:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
     "version": "Versio",
@@ -462,7 +462,7 @@
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Lähetä iNaturalistille",
     "notes": "Lisää muistiinpanot tähän",
     "date": "päivämäärä",
     "location": "sijainti",
@@ -515,15 +515,15 @@
     "no": "Peruuta"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Muista",
     "tip_1": "Ole aina tietoinen ympäristöstäsi, pysy turvassa, äläkä mene luvatta alueelle.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "Älä syö mitään, mitä löydät luonnosta.",
+    "tip_3": "Kunnioita muita eläviä, älä häiritse tai kosketa niitä. Jotkut saattavat pistää tai purra.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Avaa valikko",
-    "camera": "Open camera",
+    "camera": "Avaa kamera",
     "notifications": "Näytä ilmoitukset",
     "iNatStats": "Näytä iNat-tilastonäyttö",
     "flag": "Merkitse tämä havainto vääräksi",

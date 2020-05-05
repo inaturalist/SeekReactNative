@@ -207,7 +207,7 @@
     "seek_data": "Seek получает данные от iNaturalist.",
     "about_inat": "iNaturalist является крупнейшим в мире сообществом натуралистов. Пользователи загружают фото организмов по всему миру, и наше сообщество работает вместе над их идентификацией. Мы используем эти наблюдения для обучения нашей модели идентификации, отображения карт диапазонов и генерации наблюдений поблизости в Seek.",
     "contribute": "Хотите внести свой вклад в развитие гражданской науки в глобальном сообществе натуралистов?",
-    "join": "Войти с помощью iNaturalist",
+    "join": "Войти через iNaturalist",
     "by": "по",
     "thanks": "Сообщество iNaturalist состоит из таких людей, как вы! Присоединяйтесь к сообществу и добавляйте свои наблюдения на inaturalist.org!",
     "logged_in": "Вы вошли в Seek с вашей учётной записью iNaturalist. Спасибо, что являетесь частью этого сообщества!",
@@ -251,7 +251,7 @@
     "tap": "Нажмите, чтобы загрузить виды поблизости"
   },
   "banner": {
-    "view": "Просмотреть значок",
+    "view": "Посмотреть значок",
     "badge": "Значок",
     "challenge_progress": "Вы нашли другие виды!",
     "challenge_view": "Посмотреть ваши успехи",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Nearby",
-    "about": "О программе",
+    "about": "Подробно",
     "range_map": "Карта диапазона",
     "range_about": "Карта наблюдений этого вида на iNaturalist.",
     "view_map": "Просмотр карты диапазона",
@@ -437,8 +437,8 @@
     "similar_no_species": "Похоже, поблизости наблюдалось не так много подобных видов!",
     "plant": "растение",
     "amphibian": "земноводное",
-    "fungi": "грибы",
-    "fish": "рыбы",
+    "fungi": "гриб",
+    "fish": "рыба",
     "reptile": "пресмыкающееся",
     "arachnid": "паукообразное",
     "bird": "птица",
@@ -450,10 +450,10 @@
     "internet_error": "Нам нужен интернет, чтобы создать экран детализации видов. Нажмите, чтобы повторить попытку."
   },
   "about": {
-    "header": "О программе",
+    "header": "Подробно",
     "seek": "Seek создан командой iNaturalist.",
-    "joint_initiative": "iNaturalist является совместной инициативой Академии наук Калифорнии и Национального географического общества.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "iNaturalist - это совместная инициатива Калифорнийской академии наук и общества National Geographic.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Дизайн и разработка команды iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особая благодарность Visipedia и сообществу iNaturalist.",
     "version": "Версия",
@@ -506,7 +506,7 @@
     "captive": "В неволе/Культивируемое?",
     "no": "Это организм, который естественным образом встречается в дикой природе и не был привнесён в это место людьми.",
     "yes": "Этот организм был помещен в это место людьми. Это относится к таким существам, как садовые растения, домашние животные и животные зоопарка.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Добавление наблюдений в проекты не поддерживается в Seek. Если вы хотите добавить ваши наблюдения в проект, пожалуйста, сделайте это через iNaturalist.org или с помощью приложения iNaturalist."
   },
   "delete": {
     "header": "Удалить вид?",

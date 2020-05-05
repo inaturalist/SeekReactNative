@@ -84,7 +84,7 @@
     "forgot_password_header": "Forgot password",
     "forgot_password": "Forgot your password?",
     "log_in": "लॉग इन",
-    "email": "Email",
+    "email": "ई-मेल",
     "no_worries": "कोई बात नहीं। हम आपके ई-मेल पर पासवर्ड दुबारा निर्धारित करने के निर्देश भेज देंगे।",
     "reset": "मेरा पासवर्ड दुबारा निर्धारित करें",
     "check_email": "अपना ई-मेल देखें!",
@@ -92,12 +92,12 @@
     "return_login": "लॉग-इन पर वापस जाएँ"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "गोपनीयता नीति"
   },
   "menu": {
     "home": "होम",
     "achievements": "उपलब्धियां",
-    "challenges": "Challenges",
+    "challenges": "चुनौतियाँ",
     "observations": "पर्यवेक्षण",
     "inat": "iNaturalist",
     "about": "इसके बारे में",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "अभी छोड़कर आगे बढ़ें",
-    "continue": "Continue"
+    "continue": "आगे बढ़ें"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "आस-पास की प्रजातियाँ",
     "button": "अपने स्थान के आस-पास खोजें",
     "undefined": "अनिश्चित स्थान"
   },
@@ -130,7 +130,7 @@
     "other": "अन्य"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "चुनौतियाँ",
     "in_progress": "जारी है",
     "not_started": "शुरु नहीं हुआ",
     "completed": "ख़त्म",
@@ -207,7 +207,7 @@
     "seek_data": "iNaturalist को अपना डेटा Seek से मिलता है।",
     "about_inat": "iNaturalist दुनिया-भर के प्रकृतिवादियों का सबसे बड़ा समुदाय है। इसमें पूरी दुनिया के यूज़र प्रजातियों की फोटो अपलोड करते हैं, और हमारा समुदाय उन्हें पहचानने की कोशिश करता है। इसी डेटा को हम पहचान आर्टिफिशियल आइडेंटिफिकेशन को प्रशिक्षित करने, मैप डेटा को दिखाने और Seek में अगल-बगल के पर्यवेक्षण डेटा को उत्पन्न करने में प्रयोग करते हैं। ",
     "contribute": "क्या आप प्रकृतिवादियों के एक वैश्विक समुदाय के साथ मिलकर नागरिक विज्ञान में अपना योगदान देना चाहते हैं?",
-    "join": "Log in with iNaturalist",
+    "join": "iNaturalist में लॉग-इन करें",
     "by": "द्वारा",
     "thanks": "iNaturalist समुदाय आप जैसे लोगों से बना है! समुदाय में शामिल हों और inaturalist.org में आपके अपने पर्यवेक्षण जोड़ें!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
@@ -251,10 +251,10 @@
     "tap": "Tap to load species nearby"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "बैज देखें",
+    "badge": "बैज",
     "challenge_progress": "आपने एक और प्रजाति खोजी है!",
-    "challenge_view": "View your progress",
+    "challenge_view": "अपना विकास देखें",
     "level_up": "आपका लेवल ऊपर हुआ!",
     "number_seen": "आपने देखा है {{number}}!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "आपका लेवल",
     "login": "Log in with iNaturalist to post observations to the online community!",
-    "achievements": "Achievements",
+    "achievements": "उपलब्धियां",
     "observe": "अगला लेवल हासिल करने के लिए {{number}} प्रजातियों का पर्यवेक्षण करें!",
     "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "पर्यवेक्षण करें",
@@ -393,7 +393,7 @@
     "to_earn": "यह बैज हासिल करने के लिए:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "पर्यवेक्षण",
     "no_obs": "अभी तक आपका कोई पर्यवेक्षण नहीं है!",
     "help": "हमारा कैमरा उपयोग करके एक पादप, जानवणी या किसी भी जीवित वस्तु का फोटो खींचें, और हमारा AI मॉडल इसकी पहचान करने में आपकी मदद करेगा!",
     "open_camera": "कैमरा खोलें",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Nearby",
-    "about": "About",
+    "about": "इसके बारे में",
     "range_map": "रेंज मैप",
     "range_about": "इस प्रजाति के पर्यवेक्षणों को एक मैप iNaturalist पर देखा जा सकता है।",
     "view_map": "मैप रेंज देखें",
@@ -437,8 +437,8 @@
     "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "पादप",
     "amphibian": "उभयचर",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "कवक (फंगाई)",
+    "fish": "मछलियाँ",
     "reptile": "सरीसृप",
     "arachnid": "मकड़ी",
     "bird": "पक्षी",
@@ -450,9 +450,9 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "About",
+    "header": "इसके बारे में",
     "seek": "Seek की रचनाकार iNaturalist टीम।",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "joint_initiative": "iNaturalist कैलिफोर्निया एकेडमी ऑफ साइंस और नेशनल जियोग्राफिक सोसायटी का संयुक्त प्रयास है।",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "रूपरेखा और तैयारकर्ता iNaturalist टीम:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary और Yaron Budowski. Visipedia और iNaturalist समुदाय का विशेष आभार।",
@@ -515,15 +515,15 @@
     "no": "Cancel"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "याद रखें",
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "जंगल में मिला कुछ भी मत खाएँ।",
+    "tip_3": "अन्य जीवों का सम्मान करें - उन्हें परेशान मत करें, और मत छुएँ। उनमें से कोई डंक मार सकता है या काट सकता है। ",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Open menu",
-    "camera": "Open camera",
+    "camera": "कैमरा खोलें",
     "notifications": "View notifications",
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",

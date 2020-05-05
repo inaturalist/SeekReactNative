@@ -84,7 +84,7 @@
     "forgot_password_header": "Esqueci minha senha",
     "forgot_password": "Esqueceu sua senha?",
     "log_in": "Entrar",
-    "email": "E-mail",
+    "email": "Email",
     "no_worries": "N„o tem problema. Enviaremos instruÁıes de redefiniÁ„o de senha para o seu e-mail.",
     "reset": "Redefinir minha senha",
     "check_email": "Verifique o seu e-mail!",
@@ -92,12 +92,12 @@
     "return_login": "Voltar ‡ p·gina de login."
   },
   "privacy": {
-    "header": "PolÌtica de privacidade"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "P·gina inicial",
     "achievements": "Conquistas",
-    "challenges": "Desafios",
+    "challenges": "Challenges",
     "observations": "ObservaÁıes",
     "inat": "iNaturalist",
     "about": "Sobre",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Ignorar por enquanto",
-    "continue": "Continuar"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "EspÈcies da regi„o",
+    "species_nearby": "Species nearby",
     "button": "Pesquisar na regi„o",
     "undefined": "Localização indefinida"
   },
@@ -130,7 +130,7 @@
     "other": "Outro"
   },
   "challenges": {
-    "header": "Desafios",
+    "header": "Challenges",
     "in_progress": "Em progresso",
     "not_started": "N„o iniciado",
     "completed": "ConcluÌdo",
@@ -207,7 +207,7 @@
     "seek_data": "A Seek obtÈm dados do iNaturalist.",
     "about_inat": "O iNaturalist È a maior comunidade de naturalistas do mundo. Os usu·rios carregam fotos de espÈcies de todo o globo terrestre, e a nossa comunidade trabalha em conjunto para identific·-las. S„o esses dados que usamos para treinar a inteligÍncia artificial de identificaÁ„o, exibir dados de mapeamento e gerar dados de observaÁ„o de regiıes na Seek.",
     "contribute": "Interessado em contribuir para a ciÍncia dos cidad„os em uma comunidade global de naturalistas?",
-    "join": "Entrar com o iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "by",
     "thanks": "A comunidade do iNaturalist é formada por pessoas como você! Participe da comunidade e acrescente as suas próprias observações em inaturalist.org!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
@@ -251,10 +251,10 @@
     "tap": "Tap to load species nearby"
   },
   "banner": {
-    "view": "Exibir distintivo",
-    "badge": "Distintivo",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "Você encontrou mais uma espécie!",
-    "challenge_view": "Exibir o seu progresso",
+    "challenge_view": "View your progress",
     "level_up": "Você subiu de nível!",
     "number_seen": "You’ve seen {{number}} species!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "O seu nível",
     "login": "Log in with iNaturalist to post observations to the online community!",
-    "achievements": "Conquistas",
+    "achievements": "Achievements",
     "observe": "Observe {{number}} espécies para passar para o próximo nível!",
     "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observe",
@@ -393,7 +393,7 @@
     "to_earn": "Para ganhar este distintivo:"
   },
   "observations": {
-    "header": "ObservaÁıes",
+    "header": "My Observations",
     "no_obs": "Você ainda não tem nenhuma observação!",
     "help": "Tire uma foto de uma planta, um animal ou qualquer ser vivo usando a nossa câmera e o nosso modelo de IA ajudará você a identificá-lo!",
     "open_camera": "Abrir câmera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Nearby",
-    "about": "Sobre",
+    "about": "About",
     "range_map": "Mapa de cobertura",
     "range_about": "Um mapa de observações dessa espécie visto no iNaturalist.",
     "view_map": "Exibir mapa de cobertura",
@@ -437,8 +437,8 @@
     "similar_no_species": "Looks like there haven’t been many similar species observed nearby!",
     "plant": "planta",
     "amphibian": "anfíbio",
-    "fungi": "fungos",
-    "fish": "peixes",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "réptil",
     "arachnid": "aracnídeo",
     "bird": "ave",
@@ -450,9 +450,9 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "Sobre",
+    "header": "About",
     "seek": "A Seek foi criada pela equipe do iNaturalist.",
-    "joint_initiative": "O iNaturalist é uma iniciativa conjunta da California Academy of Sciences com a National Geographic Society.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Concebido e desenvolvido pela equipe do iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary e Yaron Budowski. Agradecimentos especiais à Visiopedia e à comunidade do iNaturalist.",
@@ -523,7 +523,7 @@
   },
   "accessibility": {
     "menu": "Open menu",
-    "camera": "Abrir c‚mera",
+    "camera": "Open camera",
     "notifications": "View notifications",
     "iNatStats": "View iNat stats screen",
     "flag": "Flag this observation incorrect",

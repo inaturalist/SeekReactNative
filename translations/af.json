@@ -251,7 +251,7 @@
     "tap": "Tik om nabygeleë spesies te laai"
   },
   "banner": {
-    "view": "Bekyk wapen",
+    "view": "Bekyk kenteken",
     "badge": "Kenteken",
     "challenge_progress": "U het ’n ander spesie gevind!",
     "challenge_view": "Bekyk u vordering",
@@ -437,8 +437,8 @@
     "similar_no_species": "Daar blyk nie baie soortgelyke spesies naby waargeneem te wees nie!",
     "plant": "plant",
     "amphibian": "amfibie",
-    "fungi": "swamme",
-    "fish": "visse",
+    "fungi": "swam",
+    "fish": "vis",
     "reptile": "reptiel",
     "arachnid": "aragnied",
     "bird": "voël",
@@ -453,7 +453,7 @@
     "header": "Aangaande",
     "seek": "Seek word deur die iNaturalist-span gemaak.",
     "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
     "designed_by": "Ontwerp & ontwikkel deur die iNaturalist-span:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Spesiale dank aan Visipedia en die iNaturalist-gemeenskap.",
     "version": "Weergawe",
@@ -506,7 +506,7 @@
     "captive": "Gevang/Gekweek?",
     "no": "Dit is ’n organisme wat van nature in die wild voorkom en is nie deur mense hierheen gebring nie.",
     "yes": "Hierdie organisme is deur mense in hierdie ligging geplaas. Dit geld vir tuinplante, troeteldiere en dieretuindiere.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Toevoeg van waarnemings tot projekte word nie in Seek gesteun nie. Indien u waarnemings tot ’n projek wil toevoeg moet u dit asb. op iNaturalist.org of d.m.v. die iNaturalist-toep doen."
   },
   "delete": {
     "header": "Skrap spesie?",

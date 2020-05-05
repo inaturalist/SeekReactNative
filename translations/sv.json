@@ -84,7 +84,7 @@
     "forgot_password_header": "Glömt lösenord",
     "forgot_password": "Glömt ditt lösenord?",
     "log_in": "Logga in",
-    "email": "Email",
+    "email": "E-post",
     "no_worries": "Inga problem. Vi skickar instruktioner för återställning av lösenord till din e-post.",
     "reset": "Återställ mitt lösenord",
     "check_email": "Kolla din e-post!",
@@ -92,12 +92,12 @@
     "return_login": "Tillbaka till inloggningssidan"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Integritetspolicy"
   },
   "menu": {
     "home": "Hem",
     "achievements": "Prestationer",
-    "challenges": "Challenges",
+    "challenges": "Utmaningar",
     "observations": "Mina observationer",
     "inat": "iNaturalist",
     "about": "Om",
@@ -108,10 +108,10 @@
     "onboarding_2": "Lär dig om organismerna runt omkring dig",
     "onboarding_3": "Förtjäna märken genom att observera olika sorters arter",
     "skip": "Hoppa över för tillfället",
-    "continue": "Continue"
+    "continue": "Fortsätt"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Arter i närheten",
     "button": "Sök i närheten",
     "undefined": "Odefinierad plats"
   },
@@ -130,7 +130,7 @@
     "other": "andra arter"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Utmaningar",
     "in_progress": "Pågående",
     "not_started": "Inte påbörjad",
     "completed": "Avklarad",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Foto © Netflix / Silverback Films",
+    "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Sök hämtar data från iNaturalist.",
     "about_inat": "iNaturalist är den största gemenskapen för naturforskare i världen. Användare ladda upp bilder av organismer från hela världen, och vår gemenskap jobbar tillsammans för att bestämma dem. Dessa observationer är de vi använder för att träna vår bestämningsmodell, visa kartor och generera observationer i närheten i Seek.",
     "contribute": "Intresserad av att bidra till medborgarvetenskap i en global gemenskap av naturforskare?",
-    "join": "Log in with iNaturalist",
+    "join": "Logga in med iNaturalist",
     "by": "av",
     "thanks": "iNaturalist-gemenskapen utgörs av människor som du! Gå med i gemenskapen och lägg till dina egna observationer på inaturalist.org!",
     "logged_in": "Du är inloggad på Seek med ditt iNaturalist-konto. Tack för att du är en del av denna gemenskap!",
@@ -251,10 +251,10 @@
     "tap": "Tryck för att ladda arter i närheten"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Visa märke",
+    "badge": "Märke",
     "challenge_progress": "Du hittade en till art!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Visa dina framsteg",
     "level_up": "Du har levlat upp!",
     "number_seen": "Du har sett {{number}} arter!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
-    "achievements": "Achievements",
+    "achievements": "Prestationer",
     "observe": "Observera {{number}} arter för att komma till nästa nivå!",
     "observe_max": "Du har nått maxnivån på Seek!",
     "observe_species": "Observera",
@@ -393,7 +393,7 @@
     "to_earn": "För att förtjäna detta märke:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Mina observationer",
     "no_obs": "Du har inga observationer ännu!",
     "help": "Ta en bild av en växt, ett djur eller något annat levande med vår kamera så hjälper vår AI-modell dig att bestämma den!",
     "open_camera": "Öppna kameran",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Närliggande",
-    "about": "About",
+    "about": "Om",
     "range_map": "Utbredningskarta",
     "range_about": "En karta över observationer av denna art som setts på iNaturalist.",
     "view_map": "Visa utbredningskarta",
@@ -437,8 +437,8 @@
     "similar_no_species": "Ser inte ut som att många liknande arter har observeras i närheten!",
     "plant": "växt",
     "amphibian": "groddjur",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "svampar",
+    "fish": "fiskar",
     "reptile": "reptil",
     "arachnid": "spindeldjur",
     "bird": "fågel",
@@ -450,9 +450,9 @@
     "internet_error": "Vi behöver internet för att skapa informationssidan för arten. Tryck för att försöka igen."
   },
   "about": {
-    "header": "About",
+    "header": "Om",
     "seek": "Seek är gjord av iNaturalist-teamet.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "joint_initiative": "iNaturalist är ett gemensamt initiativ från California Academy of Sciences och National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Designad & utvecklad av iNaturalist-teamet:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
@@ -462,7 +462,7 @@
     "join_crowdin": "Besök https://crowdin.com/project/seek för att gå med i översättningsteamet för Seek,"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "Posta på iNaturalist",
     "notes": "Lägg till anteckningar här",
     "date": "datum",
     "location": "plats",
@@ -515,15 +515,15 @@
     "no": "Avbryt"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Kom ihåg",
     "tip_1": "Var alltid medveten om din omgivning, var försiktig och gör inte intrång.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "Ät inget du hittar i naturen.",
+    "tip_3": "Respektera andra levande ting genom att inte störa eller röra dem. En del kan stickas eller bitas.",
     "tip_4": "Barn kan behöva en vuxens tillsyn."
   },
   "accessibility": {
     "menu": "Öppna menyn",
-    "camera": "Open camera",
+    "camera": "Öppna kameran",
     "notifications": "Visa aviseringar",
     "iNatStats": "Visa sidan iNat-statistik",
     "flag": "Flagga denna observation som felaktig",

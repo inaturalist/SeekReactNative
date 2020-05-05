@@ -518,7 +518,8 @@
     "remember": "Mémoriser",
     "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
     "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
-    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre."
+    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre.",
+    "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Ouvrir le menu",
@@ -559,6 +560,12 @@
     "completed": "Vous avez terminé le défi et remporté le badge !",
     "april_2020_description": "En avril 2020 la nouvelle application Seek créée par iNaturalist fête ses un an ! Durant cette année, nous avons beaucoup grandi et aidé plus d'un million de personnes à se sentir plus proches du monde qui les entoure. La nature est tout autour de vous, il vous suffit d'y prêter attention !\n\nAfin de commencer notre prochaine série de défis, voyez si vous pouvez trouver 10 espèces que vous n'avez pas encore observées.",
     "action_april_2020": "Avril est le mois des sciences participatives ! Vous pouvez contribuer à la compréhension scientifique de la biodiversité en tant que citoyen scientifique en publiant vos observations Seek sur iNaturalist.\n\nSi vous avez 13 ans ou plus (ou avec une autorisation parentale), vous pouvez créer un compte iNaturalist et y publier des observations pour partager les partager avec une communauté plus large, y compris des scientifiques !",
-    "tbd": "TBD Challenge"
+    "backyard": "Backyard Challenge",
+    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
+    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
+    "mission_1_may_2020": "Find 5 plants",
+    "mission_2_may_2020": "Find 2 insects",
+    "mission_3_may_2020": "Find 1 arachnid",
+    "mission_4_may_2020": "Find 2 birds"
   }
 }

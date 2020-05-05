@@ -84,7 +84,7 @@
     "forgot_password_header": "Wagwoord vergeet",
     "forgot_password": "U wagwoord vergeet?",
     "log_in": "Teken aan",
-    "email": "E-pos",
+    "email": "Email",
     "no_worries": "Geen kommer. Ons sal wagwoordterugstelinstruksies na u e-pos stuur.",
     "reset": "Stel my wagwoord terug",
     "check_email": "Gaan u e-pos na!",
@@ -92,12 +92,12 @@
     "return_login": "Terug na Aantekening"
   },
   "privacy": {
-    "header": "Privaatheidsbeleid"
+    "header": "Privacy Policy"
   },
   "menu": {
     "home": "Tuis",
     "achievements": "Prestasies",
-    "challenges": "Uitdagings",
+    "challenges": "Challenges",
     "observations": "My Waarnemings",
     "inat": "iNaturalist",
     "about": "Aangaande",
@@ -108,10 +108,10 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Slaan oor vir nou",
-    "continue": "Gaan voort"
+    "continue": "Continue"
   },
   "location_picker": {
-    "species_nearby": "Spesies naby",
+    "species_nearby": "Species nearby",
     "button": "Soek naby ligging",
     "undefined": "Ongedefinieerde ligging"
   },
@@ -130,7 +130,7 @@
     "other": "ander spesies"
   },
   "challenges": {
-    "header": "Uitdagings",
+    "header": "Challenges",
     "in_progress": "In vordering",
     "not_started": "Nie begin nie",
     "completed": "Voltooid",
@@ -197,8 +197,8 @@
     "photographer_june": "Foto © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Foto © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Foto © Netflix / Silverback Films",
-    "photographer_october": "Foto © Netflix / Silverback Films",
+    "photographer_september": "Photo © Netflix / Silverback Films",
+    "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek kry sy data van iNaturalist.",
     "about_inat": "iNaturalist is die grootste wêreldwye gemeenskap vir natuurkenners. Gebruikers laai foto’s van organismes oor die hele wêreld op en ons gemeenskap werk saam om dit te identifiseer. Ons gebruik hierdie waarnemings om ons identifikasiemodel op te lei, verspreidingskaarte te vertoon en nabygeleë waarnemings in Seek te genereer.",
     "contribute": "Is u lus om tot burgerwetenskap met ’n wêreldwye gemeenskap van natuurkenners by te dra?",
-    "join": "Teken aan met iNaturalist",
+    "join": "Log in with iNaturalist",
     "by": "deur",
     "thanks": "Die iNaturalist-gemeenskap bestaan uit mense soos u! Sluit by die gemeenskap aan en voeg u eie waarnemings tot inaturalist.org toe!",
     "logged_in": "U is op Seek met u iNaturalist-rekening aangeteken. Dankie dat u deel van die gemeenskap is!",
@@ -251,10 +251,10 @@
     "tap": "Tik om nabygeleë spesies te laai"
   },
   "banner": {
-    "view": "Bekyk kenteken",
-    "badge": "Kenteken",
+    "view": "View badge",
+    "badge": "Badge",
     "challenge_progress": "U het ’n ander spesie gevind!",
-    "challenge_view": "Bekyk u vordering",
+    "challenge_view": "View your progress",
     "level_up": "U het ’n hoër vlak bereik!",
     "number_seen": "U het {{number}} spesies gesien!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "U Vlak",
     "login": "Teken aan met iNaturalist om waarnemings by die aanlyn gemeenskap te plaas!",
-    "achievements": "Prestasies",
+    "achievements": "Achievements",
     "observe": "Neem nog {{number}} spesies waar om die volgende vlak te bereik!",
     "observe_max": "U het die maksimum vlak op Seek bereik!",
     "observe_species": "Neem Waar",
@@ -393,7 +393,7 @@
     "to_earn": "Om hierdie kenteken te verdien:"
   },
   "observations": {
-    "header": "My Waarnemings",
+    "header": "My Observations",
     "no_obs": "U het nog geen waarnemings nie!",
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "Naby",
-    "about": "Aangaande",
+    "about": "About",
     "range_map": "Versprekdingskaart",
     "range_about": "’n kaart van waarnemings van hierdie spesie wat op iNaturalist gesien is.",
     "view_map": "Bekyk verspreidingskaart",
@@ -437,8 +437,8 @@
     "similar_no_species": "Daar blyk nie baie soortgelyke spesies naby waargeneem te wees nie!",
     "plant": "plant",
     "amphibian": "amfibie",
-    "fungi": "swam",
-    "fish": "vis",
+    "fungi": "fungi",
+    "fish": "fish",
     "reptile": "reptiel",
     "arachnid": "aragnied",
     "bird": "voël",
@@ -450,10 +450,10 @@
     "internet_error": "Ons benodig die Internet om die spesiesdetailskerm te genereer. Tik om weer te probeer."
   },
   "about": {
-    "header": "Aangaande",
+    "header": "About",
     "seek": "Seek word deur die iNaturalist-span gemaak.",
-    "joint_initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap.",
-    "original": "Seek was originally created with support from OurPlanet on Netflix and HHMI Tangled Bank Studios.",
+    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
+    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
     "designed_by": "Ontwerp & ontwikkel deur die iNaturalist-span:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Spesiale dank aan Visipedia en die iNaturalist-gemeenskap.",
     "version": "Weergawe",
@@ -462,7 +462,7 @@
     "join_crowdin": "Gaan na https://crowdin.com/project/seek om by die Seek-vertaalspan aan te sluit"
   },
   "posting": {
-    "header": "Plaas op iNaturalist",
+    "header": "Post to iNaturalist",
     "notes": "Voeg notas hier toe",
     "date": "datum",
     "location": "ligging",
@@ -506,7 +506,7 @@
     "captive": "Gevang/Gekweek?",
     "no": "Dit is ’n organisme wat van nature in die wild voorkom en is nie deur mense hierheen gebring nie.",
     "yes": "Hierdie organisme is deur mense in hierdie ligging geplaas. Dit geld vir tuinplante, troeteldiere en dieretuindiere.",
-    "addendum": "*Toevoeg van waarnemings tot projekte word nie in Seek gesteun nie. Indien u waarnemings tot ’n projek wil toevoeg moet u dit asb. op iNaturalist.org of d.m.v. die iNaturalist-toep doen."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Skrap spesie?",
@@ -515,15 +515,15 @@
     "no": "Kanselleer"
   },
   "warning": {
-    "remember": "Onthou",
+    "remember": "Remember",
     "tip_1": "Wees altyd bewus van u omgewing, wees veilig en moenie onregmatig betree nie.",
-    "tip_2": "Moet niks eet wat u in die veld vind nie.",
-    "tip_3": "Respekteer ander lewende wesens deur hulle nie te steur of aan te raak nie. Hulle kan steek of byt.",
+    "tip_2": "Don’t eat anything you find in the wild.",
+    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
     "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Open kieslys",
-    "camera": "Open kamera",
+    "camera": "Open camera",
     "notifications": "Bekyk kennisgewings",
     "iNatStats": "Bekyk iNat-statistiekeskerm",
     "flag": "Merk waarneming as verkeerd",

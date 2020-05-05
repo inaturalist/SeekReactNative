@@ -48,7 +48,9 @@ const INatObs = ( {
   }, [region, id] );
 
   useEffect( () => {
-    fetchNearbySpeciesCount();
+    if ( region.latitude !== null ) {
+      fetchNearbySpeciesCount();
+    }
   }, [region, fetchNearbySpeciesCount] );
 
   const renderObs = () => {
@@ -65,7 +67,7 @@ const INatObs = ( {
               <Image source={logos.bird} style={styles.bird} />
             </TouchableOpacity>
             <View style={styles.textContainer}>
-              {error !== "location" && (
+              {( error !== "location" && region.latitude !== null ) && (
                 <>
                   <Text style={styles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
@@ -75,7 +77,7 @@ const INatObs = ( {
                   </Text>
                 </>
               )}
-              <Text style={[styles.secondHeaderText, !error && styles.margin]}>
+              <Text style={[styles.secondHeaderText, ( !error && region.latitude !== null ) && styles.margin]}>
                 {i18n.t( "species_detail.worldwide" )}
               </Text>
               <Text style={styles.number}>

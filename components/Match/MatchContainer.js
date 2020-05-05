@@ -147,16 +147,18 @@ const MatchContainer = ( {
                 <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
               </TouchableOpacity>
             )}
-            <PostToiNat
-              color={gradientColorLight}
-              taxaInfo={{
-                preferredCommonName: taxaName || commonAncestor,
-                taxaId,
-                userImage,
-                scientificName,
-                image
-              }}
-            />
+            {image.latitude && ( // need to make sure this only applies for AR Camera photos
+              <PostToiNat
+                color={gradientColorLight}
+                taxaInfo={{
+                  preferredCommonName: taxaName || commonAncestor,
+                  taxaId,
+                  userImage,
+                  scientificName,
+                  image
+                }}
+              />
+            )}
           </View>
         </>
       ) }

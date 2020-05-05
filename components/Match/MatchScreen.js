@@ -328,13 +328,13 @@ class MatchScreen extends Component<Props, State> {
             this.getRoute();
           }}
         />
-        {( match && image.latitude && route !== "PostStatus" ) && ( // also removed route === "Match" here
+        {( match && route !== "PostStatus" ) && ( // also removed route === "Match" here
           <Toasts
             badge={badge}
             challenge={challengeInProgress}
           />
         )}
-        {( match && image.latitude ) && (
+        {( match ) && (
           <Modal
             isVisible={showChallengeModal}
             onBackdropPress={() => this.closeChallengeModal()}
@@ -348,7 +348,7 @@ class MatchScreen extends Component<Props, State> {
             />
           </Modal>
         )}
-        {( match && image.latitude ) && (
+        {( match ) && (
           <Modal
             isVisible={showLevelModal}
             onBackdropPress={() => this.closeLevelModal()}

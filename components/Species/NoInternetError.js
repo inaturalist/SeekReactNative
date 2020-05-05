@@ -90,7 +90,7 @@ const NoInternetError = ( {
       {id !== 43584 ? (
         <>
           <View style={styles.secondTextContainer}>
-            {error !== "location" && (
+            {( error !== "location" && region.latitude !== null ) && (
               <SpeciesMap
                 id={id}
                 region={region}

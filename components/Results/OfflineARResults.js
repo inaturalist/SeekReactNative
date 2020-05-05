@@ -208,10 +208,10 @@ class OfflineARResults extends Component<Props, State> {
       observation
     } = this.state;
 
-    if ( image.latitude && image.longitude ) {
-      // bug, user location isn't loading fast enough & sometimes is null
-      addToCollection( observation, image );
-    }
+    // if ( image.latitude && image.longitude ) {
+    // bug, user location isn't loading fast enough & sometimes is null
+    addToCollection( observation, image );
+    // }
   }
 
   checkSpeciesSeen( taxaId: number ) {

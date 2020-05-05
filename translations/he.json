@@ -84,7 +84,7 @@
     "forgot_password_header": "שכחתי סיסמה",
     "forgot_password": "? שכחת את הסיסמא שלך?",
     "log_in": "התחברות",
-    "email": "Email",
+    "email": "דוא\"ל",
     "no_worries": "אל דאגה. הוראות לאיפוס סיסמא נשלחו לדואל שלכם.",
     "reset": "אפס את הסיסמה שלי",
     "check_email": "בדקו את תיבת המייל!",
@@ -92,12 +92,12 @@
     "return_login": "חזרה לדף הכניסה"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "מדיניות פרטיות"
   },
   "menu": {
     "home": "דף הבית",
     "achievements": "הישגים",
-    "challenges": "Challenges",
+    "challenges": "אתגרים",
     "observations": "התצפיות שלי",
     "inat": "iNaturalist",
     "about": "אודות",
@@ -108,10 +108,10 @@
     "onboarding_2": "למדו על כל החי מסביבכם",
     "onboarding_3": "קבלו תגים על צפייה במינים שונים",
     "skip": "דלג/י בינתיים",
-    "continue": "Continue"
+    "continue": "המשך"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "מינים הנמצאים בסביבה",
     "button": "חפשו סביב מיקום",
     "undefined": "אזור לא מוגדר"
   },
@@ -130,7 +130,7 @@
     "other": "זנים אחרים"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "אתגרים",
     "in_progress": "בתהליך",
     "not_started": "לא התחיל",
     "completed": "בוצע",
@@ -197,8 +197,8 @@
     "photographer_june": "תמונה © Grace Frank, Netflix / Silverback Films ",
     "photographer_november": "תמונה © Jeff Wilson, Netflix / Silverback Films ",
     "photographer_august": "תמונה © Ben Macdonald, Netflix / Silverback Films ",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "תמונה © Netflix / Silverback Films",
+    "photographer_october": "תמונה © Netflix / Silverback Films",
     "photographer_december": "תמונה © Sophie Lanfear, Netflix / Silverback Films "
   },
   "inat_stats": {
@@ -207,7 +207,7 @@
     "seek_data": "Seek מקבלת מידע מ iNaturalist.",
     "about_inat": "iNaturalist היא הקהילה הגדולה ביותר של אוהבי טבע בעולם. משתמשים מעלים תמונות של יצורים חיים מסביב לעולם, והקהילה שלנו עובדת יחדיו לזהות אותם. תצפיות אלו הם מה שאנו משתמשים בו כדי לאמן את מודל הזיהוי שלנו, להציג מפות ותצפיות קרובות באפליקציית Seek.",
     "contribute": "מעונייים לתרום למען מדע אזרחי עם קהילת עולמית של אנשי טבע?",
-    "join": "Log in with iNaturalist",
+    "join": "כניסה עם איי-נטורליסט",
     "by": "מאת",
     "thanks": "קהילת iNaturalist מורכבת מאנשים כמוכם! הצטרפו של הקהילה והוסיפו תצפיות שלכם ב inaturalist.org!",
     "logged_in": "התחברתם ל Seek עם חשבון ה iNaturalist שלכם. תודה שאתם חלק מהקהילה!",
@@ -251,10 +251,10 @@
     "tap": "לחץ כדי להעלות זנים בסביבה"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "הצג תג",
+    "badge": "תג",
     "challenge_progress": "מצאתם מין נוסף!",
-    "challenge_view": "View your progress",
+    "challenge_view": "צפה במעקב התקדמות",
     "level_up": "עליתם בדרגה!",
     "number_seen": "ראיתם {{number}} מינים!"
   },
@@ -321,7 +321,7 @@
   "badges": {
     "your_level": "הרמה שלך",
     "login": "התחברו עם iNaturalist כדי לפרסם תצפיות לקהילה!",
-    "achievements": "Achievements",
+    "achievements": "הישגים",
     "observe": "צפו ב {{number}} מינים כדי להגיע לרמה הבאה!",
     "observe_max": "הגעת לרמה הגבוהה ביותר ב Seek!",
     "observe_species": "צפה",
@@ -393,7 +393,7 @@
     "to_earn": "כדי לזכות בתגים:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "התצפיות שלי",
     "no_obs": "אין לך עדיין תצפיות!",
     "help": "צלמו צמח, בעל חיים או כל ייצו רחי אחר באמצעות המצלמה, ומערכת הבינה מלאכותית שלנו תעזור לכם לזהות אותו!",
     "open_camera": "פתח מצלמה",
@@ -401,7 +401,7 @@
   },
   "species_detail": {
     "near": "בקרבת מקום",
-    "about": "About",
+    "about": "אודות",
     "range_map": "מפת אזור",
     "range_about": "מפה של תצפיות של מין זה ב iNaturalist.",
     "view_map": "צפה במפה גדולה יותר",
@@ -437,8 +437,8 @@
     "similar_no_species": "נראה שלא היו תצפיות דומות של מין זה באזור!",
     "plant": "צמח",
     "amphibian": "דו-חי",
-    "fungi": "fungi",
-    "fish": "fish",
+    "fungi": "פטריות",
+    "fish": "דגים",
     "reptile": "זוחל",
     "arachnid": "עכבישן",
     "bird": "ציפור",
@@ -450,10 +450,10 @@
     "internet_error": "אנו זקוקים לקישור אינטרנט כדי לייצר את עמוד פרטי המין. הקישו לנסת שוב."
   },
   "about": {
-    "header": "About",
+    "header": "אודות",
     "seek": "Seek פותחה על ידי צוות iNaturalist.",
-    "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
-    "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
+    "joint_initiative": "זהו שיתוף פעולה בין האקדמיה למדעים של קליפורניה והחברה הגיאוגרפית.",
+    "original": "Seek במקור פותחה עם תמיכה של HHMI Tangled Bank Studios ושופרה בתמיכתח הסדרה הכוכב שלנו בהפקת Netflix וארגון WWF.",
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. תודות מיוחדות ל Visipedia וקהילת iNatalist.",
     "version": "גירסה",
@@ -462,7 +462,7 @@
     "join_crowdin": "להצטרף לצוות המתרגמים של Seek, בבקשה תבקרו באתר: https://crowdin.com/project/seek"
   },
   "posting": {
-    "header": "Post to iNaturalist",
+    "header": "פרסמו ל iNaturalist",
     "notes": "הוסיפו כאן פתקים",
     "date": "תאריך",
     "location": "מיקום",
@@ -515,15 +515,15 @@
     "no": "בטל"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "זכור",
     "tip_1": "תמיד היו ערניים לסביבה, השארו בטוחים ואל תיכנסו להיכן שאסור.",
-    "tip_2": "Don’t eat anything you find in the wild.",
-    "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
+    "tip_2": "אל תאכלו דבר שאתם מוצאים בטבע.",
+    "tip_3": "כבדו יצורים חיים אחרים בהימנעות מלהציק להם או לגעת בהם. חלקם עשויים לעקוץ או לנשוך.",
     "tip_4": "לילדים נדרשת השגחת מבוגר."
   },
   "accessibility": {
     "menu": "פתח תפריט",
-    "camera": "Open camera",
+    "camera": "הפעל מצלמה",
     "notifications": "הצג את כל ההתראות",
     "iNatStats": "הסתכלו במסך הסטטיסטיקה של iNat",
     "flag": "סמנו תצפית זו כלא נכונה",

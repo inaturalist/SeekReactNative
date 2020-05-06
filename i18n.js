@@ -49,6 +49,7 @@ const { languageTag } = RNLocalize.findBestAvailableLanguage( languages ) || fal
 
 i18n.locale = languageTag;
 
+// these pluralization rules are from the iNaturalist web app
 const eastSlavic = ( count ) => {
   const mod10 = count % 10;
   const mod100 = count % 100;

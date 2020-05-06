@@ -84,7 +84,7 @@
     "forgot_password_header": "Glemt adgangskode",
     "forgot_password": "Glemt din adgangskode?",
     "log_in": "Log ind",
-    "email": "Email",
+    "email": "E-mail",
     "no_worries": "Ikke noget problem. Vi sender email med instruktioner til at nulstille din adgangskode.",
     "reset": "Nulstil min adgangskode",
     "check_email": "Tjek din email!",
@@ -519,7 +519,7 @@
     "tip_1": "Vær altid opmærksom på dine omgivelser, pas på dig selv og begå ikke ulovlig indtrængen.",
     "tip_2": "Spis ikke alt du finder i naturen.",
     "tip_3": "Vær respektfuld overfor levende ting ved ikke at drille eller røre dem. Nogle kan stikke eller bide.",
-    "tip_4": "Children may require adult supervision."
+    "tip_4": "Børn kan have behov for voksent tilsyn."
   },
   "accessibility": {
     "menu": "Åbn menu",
@@ -560,12 +560,12 @@
     "completed": "Du fuldførte udfordringen og har gjort dig fortjent til udfordringens duelighedsmærke!",
     "april_2020_description": "April 2020 er 1 års jubilæet for udgivelsen af den nye Seek af iNaturalist! I det forgangne år er vi vokset betragteligt og har hjulpet over en million mennesker med at føle sig mere forbundet til verden omkring dem. Du er omgivet af natur, som bare venter på, at du går på opdagelse med Seek!\n\nDen første af vores næste runde udfordringer lyder således: Se om du kan finde 10 arter, som du ikke har observeret endnu.",
     "action_april_2020": "April er borgervidenskabsmåned! Du kan bidrage til den videnskabelige forståelse af biodiversitet som borgervidenskabsmand ved at tilføje dine Seek-observationer til iNaturalist.\n\nHvis du er 13 eller ældre (eller med dine forældres tilladelse), kan du oprette en iNaturalist-konto og tilføje observationer til iNaturalist for at dele dine observationer med et bredere publikum, inklusiv videnskabsfolk!",
-    "backyard": "Backyard Challenge",
-    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
-    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
+    "backyard": "Baghave-udfordring",
+    "may_2020_description": "Du behøver ikke bevæge dig langt for at finde natur overalt omkring dig. Selv i din baghave eller nabolag kan du finde planter, fugle og insekter, som du lever sammen med.",
+    "action_may_2020": "Brug Seek's Arter i nærheden på startskærmen til at lære om alle de fugle, planter og insekter, der er blevet observeret omkring dig og tjek deres artssider. På hvilken tid af året observeres de mest? Prøv derefter at udforske et nyt sted: Hvilke arter kan du finde nær Kairo, Paris eller Jakarta?",
     "mission_1_may_2020": "Find 5 planter",
     "mission_2_may_2020": "Find 2 insekter",
-    "mission_3_may_2020": "Find 1 arachnid",
+    "mission_3_may_2020": "Find 1 spindler",
     "mission_4_may_2020": "Find 2 fugle"
   }
 }

@@ -81,8 +81,6 @@ class PostScreen extends Component<Props, State> {
 
     const date = image.time ? setISOTime( image.time ) : null;
 
-    console.log( date, "existing date", image.time, "image time" );
-
     this.state = {
       image,
       location: null,

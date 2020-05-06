@@ -14,7 +14,6 @@ type Props = {
 }
 
 const ErrorScreen = ( { error, number }: Props ) => {
-  console.log( number, "number of hours" );
   let errorText;
 
   if ( error === "onlineVision" ) {
@@ -25,7 +24,7 @@ const ErrorScreen = ( { error, number }: Props ) => {
     errorText = i18n.t( "results.error_species" );
   } else if ( error === "downtime" ) {
     errorText = i18n.t( "results.error_downtime", {
-      number: number || i18n.t( "results.error_few" )
+      count: number || i18n.t( "results.error_few" )
     } );
   }
 

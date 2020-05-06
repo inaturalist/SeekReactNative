@@ -49,4 +49,37 @@ const { languageTag } = RNLocalize.findBestAvailableLanguage( languages ) || fal
 
 i18n.locale = languageTag;
 
+const eastSlavic = ( count ) => {
+  const mod10 = count % 10;
+  const mod100 = count % 100;
+  if ( mod10 === 1 && mod100 !== 11 ) {
+    return ["one"];
+  }
+  if (
+    ( mod10 >= 2 && mod10 <= 4 )
+    && !( mod100 >= 12 && mod100 <= 14 )
+  ) {
+    return ["few"];
+  }
+  if (
+    mod10 === 0
+    || ( mod10 >= 5 && mod10 <= 9 )
+    || ( mod100 >= 11 && mod100 <= 14 )
+  ) {
+    return ["many"];
+  }
+  return ["other"];
+};
+
+const oneUptoTwoOther = ( count ) => {
+  return count && count >= 0 && count < 2 ? ["one"] : ["other"];
+};
+
+const other = () => ["other"];
+
+i18n.pluralization.fr = function ( count ) { return oneUptoTwoOther( count ); };
+i18n.pluralization.ja = other;
+i18n.pluralization.ru = function ( count ) { return eastSlavic( count ); };
+i18n.pluralization["zh-TW"] = other;
+
 export default i18n;

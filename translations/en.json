@@ -166,7 +166,14 @@
     "no_new_challenges_header": "You have no new challenges.",
     "no_new_challenges": "We’ll let you know when new challenges are available.",
     "completed_all": "You’ve completed all available challenges!",
-    "number_observed": "{{number}} observed so far",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "This challenge will be released {{date}}.",
     "get_involved": "Get involved",
@@ -243,7 +250,14 @@
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
     "error_location": "You won't be able to view Range Maps, Species Nearby, or post observations to iNaturalist. Seek uses your location to remind you where you saw an organism and your location does not leave your device unless you post to iNaturalist.",
-    "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "a few",
     "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
     "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
@@ -257,7 +271,14 @@
     "challenge_progress": "You found another species!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
-    "number_seen": "You’ve seen {{number}} species!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "Camera",
@@ -323,7 +344,14 @@
     "your_level": "Your Level",
     "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "Achievements",
-    "observe": "Observe {{number}} species to get to the next level!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "You’ve reached the max level on Seek!",
     "observe_species": "Observe",
     "species_badges": "Species Badges",

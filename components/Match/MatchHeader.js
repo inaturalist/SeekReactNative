@@ -1,12 +1,14 @@
 // @flow
 
-import React from "react";
+import React, { useCallback } from "react";
 import {
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  BackHandler
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/match/match";
@@ -26,32 +28,47 @@ const MatchHeader = ( {
   setNavigationPath,
   userImage,
   speciesSeenImage
-}: Props ) => (
-  <LinearGradient
-    colors={[gradientColorDark, gradientColorLight]}
-    style={styles.header}
-  >
-    <TouchableOpacity
-      accessibilityLabel={i18n.t( "accessibility.back" )}
-      accessible
-      onPress={() => setNavigationPath( "Camera" )}
-      style={styles.backButton}
+}: Props ) => {
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        setNavigationPath( "Camera" );
+        return true; // following custom Android back behavior template in React Navigation
+      };
+
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [setNavigationPath] )
+  );
+
+  return (
+    <LinearGradient
+      colors={[gradientColorDark, gradientColorLight]}
+      style={styles.header}
     >
-      <Image source={icons.backButton} />
-    </TouchableOpacity>
-    <View style={[styles.imageContainer, styles.buttonContainer]}>
-      <Image
-        source={{ uri: userImage }}
-        style={styles.imageCell}
-      />
-      {speciesSeenImage && (
+      <TouchableOpacity
+        accessibilityLabel={i18n.t( "accessibility.back" )}
+        accessible
+        onPress={() => setNavigationPath( "Camera" )}
+        style={styles.backButton}
+      >
+        <Image source={icons.backButton} />
+      </TouchableOpacity>
+      <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image
-          source={{ uri: speciesSeenImage }}
-          style={[styles.imageCell, styles.marginLeft]}
+          source={{ uri: userImage }}
+          style={styles.imageCell}
         />
-      )}
-    </View>
-  </LinearGradient>
-);
+        {speciesSeenImage && (
+          <Image
+            source={{ uri: speciesSeenImage }}
+            style={[styles.imageCell, styles.marginLeft]}
+          />
+        )}
+      </View>
+    </LinearGradient>
+  );
+};
 
 export default MatchHeader;

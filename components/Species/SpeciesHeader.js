@@ -53,7 +53,6 @@ const SpeciesHeader = ( {
     }, [backAction] )
   );
 
-
   return (
     <>
       <TouchableOpacity

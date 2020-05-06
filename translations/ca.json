@@ -519,7 +519,7 @@
     "tip_1": "Estigues sempre atent al teu voltant, estigues segur i no entris en propietats privades.",
     "tip_2": "No mengis res que trobis al camp.",
     "tip_3": "Respecta totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",
-    "tip_4": "Children may require adult supervision."
+    "tip_4": "Els menors necessiten la supervisió d'un adult."
   },
   "accessibility": {
     "menu": "Obre el menú",
@@ -560,12 +560,12 @@
     "completed": "Has completat el repte i has guanyat la insígnia del repte!",
     "april_2020_description": "Abril de 2020 és el primer aniversari del llançament del nou Seek d'iNaturalist! El darrer any hem crescut molt i ajudat prop d'un milió de persones a estar més connectar amb el món que ens envolta. La Natura està al teu voltant, únicament necessites Seek per investigar-ho.",
     "action_april_2020": "Abril és el Mes de la Ciència Ciutadana! Pots contribuir al coneixement científic de la biodiversitat com a científic ciutadà enviant les teves observacions de Seek a iNaturalist.\n\nSi tens 13 anys o més (o tens el permís parental), pots fer-te un compte a iNaturalist i enviar les teves observacions a iNaturalist per compartir les teves observacions amb una gran comunitat, incloent-hi científics!",
-    "backyard": "Backyard Challenge",
-    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
+    "backyard": "Repte del teu jardí",
+    "may_2020_description": "No necessites anar molt lluny per trobar natura. Fins i tot al teu jardí o veïnat pots trobar plantes, aus i insectes que comparteixen el teu espai.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_1_may_2020": "Troba 5 plantes",
+    "mission_2_may_2020": "Troba 5 insectes",
+    "mission_3_may_2020": "Troba un aràcnid",
+    "mission_4_may_2020": "Troba 2 ocells"
   }
 }

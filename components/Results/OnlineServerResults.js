@@ -196,14 +196,9 @@ class OnlineServerResults extends Component<Props, State> {
   }
 
   addObservation() {
-    const {
-      image,
-      observation
-    } = this.state;
+    const { image, observation } = this.state;
 
-    if ( image.latitude && image.longitude ) {
-      addToCollection( observation, image );
-    }
+    addToCollection( observation, image );
   }
 
   checkSpeciesSeen( taxaId: number ) {

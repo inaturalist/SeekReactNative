@@ -34,28 +34,30 @@ const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
   }
 
   photos.forEach( ( photo ) => {
-    const image = (
-      <View key={`image${photo.photo.original_url}`}>
-        <Image
-          source={{ uri: photo.photo.original_url }}
-          style={styles.image}
-        />
-        <TouchableOpacity
-          onPress={() => Alert.alert(
-            i18n.t( "species_detail.license" ),
-            localizeAttributions( photo.photo.attribution, photo.photo.license_code, "SpeciesDetail" )
-          )}
-          style={styles.ccButton}
-        >
-          <View style={styles.ccView}>
-            <Text style={styles.ccButtonText}>
-              {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-    photoList.push( image );
+    if ( photo.license_code && photoList.length < 9 ) {
+      const image = (
+        <View key={`image${photo.original_url}`}>
+          <Image
+            source={{ uri: photo.original_url }}
+            style={styles.image}
+          />
+          <TouchableOpacity
+            onPress={() => Alert.alert(
+              i18n.t( "species_detail.license" ),
+              localizeAttributions( photo.attribution, photo.license_code, "SpeciesDetail" )
+            )}
+            style={styles.ccButton}
+          >
+            <View style={styles.ccView}>
+              <Text style={styles.ccButtonText}>
+                {i18n.t( "species_detail.cc" ).toLocaleUpperCase()}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      );
+      photoList.push( image );
+    }
   } );
 
   return (

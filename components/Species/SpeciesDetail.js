@@ -117,7 +117,7 @@ class SpeciesDetail extends Component<Props, State> {
     this.setState( { id, routeName } );
   }
 
-  setUserPhoto( seenTaxa: Object ) {
+  async setUserPhoto( seenTaxa: Object ) {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
     const { backupUri, mediumUrl } = defaultPhoto;

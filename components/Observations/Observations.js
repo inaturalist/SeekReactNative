@@ -1,12 +1,18 @@
 // @flow
 
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback
+} from "react";
 import {
   View,
   SectionList,
-  Text
+  Text,
+  BackHandler
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -34,6 +40,19 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
+
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        navigation.navigate( "Home" );
+        return true; // following custom Android back behavior template in React Navigation
+      };
+
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [navigation] )
+  );
 
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {

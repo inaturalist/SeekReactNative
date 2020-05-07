@@ -2,7 +2,6 @@
 import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
-import GalleryManager from "react-native-gallery-manager";
 import Realm from "realm";
 
 import realmConfig from "../models/index";
@@ -135,33 +134,6 @@ const createBackupUri = async ( uri, uuid ) => {
   } catch ( e ) {
     console.log( e, "couldn't resize image" );
     return null;
-  }
-};
-
-const getAlbumNames = async () => {
-  const albumNames = [{
-    label: i18n.t( "gallery.camera_roll" ),
-    value: "All"
-  }];
-
-  try {
-    const { albums } = await GalleryManager.getAlbums();
-
-    if ( albums && albums.length > 0 ) { // attempt to fix error on android
-      albums.forEach( ( album ) => {
-        const { assetCount, title } = album;
-
-        if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-          albumNames.push( {
-            label: title,
-            value: title
-          } );
-        }
-      } );
-    }
-    return albumNames;
-  } catch ( e ) {
-    return albumNames;
   }
 };
 
@@ -328,7 +300,6 @@ export {
   movePhotoToAppStorage,
   localizeAttributions,
   createBackupUri,
-  getAlbumNames,
   moveAndroidFilesToInternalStorage,
   deleteFile,
   regenerateBackupUris,

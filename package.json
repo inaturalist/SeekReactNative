@@ -31,7 +31,6 @@
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^5.5.4",
     "react-native-fs": "^2.16.6",
-    "react-native-gallery-manager": "git+https://github.com/albullington/react-native-gallery-manager.git",
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-resizer": "^1.2.1",

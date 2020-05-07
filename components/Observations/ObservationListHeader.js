@@ -1,18 +1,20 @@
 // @flow
 
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity
 } from "react-native";
+import Realm from "realm";
 
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
+import realmConfig from "../../models/index";
 
 type Props = {
   section: Object,
@@ -20,12 +22,9 @@ type Props = {
 };
 
 const ObservationListHeader = ( { section, toggleSection }: Props ) => {
-  const {
-    id,
-    data,
-    badgeCount,
-    open
-  } = section;
+  const [badgeCount, setBadgeCount] = useState( 0 );
+
+  const { id, data, open } = section;
 
   let badge;
 
@@ -39,6 +38,17 @@ const ObservationListHeader = ( { section, toggleSection }: Props ) => {
     badge = badges.badge_gold;
   }
 
+  const fetchBadgeCount = useCallback( () => {
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const count = realm.objects( "BadgeRealm" )
+        .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
+
+      setBadgeCount( count );
+    } );
+  }, [id] );
+
+  useEffect( () => fetchBadgeCount(), [fetchBadgeCount] );
+
   return (
     <TouchableOpacity
       onPress={() => toggleSection( id )}
@@ -49,7 +59,7 @@ const ObservationListHeader = ( { section, toggleSection }: Props ) => {
       </Text>
       <View style={styles.row}>
         <Text style={styles.numberText}>{data.length}</Text>
-        {badgeCount !== -1 && (
+        {id !== 1 && (
           <>
             <View style={styles.marginSmall} />
             <Image source={badge} style={styles.badgeImage} />
@@ -58,7 +68,7 @@ const ObservationListHeader = ( { section, toggleSection }: Props ) => {
         )}
         <View style={[
           styles.noMargin,
-          badgeCount === -1 && styles.marginBadgeEmpty]}
+          id === 1 && styles.marginBadgeEmpty]}
         />
         <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
       </View>

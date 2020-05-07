@@ -121,13 +121,9 @@ const createSectionList = ( realm ) => {
       .filtered( `taxon.iconicTaxonId == ${id}` )
       .sorted( "date", true );
 
-    const badgeCount = realm.objects( "BadgeRealm" )
-      .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
-
     observations.push( {
       id,
       data: data.length > 0 ? data : [],
-      badgeCount,
       open: true
     } );
   } );
@@ -142,7 +138,6 @@ const createSectionList = ( realm ) => {
   observations.push( {
     id: 1,
     data: otherData,
-    badgeCount: -1,
     open: true
   } );
 

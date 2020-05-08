@@ -42,7 +42,7 @@
   "login": {
     "log_in": "Mit iNaturalist anmelden",
     "sign_up": "Bei iNaturalist registrieren",
-    "about": " Durch das Einloggen über iNaturalist kannst du Beobachtungen zur Online-Community mit Hilfe von Seek posten.",
+    "about": " Wenn du dich über iNaturalist einloggst, kannst du mittels Seek deine Beobachtungen an die Online-Community senden.",
     "skip_login": "Weiter ohne Anmeldung",
     "error_email": "Bitte eine gültige E-Mail-Adresse eingeben",
     "error_credentials": "Falscher Benutzername oder Passwort",
@@ -390,7 +390,7 @@
     "name_plant_1": "Bronzenes Pflanzen-Abzeichen",
     "name_plant_5": "Silbernes Pflanzen-Abzeichen",
     "name_plant_20": "Goldenes Pflanzen-Abzeichen",
-    "to_earn": "Um dieses Abzeichen zu <br>\nerhalten:"
+    "to_earn": "Um dieses Abzeichen zu  \nerhalten:"
   },
   "observations": {
     "header": "Meine Beobachtungen",

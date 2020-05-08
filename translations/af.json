@@ -26,7 +26,7 @@
     "take_challenge": "Aanvaar die uitdaging",
     "continue_challenge": "Sit uitdaging voort",
     "view_all": "Bekyk alle uitdagings",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Voeg waarnemings met die Seek Kamera toe om die Uitdaging-kenteken te verdien!"
   },
   "notifications": {
     "header": "Kennisgewings",
@@ -104,9 +104,9 @@
     "settings": "Instellings"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "Gebruik Seek se Kamera om plante, diere en swamme te identifiseer",
+    "onboarding_2": "Leer oor die organismes oral om u",
+    "onboarding_3": "Verdien kentekens deur verskillende tipes spesies waar te neem",
     "skip": "Slaan oor vir nou",
     "continue": "Gaan voort"
   },
@@ -166,7 +166,7 @@
     "no_new_challenges": "Ons sal u laat weet wanneer nuwe uitdagings beskikbaar is.",
     "completed_all": "U het alle beskikbare uitdagings voltooi!",
     "number_observed": "{{number}} tot dusver waargeneem",
-    "how_to": "Complete the Seek Challenge for {{month}}!",
+    "how_to": "Voltooi die Seek-uitdaging vir {{month}}!",
     "released": "Hierdie uitdaging sal op {{date}} vrygestel word.",
     "get_involved": "Raak betrokke",
     "action_april": "Kyk of u naby ’n stad woon wat deel uitmaak van die Stedelike Natuur-uitdaging. Indien wel, wees op die uitkyk vir veldbiologiese aktiwiteite vir stadswildlewe!",
@@ -223,11 +223,11 @@
     "sorry": "Jammer daaroor, Seek leer nog!\n\nU kan ’n ander hoek probeer, zoem in of probeer ’n duideliker beeld van die organisme kry.",
     "take_photo": "Neem nog ’n foto",
     "common_ancestor": "Maar Seek kon nie die presiese spesie identifiseer nie.\n\nU kan ’n ander hoek probeer, zoem in of probeer ’n duideliker beeld van die organisme kry.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Ons glo dit is ’n lid van",
+    "genus": "Ons glo dit is ’n lid van die genus",
+    "family": "Ons glo dit is ’n lid van die familie",
+    "order": "Ons glo dit is ’n lid van die orde",
+    "class": "Ons glo dit is ’n lid van die klas",
     "resighted": "U het die spesie weer waargeneem!",
     "date_observed": "U het dit aanvanklik op {{seenDate}} waargeneem",
     "post_inat": "Indien u die oorspronklike foto van die organisme geneem het kan u Seek oor hierdie spesie help oplei deur dit op iNaturalist te plaas waar die gemeenskap dit sal help identifiseer en toekomstige weergawes kan verbeter.",
@@ -273,16 +273,16 @@
     "family": "familie",
     "genus": "genus",
     "species": "spesies",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Ons benodig toegang tot u kamera om te help om spesies te identifiseer!",
     "error_gallery": "Ons benodig toegang tot u filmrol om geneemde foto’s te bewaar!",
     "permissions": "Aktiveer toestemmings in instellings",
     "error_classifier": "Jammer, ons kon nie die klassifiseerder laai nie",
-    "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_camera": "Jammer, ons kon nie die kamera laai nie",
+    "error_device": "Jammer, die toestel wat u gebruik word nie gesteun nie",
     "error_save": "Jammer, daar was ’n probleem met die bewaar van u foto",
-    "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_take": "Jammer, ons kon nie u foto vasvang nie",
+    "error_photos": "Geen foto’s is in hierdie album gevind nie. Kies asb. ’n ander album.",
+    "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}."
   },
   "gallery": {
     "label": "Foto’s",
@@ -519,7 +519,7 @@
     "tip_1": "Wees altyd bewus van u omgewing, wees veilig en moenie onregmatig betree nie.",
     "tip_2": "Moet niks eet wat u in die veld vind nie.",
     "tip_3": "Respekteer ander lewende wesens deur hulle nie te steur of aan te raak nie. Hulle kan steek of byt.",
-    "tip_4": "Children may require adult supervision."
+    "tip_4": "Kinders vereis dalk ouerbegeleiding."
   },
   "accessibility": {
     "menu": "Open kieslys",
@@ -545,27 +545,27 @@
     "some": "sommige regte voorbehou"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Stuur ontfoutlogs per e-pos"
   },
   "settings": {
-    "header": "Seek Camera",
-    "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "header": "Seek-kamera",
+    "common_names": "Vertoon Volksname",
+    "scientific_names": "Vertoon Wetenskaplike Name"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
-    "completed": "You completed the challenge and earned the challenge badge!",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "backyard": "Backyard Challenge",
-    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
-    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "badge": "Seek-kenteken",
+    "header": "U het die Seek-uitdaging vir {{date}} voltooi!",
+    "text": "Dankie vir u deelname aan die globale uitdaging! Seek is hier om te help om u met al die spesies om ons te verbind. Gaan na buite, ontdek en leer oor die natuur oral om u!",
+    "citizen_science": "Burgerwetenskap-uitdaging",
+    "completed": "U het die uitdaging voltooi en die uitdagingkenteken verdien!",
+    "april_2020_description": "April 2020 is die een jaar herdenking van die vrystelling van die nuwe Seek deur iNaturalist! In die afgelope jaar het ons baie gegroei en meer as ’n miljoen mense gehelp om nader aan die wêreld om hulle te leef. Die natuur is oral om u, u moet net Soek om dit te vind.\n\nOm weg te val het ons nog uitdagings; kyk of u 10 spesies kan vind wat u nog nie waargeneem het nie.",
+    "action_april_2020": "April is Burgerwetenskapmaand! U kan as ’n burgerwetenskaplike tot die wetenskaplike kennis van biodiversiteit bydra deur u Seek-waarnemings op iNaturalist te plaas.\n\nIndien u 13 of ouer is (met ouergoedkeuring) kan u ’n iNaturalist-rekening skep en waarnemings op iNaturalist plaas om u waarnemings met ’n breër gmeenskap, insluitend wetenskaplikes, te deel!",
+    "backyard": "Agtertuin-uitdaging",
+    "may_2020_description": "U hoef nie ver te gaan om die natuur oral om u te vind nie. Selfs in u agtertuin of buurt kan u plante, voëls en insekte vind wat die ruimte met u deel.",
+    "action_may_2020": "Gebruik Seek se ‘Spesies naby’ op die beginskerm om iets te leer oor alle voëls, plante en insekte wat om u waargeneem is en bekyk hul spesiebladsye. In welke seisoen is hulle die meeste waargeneem? Probeer dan êrens iets nuuts verken: welke spesies kan u naby Kaïro, Parys, Potchefstroom aantref?",
+    "mission_1_may_2020": "Vind 5 plante",
+    "mission_2_may_2020": "Vind 2 insekte",
+    "mission_3_may_2020": "Vind 1 aragnied",
+    "mission_4_may_2020": "Vind 2 voëls"
   }
 }

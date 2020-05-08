@@ -10,12 +10,14 @@ import {
   View,
   SectionList,
   Text,
-  BackHandler
+  BackHandler,
+  Platform
 } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
+import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
 import realmConfig from "../../models";
 import i18n from "../../i18n";
@@ -28,7 +30,6 @@ import SectionHeader from "./SectionHeader";
 import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import BottomSpacer from "../UIComponents/BottomSpacer";
 import GreenHeader from "../UIComponents/GreenHeader";
 
 const ObservationList = () => {
@@ -55,6 +56,26 @@ const ObservationList = () => {
     }, [navigation] )
   );
 
+  const getItemLayout = sectionListGetItemLayout( {
+    getItemHeight: () => 80,
+    getSeparatorHeight: () => 18,
+    getSectionHeaderHeight: () => 42,
+    getSectionFooterHeight: () => 69,
+    listHeaderHeight: 75 // GreenHeader height
+  } );
+
+  const scrollToLocation = () => {
+    if ( sectionList.current ) {
+      console.log( sectionList.current.scrollToLocation, "scroll to location" );
+      sectionList.current.scrollToLocation( {
+        animated: Platform.OS === "android",
+        itemIndex: 0,
+        sectionIndex: 3,
+        viewOffset: 60
+      } );
+    }
+  };
+
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {
       id,
@@ -70,6 +91,7 @@ const ObservationList = () => {
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
   const toggleSection = ( id ) => {
+    // scrollToLocation();
     const idToHide = sections.indexOf( id );
 
     if ( idToHide !== -1 ) {
@@ -126,49 +148,20 @@ const ObservationList = () => {
     const { id, data } = section;
     if ( data.length === 0 && sections.includes( id ) ) {
       return (
-        <>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>
-              {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-            </Text>
-          </View>
-          {id === 1 && <BottomSpacer />}
-        </>
+        <Text style={styles.text}>
+          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+        </Text>
       );
     }
     return null;
   };
 
-  let content;
-
-  if ( loading ) {
-    content = (
-      <View style={styles.loadingWheel}>
-        <LoadingWheel color={colors.darkGray} />
-      </View>
-    );
-  } else {
-    content = (
-      <SectionList
-        ref={sectionList}
-        contentContainerStyle={[styles.padding, styles.flexGrow]}
-        initialNumToRender={6}
-        keyExtractor={( item, index ) => item + index}
-        renderItem={( { item, section } ) => renderItem( item, section )}
-        renderSectionFooter={( { section } ) => renderFooter( section )}
-        renderSectionHeader={( { section } ) => (
-          <SectionHeader
-            section={section}
-            sections={sections}
-            toggleSection={toggleSection}
-          />
-        )}
-        sections={observations}
-        stickySectionHeadersEnabled={false}
-        ListEmptyComponent={() => <EmptyState />}
-      />
-    );
-  }
+  const renderSectionSeparator = ( section ) => {
+    if ( sections.includes( section.id ) ) {
+      return <View style={styles.sectionSeparator} />;
+    }
+    return null;
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -184,7 +177,35 @@ const ObservationList = () => {
         />
       </Modal>
       <View style={styles.whiteContainer}>
-        {content}
+        {loading ? (
+          <View style={[styles.center, styles.flexGrow]}>
+            <LoadingWheel color={colors.darkGray} />
+          </View>
+        ) : (
+          <SectionList
+            ref={sectionList}
+            contentContainerStyle={styles.flexGrow}
+            sections={observations}
+            initialNumToRender={5}
+            stickySectionHeadersEnabled={false}
+            getItemLayout={getItemLayout}
+            keyExtractor={( item, index ) => item + index}
+            ListHeaderComponent={() => <View style={styles.top} />}
+            renderSectionHeader={( { section } ) => (
+              <SectionHeader
+                section={section}
+                sections={sections}
+                toggleSection={toggleSection}
+              />
+            )}
+            renderItem={( { item, section } ) => renderItem( item, section )}
+            ItemSeparatorComponent={() => <View style={styles.separator} />}
+            renderSectionFooter={( { section } ) => renderFooter( section )}
+            SectionSeparatorComponent={( { section } ) => renderSectionSeparator( section )}
+            ListFooterComponent={() => <View style={styles.padding} />}
+            ListEmptyComponent={() => <EmptyState />}
+          />
+        )}
       </View>
     </View>
   );

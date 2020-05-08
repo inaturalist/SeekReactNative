@@ -1,15 +1,12 @@
 import { StyleSheet, Platform } from "react-native";
 import {
+  center,
   colors,
   fonts
 } from "../global";
 
 export default StyleSheet.create( {
-  badgeImage: {
-    height: 25,
-    resizeMode: "contain",
-    width: 22
-  },
+  center,
   container: {
     backgroundColor: colors.seekForestGreen,
     flex: 1
@@ -17,69 +14,27 @@ export default StyleSheet.create( {
   flexGrow: {
     flexGrow: 1
   },
-  headerRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    marginBottom: 23,
-    marginHorizontal: 25,
-    marginTop: 18
-  },
-  loadingWheel: {
-    alignItems: "center",
-    flexGrow: 1,
-    justifyContent: "center"
-  },
-  margin: {
-    marginRight: 19
-  },
-  marginBadgeEmpty: {
-    marginRight: -1
-  },
-  marginOpen: {
-    marginRight: 15
-  },
-  marginSmall: {
-    marginRight: 7
-  },
-  noMargin: {
-    marginRight: null
-  },
-  numberText: {
-    color: colors.black,
-    fontFamily: fonts.light,
-    fontSize: 18,
-    letterSpacing: 0.78,
-    marginRight: 6,
-    marginTop: Platform.OS === "ios" ? 4 : 0
-  },
   padding: {
     backgroundColor: colors.white,
-    paddingBottom: Platform.OS === "android" ? 40 : 60
+    paddingBottom: Platform.OS === "android" ? 48 : 68
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center"
+  sectionSeparator: {
+    marginBottom: 14
   },
-  secondHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    marginTop: 4
+  separator: {
+    marginBottom: 18
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
+    marginBottom: 24,
+    marginTop: 4,
     textAlign: "center"
   },
-  textContainer: {
-    alignItems: "center",
-    marginHorizontal: 25
+  top: {
+    paddingTop: 24
   },
   whiteContainer: {
     backgroundColor: colors.white,

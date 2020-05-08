@@ -4,7 +4,6 @@ const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   card: {
-    marginBottom: 18,
     marginHorizontal: 24
   },
   deleteButton: {

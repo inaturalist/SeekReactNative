@@ -10,7 +10,7 @@ import {
 import Realm from "realm";
 
 import i18n from "../../i18n";
-import styles from "../../styles/observations/observations";
+import styles from "../../styles/observations/sectionHeader";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
@@ -55,20 +55,16 @@ const SectionHeader = ( { section, sections, toggleSection }: Props ) => {
       onPress={() => toggleSection( id )}
       style={styles.headerRow}
     >
-      <Text style={styles.secondHeaderText}>
+      <Text allowFontScaling={false} style={styles.headerText}>
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
       </Text>
       <View style={styles.row}>
-        <Text style={styles.numberText}>{data.length}</Text>
-        {id !== 1 && (
-          <>
-            <View style={styles.marginSmall} />
-            <Image source={badge} style={styles.badgeImage} />
-            <View style={[styles.margin, open && styles.marginOpen]} />
-          </>
-        )}
-        <View style={[styles.noMargin, id === 1 && styles.marginBadgeEmpty]} />
-        <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
+        <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
+        {id !== 1 && <Image source={badge} style={[styles.badge, badgeCount === 0 && styles.empty]} />}
+        <Image
+          source={open ? icons.dropdownOpen : icons.dropdownClosed}
+          style={[styles.margin, open && styles.marginOpen]}
+        />
       </View>
     </TouchableOpacity>
   );

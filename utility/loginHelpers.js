@@ -19,10 +19,6 @@ const checkIsUsernameValid = ( username ) => {
   return false;
 };
 
-const setIsLoggedIn = ( loggedIn ) => {
-  AsyncStorage.setItem( "logged_in", loggedIn.toString() );
-};
-
 const saveAccessToken = ( token ) => {
   AsyncStorage.setItem( "access_token", token.toString() );
 };
@@ -71,7 +67,6 @@ export {
   saveAccessToken,
   fetchAccessToken,
   removeAccessToken,
-  setIsLoggedIn,
   checkIsEmailValid,
   checkIsUsernameValid,
   savePostingSuccess,

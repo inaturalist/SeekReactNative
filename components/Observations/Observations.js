@@ -24,7 +24,7 @@ import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
-import ObservationListHeader from "./ObservationListHeader";
+import SectionHeader from "./SectionHeader";
 import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
@@ -40,6 +40,7 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
+  const [sections, setSections] = useState( Object.keys( taxaIds ) );
 
   useFocusEffect(
     useCallback( () => {
@@ -69,17 +70,15 @@ const ObservationList = () => {
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
   const toggleSection = ( id ) => {
-    const updatedObs = observations.slice();
-    const section = updatedObs.find( item => item.id === id );
+    const idToHide = sections.indexOf( id );
 
-    // $FlowFixMe
-    if ( section.open === true ) {
-      // $FlowFixMe
-      section.open = false;
+    if ( idToHide !== -1 ) {
+      sections.splice( idToHide, 1 );
     } else {
-      // $FlowFixMe
-      section.open = true;
+      sections.push( id );
     }
+
+    const updatedObs = observations.slice();
 
     setObservations( updatedObs );
   };
@@ -109,6 +108,37 @@ const ObservationList = () => {
     fetchObservations();
   };
 
+  const renderItem = ( item, section ) => {
+    if ( sections.includes( section.id ) ) {
+      return (
+        <ObservationCard
+          item={item}
+          itemScrolledId={itemScrolledId}
+          openModal={openModal}
+          updateItemScrolledId={updateItemScrolledId}
+        />
+      );
+    }
+    return null;
+  };
+
+  const renderFooter = ( section ) => {
+    const { id, data } = section;
+    if ( data.length === 0 && sections.includes( id ) ) {
+      return (
+        <>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>
+              {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+            </Text>
+          </View>
+          {id === 1 && <BottomSpacer />}
+        </>
+      );
+    }
+    return null;
+  };
+
   let content;
 
   if ( loading ) {
@@ -124,42 +154,14 @@ const ObservationList = () => {
         contentContainerStyle={[styles.padding, styles.flexGrow]}
         initialNumToRender={6}
         keyExtractor={( item, index ) => item + index}
-        renderItem={( { item, section } ) => {
-          if ( section.open === true ) {
-            return (
-              <ObservationCard
-                item={item}
-                itemScrolledId={itemScrolledId}
-                openModal={openModal}
-                updateItemScrolledId={updateItemScrolledId}
-              />
-            );
-          }
-          return null;
-        }}
-        renderSectionFooter={( {
-          section: {
-            id,
-            data,
-            open
-          }
-        } ) => {
-          if ( data.length === 0 && open ) {
-            return (
-              <>
-                <View style={styles.textContainer}>
-                  <Text style={styles.text}>
-                    {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-                  </Text>
-                </View>
-                {id === 1 && <BottomSpacer />}
-              </>
-            );
-          }
-          return null;
-        }}
+        renderItem={( { item, section } ) => renderItem( item, section )}
+        renderSectionFooter={( { section } ) => renderFooter( section )}
         renderSectionHeader={( { section } ) => (
-          <ObservationListHeader section={section} toggleSection={toggleSection} />
+          <SectionHeader
+            section={section}
+            sections={sections}
+            toggleSection={toggleSection}
+          />
         )}
         sections={observations}
         stickySectionHeadersEnabled={false}

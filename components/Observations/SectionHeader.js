@@ -18,13 +18,14 @@ import realmConfig from "../../models/index";
 
 type Props = {
   section: Object,
+  sections: Object,
   toggleSection: Function
 };
 
-const ObservationListHeader = ( { section, toggleSection }: Props ) => {
+const SectionHeader = ( { section, sections, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
-
-  const { id, data, open } = section;
+  const { id, data } = section;
+  const open = sections.includes( id );
 
   let badge;
 
@@ -66,14 +67,11 @@ const ObservationListHeader = ( { section, toggleSection }: Props ) => {
             <View style={[styles.margin, open && styles.marginOpen]} />
           </>
         )}
-        <View style={[
-          styles.noMargin,
-          id === 1 && styles.marginBadgeEmpty]}
-        />
+        <View style={[styles.noMargin, id === 1 && styles.marginBadgeEmpty]} />
         <Image source={open ? icons.dropdownOpen : icons.dropdownClosed} />
       </View>
     </TouchableOpacity>
   );
 };
 
-export default ObservationListHeader;
+export default SectionHeader;

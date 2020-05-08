@@ -110,38 +110,30 @@ const removeFromCollection = ( id ) => {
 };
 
 const createSectionList = ( realm ) => {
-  const observations = [];
+  const obs = [];
   const species = realm.objects( "ObservationRealm" );
 
-  const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
-  taxaIdList.pop();
+  const taxaList = Object.keys( iconicTaxaIds ).reverse();
+  taxaList.pop();
 
-  taxaIdList.forEach( ( id ) => {
+  taxaList.forEach( ( id ) => {
     const data = species
       .filtered( `taxon.iconicTaxonId == ${id}` )
       .sorted( "date", true );
 
-    observations.push( {
-      id,
-      data: data.length > 0 ? data : [],
-      open: true
-    } );
+    obs.push( { id, data } );
   } );
 
-  sortNewestToOldest( observations );
+  sortNewestToOldest( obs );
 
   const otherData = species
     .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
     .sorted( "date", true );
   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-  observations.push( {
-    id: 1,
-    data: otherData,
-    open: true
-  } );
+  obs.push( { id: 1, data: otherData } );
 
-  return species.length > 0 ? observations : [];
+  return obs;
 };
 
 export {

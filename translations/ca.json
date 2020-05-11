@@ -37,7 +37,8 @@
     "challenge_completed": "Felicitats! Has completat un repte",
     "view_challenges": "Mostra el repte",
     "none": "Encara no tens notificacions!",
-    "about": "Aquí rebràs la notificacions de nous reptes a mesura estiguin disponibles, actualitzacions de Seek i altres informacions rellevants."
+    "about": "Aquí rebràs la notificacions de nous reptes a mesura estiguin disponibles, actualitzacions de Seek i altres informacions rellevants.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Entra amb iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "No tens nous reptes.",
     "no_new_challenges": "T'avisarem quan tinguis nous reptes disponibles.",
     "completed_all": "Has completat tots els reptes disponibles en aquest moment!",
-    "number_observed": "{{number}} observats fins ara",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Completa el Repte de Seek de {{month}}!",
     "released": "Aquest repte es llençarà el {{date}}.",
     "get_involved": "Implica't",
@@ -242,7 +250,14 @@
     "error_image": "Ho sentim, no hem pogut processar la teva imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_species": "Ho sentim, no hem pogut identificar detalls de l'espècie a aquesta imatge. Si us plau, comprova la teva connexió a internet i prova-ho de nou.",
     "error_location": "Per afegir espècies a les teves observacions, has d’habilitar la teva ubicació. Seek utilitza la teva ubicació per recordar-te on has vist un organisme i fer les teves contribucions de ciència ciutadana si les publiques a iNaturalist.",
-    "error_downtime": "Servei temporalment no disponible. Si us plau, prova-ho de nou passades {{number}} hores.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "unes",
     "error_gps": "No hem pogut trobar la teva localització de GPS. Prova de desplaçar-te a un lloc on puguis veure el cel i comprova que la ubicació del dispositiu està activada per desar les observacions.",
     "error_timeout": "No hem pogut desar la teva observació a causa d'un error d'ubicació (location timeout). Si us plau, intenta-ho més tard.",
@@ -256,7 +271,14 @@
     "challenge_progress": "Has trobat una altra espècie!",
     "challenge_view": "Veure el teu progrés",
     "level_up": "Has passat de nivell!",
-    "number_seen": "Has vist {{number}} espècies!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "Càmera",
@@ -322,7 +344,14 @@
     "your_level": "El teu nivell",
     "login": "Entra amb iNaturalist per enviar observacions a la comunitat en línia!",
     "achievements": "Fites",
-    "observe": "Observa {{number}} especies per passar al següent nivell!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "Has assolit el màxim nivell a Seek!",
     "observe_species": "Observa",
     "species_badges": "Insígnies d'espècies",

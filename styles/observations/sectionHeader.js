@@ -15,19 +15,17 @@ export default StyleSheet.create( {
   empty: {
     marginRight: -1
   },
-  headerRow: {
-    flexDirection: "row",
-    flexWrap: "nowrap",
+  header: {
+    height: 39,
     justifyContent: "space-between",
-    marginHorizontal: 24,
-    marginVertical: 10
+    marginHorizontal: 24
   },
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    marginTop: 4
+    marginTop: Platform.OS === "ios" ? 6 : 0
   },
   margin: {
     marginLeft: 19

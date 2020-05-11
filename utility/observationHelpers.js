@@ -1,10 +1,9 @@
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";
-import { sortNewestToOldest, capitalizeNames } from "./helpers";
+import { capitalizeNames } from "./helpers";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
-import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import { createBackupUri, deleteFile } from "./photoHelpers";
 import { createNotification } from "./notificationHelpers";
 import realmConfig from "../models/index";
@@ -109,18 +108,23 @@ const removeFromCollection = ( id ) => {
     } );
 };
 
+const sortNewestToOldest = ( observations ) => {
+  observations.sort( ( a, b ) => {
+    if ( a.data.length > b.data.length ) {
+      return -1;
+    }
+    return 1;
+  } );
+};
+
 const createSectionList = ( realm ) => {
   const obs = [];
   const species = realm.objects( "ObservationRealm" );
 
-  const taxaList = Object.keys( iconicTaxaIds ).reverse();
-  taxaList.pop();
+  const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];
 
   taxaList.forEach( ( id ) => {
-    const data = species
-      .filtered( `taxon.iconicTaxonId == ${id}` )
-      .sorted( "date", true );
-
+    const data = species.filtered( `taxon.iconicTaxonId == ${id}` ).sorted( "date", true );
     obs.push( { id, data } );
   } );
 

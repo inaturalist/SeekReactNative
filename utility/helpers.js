@@ -209,15 +209,6 @@ const getRoute = async () => {
   }
 };
 
-const sortNewestToOldest = ( observations ) => {
-  observations.sort( ( a, b ) => {
-    if ( a.data.length > b.data.length ) {
-      return -1;
-    }
-    return 1;
-  } );
-};
-
 const checkForIconicTaxonId = ( ancestorIds ) => {
   const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
   taxaIdList.pop();
@@ -285,7 +276,6 @@ export {
   getRoute,
   checkForInternet,
   checkForIconicTaxonId,
-  sortNewestToOldest,
   fetchNumberSpeciesSeen,
   createJwtToken,
   localizeNumber,

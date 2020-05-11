@@ -41,7 +41,7 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
-  const [sections, setSections] = useState( Object.keys( taxaIds ) );
+  const [hiddenSections, setHiddenSections] = useState( Object.keys( taxaIds ) );
 
   useFocusEffect(
     useCallback( () => {
@@ -92,16 +92,15 @@ const ObservationList = () => {
 
   const toggleSection = ( id ) => {
     // scrollToLocation();
-    const idToHide = sections.indexOf( id );
+    const idToHide = hiddenSections.indexOf( id );
 
     if ( idToHide !== -1 ) {
-      sections.splice( idToHide, 1 );
+      hiddenSections.splice( idToHide, 1 );
     } else {
-      sections.push( id );
+      hiddenSections.push( id );
     }
 
-    const updatedObs = observations.slice();
-
+    const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
     setObservations( updatedObs );
   };
 
@@ -131,44 +130,35 @@ const ObservationList = () => {
   };
 
   const renderItem = ( item, section ) => {
-    if ( sections.includes( section.id ) ) {
-      return (
-        <ObservationCard
-          item={item}
-          itemScrolledId={itemScrolledId}
-          openModal={openModal}
-          updateItemScrolledId={updateItemScrolledId}
-        />
-      );
+    console.log( item, section, "item section" );
+    if ( hiddenSections.includes( section.id ) ) {
+      return <View />;
     }
-    return null;
+    return (
+      <ObservationCard
+        item={item}
+        itemScrolledId={itemScrolledId}
+        openModal={openModal}
+        updateItemScrolledId={updateItemScrolledId}
+      />
+    );
   };
 
   const renderFooter = ( section ) => {
     const { id, data } = section;
-    if ( data.length === 0 && sections.includes( id ) ) {
-      return (
-        <Text style={styles.text}>
-          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-        </Text>
-      );
-    }
-    return null;
-  };
-
-  const renderSectionSeparator = ( section ) => {
-    if ( sections.includes( section.id ) ) {
+    if ( hiddenSections.includes( section.id ) || data.length > 0 ) {
       return <View style={styles.sectionSeparator} />;
     }
-    return null;
+    return (
+      <Text style={[styles.text, styles.sectionSeparator]}>
+        {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+      </Text>
+    );
   };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <GreenHeader
-        header="observations.header"
-        route="Home"
-      />
+      <GreenHeader header="observations.header" route="Home" />
       <Modal isVisible={showModal}>
         <DeleteModal
           deleteObservation={deleteObservation}
@@ -186,22 +176,23 @@ const ObservationList = () => {
             ref={sectionList}
             contentContainerStyle={styles.flexGrow}
             sections={observations}
+            extraData={hiddenSections}
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
             getItemLayout={getItemLayout}
             keyExtractor={( item, index ) => item + index}
-            ListHeaderComponent={() => <View style={styles.top} />}
+            ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}
-                sections={sections}
+                hiddenSections={hiddenSections}
                 toggleSection={toggleSection}
               />
             )}
             renderItem={( { item, section } ) => renderItem( item, section )}
-            ItemSeparatorComponent={() => <View style={styles.separator} />}
+            ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
             renderSectionFooter={( { section } ) => renderFooter( section )}
-            SectionSeparatorComponent={( { section } ) => renderSectionSeparator( section )}
+            SectionSeparatorComponent={() => <View style={styles.sectionSeparator} />}
             ListFooterComponent={() => <View style={styles.padding} />}
             ListEmptyComponent={() => <EmptyState />}
           />

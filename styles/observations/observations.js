@@ -14,27 +14,23 @@ export default StyleSheet.create( {
   flexGrow: {
     flexGrow: 1
   },
+  itemSeparator: {
+    marginBottom: 18
+  },
   padding: {
     backgroundColor: colors.white,
-    paddingBottom: Platform.OS === "android" ? 48 : 68
+    paddingBottom: Platform.OS === "android" ? 24 : 44
   },
   sectionSeparator: {
-    marginBottom: 14
-  },
-  separator: {
-    marginBottom: 18
+    paddingBottom: 14
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginBottom: 24,
     marginTop: 4,
     textAlign: "center"
-  },
-  top: {
-    paddingTop: 24
   },
   whiteContainer: {
     backgroundColor: colors.white,

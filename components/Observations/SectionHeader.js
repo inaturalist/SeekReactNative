@@ -18,14 +18,14 @@ import realmConfig from "../../models/index";
 
 type Props = {
   section: Object,
-  sections: Object,
+  hiddenSections: Object,
   toggleSection: Function
 };
 
-const SectionHeader = ( { section, sections, toggleSection }: Props ) => {
+const SectionHeader = ( { section, hiddenSections, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
   const { id, data } = section;
-  const open = sections.includes( id );
+  const closed = hiddenSections.includes( id );
 
   let badge;
 
@@ -53,7 +53,7 @@ const SectionHeader = ( { section, sections, toggleSection }: Props ) => {
   return (
     <TouchableOpacity
       onPress={() => toggleSection( id )}
-      style={styles.headerRow}
+      style={[styles.header, styles.row]}
     >
       <Text allowFontScaling={false} style={styles.headerText}>
         {i18n.t( taxaIds[id] ).toLocaleUpperCase()}
@@ -62,8 +62,8 @@ const SectionHeader = ( { section, sections, toggleSection }: Props ) => {
         <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
         {id !== 1 && <Image source={badge} style={[styles.badge, badgeCount === 0 && styles.empty]} />}
         <Image
-          source={open ? icons.dropdownOpen : icons.dropdownClosed}
-          style={[styles.margin, open && styles.marginOpen]}
+          source={closed ? icons.dropdownClosed : icons.dropdownOpen}
+          style={closed ? styles.margin : styles.marginOpen}
         />
       </View>
     </TouchableOpacity>

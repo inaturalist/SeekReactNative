@@ -37,7 +37,8 @@
     "challenge_completed": "Félicitations ! Vous avez réussi un défi",
     "view_challenges": "Afficher le défi",
     "none": "Vous n'avez pas encore de notifications !",
-    "about": "C'est ici que vous serez averti des nouveaux défis \ndisponibles, des mises à jour de Seek et que vous recevrez les informations utiles."
+    "about": "C'est ici que vous serez averti des nouveaux défis \ndisponibles, des mises à jour de Seek et que vous recevrez les informations utiles.",
+    "new_challenge": "Un nouveau challenge est disponible !"
   },
   "login": {
     "log_in": " Se connecter sur iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": " Vous n'avez aucun nouveau défi.",
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
-    "number_observed": "{{number}} observé(es) jusqu'à maintenant",
+    "number_observed": {
+      "zero": "{{count}} observé(s) pour l'instant",
+      "one": "{{count}} observé(s) pour l'instant",
+      "two": "{{count}} observé(s) pour l'instant",
+      "few": "{{count}} observé(s) pour l'instant",
+      "many": "{{count}} observé(s) pour l'instant",
+      "other": "{{count}} observé(s) pour l'instant"
+    },
     "how_to": "Complétez le défi Seek pour le mois de {{month}} !",
     "released": "Ce défi sera publié le {{date}}.",
     "get_involved": "S’engager",
@@ -242,7 +250,14 @@
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer aux sciences participatives si vous avez effectué des publications sur iNaturalist.",
-    "error_downtime": "Service temporairement indisponible. Merci de réessayer dans {{number}} heure(s).",
+    "error_downtime": {
+      "zero": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "one": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "two": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "few": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "many": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "other": "Service temporairement indisponible. Réessayez dans {{count}} heures."
+    },
     "error_few": "quelques",
     "error_gps": "Nous n’avons pas réussi à vous localiser. Pour enregistrer les observations, merci d’essayer de vous déplacer à un endroit où vous pouvez voir le ciel ainsi que de vérifier si le service de localisation de votre appareil est activé.",
     "error_timeout": "Nous n’avons pas réussi à enregistrer vos observations en raison d’un délai de localisation trop long. Merci de réessayer plus tard.",
@@ -256,7 +271,14 @@
     "challenge_progress": "Vous avez trouvé une autre espèce !",
     "challenge_view": "Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
-    "number_seen": "Vous avez observé {{number}} espèce(s) !"
+    "number_seen": {
+      "zero": "Tu as vu {{count}} espèces !",
+      "one": "Tu as vu {{count}} espèces !",
+      "two": "Tu as vu {{count}} espèces !",
+      "few": "Tu as vu {{count}} espèces !",
+      "many": "Tu as vu {{count}} espèces !",
+      "other": "Tu as vu {{count}} espèces !"
+    }
   },
   "camera": {
     "label": " Caméra",
@@ -322,7 +344,14 @@
     "your_level": "Votre niveau",
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
     "achievements": "Progression",
-    "observe": "Observez {{number}} espèce(s) pour accéder au prochain niveau !",
+    "observe": {
+      "zero": "Observe {{count}} espèces pour passer au prochain niveau !",
+      "one": "Observe {{count}} espèces pour passer au prochain niveau !",
+      "two": "Observe {{count}} espèces pour passer au prochain niveau !",
+      "few": "Observe {{count}} espèces pour passer au prochain niveau !",
+      "many": "Observe {{count}} espèces pour passer au prochain niveau !",
+      "other": "Observe {{count}} espèces pour passer au prochain niveau !"
+    },
     "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
     "species_badges": "Badges d'espèces",

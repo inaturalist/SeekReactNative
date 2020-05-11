@@ -1,16 +1,11 @@
 // @flow
 
-import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ScrollView
-} from "react-native";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/login/login";
-import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "../Signup/ErrorMessage";
 import InputField from "../UIComponents/InputField";
@@ -18,51 +13,17 @@ import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
-type Props = {
-  +navigation: any
-}
+const ForgotPasswordScreen = () => {
+  const { navigate } = useNavigation();
+  const [email, setEmail] = useState( null );
+  const [error, setError] = useState( false );
 
-type State = {
-  email: string,
-  error: boolean
-}
-
-class ForgotPasswordScreen extends Component<Props, State> {
-  constructor() {
-    super();
-
-    this.state = {
-      email: "",
-      error: false
-    };
-  }
-
-  setError( error: boolean ) {
-    this.setState( { error } );
-  }
-
-  checkEmail() {
-    const { email } = this.state;
-
-    if ( checkIsEmailValid( email ) ) {
-      this.setError( false );
-      this.emailForgotPassword();
-    } else {
-      this.setError( true );
-    }
-  }
-
-  emailForgotPassword() {
-    const { email } = this.state;
-
+  const emailForgotPassword = () => {
     const token = createJwtToken();
 
-    const params = {
-      user: {
-        email
-      }
-    };
+    const params = { user: { email } };
 
     const headers = {
       "Content-Type": "application/json",
@@ -80,55 +41,48 @@ class ForgotPasswordScreen extends Component<Props, State> {
       method: "POST",
       body: JSON.stringify( params ),
       headers
-    } )
-      .then( ( responseJson ) => {
-        const { status } = responseJson;
-        if ( status === 200 ) {
-          this.submit();
-        }
-      } ).catch( ( err ) => {
-        console.log( err, "error" );
-      } );
-  }
+    } ).then( ( responseJson ) => {
+      const { status } = responseJson;
+      if ( status === 200 ) {
+        navigate( "PasswordEmail" );
+      }
+    } ).catch( ( err ) => console.log( err, "error" ) );
+  };
 
-  submit() {
-    const { navigation } = this.props;
-    navigation.navigate( "PasswordEmail" );
-  }
+  const checkEmail = () => {
+    if ( checkIsEmailValid( email ) ) {
+      setError( false );
+      emailForgotPassword();
+    } else {
+      setError( true );
+    }
+  };
 
-  render() {
-    const { email, error } = this.state;
-
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <GreenHeader header="inat_login.forgot_password_header" />
-        <ScrollView>
-          <View style={styles.margin} />
-          <Text style={[styles.header, styles.marginHorizontal]}>
-            {i18n.t( "inat_login.no_worries" )}
-          </Text>
-          <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
-            <GreenText smaller text="inat_login.email" />
-          </View>
-          <InputField
-            handleTextChange={value => this.setState( { email: value } )}
-            placeholder="email"
-            text={email}
-            type="emailAddress"
-          />
-          {error
-            ? <ErrorMessage error="email" />
-            : <View style={styles.marginLarge} />}
-          <GreenButton
-            handlePress={() => this.checkEmail()}
-            login
-            text="inat_login.reset"
-          />
-        </ScrollView>
+  return (
+    <ScrollWithHeader header="inat_login.forgot_password_header">
+      <View style={styles.margin} />
+      <Text allowFontScaling={false} style={[styles.header, styles.marginHorizontal]}>
+        {i18n.t( "inat_login.no_worries" )}
+      </Text>
+      <View style={[styles.leftTextMargins, styles.marginExtraLarge]}>
+        <GreenText allowFontScaling={false} smaller text="inat_login.email" />
       </View>
-    );
-  }
-}
+      <InputField
+        handleTextChange={value => setEmail( value )}
+        placeholder="email"
+        text={email}
+        type="emailAddress"
+      />
+      {error
+        ? <ErrorMessage error="email" />
+        : <View style={styles.marginLarge} />}
+      <GreenButton
+        handlePress={() => checkEmail()}
+        login
+        text="inat_login.reset"
+      />
+    </ScrollWithHeader>
+  );
+};
 
 export default ForgotPasswordScreen;

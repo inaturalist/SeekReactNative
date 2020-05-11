@@ -25,7 +25,7 @@ const PercentCircle = ( { challenge, large }: Props ) => (
     radius={large ? ( 113 / 2 ) : ( 59 / 2 )}
     shadowColor={colors.circleGray}
   >
-    <Text style={large ? styles.largeCircleText : styles.circleText}>
+    <Text allowFontScaling={false} style={large ? styles.largeCircleText : styles.circleText}>
       {localizePercentage( challenge.percentComplete )}
     </Text>
   </ProgressCircle>

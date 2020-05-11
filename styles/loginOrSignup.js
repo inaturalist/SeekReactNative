@@ -23,6 +23,9 @@ export default StyleSheet.create( {
   marginSmall: {
     marginTop: 25
   },
+  scrollContainer: {
+    flexGrow: 1
+  },
   text: {
     color: colors.white,
     fontFamily: fonts.medium,

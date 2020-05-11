@@ -25,7 +25,7 @@ const WarningModal = ( { closeModal }: Props ) => (
     width={dimensions.height > 570 ? 337 : 320}
   >
     <View style={styles.header}>
-      <Text style={styles.headerText}>
+      <Text allowFontScaling={false} style={styles.headerText}>
         {i18n.t( "warning.remember" ).toLocaleUpperCase()}
       </Text>
     </View>
@@ -37,7 +37,7 @@ const WarningModal = ( { closeModal }: Props ) => (
           <React.Fragment key={warning}>
             <View style={styles.row}>
               <Image source={iconName} style={styles.image} />
-              <Text style={styles.text}>
+              <Text allowFontScaling={false} style={styles.text}>
                 {i18n.t( `warning.tip_${warning}` )}
               </Text>
             </View>
@@ -46,12 +46,13 @@ const WarningModal = ( { closeModal }: Props ) => (
         );
       } )}
       <View style={styles.marginSmall} />
-      <Text style={[styles.text, styles.wideText]}>
+      <Text allowFontScaling={false} style={[styles.text, styles.wideText]}>
         {i18n.t( "warning.tip_4" )}
       </Text>
     </View>
     <View style={styles.button}>
       <GreenButton
+        allowFontScaling={false}
         handlePress={() => closeModal()}
         text="onboarding.continue"
         width={dimensions.height < 570 ? 271 : 285}

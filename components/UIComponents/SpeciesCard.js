@@ -18,7 +18,8 @@ type Props = {
   +photo: Object,
   +iconicTaxonId?: ?number,
   +commonName: ?string,
-  +scientificName: string
+  +scientificName: string,
+  +allowFontScaling?: boolean
 }
 
 const SpeciesCard = ( {
@@ -26,71 +27,42 @@ const SpeciesCard = ( {
   photo,
   iconicTaxonId,
   commonName,
-  scientificName
+  scientificName,
+  allowFontScaling
 }: Props ) => (
-  <>
-    {handlePress ? (
-      <TouchableOpacity
-        onPress={() => handlePress()}
-        style={[styles.touchableArea, styles.row]}
+  <TouchableOpacity
+    onPress={() => handlePress()}
+    style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
+    disabled={!handlePress}
+  >
+    {iconicTaxonId ? (
+      <ImageBackground
+        imageStyle={styles.image}
+        source={iconicTaxa[iconicTaxonId]}
+        style={styles.image}
       >
-        {iconicTaxonId ? (
-          <ImageBackground
-            imageStyle={styles.image}
-            source={iconicTaxa[iconicTaxonId]}
-            style={styles.image}
-          >
-            <Image source={photo} style={styles.image} />
-          </ImageBackground>
-        ) : <Image source={photo} style={styles.image} />}
-        {commonName || scientificName ? (
-          <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {commonName || scientificName}
-            </Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
-        ) : (
-          <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {i18n.t( "posting.unknown" )}
-            </Text>
-          </View>
-        )}
-      </TouchableOpacity>
-    ) : (
-      <View style={[styles.notTouchable, styles.row]}>
-        {iconicTaxonId ? (
-          <ImageBackground
-            imageStyle={styles.image}
-            source={iconicTaxa[iconicTaxonId]}
-            style={styles.image}
-          >
-            <Image source={photo} style={styles.image} />
-          </ImageBackground>
-        ) : <Image source={photo} style={styles.image} />}
-        {commonName || scientificName ? (
-          <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {commonName || scientificName}
-            </Text>
-            <Text style={styles.scientificNameText}>{scientificName}</Text>
-          </View>
-        ) : (
-          <View style={styles.speciesNameContainer}>
-            <Text style={styles.commonNameText}>
-              {i18n.t( "posting.unknown" )}
-            </Text>
-          </View>
-        )}
-      </View>
-    )}
-  </>
+        <Image source={photo} style={styles.image} />
+      </ImageBackground>
+    ) : <Image source={photo} style={styles.image} />}
+    <View style={styles.speciesNameContainer}>
+      <Text allowFontScaling={allowFontScaling} style={styles.commonNameText}>
+        {( commonName || scientificName )
+          ? commonName || scientificName
+          : i18n.t( "posting.unknown" )}
+      </Text>
+      {scientificName && (
+        <Text allowFontScaling={allowFontScaling} style={styles.scientificNameText}>
+          {scientificName}
+        </Text>
+      )}
+    </View>
+  </TouchableOpacity>
 );
 
 SpeciesCard.defaultProps = {
   iconicTaxonId: null,
-  handlePress: null
+  handlePress: null,
+  allowFontScaling: true
 };
 
 export default SpeciesCard;

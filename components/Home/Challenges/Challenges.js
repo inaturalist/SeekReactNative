@@ -17,7 +17,6 @@ import { colors } from "../../../styles/global";
 import ChallengeTitle from "../../UIComponents/Challenges/ChallengeTitle";
 import ChallengeBadgeRow from "../../UIComponents/Challenges/ChallengeBadgeRow";
 
-
 type Props = {
   +challenge: Object
 }

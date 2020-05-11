@@ -17,6 +17,7 @@ import {
   dirModel,
   dirTaxonomy
 } from "./dirStorage";
+import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
   new Promise( ( resolve ) => {
@@ -266,6 +267,8 @@ const localizeNumber = ( number ) => {
 
 const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
 
+const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
+
 export {
   addARCameraFiles,
   capitalizeNames,
@@ -286,5 +289,6 @@ export {
   fetchNumberSpeciesSeen,
   createJwtToken,
   localizeNumber,
-  localizePercentage
+  localizePercentage,
+  requiresSafeArea
 };

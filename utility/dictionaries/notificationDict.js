@@ -16,6 +16,12 @@ const notifications = {
     message: "notifications.view_challenges",
     iconName: "op",
     nextScreen: "ChallengeDetails"
+  },
+  newChallenge: {
+    title: "notifications.new_challenge",
+    message: "notifications.view_challenges",
+    iconName: "badge_empty",
+    nextScreen: "ChallengeDetails"
   }
 };
 

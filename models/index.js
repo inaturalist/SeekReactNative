@@ -18,6 +18,6 @@ export default {
     ReviewRealm,
     TaxonRealm
   ],
-  schemaVersion: 14,
+  schemaVersion: 15,
   path: "db.realm"
 };

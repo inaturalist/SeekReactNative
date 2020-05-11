@@ -1,9 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import { colors } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.seekForestGreen,
+    backgroundColor: Platform.OS === "android" ? colors.white : colors.seekForestGreen,
     flex: 1
   },
   containerWhite: {

@@ -1,14 +1,15 @@
-import { StyleSheet, Platform } from "react-native";
-import { colors, fonts } from "../global";
+import { StyleSheet } from "react-native";
+import { colors, fonts, padding } from "../global";
 
 export default StyleSheet.create( {
   greenButton: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
     flexDirection: "row",
-    height: 29,
-    marginBottom: 7,
-    marginRight: 10
+    marginBottom: 6,
+    marginRight: 10,
+    paddingBottom: 4,
+    paddingTop: 4
   },
   greenButtonContainer: {
     flexDirection: "row",
@@ -21,6 +22,6 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     paddingHorizontal: 9,
-    paddingTop: Platform.OS === "ios" ? 6 : 3
+    paddingTop: padding.iOSButtonPadding
   }
 } );

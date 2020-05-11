@@ -1,17 +1,17 @@
 import { StyleSheet, Platform } from "react-native";
 import {
+  center,
   colors,
   fonts,
   dimensions
 } from "../../global";
+import { enabledLargeFonts } from "../../../utility/textHelpers";
 
 export default StyleSheet.create( {
   button: {
-    alignItems: "center",
     backgroundColor: colors.red,
     borderRadius: 40,
-    height: 46,
-    justifyContent: "center",
+    height: enabledLargeFonts() ? 79 : 46,
     width: 243
   },
   buttonText: {
@@ -23,6 +23,7 @@ export default StyleSheet.create( {
     paddingTop: Platform.OS === "ios" ? 7 : 0,
     textAlign: "center"
   },
+  center,
   extraPadding: {
     paddingHorizontal: 26
   },

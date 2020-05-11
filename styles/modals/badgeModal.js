@@ -30,6 +30,11 @@ export default StyleSheet.create( {
     top: 190,
     zIndex: 1
   },
+  bullets: {
+    color: colors.seekForestGreen,
+    fontSize: 37,
+    marginHorizontal: 41
+  },
   carousel: {
     alignItems: "center",
     maxWidth: 366,
@@ -44,11 +49,24 @@ export default StyleSheet.create( {
   imageStyle: {
     resizeMode: "contain"
   },
+  leftArrow: {
+    left: 27,
+    position: "absolute",
+    top: 190,
+    transform: [{ rotate: "180deg" }],
+    zIndex: 1
+  },
   margin: {
     marginBottom: 9
   },
+  marginBottom: {
+    marginBottom: 27
+  },
   marginLarge: {
     marginTop: 39
+  },
+  marginMedium: {
+    marginBottom: 11
   },
   nameText: {
     color: colors.black,
@@ -59,13 +77,15 @@ export default StyleSheet.create( {
   },
   row: {
     flexDirection: "row",
-    flexWrap: "nowrap",
-    marginBottom: 47
+    flexWrap: "nowrap"
   },
   smallImage: {
     height: 57,
     marginHorizontal: 20,
     resizeMode: "contain",
     width: 57
+  },
+  transparent: {
+    color: colors.white
   }
 } );

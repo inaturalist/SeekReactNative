@@ -89,24 +89,23 @@ class TaxonPicker extends Component<Props> {
         ref={( el ) => {
           this.inputRefs.picker2 = el;
         }}
-        hideIcon
         items={types}
         onValueChange={( value ) => {
           this.setTaxonType( value );
         }}
+        Icon={() => <></>}
         placeholder={{}}
         useNativeAndroidPickerStyle={false}
         value={taxonType}
         disabled={error !== null}
       >
-        <TouchableOpacity style={[styles.row, styles.marginLeft, styles.paddingBottom]}>
+        <TouchableOpacity style={[styles.row, styles.marginLeft]}>
           <Image source={icons.filter} style={styles.image} />
           <View style={styles.whiteButton}>
             <Text style={styles.buttonText}>
               {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
             </Text>
           </View>
-          <View style={styles.marginBottom} />
         </TouchableOpacity>
       </RNPickerSelect>
     );

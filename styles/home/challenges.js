@@ -4,7 +4,7 @@ import { colors, fonts } from "../global";
 export default StyleSheet.create( {
   challengeContainer: {
     backgroundColor: colors.darkGray,
-    height: 340
+    flex: 1
   },
   container: {
     backgroundColor: colors.white,
@@ -14,9 +14,6 @@ export default StyleSheet.create( {
     paddingBottom: Platform.OS === "ios" ? 19 : 21,
     paddingLeft: 22,
     paddingTop: 21
-  },
-  loading: {
-    height: 332
   },
   marginMedium: {
     marginTop: 28

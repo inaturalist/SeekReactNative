@@ -2,7 +2,7 @@
 import AsyncStorage from "@react-native-community/async-storage";
 
 const checkIsEmailValid = ( email ) => {
-  if ( email.length > 5 ) {
+  if ( email && email.length > 5 ) {
     if ( email.includes( "@" ) && email.includes( "." ) ) {
       return true;
     }
@@ -11,16 +11,12 @@ const checkIsEmailValid = ( email ) => {
 };
 
 const checkIsUsernameValid = ( username ) => {
-  if ( username.length >= 3 && username.length <= 40 ) {
+  if ( username && ( username.length >= 3 && username.length <= 40 ) ) {
     if ( typeof ( username.charAt( 0 ) ) !== "number" ) {
       return true;
     }
   }
   return false;
-};
-
-const setIsLoggedIn = ( loggedIn ) => {
-  AsyncStorage.setItem( "logged_in", loggedIn.toString() );
 };
 
 const saveAccessToken = ( token ) => {
@@ -71,7 +67,6 @@ export {
   saveAccessToken,
   fetchAccessToken,
   removeAccessToken,
-  setIsLoggedIn,
   checkIsEmailValid,
   checkIsUsernameValid,
   savePostingSuccess,

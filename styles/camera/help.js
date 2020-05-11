@@ -7,36 +7,32 @@ export default StyleSheet.create( {
   bullets: {
     fontSize: 26,
     lineHeight: 21,
+    marginLeft: 13,
     marginRight: 20,
-    marginTop: 18
+    marginTop: 3
   },
-  container: {
-    backgroundColor: colors.white,
-    flex: 1
+  headerText: {
+    color: colors.seekForestGreen,
+    fontFamily: fonts.semibold,
+    fontSize: 19,
+    letterSpacing: 1.12,
+    marginBottom: 11,
+    marginTop: 35
   },
   howText: {
     marginRight: 36,
     width: height > 570 ? 192 : 140
   },
   row,
-  secondHeaderText: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    marginTop: 35,
-    textAlign: "left"
-  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
-    lineHeight: 21,
-    marginTop: 11
+    lineHeight: 21
   },
   textContainer: {
     backgroundColor: colors.white,
-    marginHorizontal: 26,
+    marginHorizontal: 30,
     marginTop: 20
   },
   tipContainer: {
@@ -44,11 +40,11 @@ export default StyleSheet.create( {
   },
   tips: {
     flexDirection: "row",
-    flexWrap: "nowrap"
+    flexWrap: "nowrap",
+    marginBottom: 11
   },
   topImage: {
-    height: 180,
-    overflow: "hidden",
+    height: width / 2.5,
     resizeMode: "cover",
     width
   }

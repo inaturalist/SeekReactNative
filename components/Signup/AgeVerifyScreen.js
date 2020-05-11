@@ -71,10 +71,10 @@ class AgeVerifyScreen extends Component<Props, State> {
         <SafeAreaView />
         <GreenHeader header="login.sign_up" />
         <View style={styles.flexCenter}>
-          <Text style={styles.header}>
+          <Text style={styles.header} allowFontScaling={false}>
             {i18n.t( "inat_signup.enter_birthday" )}
           </Text>
-          <Text style={styles.text}>
+          <Text style={styles.text} allowFontScaling={false}>
             {i18n.t( "inat_signup.permission" )}
           </Text>
           <View style={styles.marginLarge} />
@@ -99,12 +99,14 @@ class AgeVerifyScreen extends Component<Props, State> {
           />
           <View style={[styles.row, styles.center]}>
             <Text
+              allowFontScaling={false}
               onPress={() => navigation.navigate( "Privacy" )}
               style={styles.privacy}
             >
               {i18n.t( "inat_signup.privacy" )}
             </Text>
             <Text
+              allowFontScaling={false}
               onPress={() => navigation.navigate( "TermsOfService" )}
               style={[styles.privacy, styles.marginLeftSmall]}
             >

@@ -1,24 +1,29 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  row
+  row,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
   buttonText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
-    fontSize: 19,
-    letterSpacing: 1.12,
-    paddingTop: Platform.OS === "ios" ? 6 : 0
+    fontSize: 18,
+    letterSpacing: 1,
+    paddingTop: padding.iOSButtonPadding
   },
   container: {
     backgroundColor: colors.seekForestGreen
   },
+  greenMargin: {
+    marginBottom: 20
+  },
   header: {
-    marginLeft: 22,
-    marginTop: 21
+    marginBottom: 22,
+    marginLeft: 23,
+    marginTop: 23
   },
   headerText: {
     color: colors.white,
@@ -28,12 +33,13 @@ export default StyleSheet.create( {
   },
   image: {
     height: 21,
+    marginLeft: 10,
     marginRight: 13,
     resizeMode: "contain",
     width: 16
   },
   marginBottom: {
-    marginBottom: 7
+    marginBottom: 23
   },
   marginLeft: {
     marginLeft: 22
@@ -47,13 +53,13 @@ export default StyleSheet.create( {
   row,
   speciesNearbyContainer: {
     backgroundColor: colors.speciesNearbyGreen,
-    height: 231
+    height: 223
   },
   whiteButton: {
     backgroundColor: colors.white,
     borderRadius: 6,
-    height: 29,
-    justifyContent: "center",
-    paddingHorizontal: 9
+    paddingBottom: 4,
+    paddingHorizontal: 9,
+    paddingTop: 4
   }
 } );

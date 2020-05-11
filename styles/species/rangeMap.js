@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet, Platform } from "react-native";
 import { colors, fonts } from "../global";
 
 const { width, height } = Dimensions.get( "screen" );
@@ -10,8 +10,9 @@ export default StyleSheet.create( {
   legend: {
     backgroundColor: colors.seekForestGreen,
     borderTopRightRadius: 40,
-    height: height > 670 ? 70 : 50,
-    width: 126
+    paddingBottom: ( Platform.OS === "ios" && height > 670 ) ? 23 : 13,
+    paddingLeft: 22,
+    paddingRight: 28
   },
   legendHeader: {
     backgroundColor: colors.seekForestGreen,

@@ -82,6 +82,9 @@
 		374AF64122DE43690040B45F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = ../da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
 		378785D6244E5B7C00D4509C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		378785E4245A1F1B00D4509C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = ../fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		378785E5245A1F2400D4509C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = ../cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		378785E6245A1F2B00D4509C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = ../he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		379A071821C4328C00F176E3 /* Seek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Seek.entitlements; path = Seek/Seek.entitlements; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -352,6 +355,9 @@
 				nb,
 				sv,
 				af,
+				fi,
+				cs,
+				he,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -515,6 +521,9 @@
 				37E6180B23CD007500B7600B /* nb */,
 				37DA6882242AB4C000F3C235 /* sv */,
 				37DA6884242AB4CB00F3C235 /* af */,
+				378785E4245A1F1B00D4509C /* fi */,
+				378785E5245A1F2400D4509C /* cs */,
+				378785E6245A1F2B00D4509C /* he */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

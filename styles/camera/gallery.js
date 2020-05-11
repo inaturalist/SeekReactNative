@@ -7,6 +7,8 @@ import {
   dimensions
 } from "../global";
 
+import { enabledLargeFonts } from "../../utility/textHelpers";
+
 export default StyleSheet.create( {
   backButton: {
     left: 0,
@@ -31,17 +33,13 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 55
   },
-  headerContainer: {
-    alignSelf: "center",
-    position: "absolute",
-    top: 15
-  },
   headerText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
-    fontSize: 18,
+    fontSize: enabledLargeFonts() ? 13 : 18,
     letterSpacing: 1.0,
-    paddingTop: Platform.OS === "ios" ? 3 : 0
+    maxWidth: dimensions.width - 100,
+    paddingTop: Platform.OS === "ios" ? 5 : 0
   },
   image: {
     height: dimensions.width / 4 - 2,

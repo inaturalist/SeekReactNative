@@ -249,7 +249,7 @@
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",    
-    "error_location": "You won't be able to view Range Maps, Species Nearby, or post observations to iNaturalist. Seek uses your location to remind you where you saw an organism and your location does not leave your device unless you post to iNaturalist.",
+    "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
     "error_downtime": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -259,8 +259,8 @@
       "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "a few",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_gps": "Seek can't detect your GPS location. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Try moving to a place where you can see the sky and check that your device's location services are turned on.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Species nearby in this taxon",
     "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
     "tap": "Tap to load species nearby"
@@ -535,7 +535,7 @@
     "captive": "Captive/Cultivated?",
     "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
-    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Delete species?",

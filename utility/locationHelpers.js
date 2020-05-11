@@ -51,41 +51,23 @@ const fetchLocationName = ( lat, lng ) => (
   } )
 );
 
-const createLocationPermissionsAlert = () => {
-  Alert.alert(
-    i18n.t( "results.enable_location" ),
-    i18n.t( "results.error_location" ),
-    [{
+const createLocationAlert = ( errorCode ) => {
+  let body;
+  const button = [{ text: i18n.t( "posting.ok" ), style: "default" }];
+
+  if ( errorCode === 1 ) {
+    body = i18n.t( "results.error_location" );
+    button.unshift( {
       text: i18n.t( "species_nearby.enable_location" ),
       onPress: () => OpenSettings.openSettings()
-    },
-    {
-      text: i18n.t( "posting.ok" ),
-      style: "default"
-    }]
-  );
-};
+    } );
+  } else if ( errorCode === 2 ) {
+    body = i18n.t( "results.error_gps" );
+  } else {
+    body = i18n.t( "results.error_timeout" );
+  }
 
-const createGPSAlert = () => {
-  Alert.alert(
-    i18n.t( "species_nearby.no_gps" ),
-    i18n.t( "results.error_gps" ),
-    [{
-      text: i18n.t( "posting.ok" ),
-      style: "default"
-    }]
-  );
-};
-
-const createLocationTimeoutAlert = () => {
-  Alert.alert(
-    i18n.t( "species_nearby.location_timeout" ),
-    i18n.t( "results.error_timeout" ),
-    [{
-      text: i18n.t( "posting.ok" ),
-      style: "default"
-    }]
-  );
+  Alert.alert( i18n.t( "results.enable_location" ), body, button );
 };
 
 const checkForTruncatedCoordinates = ( latitude ) => {
@@ -106,8 +88,6 @@ export {
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation,
-  createLocationPermissionsAlert,
-  createGPSAlert,
-  createLocationTimeoutAlert,
+  createLocationAlert,
   checkForTruncatedCoordinates
 };

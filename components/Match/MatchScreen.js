@@ -33,11 +33,7 @@ import {
   showAppStoreReview,
   showPlayStoreReview
 } from "../../utility/reviewHelpers";
-import {
-  createLocationPermissionsAlert,
-  createGPSAlert,
-  createLocationTimeoutAlert
-} from "../../utility/locationHelpers";
+import { createLocationAlert } from "../../utility/locationHelpers";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
 
@@ -245,13 +241,7 @@ class MatchScreen extends Component<Props, State> {
     const { image, errorCode } = this.state;
 
     if ( !image.latitude ) {
-      if ( errorCode === 1 ) {
-        createLocationPermissionsAlert();
-      } else if ( errorCode === 2 ) {
-        createGPSAlert();
-      } else {
-        createLocationTimeoutAlert();
-      }
+      createLocationAlert( errorCode );
     }
   }
 

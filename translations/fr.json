@@ -518,7 +518,8 @@
     "remember": "Mémoriser",
     "tip_1": "Soyez toujours en alerte, restez en sécurité et ne pénétrez pas sur les propriétés privées et les zones protégées.",
     "tip_2": "Ne mangez pas ce que vous trouvez dans la nature.",
-    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre."
+    "tip_3": "Respectez les autres êtres vivants. Inutile de les harceler et de les toucher. Certains d’entre eux peuvent vous piquer ou vous mordre.",
+    "tip_4": "Les enfants peuvent avoir besoin de la supervision d'un adulte."
   },
   "accessibility": {
     "menu": "Ouvrir le menu",
@@ -559,6 +560,12 @@
     "completed": "Vous avez terminé le défi et remporté le badge !",
     "april_2020_description": "En avril 2020 la nouvelle application Seek créée par iNaturalist fête ses un an ! Durant cette année, nous avons beaucoup grandi et aidé plus d'un million de personnes à se sentir plus proches du monde qui les entoure. La nature est tout autour de vous, il vous suffit d'y prêter attention !\n\nAfin de commencer notre prochaine série de défis, voyez si vous pouvez trouver 10 espèces que vous n'avez pas encore observées.",
     "action_april_2020": "Avril est le mois des sciences participatives ! Vous pouvez contribuer à la compréhension scientifique de la biodiversité en tant que citoyen scientifique en publiant vos observations Seek sur iNaturalist.\n\nSi vous avez 13 ans ou plus (ou avec une autorisation parentale), vous pouvez créer un compte iNaturalist et y publier des observations pour partager les partager avec une communauté plus large, y compris des scientifiques !",
-    "tbd": "TBD Challenge"
+    "backyard": "Défi du jardin",
+    "may_2020_description": "Pas besoin d'aller loin pour être au contact de la nature. Que ce soit dans votre jardin ou dans votre quartier, vous pourrez trouver des plantes, des oiseaux et des insectes.",
+    "action_may_2020": "Utilisez la fonction \"Espèces à proximité\" sur l'écran d'accueil pour savoir quels oiseaux, insectes et plantes ont été observés près de chez vous et consulter la page de leur espèce. À quelle période de l'année peuvent-ils être observés ? Puis, essayez d’explorer un nouvel endroit : quelles espèces peut-on trouver au Caire, à Paris ou à Jakarta ?",
+    "mission_1_may_2020": "Trouvez 5 plantes",
+    "mission_2_may_2020": "Trouvez 2 insectes",
+    "mission_3_may_2020": "Trouvez 1 arachnide",
+    "mission_4_may_2020": "Trouvez 2 oiseaux"
   }
 }

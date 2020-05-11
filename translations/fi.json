@@ -478,12 +478,12 @@
     "edit_location": "Muokkaa sijaintia",
     "save_location": "Tallenna sijainti",
     "unknown": "Tuntematon",
-    "posting": "Posting your Observation",
+    "posting": "Havaintosi lähetetään",
     "posting_success": "Lähetetty iNaturalistille!",
     "posting_failure": "Lähetys iNaturalistille epäonnistui",
-    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
-    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
-    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
+    "error_photo_upload": "Havaintosi lähetettiin iNaturalistille, mutta valokuvaasi ei valitettavasti voitu ladata.\n\nKokeile kirjautua iNaturalist-verkko- tai mobiilisovellukseen nähdäksesi havaintosi ja lisätäksesi kuvan.",
+    "error_observation": "Havaintoasi ei lähetetty iNaturalistille. Tarkista Internet-yhteytesi ja yritä uudelleen.",
+    "error_token": "Emme pystyneet muodostamaan todennettua yhteyttä iNaturalist-palvelimelle. Yritä uudelleen myöhemmin.",
     "ok": "OK",
     "wait": "Tämä voi kestää hetken",
     "look_up": "Etsi lajia nimellä"
@@ -506,7 +506,7 @@
     "captive": "Tarhattu/viljelty?",
     "no": "Tämä on organismi, jota esiintyy normaalisti luonnossa ja jota ihmiset eivät ole tuoneet tälle alueelle.",
     "yes": "Ihmiset toivat tämän organismin tälle alueelle. Tämä koskee muun muassa puutarhakasveja, lemmikkejä ja eläintarhaeläimiä.",
-    "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
+    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
   },
   "delete": {
     "header": "Poista laji?",
@@ -519,6 +519,7 @@
     "tip_1": "Ole aina tietoinen ympäristöstäsi, pysy turvassa, äläkä mene luvatta alueelle.",
     "tip_2": "Älä syö mitään, mitä löydät luonnosta.",
     "tip_3": "Kunnioita muita eläviä, älä häiritse tai kosketa niitä. Jotkut saattavat pistää tai purra."
+    "tip_4": "Children may require adult supervision."
   },
   "accessibility": {
     "menu": "Avaa valikko",
@@ -559,6 +560,12 @@
     "completed": "Suoritit haasteen ja ansaitsit haastemerkin!",
     "april_2020_description": "Huhtikuussa 2020 on kulunut vuosi siitä, kun iNaturalist julkaisi uuden Seekin! Olemme kuluneen vuoden aikana kasvaneet paljon ja auttaneet yli miljoonaa ihmistä pääsemään paremmin yhteyteen ympäröivän maailman kanssa. Luonto on ympärilläsi, sinun on vain etsittävä (Seek) se!\n\nAloita seuraava haastekierros katsomalla, pystytkö löytämään 10 lajia, joita et ole vielä havainnut.",
     "action_april_2020": "Huhtikuu on kansalaistiede-kuukausi! Voit osallistua biologisen monimuotoisuuden tieteelliseen ymmärtämiseen kansalaistutkijana lähettämällä Seek-havaintoihisi iNaturalistille.\n\nJos olet vähintään 13-vuotias (tai vanhempien luvalla), voit luoda iNaturalist-tilin ja lähettää havaintoja iNaturalistille jakaaksesi havaintosi laajemmalle yhteisölle, tutkijat mukaan lukien!",
-    "tbd": "TBD Challenge"
+    "backyard": "Backyard Challenge",
+    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
+    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
+    "mission_1_may_2020": "Find 5 plants",
+    "mission_2_may_2020": "Find 2 insects",
+    "mission_3_may_2020": "Find 1 arachnid",
+    "mission_4_may_2020": "Find 2 birds"
   }
 }

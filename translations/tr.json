@@ -518,7 +518,8 @@
     "remember": "Anımsa",
     "tip_1": "Sürekli çevrenizin farkında olun, güvende kalın ve izinsiz girmeyin.",
     "tip_2": "Doğada bulduğun hiçbir şeyi yeme.",
-    "tip_3": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır."
+    "tip_3": "Diğer canlılara zarar vermeden ya da dokunmadan saygı gösterin. Bazıları acı verebilir ya da ısırır.",
+    "tip_4": "Çocuklar için yetişkin gözetimi gerektirebilir."
   },
   "accessibility": {
     "menu": "Menüyü Aç",
@@ -559,6 +560,12 @@
     "completed": "Mücadeleyi tamamladın ve mücadele rozetini kazandın!",
     "april_2020_description": "Nisan 2020, yeni Seek'in iNaturalist tarafından piyasaya sürülmesinin ilk yıl dönümüdür! Geçtiğimiz yıl, çok büyüdük ve bir milyondan çok insanın çevresindeki dünyayla daha bağlantılı hissetmesine yardımcı olduk. Doğa her yerdedir, yalnızca Arayın!\n\nBir sonraki mücadelenize başlamak için henüz gözlemlemediğiniz 10 türü bulabilecek misiniz?",
     "action_april_2020": "Nisan, Vatandaş Bilim Ayı! Bir vatandaş bilimci olarak biyoçeşitliliğin bilimsel olarak anlaşılmasına iNaturalist'e Seek gözlemlerinizi göndererek katkıda bulunabilirsiniz.\n\n13 yaşında ya da daha büyükseniz (ya da ebeveyn izniyle), iNaturalist'te bir hesap açabilir ve gözlemlerinizi bilim adamlarını da içermek üzere daha geniş bir toplulukla paylaşmak için iNaturalist'e gönderebilirsiniz!",
-    "tbd": "TBD Mücadelesi"
+    "backyard": "Arka Bahçe Mücadelesi",
+    "may_2020_description": "Çevrenizdeki doğayı bulmak için uzağa gitmenize gerek yok. Yalnızca arka bahçenizde ya da mahallenizde bile çevrenizi paylaşan bitkiler, kuşlar ve böcekler bulabilirsiniz.",
+    "action_may_2020": "Çevrenizde gözlemlenen tüm kuşları, bitkileri ve böcekleri öğrenmek ve tür sayfalarına göz atmak için ana ekranda Seek'in Yakındaki Türleri'ni kullanın. Yılın en çok hangi döneminde gözlemlenirler? O zaman yeni bir yer keşfetmeye çalışın: Kahire, Paris ya da Jakarta yakınlarında hangi türleri bulabilirdiniz?",
+    "mission_1_may_2020": "5 bitki bul",
+    "mission_2_may_2020": "2 böcek bul",
+    "mission_3_may_2020": "1 eklembacaklı bul",
+    "mission_4_may_2020": "2 kuş bul"
   }
 }

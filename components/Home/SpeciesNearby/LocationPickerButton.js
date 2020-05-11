@@ -47,7 +47,7 @@ const LocationPickerButton = ( {
       </Modal>
       <TouchableOpacity
         onPress={() => openLocationPicker()}
-        style={[styles.row, styles.marginLeft, styles.paddingBottom, styles.paddingTop]}
+        style={[styles.row, styles.marginLeft, styles.paddingBottom]}
         disabled={error !== null}
       >
         <Image source={icons.locationWhite} style={styles.image} />

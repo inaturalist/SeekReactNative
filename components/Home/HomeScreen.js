@@ -1,12 +1,18 @@
 // @flow
 
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from "react";
 import {
   View,
   ScrollView,
-  StatusBar
+  StatusBar,
+  BackHandler
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/home/home";
@@ -41,6 +47,18 @@ const HomeScreen = () => {
     };
     checkForFirstLaunch();
   }, [] );
+
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        return true; // following custom Android back behavior template in React Navigation
+      };
+
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [] )
+  );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

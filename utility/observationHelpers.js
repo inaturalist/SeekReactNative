@@ -71,9 +71,8 @@ const addToCollection = async ( observation, image ) => {
           uuidString: uuid,
           date: time ? setISOTime( time ) : new Date(),
           taxon: newTaxon,
-          latitude,
-          longitude,
-          placeName: null
+          latitude: latitude || null,
+          longitude: longitude || null
         } );
       } );
       const newLength = realm.objects( "TaxonRealm" ).length;

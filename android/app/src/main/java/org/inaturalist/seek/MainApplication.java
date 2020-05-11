@@ -2,6 +2,9 @@ package org.inaturalist.seek;
 
 import android.app.Application;
 import android.content.Context;
+// SharedPreferences and File are for the Google Maps fix
+import android.content.SharedPreferences;
+import java.io.File;
 
 import com.facebook.react.PackageList;
 import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
@@ -47,9 +50,10 @@ public class MainApplication extends Application implements ReactApplication {
 
   @Override
   public void onCreate() {
+    super.onCreate();
     try {
       /*
-        This try/catch is intended to patch fix the Google Maps server issue introduced 4/24/20
+        This try/catch is intended to patch fix the Google Maps server issue introduced 4/23/20
       */
       SharedPreferences hasFixedGoogleBug154855417 = getSharedPreferences("google_bug_154855417", Context.MODE_PRIVATE);
       if (!hasFixedGoogleBug154855417.contains("fixed")) {
@@ -69,7 +73,6 @@ public class MainApplication extends Application implements ReactApplication {
 
     }
 
-    super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
   }

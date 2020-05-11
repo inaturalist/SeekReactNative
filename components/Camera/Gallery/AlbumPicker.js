@@ -23,8 +23,6 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
     updateAlbum( value );
   };
 
-  console.log( "picker rendering" );
-
   return (
     <Picker
       handleValueChange={handleValueChange}
@@ -32,7 +30,7 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
       icon={<Image source={icons.dropdownOpen} style={styles.margin} />}
       itemList={albumNames}
     >
-      <View style={styles.row}>
+      <View style={[styles.row, styles.center]}>
         <Text style={styles.headerText}>
           {album === "All"
             ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()

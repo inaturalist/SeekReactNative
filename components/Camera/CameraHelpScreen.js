@@ -25,24 +25,20 @@ const CameraHelpScreen = () => {
         <Image source={icons.cameraHelpTop} style={styles.topImage} />
         <View style={styles.textContainer}>
           <Text style={styles.text}>{i18n.t( "camera_help.explanation_1" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.headerText}>{i18n.t( "camera_help.header" ).toLocaleUpperCase()}</Text>
           <Text style={styles.text}>{i18n.t( "camera_help.explanation_2" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.headerText}>{i18n.t( "camera_help.header_1" ).toLocaleUpperCase()}</Text>
           <View style={styles.row}>
-            <View style={styles.howText}>
-              <Text style={styles.text}>{i18n.t( "camera_help.how_works" )}</Text>
-            </View>
+            <Text style={[styles.text, styles.howText]}>{i18n.t( "camera_help.how_works" )}</Text>
             <Image source={icons.cameraHelpTree} />
           </View>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.headerText}>{i18n.t( "camera_help.header_2" ).toLocaleUpperCase()}</Text>
           <Text style={styles.text}>{i18n.t( "camera_help.tips" )}</Text>
-          <Text style={styles.secondHeaderText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
+          <Text style={styles.headerText}>{i18n.t( "camera_help.header_3" ).toLocaleUpperCase()}</Text>
           {tips.map( ( tip ) => (
             <View key={`${tip}`} style={styles.tips}>
               <Text style={styles.bullets}>&#8226;</Text>
-              <View style={styles.tipContainer}>
-                <Text style={styles.text}>{tip}</Text>
-              </View>
+              <Text style={[styles.text, styles.tipContainer]}>{tip}</Text>
             </View>
           ) )}
         </View>

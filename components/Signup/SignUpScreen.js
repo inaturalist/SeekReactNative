@@ -1,13 +1,11 @@
 // @flow
 
 import React, { Component } from "react";
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 
 import i18n from "../../i18n";
 import config from "../../config";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import ErrorMessage from "./ErrorMessage";
@@ -16,6 +14,7 @@ import GreenButton from "../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../utility/userAgent";
 import { createJwtToken } from "../../utility/helpers";
 import { UserContext } from "../UserContext";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 type Props = {
   +route: any,
@@ -166,39 +165,35 @@ class SignUpScreen extends Component<Props, State> {
     return (
       <UserContext.Consumer>
         {user => (
-          <View style={styles.container}>
-            <SafeAreaView />
-            <GreenHeader header="login.sign_up" />
-            <ScrollView>
-              <View style={styles.leftTextMargins}>
-                <GreenText smaller text="inat_login.username" />
-              </View>
-              <InputField
-                handleTextChange={value => this.setState( { username: value } )}
-                placeholder={i18n.t( "inat_login.username" )}
-                text={username}
-                type="username"
-              />
-              <View style={styles.leftTextMargins}>
-                <GreenText smaller text="inat_login.password" />
-              </View>
-              <InputField
-                handleTextChange={value => this.setState( { password: value } )}
-                placeholder="*********"
-                secureTextEntry
-                text={password}
-                type="password"
-              />
-              {error
-                ? <ErrorMessage error={formatError( error )} />
-                : <View style={styles.greenButtonMargin} />}
-              <GreenButton
-                handlePress={() => this.submit( user )}
-                login
-                text="inat_signup.sign_up"
-              />
-            </ScrollView>
-          </View>
+          <ScrollWithHeader header="login.sign_up">
+            <View style={styles.leftTextMargins}>
+              <GreenText allowFontScaling={false} smaller text="inat_login.username" />
+            </View>
+            <InputField
+              handleTextChange={value => this.setState( { username: value } )}
+              placeholder={i18n.t( "inat_login.username" )}
+              text={username}
+              type="username"
+            />
+            <View style={styles.leftTextMargins}>
+              <GreenText allowFontScaling={false} smaller text="inat_login.password" />
+            </View>
+            <InputField
+              handleTextChange={value => this.setState( { password: value } )}
+              placeholder="*********"
+              secureTextEntry
+              text={password}
+              type="password"
+            />
+            {error
+              ? <ErrorMessage error={formatError( error )} />
+              : <View style={styles.greenButtonMargin} />}
+            <GreenButton
+              handlePress={() => this.submit( user )}
+              login
+              text="inat_signup.sign_up"
+            />
+          </ScrollWithHeader>
         ) }
       </UserContext.Consumer>
     );

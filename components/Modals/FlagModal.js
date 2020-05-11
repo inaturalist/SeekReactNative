@@ -41,7 +41,7 @@ const FlagModal = ( {
         style={styles.flagHeader}
       >
         <View style={[styles.flagTextContainer, styles.row]}>
-          <Text style={[styles.buttonText, styles.paddingSmall]}>
+          <Text allowFontScaling={false} style={[styles.buttonText, styles.paddingSmall]}>
             {i18n.t( "results.flag" ).toLocaleUpperCase()}
           </Text>
           <TouchableOpacity
@@ -66,8 +66,8 @@ const FlagModal = ( {
       </LinearGradient>
       <View style={styles.flagContainer}>
         <View style={styles.marginLarge} />
-        <Text style={styles.speciesText}>{speciesText}</Text>
-        <Text style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
+        <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
+        <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
         <View style={styles.marginSmall} />
         <Button
           handlePress={() => {

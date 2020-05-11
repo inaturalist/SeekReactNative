@@ -1,7 +1,6 @@
 import {
   StyleSheet,
-  Dimensions,
-  PixelRatio
+  Dimensions
 } from "react-native";
 
 import {
@@ -12,7 +11,6 @@ import {
 } from "../global";
 
 const { height } = Dimensions.get( "window" );
-const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   container: {
@@ -44,7 +42,7 @@ export default StyleSheet.create( {
   text: {
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 15 : 18,
+    fontSize: 18,
     letterSpacing: 1.0,
     maxWidth: 226,
     paddingTop: padding.iOSPadding

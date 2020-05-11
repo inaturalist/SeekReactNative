@@ -46,7 +46,7 @@ const Error = ( {
         <Image source={error === "internet_error" ? icons.internet : icons.error} />
         <Text style={styles.text}>
           {error === "downtime"
-            ? i18n.t( "results.error_downtime", { number: i18n.t( "results.error_few" ) } )
+            ? i18n.t( "results.error_downtime", { count: i18n.t( "results.error_few" ) } )
             : i18n.t( `species_nearby.${error}` )}
         </Text>
       </View>

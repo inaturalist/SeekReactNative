@@ -25,10 +25,10 @@ const Button = ( { index }: Props ) => {
       {index === 2
         ? (
           <View style={styles.button}>
-            <Text style={styles.continue}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
+            <Text allowFontScaling={false} style={styles.continue}>{i18n.t( "onboarding.continue" ).toLocaleUpperCase()}</Text>
           </View>
         ) : (
-          <Text style={[styles.skipText, styles.buttonHeight]}>{i18n.t( "onboarding.skip" )}</Text>
+          <Text allowFontScaling={false} style={[styles.skipText, styles.buttonHeight]}>{i18n.t( "onboarding.skip" )}</Text>
         )}
     </TouchableOpacity>
   );

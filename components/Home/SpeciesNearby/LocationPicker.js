@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import {
   Text,
   View,
-  TouchableOpacity,
   TextInput,
   Image,
   Platform
@@ -18,6 +17,7 @@ import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } fr
 import icons from "../../../assets/icons";
 import styles from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -107,20 +107,12 @@ const LocationPicker = ( {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.header}>
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.back" )}
-          accessible
-          onPress={() => closeLocationPicker()}
-          style={styles.backButton}
-        >
-          <Image source={icons.backButton} />
-        </TouchableOpacity>
-        <View style={styles.textContainer}>
-          <Text style={styles.headerText}>
-            {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
-          </Text>
-        </View>
-        <View style={styles.row}>
+        <BackArrow handlePress={closeLocationPicker} />
+        <View style={styles.marginLarge} />
+        <Text style={styles.headerText}>
+          {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
+        </Text>
+        <View style={[styles.row, styles.inputRow]}>
           <Image source={icons.locationWhite} />
           <TextInput
             accessibilityLabel={inputLocation}

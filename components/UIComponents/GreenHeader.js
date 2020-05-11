@@ -24,9 +24,13 @@ const GreenHeader = ( { header, route }: Props ) => {
   const { name } = useRoute();
 
   return (
-    <View style={styles.container}>
-      <BackArrow route={route} />
-      {header && <Text style={styles.text}>{i18n.t( header ).toLocaleUpperCase()}</Text>}
+    <View style={[styles.container, styles.center]}>
+      {name !== "LoginSuccess" && <BackArrow route={route} />}
+      {header && (
+        <Text allowFontScaling={false} style={styles.text}>
+          {i18n.t( header ).toLocaleUpperCase()}
+        </Text>
+      )}
       {name === "Post" && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.help" )}

@@ -1,13 +1,18 @@
 // @flow
 
-import React, { useState, useRef, useEffect } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useCallback
+} from "react";
 import {
   View,
   SectionList,
   Text,
-  Platform
+  BackHandler
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -28,13 +33,26 @@ import GreenHeader from "../UIComponents/GreenHeader";
 
 const ObservationList = () => {
   const insets = useSafeArea();
-  const sectionList = useRef( null );
   const navigation = useNavigation();
+  const sectionList = useRef( null );
   const [itemScrolledId, setItemScrolledId] = useState( null );
   const [observations, setObservations] = useState( [] );
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
+
+  useFocusEffect(
+    useCallback( () => {
+      const onBackPress = () => {
+        navigation.navigate( "Home" );
+        return true; // following custom Android back behavior template in React Navigation
+      };
+
+      BackHandler.addEventListener( "hardwareBackPress", onBackPress );
+
+      return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
+    }, [navigation] )
+  );
 
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {
@@ -47,27 +65,6 @@ const ObservationList = () => {
     setModal( true );
   };
   const closeModal = () => setModal( false );
-
-  const useScrollToTop = () => {
-    const scrollToTop = () => {
-      if ( sectionList && sectionList.current !== null ) {
-        sectionList.current.scrollToLocation( {
-          sectionIndex: 0,
-          itemIndex: 0,
-          viewOffset: 70,
-          animated: Platform.OS === "android"
-        } );
-      }
-    };
-
-    useEffect( () => {
-      navigation.addListener( "focus", () => {
-        scrollToTop();
-      } );
-    } );
-  };
-
-  useScrollToTop();
 
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
@@ -88,14 +85,13 @@ const ObservationList = () => {
   };
 
   const fetchObservations = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const obs = createSectionList( realm );
-        setObservations( obs );
-        setLoading( false );
-      } ).catch( () => {
-        // console.log( "Err: ", err )
-      } );
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const obs = createSectionList( realm );
+      setObservations( obs );
+      setLoading( false );
+    } ).catch( () => {
+      // console.log( "Err: ", err )
+    } );
   };
 
   useEffect( () => {
@@ -121,11 +117,11 @@ const ObservationList = () => {
         <LoadingWheel color={colors.darkGray} />
       </View>
     );
-  } else if ( observations.length > 0 ) {
+  } else {
     content = (
       <SectionList
         ref={sectionList}
-        contentContainerStyle={styles.padding}
+        contentContainerStyle={[styles.padding, styles.flexGrow]}
         initialNumToRender={6}
         keyExtractor={( item, index ) => item + index}
         renderItem={( { item, section } ) => {
@@ -167,10 +163,9 @@ const ObservationList = () => {
         )}
         sections={observations}
         stickySectionHeadersEnabled={false}
+        ListEmptyComponent={() => <EmptyState />}
       />
     );
-  } else {
-    content = <EmptyState />;
   }
 
   return (

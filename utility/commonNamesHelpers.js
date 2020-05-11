@@ -6,7 +6,7 @@ const realmConfig = require( "../models/index" );
 
 const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
   const { languageCode } = RNLocalize.getLocales()[0];
-  console.log( languageCode, "language code" );
+  // console.log( languageCode, "language code" );
   commonNamesDict.forEach( ( commonNameRow ) => {
     if ( commonNameRow.l === languageCode ) {
       // only create realm objects if language matches current locale
@@ -51,6 +51,12 @@ const setupCommonNames = () => {
             require( "./commonNames/commonNamesDict-8" ).default );
           addCommonNamesFromFile( realm,
             require( "./commonNames/commonNamesDict-9" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-10" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-11" ).default );
+          addCommonNamesFromFile( realm,
+            require( "./commonNames/commonNamesDict-12" ).default );
         }
       } );
     // } ).then( () => {

@@ -1,23 +1,18 @@
 // @flow
 
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  ScrollView
-} from "react-native";
+import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
-import GreenHeader from "../UIComponents/GreenHeader";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import ErrorMessage from "./ErrorMessage";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenText from "../UIComponents/GreenText";
 import InputField from "../UIComponents/InputField";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import { createJwtToken } from "../../utility/helpers";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 type Props = {
   +navigation: any
@@ -88,52 +83,48 @@ class ParentalConsentScreen extends Component<Props, State> {
 
   submit() {
     const { navigation } = this.props;
-    navigation.navigate( "ParentCheckEmail" );
+    navigation.navigate( "ParentCheck" );
   }
 
   render() {
     const { email, error, loading } = this.state;
 
     return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <GreenHeader header="login.sign_up" />
-        <ScrollView>
-          <View style={styles.margin} />
-          <Text style={styles.header}>
-            {i18n.t( "inat_signup.enter_email" )}
-          </Text>
-          <Text style={[styles.text, styles.keyboardText]}>
-            {i18n.t( "inat_signup.under_13" )}
-          </Text>
-          <View style={styles.margin} />
-          <View style={styles.leftTextMargins}>
-            <GreenText smaller text="inat_signup.parent_email" />
-          </View>
-          <InputField
-            handleTextChange={value => this.setState( { email: value } )}
-            placeholder={i18n.t( "inat_signup.email" )}
-            text={email}
-            type="emailAddress"
-          />
-          <View style={styles.center}>
-            {loading ? <LoadingWheel /> : null}
-            {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
-          </View>
-          <GreenButton
-            handlePress={() => {
-              if ( checkIsEmailValid( email ) ) {
-                this.setError( null );
-                this.shareEmailWithiNat();
-              } else {
-                this.setError( "email" );
-              }
-            }}
-            login
-            text="inat_signup.submit"
-          />
-        </ScrollView>
-      </View>
+      <ScrollWithHeader header="login.sign_up">
+        <View style={styles.margin} />
+        <Text allowFontScaling={false} style={styles.header}>
+          {i18n.t( "inat_signup.enter_email" )}
+        </Text>
+        <Text allowFontScaling={false} style={[styles.text, styles.keyboardText]}>
+          {i18n.t( "inat_signup.under_13" )}
+        </Text>
+        <View style={styles.margin} />
+        <View style={styles.leftTextMargins}>
+          <GreenText allowFontScaling={false} smaller text="inat_signup.parent_email" />
+        </View>
+        <InputField
+          handleTextChange={value => this.setState( { email: value } )}
+          placeholder={i18n.t( "inat_signup.email" )}
+          text={email}
+          type="emailAddress"
+        />
+        <View style={styles.center}>
+          {loading ? <LoadingWheel /> : null}
+          {error ? <ErrorMessage error={error} /> : <View style={styles.greenButtonMargin} />}
+        </View>
+        <GreenButton
+          handlePress={() => {
+            if ( checkIsEmailValid( email ) ) {
+              this.setError( null );
+              this.shareEmailWithiNat();
+            } else {
+              this.setError( "email" );
+            }
+          }}
+          login
+          text="inat_signup.submit"
+        />
+      </ScrollWithHeader>
     );
   }
 }

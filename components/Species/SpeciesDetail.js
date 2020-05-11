@@ -38,8 +38,7 @@ type Props = {};
 type State = {
   id: ?number,
   photos: Array<Object>,
-  commonName: ?string,
-  scientificName: ?string,
+  taxon: Object,
   about: ?string,
   seenDate: ?string,
   timesSeen: ?number,
@@ -49,7 +48,6 @@ type State = {
   stats: Object,
   ancestors: Array<Object>,
   routeName: ?string,
-  iconicTaxonId: ?number,
   wikiUrl: ?string
 };
 
@@ -62,8 +60,11 @@ class SpeciesDetail extends Component<Props, State> {
     this.state = {
       id: null,
       photos: [],
-      commonName: null,
-      scientificName: null,
+      taxon: {
+        commonName: null,
+        scientificName: null,
+        iconicTaxonId: null
+      },
       about: null,
       seenDate: null,
       timesSeen: null,
@@ -73,7 +74,6 @@ class SpeciesDetail extends Component<Props, State> {
       stats: {},
       ancestors: [],
       routeName: null,
-      iconicTaxonId: null,
       wikiUrl: null
     };
 
@@ -114,13 +114,10 @@ class SpeciesDetail extends Component<Props, State> {
 
     const routeName = await getRoute();
 
-    this.setState( {
-      id,
-      routeName
-    } );
+    this.setState( { id, routeName } );
   }
 
-  setUserPhoto( seenTaxa: Object ) {
+  async setUserPhoto( seenTaxa: Object ) {
     const { taxon } = seenTaxa;
     const { defaultPhoto } = taxon;
     const { backupUri, mediumUrl } = defaultPhoto;
@@ -152,9 +149,11 @@ class SpeciesDetail extends Component<Props, State> {
 
     getTaxonCommonName( id ).then( ( deviceCommonName ) => {
       this.setState( {
-        commonName: deviceCommonName,
-        scientificName: taxon.name,
-        iconicTaxonId: taxon.iconicTaxonId,
+        taxon: {
+          commonName: deviceCommonName,
+          scientificName: taxon.name,
+          iconicTaxonId: taxon.iconicTaxonId
+        },
         seenDate,
         region: {
           latitude,
@@ -193,8 +192,11 @@ class SpeciesDetail extends Component<Props, State> {
   resetState() {
     this.setState( {
       photos: [],
-      commonName: null,
-      scientificName: null,
+      taxon: {
+        commonName: null,
+        scientificName: null,
+        iconicTaxonId: null
+      },
       about: null,
       seenDate: null,
       timesSeen: null,
@@ -204,7 +206,6 @@ class SpeciesDetail extends Component<Props, State> {
       stats: {},
       ancestors: [],
       routeName: null,
-      iconicTaxonId: null,
       wikiUrl: null
     } );
   }
@@ -249,9 +250,7 @@ class SpeciesDetail extends Component<Props, State> {
   fetchTaxonDetails( id: number ) {
     const { stats } = this.state;
 
-    const params = {
-      locale: i18n.currentLocale()
-    };
+    const params = { locale: i18n.currentLocale() };
 
     const options = { user_agent: createUserAgent() };
 
@@ -274,21 +273,16 @@ class SpeciesDetail extends Component<Props, State> {
         preferred_common_name: commonName || null
       } );
 
-      const photos = [];
-
-      taxa.taxon_photos.forEach( ( photo ) => {
-        if ( photo.photo.license_code && photos.length < 8 ) {
-          photos.push( photo );
-        }
-      } );
-
       stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
 
       getTaxonCommonName( id ).then( ( deviceCommonName ) => {
         this.setState( {
-          commonName: deviceCommonName || commonName,
-          scientificName,
-          photos,
+          taxon: {
+            commonName: deviceCommonName || commonName,
+            scientificName,
+            iconicTaxonId: taxa.iconic_taxon_id
+          },
+          photos: taxa.taxon_photos.map( ( p ) => p.photo ),
           wikiUrl: taxa.wikipedia_url,
           about: taxa.wikipedia_summary
             ? i18n.t( "species_detail.wikipedia", {
@@ -296,12 +290,9 @@ class SpeciesDetail extends Component<Props, State> {
             } )
             : null,
           timesSeen: taxa.observations_count,
-          iconicTaxonId: taxa.iconic_taxon_id,
           ancestors,
           stats
         } );
-      } ).catch( () => {
-        // console.log( err, "error fetching taxon details" );
       } );
     } ).catch( ( e ) => console.log( "couldn't fetch common name from device", e ) );
   }
@@ -371,11 +362,10 @@ class SpeciesDetail extends Component<Props, State> {
   render() {
     const {
       about,
-      commonName,
+      taxon,
       id,
       photos,
       region,
-      scientificName,
       seenDate,
       timesSeen,
       error,
@@ -383,9 +373,10 @@ class SpeciesDetail extends Component<Props, State> {
       ancestors,
       stats,
       routeName,
-      iconicTaxonId,
       wikiUrl
     } = this.state;
+
+    const { commonName } = taxon;
 
     return (
       <>
@@ -400,11 +391,9 @@ class SpeciesDetail extends Component<Props, State> {
         >
           <Spacer />
           <SpeciesHeader
+            taxon={taxon}
             userPhoto={userPhoto}
-            iconicTaxonId={iconicTaxonId}
             photos={photos}
-            scientificName={scientificName}
-            commonName={commonName}
             routeName={routeName}
           />
           {error === "internet" ? (

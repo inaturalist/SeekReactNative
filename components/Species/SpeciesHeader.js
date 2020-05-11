@@ -16,23 +16,21 @@ import icons from "../../assets/icons";
 
 type Props = {
   photos: Array<Object>,
-  commonName: ?string,
-  scientificName: ?string,
+  taxon: Object,
   userPhoto: ?string,
-  routeName: ?string,
-  iconicTaxonId: ?number
+  routeName: ?string
 }
 
 const SpeciesHeader = ( {
   routeName,
   photos,
   userPhoto,
-  iconicTaxonId,
-  commonName,
-  scientificName
+  taxon
 }: Props ) => {
   const { navigate } = useNavigation();
   const { params } = useRoute();
+
+  const { commonName, scientificName, iconicTaxonId } = taxon;
 
   const backAction = useCallback( () => {
     if ( routeName ) {
@@ -54,7 +52,6 @@ const SpeciesHeader = ( {
       return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
     }, [backAction] )
   );
-
 
   return (
     <>

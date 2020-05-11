@@ -196,16 +196,9 @@ class OnlineServerResults extends Component<Props, State> {
   }
 
   addObservation() {
-    const {
-      image,
-      observation
-    } = this.state;
+    const { image, observation } = this.state;
 
-    console.log( observation, "observation.taxon" );
-
-    if ( image.latitude && image.longitude ) {
-      addToCollection( observation, image );
-    }
+    addToCollection( observation, image );
   }
 
   checkSpeciesSeen( taxaId: number ) {
@@ -227,6 +220,8 @@ class OnlineServerResults extends Component<Props, State> {
   }
 
   requestAndroidPermissions() {
+    // this should only apply to iOS photos with no metadata
+    // once metadata is fixed, should be able to remove this check for user location
     const { image } = this.state;
 
     if ( !image.latitude || !image.longitude ) {

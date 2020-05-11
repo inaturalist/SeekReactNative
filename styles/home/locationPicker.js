@@ -1,17 +1,12 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  dimensions
+  dimensions,
+  row
 } from "../global";
 
 export default StyleSheet.create( {
-  backButton: {
-    left: 0,
-    paddingBottom: 20,
-    paddingHorizontal: 23,
-    paddingTop: 23
-  },
   container: {
     backgroundColor: colors.seekForestGreen,
     flex: 1
@@ -32,11 +27,12 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen
   },
   headerText: {
+    alignSelf: "center",
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    marginBottom: 16
+    maxWidth: dimensions.width - 100
   },
   image: {
     padding: 5
@@ -52,6 +48,12 @@ export default StyleSheet.create( {
     paddingLeft: 20,
     paddingTop: 0,
     width: "91%"
+  },
+  inputRow: {
+    justifyContent: "space-between",
+    marginBottom: 15,
+    marginHorizontal: 23,
+    marginTop: 20
   },
   locationIcon: {
     alignItems: "center",
@@ -77,6 +79,9 @@ export default StyleSheet.create( {
   margin: {
     marginTop: 15
   },
+  marginLarge: {
+    marginTop: 20
+  },
   markerFixed: {
     alignItems: "center",
     flex: 1,
@@ -95,19 +100,7 @@ export default StyleSheet.create( {
     marginRight: 15,
     marginTop: 55
   },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between",
-    marginBottom: 15,
-    marginHorizontal: 23
-  },
-  textContainer: {
-    alignSelf: "center",
-    position: "absolute",
-    top: Platform.OS === "ios" ? 25 : 21
-  },
+  row,
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"

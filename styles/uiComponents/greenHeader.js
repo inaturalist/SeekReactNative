@@ -1,13 +1,19 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet } from "react-native";
 import {
+  center,
   colors,
-  fonts
+  fonts,
+  dimensions,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
+  center,
   container: {
     backgroundColor: colors.seekForestGreen,
-    height: 55
+    flexDirection: "row",
+    paddingBottom: 18,
+    paddingTop: 20.5
   },
   help: {
     paddingBottom: 13,
@@ -17,12 +23,11 @@ export default StyleSheet.create( {
     right: 0
   },
   text: {
-    alignSelf: "center",
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    paddingTop: Platform.OS === "android" ? 18 : 20,
-    position: "absolute"
+    maxWidth: dimensions.width - 100,
+    paddingTop: padding.iOSPaddingSmall
   }
 } );

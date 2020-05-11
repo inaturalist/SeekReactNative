@@ -37,7 +37,8 @@
     "challenge_completed": "Grattis! Du klarade av en utmaning",
     "view_challenges": "Visa utmaning",
     "none": "Du har inga meddelanden ännu!",
-    "about": "Här kommer du att meddelas om nya utmaningar när de blir tillgängliga, uppdateringar för Seek och annan relevant information."
+    "about": "Här kommer du att meddelas om nya utmaningar när de blir tillgängliga, uppdateringar för Seek och annan relevant information.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Logga in med iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "Du har inga nya utmaningar.",
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
-    "number_observed": "{{number}} observerade hittills",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Slutför Seek-utmaningen i {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
     "get_involved": "Engagera dig",
@@ -242,7 +250,14 @@
     "error_image": "Tyvärr kunde vi inte bearbeta din bild. Kontrollera din internetanslutning och försök igen.",
     "error_species": "Tyvärr kunde vi inte hämta artuppgifter för den här bilden. Kontrollera din internetanslutning och försök igen.",
     "error_location": "För att lägga till arter till dina observationer, måste du aktivera din plats. Seek använder din plats för att påminna dig om var du såg en organism, och för att kunna bidra till medborgarforskning om du postar på iNaturalist.",
-    "error_downtime": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{number}} timmar.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "några",
     "error_gps": "Vi kunde inte hitta din GPS-plats. Försök att flytta till en plats där du kan se himlen och kontrollera att enhetens plats är påslagen för att kunna spara observationer.",
     "error_timeout": "Vi kunde inte spara din observation på grund av en plats-timeout. Försök igen senare.",
@@ -256,7 +271,14 @@
     "challenge_progress": "Du hittade en till art!",
     "challenge_view": "Se dina framsteg",
     "level_up": "Du har levlat upp!",
-    "number_seen": "Du har sett {{number}} arter!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "Kamera",
@@ -322,7 +344,14 @@
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
     "achievements": "Prestationer",
-    "observe": "Observera {{number}} arter för att komma till nästa nivå!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "Du har nått maxnivån på Seek!",
     "observe_species": "Observera",
     "species_badges": "Artmärken",

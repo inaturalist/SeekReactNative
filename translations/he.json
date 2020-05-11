@@ -37,7 +37,8 @@
     "challenge_completed": "כל הכבוד! סיימת אתגר",
     "view_challenges": "הצג אתגר",
     "none": "אין עדיין הודעות!",
-    "about": "כאן יהיו הודעות את אתגרים חדשים איך שהם מתחילים, הודעות לאפליקציה Seek, וכל מידע אחר."
+    "about": "כאן יהיו הודעות את אתגרים חדשים איך שהם מתחילים, הודעות לאפליקציה Seek, וכל מידע אחר.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "כניסה עם איי-נטורליסט",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "אין לכם אתגרים חדשים.",
     "no_new_challenges": "נודיע לכם כאשר יהיו אתגרים חדשים.",
     "completed_all": "סיימתם את כל האתגרים!",
-    "number_observed": "{{number}} שנצפו עד עתה",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "סיימו את התגר Seek לחודש {{month}}!",
     "released": "אתגר זה יהיה פעיל ב {{date}}.",
     "get_involved": "היו מעורבים",
@@ -242,7 +250,14 @@
     "error_image": "סליחה, לא הצלחנו לפענח את התמונה. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.",
     "error_species": "סליחה, לא הצלחנו למשוך נתונים על המין מתוך התמונה. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.",
     "error_location": "על מנת להוסיף מינים נוספים לתצפיות שלך, צריך לאפשר את זיהוי המקום. Seek משתמשת במיקומך כדי להזכיר לך היכן ראית את הייצור, ותמוך בטבע האזרחי אם תעלו ל iNaturalist.",
-    "error_downtime": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{number}} שעות.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "כמה",
     "error_gps": "לא אתרנו מיקום GPS. אנא שנו מיקום בו ניתן לראות את השמיים ובדקו שהגדרות המיקום במכשיר פועלות את מנת לשמור תצפיות.",
     "error_timeout": "לא הצלחנו לשמור את התצפית שלך בגלל תקלה במיקום. אנא נסו מאוחר יותר.",
@@ -256,7 +271,14 @@
     "challenge_progress": "מצאתם מין נוסף!",
     "challenge_view": "מעקב התקדמות",
     "level_up": "עליתם בדרגה!",
-    "number_seen": "ראיתם {{number}} מינים!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "מצלמה",
@@ -322,7 +344,14 @@
     "your_level": "הרמה שלך",
     "login": "התחברו עם iNaturalist כדי לפרסם תצפיות לקהילה!",
     "achievements": "הישגים",
-    "observe": "צפו ב {{number}} מינים כדי להגיע לרמה הבאה!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "הגעת לרמה הגבוהה ביותר ב Seek!",
     "observe_species": "צפה",
     "species_badges": "תגי מינים",

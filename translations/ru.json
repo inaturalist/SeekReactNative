@@ -26,7 +26,7 @@
     "take_challenge": "Участвовать в испытании",
     "continue_challenge": "Продолжить испытание",
     "view_all": "Все испытания",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Добавьте наблюдения с помощью камеры Seek, чтобы получить значок Испытания!"
   },
   "notifications": {
     "header": "Уведомления",
@@ -104,9 +104,9 @@
     "settings": "Настройки"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "Используйте камеру Seek для идентификации растений, животных и грибов",
+    "onboarding_2": "Узнайте об организмах вокруг вас",
+    "onboarding_3": "Заработайте значки, наблюдая за разными видами",
     "skip": "Пропустить сейчас",
     "continue": "Продолжить"
   },
@@ -166,7 +166,7 @@
     "no_new_challenges": "Мы сообщим вам, когда появятся новые испытания.",
     "completed_all": "Вы прошли все доступные испытания!",
     "number_observed": "{{number}} наблюдавшихся до сих пор",
-    "how_to": "Complete the Seek Challenge for {{month}}!",
+    "how_to": "Вы завершили испытание Seek за {{month}}!",
     "released": "Это соревнование начнётся {{date}}.",
     "get_involved": "Участвовать",
     "action_april": "Проверьте, живете ли вы рядом с городом, который является частью Испытания Городской Природы, и если да, то следите за активностью регистрации и идентификации наблюдений дикой природы города!",
@@ -223,11 +223,11 @@
     "sorry": "Извините, Seek все еще учится!\n\nВы можете попробовать другой угол зрения, увеличить масштаб или попытаться получить более четкий снимок организма.",
     "take_photo": "Сделать ещё фото",
     "common_ancestor": "Seek не может идентифицировать вид точно.\n\nВы можете попробовать другой угол зрения, увеличить масштаб или попытаться получить более четкий снимок организма.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Мы считаем, что это член",
+    "genus": "Мы считаем, что это член рода",
+    "family": "Мы считаем, что это член семейства",
+    "order": "Мы считаем, что это член отряда",
+    "class": "Мы считаем, что это член класса",
     "resighted": "Вы пересмотрели вид!",
     "date_observed": "Впервые вы наблюдали это:\n{{seenDate}}",
     "post_inat": "Если вы сделали подлинное фото организма, вы можете помочь обучить Seek этому виду, отправив сообщение в iNaturalist, где сообщество поможет идентифицировать его и улучшить будущие версии.",
@@ -273,16 +273,16 @@
     "family": "семейство",
     "genus": "род",
     "species": "вид",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Нам нужен доступ к камере, чтобы помочь вам определить виды!",
     "error_gallery": "Нам нужен доступ к вашей фотогалерее для сохранения фото, которые вы делаете!",
     "permissions": "Задайте разрешения в настройках",
     "error_classifier": "К сожалению, мы не можем загрузить классификатор",
-    "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_camera": "К сожалению, мы не смогли загрузить камеру",
+    "error_device": "К сожалению, устройство, которое вы используете, не поддерживается",
     "error_save": "Сожалеем, возникла проблема при сохранении вашего фото",
-    "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_take": "К сожалению, мы не смогли сделать ваше фото",
+    "error_photos": "В этом фотоальбоме не найдено фотографий. Попробуйте выбрать другой альбом.",
+    "error_version": "Для работы с AR камерой Seek требуется iOS 11.0+. Ваше устройство работает с ОС версии {{OS}}."
   },
   "gallery": {
     "label": "Фото",
@@ -400,7 +400,7 @@
     "not_seen": "У Вас пока нет ни одного наблюдения {{iconicTaxon}}!"
   },
   "species_detail": {
-    "near": "Nearby",
+    "near": "Поблизости",
     "about": "Подробно",
     "range_map": "Карта диапазона",
     "range_about": "Карта наблюдений этого вида на iNaturalist.",
@@ -458,8 +458,8 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Особая благодарность Visipedia и сообществу iNaturalist.",
     "version": "Версия",
     "help": "Для получения помощи по Seek пишите нам на help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
-    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
+    "translations": "Мы благодарны за помощь в переводе сообществу crowdin.com, в частности, Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur и Yulia Lygina.",
+    "join_crowdin": "Чтобы присоединиться к команде переводчиков Seek, посетите https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Опубликовать в iNaturalist",
@@ -481,9 +481,9 @@
     "posting": "Публикация вашего наблюдения",
     "posting_success": "Опубликовано в iNaturalist!",
     "posting_failure": "Публикация в iNaturalist не удалась",
-    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
-    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
-    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
+    "error_photo_upload": "Ваше наблюдение было размещено в iNaturalist, но ваше фото, к сожалению, не может быть загружено.\n\nПопробуйте войти в веб-приложение iNaturalist или мобильное приложение для просмотра вашего наблюдения и добавления фото.",
+    "error_observation": "Ваше наблюдение не было размещено в iNaturalist. Проверьте подключение к Интернету и повторите попытку.",
+    "error_token": "Мы не смогли подключиться к серверу iNaturalist. Пожалуйста, повторите попытку позже.",
     "ok": "Удачно",
     "wait": "Это может занять до минуты",
     "look_up": "Поиск вида по названию"
@@ -518,7 +518,8 @@
     "remember": "Помните",
     "tip_1": "Не забывайте о вашем окружении, оставайтесь в безопасности и не нарушайте правила.",
     "tip_2": "Не употребляйте в пищу ничего, что вы находите в дикой природе.",
-    "tip_3": "Уважайте другие живые существа, не беспокойте их и не прикасайтесь к ним. Некоторые могут ужалить или укусить."
+    "tip_3": "Уважайте другие живые существа, не беспокойте их и не прикасайтесь к ним. Некоторые могут ужалить или укусить.",
+    "tip_4": "Для детей может понадобиться надзор со стороны взрослых."
   },
   "accessibility": {
     "menu": "Открыть меню",
@@ -530,8 +531,8 @@
     "user_location": "Вернуться к текущему местоположению",
     "help": "Нажмите для справки",
     "take_photo": "Нажмите, чтобы сделать фото",
-    "scroll_left": "Tap to scroll left",
-    "scroll_right": "Tap to scroll right"
+    "scroll_left": "Нажмите для прокрутки влево",
+    "scroll_right": "Нажмите для прокрутки вправо"
   },
   "review": {
     "title": "Оценить приложение",
@@ -540,25 +541,31 @@
     "later": "Позже"
   },
   "attributions": {
-    "all": "all rights reserved",
-    "some": "some rights reserved"
+    "all": "Все права защищены",
+    "some": "некоторые права защищены"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Отправить журнал отладки по электронной почте"
   },
   "settings": {
-    "header": "Seek Camera",
-    "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "header": "Камера Seek",
+    "common_names": "Показывать общие имена",
+    "scientific_names": "Показывать Научные названия"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
-    "completed": "You completed the challenge and earned the challenge badge!",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "tbd": "TBD Challenge"
+    "badge": "значок Seek",
+    "header": "Вы завершили испытание Seek за {{date}}!",
+    "text": "Спасибо за участие в глобальном испытании! Seek рядом, чтобы помочь вам ассоциировать все окружающие вас виды. Выходите, изучайте и узнавайте окружающую природу!",
+    "citizen_science": "Гражданское научное испытание",
+    "completed": "Вы завершили испытание и получили значок!",
+    "april_2020_description": "Апрель 2020 года – годовщина выхода Seek от iNaturalist! За год мы выросли и помогли более миллиону людей ощутить б'ольшую связь с окружающим миром. Природа рядом, нужно просто искать!\n\nЧтобы начать следующий раунд испытаний, посмотрите, cможете ли вы найти 10 видов, которые не наблюдали ранее.",
+    "action_april_2020": "Апрель – это месяц гражданской науки! Вы как гражданский учёный можете внести вклад в научное понимание биоразнообразия , отправив свои наблюдения в iNaturalist.\n\nЕсли вам не менее 13 лет (или есть разрешение родителей), вы можете создать учетную запись iNaturalist и помещать наблюдения на iNaturalist, чтобы поделиться своими наблюдениями с широким сообществом, включая ученых!",
+    "backyard": "Испытание \"Во дворе\"",
+    "may_2020_description": "Вам не нужно идти далеко, чтобы найти природу. Даже только во дворе или по соседству вы можете найти растения, птиц и насекомых, которые находятся в вашем пространстве.",
+    "action_may_2020": "Используйте опцию Seek \"Виды поблизости\", чтобы узнать обо всех птицах, растениях, и насекомых, которые наблюдались вокруг вас и посетить страницы, где описаны эти виды. В какое время года они наблюдались чаще всего? Затем попробуйте найти что-то новое: какие виды вы можете найти вблизи Каира, Парижа или Джакарты?",
+    "mission_1_may_2020": "Найти 5 растений",
+    "mission_2_may_2020": "Найти 2 насекомых",
+    "mission_3_may_2020": "Найти 1 паука",
+    "mission_4_may_2020": "Найти 2 птицы"
   }
 }

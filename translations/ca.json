@@ -518,7 +518,8 @@
     "remember": "Recorda",
     "tip_1": "Estigues sempre atent al teu voltant, estigues segur i no entris en propietats privades.",
     "tip_2": "No mengis res que trobis al camp.",
-    "tip_3": "Respecta totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar."
+    "tip_3": "Respecta totes les formes de vida, no les molestis o les toquis. Algunes poden picar o mossegar.",
+    "tip_4": "Els menors necessiten la supervisió d'un adult."
   },
   "accessibility": {
     "menu": "Obre el menú",
@@ -559,6 +560,12 @@
     "completed": "Has completat el repte i has guanyat la insígnia del repte!",
     "april_2020_description": "Abril de 2020 és el primer aniversari del llançament del nou Seek d'iNaturalist! El darrer any hem crescut molt i ajudat prop d'un milió de persones a estar més connectar amb el món que ens envolta. La Natura està al teu voltant, únicament necessites Seek per investigar-ho.",
     "action_april_2020": "Abril és el Mes de la Ciència Ciutadana! Pots contribuir al coneixement científic de la biodiversitat com a científic ciutadà enviant les teves observacions de Seek a iNaturalist.\n\nSi tens 13 anys o més (o tens el permís parental), pots fer-te un compte a iNaturalist i enviar les teves observacions a iNaturalist per compartir les teves observacions amb una gran comunitat, incloent-hi científics!",
-    "tbd": "TBD Challenge"
+    "backyard": "Repte del teu jardí",
+    "may_2020_description": "No necessites anar molt lluny per trobar natura. Fins i tot al teu jardí o veïnat pots trobar plantes, aus i insectes que comparteixen el teu espai.",
+    "action_may_2020": "Utilitzeu Espècies a prop a la pantalla d'inici per a aprendre sobre els ocells, les plantes i els insectes que s'han observat a prop de vós i veure llurs pàgines d'espècie. En quina temporada de l'any es poden observar més? Després, proveu d'explorar un lloc diferent: quines espècies poden trobar-se a El Caire, París o Jakarta?",
+    "mission_1_may_2020": "Troba 5 plantes",
+    "mission_2_may_2020": "Troba 5 insectes",
+    "mission_3_may_2020": "Troba un aràcnid",
+    "mission_4_may_2020": "Troba 2 ocells"
   }
 }

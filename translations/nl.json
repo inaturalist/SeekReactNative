@@ -518,7 +518,8 @@
     "remember": "Onthoud",
     "tip_1": "Wees altijd bewust van je omgeving, doe geen domme dingen en betreed terreinen alleen met toestemming.",
     "tip_2": "Eet geen wilde planten of dieren.",
-    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten."
+    "tip_3": "Respecteer andere wezens door ze niet te pesten of aan te raken. Ze kunnen steken of bijten.",
+    "tip_4": "Kinderen kunnen meedoen onder toezicht van een volwassene."
   },
   "accessibility": {
     "menu": "Open menu",
@@ -559,6 +560,12 @@
     "completed": "Je hebt de uitdaging voltooid en de challenge badge verdiend!",
     "april_2020_description": "April 2020 wordt het het nieuwe Seek door iNaturalist! één jaar. Het afgelopen jaar zijn we flink gegroeid en hebben we meer dan een miljoen mensen geholpen zich meer verbonden te voelen met de wereld om hen heen. De natuur is om je heen, je moet die gewoon zoeken!\n\nKijk of je 10 soorten kunt vinden die je nog niet eerder hebt gezien.",
     "action_april_2020": "April is Citizen Science Maand! Je kunt bijdragen aan wetenschappelijke informatie over biodiversiteit als burgerwetenschapper door jouw Seek waarnemingen op iNaturalist te plaatsen.\n\nAls je 13 of ouder bent (of ouderlijk recht hebt) kun je een iNaturalist account maken en waarnemingen posten in iNaturalist om jouw waarnemingen te delen met een bredere gemeenschap, inclusief wetenschappers!",
-    "tbd": "TBD Uitdaging"
+    "backyard": "Achtertuin Uitdaging",
+    "may_2020_description": "Je hoeft niet ver te gaan om de natuur overal om je heen te vinden. Zelfs in je achtertuin of buurt kun je planten, vogels en insecten vinden die de ruimte met je delen.",
+    "action_may_2020": "Gebruik Seek's 'Soorten Dichtbij' op het startscherm om iets te leren over alle vogels, planten en insecten die om je heen zijn waargenomen en bekijk hun soortpagina's. In welk seizoen worden ze het meest waargenomen? Probeer dan ergens iets nieuws te verkennen: welke soorten kun je aantreffen in de buurt van Caïro, Parijs, Venlo of Maastricht?",
+    "mission_1_may_2020": "Vind 5 planten",
+    "mission_2_may_2020": "Vind 2 insecten",
+    "mission_3_may_2020": "Vind 1 spinachtige",
+    "mission_4_may_2020": "Vind 2 vogelsoorten"
   }
 }

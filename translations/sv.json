@@ -26,7 +26,7 @@
     "take_challenge": "Anta utmaningen",
     "continue_challenge": "Fortsätt utmaningen",
     "view_all": "Visa alla utmaningar",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Lägg till observationer med Seek-kameran för att förtjäna Utmaningsmärket!"
   },
   "notifications": {
     "header": "Meddelanden",
@@ -104,9 +104,9 @@
     "settings": "Inställningar"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "Använd Seeks kamera för att bestämma växter, djur och svampar",
+    "onboarding_2": "Lär dig om organismerna runt omkring dig",
+    "onboarding_3": "Förtjäna märken genom att observera olika sorters arter",
     "skip": "Hoppa över för tillfället",
     "continue": "Fortsätt"
   },
@@ -166,7 +166,7 @@
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
     "number_observed": "{{number}} observerade hittills",
-    "how_to": "Complete the Seek Challenge for {{month}}!",
+    "how_to": "Slutför Seek-utmaningen i {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
     "get_involved": "Engagera dig",
     "action_april": "Kolla om du bor nära en stad som är en med i City Nature Challenge, och håll i så fall ögonen öppna efter natur- och bestämningsaktiviteter för urbant djurliv!",
@@ -223,11 +223,11 @@
     "sorry": "Ber om ursäkt för det, Sök lär sig fortfarande!\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
     "take_photo": "Ta en till bild",
     "common_ancestor": "Men Seek kunde inte bestämma exakt vilken arten.\n\nDu kan testa med en annan vinkel, zooma in eller försöka få en skarpare bild av organismen.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Vi tror att denna tillhör",
+    "genus": "Vi tror att denna tillhör släktet",
+    "family": "Vi tror att denna tillhör familjen",
+    "order": "Vi tror att denna tillhör ordningen",
+    "class": "Vi tror att denna tillhör klassen",
     "resighted": "Du har sett en art igen!",
     "date_observed": "Du observerade den första gången:\n{{seenDate}}",
     "post_inat": "Om du tog originalbilden av organismen, kan du hjälpa till att träna Seek på denna art genom att skicka in till iNaturalist, där gemenskapen kommer att hjälpa till med bestämning och förbättra framtida versioner.",
@@ -273,16 +273,16 @@
     "family": "familj",
     "genus": "släkte",
     "species": "art",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Vi behöver tillgång till kameran för att hjälpa dig med artbestämning!",
     "error_gallery": "Vi behöver tillgång till din kamerarulle för att spara de bilder du tar!",
     "permissions": "Aktivera behörigheter i inställningarna",
     "error_classifier": "Tyvärr, det går inte att ladda klassificeraren",
-    "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_camera": "Tyvärr, vi kunde inte ladda kameran",
+    "error_device": "Tyvärr, enheten du använder stöds inte",
     "error_save": "Tyvärr, det gick inte att spara din bild",
-    "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_take": "Tyvärr, vi kunde inte ta din bild",
+    "error_photos": "Inga bilder hittades i detta fotoalbum. Försök välja ett annat album.",
+    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}."
   },
   "gallery": {
     "label": "Bilder",
@@ -518,7 +518,8 @@
     "remember": "Kom ihåg",
     "tip_1": "Var alltid medveten om din omgivning, var försiktig och gör inte intrång.",
     "tip_2": "Ät inte något du hittar i naturen.",
-    "tip_3": "Respektera andra levande ting genom att inte störa eller röra dem. En del kan stickas eller bitas."
+    "tip_3": "Respektera andra levande ting genom att inte störa eller röra dem. En del kan stickas eller bitas.",
+    "tip_4": "Barn kan behöva en vuxens tillsyn."
   },
   "accessibility": {
     "menu": "Öppna menyn",
@@ -544,21 +545,27 @@
     "some": "vissa rättigheter förbehållna"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Skicka felsökningsloggar via e-post"
   },
   "settings": {
-    "header": "Seek Camera",
-    "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "header": "Seek-kamera",
+    "common_names": "Visa vardagliga namn",
+    "scientific_names": "Visa vetenskapliga namn"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
-    "completed": "You completed the challenge and earned the challenge badge!",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "tbd": "TBD Challenge"
+    "badge": "Seek-märke",
+    "header": "Du slutförde Seek-utmaningen för {{date}}!",
+    "text": "Tack för att du deltar i den globala utmaningen! Seek är här för att hjälpa dig att komma i kontakt med alla arter som omger oss. Ge dig ut, utforska och lär dig om naturen runt omkring dig!",
+    "citizen_science": "Medborgarforskningsutmaning",
+    "completed": "Du klarade utmaningen och fick utmaningsmärket!",
+    "april_2020_description": "April 2020 innebär ettårsjubileum sedan iNaturalists nya Seek släpptes! Under det senaste året har vi växt mycket och hjälpt över en miljon människor att känna sig mer i kontakt med världen omkring dem. Naturen finns runt omkring dig, det är bara att söka upp den!\n\nVi sätter igång vår nästa omgång av utmaningar med att se om du kan hitta 10 arter du ännu inte har observerat.",
+    "action_april_2020": "April är medborgarforskningens månad! Du kan bidra till vetenskaplig förståelse av biologisk mångfald som medborgarforskare genom att lägga upp dina Seek-observationer på iNaturalist.\n\nOm du är 13 eller äldre (eller med förälders tillåtelse), kan du skapa ett iNaturalist-konto och lägga upp observationer på iNaturalist för att dela observationerna med en bredare gemenskap, inklusive forskare!",
+    "backyard": "Bakgårdsutmaning",
+    "may_2020_description": "Du behöver inte gå långt för att hitta natur runt omkring dig. Till och med på din bakgård eller i ditt grannskap hittar du växter, fåglar och insekter som som du samsas med.",
+    "action_may_2020": "Använd Seeks Arter i Närheten på startskärmen för att lära dig om alla fåglar, växter, och insekter som har setts omkring dig och kolla in deras artsidor. Vilken tid på året är de mest observerade? Försök sedan utforska ett nytt ställe: vilka arter kan du hitta nära Kairo, Paris eller Jakarta?",
+    "mission_1_may_2020": "Hitta 5 växter",
+    "mission_2_may_2020": "Hitta 2 insekter",
+    "mission_3_may_2020": "Hitta 1 spindeldjur",
+    "mission_4_may_2020": "Hitta 2 fåglar"
   }
 }

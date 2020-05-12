@@ -64,17 +64,17 @@ const ObservationList = () => {
     listHeaderHeight: 75 // GreenHeader height
   } );
 
-  const scrollToLocation = () => {
-    if ( sectionList.current ) {
-      console.log( sectionList.current.scrollToLocation, "scroll to location" );
-      sectionList.current.scrollToLocation( {
-        animated: Platform.OS === "android",
-        itemIndex: 0,
-        sectionIndex: 3,
-        viewOffset: 60
-      } );
-    }
-  };
+  // const scrollToLocation = () => {
+  //   if ( sectionList.current ) {
+  //     console.log( sectionList.current.scrollToLocation, "scroll to location" );
+  //     sectionList.current.scrollToLocation( {
+  //       animated: Platform.OS === "android",
+  //       itemIndex: 0,
+  //       sectionIndex: 3,
+  //       viewOffset: 60
+  //     } );
+  //   }
+  // };
 
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {
@@ -91,16 +91,26 @@ const ObservationList = () => {
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
   const toggleSection = ( id ) => {
-    // scrollToLocation();
-    const idToHide = hiddenSections.indexOf( id );
+    const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
+    // const idToHide = hiddenSections.indexOf( id );
 
-    if ( idToHide !== -1 ) {
-      hiddenSections.splice( idToHide, 1 );
+    // if ( idToHide !== -1 ) {
+    //   hiddenSections.splice( idToHide, 1 );
+    // } else {
+    //   hiddenSections.push( id );
+    // }
+
+    const section = updatedObs.find( item => item.id === id );
+
+    // $FlowFixMe
+    if ( section.open === true ) {
+      // $FlowFixMe
+      section.open = false;
     } else {
-      hiddenSections.push( id );
+      // $FlowFixMe
+      section.open = true;
     }
 
-    const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
     setObservations( updatedObs );
   };
 
@@ -130,9 +140,10 @@ const ObservationList = () => {
   };
 
   const renderItem = ( item, section ) => {
-    console.log( item, section, "item section" );
-    if ( hiddenSections.includes( section.id ) ) {
-      return <View />;
+    if ( section.open === false ) {
+    // console.log( hiddenSections.includes( section.id ), "item" );
+    // if ( hiddenSections.includes( section.id ) ) {
+      return null;
     }
     return (
       <ObservationCard
@@ -144,16 +155,32 @@ const ObservationList = () => {
     );
   };
 
-  const renderFooter = ( section ) => {
-    const { id, data } = section;
-    if ( hiddenSections.includes( section.id ) || data.length > 0 ) {
+  const renderSectionFooter = ( section ) => {
+    const { id, data, open } = section;
+    if ( !open && data.length === 0 ) {
       return <View style={styles.sectionSeparator} />;
     }
-    return (
-      <Text style={[styles.text, styles.sectionSeparator]}>
-        {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-      </Text>
-    );
+
+    if ( data.length === 0 ) {
+      return (
+        <Text style={[styles.text, styles.sectionSeparator]}>
+          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+        </Text>
+      );
+    }
+
+    return null;
+  };
+
+  const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
+
+  const renderItemSeparator = ( section ) => {
+    const { open } = section;
+
+    if ( open ) {
+      return <View style={styles.itemSeparator} />;
+    }
+    return null;
   };
 
   return (
@@ -176,23 +203,22 @@ const ObservationList = () => {
             ref={sectionList}
             contentContainerStyle={styles.flexGrow}
             sections={observations}
-            extraData={hiddenSections}
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
-            getItemLayout={getItemLayout}
+            // getItemLayout={getItemLayout}
             keyExtractor={( item, index ) => item + index}
             ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}
-                hiddenSections={hiddenSections}
+                // hiddenSections={hiddenSections}
                 toggleSection={toggleSection}
               />
             )}
             renderItem={( { item, section } ) => renderItem( item, section )}
-            ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
-            renderSectionFooter={( { section } ) => renderFooter( section )}
-            SectionSeparatorComponent={() => <View style={styles.sectionSeparator} />}
+            ItemSeparatorComponent={( { section } ) => renderItemSeparator( section )}
+            renderSectionFooter={( { section } ) => renderSectionFooter( section )}
+            SectionSeparatorComponent={() => renderSectionSeparator()}
             ListFooterComponent={() => <View style={styles.padding} />}
             ListEmptyComponent={() => <EmptyState />}
           />

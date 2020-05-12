@@ -18,14 +18,14 @@ import realmConfig from "../../models/index";
 
 type Props = {
   section: Object,
-  hiddenSections: Object,
+  // hiddenSections: Object,
   toggleSection: Function
 };
 
-const SectionHeader = ( { section, hiddenSections, toggleSection }: Props ) => {
+const SectionHeader = ( { section, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
-  const { id, data } = section;
-  const closed = hiddenSections.includes( id );
+  const { id, data, open } = section;
+  // const open = !hiddenSections.includes( id );
 
   let badge;
 
@@ -62,8 +62,8 @@ const SectionHeader = ( { section, hiddenSections, toggleSection }: Props ) => {
         <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
         {id !== 1 && <Image source={badge} style={[styles.badge, badgeCount === 0 && styles.empty]} />}
         <Image
-          source={closed ? icons.dropdownClosed : icons.dropdownOpen}
-          style={closed ? styles.margin : styles.marginOpen}
+          source={!open ? icons.dropdownClosed : icons.dropdownOpen}
+          style={!open ? styles.margin : styles.marginOpen}
         />
       </View>
     </TouchableOpacity>

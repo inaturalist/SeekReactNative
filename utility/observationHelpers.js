@@ -125,7 +125,7 @@ const createSectionList = ( realm ) => {
 
   taxaList.forEach( ( id ) => {
     const data = species.filtered( `taxon.iconicTaxonId == ${id}` ).sorted( "date", true );
-    obs.push( { id, data } );
+    obs.push( { id, data, open: true } );
   } );
 
   sortNewestToOldest( obs );
@@ -135,7 +135,7 @@ const createSectionList = ( realm ) => {
     .sorted( "date", true );
   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-  obs.push( { id: 1, data: otherData } );
+  obs.push( { id: 1, data: otherData, open: true } );
 
   return obs;
 };

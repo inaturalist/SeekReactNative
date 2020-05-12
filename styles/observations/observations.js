@@ -24,6 +24,9 @@ export default StyleSheet.create( {
   sectionSeparator: {
     paddingBottom: 14
   },
+  sectionWithDataSeparator: {
+    paddingBottom: 14 / 2
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

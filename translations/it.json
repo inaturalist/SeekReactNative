@@ -38,7 +38,7 @@
     "view_challenges": "Vedi la sfida",
     "none": "Non hai ancora alcuna notifica!",
     "about": "Qui sarai avvisato delle nuove sfide quando saranno disponibili, degli aggiornamenti da Seek e delle altre informazioni rilevanti.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "C'è una nuova sfida!"
   },
   "login": {
     "log_in": "Accedi con iNaturalist",
@@ -167,12 +167,12 @@
     "no_new_challenges": "Ti faremo sapere quando saranno disponibili nuove sfide.",
     "completed_all": "Hai completato tutte le sfide disponibili!",
     "number_observed": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} osservate finora",
+      "one": "{{count}} osservate finora",
+      "two": "{{count}} osservate finora",
+      "few": "{{count}} osservate finora",
+      "many": "{{count}} osservate finora",
+      "other": "{{count}} osservate finora"
     },
     "how_to": "Completa la Sfida Seek per {{month}}!",
     "released": "Questa sfida verrà aperta il {{date}}.",
@@ -245,22 +245,22 @@
     "yes": "Sì, rimuovi dalle mie osservazioni",
     "yes_resighted": "Si, questa specie è stata identificata erroneamente",
     "no": "No, è giusto",
-    "enable_location": "Abilita l'acquisizione della posizione per salvare le osservazioni",
+    "enable_location": "La tua osservazione non ha una posizione",
     "error_server": "Siamo spiacenti, non siamo riusciti a valutare questa immagine. Controlla la tua connessione internet e riprova.",
     "error_image": "Siamo spiacenti, non siamo riusciti ad elaborare la tua immagine. Controlla la tua connessione internet e riprova.",
     "error_species": "Siamo spiacenti, non siamo riusciti a recuperare i dettagli di questa immagine. Controlla la tua connessione internet e riprova.",
-    "error_location": "Per aggiungere specie alle tue osservazioni, è necessario abilitare il rilevamento della tua posizione. Seek utilizza la tua posizione per ricordarti dove hai visto un organismo, e per contribuire alla Scienza dei Cittadini in caso tu pubblichi su iNaturalist.",
+    "error_location": "Non sarai in grado di visualizzare gli areali, esplorare le specie nelle vicinanze o pubblicare questa osservazione su iNaturalist. Abilitando il rilevamento della posizione in Seek, sarai in grado di visualizzare informazioni dettagliate sulle tue osservazioni e contribuire alla scienza dei cittadini. La tua posizione non verrà pubblicata a meno che tu non la invii ad iNaturalist.",
     "error_downtime": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
+      "one": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
+      "two": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
+      "few": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
+      "many": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
+      "other": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore."
     },
     "error_few": "alcuni",
-    "error_gps": "Non siamo riusciti a trovare la tua posizione GPS. Prova a spostarti in un luogo dove puoi vedere il cielo e controllare che sia attivo il rilevamento della posizione del tuo dispositivo per salvare le osservazioni.",
-    "error_timeout": "Non siamo riusciti a salvare la tua osservazione a causa di un ritardo nel rilevamento della posizione. Riprova più tardi.",
+    "error_gps": "Seek non è in grado di trovare la tua posizione GPS.  La tua osservazione è stata salvata, ma senza posizione, non sarai in grado di visualizzare informazioni dettagliate come gli areali. Prova a spostarti in un luogo dove puoi vedere il cielo e controllare che sia attivo il rilevamento della posizione del tuo dispositivo.",
+    "error_timeout": "La tua posizione ha impiegato troppo tempo per essere acquisita. La tua osservazione è stata salvata, ma senza posizione, non sarai in grado di visualizzare informazioni dettagliate come gli areali. Riprova più tardi.",
     "nearby": "Specie nelle vicinanze in questo taxon",
     "nothing_nearby": "Sembra che non ci siano state molte specie osservate nelle vicinanze in questo taxon! Prova a scattare un'altra foto o a postarla su iNaturalist.",
     "tap": "Tocca per caricare le specie nelle vicinanze"
@@ -272,12 +272,12 @@
     "challenge_view": "Vedi i tuoi progressi",
     "level_up": "Sei salito di livello!",
     "number_seen": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "Hai visto {{count}} specie!",
+      "one": "Hai visto {{count}} specie!",
+      "two": "Hai visto {{count}} specie!",
+      "few": "Hai visto {{count}} specie!",
+      "many": "Hai visto {{count}} specie!",
+      "other": "Hai visto {{count}} specie!"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "Effettua l'accesso con iNaturalist per mostrare le osservazioni alla comunità online!",
     "achievements": "Progressi",
     "observe": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Osserva {{count}} specie per raggiungere il livello successivo!",
+      "one": "Osserva {{count}} specie per raggiungere il livello successivo!",
+      "two": "Osserva {{count}} specie per raggiungere il livello successivo!",
+      "few": "Osserva {{count}} specie per raggiungere il livello successivo!",
+      "many": "Osserva {{count}} specie per raggiungere il livello successivo!",
+      "other": "Osserva {{count}} specie per raggiungere il livello successivo!"
     },
     "observe_max": "Hai raggiunto il livello massimo su Seek!",
     "observe_species": "Osserva",
@@ -487,7 +487,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, and Wouter Koch, Yulia Lygina.",
+    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -526,7 +526,7 @@
     "geoprivacy": "Geoprivacy",
     "open_header": "Aperta: ",
     "obscured_header": "Oscurata: ",
-    "closed_header": "Chiusa: ",
+    "closed_header": "Privata: ",
     "yes_header": "Sì: ",
     "no_header": "No: ",
     "open": "Altri utenti di iNaturalist potranno vedere dove è stata osservata questa specie, e gli scienziati potranno utilizzare questi dati per le ricerche.",
@@ -591,10 +591,10 @@
     "action_april_2020": "Aprile è il mese della Citizen Science! Puoi contribuire alla conoscenza scientifica della biodiversità come cittadino scienziato pubblicando le tue osservazioni di Seek su iNaturalist.\n\nSe hai 13 anni (o col permesso dei genitori), puoi creare un account iNaturalist e postare osservazioni su iNaturalist per condividere le tue osservazioni con una comunità più ampia, compresi gli scienziati!",
     "backyard": "Cosa nasconde il tuo giardino?",
     "may_2020_description": "Non c'è bisogno di andare troppo lontano per trovare la natura che ti circonda. Anche solo nel tuo giardino o nel vicinato puoi trovare piante, uccelli e insetti con cui condividi lo spazio.",
-    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "action_may_2020": "Utilizza \"Specie nelle Vicinanze\" di Seek dalla schermata principale per conoscere tutti gli uccelli, le piante, e gli insetti che sono stati osservati intorno a te e controlla le loro pagine. In che periodo dell'anno sono più osservate? Quindi prova ad esplorare un nuovo luogo: quali specie potresti trovare vicino al Cairo, a Parigi o a Giacarta?",
+    "mission_1_may_2020": "Trova 5 piante",
+    "mission_2_may_2020": "Trova 2 insetti",
+    "mission_3_may_2020": "Trova 1 aracnide",
+    "mission_4_may_2020": "Trova 2 uccelli"
   }
 }

@@ -10,14 +10,13 @@ import {
   View,
   SectionList,
   Text,
-  BackHandler,
-  Platform
+  BackHandler
 } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
-import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
+// import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
 import realmConfig from "../../models";
 import i18n from "../../i18n";
@@ -56,13 +55,13 @@ const ObservationList = () => {
     }, [navigation] )
   );
 
-  const getItemLayout = sectionListGetItemLayout( {
-    getItemHeight: () => 80,
-    getSeparatorHeight: () => 18,
-    getSectionHeaderHeight: () => 42,
-    getSectionFooterHeight: () => 69,
-    listHeaderHeight: 75 // GreenHeader height
-  } );
+  // const getItemLayout = sectionListGetItemLayout( {
+  //   getItemHeight: () => 80,
+    // getSeparatorHeight: () => 18,
+    // getSectionHeaderHeight: () => 42,
+    // getSectionFooterHeight: () => 69,
+  //   listHeaderHeight: 75 // GreenHeader height
+  // } );
 
   // const scrollToLocation = () => {
   //   if ( sectionList.current ) {
@@ -92,23 +91,12 @@ const ObservationList = () => {
 
   const toggleSection = ( id ) => {
     const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
-    // const idToHide = hiddenSections.indexOf( id );
+    const idToHide = hiddenSections.indexOf( id );
 
-    // if ( idToHide !== -1 ) {
-    //   hiddenSections.splice( idToHide, 1 );
-    // } else {
-    //   hiddenSections.push( id );
-    // }
-
-    const section = updatedObs.find( item => item.id === id );
-
-    // $FlowFixMe
-    if ( section.open === true ) {
-      // $FlowFixMe
-      section.open = false;
+    if ( idToHide !== -1 ) {
+      hiddenSections.splice( idToHide, 1 );
     } else {
-      // $FlowFixMe
-      section.open = true;
+      hiddenSections.push( id );
     }
 
     setObservations( updatedObs );
@@ -126,8 +114,10 @@ const ObservationList = () => {
 
   useEffect( () => {
     const unsub = navigation.addListener( "focus", () => {
-      setLoading( true );
-      fetchObservations();
+      if ( observations.length === 0 ) {
+        setLoading( true );
+        fetchObservations();
+      }
     } );
 
     return unsub;
@@ -139,10 +129,10 @@ const ObservationList = () => {
     fetchObservations();
   };
 
+  const sectionIsHidden = ( id ) => hiddenSections.includes( id );
+
   const renderItem = ( item, section ) => {
-    if ( section.open === false ) {
-    // console.log( hiddenSections.includes( section.id ), "item" );
-    // if ( hiddenSections.includes( section.id ) ) {
+    if ( sectionIsHidden( section.id ) ) {
       return null;
     }
     return (
@@ -156,8 +146,8 @@ const ObservationList = () => {
   };
 
   const renderSectionFooter = ( section ) => {
-    const { id, data, open } = section;
-    if ( !open && data.length === 0 ) {
+    const { id, data } = section;
+    if ( sectionIsHidden( id ) && data.length === 0 ) {
       return <View style={styles.sectionSeparator} />;
     }
 
@@ -175,13 +165,13 @@ const ObservationList = () => {
   const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
 
   const renderItemSeparator = ( section ) => {
-    const { open } = section;
-
-    if ( open ) {
+    if ( !sectionIsHidden( section.id ) ) {
       return <View style={styles.itemSeparator} />;
     }
     return null;
   };
+
+  console.log( hiddenSections.length, "length of hidden sections" );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -211,7 +201,7 @@ const ObservationList = () => {
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}
-                // hiddenSections={hiddenSections}
+                open={!sectionIsHidden( section.id )}
                 toggleSection={toggleSection}
               />
             )}

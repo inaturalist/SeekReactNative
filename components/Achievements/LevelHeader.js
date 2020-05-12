@@ -8,7 +8,6 @@ import {
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { parse } from "intl-messageformat-parser";
 
 import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";

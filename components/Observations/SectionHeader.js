@@ -18,14 +18,13 @@ import realmConfig from "../../models/index";
 
 type Props = {
   section: Object,
-  // hiddenSections: Object,
+  open: boolean,
   toggleSection: Function
 };
 
-const SectionHeader = ( { section, toggleSection }: Props ) => {
+const SectionHeader = ( { section, open, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
-  const { id, data, open } = section;
-  // const open = !hiddenSections.includes( id );
+  const { id, data } = section;
 
   let badge;
 

@@ -40,7 +40,8 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
-  const [hiddenSections, setHiddenSections] = useState( Object.keys( taxaIds ) );
+  const [obsNumber, setObsNumber] = useState( 0 );
+  const [hiddenSections, setHiddenSections] = useState( [] );
 
   useFocusEffect(
     useCallback( () => {
@@ -104,8 +105,14 @@ const ObservationList = () => {
 
   const fetchObservations = () => {
     Realm.open( realmConfig ).then( ( realm ) => {
-      const obs = createSectionList( realm );
-      setObservations( obs );
+      const species = realm.objects( "ObservationRealm" );
+
+      if ( species.length !== obsNumber ) {
+        console.log( species.length, obsNumber, "obs number" );
+        const obs = createSectionList( realm, species );
+        setObservations( obs );
+        setObsNumber( species.length );
+      }
       setLoading( false );
     } ).catch( () => {
       // console.log( "Err: ", err )
@@ -114,10 +121,8 @@ const ObservationList = () => {
 
   useEffect( () => {
     const unsub = navigation.addListener( "focus", () => {
-      if ( observations.length === 0 ) {
-        setLoading( true );
-        fetchObservations();
-      }
+      setLoading( true );
+      fetchObservations();
     } );
 
     return unsub;
@@ -170,8 +175,6 @@ const ObservationList = () => {
     }
     return null;
   };
-
-  console.log( hiddenSections.length, "length of hidden sections" );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

@@ -45,7 +45,6 @@ const SpeciesCard = ( {
         source={iconicTaxa[iconicTaxonId] || iconicTaxa[1]}
         style={styles.image}
       >
-        {console.log( iconicTaxonId, "iconic id" )}
         <Image source={photo} style={styles.image} />
       </ImageBackground>
     ) : <Image source={photo} style={styles.image} />}

@@ -24,17 +24,12 @@ type Props = {
 const NotificationCard = ( { item }: Props ) => {
   const navigation = useNavigation();
 
-  let image;
+  let image = notifications[item.iconName];
 
   if ( item.title === "notifications.challenge_completed" ) {
     const challenges = Object.keys( challengesDict ).map( challenge => challengesDict[challenge] );
-
-    const challengeCompleted = challenges.find( c => c.index === item.challengeIndex );
-    const { earnedIconName } = challengeCompleted;
-
-    image = badges[earnedIconName];
-  } else {
-    image = notifications[item.iconName];
+    const completed = challenges[item.challengeIndex];
+    image = badges[completed.earnedIconName];
   }
 
   return (

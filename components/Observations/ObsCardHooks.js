@@ -38,21 +38,16 @@ const ObservationCard = ( {
 }: Props ) => {
   const scrollView = useRef( null );
   const { navigate } = useNavigation();
-  // const [photo, setPhoto] = useState( null );
   const [commonName, setCommonName] = useState( null );
 
-  const { taxon, uuidString } = item;
+  const { taxon } = item;
   const {
     id,
-    defaultPhoto,
     name,
     iconicTaxonId
   } = taxon;
 
-  const photo = {};
-
-  // const photo = useUserPhoto( uuidString, defaultPhoto );
-  // console.log( typeof photo, "photo" );
+  const photo = useUserPhoto( item );
 
   // componentDidUpdate( prevProps: Object ) {
   //   const { itemScrolledId } = props;
@@ -88,15 +83,6 @@ const ObservationCard = ( {
     } );
     return () => { isActive = false; };
   }, [id] );
-
-  // useEffect( () => {
-  //   const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-  //   if ( Platform.OS === "ios" && seekv1Photos ) {
-  //     checkForSeekV1Photos( seekv1Photos );
-  //   } else {
-  //     checkForSeekV2Photos();
-  //   }
-  // }, [checkForSeekV1Photos, checkForSeekV2Photos] );
 
   return (
     <ScrollView

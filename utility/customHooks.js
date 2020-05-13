@@ -5,7 +5,7 @@ import RNFS from "react-native-fs";
 import i18n from "../i18n";
 import { fetchLocationName } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
-import { writeToDebugLog } from "./photoHelpers";
+import { writeToDebugLog, checkForDirectory } from "./photoHelpers";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -52,10 +52,12 @@ const useLocationName = ( latitude, longitude ) => {
   return location;
 };
 
-const useUserPhoto = ( uuidString, defaultPhoto ) => {
+const useUserPhoto = ( item ) => {
   const [photo, setPhoto] = useState( null );
 
   const checkForSeekV2Photos = useCallback( () => {
+    const { taxon } = item;
+    const { defaultPhoto } = taxon;
     if ( !defaultPhoto ) {
       return;
     }
@@ -75,20 +77,35 @@ const useUserPhoto = ( uuidString, defaultPhoto ) => {
     } else if ( mediumUrl ) {
       setPhoto( { uri: mediumUrl } );
     }
-  }, [defaultPhoto] );
+  }, [item] );
+
+  const checkV1 = useCallback( async ( dir ) => {
+    // attempt to limit the number of orphaned tasks
+    // by checking whether /large directory exists instead of err on Seek v1
+    try {
+      const status = await RNFS.exists( dir );
+      if ( status ) {
+        RNFS.readFile( dir, { encoding: "base64" } ).then( ( encodedData ) => {
+          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => checkForSeekV2Photos() );
+      } else {
+        checkForSeekV2Photos();
+      }
+      return status;
+    } catch ( err ) {
+      return err;
+    }
+  }, [checkForSeekV2Photos] );
 
   useEffect( () => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-    if ( Platform.OS === "ios" && seekv1Photos ) {
-      const photoPath = `${seekv1Photos}/${uuidString}`;
 
-      RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-        setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-      } ).catch( () => checkForSeekV2Photos() );
+    if ( Platform.OS === "ios" ) {
+      checkV1( `${seekv1Photos}/${item.uuidString}` );
     } else {
       checkForSeekV2Photos();
     }
-  }, [checkForSeekV2Photos, uuidString] );
+  }, [checkForSeekV2Photos, checkV1, item] );
 
   return photo;
 };

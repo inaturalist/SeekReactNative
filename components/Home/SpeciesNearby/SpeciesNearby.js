@@ -62,7 +62,6 @@ const SpeciesNearby = () => {
   const updateDowntimeError = () => dispatch( { type: "DOWNTIME_ERROR" } );
 
   const setLocationError = useCallback( ( errorCode ) => {
-    console.log( errorCode, "error code" );
     if ( errorCode === 1 ) {
       dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else if ( errorCode === 2 ) {

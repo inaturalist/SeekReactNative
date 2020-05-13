@@ -98,6 +98,20 @@ const missions = {
       number: 2,
       types: ["birds"]
     }
+  },
+  10: {
+    0: {
+      number: 2,
+      types: ["Asterales"]
+    },
+    1: {
+      number: 3,
+      types: ["Passeriformes"]
+    },
+    2: {
+      number: 1,
+      types: ["Coleoptera"]
+    }
   }
 };
 

@@ -147,8 +147,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 113
-        versionName "2.5.4"
+        versionCode 114
+        versionName "2.5.6"
     }
     signingConfigs {
         release {

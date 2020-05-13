@@ -18,7 +18,7 @@ import ChallengeBadges from "./ChallengeBadges";
 import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
-import { fetchNumberSpeciesSeen, localizeNumber } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const AchievementsScreen = () => {
@@ -98,7 +98,10 @@ const AchievementsScreen = () => {
       <ChallengeBadges />
       <View style={[styles.row, styles.center]}>
         <TouchableOpacity
-          onPress={() => navigation.navigate( "Observations" )}
+          onPress={() => {
+            setRoute( "Achievements" );
+            navigation.navigate( "Observations" );
+          }}
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />

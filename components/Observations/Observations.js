@@ -16,6 +16,7 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
+import { getRoute } from "../../utility/helpers";
 // import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
 import realmConfig from "../../models";
@@ -40,7 +41,6 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
-  const [obsNumber, setObsNumber] = useState( 0 );
   const [hiddenSections, setHiddenSections] = useState( [] );
 
   useFocusEffect(
@@ -106,23 +106,26 @@ const ObservationList = () => {
   const fetchObservations = () => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
-
-      if ( species.length !== obsNumber ) {
-        console.log( species.length, obsNumber, "obs number" );
-        setLoading( true );
-        const obs = createSectionList( realm, species );
-        setObsNumber( species.length );
-        setObservations( obs );
-      }
+      const obs = createSectionList( realm, species );
+      setObservations( obs );
       setLoading( false );
     } ).catch( () => {
       // console.log( "Err: ", err )
     } );
   };
 
+  const fetchRoute = async () => {
+    const routeName = await getRoute();
+    // don't fetch if user is toggling back and forth from SpeciesDetail screen
+    if ( routeName !== "Observations" ) {
+      setLoading( true );
+      fetchObservations();
+    }
+  };
+
   useEffect( () => {
     const unsub = navigation.addListener( "focus", () => {
-      fetchObservations();
+      fetchRoute();
     } );
 
     return unsub;

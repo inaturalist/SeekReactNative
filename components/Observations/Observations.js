@@ -24,7 +24,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import EmptyState from "../UIComponents/EmptyState";
-import ObservationCard from "./ObsCardHooks";
+import ObservationCard from "./ObsCard";
 import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
 import SectionHeader from "./SectionHeader";
 import DeleteModal from "../Modals/DeleteModal";

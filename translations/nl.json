@@ -245,11 +245,11 @@
     "yes": "Ja, verwijder het uit mijn waarnemingen",
     "yes_resighted": "Ja, deze soort is onjuist gedetermineerd",
     "no": "Nee, het is juist",
-    "enable_location": "Locatiebepaling aanzetten om waarnemingen op te kunnen slaan",
+    "enable_location": "Je waarneming heeft geen locatie",
     "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
-    "error_location": "Om soorten aan je waarnemingen toe te kunnen voegen moet je je locatiebepaling aanzetten. Seek gebruikt je locatie om je te herinneren waar je een organisme heb gezien, en om bij te dragen aan burgerwetenschap als je gegevens op iNaturalist zet.",
+    "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
     "error_downtime": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -259,8 +259,8 @@
       "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "een paar",
-    "error_gps": "We konden je GPS-locatie niet vinden. Probeer alsjeblieft naar een plek te gaan waar je de hemel kunt zien en controleer of de locatiebepaling van je apparaat is ingeschakeld om waarnemingen op te slaan.",
-    "error_timeout": "We konden je waarneming niet opslaan door een locatie time-out. Probeer het later nog eens.",
+    "error_gps": "Seek kan je GPS-locatie niet vinden. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals verspreidingskaarten niet bekijken.  Ga naar een plek waar je de lucht kunt zien en controleer of de locatieservices van je apparaat zijn ingeschakeld.",
+    "error_timeout": "Het duurde te lang voordat je toestel een gps-fix had. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals de verspreidingskaart niet bekijken. Probeer het later nog eens.",
     "nearby": "Soorten in dit taxon in de buurt",
     "nothing_nearby": "Zo te zien zijn er nog niet veel soorten in dit taxon in de buurt waargenomen! Probeer nog een foto te nemen of het op iNaturalist te plaatsen.",
     "tap": "Tik om soorten in de buurt te laden"
@@ -595,6 +595,12 @@
     "mission_1_may_2020": "Vind 5 planten",
     "mission_2_may_2020": "Vind 2 insecten",
     "mission_3_may_2020": "Vind 1 spinachtige",
-    "mission_4_may_2020": "Vind 2 vogelsoorten"
+    "mission_4_may_2020": "Vind 2 vogelsoorten",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
   }
 }

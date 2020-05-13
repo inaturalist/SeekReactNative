@@ -103,12 +103,18 @@ const ObservationList = () => {
     setObservations( updatedObs );
   };
 
+  const setEmptyState = () => setLoading( false );
+
   const fetchObservations = () => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
-      const obs = createSectionList( realm, species );
-      setObservations( obs );
-      setLoading( false );
+      if ( species.length === 0 ) {
+        setEmptyState();
+      } else {
+        const obs = createSectionList( realm, species );
+        setObservations( obs );
+        setLoading( false );
+      }
     } ).catch( () => {
       // console.log( "Err: ", err )
     } );
@@ -116,7 +122,7 @@ const ObservationList = () => {
 
   const fetchRoute = async () => {
     const routeName = await getRoute();
-    // don't fetch if user is toggling back and forth from SpeciesDetail screen
+    // don't fetch if user is toggling back and forth from SpeciesDetail screens
     if ( routeName !== "Observations" ) {
       setLoading( true );
       fetchObservations();

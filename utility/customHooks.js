@@ -3,8 +3,6 @@ import { Platform } from "react-native";
 
 import i18n from "../i18n";
 import { fetchLocationName } from "./locationHelpers";
-import { getChallengeIndex } from "./challengeHelpers";
-import { getRoute } from "./helpers";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -20,40 +18,6 @@ const useScrollToTop = ( scrollView, navigation ) => {
       scrollToTop();
     } );
   } );
-};
-
-const useIndex = ( navigation ) => {
-  const [index, setIndex] = useState( null );
-
-  const setupScreen = async () => {
-    const i = await getChallengeIndex();
-    setIndex( i );
-  };
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      setupScreen();
-    } );
-  } );
-
-  return index;
-};
-
-const useRoute = ( navigation ) => {
-  const [route, setRoute] = useState( null );
-
-  const setupScreen = async () => {
-    const r = await getRoute();
-    setRoute( r );
-  };
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      setupScreen();
-    } );
-  } );
-
-  return route;
 };
 
 const useLocationName = ( latitude, longitude ) => {
@@ -87,7 +51,5 @@ const useLocationName = ( latitude, longitude ) => {
 
 export {
   useScrollToTop,
-  useLocationName,
-  useIndex,
-  useRoute
+  useLocationName
 };

@@ -24,10 +24,8 @@
     "@react-navigation/stack": "^5.2.13",
     "date-fns": "^2.12.0",
     "flow-typed": "^3.1.0",
-    "i": "^0.3.6",
     "i18n-js": "^3.5.1",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
-    "npm": "^6.14.5",
     "react": "^16.11.0",
     "react-native": "^0.62.2",
     "react-native-check-box": "^2.1.7",
@@ -36,7 +34,7 @@
     "react-native-geocoder": "git+https://github.com/a-voityuk/react-native-geocoder.git",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-resizer": "^1.2.1",
-    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
+    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera#96b765919eb681ea375c9bd96e830049721f701c",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-localize": "^1.4.0",
@@ -58,7 +56,7 @@
     "react-native-tab-view": "^2.14.0",
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webview": "^9.2.2",
-    "realm": "^3.6.4"
+    "realm": "^3.6.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

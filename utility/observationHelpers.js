@@ -117,15 +117,14 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
-const createSectionList = ( realm ) => {
+const createSectionList = ( realm, species ) => {
   const obs = [];
-  const species = realm.objects( "ObservationRealm" );
 
   const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];
 
   taxaList.forEach( ( id ) => {
     const data = species.filtered( `taxon.iconicTaxonId == ${id}` ).sorted( "date", true );
-    obs.push( { id, data, open: true } );
+    obs.push( { id, data } );
   } );
 
   sortNewestToOldest( obs );
@@ -135,7 +134,7 @@ const createSectionList = ( realm ) => {
     .sorted( "date", true );
   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-  obs.push( { id: 1, data: otherData, open: true } );
+  obs.push( { id: 1, data: otherData } );
 
   return obs;
 };

@@ -321,7 +321,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
-  - RealmJS (3.6.4):
+  - RealmJS (3.6.5):
     - GCDWebServer
     - React
   - RNCAsyncStorage (1.7.1):
@@ -592,7 +592,7 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
-  RealmJS: efc6149c80687ae64c040148f7c2ade335a97416
+  RealmJS: b103c28012b1abfe13396ac82e76b4f4d9d47c0d
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNCMaskedView: c8b53164b85ecf94c9a44d67082df0f03c1f74cc
   RNDateTimePicker: 68e542a59ff1b73563744145bfc45c2b88a3deea

@@ -109,9 +109,10 @@ const ObservationList = () => {
 
       if ( species.length !== obsNumber ) {
         console.log( species.length, obsNumber, "obs number" );
+        setLoading( true );
         const obs = createSectionList( realm, species );
-        setObservations( obs );
         setObsNumber( species.length );
+        setObservations( obs );
       }
       setLoading( false );
     } ).catch( () => {
@@ -121,7 +122,6 @@ const ObservationList = () => {
 
   useEffect( () => {
     const unsub = navigation.addListener( "focus", () => {
-      setLoading( true );
       fetchObservations();
     } );
 

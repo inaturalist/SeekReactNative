@@ -5,7 +5,7 @@ import RNFS from "react-native-fs";
 import i18n from "../i18n";
 import { fetchLocationName } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
-import { writeToDebugLog, checkForDirectory } from "./photoHelpers";
+import { writeToDebugLog } from "./photoHelpers";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {

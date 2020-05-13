@@ -49,29 +49,20 @@ const ObservationCard = ( {
 
   const photo = useUserPhoto( item );
 
-  // componentDidUpdate( prevProps: Object ) {
-  //   const { itemScrolledId } = props;
+  useEffect( () => {
+    const scrollLeft = () => {
+      if ( scrollView.current ) {
+        scrollView.current.scrollTo( {
+          x: 0, y: 0, duration: 300
+        } );
+      }
+    };
 
-  //   if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
-  //     scrollLeft();
-  //   }
-  // }
-
-  // useEffect( () => {
-  //   console.log( itemScrolledId, id, "ids" );
-  //   const scrollLeft = () => {
-  //     if ( scrollView.current && itemScrolledId !== id ) {
-  //       scrollView.current.scrollTo( {
-  //         x: 0, y: 0, duration: 300
-  //       } );
-  //       updateItemScrolledId( null );
-  //     }
-  //   };
-
-  //   if ( itemScrolledId ) {
-  //     scrollLeft();
-  //   }
-  // }, [itemScrolledId, id, updateItemScrolledId] );
+    if ( itemScrolledId && itemScrolledId !== id ) {
+      updateItemScrolledId( null );
+      scrollLeft();
+    }
+  }, [updateItemScrolledId, id, itemScrolledId] );
 
   useEffect( () => {
     let isActive = true;
@@ -89,7 +80,7 @@ const ObservationCard = ( {
       ref={scrollView}
       contentContainerStyle={styles.card}
       horizontal
-      onScrollBeginDrag={() => updateItemScrolledId( taxon.id )}
+      onScrollBeginDrag={() => updateItemScrolledId( id )}
       showsHorizontalScrollIndicator={false}
     >
       <SpeciesCard

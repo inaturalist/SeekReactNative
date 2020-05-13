@@ -249,7 +249,7 @@
     "error_server": "Leider können wir das Bild nicht bewerten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
-    "error_location": "Um Arten zu deinen Beobachtungen hinzuzufügen, musst du deinen Standort aktivieren. Seek benutzt deinen Standort, um dich daran zu erinnern, wo du einen Organismus gesehen hast, und um zu helfen, zu Citizen Science Projekten beizutragen, wenn du auf iNaturalist postest.",
+    "error_location": "Du kannst keine Verbreitungskarten ansehen, Arten in der Nähe erkunden oder diese Beobachtung auf iNaturalist posten. Wenn du den Standort in Seek aktivierst, kannst du detaillierte Informationen zu deinen Beobachtungen sehen und zu wissenschaftlichen Daten beitragen. Dein Standort wird nicht veröffentlicht, es sei denn, du lädst die Beobachtung auf iNaturalist hoch.",
     "error_downtime": {
       "zero": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
       "one": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
@@ -259,8 +259,8 @@
       "other": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut."
     },
     "error_few": "ein paar",
-    "error_gps": "Wir konnten deinen GPS-Standort nicht finden. Um Beobachtungen zu speichern, versuche bitte an einen Ort zu gehen, an dem du den Himmel sehen kannst, und überprüfe, ob der Standort deines Geräts eingeschaltet ist.",
-    "error_timeout": "Wir konnten deine Beobachtung nicht speichern, da die Standortabfrage das Zeitlimit erreicht hat. Bitte versuche es später erneut.",
+    "error_gps": "Seek kann deinen GPS-Standort nicht finden. Deine Beobachtung wurde gespeichert, aber ohne Standort kannst du keine detaillierten Informationen wie z.B. Verbreitungskarten sehen. Versuche, dich an einen Ort unter offenem Himmel zu begeben und überprüfen, ob die Standortdienste deines Geräts eingeschaltet sind.",
+    "error_timeout": "Es hat zu lange gedauert, deinen Standort abzurufen. Deine Beobachtung wurde gespeichert, aber ohne Standort können keine detaillierten Informationen wie z.B. Verbreitungskarten angezeigt werden. Bitte versuche es später nochmal.",
     "nearby": "Beobachtungen dieser Art in der Umgebung",
     "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
     "tap": "Tippe, um Arten in der Umgebung zu laden"
@@ -487,7 +487,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
     "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org.",
-    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch und Yulia Lygina.",
+    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch und Yulia Lygina.",
     "join_crowdin": "Um dem Übersetzungsteam von Seek beizutreten, besuche bitte https://crowdin.com/project/seek"
   },
   "posting": {
@@ -526,7 +526,7 @@
     "geoprivacy": "Geoprivatsphäre",
     "open_header": "Öffentlich: ",
     "obscured_header": "Verdeckt: ",
-    "closed_header": "Unsichtbar: ",
+    "closed_header": "Privat: ",
     "yes_header": "Ja: ",
     "no_header": "Nein: ",
     "open": "Andere Nutzer von iNaturalist können sehen, wo diese Art beobachtet wurde, und Wissenschaftler können diese Daten für die Forschung verwenden.",
@@ -595,6 +595,12 @@
     "mission_1_may_2020": "Finde 5 Pflanzen",
     "mission_2_may_2020": "Finde 2 Insekten",
     "mission_3_may_2020": "Finde 1 Spinnentier",
-    "mission_4_may_2020": "Finde 2 Vögel"
+    "mission_4_may_2020": "Finde 2 Vögel",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
   }
 }

@@ -15,6 +15,7 @@ import notifications from "../../assets/notifications";
 import { setChallengeIndex } from "../../utility/challengeHelpers";
 import challengesDict from "../../utility/dictionaries/challengesDict";
 import badges from "../../assets/badges";
+import { markNotificationAsSeen } from "../../utility/notificationHelpers";
 
 type Props = {
   +item: Object
@@ -37,29 +38,29 @@ const NotificationCard = ( { item }: Props ) => {
   }
 
   return (
-    <>
-      <TouchableOpacity
-        onPress={() => {
-          if ( item.nextScreen === "ChallengeDetails" ) {
-            setChallengeIndex( item.challengeIndex );
-          }
-          navigation.navigate( item.nextScreen );
-        }}
-        style={[styles.card, styles.row]}
-      >
-        <Image source={image} style={styles.image} />
-        <View style={styles.textContainer}>
-          <Text style={styles.titleText}>
-            {i18n.t( item.title )}
-          </Text>
-          <Text style={styles.messageText}>
-            {i18n.t( item.message )}
-          </Text>
-        </View>
-        {item.seen === false ? <View style={styles.greenDot} /> : null}
-      </TouchableOpacity>
-      <View style={styles.divider} />
-    </>
+    <TouchableOpacity
+      onPress={() => {
+        if ( item.nextScreen === "ChallengeDetails" ) {
+          setChallengeIndex( item.challengeIndex );
+        }
+        if ( item.seen === false ) {
+          markNotificationAsSeen( item.index );
+        }
+        navigation.navigate( item.nextScreen );
+      }}
+      style={[styles.card, styles.row]}
+    >
+      <Image source={image} style={styles.image} />
+      <View style={styles.textContainer}>
+        <Text style={styles.titleText}>
+          {i18n.t( item.title )}
+        </Text>
+        <Text style={styles.messageText}>
+          {i18n.t( item.message )}
+        </Text>
+      </View>
+      {!item.seen && <View style={styles.greenDot} />}
+    </TouchableOpacity>
   );
 };
 

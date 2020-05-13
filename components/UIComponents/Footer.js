@@ -20,16 +20,15 @@ const Footer = () => {
   let challenge;
   const navigation = useNavigation();
   const route = useRoute();
+  const [notifications, setNotifications] = useState( false );
 
   if ( route.name === "Challenges" || route.name === "ChallengeDetails" ) {
     challenge = true;
   }
 
-  const [notifications, setNotifications] = useState( false );
-
-  const fetchNotifications = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
+  useEffect( () => {
+    const fetchNotifications = () => {
+      Realm.open( realmConfig ).then( ( realm ) => {
         const newNotifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
         if ( newNotifications > 0 ) {
           setNotifications( true );
@@ -39,11 +38,12 @@ const Footer = () => {
       } ).catch( () => {
         console.log( "[DEBUG] Failed to fetch notifications: " );
       } );
-  };
+    };
 
-  useEffect( () => {
-    fetchNotifications();
-  } );
+    navigation.addListener( "focus", () => {
+      fetchNotifications();
+    } );
+  }, [navigation] );
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -81,9 +81,7 @@ const Footer = () => {
               onPress={() => navigation.navigate( "Notifications" )}
               style={styles.notificationPadding}
             >
-              {notifications
-                ? <Image source={icons.notifications} />
-                : <Image source={icons.notificationsInactive} />}
+              <Image source={notifications ? icons.notifications : icons.notificationsInactive} />
             </TouchableOpacity>
           )}
         </View>

@@ -132,21 +132,21 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 4, 1 ),
     action: "seek_challenges.action_may_2020"
-  },
-  june2020: {
-    name: "seek_challenges.resilience",
-    description: "seek_challenges.june_2020_description",
-    totalSpecies: 10,
-    backgroundName: "img-challengedetail-may2020",
-    earnedIconName: "badge_inaturalist_may2020",
-    missions: [
-      "seek_challenges.mission_1_june_2020",
-      "seek_challenges.mission_2_june_2020",
-      "seek_challenges.mission_3_june_2020"
-    ],
-    availableDate: new Date( 2020, 5, 1 ),
-    action: "seek_challenges.action_june_2020"
   }
+  // june2020: {
+  //   name: "seek_challenges.resilience",
+  //   description: "seek_challenges.june_2020_description",
+  //   totalSpecies: 10,
+  //   backgroundName: "img-challengedetail-may2020",
+  //   earnedIconName: "badge_inaturalist_may2020",
+  //   missions: [
+  //     "seek_challenges.mission_1_june_2020",
+  //     "seek_challenges.mission_2_june_2020",
+  //     "seek_challenges.mission_3_june_2020"
+  //   ],
+  //   availableDate: new Date( 2020, 5, 1 ),
+  //   action: "seek_challenges.action_june_2020"
+  // }
 };
 
 export default challenges;

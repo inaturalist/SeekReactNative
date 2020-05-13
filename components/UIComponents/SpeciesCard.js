@@ -31,16 +31,21 @@ const SpeciesCard = ( {
   allowFontScaling
 }: Props ) => (
   <TouchableOpacity
-    onPress={() => handlePress()}
+    onPress={() => {
+      if ( handlePress ) {
+        handlePress();
+      }
+    }}
     style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
     disabled={!handlePress}
   >
     {iconicTaxonId ? (
       <ImageBackground
         imageStyle={styles.image}
-        source={iconicTaxa[iconicTaxonId]}
+        source={iconicTaxa[iconicTaxonId] || iconicTaxa[1]}
         style={styles.image}
       >
+        {console.log( iconicTaxonId, "iconic id" )}
         <Image source={photo} style={styles.image} />
       </ImageBackground>
     ) : <Image source={photo} style={styles.image} />}

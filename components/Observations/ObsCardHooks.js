@@ -49,8 +49,10 @@ const ObservationCard = ( {
     iconicTaxonId
   } = taxon;
 
-  const photo = useUserPhoto( uuidString, defaultPhoto );
-  console.log( photo, "photo" );
+  const photo = {};
+
+  // const photo = useUserPhoto( uuidString, defaultPhoto );
+  // console.log( typeof photo, "photo" );
 
   // componentDidUpdate( prevProps: Object ) {
   //   const { itemScrolledId } = props;
@@ -60,45 +62,21 @@ const ObservationCard = ( {
   //   }
   // }
 
-  const scrollLeft = () => {
-    if ( scrollView.current && itemScrolledId !== item.taxon.id ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, duration: 300
-      } );
-
-      updateItemScrolledId( null );
-    }
-  };
-
-  // const checkForSeekV2Photos = useCallback( () => {
-  //   if ( !defaultPhoto ) {
-  //     return;
-  //   }
-
-  //   const { backupUri, mediumUrl } = defaultPhoto;
-  //   if ( backupUri ) {
-  //     if ( Platform.OS === "ios" ) {
-  //       const uri = backupUri.split( "Pictures/" );
-  //       const backupFilepath = `${dirPictures}/${uri[1]}`;
-  //       setPhoto( { uri: backupFilepath } );
-  //     } else {
-  //       writeToDebugLog( backupUri );
-  //       RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-  //         setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-  //       } ).catch( ( e ) => console.log( e ) );
+  // useEffect( () => {
+  //   console.log( itemScrolledId, id, "ids" );
+  //   const scrollLeft = () => {
+  //     if ( scrollView.current && itemScrolledId !== id ) {
+  //       scrollView.current.scrollTo( {
+  //         x: 0, y: 0, duration: 300
+  //       } );
+  //       updateItemScrolledId( null );
   //     }
-  //   } else if ( mediumUrl ) {
-  //     setPhoto( { uri: mediumUrl } );
+  //   };
+
+  //   if ( itemScrolledId ) {
+  //     scrollLeft();
   //   }
-  // }, [defaultPhoto] );
-
-  // const checkForSeekV1Photos = useCallback( ( seekv1Photos ) => {
-  //   const photoPath = `${seekv1Photos}/${uuidString}`;
-
-  //   RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-  //     setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-  //   } ).catch( () => checkForSeekV2Photos() );
-  // }, [checkForSeekV2Photos, uuidString] );
+  // }, [itemScrolledId, id, updateItemScrolledId] );
 
   useEffect( () => {
     let isActive = true;

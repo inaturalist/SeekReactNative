@@ -1,6 +1,6 @@
 // @flow
 import React, { useContext } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { UserContext } from "../../UserContext";
@@ -27,12 +27,12 @@ const About = ( {
     <SpeciesDetailCard text="species_detail.about">
       <Text style={styles.text}>{about}</Text>
       {( login && id !== 43584 ) && (
-        <TouchableOpacity
+        <Text
           onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
-          style={styles.linkContainer}
+          style={styles.linkText}
         >
-          <Text style={styles.linkText}>{commonName}</Text>
-        </TouchableOpacity>
+          {commonName}
+        </Text>
       )}
     </SpeciesDetailCard>
   );

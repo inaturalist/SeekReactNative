@@ -54,15 +54,12 @@ export default StyleSheet.create( {
     paddingBottom: Platform.OS === "android" ? 11 : 8,
     paddingTop: 12
   },
-  linkContainer: {
-    paddingBottom: 20,
-    paddingTop: 10
-  },
   linkText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
+    paddingTop: 10,
     textDecorationLine: "underline"
   },
   marginSmall: {

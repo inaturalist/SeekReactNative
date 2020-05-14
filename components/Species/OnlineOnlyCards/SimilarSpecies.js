@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -13,85 +13,61 @@ type Props = {
   +fetchiNatData: Function
 }
 
-class SimilarSpecies extends Component<Props> {
-  constructor() {
-    super();
+const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
+  const [similarSpecies, setSimilarSpecies] = useState( [] );
+  const [loading, setLoading] = useState( true );
 
-    this.state = {
-      similarSpecies: [],
-      loading: true
-    };
-  }
+  const { length } = similarSpecies;
 
-  componentDidUpdate( prevProps: Object ) {
-    const { id } = this.props;
-
-    if ( id !== prevProps.id ) {
-      this.resetState();
-      this.fetchSimilarSpecies();
-    }
-  }
-
-  resetState() {
-    this.setState( {
-      similarSpecies: [],
-      loading: true
-    } );
-  }
-
-  fetchSimilarSpecies() {
-    const { id } = this.props;
-
-    const params = {
-      per_page: 20,
-      taxon_id: id,
-      without_taxon_id: 43584,
-      locale: i18n.currentLocale()
+  useEffect( () => {
+    const resetState = () => {
+      setSimilarSpecies( [] );
+      setLoading( true );
     };
 
-    const options = { user_agent: createUserAgent() };
+    const fetchSimilarSpecies = () => {
+      const params = {
+        per_page: 20,
+        taxon_id: id,
+        without_taxon_id: 43584,
+        locale: i18n.currentLocale()
+      };
 
-    inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
-      const similarSpecies = results.map( r => r.taxon );
+      const options = { user_agent: createUserAgent() };
 
-      this.setState( {
-        similarSpecies,
-        loading: false
-      } );
-    } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
-  }
+      inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
+        const species = results.map( r => r.taxon );
 
-  render() {
-    const { similarSpecies, loading } = this.state;
-    const { fetchiNatData } = this.props;
-    const { length } = similarSpecies;
+        setSimilarSpecies( species );
+        setLoading( false );
+      } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
+    };
+    resetState();
+    fetchSimilarSpecies();
+  }, [id] );
 
-    const species = (
-      <SpeciesNearbyList fetchiNatData={() => fetchiNatData( "similarSpecies" )} taxa={similarSpecies} />
-    );
-
-    return (
-      <>
+  return (
+    <>
+      {length > 0 && (
         <View>
-          {length > 0 && (
-            <View style={styles.similarSpeciesMargins}>
-              <GreenText text="species_detail.similar" />
-            </View>
-          )}
-          {length > 0 && (
-            <View style={[
-              styles.similarSpeciesContainer,
-              loading && styles.loading
-            ]}
-            >
-              {species}
-            </View>
-          )}
+          <View style={styles.similarSpeciesMargins}>
+            <GreenText text="species_detail.similar" />
+          </View>
+          <View style={[
+            styles.similarSpeciesContainer,
+            loading && styles.loading
+          ]}
+          >
+            <SpeciesNearbyList
+              fetchiNatData={() => fetchiNatData( "similarSpecies" )}
+              taxa={similarSpecies}
+            />
+          </View>
         </View>
-        <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
-      </>
-    );
-  }
-}
+      )}
+      <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
+    </>
+  );
+};
 
 export default SimilarSpecies;

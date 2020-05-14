@@ -43,7 +43,7 @@ const markNotificationsAsViewed = () => {
 
     notifications.forEach( ( notification ) => {
       // past notifications will not have this object key
-      if ( !notification.viewed || notification.viewed === false ) {
+      if ( notification.viewed === false ) {
         realm.write( () => {
           notification.viewed = true;
         } );

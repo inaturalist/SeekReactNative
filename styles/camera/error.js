@@ -9,7 +9,7 @@ import {
 export default StyleSheet.create( {
   blackBackground: {
     backgroundColor: colors.black,
-    height: dimensions.height - 100
+    height: dimensions.height
   },
   center,
   errorText: {
@@ -19,6 +19,9 @@ export default StyleSheet.create( {
     lineHeight: 24,
     marginHorizontal: 41,
     textAlign: "center"
+  },
+  galleryHeight: {
+    height: dimensions.height - 100
   },
   margin: {
     marginTop: 38

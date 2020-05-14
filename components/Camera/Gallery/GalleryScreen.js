@@ -43,8 +43,10 @@ const GalleryScreen = () => {
 
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         appendPhotos( results.edges, results.page_info );
-      } ).catch( ( err ) => {
-        console.log( err, "error" );
+      } ).catch( ( { message } ) => {
+        if ( message === "Access to photo library was denied" ) {
+          setError( "gallery" );
+        }
       } );
     }
   }, [hasNextPage, stillLoading, appendPhotos] );

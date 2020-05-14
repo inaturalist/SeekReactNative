@@ -38,7 +38,7 @@
     "view_challenges": "Bekyk uitdaging",
     "none": "U het nog geen kennisgewings nie!",
     "about": "U sal hier in kennis gestel word van nuwe uitdagings sodra hulle beskikbaar word, bywerkings vir Seek, asook ander relevande inligting.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Daar is ’n nuwe uitdaging beskikbaar!"
   },
   "login": {
     "log_in": "Teken aan met iNaturalist",
@@ -167,12 +167,12 @@
     "no_new_challenges": "Ons sal u laat weet wanneer nuwe uitdagings beskikbaar is.",
     "completed_all": "U het alle beskikbare uitdagings voltooi!",
     "number_observed": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "nog {{count}} waargeneem",
+      "one": "reeds {{count}} waargeneem",
+      "two": "reeds {{count}} waargeneem",
+      "few": "reeds {{count}} waargeneem",
+      "many": "reeds {{count}} waargeneem",
+      "other": "reeds {{count}} waargeneem"
     },
     "how_to": "Voltooi die Seek-uitdaging vir {{month}}!",
     "released": "Hierdie uitdaging sal op {{date}} vrygestel word.",
@@ -251,12 +251,12 @@
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u Internetverbinding na en probeer weer.",
     "error_location": "Om spesies tot u waarnemings toe te voeg moet u ligging aktiveer. Seek gebruik u ligging om u te herinner aan waar u ’n organisme opgemerk het en om tot die burgerwetenskap by te dra indien u dit op iNaturalist plaas.",
     "error_downtime": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
+      "one": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
+      "two": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
+      "few": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
+      "many": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
+      "other": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur."
     },
     "error_few": "’n paar",
     "error_gps": "Ons kon nie u GPS-ligging vind nie. Beweeg na ’n plek waar u die lug kan sien en maak seker u toestel se ligging is geaktiveer sodat u waarnemings kan bewaar.",
@@ -272,12 +272,12 @@
     "challenge_view": "Bekyk u vordering",
     "level_up": "U het ’n hoër vlak bereik!",
     "number_seen": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "U het {{count}} spesies gesien!",
+      "one": "U het {{count}} spesies gesien!",
+      "two": "U het {{count}} spesies gesien!",
+      "few": "U het {{count}} spesies gesien!",
+      "many": "U het {{count}} spesies gesien!",
+      "other": "U het {{count}} spesies gesien!"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "Teken aan met iNaturalist om waarnemings by die aanlyn gemeenskap te plaas!",
     "achievements": "Prestasies",
     "observe": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
+      "one": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
+      "two": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
+      "few": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
+      "many": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
+      "other": "Neem {{count}} spesies waar om na die volgende vlak te gaan!"
     },
     "observe_max": "U het die maksimum vlak op Seek bereik!",
     "observe_species": "Neem Waar",
@@ -596,11 +596,11 @@
     "mission_2_may_2020": "Vind 2 insekte",
     "mission_3_may_2020": "Vind 1 aragnied",
     "mission_4_may_2020": "Vind 2 voëls",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
-    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
-    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "resilience": "Weerstandigheidsuitdaging",
+    "mission_1_june_2020": "Vind 2 plante in die orde Asterales (Asters, Klokblomme, Waaierblomme en Distels)",
+    "mission_2_june_2020": "Vind 3 voëls in die orde Passeriformes (Sangvoëls)",
+    "mission_3_june_2020": "Vind 1 insek in die orde Coleoptera (Kewers)",
+    "june_2020_description": "Die natuur is weerstandig en oral om ons. Van stede tot plase vind plante en diere maniere om te gedy. Selfs in stedelike areas leef plante, voëls en insekte saam met ons.",
+    "action_june_2020": "Het u geweet u kan die wetenskaplike name eerder as volksname in die Seek-kamera vertoon? Gaan na die instellingsblad vanuit die kieslys om dit sodanig te verander!"
   }
 }

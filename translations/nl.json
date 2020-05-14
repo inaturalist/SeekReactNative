@@ -38,7 +38,7 @@
     "view_challenges": "Bekijk uitdaging",
     "none": "Je hebt nog geen meldingen!",
     "about": "Hier word je op de hoogte gesteld van nieuwe uitdagingen wanneer ze beschikbaar zijn, updates voor Seek en andere relevante informatie.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Er is een nieuwe uitdaging beschikbaar!"
   },
   "login": {
     "log_in": "Inloggen met iNaturalist",
@@ -167,12 +167,12 @@
     "no_new_challenges": "We laten je weten wanneer nieuwe uitdagingen beschikbaar zijn.",
     "completed_all": "Je hebt alle beschikbare uitdagingen voltooid!",
     "number_observed": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} waargenomen tot nu toe ",
+      "one": "{{count}} waargenomen tot nu toe",
+      "two": "{{count}} waargenomen tot nu toe ",
+      "few": "{{count}} waargenomen tot nu toe ",
+      "many": "{{count}} waargenomen tot nu toe ",
+      "other": "{{count}} waargenomen tot nu toe "
     },
     "how_to": "Voltooi de Seek Uitdaging voor {{month}}!",
     "released": "Deze uitdaging zal worden vrijgegeven {{date}}.",
@@ -251,12 +251,12 @@
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
     "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
     "error_downtime": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "one": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "two": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "few": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "many": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "other": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur."
     },
     "error_few": "een paar",
     "error_gps": "Seek kan je GPS-locatie niet vinden. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals verspreidingskaarten niet bekijken.  Ga naar een plek waar je de lucht kunt zien en controleer of de locatieservices van je apparaat zijn ingeschakeld.",
@@ -272,12 +272,12 @@
     "challenge_view": "Bekijk je voortgang",
     "level_up": "Je bereikt een hoger level!",
     "number_seen": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "Je hebt {{count}} soorten gezien!",
+      "one": "Je hebt {{count}} soort gezien!",
+      "two": "Je hebt {{count}} soorten gezien!",
+      "few": "Je hebt {{count}} soorten gezien!",
+      "many": "Je hebt {{count}} soorten gezien!",
+      "other": "Je hebt {{count}} soorten gezien!"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
     "observe": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
+      "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "few": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "many": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "other": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!"
     },
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
     "observe_species": "Waarnemen",
@@ -596,11 +596,11 @@
     "mission_2_may_2020": "Vind 2 insecten",
     "mission_3_may_2020": "Vind 1 spinachtige",
     "mission_4_may_2020": "Vind 2 vogelsoorten",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
-    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
-    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "resilience": "Weerstandsuitdaging",
+    "mission_1_june_2020": "Vind 2 planten van de orde Asterales (Asters, Bellbloemen, Fanbloemen en verwanten)",
+    "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Vind 1 insect van de orde Coleoptera (Kevers)",
+    "june_2020_description": "De natuur is veerkrachtig en overal om ons heen. Van steden tot het platteland, planten en dieren vinden een manier om te gedijen. Zelfs in stedelijke gebieden leven planten, vogels en insecten samen met ons.",
+    "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!"
   }
 }

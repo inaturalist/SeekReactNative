@@ -38,7 +38,7 @@
     "view_challenges": "Afficher le défi",
     "none": "Vous n'avez pas encore de notifications !",
     "about": "C'est ici que vous serez averti des nouveaux défis \ndisponibles, des mises à jour de Seek et que vous recevrez les informations utiles.",
-    "new_challenge": "Un nouveau challenge est disponible !"
+    "new_challenge": "Un nouveau défi est disponible !"
   },
   "login": {
     "log_in": " Se connecter sur iNaturalist",
@@ -167,12 +167,12 @@
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
     "number_observed": {
-      "zero": "{{count}} observé(s) pour l'instant",
-      "one": "{{count}} observé(s) pour l'instant",
-      "two": "{{count}} observé(s) pour l'instant",
-      "few": "{{count}} observé(s) pour l'instant",
-      "many": "{{count}} observé(s) pour l'instant",
-      "other": "{{count}} observé(s) pour l'instant"
+      "zero": "{{count}} observé(es) jusqu’à présent",
+      "one": "{{count}} observé(es) jusqu’à présent",
+      "two": "{{count}} observé(es) jusqu’à présent",
+      "few": "{{count}} observé(es) jusqu’à présent",
+      "many": "{{count}} observé(es) jusqu’à présent",
+      "other": "{{count}} observé(es) jusqu’à présent"
     },
     "how_to": "Complétez le défi Seek pour le mois de {{month}} !",
     "released": "Ce défi sera publié le {{date}}.",
@@ -245,7 +245,7 @@
     "yes": "Oui, retirez-la de mes observations",
     "yes_resighted": "Oui, cette espèce a été mal identifiée",
     "no": "Non, c'est correct",
-    "enable_location": "Activez la localisation afin de sauvegarder vos observations",
+    "enable_location": "Votre observation n’est pas localisée ",
     "error_server": "Désolé nous ne parvenons pas à reconnaître cette image. Veuillez vérifier votre connexion internet et essayez de nouveau.",
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
@@ -272,12 +272,12 @@
     "challenge_view": "Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
     "number_seen": {
-      "zero": "Tu as vu {{count}} espèces !",
-      "one": "Tu as vu {{count}} espèces !",
-      "two": "Tu as vu {{count}} espèces !",
-      "few": "Tu as vu {{count}} espèces !",
-      "many": "Tu as vu {{count}} espèces !",
-      "other": "Tu as vu {{count}} espèces !"
+      "zero": "Vous avez observé {{count}} espèce(s) !",
+      "one": "Vous avez observé {{count}} espèce(s) !",
+      "two": "Vous avez observé {{count}} espèce(s) !",
+      "few": "Vous avez observé {{count}} espèce(s) !",
+      "many": "Vous avez observé {{count}} espèce(s) !",
+      "other": "Vous avez observé {{count}} espèce(s) !"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
     "achievements": "Progression",
     "observe": {
-      "zero": "Observe {{count}} espèces pour passer au prochain niveau !",
-      "one": "Observe {{count}} espèces pour passer au prochain niveau !",
-      "two": "Observe {{count}} espèces pour passer au prochain niveau !",
-      "few": "Observe {{count}} espèces pour passer au prochain niveau !",
-      "many": "Observe {{count}} espèces pour passer au prochain niveau !",
-      "other": "Observe {{count}} espèces pour passer au prochain niveau !"
+      "zero": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "one": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "two": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "few": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "many": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "other": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !"
     },
     "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
@@ -526,7 +526,7 @@
     "geoprivacy": "Politique de confidentialité et services de localisation",
     "open_header": "Ouvrir: ",
     "obscured_header": "Masqué: ",
-    "closed_header": "Fermé: ",
+    "closed_header": "Confidentiel: ",
     "yes_header": "Oui: ",
     "no_header": "Non: ",
     "open": "D’autres utilisateurs de iNaturalist pourront voir l’endroit où ces espèces ont été observées et les scientifiques pourront utiliser ces données pour la recherche.",
@@ -600,7 +600,7 @@
     "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
-    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "june_2020_description": "La nature autour de nous est résistante. Que ce soit dans les villes où à la campagne, les plantes et les animaux trouvent un moyen de prospérer. Même dans les zones urbaines, les plantes, les oiseaux et les insectes coexistent avec nous. ",
+    "action_june_2020": "Saviez-vous que vous pouviez voir les noms scientifiques à la place des noms communs sur l’écran de la caméra de Seek ? Allez dans les paramètres du menu pour remplacer les noms communs par les noms scientifiques ! "
   }
 }

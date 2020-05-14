@@ -20,10 +20,6 @@ export default StyleSheet.create( {
     flexDirection: "row",
     height: 150
   },
-  headerMargins: {
-    marginBottom: 11,
-    marginTop: 45
-  },
   xAxis: {
     marginTop: 10
   },

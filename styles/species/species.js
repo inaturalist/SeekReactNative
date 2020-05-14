@@ -18,7 +18,6 @@ export default StyleSheet.create( {
   background: {
     backgroundColor: colors.white
   },
-
   checkmark: {
     marginRight: 10
   },
@@ -79,9 +78,6 @@ export default StyleSheet.create( {
     fontSize: 19,
     lineHeight: 21,
     marginTop: 10
-  },
-  secondTextContainer: {
-    marginHorizontal: 28
   },
   text: {
     color: colors.black,

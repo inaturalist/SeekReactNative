@@ -100,10 +100,14 @@ const useUserPhoto = ( item ) => {
   useEffect( () => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
 
-    if ( Platform.OS === "ios" ) {
-      checkV1( `${seekv1Photos}/${item.uuidString}` );
+    if ( item !== null ) {
+      if ( Platform.OS === "ios" ) {
+        checkV1( `${seekv1Photos}/${item.uuidString}` );
+      } else {
+        checkForSeekV2Photos();
+      }
     } else {
-      checkForSeekV2Photos();
+      setPhoto( null );
     }
   }, [checkForSeekV2Photos, checkV1, item] );
 

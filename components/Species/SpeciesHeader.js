@@ -17,14 +17,14 @@ import icons from "../../assets/icons";
 type Props = {
   photos: Array<Object>,
   taxon: Object,
-  userPhoto: ?string,
+  seenTaxa: ?Object,
   routeName: ?string
 }
 
 const SpeciesHeader = ( {
   routeName,
   photos,
-  userPhoto,
+  seenTaxa,
   taxon
 }: Props ) => {
   const { navigate } = useNavigation();
@@ -65,7 +65,7 @@ const SpeciesHeader = ( {
       </TouchableOpacity>
       <SpeciesPhotos
         photos={photos}
-        userPhoto={userPhoto}
+        seenTaxa={seenTaxa}
       />
       <View style={styles.greenBanner}>
         {iconicTaxonId && (

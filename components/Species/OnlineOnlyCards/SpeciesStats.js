@@ -7,8 +7,8 @@ import {
   Alert
 } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/species/speciesStats";
+import i18n from "../../../i18n";
+import styles from "../../../styles/species/speciesStats";
 
 type Props = {
   +stats: Object

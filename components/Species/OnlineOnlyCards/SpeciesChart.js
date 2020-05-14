@@ -5,15 +5,15 @@ import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import inatjs from "inaturalistjs";
 
-import { colors } from "../../styles/global";
-import styles from "../../styles/species/speciesChart";
-import GreenText from "../UIComponents/GreenText";
-import { capitalizeNames } from "../../utility/helpers";
-import { createShortMonthsList } from "../../utility/dateHelpers";
-import createUserAgent from "../../utility/userAgent";
+import { colors } from "../../../styles/global";
+import styles from "../../../styles/species/speciesChart";
+import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
+import { capitalizeNames } from "../../../utility/helpers";
+import { createShortMonthsList } from "../../../utility/dateHelpers";
+import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
-  +id: number
+  +id: ?number
 };
 
 const SpeciesChart = ( { id }: Props ) => {
@@ -63,12 +63,7 @@ const SpeciesChart = ( { id }: Props ) => {
   ) );
 
   return (
-    <>
-      {data.length > 0 && (
-      <View style={styles.headerMargins}>
-        <GreenText text="species_detail.monthly_obs" />
-      </View>
-      )}
+    <SpeciesDetailCard text="species_detail.monthly_obs" hide={!id || data.length === 0}>
       {data.length > 0 && (
         <View style={styles.container}>
           <View style={styles.chartRow}>
@@ -96,7 +91,7 @@ const SpeciesChart = ( { id }: Props ) => {
           </View>
         </View>
       )}
-    </>
+    </SpeciesDetailCard>
   );
 };
 

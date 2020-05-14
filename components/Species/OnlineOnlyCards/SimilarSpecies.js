@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
-import i18n from "../../i18n";
-import styles from "../../styles/species/similarSpecies";
-import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
-import GreenText from "../UIComponents/GreenText";
-import createUserAgent from "../../utility/userAgent";
+import i18n from "../../../i18n";
+import styles from "../../../styles/species/similarSpecies";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
+import GreenText from "../../UIComponents/GreenText";
+import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
   +id: ?Number,

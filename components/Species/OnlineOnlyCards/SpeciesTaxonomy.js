@@ -2,10 +2,10 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
 
-import { capitalizeNames } from "../../utility/helpers";
-import styles from "../../styles/species/speciesTaxonomy";
-import icons from "../../assets/icons";
-import GreenText from "../UIComponents/GreenText";
+import { capitalizeNames } from "../../../utility/helpers";
+import styles from "../../../styles/species/speciesTaxonomy";
+import icons from "../../../assets/icons";
+import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 
 type Props = {
   +ancestors: Array<Object>
@@ -15,10 +15,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
   let marginLeft = 0;
 
   return (
-    <>
-      <View style={styles.headerMargins}>
-        <GreenText text="species_detail.taxonomy" />
-      </View>
+    <SpeciesDetailCard text="species_detail.taxonomy" hide={ancestors.length === 0}>
       {ancestors.map( ( ancestor, index ) => {
         marginLeft += 15;
 
@@ -40,7 +37,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
           </View>
         );
       } )}
-    </>
+    </SpeciesDetailCard>
   );
 };
 

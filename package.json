@@ -18,7 +18,7 @@
     "@react-native-community/netinfo": "^3.2.0",
     "@react-navigation/bottom-tabs": "^5.4.2",
     "@react-navigation/compat": "^5.1.18",
-    "@react-navigation/drawer": "^5.7.2",
+    "@react-navigation/drawer": "^5.3.4",
     "@react-navigation/material-top-tabs": "^5.2.2",
     "@react-navigation/native": "^5.3.0",
     "@react-navigation/stack": "^5.3.3",

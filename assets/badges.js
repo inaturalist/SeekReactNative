@@ -53,7 +53,8 @@ const badges = {
   badge_silver: require( "./badges/observations/icon-badge-silver.png" ),
   badge_gold: require( "./badges/observations/icon-badge-gold.png" ),
   badge_inaturalist_april2020: require( "./badges/seekChallenges/badge_inaturalist_april2020.png" ),
-  badge_inaturalist_may2020: require( "./badges/seekChallenges/badge_inaturalist_may2020.png" )
+  badge_inaturalist_may2020: require( "./badges/seekChallenges/badge_inaturalist_may2020.png" ),
+  badge_inaturalist_june2020: require( "./badges/seekChallenges/badge_inaturalist_june2020.png" )
 };
 
 export default badges;

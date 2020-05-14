@@ -9,7 +9,8 @@ NotificationRealm.schema = {
     nextScreen: { type: "string", default: "" },
     challengeIndex: { type: "int?", default: 0 },
     index: { type: "int", default: 0 },
-    seen: { type: "bool", default: false }
+    seen: { type: "bool", default: false },
+    viewed: { type: "bool", default: false }
   }
 };
 

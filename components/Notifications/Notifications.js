@@ -22,6 +22,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import EmptyState from "../UIComponents/EmptyState";
 import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
+import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 
 const NotificationsScreen = () => {
   const insets = useSafeArea();
@@ -48,6 +49,7 @@ const NotificationsScreen = () => {
     };
 
     navigation.addListener( "focus", () => {
+      markNotificationsAsViewed();
       fetchNotifications();
       scrollToTop();
     } );

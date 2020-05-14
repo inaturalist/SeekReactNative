@@ -16,7 +16,8 @@ const createNotification = ( type, challengeIndex ) => {
         nextScreen: newNotification.nextScreen,
         challengeIndex,
         index: notifications.length,
-        seen: false
+        seen: false,
+        viewed: false
       } );
     } );
   } ).catch( ( err ) => {
@@ -27,7 +28,6 @@ const createNotification = ( type, challengeIndex ) => {
 const markNotificationAsSeen = ( index ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const notification = realm.objects( "NotificationRealm" ).filtered( `index == ${index}` )[0];
-    console.log( notification, "notification seen" );
     realm.write( () => {
       notification.seen = true;
     } );
@@ -36,7 +36,26 @@ const markNotificationAsSeen = ( index ) => {
   } );
 };
 
+const markNotificationsAsViewed = () => {
+  // mark all notifications viewed when a user navigates to Notification Screen
+  Realm.open( realmConfig ).then( ( realm ) => {
+    const notifications = realm.objects( "NotificationRealm" );
+
+    notifications.forEach( ( notification ) => {
+      // past notifications will not have this object key
+      if ( !notification.viewed || notification.viewed === false ) {
+        realm.write( () => {
+          notification.viewed = true;
+        } );
+      }
+    } );
+  } ).catch( ( err ) => {
+    console.log( "[DEBUG] Failed to create notification: ", err );
+  } );
+};
+
 export {
   createNotification,
-  markNotificationAsSeen
+  markNotificationAsSeen,
+  markNotificationsAsViewed
 };

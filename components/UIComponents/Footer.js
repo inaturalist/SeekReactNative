@@ -29,7 +29,7 @@ const Footer = () => {
   useEffect( () => {
     const fetchNotifications = () => {
       Realm.open( realmConfig ).then( ( realm ) => {
-        const newNotifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
+        const newNotifications = realm.objects( "NotificationRealm" ).filtered( "viewed == false" ).length;
         if ( newNotifications > 0 ) {
           setNotifications( true );
         } else {

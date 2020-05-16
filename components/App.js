@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { I18nManager, Platform } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
+import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 import RootStack from "./Navigation/RootStack";
@@ -42,14 +43,30 @@ const App = () => {
   const scientificNamesContextValue = { scientificNames, toggleNames };
 
   const handleLocalizationChange = () => {
-    console.log( "handling localization change" );
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
     i18n.locale = languageTag;
   };
 
+  const setQuickActions = () => {
+    QuickActions.setShortcutItems( [
+      {
+        type: "Seek AR Camera", // Required
+        title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
+        subtitle: "For quick identifications",
+        icon: "camerabutton", // Icons instructions below
+        userInfo: {
+          url: "app://Drawer/Main/Camera" // Provide any custom data like deep linking URL
+        }
+      }
+    ] );
+  };
+
   useEffect( () => {
+    if ( Platform.OS === "android" ) {
+      setQuickActions();
+    }
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately

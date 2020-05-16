@@ -30,9 +30,13 @@ const defaultConfig = {
 
 const Stack = createStackNavigator();
 
+const linking = {
+  prefixes: ["app://"]
+};
+
 const App = () => (
   <SafeAreaProvider>
-    <NavigationContainer theme={MyTheme}>
+    <NavigationContainer theme={MyTheme} linking={linking}>
       <Stack.Navigator
         initialRouteName="Root"
         screenOptions={{ gestureEnabled: false }}

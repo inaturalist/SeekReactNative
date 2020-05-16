@@ -28,7 +28,8 @@ const SideMenu = ( { navigation }: Props ) => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
-        onPress={() => navigation.navigate( "Home" )}
+        // need the long version of this for QuickActions to Seek AR Camera
+        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
       >
         <Image source={logoImages.seek} style={styles.logo} />
       </TouchableOpacity>
@@ -52,8 +53,12 @@ const SideMenu = ( { navigation }: Props ) => {
                 onPress={() => {
                   if ( path === "Observations" ) {
                     setRoute( "SideMenu" );
+                  } else if ( path === "Home" ) {
+                    // need the long version of this for QuickActions to Seek AR Camera
+                    navigation.navigate( "MainTab", { screen: "Home" } );
+                  } else {
+                    navigation.navigate( path );
                   }
-                  navigation.navigate( path );
                 }}
                 style={[styles.row, styles.height]}
               >

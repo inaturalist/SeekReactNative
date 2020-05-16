@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
@@ -35,12 +35,21 @@ const ARCameraOverlay = ( {
   error
 }: Props ) => {
   const navigation = useNavigation();
+  const { params } = useRoute();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
+
+  console.log( params, "params in overlay" );
+
+  useEffect( () => {
+    if ( params.showWarning === "true" ) {
+      openModal();
+    }
+  }, [params] );
 
   useEffect( () => {
     const checkForFirstCameraLaunch = async () => {

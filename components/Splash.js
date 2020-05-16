@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   Image,
   ImageBackground,
-  Platform
+  Platform,
+  DeviceEventEmitter
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useLinkTo } from "@react-navigation/native";
+import QuickActions from "react-native-quick-actions";
 
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
@@ -14,13 +16,37 @@ import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
 import { setupBadges } from "../utility/badgeHelpers";
 
 const SplashScreen = () => {
+  const linkTo = useLinkTo();
   const navigation = useNavigation();
 
-  useEffect( () => {
-    const resetRouter = ( name ) => {
-      setTimeout( () => navigation.reset( { routes: [{ name }] } ), 2000 );
-    };
+  const resetRouter = useCallback( ( name ) => {
+    setTimeout( () => navigation.reset( { routes: [{ name }] } ), 2000 );
+  }, [navigation] );
 
+  const checkForQuickAction = useCallback( () => {
+    // this addresses hot starts (i.e. app is already open)
+    DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
+      if ( title === "Seek AR Camera" ) {
+        linkTo( "/Drawer/Main/Camera/ARCamera?showWarning=true" );
+      }
+    } );
+
+    // this addresses cold starts (i.e. before the app launches)
+    QuickActions.popInitialAction().then( ( { title } ) => {
+      if ( title === "Seek AR Camera" ) {
+        navigation.navigate( "Drawer", {
+          screen: "Main",
+          params: {
+            screen: "Camera"
+          }
+        } );
+      } else {
+        resetRouter( "Drawer" );
+      }
+    } ).catch( () => resetRouter( "Drawer" ) );
+  }, [resetRouter, navigation, linkTo] );
+
+  useEffect( () => {
     const checkForNewUser = async () => {
       setCameraLaunched( false );
       if ( Platform.OS === "android" ) {
@@ -32,12 +58,12 @@ const SplashScreen = () => {
         setTimeout( setupBadges, 3000 );
         resetRouter( "Onboarding" );
       } else {
-        resetRouter( "Drawer" );
+        checkForQuickAction();
       }
     };
 
     checkForNewUser();
-  }, [navigation] );
+  }, [navigation, checkForQuickAction, resetRouter] );
 
   return (
     <ImageBackground source={backgrounds.splash} style={styles.backgroundImage}>

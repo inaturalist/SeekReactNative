@@ -26,6 +26,7 @@ const CameraNav = () => (
     <Tab.Screen
       name="ARCamera"
       component={ARCamera}
+      initialParams={{ showWarning: false }} // this is only used for hot starting QuickActions
       options={{ tabBarLabel: i18n.t( "camera.label" ).toLocaleUpperCase() }}
     />
     <Tab.Screen

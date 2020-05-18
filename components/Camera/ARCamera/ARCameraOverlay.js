@@ -43,8 +43,6 @@ const ARCameraOverlay = ( {
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
 
-  console.log( params, "params in overlay" );
-
   useEffect( () => {
     if ( params.showWarning === "true" ) {
       openModal();

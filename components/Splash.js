@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { useNavigation, useLinkTo } from "@react-navigation/native";
 import QuickActions from "react-native-quick-actions";
+import AsyncStorage from "@react-native-community/async-storage";
 
 import styles from "../styles/splash";
 import logoImages from "../assets/logos";
@@ -46,6 +47,16 @@ const SplashScreen = () => {
     } ).catch( () => resetRouter( "Drawer" ) );
   }, [resetRouter, navigation, linkTo] );
 
+
+  const removeUnusedKeys = async () => {
+    const keys = ["drawer", "regenerated_backups", "observations", "observers", "scientific_names", "has_seen_login"];
+    try {
+      await AsyncStorage.multiRemove( keys );
+    } catch ( e ) {
+      // console.log( e, "error removing unnecessary keys" );
+    }
+  };
+
   useEffect( () => {
     const checkForNewUser = async () => {
       setCameraLaunched( false );
@@ -58,6 +69,7 @@ const SplashScreen = () => {
         setTimeout( setupBadges, 3000 );
         resetRouter( "Onboarding" );
       } else {
+        removeUnusedKeys();
         checkForQuickAction();
       }
     };

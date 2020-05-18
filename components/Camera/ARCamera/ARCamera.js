@@ -14,7 +14,7 @@ import {
   NativeModules
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation, useIsFocused, useRoute } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { INatCamera } from "react-native-inat-camera";
 import { getSystemVersion } from "react-native-device-info";
 
@@ -30,7 +30,6 @@ import ARCameraOverlay from "./ARCameraOverlay";
 
 const ARCamera = () => {
   const navigation = useNavigation();
-  const { params } = useRoute();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
   const [ranks, setRanks] = useState( {} );
@@ -38,8 +37,6 @@ const ARCamera = () => {
   const [errorEvent, setErrorEvent] = useState( null );
   const [pictureTaken, setPictureTaken] = useState( false );
   const [cameraLoaded, setCameraLoaded] = useState( false );
-
-  console.log( params, "params" );
 
   const updateError = useCallback( ( err, errEvent ) => {
     setError( err );

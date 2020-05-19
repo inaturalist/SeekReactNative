@@ -260,6 +260,10 @@ const localizePercentage = ( number ) => i18n.toPercentage( number, { precision:
 
 const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
 
+const navigateToMainStack = ( navigate, screen, params ) => {
+  navigate( "Drawer", { screen: "Main", params: { screen, params } } );
+};
+
 export {
   addARCameraFiles,
   capitalizeNames,
@@ -280,5 +284,6 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  requiresSafeArea
+  requiresSafeArea,
+  navigateToMainStack
 };

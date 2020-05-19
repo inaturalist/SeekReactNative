@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 type Props = {
   item: Object,
@@ -19,7 +20,7 @@ type Props = {
 }
 
 const GalleryImage = ( { item, startLoading }: Props ) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   const navigateToResults = (
     uri: string,
@@ -46,9 +47,9 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
       // $FlowFixMe
       imageParams.predictions = predictions;
 
-      navigation.navigate( "OfflineARResults", { image: imageParams } );
+      navigateToMainStack( navigate, "OfflineARResults", { image: imageParams } );
     } else {
-      navigation.navigate( "OnlineServerResults", { image: imageParams } );
+      navigateToMainStack( navigate, "OnlineServerResults", { image: imageParams } );
     }
   };
 

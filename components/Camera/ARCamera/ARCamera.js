@@ -27,6 +27,7 @@ import { requestAllCameraPermissions } from "../../../utility/androidHelpers.and
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
@@ -53,9 +54,9 @@ const ARCamera = () => {
       // $FlowFixMe
       image.predictions = predictions;
 
-      navigation.navigate( "OfflineARResults", { image } );
+      navigateToMainStack( navigation.navigate, "OfflineARResults", { image } );
     } else {
-      navigation.navigate( "OnlineServerResults", { image } );
+      navigateToMainStack( navigation.navigate, "OnlineServerResults", { image } );
     }
   };
 

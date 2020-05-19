@@ -13,13 +13,14 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 type Props = {
   updateAlbum: Function
 }
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
   const [albumNames, setAlbumNames] = useState( [] );
 
   const fetchAlbumNames = async () => {
@@ -47,7 +48,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
+        onPress={() => navigateToMainStack( navigate, "Home" )}
         style={styles.backButton}
       >
         <Image source={icons.closeGreen} style={styles.buttonImage} />

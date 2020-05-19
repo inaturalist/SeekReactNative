@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Footer from "../UIComponents/Footer";
 
-import CameraNav from "./CameraTab";
+// import CameraNav from "./CameraTab";
 import FooterTabNav from "./FooterTabs";
 
 import OfflineARResults from "../Results/OfflineARResults";

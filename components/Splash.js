@@ -28,19 +28,21 @@ const SplashScreen = () => {
     // this addresses hot starts (i.e. app is already open)
     DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
       if ( title === "Seek AR Camera" ) {
-        linkTo( "/Drawer/Main/Camera/ARCamera?showWarning=true" );
+        linkTo( "/Camera/ARCamera?showWarning=true" );
+        // linkTo( "/Drawer/Main/Camera/ARCamera?showWarning=true" );
       }
     } );
 
     // this addresses cold starts (i.e. before the app launches)
     QuickActions.popInitialAction().then( ( { title } ) => {
       if ( title === "Seek AR Camera" ) {
-        navigation.navigate( "Drawer", {
-          screen: "Main",
-          params: {
-            screen: "Camera"
-          }
-        } );
+        navigation.navigate( "Camera" );
+        // navigation.navigate( "Drawer", {
+        //   screen: "Main",
+        //   params: {
+        //     screen: "Camera"
+        //   }
+        // } );
       } else {
         resetRouter( "Drawer" );
       }

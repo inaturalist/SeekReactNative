@@ -53,6 +53,7 @@ const SideMenu = ( { navigation }: Props ) => {
                 onPress={() => {
                   if ( path === "Observations" ) {
                     setRoute( "SideMenu" );
+                    navigation.navigate( path );
                   } else if ( path === "Home" ) {
                     // need the long version of this for QuickActions to Seek AR Camera
                     navigation.navigate( "MainTab", { screen: "Home" } );

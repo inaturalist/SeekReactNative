@@ -37,7 +37,8 @@
     "challenge_completed": "Gefeliciteerd! Je hebt een uitdaging voltooid",
     "view_challenges": "Bekijk uitdaging",
     "none": "Je hebt nog geen meldingen!",
-    "about": "Hier word je op de hoogte gesteld van nieuwe uitdagingen wanneer ze beschikbaar zijn, updates voor Seek en andere relevante informatie."
+    "about": "Hier word je op de hoogte gesteld van nieuwe uitdagingen wanneer ze beschikbaar zijn, updates voor Seek en andere relevante informatie.",
+    "new_challenge": "Er is een nieuwe uitdaging beschikbaar!"
   },
   "login": {
     "log_in": "Inloggen met iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "Je hebt geen nieuwe uitdagingen.",
     "no_new_challenges": "We laten je weten wanneer nieuwe uitdagingen beschikbaar zijn.",
     "completed_all": "Je hebt alle beschikbare uitdagingen voltooid!",
-    "number_observed": "{{number}} tot dusver waargenomen",
+    "number_observed": {
+      "zero": "{{count}} waargenomen tot nu toe ",
+      "one": "{{count}} waargenomen tot nu toe",
+      "two": "{{count}} waargenomen tot nu toe ",
+      "few": "{{count}} waargenomen tot nu toe ",
+      "many": "{{count}} waargenomen tot nu toe ",
+      "other": "{{count}} waargenomen tot nu toe "
+    },
     "how_to": "Voltooi de Seek Uitdaging voor {{month}}!",
     "released": "Deze uitdaging zal worden vrijgegeven {{date}}.",
     "get_involved": "Doe mee",
@@ -237,15 +245,22 @@
     "yes": "Ja, verwijder het uit mijn waarnemingen",
     "yes_resighted": "Ja, deze soort is onjuist gedetermineerd",
     "no": "Nee, het is juist",
-    "enable_location": "Locatiebepaling aanzetten om waarnemingen op te kunnen slaan",
+    "enable_location": "Je waarneming heeft geen locatie",
     "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
-    "error_location": "Om soorten aan je waarnemingen toe te kunnen voegen moet je je locatiebepaling aanzetten. Seek gebruikt je locatie om je te herinneren waar je een organisme heb gezien, en om bij te dragen aan burgerwetenschap als je gegevens op iNaturalist zet.",
-    "error_downtime": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{number}} uur.",
+    "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
+    "error_downtime": {
+      "zero": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "one": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "two": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "few": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "many": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
+      "other": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur."
+    },
     "error_few": "een paar",
-    "error_gps": "We konden je GPS-locatie niet vinden. Probeer alsjeblieft naar een plek te gaan waar je de hemel kunt zien en controleer of de locatiebepaling van je apparaat is ingeschakeld om waarnemingen op te slaan.",
-    "error_timeout": "We konden je waarneming niet opslaan door een locatie time-out. Probeer het later nog eens.",
+    "error_gps": "Seek kan je GPS-locatie niet vinden. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals verspreidingskaarten niet bekijken.  Ga naar een plek waar je de lucht kunt zien en controleer of de locatieservices van je apparaat zijn ingeschakeld.",
+    "error_timeout": "Het duurde te lang voordat je toestel een gps-fix had. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals de verspreidingskaart niet bekijken. Probeer het later nog eens.",
     "nearby": "Soorten in dit taxon in de buurt",
     "nothing_nearby": "Zo te zien zijn er nog niet veel soorten in dit taxon in de buurt waargenomen! Probeer nog een foto te nemen of het op iNaturalist te plaatsen.",
     "tap": "Tik om soorten in de buurt te laden"
@@ -256,7 +271,14 @@
     "challenge_progress": "Je hebt nog een soort gevonden!",
     "challenge_view": "Bekijk je voortgang",
     "level_up": "Je bereikt een hoger level!",
-    "number_seen": "Je hebt {{number}} soorten gezien!"
+    "number_seen": {
+      "zero": "Je hebt {{count}} soorten gezien!",
+      "one": "Je hebt {{count}} soort gezien!",
+      "two": "Je hebt {{count}} soorten gezien!",
+      "few": "Je hebt {{count}} soorten gezien!",
+      "many": "Je hebt {{count}} soorten gezien!",
+      "other": "Je hebt {{count}} soorten gezien!"
+    }
   },
   "camera": {
     "label": "Camera",
@@ -322,7 +344,14 @@
     "your_level": "Jouw niveau",
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
-    "observe": "Nog {{number}} soorten waarnemen om het volgende niveau te halen!",
+    "observe": {
+      "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
+      "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "few": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "many": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "other": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!"
+    },
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
     "observe_species": "Waarnemen",
     "species_badges": "Soort Badges",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Vind 5 planten",
     "mission_2_may_2020": "Vind 2 insecten",
     "mission_3_may_2020": "Vind 1 spinachtige",
-    "mission_4_may_2020": "Vind 2 vogelsoorten"
+    "mission_4_may_2020": "Vind 2 vogelsoorten",
+    "resilience": "Weerstandsuitdaging",
+    "mission_1_june_2020": "Vind 2 planten van de orde Asterales (Asters, Bellbloemen, Fanbloemen en verwanten)",
+    "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Vind 1 insect van de orde Coleoptera (Kevers)",
+    "june_2020_description": "De natuur is veerkrachtig en overal om ons heen. Van steden tot het platteland, planten en dieren vinden een manier om te gedijen. Zelfs in stedelijke gebieden leven planten, vogels en insecten samen met ons.",
+    "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!"
   }
 }

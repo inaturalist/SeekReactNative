@@ -37,7 +37,8 @@
     "challenge_completed": "כל הכבוד! סיימת אתגר",
     "view_challenges": "הצג אתגר",
     "none": "אין עדיין הודעות!",
-    "about": "כאן יהיו הודעות את אתגרים חדשים איך שהם מתחילים, הודעות לאפליקציה Seek, וכל מידע אחר."
+    "about": "כאן יהיו הודעות את אתגרים חדשים איך שהם מתחילים, הודעות לאפליקציה Seek, וכל מידע אחר.",
+    "new_challenge": "יש אתגר חדש!"
   },
   "login": {
     "log_in": "כניסה עם איי-נטורליסט",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "אין לכם אתגרים חדשים.",
     "no_new_challenges": "נודיע לכם כאשר יהיו אתגרים חדשים.",
     "completed_all": "סיימתם את כל האתגרים!",
-    "number_observed": "{{number}} שנצפו עד עתה",
+    "number_observed": {
+      "zero": "{{count}} שנצפו עד עתה",
+      "one": "{{count}} שנצפו עד עתה",
+      "two": "{{count}} שנצפו עד עתה",
+      "few": "{{count}} שנצפו עד עתה",
+      "many": "{{count}} שנצפו עד עתה",
+      "other": "{{count}} שנצפו עד עתה"
+    },
     "how_to": "סיימו את התגר Seek לחודש {{month}}!",
     "released": "אתגר זה יהיה פעיל ב {{date}}.",
     "get_involved": "היו מעורבים",
@@ -237,15 +245,22 @@
     "yes": "כן, הסירו זאת מהצפיות שלי",
     "yes_resighted": "כן, יש טעות בזיהוי מין זה",
     "no": "לא, זה נכון",
-    "enable_location": "הפעילו שירותי מיקום כדי לשמור צפיות",
+    "enable_location": "לתצפית אין מיקום",
     "error_server": "סליחה, לא הצלחנו להעלות את התמונה. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.",
     "error_image": "סליחה, לא הצלחנו לפענח את התמונה. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.",
     "error_species": "סליחה, לא הצלחנו למשוך נתונים על המין מתוך התמונה. אנא בדוק את חיבור האינטרנט שלך ונסה שנית.",
-    "error_location": "על מנת להוסיף מינים נוספים לתצפיות שלך, צריך לאפשר את זיהוי המקום. Seek משתמשת במיקומך כדי להזכיר לך היכן ראית את הייצור, ותמוך בטבע האזרחי אם תעלו ל iNaturalist.",
-    "error_downtime": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{number}} שעות.",
+    "error_location": "לא תוכלו לראות אזורים במפה, לחקור מינים בסביבה או להעלות תצפיות ל iNaturalist. אם תפעילו את שירותי המיקום ב Seek, תוכלו לקבל מידע מפורט על התצפיות שלכם ולתרום למדע האזרחי. מיקומכם לא יפורסם לעולם אלא אם תפרסמו ב iNaturalist.",
+    "error_downtime": {
+      "zero": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "one": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "two": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "few": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "many": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות.",
+      "other": "זמנית השרות אינו נגיש. אנא נסו שנית עוד {{count}} שעות."
+    },
     "error_few": "כמה",
-    "error_gps": "לא אתרנו מיקום GPS. אנא שנו מיקום בו ניתן לראות את השמיים ובדקו שהגדרות המיקום במכשיר פועלות את מנת לשמור תצפיות.",
-    "error_timeout": "לא הצלחנו לשמור את התצפית שלך בגלל תקלה במיקום. אנא נסו מאוחר יותר.",
+    "error_gps": "לא אתרנו מיקום GPS. אנא שנו מיקום בו ניתן לראות את השמיים ובדקו שהגדרות המיקום במכשיר פועלות את מנת לשמור תצפיות. התצפית שלך נשמר, אך ללא מיקום, לא ניתן יהיה לצפות בפרטים נוספים.",
+    "error_timeout": "לא אתרנו מיקום GPS. התצפית נשמר, אך ללא מיקום, לא ניתן יהיה לראות פרטים נוספים. אנא נסה שוב מאוחר יותר.",
     "nearby": "מינים קרובים בזן הזה",
     "nothing_nearby": "נראה שלא נצפו מינים רבים באזור שלך מזן זה! נסו לקחת תמונה נוספת והעלו אותה ל iNaturalist.",
     "tap": "לחץ כדי להעלות זנים בסביבה"
@@ -256,7 +271,14 @@
     "challenge_progress": "מצאתם מין נוסף!",
     "challenge_view": "מעקב התקדמות",
     "level_up": "עליתם בדרגה!",
-    "number_seen": "ראיתם {{number}} מינים!"
+    "number_seen": {
+      "zero": "ראיתם {{count}} מינים!",
+      "one": "ראיתם {{count}} מינים!",
+      "two": "ראיתם {{count}} מינים!",
+      "few": "ראיתם {{count}} מינים!",
+      "many": "ראיתם {{count}} מינים!",
+      "other": "ראיתם {{count}} מינים!"
+    }
   },
   "camera": {
     "label": "מצלמה",
@@ -322,7 +344,14 @@
     "your_level": "הרמה שלך",
     "login": "התחברו עם iNaturalist כדי לפרסם תצפיות לקהילה!",
     "achievements": "הישגים",
-    "observe": "צפו ב {{number}} מינים כדי להגיע לרמה הבאה!",
+    "observe": {
+      "zero": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!",
+      "one": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!",
+      "two": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!",
+      "few": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!",
+      "many": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!",
+      "other": "צפו ב {{count}} מינים כדי להגיע לרמה הבאה!"
+    },
     "observe_max": "הגעת לרמה הגבוהה ביותר ב Seek!",
     "observe_species": "צפה",
     "species_badges": "תגי מינים",
@@ -452,13 +481,13 @@
   "about": {
     "header": "אודות",
     "seek": "Seek פותחה על ידי צוות iNaturalist.",
-    "joint_initiative": "iNaturalist הוא יוזמה משותפת של California Academy of Sciences and National Geographic Society ו National Geographic.",
+    "joint_initiative": "iNaturalist הוא יוזמה משותפת של California Academy of Sciences ו National Geographic Society",
     "original": "Seek פותחה במקור עם תמיכה של HHMI Tangled Bank Studios ושופרה בתמיכת הסדרה הכוכב שלנו בהפקת Netflix וארגון WWF.",
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ו Yaron Budowski. תודות מיוחדות ל Visipedia וקהילת iNaturalist.",
     "version": "גירסה",
     "help": "לתמיכה עם Seek, שלחו דואל help+seek@inaturalist.org.",
-    "translations": "אנו אסירי תודה לעזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
+    "translations": "אנו אסירי תודה לעזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, ו Yulia Lygina.",
     "join_crowdin": "להצטרף לצוות המתרגמים של Seek, בבקשה תבקרו באתר: https://crowdin.com/project/seek"
   },
   "posting": {
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "מצאו 5 צמחים",
     "mission_2_may_2020": "מצאו 2 חרקים",
     "mission_3_may_2020": "מצאו עכבישן אחד",
-    "mission_4_may_2020": "מצאו 2 ציפורים"
+    "mission_4_may_2020": "מצאו 2 ציפורים",
+    "resilience": "אתגר עמידות",
+    "mission_1_june_2020": "מצאו 2 צמחים בסדרת אסטראים",
+    "mission_2_june_2020": "מצאו שלושה ציפורים מסדרת ציפורי שיר",
+    "mission_3_june_2020": "מצאו חרק אחת מסדרת חיפושיות",
+    "june_2020_description": "הטבע עמיד וסובב אותנו. מהערים ועד הכפר, צמחים וחיות מוצאים דרך לפרוח ולגדול. אפילו באזורים עירוניים, צמחים, ציפורים, וחרקים חיים במקביל איתנו.",
+    "action_june_2020": "הידעת שניתן לראות את השם המדעי במקום השם הנפוץ במצלמת Seek ? בעמוד ההגדרות ניתן לשנות את התצוגה משמות מדעיים לשמות נפוצים!"
   }
 }

@@ -37,7 +37,8 @@
     "challenge_completed": "Super! Du hast eine Mission gemeistert",
     "view_challenges": "Mission ansehen",
     "none": "Du hast noch keine Benachrichtigungen!",
-    "about": "Hier wirst du über neue Missionen informiert, sobald sie verfügbar sind, und erhältst andere relevante Informationen."
+    "about": "Hier wirst du über neue Missionen informiert, sobald sie verfügbar sind, und erhältst andere relevante Informationen.",
+    "new_challenge": "Es gibt eine neue Herausforderung!"
   },
   "login": {
     "log_in": "Mit iNaturalist anmelden",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "Du hast gerade keine neuen Missionen.",
     "no_new_challenges": "Wir teilen dir mit, wenn es neue Missionen gibt.",
     "completed_all": "Du hast alle verfügbaren Missionen abgeschlossen!",
-    "number_observed": "Bislang {{number}} beobachtet",
+    "number_observed": {
+      "zero": "Bisher {{count}} beobachtet",
+      "one": "Bisher {{count}} beobachtet",
+      "two": "Bisher {{count}} beobachtet",
+      "few": "Bisher {{count}} beobachtet",
+      "many": "Bisher {{count}} beobachtet",
+      "other": "Bisher {{count}} beobachtet"
+    },
     "how_to": "Erfülle die Seek-Mission für {{month}}!",
     "released": "Diese Mission wird freigegeben im {{date}}.",
     "get_involved": "Nimm teil",
@@ -241,11 +249,18 @@
     "error_server": "Leider können wir das Bild nicht bewerten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
-    "error_location": "Um Arten zu deinen Beobachtungen hinzuzufügen, musst du deinen Standort aktivieren. Seek benutzt deinen Standort, um dich daran zu erinnern, wo du einen Organismus gesehen hast, und um zu helfen, zu Citizen Science Projekten beizutragen, wenn du auf iNaturalist postest.",
-    "error_downtime": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{number}} Stunden erneut.",
+    "error_location": "Du kannst keine Verbreitungskarten ansehen, Arten in der Nähe erkunden oder diese Beobachtung auf iNaturalist posten. Wenn du den Standort in Seek aktivierst, kannst du detaillierte Informationen zu deinen Beobachtungen sehen und zu wissenschaftlichen Daten beitragen. Dein Standort wird nicht veröffentlicht, es sei denn, du lädst die Beobachtung auf iNaturalist hoch.",
+    "error_downtime": {
+      "zero": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
+      "one": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
+      "two": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
+      "few": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
+      "many": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
+      "other": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut."
+    },
     "error_few": "ein paar",
-    "error_gps": "Wir konnten deinen GPS-Standort nicht finden. Um Beobachtungen zu speichern, versuche bitte an einen Ort zu gehen, an dem du den Himmel sehen kannst, und überprüfe, ob der Standort deines Geräts eingeschaltet ist.",
-    "error_timeout": "Wir konnten deine Beobachtung nicht speichern, da die Standortabfrage das Zeitlimit erreicht hat. Bitte versuche es später erneut.",
+    "error_gps": "Seek kann deinen GPS-Standort nicht finden. Deine Beobachtung wurde gespeichert, aber ohne Standort kannst du keine detaillierten Informationen wie z.B. Verbreitungskarten sehen. Versuche, dich an einen Ort unter offenem Himmel zu begeben und überprüfen, ob die Standortdienste deines Geräts eingeschaltet sind.",
+    "error_timeout": "Es hat zu lange gedauert, deinen Standort abzurufen. Deine Beobachtung wurde gespeichert, aber ohne Standort können keine detaillierten Informationen wie z.B. Verbreitungskarten angezeigt werden. Bitte versuche es später nochmal.",
     "nearby": "Beobachtungen dieser Art in der Umgebung",
     "nothing_nearby": "Sieht so aus, als ob diese Art in der Umgebung noch nicht oft beobachtet wurde! Versuche ein anderes Foto zu machen oder veröffentliche diese Beobachtung auf iNaturalist.",
     "tap": "Tippe, um Arten in der Umgebung zu laden"
@@ -256,7 +271,14 @@
     "challenge_progress": "Du hast eine weitere Art gefunden!",
     "challenge_view": "Fortschritt anzeigen",
     "level_up": "Du bist ein Level aufgestiegen!",
-    "number_seen": "Du hast {{number}} Arten gesehen!"
+    "number_seen": {
+      "zero": "Du hast {{count}} Arten gesehen!",
+      "one": "Du hast {{count}} Arten gesehen!",
+      "two": "Du hast {{count}} Arten gesehen!",
+      "few": "Du hast {{count}} Arten gesehen!",
+      "many": "Du hast {{count}} Arten gesehen!",
+      "other": "Du hast {{count}} Arten gesehen!"
+    }
   },
   "camera": {
     "label": "Kamera",
@@ -322,7 +344,14 @@
     "your_level": "Dein Level",
     "login": "Melde dich über iNaturalist an, um Beobachtungen mit der weltweiten Community zu teilen!",
     "achievements": "Erreichte Ziele",
-    "observe": "Beobachte {{number}} Arten, um die nächste Stufe zu erreichen!",
+    "observe": {
+      "zero": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
+      "one": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
+      "two": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
+      "few": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
+      "many": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
+      "other": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!"
+    },
     "observe_max": "Glückwunsch! Du hast das höchste Level in Seek erreicht!",
     "observe_species": "beobachte",
     "species_badges": "Arten-Abzeichen",
@@ -458,7 +487,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
     "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org.",
-    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch und Yulia Lygina.",
+    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch und Yulia Lygina.",
     "join_crowdin": "Um dem Übersetzungsteam von Seek beizutreten, besuche bitte https://crowdin.com/project/seek"
   },
   "posting": {
@@ -497,7 +526,7 @@
     "geoprivacy": "Geoprivatsphäre",
     "open_header": "Öffentlich: ",
     "obscured_header": "Verdeckt: ",
-    "closed_header": "Unsichtbar: ",
+    "closed_header": "Privat: ",
     "yes_header": "Ja: ",
     "no_header": "Nein: ",
     "open": "Andere Nutzer von iNaturalist können sehen, wo diese Art beobachtet wurde, und Wissenschaftler können diese Daten für die Forschung verwenden.",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Finde 5 Pflanzen",
     "mission_2_may_2020": "Finde 2 Insekten",
     "mission_3_may_2020": "Finde 1 Spinnentier",
-    "mission_4_may_2020": "Finde 2 Vögel"
+    "mission_4_may_2020": "Finde 2 Vögel",
+    "resilience": "Widerstandsfähigkeits -Mission",
+    "mission_1_june_2020": "Finde 2 Pflanzen aus der Ordung Asterales (Korbblütler, wie z.B. Gänseblümchen und Löwenzahn, sowie Glockenblumen)",
+    "mission_2_june_2020": "Finde 3 Vögel aus der Ordnung Passeriformes (Sperlingsvögel). Auch Krähen gehören dazu!",
+    "mission_3_june_2020": "Finde 1 Insekt aus der Ordnung Coleoptera (Käfer)",
+    "june_2020_description": "Natur ist widerstandsfähig und überall um uns herum. Von Großstädten bis zum Ackerland haben sich Pflanzen und Tiere an das Leben mit uns Menschen angepasst. Auch in städtischen Gebieten lassen sich viele Pflanzen, Vögel und Insekten finden.",
+    "action_june_2020": "Wusstest du, dass du dir die wissenschaftlichen Namen anstelle der deutschen Begriffe in der Seek-Kamera anzeigen lassen kannst? Gehe im Menü auf Einstellungen um die Anzeige zu ändern!"
   }
 }

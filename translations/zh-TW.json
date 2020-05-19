@@ -37,7 +37,8 @@
     "challenge_completed": "恭賀！您已完成挑戰",
     "view_challenges": "檢視挑戰",
     "none": "您尚無任何通知！",
-    "about": "Seek 將在此處向您通知其獲悉的新挑戰及其他相關資訊。"
+    "about": "Seek 將在此處向您通知其獲悉的新挑戰及其他相關資訊。",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "利用iNaturalist帳號登入",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "你沒有新的挑戰。",
     "no_new_challenges": "當新的挑戰出現時，我們將會通知你。",
     "completed_all": "你已經完成了所有現有的挑戰！",
-    "number_observed": "目前觀察{{number}}次",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "該項挑戰將於 {{date}} 發佈。",
     "get_involved": "立即參與",
@@ -241,11 +249,18 @@
     "error_server": "很抱歉，我們無法評判此照片。請確認您的網路連線並重試一次。",
     "error_image": "很抱歉，我們無法處理您的照片. 請確認您的網路連線並重試一次。",
     "error_species": "很抱歉，我們無法針對此照片下載物種的詳細資訊。請確認您的網路連線並重試一次。",
-    "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
-    "error_downtime": "Service temporarily unavailable. Please try again in {{number}} hours.",
+    "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "一些",
     "error_gps": "無法取得你的GPS位置，請嘗試移動到看的到天空的區域並且開啟你的裝置GPS位置功能，確認後再儲存這筆觀察記錄",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Species nearby in this taxon",
     "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
     "tap": "Tap to load species nearby"
@@ -256,7 +271,14 @@
     "challenge_progress": "您找到另一種物種！",
     "challenge_view": "檢視您的進度",
     "level_up": "您進步了！",
-    "number_seen": "你已經觀察到 {{number}} 次！"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "相機",
@@ -322,7 +344,14 @@
     "your_level": "您的級別",
     "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "成就",
-    "observe": "觀察 {{number}} 物种以到達下一級別！",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "您已經達到 Seek 的最高等級！",
     "observe_species": "觀察",
     "species_badges": "物種獎牌",
@@ -458,7 +487,7 @@
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary 和 Yaron Budowski。特別鳴謝 Visipedia 和 iNaturalist 社群。",
     "version": "版本",
     "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
   },
   "posting": {
@@ -497,7 +526,7 @@
     "geoprivacy": "地理資訊隱私權",
     "open_header": "Open: ",
     "obscured_header": "Obscured: ",
-    "closed_header": "Closed: ",
+    "closed_header": "Private: ",
     "yes_header": "是: ",
     "no_header": "否: ",
     "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Find 5 plants",
     "mission_2_may_2020": "Find 2 insects",
     "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_4_may_2020": "Find 2 birds",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
   }
 }

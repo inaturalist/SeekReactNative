@@ -59,11 +59,11 @@ const MainStack = () => (
       component={CameraHelp}
       options={defaultConfig}
     />
-    <Stack.Screen
+    {/* <Stack.Screen
       name="Camera"
       component={CameraNav}
       options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
-    />
+    /> */}
     <Stack.Screen
       name="OfflineARResults"
       component={OfflineARResults}

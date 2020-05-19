@@ -21,7 +21,7 @@ const CameraHelpScreen = () => {
 
   return (
     <>
-      <ScrollWithHeader header="camera_help.title">
+      <ScrollWithHeader header="camera_help.title" route="Camera">
         <Image source={icons.cameraHelpTop} style={styles.topImage} />
         <View style={styles.textContainer}>
           <Text style={styles.text}>{i18n.t( "camera_help.explanation_1" )}</Text>

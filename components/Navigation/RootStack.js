@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -9,6 +9,7 @@ import SideDrawer from "./SideDrawer";
 import LoginStack from "./LoginStack";
 import Splash from "../Splash";
 import OnboardingScreen from "../Onboarding/OnboardingScreen";
+import CameraNav from "./CameraTab";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -60,6 +61,11 @@ const App = () => (
           name="Drawer"
           component={SideDrawer}
           options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Camera"
+          component={CameraNav}
+          options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
         />
       </Stack.Navigator>
     </NavigationContainer>

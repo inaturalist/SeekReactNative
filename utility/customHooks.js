@@ -79,13 +79,24 @@ const useUserPhoto = ( item ) => {
     }
   }, [item] );
 
-  const checkV1 = useCallback( ( uuidString ) => {
+  const checkV1 = useCallback( async ( uuidString ) => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
     const photoPath = `${seekv1Photos}/${uuidString}`;
 
-    RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-      setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-    } ).catch( () => checkForSeekV2Photos() );
+    try {
+      const isv1Photo = await RNFS.exists( photoPath );
+
+      if ( isv1Photo ) {
+        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => checkForSeekV2Photos() );
+      } else {
+        // this is the one being fetched in test device
+        checkForSeekV2Photos();
+      }
+    } catch ( e ) {
+      console.log( e, "error checking for v1 photo existence" );
+    }
   }, [checkForSeekV2Photos] );
 
   useEffect( () => {

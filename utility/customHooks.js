@@ -79,30 +79,19 @@ const useUserPhoto = ( item ) => {
     }
   }, [item] );
 
-  const checkV1 = useCallback( async ( dir ) => {
-    // attempt to limit the number of orphaned tasks
-    // by checking whether /large directory exists instead of err on Seek v1
-    try {
-      const status = await RNFS.exists( dir );
-      if ( status ) {
-        RNFS.readFile( dir, { encoding: "base64" } ).then( ( encodedData ) => {
-          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( () => checkForSeekV2Photos() );
-      } else {
-        checkForSeekV2Photos();
-      }
-      return status;
-    } catch ( err ) {
-      return err;
-    }
+  const checkV1 = useCallback( ( uuidString ) => {
+    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+    const photoPath = `${seekv1Photos}/${uuidString}`;
+
+    RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+      setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+    } ).catch( () => checkForSeekV2Photos() );
   }, [checkForSeekV2Photos] );
 
   useEffect( () => {
-    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-
     if ( item !== null ) {
       if ( Platform.OS === "ios" ) {
-        checkV1( `${seekv1Photos}/${item.uuidString}` );
+        checkV1( item.uuidString );
       } else {
         checkForSeekV2Photos();
       }

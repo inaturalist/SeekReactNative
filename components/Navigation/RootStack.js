@@ -65,7 +65,10 @@ const App = () => (
         <Stack.Screen
           name="Camera"
           component={CameraNav}
-          options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

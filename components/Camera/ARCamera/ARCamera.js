@@ -214,7 +214,7 @@ const ARCamera = () => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
+        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />

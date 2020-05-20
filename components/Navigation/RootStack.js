@@ -10,6 +10,7 @@ import LoginStack from "./LoginStack";
 import Splash from "../Splash";
 import OnboardingScreen from "../Onboarding/OnboardingScreen";
 import CameraNav from "./CameraTab";
+import Wikipedia from "../Species/WikipediaView";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -65,6 +66,14 @@ const App = () => (
         <Stack.Screen
           name="Camera"
           component={CameraNav}
+          options={{
+            headerShown: false,
+            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+          }}
+        />
+        <Stack.Screen
+          name="Wikipedia"
+          component={Wikipedia}
           options={{
             headerShown: false,
             cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS

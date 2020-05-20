@@ -112,6 +112,8 @@ class SpeciesDetail extends Component<Props, State> {
 
     const routeName = await getRoute();
 
+    console.log( routeName, "route name" );
+
     this.setState( { id, routeName } );
   }
 

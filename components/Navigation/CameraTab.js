@@ -17,7 +17,6 @@ const CameraNav = () => (
     swipeEnabled={Platform.OS === "ios"}
     initialLayout={{ width, length }}
     tabBarOptions={{
-      scrollEnabled: true,
       labelStyle: styles.cameraTabLabel,
       style: styles.cameraTab,
       indicatorStyle: styles.indicator

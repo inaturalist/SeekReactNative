@@ -3,10 +3,7 @@ import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Footer from "../UIComponents/Footer";
-
-// import CameraNav from "./CameraTab";
 import FooterTabNav from "./FooterTabs";
-
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import Match from "../Match/MatchScreen";
@@ -59,11 +56,6 @@ const MainStack = () => (
       component={CameraHelp}
       options={defaultConfig}
     />
-    {/* <Stack.Screen
-      name="Camera"
-      component={CameraNav}
-      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
-    /> */}
     <Stack.Screen
       name="OfflineARResults"
       component={OfflineARResults}

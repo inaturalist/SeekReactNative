@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import React, { useState, useEffect } from "react";
-import { I18nManager, Platform } from "react-native";
+import { I18nManager, Platform, YellowBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import Geolocation from "@react-native-community/geolocation";
 import QuickActions from "react-native-quick-actions";
@@ -28,6 +28,14 @@ const setRTL = () => {
 };
 
 setRTL();
+
+const hideYellowWarnings = () => {
+  YellowBox.ignoreWarnings( [
+    "Picker has been extracted",
+    "Failed prop type: Invalid prop `confidenceThreshold`",
+    "Failed prop type: Invalid prop `taxaDetectionInterval`"
+  ] );
+};
 
 const App = () => {
   const [login, setLogin] = useState( null );
@@ -64,6 +72,7 @@ const App = () => {
   };
 
   useEffect( () => {
+    hideYellowWarnings();
     if ( Platform.OS === "android" ) {
       setQuickActions();
     }

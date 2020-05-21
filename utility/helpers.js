@@ -261,7 +261,6 @@ const localizePercentage = ( number ) => i18n.toPercentage( number, { precision:
 const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
 
 const navigateToMainStack = ( navigate, screen, params ) => {
-  console.log( navigate, screen, params, "navigating to Drawer" );
   navigate( "Drawer", { screen: "Main", params: { screen, params } } );
 };
 

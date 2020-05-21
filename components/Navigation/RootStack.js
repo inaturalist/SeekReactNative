@@ -11,6 +11,9 @@ import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
+import OfflineARResults from "../Results/OfflineARResults";
+import OnlineServerResults from "../Results/OnlineServerResults";
+import CameraHelp from "../Camera/CameraHelpScreen";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -75,6 +78,21 @@ const App = () => (
           name="Wikipedia"
           component={Wikipedia}
           options={verticalConfig}
+        />
+        <Stack.Screen
+          name="CameraHelp"
+          component={CameraHelp}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="OfflineARResults"
+          component={OfflineARResults}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="OnlineServerResults"
+          component={OnlineServerResults}
+          options={defaultConfig}
         />
       </Stack.Navigator>
     </NavigationContainer>

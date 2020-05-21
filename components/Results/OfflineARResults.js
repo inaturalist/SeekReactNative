@@ -245,11 +245,17 @@ class OfflineARResults extends Component<Props, State> {
       errorCode
     } = this.state;
 
-    navigation.push( "Match", {
-      taxon,
-      image,
-      seenDate,
-      errorCode
+    navigation.push( "Drawer", {
+      screen: "Main",
+      params: {
+        screen: "Match",
+        params: {
+          taxon,
+          image,
+          seenDate,
+          errorCode
+        }
+      }
     } );
   }
 

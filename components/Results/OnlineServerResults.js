@@ -251,11 +251,17 @@ class OnlineServerResults extends Component<Props, State> {
       errorCode
     } = this.state;
 
-    navigation.push( "Match", {
-      image,
-      taxon,
-      seenDate,
-      errorCode
+    navigation.push( "Drawer", {
+      screen: "Main",
+      params: {
+        screen: "Match",
+        params: {
+          taxon,
+          image,
+          seenDate,
+          errorCode
+        }
+      }
     } );
   }
 

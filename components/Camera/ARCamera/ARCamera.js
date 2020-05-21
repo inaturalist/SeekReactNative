@@ -54,9 +54,9 @@ const ARCamera = () => {
       // $FlowFixMe
       image.predictions = predictions;
 
-      navigateToMainStack( navigation.navigate, "OfflineARResults", { image } );
+      navigation.navigate( "OfflineARResults", { image } );
     } else {
-      navigateToMainStack( navigation.navigate, "OnlineServerResults", { image } );
+      navigation.navigate( "OnlineServerResults", { image } );
     }
   };
 

@@ -63,7 +63,7 @@ const GalleryContainer = ( {
       numColumns={4}
       onEndReached={() => setPhotoParams()}
       renderItem={( { item } ) => (
-        <GalleryImage item={item} startLoading={startLoading} />
+        <GalleryImage item={item} startLoading={startLoading} loading={loading} />
       )}
     />
   );

@@ -10,7 +10,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
-import { navigateToMainStack } from "../../../utility/helpers";
 
 type Props = {
   +green?: boolean,
@@ -26,10 +25,7 @@ const BackArrow = ( { green, route }: Props ) => {
       accessibilityLabel={i18n.t( "accessibility.back" )}
       accessible
       onPress={() => {
-        // if ( route === "Home" ) {
-        //   navigateToMainStack( navigation.navigate, route );
         if ( route ) {
-        // } else if ( route ) {
           navigation.navigate( route );
         } else {
           navigation.goBack();

@@ -50,7 +50,7 @@ const MainStack = () => (
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
       }}
     />
-    <Stack.Screen
+    {/* <Stack.Screen
       name="CameraHelp"
       component={CameraHelp}
       options={defaultConfig}
@@ -64,7 +64,7 @@ const MainStack = () => (
       name="OnlineServerResults"
       component={OnlineServerResults}
       options={defaultConfig}
-    />
+    /> */}
     <Stack.Screen
       name="Match"
       component={Match}

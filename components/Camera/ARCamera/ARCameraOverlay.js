@@ -17,7 +17,7 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 import Modal from "../../UIComponents/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
-import { checkIfCameraLaunched, navigateToMainStack } from "../../../utility/helpers";
+import { checkIfCameraLaunched } from "../../../utility/helpers";
 
 type Props = {
   takePicture: Function,
@@ -87,7 +87,7 @@ const ARCameraOverlay = ( {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.help" )}
             accessible
-            onPress={() => navigateToMainStack( navigate, "CameraHelp" )}
+            onPress={() => navigate( "CameraHelp" )}
             style={styles.help}
           >
             <Image source={icons.cameraHelp} />

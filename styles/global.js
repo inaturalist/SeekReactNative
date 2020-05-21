@@ -20,7 +20,9 @@ export const colors = {
   transparent: "transparent",
   linkText: "#9b9b9b",
   speciesError: "#102b1f",
-  textShadow: "rgba(0, 0, 0, 0.75)"
+  textShadow: "rgba(0, 0, 0, 0.75)",
+  silver: "#818181",
+  bronze: "#aa774a"
 };
 
 export const fonts = {

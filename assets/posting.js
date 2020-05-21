@@ -7,7 +7,7 @@ const posting = {
   geoprivacy: require( "./posting/icon-geoprivacy.png" ),
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.png" ),
   location: require( "./posting/icon-location.png" ),
-  search: require( "./posting/icon-search.png" ),
+  // search: require( "./posting/icon-search.png" ),
   searchGreen: require( "./posting/icon-search-green.png" ),
   uploadfail: require( "./posting/icon-uploadfail.png" ),
   postingHelp: require( "./posting/icon-help.png" )

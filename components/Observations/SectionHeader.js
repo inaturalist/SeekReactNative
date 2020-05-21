@@ -10,6 +10,7 @@ import {
 import Realm from "realm";
 
 import i18n from "../../i18n";
+import { colors } from "../../styles/global";
 import styles from "../../styles/observations/sectionHeader";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
@@ -26,16 +27,14 @@ const SectionHeader = ( { section, open, toggleSection }: Props ) => {
   const [badgeCount, setBadgeCount] = useState( 0 );
   const { id, data } = section;
 
-  let badge;
+  const noBadge = badgeCount === 0;
+  const badge = badges.badge_gold;
+  let tint;
 
-  if ( badgeCount === 0 ) {
-    badge = badges.badge_empty_small;
-  } else if ( badgeCount === 1 ) {
-    badge = badges.badge_bronze;
+  if ( badgeCount === 1 ) {
+    tint = colors.bronze;
   } else if ( badgeCount === 2 ) {
-    badge = badges.badge_silver;
-  } else if ( badgeCount === 3 ) {
-    badge = badges.badge_gold;
+    tint = colors.silver;
   }
 
   const fetchBadgeCount = useCallback( () => {
@@ -59,7 +58,13 @@ const SectionHeader = ( { section, open, toggleSection }: Props ) => {
       </Text>
       <View style={styles.row}>
         <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
-        {id !== 1 && <Image source={badge} style={[styles.badge, badgeCount === 0 && styles.empty]} />}
+        {id !== 1 && (
+          <Image
+            source={noBadge ? badges.badge_empty_small : badge}
+            style={[styles.badge, noBadge && styles.empty, tint && { tintColor: tint }]}
+            tintColor={tint}
+          />
+        )}
         <Image
           source={icons.dropdownOpen}
           style={!open ? styles.margin : styles.marginOpen}

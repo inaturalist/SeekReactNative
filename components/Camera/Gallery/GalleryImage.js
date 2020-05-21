@@ -4,7 +4,7 @@ import React from "react";
 import {
   Platform,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -37,8 +37,6 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
       latitude,
       longitude
     };
-
-    console.log( image, "image params" );
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
@@ -76,7 +74,7 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
   };
 
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       accessibilityLabel={item.node.image.filename}
       accessible
       onPress={() => {
@@ -91,7 +89,7 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
         source={{ uri: item.node.image.uri }}
         style={styles.image}
       />
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

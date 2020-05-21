@@ -9,9 +9,10 @@ import {
   Modal
 } from "react-native";
 
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
-import icons from "../../../assets/icons";
+import posting from "../../../assets/posting";
 import LocationPicker from "./LocationPicker";
 
 type Props = {
@@ -50,7 +51,7 @@ const LocationPickerButton = ( {
         style={[styles.row, styles.marginLeft, styles.paddingBottom]}
         disabled={error !== null}
       >
-        <Image source={icons.locationWhite} style={styles.image} />
+        <Image source={posting.location} tintColor={colors.white} style={styles.image} />
         <View style={styles.whiteButton}>
           <Text style={styles.buttonText}>
             {location

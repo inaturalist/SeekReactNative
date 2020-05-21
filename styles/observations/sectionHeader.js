@@ -28,7 +28,8 @@ export default StyleSheet.create( {
     marginTop: Platform.OS === "ios" ? 6 : 0
   },
   margin: {
-    marginLeft: 19
+    marginLeft: 15,
+    transform: [{ rotate: "270deg" }]
   },
   marginOpen: {
     marginLeft: 15

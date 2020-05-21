@@ -16,6 +16,7 @@ import { NavigationEvents } from "@react-navigation/compat";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 
+import { colors } from "../../styles/global";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import {
@@ -28,6 +29,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
+import icons from "../../assets/icons";
 import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
@@ -511,7 +513,11 @@ class PostScreen extends Component<Props, State> {
               photo={{ uri: userImage }}
               scientificName={taxon.name}
             />
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <TextInput
             keyboardType="default"
@@ -534,7 +540,11 @@ class PostScreen extends Component<Props, State> {
               </Text>
               <Text style={styles.text}>{dateToDisplay}</Text>
             </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
@@ -550,7 +560,11 @@ class PostScreen extends Component<Props, State> {
                 {location}
               </Text>
             </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <View style={styles.divider} />
           <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />

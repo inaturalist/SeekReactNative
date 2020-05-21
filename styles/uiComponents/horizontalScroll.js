@@ -25,6 +25,9 @@ export default StyleSheet.create( {
     top: 117,
     zIndex: 1
   },
+  rotate: {
+    transform: [{ rotate: "180deg" }]
+  },
   speciesLeftArrow: {
     top: 100
   },

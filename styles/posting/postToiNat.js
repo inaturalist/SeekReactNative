@@ -46,6 +46,10 @@ export default StyleSheet.create( {
     textAlignVertical: "top",
     width: width - 54
   },
+  rotate: {
+    tintColor: colors.seekForestGreen,
+    transform: [{ rotate: "180deg" }]
+  },
   row: {
     alignItems: "flex-start",
     justifyContent: "center",

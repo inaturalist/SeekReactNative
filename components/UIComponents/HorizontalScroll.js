@@ -97,7 +97,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
           onPress={() => scrollLeft()}
           style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
         >
-          <Image source={icons.swipeLeft} />
+          <Image source={icons.swipeRight} style={styles.rotate} />
         </TouchableOpacity>
       )}
       {scrollIndex !== photoList.length - 1 && (

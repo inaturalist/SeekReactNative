@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../global";
 
 export default StyleSheet.create( {
   backButton: {
@@ -9,5 +10,8 @@ export default StyleSheet.create( {
   },
   challengeDetails: {
     paddingTop: 28
+  },
+  green: {
+    tintColor: colors.seekForestGreen
   }
 } );

@@ -61,7 +61,7 @@ const SectionHeader = ( { section, open, toggleSection }: Props ) => {
         <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
         {id !== 1 && <Image source={badge} style={[styles.badge, badgeCount === 0 && styles.empty]} />}
         <Image
-          source={!open ? icons.dropdownClosed : icons.dropdownOpen}
+          source={icons.dropdownOpen}
           style={!open ? styles.margin : styles.marginOpen}
         />
       </View>

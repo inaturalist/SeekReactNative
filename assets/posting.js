@@ -3,7 +3,7 @@ const posting = {
   crosshair: require( "./posting/icon-crosshair.png" ),
   date: require( "./posting/icon-date.png" ),
   error: require( "./posting/icon-error-inatgreen.png" ),
-  expand: require( "./posting/icon-expand.png" ),
+  // expand: require( "./posting/icon-expand.png" ),
   geoprivacy: require( "./posting/icon-geoprivacy.png" ),
   bird: require( "./logos/iNatStatsSpeciesDetail-Bird.png" ),
   location: require( "./posting/icon-location.png" ),

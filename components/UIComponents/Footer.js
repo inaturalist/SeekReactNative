@@ -15,6 +15,8 @@ import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
+import { colors } from "../../styles/global";
+import logos from "../../assets/logos";
 
 const Footer = () => {
   let challenge;
@@ -72,7 +74,7 @@ const Footer = () => {
               onPress={() => navigation.navigate( "iNatStats" )}
               style={styles.rightIcon}
             >
-              <Image source={icons.birdTeal} />
+              <Image source={logos.bird} tintColor={colors.seekForestGreen} style={styles.bird} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity

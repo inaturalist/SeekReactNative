@@ -10,6 +10,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/buttons/backArrow";
 import icons from "../../../assets/icons";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +green?: boolean,
@@ -33,7 +34,11 @@ const BackArrow = ( { green, route }: Props ) => {
       }}
       style={[styles.backButton, name === "ChallengeDetails" && styles.challengeDetails]}
     >
-      <Image source={green ? icons.backButtonGreen : icons.backButton} />
+      <Image
+        source={icons.backButton}
+        tintColor={green && colors.seekForestGreen}
+        style={green && styles.green}
+      />
     </TouchableOpacity>
   );
 };

@@ -10,6 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 import CameraRoll from "@react-native-community/cameraroll";
 
 import i18n from "../../../i18n";
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
@@ -51,7 +52,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
         onPress={() => navigateToMainStack( navigate, "Home" )}
         style={styles.backButton}
       >
-        <Image source={icons.closeGreen} style={styles.buttonImage} />
+        <Image source={icons.closeWhite} tintColor={colors.seekForestGreen} style={styles.buttonImage} />
       </TouchableOpacity>
       {albumNames.length > 0 && (
         <View>

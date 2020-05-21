@@ -26,7 +26,8 @@ export default StyleSheet.create( {
     paddingTop: 2
   },
   buttonImage: {
-    padding: 5
+    padding: 5,
+    tintColor: colors.seekForestGreen
   },
   center,
   header: {

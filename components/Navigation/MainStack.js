@@ -11,7 +11,7 @@ import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Notifications from "../Notifications/Notifications";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
-import Wikipedia from "../Species/WikipediaView";
+import CameraHelp from "../Camera/CameraHelpScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -51,6 +51,11 @@ const MainStack = () => (
       }}
     />
     <Stack.Screen
+      name="CameraHelp"
+      component={CameraHelp}
+      options={defaultConfig}
+    />
+    <Stack.Screen
       name="OfflineARResults"
       component={OfflineARResults}
       options={defaultConfig}
@@ -80,11 +85,6 @@ const MainStack = () => (
       component={PostingHelp}
       options={defaultConfig}
     />
-    {/* <Stack.Screen
-      name="Wikipedia"
-      component={Wikipedia}
-      options={{ headerShown: false, cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS }}
-    /> */}
   </Stack.Navigator>
 );
 

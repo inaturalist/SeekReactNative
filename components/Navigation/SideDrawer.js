@@ -12,7 +12,6 @@ import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
-import CameraHelp from "../Camera/CameraHelpScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -73,7 +72,6 @@ const SideMenuDrawer = () => (
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />
     <Drawer.Screen name="Settings" component={SettingsFooter} />
-    <Drawer.Screen name="CameraHelp" component={CameraHelp} />
   </Drawer.Navigator>
 );
 

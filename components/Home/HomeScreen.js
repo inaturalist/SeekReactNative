@@ -26,7 +26,6 @@ import RNModal from "../UIComponents/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 
-
 const HomeScreen = () => {
   const insets = useSafeArea();
   const navigation = useNavigation();

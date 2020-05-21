@@ -5,11 +5,11 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
-import SideDrawer from "./SideDrawer";
-import LoginStack from "./LoginStack";
+import Drawer from "./SideDrawer";
+import Login from "./LoginStack";
 import Splash from "../Splash";
-import OnboardingScreen from "../Onboarding/OnboardingScreen";
-import CameraNav from "./CameraTab";
+import Onboarding from "../Onboarding/OnboardingScreen";
+import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
 
 const MyTheme = {
@@ -30,11 +30,14 @@ const defaultConfig = {
   cardStyleInterpolator: forFade
 };
 
+const verticalConfig = {
+  headerShown: false,
+  cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
+};
+
 const Stack = createStackNavigator();
 
-const linking = {
-  prefixes: ["app://"]
-};
+const linking = { prefixes: ["app://"] };
 
 const App = () => (
   <SafeAreaProvider>
@@ -50,34 +53,28 @@ const App = () => (
         />
         <Stack.Screen
           name="Onboarding"
-          component={OnboardingScreen}
+          component={Onboarding}
           options={defaultConfig}
         />
         <Stack.Screen
           name="Login"
-          component={LoginStack}
+          component={Login}
           options={defaultConfig}
         />
         <Stack.Screen
           name="Drawer"
-          component={SideDrawer}
+          component={Drawer}
           options={defaultConfig}
         />
         <Stack.Screen
           name="Camera"
-          component={CameraNav}
-          options={{
-            headerShown: false,
-            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
-          }}
+          component={Camera}
+          options={verticalConfig}
         />
         <Stack.Screen
           name="Wikipedia"
           component={Wikipedia}
-          options={{
-            headerShown: false,
-            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
-          }}
+          options={verticalConfig}
         />
       </Stack.Navigator>
     </NavigationContainer>

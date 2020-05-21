@@ -29,7 +29,6 @@ const SplashScreen = () => {
     DeviceEventEmitter.addListener( "quickActionShortcut", ( { title } ) => {
       if ( title === "Seek AR Camera" ) {
         linkTo( "/Camera/ARCamera?showWarning=true" );
-        // linkTo( "/Drawer/Main/Camera/ARCamera?showWarning=true" );
       }
     } );
 
@@ -37,12 +36,6 @@ const SplashScreen = () => {
     QuickActions.popInitialAction().then( ( { title } ) => {
       if ( title === "Seek AR Camera" ) {
         navigation.navigate( "Camera" );
-        // navigation.navigate( "Drawer", {
-        //   screen: "Main",
-        //   params: {
-        //     screen: "Camera"
-        //   }
-        // } );
       } else {
         resetRouter( "Drawer" );
       }

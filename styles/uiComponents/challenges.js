@@ -69,5 +69,8 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 24,
     maxWidth: 178
+  },
+  white: {
+    tintColor: colors.white
   }
 } );

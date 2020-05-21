@@ -1,7 +1,7 @@
 const badges = {
   badge_empty: require( "./badges/Badge_Empty.png" ),
   badge_empty_small: require( "./badges/observations/Badge_Empty.png" ),
-  "badge-empty-white": require( "./badges/badge-empty-white.png" ),
+  // "badge-empty-white": require( "./badges/badge-empty-white.png" ),
   "levelbadge-0": require( "./badges/naturalist/levelbadge-0.png" ),
   "levelbadge-3": require( "./badges/naturalist/levelbadge-3.png" ),
   "levelbadge-15": require( "./badges/naturalist/levelbadge-15.png" ),

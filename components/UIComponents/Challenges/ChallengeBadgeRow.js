@@ -6,8 +6,8 @@ import { isAfter } from "date-fns";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/uiComponents/challenges";
-import logos from "../../../assets/logos";
 import badges from "../../../assets/badges";
+import { colors } from "../../../styles/global";
 
 type Props = {
   challenge: Object,
@@ -25,7 +25,13 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
   if ( challenge && challenge.percentComplete === 100 ) {
     badge = <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
   } else {
-    badge = <Image source={badges["badge-empty-white"]} style={large ? styles.badge : styles.badgeSmall} />;
+    badge = (
+      <Image
+        source={badges.badge_empty}
+        tintColor={colors.white}
+        style={[large ? styles.badge : styles.badgeSmall, styles.white]}
+      />
+    );
   }
 
   return (

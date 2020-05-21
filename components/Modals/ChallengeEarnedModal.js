@@ -65,7 +65,7 @@ const ChallengeEarnedModal = ( { closeModal, challenge }: Props ) => {
       </Text>
       <View style={styles.marginTop} />
       {is2020Challenge
-        ? <Image source={logos.iNatBlack} style={styles.iNatLogo} />
+        ? <Image source={logos.iNat} style={styles.iNatLogo} />
         : <Image source={logos.wwfop} style={styles.logo} />}
       <View style={styles.marginBottom} />
     </WhiteModal>

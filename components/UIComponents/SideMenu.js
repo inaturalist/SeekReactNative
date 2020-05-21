@@ -14,6 +14,7 @@ import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
+import { colors } from "../../styles/global";
 
 type Props = {
   navigation: any
@@ -63,7 +64,11 @@ const SideMenu = ( { navigation }: Props ) => {
                 }}
                 style={[styles.row, styles.height]}
               >
-                <Image source={icons[`menu${capitalizeNames( item )}`]} style={styles.image} />
+                <Image
+                  source={icons[`menu${capitalizeNames( item )}`]}
+                  style={styles.image}
+                  tintColor={colors.menuItems}
+                />
                 <Text allowFontScaling={false} style={styles.text}>{name}</Text>
               </TouchableOpacity>
               {item !== "settings" && <View style={styles.divider} />}

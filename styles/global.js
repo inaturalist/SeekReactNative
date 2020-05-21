@@ -22,7 +22,8 @@ export const colors = {
   speciesError: "#102b1f",
   textShadow: "rgba(0, 0, 0, 0.75)",
   silver: "#818181",
-  bronze: "#aa774a"
+  bronze: "#aa774a",
+  menuItems: "#63d4ab"
 };
 
 export const fonts = {

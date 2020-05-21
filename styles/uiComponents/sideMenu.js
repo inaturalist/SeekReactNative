@@ -29,6 +29,7 @@ export default StyleSheet.create( {
     height: 25,
     marginHorizontal: 25,
     resizeMode: "contain",
+    tintColor: colors.menuItems,
     width: 27
   },
   logo: {

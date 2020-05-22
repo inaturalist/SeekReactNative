@@ -37,7 +37,8 @@
     "challenge_completed": "Gratulerer! Du har fullført en utfordring",
     "view_challenges": "Vis utfordring",
     "none": "Du har ingen varslinger ennå!",
-    "about": "Her blir du varslet om nye utfordringer når de blir tilgjengelige, oppdateringer til Seek, og annen relevant informasjon."
+    "about": "Her blir du varslet om nye utfordringer når de blir tilgjengelige, oppdateringer til Seek, og annen relevant informasjon.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Logg på med iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "Du har ingen nye utfordringer.",
     "no_new_challenges": "Vi sier ifra når nye utfordringer er tilgjengelige.",
     "completed_all": "Du har fullført alle tilgjengelige utfordringer!",
-    "number_observed": "{{number}} observert så langt",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Fullfør Seek-utfordringen for {{month}}!",
     "released": "Denne utfordringen publiseres {{date}}.",
     "get_involved": "Bli involvert",
@@ -242,10 +250,17 @@
     "error_image": "Beklager, vi kunne ikke behandle ditt bilde. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_location": "For å legge til arter til dine observasjoner må du slå på din posisjon. Seek bruker din posisjon for å minne deg på hvor du så en organisme, og å hjelpe med å bidra til grasrotforsking hvis du publiserer på iNaturalist.",
-    "error_downtime": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{number}} timer.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "noen få",
     "error_gps": "Vi kunne ikke finne din GPS-posisjon. Vennligst prøv å bevege deg til et sted hvor du kan se himmelen og sjekk at posisjonstjenesten til din enhet er slått på for å kunne lagre observasjoner.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Arter i nærheten i dette taksonet",
     "nothing_nearby": "Det ser ut som det ikke har blitt observert så mange arter i nærheten i dette taksonet! Prøv å ta enda et bilde eller rapportere det til iNaturalist.",
     "tap": "Trykk for å laste inn arter i nærheten"
@@ -256,7 +271,14 @@
     "challenge_progress": "Du fant enda en art!",
     "challenge_view": "View your progress",
     "level_up": "Du gikk opp et nivå!",
-    "number_seen": "Du har sett {{number}} arter!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "Kamera",
@@ -322,7 +344,14 @@
     "your_level": "Ditt nivå",
     "login": "Logg på med iNaturalist for å poste observasjoner til det online fellesskapet!",
     "achievements": "Achievements",
-    "observe": "Observer {{number}} arter for å komme til neste nivå!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "Du har oppnådd det høyeste nivået på Seek!",
     "observe_species": "Observér",
     "species_badges": "Artsmerker",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Find 5 plants",
     "mission_2_may_2020": "Find 2 insects",
     "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_4_may_2020": "Find 2 birds",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
   }
 }

@@ -37,7 +37,8 @@
     "challenge_completed": "Félicitations ! Vous avez réussi un défi",
     "view_challenges": "Afficher le défi",
     "none": "Vous n'avez pas encore de notifications !",
-    "about": "C'est ici que vous serez averti des nouveaux défis \ndisponibles, des mises à jour de Seek et que vous recevrez les informations utiles."
+    "about": "C'est ici que vous serez averti des nouveaux défis \ndisponibles, des mises à jour de Seek et que vous recevrez les informations utiles.",
+    "new_challenge": "Un nouveau défi est disponible !"
   },
   "login": {
     "log_in": " Se connecter sur iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": " Vous n'avez aucun nouveau défi.",
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
-    "number_observed": "{{number}} observé(es) jusqu'à maintenant",
+    "number_observed": {
+      "zero": "{{count}} observé(es) jusqu’à présent",
+      "one": "{{count}} observé(es) jusqu’à présent",
+      "two": "{{count}} observé(es) jusqu’à présent",
+      "few": "{{count}} observé(es) jusqu’à présent",
+      "many": "{{count}} observé(es) jusqu’à présent",
+      "other": "{{count}} observé(es) jusqu’à présent"
+    },
     "how_to": "Complétez le défi Seek pour le mois de {{month}} !",
     "released": "Ce défi sera publié le {{date}}.",
     "get_involved": "S’engager",
@@ -237,12 +245,19 @@
     "yes": "Oui, retirez-la de mes observations",
     "yes_resighted": "Oui, cette espèce a été mal identifiée",
     "no": "Non, c'est correct",
-    "enable_location": "Activez la localisation afin de sauvegarder vos observations",
+    "enable_location": "Votre observation n’est pas localisée ",
     "error_server": "Désolé nous ne parvenons pas à reconnaître cette image. Veuillez vérifier votre connexion internet et essayez de nouveau.",
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer aux sciences participatives si vous avez effectué des publications sur iNaturalist.",
-    "error_downtime": "Service temporairement indisponible. Merci de réessayer dans {{number}} heure(s).",
+    "error_downtime": {
+      "zero": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "one": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "two": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "few": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "many": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "other": "Service temporairement indisponible. Réessayez dans {{count}} heures."
+    },
     "error_few": "quelques",
     "error_gps": "Nous n’avons pas réussi à vous localiser. Pour enregistrer les observations, merci d’essayer de vous déplacer à un endroit où vous pouvez voir le ciel ainsi que de vérifier si le service de localisation de votre appareil est activé.",
     "error_timeout": "Nous n’avons pas réussi à enregistrer vos observations en raison d’un délai de localisation trop long. Merci de réessayer plus tard.",
@@ -256,7 +271,14 @@
     "challenge_progress": "Vous avez trouvé une autre espèce !",
     "challenge_view": "Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
-    "number_seen": "Vous avez observé {{number}} espèce(s) !"
+    "number_seen": {
+      "zero": "Vous avez observé {{count}} espèce(s) !",
+      "one": "Vous avez observé {{count}} espèce(s) !",
+      "two": "Vous avez observé {{count}} espèce(s) !",
+      "few": "Vous avez observé {{count}} espèce(s) !",
+      "many": "Vous avez observé {{count}} espèce(s) !",
+      "other": "Vous avez observé {{count}} espèce(s) !"
+    }
   },
   "camera": {
     "label": " Caméra",
@@ -322,7 +344,14 @@
     "your_level": "Votre niveau",
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
     "achievements": "Progression",
-    "observe": "Observez {{number}} espèce(s) pour accéder au prochain niveau !",
+    "observe": {
+      "zero": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "one": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "two": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "few": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "many": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
+      "other": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !"
+    },
     "observe_max": "Vous avez atteint le niveau maximum sur Seek !",
     "observe_species": "Observer",
     "species_badges": "Badges d'espèces",
@@ -497,7 +526,7 @@
     "geoprivacy": "Politique de confidentialité et services de localisation",
     "open_header": "Ouvrir: ",
     "obscured_header": "Masqué: ",
-    "closed_header": "Fermé: ",
+    "closed_header": "Confidentiel: ",
     "yes_header": "Oui: ",
     "no_header": "Non: ",
     "open": "D’autres utilisateurs de iNaturalist pourront voir l’endroit où ces espèces ont été observées et les scientifiques pourront utiliser ces données pour la recherche.",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Trouvez 5 plantes",
     "mission_2_may_2020": "Trouvez 2 insectes",
     "mission_3_may_2020": "Trouvez 1 arachnide",
-    "mission_4_may_2020": "Trouvez 2 oiseaux"
+    "mission_4_may_2020": "Trouvez 2 oiseaux",
+    "resilience": "Défi de résilience",
+    "mission_1_june_2020": "Trouvez 2 plantes de l'Ordre des Asterales (Roses, Campanules, Goodeniaceae et apparentés)",
+    "mission_2_june_2020": "Trouvez 3 oiseaux de l'ordre des Passeriformes (Passereaux)",
+    "mission_3_june_2020": "Trouvez 1 insecte de l'ordre Coleoptera (Coléoptères)",
+    "june_2020_description": "La nature autour de nous est résistante. Que ce soit dans les villes où à la campagne, les plantes et les animaux trouvent un moyen de prospérer. Même dans les zones urbaines, les plantes, les oiseaux et les insectes coexistent avec nous. ",
+    "action_june_2020": "Saviez-vous que vous pouviez voir les noms scientifiques à la place des noms communs sur l’écran de la caméra de Seek ? Allez dans les paramètres du menu pour remplacer les noms communs par les noms scientifiques ! "
   }
 }

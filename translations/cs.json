@@ -37,7 +37,8 @@
     "challenge_completed": "Gratulujeme! Dokončili jste výzvu",
     "view_challenges": "Zobrazit výzvu",
     "none": "Zatím nemáte žádné oznámení!",
-    "about": "Zde budete informováni o nových výzvách, jakmile budou k dispozici, aktualizacích a dalších důležitých informacích."
+    "about": "Zde budete informováni o nových výzvách, jakmile budou k dispozici, aktualizacích a dalších důležitých informacích.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Přihlásit se pomocí iNaturalist",
@@ -165,7 +166,14 @@
     "no_new_challenges_header": "Nemáte žádné nové výzvy.",
     "no_new_challenges": "Až budou dostupné nové výzvy, dáme Vám vědět.",
     "completed_all": "Dokončili jste všechny dostupné výzvy!",
-    "number_observed": "{{number}} observed so far",
+    "number_observed": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Dokončete Seek výzvu za {{month}}!",
     "released": "Tato výzva bude spuštěna {{date}}.",
     "get_involved": "Zapojte se",
@@ -237,15 +245,22 @@
     "yes": "Ano, odstranit to z mých pozorování",
     "yes_resighted": "Ano, tento druh byl identifikován nesprávně",
     "no": "Ne, je to správně",
-    "enable_location": "Enable location to save observations",
+    "enable_location": "Your observation has no location",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
-    "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
-    "error_downtime": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{number}} hodin.",
+    "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
+    "error_downtime": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "pár",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_gps": "Seek can't detect your GPS location. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Try moving to a place where you can see the sky and check that your device's location services are turned on.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Druhy poblíž z tohoto taxonu",
     "nothing_nearby": "Vypadá to, že poblíž nebylo pozorováno mnoho druhů z tohoto taxonu! Zkus pořídit jinou fotografii, nebo ji odeslat na iNaturalist.",
     "tap": "Klepnutím načtete druhy poblíž"
@@ -256,7 +271,14 @@
     "challenge_progress": "Našli jste další druh!",
     "challenge_view": "Zobrazit váš postup",
     "level_up": "Jste o úroveň výš!",
-    "number_seen": "Viděli jste už {{number}} druhů!"
+    "number_seen": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "Fotoaparát",
@@ -322,7 +344,14 @@
     "your_level": "Vaše úroveň",
     "login": "Přihlaste se pomocí iNaturalist a přidávejte pozorování do online komunity!",
     "achievements": "Úspěchy",
-    "observe": "Pozorujte {{number}} druhů, abyste se dostali na další úroveň!",
+    "observe": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "Dosáhli jste maximální úrovně na Seeku!",
     "observe_species": "Pozorovat",
     "species_badges": "Odznaky druhů",
@@ -497,7 +526,7 @@
     "geoprivacy": "Geosoukromí",
     "open_header": "Open: ",
     "obscured_header": "Obscured: ",
-    "closed_header": "Closed: ",
+    "closed_header": "Private: ",
     "yes_header": "Ano: ",
     "no_header": "Ne: ",
     "open": "Ostatní uživatelé iNaturalist budou moci vidět, kde byl tento druh pozorován, a vědci mohou tyto údaje použít pro výzkum.",
@@ -566,6 +595,12 @@
     "mission_1_may_2020": "Find 5 plants",
     "mission_2_may_2020": "Find 2 insects",
     "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_4_may_2020": "Find 2 birds",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
   }
 }

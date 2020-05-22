@@ -120,10 +120,8 @@ const useLocationPermission = () => {
 
   const fetchPermissionStatus = async () => {
     try {
-      const status = await checkLocationPermissions;
-      if ( status ) {
-        setGranted( true );
-      }
+      const status = await checkLocationPermissions();
+      setGranted( status );
     } catch ( e ) {
       setGranted( false );
     }

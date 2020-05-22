@@ -9,8 +9,9 @@ import { useNavigation, useLinkTo } from "@react-navigation/native";
 import QuickActions from "react-native-quick-actions";
 import AsyncStorage from "@react-native-community/async-storage";
 
+import { colors } from "../styles/global";
 import styles from "../styles/splash";
-import logoImages from "../assets/logos";
+import logos from "../assets/logos";
 import backgrounds from "../assets/backgrounds";
 import { checkIfFirstLaunch, setCameraLaunched } from "../utility/helpers";
 import { deleteDebugLogAfter7Days } from "../utility/photoHelpers";
@@ -74,8 +75,8 @@ const SplashScreen = () => {
 
   return (
     <ImageBackground source={backgrounds.splash} style={styles.backgroundImage}>
-      <Image source={logoImages.seek} style={styles.logo} />
-      <Image source={logoImages.joint} style={styles.joint} />
+      <Image source={logos.seek} style={styles.logo} />
+      <Image source={logos.casNatGeo} tintColor={colors.white} style={styles.joint} />
     </ImageBackground>
   );
 };

@@ -12,6 +12,7 @@ import styles from "../../styles/posting/postStatus";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
+import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
@@ -47,18 +48,16 @@ const PostStatus = ( {
     image = <Image source={posting.bird} />;
   } else if ( status === "duringPhotoUpload" ) {
     headerText = "posting.posting_failure";
-    image = <Image source={posting.uploadfail} />;
+    image = <Image source={icons.error} tintColor={colors.seekTeal} style={styles.fail} />;
     extraText = `${i18n.t( "posting.error_photo_upload" )} \n\n${errorText}`;
   } else if ( status === "beforePhotoAdded" ) {
     headerText = "posting.posting_failure";
-    image = <Image source={posting.uploadfail} />;
+    image = <Image source={icons.error} tintColor={colors.seekTeal} style={styles.fail} />;
     extraText = `${i18n.t( "posting.error_observation" )} \n\n${errorText}`;
   } else if ( status === "beforeObservation" ) {
     headerText = "posting.posting_failure";
-    image = <Image source={posting.uploadfail} />;
+    image = <Image source={icons.error} tintColor={colors.seekTeal} style={styles.fail} />;
     extraText = `${i18n.t( "posting.error_token" )} \n\n${errorText}`;
-
-    console.log( errorText, "error text failure" );
   }
 
   return (

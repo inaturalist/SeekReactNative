@@ -10,7 +10,7 @@ const logos = {
   wordmark: require( "./logos/iNatStats-Wordmark.png" ),
   iNatWhite: require( "./logos/iNaturalist-Identity-white.png" ),
   // iNatBlack: require( "./logos/iNaturalist-Identity-black.png" ),
-  joint: require( "./logos/logos-jointinitiative-splash-2020.png" )
+  // joint: require( "./logos/logos-jointinitiative-splash-2020.png" )
 };
 
 export default logos;

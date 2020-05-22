@@ -7,9 +7,10 @@ import {
   Image
 } from "react-native";
 
-import posting from "../../assets/posting";
+import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import styles from "../../styles/signup/error";
+import { colors } from "../../styles/global";
 
 type Props = {
   +error: string
@@ -33,7 +34,7 @@ const ErrorMessage = ( { error }: Props ) => {
       error === "credentials" && styles.smallerMargin
     ]}
     >
-      <Image source={posting.error} style={styles.image} />
+      <Image source={icons.error} style={styles.image} tintColor={colors.seekiNatGreen} />
       <View style={styles.textContainer}>
         <Text allowFontScaling={false} style={styles.text}>{message}</Text>
       </View>

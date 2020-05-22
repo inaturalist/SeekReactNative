@@ -2,7 +2,8 @@ import { StyleSheet } from "react-native";
 import {
   fonts,
   center,
-  dimensions
+  dimensions,
+  colors
 } from "../global";
 
 export default StyleSheet.create( {
@@ -15,6 +16,9 @@ export default StyleSheet.create( {
     flex: 1,
     justifyContent: "center",
     marginHorizontal: 28
+  },
+  fail: {
+    tintColor: colors.seekTeal
   },
   margin: {
     marginTop: 54

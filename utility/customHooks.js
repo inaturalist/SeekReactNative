@@ -6,6 +6,7 @@ import i18n from "../i18n";
 import { fetchLocationName } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
+import { checkLocationPermissions } from "./androidHelpers.android";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -114,8 +115,29 @@ const useUserPhoto = ( item ) => {
   return photo;
 };
 
+const useLocationPermission = () => {
+  const [granted, setGranted] = useState( true );
+
+  const fetchPermissionStatus = async () => {
+    try {
+      const status = await checkLocationPermissions;
+      if ( status ) {
+        setGranted( true );
+      }
+    } catch ( e ) {
+      setGranted( false );
+    }
+  };
+
+  if ( Platform.OS === "android" ) {
+    fetchPermissionStatus();
+  }
+  return granted;
+};
+
 export {
   useScrollToTop,
   useLocationName,
-  useUserPhoto
+  useUserPhoto,
+  useLocationPermission
 };

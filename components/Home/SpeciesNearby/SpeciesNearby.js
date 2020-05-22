@@ -17,7 +17,6 @@ import Error from "./Error";
 
 const SpeciesNearby = () => {
   const granted = useLocationPermission();
-  console.log( granted, "granted" );
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {

@@ -9,10 +9,6 @@ export default StyleSheet.create( {
   bullet: {
     marginRight: 18
   },
-  headerMargins: {
-    marginBottom: 16,
-    marginTop: 45
-  },
   marginTop: {
     marginTop: 7
   },

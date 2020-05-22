@@ -8,7 +8,6 @@ import {
 import { NavigationEvents } from "@react-navigation/compat";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
-import RNFS from "react-native-fs";
 
 import i18n from "../../i18n";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
@@ -24,8 +23,7 @@ import {
   checkForInternet,
   getTaxonCommonName
 } from "../../utility/helpers";
-import { dirPictures } from "../../utility/dirStorage";
-import NoInternetError from "./NoInternetError";
+import NoInternetError from "./OnlineOnlyCards/NoInternetError";
 import createUserAgent from "../../utility/userAgent";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 import SpeciesHeader from "./SpeciesHeader";
@@ -44,7 +42,7 @@ type State = {
   timesSeen: ?number,
   region: Object,
   error: ?string,
-  userPhoto: ?string,
+  seenTaxa: ?Object,
   stats: Object,
   ancestors: Array<Object>,
   routeName: ?string,
@@ -70,7 +68,7 @@ class SpeciesDetail extends Component<Props, State> {
       timesSeen: null,
       region: {},
       error: null,
-      userPhoto: null,
+      seenTaxa: null,
       stats: {},
       ancestors: [],
       routeName: null,
@@ -117,28 +115,6 @@ class SpeciesDetail extends Component<Props, State> {
     this.setState( { id, routeName } );
   }
 
-  async setUserPhoto( seenTaxa: Object ) {
-    const { taxon } = seenTaxa;
-    const { defaultPhoto } = taxon;
-    const { backupUri, mediumUrl } = defaultPhoto;
-
-    if ( defaultPhoto ) {
-      if ( backupUri ) {
-        if ( Platform.OS === "ios" ) {
-          const uri = backupUri.split( "/Pictures/" );
-          const backupFilepath = `${dirPictures}/${uri[1]}`;
-          this.setState( { userPhoto: backupFilepath } );
-        } else {
-          RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-            this.setState( { userPhoto: `data:image/jpeg;base64,${encodedData}` } );
-          } ).catch( ( e ) => console.log( e ) );
-        }
-      } else if ( mediumUrl ) {
-        this.setState( { userPhoto: mediumUrl } );
-      }
-    }
-  }
-
   setSeenTaxa( seenTaxa: Object, id: number ) {
     const { taxon, latitude, longitude } = seenTaxa;
     const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
@@ -149,6 +125,7 @@ class SpeciesDetail extends Component<Props, State> {
 
     getTaxonCommonName( id ).then( ( deviceCommonName ) => {
       this.setState( {
+        seenTaxa,
         taxon: {
           commonName: deviceCommonName,
           scientificName: taxon.name,
@@ -202,7 +179,7 @@ class SpeciesDetail extends Component<Props, State> {
       timesSeen: null,
       region: {},
       error: null,
-      userPhoto: null,
+      seenTaxa: null,
       stats: {},
       ancestors: [],
       routeName: null,
@@ -211,47 +188,24 @@ class SpeciesDetail extends Component<Props, State> {
   }
 
   checkIfSpeciesSeen( id: number ) {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const observations = realm.objects( "ObservationRealm" );
-        const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const observations = realm.objects( "ObservationRealm" );
+      const seenTaxa = observations.filtered( `taxon.id == ${id}` )[0];
 
-        if ( seenTaxa ) {
-          this.setSeenTaxa( seenTaxa, id );
-        } else {
-          this.fetchUserLocation( id );
-        }
-
-        let userPhoto;
-        const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-
-        if ( seenTaxa ) {
-          if ( Platform.OS === "ios" && seekv1Photos ) {
-            const photoPath = `${seekv1Photos}/${seenTaxa.uuidString}`;
-            if ( !RNFS.exists( photoPath ) ) {
-              this.setUserPhoto( seenTaxa );
-            } else {
-              RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-                userPhoto = `data:image/jpeg;base64,${encodedData}`;
-                this.setState( { userPhoto } );
-              } ).catch( () => {
-                this.setUserPhoto( seenTaxa );
-              } );
-            }
-          } else if ( Platform.OS === "android" ) {
-            this.setUserPhoto( seenTaxa );
-          }
-        }
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
+      if ( seenTaxa ) {
+        this.setSeenTaxa( seenTaxa, id );
+      } else {
+        this.fetchUserLocation( id );
+      }
+    } ).catch( () => {
+      // console.log( "[DEBUG] Failed to open realm, error: ", err );
+    } );
   }
 
   fetchTaxonDetails( id: number ) {
     const { stats } = this.state;
 
     const params = { locale: i18n.currentLocale() };
-
     const options = { user_agent: createUserAgent() };
 
     inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
@@ -369,7 +323,7 @@ class SpeciesDetail extends Component<Props, State> {
       seenDate,
       timesSeen,
       error,
-      userPhoto,
+      seenTaxa,
       ancestors,
       stats,
       routeName,
@@ -392,7 +346,7 @@ class SpeciesDetail extends Component<Props, State> {
           <Spacer />
           <SpeciesHeader
             taxon={taxon}
-            userPhoto={userPhoto}
+            seenTaxa={seenTaxa}
             photos={photos}
             routeName={routeName}
           />

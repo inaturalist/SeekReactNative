@@ -8,7 +8,8 @@ import {
   formatISO,
   fromUnixTime,
   subDays,
-  differenceInHours
+  differenceInHours,
+  isSameMonth
 } from "date-fns";
 import {
   af,
@@ -75,6 +76,8 @@ const isWithinPastYear = ( reviewShownDate ) => {
 
   return isAfter( reviewShownDate, lastYear );
 };
+
+const isWithinCurrentMonth = ( date ) => isSameMonth( date, new Date() );
 
 const isWithin7Days = ( date ) => {
   const sevenDaysAgo = subDays( new Date(), 7 );
@@ -153,5 +156,6 @@ export {
   formatHourMonthSecond,
   formatMonthYear,
   formatMonth,
-  serverBackOnlineTime
+  serverBackOnlineTime,
+  isWithinCurrentMonth
 };

@@ -13,7 +13,7 @@ import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
-import { capitalizeNames } from "../../utility/helpers";
+import { capitalizeNames, setRoute } from "../../utility/helpers";
 
 type Props = {
   navigation: any
@@ -49,7 +49,12 @@ const SideMenu = ( { navigation }: Props ) => {
               <TouchableOpacity
                 accessibilityLabel={name}
                 accessible
-                onPress={() => navigation.navigate( path )}
+                onPress={() => {
+                  if ( path === "Observations" ) {
+                    setRoute( "SideMenu" );
+                  }
+                  navigation.navigate( path );
+                }}
                 style={[styles.row, styles.height]}
               >
                 <Image source={icons[`menu${capitalizeNames( item )}`]} style={styles.image} />

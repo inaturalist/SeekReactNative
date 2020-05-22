@@ -9,14 +9,14 @@ import {
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { NavigationEvents } from "@react-navigation/compat";
 
-import i18n from "../../i18n";
-import styles from "../../styles/species/rangeMap";
-import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
-import icons from "../../assets/icons";
-import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
-import Legend from "../Modals/LegendModal";
-import Modal from "../UIComponents/Modal";
+import i18n from "../../../i18n";
+import styles from "../../../styles/species/rangeMap";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
+import icons from "../../../assets/icons";
+import GreenHeader from "../../UIComponents/GreenHeader";
+import SafeAreaView from "../../UIComponents/SafeAreaView";
+import Legend from "../../Modals/LegendModal";
+import Modal from "../../UIComponents/Modal";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

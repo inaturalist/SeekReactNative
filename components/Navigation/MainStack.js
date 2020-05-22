@@ -10,7 +10,7 @@ import FooterTabNav from "./FooterTabs";
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import Match from "../Match/MatchScreen";
-import RangeMap from "../Species/RangeMap";
+import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Notifications from "../Notifications/Notifications";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";

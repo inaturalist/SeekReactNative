@@ -1,10 +1,9 @@
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";
-import { sortNewestToOldest, capitalizeNames } from "./helpers";
+import { capitalizeNames } from "./helpers";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
-import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import { createBackupUri, deleteFile } from "./photoHelpers";
 import { createNotification } from "./notificationHelpers";
 import realmConfig from "../models/index";
@@ -109,44 +108,35 @@ const removeFromCollection = ( id ) => {
     } );
 };
 
-const createSectionList = ( realm ) => {
-  const observations = [];
-  const species = realm.objects( "ObservationRealm" );
+const sortNewestToOldest = ( observations ) => {
+  observations.sort( ( a, b ) => {
+    if ( a.data.length > b.data.length ) {
+      return -1;
+    }
+    return 1;
+  } );
+};
 
-  const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
-  taxaIdList.pop();
+const createSectionList = ( realm, species ) => {
+  const obs = [];
 
-  taxaIdList.forEach( ( id ) => {
-    const data = species
-      .filtered( `taxon.iconicTaxonId == ${id}` )
-      .sorted( "date", true );
+  const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];
 
-    const badgeCount = realm.objects( "BadgeRealm" )
-      .filtered( `iconicTaxonId == ${id} AND earned == true` ).length;
-
-    observations.push( {
-      id,
-      data: data.length > 0 ? data : [],
-      badgeCount,
-      open: true
-    } );
+  taxaList.forEach( ( id ) => {
+    const data = species.filtered( `taxon.iconicTaxonId == ${id}` ).sorted( "date", true );
+    obs.push( { id, data } );
   } );
 
-  sortNewestToOldest( observations );
+  sortNewestToOldest( obs );
 
   const otherData = species
     .filtered( "taxon.iconicTaxonId == 1 OR taxon.iconicTaxonId == 47686 OR taxon.iconicTaxonId == 48222" )
     .sorted( "date", true );
   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-  observations.push( {
-    id: 1,
-    data: otherData,
-    badgeCount: -1,
-    open: true
-  } );
+  obs.push( { id: 1, data: otherData } );
 
-  return species.length > 0 ? observations : [];
+  return obs;
 };
 
 export {

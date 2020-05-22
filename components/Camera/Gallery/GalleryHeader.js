@@ -7,12 +7,12 @@ import {
   View
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import CameraRoll from "@react-native-community/cameraroll";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
-import { getAlbumNames } from "../../../utility/photoHelpers";
 
 type Props = {
   updateAlbum: Function
@@ -23,7 +23,20 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
   const [albumNames, setAlbumNames] = useState( [] );
 
   const fetchAlbumNames = async () => {
-    const names = await getAlbumNames();
+    const names = [{
+      label: i18n.t( "gallery.camera_roll" ),
+      value: "All"
+    }];
+
+    const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
+
+    if ( albums && albums.length > 0 ) { // attempt to fix error on android
+      albums.forEach( ( { count, title } ) => {
+        if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+          names.push( { label: title, value: title } );
+        }
+      } );
+    }
     setAlbumNames( names );
   };
 

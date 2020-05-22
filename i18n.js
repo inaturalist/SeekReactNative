@@ -19,7 +19,7 @@ import nb from "./translations/nb.json";
 import ru from "./translations/ru.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
-import zh from "./translations/zh.json";
+import zh from "./translations/zh-TW.json";
 
 i18n.translations = {
   af,

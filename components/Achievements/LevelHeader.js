@@ -62,7 +62,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
               <Text style={styles.text}>
                 {level.count >= 150
                   ? i18n.t( "badges.observe_max" )
-                  : i18n.t( "badges.observe", { count: localizeNumber( nextLevelCount ) } )}
+                  : i18n.t( "badges.observe_plural", { count: localizeNumber( nextLevelCount ) } )}
               </Text>
             </View>
           </View>

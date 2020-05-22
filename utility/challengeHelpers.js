@@ -7,7 +7,7 @@ import taxonDict from "./dictionaries/taxonDictForMissions";
 import missionsDict from "./dictionaries/missionsDict";
 import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
-import { checkIfChallengeAvailable } from "./dateHelpers";
+import { checkIfChallengeAvailable, isWithinCurrentMonth } from "./dateHelpers";
 
 const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
 
@@ -171,35 +171,52 @@ const startChallenge = ( index ) => {
 };
 
 const setupChallenges = () => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      realm.write( () => {
-        const dict = Object.keys( challengesDict );
+  Realm.open( realmConfig ).then( ( realm ) => {
+    const numChallenges = realm.objects( "ChallengeRealm" ).length;
+    const dict = Object.keys( challengesDict );
 
-        dict.forEach( ( challengesType ) => {
-          const challenges = challengesDict[challengesType];
+    // don't write to realm unless there are actually new challenges available
+    // this should help Seek startup faster since realm.writes are slow
+    if ( numChallenges === dict.length ) {
+      return;
+    }
 
-          const isAvailable = checkIfChallengeAvailable( challenges.availableDate );
+    realm.write( () => {
+      dict.forEach( ( challengesType, i ) => {
+        const existingChallenge = realm.objects( "ChallengeRealm" ).filtered( `index == ${i}` ).length;
+
+        // only create new challenges
+        if ( existingChallenge === 0 ) {
+          const challenge = challengesDict[challengesType];
+          const isAvailable = checkIfChallengeAvailable( challenge.availableDate );
+          const isCurrent = isWithinCurrentMonth( challenge.availableDate );
 
           if ( isAvailable ) {
             realm.create( "ChallengeRealm", {
-              name: challenges.name,
-              description: challenges.description,
-              totalSpecies: challenges.totalSpecies,
-              backgroundName: challenges.backgroundName,
-              earnedIconName: challenges.earnedIconName,
-              missions: challenges.missions,
-              availableDate: challenges.availableDate,
-              photographer: challenges.photographer || null,
-              action: challenges.action,
-              index: challenges.index
+              name: challenge.name,
+              description: challenge.description,
+              totalSpecies: challenge.totalSpecies,
+              backgroundName: challenge.backgroundName,
+              earnedIconName: challenge.earnedIconName,
+              missions: challenge.missions,
+              availableDate: challenge.availableDate,
+              photographer: challenge.photographer || null,
+              action: challenge.action,
+              index: i
             }, true );
+
+            // need to check if challenge is available within this month,
+            // otherwise new users will get notifications for all past challenges
+            if ( isCurrent ) {
+              createNotification( "newChallenge", i );
+            }
           }
-        } );
+        }
       } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to setup challenges: ", err );
     } );
+  } ).catch( ( err ) => {
+    console.log( "[DEBUG] Failed to setup challenges: ", err );
+  } );
 };
 
 const setChallengesCompleted = ( challenges ) => {

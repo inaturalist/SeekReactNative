@@ -9,12 +9,12 @@ import {
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/species/iNatObs";
-import logos from "../../assets/logos";
-import GreenText from "../UIComponents/GreenText";
-import createUserAgent from "../../utility/userAgent";
-import { localizeNumber } from "../../utility/helpers";
+import i18n from "../../../i18n";
+import styles from "../../../styles/species/iNatObs";
+import logos from "../../../assets/logos";
+import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
+import createUserAgent from "../../../utility/userAgent";
+import { localizeNumber } from "../../../utility/helpers";
 
 type Props = {
   +id: ?number,
@@ -58,10 +58,7 @@ const INatObs = ( {
 
     if ( timesSeen && nearbySpeciesCount ) {
       obs = (
-        <>
-          <View style={styles.headerMargins}>
-            <GreenText text="species_detail.inat_obs" />
-          </View>
+        <SpeciesDetailCard text="species_detail.inat_obs">
           <View style={[styles.center, styles.row]}>
             <TouchableOpacity onPress={() => navigation.navigate( "iNatStats" )}>
               <Image source={logos.bird} style={styles.bird} />
@@ -85,7 +82,7 @@ const INatObs = ( {
               </Text>
             </View>
           </View>
-        </>
+        </SpeciesDetailCard>
       );
     }
     return obs;

@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Platform } from "react-native";
+import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
 import { fetchLocationName } from "./locationHelpers";
-import { getChallengeIndex } from "./challengeHelpers";
-import { getRoute } from "./helpers";
+import { dirPictures } from "./dirStorage";
+import { writeToDebugLog } from "./photoHelpers";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -20,40 +21,6 @@ const useScrollToTop = ( scrollView, navigation ) => {
       scrollToTop();
     } );
   } );
-};
-
-const useIndex = ( navigation ) => {
-  const [index, setIndex] = useState( null );
-
-  const setupScreen = async () => {
-    const i = await getChallengeIndex();
-    setIndex( i );
-  };
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      setupScreen();
-    } );
-  } );
-
-  return index;
-};
-
-const useRoute = ( navigation ) => {
-  const [route, setRoute] = useState( null );
-
-  const setupScreen = async () => {
-    const r = await getRoute();
-    setRoute( r );
-  };
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      setupScreen();
-    } );
-  } );
-
-  return route;
 };
 
 const useLocationName = ( latitude, longitude ) => {
@@ -85,9 +52,70 @@ const useLocationName = ( latitude, longitude ) => {
   return location;
 };
 
+const useUserPhoto = ( item ) => {
+  const [photo, setPhoto] = useState( null );
+
+  const checkForSeekV2Photos = useCallback( () => {
+    const { taxon } = item;
+    const { defaultPhoto } = taxon;
+    if ( !defaultPhoto ) {
+      return;
+    }
+
+    const { backupUri, mediumUrl } = defaultPhoto;
+    if ( backupUri ) {
+      if ( Platform.OS === "ios" ) {
+        const uri = backupUri.split( "Pictures/" );
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+        setPhoto( { uri: backupFilepath } );
+      } else {
+        writeToDebugLog( backupUri );
+        RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
+          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( ( e ) => console.log( e ) );
+      }
+    } else if ( mediumUrl ) {
+      setPhoto( { uri: mediumUrl } );
+    }
+  }, [item] );
+
+  const checkV1 = useCallback( async ( uuidString ) => {
+    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
+    const photoPath = `${seekv1Photos}/${uuidString}`;
+
+    try {
+      const isv1Photo = await RNFS.exists( photoPath );
+
+      if ( isv1Photo ) {
+        RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
+          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+        } ).catch( () => checkForSeekV2Photos() );
+      } else {
+        // this is the one being fetched in test device
+        checkForSeekV2Photos();
+      }
+    } catch ( e ) {
+      console.log( e, "error checking for v1 photo existence" );
+    }
+  }, [checkForSeekV2Photos] );
+
+  useEffect( () => {
+    if ( item !== null ) {
+      if ( Platform.OS === "ios" ) {
+        checkV1( item.uuidString );
+      } else {
+        checkForSeekV2Photos();
+      }
+    } else {
+      setPhoto( null );
+    }
+  }, [checkForSeekV2Photos, checkV1, item] );
+
+  return photo;
+};
+
 export {
   useScrollToTop,
   useLocationName,
-  useIndex,
-  useRoute
+  useUserPhoto
 };

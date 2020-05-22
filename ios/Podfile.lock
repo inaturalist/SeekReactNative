@@ -238,9 +238,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
-  - react-native-cameraroll (1.5.2):
-    - React
-  - react-native-gallery-manager (1.0.9):
+  - react-native-cameraroll (1.6.2):
     - React
   - react-native-geocoder (0.5.1):
     - React
@@ -323,7 +321,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
-  - RealmJS (3.6.4):
+  - RealmJS (3.6.5):
     - GCDWebServer
     - React
   - RNCAsyncStorage (1.7.1):
@@ -390,7 +388,6 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
-  - react-native-gallery-manager (from `../node_modules/react-native-gallery-manager`)
   - react-native-geocoder (from `../node_modules/react-native-geocoder`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
   - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
@@ -476,8 +473,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-community/cameraroll"
-  react-native-gallery-manager:
-    :path: "../node_modules/react-native-gallery-manager"
   react-native-geocoder:
     :path: "../node_modules/react-native-geocoder"
   react-native-geolocation:
@@ -575,8 +570,7 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
-  react-native-cameraroll: 81c6c271b5b853da398ccecc7ad6a5f765fd3001
-  react-native-gallery-manager: 030b6f09cbe458ecbe81b6dcd8248dc17a475f26
+  react-native-cameraroll: 94bec91c68b94ac946c61b497b594bb38692c41b
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-image-resizer: 487329f0748d62a075f9d1ba1676c3ab394d169f
@@ -598,7 +592,7 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
-  RealmJS: efc6149c80687ae64c040148f7c2ade335a97416
+  RealmJS: b103c28012b1abfe13396ac82e76b4f4d9d47c0d
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNCMaskedView: c8b53164b85ecf94c9a44d67082df0f03c1f74cc
   RNDateTimePicker: 68e542a59ff1b73563744145bfc45c2b88a3deea

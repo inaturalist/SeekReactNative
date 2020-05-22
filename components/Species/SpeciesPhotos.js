@@ -13,20 +13,22 @@ import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
+import { useUserPhoto } from "../../utility/customHooks";
 
 type Props = {
   +photos: Array<Object>,
-  +userPhoto: ?string
+  +seenTaxa: ?Object
 };
 
-const SpeciesPhotos = ( { photos, userPhoto }: Props ) => {
+const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
+  const userPhoto = useUserPhoto( seenTaxa );
   const photoList = [];
 
   if ( userPhoto ) {
     photoList.push(
       <View key="user-image">
         <Image
-          source={{ uri: userPhoto }}
+          source={userPhoto}
           style={styles.image}
         />
       </View>

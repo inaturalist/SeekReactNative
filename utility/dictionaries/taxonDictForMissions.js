@@ -52,6 +52,9 @@ const taxonIds = {
   Typhaceae: 48694,
   Polypodiopsida: 121943,
   Bryophyta: 311249,
+  Asterales: 47605,
+  Passeriformes: 7251,
+  Coleoptera: 47208,
   all: null
 };
 

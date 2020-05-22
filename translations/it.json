@@ -166,13 +166,13 @@
     "no_new_challenges_header": "Non hai nuove sfide.",
     "no_new_challenges": "Ti faremo sapere quando saranno disponibili nuove sfide.",
     "completed_all": "Hai completato tutte le sfide disponibili!",
-    "number_observed": {
-      "zero": "{{count}} osservate finora",
-      "one": "{{count}} osservate finora",
-      "two": "{{count}} osservate finora",
-      "few": "{{count}} osservate finora",
-      "many": "{{count}} osservate finora",
-      "other": "{{count}} osservate finora"
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
     },
     "how_to": "Completa la Sfida Seek per {{month}}!",
     "released": "Questa sfida verrà aperta il {{date}}.",
@@ -250,13 +250,13 @@
     "error_image": "Siamo spiacenti, non siamo riusciti ad elaborare la tua immagine. Controlla la tua connessione internet e riprova.",
     "error_species": "Siamo spiacenti, non siamo riusciti a recuperare i dettagli di questa immagine. Controlla la tua connessione internet e riprova.",
     "error_location": "Non sarai in grado di visualizzare gli areali, esplorare le specie nelle vicinanze o pubblicare questa osservazione su iNaturalist. Abilitando il rilevamento della posizione in Seek, sarai in grado di visualizzare informazioni dettagliate sulle tue osservazioni e contribuire alla scienza dei cittadini. La tua posizione non verrà pubblicata a meno che tu non la invii ad iNaturalist.",
-    "error_downtime": {
-      "zero": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
-      "one": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
-      "two": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
-      "few": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
-      "many": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore.",
-      "other": "Servizio temporaneamente non disponibile. Riprova tra {{count}} ore."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "alcuni",
     "error_gps": "Seek non è in grado di trovare la tua posizione GPS.  La tua osservazione è stata salvata, ma senza posizione, non sarai in grado di visualizzare informazioni dettagliate come gli areali. Prova a spostarti in un luogo dove puoi vedere il cielo e controllare che sia attivo il rilevamento della posizione del tuo dispositivo.",
@@ -271,13 +271,13 @@
     "challenge_progress": "Hai trovato un'altra specie!",
     "challenge_view": "Vedi i tuoi progressi",
     "level_up": "Sei salito di livello!",
-    "number_seen": {
-      "zero": "Hai visto {{count}} specie!",
-      "one": "Hai visto {{count}} specie!",
-      "two": "Hai visto {{count}} specie!",
-      "few": "Hai visto {{count}} specie!",
-      "many": "Hai visto {{count}} specie!",
-      "other": "Hai visto {{count}} specie!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
     }
   },
   "camera": {
@@ -344,13 +344,13 @@
     "your_level": "Il tuo livello",
     "login": "Effettua l'accesso con iNaturalist per mostrare le osservazioni alla comunità online!",
     "achievements": "Progressi",
-    "observe": {
-      "zero": "Osserva {{count}} specie per raggiungere il livello successivo!",
-      "one": "Osserva {{count}} specie per raggiungere il livello successivo!",
-      "two": "Osserva {{count}} specie per raggiungere il livello successivo!",
-      "few": "Osserva {{count}} specie per raggiungere il livello successivo!",
-      "many": "Osserva {{count}} specie per raggiungere il livello successivo!",
-      "other": "Osserva {{count}} specie per raggiungere il livello successivo!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "Hai raggiunto il livello massimo su Seek!",
     "observe_species": "Osserva",

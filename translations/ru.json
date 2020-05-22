@@ -166,13 +166,13 @@
     "no_new_challenges_header": "У вас нет новых испытаний.",
     "no_new_challenges": "Мы сообщим вам, когда появятся новые испытания.",
     "completed_all": "Вы прошли все доступные испытания!",
-    "number_observed": {
-      "zero": "{{count}} наблюдавшихся до сих пор",
-      "one": "{{count}} наблюдавшихся до сих пор",
-      "two": "{{count}} наблюдавшихся до сих пор",
-      "few": "{{count}} наблюдавшихся до сих пор",
-      "many": "{{count}} наблюдавшихся до сих пор",
-      "other": "{{count}} наблюдавшихся до сих пор"
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
     },
     "how_to": "Вы завершили испытание Seek за {{month}}!",
     "released": "Это соревнование начнётся {{date}}.",
@@ -250,13 +250,13 @@
     "error_image": "К сожалению, мы не смогли обработать ваше изображение. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
     "error_species": "К сожалению, мы не смогли извлечь подробности вида из этого изображения. Пожалуйста, проверьте ваше интернет-соединение и попробуйте снова.",
     "error_location": "Чтобы добавить виды к вашим наблюдениям, вам нужно сделать доступным ваше местоположение. Seek использует ваше местоположение, чтобы напомнить вам, где вы видели организм, и помочь внести вклад в гражданскую науку, если вы отправляете сообщение в iNaturalist.\n \nрезультаты -> error_location.",
-    "error_downtime": {
-      "zero": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов.",
-      "one": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов.",
-      "two": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов.",
-      "few": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов.",
-      "many": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов.",
-      "other": "Сервис временно недоступен. Пожалуйста, попробуйте снова через {{count}} часов."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "несколько",
     "error_gps": "Не удалось определить ваше местоположение по GPS. Пожалуйста, попробуйте переместиться в место, где вы можете видеть небо, и проверьте, что определение местоположения вашего устройства включено, чтобы сохранять наблюдения.",
@@ -271,13 +271,13 @@
     "challenge_progress": "Вы нашли другие виды!",
     "challenge_view": "Посмотреть ваши успехи",
     "level_up": "Ваш уровень вырос!",
-    "number_seen": {
-      "zero": "Вы видели {{count}} видов!",
-      "one": "Вы видели {{count}} видов!",
-      "two": "Вы видели {{count}} видов!",
-      "few": "Вы видели {{count}} видов!",
-      "many": "Вы видели {{count}} видов!",
-      "other": "Вы видели {{count}} видов!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
     }
   },
   "camera": {
@@ -344,13 +344,13 @@
     "your_level": "Ваш уровень",
     "login": "Войдите через iNaturalist, чтобы публиковать наблюдения в онлайн-сообществе!",
     "achievements": "Достижения",
-    "observe": {
-      "zero": "Найдите {{count}} видов, чтобы перейти на следующий уровень!",
-      "one": "Найдите {{count}} видов, чтобы перейти на следующий уровень!",
-      "two": "Найдите {{count}} видов, чтобы перейти на следующий уровень!",
-      "few": "Найдите {{count}} видов, чтобы перейти на следующий уровень!",
-      "many": "Найдите {{count}} видов, чтобы перейти на следующий уровень!",
-      "other": "Найдите {{count}} видов, чтобы перейти на следующий уровень!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "Вы достигли максимального уровня в Seek!",
     "observe_species": "Наблюдать",

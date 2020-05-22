@@ -166,7 +166,7 @@
     "no_new_challenges_header": "Sinulla ei ole uusia haasteita.",
     "no_new_challenges": "Ilmoitamme sinulle, kun uusia haasteita on saatavilla.",
     "completed_all": "Olet suorittanut kaikki saatavilla olevat haasteet!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "Valitettavasti emme voineet prosessoida tätä kuvaa. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_species": "Valitettavasti emme voineet hakea tietoja tämän kuvan lajista. Tarkista Internet-yhteytesi ja yritä uudelleen.",
     "error_location": "Jotta voit lisätä lajeja havaintoihisi, sinun on otettava sijainti käyttöön. Seek käyttää sijaintiasi muistuttaakseen sinua, missä näit organismin, ja auttamaan osallistumaan kansalaistieteeseen, jos lähetät postia iNaturalistille.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Löysit uuden lajin!",
     "challenge_view": "View your progress",
     "level_up": "Pääsit seuraavalle tasolle!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "Sinun tasosi",
     "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
     "achievements": "Achievements",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

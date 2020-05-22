@@ -166,7 +166,7 @@
     "no_new_challenges_header": "Não tens novos desafios.",
     "no_new_challenges": "Iremos informar-te quando estiverem disponíveis novos desafios.",
     "completed_all": "Concluíste todos os desafios disponíveis!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Encontrou outra espécie!",
     "challenge_view": "View your progress",
     "level_up": "Subiu de nível!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "O seu nível",
     "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "Achievements",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

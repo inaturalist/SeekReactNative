@@ -6,6 +6,7 @@ import Footer from "../UIComponents/Footer";
 import FooterTabNav from "./FooterTabs";
 import Match from "../Match/MatchScreen";
 import Notifications from "../Notifications/Notifications";
+import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 
 const Tab = createBottomTabNavigator();
 
@@ -47,6 +48,11 @@ const MainStack = () => (
     <Stack.Screen
       name="Match"
       component={Match}
+      options={defaultConfig}
+    />
+    <Stack.Screen // turn range map into modal, since it only pops up from species screen
+      name="RangeMap"
+      component={RangeMap}
       options={defaultConfig}
     />
   </Stack.Navigator>

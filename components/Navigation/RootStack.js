@@ -14,7 +14,6 @@ import Wikipedia from "../Species/WikipediaView";
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
-import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 
@@ -95,11 +94,6 @@ const App = () => (
         <Stack.Screen
           name="OnlineServerResults"
           component={OnlineServerResults}
-          options={defaultConfig}
-        />
-        <Stack.Screen // turn range map into modal, since it only pops up from species screen
-          name="RangeMap"
-          component={RangeMap}
           options={defaultConfig}
         />
         <Stack.Screen

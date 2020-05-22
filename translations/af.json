@@ -166,13 +166,13 @@
     "no_new_challenges_header": "U het geen nuwe uitdagings nie.",
     "no_new_challenges": "Ons sal u laat weet wanneer nuwe uitdagings beskikbaar is.",
     "completed_all": "U het alle beskikbare uitdagings voltooi!",
-    "number_observed": {
-      "zero": "nog {{count}} waargeneem",
-      "one": "reeds {{count}} waargeneem",
-      "two": "reeds {{count}} waargeneem",
-      "few": "reeds {{count}} waargeneem",
-      "many": "reeds {{count}} waargeneem",
-      "other": "reeds {{count}} waargeneem"
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
     },
     "how_to": "Voltooi die Seek-uitdaging vir {{month}}!",
     "released": "Hierdie uitdaging sal op {{date}} vrygestel word.",
@@ -250,13 +250,13 @@
     "error_image": "Jammer, ons kon nie u beeld verwerk nie. Gaan u Internetverbinding na en probeer weer.",
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u Internetverbinding na en probeer weer.",
     "error_location": "Om spesies tot u waarnemings toe te voeg moet u ligging aktiveer. Seek gebruik u ligging om u te herinner aan waar u ’n organisme opgemerk het en om tot die burgerwetenskap by te dra indien u dit op iNaturalist plaas.",
-    "error_downtime": {
-      "zero": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
-      "one": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
-      "two": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
-      "few": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
-      "many": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
-      "other": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "’n paar",
     "error_gps": "Ons kon nie u GPS-ligging vind nie. Beweeg na ’n plek waar u die lug kan sien en maak seker u toestel se ligging is geaktiveer sodat u waarnemings kan bewaar.",
@@ -271,13 +271,13 @@
     "challenge_progress": "U het ’n ander spesie gevind!",
     "challenge_view": "Bekyk u vordering",
     "level_up": "U het ’n hoër vlak bereik!",
-    "number_seen": {
-      "zero": "U het {{count}} spesies gesien!",
-      "one": "U het {{count}} spesies gesien!",
-      "two": "U het {{count}} spesies gesien!",
-      "few": "U het {{count}} spesies gesien!",
-      "many": "U het {{count}} spesies gesien!",
-      "other": "U het {{count}} spesies gesien!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
     }
   },
   "camera": {
@@ -344,13 +344,13 @@
     "your_level": "U Vlak",
     "login": "Teken aan met iNaturalist om waarnemings by die aanlyn gemeenskap te plaas!",
     "achievements": "Prestasies",
-    "observe": {
-      "zero": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
-      "one": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
-      "two": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
-      "few": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
-      "many": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
-      "other": "Neem {{count}} spesies waar om na die volgende vlak te gaan!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "U het die maksimum vlak op Seek bereik!",
     "observe_species": "Neem Waar",

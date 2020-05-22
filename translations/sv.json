@@ -166,13 +166,13 @@
     "no_new_challenges_header": "Du har inga nya utmaningar.",
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
-    "number_observed": {
-      "zero": "{{count}} observerad hittills",
-      "one": "{{count}} observerad hittills",
-      "two": "{{count}} observerade hittills",
-      "few": "{{count}} observerade hittills",
-      "many": "{{count}} observerade hittills",
-      "other": "{{count}} observerade hittills"
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
     },
     "how_to": "Slutför Seek-utmaningen i {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
@@ -250,13 +250,13 @@
     "error_image": "Tyvärr kunde vi inte bearbeta din bild. Kontrollera din internetanslutning och försök igen.",
     "error_species": "Tyvärr kunde vi inte hämta artuppgifter för den här bilden. Kontrollera din internetanslutning och försök igen.",
     "error_location": "För att lägga till arter till dina observationer, måste du aktivera din plats. Seek använder din plats för att påminna dig om var du såg en organism, och för att kunna bidra till medborgarforskning om du postar på iNaturalist.",
-    "error_downtime": {
-      "zero": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
-      "one": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timme.",
-      "two": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
-      "few": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
-      "many": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
-      "other": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "några",
     "error_gps": "Vi kunde inte hitta din GPS-plats. Försök att flytta till en plats där du kan se himlen och kontrollera att enhetens plats är påslagen för att kunna spara observationer.",
@@ -271,13 +271,13 @@
     "challenge_progress": "Du hittade en till art!",
     "challenge_view": "Se dina framsteg",
     "level_up": "Du har levlat upp!",
-    "number_seen": {
-      "zero": "Du har sett {{count}} arter!",
-      "one": "Du har sett {{count}} art!",
-      "two": "Du har sett {{count}} arter!",
-      "few": "Du har sett {{count}} arter!",
-      "many": "Du har sett {{count}} arter!",
-      "other": "Du har sett {{count}} arter!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
     }
   },
   "camera": {
@@ -344,13 +344,13 @@
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
     "achievements": "Prestationer",
-    "observe": {
-      "zero": "Observera {{count}} arter för att komma till nästa nivå!",
-      "one": "Observera {{count}} art för att komma till nästa nivå!",
-      "two": "Observera {{count}} arter för att komma till nästa nivå!",
-      "few": "Observera {{count}} arter för att komma till nästa nivå!",
-      "many": "Observera {{count}} arter för att komma till nästa nivå!",
-      "other": "Observera {{count}} arter för att komma till nästa nivå!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "Du har nått maxnivån på Seek!",
     "observe_species": "Observera",

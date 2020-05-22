@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -7,7 +7,7 @@ import {
   Text
 } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
-import { NavigationEvents } from "@react-navigation/compat";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/rangeMap";
@@ -21,140 +21,95 @@ import Modal from "../../UIComponents/Modal";
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
-type Props = {
-  +route: any
-}
+const RangeMap = () => {
+  const navigation = useNavigation();
+  const { params } = useRoute();
+  const { region, id, seenDate } = params;
+  // region can be the obs region or the user location, depending on nav
 
-type State = {
-  region: Object,
-  id: number,
-  showModal: boolean,
-  obsLocation: Object,
-  userLocation: Object,
-  seenDate: ?string
-};
+  const [showModal, setModal] = useState( false );
+  const [user, setUser] = useState( {} );
+  const [mapRegion, setMapRegion] = useState( region );
 
-class RangeMap extends Component<Props, State> {
-  constructor( { route }: Props ) {
-    super();
+  const openModal = () => setModal( true );
+  const closeModal = () => setModal( false );
 
-    const { region, id, seenDate } = route.params;
-
-    this.state = {
-      region,
-      id,
-      showModal: false,
-      obsLocation: {
-        latitude: region.latitude,
-        longitude: region.longitude
-      },
-      userLocation: {},
-      seenDate
-    };
-
-    ( this:any ).closeModal = this.closeModal.bind( this );
-  }
-
-  getUserLocation() {
+  const getUserLocation = () => {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
 
-        this.setState( {
-          userLocation: {
-            latitude,
-            longitude,
-            latitudeDelta,
-            longitudeDelta
-          }
+        setUser( {
+          latitude,
+          longitude,
+          latitudeDelta,
+          longitudeDelta
         } );
       }
     } );
-  }
+  };
 
-  returnToUserLocation() {
-    const { userLocation } = this.state;
+  const updateMap = () => {
+    setMapRegion( {
+      latitude: user.latitude,
+      longitude: user.longitude,
+      latitudeDelta,
+      longitudeDelta
+    } );
+  };
 
-    this.setState( { region: userLocation } );
-  }
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
+      getUserLocation();
+    } );
+  }, [navigation] );
 
-  openModal() {
-    this.setState( { showModal: true } );
-  }
-
-  closeModal() {
-    this.setState( { showModal: false } );
-  }
-
-  render() {
-    const {
-      region,
-      id,
-      showModal,
-      obsLocation,
-      userLocation,
-      seenDate
-    } = this.state;
-
-    return (
-      <View style={styles.container}>
-        <SafeAreaView />
-        <NavigationEvents
-          onWillFocus={() => this.getUserLocation()}
+  return (
+    <View style={styles.container}>
+      <SafeAreaView />
+      <Modal
+        showModal={showModal}
+        closeModal={closeModal}
+        modal={<Legend closeModal={closeModal} />}
+      />
+      <GreenHeader header="species_detail.range_map" />
+      <MapView
+        provider={PROVIDER_DEFAULT}
+        region={mapRegion}
+        style={styles.map}
+        zoomEnabled
+      >
+        <UrlTile
+          tileSize={512}
+          urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
         />
-        <Modal
-          showModal={showModal}
-          closeModal={this.closeModal}
-          modal={<Legend closeModal={this.closeModal} />}
-        />
-        <GreenHeader header="species_detail.range_map" />
-        {region.latitude ? (
-          <MapView
-            provider={PROVIDER_DEFAULT}
-            region={region}
-            style={styles.map}
-            zoomEnabled
-          >
-            <UrlTile
-              tileSize={512}
-              urlTemplate={`https://api.inaturalist.org/v1/grid/{z}/{x}/{y}.png?taxon_id=${id}&color=%2377B300&verifiable=true`}
-            />
-            {seenDate && obsLocation.latitude ? (
-              <Marker
-                coordinate={{ latitude: obsLocation.latitude, longitude: obsLocation.longitude }}
-              >
-                <Image source={icons.cameraOnMap} />
-              </Marker>
-            ) : null}
-            {userLocation.latitude ? (
-              <Marker
-                coordinate={{
-                  latitude: userLocation.latitude,
-                  longitude: userLocation.longitude
-                }}
-              >
-                <Image source={icons.locationPin} style={styles.margin} />
-              </Marker>
-            ) : null}
-          </MapView>
-        ) : null}
-        <TouchableOpacity
-          onPress={() => this.openModal()}
-          style={[styles.legend, styles.legendPosition]}
-        >
-          <Text style={styles.whiteText}>
-            {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.returnToUserLocation()}
-          style={[styles.locationIcon, styles.userLocation]}
-        >
-          <Image source={icons.indicator} />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+        {seenDate && (
+          <Marker coordinate={{ latitude: region.latitude, longitude: region.longitude }}>
+            <Image source={icons.cameraOnMap} />
+          </Marker>
+        )}
+        {user.latitude && (
+          <Marker coordinate={{ latitude: user.latitude, longitude: user.longitude }}>
+            <Image source={icons.locationPin} style={styles.margin} />
+          </Marker>
+        )}
+      </MapView>
+      <TouchableOpacity
+        onPress={() => openModal()}
+        style={[styles.legend, styles.legendPosition]}
+      >
+        <Text style={styles.whiteText}>
+          {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => updateMap()}
+        style={[styles.locationIcon, styles.userLocation]}
+      >
+        <Image source={icons.indicator} />
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export default RangeMap;

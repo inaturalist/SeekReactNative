@@ -16,6 +16,7 @@ import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
+import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -104,6 +105,11 @@ const App = () => (
         <Stack.Screen
           name="PostingHelp"
           component={PostingHelp}
+          options={defaultConfig}
+        />
+        <Stack.Screen // turn range map into modal, since it only pops up from species screen
+          name="RangeMap"
+          component={RangeMap}
           options={defaultConfig}
         />
       </Stack.Navigator>

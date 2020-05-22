@@ -166,7 +166,7 @@
     "no_new_challenges_header": "You have no new challenges.",
     "no_new_challenges": "We’ll let you know when new challenges are available.",
     "completed_all": "You’ve completed all available challenges!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,13 +250,13 @@
     "error_image": "Sajnáljuk, nem tudtuk feldolgozni a képedet. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_species": "Sajnáljuk, nem tudjuk azonosítani a képen szereplő fajt. Ellenőrizd az internetkapcsolatot és próbáld újra!",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
-    "error_downtime": {
-      "zero": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva.",
-      "one": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva.",
-      "two": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva.",
-      "few": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva.",
-      "many": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva.",
-      "other": "A szolgáltatás átmenetileg szünetel. Kérjük, próbáld újra {{count}} óra múlva."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "néhány",
     "error_gps": "A Seek nem talál GPS jelet. A felfedezésed elmentettük, de helyadat nélkül nem fogsz látni olyan részleteket, mint például a tartomány térképek. Menj olyan helyre, ahol látod az eget és ellenőrizd, hogy a készülékeden elérhetők-e a helymeghatározó szolgáltatások.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Új fajt találtál!",
     "challenge_view": "View your progress",
     "level_up": "You leveled up!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,13 +344,13 @@
     "your_level": "A szinted:",
     "login": "Jelentkezz be az iNaturalist-ba, hogy megoszthasd felfedezéseid a közösséggel!",
     "achievements": "Eredmények",
-    "observe": {
-      "zero": "Fedezz fel {{count}} fajt a következő szinthez!",
-      "one": "Fedezz fel {{count}} fajt a következő szinthez!",
-      "two": "Fedezz fel {{count}} fajt a következő szinthez!",
-      "few": "Fedezz fel {{count}} fajt a következő szinthez!",
-      "many": "Fedezz fel {{count}} fajt a következő szinthez!",
-      "other": "Fedezz fel {{count}} fajt a következő szinthez!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "Elérted a legmagasabb szintet!",
     "observe_species": "Observe",

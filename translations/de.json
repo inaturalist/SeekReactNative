@@ -166,13 +166,13 @@
     "no_new_challenges_header": "Du hast gerade keine neuen Missionen.",
     "no_new_challenges": "Wir teilen dir mit, wenn es neue Missionen gibt.",
     "completed_all": "Du hast alle verfügbaren Missionen abgeschlossen!",
-    "number_observed": {
-      "zero": "Bisher {{count}} beobachtet",
-      "one": "Bisher {{count}} beobachtet",
-      "two": "Bisher {{count}} beobachtet",
-      "few": "Bisher {{count}} beobachtet",
-      "many": "Bisher {{count}} beobachtet",
-      "other": "Bisher {{count}} beobachtet"
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
     },
     "how_to": "Erfülle die Seek-Mission für {{month}}!",
     "released": "Diese Mission wird freigegeben im {{date}}.",
@@ -250,13 +250,13 @@
     "error_image": "Leider können wir das Bild nicht verarbeiten. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_species": "Leider konnten wir für dieses Bild keine Details über die Art abrufen. Bitte Internetverbindung überprüfen und erneut versuchen.",
     "error_location": "Du kannst keine Verbreitungskarten ansehen, Arten in der Nähe erkunden oder diese Beobachtung auf iNaturalist posten. Wenn du den Standort in Seek aktivierst, kannst du detaillierte Informationen zu deinen Beobachtungen sehen und zu wissenschaftlichen Daten beitragen. Dein Standort wird nicht veröffentlicht, es sei denn, du lädst die Beobachtung auf iNaturalist hoch.",
-    "error_downtime": {
-      "zero": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
-      "one": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
-      "two": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
-      "few": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
-      "many": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut.",
-      "other": "Dienst vorübergehend nicht verfügbar. Bitte versuche es in {{count}} Stunden erneut."
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
     },
     "error_few": "ein paar",
     "error_gps": "Seek kann deinen GPS-Standort nicht finden. Deine Beobachtung wurde gespeichert, aber ohne Standort kannst du keine detaillierten Informationen wie z.B. Verbreitungskarten sehen. Versuche, dich an einen Ort unter offenem Himmel zu begeben und überprüfen, ob die Standortdienste deines Geräts eingeschaltet sind.",
@@ -271,13 +271,13 @@
     "challenge_progress": "Du hast eine weitere Art gefunden!",
     "challenge_view": "Fortschritt anzeigen",
     "level_up": "Du bist ein Level aufgestiegen!",
-    "number_seen": {
-      "zero": "Du hast {{count}} Arten gesehen!",
-      "one": "Du hast {{count}} Arten gesehen!",
-      "two": "Du hast {{count}} Arten gesehen!",
-      "few": "Du hast {{count}} Arten gesehen!",
-      "many": "Du hast {{count}} Arten gesehen!",
-      "other": "Du hast {{count}} Arten gesehen!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
     }
   },
   "camera": {
@@ -344,13 +344,13 @@
     "your_level": "Dein Level",
     "login": "Melde dich über iNaturalist an, um Beobachtungen mit der weltweiten Community zu teilen!",
     "achievements": "Erreichte Ziele",
-    "observe": {
-      "zero": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
-      "one": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
-      "two": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
-      "few": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
-      "many": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!",
-      "other": "Beobachte {{count}} Arten, um die nächste Stufe zu erreichen!"
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
     },
     "observe_max": "Glückwunsch! Du hast das höchste Level in Seek erreicht!",
     "observe_species": "beobachte",

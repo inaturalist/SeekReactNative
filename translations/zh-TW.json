@@ -166,7 +166,7 @@
     "no_new_challenges_header": "你沒有新的挑戰。",
     "no_new_challenges": "當新的挑戰出現時，我們將會通知你。",
     "completed_all": "你已經完成了所有現有的挑戰！",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "很抱歉，我們無法處理您的照片. 請確認您的網路連線並重試一次。",
     "error_species": "很抱歉，我們無法針對此照片下載物種的詳細資訊。請確認您的網路連線並重試一次。",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "您找到另一種物種！",
     "challenge_view": "檢視您的進度",
     "level_up": "您進步了！",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "您的級別",
     "login": "Log in with iNaturalist to post observations to the online community!",
     "achievements": "成就",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

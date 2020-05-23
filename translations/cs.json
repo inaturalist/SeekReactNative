@@ -251,12 +251,12 @@
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "one": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "two": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "few": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "many": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "other": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin."
     },
     "error_few": "pár",
     "error_gps": "Seek can't detect your GPS location. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Try moving to a place where you can see the sky and check that your device's location services are turned on.",
@@ -272,12 +272,12 @@
     "challenge_view": "Zobrazit váš postup",
     "level_up": "Jste o úroveň výš!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "Viděli jste už {{count}} druhů!",
+      "one": "Viděli jste už {{count}} druhů!",
+      "two": "Viděli jste už {{count}} druhů!",
+      "few": "Viděli jste už {{count}} druhů!",
+      "many": "Viděli jste už {{count}} druhů!",
+      "other": "Viděli jste už {{count}} druhů!"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "Přihlaste se pomocí iNaturalist a přidávejte pozorování do online komunity!",
     "achievements": "Úspěchy",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "one": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "two": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "few": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "many": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "other": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!"
     },
     "observe_max": "Dosáhli jste maximální úrovně na Seeku!",
     "observe_species": "Pozorovat",

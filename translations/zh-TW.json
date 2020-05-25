@@ -251,12 +251,12 @@
     "error_species": "很抱歉，我們無法針對此照片下載物種的詳細資訊。請確認您的網路連線並重試一次。",
     "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "服務暫時無法使用，請於{{count}}小時後再試。",
+      "one": "服務暫時無法使用，請於{{count}}小時後再試。",
+      "two": "服務暫時無法使用，請於{{count}}小時後再試。",
+      "few": "服務暫時無法使用，請於{{count}}小時後再試。",
+      "many": "服務暫時無法使用，請於{{count}}小時後再試。",
+      "other": "服務暫時無法使用，請於{{count}}小時後再試。"
     },
     "error_few": "一些",
     "error_gps": "無法取得你的GPS位置，請嘗試移動到看的到天空的區域並且開啟你的裝置GPS位置功能，確認後再儲存這筆觀察記錄",
@@ -308,7 +308,7 @@
   },
   "gallery": {
     "label": "照片",
-    "camera_roll": "Camera Roll"
+    "camera_roll": "相機膠卷"
   },
   "camera_help": {
     "title": "Seek的相機",
@@ -515,7 +515,7 @@
     "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "好的",
     "wait": "可能要等幾分鐘",
-    "look_up": "Look up a species by name"
+    "look_up": "依照名字來查找物種"
   },
   "posting_help": {
     "header": "Posting Help",
@@ -524,9 +524,9 @@
     "date": "日期與位置",
     "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
     "geoprivacy": "地理資訊隱私權",
-    "open_header": "Open: ",
-    "obscured_header": "Obscured: ",
-    "closed_header": "Private: ",
+    "open_header": "開啟：",
+    "obscured_header": "遮蔽：",
+    "closed_header": "私人：",
     "yes_header": "是: ",
     "no_header": "否: ",
     "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
@@ -538,13 +538,13 @@
     "addendum": "*Adding to observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or using the iNaturalist app."
   },
   "delete": {
-    "header": "Delete species?",
+    "header": "刪除物種？",
     "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
     "yes": "好喔！從我的觀察紀錄中刪除這筆紀錄",
     "no": "取消"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "記住",
     "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
@@ -570,19 +570,19 @@
     "later": "以後再說"
   },
   "attributions": {
-    "all": "all rights reserved",
+    "all": "版權所有",
     "some": "some rights reserved"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "以電子郵件傳送除錯日誌"
   },
   "settings": {
-    "header": "Seek Camera",
+    "header": "Seek 相機",
     "common_names": "Display Common Names",
     "scientific_names": "Display Scientific Names"
   },
   "seek_challenges": {
-    "badge": "Seek badge",
+    "badge": "Seek 徽章",
     "header": "You completed the Seek Challenge for {{date}}!",
     "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
     "citizen_science": "Citizen Science Challenge",
@@ -592,10 +592,10 @@
     "backyard": "Backyard Challenge",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds",
+    "mission_1_may_2020": "找到 5 種植物",
+    "mission_2_may_2020": "找到 2 種昆蟲",
+    "mission_3_may_2020": "找到 1 種蛛形綱動物",
+    "mission_4_may_2020": "找到 2 種鳥類",
     "resilience": "Resilience Challenge",
     "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",

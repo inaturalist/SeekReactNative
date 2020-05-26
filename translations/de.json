@@ -426,7 +426,7 @@
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
-    "not_seen": "Du hast noch kein {{iconicTaxon}}} beobachtet!"
+    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!"
   },
   "species_detail": {
     "near": "In der Nähe",

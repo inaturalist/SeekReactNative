@@ -11,7 +11,6 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2B8098F81BB14D5BBEB96B92 /* Whitney-BoldItalic-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86ECB60F94D3443F96BDAF5F /* Whitney-BoldItalic-Pro.otf */; };
 		3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3739CB162242B17600D8B525 /* optimized_model.mlmodel */; };
 		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
@@ -101,7 +100,6 @@
 		6EBB5C9CC6510389A5270187 /* Pods-Seek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Seek.debug.xcconfig"; path = "Target Support Files/Pods-Seek/Pods-Seek.debug.xcconfig"; sourceTree = "<group>"; };
 		711E23AB7041D9D6AB583FAA /* Pods-SeekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekTests.debug.xcconfig"; path = "Target Support Files/Pods-SeekTests/Pods-SeekTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73E482E4C69088D6FE1C4213 /* Pods-SeekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeekTests.release.xcconfig"; path = "Target Support Files/Pods-SeekTests/Pods-SeekTests.release.xcconfig"; sourceTree = "<group>"; };
-		86ECB60F94D3443F96BDAF5F /* Whitney-BoldItalic-Pro.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Whitney-BoldItalic-Pro.otf"; path = "../assets/fonts/Whitney-BoldItalic-Pro.otf"; sourceTree = "<group>"; };
 		8B2C8A94B0E2403CA2681E78 /* libRNCNetInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCNetInfo.a; sourceTree = "<group>"; };
 		8C5D7E526C224A39878D5385 /* libRNCAsyncStorage.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCAsyncStorage.a; sourceTree = "<group>"; };
 		9212388F3CCB4F7BAE13DCC7 /* libRNCGeolocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNCGeolocation.a; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */,
-				86ECB60F94D3443F96BDAF5F /* Whitney-BoldItalic-Pro.otf */,
 				3739CB162242B17600D8B525 /* optimized_model.mlmodel */,
 				3739CB172242B17600D8B525 /* taxonomy.json */,
 				64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */,
@@ -401,7 +398,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */,
 				9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */,
-				2B8098F81BB14D5BBEB96B92 /* Whitney-BoldItalic-Pro.otf in Resources */,
 				37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */,
 				AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */,
 				CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */,

@@ -68,7 +68,7 @@ const ARCamera = () => {
   };
 
   const savePhoto = ( photo ) => {
-    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
+    CameraRoll.save( photo.uri, "photo" )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";

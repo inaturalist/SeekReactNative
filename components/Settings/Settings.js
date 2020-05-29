@@ -11,6 +11,7 @@ import { toggleScientificNames } from "../../utility/settingsHelpers";
 import { colors } from "../../styles/global";
 import { ScientificNamesContext, UserContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
+import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 const SettingsScreen = () => {
   const { navigate } = useNavigation();
@@ -68,20 +69,17 @@ const SettingsScreen = () => {
         ) )}
       </View>
       <View style={[styles.divider, styles.marginSmall]} />
-      <View style={[styles.marginHorizontal, styles.margin]}>
-        <LanguagePicker />
-      </View>
+      <LanguagePicker />
       {login && (
         <>
           <View style={[styles.divider, styles.marginSmall]} />
           <View style={[styles.marginHorizontal, styles.margin]}>
-            <Text style={styles.header}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
-            <Text
-              style={[styles.linkText, styles.marginSmall, styles.leftMargin]}
+            <Text style={styles.header}>{i18n.t( "settings.donate_description" ).toLocaleUpperCase()}</Text>
+            <View style={styles.marginSmall} />
+            <GreenButton
+              text="settings.donate"
               onPress={() => navigate( "Donation" )}
-            >
-              {i18n.t( "settings.donate_description" )}
-            </Text>
+            />
           </View>
         </>
       )}

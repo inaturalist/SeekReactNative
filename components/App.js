@@ -55,6 +55,7 @@ const App = () => {
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   const handleLocalizationChange = () => {
+    console.log( "localization change for default" );
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
@@ -76,11 +77,13 @@ const App = () => {
   };
 
   useEffect( () => {
-    console.log( preferredLanguage, "preferred" );
+    console.log( preferredLanguage, "preferred in app" );
     if ( preferredLanguage && preferredLanguage !== "device" ) {
       i18n.locale = preferredLanguage;
+      setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     } else {
       handleLocalizationChange();
+      setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     }
   }, [preferredLanguage] );
 
@@ -96,10 +99,10 @@ const App = () => {
     if ( global && global.location && global.location.pathname ) {
       if ( !global.location.pathname.includes( "debugger-ui" ) ) {
         // detect whether Chrome Debugger is open -- it can't run with so many Realm requests
-        setTimeout( setupCommonNames, 5000 );
+        setTimeout( () => setupCommonNames(), 5000 );
       }
     } else {
-      setTimeout( setupCommonNames, 5000 );
+      setTimeout( () => setupCommonNames(), 5000 );
     }
     getLoggedIn();
     fetchScientificNames();

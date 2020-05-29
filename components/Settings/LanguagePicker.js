@@ -42,13 +42,15 @@ const LanguagePicker = () => {
       icon={<Image source={icons.dropdownOpen} style={styles.margin} />}
       itemList={localeList}
     >
-      <>
+      <View style={[styles.marginHorizontal, styles.margin]}>
         <View style={styles.row}>
           <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
           <Image source={icons.dropdownOpen} style={styles.leftMargin} />
         </View>
-        <Text style={[styles.text, styles.marginSmall, styles.leftMargin]}>{languages[language]}</Text>
-      </>
+        <Text style={[styles.text, styles.marginSmall, styles.leftMargin]}>
+          {language === "device" ? i18n.t( "settings.device_settings" ) : languages[language]}
+        </Text>
+      </View>
     </Picker>
   );
 };

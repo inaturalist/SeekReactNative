@@ -16,11 +16,10 @@ import styles from "../styles/species/wikipedia";
 import icons from "../assets/icons";
 
 type Props = {
-  +navigation: any,
-  +route: any
+  +navigation: any
 };
 
-const Donation = ( { navigation, route }: Props ) => (
+const Donation = ( { navigation }: Props ) => (
   <>
     <SafeAreaView />
     <View style={styles.header}>

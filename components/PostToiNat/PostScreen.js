@@ -52,7 +52,6 @@ type State = {
   date: ?string,
   captive: ?boolean,
   geoprivacy: ?boolean,
-  userImage: string,
   taxon: Object,
   seekId: Object,
   modalVisible: boolean,
@@ -77,7 +76,6 @@ class PostScreen extends Component<Props, State> {
       preferredCommonName,
       taxaId,
       image,
-      userImage,
       scientificName
     } = route.params;
 
@@ -89,7 +87,6 @@ class PostScreen extends Component<Props, State> {
       date,
       captive: null,
       geoprivacy: null,
-      userImage,
       taxon: {
         preferredCommonName,
         name: scientificName,
@@ -431,7 +428,6 @@ class PostScreen extends Component<Props, State> {
     const {
       taxon,
       seekId,
-      userImage,
       date,
       location,
       image,
@@ -468,7 +464,7 @@ class PostScreen extends Component<Props, State> {
           visible={showSpeciesModal}
         >
           <SelectSpecies
-            image={userImage}
+            image={image.uri}
             seekId={seekId}
             toggleSpeciesModal={this.toggleSpeciesModal}
             updateTaxon={this.updateTaxon}
@@ -510,7 +506,7 @@ class PostScreen extends Component<Props, State> {
             <SpeciesCard
               commonName={taxon.preferredCommonName}
               handlePress={() => this.toggleSpeciesModal()}
-              photo={{ uri: userImage }}
+              photo={{ uri: image.uri }}
               scientificName={taxon.name}
             />
             <Image

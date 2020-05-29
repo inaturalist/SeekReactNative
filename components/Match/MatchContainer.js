@@ -18,7 +18,6 @@ import { ScientificNamesContext } from "../UserContext";
 type Props = {
   image: Object,
   taxon: Object,
-  userImage: string,
   seenDate: ?string,
   match: boolean,
   setNavigationPath: Function,
@@ -31,8 +30,7 @@ const MatchContainer = ( {
   match,
   setNavigationPath,
   gradientColorLight,
-  image,
-  userImage
+  image
 }: Props ) => {
   const navigation = useNavigation();
   const speciesIdentified = seenDate || match;
@@ -153,7 +151,6 @@ const MatchContainer = ( {
                 taxaInfo={{
                   preferredCommonName: taxaName || commonAncestor,
                   taxaId,
-                  userImage,
                   scientificName,
                   image
                 }}

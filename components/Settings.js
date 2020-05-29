@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 
@@ -11,18 +11,19 @@ import { colors } from "../styles/global";
 import { ScientificNamesContext } from "./UserContext";
 
 const SettingsScreen = () => {
+  const { scientificNames, toggleNames } = useContext( ScientificNamesContext );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
     { label: i18n.t( "settings.scientific_names" ), value: 1 }
   ];
 
-  const updateIndex = ( i, names ) => {
+  const updateIndex = ( i ) => {
     if ( i === 0 ) {
       toggleScientificNames( false );
-      names.toggleNames( false );
+      toggleNames( false );
     } else {
       toggleScientificNames( true );
-      names.toggleNames( true );
+      toggleNames( true );
     }
   };
 
@@ -33,39 +34,35 @@ const SettingsScreen = () => {
       <View style={[styles.marginHorizontal, styles.margin]}>
         <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
       </View>
-      <ScientificNamesContext.Consumer>
-        {names => (
-          <View style={styles.marginSmall}>
-            {radioButtons.map( ( obj, i ) => (
-              <RadioButton
-                key={`${obj}${i}`}
-                style={styles.radioMargin}
-              >
-                <RadioButtonInput
-                  obj={obj}
-                  index={i}
-                  isSelected={
-                    ( i === 0 && !names.scientificNames ) || ( i === 1 && names.scientificNames )
-                  }
-                  onPress={( value ) => updateIndex( value, names )}
-                  borderWidth={1}
-                  buttonInnerColor={colors.seekForestGreen}
-                  buttonOuterColor={colors.seekForestGreen}
-                  buttonSize={12}
-                  buttonOuterSize={20}
-                />
-                <RadioButtonLabel
-                  obj={obj}
-                  index={i}
-                  onPress={( value ) => updateIndex( value, names )}
-                  labelHorizontal
-                  labelStyle={styles.text}
-                />
-              </RadioButton>
-            ) ) }
-          </View>
-        ) }
-      </ScientificNamesContext.Consumer>
+      <View style={styles.marginSmall}>
+        {radioButtons.map( ( obj, i ) => (
+          <RadioButton
+            key={`${obj}${i}`}
+            style={styles.radioMargin}
+          >
+            <RadioButtonInput
+              obj={obj}
+              index={i}
+              isSelected={
+                ( i === 0 && !scientificNames ) || ( i === 1 && scientificNames )
+              }
+              onPress={( value ) => updateIndex( value )}
+              borderWidth={1}
+              buttonInnerColor={colors.seekForestGreen}
+              buttonOuterColor={colors.seekForestGreen}
+              buttonSize={12}
+              buttonOuterSize={20}
+            />
+            <RadioButtonLabel
+              obj={obj}
+              index={i}
+              onPress={( value ) => updateIndex( value )}
+              labelHorizontal
+              labelStyle={styles.text}
+            />
+          </RadioButton>
+        ) )}
+      </View>
     </View>
   );
 };

@@ -382,7 +382,6 @@ class MatchScreen extends Component<Props, State> {
             match={match}
             setNavigationPath={this.setNavigationPath}
             gradientColorLight={gradientColorLight}
-            userImage={image.uri}
           />
           <Padding />
         </ScrollView>

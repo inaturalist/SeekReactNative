@@ -273,7 +273,6 @@ const MatchScreen = () => {
           match={match}
           setNavigationPath={setNavigationPath}
           gradientColorLight={gradientColorLight}
-          userImage={image.uri}
         />
         <Padding />
       </ScrollView>

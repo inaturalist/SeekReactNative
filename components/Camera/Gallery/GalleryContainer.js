@@ -61,6 +61,7 @@ const GalleryContainer = ( {
       initialNumToRender={20}
       keyExtractor={( item, index ) => `${item}${index}`}
       numColumns={4}
+      onEndReachedThreshold={1}
       onEndReached={() => setPhotoParams()}
       renderItem={( { item } ) => (
         <GalleryImage item={item} startLoading={startLoading} loading={loading} />

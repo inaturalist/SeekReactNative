@@ -23,7 +23,7 @@ type Props = {
   takePicture: Function,
   ranks: Object,
   pictureTaken: boolean,
-  cameraLoaded: boolean, 
+  cameraLoaded: boolean,
   error: ?string
 }
 

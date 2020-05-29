@@ -78,7 +78,7 @@ const SettingsScreen = () => {
             <View style={styles.marginSmall} />
             <GreenButton
               text="settings.donate"
-              onPress={() => navigate( "Donation" )}
+              handlePress={() => navigate( "Donation" )}
             />
           </View>
         </>

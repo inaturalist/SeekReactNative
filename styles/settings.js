@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  row
 } from "./global";
 
 export default StyleSheet.create( {
@@ -44,10 +45,11 @@ export default StyleSheet.create( {
     marginBottom: 11,
     marginLeft: 38
   },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
-  },
+  }
 } );

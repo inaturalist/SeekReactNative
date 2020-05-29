@@ -12,8 +12,8 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { UserContext, ScientificNamesContext } from "./UserContext";
-import { getScientificNames } from "../utility/settingsHelpers";
+import { UserContext, ScientificNamesContext, LanguageContext } from "./UserContext";
+import { getScientificNames, getLanguage } from "../utility/settingsHelpers";
 
 const setRTL = () => {
   if ( Platform.OS === "android" ) {
@@ -40,15 +40,19 @@ const hideYellowWarnings = () => {
 const App = () => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
+  const [preferredLanguage, setLanguage] = useState( null );
 
   const getLoggedIn = async () => setLogin( await fetchAccessToken() );
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
+  const getLanguagePreference = async () => setLanguage( await getLanguage() );
 
   const toggleLogin = () => getLoggedIn();
   const toggleNames = () => fetchScientificNames();
+  const toggleLanguagePreference = () => getLanguagePreference();
 
   const userContextValue = { login, toggleLogin };
   const scientificNamesContextValue = { scientificNames, toggleNames };
+  const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   const handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
@@ -72,6 +76,15 @@ const App = () => {
   };
 
   useEffect( () => {
+    console.log( preferredLanguage, "preferred" );
+    if ( preferredLanguage && preferredLanguage !== "device" ) {
+      i18n.locale = preferredLanguage;
+    } else {
+      handleLocalizationChange();
+    }
+  }, [preferredLanguage] );
+
+  useEffect( () => {
     hideYellowWarnings();
     if ( Platform.OS === "android" ) {
       setQuickActions();
@@ -90,10 +103,12 @@ const App = () => {
     }
     getLoggedIn();
     fetchScientificNames();
+    getLanguagePreference();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
-    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
+
     RNLocalize.addEventListener( "change", handleLocalizationChange );
+    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
 
     Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
 
@@ -103,7 +118,9 @@ const App = () => {
   return (
     <UserContext.Provider value={userContextValue}>
       <ScientificNamesContext.Provider value={scientificNamesContextValue}>
-        <RootStack />
+        <LanguageContext.Provider value={languageValue}>
+          <RootStack />
+        </LanguageContext.Provider>
       </ScientificNamesContext.Provider>
     </UserContext.Provider>
   );

@@ -3,13 +3,14 @@ import { View, Text } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import { useNavigation } from "@react-navigation/native";
 
-import SafeAreaView from "./UIComponents/SafeAreaView";
-import GreenHeader from "./UIComponents/GreenHeader";
-import i18n from "../i18n";
-import styles from "../styles/settings";
-import { toggleScientificNames } from "../utility/settingsHelpers";
-import { colors } from "../styles/global";
-import { ScientificNamesContext, UserContext } from "./UserContext";
+import SafeAreaView from "../UIComponents/SafeAreaView";
+import GreenHeader from "../UIComponents/GreenHeader";
+import i18n from "../../i18n";
+import styles from "../../styles/settings";
+import { toggleScientificNames } from "../../utility/settingsHelpers";
+import { colors } from "../../styles/global";
+import { ScientificNamesContext, UserContext } from "../UserContext";
+import LanguagePicker from "./LanguagePicker";
 
 const SettingsScreen = () => {
   const { navigate } = useNavigation();
@@ -65,6 +66,10 @@ const SettingsScreen = () => {
             />
           </RadioButton>
         ) )}
+      </View>
+      <View style={[styles.divider, styles.marginSmall]} />
+      <View style={[styles.marginHorizontal, styles.margin]}>
+        <LanguagePicker />
       </View>
       {login && (
         <>

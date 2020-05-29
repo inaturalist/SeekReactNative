@@ -17,7 +17,22 @@ const getScientificNames = async () => {
   }
 };
 
+const toggleLanguage = ( language ) => {
+  AsyncStorage.setItem( "language", language );
+};
+
+const getLanguage = async () => {
+  try {
+    const language = await AsyncStorage.getItem( "language" );
+    return language;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   toggleScientificNames,
-  getScientificNames
+  getScientificNames,
+  toggleLanguage,
+  getLanguage
 };

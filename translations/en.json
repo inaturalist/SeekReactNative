@@ -581,7 +581,9 @@
     "common_names": "Display Common Names",
     "scientific_names": "Display Scientific Names",
     "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate_description": "Help support iNaturalist",
+    "language": "Language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Seek badge",

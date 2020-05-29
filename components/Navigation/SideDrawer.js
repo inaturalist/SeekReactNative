@@ -10,7 +10,7 @@ import Challenges from "../Challenges/ChallengeScreen";
 import Observations from "../Observations/Observations";
 import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
-import Settings from "../Settings";
+import Settings from "../Settings/Settings";
 import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
 
 const Tab = createBottomTabNavigator();

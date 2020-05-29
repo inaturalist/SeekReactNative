@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { View, Text } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
+import { useNavigation } from "@react-navigation/native";
 
 import SafeAreaView from "./UIComponents/SafeAreaView";
 import GreenHeader from "./UIComponents/GreenHeader";
@@ -8,9 +9,11 @@ import i18n from "../i18n";
 import styles from "../styles/settings";
 import { toggleScientificNames } from "../utility/settingsHelpers";
 import { colors } from "../styles/global";
-import { ScientificNamesContext } from "./UserContext";
+import { ScientificNamesContext, UserContext } from "./UserContext";
 
 const SettingsScreen = () => {
+  const { navigate } = useNavigation();
+  const { login } = useContext( UserContext );
   const { scientificNames, toggleNames } = useContext( ScientificNamesContext );
   const radioButtons = [
     { label: i18n.t( "settings.common_names" ), value: 0 },
@@ -63,6 +66,20 @@ const SettingsScreen = () => {
           </RadioButton>
         ) )}
       </View>
+      {login && (
+        <>
+          <View style={[styles.divider, styles.marginSmall]} />
+          <View style={[styles.marginHorizontal, styles.margin]}>
+            <Text style={styles.header}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
+            <Text
+              style={[styles.linkText, styles.marginSmall, styles.leftMargin]}
+              onPress={() => navigate( "Donation" )}
+            >
+              {i18n.t( "settings.donate_description" )}
+            </Text>
+          </View>
+        </>
+      )}
     </View>
   );
 };

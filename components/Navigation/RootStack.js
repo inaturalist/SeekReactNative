@@ -17,6 +17,7 @@ import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
+import Donation from "../Donation";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -111,6 +112,11 @@ const App = () => (
           name="RangeMap"
           component={RangeMap}
           options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Donation"
+          component={Donation}
+          options={verticalConfig}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,7 +1,7 @@
 {
   "splash": {
     "presents": "Bemutatja",
-    "initiative": "Az iNaturalist a Kaliforniai Tudományos Akadémia és a National Geographic Society közös kezdeményezése."
+    "initiative": "Az iNaturalist a California Academy of Sciences és a National Geographic Society közös kezdeményezése."
   },
   "species_nearby": {
     "header": "Közelben lévő fajok",
@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek Kamera",
     "common_names": "Köznév megjelenítése",
-    "scientific_names": "Tudományos név megjelenítése"
+    "scientific_names": "Tudományos név megjelenítése",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek Kitűző",

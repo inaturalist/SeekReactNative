@@ -34,8 +34,6 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
     try {
       const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
 
-      console.log( albums, "albums" );
-
       if ( albums && albums.length > 0 ) { // attempt to fix error on android
         albums.forEach( ( { count, title } ) => {
           if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery

@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek-Kamera",
     "common_names": "Deutsche Namen anzeigen",
-    "scientific_names": "Wissenschaftliche Namen anzeigen"
+    "scientific_names": "Wissenschaftliche Namen anzeigen",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",

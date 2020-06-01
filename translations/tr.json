@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek Kamerası",
     "common_names": "Yaygın Adları Görüntüle",
-    "scientific_names": "Bilimsel Adları Görüntüle"
+    "scientific_names": "Bilimsel Adları Görüntüle",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Rozet ara",

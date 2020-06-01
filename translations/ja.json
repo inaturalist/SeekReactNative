@@ -166,7 +166,7 @@
     "no_new_challenges_header": "新しいチャレンジはありません。",
     "no_new_challenges": "新しいチャレンジが出てきたら通知します。",
     "completed_all": "開催されているチャレンジ全部を達成しました！",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "申しわけございません。画像を処理することができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_species": "申しわけございません。この写真の種の詳細を読み込むことができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_location": "位置情報をオンにしないと観察記録に種を追加できません。Seekはあなたがどこで生き物を観察したかを記録して、iNaturalistに投稿されたら市民科学に貢献することを手がけています。",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "新しい種を見つけました！",
     "challenge_view": "プログレスを見る",
     "level_up": "レベルアップしました！",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "レベル",
     "login": "iNaturalistでログインしてオンラインコミュニティに観察を投稿しよう！",
     "achievements": "アチーブメント",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

@@ -166,7 +166,7 @@
     "no_new_challenges_header": " Vous n'avez aucun nouveau défi.",
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observé(es) jusqu’à présent",
       "one": "{{count}} observé(es) jusqu’à présent",
       "two": "{{count}} observé(es) jusqu’à présent",
@@ -250,10 +250,10 @@
     "error_image": "Désolé, nous ne parvenons pas à traiter votre image. S’ils vous plaît, vérifiez votre connexion internet et réessayez.",
     "error_species": "Désolé, nous n’arrivons pas à afficher les détails de l’espèce pour cette image. Veuillez vérifier votre connexion internet et réessayez.",
     "error_location": "Afin d’ajouter des espèces à vos observations, vous devez activer la localisation. Seek utilise votre localisation pour vous rappeler l’endroit où vous avez vu l’organisme ainsi que contribuer aux sciences participatives si vous avez effectué des publications sur iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "one": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
-      "two": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "few": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "many": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "other": "Service temporairement indisponible. Réessayez dans {{count}} heures."
@@ -271,7 +271,7 @@
     "challenge_progress": "Vous avez trouvé une autre espèce !",
     "challenge_view": "Afficher vos progrès",
     "level_up": "Vous êtes passé au niveau supérieur !",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "Vous avez observé {{count}} espèce(s) !",
       "one": "Vous avez observé {{count}} espèce(s) !",
       "two": "Vous avez observé {{count}} espèce(s) !",
@@ -344,7 +344,7 @@
     "your_level": "Votre niveau",
     "login": "Connectez-vous avec iNaturalist pour publier observations auprès de la communauté en ligne !",
     "achievements": "Progression",
-    "observe": {
+    "observe_plural": {
       "zero": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
       "one": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",
       "two": "Pour passer au prochain niveau, observez encore {{count}} espèce(s) !",

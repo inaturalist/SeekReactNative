@@ -166,7 +166,7 @@
     "no_new_challenges_header": "Du har ingen nye udfordringer.",
     "no_new_challenges": "Vi giver dig besked, når der er nye udfordringer.",
     "completed_all": "Du har fuldført alle tilgængelige udfordringer!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "Beklager, vi kunne ikke behandle dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_species": "Beklager, vi kunne ikke indhente artsdetaljer for dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Du fandt endnu en art!",
     "challenge_view": "Følg dine fremskridt",
     "level_up": "Du rykkede et niveau op!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "Dit niveau",
     "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
     "achievements": "Resultater",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

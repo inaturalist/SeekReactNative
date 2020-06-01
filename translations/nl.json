@@ -166,9 +166,9 @@
     "no_new_challenges_header": "Je hebt geen nieuwe uitdagingen.",
     "no_new_challenges": "We laten je weten wanneer nieuwe uitdagingen beschikbaar zijn.",
     "completed_all": "Je hebt alle beschikbare uitdagingen voltooid!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} waargenomen tot nu toe ",
-      "one": "{{count}} waargenomen tot nu toe",
+      "one": "{{count}} waargenomen tot nu toe ",
       "two": "{{count}} waargenomen tot nu toe ",
       "few": "{{count}} waargenomen tot nu toe ",
       "many": "{{count}} waargenomen tot nu toe ",
@@ -250,13 +250,13 @@
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
     "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
-    "error_downtime": {
-      "zero": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
-      "one": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
-      "two": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
-      "few": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
-      "many": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur.",
-      "other": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{count}} uur."
+    "error_downtime_plural": {
+      "zero": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "one": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "two": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "few": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "many": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "other": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw."
     },
     "error_few": "een paar",
     "error_gps": "Seek kan je GPS-locatie niet vinden. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals verspreidingskaarten niet bekijken.  Ga naar een plek waar je de lucht kunt zien en controleer of de locatieservices van je apparaat zijn ingeschakeld.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Je hebt nog een soort gevonden!",
     "challenge_view": "Bekijk je voortgang",
     "level_up": "Je bereikt een hoger level!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "Je hebt {{count}} soorten gezien!",
       "one": "Je hebt {{count}} soort gezien!",
       "two": "Je hebt {{count}} soorten gezien!",
@@ -344,7 +344,7 @@
     "your_level": "Jouw niveau",
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
-    "observe": {
+    "observe_plural": {
       "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
       "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
       "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",

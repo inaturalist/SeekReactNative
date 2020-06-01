@@ -4,7 +4,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
   Image,
   TouchableOpacity,
-  View
+  View,
+  Text
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import CameraRoll from "@react-native-community/cameraroll";
@@ -30,16 +31,23 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       value: "All"
     }];
 
-    const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
+    try {
+      const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
 
-    if ( albums && albums.length > 0 ) { // attempt to fix error on android
-      albums.forEach( ( { count, title } ) => {
-        if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-          names.push( { label: title, value: title } );
-        }
-      } );
+      console.log( albums, "albums" );
+
+      if ( albums && albums.length > 0 ) { // attempt to fix error on android
+        albums.forEach( ( { count, title } ) => {
+          if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
+            names.push( { label: title, value: title } );
+          }
+        } );
+      }
+      setAlbumNames( names );
+    } catch ( e ) {
+      // still set album names even if there's an error fetching albums
+      setAlbumNames( names );
     }
-    setAlbumNames( names );
   }, [] );
 
   useEffect( () => {
@@ -58,13 +66,21 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
         onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
-        <Image source={icons.closeWhite} tintColor={colors.seekForestGreen} style={styles.buttonImage} />
+        <Image
+          source={icons.closeWhite}
+          tintColor={colors.seekForestGreen}
+          style={styles.buttonImage}
+        />
       </TouchableOpacity>
-      {albumNames.length > 0 && (
+      {albumNames.length > 1 ? (
         <View>
           {/* view is used to make sure back button is still touchable */}
           <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
         </View>
+      ) : (
+        <Text style={styles.headerText}>
+          {i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()}
+        </Text>
       )}
     </View>
   );

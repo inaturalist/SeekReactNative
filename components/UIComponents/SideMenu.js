@@ -14,6 +14,7 @@ import styles from "../../styles/uiComponents/sideMenu";
 import logoImages from "../../assets/logos";
 import icons from "../../assets/icons";
 import { capitalizeNames, setRoute } from "../../utility/helpers";
+import { colors } from "../../styles/global";
 
 type Props = {
   navigation: any
@@ -28,7 +29,8 @@ const SideMenu = ( { navigation }: Props ) => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
-        onPress={() => navigation.navigate( "Home" )}
+        // need the long version of this for QuickActions to Seek AR Camera
+        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
       >
         <Image source={logoImages.seek} style={styles.logo} />
       </TouchableOpacity>
@@ -52,12 +54,21 @@ const SideMenu = ( { navigation }: Props ) => {
                 onPress={() => {
                   if ( path === "Observations" ) {
                     setRoute( "SideMenu" );
+                    navigation.navigate( path );
+                  } else if ( path === "Home" ) {
+                    // need the long version of this for QuickActions to Seek AR Camera
+                    navigation.navigate( "MainTab", { screen: "Home" } );
+                  } else {
+                    navigation.navigate( path );
                   }
-                  navigation.navigate( path );
                 }}
                 style={[styles.row, styles.height]}
               >
-                <Image source={icons[`menu${capitalizeNames( item )}`]} style={styles.image} />
+                <Image
+                  source={icons[`menu${capitalizeNames( item )}`]}
+                  style={styles.image}
+                  tintColor={colors.menuItems}
+                />
                 <Text allowFontScaling={false} style={styles.text}>{name}</Text>
               </TouchableOpacity>
               {item !== "settings" && <View style={styles.divider} />}

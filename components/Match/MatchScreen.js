@@ -216,7 +216,8 @@ class MatchScreen extends Component<Props, State> {
       setSpeciesId( taxaId );
       // return user to match screen
       setRoute( "Match" );
-      navigation.navigate( "Species", { ...route.params } );
+      // full nav path for QuickActions
+      navigation.navigate( "MainTab", { screen: "Species", params: { ...route.params } } );
     }
   }
 
@@ -381,7 +382,6 @@ class MatchScreen extends Component<Props, State> {
             match={match}
             setNavigationPath={this.setNavigationPath}
             gradientColorLight={gradientColorLight}
-            userImage={image.uri}
           />
           <Padding />
         </ScrollView>

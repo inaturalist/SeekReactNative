@@ -36,6 +36,7 @@ export default StyleSheet.create( {
     marginLeft: 10,
     marginRight: 13,
     resizeMode: "contain",
+    tintColor: colors.white,
     width: 16
   },
   marginBottom: {

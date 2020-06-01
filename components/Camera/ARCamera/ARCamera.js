@@ -27,6 +27,7 @@ import { requestAllCameraPermissions } from "../../../utility/androidHelpers.and
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
@@ -67,7 +68,7 @@ const ARCamera = () => {
   };
 
   const savePhoto = ( photo ) => {
-    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
+    CameraRoll.save( photo.uri, "photo" )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";
@@ -213,7 +214,7 @@ const ARCamera = () => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
+        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />

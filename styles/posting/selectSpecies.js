@@ -78,6 +78,12 @@ export default StyleSheet.create( {
     lineHeight: 21,
     marginTop: 5
   },
+  search: {
+    height: 20,
+    resizeMode: "contain",
+    tintColor: colors.white,
+    width: 20
+  },
   speciesNameContainer: {
     maxWidth: 223
   },

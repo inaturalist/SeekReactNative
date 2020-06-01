@@ -16,6 +16,7 @@ import { NavigationEvents } from "@react-navigation/compat";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 
+import { colors } from "../../styles/global";
 import styles from "../../styles/posting/postToiNat";
 import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
 import {
@@ -28,6 +29,7 @@ import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
 import posting from "../../assets/posting";
+import icons from "../../assets/icons";
 import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
@@ -50,7 +52,6 @@ type State = {
   date: ?string,
   captive: ?boolean,
   geoprivacy: ?boolean,
-  userImage: string,
   taxon: Object,
   seekId: Object,
   modalVisible: boolean,
@@ -75,7 +76,6 @@ class PostScreen extends Component<Props, State> {
       preferredCommonName,
       taxaId,
       image,
-      userImage,
       scientificName
     } = route.params;
 
@@ -87,7 +87,6 @@ class PostScreen extends Component<Props, State> {
       date,
       captive: null,
       geoprivacy: null,
-      userImage,
       taxon: {
         preferredCommonName,
         name: scientificName,
@@ -429,7 +428,6 @@ class PostScreen extends Component<Props, State> {
     const {
       taxon,
       seekId,
-      userImage,
       date,
       location,
       image,
@@ -466,7 +464,7 @@ class PostScreen extends Component<Props, State> {
           visible={showSpeciesModal}
         >
           <SelectSpecies
-            image={userImage}
+            image={image.uri}
             seekId={seekId}
             toggleSpeciesModal={this.toggleSpeciesModal}
             updateTaxon={this.updateTaxon}
@@ -508,10 +506,14 @@ class PostScreen extends Component<Props, State> {
             <SpeciesCard
               commonName={taxon.preferredCommonName}
               handlePress={() => this.toggleSpeciesModal()}
-              photo={{ uri: userImage }}
+              photo={{ uri: image.uri }}
               scientificName={taxon.name}
             />
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <TextInput
             keyboardType="default"
@@ -534,7 +536,11 @@ class PostScreen extends Component<Props, State> {
               </Text>
               <Text style={styles.text}>{dateToDisplay}</Text>
             </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <View style={styles.divider} />
           <TouchableOpacity
@@ -550,7 +556,11 @@ class PostScreen extends Component<Props, State> {
                 {location}
               </Text>
             </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
+            <Image
+              source={icons.backButton}
+              tintColor={colors.seekForestGreen}
+              style={[styles.buttonIcon, styles.rotate]}
+            />
           </TouchableOpacity>
           <View style={styles.divider} />
           <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />

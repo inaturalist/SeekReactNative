@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "./global";
 
 export default StyleSheet.create( {
   backgroundImage: {
@@ -11,6 +12,7 @@ export default StyleSheet.create( {
     height: 46,
     position: "absolute",
     resizeMode: "contain",
+    tintColor: colors.white,
     width: 270
   },
   logo: {

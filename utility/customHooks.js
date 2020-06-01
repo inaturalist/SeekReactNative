@@ -3,9 +3,10 @@ import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
-import { fetchLocationName } from "./locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
+import { checkLocationPermissions } from "./androidHelpers.android";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -114,8 +115,45 @@ const useUserPhoto = ( item ) => {
   return photo;
 };
 
+const useLocationPermission = () => {
+  const [granted, setGranted] = useState( true );
+
+  const fetchPermissionStatus = async () => {
+    try {
+      const status = await checkLocationPermissions();
+      setGranted( status );
+    } catch ( e ) {
+      setGranted( false );
+    }
+  };
+
+  if ( Platform.OS === "android" ) {
+    fetchPermissionStatus();
+  }
+  return granted;
+};
+
+// const useUserCoords = () => {
+//   const [coords, setCoords] = useState( null );
+
+//   const fetchCoords = async () => {
+//     try {
+//       const userCoords = await fetchTruncatedUserLocation();
+//       setCoords( userCoords );
+//     } catch ( e ) {
+//       setCoords( {} );
+//     }
+//   };
+
+//   fetchCoords();
+
+//   return coords;
+// };
+
 export {
   useScrollToTop,
   useLocationName,
-  useUserPhoto
+  useUserPhoto,
+  useLocationPermission
+  // useUserCoords
 };

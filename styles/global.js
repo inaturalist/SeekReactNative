@@ -20,7 +20,10 @@ export const colors = {
   transparent: "transparent",
   linkText: "#9b9b9b",
   speciesError: "#102b1f",
-  textShadow: "rgba(0, 0, 0, 0.75)"
+  textShadow: "rgba(0, 0, 0, 0.75)",
+  silver: "#818181",
+  bronze: "#aa774a",
+  menuItems: "#63d4ab"
 };
 
 export const fonts = {
@@ -29,7 +32,6 @@ export const fonts = {
   book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro",
   light: Platform.OS === "ios" ? "Whitney-Light" : "Whitney-Light-Pro",
   bookItalic: Platform.OS === "ios" ? "Whitney-BookItalic" : "Whitney-BookItalic-Pro",
-  boldItalic: Platform.OS === "ios" ? "Whitney-BoldItalic" : "Whitney-BoldItalic-Pro"
 };
 
 export const padding = {

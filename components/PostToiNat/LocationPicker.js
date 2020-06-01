@@ -77,7 +77,7 @@ const LocationPicker = ( {
   return (
     <View style={styles.container}>
       <SafeAreaView />
-      <View style={headerStyles.container}>
+      <View style={[headerStyles.container, headerStyles.center]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
           accessible

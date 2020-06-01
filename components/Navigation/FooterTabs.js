@@ -8,14 +8,6 @@ import DebugAndroid from "../UIComponents/DebugAndroid";
 
 const Tab = createBottomTabNavigator();
 
-const forFade = ( { current } ) => ( {
-  cardStyle: { opacity: current.progress }
-} );
-
-const defaultFade = {
-  cardStyleInterpolator: forFade
-};
-
 const FooterTabNav = () => (
   <Tab.Navigator tabBar={props => <Footer {...props} />}>
     <Tab.Screen name="Home" component={HomeScreen} />

@@ -9,11 +9,26 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
+  divider: {
+    backgroundColor: colors.dividerGray,
+    height: 1,
+    marginHorizontal: 23
+  },
   header: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
     letterSpacing: 1.12
+  },
+  leftMargin: {
+    marginLeft: 10
+  },
+  linkText: {
+    color: colors.seekTeal,
+    fontFamily: fonts.book,
+    fontSize: 16,
+    lineHeight: 21,
+    textDecorationLine: "underline"
   },
   margin: {
     marginTop: 27
@@ -34,5 +49,5 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
-  }
+  },
 } );

@@ -8,15 +8,15 @@ import { View, Platform, Text } from "react-native";
 import styles from "../../../styles/home/speciesNearby";
 import i18n from "../../../i18n";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../../utility/androidHelpers.android";
 import TaxonPicker from "./TaxonPicker";
 import LocationPickerButton from "./LocationPickerButton";
 import SpeciesNearbyContainer from "./SpeciesNearbyContainer";
 import { checkForInternet } from "../../../utility/helpers";
-import { useLocationName } from "../../../utility/customHooks";
+import { useLocationName, useLocationPermission } from "../../../utility/customHooks";
 import Error from "./Error";
 
 const SpeciesNearby = () => {
+  const granted = useLocationPermission();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -80,18 +80,12 @@ const SpeciesNearby = () => {
   const requestAndroidPermissions = useCallback( () => {
     if ( latLng.latitude ) { return; }
     // only update location if user has not selected a location already
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          getGeolocation();
-        } else {
-          dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
-        }
-      } );
+    if ( Platform.OS === "android" && !granted ) {
+      dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else {
       getGeolocation();
     }
-  }, [latLng, getGeolocation] );
+  }, [latLng, getGeolocation, granted] );
 
   const checkInternet = useCallback( () => {
     checkForInternet().then( ( internet ) => {

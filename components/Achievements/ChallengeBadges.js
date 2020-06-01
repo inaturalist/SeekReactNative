@@ -30,25 +30,37 @@ const ChallengeBadges = () => {
         const challenges = realm.objects( "ChallengeRealm" ).sorted( "availableDate", false );
         const badges = challenges.map( ( challenge ) => challenge );
 
-        const may2020challenge = {
+        const aug2020challenge = {
           name: "",
-          availableDate: new Date( 2020, 4, 1 ),
-          index: 9
+          availableDate: new Date( 2020, 7, 1 ),
+          index: 12
         };
 
-        const april2020challenge = {
-          name: "seek_challenges.citizen_science",
-          availableDate: new Date( 2020, 3, 1 ),
-          index: 8
+        const july2020challenge = {
+          name: "",
+          availableDate: new Date( 2020, 6, 1 ),
+          index: 11
         };
 
-        if ( badges.length === 8 ) {
-          badges.push( april2020challenge );
-          badges.push( may2020challenge );
+        const june2020challenge = {
+          name: "seek_challenges.resilience",
+          availableDate: new Date( 2020, 5, 1 ),
+          index: 10
+        };
+
+        if ( badges.length === 10 ) {
+          badges.push( june2020challenge );
+          badges.push( july2020challenge );
+          badges.push( aug2020challenge );
         }
 
-        if ( badges.length === 9 ) {
-          badges.push( may2020challenge );
+        if ( badges.length === 11 ) {
+          badges.push( july2020challenge );
+          badges.push( aug2020challenge );
+        }
+
+        if ( badges.length === 12 ) {
+          badges.push( aug2020challenge );
         }
 
         setChallengeBadges( badges );
@@ -116,6 +128,7 @@ const ChallengeBadges = () => {
       {renderChallengesRow( 3, 5 )}
       {renderChallengesRow( 5, 8 )}
       {renderChallengesRow( 8, 10 )}
+      {renderChallengesRow( 10, 13 )}
       <View style={styles.marginLarge} />
     </View>
   );

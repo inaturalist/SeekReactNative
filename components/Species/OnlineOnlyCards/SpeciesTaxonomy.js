@@ -24,7 +24,7 @@ const SpeciesTaxonomy = ( { ancestors }: Props ) => {
             key={`taxon-${ancestor.rank}`}
             style={[{ marginLeft }, styles.row, index !== 0 && styles.marginTop]}
           >
-            <Image source={icons.taxonomyCircle} style={styles.bullet} />
+            <Image source={icons.greenDot} style={styles.bullet} />
             <View>
               <Text style={styles.taxonomyHeader}>
                 {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank )} `}

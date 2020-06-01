@@ -4,7 +4,7 @@ import React from "react";
 import {
   Platform,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -15,18 +15,14 @@ import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 
 type Props = {
   item: Object,
-  startLoading: Function
+  startLoading: Function,
+  loading: boolean
 }
 
-const GalleryImage = ( { item, startLoading }: Props ) => {
-  const navigation = useNavigation();
+const GalleryImage = ( { item, startLoading, loading }: Props ) => {
+  const { navigate } = useNavigation();
 
-  const navigateToResults = (
-    uri: string,
-    time: Date,
-    location: Object,
-    predictions: ?Array<Object>
-  ) => {
+  const navigateToResults = ( uri, time, location, predictions ) => {
     let latitude = null;
     let longitude = null;
 
@@ -35,7 +31,7 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
       longitude = location.longitude;
     }
 
-    const imageParams = {
+    const image = {
       time,
       uri,
       latitude,
@@ -44,11 +40,11 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
 
     if ( predictions && predictions.length > 0 ) {
       // $FlowFixMe
-      imageParams.predictions = predictions;
+      image.predictions = predictions;
 
-      navigation.navigate( "OfflineARResults", { image: imageParams } );
+      navigate( "OfflineARResults", { image } );
     } else {
-      navigation.navigate( "OnlineServerResults", { image: imageParams } );
+      navigate( "OnlineServerResults", { image } );
     }
   };
 
@@ -78,7 +74,7 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
   };
 
   return (
-    <TouchableHighlight
+    <TouchableOpacity
       accessibilityLabel={item.node.image.filename}
       accessible
       onPress={() => {
@@ -87,12 +83,13 @@ const GalleryImage = ( { item, startLoading }: Props ) => {
       }}
       style={styles.button}
       underlayColor="transparent"
+      disabled={loading}
     >
       <Image
         source={{ uri: item.node.image.uri }}
         style={styles.image}
       />
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 };
 

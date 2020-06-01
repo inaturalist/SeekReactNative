@@ -14,7 +14,8 @@ import { useSafeArea } from "react-native-safe-area-context";
 import i18n from "../../../i18n";
 import LocationMap from "./LocationMap";
 import { truncateCoordinates, fetchTruncatedUserLocation, fetchLocationName } from "../../../utility/locationHelpers";
-import icons from "../../../assets/icons";
+import posting from "../../../assets/posting";
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/home/locationPicker";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import BackArrow from "../../UIComponents/Buttons/BackArrowModal";
@@ -113,7 +114,7 @@ const LocationPicker = ( {
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </Text>
         <View style={[styles.row, styles.inputRow]}>
-          <Image source={icons.locationWhite} />
+          <Image source={posting.location} tintColor={colors.white} style={styles.white} />
           <TextInput
             accessibilityLabel={inputLocation}
             accessible

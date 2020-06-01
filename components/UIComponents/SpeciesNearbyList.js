@@ -91,7 +91,8 @@ const SpeciesNearbyList = ( {
             setSpeciesId( item.id );
             if ( match ) {
               setRoute( "Match" );
-              navigation.navigate( "Species", { ...route.params } );
+              // full nav path for QuickActions
+              navigation.navigate( "MainTab", { screen: "Species", params: { ...route.params } } );
             } else if ( fetchiNatData ) {
               fetchiNatData();
             } else {

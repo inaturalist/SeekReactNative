@@ -10,6 +10,8 @@ import RNPickerSelect from "react-native-picker-select";
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postToiNat";
 import posting from "../../assets/posting";
+import { colors } from "../../styles/global";
+import icons from "../../assets/icons";
 
 type Props = {
   +updateGeoprivacy: Function
@@ -76,7 +78,11 @@ class GeoprivacyPicker extends Component<Props> {
               {geoprivacy}
             </Text>
           </View>
-          <Image source={posting.expand} style={styles.buttonIcon} />
+          <Image
+            source={icons.backButton}
+            tintColor={colors.seekForestGreen}
+            style={[styles.buttonIcon, styles.rotate]}
+          />
         </TouchableOpacity>
       </RNPickerSelect>
     );

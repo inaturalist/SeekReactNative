@@ -104,5 +104,11 @@ export default StyleSheet.create( {
   userLocation: {
     alignItems: "flex-end",
     justifyContent: "flex-end"
+  },
+  white: {
+    height: 19,
+    resizeMode: "contain",
+    tintColor: colors.white,
+    width: 14
   }
 } );

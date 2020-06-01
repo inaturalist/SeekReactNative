@@ -238,7 +238,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
-  - react-native-cameraroll (1.6.2):
+  - react-native-cameraroll (1.7.2):
     - React
   - react-native-geocoder (0.5.1):
     - React
@@ -338,6 +338,8 @@ PODS:
     - React
   - RNLocalize (1.4.0):
     - React
+  - RNQuickAction (0.3.13):
+    - React
   - RNReanimated (1.8.0):
     - React
   - RNScreens (2.5.0):
@@ -418,6 +420,7 @@ DEPENDENCIES:
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
+  - RNQuickAction (from `../node_modules/react-native-quick-actions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
@@ -531,6 +534,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
+  RNQuickAction:
+    :path: "../node_modules/react-native-quick-actions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -570,7 +575,7 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
-  react-native-cameraroll: 94bec91c68b94ac946c61b497b594bb38692c41b
+  react-native-cameraroll: a16e626822c6a61ed142de9cfae9d516216beb03
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation: cbd9d6bd06bac411eed2671810f454d4908484a8
   react-native-image-resizer: 487329f0748d62a075f9d1ba1676c3ab394d169f
@@ -600,6 +605,7 @@ SPEC CHECKSUMS:
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
+  RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
   RNScreens: ac02d0e4529f08ced69f5580d416f968a6ec3a1d
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8

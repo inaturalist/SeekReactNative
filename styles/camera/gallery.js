@@ -26,7 +26,8 @@ export default StyleSheet.create( {
     paddingTop: 2
   },
   buttonImage: {
-    padding: 5
+    padding: 5,
+    tintColor: colors.seekForestGreen
   },
   center,
   header: {
@@ -46,6 +47,7 @@ export default StyleSheet.create( {
     width: dimensions.width / 4 - 2
   },
   loadingWheel: {
+    backgroundColor: colors.white,
     left: dimensions.width / 2 - 15,
     position: "absolute",
     top: dimensions.height / 2 - 50,

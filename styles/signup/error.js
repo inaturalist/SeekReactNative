@@ -14,7 +14,11 @@ export default StyleSheet.create( {
     marginTop: dimensions.height > 570 ? 30 : 21
   },
   image: {
-    marginRight: 15
+    height: 24,
+    marginRight: 15,
+    resizeMode: "contain",
+    tintColor: colors.seekiNatGreen,
+    width: 27
   },
   row,
   smallerMargin: {

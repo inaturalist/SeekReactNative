@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Image,
   TouchableOpacity,
@@ -10,9 +10,11 @@ import { useNavigation } from "@react-navigation/native";
 import CameraRoll from "@react-native-community/cameraroll";
 
 import i18n from "../../../i18n";
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/camera/gallery";
 import icons from "../../../assets/icons";
 import AlbumPicker from "./AlbumPicker";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 type Props = {
   updateAlbum: Function
@@ -22,7 +24,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
   const navigation = useNavigation();
   const [albumNames, setAlbumNames] = useState( [] );
 
-  const fetchAlbumNames = async () => {
+  const fetchAlbumNames = useCallback( async () => {
     const names = [{
       label: i18n.t( "gallery.camera_roll" ),
       value: "All"
@@ -38,22 +40,29 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       } );
     }
     setAlbumNames( names );
-  };
+  }, [] );
 
-  useEffect( () => { fetchAlbumNames(); }, [] );
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
+      if ( albumNames.length === 0 ) {
+        fetchAlbumNames();
+      }
+    } );
+  }, [navigation, albumNames, fetchAlbumNames] );
 
   return (
     <View style={[styles.header, styles.center]}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
+        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
-        <Image source={icons.closeGreen} style={styles.buttonImage} />
+        <Image source={icons.closeWhite} tintColor={colors.seekForestGreen} style={styles.buttonImage} />
       </TouchableOpacity>
       {albumNames.length > 0 && (
         <View>
+          {/* view is used to make sure back button is still touchable */}
           <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
         </View>
       )}

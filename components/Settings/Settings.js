@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import { useNavigation } from "@react-navigation/native";
 
@@ -70,7 +70,7 @@ const SettingsScreen = () => {
       </View>
       <View style={[styles.divider, styles.marginSmall]} />
       <LanguagePicker />
-      {login && (
+      {( login && Platform.OS === "android" ) && (
         <>
           <View style={[styles.divider, styles.marginSmall]} />
           <View style={[styles.marginHorizontal, styles.margin]}>

@@ -166,8 +166,8 @@
     "no_new_challenges_header": "Du har inga nya utmaningar.",
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
-    "number_observed": {
-      "zero": "{{count}} observerad hittills",
+    "number_observed_plural": {
+      "zero": "{{count}} observerade hittills",
       "one": "{{count}} observerad hittills",
       "two": "{{count}} observerade hittills",
       "few": "{{count}} observerade hittills",
@@ -250,7 +250,7 @@
     "error_image": "Tyvärr kunde vi inte bearbeta din bild. Kontrollera din internetanslutning och försök igen.",
     "error_species": "Tyvärr kunde vi inte hämta artuppgifter för den här bilden. Kontrollera din internetanslutning och försök igen.",
     "error_location": "För att lägga till arter till dina observationer, måste du aktivera din plats. Seek använder din plats för att påminna dig om var du såg en organism, och för att kunna bidra till medborgarforskning om du postar på iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
       "one": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timme.",
       "two": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Du hittade en till art!",
     "challenge_view": "Se dina framsteg",
     "level_up": "Du har levlat upp!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "Du har sett {{count}} arter!",
       "one": "Du har sett {{count}} art!",
       "two": "Du har sett {{count}} arter!",
@@ -344,7 +344,7 @@
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
     "achievements": "Prestationer",
-    "observe": {
+    "observe_plural": {
       "zero": "Observera {{count}} arter för att komma till nästa nivå!",
       "one": "Observera {{count}} art för att komma till nästa nivå!",
       "two": "Observera {{count}} arter för att komma till nästa nivå!",

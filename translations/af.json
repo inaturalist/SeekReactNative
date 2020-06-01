@@ -166,13 +166,13 @@
     "no_new_challenges_header": "U het geen nuwe uitdagings nie.",
     "no_new_challenges": "Ons sal u laat weet wanneer nuwe uitdagings beskikbaar is.",
     "completed_all": "U het alle beskikbare uitdagings voltooi!",
-    "number_observed": {
-      "zero": "nog {{count}} waargeneem",
-      "one": "reeds {{count}} waargeneem",
-      "two": "reeds {{count}} waargeneem",
-      "few": "reeds {{count}} waargeneem",
-      "many": "reeds {{count}} waargeneem",
-      "other": "reeds {{count}} waargeneem"
+    "number_observed_plural": {
+      "zero": "sover {{count}} waargeneem",
+      "one": "sover {{count}} waargeneem",
+      "two": "sover {{count}} waargeneem",
+      "few": "sover {{count}} waargeneem",
+      "many": "sover {{count}} waargeneem",
+      "other": "sover {{count}} waargeneem"
     },
     "how_to": "Voltooi die Seek-uitdaging vir {{month}}!",
     "released": "Hierdie uitdaging sal op {{date}} vrygestel word.",
@@ -250,7 +250,7 @@
     "error_image": "Jammer, ons kon nie u beeld verwerk nie. Gaan u Internetverbinding na en probeer weer.",
     "error_species": "Jammer, ons kon nie die spesiedata vir hierdie beeld ophaal nie. Gaan u Internetverbinding na en probeer weer.",
     "error_location": "Om spesies tot u waarnemings toe te voeg moet u ligging aktiveer. Seek gebruik u ligging om u te herinner aan waar u ’n organisme opgemerk het en om tot die burgerwetenskap by te dra indien u dit op iNaturalist plaas.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
       "one": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
       "two": "Diens tydelik onbeskikbaar. Probeer weer oor {{count}} uur.",
@@ -271,7 +271,7 @@
     "challenge_progress": "U het ’n ander spesie gevind!",
     "challenge_view": "Bekyk u vordering",
     "level_up": "U het ’n hoër vlak bereik!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "U het {{count}} spesies gesien!",
       "one": "U het {{count}} spesies gesien!",
       "two": "U het {{count}} spesies gesien!",
@@ -344,7 +344,7 @@
     "your_level": "U Vlak",
     "login": "Teken aan met iNaturalist om waarnemings by die aanlyn gemeenskap te plaas!",
     "achievements": "Prestasies",
-    "observe": {
+    "observe_plural": {
       "zero": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
       "one": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",
       "two": "Neem {{count}} spesies waar om na die volgende vlak te gaan!",

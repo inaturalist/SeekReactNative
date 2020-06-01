@@ -166,7 +166,7 @@
     "no_new_challenges_header": "Du har ingen nye utfordringer.",
     "no_new_challenges": "Vi sier ifra når nye utfordringer er tilgjengelige.",
     "completed_all": "Du har fullført alle tilgjengelige utfordringer!",
-    "number_observed": {
+    "number_observed_plural": {
       "zero": "{{count}} observed so far",
       "one": "{{count}} observed so far",
       "two": "{{count}} observed so far",
@@ -250,7 +250,7 @@
     "error_image": "Beklager, vi kunne ikke behandle ditt bilde. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_location": "For å legge til arter til dine observasjoner må du slå på din posisjon. Seek bruker din posisjon for å minne deg på hvor du så en organisme, og å hjelpe med å bidra til grasrotforsking hvis du publiserer på iNaturalist.",
-    "error_downtime": {
+    "error_downtime_plural": {
       "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
       "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
@@ -271,7 +271,7 @@
     "challenge_progress": "Du fant enda en art!",
     "challenge_view": "View your progress",
     "level_up": "Du gikk opp et nivå!",
-    "number_seen": {
+    "number_seen_plural": {
       "zero": "You’ve seen {{count}} species!",
       "one": "You’ve seen {{count}} species!",
       "two": "You’ve seen {{count}} species!",
@@ -344,7 +344,7 @@
     "your_level": "Ditt nivå",
     "login": "Logg på med iNaturalist for å poste observasjoner til det online fellesskapet!",
     "achievements": "Achievements",
-    "observe": {
+    "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",

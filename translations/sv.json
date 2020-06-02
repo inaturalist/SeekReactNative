@@ -580,8 +580,8 @@
     "header": "Seek-kamera",
     "common_names": "Visa vardagliga namn",
     "scientific_names": "Visa vetenskapliga namn",
-    "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate": "Donera",
+    "donate_description": "Stöd iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek-märke",

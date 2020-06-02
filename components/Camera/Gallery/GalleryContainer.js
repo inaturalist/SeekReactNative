@@ -16,36 +16,42 @@ import GalleryImage from "./GalleryImage";
 type Props = {
   photos: Array<Object>,
   error: ?string,
-  setPhotoParams: Function
+  setPhotoParams: Function,
+  startLoading: Function,
+  loading: boolean
 }
 
 const GalleryContainer = ( {
   setPhotoParams,
   error,
-  photos
+  photos,
+  startLoading,
+  loading
 }: Props ) => {
-  const isFocused = useIsFocused();
-  const [loading, setLoading] = useState( false );
+  // const isFocused = useIsFocused();
+  // const [loading, setLoading] = useState( false );
 
-  const startLoading = () => setLoading( true );
+  // const startLoading = () => setLoading( true );
 
-  useEffect( () => {
-    if ( photos.length > 0 && !error ) {
-      setLoading( false );
-    }
-  }, [photos, error] );
+  // useEffect( () => {
+  //   if ( photos.length > 0 && !error ) {
+  //     setLoading( false );
+  //   }
+  // }, [photos, error] );
 
-  useEffect( () => {
-    if ( !isFocused ) {
-      setLoading( false );
-    }
-  }, [isFocused] );
+  // useEffect( () => {
+  //   if ( !isFocused ) {
+  //     setLoading( false );
+  //   }
+  // }, [isFocused] );
 
-  const renderLoadingWheel = () => (
-    <View style={styles.loadingWheel}>
-      <LoadingWheel color={colors.darkGray} />
-    </View>
-  );
+  // const renderLoadingWheel = () => (
+  //   <View style={styles.loadingWheel}>
+  //     <LoadingWheel color={colors.darkGray} />
+  //   </View>
+  // );
+
+  // console.log( "isLoading", loading, error, photos.length );
 
   const renderGallery = () => (
     <FlatList
@@ -71,7 +77,7 @@ const GalleryContainer = ( {
 
   return (
     <>
-      {loading && renderLoadingWheel()}
+      {/* {loading && renderLoadingWheel()} */}
       {error ? <CameraError error={error} errorEvent={null} /> : renderGallery()}
     </>
   );

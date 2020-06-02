@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import {
   Platform,
   View,
@@ -19,39 +19,80 @@ import { colors } from "../../../styles/global";
 
 const GalleryScreen = () => {
   const navigation = useNavigation();
-  // const isFocused = useIsFocused();
-  const [album, setAlbum] = useState( null );
-  const [photos, setPhotos] = useState( [] );
-  const [error, setError] = useState( null );
-  const [hasNextPage, setHasNextPage] = useState( true );
-  const [lastCursor, setLastCursor] = useState( null );
-  const [stillLoading, setStillLoading] = useState( false );
-  const [loading, setLoading] = useState( false );
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.type, "dispatching" );
+    switch ( action.type ) {
+      case "SET_ALBUM":
+        return {
+          album: action.album,
+          photos: [],
+          error: null,
+          hasNextPage: true,
+          lastCursor: null,
+          stillLoading: false,
+          loading: true
+        };
+      case "SHOW_LOADING_WHEEL":
+        return { ...state, loading: true };
+      case "HIDE_LOADING_WHEEL":
+        return { ...state, loading: false };
+      case "FETCHING_PHOTOS":
+        return { ...state, stillLoading: true };
+      case "LOAD_MORE_PHOTOS":
+        return {
+          ...state,
+          photos: action.photos,
+          stillLoading: false,
+          hasNextPage: action.pageInfo.has_next_page,
+          lastCursor: action.pageInfo.end_cursor,
+          loading: false
+        };
+      case "ERROR":
+        return { ...state, error: action.error, loading: false };
+      default:
+        throw new Error();
+    }
+  }, {
+    album: null,
+    photos: [],
+    error: null,
+    hasNextPage: true,
+    lastCursor: null,
+    stillLoading: false,
+    loading: true
+  } );
+
+  const {
+    album,
+    photos,
+    error,
+    hasNextPage,
+    lastCursor,
+    stillLoading,
+    loading
+  } = state;
+
   const groupTypes = ( album === null ) ? "All" : "Album";
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( photos.length === 0 && data.length === 0 && !pageInfo.has_next_page ) {
-      setError( "photos" );
+      dispatch( { type: "ERROR", error: "photos" } );
     } else {
       const updatedPhotos = photos.concat( data );
-      setPhotos( updatedPhotos );
-      setStillLoading( false );
-      setLoading( false );
+      dispatch( { type: "LOAD_MORE_PHOTOS", photos: updatedPhotos, pageInfo } );
     }
-    setHasNextPage( pageInfo.has_next_page );
-    setLastCursor( pageInfo.end_cursor );
   }, [photos] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
-    console.log( photoOptions, "fetching photos" );
     if ( hasNextPage && !stillLoading ) {
-      setStillLoading( true );
+      dispatch( { type: "FETCHING_PHOTOS" } );
 
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         appendPhotos( results.edges, results.page_info );
       } ).catch( ( { message } ) => {
         if ( message === "Access to photo library was denied" ) {
-          setError( "gallery" );
+          dispatch( { type: "ERROR", error: "gallery" } );
         }
       } );
     }
@@ -77,26 +118,22 @@ const GalleryScreen = () => {
     fetchPhotos( photoOptions );
   }, [groupTypes, album, lastCursor, fetchPhotos] );
 
-  useEffect( () => {
-    setPhotos( [] );
-    setError( null );
-    setHasNextPage( true );
-    setLastCursor( null );
-    setStillLoading( false );
-  }, [album] );
-
   const updateAlbum = useCallback( ( newAlbum: string ) => {
-    console.log( newAlbum, "new album" );
-    setLoading( true );
-    setAlbum( newAlbum !== "All" ? newAlbum : null );
+    dispatch( { type: "SET_ALBUM", album: newAlbum !== "All" ? newAlbum : null } );
   }, [] );
 
   const setupPhotos = useCallback( () => {
-    if ( photos.length === 0 ) {
-      console.log( "setting photo params" );
+    if ( photos.length === 0 && loading ) {
       setPhotoParams();
     }
-  }, [photos.length, setPhotoParams] );
+  }, [photos.length, loading, setPhotoParams] );
+
+  useEffect( () => {
+    if ( photos.length === 0 && loading ) {
+      console.log( "setting photo params in use effect" );
+      setPhotoParams();
+    }
+  }, [photos.length, loading, setPhotoParams] );
 
   const renderLoadingWheel = () => (
     <View style={styles.loadingWheel}>
@@ -104,32 +141,27 @@ const GalleryScreen = () => {
     </View>
   );
 
-  const startLoading = useCallback( () => setLoading( true ), [] );
+  const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      setLoading( true );
       if ( Platform.OS === "android" ) {
         const requestAndroidPermissions = async () => {
           const permission = await checkCameraRollPermissions();
-          if ( permission === true ) {
-            setupPhotos();
-          } else {
-            setError( "gallery" );
+          if ( !permission ) {
+            dispatch( { type: "ERROR", error: "gallery" } );
           }
         };
         requestAndroidPermissions();
-      } else {
-        setupPhotos();
       }
     } );
 
     navigation.addListener( "blur", () => {
-      setLoading( false );
+      dispatch( { type: "HIDE_LOADING_WHEEL" } );
     } );
-  }, [navigation, setupPhotos] );
+  }, [navigation, photos.length, setupPhotos] );
 
-  console.log( loading, photos.length, "is loading" );
+  // console.log( album, error, hasNextPage, lastCursor, photos.length, stillLoading, loading, "is state" );
 
   return (
     <View style={styles.background}>

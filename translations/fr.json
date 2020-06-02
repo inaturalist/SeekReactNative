@@ -167,7 +167,7 @@
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
     "number_observed_plural": {
-      "zero": "{{count}} observé(es) jusqu’à présent",
+      "zero": "{{count}} observé(e) jusqu’à présent",
       "one": "{{count}} observé(es) jusqu’à présent",
       "two": "{{count}} observé(es) jusqu’à présent",
       "few": "{{count}} observé(es) jusqu’à présent",

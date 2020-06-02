@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Text
+  Text,
+  Alert
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import CameraRoll from "@react-native-community/cameraroll";
@@ -26,12 +27,12 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
   const [albumNames, setAlbumNames] = useState( [] );
 
   const fetchAlbumNames = useCallback( async () => {
-    const names = [{
-      label: i18n.t( "gallery.camera_roll" ),
-      value: "All"
-    }];
-
     try {
+      const names = [{
+        label: i18n.t( "gallery.camera_roll" ),
+        value: "All"
+      }];
+
       const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
 
       if ( albums && albums.length > 0 ) { // attempt to fix error on android
@@ -43,8 +44,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       }
       setAlbumNames( names );
     } catch ( e ) {
-      // still set album names even if there's an error fetching albums
-      setAlbumNames( names );
+      Alert.alert( `Error fetching photo albums: ${e}` );
     }
   }, [] );
 

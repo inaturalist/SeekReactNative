@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import {
   Platform,
   View,
@@ -19,39 +19,77 @@ import { colors } from "../../../styles/global";
 
 const GalleryScreen = () => {
   const navigation = useNavigation();
-  // const isFocused = useIsFocused();
-  const [album, setAlbum] = useState( null );
-  const [photos, setPhotos] = useState( [] );
-  const [error, setError] = useState( null );
-  const [hasNextPage, setHasNextPage] = useState( true );
-  const [lastCursor, setLastCursor] = useState( null );
-  const [stillLoading, setStillLoading] = useState( false );
-  const [loading, setLoading] = useState( false );
-  const groupTypes = ( album === null ) ? "All" : "Album";
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SET_ALBUM":
+        return {
+          album: action.album,
+          photos: [],
+          error: null,
+          hasNextPage: true,
+          lastCursor: null,
+          stillLoading: false,
+          loading: true
+        };
+      case "SHOW_LOADING_WHEEL":
+        return { ...state, loading: true };
+      case "HIDE_LOADING_WHEEL":
+        return { ...state, loading: false };
+      case "FETCHING_PHOTOS":
+        return { ...state, stillLoading: true };
+      case "APPEND_PHOTOS":
+        return {
+          ...state,
+          photos: action.photos,
+          stillLoading: false,
+          hasNextPage: action.pageInfo.has_next_page,
+          lastCursor: action.pageInfo.end_cursor,
+          loading: false
+        };
+      case "ERROR":
+        return { ...state, error: action.error, loading: false };
+      default:
+        throw new Error();
+    }
+  }, {
+    album: null,
+    photos: [],
+    error: null,
+    hasNextPage: true,
+    lastCursor: null,
+    stillLoading: false,
+    loading: true
+  } );
+
+  const {
+    album,
+    photos,
+    error,
+    hasNextPage,
+    lastCursor,
+    stillLoading,
+    loading
+  } = state;
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( photos.length === 0 && data.length === 0 && !pageInfo.has_next_page ) {
-      setError( "photos" );
+      dispatch( { type: "ERROR", error: "photos" } );
     } else {
       const updatedPhotos = photos.concat( data );
-      setPhotos( updatedPhotos );
-      setStillLoading( false );
-      setLoading( false );
+      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
     }
-    setHasNextPage( pageInfo.has_next_page );
-    setLastCursor( pageInfo.end_cursor );
   }, [photos] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
-    console.log( photoOptions, "fetching photos" );
     if ( hasNextPage && !stillLoading ) {
-      setStillLoading( true );
+      dispatch( { type: "FETCHING_PHOTOS" } );
 
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         appendPhotos( results.edges, results.page_info );
       } ).catch( ( { message } ) => {
         if ( message === "Access to photo library was denied" ) {
-          setError( "gallery" );
+          dispatch( { type: "ERROR", error: "gallery" } );
         }
       } );
     }
@@ -61,7 +99,7 @@ const GalleryScreen = () => {
     const photoOptions = {
       first: 28, // only 28 at a time can display
       assetType: "Photos",
-      groupTypes // this is required in RN 0.59+,
+      groupTypes: ( album === null ) ? "All" : "Album"
     };
 
     if ( album ) { // append for cases where album isn't null
@@ -75,28 +113,26 @@ const GalleryScreen = () => {
     }
 
     fetchPhotos( photoOptions );
-  }, [groupTypes, album, lastCursor, fetchPhotos] );
-
-  useEffect( () => {
-    setPhotos( [] );
-    setError( null );
-    setHasNextPage( true );
-    setLastCursor( null );
-    setStillLoading( false );
-  }, [album] );
+  }, [album, lastCursor, fetchPhotos] );
 
   const updateAlbum = useCallback( ( newAlbum: string ) => {
-    console.log( newAlbum, "new album" );
-    setLoading( true );
-    setAlbum( newAlbum !== "All" ? newAlbum : null );
-  }, [] );
+    if ( album === newAlbum ) { // prevent user from reloading the same album twice
+      return;
+    }
+    dispatch( { type: "SET_ALBUM", album: newAlbum } );
+  }, [album] );
 
   const setupPhotos = useCallback( () => {
-    if ( photos.length === 0 ) {
-      console.log( "setting photo params" );
+    if ( photos.length === 0 && loading ) {
       setPhotoParams();
     }
-  }, [photos.length, setPhotoParams] );
+  }, [photos.length, loading, setPhotoParams] );
+
+  useEffect( () => {
+    if ( photos.length === 0 && loading ) {
+      setPhotoParams();
+    }
+  }, [photos.length, loading, setPhotoParams] );
 
   const renderLoadingWheel = () => (
     <View style={styles.loadingWheel}>
@@ -104,32 +140,25 @@ const GalleryScreen = () => {
     </View>
   );
 
-  const startLoading = useCallback( () => setLoading( true ), [] );
+  const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      setLoading( true );
       if ( Platform.OS === "android" ) {
         const requestAndroidPermissions = async () => {
           const permission = await checkCameraRollPermissions();
-          if ( permission === true ) {
-            setupPhotos();
-          } else {
-            setError( "gallery" );
+          if ( !permission ) {
+            dispatch( { type: "ERROR", error: "gallery" } );
           }
         };
         requestAndroidPermissions();
-      } else {
-        setupPhotos();
       }
     } );
 
     navigation.addListener( "blur", () => {
-      setLoading( false );
+      dispatch( { type: "HIDE_LOADING_WHEEL" } );
     } );
-  }, [navigation, setupPhotos] );
-
-  console.log( loading, photos.length, "is loading" );
+  }, [navigation, photos.length, setupPhotos] );
 
   return (
     <View style={styles.background}>

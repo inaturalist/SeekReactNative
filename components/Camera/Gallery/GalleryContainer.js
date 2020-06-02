@@ -1,16 +1,10 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
-import {
-  FlatList,
-  View
-} from "react-native";
-import { useIsFocused } from "@react-navigation/native";
+import React from "react";
+import { FlatList } from "react-native";
 
 import CameraError from "../CameraError";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import styles from "../../../styles/camera/gallery";
-import { colors, dimensions } from "../../../styles/global";
+import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 
 type Props = {
@@ -28,31 +22,6 @@ const GalleryContainer = ( {
   startLoading,
   loading
 }: Props ) => {
-  // const isFocused = useIsFocused();
-  // const [loading, setLoading] = useState( false );
-
-  // const startLoading = () => setLoading( true );
-
-  // useEffect( () => {
-  //   if ( photos.length > 0 && !error ) {
-  //     setLoading( false );
-  //   }
-  // }, [photos, error] );
-
-  // useEffect( () => {
-  //   if ( !isFocused ) {
-  //     setLoading( false );
-  //   }
-  // }, [isFocused] );
-
-  // const renderLoadingWheel = () => (
-  //   <View style={styles.loadingWheel}>
-  //     <LoadingWheel color={colors.darkGray} />
-  //   </View>
-  // );
-
-  // console.log( "isLoading", loading, error, photos.length );
-
   const renderGallery = () => (
     <FlatList
       data={photos}
@@ -77,7 +46,6 @@ const GalleryContainer = ( {
 
   return (
     <>
-      {/* {loading && renderLoadingWheel()} */}
       {error ? <CameraError error={error} errorEvent={null} /> : renderGallery()}
     </>
   );

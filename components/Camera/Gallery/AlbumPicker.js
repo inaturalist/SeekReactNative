@@ -16,11 +16,11 @@ type Props = {
 }
 
 const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
-  const [album, setAlbum] = useState( i18n.t( "gallery.camera_roll" ).toLocaleUpperCase() );
+  const [album, setAlbum] = useState( albumNames[0].label );
 
-  const handleValueChange = ( value ) => {
-    setAlbum( value );
-    updateAlbum( value );
+  const handleValueChange = ( newAlbum ) => {
+    setAlbum( newAlbum );
+    updateAlbum( newAlbum !== "All" ? newAlbum : null );
   };
 
   return (

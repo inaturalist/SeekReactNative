@@ -5,7 +5,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import styles from "../../styles/navigation";
 import i18n from "../../i18n";
 import ARCamera from "../Camera/ARCamera/ARCamera";
-import Gallery from "../Camera/Gallery/GalleryReducer";
+import Gallery from "../Camera/Gallery/GalleryScreen";
 
 const Tab = createMaterialTopTabNavigator();
 

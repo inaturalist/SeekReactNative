@@ -167,12 +167,12 @@
     "no_new_challenges": "新しいチャレンジが出てきたら通知します。",
     "completed_all": "開催されているチャレンジ全部を達成しました！",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} 種観察済み",
+      "one": "{{count}} 種観察済み",
+      "two": "{{count}} 種観察済み",
+      "few": "{{count}} 種観察済み",
+      "many": "{{count}} 種観察済み",
+      "other": "{{count}} 種観察済み"
     },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "このチャレンジは{{date}}に公開されます。",
@@ -251,12 +251,12 @@
     "error_species": "申しわけございません。この写真の種の詳細を読み込むことができませんでした。インターネット接続を確認して、もう一度お試しください。",
     "error_location": "位置情報をオンにしないと観察記録に種を追加できません。Seekはあなたがどこで生き物を観察したかを記録して、iNaturalistに投稿されたら市民科学に貢献することを手がけています。",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。",
+      "one": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。",
+      "two": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。",
+      "few": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。",
+      "many": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。",
+      "other": "現在、一時的にサービスが使えません。 {{count}} 時間後にもう一度お試しください。"
     },
     "error_few": "数",
     "error_gps": "GPSの位置情報を取得できませんでした。観察を保存するためには空がよく見える場所に移動したり、デバイスの位置情報がオンにされているのを確認してください。",
@@ -272,12 +272,12 @@
     "challenge_view": "プログレスを見る",
     "level_up": "レベルアップしました！",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "あなたは{{count}}種見つけました！",
+      "one": "あなたは{{count}}種見つけました！",
+      "two": "あなたは{{count}}種見つけました！",
+      "few": "あなたは{{count}}種見つけました！",
+      "many": "あなたは{{count}}種見つけました！",
+      "other": "あなたは{{count}}種見つけました！"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "iNaturalistでログインしてオンラインコミュニティに観察を投稿しよう！",
     "achievements": "アチーブメント",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "レベルアップまで{{count}}種観察が必要です！",
+      "one": "レベルアップまで{{count}}種観察が必要です！",
+      "two": "レベルアップまで{{count}}種観察が必要です！",
+      "few": "レベルアップまで{{count}}種観察が必要です！",
+      "many": "レベルアップまで{{count}}種観察が必要です！",
+      "other": "レベルアップまで{{count}}種観察が必要です！"
     },
     "observe_max": "Seekの最高レベルに達しました！",
     "observe_species": "観察",
@@ -580,8 +580,8 @@
     "header": "Seek Camera",
     "common_names": "Display Common Names",
     "scientific_names": "Display Scientific Names",
-    "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate": "寄付する",
+    "donate_description": "iNaturalistを支援する"
   },
   "seek_challenges": {
     "badge": "Seek badge",

@@ -580,8 +580,8 @@
     "header": "Fotocamera di Seek",
     "common_names": "Visualizza Nomi Comuni",
     "scientific_names": "Visualizza Nomi Scientifici",
-    "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate": "Dona",
+    "donate_description": "Aiuta e supporta iNaturalist"
   },
   "seek_challenges": {
     "badge": "Distintivo Seek",
@@ -598,11 +598,11 @@
     "mission_2_may_2020": "Trova 2 insetti",
     "mission_3_may_2020": "Trova 1 aracnide",
     "mission_4_may_2020": "Trova 2 uccelli",
-    "resilience": "Sfida Resilienza",
+    "resilience": "Sfida di Resilienza",
     "mission_1_june_2020": "Trova 2 piante nell'ordine delle Asterales (Astri, Campanule, Scevole e Simili)",
     "mission_2_june_2020": "Trova 3 uccelli nell'ordine dei Passeriformi (Passeri)",
     "mission_3_june_2020": "Trova 1 insetto nell'ordine dei Coleotteri (Scarabei)",
-    "june_2020_description": "La natura è resistente e tutto intorno a noi. Dalle città ai terreni agricoli, alle piante e agli animali trova un modo per prosperare. Persino nelle aree urbane, piante e uccelli e insetti coesistono con noi.",
+    "june_2020_description": "La natura resiste ed è tutta intorno a noi. Dalle città ai terreni agricoli, alle piante e agli animali trova un modo per prosperare. Persino nelle aree urbane, piante e uccelli e insetti coesistono con noi.",
     "action_june_2020": "Sapevi che è possibile visualizzare nomi scientifici al posto di nomi comuni nella videocamera di Seek? Vai alla pagina delle impostazioni dal menu per cambiare la visualizzazione da nomi comuni a nomi scientifici!"
   }
 }

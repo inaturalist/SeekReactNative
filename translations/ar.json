@@ -1,43 +1,43 @@
 {
   "splash": {
-    "presents": "presents",
-    "initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society"
+    "presents": "تقدِّم",
+    "initiative": "iNaturalist هي مبادرة مشتركة بين أكاديمية كاليفورنيا للعلوم و الجمعية الجغرافية الوطنية"
   },
   "species_nearby": {
-    "header": "Species nearby",
-    "location_error": "In order to show you nearby species, we need to use your location.",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
-    "enable_location": "Enable location in settings",
-    "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
-    "no_location": "No Location",
-    "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter.",
-    "no_gps": "GPS signal not found.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "header": "الأنواع القريبة",
+    "location_error": "نحتاج إلى استخدام موقعك من أجل إظهار الأنواع القريبة.",
+    "location_device": "يحتاج Seek إلى موقعك لعرض الأتواع القريبة و إضافة الرصد. المرجو التأكد من تشغيل الموقع على جهازك.",
+    "enable_location": "تشغيل الموقع في الإعدادات",
+    "internet_error": "نحتاج إلى الإنترنيت لتوليد الأنواع القريبة، انقر لإعادة المحاولة.",
+    "no_location": "لا يوجد موقع",
+    "no_species": "يبدو أنه لم يتم رصد العديد من الأنواع بالقرب منك! حاول تغيير موقعك او توسيع فلتر الأنواع.",
+    "no_gps": "لم يتم العثور على إشارة GPS.",
+    "location_timeout": "مهلة طلب الموقع الخاص بك انتهت. المرجو المحاولة مجدداً."
   },
   "get_started": {
-    "header": "Get started",
-    "tip_1": "Take photos with Seek’s Camera to identify living things all around you.",
-    "tip_2": "Learn about the species that have been observed around you with Species Nearby.",
-    "tip_3": "Earn badges and raise your level by identifying different types of species and participating in challenges."
+    "header": "ابدأ الأن",
+    "tip_1": "التقط صورا باستعمال كاميرا Seek للتعرف على الأشياء الحية حولك.",
+    "tip_2": "تعرف على الأنواع التي تم ملاحظتها حولك مع الأنواع القريبة.",
+    "tip_3": "اكسب الشارات و ارفع مستواك عن طريق تحديد الأنوا المختلفة و المشاركة في التحديات."
   },
   "challenges_card": {
-    "header": "Challenges",
-    "join": "Add observations with the Seek Camera to earn the Our Planet badge!",
-    "take_challenge": "Take the challenge",
-    "continue_challenge": "Continue challenge",
-    "view_all": "View all challenges",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "header": "التحديات",
+    "join": "قم بإضافة الرصد لكاميرا Seek للحصول على شارة الكوكب!",
+    "take_challenge": "اقبل التحدي",
+    "continue_challenge": "مواصلة التحدي",
+    "view_all": "تصفح جميع التحديات",
+    "new_join": "فم بإضافة الرصد لكاميرا Seek للحصول على شارة التحدي!"
   },
   "notifications": {
-    "header": "Notifications",
-    "learn_more": "Learn more about iNaturalist",
-    "earned_badges": "You've earned a lot of badges! You might like iNaturalist!",
-    "almost_finished": "You're almost finished with your challenge!",
-    "view_progress": "View your progress",
-    "challenge_completed": "Congrats! You completed a challenge",
-    "view_challenges": "View challenge",
-    "none": "You don’t have any notifications yet!",
-    "about": "Here, you’ll be notified about new challenges as they become available, updates to Seek, and other relevant information.",
+    "header": "الإشعارات",
+    "learn_more": "تعرف على المزيد حول iNaturalist",
+    "earned_badges": "لقد كسبت الكثير من الشارات، يبدو أنك تحب iNaturalist!",
+    "almost_finished": "أنت على وشك الإنتهاء من التحدي الخاص بك!",
+    "view_progress": "عرض تقدمك",
+    "challenge_completed": "تهانينا! لقد أكملت التحدي",
+    "view_challenges": "عرض التحدي",
+    "none": "ليس لديك أي إشعارات بعد!",
+    "about": "هنا، سيتم إعلامك عن التحديات الجديدة كلما أصبحت متاحة، بالإضافة إلى تحديثات Seek و غيرها من المعلومات ذات الصلة.",
     "new_challenge": "There's a new challenge available!"
   },
   "login": {

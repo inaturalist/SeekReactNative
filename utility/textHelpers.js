@@ -34,21 +34,10 @@ const setCameraHelpText = ( rankToRender ) => {
   return i18n.t( helpText );
 };
 
-const setCameraErrorText = ( error, errorEvent ) => {
-  let errorText = i18n.t( `camera.error_${error}` );
-
-  if ( errorEvent ) {
-    errorText += `\n\n${errorEvent.toString()}`;
-  }
-
-  return errorText;
-};
-
 const enabledLargeFonts = () => getFontScale() > 1;
 
 export {
   setChallengeDetailsButtonText,
   setCameraHelpText,
-  setCameraErrorText,
   enabledLargeFonts
 };

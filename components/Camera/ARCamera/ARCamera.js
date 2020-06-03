@@ -196,10 +196,16 @@ const ARCamera = () => {
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          savePhoto( photo );
+          if ( typeof photo !== "object" ) {
+            updateError( "photoError", photo );
+          } else {
+            savePhoto( photo );
+          }
         } catch ( e ) {
           updateError( "take", e );
         }
+      } else {
+        updateError( "cameraManager" );
       }
     } else if ( Platform.OS === "android" ) {
       if ( camera.current ) {

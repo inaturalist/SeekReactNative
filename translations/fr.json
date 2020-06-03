@@ -253,7 +253,7 @@
     "error_downtime_plural": {
       "zero": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "one": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporairement indisponible. Veuillez réessayer dans {{count}} heures.",
       "few": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "many": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "other": "Service temporairement indisponible. Réessayez dans {{count}} heures."
@@ -580,8 +580,8 @@
     "header": "La caméra de Seek",
     "common_names": "Afficher les noms communs",
     "scientific_names": "Afficher les noms scientifiques",
-    "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate": "Donner",
+    "donate_description": "Soutenir iNaturalist"
   },
   "seek_challenges": {
     "badge": "Badge Seek",

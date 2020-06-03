@@ -22,14 +22,8 @@ export default StyleSheet.create( {
     letterSpacing: 1.12
   },
   leftMargin: {
+    marginBottom: 5,
     marginLeft: 10
-  },
-  linkText: {
-    color: colors.seekTeal,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    textDecorationLine: "underline"
   },
   margin: {
     marginTop: 27

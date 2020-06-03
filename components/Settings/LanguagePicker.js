@@ -14,11 +14,13 @@ import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 
 const LanguagePicker = () => {
-  const { toggleLanguagePreference } = useContext( LanguageContext );
-  const [language, setLanguage] = useState( i18n.locale );
+  const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
+  const [language, setLanguage] = useState( preferredLanguage );
 
   const handleValueChange = ( value ) => {
-    console.log( value, "value" );
+    if ( value === language ) { // only update state if new language is desired
+      return;
+    }
     i18n.locale = value;
 
     setLanguage( value );
@@ -48,7 +50,9 @@ const LanguagePicker = () => {
           <Image source={icons.dropdownOpen} style={styles.leftMargin} />
         </View>
         <Text style={[styles.text, styles.marginSmall, styles.leftMargin]}>
-          {language === "device" ? i18n.t( "settings.device_settings" ) : languages[language]}
+          {( language === "device" )
+            ? i18n.t( "settings.device_settings" )
+            : languages[language]}
         </Text>
       </View>
     </Picker>

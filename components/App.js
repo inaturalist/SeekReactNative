@@ -55,7 +55,6 @@ const App = () => {
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   const handleLocalizationChange = () => {
-    console.log( "localization change for default" );
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
@@ -77,8 +76,15 @@ const App = () => {
   };
 
   useEffect( () => {
-    console.log( preferredLanguage, "preferred in app" );
-    if ( preferredLanguage && preferredLanguage !== "device" ) {
+    // wait until check for stored language is completed
+    if ( !preferredLanguage ) {
+      return;
+    }
+
+    // do not wait for commonNames setup to complete. It could take a while to
+    // add all names to Realm and we don't want to hold up the UI as names
+    // are not needed immediately
+    if ( preferredLanguage !== "device" ) {
       i18n.locale = preferredLanguage;
       setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     } else {
@@ -92,18 +98,7 @@ const App = () => {
     if ( Platform.OS === "android" ) {
       setQuickActions();
     }
-    // do not wait for commonNames setup to complete. It could take a while to
-    // add all names to Realm and we don't want to hold up the UI as names
-    // are not needed immediately
     // console.log( new Date().getTime(), "start time for realm" );
-    if ( global && global.location && global.location.pathname ) {
-      if ( !global.location.pathname.includes( "debugger-ui" ) ) {
-        // detect whether Chrome Debugger is open -- it can't run with so many Realm requests
-        setTimeout( () => setupCommonNames(), 5000 );
-      }
-    } else {
-      setTimeout( () => setupCommonNames(), 5000 );
-    }
     getLoggedIn();
     fetchScientificNames();
     getLanguagePreference();

@@ -5,13 +5,8 @@ const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
 const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
-  // const { languageCode } = RNLocalize.getLocales()[0];
-  // const seekLocale = ( preferredLanguage && preferredLanguage !== "device" ) ? preferredLanguage : languageCode;
-  // // need to switch this to preferred code if there is a preferred preference
-  // console.log( languageCode, "language code when preferred switches", preferredLanguage, seekLocale );
   commonNamesDict.forEach( ( commonNameRow ) => {
     if ( commonNameRow.l === seekLocale ) {
-      console.log( commonNameRow.l, "matches seek locale" );
       // only create realm objects if language matches current locale
       realm.create( "CommonNamesRealm", {
         taxon_id: commonNameRow.i,
@@ -28,18 +23,14 @@ const setupCommonNames = ( preferredLanguage ) => {
       realm.write( () => {
         const { languageCode } = RNLocalize.getLocales()[0];
         const seekLocale = ( preferredLanguage && preferredLanguage !== "device" ) ? preferredLanguage : languageCode;
-        // check to see if names are already in Realm. There are about 96k names.
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         // if common names for desired locale already exist in realm, do nothing
         if ( realmLocale.length > 0 ) {
-          console.log( realmLocale.length, "length of common names with same locale as desired locale" );
           return;
         }
 
-        // const numberInserted = realm.objects( "CommonNamesRealm" ).length;
-        // if ( numberInserted < 96000 ) {
-        // delete all existing common names from Realm
+        // otherwise, delete all existing common names from Realm and update with preferred language
         realm.delete( realm.objects( "CommonNamesRealm" ) );
         // load names from each file. React-native requires need to be strings
         // so each file is listed here instead of some kind of loop
@@ -69,7 +60,6 @@ const setupCommonNames = ( preferredLanguage ) => {
           require( "./commonNames/commonNamesDict-11" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-12" ).default, seekLocale );
-        // }
       } );
       // } ).then( () => {
       //   console.log( new Date().getTime(), "end time for realm" );

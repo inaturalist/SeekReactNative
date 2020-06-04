@@ -57,7 +57,7 @@ const LocationPicker = ( {
   };
 
   const returnToUserLocation = () => {
-    fetchUserLocation().then( ( coords ) => {
+    fetchUserLocation( true ).then( ( coords ) => {
       if ( coords ) {
         const lat = coords.latitude;
         const long = coords.longitude;
@@ -70,6 +70,24 @@ const LocationPicker = ( {
           longitudeDelta
         } );
         setAccuracy( newAccuracy );
+      }
+    } ).catch( ( err ) => {
+      if ( err ) {
+        fetchUserLocation( false ).then( ( coords ) => {
+          if ( coords ) {
+            const lat = coords.latitude;
+            const long = coords.longitude;
+            const newAccuracy = coords.accuracy;
+
+            setRegion( {
+              latitude: lat,
+              longitude: long,
+              latitudeDelta,
+              longitudeDelta
+            } );
+            setAccuracy( newAccuracy );
+          }
+        } );
       }
     } );
   };

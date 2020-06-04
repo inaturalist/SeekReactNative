@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { I18nManager, Platform, YellowBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
-import Geolocation from "@react-native-community/geolocation";
 import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
@@ -108,7 +107,8 @@ const App = () => {
     RNLocalize.addEventListener( "change", handleLocalizationChange );
     // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
 
-    Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
+    // Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
+    // I don't think this line was doing anything anyway
 
     return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );
   }, [] );

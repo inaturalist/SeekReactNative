@@ -124,7 +124,7 @@ class PostScreen extends Component<Props, State> {
 
   setUserLocation() {
     const { image } = this.state;
-    fetchUserLocation().then( ( coords ) => {
+    fetchUserLocation( true ).then( ( coords ) => {
       const lat = coords.latitude;
       const long = coords.longitude;
       const { accuracy } = coords;
@@ -136,6 +136,19 @@ class PostScreen extends Component<Props, State> {
       this.setAccuracy( accuracy );
     } ).catch( ( err ) => {
       console.log( err );
+      if ( err ) {
+        fetchUserLocation( false ).then( ( coords ) => {
+          const lat = coords.latitude;
+          const long = coords.longitude;
+          const { accuracy } = coords;
+          this.reverseGeocodeLocation( lat, long );
+          image.latitude = lat;
+          image.longitude = long;
+
+          this.setState( { image } );
+          this.setAccuracy( accuracy );
+        } );
+      }
     } );
   }
 

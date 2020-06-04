@@ -3,7 +3,7 @@ import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
-import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
+import { fetchLocationName } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
@@ -138,7 +138,8 @@ const useLocationPermission = () => {
 
 //   const fetchCoords = async () => {
 //     try {
-//       const userCoords = await fetchTruncatedUserLocation();
+//       const userCoords = await fetchUserLocation();
+//       console.log( userCoords, "user coordinates" );
 //       setCoords( userCoords );
 //     } catch ( e ) {
 //       setCoords( {} );

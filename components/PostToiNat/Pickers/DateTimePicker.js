@@ -8,12 +8,12 @@ import {
   View
 } from "react-native";
 
-import { colors } from "../../styles/global";
-import styles from "../../styles/posting/postToiNat";
-import i18n from "../../i18n";
-import posting from "../../assets/posting";
-import icons from "../../assets/icons";
-import DateTimePicker from "../UIComponents/DateTimePicker";
+import { colors } from "../../../styles/global";
+import styles from "../../../styles/posting/postToiNat";
+import i18n from "../../../i18n";
+import posting from "../../../assets/posting";
+import icons from "../../../assets/icons";
+import DateTimePicker from "../../UIComponents/DateTimePicker";
 
 type Props = {
   dateToDisplay: ?string,
@@ -31,7 +31,10 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
       <DateTimePicker
         datetime
         isDateTimePickerVisible={showModal}
-        onDatePicked={handleDatePicked}
+        onDatePicked={( value ) => {
+          handleDatePicked( value );
+          closeModal();
+        }}
         toggleDateTimePicker={closeModal}
       />
       <TouchableOpacity

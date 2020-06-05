@@ -9,11 +9,11 @@ import {
   Modal
 } from "react-native";
 
-import { colors } from "../../styles/global";
-import styles from "../../styles/posting/postToiNat";
-import i18n from "../../i18n";
-import posting from "../../assets/posting";
-import icons from "../../assets/icons";
+import { colors } from "../../../styles/global";
+import styles from "../../../styles/posting/postToiNat";
+import i18n from "../../../i18n";
+import posting from "../../../assets/posting";
+import icons from "../../../assets/icons";
 import LocationPicker from "./LocationPicker";
 
 type Props = {

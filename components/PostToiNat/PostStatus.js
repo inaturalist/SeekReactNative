@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -19,7 +19,6 @@ import GreenText from "../UIComponents/GreenText";
 import { setRoute } from "../../utility/helpers";
 
 type Props = {
-  +loading: boolean,
   +postingSuccess: boolean,
   +togglePostModal: Function,
   +status: string,
@@ -27,13 +26,19 @@ type Props = {
 };
 
 const PostStatus = ( {
-  loading,
   postingSuccess,
   togglePostModal,
   status,
   errorText
 }: Props ) => {
   const navigation = useNavigation();
+  const [loading, setLoading] = useState( true );
+
+  useEffect( () => {
+    if ( postingSuccess !== null ) {
+      setLoading( false );
+    }
+  }, [postingSuccess] );
 
   let headerText;
   let image;

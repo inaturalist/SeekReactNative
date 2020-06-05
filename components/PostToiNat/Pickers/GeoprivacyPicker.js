@@ -7,11 +7,11 @@ import {
 } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 
-import i18n from "../../i18n";
-import styles from "../../styles/posting/postToiNat";
-import posting from "../../assets/posting";
-import { colors } from "../../styles/global";
-import icons from "../../assets/icons";
+import i18n from "../../../i18n";
+import styles from "../../../styles/posting/postToiNat";
+import posting from "../../../assets/posting";
+import { colors } from "../../../styles/global";
+import icons from "../../../assets/icons";
 
 type Props = {
   +updateGeoprivacy: Function

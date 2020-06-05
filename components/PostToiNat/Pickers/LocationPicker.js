@@ -9,15 +9,15 @@ import {
 } from "react-native";
 import { useSafeArea } from "react-native-safe-area-context";
 
-import i18n from "../../i18n";
-import LocationMap from "../Home/SpeciesNearby/LocationMap";
-import { fetchUserLocation } from "../../utility/locationHelpers";
-import styles from "../../styles/home/locationPicker";
-import headerStyles from "../../styles/uiComponents/greenHeader";
-import backStyles from "../../styles/uiComponents/buttons/backArrow";
-import icons from "../../assets/icons";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { dimensions } from "../../styles/global";
+import i18n from "../../../i18n";
+import LocationMap from "../../Home/SpeciesNearby/LocationMap";
+import { fetchUserLocation } from "../../../utility/locationHelpers";
+import styles from "../../../styles/home/locationPicker";
+import headerStyles from "../../../styles/uiComponents/greenHeader";
+import backStyles from "../../../styles/uiComponents/buttons/backArrow";
+import icons from "../../../assets/icons";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import { dimensions } from "../../../styles/global";
 
 const latitudeDelta = 0.005; // closer to zoom level on iNaturalist iOS app
 const longitudeDelta = 0.005;

@@ -5,9 +5,10 @@ import {
   View,
   ScrollView,
   Platform,
-  StatusBar
+  StatusBar,
+  Keyboard
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/uiComponents/scrollWithHeader";
@@ -33,6 +34,7 @@ const ScrollWithHeader = ( {
 }: Props ) => {
   const insets = useSafeArea();
   const navigation = useNavigation();
+  const { name } = useRoute();
   const scrollView = useRef( null );
 
   useScrollToTop( scrollView, navigation );
@@ -46,7 +48,17 @@ const ScrollWithHeader = ( {
           <LoadingWheel color={colors.darkGray} />
         </View>
       ) : (
-        <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
+        <ScrollView
+          ref={scrollView}
+          contentContainerStyle={styles.containerWhite}
+          keyboardDismissMode={name === "Post" && "on-drag"}
+          onScroll={() => {
+            if ( name === "Post" ) {
+              Keyboard.dismiss();
+            }
+          }}
+          scrollEventThrottle={name === "Post" && 1}
+        >
           {children}
           <Padding />
           {Platform.OS === "ios" && <BottomSpacer />}

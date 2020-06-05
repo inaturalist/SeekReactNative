@@ -7,13 +7,9 @@ import React, {
   useContext
 } from "react";
 import {
-  Image,
-  Text,
-  TouchableOpacity,
   View,
   Modal,
   Platform,
-  TextInput,
   Keyboard,
   ScrollView
 } from "react-native";
@@ -21,7 +17,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 
-import { colors } from "../../styles/global";
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
 import {
@@ -31,21 +26,19 @@ import {
 import { resizeImage } from "../../utility/photoHelpers";
 import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
-import posting from "../../assets/posting";
-import icons from "../../assets/icons";
-import LocationPicker from "./LocationPicker";
 import GeoprivacyPicker from "./GeoprivacyPicker";
 import CaptivePicker from "./CaptivePicker";
 import PostStatus from "./PostStatus";
-import SelectSpecies from "./SelectSpecies";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
-import DateTimePicker from "../UIComponents/DateTimePicker";
-import SpeciesCard from "../UIComponents/SpeciesCard";
 import createUserAgent from "../../utility/userAgent";
 import { formatYearMonthDay, setISOTime } from "../../utility/dateHelpers";
 import { useLocationName } from "../../utility/customHooks";
 import { UserContext } from "../UserContext";
+import Notes from "./Notes";
+import LocationPickerCard from "./LocationPickerCard";
+import DatePicker from "./DateTimePicker";
+import PostingHeader from "./PostingHeader";
 
 const PostScreen = () => {
   const navigation = useNavigation();
@@ -61,6 +54,7 @@ const PostScreen = () => {
   const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.type, "type" );
     switch ( action.type ) {
       case "UPDATE_GEOPRIVACY":
         return { ...state, geoprivacy: action.geoprivacy };
@@ -70,12 +64,8 @@ const PostScreen = () => {
         return { ...state, showPostingStatus: !state.showPostingStatus };
       case "SHOW_POST_STATUS":
         return { ...state, showPostingStatus: true };
-      case "SHOW_LOCATION_PICKER":
-        return { ...state, showLocationPicker: true };
-      case "SHOW_DATETIME_PICKER":
-        return { ...state, isDateTimePickerVisible: true };
-      case "SHOW_SELECTED_SPECIES":
-        return { ...state, showSpeciesModal: true };
+      case "UPDATE_DESCRIPTION":
+        return { ...state, description: action.value };
       case "SELECT_SPECIES":
         return {
           ...state,
@@ -124,15 +114,7 @@ const PostScreen = () => {
       name: scientificName,
       taxaId
     },
-    seekId: {
-      preferredCommonName,
-      name: scientificName,
-      taxaId
-    },
-    showLocationPicker: false,
-    isDateTimePickerVisible: false,
     showPostingStatus: false,
-    showSpeciesModal: false,
     loading: false,
     postingSuccess: null,
     description: null,
@@ -150,11 +132,7 @@ const PostScreen = () => {
     accuracy,
     date,
     captive,
-    seekId,
-    showLocationPicker,
-    isDateTimePickerVisible,
     showPostingStatus,
-    showSpeciesModal,
     loading,
     postingSuccess,
     status,
@@ -174,8 +152,6 @@ const PostScreen = () => {
 
     if ( truncated ) {
       setUserLocation();
-    } else {
-      dispatch( { type: "NO_LOCATION" } );
     }
   }, [setUserLocation, image] );
 
@@ -215,7 +191,6 @@ const PostScreen = () => {
   const updateLocation = ( latitude, longitude, accuracy ) => {
     const coords = { latitude, longitude, accuracy };
     dispatch( { type: "SET_LOCATION", coords } );
-    dispatch( { type: "CLOSE_LOCATION_PICKER" } );
   };
 
   const addPhotoToObservation = ( obsId, token ) => {
@@ -307,13 +282,15 @@ const PostScreen = () => {
     dispatch( { type: "SELECT_SPECIES", selectedSpecies } );
   };
 
-  const closeSelectedSpecies = () => dispatch( { type: "CLOSE_SELECTED_SPECIES" } );
-  const showSelectedSpecies = () => dispatch( { type: "SHOW_SELECTED_SPECIES" } );
-  const closeLocationPicker = () => dispatch( { type: "CLOSE_LOCATION_PICKER" } );
   const closePostModal = () => dispatch( { type: "CLOSE_POST_STATUS" } );
+  const updateDescription = ( value ) => dispatch( { type: "UPDATE_DESCRIPTION", value } );
+  const updateGeoprivacy = () => dispatch( { type: "UPDATE_GEOPRIVACY", geoprivacy } );
+  const updateCaptive = () => dispatch( { type: "UPDATE_CAPTIVE", captive } );
+  const showPostStatus = () => dispatch( { type: "SHOW_POST_STATUS" } );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
+      console.log( "focusing" );
       getLocation();
       resizeImageForUploading();
     } );
@@ -324,34 +301,6 @@ const PostScreen = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView />
-      <DateTimePicker
-        datetime
-        isDateTimePickerVisible={isDateTimePickerVisible}
-        onDatePicked={handleDatePicked}
-        toggleDateTimePicker={toggleDateTimePicker}
-      />
-      <Modal
-        onRequestClose={() => closeSelectedSpecies()}
-        visible={showSpeciesModal}
-      >
-        <SelectSpecies
-          image={image.uri}
-          seekId={seekId}
-          toggleSpeciesModal={closeSelectedSpecies}
-          updateTaxon={updateTaxon}
-        />
-      </Modal>
-      <Modal
-        onRequestClose={() => closeLocationPicker()}
-        visible={showLocationPicker}
-      >
-        <LocationPicker
-          latitude={image.latitude}
-          longitude={image.longitude}
-          toggleLocationPicker={closeLocationPicker}
-          updateLocation={updateLocation}
-        />
-      </Modal>
       <Modal
         onRequestClose={() => closePostModal()}
         visible={showPostingStatus}
@@ -370,79 +319,26 @@ const PostScreen = () => {
         onScroll={() => Keyboard.dismiss()}
         scrollEventThrottle={1}
       >
-        <TouchableOpacity
-          onPress={() => showSelectedSpecies()}
-          style={styles.card}
-        >
-          <SpeciesCard
-            commonName={taxon.preferredCommonName}
-            handlePress={() => showSelectedSpecies()}
-            photo={{ uri: image.uri }}
-            scientificName={taxon.name}
-          />
-          <Image
-            source={icons.backButton}
-            tintColor={colors.seekForestGreen}
-            style={[styles.buttonIcon, styles.rotate]}
-          />
-        </TouchableOpacity>
-        <TextInput
-          keyboardType="default"
-          multiline
-          onChangeText={value => setState( { description: value } )}
-          placeholder={i18n.t( "posting.notes" )}
-          placeholderTextColor="#828282"
-          style={styles.inputField}
-          value={description}
+        <PostingHeader
+          taxon={taxon}
+          image={image}
+          updateTaxon={updateTaxon}
         />
+        <Notes description={description} updateDescription={updateDescription} />
         <View style={styles.divider} />
-        <TouchableOpacity
-          onPress={() => dispatch( { type: "SHOW_DATETIME_PICKER" } )}
-          style={styles.thinCard}
-        >
-          <Image source={posting.date} style={styles.icon} />
-          <View style={styles.row}>
-            <Text style={styles.greenText}>
-              {i18n.t( "posting.date" ).toLocaleUpperCase()}
-            </Text>
-            <Text style={styles.text}>{dateToDisplay}</Text>
-          </View>
-          <Image
-            source={icons.backButton}
-            tintColor={colors.seekForestGreen}
-            style={[styles.buttonIcon, styles.rotate]}
-          />
-        </TouchableOpacity>
+        <DatePicker dateToDisplay={dateToDisplay} handleDatePicked={handleDatePicked} />
         <View style={styles.divider} />
-        <TouchableOpacity
-          onPress={() => dispatch( { type: "SHOW_LOCATION_PICKER" } )}
-          style={styles.thinCard}
-        >
-          <Image source={posting.location} style={[styles.icon, styles.extraMargin]} />
-          <View style={styles.row}>
-            <Text style={styles.greenText}>
-              {i18n.t( "posting.location" ).toLocaleUpperCase()}
-            </Text>
-            <Text style={styles.text}>
-              {location || i18n.t( "location_picker.undefined" )}
-            </Text>
-          </View>
-          <Image
-            source={icons.backButton}
-            tintColor={colors.seekForestGreen}
-            style={[styles.buttonIcon, styles.rotate]}
-          />
-        </TouchableOpacity>
+        <LocationPickerCard updateLocation={updateLocation} location={location} image={image} />
         <View style={styles.divider} />
-        <GeoprivacyPicker updateGeoprivacy={dispatch( { type: "UPDATE_GEOPRIVACY", geoprivacy } )} />
+        <GeoprivacyPicker updateGeoprivacy={updateGeoprivacy} />
         <View style={styles.divider} />
-        <CaptivePicker updateCaptive={dispatch( { type: "UPDATE_CAPTIVE", captive } )} />
+        <CaptivePicker updateCaptive={updateCaptive} />
         <View style={styles.divider} />
         <View style={styles.textContainer}>
           <GreenButton
             handlePress={() => {
               fetchJSONWebToken();
-              dispatch( { type: "SHOW_POST_STATUS" } );
+              showPostStatus();
             }}
             text="posting.header"
           />

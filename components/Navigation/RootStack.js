@@ -14,7 +14,7 @@ import Wikipedia from "../Species/WikipediaView";
 import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
-import Post from "../PostToiNat/PostScreen";
+import Post from "../PostToiNat/PostScreenHooks";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";

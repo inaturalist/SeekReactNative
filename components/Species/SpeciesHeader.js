@@ -54,7 +54,7 @@ const SpeciesHeader = ( {
   );
 
   return (
-    <>
+    <View style={styles.background}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
@@ -78,7 +78,7 @@ const SpeciesHeader = ( {
         <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
         <Text style={styles.scientificNameText}>{scientificName}</Text>
       </View>
-    </>
+    </View>
   );
 };
 

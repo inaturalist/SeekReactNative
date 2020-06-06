@@ -44,7 +44,7 @@ const NoInternetError = ( {
   const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) ).includes( true );
 
   return (
-    <>
+    <View style={styles.background}>
       {showGreenButtons && <SpeciesStats stats={stats} />}
       {seenDate && (
         <SeenDate
@@ -84,7 +84,7 @@ const NoInternetError = ( {
           <Padding />
         </View>
       )}
-    </>
+    </View>
   );
 };
 

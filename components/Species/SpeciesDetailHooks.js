@@ -323,6 +323,8 @@ const SpeciesDetail = () => {
 
   const { commonName } = taxon;
 
+  console.log( "state renders in species detail" );
+
   return (
     <ScrollView
       ref={scrollView}

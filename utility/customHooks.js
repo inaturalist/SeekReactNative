@@ -145,6 +145,7 @@ const useCommonName = ( id ) => {
 };
 
 const useTruncatedUserCoords = () => {
+  const granted = useLocationPermission();
   const [coords, setCoords] = useState( null );
 
   const fetchCoords = async () => {
@@ -159,6 +160,10 @@ const useTruncatedUserCoords = () => {
     }
   };
 
+  // test this code
+  if ( Platform.OS === "android" && !granted ) {
+    setCoords( null );
+  }
   fetchCoords();
 
   return coords;

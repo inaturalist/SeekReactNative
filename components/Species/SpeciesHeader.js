@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -14,26 +14,31 @@ import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
 import { useCommonName } from "../../utility/customHooks";
+import { getRoute } from "../../utility/helpers";
 
 type Props = {
   photos: Array<Object>,
   taxon: Object,
   seenTaxa: ?Object,
-  routeName: ?string,
   id: ?Number
 }
 
 const SpeciesHeader = ( {
-  routeName,
   photos,
   seenTaxa,
   taxon,
   id
 }: Props ) => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
+  const { navigate } = navigation;
   const { params } = useRoute();
-
+  const [routeName, setRouteName] = useState( null );
   const commonName = useCommonName( id );
+
+  const fetchRoute = async () => {
+    const route = await getRoute();
+    setRouteName( route );
+  };
 
   const { scientificName, iconicTaxonId } = taxon;
 
@@ -44,6 +49,12 @@ const SpeciesHeader = ( {
       navigate( "Home" );
     }
   }, [navigate, routeName, params] );
+
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
+      fetchRoute();
+    } );
+  }, [navigation] );
 
   useFocusEffect(
     useCallback( () => {

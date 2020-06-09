@@ -3,10 +3,11 @@ import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 
 import i18n from "../i18n";
-import { fetchLocationName } from "./locationHelpers";
+import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
 import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
+import { getTaxonCommonName } from "./helpers";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -133,28 +134,41 @@ const useLocationPermission = () => {
   return granted;
 };
 
-// const useUserCoords = () => {
-//   const [coords, setCoords] = useState( null );
+const useCommonName = ( id ) => {
+  const [commonName, setCommonName] = useState( null );
 
-//   const fetchCoords = async () => {
-//     try {
-//       const userCoords = await fetchUserLocation();
-//       console.log( userCoords, "user coordinates" );
-//       setCoords( userCoords );
-//     } catch ( e ) {
-//       setCoords( {} );
-//     }
-//   };
+  getTaxonCommonName( id ).then( ( name ) => {
+    setCommonName( name );
+  } );
 
-//   fetchCoords();
+  return commonName;
+};
 
-//   return coords;
-// };
+const useTruncatedUserCoords = () => {
+  const [coords, setCoords] = useState( null );
+
+  const fetchCoords = async () => {
+    try {
+      const userCoords = await fetchTruncatedUserLocation();
+
+      if ( !coords || ( userCoords.latitude !== coords.latitude ) ) {
+        setCoords( userCoords );
+      }
+    } catch ( e ) {
+      setCoords( null );
+    }
+  };
+
+  fetchCoords();
+
+  return coords;
+};
 
 export {
   useScrollToTop,
   useLocationName,
   useUserPhoto,
-  useLocationPermission
-  // useUserCoords
+  useLocationPermission,
+  useCommonName,
+  useTruncatedUserCoords
 };

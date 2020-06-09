@@ -18,7 +18,6 @@ type Props = {
   +stats: Object,
   +seenDate: ?string,
   +about: ?string,
-  +commonName: ?string,
   +wikiUrl: ?string,
   +id: ?number,
   +region: Object,
@@ -33,7 +32,6 @@ const NoInternetError = ( {
   seenDate,
   about,
   error,
-  commonName,
   wikiUrl,
   id,
   region,
@@ -54,7 +52,6 @@ const NoInternetError = ( {
       )}
       <About
         about={about}
-        commonName={commonName}
         wikiUrl={wikiUrl}
         id={id}
       />

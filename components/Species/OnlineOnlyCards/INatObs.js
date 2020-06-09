@@ -15,27 +15,27 @@ import logos from "../../../assets/logos";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import createUserAgent from "../../../utility/userAgent";
 import { localizeNumber } from "../../../utility/helpers";
+import { useTruncatedUserCoords } from "../../../utility/customHooks";
 
 type Props = {
   +id: ?number,
-  +region: Object,
   +timesSeen: ?number,
   +error: ?string
 };
 
 const INatObs = ( {
   id,
-  region,
   timesSeen,
   error
 }: Props ) => {
   const navigation = useNavigation();
+  const coords = useTruncatedUserCoords();
   const [nearbySpeciesCount, setNearbySpeciesCount] = useState( null );
 
   const fetchNearbySpeciesCount = useCallback( () => {
     const params = {
-      lat: region.latitude,
-      lng: region.longitude,
+      lat: coords.latitude,
+      lng: coords.longitude,
       radius: 50,
       taxon_id: id
     };
@@ -45,13 +45,13 @@ const INatObs = ( {
     inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
       setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
     } ).catch( () => setNearbySpeciesCount( 0 ) );
-  }, [region, id] );
+  }, [coords, id] );
 
   useEffect( () => {
-    if ( region.latitude !== null ) {
+    if ( coords && coords.latitude !== null ) {
       fetchNearbySpeciesCount();
     }
-  }, [region, fetchNearbySpeciesCount] );
+  }, [coords, fetchNearbySpeciesCount] );
 
   const renderObs = () => {
     let obs = null;
@@ -64,7 +64,7 @@ const INatObs = ( {
               <Image source={logos.bird} style={styles.bird} />
             </TouchableOpacity>
             <View style={styles.textContainer}>
-              {( error !== "location" && region.latitude !== null ) && (
+              {( error !== "location" && coords.latitude ) && (
                 <>
                   <Text style={styles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
@@ -74,7 +74,11 @@ const INatObs = ( {
                   </Text>
                 </>
               )}
-              <Text style={[styles.secondHeaderText, ( !error && region.latitude !== null ) && styles.margin]}>
+              <Text style={[
+                styles.secondHeaderText,
+                ( !error && coords.latitude ) && styles.margin
+              ]}
+              >
                 {i18n.t( "species_detail.worldwide" )}
               </Text>
               <Text style={styles.number}>

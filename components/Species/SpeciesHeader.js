@@ -13,24 +13,29 @@ import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
+import { useCommonName } from "../../utility/customHooks";
 
 type Props = {
   photos: Array<Object>,
   taxon: Object,
   seenTaxa: ?Object,
-  routeName: ?string
+  routeName: ?string,
+  id: ?Number
 }
 
 const SpeciesHeader = ( {
   routeName,
   photos,
   seenTaxa,
-  taxon
+  taxon,
+  id
 }: Props ) => {
   const { navigate } = useNavigation();
   const { params } = useRoute();
 
-  const { commonName, scientificName, iconicTaxonId } = taxon;
+  const commonName = useCommonName( id );
+
+  const { scientificName, iconicTaxonId } = taxon;
 
   const backAction = useCallback( () => {
     if ( routeName ) {

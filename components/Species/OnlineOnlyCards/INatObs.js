@@ -19,39 +19,43 @@ import { useTruncatedUserCoords } from "../../../utility/customHooks";
 
 type Props = {
   +id: ?number,
-  +timesSeen: ?number,
-  +error: ?string
+  +timesSeen: ?number
 };
 
-const INatObs = ( {
-  id,
-  timesSeen,
-  error
-}: Props ) => {
+const INatObs = ( { id, timesSeen }: Props ) => {
   const navigation = useNavigation();
   const coords = useTruncatedUserCoords();
   const [nearbySpeciesCount, setNearbySpeciesCount] = useState( null );
 
-  const fetchNearbySpeciesCount = useCallback( () => {
-    const params = {
-      lat: coords.latitude,
-      lng: coords.longitude,
-      radius: 50,
-      taxon_id: id
+  useEffect( () => {
+    let isFocused = true;
+
+    const fetchNearbySpeciesCount = () => {
+      const params = {
+        lat: coords.latitude,
+        lng: coords.longitude,
+        radius: 50,
+        taxon_id: id
+      };
+
+      const options = { user_agent: createUserAgent() };
+
+      inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
+        if ( isFocused ) {
+          setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
+        }
+      } ).catch( () => {
+        if ( isFocused ) {
+          setNearbySpeciesCount( 0 );
+        }
+      } );
     };
 
-    const options = { user_agent: createUserAgent() };
-
-    inatjs.observations.speciesCounts( params, options ).then( ( { results } ) => {
-      setNearbySpeciesCount( results.length > 0 ? results[0].count : 0 );
-    } ).catch( () => setNearbySpeciesCount( 0 ) );
-  }, [coords, id] );
-
-  useEffect( () => {
     if ( coords && coords.latitude !== null ) {
       fetchNearbySpeciesCount();
     }
-  }, [coords, fetchNearbySpeciesCount] );
+    return () => { isFocused = false; };
+  }, [coords, id] );
 
   const renderObs = () => {
     let obs = null;
@@ -64,7 +68,7 @@ const INatObs = ( {
               <Image source={logos.bird} style={styles.bird} />
             </TouchableOpacity>
             <View style={styles.textContainer}>
-              {( error !== "location" && coords.latitude ) && (
+              {coords.latitude && (
                 <>
                   <Text style={styles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
@@ -76,7 +80,7 @@ const INatObs = ( {
               )}
               <Text style={[
                 styles.secondHeaderText,
-                ( !error && coords.latitude ) && styles.margin
+                coords.latitude && styles.margin
               ]}
               >
                 {i18n.t( "species_detail.worldwide" )}

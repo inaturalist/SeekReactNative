@@ -22,32 +22,33 @@ const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
 
 type Props = {
-  +stats: Object,
-  +about: ?string,
-  +wikiUrl: ?string,
+  +details: Object,
   +id: ?number,
   +seenTaxa: ?Object,
-  +ancestors: Array<Object>,
-  +timesSeen: ?number,
-  +fetchiNatData: Function,
-  +error: ?string
+  +fetchiNatData: Function
 }
 
 const NoInternetError = ( {
-  stats,
-  about,
-  error,
-  wikiUrl,
   id,
   seenTaxa,
-  ancestors,
-  timesSeen,
+  details,
   fetchiNatData
 }: Props ) => {
-  const showGreenButtons = Object.keys( stats ).map( ( stat => stats[stat] ) ).includes( true );
+  const {
+    stats,
+    about,
+    wikiUrl,
+    ancestors,
+    timesSeen
+  } = details;
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const coords = useTruncatedUserCoords();
   const [region, setRegion] = useState( null );
+  const [greenButtons, setGreenButtons] = useState( {} );
+
+  const showGreenButtons = Object.keys( greenButtons ).map(
+    ( stat => greenButtons[stat] )
+  ).includes( true );
 
   useEffect( () => {
     // if user has seen observation, fetch data based on obs location
@@ -85,10 +86,19 @@ const NoInternetError = ( {
         if ( results.length > 0 ) {
           const { taxon } = results[0];
           if ( taxon ) {
-            stats.threatened = taxon.threatened;
-            stats.endemic = taxon.endemic;
-            stats.introduced = taxon.introduced;
-            stats.native = taxon.native;
+            const {
+              threatened,
+              endemic,
+              introduced,
+              native
+            } = taxon;
+
+            setGreenButtons( {
+              threatened,
+              endemic,
+              introduced,
+              native
+            } );
           }
         }
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
@@ -97,20 +107,28 @@ const NoInternetError = ( {
     if ( ( region && region.latitude ) && id !== null ) {
       checkStats();
     }
-  }, [region, id, stats] );
+  }, [region, id] );
 
-  // console.log( region, seenTaxa, coords, "region in species no internet" );
+  useEffect( () => {
+    if ( stats ) {
+      const newStats = greenButtons;
+      // it's unlikely that Seek will identify any endangered species
+      // since there probably aren't enough photographs
+      newStats.endangered = stats.endangered;
+      setGreenButtons( newStats );
+    }
+  }, [stats, greenButtons] );
 
   return (
     <View style={styles.background}>
-      {showGreenButtons && <SpeciesStats stats={stats} />}
+      {showGreenButtons && <SpeciesStats stats={greenButtons} />}
       {seenDate && <SeenDate showGreenButtons={showGreenButtons} seenDate={seenDate} />}
       <About about={about} wikiUrl={wikiUrl} id={id} />
       {id !== 43584 ? (
         <>
           {region && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
-          <SpeciesTaxonomy ancestors={ancestors} />
-          <INatObs error={error} id={id} timesSeen={timesSeen} />
+          {ancestors && <SpeciesTaxonomy ancestors={ancestors} />}
+          <INatObs id={id} timesSeen={timesSeen} />
           <SpeciesChart id={id} />
           <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />
         </>

@@ -17,7 +17,7 @@ import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
 import SpeciesError from "./SpeciesError";
 import Spacer from "../UIComponents/TopSpacer";
-import { getSpeciesId, getRoute, checkForInternet } from "../../utility/helpers";
+import { getSpeciesId, checkForInternet } from "../../utility/helpers";
 import NoInternetError from "./OnlineOnlyCards/NoInternetError";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
@@ -42,11 +42,7 @@ const SpeciesDetail = () => {
           ...state,
           taxon: action.taxon,
           photos: action.photos,
-          wikiUrl: action.wikiUrl,
-          about: action.about,
-          timesSeen: action.timesSeen,
-          ancestors: action.ancestors,
-          stats: action.stats
+          details: action.details
         };
       case "TAXA_SEEN":
         return {
@@ -57,18 +53,10 @@ const SpeciesDetail = () => {
             iconicTaxonId: action.seen.taxon.iconicTaxonId
           }
         };
-      case "RESET_SCREEN":
+      case "TAXA_NOT_SEEN":
         return {
           ...state,
-          id: null,
-          photos: [],
-          taxon: {},
-          about: null,
-          timesSeen: null,
-          error: null,
-          stats: {},
-          ancestors: [],
-          wikiUrl: null
+          seenTaxa: null
         };
       default:
         throw new Error();
@@ -80,56 +68,76 @@ const SpeciesDetail = () => {
       scientificName: null,
       iconicTaxonId: null
     },
-    about: null,
-    timesSeen: null,
+    details: {},
     error: null,
-    seenTaxa: null,
-    stats: {},
-    ancestors: [],
-    wikiUrl: null
+    seenTaxa: null
   } );
 
   const {
-    about,
     taxon,
     id,
     photos,
-    seenDate,
-    timesSeen,
+    details,
     error,
-    seenTaxa,
-    ancestors,
-    stats,
-    wikiUrl
+    seenTaxa
   } = state;
 
-  const setupScreen = async () => {
+  const setupScreen = useCallback( async () => {
     const i = await getSpeciesId();
-    dispatch( { type: "SET_ID", id: i } );
-  };
+    if ( i !== id ) {
+      dispatch( { type: "SET_ID", id: i } );
+    }
+  }, [id] );
 
   const checkIfSpeciesSeen = useCallback( () => {
+    if ( id === null ) {
+      return;
+    }
     Realm.open( realmConfig ).then( ( realm ) => {
       const observations = realm.objects( "ObservationRealm" );
       const seen = observations.filtered( `taxon.id == ${id}` )[0];
 
       if ( seen ) {
         dispatch( { type: "TAXA_SEEN", seen } );
+      } else {
+        dispatch( { type: "TAXA_NOT_SEEN" } );
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
   }, [id] );
 
   const checkInternetConnection = () => {
+    console.log( "checking internet connection" );
     checkForInternet().then( ( internet ) => {
       if ( internet === "none" || internet === "unknown" ) {
-        dispatch( { type: "INTERNET_ERROR" } );
+        dispatch( { type: "ERROR" } );
       } else {
         dispatch( { type: "NO_ERROR" } );
       }
     } );
   };
 
+  const createTaxonomyList = ( ancestors, scientificName, commonName ) => {
+    const taxonomyList = [];
+    const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
+    ancestors.forEach( ( ancestor ) => {
+      if ( ranks.includes( ancestor.rank ) ) {
+        taxonomyList.push( ancestor );
+      }
+    } );
+
+    taxonomyList.push( {
+      rank: "species",
+      name: scientificName || null,
+      preferred_common_name: commonName || null
+    } );
+
+    return taxonomyList;
+  };
+
   const fetchTaxonDetails = useCallback( () => {
+    if ( id === null ) {
+      return;
+    }
     const params = { locale: i18n.currentLocale() };
     const options = { user_agent: createUserAgent() };
 
@@ -138,21 +146,7 @@ const SpeciesDetail = () => {
       const commonName = taxa.preferred_common_name;
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
-      const ancestors = [];
-      const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
-      taxa.ancestors.forEach( ( ancestor ) => {
-        if ( ranks.includes( ancestor.rank ) ) {
-          ancestors.push( ancestor );
-        }
-      } );
-
-      ancestors.push( {
-        rank: "species",
-        name: scientificName || null,
-        preferred_common_name: commonName || null
-      } );
-
-      stats.endangered = ( conservationStatus && conservationStatus.status_name === "endangered" ) || false;
+      const ancestors = createTaxonomyList( taxa.ancestors, scientificName, commonName );
 
       dispatch( {
         type: "SET_TAXON_DETAILS",
@@ -161,18 +155,21 @@ const SpeciesDetail = () => {
           iconicTaxonId: taxa.iconic_taxon_id
         },
         photos: taxa.taxon_photos.map( ( p ) => p.photo ),
-        wikiUrl: taxa.wikipedia_url,
-        about: taxa.wikipedia_summary
-          ? i18n.t( "species_detail.wikipedia", {
-            about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
-          } )
-          : null,
-        timesSeen: taxa.observations_count,
-        ancestors,
-        stats
+        details: {
+          wikiUrl: taxa.wikipedia_url,
+          about: taxa.wikipedia_summary
+            && i18n.t( "species_detail.wikipedia", {
+              about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
+            } ),
+          timesSeen: taxa.observations_count,
+          ancestors,
+          stats: {
+            endangered: ( conservationStatus && conservationStatus.status_name === "endangered" ) || false
+          }
+        }
       } );
     } ).catch( () => checkInternetConnection() );
-  }, [id, stats] );
+  }, [id] );
 
   const scrollToTop = () => {
     if ( scrollView.current ) {
@@ -191,21 +188,18 @@ const SpeciesDetail = () => {
     } else {
       scrollToTop();
     }
-  }, [] );
+  }, [setupScreen] );
 
   useEffect( () => {
     if ( id !== null ) {
-      checkIfSpeciesSeen();
       fetchTaxonDetails();
+      checkIfSpeciesSeen();
     }
-  }, [id, checkIfSpeciesSeen, fetchTaxonDetails] );
+  }, [id, fetchTaxonDetails, checkIfSpeciesSeen] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
       fetchiNatData();
-    } );
-    navigation.addListener( "blur", () => {
-      dispatch( { type: "RESET_SCREEN" } );
     } );
   }, [navigation, fetchiNatData] );
 
@@ -228,19 +222,16 @@ const SpeciesDetail = () => {
         seenTaxa={seenTaxa}
         photos={photos}
       />
-      {error === "internet"
-        ? <SpeciesError seenDate={seenDate} updateScreen={updateScreen} />
+      {error
+        // make sure species error gets seenDate
+        ? <SpeciesError seenTaxa={seenTaxa} checkForInternet={checkInternetConnection} />
         : (
           <NoInternetError
-            about={about}
-            ancestors={ancestors}
+            details={details}
             error={error}
             fetchiNatData={fetchiNatData}
             id={id}
             seenTaxa={seenTaxa}
-            stats={stats}
-            timesSeen={timesSeen}
-            wikiUrl={wikiUrl}
           />
         )}
     </ScrollView>

@@ -2,7 +2,7 @@ import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from "../Home/HomeScreen";
-import SpeciesDetail from "../Species/SpeciesDetailHooks";
+import SpeciesDetail from "../Species/SpeciesDetail";
 import Footer from "../UIComponents/Footer";
 import DebugAndroid from "../UIComponents/DebugAndroid";
 

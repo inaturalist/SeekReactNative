@@ -32,8 +32,14 @@ export default StyleSheet.create( {
     justifyContent: "space-between",
     marginHorizontal: 28
   },
+  marginMedium: {
+    marginTop: 22
+  },
   marginSmall: {
     marginTop: 19
+  },
+  marginSmallest: {
+    marginTop: 15
   },
   radioMargin: {
     marginBottom: 11,

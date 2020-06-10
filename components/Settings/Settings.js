@@ -74,8 +74,10 @@ const SettingsScreen = () => {
         <>
           <View style={[styles.divider, styles.marginSmall]} />
           <View style={[styles.marginHorizontal, styles.margin]}>
-            <Text style={styles.header}>{i18n.t( "settings.donate_description" ).toLocaleUpperCase()}</Text>
-            <View style={styles.marginSmall} />
+            <Text style={styles.header}>{i18n.t( "settings.donate_header" ).toLocaleUpperCase()}</Text>
+            <View style={styles.marginSmallest} />
+            <Text style={styles.text}>{i18n.t( "settings.donate_description" )}</Text>
+            <View style={styles.marginMedium} />
             <GreenButton
               text="settings.donate"
               handlePress={() => navigate( "Donation" )}

@@ -579,8 +579,9 @@
     "common_names": "Display Common Names",
     "scientific_names": "Display Scientific Names",
     "donate": "Donate",
-    "donate_description": "Help support iNaturalist",
-    "language": "Language",
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
     "device_settings": "Use device language settings"
   },
   "seek_challenges": {

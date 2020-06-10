@@ -51,9 +51,14 @@ const SpeciesHeader = ( {
   }, [navigate, routeName, params] );
 
   useEffect( () => {
+    let isFocused = true;
     navigation.addListener( "focus", () => {
-      fetchRoute();
+      if ( isFocused ) {
+        fetchRoute();
+      }
     } );
+
+    return () => { isFocused = false; };
   }, [navigation] );
 
   useFocusEffect(

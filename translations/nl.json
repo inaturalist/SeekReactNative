@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek's Camera",
     "common_names": "Toon Gewone namen",
-    "scientific_names": "Toon Wetenschappelijke namen"
+    "scientific_names": "Toon Wetenschappelijke namen",
+    "donate": "Doneer",
+    "donate_description": "Help en ondersteun iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek badge",

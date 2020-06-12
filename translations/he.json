@@ -579,7 +579,9 @@
   "settings": {
     "header": "מצלמת Seek",
     "common_names": "הציגו שמות נפוצים",
-    "scientific_names": "הציגו שמות מדעיים"
+    "scientific_names": "הציגו שמות מדעיים",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "תג של Seek",

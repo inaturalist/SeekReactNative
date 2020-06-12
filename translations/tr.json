@@ -38,7 +38,7 @@
     "view_challenges": "Mücadeleye bak",
     "none": "Henüz hiç bildiriminiz yok!",
     "about": "Burada mevcut oldukça yeni mücadeleler, Seek'teki güncellemeler ve diğer benzer bilgiler hakkında uyarılacaksınız.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Yeni bir mücadele var!"
   },
   "login": {
     "log_in": "iNaturalist ile giriş yap",
@@ -167,12 +167,12 @@
     "no_new_challenges": "Yeni mücadeleler ulaşılabilir olduğunda sana haber vereceğiz.",
     "completed_all": "Ulaşılabilir tüm mücadeleleri tamamladın!",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "Şimdiye kadar {{count}} gözlem yaptın",
+      "one": "Şimdiye kadar {{count}} gözlem yaptın",
+      "two": "Şimdiye kadar {{count}} gözlem yaptın",
+      "few": "Şimdiye kadar {{count}} gözlem yaptın",
+      "many": "Şimdiye kadar {{count}} gözlem yaptın",
+      "other": "Şimdiye kadar {{count}} gözlem yaptın"
     },
     "how_to": "{{month}} için Seek Mücadelesini tamamlayın!",
     "released": "Bu mücadele {{date}} tarihinde çıkacak.",
@@ -251,12 +251,12 @@
     "error_species": "Üzgünüz, bu görüntü için tür ayrıntılarını alamadık. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.",
     "error_location": "Gözlemlerinize tür eklemek için konumunuzu etkinleştirmeniz gerekir. Seek, bulunduğunuz yeri bir organizmayı nerede gördüğünüzü anımsatmak ve iNaturalist’e gönderirseniz vatandaş bilimine katkıda bulunmanız için kullanır.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin.",
+      "one": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin.",
+      "two": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin.",
+      "few": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin.",
+      "many": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin.",
+      "other": "Servis geçici olarak kullanılamıyor. Lütfen {{count}} saat içinde tekrar deneyin."
     },
     "error_few": "bazı",
     "error_gps": "GPS konumuzu bulamadık. Lütfen gökyüzünü görebileceğiniz bir yere gitmeyi deneyin ve gözlemlerinizi kaydetmek için aygıtınızın konumunun açık olup olmadığını kontrol edin.",
@@ -272,12 +272,12 @@
     "challenge_view": "İlerlemene bak",
     "level_up": "Düzey atladınız!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "{{count}} tür gördünüz!",
+      "one": "{{count}} tür gördünüz!",
+      "two": "{{count}} tür gördünüz!",
+      "few": "{{count}} tür gördünüz!",
+      "many": "{{count}} tür gördünüz!",
+      "other": "{{count}} tür gördünüz!"
     }
   },
   "camera": {
@@ -345,12 +345,12 @@
     "login": "iNaturalist'e giriş yaparak, gözlemlerini çevrimiçi topluluğa gönderebilirsin!",
     "achievements": "Başarılar",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!",
+      "one": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!",
+      "two": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!",
+      "few": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!",
+      "many": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!",
+      "other": "Bir sonraki düzeye geçmek için {{count}} tür gözlemleyin!"
     },
     "observe_max": "Seek'de en yüksek düzeye ulaştınız!",
     "observe_species": "Gözlemle",
@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek Kamerası",
     "common_names": "Yaygın Adları Görüntüle",
-    "scientific_names": "Bilimsel Adları Görüntüle"
+    "scientific_names": "Bilimsel Adları Görüntüle",
+    "donate": "Bağış",
+    "donate_description": "iNaturalist Yardım Destek"
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -596,11 +598,11 @@
     "mission_2_may_2020": "2 böcek bul",
     "mission_3_may_2020": "1 eklembacaklı bul",
     "mission_4_may_2020": "2 kuş bul",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
-    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
-    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "resilience": "Dayanıklılık Mücadelesi",
+    "mission_1_june_2020": "Asterales takımından iki bitki bulun. ( Yıldızpatı, Çançiçeği, Scaevola, ve Türdeşleri)",
+    "mission_2_june_2020": "Passeriformes takımından 3 kuş bulun. ( Ötücü kuşlar)",
+    "mission_3_june_2020": "Coleoptera takımından 1 tane böcek bulun (Kın Kanatlılar)",
+    "june_2020_description": "Doğa dayanıklıdır ve etrafımızdadır. Şehirlerden tarlalara, bitkiler ve hayvanlar hayatlarını sürdürecek bir yol bulur. Kentsel alanlarda bile bitkiler, kuşlar ve böcekler bizimle birlikte yaşamaktadırlar.",
+    "action_june_2020": "Seek kamerada ortak isimler yerine bilimsel isimlerin görüntülenebileceğini biliyor musunuz? Menüden ayarlara gidin, ortak isimlerden bilimsel isimlere gösterimini değiştirin!"
   }
 }

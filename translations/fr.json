@@ -167,7 +167,7 @@
     "no_new_challenges": " Nous vous ferons savoir quand de nouveaux défis seront disponibles.",
     "completed_all": " Vous avez terminé tous les défis disponibles !",
     "number_observed_plural": {
-      "zero": "{{count}} observé(es) jusqu’à présent",
+      "zero": "{{count}} observé(e) jusqu’à présent",
       "one": "{{count}} observé(es) jusqu’à présent",
       "two": "{{count}} observé(es) jusqu’à présent",
       "few": "{{count}} observé(es) jusqu’à présent",
@@ -253,7 +253,7 @@
     "error_downtime_plural": {
       "zero": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "one": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporairement indisponible. Veuillez réessayer dans {{count}} heures.",
       "few": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "many": "Service temporairement indisponible. Réessayez dans {{count}} heures.",
       "other": "Service temporairement indisponible. Réessayez dans {{count}} heures."
@@ -579,7 +579,9 @@
   "settings": {
     "header": "La caméra de Seek",
     "common_names": "Afficher les noms communs",
-    "scientific_names": "Afficher les noms scientifiques"
+    "scientific_names": "Afficher les noms scientifiques",
+    "donate": "Donner",
+    "donate_description": "Soutenir iNaturalist"
   },
   "seek_challenges": {
     "badge": "Badge Seek",

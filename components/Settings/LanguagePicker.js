@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Text, View } from "react-native";
+import React, { useContext, useState, useEffect } from "react";
+import { Text, View, I18nManager, Platform } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
 
@@ -20,25 +20,10 @@ const LanguagePicker = () => {
   ) );
 
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
-
-  const chooseDisplayLanguage = () => {
-    let display;
-
-    if ( preferredLanguage !== "device" ) {
-      display = preferredLanguage;
-    } else if ( deviceLanguageSupported ) {
-      display = deviceLanguage;
-    } else {
-      display = "en";
-    }
-    return display;
-  };
-
-  const displayLanguage = chooseDisplayLanguage();
+  const [displayLanguage, setDisplayLanguage] = useState( null );
   const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
 
   const handleValueChange = ( value ) => {
-    console.log( value, displayLanguage );
     if ( value === displayLanguage && preferredLanguage === "device" ) {
       // this prevents the double render on new Android install
       // without this, the user changes the language
@@ -49,9 +34,25 @@ const LanguagePicker = () => {
       return;
     }
 
+    i18n.locale = value; // this changes translations on Settings screen in real-time
+
     toggleLanguage( value );
     toggleLanguagePreference();
   };
+
+  useEffect( () => {
+    const chooseDisplayLanguage = () => {
+      if ( preferredLanguage === "device" ) {
+        setDisplayLanguage( deviceLanguageSupported ? deviceLanguage : "en" );
+      } else {
+        setDisplayLanguage( preferredLanguage );
+      }
+    };
+
+    if ( preferredLanguage ) {
+      chooseDisplayLanguage();
+    }
+  }, [preferredLanguage, displayLanguage, deviceLanguage, deviceLanguageSupported] );
 
   return (
     <View style={styles.margin}>
@@ -68,19 +69,21 @@ const LanguagePicker = () => {
           <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
         </View>
       )}
-      <Picker
-        handleValueChange={handleValueChange}
-        selectedValue={displayLanguage}
-        itemList={localeList}
-      >
-        <View style={[styles.marginMedium, styles.center]}>
-          <View style={styles.greenButton}>
-            <Text style={styles.languageText}>
-              {languages[displayLanguage].toLocaleUpperCase()}
-            </Text>
+      {displayLanguage && (
+        <Picker
+          handleValueChange={handleValueChange}
+          selectedValue={displayLanguage}
+          itemList={localeList}
+        >
+          <View style={[styles.marginMedium, styles.center]}>
+            <View style={styles.greenButton}>
+              <Text style={styles.languageText}>
+                {languages[displayLanguage].toLocaleUpperCase()}
+              </Text>
+            </View>
           </View>
-        </View>
-      </Picker>
+        </Picker>
+      )}
     </View>
   );
 };

@@ -14,19 +14,17 @@ import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, ScientificNamesContext, LanguageContext } from "./UserContext";
 import { getScientificNames, getLanguage } from "../utility/settingsHelpers";
 
-const setRTL = () => {
+const setRTL = ( locale ) => {
   if ( Platform.OS === "android" ) {
     return;
   }
 
-  if ( i18n.locale === "he" || i18n.locale === "ar" ) {
+  if ( locale === "he" || locale === "ar" ) {
     I18nManager.forceRTL( true );
   } else {
     I18nManager.forceRTL( false );
   }
 };
-
-setRTL();
 
 const hideYellowWarnings = () => {
   YellowBox.ignoreWarnings( [
@@ -58,6 +56,7 @@ const App = () => {
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
     i18n.locale = languageTag;
+    setRTL( languageTag );
   };
 
   const setQuickActions = () => {
@@ -85,6 +84,7 @@ const App = () => {
     // are not needed immediately
     if ( preferredLanguage !== "device" ) {
       i18n.locale = preferredLanguage;
+      setRTL( preferredLanguage );
       setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     } else {
       handleLocalizationChange();

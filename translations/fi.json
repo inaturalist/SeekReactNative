@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek-kamera",
     "common_names": "Näytä yleiset nimet",
-    "scientific_names": "Näytä tieteelliset nimet"
+    "scientific_names": "Näytä tieteelliset nimet",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek-merkki",

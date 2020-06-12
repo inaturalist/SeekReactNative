@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek-kamera",
     "common_names": "Vertoon Volksname",
-    "scientific_names": "Vertoon Wetenskaplike Name"
+    "scientific_names": "Vertoon Wetenskaplike Name",
+    "donate": "Skenk",
+    "donate_description": "Help om iNaturalist te steun"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",

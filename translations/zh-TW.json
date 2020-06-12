@@ -579,7 +579,9 @@
   "settings": {
     "header": "Seek 相機",
     "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "scientific_names": "Display Scientific Names",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Seek 徽章",

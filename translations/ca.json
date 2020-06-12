@@ -579,7 +579,9 @@
   "settings": {
     "header": "Càmera de Seek",
     "common_names": "Mostra Noms Vulgars",
-    "scientific_names": "Mostra Noms Científics"
+    "scientific_names": "Mostra Noms Científics",
+    "donate": "Donate",
+    "donate_description": "Help support iNaturalist"
   },
   "seek_challenges": {
     "badge": "Veure insignia",

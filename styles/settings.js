@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  row
+  row,
+  center,
+  padding
 } from "./global";
 
 export default StyleSheet.create( {
@@ -10,10 +12,19 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     flex: 1
   },
-  divider: {
-    backgroundColor: colors.dividerGray,
-    height: 1,
-    marginHorizontal: 23
+  center,
+  checkBox: {
+    paddingRight: 10.3
+  },
+  checkboxRow: {
+    marginTop: 17
+  },
+  greenButton: {
+    backgroundColor: colors.seekForestGreen,
+    borderRadius: 6,
+    paddingBottom: 11,
+    paddingHorizontal: 18,
+    paddingTop: Platform.OS === "ios" ? 18 : 12
   },
   header: {
     color: colors.seekForestGreen,
@@ -21,12 +32,18 @@ export default StyleSheet.create( {
     fontSize: 19,
     letterSpacing: 1.12
   },
+  languageText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 20,
+    letterSpacing: 1.11
+  },
   leftMargin: {
     marginBottom: 5,
     marginLeft: 10
   },
   margin: {
-    marginTop: 27
+    marginTop: 35
   },
   marginHorizontal: {
     justifyContent: "space-between",
@@ -36,14 +53,17 @@ export default StyleSheet.create( {
     marginTop: 22
   },
   marginSmall: {
-    marginTop: 19
-  },
-  marginSmallest: {
     marginTop: 15
+  },
+  marginTop: {
+    marginTop: 24
+  },
+  padding: {
+    paddingTop: padding.iOSPaddingSmall
   },
   radioMargin: {
     marginBottom: 11,
-    marginLeft: 38
+    marginLeft: 10
   },
   row,
   text: {

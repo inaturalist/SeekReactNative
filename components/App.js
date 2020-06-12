@@ -19,7 +19,7 @@ const setRTL = () => {
     return;
   }
 
-  if ( i18n.locale === "he" ) {
+  if ( i18n.locale === "he" || i18n.locale === "ar" ) {
     I18nManager.forceRTL( true );
   } else {
     I18nManager.forceRTL( false );

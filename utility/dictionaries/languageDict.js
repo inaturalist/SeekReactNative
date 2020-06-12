@@ -1,5 +1,6 @@
 const languages = {
   af: "Afrikaans",
+  ar: "عربى",
   ca: "Català",
   cs: "Čeština",
   da: "Dansk",

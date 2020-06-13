@@ -149,6 +149,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 121
         versionName "2.6.2"
+        vectorDrawables.useSupportLibrary = true // for creating ic_seek_adaptiveappicon.xml
     }
     signingConfigs {
         release {

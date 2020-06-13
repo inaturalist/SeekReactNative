@@ -10,7 +10,6 @@
     
     <!--
       Note: you might need to add android:usesCleartextTraffic="true" in Android 9 for local dev. Please don't commit that, though.
-      android:icon="@mipmap/ic_launcher"
     -->
     <application
       android:name="org.inaturalist.seek.MainApplication"

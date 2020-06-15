@@ -147,8 +147,8 @@ android {
         applicationId "org.inaturalist.seek"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 121
-        versionName "2.6.2"
+        versionCode 122
+        versionName "2.7.0"
         vectorDrawables.useSupportLibrary = true // for creating ic_seek_adaptiveappicon.xml
     }
     signingConfigs {

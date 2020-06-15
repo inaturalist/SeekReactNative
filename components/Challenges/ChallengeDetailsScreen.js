@@ -6,12 +6,7 @@ import React, {
   useRef,
   useCallback
 } from "react";
-import {
-  ScrollView,
-  View,
-  StatusBar,
-  Platform
-} from "react-native";
+import { ScrollView, View, StatusBar } from "react-native";
 import Realm from "realm";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";

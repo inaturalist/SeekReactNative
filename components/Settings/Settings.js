@@ -3,8 +3,6 @@ import { View, Text, Platform } from "react-native";
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from "react-native-simple-radio-button";
 import { useNavigation } from "@react-navigation/native";
 
-import SafeAreaView from "../UIComponents/SafeAreaView";
-import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
 import { toggleScientificNames } from "../../utility/settingsHelpers";
@@ -12,6 +10,7 @@ import { colors } from "../../styles/global";
 import { ScientificNamesContext, UserContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const SettingsScreen = () => {
   const { navigate } = useNavigation();
@@ -33,9 +32,7 @@ const SettingsScreen = () => {
   };
 
   return (
-    <View style={styles.background}>
-      <SafeAreaView />
-      <GreenHeader header="menu.settings" />
+    <ScrollWithHeader header="menu.settings">
       <View style={[styles.marginHorizontal, styles.marginTop]}>
         <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
         <View style={styles.marginSmall}>
@@ -67,25 +64,23 @@ const SettingsScreen = () => {
             </RadioButton>
           ) )}
         </View>
-        <View style={styles.marginSmall} />
         <LanguagePicker />
         {( login && Platform.OS === "android" ) && (
-          <>
+          <View style={styles.margin}>
+            <Text style={styles.header}>{i18n.t( "settings.donate_header" ).toLocaleUpperCase()}</Text>
             <View style={styles.marginSmall} />
-            <View style={styles.margin}>
-              <Text style={styles.header}>{i18n.t( "settings.donate_header" ).toLocaleUpperCase()}</Text>
-              <View style={styles.marginSmall} />
-              <Text style={styles.text}>{i18n.t( "settings.donate_description" )}</Text>
-              <View style={styles.marginMedium} />
-              <GreenButton
-                text="settings.donate"
-                handlePress={() => navigate( "Donation" )}
-              />
-            </View>
-          </>
+            <Text style={styles.text}>{i18n.t( "settings.donate_description" )}</Text>
+            <View style={styles.marginMedium} />
+            <GreenButton
+              text="settings.donate"
+              handlePress={() => navigate( "Donation" )}
+            />
+            <View style={styles.marginTop} />
+            <View style={styles.marginTop} />
+          </View>
         )}
       </View>
-    </View>
+    </ScrollWithHeader>
   );
 };
 

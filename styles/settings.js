@@ -8,10 +8,6 @@ import {
 } from "./global";
 
 export default StyleSheet.create( {
-  background: {
-    backgroundColor: colors.white,
-    flex: 1
-  },
   center,
   checkBox: {
     paddingRight: 10.3
@@ -44,6 +40,9 @@ export default StyleSheet.create( {
   },
   margin: {
     marginTop: 35
+  },
+  marginGreenButton: {
+    marginTop: 19
   },
   marginHorizontal: {
     justifyContent: "space-between",

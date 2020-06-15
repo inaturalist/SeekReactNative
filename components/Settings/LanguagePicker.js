@@ -55,7 +55,7 @@ const LanguagePicker = () => {
   }, [preferredLanguage, displayLanguage, deviceLanguage, deviceLanguageSupported] );
 
   return (
-    <View style={styles.margin}>
+    <View style={styles.marginTop}>
       <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
       {deviceLanguageSupported && (
         <View style={[styles.row, styles.checkboxRow]}>
@@ -75,7 +75,7 @@ const LanguagePicker = () => {
           selectedValue={displayLanguage}
           itemList={localeList}
         >
-          <View style={[styles.marginMedium, styles.center]}>
+          <View style={[styles.marginGreenButton, styles.center]}>
             <View style={styles.greenButton}>
               <Text style={styles.languageText}>
                 {languages[displayLanguage].toLocaleUpperCase()}

@@ -38,7 +38,7 @@
     "view_challenges": "Se udfordring",
     "none": "Du har ingen meddelelser endnu!",
     "about": "Her får du besked om nye udfordringer efterhånden som de bliver tilgængelige, opdateringer af Seek og anden relevant information.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Der er en ny udfordring!"
   },
   "login": {
     "log_in": "Log ind med iNaturalist",
@@ -272,12 +272,12 @@
     "challenge_view": "Følg dine fremskridt",
     "level_up": "Du rykkede et niveau op!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "Du har set {{count}} arter!",
+      "one": "Du har set {{count}} art!",
+      "two": "Du har set {{count}} arter!",
+      "few": "Du har set {{count}} arter!",
+      "many": "Du har set {{count}} arter!",
+      "other": "Du har set {{count}} arter!"
     }
   },
   "camera": {

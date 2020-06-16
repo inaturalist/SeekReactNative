@@ -6,22 +6,22 @@ import { useNavigation } from "@react-navigation/native";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import styles from "../../../styles/species/species";
+import { useCommonName } from "../../../utility/customHooks";
 
 type Props = {
   +about: ?string,
-  +commonName: ?string,
   +wikiUrl: ?string,
   +id: ?number
 }
 
 const About = ( {
   about,
-  commonName,
   wikiUrl,
   id
 }: Props ) => {
   const navigation = useNavigation();
   const { login } = useContext( UserContext );
+  const commonName = useCommonName( id );
 
   return (
     <SpeciesDetailCard text="species_detail.about">

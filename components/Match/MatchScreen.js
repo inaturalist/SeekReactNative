@@ -85,7 +85,7 @@ class MatchScreen extends Component<Props, State> {
       showFlagModal: false,
       navigationPath: null,
       seenDate,
-      match: taxon.taxaName && !seenDate,
+      match: ( taxon && taxon.taxaName ) && !seenDate,
       challengeShown: false,
       errorCode,
       route: null

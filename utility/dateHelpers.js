@@ -13,6 +13,7 @@ import {
 } from "date-fns";
 import {
   af,
+  ar,
   ca,
   cs,
   da,
@@ -36,6 +37,7 @@ import i18n from "../i18n";
 
 const locales = {
   af,
+  ar,
   ca,
   cs,
   da,

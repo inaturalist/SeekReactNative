@@ -10,10 +10,10 @@ import {
 import { getSystemName } from "react-native-device-info";
 import { WebView } from "react-native-webview";
 
-import SafeAreaView from "./UIComponents/SafeAreaView";
-import i18n from "../i18n";
-import styles from "../styles/species/wikipedia";
-import icons from "../assets/icons";
+import SafeAreaView from "../UIComponents/SafeAreaView";
+import i18n from "../../i18n";
+import styles from "../../styles/species/wikipedia";
+import icons from "../../assets/icons";
 
 type Props = {
   +navigation: any

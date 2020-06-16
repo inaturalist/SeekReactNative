@@ -1,42 +1,40 @@
 import { StyleSheet } from "react-native";
 import {
   colors,
-  fonts
+  fonts,
+  center,
+  row,
+  dimensions
 } from "../global";
 
-
 export default StyleSheet.create( {
-  errorContainer: {
-    alignItems: "center",
-    backgroundColor: colors.speciesError,
-    height: 109,
-    justifyContent: "center",
-    marginTop: 15
+  background: {
+    backgroundColor: colors.white
   },
-  errorRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "space-between"
+  center,
+  errorContainer: {
+    backgroundColor: colors.speciesError,
+    marginTop: 18,
+    paddingHorizontal: 28,
+    paddingVertical: 28
   },
   errorText: {
     color: colors.white,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 24,
-    marginLeft: 12,
-    maxWidth: 245,
+    marginLeft: 25,
+    maxWidth: dimensions.width - ( 28 * 2 ) - 25 - 47,
     textAlign: "center"
   },
+  row,
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    textAlign: "center"
-  },
-  textContainer: {
     marginHorizontal: 28,
-    marginTop: 20
+    marginTop: 20,
+    textAlign: "center"
   }
 } );

@@ -20,30 +20,32 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
   const { length } = similarSpecies;
 
   useEffect( () => {
-    const resetState = () => {
-      setSimilarSpecies( [] );
-      setLoading( true );
-    };
-
-    const fetchSimilarSpecies = () => {
-      const params = {
-        per_page: 20,
-        taxon_id: id,
-        without_taxon_id: 43584,
-        locale: i18n.currentLocale()
+    if ( id !== null ) {
+      const resetState = () => {
+        setSimilarSpecies( [] );
+        setLoading( true );
       };
 
-      const options = { user_agent: createUserAgent() };
+      const fetchSimilarSpecies = () => {
+        const params = {
+          per_page: 20,
+          taxon_id: id,
+          without_taxon_id: 43584,
+          locale: i18n.currentLocale()
+        };
 
-      inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
-        const species = results.map( r => r.taxon );
+        const options = { user_agent: createUserAgent() };
 
-        setSimilarSpecies( species );
-        setLoading( false );
-      } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
-    };
-    resetState();
-    fetchSimilarSpecies();
+        inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
+          const species = results.map( r => r.taxon );
+
+          setSimilarSpecies( species );
+          setLoading( false );
+        } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
+      };
+      resetState();
+      fetchSimilarSpecies();
+    }
   }, [id] );
 
   return (

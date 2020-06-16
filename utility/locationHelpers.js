@@ -1,15 +1,21 @@
 import { Alert } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
-import Geolocation from "@react-native-community/geolocation";
+import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
 
-const fetchUserLocation = () => (
-  new Promise( ( resolve ) => {
+const fetchUserLocation = ( enableHighAccuracy ) => (
+  new Promise( ( resolve, reject ) => {
     Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
-    }, () => resolve( null ) );
+    }, ( { code } ) => {
+      reject( code );
+    }, {
+      // enableHighAccuracy to use GPS instead of Wifi location (i.e. cell towers )
+      // on error (particular Android devices), try again with enableHighAccuracy = false
+      enableHighAccuracy
+    } );
   } )
 );
 

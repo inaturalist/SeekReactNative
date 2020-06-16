@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -13,24 +13,34 @@ import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
 import icons from "../../assets/icons";
+import { useCommonName } from "../../utility/customHooks";
+import { getRoute } from "../../utility/helpers";
 
 type Props = {
   photos: Array<Object>,
   taxon: Object,
   seenTaxa: ?Object,
-  routeName: ?string
+  id: ?Number
 }
 
 const SpeciesHeader = ( {
-  routeName,
   photos,
   seenTaxa,
-  taxon
+  taxon,
+  id
 }: Props ) => {
-  const { navigate } = useNavigation();
+  const navigation = useNavigation();
+  const { navigate } = navigation;
   const { params } = useRoute();
+  const [routeName, setRouteName] = useState( null );
+  const commonName = useCommonName( id );
 
-  const { commonName, scientificName, iconicTaxonId } = taxon;
+  const fetchRoute = async () => {
+    const route = await getRoute();
+    setRouteName( route );
+  };
+
+  const { scientificName, iconicTaxonId } = taxon;
 
   const backAction = useCallback( () => {
     if ( routeName ) {
@@ -39,6 +49,17 @@ const SpeciesHeader = ( {
       navigate( "Home" );
     }
   }, [navigate, routeName, params] );
+
+  useEffect( () => {
+    let isFocused = true;
+    navigation.addListener( "focus", () => {
+      if ( isFocused ) {
+        fetchRoute();
+      }
+    } );
+
+    return () => { isFocused = false; };
+  }, [navigation] );
 
   useFocusEffect(
     useCallback( () => {
@@ -54,7 +75,7 @@ const SpeciesHeader = ( {
   );
 
   return (
-    <>
+    <View style={styles.background}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
@@ -78,7 +99,7 @@ const SpeciesHeader = ( {
         <Text style={styles.commonNameText}>{commonName || scientificName}</Text>
         <Text style={styles.scientificNameText}>{scientificName}</Text>
       </View>
-    </>
+    </View>
   );
 };
 

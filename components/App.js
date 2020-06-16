@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { I18nManager, Platform, YellowBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
-import Geolocation from "@react-native-community/geolocation";
 import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
@@ -12,22 +11,20 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { UserContext, ScientificNamesContext } from "./UserContext";
-import { getScientificNames } from "../utility/settingsHelpers";
+import { UserContext, ScientificNamesContext, LanguageContext } from "./UserContext";
+import { getScientificNames, getLanguage } from "../utility/settingsHelpers";
 
-const setRTL = () => {
+const setRTL = ( locale ) => {
   if ( Platform.OS === "android" ) {
     return;
   }
 
-  if ( i18n.locale === "he" ) {
+  if ( locale === "he" || locale === "ar" ) {
     I18nManager.forceRTL( true );
   } else {
     I18nManager.forceRTL( false );
   }
 };
-
-setRTL();
 
 const hideYellowWarnings = () => {
   YellowBox.ignoreWarnings( [
@@ -40,21 +37,26 @@ const hideYellowWarnings = () => {
 const App = () => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
+  const [preferredLanguage, setLanguage] = useState( null );
 
   const getLoggedIn = async () => setLogin( await fetchAccessToken() );
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
+  const getLanguagePreference = async () => setLanguage( await getLanguage() );
 
   const toggleLogin = () => getLoggedIn();
   const toggleNames = () => fetchScientificNames();
+  const toggleLanguagePreference = () => getLanguagePreference();
 
   const userContextValue = { login, toggleLogin };
   const scientificNamesContextValue = { scientificNames, toggleNames };
+  const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   const handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
     i18n.locale = languageTag;
+    setRTL( languageTag );
   };
 
   const setQuickActions = () => {
@@ -72,30 +74,41 @@ const App = () => {
   };
 
   useEffect( () => {
+    // wait until check for stored language is completed
+    if ( !preferredLanguage ) {
+      return;
+    }
+
+    // do not wait for commonNames setup to complete. It could take a while to
+    // add all names to Realm and we don't want to hold up the UI as names
+    // are not needed immediately
+    if ( preferredLanguage !== "device" ) {
+      i18n.locale = preferredLanguage;
+      setRTL( preferredLanguage );
+      setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
+    } else {
+      handleLocalizationChange();
+      setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
+    }
+  }, [preferredLanguage] );
+
+  useEffect( () => {
     hideYellowWarnings();
     if ( Platform.OS === "android" ) {
       setQuickActions();
     }
-    // do not wait for commonNames setup to complete. It could take a while to
-    // add all names to Realm and we don't want to hold up the UI as names
-    // are not needed immediately
     // console.log( new Date().getTime(), "start time for realm" );
-    if ( global && global.location && global.location.pathname ) {
-      if ( !global.location.pathname.includes( "debugger-ui" ) ) {
-        // detect whether Chrome Debugger is open -- it can't run with so many Realm requests
-        setTimeout( setupCommonNames, 5000 );
-      }
-    } else {
-      setTimeout( setupCommonNames, 5000 );
-    }
     getLoggedIn();
     fetchScientificNames();
+    getLanguagePreference();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
-    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
-    RNLocalize.addEventListener( "change", handleLocalizationChange );
 
-    Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
+    RNLocalize.addEventListener( "change", handleLocalizationChange );
+    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
+
+    // Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
+    // I don't think this line was doing anything anyway
 
     return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );
   }, [] );
@@ -103,7 +116,9 @@ const App = () => {
   return (
     <UserContext.Provider value={userContextValue}>
       <ScientificNamesContext.Provider value={scientificNamesContextValue}>
-        <RootStack />
+        <LanguageContext.Provider value={languageValue}>
+          <RootStack />
+        </LanguageContext.Provider>
       </ScientificNamesContext.Provider>
     </UserContext.Provider>
   );

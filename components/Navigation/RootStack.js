@@ -17,7 +17,7 @@ import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
-import Donation from "../Donation";
+import Donation from "../Settings/Donation";
 
 const MyTheme = {
   ...DefaultTheme,

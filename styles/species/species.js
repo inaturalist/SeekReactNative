@@ -11,7 +11,7 @@ export default StyleSheet.create( {
     left: 0,
     paddingBottom: 18,
     paddingHorizontal: 23,
-    paddingTop: 18,
+    paddingTop: 23,
     position: "absolute",
     zIndex: 1
   },

@@ -148,7 +148,7 @@ const useTruncatedUserCoords = () => {
   const granted = useLocationPermission();
   const [coords, setCoords] = useState( null );
 
-  const fetchCoords = async () => {
+  const fetchCoords = useCallback( async () => {
     try {
       const userCoords = await fetchTruncatedUserLocation();
 
@@ -158,13 +158,15 @@ const useTruncatedUserCoords = () => {
     } catch ( e ) {
       setCoords( null );
     }
-  };
+  }, [coords] );
 
-  // test this code
-  if ( Platform.OS === "android" && !granted ) {
-    setCoords( null );
-  }
-  fetchCoords();
+  useEffect( () => {
+    if ( Platform.OS === "android" && !granted ) {
+      setCoords( null );
+    } else {
+      fetchCoords();
+    }
+  }, [granted, fetchCoords] );
 
   return coords;
 };

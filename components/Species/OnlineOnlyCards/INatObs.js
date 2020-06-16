@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -15,16 +15,15 @@ import logos from "../../../assets/logos";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import createUserAgent from "../../../utility/userAgent";
 import { localizeNumber } from "../../../utility/helpers";
-import { useTruncatedUserCoords } from "../../../utility/customHooks";
 
 type Props = {
   +id: ?number,
-  +timesSeen: ?number
+  +timesSeen: ?number,
+  +region: Object
 };
 
-const INatObs = ( { id, timesSeen }: Props ) => {
+const INatObs = ( { id, timesSeen, region }: Props ) => {
   const navigation = useNavigation();
-  const coords = useTruncatedUserCoords();
   const [nearbySpeciesCount, setNearbySpeciesCount] = useState( null );
 
   useEffect( () => {
@@ -32,8 +31,8 @@ const INatObs = ( { id, timesSeen }: Props ) => {
 
     const fetchNearbySpeciesCount = () => {
       const params = {
-        lat: coords.latitude,
-        lng: coords.longitude,
+        lat: region.latitude,
+        lng: region.longitude,
         radius: 50,
         taxon_id: id
       };
@@ -51,11 +50,11 @@ const INatObs = ( { id, timesSeen }: Props ) => {
       } );
     };
 
-    if ( coords && coords.latitude !== null ) {
+    if ( region && region.latitude !== null ) {
       fetchNearbySpeciesCount();
     }
     return () => { isFocused = false; };
-  }, [coords, id] );
+  }, [region, id] );
 
   const renderObs = () => {
     let obs = null;
@@ -68,7 +67,7 @@ const INatObs = ( { id, timesSeen }: Props ) => {
               <Image source={logos.bird} style={styles.bird} />
             </TouchableOpacity>
             <View style={styles.textContainer}>
-              {coords.latitude && (
+              {region.latitude && (
                 <>
                   <Text style={styles.secondHeaderText}>
                     {i18n.t( "species_detail.near" )}
@@ -80,7 +79,7 @@ const INatObs = ( { id, timesSeen }: Props ) => {
               )}
               <Text style={[
                 styles.secondHeaderText,
-                coords.latitude && styles.margin
+                region.latitude && styles.margin
               ]}
               >
                 {i18n.t( "species_detail.worldwide" )}

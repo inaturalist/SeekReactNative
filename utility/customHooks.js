@@ -171,8 +171,6 @@ const useTruncatedUserCoords = () => {
     }
   }, [granted, fetchCoords] );
 
-  console.log( coords, granted, "coords and granted" );
-
   return coords;
 };
 

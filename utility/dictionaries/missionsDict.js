@@ -112,6 +112,20 @@ const missions = {
       number: 1,
       types: ["Coleoptera"]
     }
+  },
+  11: {
+    0: {
+      number: 2,
+      types: ["amphibians", "fish"]
+    },
+    1: {
+      number: 3,
+      types: ["Anseriformes", "Charadriiformes", "Coraciiformes", "Gaviiformes", "Gruiformes", "Pelecaniformes", "Phoenicopteriformes", "Podicipediformes", "Procellariformes", "Sphenisciformes", "Suliformes"]
+    },
+    2: {
+      number: 1,
+      types: ["mollusks"]
+    }
   }
 };
 

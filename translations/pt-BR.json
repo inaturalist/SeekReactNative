@@ -38,7 +38,7 @@
     "view_challenges": "Exibir desafio",
     "none": "Você ainda não tem nenhuma notificação!",
     "about": "Aqui, você será notificado sobre novos desafios à medida que eles estiverem disponíveis, atualizações da Seek e outras informações relevantes.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Há um novo desafio disponível!"
   },
   "login": {
     "log_in": "Entrar com o iNaturalist",
@@ -93,12 +93,12 @@
     "return_login": "Voltar ‡ p·gina de login."
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Política de privacidade"
   },
   "menu": {
     "home": "P·gina inicial",
     "achievements": "Conquistas",
-    "challenges": "Challenges",
+    "challenges": "Desafios",
     "observations": "ObservaÁıes",
     "inat": "iNaturalist",
     "about": "Sobre",
@@ -109,7 +109,7 @@
     "onboarding_2": "Learn about the organisms all around you",
     "onboarding_3": "Earn badges for observing different types of species",
     "skip": "Ignorar por enquanto",
-    "continue": "Continue"
+    "continue": "Continuar"
   },
   "location_picker": {
     "species_nearby": "Species nearby",
@@ -131,7 +131,7 @@
     "other": "Outro"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Desafios",
     "in_progress": "Em progresso",
     "not_started": "N„o iniciado",
     "completed": "ConcluÌdo",
@@ -216,7 +216,7 @@
     "about_inat": "O iNaturalist È a maior comunidade de naturalistas do mundo. Os usu·rios carregam fotos de espÈcies de todo o globo terrestre, e a nossa comunidade trabalha em conjunto para identific·-las. S„o esses dados que usamos para treinar a inteligÍncia artificial de identificaÁ„o, exibir dados de mapeamento e gerar dados de observaÁ„o de regiıes na Seek.",
     "contribute": "Interessado em contribuir para a ciÍncia dos cidad„os em uma comunidade global de naturalistas?",
     "join": "Log in with iNaturalist",
-    "by": "by",
+    "by": "por",
     "thanks": "A comunidade do iNaturalist é formada por pessoas como você! Participe da comunidade e acrescente as suas próprias observações em inaturalist.org!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
     "sign_out": "SIgn out of iNaturalist"
@@ -224,8 +224,8 @@
   "results": {
     "observed_species": "Você observou uma nova espécie!",
     "learn_more": "Isso foi adicionado às suas observações. Saiba mais sobre essa espécie aqui:",
-    "learn_more_no_location": "Learn more about this species here:",
-    "view_species": "View Species",
+    "learn_more_no_location": "Saiba mais sobre essa espécie aqui:",
+    "view_species": "Ver espécies",
     "back": "Back to Camera",
     "no_identification": "We weren’t able to identify this photo",
     "sorry": "Sorry about that, Seek is still learning!\n\nYou can try a different angle, zoom in, or try to get a clearer shot of the organism.",

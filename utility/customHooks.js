@@ -130,7 +130,6 @@ const useLocationPermission = () => {
 
   useEffect( () => {
     if ( Platform.OS === "android" ) {
-      console.log( "fetching permission status" );
       fetchPermissionStatus();
     }
   }, [] );

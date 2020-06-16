@@ -4,57 +4,55 @@ import React from "react";
 import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
+import { colors } from "../../styles/global";
 import styles from "../../styles/modals/flagModal";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 
 type Props = {
   +closeModal: Function,
-  +deleteObservation: Function,
   +userImage: string,
-  +speciesSeenImage: ?string,
-  +speciesText: ?string,
-  +seenDate: ?string
+  +speciesSeenImage: string,
+  +speciesText?: ?string,
+  +seenDate: Date
 };
 
-const FlagModal = ( {
+const ReplacePhotoModal = ( {
   closeModal,
-  deleteObservation,
   userImage,
   speciesSeenImage,
   speciesText,
   seenDate
 }: Props ) => (
   <ModalWithGradient
-    color="gray"
+    color="green"
     closeModal={closeModal}
     userImage={userImage}
     speciesSeenImage={speciesSeenImage}
+    seenDate={seenDate}
   >
     <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
-    <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
-    <View style={styles.marginSmall} />
+    <Text allowFontScaling={false} style={styles.text}>{i18n.t( "replace_photo.description" )}</Text>
+    <View style={styles.marginMedium} />
     <Button
       handlePress={() => {
-        if ( seenDate ) {
-          closeModal( true );
-        } else {
-          deleteObservation();
-          closeModal( true );
-        }
+        console.log( "edit observation in realm" );
+        closeModal( true );
       }}
-      text={seenDate
-        ? "results.yes_resighted"
-        : "results.yes"}
-      large
+      text="replace_photo.new"
+      color={colors.seekForestGreen}
     />
     <View style={styles.marginSmall} />
     <Button
       handlePress={() => closeModal()}
-      text="results.no"
+      text="replace_photo.old"
       color="#5e5e5e"
     />
   </ModalWithGradient>
 );
 
-export default FlagModal;
+ReplacePhotoModal.defaultProps = {
+  speciesText: null
+};
+
+export default ReplacePhotoModal;

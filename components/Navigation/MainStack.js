@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Footer from "../UIComponents/Footer";
 import FooterTabNav from "./FooterTabs";
-import Match from "../Match/MatchScreen";
+import Match from "../Match/MatchScreenHooks";
 import Notifications from "../Notifications/Notifications";
 
 const Tab = createBottomTabNavigator();

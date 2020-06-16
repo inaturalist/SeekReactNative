@@ -13,6 +13,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import LevelModal from "../Modals/LevelModal";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
+import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
 import Toasts from "../Toasts/Toasts";
@@ -58,6 +59,7 @@ const MatchScreen = () => {
   const [flagModal, setFlagModal] = useState( false );
   const [match, setMatch] = useState( params.taxon.taxaName && !seenDate );
   const [challengeShown, setChallengeShown] = useState( false );
+  const [replacePhotoModal, setReplacePhotoModal] = useState( seenDate !== null );
 
   // const fetchRoute = async () => {
   //   const r = await getRoute();
@@ -65,6 +67,9 @@ const MatchScreen = () => {
   // };
 
   const closeChallengeModal = () => setChallengeModal( false );
+  const closeReplacePhotoModal = () => setReplacePhotoModal( false );
+  const closeLevelModal = () => setLevelModal( false );
+  const openFlagModal = () => setFlagModal( true );
 
   useEffect( () => {
     if ( levelModal ) {
@@ -81,16 +86,12 @@ const MatchScreen = () => {
     }
   }, [levelModal] );
 
-  const closeLevelModal = () => setLevelModal( false );
-
   const showFailureScreen = () => {
     taxon.commonAncestor = null;
     taxon.speciesSeenImage = null;
     setMatch( false );
     setTaxon( taxon );
   };
-
-  const openFlagModal = () => setFlagModal( true );
 
   const closeFlagModal = ( showFailure ) => {
     setFlagModal( false );
@@ -209,6 +210,8 @@ const MatchScreen = () => {
     gradientColorLight = "#5e5e5e";
   }
 
+  console.log( replacePhotoModal, "replace photo" );
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
@@ -246,16 +249,27 @@ const MatchScreen = () => {
         </>
       )}
       {( match || seenDate ) && (
-        <Modal isVisible={flagModal}>
-          <FlagModal
-            deleteObservation={deleteObservation}
-            seenDate={seenDate}
-            speciesSeenImage={speciesSeenImage}
-            speciesText={speciesText}
-            closeModal={closeFlagModal}
-            userImage={image.uri}
-          />
-        </Modal>
+        <>
+          <Modal isVisible={flagModal}>
+            <FlagModal
+              deleteObservation={deleteObservation}
+              seenDate={seenDate}
+              speciesSeenImage={speciesSeenImage}
+              speciesText={speciesText}
+              closeModal={closeFlagModal}
+              userImage={image.uri}
+            />
+          </Modal>
+          <Modal isVisible={replacePhotoModal}>
+            <ReplacePhotoModal
+              seenDate={seenDate}
+              speciesSeenImage={speciesSeenImage}
+              speciesText={speciesText}
+              closeModal={closeReplacePhotoModal}
+              userImage={image.uri}
+            />
+          </Modal>
+        </>
       )}
       <ScrollView ref={scrollView}>
         <Spacer backgroundColor={gradientColorDark} />

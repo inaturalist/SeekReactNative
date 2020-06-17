@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenta",
-    "initiative": "iNaturalist és una iniciativa conjunta de la California Academy of Sciences i National Geographic Society"
-  },
   "species_nearby": {
     "header": "Espècies a prop",
     "location_error": "Per mostrar-te les espècies properes, necessitem utilitzar la teva ubicació.",
@@ -304,7 +300,9 @@
     "error_save": "Ho sentim, hi ha hagut un problema guardant la teva foto",
     "error_take": "Ho sentim, no hem pogut capturar la teva foto",
     "error_photos": "No hem trobat cap foto en aquest àlbum de fotos. Prova seleccionar un altre àlbum.",
-    "error_version": "La Càmera AR necessita iOS 11.0+. El teu dispositiu de la versió {{OS}} de OS."
+    "error_version": "La Càmera AR necessita iOS 11.0+. El teu dispositiu de la versió {{OS}} de OS.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Fotos",
@@ -581,7 +579,10 @@
     "common_names": "Mostra Noms Vulgars",
     "scientific_names": "Mostra Noms Científics",
     "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   }
 }

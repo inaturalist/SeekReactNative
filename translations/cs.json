@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "představují",
-    "initiative": "iNaturalist je společná iniciativa California Academy of Sciences a National Geographic Society"
-  },
   "species_nearby": {
     "header": "Druhy poblíž",
     "location_error": "Abychom vám mohli ukázat okolní druhy, musíme použít vaši polohu.",
@@ -304,7 +300,9 @@
     "error_save": "Sorry, there was a problem saving your photo to the camera roll",
     "error_take": "Omlouváme se, nepodařilo se nám zachytit fotografii",
     "error_photos": "V tomto albu nebyly nalezeny žádné fotografie. Zkuste vybrat jiné album.",
-    "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}."
+    "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}.",
+    "error_cameraManager": "Omlouváme se, ale nepodařilo se načíst správce fotoaparátu",
+    "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen"
   },
   "gallery": {
     "label": "Fotografie",
@@ -581,7 +579,10 @@
     "common_names": "Zobrazit obecné názvy",
     "scientific_names": "Zobrazit vědecké názvy",
     "donate": "Přispět",
-    "donate_description": "Help support iNaturalist"
+    "donate_header": "Pomozte podpořit iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "Jazyk aplikace",
+    "device_settings": "Použít jazykové nastavení zařízení"
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Najděte 3 ptáky z řádu Passeriformes (Pěvci)",
     "mission_3_june_2020": "Najděte 1 zástupce hmyzu z řádu Coleoptera (Brouci)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "Říční výzva",
+    "mission_1_july_2020": "Najdi jakékoliv 2 ryby nebo obojživelníky",
+    "mission_2_july_2020": "Najdi jakékoliv 3 vodní ptáky z řádů Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes a Suliformes",
+    "mission_3_july_2020": "Najdi 1 měkkýše",
+    "july_2020_description": "Řeky jsou centry biologické rozmanitosti. Ukrývajíce vše od mikro-bezobratlých po velké obratlovce, řeky pomáhají organismům kolem nich vzkvétat.",
+    "action_july_2020": "Když jste poblíž vodního těla, jaké organismy vidíte? Jaké druhy plavou ve vodě? Jaké druhy nad ní létají? Jsou ve vodě organismy, které není možné spatřit?"
   }
 }

@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenta",
-    "initiative": "iNaturalist è un' iniziativa congiunta della California Academy of Sciences e della National Geographic Society"
-  },
   "species_nearby": {
     "header": "Specie nelle vicinanze",
     "location_error": "Per mostrarti le specie nelle vicinanze, dobbiamo conoscere la tua posizione.",
@@ -304,7 +300,9 @@
     "error_save": "Spiacenti, si è verificato un problema durante il salvataggio della tua foto",
     "error_take": "Siamo spiacenti, non siamo riusciti a scattare la tua foto",
     "error_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso.",
-    "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}."
+    "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Foto",
@@ -581,7 +579,10 @@
     "common_names": "Visualizza Nomi Comuni",
     "scientific_names": "Visualizza Nomi Scientifici",
     "donate": "Dona",
-    "donate_description": "Aiuta e supporta iNaturalist"
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Aiuta e supporta iNaturalist",
+    "language": "In-app language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Distintivo Seek",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Trova 3 uccelli nell'ordine dei Passeriformi (Passeri)",
     "mission_3_june_2020": "Trova 1 insetto nell'ordine dei Coleotteri (Scarabei)",
     "june_2020_description": "La natura resiste ed è tutta intorno a noi. Dalle città ai terreni agricoli, alle piante e agli animali trova un modo per prosperare. Persino nelle aree urbane, piante e uccelli e insetti coesistono con noi.",
-    "action_june_2020": "Sapevi che è possibile visualizzare nomi scientifici al posto di nomi comuni nella videocamera di Seek? Vai alla pagina delle impostazioni dal menu per cambiare la visualizzazione da nomi comuni a nomi scientifici!"
+    "action_june_2020": "Sapevi che è possibile visualizzare nomi scientifici al posto di nomi comuni nella videocamera di Seek? Vai alla pagina delle impostazioni dal menu per cambiare la visualizzazione da nomi comuni a nomi scientifici!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   }
 }

@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "bied aan",
-    "initiative": "iNaturalist is ’n gesamentlike inisiatief van die Kaliforniese Wetenskapakademie en die National Geographic-genootskap"
-  },
   "species_nearby": {
     "header": "Spesies naby",
     "location_error": "Om spesies naby u te vertoon moet ons u ligging gebruik.",
@@ -304,7 +300,9 @@
     "error_save": "Jammer, daar was ’n probleem met die bewaar van u foto",
     "error_take": "Jammer, ons kon nie u foto vasvang nie",
     "error_photos": "Geen foto’s is in hierdie album gevind nie. Kies asb. ’n ander album.",
-    "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}."
+    "error_version": "Seek se UR-kamera vereis iOS 11.0+. U toestel loop op iOS-weergawe {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Foto’s",
@@ -581,7 +579,10 @@
     "common_names": "Vertoon Volksname",
     "scientific_names": "Vertoon Wetenskaplike Name",
     "donate": "Skenk",
-    "donate_description": "Help om iNaturalist te steun"
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Help om iNaturalist te steun",
+    "language": "In-app language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Vind 3 voëls in die orde Passeriformes (Sangvoëls)",
     "mission_3_june_2020": "Vind 1 insek in die orde Coleoptera (Kewers)",
     "june_2020_description": "Die natuur is weerstandig en oral om ons. Van stede tot plase vind plante en diere maniere om te gedy. Selfs in stedelike areas leef plante, voëls en insekte saam met ons.",
-    "action_june_2020": "Het u geweet u kan die wetenskaplike name eerder as volksname in die Seek-kamera vertoon? Gaan na die instellingsblad vanuit die kieslys om dit sodanig te verander!"
+    "action_june_2020": "Het u geweet u kan die wetenskaplike name eerder as volksname in die Seek-kamera vertoon? Gaan na die instellingsblad vanuit die kieslys om dit sodanig te verander!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   }
 }

@@ -19,7 +19,8 @@ type Props = {
   +closeModal: Function,
   +color: string,
   +userImage: string,
-  +speciesSeenImage: ?string
+  +speciesSeenImage: ?string,
+  +seenDate?: ?Date
 };
 
 const ModalWithGradient = ( {
@@ -27,7 +28,8 @@ const ModalWithGradient = ( {
   closeModal,
   color,
   userImage,
-  speciesSeenImage
+  speciesSeenImage,
+  seenDate
 }: Props ) => (
   <View style={styles.container}>
     <LinearGradient
@@ -58,6 +60,11 @@ const ModalWithGradient = ( {
             style={[styles.imageCell, styles.marginLeft]}
           />
         )}
+        {seenDate && (
+          <View style={styles.grayButton}>
+            <Text style={styles.grayButtonText}>{seenDate}</Text>
+          </View>
+        )}
       </View>
     </LinearGradient>
     <View style={styles.innerContainer}>
@@ -67,5 +74,9 @@ const ModalWithGradient = ( {
     </View>
   </View>
 );
+
+ModalWithGradient.defaultProps = {
+  seenDate: null
+};
 
 export default ModalWithGradient;

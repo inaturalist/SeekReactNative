@@ -30,6 +30,20 @@ export default StyleSheet.create( {
     maxWidth: 366,
     overflow: "hidden"
   },
+  grayButton: {
+    backgroundColor: colors.grayGradientLight,
+    borderRadius: 6,
+    paddingHorizontal: 15,
+    paddingVertical: 5,
+    position: "absolute",
+    right: 17.5,
+    top: 113
+  },
+  grayButtonText: {
+    color: colors.white,
+    fontFamily: fonts.medium,
+    fontSize: 12
+  },
   header: {
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
@@ -53,7 +67,7 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   marginLarge: {
-    marginTop: 45
+    marginTop: 55
   },
   marginLeft: {
     marginLeft: 17

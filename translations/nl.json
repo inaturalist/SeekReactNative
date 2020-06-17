@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenteert",
-    "initiative": "iNaturalist is een gezamenlijk initiatief van de California Academy of Sciences en de National Geographic Society"
-  },
   "species_nearby": {
     "header": "Soorten in de buurt",
     "location_error": "Om soorten in de buurt te tonen moeten we je locatie gebruiken.",
@@ -304,7 +300,9 @@
     "error_save": "Sorry, er was een probleem bij het bewaren van je foto",
     "error_take": "Het spijt ons, we konden je foto niet opslaan",
     "error_photos": "Er zijn geen foto's gevonden in dit fotoalbum. Probeer een ander album.",
-    "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}."
+    "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
+    "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
+    "error_photoError": "Sorry, het foto-object is niet gevonden"
   },
   "gallery": {
     "label": "Foto’s",
@@ -581,7 +579,10 @@
     "common_names": "Toon Gewone namen",
     "scientific_names": "Toon Wetenschappelijke namen",
     "donate": "Doneer",
-    "donate_description": "Help en ondersteun iNaturalist"
+    "donate_header": "Help en ondersteun iNaturalist",
+    "donate_description": "Help en ondersteun iNaturalist",
+    "language": "In-app taal",
+    "device_settings": "Systeemtaal gebruiken"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Vind 1 insect van de orde Coleoptera (Kevers)",
     "june_2020_description": "De natuur is veerkrachtig en overal om ons heen. Van steden tot het platteland, planten en dieren vinden een manier om te gedijen. Zelfs in stedelijke gebieden leven planten, vogels en insecten samen met ons.",
-    "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!"
+    "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!",
+    "river": "Rivier Uitdaging",
+    "mission_1_july_2020": "Vind 2 vissen of amfibieën",
+    "mission_2_july_2020": "Vind 3 watervogels uit de orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes & Suliformes",
+    "mission_3_july_2020": "Vind 1 weekdier",
+    "july_2020_description": "Rivieren vormen een knooppunt voor de biodiversiteit. Er leeft van alles, van microinvertebraten tot grote gewervelden. In de  rivieren gedijen allerlei organismen.",
+    "action_july_2020": "Welke organismen kun je vinden in de buurt van water? Welke soorten zwemmen in het water? Welke soorten vliegen erboven? Zijn er organismen in het water die je misschien niet kunt zien?"
   }
 }

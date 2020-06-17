@@ -20,7 +20,7 @@ type Props = {
   +color: string,
   +userImage: string,
   +speciesSeenImage: ?string,
-  +seenDate?: ?Date
+  +displayDate?: ?Date
 };
 
 const ModalWithGradient = ( {
@@ -29,7 +29,7 @@ const ModalWithGradient = ( {
   color,
   userImage,
   speciesSeenImage,
-  seenDate
+  displayDate
 }: Props ) => (
   <View style={styles.container}>
     <LinearGradient
@@ -60,9 +60,9 @@ const ModalWithGradient = ( {
             style={[styles.imageCell, styles.marginLeft]}
           />
         )}
-        {seenDate && (
+        {displayDate && (
           <View style={styles.grayButton}>
-            <Text style={styles.grayButtonText}>{seenDate}</Text>
+            <Text style={styles.grayButtonText}>{displayDate}</Text>
           </View>
         )}
       </View>
@@ -76,7 +76,7 @@ const ModalWithGradient = ( {
 );
 
 ModalWithGradient.defaultProps = {
-  seenDate: null
+  displayDate: null
 };
 
 export default ModalWithGradient;

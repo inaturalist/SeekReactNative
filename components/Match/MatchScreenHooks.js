@@ -216,8 +216,6 @@ const MatchScreen = () => {
     gradientColorLight = "#5e5e5e";
   }
 
-  console.log( replacePhotoModal, "replace photo" );
-
   return (
     <View style={styles.container}>
       <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />

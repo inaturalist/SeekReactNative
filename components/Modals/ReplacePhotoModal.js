@@ -10,6 +10,7 @@ import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { replacePhoto } from "../../utility/photoHelpers";
 import { useSeenTaxa, useUserPhoto } from "../../utility/customHooks";
+import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 
 type Props = {
   +closeModal: Function,
@@ -33,13 +34,20 @@ const ReplacePhotoModal = ( {
     return null;
   }
 
+  const { taxon } = seenTaxa;
+  const { defaultPhoto } = taxon;
+
+  const displayDate = ( defaultPhoto && defaultPhoto.lastUpdated )
+    ? formatShortMonthDayYear( defaultPhoto.lastUpdated )
+    : seenDate;
+
   return (
     <ModalWithGradient
       color="green"
       closeModal={closeModal}
       userImage={userImage}
       speciesSeenImage={currentUserPhoto.uri}
-      seenDate={seenDate}
+      displayDate={displayDate}
     >
       <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "replace_photo.description" )}</Text>

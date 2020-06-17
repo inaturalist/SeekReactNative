@@ -304,11 +304,9 @@ const replacePhoto = async ( id, uri ) => {
       const taxonToEdit = obsToEdit[0].taxon;
       const photoToEdit = taxonToEdit.defaultPhoto;
 
-      console.log( photoToEdit, "photo to edit" );
-      console.log( backupUri, uri, "updating" );
-
       photoToEdit.backupUri = backupUri;
       photoToEdit.mediumUrl = uri;
+      photoToEdit.lastUpdated = new Date();
     } );
   } ).catch( ( e ) => {
     console.log( e, "error editing photo object" );

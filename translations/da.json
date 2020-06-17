@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "præsenterer",
-    "initiative": "iNaturalist er et fælles initiativ fra California Academy of Sciences og National Geographic Society"
-  },
   "species_nearby": {
     "header": "Arter i nærheden",
     "location_error": "For at vise dig arter i nærheden, har vi brug for at kende din placering.",
@@ -251,12 +247,12 @@
     "error_species": "Beklager, vi kunne ikke indhente artsdetaljer for dette billede. Kontroller internetforbindelsen og prøv igen.",
     "error_location": "For at tilføje arter til dine observationer, skal du slå placering til. Seek bruger din placering til at minde dig om, hvor du så en organisme og som bidrag til borgervidenskab, når du tilføjer den til iNaturalist.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} timer.",
+      "one": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} time.",
+      "two": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} timer.",
+      "few": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} timer.",
+      "many": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} timer.",
+      "other": "Tjenesten er midlertidigt ikke tilgængelig. Prøv venligst igen om {{count}} timer."
     },
     "error_few": "nogle få",
     "error_gps": "Vi kunne ikke finde din GPS-placering. Prøv venligst at flytte dig til et sted, hvor du kan se himlen, og tjek at din enheds placering er slået til for at gemme observationer.",
@@ -304,7 +300,9 @@
     "error_save": "Beklager, der opstod et problem med at gemme dit billede",
     "error_take": "Beklager, vi kunne ikke tage dit foto",
     "error_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album.",
-    "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}."
+    "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Fotos",
@@ -581,7 +579,10 @@
     "common_names": "Vis almindelige navne",
     "scientific_names": "Vis videnskabelige navne",
     "donate": "Donér",
-    "donate_description": "Help support iNaturalist"
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   }
 }

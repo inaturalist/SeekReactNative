@@ -59,7 +59,7 @@ const MatchScreen = () => {
   const [flagModal, setFlagModal] = useState( false );
   const [match, setMatch] = useState( params.taxon.taxaName && !seenDate );
   const [challengeShown, setChallengeShown] = useState( false );
-  const [replacePhotoModal, setReplacePhotoModal] = useState( seenDate !== null );
+  const [replacePhotoModal, setReplacePhotoModal] = useState( false );
 
   // const fetchRoute = async () => {
   //   const r = await getRoute();
@@ -187,6 +187,12 @@ const MatchScreen = () => {
     } );
   }, [navigation, match, checkLocationPermissions] );
 
+  useEffect( () => {
+    if ( seenDate ) {
+      setReplacePhotoModal( true );
+    }
+  }, [seenDate] );
+
   const {
     taxaName,
     speciesSeenImage,
@@ -263,10 +269,10 @@ const MatchScreen = () => {
           <Modal isVisible={replacePhotoModal}>
             <ReplacePhotoModal
               seenDate={seenDate}
-              speciesSeenImage={speciesSeenImage}
               speciesText={speciesText}
               closeModal={closeReplacePhotoModal}
               userImage={image.uri}
+              taxaId={taxon.taxaId}
             />
           </Modal>
         </>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
+import Realm from "realm";
 
 import i18n from "../i18n";
 import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers";
@@ -8,6 +9,7 @@ import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./helpers";
+import realmConfig from "../models";
 
 const useScrollToTop = ( scrollView, navigation ) => {
   const scrollToTop = () => {
@@ -173,11 +175,28 @@ const useTruncatedUserCoords = () => {
   return coords;
 };
 
+const useSeenTaxa = ( id ) => {
+  const [seenTaxa, setSeenTaxa] = useState( null );
+
+  useEffect( () => {
+    if ( id !== null ) {
+      Realm.open( realmConfig ).then( ( realm ) => {
+        const observations = realm.objects( "ObservationRealm" );
+        const seen = observations.filtered( `taxon.id == ${id}` )[0];
+        setSeenTaxa( seen );
+      } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
+    }
+  }, [id] );
+
+  return seenTaxa;
+};
+
 export {
   useScrollToTop,
   useLocationName,
   useUserPhoto,
   useLocationPermission,
   useCommonName,
-  useTruncatedUserCoords
+  useTruncatedUserCoords,
+  useSeenTaxa
 };

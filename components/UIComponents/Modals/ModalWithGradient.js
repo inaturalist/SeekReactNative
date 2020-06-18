@@ -5,6 +5,7 @@ import {
   View,
   Text,
   Image,
+  ImageBackground,
   TouchableOpacity
 } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
@@ -13,6 +14,7 @@ import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/uiComponents/modals/modalWithGradient";
 import { colors } from "../../../styles/global";
+import iconicTaxa from "../../../assets/iconicTaxa";
 
 type Props = {
   +children: any,
@@ -54,7 +56,19 @@ const ModalWithGradient = ( {
           source={{ uri: userImage }}
           style={styles.imageCell}
         />
-        {speciesSeenImage && (
+        {( color === "green" && speciesSeenImage ) && (
+          <ImageBackground
+            source={iconicTaxa[1]}
+            style={[styles.imageCell, styles.marginLeft]}
+            imageStyle={styles.imageCell}
+          >
+            <Image
+              source={{ uri: speciesSeenImage }}
+              style={[styles.imageCell, styles.marginLeft]}
+            />
+          </ImageBackground>
+        )}
+        {( color === "gray" && speciesSeenImage ) && (
           <Image
             source={{ uri: speciesSeenImage }}
             style={[styles.imageCell, styles.marginLeft]}

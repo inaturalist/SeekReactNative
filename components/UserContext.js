@@ -2,11 +2,11 @@
 import { createContext } from "react";
 
 const UserContext = createContext();
-const ScientificNamesContext = createContext();
+const CameraContext = createContext();
 const LanguageContext = createContext();
 
 export {
   UserContext,
-  ScientificNamesContext,
+  CameraContext,
   LanguageContext
 };

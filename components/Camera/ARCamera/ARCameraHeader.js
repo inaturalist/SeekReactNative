@@ -12,7 +12,7 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/helpers";
-import { ScientificNamesContext } from "../../UserContext";
+import { CameraContext } from "../../UserContext";
 
 type Props = {
   +ranks: Object
@@ -21,7 +21,7 @@ type Props = {
 const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
-  const { scientificNames } = useContext( ScientificNamesContext );
+  const { scientificNames } = useContext( CameraContext );
   let id = null;
 
   if ( rankToRender && !scientificNames ) {

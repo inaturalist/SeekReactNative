@@ -1,118 +1,101 @@
 // @flow
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, {
+  useReducer,
+  useCallback,
+  useRef,
+  useContext
+} from "react";
 import {
   View,
   ScrollView,
-  SafeAreaView,
-  Platform
+  SafeAreaView
 } from "react-native";
-import Modal from "react-native-modal";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import LevelModal from "../Modals/LevelModal";
-import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
-import FlagModal from "../Modals/FlagModal";
-import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
-import Toasts from "../Toasts/Toasts";
 import Footer from "../UIComponents/Footer";
 import MatchFooter from "./MatchFooter";
 import Padding from "../UIComponents/Padding";
 import Spacer from "../UIComponents/TopSpacer";
-import { checkForNewBadges } from "../../utility/badgeHelpers";
-import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
-import {
-  setSpeciesId,
-  setRoute,
-  fetchNumberSpeciesSeen
-  // getRoute
-} from "../../utility/helpers";
-import { removeFromCollection } from "../../utility/observationHelpers";
-import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
-import { createLocationAlert } from "../../utility/locationHelpers";
 import MatchHeader from "./MatchHeader";
 import MatchContainer from "./MatchContainer";
+import { CameraContext } from "../UserContext";
+import { useScrollToTop } from "../../utility/customHooks";
+import MatchModals from "./MatchModals";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 
 const MatchScreen = () => {
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
+  const { scientificNames } = useContext( CameraContext );
+  const { image } = params;
+
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "MISIDENTIFIED":
+        return {
+          ...state,
+          seenDate: null,
+          match: false,
+          taxon: action.taxon
+        };
+      case "SET_NAV_PATH":
+        return { ...state, navPath: action.path };
+      case "SET_BADGES":
+        return { ...state, latestBadge: action.latestBadge, latestLevel: action.latestLevel };
+      case "SET_CHALLENGES":
+        return {
+          ...state,
+          challenge: action.challenge,
+          challengeInProgress: action.challengeInProgress
+        };
+      case "OPEN_FLAG_MODAL":
+        return { ...state, flagModal: true };
+      case "CLOSE_FLAG":
+        return { ...state, flagModal: false };
+      default:
+        throw new Error();
+    }
+  }, {
+    taxon: params.taxon,
+    badge: null,
+    seenDate: params.seenDate,
+    latestLevel: null,
+    challenge: null,
+    challengeInProgress: null,
+    navPath: null,
+    firstRender: true,
+    match: ( params.taxon && params.taxon.taxaName ) && !params.seenDate,
+    challengeShown: false,
+    flagModal: false
+  } );
 
   const {
-    image,
+    taxon,
     seenDate,
-    errorCode
-  } = params;
+    navPath,
+    match,
+    flagModal
+  } = state;
 
-  const [taxon, setTaxon] = useState( params.taxon );
-  const [badge, setBadge] = useState( null );
-  const [latestLevel, setLatestLevel] = useState( null );
-  const [challenge, setChallenge] = useState( null );
-  const [challengeInProgress, setChallengeInProgress] = useState( null );
-  const [navPath, setNavPath] = useState( null );
-  const [firstRender, setFirstRender] = useState( true );
-  // const [prevRoute, setPrevRoute] = useState( null );
-  const [challengeModal, setChallengeModal] = useState( false );
-  const [levelModal, setLevelModal] = useState( false );
-  const [flagModal, setFlagModal] = useState( false );
-  const [match, setMatch] = useState( params.taxon.taxaName && !seenDate );
-  const [challengeShown, setChallengeShown] = useState( false );
-  const [replacePhotoModal, setReplacePhotoModal] = useState( false );
+  useScrollToTop( scrollView, navigation );
 
-  // const fetchRoute = async () => {
-  //   const r = await getRoute();
-  //   setPrevRoute( r );
-  // };
+  const openFlagModal = () => dispatch( { type: "OPEN_FLAG_MODAL" } );
 
-  const closeChallengeModal = () => setChallengeModal( false );
-  const closeReplacePhotoModal = () => setReplacePhotoModal( false );
-  const closeLevelModal = () => setLevelModal( false );
-  const openFlagModal = () => setFlagModal( true );
-
-  useEffect( () => {
-    if ( levelModal ) {
-      fetchNumberSpeciesSeen().then( ( speciesCount ) => {
-        if ( speciesCount === 30 || speciesCount === 75 ) {
-          // trigger review at 30 and 75 species
-          if ( Platform.OS === "ios" ) {
-            showAppStoreReview();
-          } else {
-            showPlayStoreReview();
-          }
-        }
-      } );
-    }
-  }, [levelModal] );
-
-  const showFailureScreen = () => {
-    taxon.commonAncestor = null;
-    taxon.speciesSeenImage = null;
-    setMatch( false );
-    setTaxon( taxon );
-  };
-
-  const closeFlagModal = ( showFailure ) => {
-    setFlagModal( false );
+  const closeFlagModal = useCallback( ( showFailure ) => {
+    dispatch( { type: "CLOSE_FLAG" } );
     if ( showFailure ) {
-      showFailureScreen();
+      taxon.commonAncestor = null;
+      taxon.speciesSeenImage = null;
+      dispatch( { type: "MISIDENTIFIED", taxon } );
     }
-  };
+  }, [taxon] );
 
-  const checkBadges = () => {
-    checkForNewBadges().then( ( { latestBadge, latestLevel } ) => {
-      setBadge( latestBadge );
-      setLatestLevel( latestLevel );
-    } ).catch( () => console.log( "could not check for badges" ) );
-  };
-
-  const checkChallenges = () => {
-    checkForChallengesCompleted().then( ( { challengeInProgress, challengeComplete } ) => {
-      setChallengeInProgress( challengeInProgress );
-      setChallenge( challengeComplete );
-    } ).catch( () => console.log( "could not check for challenges" ) );
-  };
+  const setNavigationPath = ( path ) => dispatch( { type: "SET_NAV_PATH", path } );
 
   const navigateTo = useCallback( () => {
     const { taxaId } = taxon;
@@ -128,153 +111,55 @@ const MatchScreen = () => {
     }
   }, [navPath, navigation, params, taxon] );
 
-  const checkModals = useCallback( () => {
-    console.log( "checking modals", challenge, latestLevel, challengeShown );
-    if ( ( !challenge && !latestLevel ) || challengeShown ) {
-    // removed route === "Match" so latestLevel modal shows, but not sure why that was here
-      navigateTo();
-    } else if ( challenge ) {
-      setChallengeModal( true );
-    } else if ( latestLevel ) {
-      setLevelModal( true );
-    }
-  }, [challenge, latestLevel, challengeShown, navigateTo] );
+  const renderSpeciesText = () => {
+    const {
+      taxaName,
+      commonAncestor,
+      scientificName
+    } = taxon;
 
-  const setNavigationPath = ( path ) => setNavPath( path );
-  //   checkModals();
-  // };
+    let speciesText = null;
 
-  const checkLocationPermissions = useCallback( () => {
-    console.log( firstRender, "first render in loc permissions " );
-    if ( !image.latitude && firstRender ) {
-      createLocationAlert( errorCode );
+    if ( seenDate || ( taxaName && match ) ) {
+      speciesText = !scientificNames ? taxaName : scientificName;
+    } else if ( commonAncestor ) {
+      speciesText = !scientificNames ? commonAncestor : scientificName;
     }
-  }, [image.latitude, errorCode, firstRender] );
 
-  const scrollToTop = () => {
-    if ( scrollView.current ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
+    return speciesText;
   };
 
-  const deleteObservation = () => removeFromCollection( taxon.taxaId );
-
-  useEffect( () => {
-    console.log( challengeShown, navPath, "challenge shown and navpath" );
-    if ( challengeShown || navPath ) {
-      checkModals();
-    }
-  }, [challengeShown, navPath, checkModals] );
-
-  useEffect( () => {
-    navigation.addListener( "focus", () => {
-      if ( match ) {
-        checkChallenges();
-        checkBadges();
-        checkLocationPermissions();
-      }
-      scrollToTop();
-      // fetchRoute();
-    } );
-
-    navigation.addListener( "blur", () => {
-      setFirstRender( false );
-      if ( match ) {
-        setChallengeProgress( "none" );
-      }
-    } );
-  }, [navigation, match, checkLocationPermissions] );
-
-  useEffect( () => {
-    if ( seenDate ) {
-      setReplacePhotoModal( true );
-    }
-  }, [seenDate] );
-
-  const {
-    taxaName,
-    speciesSeenImage,
-    commonAncestor
-  } = taxon;
+  const { speciesSeenImage, commonAncestor } = taxon;
 
   let gradientColorDark;
   let gradientColorLight;
-  let speciesText;
+  const speciesText = renderSpeciesText();
 
   if ( seenDate || match ) {
     gradientColorDark = "#22784d";
     gradientColorLight = colors.seekForestGreen;
-    speciesText = taxaName;
   } else if ( commonAncestor ) {
     gradientColorDark = "#175f67";
     gradientColorLight = colors.seekTeal;
-    speciesText = commonAncestor;
   } else {
     gradientColorDark = "#404040";
     gradientColorLight = "#5e5e5e";
   }
 
+  console.log( speciesText, "species text in hooks" );
+
   return (
     <View style={styles.container}>
       <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
-      {( match && firstRender ) && (
-        <>
-          <Toasts
-            badge={badge}
-            challenge={challengeInProgress}
-          />
-          <Modal
-            isVisible={challengeModal}
-            onBackdropPress={() => closeChallengeModal()}
-            onModalHide={() => setChallengeShown( true )}
-            onSwipeComplete={() => closeChallengeModal()}
-            swipeDirection="down"
-          >
-            <ChallengeEarnedModal
-              challenge={challenge}
-              closeModal={closeChallengeModal}
-            />
-          </Modal>
-          <Modal
-            isVisible={levelModal}
-            onBackdropPress={() => closeLevelModal()}
-            onModalHide={() => navigateTo()}
-            onSwipeComplete={() => closeLevelModal()}
-            swipeDirection="down"
-          >
-            <LevelModal
-              level={latestLevel}
-              speciesCount={latestLevel ? latestLevel.count : 0}
-              closeModal={closeLevelModal}
-            />
-          </Modal>
-        </>
-      )}
-      {( match || seenDate ) && (
-        <>
-          <Modal isVisible={flagModal}>
-            <FlagModal
-              deleteObservation={deleteObservation}
-              seenDate={seenDate}
-              speciesSeenImage={speciesSeenImage}
-              speciesText={speciesText}
-              closeModal={closeFlagModal}
-              userImage={image.uri}
-            />
-          </Modal>
-          <Modal isVisible={replacePhotoModal}>
-            <ReplacePhotoModal
-              seenDate={seenDate}
-              speciesText={speciesText}
-              closeModal={closeReplacePhotoModal}
-              userImage={image.uri}
-              taxaId={taxon.taxaId}
-            />
-          </Modal>
-        </>
-      )}
+      <MatchModals
+        match={match}
+        flagModal={flagModal}
+        closeFlagModal={closeFlagModal}
+        params={params}
+        navigateTo={navigateTo}
+        speciesSeenImage={speciesSeenImage}
+        speciesText={speciesText}
+      />
       <ScrollView ref={scrollView}>
         <Spacer backgroundColor={gradientColorDark} />
         <MatchHeader
@@ -289,6 +174,7 @@ const MatchScreen = () => {
           taxon={taxon}
           seenDate={seenDate}
           match={match}
+          speciesText={speciesText}
           setNavigationPath={setNavigationPath}
           gradientColorLight={gradientColorLight}
         />

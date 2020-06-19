@@ -65,10 +65,16 @@ export default StyleSheet.create( {
     marginLeft: 10
   },
   row,
+  switch: {
+    marginRight: 10.3
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
+  },
+  textWidth: {
+    maxWidth: 239
   }
 } );

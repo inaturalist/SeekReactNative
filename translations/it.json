@@ -301,8 +301,8 @@
     "error_take": "Siamo spiacenti, non siamo riusciti a scattare la tua foto",
     "error_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso.",
     "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
-    "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
+    "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato"
   },
   "gallery": {
     "label": "Foto",
@@ -485,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, e Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -579,10 +579,10 @@
     "common_names": "Visualizza Nomi Comuni",
     "scientific_names": "Visualizza Nomi Scientifici",
     "donate": "Dona",
-    "donate_header": "Help support iNaturalist",
-    "donate_description": "Aiuta e supporta iNaturalist",
-    "language": "In-app language",
-    "device_settings": "Use device language settings"
+    "donate_header": "Aiuta a sostenere iNaturalist",
+    "donate_description": "Ti piace Seek? Considera la possibilità di donare ad iNaturalist! Dipendiamo dalle donazioni di persone come te per mantenere le nostre app gratuite.",
+    "language": "Lingua dell'applicazione",
+    "device_settings": "Usa le impostazioni della lingua del dispositivo"
   },
   "seek_challenges": {
     "badge": "Distintivo Seek",
@@ -605,11 +605,11 @@
     "mission_3_june_2020": "Trova 1 insetto nell'ordine dei Coleotteri (Scarabei)",
     "june_2020_description": "La natura resiste ed è tutta intorno a noi. Dalle città ai terreni agricoli, alle piante e agli animali trova un modo per prosperare. Persino nelle aree urbane, piante e uccelli e insetti coesistono con noi.",
     "action_june_2020": "Sapevi che è possibile visualizzare nomi scientifici al posto di nomi comuni nella videocamera di Seek? Vai alla pagina delle impostazioni dal menu per cambiare la visualizzazione da nomi comuni a nomi scientifici!",
-    "river": "River Challenge",
-    "mission_1_july_2020": "Find any 2 fish or amphibians",
-    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
-    "mission_3_july_2020": "Find 1 mollusk",
-    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
-    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
+    "river": "Sfida Fiume",
+    "mission_1_july_2020": "Trova 2 pesci o anfibi",
+    "mission_2_july_2020": "Trova qualsiasi 3 uccelli acquatici dagli ordini Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Trova 1 mollusco",
+    "july_2020_description": "I fiumi sono un hotspot di biodiversità. Sostengono tutto, dai microinvertebrati ai grandi vertebrati, i fiumi aiutano a prosperare gli organismi che li circondano.",
+    "action_july_2020": "Quando sei vicino a un corpo d'acqua, quali organismi osservi? Quali specie nuotano nell'acqua? Quali specie volano sopra di esso? Ci sono organismi nell'acqua che potresti non essere in grado di vedere?"
   }
 }

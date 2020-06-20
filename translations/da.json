@@ -163,12 +163,12 @@
     "no_new_challenges": "Vi giver dig besked, når der er nye udfordringer.",
     "completed_all": "Du har fuldført alle tilgængelige udfordringer!",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} observeret indtil videre",
+      "one": "{{count}} observeret indtil videre",
+      "two": "{{count}} observeret indtil videre",
+      "few": "{{count}} observeret indtil videre",
+      "many": "{{count}} observeret indtil videre",
+      "other": "{{count}} observeret indtil videre"
     },
     "how_to": "Fuldfør Seek-udfordringen for {{month}}!",
     "released": "Denne udfordring frigives {{date}}.",

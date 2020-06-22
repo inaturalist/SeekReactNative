@@ -7,23 +7,24 @@ import i18n from "../../i18n";
 import styles from "../../styles/modals/flagModal";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
+import { removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {
   +closeModal: Function,
-  +deleteObservation: Function,
   +userImage: string,
   +speciesSeenImage: ?string,
   +speciesText: ?string,
-  +seenDate: ?string
+  +seenDate: ?string,
+  +taxaId: number
 };
 
 const FlagModal = ( {
   closeModal,
-  deleteObservation,
   userImage,
   speciesSeenImage,
   speciesText,
-  seenDate
+  seenDate,
+  taxaId
 }: Props ) => (
   <ModalWithGradient
     color="gray"
@@ -39,7 +40,7 @@ const FlagModal = ( {
         if ( seenDate ) {
           closeModal( true );
         } else {
-          deleteObservation();
+          removeFromCollection( taxaId );
           closeModal( true );
         }
       }}

@@ -82,30 +82,29 @@ const addToCollection = async ( observation, image ) => {
 };
 
 const removeFromCollection = ( id ) => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      realm.write( () => {
-        const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
-        const taxonToDelete = obsToDelete[0].taxon;
-        const photoObjToDelete = taxonToDelete.defaultPhoto;
+  Realm.open( realmConfig ).then( ( realm ) => {
+    realm.write( () => {
+      const obsToDelete = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
+      const taxonToDelete = obsToDelete[0].taxon;
+      const photoObjToDelete = taxonToDelete.defaultPhoto;
 
-        const { backupUri } = photoObjToDelete;
+      const { backupUri } = photoObjToDelete;
 
-        if ( backupUri !== null ) { // for simulators and pre-backup observations
-          const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
-          const backupFilepath = `${dirPictures}/${uri[1]}`;
-          deleteFile( backupFilepath );
-        }
+      if ( backupUri !== null ) { // for simulators and pre-backup observations
+        const uri = backupUri.split( "Pictures/" ); // should work for both iOS and Android
+        const backupFilepath = `${dirPictures}/${uri[1]}`;
+        deleteFile( backupFilepath );
+      }
 
-        realm.delete( photoObjToDelete );
-        realm.delete( obsToDelete );
-        realm.delete( taxonToDelete );
-        deleteBadges();
-        recalculateChallenges();
-      } );
-    } ).catch( ( e ) => {
-      console.log( e, "error removing from collection" );
+      realm.delete( photoObjToDelete );
+      realm.delete( obsToDelete );
+      realm.delete( taxonToDelete );
+      deleteBadges();
+      recalculateChallenges();
     } );
+  } ).catch( ( e ) => {
+    console.log( e, "error removing from collection" );
+  } );
 };
 
 const sortNewestToOldest = ( observations ) => {

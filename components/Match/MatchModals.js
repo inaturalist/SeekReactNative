@@ -17,28 +17,29 @@ import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import FlagModal from "../Modals/FlagModal";
 import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import Toasts from "../Toasts/Toasts";
-import { removeFromCollection } from "../../utility/observationHelpers";
-import { fetchNumberSpeciesSeen } from "../../utility/helpers";
+import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
 import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
 
 type Props = {
   match: boolean,
   closeFlagModal: Function,
-  navigateTo: Function,
+  setNavigationPath: Function,
   params: Object,
   flagModal: boolean,
   speciesSeenImage: string,
-  speciesText: string
+  speciesText: ?string,
+  navPath: ?string
 };
 
 const MatchModals = ( {
   match,
   closeFlagModal,
   params,
-  navigateTo,
+  setNavigationPath,
   flagModal,
   speciesSeenImage,
-  speciesText
+  speciesText,
+  navPath
 }: Props ) => {
   const navigation = useNavigation();
 
@@ -53,7 +54,7 @@ const MatchModals = ( {
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
       case "SET_BADGES":
-        return { ...state, badge: action.latestBadge, latestLevel: action.latestLevel };
+        return { ...state, latestLevel: action.latestLevel, badge: action.latestBadge };
       case "SET_CHALLENGES":
         return {
           ...state,
@@ -74,11 +75,10 @@ const MatchModals = ( {
         throw new Error();
     }
   }, {
-    badge: null,
     latestLevel: null,
+    badge: null,
     challenge: null,
     challengeInProgress: null,
-    navPath: null,
     challengeShown: false,
     challengeModal: false,
     levelModal: false,
@@ -87,11 +87,10 @@ const MatchModals = ( {
   } );
 
   const {
-    badge,
     latestLevel,
-    challenge,
+    badge,
     challengeInProgress,
-    navPath,
+    challenge,
     challengeShown,
     replacePhotoModal,
     levelModal,
@@ -112,6 +111,7 @@ const MatchModals = ( {
   useEffect( () => {
     if ( levelModal ) {
       fetchNumberSpeciesSeen().then( ( speciesCount ) => {
+        console.log( speciesCount, "species count" );
         if ( speciesCount === 30 || speciesCount === 75 ) {
           // trigger review at 30 and 75 species
           if ( Platform.OS === "ios" ) {
@@ -124,35 +124,43 @@ const MatchModals = ( {
     }
   }, [levelModal] );
 
+  const navigateTo = useCallback( () => {
+    const { taxaId } = taxon;
+    console.log( "navigating to: ", navPath );
+
+    if ( navPath === "Camera" ) {
+      setNavigationPath( null );
+      navigation.navigate( "Camera" );
+    } else if ( navPath === "Species" ) {
+      setNavigationPath( null );
+      setSpeciesId( taxaId );
+      // return user to match screen
+      setRoute( "Match" );
+      // full nav path for QuickActions
+      navigation.navigate( "MainTab", { screen: "Species", params: { ...params } } );
+    }
+  }, [navPath, navigation, params, taxon, setNavigationPath] );
+
   const checkModals = useCallback( () => {
-    console.log( "checking modals", challenge, latestLevel, challengeShown );
-    if ( ( !challenge && !latestLevel ) || challengeShown ) {
-    // removed route === "Match" so latestLevel modal shows, but not sure why that was here
-      navigateTo();
-    } else if ( challenge ) {
-      dispatch( { type: "SET_CHALLENGE_MODAL", status: true } );
-    } else if ( latestLevel ) {
-      dispatch( { type: "SET_LEVEL_MODAL", status: true } );
+    if ( navPath ) {
+      if ( ( !challenge && !latestLevel ) || challengeShown ) {
+        navigateTo();
+      } else if ( challenge ) {
+        dispatch( { type: "SET_CHALLENGE_MODAL", status: true } );
+      } else if ( latestLevel ) {
+        dispatch( { type: "SET_LEVEL_MODAL", status: true } );
+      }
     }
-  }, [challenge, latestLevel, challengeShown, navigateTo] );
-
-  useEffect( () => {
-    console.log( challengeShown, navPath, "challenge shown and navpath" );
-    if ( challengeShown || navPath ) {
-      checkModals();
-    }
-  }, [challengeShown, navPath, checkModals] );
-
-  const deleteObservation = () => removeFromCollection( taxon.taxaId );
+  }, [navPath, challenge, latestLevel, challengeShown, navigateTo] );
 
   const checkBadges = () => {
-    checkForNewBadges().then( ( { latestBadge, latestLevel } ) => {
-      dispatch( { type: "SET_BADGES", latestBadge, latestLevel } );
+    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => {
+      dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
     } ).catch( () => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = () => {
-    checkForChallengesCompleted().then( ( { challengeInProgress, challengeComplete } ) => {
+    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => {
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
     } ).catch( () => console.log( "could not check for challenges" ) );
   };
@@ -164,13 +172,18 @@ const MatchModals = ( {
   }, [image.latitude, errorCode] );
 
   useEffect( () => {
+    if ( challengeShown || navPath ) {
+      checkModals();
+    }
+  }, [challengeShown, navPath, checkModals] );
+
+  useEffect( () => {
     navigation.addListener( "focus", () => {
-      if ( match ) {
+      if ( match && firstRender ) {
         checkChallenges();
         checkBadges();
         checkLocationPermissions();
       }
-      // fetchRoute();
     } );
 
     navigation.addListener( "blur", () => {
@@ -179,13 +192,12 @@ const MatchModals = ( {
         setChallengeProgress( "none" );
       }
     } );
-  }, [navigation, match, checkLocationPermissions] );
+  }, [navigation, match, firstRender, checkLocationPermissions] );
 
-  console.log( state, "state in modals" );
+  console.log( state, "state changes in match modals" );
 
   return (
     <>
-      <Toasts badge={badge} challenge={challengeInProgress} />
       <Modal
         isVisible={challengeModal}
         onBackdropPress={() => closeChallengeModal()}
@@ -193,10 +205,7 @@ const MatchModals = ( {
         onSwipeComplete={() => closeChallengeModal()}
         swipeDirection="down"
       >
-        <ChallengeEarnedModal
-          challenge={challenge}
-          closeModal={closeChallengeModal}
-        />
+        <ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />
       </Modal>
       <Modal
         isVisible={levelModal}
@@ -211,23 +220,28 @@ const MatchModals = ( {
           closeModal={closeLevelModal}
         />
       </Modal>
+      {firstRender && (
+        <>
+          <Toasts badge={badge} challenge={challengeInProgress} />
+          <Modal isVisible={replacePhotoModal}>
+            <ReplacePhotoModal
+              seenDate={seenDate}
+              speciesText={speciesText}
+              closeModal={closeReplacePhotoModal}
+              userImage={image.uri}
+              taxaId={taxon.taxaId}
+            />
+          </Modal>
+        </>
+      )}
       <Modal isVisible={flagModal}>
         <FlagModal
-          deleteObservation={deleteObservation}
+          taxaId={taxon.taxaId}
           seenDate={seenDate}
           speciesSeenImage={speciesSeenImage}
           speciesText={speciesText}
           closeModal={closeFlagModal}
           userImage={image.uri}
-        />
-      </Modal>
-      <Modal isVisible={replacePhotoModal}>
-        <ReplacePhotoModal
-          seenDate={seenDate}
-          speciesText={speciesText}
-          closeModal={closeReplacePhotoModal}
-          userImage={image.uri}
-          taxaId={taxon.taxaId}
         />
       </Modal>
     </>

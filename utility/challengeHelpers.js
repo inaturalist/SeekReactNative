@@ -278,33 +278,32 @@ const checkForChallengesCompleted = async () => {
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig )
-        .then( ( realm ) => {
-          let challengeInProgress;
-          let challengeComplete;
+      Realm.open( realmConfig ).then( ( realm ) => {
+        let challengeInProgress;
+        let challengeComplete;
 
-          const challenges = realm.objects( "ChallengeRealm" )
-            .filtered( "startedDate != null AND percentComplete == 100" )
-            .sorted( "completedDate", true );
+        const challenges = realm.objects( "ChallengeRealm" )
+          .filtered( "startedDate != null AND percentComplete == 100" )
+          .sorted( "completedDate", true );
 
-          if ( challengeProgressIndex !== null ) {
-            const incompleteChallenges = realm.objects( "ChallengeRealm" )
-              .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
+        if ( challengeProgressIndex !== null ) {
+          const incompleteChallenges = realm.objects( "ChallengeRealm" )
+            .filtered( `index == ${Number( challengeProgressIndex )} AND percentComplete != 100` );
 
-            [challengeInProgress] = incompleteChallenges;
-          }
+          [challengeInProgress] = incompleteChallenges;
+        }
 
-          if ( challenges.length > prevChallengesCompleted ) {
-            [challengeComplete] = challenges;
-          }
+        if ( challenges.length > prevChallengesCompleted ) {
+          [challengeComplete] = challenges;
+        }
 
-          resolve( {
-            challengeInProgress,
-            challengeComplete
-          } );
-        } ).catch( () => {
-          resolve( null );
+        resolve( {
+          challengeInProgress: challengeInProgress || null,
+          challengeComplete: challengeComplete || null
         } );
+      } ).catch( () => {
+        resolve( null );
+      } );
     } )
   );
 };

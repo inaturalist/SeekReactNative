@@ -6,11 +6,7 @@ import React, {
   useRef,
   useContext
 } from "react";
-import {
-  View,
-  ScrollView,
-  SafeAreaView
-} from "react-native";
+import { View, ScrollView, SafeAreaView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 import styles from "../../styles/match/match";
@@ -24,7 +20,6 @@ import MatchContainer from "./MatchContainer";
 import { CameraContext } from "../UserContext";
 import { useScrollToTop } from "../../utility/customHooks";
 import MatchModals from "./MatchModals";
-import { setSpeciesId, setRoute } from "../../utility/helpers";
 
 const MatchScreen = () => {
   const scrollView = useRef( null );
@@ -35,6 +30,7 @@ const MatchScreen = () => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action, "action" );
     switch ( action.type ) {
       case "MISIDENTIFIED":
         return {
@@ -97,20 +93,6 @@ const MatchScreen = () => {
 
   const setNavigationPath = ( path ) => dispatch( { type: "SET_NAV_PATH", path } );
 
-  const navigateTo = useCallback( () => {
-    const { taxaId } = taxon;
-
-    if ( navPath === "Camera" ) {
-      navigation.navigate( "Camera" );
-    } else if ( navPath === "Species" ) {
-      setSpeciesId( taxaId );
-      // return user to match screen
-      setRoute( "Match" );
-      // full nav path for QuickActions
-      navigation.navigate( "MainTab", { screen: "Species", params: { ...params } } );
-    }
-  }, [navPath, navigation, params, taxon] );
-
   const renderSpeciesText = () => {
     const {
       taxaName,
@@ -146,8 +128,6 @@ const MatchScreen = () => {
     gradientColorLight = "#5e5e5e";
   }
 
-  console.log( speciesText, "species text in hooks" );
-
   return (
     <View style={styles.container}>
       <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
@@ -156,9 +136,10 @@ const MatchScreen = () => {
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
         params={params}
-        navigateTo={navigateTo}
         speciesSeenImage={speciesSeenImage}
         speciesText={speciesText}
+        navPath={navPath}
+        setNavigationPath={setNavigationPath}
       />
       <ScrollView ref={scrollView}>
         <Spacer backgroundColor={gradientColorDark} />
@@ -180,9 +161,7 @@ const MatchScreen = () => {
         />
         <Padding />
       </ScrollView>
-      {match || seenDate
-        ? <MatchFooter openFlagModal={openFlagModal} />
-        : <Footer />}
+      {( match || seenDate ) ? <MatchFooter openFlagModal={openFlagModal} /> : <Footer />}
     </View>
   );
 };

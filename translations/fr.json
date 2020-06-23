@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "présente",
-    "initiative": "iNaturalist est une initiative conjointe de la California Academy of Sciences et de la National Geographic Society"
-  },
   "species_nearby": {
     "header": "Espèces à proximité",
     "location_error": "Afin de vous montrer les espèces à proximité, nous devons connaître votre emplacement.",
@@ -304,7 +300,9 @@
     "error_save": "Désolé, il y a eu un problème lors de la sauvegarde de votre photo",
     "error_take": "Désolé, nous n'avons pas pu prendre votre photo",
     "error_photos": "Aucune photo n'a été trouvée dans cet album. Essayez de sélectionner un autre album.",
-    "error_version": "La caméra de réalité augmentée de Seek nécessite iOS 11.0+. Votre appareil utilise la version OS {{OS}}."
+    "error_version": "La caméra de réalité augmentée de Seek nécessite iOS 11.0+. Votre appareil utilise la version OS {{OS}}.",
+    "error_cameraManager": "Désolé, le gestionnaire de caméra n'a pas réussi à charger.",
+    "error_photoError": "Désolé, l'objet photo n'a pas été trouvé"
   },
   "gallery": {
     "label": " Photos",
@@ -581,7 +579,10 @@
     "common_names": "Afficher les noms communs",
     "scientific_names": "Afficher les noms scientifiques",
     "donate": "Donner",
-    "donate_description": "Soutenir iNaturalist"
+    "donate_header": "Soutenir iNaturalist",
+    "donate_description": "Soutenir iNaturalist",
+    "language": "Langue de l'appli",
+    "device_settings": "Utiliser la langue du système d'exploitation"
   },
   "seek_challenges": {
     "badge": "Badge Seek",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Trouvez 3 oiseaux de l'ordre des Passeriformes (Passereaux)",
     "mission_3_june_2020": "Trouvez 1 insecte de l'ordre Coleoptera (Coléoptères)",
     "june_2020_description": "La nature autour de nous est résistante. Que ce soit dans les villes où à la campagne, les plantes et les animaux trouvent un moyen de prospérer. Même dans les zones urbaines, les plantes, les oiseaux et les insectes coexistent avec nous. ",
-    "action_june_2020": "Saviez-vous que vous pouviez voir les noms scientifiques à la place des noms communs sur l’écran de la caméra de Seek ? Allez dans les paramètres du menu pour remplacer les noms communs par les noms scientifiques ! "
+    "action_june_2020": "Saviez-vous que vous pouviez voir les noms scientifiques à la place des noms communs sur l’écran de la caméra de Seek ? Allez dans les paramètres du menu pour remplacer les noms communs par les noms scientifiques ! ",
+    "river": "Défi des rivières",
+    "mission_1_july_2020": "Trouvez 2 poissons ou amphibiens",
+    "mission_2_july_2020": "Trouver 3 oiseaux aquatiques des ordres des Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes et Suliformes",
+    "mission_3_july_2020": "Trouvez 1 mollusque",
+    "july_2020_description": "Les rivières sont une plaque tournante de la biodiversité. Accueillant des microinvertébrés jusqu'aux grands vertébrés, les rivières aident des organismes variés à prospérer.",
+    "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?"
   }
 }

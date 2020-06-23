@@ -82,6 +82,7 @@
 		378785E5245A1F2400D4509C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = ../cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		378785E6245A1F2B00D4509C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = ../he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		379A071821C4328C00F176E3 /* Seek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Seek.entitlements; path = Seek/Seek.entitlements; sourceTree = "<group>"; };
+		37A0EA3C24A2AD6A006A21C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DA6884242AB4CB00F3C235 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = ../af.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -355,6 +356,7 @@
 				fi,
 				cs,
 				he,
+				ar,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -520,6 +522,7 @@
 				378785E4245A1F1B00D4509C /* fi */,
 				378785E5245A1F2400D4509C /* cs */,
 				378785E6245A1F2B00D4509C /* he */,
+				37A0EA3C24A2AD6A006A21C7 /* ar */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

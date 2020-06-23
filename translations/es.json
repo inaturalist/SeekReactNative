@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenta",
-    "initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society"
-  },
   "species_nearby": {
     "header": "Especies en las cercanías",
     "location_error": "Para mostrarte las especies en las cercanías, necesitamos usar tu ubicación.",
@@ -304,7 +300,9 @@
     "error_save": "Lo sentimos, hubo un problema al guardar tu foto",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Fotos",
@@ -487,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecemos especialmente a Visipedia y la comunidad iNaturalist.",
     "version": "Versión",
     "help": "Para recibir ayuda con Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
-    "translations": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Carnifex, Danielle Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch y Yulia Lygina.",
+    "translations": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch y Yulia Lygina.",
     "join_crowdin": "Para unirte al equipo de traducción de Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -581,7 +579,10 @@
     "common_names": "Display Common Names",
     "scientific_names": "Display Scientific Names",
     "donate": "Donate",
-    "donate_description": "Help support iNaturalist"
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
+    "device_settings": "Use device language settings"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
     "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!"
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   }
 }

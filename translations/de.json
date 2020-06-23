@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "präsentiert",
-    "initiative": "iNaturalist ist eine gemeinsame Initiative der California Academy of Sciences und der National Geographic Society"
-  },
   "species_nearby": {
     "header": "Arten in der Nähe",
     "location_error": "Um dir Arten in der Nähe anzeigen zu können, benötigen wir deinen Standort.",
@@ -304,7 +300,9 @@
     "error_save": "Leider gab es ein Problem beim Speichern deines Fotos",
     "error_take": "Wir konnten dein Foto leider nicht aufnehmen",
     "error_photos": "Es wurden keine Fotos in diesem Fotoalbum gefunden. Versuche ein anderes Album auszuwählen.",
-    "error_version": "Die AR Kamera von Seek benötigt iOS 11.0+. Dein Gerät benutzt OS-Version {{OS}}."
+    "error_version": "Die AR Kamera von Seek benötigt iOS 11.0+. Dein Gerät benutzt OS-Version {{OS}}.",
+    "error_cameraManager": "Der Kamera-Manager konnte nicht geladen werden",
+    "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden"
   },
   "gallery": {
     "label": "Fotos",
@@ -487,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary und Yaron Budowski. Besonderen Dank an Visipedia und die iNaturalist Community.",
     "version": "Version",
     "help": "Für Hilfe zu Seek sende eine E-Mail an help+seek@inaturalist.org.",
-    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch und Yulia Lygina.",
+    "translations": "Wir sind dankbar für die Übersetzungsunterstützung durch die crowdin.com-Community, insbesondere: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch und Yulia Lygina.",
     "join_crowdin": "Um dem Übersetzungsteam von Seek beizutreten, besuche bitte https://crowdin.com/project/seek"
   },
   "posting": {
@@ -581,7 +579,10 @@
     "common_names": "Deutsche Namen anzeigen",
     "scientific_names": "Wissenschaftliche Namen anzeigen",
     "donate": "Spenden",
-    "donate_description": "Hilf mit, iNaturalist zu unterstützen"
+    "donate_header": "Hilf mit, iNaturalist zu unterstützen",
+    "donate_description": "Hilf mit, iNaturalist zu unterstützen",
+    "language": "Sprache der App",
+    "device_settings": "Spracheinstellungen des Geräts benutzen"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Finde 3 Vögel aus der Ordnung Passeriformes (Sperlingsvögel). Auch Krähen gehören dazu!",
     "mission_3_june_2020": "Finde 1 Insekt aus der Ordnung Coleoptera (Käfer)",
     "june_2020_description": "Natur ist widerstandsfähig und überall um uns herum. Von Großstädten bis zum Ackerland haben sich Pflanzen und Tiere an das Leben mit uns Menschen angepasst. Auch in städtischen Gebieten lassen sich viele Pflanzen, Vögel und Insekten finden.",
-    "action_june_2020": "Wusstest du, dass du dir die wissenschaftlichen Namen anstelle der deutschen Begriffe in der Seek-Kamera anzeigen lassen kannst? Gehe im Menü auf Einstellungen um die Anzeige zu ändern!"
+    "action_june_2020": "Wusstest du, dass du dir die wissenschaftlichen Namen anstelle der deutschen Begriffe in der Seek-Kamera anzeigen lassen kannst? Gehe im Menü auf Einstellungen um die Anzeige zu ändern!",
+    "river": "Fluss-Mission",
+    "mission_1_july_2020": "Finde 2 Fische oder Amphibien",
+    "mission_2_july_2020": "Finde 3 Wasservögel aus den Ordnungen Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
+    "july_2020_description": "Die Flüsse sind eine Drehscheibe für die biologische Vielfalt. Von mikroskopischen Lebensformen bis hin zu großen Wirbeltieren - Flüsse unterstützen die Organismen um sie herum zu wachsen und zu gedeihen.",
+    "action_july_2020": "Welche Organismen siehst du, wenn du dich in der Nähe eines Gewässers befindest? Welche Arten schwimmen im Wasser? Welche Arten fliegen über der Wasseroberfläche? Gibt es Organismen im Wasser, die du vielleicht nicht sehen kannst?"
   }
 }

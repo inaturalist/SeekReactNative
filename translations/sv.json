@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenterar",
-    "initiative": "iNaturalist är ett gemensamt initiativ från California Academy of Sciences och National Geographic Society"
-  },
   "species_nearby": {
     "header": "Arter i närheten",
     "location_error": "För att visa dig arter i närheten måste vi använda din plats.",
@@ -304,7 +300,9 @@
     "error_save": "Tyvärr, det gick inte att spara din bild",
     "error_take": "Tyvärr, vi kunde inte ta din bild",
     "error_photos": "Inga bilder hittades i detta fotoalbum. Försök välja ett annat album.",
-    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}."
+    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}.",
+    "error_cameraManager": "Tyvärr kunde inte kamerahanteraren laddas",
+    "error_photoError": "Tyvärr kunde inte bildobjektet hittas"
   },
   "gallery": {
     "label": "Bilder",
@@ -581,7 +579,10 @@
     "common_names": "Visa vardagliga namn",
     "scientific_names": "Visa vetenskapliga namn",
     "donate": "Donera",
-    "donate_description": "Stöd iNaturalist"
+    "donate_header": "Hjälp till att stödja iNaturalist",
+    "donate_description": "Stöd iNaturalist",
+    "language": "Språk i appen",
+    "device_settings": "Använd enhetens språkinställningar"
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Hitta 3 fåglar i ordningen Passeriformes (tättingar)",
     "mission_3_june_2020": "Hitta 1 insekt i ordningen Coleoptera (skalbaggar)",
     "june_2020_description": "Naturen är motståndskraftig och överallt omkring oss. I städer såväl som jordbruksmark hittar växter och djur ett sätt att frodas. Även i tätorter lever växter, fåglar och insekter tillsammans med oss.",
-    "action_june_2020": "Visste du att du kan se vetenskapliga namn istället för vardagliga namn i Seek-kameran? Från menyn går du till inställningssidan för att där ändra visningen från vardagliga namn till vetenskapliga namn!"
+    "action_june_2020": "Visste du att du kan se vetenskapliga namn istället för vardagliga namn i Seek-kameran? Från menyn går du till inställningssidan för att där ändra visningen från vardagliga namn till vetenskapliga namn!",
+    "river": "Flodutmaning",
+    "mission_1_july_2020": "Hitta 2 fiskar eller groddjur",
+    "mission_2_july_2020": "Hitta 3 vattenfåglar ur ordningarna Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Fenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes & Suliformes",
+    "mission_3_july_2020": "Hitta 1 blötdjur",
+    "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
+    "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?"
   }
 }

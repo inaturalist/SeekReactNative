@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "sunar",
-    "initiative": "iNaturalist, California Bilimler Akademisi ve National Geographic Society'nin ortak bir girişimidir"
-  },
   "species_nearby": {
     "header": "Yakındaki türler",
     "location_error": "Yakındaki türleri göstermek için konumunu kullanmamız gerekiyor.",
@@ -304,7 +300,9 @@
     "error_save": "Üzgünüz, fotoğrafınızı kaydederken bir sorun oluştu",
     "error_take": "Üzgünüz, fotoğrafınızı çekemedik",
     "error_photos": "Bu albümde hiç fotoğraf bulunamadı. Farklı bir albüm seçmeyi deneyin.",
-    "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor."
+    "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
+    "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
+    "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı"
   },
   "gallery": {
     "label": "Fotoğraflar",
@@ -487,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
-    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarız, özellikle: Carnifex, Daniele Seglie, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur ve Wouter Koch, Yulia Lygina.",
+    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarız, özellikle: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch ve Yulia Lygina.",
     "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {
@@ -581,7 +579,10 @@
     "common_names": "Yaygın Adları Görüntüle",
     "scientific_names": "Bilimsel Adları Görüntüle",
     "donate": "Bağış",
-    "donate_description": "iNaturalist Yardım Destek"
+    "donate_header": "iNaturalist'in desteklenmesine yardımcı olun",
+    "donate_description": "Seek'ten hoşnut musunuz? iNaturalist'e bağış yapmayı düşünün! Uygulamalarımızı ücretsiz tutmak için sizin gibi kişilerin bağışlarına bağlıyız.",
+    "language": "Uygulama dili",
+    "device_settings": "Cihazınızın dil ayarlarını kullanın"
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -603,6 +604,12 @@
     "mission_2_june_2020": "Passeriformes takımından 3 kuş bulun (Ötücü Kuşlar)",
     "mission_3_june_2020": "Coleoptera takımından 1 tane böcek bulun (Kın Kanatlılar)",
     "june_2020_description": "Doğa dayanıklıdır ve etrafımızdadır. Şehirlerden tarlalara, bitkiler ve hayvanlar hayatlarını sürdürecek bir yol bulur. Kentsel alanlarda bile bitkiler, kuşlar ve böcekler bizimle birlikte yaşamaktadırlar.",
-    "action_june_2020": "Seek kamerada ortak isimler yerine bilimsel isimlerin görüntülenebileceğini biliyor musunuz? Menüden ayarlara gidin, ortak isimlerden bilimsel isimlere gösterimini değiştirin!"
+    "action_june_2020": "Seek kamerada ortak isimler yerine bilimsel isimlerin görüntülenebileceğini biliyor musunuz? Menüden ayarlara gidin, ortak isimlerden bilimsel isimlere gösterimini değiştirin!",
+    "river": "Nehir Mücadelesi",
+    "mission_1_july_2020": "2 balık ya da yüzergezer bulun",
+    "mission_2_july_2020": "Şu takımlardan herhangi 3 su kuşu bulun: Kazsılar, Yağmur kuşları, Gökkuzgunumsular, Dalgıç kuşları, Turnamsılar, Pelikansılar, Flamingolar, Batağanlar, Tüp burunlu kuşlar, Penguenler ve Suliformes.",
+    "mission_3_july_2020": "1 yumuşakça bul",
+    "july_2020_description": "Nehirler biyolojik çeşitlilik için bir merkezdir. Mikro omurgasızlardan büyük omurgalılara kadar her şeyi sağlayan nehirler, çevrelerindeki organizmaların gelişmesine yardımcı olur.",
+    "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?"
   }
 }

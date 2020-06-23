@@ -198,7 +198,7 @@ const MatchModals = ( {
     } );
   }, [navigation, match, firstRender, checkLocationPermissions] );
 
-  // console.log( state, "state changes in match modals" );
+  console.log( state, "state changes in match modals" );
 
   return (
     <>

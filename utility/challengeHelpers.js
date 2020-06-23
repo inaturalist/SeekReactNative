@@ -49,14 +49,12 @@ const checkForChallengeComplete = ( percentComplete, challenge ) => {
 
 const updateChallengePercentages = ( challenge ) => {
   const prevPercent = challenge.percentComplete;
-  console.log( prevPercent, "prev percent" );
   const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
   const newPercent = calculatePercent( totalSeen, challenge.totalSpecies );
 
   // need to round this or Realm will decide how to round to integer
   challenge.percentComplete = newPercent;
 
-  console.log( "setting challenge index:", challenge.index, prevPercent, newPercent );
   if ( prevPercent < newPercent ) {
     setChallengeProgress( challenge.index );
   }

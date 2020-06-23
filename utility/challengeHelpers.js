@@ -9,17 +9,13 @@ import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth } from "./dateHelpers";
 
-const calculatePercent = ( seen, total ) => ( seen / total ) * 100;
+const calculatePercent = ( seen, total ) => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index ) => {
-  AsyncStorage.setItem( "challengeProgress", index.toString() );
-};
+const setChallengeProgress = async ( index ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
 const fetchIncompleteChallenges = ( realm ) => {
-  const incompleteChallenges = realm.objects( "ChallengeRealm" )
-    .filtered( "percentComplete != 100 AND startedDate != null" );
-
-  return incompleteChallenges;
+  const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );
+  return incomplete;
 };
 
 const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
@@ -53,20 +49,20 @@ const checkForChallengeComplete = ( percentComplete, challenge ) => {
 
 const updateChallengePercentages = ( challenge ) => {
   const prevPercent = challenge.percentComplete;
+  console.log( prevPercent, "prev percent" );
   const totalSeen = challenge.numbersObserved.reduce( ( acc, val ) => acc + val );
+  const newPercent = calculatePercent( totalSeen, challenge.totalSpecies );
 
-  const percentComplete = calculatePercent( totalSeen, challenge.totalSpecies );
+  // need to round this or Realm will decide how to round to integer
+  challenge.percentComplete = newPercent;
 
-  challenge.percentComplete = percentComplete;
-
-  if ( prevPercent < percentComplete ) {
+  console.log( "setting challenge index:", challenge.index, prevPercent, newPercent );
+  if ( prevPercent < newPercent ) {
     setChallengeProgress( challenge.index );
-  } else {
-    setChallengeProgress( "none" );
   }
 
-  checkForChallengeComplete( percentComplete, challenge );
-  checkForChallengeInProgress( percentComplete, prevPercent, challenge );
+  checkForChallengeComplete( newPercent, challenge );
+  checkForChallengeInProgress( newPercent, prevPercent, challenge );
 };
 
 const updateNumberObservedPerMission = ( challenge, count, number ) => {
@@ -127,47 +123,45 @@ const calculateTaxaSeenPerMission = ( types, seenTaxa ) => {
 };
 
 const recalculateChallenges = () => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const incompleteChallenges = fetchIncompleteChallenges( realm );
+  Realm.open( realmConfig ).then( ( realm ) => {
+    const incompleteChallenges = fetchIncompleteChallenges( realm );
 
-      incompleteChallenges.forEach( ( challenge ) => {
-        realm.write( () => {
-          const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
+    incompleteChallenges.forEach( ( challenge ) => {
+      realm.write( () => {
+        const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
 
-          realm.delete( challenge.numbersObserved );
-          // deleting numbers observed each time to update with fresh results
-          const { index } = challenge;
-          const challengeMonth = missionsDict[index];
-          const challengeMonthMissionList = Object.keys( challengeMonth );
+        realm.delete( challenge.numbersObserved );
+        // deleting numbers observed each time to update with fresh results
+        const { index } = challenge;
+        const challengeMonth = missionsDict[index];
+        const challengeMonthMissionList = Object.keys( challengeMonth );
 
-          challengeMonthMissionList.forEach( ( mission ) => {
-            const { number, types } = challengeMonth[mission];
-            const count = calculateTaxaSeenPerMission( types, seenTaxa );
-            updateNumberObservedPerMission( challenge, count, number );
-          } );
-          updateChallengePercentages( challenge );
+        challengeMonthMissionList.forEach( ( mission ) => {
+          const { number, types } = challengeMonth[mission];
+          const count = calculateTaxaSeenPerMission( types, seenTaxa );
+          updateNumberObservedPerMission( challenge, count, number );
         } );
+        updateChallengePercentages( challenge );
       } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to recalculate challenges: ", err );
     } );
+  } ).catch( ( err ) => {
+    console.log( "[DEBUG] Failed to recalculate challenges: ", err );
+  } );
 };
 
 const startChallenge = ( index ) => {
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
+  Realm.open( realmConfig ).then( ( realm ) => {
+    const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
 
-      challenges.forEach( ( challenge ) => {
-        realm.write( () => {
-          challenge.startedDate = new Date();
-          challenge.numbersObserved = [0, 0, 0, 0, 0];
-        } );
+    challenges.forEach( ( challenge ) => {
+      realm.write( () => {
+        challenge.startedDate = new Date();
+        challenge.numbersObserved = [0, 0, 0, 0, 0];
       } );
-    } ).catch( ( err ) => {
-      console.log( "[DEBUG] Failed to start challenge: ", err );
     } );
+  } ).catch( ( err ) => {
+    console.log( "[DEBUG] Failed to start challenge: ", err );
+  } );
 };
 
 const setupChallenges = () => {
@@ -275,6 +269,8 @@ const getChallengeProgress = async () => {
 const checkForChallengesCompleted = async () => {
   const prevChallengesCompleted = await getChallengesCompleted();
   const challengeProgressIndex = await getChallengeProgress();
+
+  console.log( challengeProgressIndex );
 
   return (
     new Promise( ( resolve ) => {

@@ -30,7 +30,6 @@ const MatchScreen = () => {
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action, "action" );
     switch ( action.type ) {
       case "MISIDENTIFIED":
         return {
@@ -161,7 +160,9 @@ const MatchScreen = () => {
         />
         <Padding />
       </ScrollView>
-      {( match || seenDate ) ? <MatchFooter openFlagModal={openFlagModal} /> : <Footer />}
+      {( match || seenDate ) ? (
+        <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
+      ) : <Footer />}
     </View>
   );
 };

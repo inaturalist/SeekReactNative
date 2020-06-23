@@ -164,7 +164,6 @@ const MatchModals = ( {
   const checkChallenges = () => {
     checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => {
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
-      console.log( "setting challenge progress to none" );
       setChallengeProgress( "none" );
     } ).catch( () => console.log( "could not check for challenges" ) );
   };
@@ -197,8 +196,6 @@ const MatchModals = ( {
       }
     } );
   }, [navigation, match, firstRender, checkLocationPermissions] );
-
-  console.log( state, "state changes in match modals" );
 
   return (
     <>

@@ -28,8 +28,8 @@ export default StyleSheet.create( {
     borderBottomRightRadius: 40,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
-    maxWidth: 366,
-    overflow: "hidden"
+    overflow: "hidden",
+    width: 337
   },
   grayButton: {
     backgroundColor: colors.grayGradientLight,
@@ -62,6 +62,7 @@ export default StyleSheet.create( {
     width: 129
   },
   images: {
+    justifyContent: "center",
     marginHorizontal: 22,
     marginTop: 20
   },

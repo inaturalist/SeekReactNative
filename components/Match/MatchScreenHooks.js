@@ -83,6 +83,7 @@ const MatchScreen = () => {
 
   const closeFlagModal = useCallback( ( showFailure ) => {
     dispatch( { type: "CLOSE_FLAG" } );
+    console.log( showFailure, taxon, "show failure" );
     if ( showFailure ) {
       taxon.commonAncestor = null;
       taxon.speciesSeenImage = null;

@@ -1,9 +1,9 @@
 {
   "species_nearby": {
-    "header": "Species nearby",
-    "location_error": "In order to show you nearby species, we need to use your location.",
-    "location_device": "Seek needs your location to display nearby species and add observations. Please make sure your device’s location is turned on.",
-    "enable_location": "Enable location in settings",
+    "header": "Specii din apropiere",
+    "location_error": "Pentru a vă arăta speciile din apropiere, trebuie să vă folosim locația.",
+    "location_device": "Seek are nevoie de locația dvs. pentru a afișa specii din apropiere și pentru a adăuga observații. Asigurați-vă că locația aparatului este activată.",
+    "enable_location": "Activați locația în setări",
     "internet_error": "We need the Internet to generate nearby species. Tap to try again.",
     "no_location": "No Location",
     "no_species": "Looks like there haven’t been many species observed nearby! Try changing your location or broadening the species filter.",

@@ -43,7 +43,6 @@ const SplashScreen = () => {
     } ).catch( () => resetRouter( "Drawer" ) );
   }, [resetRouter, navigation, linkTo] );
 
-
   const removeUnusedKeys = async () => {
     const keys = ["drawer", "regenerated_backups", "observations", "observers", "scientific_names", "has_seen_login"];
     try {
@@ -66,7 +65,8 @@ const SplashScreen = () => {
         resetRouter( "Onboarding" );
       } else {
         removeUnusedKeys();
-        checkForQuickAction();
+        resetRouter( "Onboarding" );
+        // checkForQuickAction();
       }
     };
 

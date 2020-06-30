@@ -99,7 +99,8 @@ const GalleryScreen = () => {
     const photoOptions = {
       first: 28, // only 28 at a time can display
       assetType: "Photos",
-      groupTypes: ( album === null ) ? "All" : "Album"
+      groupTypes: ( album === null ) ? "All" : "Album",
+      include: ["location"]
     };
 
     if ( album ) { // append for cases where album isn't null

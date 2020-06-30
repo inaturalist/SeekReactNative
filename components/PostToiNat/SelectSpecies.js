@@ -54,7 +54,6 @@ const SelectSpecies = ( {
   useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   const searchForSpecies = ( speciesName ) => {
-    console.log( speciesName, "species name" );
     setSearching( true );
     const params = {
       q: speciesName,

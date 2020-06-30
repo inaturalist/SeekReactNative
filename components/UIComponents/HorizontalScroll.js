@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useReducer } from "react";
 import {
   View,
   Image,
@@ -17,55 +17,64 @@ type Props = {
 }
 
 const HorizontalScroll = ( { photoList, screen }: Props ) => {
-  const [scrollIndex, setScrollIndex] = useState( 0 );
-  const [scrollOffset, setScrollOffset] = useState( 0 );
-
   const flatList = useRef( null );
   const length = photoList.length - 1;
+  const { width } = dimensions;
+
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.index, "action index" );
+    console.log( action.offset, "action offset and width: ", width );
+    switch ( action.type ) {
+      case "UPDATE_INDEX":
+        return { scrollIndex: action.index, scrollOffset: action.offset };
+      default:
+        throw new Error();
+    }
+  }, {
+    scrollIndex: 0,
+    scrollOffset: 0,
+    loading: false
+  } );
+
+  const { scrollIndex, scrollOffset } = state;
+
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const scrollRight = () => {
-    const nextOffset = scrollOffset + dimensions.width;
+  const nextOffset = scrollOffset + width;
+  const prevOffset = scrollOffset - width;
 
+  const scroll = ( index, offset ) => {
+    if ( index < 0 || index >= photoList.length ) {
+      return;
+    }
     if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( {
-        index: nextIndex, animated: true
-      } );
+      flatList.current.scrollToIndex( { index, animated: true } );
 
-      if ( nextIndex !== scrollIndex ) {
-        setScrollIndex( nextIndex );
-        setScrollOffset( nextOffset );
+      if ( index !== scrollIndex ) {
+        dispatch( { type: "UPDATE_INDEX", index, offset } );
+        // setScrollIndex( index );
+        // setScrollOffset( offset );
       }
     }
   };
 
-  const scrollLeft = () => {
-    const prevOffset = scrollOffset - dimensions.width;
-
-    if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( {
-        index: prevIndex, animated: true
-      } );
-
-      if ( prevIndex !== scrollIndex ) {
-        setScrollIndex( prevIndex );
-        setScrollOffset( prevOffset );
-      }
-    }
-  };
+  const scrollRight = () => scroll( nextIndex, nextOffset );
+  const scrollLeft = () => scroll( prevIndex, prevOffset );
 
   const calculateScrollIndex = ( e ) => {
     const { contentOffset } = e.nativeEvent;
 
+    console.log( scrollIndex, "scroll index in calculate" );
     if ( contentOffset.x > scrollOffset ) {
-      setScrollIndex( nextIndex );
-      setScrollOffset( contentOffset.x );
+      dispatch( { type: "UPDATE_INDEX", index: nextIndex, offset: contentOffset.x } );
     } else if ( contentOffset.x < scrollOffset ) {
-      setScrollIndex( prevIndex );
-      setScrollOffset( contentOffset.x );
+      dispatch( { type: "UPDATE_INDEX", index: prevIndex, offset: contentOffset.x } );
     }
   };
+
+  // console.log( scrollIndex, scrollOffset, "index and offset" );
 
   return (
     <View>
@@ -77,8 +86,8 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         getItemLayout={( data, index ) => (
           // skips measurement of dynamic content for faster loading
           {
-            length: ( dimensions.width ),
-            offset: ( dimensions.width ) * index,
+            length: ( width ),
+            offset: ( width ) * index,
             index
           }
         )}
@@ -90,7 +99,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={screen === "iNatStats"}
       />
-      {scrollIndex !== 0 && (
+      {scrollIndex > 0 && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
@@ -100,7 +109,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
           <Image source={icons.swipeRight} style={styles.rotate} />
         </TouchableOpacity>
       )}
-      {scrollIndex !== photoList.length - 1 && (
+      {scrollIndex < length && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible

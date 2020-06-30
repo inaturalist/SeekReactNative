@@ -1,12 +1,20 @@
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 import Geocoder from "react-native-geocoder";
 import OpenSettings from "react-native-open-settings";
 import Geolocation from "react-native-geolocation-service";
 
 import i18n from "../i18n";
 
+const requestiOSPermissions = async () => {
+  if ( Platform.OS === "ios" ) {
+    const permission = await Geolocation.requestAuthorization( "whenInUse" );
+    return permission;
+  }
+};
+
 const fetchUserLocation = ( enableHighAccuracy ) => (
   new Promise( ( resolve, reject ) => {
+    requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       resolve( coords );
     }, ( { code } ) => {
@@ -28,6 +36,7 @@ const truncateCoordinates = ( coordinate ) => {
 
 const fetchTruncatedUserLocation = () => (
   new Promise( ( resolve, reject ) => {
+    requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
       const latitude = truncateCoordinates( coords.latitude );
       const longitude = truncateCoordinates( coords.longitude );
@@ -35,7 +44,6 @@ const fetchTruncatedUserLocation = () => (
         latitude,
         longitude
       };
-
       resolve( truncatedCoords );
     }, ( { code } ) => {
       reject( code );

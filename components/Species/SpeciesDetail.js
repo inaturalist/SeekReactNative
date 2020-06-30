@@ -83,10 +83,8 @@ const SpeciesDetail = () => {
 
   const setupScreen = useCallback( async () => {
     const i = await getSpeciesId();
-    if ( i !== id ) {
-      dispatch( { type: "SET_ID", id: i } );
-    }
-  }, [id] );
+    dispatch( { type: "SET_ID", id: i } );
+  }, [] );
 
   const checkIfSpeciesSeen = useCallback( () => {
     if ( id === null ) {
@@ -98,11 +96,11 @@ const SpeciesDetail = () => {
 
       if ( seen ) {
         dispatch( { type: "TAXA_SEEN", seen } );
-      } else {
+      } else if ( seenTaxa !== null ) {
         dispatch( { type: "TAXA_NOT_SEEN" } );
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
-  }, [id] );
+  }, [id, seenTaxa] );
 
   const checkInternetConnection = () => {
     checkForInternet().then( ( internet ) => {
@@ -169,16 +167,16 @@ const SpeciesDetail = () => {
     } ).catch( () => checkInternetConnection() );
   }, [id] );
 
-  const scrollToTop = () => {
-    if ( scrollView.current ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  };
-
   const fetchiNatData = useCallback( () => {
     setupScreen();
+
+    const scrollToTop = () => {
+      if ( scrollView.current ) {
+        scrollView.current.scrollTo( {
+          x: 0, y: 0, animated: Platform.OS === "android"
+        } );
+      }
+    };
 
     if ( Platform.OS === "android" ) {
       setTimeout( () => scrollToTop(), 1 );

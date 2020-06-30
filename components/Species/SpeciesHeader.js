@@ -84,10 +84,7 @@ const SpeciesHeader = ( {
       >
         <Image source={icons.backButton} />
       </TouchableOpacity>
-      <SpeciesPhotos
-        photos={photos}
-        seenTaxa={seenTaxa}
-      />
+      <SpeciesPhotos photos={photos} seenTaxa={seenTaxa} />
       <View style={styles.greenBanner}>
         {iconicTaxonId && (
           <Text style={styles.iconicTaxaText}>

@@ -118,6 +118,7 @@ const OfflineARResults = () => {
     const ancestorIds = [];
 
     if ( Platform.OS === "ios" ) {
+      console.log( image.predictions, "image predictions" );
       image.predictions.forEach( ( prediction ) => {
         ancestorIds.push( Number( prediction.taxon_id ) );
       } );

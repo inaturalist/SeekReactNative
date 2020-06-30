@@ -1,10 +1,5 @@
-import React, { useState, useRef, useReducer } from "react";
-import {
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity
-} from "react-native";
+import React, { useRef, useState } from "react";
+import { Image, FlatList, TouchableOpacity } from "react-native";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
@@ -18,69 +13,41 @@ type Props = {
 
 const HorizontalScroll = ( { photoList, screen }: Props ) => {
   const flatList = useRef( null );
+  const viewConfigRef = useRef( {
+    waitForInteraction: true,
+    viewAreaCoveragePercentThreshold: 95
+  } );
   const length = photoList.length - 1;
   const { width } = dimensions;
-
-  // eslint-disable-next-line no-shadow
-  const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.index, "action index" );
-    console.log( action.offset, "action offset and width: ", width );
-    switch ( action.type ) {
-      case "UPDATE_INDEX":
-        return { scrollIndex: action.index, scrollOffset: action.offset };
-      default:
-        throw new Error();
-    }
-  }, {
-    scrollIndex: 0,
-    scrollOffset: 0,
-    loading: false
-  } );
-
-  const { scrollIndex, scrollOffset } = state;
+  const [scrollIndex, setScrollIndex] = useState( 0 );
 
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const nextOffset = scrollOffset + width;
-  const prevOffset = scrollOffset - width;
-
-  const scroll = ( index, offset ) => {
+  const scroll = ( index ) => {
     if ( index < 0 || index >= photoList.length ) {
       return;
     }
     if ( flatList && flatList.current !== null ) {
       flatList.current.scrollToIndex( { index, animated: true } );
-
-      if ( index !== scrollIndex ) {
-        dispatch( { type: "UPDATE_INDEX", index, offset } );
-        // setScrollIndex( index );
-        // setScrollOffset( offset );
-      }
     }
   };
 
-  const scrollRight = () => scroll( nextIndex, nextOffset );
-  const scrollLeft = () => scroll( prevIndex, prevOffset );
+  const scrollRight = () => scroll( nextIndex );
+  const scrollLeft = () => scroll( prevIndex );
 
-  const calculateScrollIndex = ( e ) => {
-    const { contentOffset } = e.nativeEvent;
-
-    console.log( scrollIndex, "scroll index in calculate" );
-    if ( contentOffset.x > scrollOffset ) {
-      dispatch( { type: "UPDATE_INDEX", index: nextIndex, offset: contentOffset.x } );
-    } else if ( contentOffset.x < scrollOffset ) {
-      dispatch( { type: "UPDATE_INDEX", index: prevIndex, offset: contentOffset.x } );
-    }
-  };
-
-  // console.log( scrollIndex, scrollOffset, "index and offset" );
+  const onViewRef = useRef( ( { changed } ) => {
+    const { index } = changed[0];
+    setScrollIndex( index );
+  } );
 
   return (
-    <View>
+    <>
       <FlatList
         ref={flatList}
         bounces={false}
+        viewabilityConfig={viewConfigRef.current}
+        onViewableItemsChanged={onViewRef.current}
         contentContainerStyle={screen === "SpeciesPhotos" ? styles.speciesPhotoContainer : styles.photoContainer}
         data={photoList}
         getItemLayout={( data, index ) => (
@@ -94,7 +61,6 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         horizontal
         indicatorStyle="white"
         initialNumToRender={1}
-        onScrollEndDrag={( e ) => calculateScrollIndex( e )}
         pagingEnabled
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={screen === "iNatStats"}
@@ -119,7 +85,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
           <Image source={icons.swipeRight} />
         </TouchableOpacity>
       )}
-    </View>
+    </>
   );
 };
 

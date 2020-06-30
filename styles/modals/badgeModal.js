@@ -25,9 +25,10 @@ const setCarouselWidth = () => {
 
 export default StyleSheet.create( {
   arrow: {
+    padding: 27,
     position: "absolute",
-    right: 27,
-    top: 190,
+    right: 0,
+    top: 190 - 27,
     zIndex: 1
   },
   bullets: {
@@ -50,9 +51,10 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   leftArrow: {
-    left: 27,
+    left: 0,
+    padding: 27,
     position: "absolute",
-    top: 190,
+    top: 190 - 27,
     transform: [{ rotate: "180deg" }],
     zIndex: 1
   },

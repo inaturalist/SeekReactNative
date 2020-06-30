@@ -65,8 +65,7 @@ const SplashScreen = () => {
         resetRouter( "Onboarding" );
       } else {
         removeUnusedKeys();
-        resetRouter( "Onboarding" );
-        // checkForQuickAction();
+        checkForQuickAction();
       }
     };
 

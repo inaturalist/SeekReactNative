@@ -53,8 +53,17 @@ const SpeciesDetail = () => {
           }
         };
       case "TAXA_NOT_SEEN":
+        return { ...state, seenTaxa: null };
+      case "RESET_SCREEN":
         return {
-          ...state,
+          id: null,
+          photos: [],
+          taxon: {
+            scientificName: null,
+            iconicTaxonId: null
+          },
+          details: {},
+          error: null,
           seenTaxa: null
         };
       default:
@@ -96,11 +105,11 @@ const SpeciesDetail = () => {
 
       if ( seen ) {
         dispatch( { type: "TAXA_SEEN", seen } );
-      } else if ( seenTaxa !== null ) {
+      } else {
         dispatch( { type: "TAXA_NOT_SEEN" } );
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
-  }, [id, seenTaxa] );
+  }, [id] );
 
   const checkInternetConnection = () => {
     checkForInternet().then( ( internet ) => {
@@ -196,6 +205,9 @@ const SpeciesDetail = () => {
   useEffect( () => {
     navigation.addListener( "focus", () => {
       fetchiNatData();
+    } );
+    navigation.addListener( "blur", () => {
+      dispatch( { type: "RESET_SCREEN" } );
     } );
   }, [navigation, fetchiNatData] );
 

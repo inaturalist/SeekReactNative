@@ -26,13 +26,15 @@ const SpeciesMap = ( {
 }: Props ) => {
   const navigation = useNavigation();
 
+  const navToRangeMap = () => navigation.navigate( "RangeMap", { region, id, seenDate } );
+
   return (
     <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude}>
       <View style={styles.mapContainer}>
         {( region.latitude && id ) && (
           <MapView
             maxZoomLevel={7}
-            onPress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
+            onPress={() => navToRangeMap()}
             provider={PROVIDER_DEFAULT}
             region={region}
             rotateEnabled={false}
@@ -54,7 +56,7 @@ const SpeciesMap = ( {
       </View>
       <View style={styles.margin} />
       <GreenButton
-        handlePress={() => navigation.navigate( "RangeMap", { region, id, seenDate } )}
+        handlePress={() => navToRangeMap()}
         text="species_detail.view_map"
       />
     </SpeciesDetailCard>

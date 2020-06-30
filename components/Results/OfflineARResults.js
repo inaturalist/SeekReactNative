@@ -92,7 +92,8 @@ const OfflineARResults = () => {
       const speciesSeenImage = taxa.taxon_photos[0] ? taxa.taxon_photos[0].photo.medium_url : null;
       setCommonAncestor( ancestor, speciesSeenImage );
     } ).catch( () => {
-      setCommonAncestor( ancestor );
+      // make sure speciesSeenImage is not undefined when no internet
+      setCommonAncestor( ancestor, null );
     } );
   }, [] );
 

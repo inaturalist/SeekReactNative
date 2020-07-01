@@ -88,5 +88,9 @@ export default StyleSheet.create( {
     alignSelf: "center",
     marginHorizontal: 41,
     maxWidth: 317
+  },
+  whiteContainer: {
+    backgroundColor: colors.white,
+    flexGrow: 1
   }
 } );

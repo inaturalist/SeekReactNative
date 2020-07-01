@@ -1,7 +1,7 @@
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";
-import { capitalizeNames } from "./helpers";
+// import { capitalizeNames } from "./helpers";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import { createBackupUri, deleteFile } from "./photoHelpers";

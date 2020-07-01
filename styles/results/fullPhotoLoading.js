@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
-import { dimensions } from "../global";
+import { dimensions, colors } from "../global";
 
 export default StyleSheet.create( {
+  background: {
+    backgroundColor: colors.black
+  },
+  flex: {
+    flex: 1
+  },
   imageBackground: {
     height: dimensions.height,
     width: dimensions.width

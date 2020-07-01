@@ -58,10 +58,10 @@ const addToCollection = async ( observation, image ) => {
         const newTaxon = realm.create( "TaxonRealm", {
           id: taxon.id,
           name: taxon.name,
-          preferredCommonName:
-            taxon.preferred_common_name
-              ? capitalizeNames( taxon.preferred_common_name )
-              : null,
+          // preferredCommonName:
+          //   taxon.preferred_common_name
+          //     ? capitalizeNames( taxon.preferred_common_name )
+          //     : null,
           iconicTaxonId: taxon.iconic_taxon_id,
           ancestorIds: taxon.ancestor_ids,
           defaultPhoto

@@ -29,9 +29,9 @@ const SpeciesMap = ( {
   const navToRangeMap = () => navigation.navigate( "RangeMap", { region, id, seenDate } );
 
   return (
-    <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude}>
+    <SpeciesDetailCard text="species_detail.range_map" hide={!region.latitude || !region.longitude}>
       <View style={styles.mapContainer}>
-        {( region.latitude && id ) && (
+        {( ( region.latitude && region.longitude ) && id ) && (
           <MapView
             maxZoomLevel={7}
             onPress={() => navToRangeMap()}

@@ -268,8 +268,6 @@ const checkForChallengesCompleted = async () => {
   const prevChallengesCompleted = await getChallengesCompleted();
   const challengeProgressIndex = await getChallengeProgress();
 
-  console.log( challengeProgressIndex );
-
   return (
     new Promise( ( resolve ) => {
       Realm.open( realmConfig ).then( ( realm ) => {

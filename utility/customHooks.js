@@ -76,7 +76,7 @@ const useUserPhoto = ( item ) => {
         writeToDebugLog( backupUri );
         RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
           setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-        } ).catch( ( e ) => console.log( e ) );
+        } ).catch( ( e ) => console.log( "Error reading backupUri file in hooks:", e ) );
       }
     } else if ( mediumUrl ) {
       setPhoto( { uri: mediumUrl } );
@@ -148,8 +148,8 @@ const useCommonName = ( id ) => {
   return commonName;
 };
 
-const useTruncatedUserCoords = () => {
-  const granted = useLocationPermission();
+const useTruncatedUserCoords = ( granted ) => {
+  // const granted = useLocationPermission();
   const [coords, setCoords] = useState( null );
 
   const fetchCoords = useCallback( async () => {
@@ -166,11 +166,14 @@ const useTruncatedUserCoords = () => {
 
   useEffect( () => {
     if ( Platform.OS === "android" && !granted ) {
-      setCoords( null );
+      if ( coords ) {
+        setCoords( null );
+      }
     } else {
       fetchCoords();
     }
-  }, [granted, fetchCoords] );
+  }, [granted, fetchCoords, coords] );
+  console.log( granted, coords, "granted and coords in custom hooks" );
 
   return coords;
 };

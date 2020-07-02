@@ -1,33 +1,9 @@
 {
-  "env": {
-    "node": true,
-    "browser": true,
-    "es6": true
-  },
-  "parser": "babel-eslint",
-  "extends": [
-    "airbnb",
-    "plugin:react-native/all",
-    "plugin:react/recommended",
-    "plugin:jest/recommended"
-  ],
-  "plugins": [
-    "react",
-    "react-native",
-    "react-hooks",
-    "jest"
-  ],
+  "extends": "@react-native-community",
   "rules": {
     "quotes": [2, "double"],
     "comma-dangle": [2, "never"],
     "space-in-parens": [2, "always"],
-    "func-names": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "no-console": "off",
-    "global-require": "off",
-    "no-param-reassign": "off",
-    "arrow-parens": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "prettier/prettier": 0
   }
 }

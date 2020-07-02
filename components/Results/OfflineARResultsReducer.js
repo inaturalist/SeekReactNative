@@ -11,12 +11,13 @@ import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
-import { useLocationPermission } from "../../utility/customHooks";
+import { useLocationPermission, useTruncatedUserCoords } from "../../utility/customHooks";
 
 const threshold = 0.7;
 
 const OfflineARResults = () => {
   const granted = useLocationPermission();
+  const coords = useTruncatedUserCoords( granted );
   const navigation = useNavigation();
   const { params } = useRoute();
 
@@ -26,8 +27,7 @@ const OfflineARResults = () => {
       case "SET_SPECIES":
         return {
           ...state,
-          observation:
-          action.obs,
+          observation: action.obs,
           taxon: action.newTaxon
         };
       case "SET_ANCESTOR":
@@ -73,7 +73,6 @@ const OfflineARResults = () => {
           default_photo: taxa && taxa.default_photo ? taxa.default_photo : null,
           id: taxaId,
           name: species.name,
-          // preferred_common_name: commonName,
           iconic_taxon_id: iconicTaxonId,
           ancestor_ids: species.ancestor_ids
         }
@@ -183,6 +182,7 @@ const OfflineARResults = () => {
     if ( Platform.OS === "android" && !granted ) {
       dispatch( { type: "SET_LOCATION_ERROR", code: 1 } );
     } else {
+      console.log( coords, "coords from hook" );
       fetchTruncatedUserLocation().then( ( coords ) => {
         if ( coords ) {
           const { latitude, longitude } = coords;

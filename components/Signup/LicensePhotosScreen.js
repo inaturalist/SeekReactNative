@@ -83,14 +83,14 @@ class LicensePhotosScreen extends Component<Props, State> {
         </View>
         <View style={[styles.row, styles.marginLeft]}>
           <Text
-            allowFontScaling={false} 
+            allowFontScaling={false}
             onPress={() => navigation.navigate( "Privacy" )}
             style={[styles.privacy, styles.marginSmall]}
           >
             {i18n.t( "inat_signup.privacy" )}
           </Text>
           <Text
-            allowFontScaling={false} 
+            allowFontScaling={false}
             onPress={() => navigation.navigate( "TermsOfService" )}
             style={[styles.privacy, styles.marginSmall, styles.marginLeftSmall]}
           >

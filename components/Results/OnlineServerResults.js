@@ -53,16 +53,16 @@ const OnlineServerResults = () => {
   };
 
   const setOnlineVisionSpeciesResults = ( species ) => {
-    const { taxon } = species;
-    const photo = taxon.default_photo;
+    const taxa = species.taxon;
+    const photo = taxa.default_photo;
 
     setObservation( species );
 
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
       const newTaxon = {
-        taxaId: taxon.id,
-        taxaName: capitalizeNames( commonName || taxon.name ),
-        scientificName: taxon.name,
+        taxaId: taxa.id,
+        taxaName: capitalizeNames( commonName || taxa.name ),
+        scientificName: taxa.name,
         speciesSeenImage: photo ? photo.medium_url : null
       };
 
@@ -72,18 +72,18 @@ const OnlineServerResults = () => {
   };
 
   const setOnlineVisionAncestorResults = ( commonAncestor ) => {
-    const { taxon } = commonAncestor;
-    const photo = taxon.default_photo;
+    const taxa = commonAncestor.taxon;
+    const photo = taxa.default_photo;
 
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
       const newTaxon = {
         commonAncestor: commonAncestor
-          ? capitalizeNames( commonName || taxon.name )
+          ? capitalizeNames( commonName || taxa.name )
           : null,
-        taxaId: taxon.id,
+        taxaId: taxa.id,
         speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: taxon.name,
-        rank: taxon.rank_level
+        scientificName: taxa.name,
+        rank: taxa.rank_level
       };
 
       setTaxon( newTaxon );
@@ -91,12 +91,12 @@ const OnlineServerResults = () => {
     } );
   };
 
-  const fetchScore = useCallback( ( params ) => {
+  const fetchScore = useCallback( ( parameters ) => {
     const token = createJwtToken();
 
     const options = { api_token: token, user_agent: createUserAgent() };
 
-    inatjs.computervision.score_image( params, options )
+    inatjs.computervision.score_image( parameters, options )
       .then( ( response ) => {
         const species = response.results[0];
         const commonAncestor = response.common_ancestor;

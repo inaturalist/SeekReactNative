@@ -5,8 +5,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  SafeAreaView,
-  Text
+  SafeAreaView
 } from "react-native";
 import Realm from "realm";
 import { useNavigation, useRoute } from "@react-navigation/native";

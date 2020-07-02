@@ -156,13 +156,13 @@ const MatchModals = ( {
   }, [navPath, challenge, latestLevel, challengeShown, navigateTo] );
 
   const checkBadges = () => {
-    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => {
+    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
     } ).catch( () => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = () => {
-    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => {
+    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( () => console.log( "could not check for challenges" ) );

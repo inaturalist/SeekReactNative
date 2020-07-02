@@ -60,6 +60,6 @@ const PostingHeader = ( {
       </TouchableOpacity>
     </>
   );
-}
+};
 
 export default PostingHeader;

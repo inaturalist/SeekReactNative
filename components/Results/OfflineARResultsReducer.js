@@ -11,13 +11,12 @@ import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate } from "../../utility/dateHelpers";
-import { useLocationPermission, useTruncatedUserCoords } from "../../utility/customHooks";
+import { useLocationPermission } from "../../utility/customHooks";
 
 const threshold = 0.7;
 
 const OfflineARResults = () => {
   const granted = useLocationPermission();
-  const coords = useTruncatedUserCoords( granted );
   const navigation = useNavigation();
   const { params } = useRoute();
 
@@ -182,7 +181,6 @@ const OfflineARResults = () => {
     if ( Platform.OS === "android" && !granted ) {
       dispatch( { type: "SET_LOCATION_ERROR", code: 1 } );
     } else {
-      console.log( coords, "coords from hook" );
       fetchTruncatedUserLocation().then( ( coords ) => {
         if ( coords ) {
           const { latitude, longitude } = coords;

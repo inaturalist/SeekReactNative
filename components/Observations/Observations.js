@@ -41,7 +41,7 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
-  const [hiddenSections, setHiddenSections] = useState( [] );
+  const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
 
   useFocusEffect(
     useCallback( () => {

@@ -69,5 +69,5 @@ const setupCommonNames = ( preferredLanguage ) => {
 };
 
 export {
-  setupCommonNames // eslint-disable-line import/prefer-default-export
+  setupCommonNames
 };

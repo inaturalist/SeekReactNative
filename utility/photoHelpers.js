@@ -1,5 +1,5 @@
 // @flow
-import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
+import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
@@ -192,7 +192,7 @@ const updateRealmThumbnails = () => {
 
       const duplicates = findDuplicates( backups );
 
-      const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
+      const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' ); // eslint-disable-line quotes
 
       filtered.forEach( ( photo ) => {
         const { backupUri } = photo;

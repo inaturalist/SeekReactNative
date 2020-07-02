@@ -62,6 +62,6 @@ const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
       </TouchableOpacity>
     </>
   );
-}
+};
 
 export default LocationPickerCard;

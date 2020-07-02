@@ -18,7 +18,7 @@ import backgrounds from "../../assets/backgrounds";
 import { colors } from "../../styles/global";
 import logos from "../../assets/logos";
 
-const Footer = () => { 
+const Footer = () => {
   let challenge;
   const navigation = useNavigation();
   const route = useRoute();

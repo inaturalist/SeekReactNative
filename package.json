@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint './assets/**/*.js' './components/**/*.js' './styles/**/*.js' './utility/**/*.js' --ignore-path .gitignore",
+    "lint": "eslint './assets/**/*.js' './components/**/*.js' './styles/**/*.js' './utility/**/*.js' --ignore-path .gitignore --max-warnings 0",
     "flow": "flow",
     "test": "jest"
   },

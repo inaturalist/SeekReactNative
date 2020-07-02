@@ -8,6 +8,12 @@
     "flow": "flow",
     "test": "jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint"
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.10.3",
     "@react-native-community/async-storage": "^1.7.1",
@@ -66,6 +72,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^23.17.1",
     "flow-typed": "^3.1.0",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "react-native-testing-library": "^2.1.0"

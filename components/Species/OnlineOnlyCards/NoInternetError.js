@@ -15,7 +15,7 @@ import i18n from "../../../i18n";
 import About from "./About";
 import SeenDate from "./SeenDate";
 import { formatShortMonthDayYear } from "../../../utility/dateHelpers";
-import { useTruncatedUserCoords } from "../../../utility/customHooks";
+import { useTruncatedUserCoords, useLocationPermission } from "../../../utility/customHooks";
 import createUserAgent from "../../../utility/userAgent";
 
 const latitudeDelta = 0.2;
@@ -42,49 +42,49 @@ const NoInternetError = ( {
     timesSeen
   } = details;
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
-  const coords = useTruncatedUserCoords();
-  const [region, setRegion] = useState( null );
-  const [greenButtons, setGreenButtons] = useState( {} );
+  const granted = useLocationPermission();
+  const coords = useTruncatedUserCoords( granted );
+  const [region, setRegion] = useState( {} );
+  const [greenButtons, setGreenButtons] = useState( {
+    endangered: false,
+    threatened: false,
+    endemic: false,
+    introduced: false,
+    native: false
+  } );
 
   const showGreenButtons = Object.keys( greenButtons ).map(
     ( stat => greenButtons[stat] )
   ).includes( true );
 
   useEffect( () => {
+    const setNewRegion = ( newRegion ) => {
+      console.log( "setting region" );
+      setRegion( {
+        latitude: newRegion.latitude,
+        longitude: newRegion.longitude,
+        latitudeDelta,
+        longitudeDelta
+      } );
+    };
     // if user has seen observation, fetch data based on obs location
     if ( seenTaxa && seenTaxa.latitude ) {
-      setRegion( {
-        latitude: seenTaxa.latitude,
-        longitude: seenTaxa.longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      setNewRegion( seenTaxa );
       // otherwise, fetch data based on user location
     } else if ( coords && coords.latitude ) {
-      setRegion( {
-        latitude: coords.latitude,
-        longitude: coords.longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      setNewRegion( coords );
     }
   }, [coords, seenTaxa] );
 
   useEffect( () => {
-    const checkStats = () => {
-      const params = {
-        per_page: 1,
-        lat: region.latitude,
-        lng: region.longitude,
-        radius: 50,
-        taxon_id: id
-      };
-
+    const fetchStats = ( params ) => {
+      console.log( "fetching stats" );
       const options = { user_agent: createUserAgent() };
 
       inatjs.observations.search( params, options ).then( ( { results } ) => {
         if ( results.length > 0 ) {
           const { taxon } = results[0];
+          const newStats = greenButtons;
           if ( taxon ) {
             const {
               threatened,
@@ -93,24 +93,37 @@ const NoInternetError = ( {
               native
             } = taxon;
 
-            setGreenButtons( {
-              threatened,
-              endemic,
-              introduced,
-              native
-            } );
+            newStats.threatened = threatened;
+            newStats.endemic = endemic;
+            newStats.introduced = introduced;
+            newStats.native = native;
+
+            console.log( "setting stats" );
+            setGreenButtons( newStats );
           }
         }
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
-    if ( ( region && region.latitude ) && id !== null ) {
+    const checkStats = () => {
+      const params = {
+        per_page: 1,
+        lat: region.latitude,
+        lng: region.longitude,
+        radius: 50,
+        taxon_id: id
+      };
+      fetchStats( params );
+    };
+
+    if ( region.latitude && id !== null ) {
+      console.log( region.latitude, id, "region and id" );
       checkStats();
     }
-  }, [region, id] );
+  }, [region, id, greenButtons] );
 
   useEffect( () => {
-    if ( stats ) {
+    if ( stats && stats.endangered ) {
       const newStats = greenButtons;
       // it's unlikely that Seek will identify any endangered species
       // since there probably aren't enough photographs
@@ -118,6 +131,8 @@ const NoInternetError = ( {
       setGreenButtons( newStats );
     }
   }, [stats, greenButtons] );
+
+  // console.log( coords, region, greenButtons, "coords in no internet" );
 
   return (
     <View style={styles.background}>

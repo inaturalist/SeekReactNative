@@ -173,7 +173,6 @@ const useTruncatedUserCoords = ( granted ) => {
       fetchCoords();
     }
   }, [granted, fetchCoords, coords] );
-  console.log( granted, coords, "granted and coords in custom hooks" );
 
   return coords;
 };

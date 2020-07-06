@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import inatjs from "inaturalistjs";
+import { useIsFocused } from "@react-navigation/native";
 
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -41,17 +42,12 @@ const NoInternetError = ( {
     ancestors,
     timesSeen
   } = details;
+  const isFocused = useIsFocused();
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission();
   const coords = useTruncatedUserCoords( granted );
   const [region, setRegion] = useState( {} );
-  const [greenButtons, setGreenButtons] = useState( {
-    endangered: false,
-    threatened: false,
-    endemic: false,
-    introduced: false,
-    native: false
-  } );
+  const [greenButtons, setGreenButtons] = useState( {} );
 
   const showGreenButtons = Object.keys( greenButtons ).map(
     ( stat => greenButtons[stat] )
@@ -59,7 +55,6 @@ const NoInternetError = ( {
 
   useEffect( () => {
     const setNewRegion = ( newRegion ) => {
-      console.log( "setting region" );
       setRegion( {
         latitude: newRegion.latitude,
         longitude: newRegion.longitude,
@@ -77,34 +72,6 @@ const NoInternetError = ( {
   }, [coords, seenTaxa] );
 
   useEffect( () => {
-    const fetchStats = ( params ) => {
-      console.log( "fetching stats" );
-      const options = { user_agent: createUserAgent() };
-
-      inatjs.observations.search( params, options ).then( ( { results } ) => {
-        if ( results.length > 0 ) {
-          const { taxon } = results[0];
-          const newStats = greenButtons;
-          if ( taxon ) {
-            const {
-              threatened,
-              endemic,
-              introduced,
-              native
-            } = taxon;
-
-            newStats.threatened = threatened;
-            newStats.endemic = endemic;
-            newStats.introduced = introduced;
-            newStats.native = native;
-
-            console.log( "setting stats" );
-            setGreenButtons( newStats );
-          }
-        }
-      } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
-    };
-
     const checkStats = () => {
       const params = {
         per_page: 1,
@@ -113,17 +80,39 @@ const NoInternetError = ( {
         radius: 50,
         taxon_id: id
       };
-      fetchStats( params );
+
+      const options = { user_agent: createUserAgent() };
+
+      inatjs.observations.search( params, options ).then( ( { results } ) => {
+        if ( results.length > 0 ) {
+          const { taxon } = results[0];
+          if ( taxon ) {
+            const {
+              threatened,
+              endemic,
+              introduced,
+              native
+            } = taxon;
+
+            setGreenButtons( {
+              threatened,
+              endemic,
+              introduced,
+              native
+            } );
+          }
+        }
+      } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
-    if ( region.latitude && id !== null ) {
-      console.log( region.latitude, id, "region and id" );
+    if ( region.latitude && id !== null && isFocused ) {
+      console.log( isFocused, "is focused" );
       checkStats();
     }
-  }, [region, id, greenButtons] );
+  }, [region, id, isFocused] );
 
   useEffect( () => {
-    if ( stats && stats.endangered ) {
+    if ( stats ) {
       const newStats = greenButtons;
       // it's unlikely that Seek will identify any endangered species
       // since there probably aren't enough photographs
@@ -131,8 +120,6 @@ const NoInternetError = ( {
       setGreenButtons( newStats );
     }
   }, [stats, greenButtons] );
-
-  // console.log( coords, region, greenButtons, "coords in no internet" );
 
   return (
     <View style={styles.background}>

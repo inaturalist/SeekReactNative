@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Text,
   View,
@@ -37,13 +37,7 @@ const LocationPicker = ( {
 }: Props ) => {
   const insets = useSafeArea();
   const [accuracy, setAccuracy] = useState( 90 );
-
-  const [region, setRegion] = useState( {
-    latitudeDelta,
-    longitudeDelta,
-    latitude,
-    longitude
-  } );
+  const [region, setRegion] = useState( {} );
 
   const handleRegionChange = ( newRegion ) => {
     const sizeOfCrossHairIcon = 127;
@@ -57,7 +51,7 @@ const LocationPicker = ( {
     setAccuracy( estimatedAccuracy );
   };
 
-  const returnToUserLocation = () => {
+  const returnToUserLocation = useCallback( () => {
     fetchUserLocation( true ).then( ( coords ) => {
       if ( coords ) {
         const lat = coords.latitude;
@@ -91,7 +85,26 @@ const LocationPicker = ( {
         } );
       }
     } );
-  };
+  }, [] );
+
+  useEffect( () => {
+    const setNewRegion = () => {
+      setRegion( {
+        latitude,
+        longitude,
+        latitudeDelta,
+        longitudeDelta
+      } );
+    };
+
+    if ( latitude && longitude ) {
+      // if photo has location, set map to that location
+      setNewRegion();
+    } else {
+      // otherwise, set to user location
+      returnToUserLocation();
+    }
+  }, [latitude, longitude, returnToUserLocation] );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

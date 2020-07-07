@@ -63,15 +63,12 @@ const ObservationCard = ( {
   }, [updateItemScrolledId, id, itemScrolledId, isFocused] );
 
   useEffect( () => {
-    let isActive = true;
-
     getTaxonCommonName( id ).then( ( taxonName ) => {
-      if ( isActive ) {
+      if ( isFocused ) {
         setCommonName( taxonName );
       }
     } );
-    return () => { isActive = false; };
-  }, [id] );
+  }, [id, isFocused] );
 
   return (
     <ScrollView

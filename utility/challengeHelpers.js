@@ -294,7 +294,10 @@ const checkForChallengesCompleted = async () => {
           challengeComplete: challengeComplete || null
         } );
       } ).catch( () => {
-        resolve( null );
+        resolve( {
+          challengeInProgress: null,
+          challengeComplete: null
+        } );
       } );
     } )
   );

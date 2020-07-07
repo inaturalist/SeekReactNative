@@ -92,7 +92,7 @@ const MatchScreen = () => {
     }
   }, [taxon] );
 
-  const setNavigationPath = ( path ) => dispatch( { type: "SET_NAV_PATH", path } );
+  const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   const renderSpeciesText = () => {
     const {

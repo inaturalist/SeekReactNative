@@ -8,7 +8,7 @@ import {
   SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
@@ -19,6 +19,7 @@ import { colors } from "../../../styles/global";
 
 const GalleryScreen = () => {
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -130,10 +131,10 @@ const GalleryScreen = () => {
   }, [photos.length, loading, setPhotoParams] );
 
   useEffect( () => {
-    if ( photos.length === 0 && loading ) {
+    if ( photos.length === 0 && loading && isFocused ) {
       setPhotoParams();
     }
-  }, [photos.length, loading, setPhotoParams] );
+  }, [photos.length, loading, setPhotoParams, isFocused] );
 
   const renderLoadingWheel = () => (
     <View style={styles.loadingWheel}>
@@ -148,7 +149,7 @@ const GalleryScreen = () => {
       if ( Platform.OS === "android" ) {
         const requestAndroidPermissions = async () => {
           const permission = await checkCameraRollPermissions();
-          if ( !permission ) {
+          if ( !permission && isFocused ) {
             dispatch( { type: "ERROR", error: "gallery" } );
           }
         };
@@ -157,9 +158,11 @@ const GalleryScreen = () => {
     } );
 
     navigation.addListener( "blur", () => {
-      dispatch( { type: "HIDE_LOADING_WHEEL" } );
+      if ( isFocused ) {
+        dispatch( { type: "HIDE_LOADING_WHEEL" } );
+      }
     } );
-  }, [navigation, photos.length, setupPhotos] );
+  }, [navigation, photos.length, setupPhotos, isFocused] );
 
   return (
     <View style={styles.background}>

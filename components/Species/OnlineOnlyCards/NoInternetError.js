@@ -106,7 +106,6 @@ const NoInternetError = ( {
     };
 
     if ( region.latitude && id !== null && isFocused ) {
-      console.log( isFocused, "is focused" );
       checkStats();
     }
   }, [region, id, isFocused] );

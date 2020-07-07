@@ -160,7 +160,10 @@ const checkForNewBadges = async () => {
           latestLevel: latestLevel || null
         } );
       } ).catch( () => {
-        resolve( null );
+        resolve( {
+          latestBadge: null,
+          latestLevel: null
+        } );
       } );
     } )
   );

@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
 import inatjs from "inaturalistjs";
+import { useIsFocused } from "@react-navigation/native";
 
 import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/speciesChart";
@@ -17,6 +18,7 @@ type Props = {
 };
 
 const SpeciesChart = ( { id }: Props ) => {
+  const isFocused = useIsFocused();
   const allMonths = createShortMonthsList();
   const [data, setData] = useState( [] );
 
@@ -46,8 +48,10 @@ const SpeciesChart = ( { id }: Props ) => {
   }, [id] );
 
   useEffect( () => {
-    fetchHistogram();
-  }, [id, fetchHistogram] );
+    if ( isFocused ) {
+      fetchHistogram();
+    }
+  }, [id, fetchHistogram, isFocused] );
 
   const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
 

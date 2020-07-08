@@ -11,7 +11,7 @@ import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
 import Wikipedia from "../Species/WikipediaView";
-import OfflineARResults from "../Results/OfflineARResultsReducer";
+import OfflineARResults from "../Results/OfflineARResults";
 import OnlineServerResults from "../Results/OnlineServerResults";
 import CameraHelp from "../Camera/CameraHelpScreen";
 import Post from "../PostToiNat/PostScreen";

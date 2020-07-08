@@ -582,7 +582,8 @@
     "donate_header": "Hilf mit, iNaturalist zu unterstützen",
     "donate_description": "Hilf mit, iNaturalist zu unterstützen",
     "language": "Sprache der App",
-    "device_settings": "Spracheinstellungen des Geräts benutzen"
+    "device_settings": "Spracheinstellungen des Geräts benutzen",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
     "july_2020_description": "Die Flüsse sind eine Drehscheibe für die biologische Vielfalt. Von mikroskopischen Lebensformen bis hin zu großen Wirbeltieren - Flüsse unterstützen die Organismen um sie herum zu wachsen und zu gedeihen.",
     "action_july_2020": "Welche Organismen siehst du, wenn du dich in der Nähe eines Gewässers befindest? Welche Arten schwimmen im Wasser? Welche Arten fliegen über der Wasseroberfläche? Gibt es Organismen im Wasser, die du vielleicht nicht sehen kannst?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

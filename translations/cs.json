@@ -582,7 +582,8 @@
     "donate_header": "Pomozte podpořit iNaturalist",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "Jazyk aplikace",
-    "device_settings": "Použít jazykové nastavení zařízení"
+    "device_settings": "Použít jazykové nastavení zařízení",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Najdi 1 měkkýše",
     "july_2020_description": "Řeky jsou centry biologické rozmanitosti. Ukrývajíce vše od mikro-bezobratlých po velké obratlovce, řeky pomáhají organismům kolem nich vzkvétat.",
     "action_july_2020": "Když jste poblíž vodního těla, jaké organismy vidíte? Jaké druhy plavou ve vodě? Jaké druhy nad ní létají? Jsou ve vodě organismy, které není možné spatřit?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

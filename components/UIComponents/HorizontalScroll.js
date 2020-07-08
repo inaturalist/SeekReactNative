@@ -82,7 +82,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
           onPress={() => scrollRight()}
           style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
         >
-          <Image source={icons.swipeRight} />
+          <Image source={icons.swipeRight} style={styles.rotateRTL} />
         </TouchableOpacity>
       )}
     </>

@@ -1,20 +1,14 @@
 import React, { useCallback, useState, useEffect } from "react";
-import {
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-  BackHandler
-} from "react-native";
+import { View, Text, BackHandler } from "react-native";
 import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
 import SpeciesPhotos from "./SpeciesPhotos";
 import styles from "../../styles/species/species";
-import icons from "../../assets/icons";
 import { useCommonName } from "../../utility/customHooks";
 import { getRoute } from "../../utility/helpers";
+import CustomBackArrow from "../../components/UIComponents/Buttons/CustomBackArrow";
 
 type Props = {
   photos: Array<Object>,
@@ -76,14 +70,10 @@ const SpeciesHeader = ( {
 
   return (
     <View style={styles.background}>
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.back" )}
-        accessible
-        onPress={() => backAction()}
+      <CustomBackArrow
+        handlePress={backAction}
         style={styles.backButton}
-      >
-        <Image source={icons.backButton} />
-      </TouchableOpacity>
+      />
       <SpeciesPhotos photos={photos} seenTaxa={seenTaxa} />
       <View style={styles.greenBanner}>
         {iconicTaxonId && (

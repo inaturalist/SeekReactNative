@@ -582,7 +582,8 @@
     "donate_header": "Поддержи iNaturalist",
     "donate_description": "Поддержи iNaturalist",
     "language": "Язык приложения",
-    "device_settings": "Использовать языковые настройки устройства"
+    "device_settings": "Использовать языковые настройки устройства",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "значок Seek",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Найти 1 моллюска",
     "july_2020_description": "Реки - это центр биоразнообразия. Поддерживая всё, от микробеспозвоночных до крупных позвоночных, реки помогают организмам рядом с ними процветать.",
     "action_july_2020": "Когда вы находитесь рядом с водоемом, какие организмы вы замечаете? Какие виды плавают в воде? Какие виды летают над ним? Есть ли в воде организмы, которых вы не можете видеть?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

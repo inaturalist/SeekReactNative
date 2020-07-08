@@ -11,8 +11,8 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { UserContext, ScientificNamesContext, LanguageContext } from "./UserContext";
-import { getScientificNames, getLanguage } from "../utility/settingsHelpers";
+import { UserContext, CameraContext, LanguageContext } from "./UserContext";
+import { getScientificNames, getLanguage, getAutoCapture } from "../utility/settingsHelpers";
 
 const setRTL = ( locale ) => {
   if ( Platform.OS === "android" ) {
@@ -38,17 +38,25 @@ const App = () => {
   const [login, setLogin] = useState( null );
   const [scientificNames, setScientificNames] = useState( false );
   const [preferredLanguage, setLanguage] = useState( null );
+  const [autoCapture, setAutoCapture] = useState( false );
 
   const getLoggedIn = async () => setLogin( await fetchAccessToken() );
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
   const getLanguagePreference = async () => setLanguage( await getLanguage() );
+  const fetchAutoCapture = async () => setAutoCapture( await getAutoCapture() );
 
   const toggleLogin = () => getLoggedIn();
   const toggleNames = () => fetchScientificNames();
   const toggleLanguagePreference = () => getLanguagePreference();
+  const toggleAutoCapture = () => fetchAutoCapture();
 
   const userContextValue = { login, toggleLogin };
-  const scientificNamesContextValue = { scientificNames, toggleNames };
+  const CameraContextValue = {
+    scientificNames,
+    toggleNames,
+    autoCapture,
+    toggleAutoCapture
+  };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
 
   const handleLocalizationChange = () => {
@@ -101,6 +109,7 @@ const App = () => {
     getLoggedIn();
     fetchScientificNames();
     getLanguagePreference();
+    fetchAutoCapture();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
 
@@ -115,11 +124,11 @@ const App = () => {
 
   return (
     <UserContext.Provider value={userContextValue}>
-      <ScientificNamesContext.Provider value={scientificNamesContextValue}>
+      <CameraContext.Provider value={CameraContextValue}>
         <LanguageContext.Provider value={languageValue}>
           <RootStack />
         </LanguageContext.Provider>
-      </ScientificNamesContext.Provider>
+      </CameraContext.Provider>
     </UserContext.Provider>
   );
 };

@@ -4,7 +4,8 @@ PhotoRealm.schema = {
   properties: {
     squareUrl: "string?",
     mediumUrl: "string?",
-    backupUri: "string?"
+    backupUri: "string?",
+    lastUpdated: "date?"
   }
 };
 

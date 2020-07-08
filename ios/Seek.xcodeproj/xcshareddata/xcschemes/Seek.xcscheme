@@ -20,7 +20,6 @@
                ReferencedContainer = "container:Seek.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-
       </BuildActionEntries>
    </BuildAction>
    <TestAction

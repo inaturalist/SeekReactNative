@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -18,6 +18,7 @@ import Modal from "../../UIComponents/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
+import { CameraContext } from "../../UserContext";
 
 type Props = {
   takePicture: Function,
@@ -39,6 +40,7 @@ const ARCameraOverlay = ( {
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
+  const { autoCapture } = useContext( CameraContext );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -58,6 +60,12 @@ const ARCameraOverlay = ( {
     };
     checkForFirstCameraLaunch();
   }, [] );
+
+  useEffect( () => {
+    if ( rankToRender === "species" && autoCapture ) {
+      takePicture();
+    }
+  }, [rankToRender, takePicture, autoCapture] );
 
   return (
     <>

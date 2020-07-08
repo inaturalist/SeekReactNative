@@ -23,7 +23,11 @@ export const colors = {
   textShadow: "rgba(0, 0, 0, 0.75)",
   silver: "#818181",
   bronze: "#aa774a",
-  menuItems: "#63d4ab"
+  menuItems: "#63d4ab",
+  grayGradientDark: "#404040",
+  grayGradientLight: "#5e5e5e",
+  greenGradientDark: "#22784d",
+  greenGradientLight: "#38976d"
 };
 
 export const fonts = {

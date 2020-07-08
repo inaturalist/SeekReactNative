@@ -73,11 +73,13 @@ const ARCamera = () => {
     cameraLoaded
   } = state;
 
+  const rankToRender = Object.keys( ranks )[0] || null;
+
   const updateError = useCallback( ( err, errEvent ) => {
     dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
   }, [] );
 
-  const navigateToResults = ( uri, predictions ) => {
+  const navigateToResults = useCallback( ( uri, predictions ) => {
     const image = {
       time: createTimestamp(), // add current time to AR camera photos
       uri,
@@ -85,7 +87,7 @@ const ARCamera = () => {
     };
 
     navigation.navigate( "OfflineARResults", { image } );
-  };
+  }, [navigation] );
 
   const resetPredictions = () => {
     // only rerender if state has different values than before
@@ -94,7 +96,7 @@ const ARCamera = () => {
     }
   };
 
-  const savePhoto = ( photo ) => {
+  const savePhoto = useCallback( ( photo ) => {
     CameraRoll.save( photo.uri, "photo" )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
@@ -107,12 +109,10 @@ const ARCamera = () => {
           updateError( "save", e );
         }
       } );
-  };
+  }, [navigateToResults, updateError] );
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
-    const rankToRender = Object.keys( ranks )[0] || null;
-
     if ( pictureTaken ) { return; }
 
     if ( predictions && !cameraLoaded ) {
@@ -188,7 +188,7 @@ const ARCamera = () => {
     }
   };
 
-  const takePicture = async () => {
+  const takePicture = useCallback( async () => {
     dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
@@ -216,7 +216,7 @@ const ARCamera = () => {
         } ).catch( e => updateError( "take", e ) );
       }
     }
-  };
+  }, [savePhoto, updateError] );
 
   const resetState = () => dispatch( { type: "RESET_STATE" } );
 

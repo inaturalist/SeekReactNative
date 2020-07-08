@@ -294,6 +294,25 @@ const regenerateBackupUris = async () => {
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };
 
+const replacePhoto = async ( id, uri ) => {
+  const backupUri = await createBackupUri( uri );
+  // edit realm photo object attached to observation
+  // using id, create a new backup photo URI and save new cameraroll uri
+  Realm.open( realmConfig ).then( ( realm ) => {
+    realm.write( () => {
+      const obsToEdit = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
+      const taxonToEdit = obsToEdit[0].taxon;
+      const photoToEdit = taxonToEdit.defaultPhoto;
+
+      photoToEdit.backupUri = backupUri;
+      photoToEdit.mediumUrl = uri;
+      photoToEdit.lastUpdated = new Date();
+    } );
+  } ).catch( ( e ) => {
+    console.log( e, "error editing photo object" );
+  } );
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
@@ -305,5 +324,6 @@ export {
   regenerateBackupUris,
   checkForDirectory,
   writeToDebugLog,
-  deleteDebugLogAfter7Days
+  deleteDebugLogAfter7Days,
+  replacePhoto
 };

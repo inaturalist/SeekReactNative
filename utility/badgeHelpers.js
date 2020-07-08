@@ -135,34 +135,33 @@ const checkForNewBadges = async () => {
 
   return (
     new Promise( ( resolve ) => {
-      Realm.open( realmConfig )
-        .then( ( realm ) => {
-          let latestBadge;
-          let latestLevel;
+      Realm.open( realmConfig ).then( ( realm ) => {
+        let latestBadge;
+        let latestLevel;
 
-          const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
-          const badges = earnedBadges.sorted( "earnedDate", true );
+        const earnedBadges = realm.objects( "BadgeRealm" ).filtered( "earned == true AND iconicTaxonName != null" );
+        const badges = earnedBadges.sorted( "earnedDate", true );
 
-          const speciesCount = realm.objects( "TaxonRealm" ).length;
-          const newestLevels = realm.objects( "BadgeRealm" )
-            .filtered( "earned == true AND iconicTaxonName == null" )
-            .sorted( "earnedDate", true );
+        const speciesCount = realm.objects( "TaxonRealm" ).length;
+        const newestLevels = realm.objects( "BadgeRealm" )
+          .filtered( "earned == true AND iconicTaxonName == null" )
+          .sorted( "earnedDate", true );
 
-          if ( badgesEarned < earnedBadges.length ) {
-            [latestBadge] = badges;
-          }
+        if ( badgesEarned < earnedBadges.length ) {
+          [latestBadge] = badges;
+        }
 
-          if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
-            [latestLevel] = newestLevels;
-          }
+        if ( speciesCount === newestLevels[0].count && speciesCount !== 0 ) {
+          [latestLevel] = newestLevels;
+        }
 
-          resolve( {
-            latestBadge,
-            latestLevel
-          } );
-        } ).catch( () => {
-          resolve( null );
+        resolve( {
+          latestBadge: latestBadge || null,
+          latestLevel: latestLevel || null
         } );
+      } ).catch( () => {
+        resolve( null );
+      } );
     } )
   );
 };

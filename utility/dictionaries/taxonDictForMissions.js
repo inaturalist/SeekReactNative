@@ -55,6 +55,16 @@ const taxonIds = {
   Asterales: 47605,
   Passeriformes: 7251,
   Coleoptera: 47208,
+  Charadriiformes: 67561,
+  Coraciiformes: 2114,
+  Gaviiformes: 67562,
+  Gruiformes: 4,
+  Pelecaniformes: 67566,
+  Phoenicopteriformes: 67569,
+  Podicipediformes: 67563,
+  Procellariformes: 67565,
+  Sphenisciformes: 67564,
+  Suliformes: 71268,
   all: null
 };
 

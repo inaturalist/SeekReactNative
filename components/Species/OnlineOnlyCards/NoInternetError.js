@@ -128,7 +128,7 @@ const NoInternetError = ( {
         <>
           {region && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
           {ancestors && <SpeciesTaxonomy ancestors={ancestors} />}
-          <INatObs id={id} timesSeen={timesSeen} />
+          {region && <INatObs id={id} timesSeen={timesSeen} region={region} />}
           <SpeciesChart id={id} />
           <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />
         </>

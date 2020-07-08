@@ -582,7 +582,8 @@
     "donate_header": "Støt iNaturalist",
     "donate_description": "Glad for Seek? Overvej en donation til iNaturalist! Vi er afhængige af donationer fra folk som dig for at vores apps fortsat kan tilbydes gratis.",
     "language": "App-sprog",
-    "device_settings": "Benyt enhedens sprogindstilling"
+    "device_settings": "Benyt enhedens sprogindstilling",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Find 1 bløddyr",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
     "action_july_2020": "Hvilke organismer lægger du mærke til, når du er nær noget vand? Hvilke arter svømmer i vandet? Hvilke arter flyver oppe over det? Er der nogle organismer i vandet, som du måske ikke kan se?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

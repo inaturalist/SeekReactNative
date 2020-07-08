@@ -582,7 +582,8 @@
     "donate_header": "Hjälp till att stödja iNaturalist",
     "donate_description": "Stöd iNaturalist",
     "language": "Språk i appen",
-    "device_settings": "Använd enhetens språkinställningar"
+    "device_settings": "Använd enhetens språkinställningar",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Hitta 1 blötdjur",
     "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
     "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

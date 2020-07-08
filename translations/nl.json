@@ -582,7 +582,8 @@
     "donate_header": "Help en ondersteun iNaturalist",
     "donate_description": "Help en ondersteun iNaturalist",
     "language": "In-app taal",
-    "device_settings": "Systeemtaal gebruiken"
+    "device_settings": "Systeemtaal gebruiken",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Vind 1 weekdier",
     "july_2020_description": "Rivieren vormen een knooppunt voor de biodiversiteit. Er leeft van alles, van microinvertebraten tot grote gewervelden. In de  rivieren gedijen allerlei organismen.",
     "action_july_2020": "Welke organismen kun je vinden in de buurt van water? Welke soorten zwemmen in het water? Welke soorten vliegen erboven? Zijn er organismen in het water die je misschien niet kunt zien?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

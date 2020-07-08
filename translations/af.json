@@ -582,7 +582,8 @@
     "donate_header": "Help om iNaturalist te steun",
     "donate_description": "Help om iNaturalist te steun",
     "language": "Toepgebonde taal",
-    "device_settings": "Gebruik toesteltaalinstellings"
+    "device_settings": "Gebruik toesteltaalinstellings",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Vind 1 weekdier",
     "july_2020_description": "Riviere is ’n kern vir biodiversiteit. Dit ondersteun alles van mikroinvertebrate tot groot gewerweldes. In die  riviere gedy allerlei organismes.",
     "action_july_2020": "Welke organismes kun u naby ’n waterliggaam vind? Welke spesies swem in die water? Welke spesies vlieg bo die water? Is daar organismes in die water wat u dalk nie kan sien nie?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

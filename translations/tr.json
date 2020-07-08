@@ -582,7 +582,8 @@
     "donate_header": "iNaturalist'in desteklenmesine yardımcı olun",
     "donate_description": "Seek'ten hoşnut musunuz? iNaturalist'e bağış yapmayı düşünün! Uygulamalarımızı ücretsiz tutmak için sizin gibi kişilerin bağışlarına bağlıyız.",
     "language": "Uygulama dili",
-    "device_settings": "Cihazınızın dil ayarlarını kullanın"
+    "device_settings": "Cihazınızın dil ayarlarını kullanın",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "1 yumuşakça bul",
     "july_2020_description": "Nehirler biyolojik çeşitlilik için bir merkezdir. Mikro omurgasızlardan büyük omurgalılara kadar her şeyi sağlayan nehirler, çevrelerindeki organizmaların gelişmesine yardımcı olur.",
     "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

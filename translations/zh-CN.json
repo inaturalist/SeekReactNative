@@ -582,7 +582,8 @@
     "donate_header": "帮助支持 iNaturalist",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "应用内置语言",
-    "device_settings": "使用设备自带的语音设置"
+    "device_settings": "使用设备自带的语音设置",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "找到一种软体动物",
     "july_2020_description": "河流是一个生物多样性的中心，支持着从微生物到大型脊椎动物在内的一切生物，并帮助它们繁衍生息。",
     "action_july_2020": "当你靠近一片水域的时候，你看到了哪些生物呢？水中游着什么物种？水面上又飞翔着哪些物种？有哪些物种是在水中但无法被我们肉眼看到的？"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

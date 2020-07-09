@@ -583,7 +583,7 @@
     "donate_description": "Hilf mit, iNaturalist zu unterstützen",
     "language": "Sprache der App",
     "device_settings": "Spracheinstellungen des Geräts benutzen",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Automatisch ein Bild aufnehmen, wenn Bestimmung auf Artniveau erfolgt ist."
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -614,9 +614,9 @@
     "action_july_2020": "Welche Organismen siehst du, wenn du dich in der Nähe eines Gewässers befindest? Welche Arten schwimmen im Wasser? Welche Arten fliegen über der Wasseroberfläche? Gibt es Organismen im Wasser, die du vielleicht nicht sehen kannst?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Foto ersetzen?",
+    "description": "Möchtest du das Foto durch diese erneute Beobachtung ersetzen?",
+    "new": "Neues Foto verwenden",
+    "old": "Altes Foto behalten"
   }
 }

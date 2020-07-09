@@ -583,7 +583,7 @@
     "donate_description": "Поддержи iNaturalist",
     "language": "Язык приложения",
     "device_settings": "Использовать языковые настройки устройства",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Автоматически делать фото, когда вид идентифицирован."
   },
   "seek_challenges": {
     "badge": "значок Seek",
@@ -614,9 +614,9 @@
     "action_july_2020": "Когда вы находитесь рядом с водоемом, какие организмы вы замечаете? Какие виды плавают в воде? Какие виды летают над ним? Есть ли в воде организмы, которых вы не можете видеть?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Заменить фото?",
+    "description": "Вы хотите заменить фото вашего наблюдения?",
+    "new": "Использовать новое фото",
+    "old": "Сохранить старое фото"
   }
 }

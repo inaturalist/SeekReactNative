@@ -126,6 +126,24 @@ const missions = {
       number: 1,
       types: ["mollusks"]
     }
+  },
+  12: {
+    0: {
+      number: 2,
+      types: ["Lamiales"]
+    },
+    1: {
+      number: 1,
+      types: ["Polypodisida"]
+    },
+    2: {
+      number: 1,
+      types: ["Rosales"]
+    },
+    3: {
+      number: 2,
+      types: ["Hymenoptera", "Mantodea", "Lepidoptera"]
+    }
   }
 };
 

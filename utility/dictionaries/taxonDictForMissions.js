@@ -65,6 +65,11 @@ const taxonIds = {
   Procellariformes: 67565,
   Sphenisciformes: 67564,
   Suliformes: 71268,
+  Lamiales: 48151,
+  Polypodisida: 121943,
+  Rosales: 47132,
+  Hymenoptera: 47201,
+  Mantodea: 48112,
   all: null
 };
 

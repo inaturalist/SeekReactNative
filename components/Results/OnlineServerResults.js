@@ -53,16 +53,16 @@ const OnlineServerResults = () => {
   };
 
   const setOnlineVisionSpeciesResults = ( species ) => {
-    const { taxon } = species;
-    const photo = taxon.default_photo;
+    const taxa = species.taxon;
+    const photo = taxa.default_photo;
 
     setObservation( species );
 
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
       const newTaxon = {
-        taxaId: taxon.id,
-        taxaName: capitalizeNames( commonName || taxon.name ),
-        scientificName: taxon.name,
+        taxaId: taxa.id,
+        taxaName: capitalizeNames( commonName || taxa.name ),
+        scientificName: taxa.name,
         speciesSeenImage: photo ? photo.medium_url : null
       };
 
@@ -71,19 +71,18 @@ const OnlineServerResults = () => {
     } );
   };
 
-  const setOnlineVisionAncestorResults = ( commonAncestor ) => {
-    const { taxon } = commonAncestor;
-    const photo = taxon.default_photo;
+  const setNearestPrimaryRankAncestor = ( ancestor ) => {
+    const photo = ancestor.default_photo;
 
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( ancestor.id ).then( ( commonName ) => {
       const newTaxon = {
-        commonAncestor: commonAncestor
-          ? capitalizeNames( commonName || taxon.name )
+        commonAncestor: ancestor
+          ? capitalizeNames( commonName || ancestor.name )
           : null,
-        taxaId: taxon.id,
+        taxaId: ancestor.id,
         speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: taxon.name,
-        rank: taxon.rank_level
+        scientificName: ancestor.name,
+        rank: ancestor.rank_level
       };
 
       setTaxon( newTaxon );
@@ -91,39 +90,93 @@ const OnlineServerResults = () => {
     } );
   };
 
-  const fetchScore = useCallback( ( params ) => {
-    const token = createJwtToken();
+  const setOnlineVisionAncestorResults = ( commonAncestor ) => {
+    const taxa = commonAncestor.taxon;
+    const photo = taxa.default_photo;
 
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
+      const newTaxon = {
+        commonAncestor: commonAncestor
+          ? capitalizeNames( commonName || taxa.name )
+          : null,
+        taxaId: taxa.id,
+        speciesSeenImage: photo ? photo.medium_url : null,
+        scientificName: taxa.name,
+        rank: taxa.rank_level
+      };
+
+      setTaxon( newTaxon );
+      setMatch( false );
+    } );
+  };
+
+  const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
+    let nearestTaxon = {};
+
+    if ( rank <= 20 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 20 );
+    } else if ( rank <= 30 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 30 );
+    } else if ( rank <= 40 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 40 );
+    } else if ( rank <= 50 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 50 );
+    }
+
+    return nearestTaxon;
+
+  };
+
+  const checkCommonAncestorRank = useCallback( ( rank ) => {
+    const primaryRanks = [20, 30, 40, 50];
+
+    if ( primaryRanks.includes( rank ) ) {
+      return true;
+    }
+    return false;
+  }, [] );
+
+  const fetchScore = useCallback( ( parameters ) => {
+    const token = createJwtToken();
     const options = { api_token: token, user_agent: createUserAgent() };
 
-    inatjs.computervision.score_image( params, options )
-      .then( ( response ) => {
-        const species = response.results[0];
-        const commonAncestor = response.common_ancestor;
+    inatjs.computervision.score_image( parameters, options ).then( ( response ) => {
+      const species = response.results[0];
+      const commonAncestor = response.common_ancestor;
 
-        if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
-          checkSpeciesSeen( species.taxon.id );
-          setOnlineVisionSpeciesResults( species );
-        } else if ( commonAncestor ) {
+      if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
+        checkSpeciesSeen( species.taxon.id );
+        setOnlineVisionSpeciesResults( species );
+      } else if ( commonAncestor ) {
+        const rankLevel = commonAncestor.taxon.rank_level;
+        const primaryRank = checkCommonAncestorRank( rankLevel );
+
+        if ( primaryRank ) {
           setOnlineVisionAncestorResults( commonAncestor );
         } else {
-          setMatch( false );
+          // roll up to the nearest primary rank instead of showing sub-ranks
+          // this better matches what we do on the AR camera
+          const { ancestorTaxa } = species.taxon;
+          const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
+          setNearestPrimaryRankAncestor( nearestTaxon );
         }
-      } ).catch( ( { response } ) => {
-        if ( response.status && response.status === 503 ) {
-          const gmtTime = response.headers.map["retry-after"];
-          console.log( gmtTime, "gmt time" );
-          const hours = serverBackOnlineTime( gmtTime );
+      } else {
+        setMatch( false );
+      }
+    } ).catch( ( { response } ) => {
+      if ( response.status && response.status === 503 ) {
+        const gmtTime = response.headers.map["retry-after"];
+        const hours = serverBackOnlineTime( gmtTime );
 
-          if ( hours ) {
-            setNumberOfHours( hours );
-          }
-          setError( "downtime" );
-        } else {
-          setError( "onlineVision" );
+        if ( hours ) {
+          setNumberOfHours( hours );
         }
-      } );
-  }, [] );
+        setError( "downtime" );
+      } else {
+        setError( "onlineVision" );
+      }
+    } );
+  }, [checkCommonAncestorRank] );
 
   const addObservation = useCallback( async () => {
     await addToCollection( observation, image );

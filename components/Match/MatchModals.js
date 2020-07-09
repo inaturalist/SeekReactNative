@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Platform } from "react-native";
 import Modal from "react-native-modal";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { checkForNewBadges } from "../../utility/badgeHelpers";
 import { checkForChallengesCompleted, setChallengeProgress } from "../../utility/challengeHelpers";
@@ -43,6 +43,7 @@ const MatchModals = ( {
   navPath
 }: Props ) => {
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   const {
     errorCode,
@@ -65,11 +66,9 @@ const MatchModals = ( {
       case "SET_CHALLENGE_MODAL":
         return { ...state, challengeModal: action.status, challengeShown: action.challengeShown };
       case "SET_LEVEL_MODAL":
-        return { ...state, levelModal: action.status };
+        return { ...state, levelModal: action.status, levelShown: action.levelShown };
       case "SET_REPLACE_PHOTO_MODAL":
         return { ...state, replacePhotoModal: action.status };
-      case "SET_CHALLENGE_SHOWN":
-        return { ...state, challengeShown: action.status };
       case "SET_FIRST_RENDER":
         return { ...state, firstRender: false };
       default:
@@ -77,6 +76,7 @@ const MatchModals = ( {
     }
   }, {
     latestLevel: null,
+    levelShown: null,
     badge: null,
     challenge: null,
     challengeInProgress: null,
@@ -88,6 +88,7 @@ const MatchModals = ( {
   } );
 
   const {
+    levelShown,
     latestLevel,
     badge,
     challengeInProgress,
@@ -101,13 +102,13 @@ const MatchModals = ( {
 
   const closeChallengeModal = () => dispatch( { type: "SET_CHALLENGE_MODAL", status: false, challengeShown: true } );
   const closeReplacePhotoModal = () => dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: false } );
-  const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false } );
+  const closeLevelModal = () => dispatch( { type: "SET_LEVEL_MODAL", status: false, levelShown: true } );
 
   useEffect( () => {
-    if ( seenDate ) {
+    if ( seenDate && isFocused ) {
       dispatch( { type: "SET_REPLACE_PHOTO_MODAL", status: true } );
     }
-  }, [seenDate] );
+  }, [seenDate, isFocused] );
 
   useEffect( () => {
     if ( levelModal ) {
@@ -143,26 +144,14 @@ const MatchModals = ( {
     }
   }, [navPath, navigation, params, taxon, setNavigationPath] );
 
-  const checkModals = useCallback( () => {
-    if ( navPath ) {
-      if ( ( !challenge && !latestLevel ) || challengeShown ) {
-        navigateTo();
-      } else if ( challenge ) {
-        dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
-      } else if ( latestLevel ) {
-        dispatch( { type: "SET_LEVEL_MODAL", status: true } );
-      }
-    }
-  }, [navPath, challenge, latestLevel, challengeShown, navigateTo] );
-
   const checkBadges = () => {
-    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => {
+    checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_BADGES", latestLevel, latestBadge } );
     } ).catch( () => console.log( "could not check for badges" ) );
   };
 
   const checkChallenges = () => {
-    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => {
+    checkForChallengesCompleted().then( ( { challengeComplete, challengeInProgress } ) => { // eslint-disable-line no-shadow
       dispatch( { type: "SET_CHALLENGES", challenge: challengeComplete, challengeInProgress } );
       setChallengeProgress( "none" );
     } ).catch( () => console.log( "could not check for challenges" ) );
@@ -174,11 +163,21 @@ const MatchModals = ( {
     }
   }, [image.latitude, errorCode] );
 
+  const checkModals = useCallback( () => {
+    if ( challenge && !challengeShown ) {
+      dispatch( { type: "SET_CHALLENGE_MODAL", status: true, challengeShown: false } );
+    } else if ( latestLevel && !levelShown ) {
+      dispatch( { type: "SET_LEVEL_MODAL", status: true, levelShown: false } );
+    } else {
+      navigateTo();
+    }
+  }, [challenge, challengeShown, latestLevel, levelShown, navigateTo] );
+
   useEffect( () => {
-    if ( challengeShown || navPath ) {
+    if ( navPath ) {
       checkModals();
     }
-  }, [challengeShown, navPath, checkModals] );
+  }, [navPath, checkModals] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
@@ -204,15 +203,12 @@ const MatchModals = ( {
           <Toasts badge={badge} challenge={challengeInProgress} />
           <RNModal
             showModal={challengeModal}
-            closeModal={() => closeChallengeModal()}
+            closeModal={closeChallengeModal}
             modal={<ChallengeEarnedModal challenge={challenge} closeModal={closeChallengeModal} />}
           />
           <RNModal
             showModal={levelModal}
-            closeModal={() => {
-              navigateTo();
-              closeLevelModal();
-            }}
+            closeModal={closeLevelModal}
             modal={(
               <LevelModal
                 level={latestLevel}

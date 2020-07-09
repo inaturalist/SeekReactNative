@@ -47,7 +47,6 @@ const PostScreen = () => {
   const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.type, "type" );
     switch ( action.type ) {
       case "SELECT_SPECIES":
         return {

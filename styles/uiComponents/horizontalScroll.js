@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, I18nManager } from "react-native";
 import { colors } from "../global";
 
 export default StyleSheet.create( {
@@ -26,7 +26,10 @@ export default StyleSheet.create( {
     zIndex: 1
   },
   rotate: {
-    transform: [{ rotate: "180deg" }]
+    transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }]
+  },
+  rotateRTL: {
+    transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }]
   },
   speciesLeftArrow: {
     top: 100

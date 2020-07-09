@@ -1,7 +1,7 @@
 import Realm from "realm";
 
 import UUIDGenerator from "react-native-uuid-generator";
-import { capitalizeNames } from "./helpers";
+// import { capitalizeNames } from "./helpers";
 import { deleteBadges, checkNumberOfBadgesEarned } from "./badgeHelpers";
 import { recalculateChallenges, checkNumberOfChallengesCompleted } from "./challengeHelpers";
 import { createBackupUri, deleteFile } from "./photoHelpers";
@@ -41,44 +41,43 @@ const addToCollection = async ( observation, image ) => {
   checkNumberOfBadgesEarned();
   checkNumberOfChallengesCompleted();
 
-  Realm.open( realmConfig )
-    .then( ( realm ) => {
-      const { length } = realm.objects( "TaxonRealm" );
+  Realm.open( realmConfig ).then( ( realm ) => {
+    const { length } = realm.objects( "TaxonRealm" );
 
-      realm.write( () => {
-        let defaultPhoto;
-        const p = taxon.default_photo;
-        if ( uri ) {
-          defaultPhoto = realm.create( "PhotoRealm", {
-            squareUrl: p ? p.medium_url : null,
-            mediumUrl: uri,
-            backupUri
-          } );
-        }
-        const newTaxon = realm.create( "TaxonRealm", {
-          id: taxon.id,
-          name: taxon.name,
-          preferredCommonName:
-            taxon.preferred_common_name
-              ? capitalizeNames( taxon.preferred_common_name )
-              : null,
-          iconicTaxonId: taxon.iconic_taxon_id,
-          ancestorIds: taxon.ancestor_ids,
-          defaultPhoto
+    realm.write( () => {
+      let defaultPhoto;
+      const p = taxon.default_photo;
+      if ( uri ) {
+        defaultPhoto = realm.create( "PhotoRealm", {
+          squareUrl: p ? p.medium_url : null,
+          mediumUrl: uri,
+          backupUri
         } );
-        realm.create( "ObservationRealm", {
-          uuidString: uuid,
-          date: time ? setISOTime( time ) : new Date(),
-          taxon: newTaxon,
-          latitude: latitude || null,
-          longitude: longitude || null
-        } );
+      }
+      const newTaxon = realm.create( "TaxonRealm", {
+        id: taxon.id,
+        name: taxon.name,
+        // preferredCommonName:
+        //   taxon.preferred_common_name
+        //     ? capitalizeNames( taxon.preferred_common_name )
+        //     : null,
+        iconicTaxonId: taxon.iconic_taxon_id,
+        ancestorIds: taxon.ancestor_ids,
+        defaultPhoto
       } );
-      const newLength = realm.objects( "TaxonRealm" ).length;
-      checkForPowerUsers( length, newLength );
-    } ).catch( ( e ) => {
-      console.log( e, "error adding to collection" );
+      realm.create( "ObservationRealm", {
+        uuidString: uuid,
+        date: time ? setISOTime( time ) : new Date(),
+        taxon: newTaxon,
+        latitude: latitude || null,
+        longitude: longitude || null
+      } );
     } );
+    const newLength = realm.objects( "TaxonRealm" ).length;
+    checkForPowerUsers( length, newLength );
+  } ).catch( ( e ) => {
+    console.log( e, "error adding to collection" );
+  } );
 };
 
 const removeFromCollection = ( id ) => {

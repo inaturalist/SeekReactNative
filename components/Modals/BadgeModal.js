@@ -26,34 +26,30 @@ type Props = {
 };
 
 const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
-  const [dotIndex, setDotIndex] = useState( 0 );
-  const [scrollOffset, setScrollOffset] = useState( 0 );
   const flatList = useRef( null );
+  const [scrollIndex, setScrollIndex] = useState( 0 );
+  const viewConfigRef = useRef( {
+    waitForInteraction: true,
+    viewAreaCoveragePercentThreshold: 95
+  } );
 
   const length = badges.length - 1;
-  const nextIndex = dotIndex < length ? dotIndex + 1 : length;
-  const prevIndex = dotIndex > 0 ? dotIndex - 1 : 0;
+  const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
+  const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const calculateScrollIndex = ( e ) => {
-    const { contentOffset } = e.nativeEvent;
-
-    if ( contentOffset.x > scrollOffset ) {
-      setDotIndex( nextIndex );
-      setScrollOffset( contentOffset.x );
-    } else if ( contentOffset.x < scrollOffset ) {
-      setDotIndex( prevIndex );
-      setScrollOffset( contentOffset.x );
+  const scroll = ( index ) => {
+    if ( flatList && flatList.current !== null ) {
+      flatList.current.scrollToIndex( { index, animated: true } );
     }
   };
 
-  const scrollToIndex = ( index ) => {
-    setDotIndex( index );
-    if ( flatList && flatList.current ) {
-      flatList.current.scrollToIndex( {
-        index, animated: true
-      } );
-    }
-  };
+  const scrollRight = () => scroll( nextIndex );
+  const scrollLeft = () => scroll( prevIndex );
+
+  const onViewRef = useRef( ( { changed } ) => {
+    const { index } = changed[0];
+    setScrollIndex( index );
+  } );
 
   const badgeList = badges.map( ( badge ) => (
     <View
@@ -94,21 +90,40 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
       />
       <FlatList
         ref={flatList}
+        viewabilityConfig={viewConfigRef.current}
+        onViewableItemsChanged={onViewRef.current}
         data={badgeList}
         horizontal
         pagingEnabled
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={false}
-        onScrollEndDrag={( e ) => calculateScrollIndex( e )}
       />
-      {dotIndex !== 0 && <Image source={icons.badgeSwipeRight} style={styles.leftArrow} />}
-      {dotIndex !== 2 && <Image source={icons.badgeSwipeRight} style={styles.arrow} />}
+      {scrollIndex > 0 && (
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
+          accessible
+          onPress={() => scrollLeft()}
+          style={styles.leftArrow}
+        >
+          <Image source={icons.badgeSwipeRight} />
+        </TouchableOpacity>
+      )}
+      {scrollIndex < 2 && (
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
+          accessible
+          onPress={() => scrollRight()}
+          style={styles.arrow}
+        >
+          <Image source={icons.badgeSwipeRight} />
+        </TouchableOpacity>
+      )}
       <View style={styles.marginLarge} />
       <View style={styles.row}>
         {[0, 1, 2].map( ( item, index ) => (
           <TouchableOpacity
             key={item}
-            onPress={() => scrollToIndex( index )}
+            onPress={() => scroll( index )}
           >
             <Image
               source={badges[item].earned
@@ -116,7 +131,9 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
                 : badgeImages.badge_empty}
               style={styles.smallImage}
             />
-            <Text style={[styles.bullets, index !== dotIndex && styles.transparent]}>&#8226;</Text>
+            <Text style={[styles.bullets, index !== scrollIndex && styles.transparent]}>
+              &#8226;
+            </Text>
           </TouchableOpacity>
         ) )}
       </View>

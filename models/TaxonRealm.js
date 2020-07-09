@@ -5,7 +5,7 @@ TaxonRealm.schema = {
   properties: {
     name: { type: "string", default: "" },
     id: { type: "int", default: 0 },
-    preferredCommonName: "string?",
+    preferredCommonName: "string?", // remove this
     defaultPhoto: { type: "PhotoRealm?" }, // this should be a PhotoRealm object, but that type is causing errors
     iconicTaxonId: { type: "int", default: 0 },
     ancestorIds: { type: "int[]" }

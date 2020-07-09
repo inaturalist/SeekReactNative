@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import inatjs from "inaturalistjs";
+import { useIsFocused } from "@react-navigation/native";
 
 import SpeciesStats from "./SpeciesStats";
 import SimilarSpecies from "./SimilarSpecies";
@@ -15,7 +16,7 @@ import i18n from "../../../i18n";
 import About from "./About";
 import SeenDate from "./SeenDate";
 import { formatShortMonthDayYear } from "../../../utility/dateHelpers";
-import { useTruncatedUserCoords } from "../../../utility/customHooks";
+import { useTruncatedUserCoords, useLocationPermission } from "../../../utility/customHooks";
 import createUserAgent from "../../../utility/userAgent";
 
 const latitudeDelta = 0.2;
@@ -41,9 +42,11 @@ const NoInternetError = ( {
     ancestors,
     timesSeen
   } = details;
+  const isFocused = useIsFocused();
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
-  const coords = useTruncatedUserCoords();
-  const [region, setRegion] = useState( null );
+  const granted = useLocationPermission();
+  const coords = useTruncatedUserCoords( granted );
+  const [region, setRegion] = useState( {} );
   const [greenButtons, setGreenButtons] = useState( {} );
 
   const showGreenButtons = Object.keys( greenButtons ).map(
@@ -51,22 +54,20 @@ const NoInternetError = ( {
   ).includes( true );
 
   useEffect( () => {
+    const setNewRegion = ( newRegion ) => {
+      setRegion( {
+        latitude: newRegion.latitude,
+        longitude: newRegion.longitude,
+        latitudeDelta,
+        longitudeDelta
+      } );
+    };
     // if user has seen observation, fetch data based on obs location
     if ( seenTaxa && seenTaxa.latitude ) {
-      setRegion( {
-        latitude: seenTaxa.latitude,
-        longitude: seenTaxa.longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      setNewRegion( seenTaxa );
       // otherwise, fetch data based on user location
     } else if ( coords && coords.latitude ) {
-      setRegion( {
-        latitude: coords.latitude,
-        longitude: coords.longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
+      setNewRegion( coords );
     }
   }, [coords, seenTaxa] );
 
@@ -104,10 +105,10 @@ const NoInternetError = ( {
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
-    if ( ( region && region.latitude ) && id !== null ) {
+    if ( region.latitude && id !== null && isFocused ) {
       checkStats();
     }
-  }, [region, id] );
+  }, [region, id, isFocused] );
 
   useEffect( () => {
     if ( stats ) {

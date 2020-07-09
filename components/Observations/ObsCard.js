@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -31,6 +31,7 @@ const ObservationCard = ( {
   updateItemScrolledId,
   itemScrolledId
 }: Props ) => {
+  const isFocused = useIsFocused();
   const scrollView = useRef( null );
   const { navigate } = useNavigation();
   const [commonName, setCommonName] = useState( null );
@@ -53,22 +54,21 @@ const ObservationCard = ( {
       }
     };
 
-    if ( itemScrolledId && itemScrolledId !== id ) {
-      updateItemScrolledId( null );
-      scrollLeft();
+    if ( isFocused ) {
+      if ( itemScrolledId && itemScrolledId !== id ) {
+        updateItemScrolledId( null );
+        scrollLeft();
+      }
     }
-  }, [updateItemScrolledId, id, itemScrolledId] );
+  }, [updateItemScrolledId, id, itemScrolledId, isFocused] );
 
   useEffect( () => {
-    let isActive = true;
-
     getTaxonCommonName( id ).then( ( taxonName ) => {
-      if ( isActive ) {
+      if ( isFocused ) {
         setCommonName( taxonName );
       }
     } );
-    return () => { isActive = false; };
-  }, [id] );
+  }, [id, isFocused] );
 
   return (
     <ScrollView

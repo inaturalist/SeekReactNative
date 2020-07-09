@@ -43,7 +43,6 @@ const SplashScreen = () => {
     } ).catch( () => resetRouter( "Drawer" ) );
   }, [resetRouter, navigation, linkTo] );
 
-
   const removeUnusedKeys = async () => {
     const keys = ["drawer", "regenerated_backups", "observations", "observers", "scientific_names", "has_seen_login"];
     try {

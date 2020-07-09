@@ -53,8 +53,17 @@ const SpeciesDetail = () => {
           }
         };
       case "TAXA_NOT_SEEN":
+        return { ...state, seenTaxa: null };
+      case "RESET_SCREEN":
         return {
-          ...state,
+          id: null,
+          photos: [],
+          taxon: {
+            scientificName: null,
+            iconicTaxonId: null
+          },
+          details: {},
+          error: null,
           seenTaxa: null
         };
       default:
@@ -83,10 +92,8 @@ const SpeciesDetail = () => {
 
   const setupScreen = useCallback( async () => {
     const i = await getSpeciesId();
-    if ( i !== id ) {
-      dispatch( { type: "SET_ID", id: i } );
-    }
-  }, [id] );
+    dispatch( { type: "SET_ID", id: i } );
+  }, [] );
 
   const checkIfSpeciesSeen = useCallback( () => {
     if ( id === null ) {
@@ -169,16 +176,16 @@ const SpeciesDetail = () => {
     } ).catch( () => checkInternetConnection() );
   }, [id] );
 
-  const scrollToTop = () => {
-    if ( scrollView.current ) {
-      scrollView.current.scrollTo( {
-        x: 0, y: 0, animated: Platform.OS === "android"
-      } );
-    }
-  };
-
   const fetchiNatData = useCallback( () => {
     setupScreen();
+
+    const scrollToTop = () => {
+      if ( scrollView.current ) {
+        scrollView.current.scrollTo( {
+          x: 0, y: 0, animated: Platform.OS === "android"
+        } );
+      }
+    };
 
     if ( Platform.OS === "android" ) {
       setTimeout( () => scrollToTop(), 1 );
@@ -198,6 +205,9 @@ const SpeciesDetail = () => {
   useEffect( () => {
     navigation.addListener( "focus", () => {
       fetchiNatData();
+    } );
+    navigation.addListener( "blur", () => {
+      dispatch( { type: "RESET_SCREEN" } );
     } );
   }, [navigation, fetchiNatData] );
 

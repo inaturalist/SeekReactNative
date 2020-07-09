@@ -48,7 +48,7 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
     }
   };
 
-  const getPredictions = ( uri: string, timestamp: Date, location: string ) => {
+  const getPredictions = ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
     const reactUri = path[1];
 

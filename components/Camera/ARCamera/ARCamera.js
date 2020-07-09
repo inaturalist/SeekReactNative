@@ -113,6 +113,7 @@ const ARCamera = () => {
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
+
     if ( pictureTaken ) { return; }
 
     if ( predictions && !cameraLoaded ) {

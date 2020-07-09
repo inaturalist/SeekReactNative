@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, I18nManager } from "react-native";
 import {
   colors,
   fonts,
@@ -29,7 +29,7 @@ export default StyleSheet.create( {
   },
   margin: {
     marginLeft: 15,
-    transform: [{ rotate: "270deg" }]
+    transform: [{ rotate: I18nManager.isRTL ? "90deg" : "270deg" }]
   },
   marginOpen: {
     marginLeft: 15

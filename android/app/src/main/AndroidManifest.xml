@@ -15,7 +15,8 @@
       android:name="org.inaturalist.seek.MainApplication"
       android:usesCleartextTraffic="${usesCleartextTraffic}"
       android:label="@string/app_name"
-      android:icon="@drawable/ic_seek_adaptiveappicon"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme"
       android:largeHeap="true">

@@ -6,8 +6,9 @@ import React, {
   useRef,
   useContext
 } from "react";
-import { View, ScrollView, SafeAreaView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
@@ -22,6 +23,7 @@ import { useScrollToTop } from "../../utility/customHooks";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
+  const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -90,7 +92,7 @@ const MatchScreen = () => {
     }
   }, [taxon] );
 
-  const setNavigationPath = ( path ) => dispatch( { type: "SET_NAV_PATH", path } );
+  const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   const renderSpeciesText = () => {
     const {
@@ -128,8 +130,13 @@ const MatchScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={[styles.flex, { backgroundColor: gradientColorDark }]} />
+    <View style={[
+      styles.container, {
+        paddingTop: insets.top,
+        backgroundColor: gradientColorDark
+      }
+    ]}
+    >
       <MatchModals
         match={match}
         flagModal={flagModal}
@@ -140,7 +147,7 @@ const MatchScreen = () => {
         navPath={navPath}
         setNavigationPath={setNavigationPath}
       />
-      <ScrollView ref={scrollView}>
+      <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
         <Spacer backgroundColor={gradientColorDark} />
         <MatchHeader
           gradientColorDark={gradientColorDark}

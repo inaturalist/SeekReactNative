@@ -1,18 +1,12 @@
 // @flow
 
 import React, { useCallback } from "react";
-import {
-  View,
-  Image,
-  TouchableOpacity,
-  BackHandler
-} from "react-native";
+import { View, Image, BackHandler } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { useFocusEffect } from "@react-navigation/native";
 
-import i18n from "../../i18n";
 import styles from "../../styles/match/match";
-import icons from "../../assets/icons";
+import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 
 type Props = {
   gradientColorDark: string,
@@ -47,14 +41,10 @@ const MatchHeader = ( {
       colors={[gradientColorDark, gradientColorLight]}
       style={styles.header}
     >
-      <TouchableOpacity
-        accessibilityLabel={i18n.t( "accessibility.back" )}
-        accessible
-        onPress={() => setNavigationPath( "Camera" )}
+      <CustomBackArrow
+        handlePress={() => setNavigationPath( "Camera" )}
         style={styles.backButton}
-      >
-        <Image source={icons.backButton} />
-      </TouchableOpacity>
+      />
       <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image
           source={{ uri: userImage }}

@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow
 
 import React, { useState, useEffect } from "react";
 import { I18nManager, Platform, YellowBox } from "react-native";

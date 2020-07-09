@@ -583,7 +583,7 @@
     "donate_description": "Seek'ten hoşnut musunuz? iNaturalist'e bağış yapmayı düşünün! Uygulamalarımızı ücretsiz tutmak için sizin gibi kişilerin bağışlarına bağlıyız.",
     "language": "Uygulama dili",
     "device_settings": "Cihazınızın dil ayarlarını kullanın",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Tanımlama türe eriştiğinde otomatik fotoğraf çek"
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -614,9 +614,9 @@
     "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Fotoğraf değişsin mi?",
+    "description": "Yeniden gözden geçirdiğiniz gözleminizin fotoğrafını değiştirmek ister misiniz?",
+    "new": "Yeni fotoğraf kullan",
+    "old": "Eski fotoğrafı tut"
   }
 }

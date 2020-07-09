@@ -34,7 +34,7 @@
     "view_challenges": "Vis utfordring",
     "none": "Du har ingen varslinger ennå!",
     "about": "Her blir du varslet om nye utfordringer når de blir tilgjengelige, oppdateringer til Seek, og annen relevant informasjon.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "En ny utfordring er tilgjengelig!"
   },
   "login": {
     "log_in": "Logg på med iNaturalist",
@@ -89,7 +89,7 @@
     "return_login": "Tilbake til innloggingsside"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Personvern"
   },
   "menu": {
     "home": "Hjem",
@@ -163,12 +163,12 @@
     "no_new_challenges": "Vi sier ifra når nye utfordringer er tilgjengelige.",
     "completed_all": "Du har fullført alle tilgjengelige utfordringer!",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} observert så langt",
+      "one": "{{count}} observert så langt",
+      "two": "{{count}} observert så langt",
+      "few": "{{count}} observert så langt",
+      "many": "{{count}} observert så langt",
+      "other": "{{count}} observert så langt"
     },
     "how_to": "Fullfør Seek-utfordringen for {{month}}!",
     "released": "Denne utfordringen publiseres {{date}}.",
@@ -201,8 +201,8 @@
     "photographer_june": "Bilde © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Bilde © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Bilde © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Bilde © Netflix / Silverback Films",
+    "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -247,12 +247,12 @@
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_location": "For å legge til arter til dine observasjoner må du slå på din posisjon. Seek bruker din posisjon for å minne deg på hvor du så en organisme, og å hjelpe med å bidra til grasrotforsking hvis du publiserer på iNaturalist.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "one": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "two": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "few": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "many": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "other": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer."
     },
     "error_few": "noen få",
     "error_gps": "Vi kunne ikke finne din GPS-posisjon. Vennligst prøv å bevege deg til et sted hvor du kan se himmelen og sjekk at posisjonstjenesten til din enhet er slått på for å kunne lagre observasjoner.",
@@ -262,18 +262,18 @@
     "tap": "Trykk for å laste inn arter i nærheten"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Vis merke",
+    "badge": "Merke",
     "challenge_progress": "Du fant enda en art!",
     "challenge_view": "Se din fremgang",
     "level_up": "Du gikk opp et nivå!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "Du har sett {{count}} arter!",
+      "one": "Du har sett {{count}} arter!",
+      "two": "Du har sett {{count}} arter!",
+      "few": "Du har sett {{count}} arter!",
+      "many": "Du har sett {{count}} arter!",
+      "other": "Du har sett {{count}} arter!"
     }
   },
   "camera": {
@@ -291,7 +291,7 @@
     "family": "familie",
     "genus": "slekt",
     "species": "art",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Vi trenger tilgang til kameraet for å hjelpe deg med å identifisere arter!",
     "error_gallery": "Vi trenger tilgang til ditt bildegalleri for å lagre bilder som du tar!",
     "permissions": "Gi tillatelser i innstillingene",
     "error_classifier": "Sorry, we're unable to load the classifier",
@@ -583,7 +583,7 @@
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Bruk enhetens språkinnstillinger",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten."
   },
   "seek_challenges": {
     "badge": "Seek merke",
@@ -614,9 +614,9 @@
     "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Erstatt bilde?",
+    "description": "Vil du erstatte bildet til din gjentatte observasjon?",
+    "new": "Bruk nytt bilde",
+    "old": "Behold gammelt bilde"
   }
 }

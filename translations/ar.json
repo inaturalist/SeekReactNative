@@ -582,7 +582,8 @@
     "donate_header": "مساعدة ودعم iNaturalist",
     "donate_description": "مساعدة دعم iNaturalist",
     "language": "اللغة داخل التطبيق",
-    "device_settings": "استخدم إعدادات اللغة في الجهاز"
+    "device_settings": "استخدم إعدادات اللغة في الجهاز",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "شارة Seek",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "ابحث عن 1 من الرخويات",
     "july_2020_description": "الأنهار هي مركز للتنوع البيولوجي. دعم كل شيء من اللافقاريات الدقيقة إلى الفقاريات الكبيرة، الأنهار تساعد الكائنات المحيطة بها على الازدهار.",
     "action_july_2020": "عندما تكون بالقرب من جسم من الماء، ما الكائنات الحية التي تلاحظها؟ ماهي الأنواع التي تسبح في الماء؟ ماهي التي تطير فوقه؟ هل هناك كائنات حية في المياه لا تستطيع رؤيتها؟"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

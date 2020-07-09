@@ -582,7 +582,8 @@
     "donate_header": "Ajudeu a iNaturalist",
     "donate_description": "T'agrada Seek? Considera donar a iNaturalist! Depenem de les donacions de persones com tu per mantenir les nostres apps gratuïtes",
     "language": "Idioma de la aplicació",
-    "device_settings": "Usar l'idioma del telèfon."
+    "device_settings": "Usar l'idioma del telèfon.",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Troba 1 mol·lusc",
     "july_2020_description": "Els rius són un node de biodiversitat. Suporten moltes formes de vida, des d'invertebrats a grans vertebrats, els rius ajuden als organismes del seu entorn a prosperar.",
     "action_july_2020": "Quan estas a prop d'una zona humida, quins organismes pots veure? Quines espècies neden a l'aigua? Quines volen sobre elles? Hi ha organismes en l'aigua que pot ser no puguis veure?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

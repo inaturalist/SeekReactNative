@@ -582,7 +582,8 @@
     "donate_header": "Soutenir iNaturalist",
     "donate_description": "Soutenir iNaturalist",
     "language": "Langue de l'appli",
-    "device_settings": "Utiliser la langue du système d'exploitation"
+    "device_settings": "Utiliser la langue du système d'exploitation",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Badge Seek",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Trouvez 1 mollusque",
     "july_2020_description": "Les rivières sont une plaque tournante de la biodiversité. Accueillant des microinvertébrés jusqu'aux grands vertébrés, les rivières aident des organismes variés à prospérer.",
     "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

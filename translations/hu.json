@@ -582,7 +582,8 @@
     "donate_header": "Help support iNaturalist",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
-    "device_settings": "Use device language settings"
+    "device_settings": "Use device language settings",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek Kitűző",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Find 1 mollusk",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
     "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

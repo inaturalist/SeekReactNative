@@ -485,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
     "version": "Version",
     "help": "För hjälp med Seek, vänligen mejla help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Vi är tacksamma för översättningshjälpen från crowdin.com-gruppen, i synnerhet: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, och Yulia Lygina.",
     "join_crowdin": "Besök https://crowdin.com/project/seek för att gå med i översättningsteamet för Seek,"
   },
   "posting": {
@@ -582,7 +582,8 @@
     "donate_header": "Hjälp till att stödja iNaturalist",
     "donate_description": "Stöd iNaturalist",
     "language": "Språk i appen",
-    "device_settings": "Använd enhetens språkinställningar"
+    "device_settings": "Använd enhetens språkinställningar",
+    "auto_capture": "Ta automatiskt en bild när bestämningen kommer fram till art."
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -611,5 +612,11 @@
     "mission_3_july_2020": "Hitta 1 blötdjur",
     "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
     "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?"
+  },
+  "replace_photo": {
+    "header": "Ersätt bild?",
+    "description": "Vill du ersätta bilden för din återfunna observation?",
+    "new": "Använd ny bild",
+    "old": "Behåll gammal bild"
   }
 }

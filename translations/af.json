@@ -583,7 +583,7 @@
     "donate_description": "Help om iNaturalist te steun",
     "language": "Toepgebonde taal",
     "device_settings": "Gebruik toesteltaalinstellings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is."
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -614,9 +614,9 @@
     "action_july_2020": "Welke organismes kun u naby ’n waterliggaam vind? Welke spesies swem in die water? Welke spesies vlieg bo die water? Is daar organismes in die water wat u dalk nie kan sien nie?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Vervang foto?",
+    "description": "Wil u die foto van u tweede waarneming vervang?",
+    "new": "Gebruik nuwe foto",
+    "old": "Behou ou foto"
   }
 }

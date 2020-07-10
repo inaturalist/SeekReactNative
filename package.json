@@ -66,6 +66,7 @@
     "react-native-svg-charts": "^5.4.0",
     "react-native-tab-view": "^2.14.4",
     "react-native-uuid-generator": "^6.1.1",
+    "react-native-webp-format": "^1.1.1",
     "react-native-webview": "^10.3.2",
     "realm": "^3.6.5"
   },

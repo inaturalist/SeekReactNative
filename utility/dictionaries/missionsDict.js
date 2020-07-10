@@ -134,7 +134,7 @@ const missions = {
     },
     1: {
       number: 1,
-      types: ["Polypodisida"]
+      types: ["Asteraceae"]
     },
     2: {
       number: 1,
@@ -142,7 +142,7 @@ const missions = {
     },
     3: {
       number: 2,
-      types: ["Hymenoptera", "Mantodea", "Lepidoptera"]
+      types: ["Hymenoptera", "Lepidoptera", "Coleoptera", "Diptera"]
     }
   }
 };

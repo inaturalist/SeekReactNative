@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "představují",
-    "initiative": "iNaturalist je společná iniciativa California Academy of Sciences a National Geographic Society"
-  },
   "species_nearby": {
     "header": "Druhy poblíž",
     "location_error": "Abychom vám mohli ukázat okolní druhy, musíme použít vaši polohu.",
@@ -37,7 +33,8 @@
     "challenge_completed": "Gratulujeme! Dokončili jste výzvu",
     "view_challenges": "Zobrazit výzvu",
     "none": "Zatím nemáte žádné oznámení!",
-    "about": "Zde budete informováni o nových výzvách, jakmile budou k dispozici, aktualizacích a dalších důležitých informacích."
+    "about": "Zde budete informováni o nových výzvách, jakmile budou k dispozici, aktualizacích a dalších důležitých informacích.",
+    "new_challenge": "Je dostupná nová výzva!"
   },
   "login": {
     "log_in": "Přihlásit se pomocí iNaturalist",
@@ -153,11 +150,11 @@
     "view_badge": "Zobrazit odznak",
     "your_mission": "Vaše mise",
     "mission_1_may": "Najděte jakékoliv 4 různé ptáky, savce, plazy, obojživelníky nebo ryby",
-    "mission_2_may": "Najdi 4 různé druhy hmyzu",
-    "mission_3_may": "Najdi 3 různé pavoukovce",
-    "mission_4_may": "Najdi 6 různých rostlin",
-    "mission_5_may": "Najdi 3 různé houby",
-    "may_description": "From the deepest jungle to the smallest park, we share our planet with an incredible variety of living things, each adapted to the particular environment in which they live. Seek out a local nature hotspot and see how many different types of living thing you can find. Along the way, you’ll learn what characteristics make these different groups of organisms different from each other!",
+    "mission_2_may": "Najděte 4 různé druhy hmyzu",
+    "mission_3_may": "Najděte 3 různé pavoukovce",
+    "mission_4_may": "Najděte 6 různých rostlin",
+    "mission_5_may": "Najděte 3 různé houby",
+    "may_description": "Od nejhlubší džungle po nejmenší park, sdílíme naši planetu s neuvěřitelnou rozmanitostí rostlin a živočichů. Každý z nich je přizpůsobený prostředí, ve kterém žije. Vyhledejte  si místo v přírodě a uvidíte, kolik různých druhů živých věcí tam můžete najít. Spolu s tím se naučíte, jaké vlastnosti dělají tyto různé skupiny živých organismů odlišnými!",
     "congrats": "Dokončili jste Výzvu naší planety za měsíc {{month}}!",
     "thanks": "Děkujeme za účast! Všichni můžeme dát přírodě pomocnou ruku. Vydejte se cestou Our Planet na Netflixu. Více se dozvíte na ourplanet.com.",
     "no_completed_challenges": "Vaše dokončené výzvy se objeví zde.",
@@ -165,15 +162,22 @@
     "no_new_challenges_header": "Nemáte žádné nové výzvy.",
     "no_new_challenges": "Až budou dostupné nové výzvy, dáme Vám vědět.",
     "completed_all": "Dokončili jste všechny dostupné výzvy!",
-    "number_observed": "{{number}} observed so far",
+    "number_observed_plural": {
+      "zero": "{{count}} dosud pozorováno",
+      "one": "{{count}} dosud pozorován",
+      "two": "{{count}} dosud pozorovány",
+      "few": "{{count}} dosud pozorováno",
+      "many": "{{count}} dosud pozorováno",
+      "other": "{{count}} dosud pozorováno"
+    },
     "how_to": "Dokončete Seek výzvu za {{month}}!",
     "released": "Tato výzva bude spuštěna {{date}}.",
     "get_involved": "Zapojte se",
-    "action_april": "Check if you live close to a city that's part of the City Nature Challenge, and if so look out for nature recording and identification activities for urban wildlife!",
-    "action_may": "Volunteer your time with local groups that help maintain your local greenspaces.\n\nShare your findings with your family, friends or school community to open their eyes to the wildlife around them.\n\nOrganise a litter pick in a local greenspace.",
-    "action_june": "Use the resources on ourplanet.com to start a local biodiversity action project in your area to give your local wildlife a helping hand.",
-    "action_november": "Collect seeds from local trees, germinate them in pots and then plant the young trees.\n\nTell friends or family members about all the things trees do for us.",
-    "action_august": "Plant wildflowers to provide food for pollinators.\n\nMake a ‘bug hotel’ to provide homes for insects in your garden or schoolground by bundling short lengths of pipe together and stuffing each with small twigs and pieces of broken tile.",
+    "action_april": "Zkontrolujte, zda žijete v blízkosti města, které je součástí výzvy Městské přírody a pokud ano, tak zkuste zaznamenat nebo identifikovat přírodu kolem vás!",
+    "action_may": "Věnujte svůj čas místním skupinám a organizacím dobrovolníků, které pomáhají udržovat místní zeleň.\n\nSdílejte své nálezy s rodinou, přáteli nebo školní komunitou, abyste jim ukázali krásy přírody a volně žijících živočichům kolem nich.\n\nUspořádejte sbírání odpadků a čištění přírody kolem Vás.",
+    "action_june": "Využijte zdroje na ourplanet.com k zahájení lokálního projektu pro biologickou rozmanitost ve vaší oblasti a pomohli tak divoké přírodě kolem vás..",
+    "action_november": "Sbírej semena z místních stromů, vypěstuj sazenice a pak sázej mladé stromy.\n\nŘekněte přátelům nebo rodinným příslušníkům o všech věcech, které pro nás stromy dělají.",
+    "action_august": "Rostliny divokých květin, které zajišťují potraviny pro opylovače.\n\nVytvořte „hotel pro broučky“ a zajistěte bydlení pro hmyz ve vaší zahradě nebo na školním pozemku svázáním kousků trubek a vycpáváním meziprostoru malými větvičkami a kousky rozbitých dlaždic.",
     "action_september": "Keep a record of how much water you use throughout a day. Think how you could cut this down to help reduce the strain on freshwater habitats.\n\nCheck local freshwater habitats for litter or other pollution. Could you run a local campaign to protect this precious ecosystem?",
     "action_october": "Ptáci potřebují palivo na dlouhé cesty, které podnikají během migrace. V zimních měsících je můžete podpořit tím, že jim na své zahradě nabídnete oříšky, semínka a lojové koule.\n\nZasaďte pro své ptačí návštěvníky stromy a keře, které jim poskytnou bobule a úkryty.",
     "action_december": "Seek out or start a citizen science project that monitors changing patterns in your local phenology. This data can help scientists understand the impact of climate change and predict what problems this might cause.",
@@ -230,22 +234,29 @@
     "class": "Domníváme se, že je to člen třídy",
     "resighted": "Znovu jste pozorovali tento druh!",
     "date_observed": "Poprvé jste jej pozorovali dne:\n{{seenDate}}",
-    "post_inat": "If you took the original photo of the organism, you can help train Seek on this species by posting to iNaturalist, where the community will help identify it and improve future versions.",
+    "post_inat": "Pokud jste pořídili svou vlastní fotografii organismu, můžete Seeku pomoci s tréninkem určování tím, že ji odešlete na iNaturalist, kde komunita pomůže s jejím určením a zlepšením budoucích verzí.",
     "post": "Poslat na iNaturalist",
     "flag": "Nesprávná identifikace",
     "incorrect": "Byl tento druh identifikován nesprávně?",
     "yes": "Ano, odstranit to z mých pozorování",
     "yes_resighted": "Ano, tento druh byl identifikován nesprávně",
     "no": "Ne, je to správně",
-    "enable_location": "Enable location to save observations",
+    "enable_location": "Your observation has no location",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
-    "error_location": "In order to add species to your observations, you need to enable your location. Seek uses your location to remind you where you saw an organism, and to help contribute to citizen science if you post to iNaturalist.",
-    "error_downtime": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{number}} hodin.",
+    "error_location": "You won't be able to view range maps, explore species nearby, or post this observation to iNaturalist. If you enable location in Seek, you'll be able to view detailed information about your observations and contribute to citizen science. Your location will not be published unless you post to iNaturalist.",
+    "error_downtime_plural": {
+      "zero": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "one": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "two": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "few": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "many": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin.",
+      "other": "Služba je dočasně nedostupná. Zkuste to prosím znovu za {{count}} hodin."
+    },
     "error_few": "pár",
-    "error_gps": "We weren't able to find your GPS location. Please try moving to a place where you can see the sky and check that your device's location is turned on in order to save observations.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_gps": "Seek can't detect your GPS location. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Try moving to a place where you can see the sky and check that your device's location services are turned on.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Druhy poblíž z tohoto taxonu",
     "nothing_nearby": "Vypadá to, že poblíž nebylo pozorováno mnoho druhů z tohoto taxonu! Zkus pořídit jinou fotografii, nebo ji odeslat na iNaturalist.",
     "tap": "Klepnutím načtete druhy poblíž"
@@ -256,7 +267,14 @@
     "challenge_progress": "Našli jste další druh!",
     "challenge_view": "Zobrazit váš postup",
     "level_up": "Jste o úroveň výš!",
-    "number_seen": "Viděli jste už {{number}} druhů!"
+    "number_seen_plural": {
+      "zero": "Viděli jste už {{count}} druhů!",
+      "one": "Viděli jste už {{count}} druhů!",
+      "two": "Viděli jste už {{count}} druhů!",
+      "few": "Viděli jste už {{count}} druhů!",
+      "many": "Viděli jste už {{count}} druhů!",
+      "other": "Viděli jste už {{count}} druhů!"
+    }
   },
   "camera": {
     "label": "Fotoaparát",
@@ -282,7 +300,9 @@
     "error_save": "Sorry, there was a problem saving your photo to the camera roll",
     "error_take": "Omlouváme se, nepodařilo se nám zachytit fotografii",
     "error_photos": "V tomto albu nebyly nalezeny žádné fotografie. Zkuste vybrat jiné album.",
-    "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}."
+    "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}.",
+    "error_cameraManager": "Omlouváme se, ale nepodařilo se načíst správce fotoaparátu",
+    "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen"
   },
   "gallery": {
     "label": "Fotografie",
@@ -322,7 +342,14 @@
     "your_level": "Vaše úroveň",
     "login": "Přihlaste se pomocí iNaturalist a přidávejte pozorování do online komunity!",
     "achievements": "Úspěchy",
-    "observe": "Pozorujte {{number}} druhů, abyste se dostali na další úroveň!",
+    "observe_plural": {
+      "zero": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "one": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "two": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "few": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "many": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!",
+      "other": "Pozorujte {{count}} druhů, abyste se dostali na další úroveň!"
+    },
     "observe_max": "Dosáhli jste maximální úrovně na Seeku!",
     "observe_species": "Pozorovat",
     "species_badges": "Odznaky druhů",
@@ -458,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary a Yaron Budowski. Zvláštní poděkování Visipedii a komunitě iNaturalist.",
     "version": "Verze",
     "help": "Potřebujete-li pomoci se Seekem, kontaktujte nás na emailové adrese help+seek@inaturalist.org.",
-    "translations": "Jsme vděčni za překladatelskou asistenci poskytnutou komunitou crowdin.com, zejména těmto lidem: Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, a Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Chcete-li se připojit k týmu překladatelů, navštivte prosím https://crowdin.com/project/seek"
   },
   "posting": {
@@ -467,9 +494,9 @@
     "date": "datum",
     "location": "poloha",
     "geoprivacy": "geosoukromí",
-    "open": "Open",
-    "obscured": "Skrytý",
-    "private": "Soukromý",
+    "open": "Veřejné",
+    "obscured": "Skryté",
+    "private": "Soukromé",
     "yes": "Ano",
     "no": "Ne",
     "captive": "v zajetí/pěstovaný",
@@ -486,7 +513,7 @@
     "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
     "ok": "Ok",
     "wait": "Může to trvat až minutu",
-    "look_up": "Look up a species by name"
+    "look_up": "Vyhledat druh podle názvu"
   },
   "posting_help": {
     "header": "Posting Help",
@@ -495,9 +522,9 @@
     "date": "Datum a umístění",
     "date_description": "Every observation on iNaturalist is associated with a certain date and location. This way, we can clearly see a global picture of how a species is doing worldwide over time.",
     "geoprivacy": "Geosoukromí",
-    "open_header": "Open: ",
-    "obscured_header": "Obscured: ",
-    "closed_header": "Closed: ",
+    "open_header": "Veřejné: ",
+    "obscured_header": "Skryté: ",
+    "closed_header": "Soukromé: ",
     "yes_header": "Ano: ",
     "no_header": "Ne: ",
     "open": "Ostatní uživatelé iNaturalist budou moci vidět, kde byl tento druh pozorován, a vědci mohou tyto údaje použít pro výzkum.",
@@ -516,7 +543,7 @@
   },
   "warning": {
     "remember": "Pamatujte si",
-    "tip_1": "Dávejte vždy pozor na tom, kam vstupujete, dbejte na své bezpečí a nevstupujte bez povolení na soukromé pozemky a do zakázaných oblastí.",
+    "tip_1": "Dávejte vždy pozor na to, kam vstupujete, dbejte na své bezpečí a nevstupujte bez povolení na soukromé pozemky a do zakázaných oblastí.",
     "tip_2": "Nejezte nic, co najdete ve volné přírodě.",
     "tip_3": "Respektuje ostatní živé organismy, neobtěžujte je a nedotýkejte se jich. Některé mohou štípat nebo kousat.",
     "tip_4": "Children may require adult supervision."
@@ -525,7 +552,7 @@
     "menu": "Otevřít nabídku",
     "camera": "Otevřít fotoaparát",
     "notifications": "Zobrazit oznámení",
-    "iNatStats": "View iNat stats screen",
+    "iNatStats": "Prohlížet obrazovku iNat statistik",
     "flag": "Označit toto pozorování jako nesprávné",
     "back": "Vrátit se na předchozí obrazovku",
     "user_location": "Zpět na vaši aktuální polohu",
@@ -550,22 +577,46 @@
   "settings": {
     "header": "Seek fotoaparát",
     "common_names": "Zobrazit obecné názvy",
-    "scientific_names": "Zobrazit vědecké názvy"
+    "scientific_names": "Zobrazit vědecké názvy",
+    "donate": "Přispět",
+    "donate_header": "Pomozte podpořit iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "Jazyk aplikace",
+    "device_settings": "Použít jazykové nastavení zařízení",
+    "auto_capture": "Automaticky fotit, když je identifikován druh."
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",
-    "header": "You completed the Seek Challenge for {{date}}!",
+    "header": "Dokončili jste Seek výzvu za {{date}}!",
     "text": "Děkujeme, že jste se podíleli na globální výzvě! Seek je zde proto, aby Vám pomohl připojit ke všem druhům, které nás obklopují. Běžte ven, prozkoumávejte a poznávejte okolní přírodu!",
     "citizen_science": "Výzva občanské vědy",
     "completed": "Dokončili jste výzvu a získali jste odznak výzvy!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "backyard": "Backyard Challenge",
+    "backyard": "Zahradní výzva",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
-    "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_1_may_2020": "Najděte 5 rostlin",
+    "mission_2_may_2020": "Najděte 2 zástupce hmyzu",
+    "mission_3_may_2020": "Najděte 1 pavoukovce",
+    "mission_4_may_2020": "Najděte 2 ptáky",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Najděte 2 rostliny z řádu Hvězdnicotvaré (Hvězdnice, Zvonky, Vějířovky a další)",
+    "mission_2_june_2020": "Najděte 3 ptáky z řádu Passeriformes (Pěvci)",
+    "mission_3_june_2020": "Najděte 1 zástupce hmyzu z řádu Coleoptera (Brouci)",
+    "june_2020_description": "Příroda je odolná a všude kolem nás. Od měst, preš lesy, loky a pole si rostliny a zvířata vždy najdou způsob, jak vzkvétat. Dokonce i ve městech a na sídlištích jsou rostliny, ptáci i hmyz vždy s námi.",
+    "action_june_2020": "Věděli jste, že si můžete prohlédnout vědecká jména namísto obecných názvů ve fotoaparátu iSeek? Přejděte na stránku nastavení v menu a změňte zobrazení z obecných názvů na vědecké názvy!",
+    "river": "Říční výzva",
+    "mission_1_july_2020": "Najdi jakékoliv 2 ryby nebo obojživelníky",
+    "mission_2_july_2020": "Najdi jakékoliv 3 vodní ptáky z řádů Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes a Suliformes",
+    "mission_3_july_2020": "Najdi 1 měkkýše",
+    "july_2020_description": "Řeky jsou centry biologické rozmanitosti. Ukrývajíce vše od mikro-bezobratlých po velké obratlovce, řeky pomáhají organismům kolem nich vzkvétat.",
+    "action_july_2020": "Když jste poblíž vodního těla, jaké organismy vidíte? Jaké druhy plavou ve vodě? Jaké druhy nad ní létají? Jsou ve vodě organismy, které není možné spatřit?"
+  },
+  "replace_photo": {
+    "header": "Nahradit fotografii?",
+    "description": "Přejete si nahradit fotografii svého opakovaného pozorování?",
+    "new": "Použít novou fotografii",
+    "old": "Ponechat starou fotografii"
   }
 }

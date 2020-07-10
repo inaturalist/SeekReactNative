@@ -1,7 +1,7 @@
 // @flow
 
 import React, {
-  useState,
+  useReducer,
   useEffect,
   useRef,
   useCallback
@@ -27,47 +27,77 @@ import { requestAllCameraPermissions } from "../../../utility/androidHelpers.and
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
+import { navigateToMainStack } from "../../../utility/helpers";
 
 const ARCamera = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
   const camera = useRef<any>( null );
-  const [ranks, setRanks] = useState( {} );
-  const [error, setError] = useState( null );
-  const [errorEvent, setErrorEvent] = useState( null );
-  const [pictureTaken, setPictureTaken] = useState( false );
-  const [cameraLoaded, setCameraLoaded] = useState( false );
+
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "CAMERA_LOADED":
+        return { ...state, cameraLoaded: true };
+      case "RESET_RANKS":
+        return { ...state, ranks: {} };
+      case "SET_RANKS":
+        return { ...state, ranks: action.ranks };
+      case "PHOTO_TAKEN":
+        return { ...state, pictureTaken: true };
+      case "RESET_STATE":
+        return {
+          ...state,
+          pictureTaken: false,
+          error: null,
+          ranks: {}
+        };
+      case "ERROR":
+        return { ...state, error: action.error, errorEvent: action.errorEvent };
+      default:
+        throw new Error();
+    }
+  }, {
+    ranks: {},
+    error: null,
+    errorEvent: null,
+    pictureTaken: false,
+    cameraLoaded: false
+  } );
+
+  const {
+    ranks,
+    error,
+    errorEvent,
+    pictureTaken,
+    cameraLoaded
+  } = state;
+
+  const rankToRender = Object.keys( ranks )[0] || null;
 
   const updateError = useCallback( ( err, errEvent ) => {
-    setError( err );
-    setErrorEvent( errEvent );
+    dispatch( { type: "ERROR", error: err, errorEvent: errEvent } );
   }, [] );
 
-  const navigateToResults = ( uri, predictions ) => {
+  const navigateToResults = useCallback( ( uri, predictions ) => {
     const image = {
       time: createTimestamp(), // add current time to AR camera photos
-      uri
+      uri,
+      predictions
     };
 
-    if ( predictions && predictions.length > 0 ) {
-      // $FlowFixMe
-      image.predictions = predictions;
-
-      navigation.navigate( "OfflineARResults", { image } );
-    } else {
-      navigation.navigate( "OnlineServerResults", { image } );
-    }
-  };
+    navigation.navigate( "OfflineARResults", { image } );
+  }, [navigation] );
 
   const resetPredictions = () => {
     // only rerender if state has different values than before
     if ( Object.keys( ranks ).length > 0 ) {
-      setRanks( {} );
+      dispatch( { type: "RESET_RANKS" } );
     }
   };
 
-  const savePhoto = ( photo ) => {
-    CameraRoll.saveToCameraRoll( photo.uri, "photo" )
+  const savePhoto = useCallback( ( photo ) => {
+    CameraRoll.save( photo.uri, "photo" )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";
@@ -79,16 +109,15 @@ const ARCamera = () => {
           updateError( "save", e );
         }
       } );
-  };
+  }, [navigateToResults, updateError] );
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
-    const rankToRender = Object.keys( ranks )[0] || null;
 
     if ( pictureTaken ) { return; }
 
     if ( predictions && !cameraLoaded ) {
-      setCameraLoaded( true );
+      dispatch( { type: "CAMERA_LOADED" } );
     }
 
     let predictionSet = false;
@@ -103,8 +132,7 @@ const ARCamera = () => {
         if ( predictions[rank] ) {
           predictionSet = true;
           const prediction = predictions[rank][0];
-
-          setRanks( { [rank]: [prediction] } );
+          dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
         }
         if ( !predictionSet ) {
           resetPredictions();
@@ -128,11 +156,9 @@ const ARCamera = () => {
     }
   };
 
-  const handleCameraPermissionMissing = () => {
-    // event.nativeEvent.error is not implemented on Android
-    // it shows up via handleCameraError on iOS
-    updateError( "permissions" );
-  };
+  // event.nativeEvent.error is not implemented on Android
+  // it shows up via handleCameraError on iOS
+  const handleCameraPermissionMissing = () => updateError( "permissions" );
 
   const handleClassifierError = ( event ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
@@ -163,18 +189,24 @@ const ARCamera = () => {
     }
   };
 
-  const takePicture = async () => {
-    setPictureTaken( true );
+  const takePicture = useCallback( async () => {
+    dispatch( { type: "PHOTO_TAKEN" } );
 
     if ( Platform.OS === "ios" ) {
       const CameraManager = NativeModules.INatCameraViewManager;
       if ( CameraManager ) {
         try {
           const photo = await CameraManager.takePictureAsync();
-          savePhoto( photo );
+          if ( typeof photo !== "object" ) {
+            updateError( "photoError", photo );
+          } else {
+            savePhoto( photo );
+          }
         } catch ( e ) {
           updateError( "take", e );
         }
+      } else {
+        updateError( "cameraManager" );
       }
     } else if ( Platform.OS === "android" ) {
       if ( camera.current ) {
@@ -185,13 +217,9 @@ const ARCamera = () => {
         } ).catch( e => updateError( "take", e ) );
       }
     }
-  };
+  }, [savePhoto, updateError] );
 
-  const resetState = () => {
-    setPictureTaken( false );
-    setRanks( {} );
-    setError( null );
-  };
+  const resetState = () => dispatch( { type: "RESET_STATE" } );
 
   const requestAndroidPermissions = useCallback( () => {
     if ( Platform.OS === "android" ) {
@@ -213,7 +241,7 @@ const ARCamera = () => {
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigation.navigate( "MainTab", { screen: "Home" } )}
+        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
         <Image source={icons.closeWhite} />

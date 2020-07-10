@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenterer",
-    "initiative": "iNaturalist er et felles initiativ av California Academy of Sciences og National Geographic Society"
-  },
   "species_nearby": {
     "header": "Arter i nærheten",
     "location_error": "For å vise arter i nærheten trenger vi å vite din posisjon.",
@@ -37,7 +33,8 @@
     "challenge_completed": "Gratulerer! Du har fullført en utfordring",
     "view_challenges": "Vis utfordring",
     "none": "Du har ingen varslinger ennå!",
-    "about": "Her blir du varslet om nye utfordringer når de blir tilgjengelige, oppdateringer til Seek, og annen relevant informasjon."
+    "about": "Her blir du varslet om nye utfordringer når de blir tilgjengelige, oppdateringer til Seek, og annen relevant informasjon.",
+    "new_challenge": "En ny utfordring er tilgjengelig!"
   },
   "login": {
     "log_in": "Logg på med iNaturalist",
@@ -84,7 +81,7 @@
     "forgot_password_header": "Glemt passord",
     "forgot_password": "Glemt passordet ditt?",
     "log_in": "Logg på",
-    "email": "Email",
+    "email": "E-post",
     "no_worries": "Ingen problem. Vi sender instrukser til tilbakestilling av passord på din e-post.",
     "reset": "Tilbakestill passordet mitt",
     "check_email": "Sjekk din e-post!",
@@ -92,12 +89,12 @@
     "return_login": "Tilbake til innloggingsside"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Personvern"
   },
   "menu": {
     "home": "Hjem",
     "achievements": "Prestasjoner",
-    "challenges": "Challenges",
+    "challenges": "Utfordringer",
     "observations": "Mine observasjoner",
     "inat": "iNaturalist",
     "about": "Om",
@@ -108,10 +105,10 @@
     "onboarding_2": "Lær om organismene rundt deg",
     "onboarding_3": "Tjen merker for å observere forskjellige typer arter",
     "skip": "Hopp over for nå",
-    "continue": "Continue"
+    "continue": "Fortsett"
   },
   "location_picker": {
-    "species_nearby": "Species nearby",
+    "species_nearby": "Arter i nærheten",
     "button": "Søk i nærheten av posisjon",
     "undefined": "Udefinert posisjon"
   },
@@ -130,7 +127,7 @@
     "other": "andre arter"
   },
   "challenges": {
-    "header": "Challenges",
+    "header": "Utfordringer",
     "in_progress": "Pågående",
     "not_started": "Ikke påbegynt",
     "completed": "Fullført",
@@ -165,7 +162,14 @@
     "no_new_challenges_header": "Du har ingen nye utfordringer.",
     "no_new_challenges": "Vi sier ifra når nye utfordringer er tilgjengelige.",
     "completed_all": "Du har fullført alle tilgjengelige utfordringer!",
-    "number_observed": "{{number}} observert så langt",
+    "number_observed_plural": {
+      "zero": "{{count}} observert så langt",
+      "one": "{{count}} observert så langt",
+      "two": "{{count}} observert så langt",
+      "few": "{{count}} observert så langt",
+      "many": "{{count}} observert så langt",
+      "other": "{{count}} observert så langt"
+    },
     "how_to": "Fullfør Seek-utfordringen for {{month}}!",
     "released": "Denne utfordringen publiseres {{date}}.",
     "get_involved": "Bli involvert",
@@ -197,8 +201,8 @@
     "photographer_june": "Bilde © Grace Frank, Netflix / Silverback Films",
     "photographer_november": "Bilde © Jeff Wilson, Netflix / Silverback Films",
     "photographer_august": "Bilde © Ben Macdonald, Netflix / Silverback Films",
-    "photographer_september": "Photo © Netflix / Silverback Films",
-    "photographer_october": "Photo © Netflix / Silverback Films",
+    "photographer_september": "Bilde © Netflix / Silverback Films",
+    "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films"
   },
   "inat_stats": {
@@ -207,7 +211,7 @@
     "seek_data": "Seek får dataene sine fra iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Interessert i å bidra til grasrotforskning med et verdensomspennende felleskap av naturalister?",
-    "join": "Log in with iNaturalist",
+    "join": "Logg på med iNaturalist",
     "by": "av",
     "thanks": "iNaturalist-fellesskapet består av folk som deg! Bli med i fellesskapet og legg dine observasjoner ut på inaturalist.org!",
     "logged_in": "Du er logget inn på Seek med din iNaturalist-konto. Takk for at du er del av dette fellesskapet!",
@@ -242,21 +246,35 @@
     "error_image": "Beklager, vi kunne ikke behandle ditt bilde. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_species": "Beklager, vi kunne ikke hente artsdetaljer for dette bildet. Vennligst kontroller din internettforbindelse og prøv igjen.",
     "error_location": "For å legge til arter til dine observasjoner må du slå på din posisjon. Seek bruker din posisjon for å minne deg på hvor du så en organisme, og å hjelpe med å bidra til grasrotforsking hvis du publiserer på iNaturalist.",
-    "error_downtime": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{number}} timer.",
+    "error_downtime_plural": {
+      "zero": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "one": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "two": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "few": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "many": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer.",
+      "other": "Tjeneste midlertidig utilgjengelig. Vennligst prøv igjen om {{count}} timer."
+    },
     "error_few": "noen få",
     "error_gps": "Vi kunne ikke finne din GPS-posisjon. Vennligst prøv å bevege deg til et sted hvor du kan se himmelen og sjekk at posisjonstjenesten til din enhet er slått på for å kunne lagre observasjoner.",
-    "error_timeout": "We weren't able to save your observation due to a location timeout. Please try again later.",
+    "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Arter i nærheten i dette taksonet",
     "nothing_nearby": "Det ser ut som det ikke har blitt observert så mange arter i nærheten i dette taksonet! Prøv å ta enda et bilde eller rapportere det til iNaturalist.",
     "tap": "Trykk for å laste inn arter i nærheten"
   },
   "banner": {
-    "view": "View badge",
-    "badge": "Badge",
+    "view": "Vis merke",
+    "badge": "Merke",
     "challenge_progress": "Du fant enda en art!",
-    "challenge_view": "View your progress",
+    "challenge_view": "Se din fremgang",
     "level_up": "Du gikk opp et nivå!",
-    "number_seen": "Du har sett {{number}} arter!"
+    "number_seen_plural": {
+      "zero": "Du har sett {{count}} arter!",
+      "one": "Du har sett {{count}} arter!",
+      "two": "Du har sett {{count}} arter!",
+      "few": "Du har sett {{count}} arter!",
+      "many": "Du har sett {{count}} arter!",
+      "other": "Du har sett {{count}} arter!"
+    }
   },
   "camera": {
     "label": "Kamera",
@@ -273,7 +291,7 @@
     "family": "familie",
     "genus": "slekt",
     "species": "art",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "Vi trenger tilgang til kameraet for å hjelpe deg med å identifisere arter!",
     "error_gallery": "Vi trenger tilgang til ditt bildegalleri for å lagre bilder som du tar!",
     "permissions": "Gi tillatelser i innstillingene",
     "error_classifier": "Sorry, we're unable to load the classifier",
@@ -282,7 +300,9 @@
     "error_save": "Beklager, det var et problem med å lagre ditt bilde",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Bilder",
@@ -322,7 +342,14 @@
     "your_level": "Ditt nivå",
     "login": "Logg på med iNaturalist for å poste observasjoner til det online fellesskapet!",
     "achievements": "Achievements",
-    "observe": "Observer {{number}} arter for å komme til neste nivå!",
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "Du har oppnådd det høyeste nivået på Seek!",
     "observe_species": "Observér",
     "species_badges": "Artsmerker",
@@ -393,7 +420,7 @@
     "to_earn": "For å tjene dette merket:"
   },
   "observations": {
-    "header": "My Observations",
+    "header": "Mine observasjoner",
     "no_obs": "Du har ingen observasjoner ennå!",
     "help": "Ta et bilde av en plante, et dyr, eller noe annet som lever med kameraet vårt, og vår AI-modell hjelper deg med å identifisere det!",
     "open_camera": "Åpne kamera",
@@ -401,7 +428,7 @@
   },
   "species_detail": {
     "near": "I nærheten",
-    "about": "About",
+    "about": "Om",
     "range_map": "Spredningskart",
     "range_about": "Et kart over observasjoner av denne arten sett på iNaturalist.",
     "view_map": "Vis utbredelsesskart",
@@ -438,7 +465,7 @@
     "plant": "plante",
     "amphibian": "amfibie",
     "fungi": "fungi",
-    "fish": "fish",
+    "fish": "fisk",
     "reptile": "reptil",
     "arachnid": "edderkoppdyr",
     "bird": "fugl",
@@ -450,7 +477,7 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "About",
+    "header": "Om",
     "seek": "Seek er laget av iNaturalist-teamet.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
@@ -458,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, og Yaron Budowski. Spesiell takk til Visipedia og iNaturalist-fellesskapet.",
     "version": "Versjon",
     "help": "For hjelp med Seek, vennligst send e-post til help+seek@inaturalist.org.",
-    "translations": "Vi er takknemlige for den hjelpen i oversettelsesarbeidet levert av crowdin.com fellesskapet, spesielt: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, og Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "For å bli med i oversettelsesteamet til Seek, vennligst gå til https://crowdin.com/project/seek"
   },
   "posting": {
@@ -515,7 +542,7 @@
     "no": "Avbryt"
   },
   "warning": {
-    "remember": "Remember",
+    "remember": "Husk",
     "tip_1": "Vær alltid obs på dine omgivelser, vær trygg, og ikke gå på andres eiendom.",
     "tip_2": "Don’t eat anything you find in the wild.",
     "tip_3": "Respect other living things by not harassing or touching them. Some may sting or bite.",
@@ -523,7 +550,7 @@
   },
   "accessibility": {
     "menu": "Åpne meny",
-    "camera": "Open camera",
+    "camera": "Åpne kamera",
     "notifications": "Vis meldinger",
     "iNatStats": "Vis skjerm med iNat-statistikker",
     "flag": "Marker denne observasjonen ukorrekt",
@@ -548,9 +575,15 @@
     "logs": "Send debug logs by email"
   },
   "settings": {
-    "header": "Seek Camera",
+    "header": "Seek kamera",
     "common_names": "Vis populærnavn",
-    "scientific_names": "Vis vitenskapelige navn"
+    "scientific_names": "Vis vitenskapelige navn",
+    "donate": "Donér",
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
+    "device_settings": "Bruk enhetens språkinnstillinger",
+    "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten."
   },
   "seek_challenges": {
     "badge": "Seek merke",
@@ -563,9 +596,27 @@
     "backyard": "Backyard Challenge",
     "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
     "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
-    "mission_1_may_2020": "Find 5 plants",
-    "mission_2_may_2020": "Find 2 insects",
+    "mission_1_may_2020": "Finn 5 planter",
+    "mission_2_may_2020": "Finn 2 insekter",
     "mission_3_may_2020": "Find 1 arachnid",
-    "mission_4_may_2020": "Find 2 birds"
+    "mission_4_may_2020": "Finn 2 fugler",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
+  },
+  "replace_photo": {
+    "header": "Erstatt bilde?",
+    "description": "Vil du erstatte bildet til din gjentatte observasjon?",
+    "new": "Bruk nytt bilde",
+    "old": "Behold gammelt bilde"
   }
 }

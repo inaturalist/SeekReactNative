@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenterar",
-    "initiative": "iNaturalist är ett gemensamt initiativ från California Academy of Sciences och National Geographic Society"
-  },
   "species_nearby": {
     "header": "Arter i närheten",
     "location_error": "För att visa dig arter i närheten måste vi använda din plats.",
@@ -37,7 +33,8 @@
     "challenge_completed": "Grattis! Du klarade av en utmaning",
     "view_challenges": "Visa utmaning",
     "none": "Du har inga meddelanden ännu!",
-    "about": "Här kommer du att meddelas om nya utmaningar när de blir tillgängliga, uppdateringar för Seek och annan relevant information."
+    "about": "Här kommer du att meddelas om nya utmaningar när de blir tillgängliga, uppdateringar för Seek och annan relevant information.",
+    "new_challenge": "Det finns en ny utmaning!"
   },
   "login": {
     "log_in": "Logga in med iNaturalist",
@@ -165,7 +162,14 @@
     "no_new_challenges_header": "Du har inga nya utmaningar.",
     "no_new_challenges": "Vi meddelar dig när det finns nya utmaningar.",
     "completed_all": "Du har slutfört alla tillgängliga utmaningar!",
-    "number_observed": "{{number}} observerade hittills",
+    "number_observed_plural": {
+      "zero": "{{count}} observerade hittills",
+      "one": "{{count}} observerad hittills",
+      "two": "{{count}} observerade hittills",
+      "few": "{{count}} observerade hittills",
+      "many": "{{count}} observerade hittills",
+      "other": "{{count}} observerade hittills"
+    },
     "how_to": "Slutför Seek-utmaningen i {{month}}!",
     "released": "Denna utmaning kommer släppas {{date}}.",
     "get_involved": "Engagera dig",
@@ -242,7 +246,14 @@
     "error_image": "Tyvärr kunde vi inte bearbeta din bild. Kontrollera din internetanslutning och försök igen.",
     "error_species": "Tyvärr kunde vi inte hämta artuppgifter för den här bilden. Kontrollera din internetanslutning och försök igen.",
     "error_location": "För att lägga till arter till dina observationer, måste du aktivera din plats. Seek använder din plats för att påminna dig om var du såg en organism, och för att kunna bidra till medborgarforskning om du postar på iNaturalist.",
-    "error_downtime": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{number}} timmar.",
+    "error_downtime_plural": {
+      "zero": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
+      "one": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timme.",
+      "two": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
+      "few": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
+      "many": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar.",
+      "other": "Tjänsten är inte tillgänglig för tillfället. Försök igen om {{count}} timmar."
+    },
     "error_few": "några",
     "error_gps": "Vi kunde inte hitta din GPS-plats. Försök att flytta till en plats där du kan se himlen och kontrollera att enhetens plats är påslagen för att kunna spara observationer.",
     "error_timeout": "Vi kunde inte spara din observation på grund av en plats-timeout. Försök igen senare.",
@@ -256,7 +267,14 @@
     "challenge_progress": "Du hittade en till art!",
     "challenge_view": "Se dina framsteg",
     "level_up": "Du har levlat upp!",
-    "number_seen": "Du har sett {{number}} arter!"
+    "number_seen_plural": {
+      "zero": "Du har sett {{count}} arter!",
+      "one": "Du har sett {{count}} art!",
+      "two": "Du har sett {{count}} arter!",
+      "few": "Du har sett {{count}} arter!",
+      "many": "Du har sett {{count}} arter!",
+      "other": "Du har sett {{count}} arter!"
+    }
   },
   "camera": {
     "label": "Kamera",
@@ -282,7 +300,9 @@
     "error_save": "Tyvärr, det gick inte att spara din bild",
     "error_take": "Tyvärr, vi kunde inte ta din bild",
     "error_photos": "Inga bilder hittades i detta fotoalbum. Försök välja ett annat album.",
-    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}."
+    "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}.",
+    "error_cameraManager": "Tyvärr kunde inte kamerahanteraren laddas",
+    "error_photoError": "Tyvärr kunde inte bildobjektet hittas"
   },
   "gallery": {
     "label": "Bilder",
@@ -322,7 +342,14 @@
     "your_level": "Din nivå",
     "login": "Logga in med iNaturalist för att lägga upp observationer till online-gemenskapen!",
     "achievements": "Prestationer",
-    "observe": "Observera {{number}} arter för att komma till nästa nivå!",
+    "observe_plural": {
+      "zero": "Observera {{count}} arter för att komma till nästa nivå!",
+      "one": "Observera {{count}} art för att komma till nästa nivå!",
+      "two": "Observera {{count}} arter för att komma till nästa nivå!",
+      "few": "Observera {{count}} arter för att komma till nästa nivå!",
+      "many": "Observera {{count}} arter för att komma till nästa nivå!",
+      "other": "Observera {{count}} arter för att komma till nästa nivå!"
+    },
     "observe_max": "Du har nått maxnivån på Seek!",
     "observe_species": "Observera",
     "species_badges": "Artmärken",
@@ -458,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, och Yaron Budowski. Särskilt tack till Visipedia och iNaturalist-gemenskapen.",
     "version": "Version",
     "help": "För hjälp med Seek, vänligen mejla help+seek@inaturalist.org.",
-    "translations": "Vi är tacksamma för översättningsstödet från crowdin.com-gemenskapen, särskilt: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, och Wouter Koch, Yulia Lygina.",
+    "translations": "Vi är tacksamma för översättningshjälpen från crowdin.com-gruppen, i synnerhet: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, och Yulia Lygina.",
     "join_crowdin": "Besök https://crowdin.com/project/seek för att gå med i översättningsteamet för Seek,"
   },
   "posting": {
@@ -550,7 +577,13 @@
   "settings": {
     "header": "Seek-kamera",
     "common_names": "Visa vardagliga namn",
-    "scientific_names": "Visa vetenskapliga namn"
+    "scientific_names": "Visa vetenskapliga namn",
+    "donate": "Donera",
+    "donate_header": "Hjälp till att stödja iNaturalist",
+    "donate_description": "Stöd iNaturalist",
+    "language": "Språk i appen",
+    "device_settings": "Använd enhetens språkinställningar",
+    "auto_capture": "Ta automatiskt en bild när bestämningen kommer fram till art."
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -566,6 +599,24 @@
     "mission_1_may_2020": "Hitta 5 växter",
     "mission_2_may_2020": "Hitta 2 insekter",
     "mission_3_may_2020": "Hitta 1 spindeldjur",
-    "mission_4_may_2020": "Hitta 2 fåglar"
+    "mission_4_may_2020": "Hitta 2 fåglar",
+    "resilience": "Resiliensutmaning",
+    "mission_1_june_2020": "Hitta 2 växter i ordningen Asterales (astrar, blåklockor, femtungor och liknande)",
+    "mission_2_june_2020": "Hitta 3 fåglar i ordningen Passeriformes (tättingar)",
+    "mission_3_june_2020": "Hitta 1 insekt i ordningen Coleoptera (skalbaggar)",
+    "june_2020_description": "Naturen är motståndskraftig och överallt omkring oss. I städer såväl som jordbruksmark hittar växter och djur ett sätt att frodas. Även i tätorter lever växter, fåglar och insekter tillsammans med oss.",
+    "action_june_2020": "Visste du att du kan se vetenskapliga namn istället för vardagliga namn i Seek-kameran? Från menyn går du till inställningssidan för att där ändra visningen från vardagliga namn till vetenskapliga namn!",
+    "river": "Flodutmaning",
+    "mission_1_july_2020": "Hitta 2 fiskar eller groddjur",
+    "mission_2_july_2020": "Hitta 3 vattenfåglar ur ordningarna Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Fenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes & Suliformes",
+    "mission_3_july_2020": "Hitta 1 blötdjur",
+    "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
+    "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?"
+  },
+  "replace_photo": {
+    "header": "Ersätt bild?",
+    "description": "Vill du ersätta bilden för din återfunna observation?",
+    "new": "Använd ny bild",
+    "old": "Behåll gammal bild"
   }
 }

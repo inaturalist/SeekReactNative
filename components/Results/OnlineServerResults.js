@@ -1,9 +1,8 @@
 // @flow
 
-import React, { Component } from "react";
-import { Platform } from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
 import inatjs from "inaturalistjs";
-import { NavigationEvents } from "@react-navigation/compat";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
@@ -15,50 +14,24 @@ import {
 } from "../../utility/helpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import createUserAgent from "../../utility/userAgent";
 import { fetchSpeciesSeenDate, serverBackOnlineTime } from "../../utility/dateHelpers";
 
-type Props = {
-  +route: any,
-  +navigation: any
-}
+const OnlineServerResults = () => {
+  const navigation = useNavigation();
+  const { params } = useRoute();
 
-type State = {
-  image: Object,
-  taxon: Object,
-  observation: ?Object,
-  seenDate: ?string,
-  error: ?string,
-  match: ?boolean,
-  clicked: boolean,
-  numberOfHours: ?string,
-  errorCode: ?number
-};
+  const [taxon, setTaxon] = useState( {} );
+  const [image, setImage] = useState( params.image );
+  const [observation, setObservation] = useState( null );
+  const [seenDate, setSeenDate] = useState( null );
+  const [match, setMatch] = useState( null );
+  const [errorCode, setLocationErrorCode] = useState( null );
+  const [error, setError] = useState( null );
+  const [clicked, setClicked] = useState( false );
+  const [numberOfHours, setNumberOfHours] = useState( null );
 
-class OnlineServerResults extends Component<Props, State> {
-  constructor( { route }: Props ) {
-    super();
-
-    const { image } = route.params;
-
-    this.state = {
-      taxon: {},
-      image,
-      observation: null,
-      seenDate: null,
-      error: null,
-      match: null,
-      clicked: false,
-      numberOfHours: null,
-      errorCode: null
-    };
-
-    ( this:any ).checkForMatches = this.checkForMatches.bind( this );
-  }
-
-  getUserLocation() {
-    const { image } = this.state;
+  const getUserLocation = useCallback( () => {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
         const { latitude, longitude } = coords;
@@ -66,228 +39,219 @@ class OnlineServerResults extends Component<Props, State> {
         image.latitude = latitude;
         image.longitude = longitude;
 
-        this.setState( { image } );
+        setImage( image );
       }
-    } ).catch( ( errorCode ) => {
-      this.setLocationErrorCode( errorCode );
+    } ).catch( ( code ) => {
+      setLocationErrorCode( code );
     } );
-  }
+  }, [image] );
 
-  setMatch( match: boolean ) {
-    const { clicked } = this.state;
-    this.setState( { match }, () => {
-      if ( clicked ) {
-        this.checkForMatches();
-      }
+  const checkSpeciesSeen = ( taxaId ) => {
+    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
+      setSeenDate( date );
     } );
-  }
+  };
 
-  setSeenDate( seenDate: ?string ) {
-    this.setState( { seenDate } );
-  }
+  const setOnlineVisionSpeciesResults = ( species ) => {
+    const taxa = species.taxon;
+    const photo = taxa.default_photo;
 
-  setNumberOfHours( numberOfHours: string ) {
-    this.setState( { numberOfHours } );
-  }
+    setObservation( species );
 
-  setError( error: string ) {
-    this.setState( { error } );
-  }
-
-  setLocationErrorCode( errorCode: number ) {
-    this.setState( { errorCode } );
-  }
-
-  setTaxon( taxon: Object, match: boolean ) {
-    this.setState( { taxon }, () => this.setMatch( match ) );
-  }
-
-  setOnlineVisionSpeciesResults( species: Object ) {
-    const { taxon } = species;
-    const photo = taxon.default_photo;
-
-    this.setState( { observation: species } );
-
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
       const newTaxon = {
-        taxaId: taxon.id,
-        taxaName: capitalizeNames( commonName || taxon.name ),
-        scientificName: taxon.name,
+        taxaId: taxa.id,
+        taxaName: capitalizeNames( commonName || taxa.name ),
+        scientificName: taxa.name,
         speciesSeenImage: photo ? photo.medium_url : null
       };
 
-      this.setTaxon( newTaxon, true );
+      setTaxon( newTaxon );
+      setMatch( true );
     } );
-  }
+  };
 
-  setOnlineVisionAncestorResults( commonAncestor: Object ) {
-    const { taxon } = commonAncestor;
-    const photo = taxon.default_photo;
+  const setNearestPrimaryRankAncestor = ( ancestor ) => {
+    const photo = ancestor.default_photo;
 
-    getTaxonCommonName( taxon.id ).then( ( commonName ) => {
+    getTaxonCommonName( ancestor.id ).then( ( commonName ) => {
       const newTaxon = {
-        commonAncestor: commonAncestor
-          ? capitalizeNames( commonName || taxon.name )
+        commonAncestor: ancestor
+          ? capitalizeNames( commonName || ancestor.name )
           : null,
-        taxaId: taxon.id,
+        taxaId: ancestor.id,
         speciesSeenImage: photo ? photo.medium_url : null,
-        scientificName: taxon.name,
-        rank: taxon.rank_level
+        scientificName: ancestor.name,
+        rank: ancestor.rank_level
       };
 
-      this.setTaxon( newTaxon, false );
+      setTaxon( newTaxon );
+      setMatch( false );
     } );
-  }
+  };
 
-  async getParamsForOnlineVision() {
-    const { image } = this.state;
+  const setOnlineVisionAncestorResults = ( commonAncestor ) => {
+    const taxa = commonAncestor.taxon;
+    const photo = taxa.default_photo;
 
-    const params = await flattenUploadParameters( image );
-    this.fetchScore( params );
-  }
+    getTaxonCommonName( taxa.id ).then( ( commonName ) => {
+      const newTaxon = {
+        commonAncestor: commonAncestor
+          ? capitalizeNames( commonName || taxa.name )
+          : null,
+        taxaId: taxa.id,
+        speciesSeenImage: photo ? photo.medium_url : null,
+        scientificName: taxa.name,
+        rank: taxa.rank_level
+      };
 
-  async showMatch() {
-    const { seenDate } = this.state;
+      setTaxon( newTaxon );
+      setMatch( false );
+    } );
+  };
 
-    if ( !seenDate ) {
-      await this.addObservation();
-      this.navigateToMatch();
-    } else {
-      this.navigateToMatch();
+  const findNearestPrimaryRankTaxon = ( ancestors, rank ) => {
+    let nearestTaxon = {};
+
+    if ( rank <= 20 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 20 );
+    } else if ( rank <= 30 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 30 );
+    } else if ( rank <= 40 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 40 );
+    } else if ( rank <= 50 ) {
+      nearestTaxon = ancestors.find( r => r.rank_level === 50 );
     }
-  }
 
-  showNoMatch() {
-    this.navigateToMatch();
-  }
+    return nearestTaxon;
 
-  fetchScore( params: Object ) {
+  };
+
+  const checkCommonAncestorRank = useCallback( ( rank ) => {
+    const primaryRanks = [20, 30, 40, 50];
+
+    if ( primaryRanks.includes( rank ) ) {
+      return true;
+    }
+    return false;
+  }, [] );
+
+  const fetchScore = useCallback( ( parameters ) => {
     const token = createJwtToken();
-
     const options = { api_token: token, user_agent: createUserAgent() };
 
-    inatjs.computervision.score_image( params, options )
-      .then( ( response ) => {
-        const species = response.results[0];
-        const commonAncestor = response.common_ancestor;
+    inatjs.computervision.score_image( parameters, options ).then( ( response ) => {
+      const species = response.results[0];
+      const commonAncestor = response.common_ancestor;
 
-        if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
-          this.checkSpeciesSeen( species.taxon.id );
-          this.setOnlineVisionSpeciesResults( species );
-        } else if ( commonAncestor ) {
-          this.setOnlineVisionAncestorResults( commonAncestor );
+      if ( species.combined_score > 85 && species.taxon.rank === "species" ) {
+        checkSpeciesSeen( species.taxon.id );
+        setOnlineVisionSpeciesResults( species );
+      } else if ( commonAncestor ) {
+        const rankLevel = commonAncestor.taxon.rank_level;
+        const primaryRank = checkCommonAncestorRank( rankLevel );
+
+        if ( primaryRank ) {
+          setOnlineVisionAncestorResults( commonAncestor );
         } else {
-          this.setMatch( false );
+          // roll up to the nearest primary rank instead of showing sub-ranks
+          // this better matches what we do on the AR camera
+          const { ancestorTaxa } = species.taxon;
+          const nearestTaxon = findNearestPrimaryRankTaxon( ancestorTaxa, rankLevel );
+          setNearestPrimaryRankAncestor( nearestTaxon );
         }
-      } ).catch( ( { response } ) => {
-        if ( response.status && response.status === 503 ) {
-          const gmtTime = response.headers.map["retry-after"];
-          console.log( gmtTime, "gmt time" );
-          const hours = serverBackOnlineTime( gmtTime );
+      } else {
+        setMatch( false );
+      }
+    } ).catch( ( { response } ) => {
+      if ( response.status && response.status === 503 ) {
+        const gmtTime = response.headers.map["retry-after"];
+        const hours = serverBackOnlineTime( gmtTime );
 
-          if ( hours ) {
-            this.setNumberOfHours( hours );
-          }
-          this.setError( "downtime" );
-        } else {
-          this.setError( "onlineVision" );
+        if ( hours ) {
+          setNumberOfHours( hours );
         }
-      } );
-  }
-
-  addObservation() {
-    const { image, observation } = this.state;
-
-    addToCollection( observation, image );
-  }
-
-  checkSpeciesSeen( taxaId: number ) {
-    fetchSpeciesSeenDate( taxaId ).then( ( date ) => {
-      this.setSeenDate( date );
+        setError( "downtime" );
+      } else {
+        setError( "onlineVision" );
+      }
     } );
-  }
+  }, [checkCommonAncestorRank] );
 
-  checkForMatches() {
-    const { match } = this.state;
+  const addObservation = useCallback( async () => {
+    await addToCollection( observation, image );
+  }, [observation, image] );
 
-    this.setState( { clicked: true } );
+  const getParamsForOnlineVision = useCallback( async () => {
+    const uploadParams = await flattenUploadParameters( image );
+    fetchScore( uploadParams );
+  }, [fetchScore, image] );
 
-    if ( match === true ) {
-      this.showMatch();
-    } else if ( match === false ) {
-      this.showNoMatch();
-    }
-  }
+  const checkForMatches = () => setClicked( true );
 
-  requestAndroidPermissions() {
+  const checkMetaData = useCallback( () => {
     // this should only apply to iOS photos with no metadata
     // once metadata is fixed, should be able to remove this check for user location
-    const { image } = this.state;
-
-    if ( !image.latitude || !image.longitude ) {
-      // check to see if there are already photo coordinates
-      if ( Platform.OS === "android" ) {
-        checkLocationPermissions().then( ( granted ) => {
-          if ( granted ) {
-            this.getUserLocation();
-            this.getParamsForOnlineVision();
-          }
-        } );
-      } else {
-        this.getUserLocation();
-        this.getParamsForOnlineVision();
-      }
+    if ( !image.latitude ) {
+      getUserLocation();
+      getParamsForOnlineVision();
     } else {
-      this.getParamsForOnlineVision();
+      getParamsForOnlineVision();
     }
-  }
+  }, [image.latitude, getParamsForOnlineVision, getUserLocation] );
 
-  navigateToMatch() {
-    const { navigation } = this.props;
-    const {
-      image,
-      taxon,
-      seenDate,
-      errorCode
-    } = this.state;
-
-    navigation.push( "Match", {
-      image,
-      taxon,
-      seenDate,
-      errorCode
+  const navigateToMatch = useCallback( () => {
+    navigation.push( "Drawer", {
+      screen: "Main",
+      params: {
+        screen: "Match",
+        params: {
+          taxon,
+          image,
+          seenDate,
+          errorCode
+        }
+      }
     } );
-  }
+  }, [taxon, image, seenDate, errorCode, navigation] );
 
-  render() {
-    const {
-      image,
-      error,
-      clicked,
-      numberOfHours
-    } = this.state;
+  const showMatch = useCallback( async () => {
+    if ( !seenDate && match ) {
+      await addObservation();
+      navigateToMatch();
+    } else {
+      navigateToMatch();
+    }
+  }, [navigateToMatch, seenDate, match, addObservation] );
 
-    return (
-      <>
-        <NavigationEvents
-          onWillFocus={() => this.requestAndroidPermissions()}
+  useEffect( () => {
+    if ( match !== null && clicked ) {
+      showMatch();
+    }
+  }, [match, showMatch, clicked] );
+
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
+      checkMetaData();
+    } );
+  }, [navigation, checkMetaData] );
+
+  return (
+    <>
+      {error ? (
+        <ErrorScreen
+          error={error}
+          number={numberOfHours}
         />
-        {error
-          ? (
-            <ErrorScreen
-              error={error}
-              number={numberOfHours}
-            />
-          ) : (
-            <ConfirmScreen
-              updateClicked={this.checkForMatches}
-              clicked={clicked}
-              image={image.uri}
-            />
-          )}
-      </>
-    );
-  }
-}
+      ) : (
+        <ConfirmScreen
+          updateClicked={checkForMatches}
+          clicked={clicked}
+          image={image.uri}
+        />
+      )}
+    </>
+  );
+};
 
 export default OnlineServerResults;

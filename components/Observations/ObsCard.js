@@ -1,170 +1,108 @@
 // @flow
 
-import React, { PureComponent } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect
+} from "react";
 import {
   Image,
   TouchableOpacity,
-  Platform,
   ScrollView
 } from "react-native";
-import RNFS from "react-native-fs";
-import { withNavigation } from "@react-navigation/compat";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
-import { writeToDebugLog } from "../../utility/photoHelpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
-import { dirPictures } from "../../utility/dirStorage";
 import SpeciesCard from "../UIComponents/SpeciesCard";
+import { useUserPhoto } from "../../utility/customHooks";
 
 type Props = {
-  +navigation: any,
   +item: Object,
   +openModal: Function,
   +updateItemScrolledId: Function,
   +itemScrolledId: ?number
 }
 
-type State = {
-  photo: ?Object,
-  commonName?: ?string
-}
+const ObservationCard = ( {
+  item,
+  openModal,
+  updateItemScrolledId,
+  itemScrolledId
+}: Props ) => {
+  const isFocused = useIsFocused();
+  const scrollView = useRef( null );
+  const { navigate } = useNavigation();
+  const [commonName, setCommonName] = useState( null );
 
-class ObservationCard extends PureComponent<Props, State> {
-  scrollView: ?any
+  const { taxon } = item;
+  const {
+    id,
+    name,
+    iconicTaxonId
+  } = taxon;
 
-  constructor() {
-    super();
+  const photo = useUserPhoto( item );
 
-    this.state = {
-      photo: null,
-      commonName: null
+  useEffect( () => {
+    const scrollLeft = () => {
+      if ( scrollView.current ) {
+        scrollView.current.scrollTo( {
+          x: 0, y: 0, duration: 300
+        } );
+      }
     };
-  }
 
-  componentDidMount() {
-    const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
-    if ( Platform.OS === "ios" && seekv1Photos ) {
-      this.checkForSeekV1Photos( seekv1Photos );
-    } else {
-      this.checkForSeekV2Photos();
-    }
-    this.localizeCommonName();
-  }
-
-  componentDidUpdate( prevProps: Object ) {
-    const { itemScrolledId } = this.props;
-
-    if ( prevProps.itemScrolledId !== itemScrolledId && itemScrolledId !== null ) {
-      this.scrollLeft();
-    }
-  }
-
-  setPhoto( photo: Object ) {
-    this.setState( { photo } );
-  }
-
-  checkForSeekV1Photos( seekv1Photos: string ) {
-    const { item } = this.props;
-
-    const photoPath = `${seekv1Photos}/${item.uuidString}`;
-
-    RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-      this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-    } ).catch( () => {
-      this.checkForSeekV2Photos();
-    } );
-  }
-
-  checkForSeekV2Photos() {
-    const { item } = this.props;
-    const { defaultPhoto } = item.taxon;
-    const { backupUri, mediumUrl } = item.taxon.defaultPhoto;
-
-    if ( defaultPhoto ) {
-      if ( backupUri ) {
-        if ( Platform.OS === "ios" ) {
-          const uri = backupUri.split( "Pictures/" );
-          const backupFilepath = `${dirPictures}/${uri[1]}`;
-          this.setPhoto( { uri: backupFilepath } );
-        } else {
-          writeToDebugLog( backupUri );
-          RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-            this.setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
-          } ).catch( ( e ) => console.log( e ) );
-        }
-      } else if ( mediumUrl ) {
-        this.setPhoto( { uri: mediumUrl } );
+    if ( isFocused ) {
+      if ( itemScrolledId && itemScrolledId !== id ) {
+        updateItemScrolledId( null );
+        scrollLeft();
       }
     }
-  }
+  }, [updateItemScrolledId, id, itemScrolledId, isFocused] );
 
-  localizeCommonName() {
-    const { item } = this.props;
-
-    getTaxonCommonName( item.taxon.id ).then( ( commonName ) => {
-      if ( commonName ) {
-        this.setState( { commonName } );
+  useEffect( () => {
+    getTaxonCommonName( id ).then( ( taxonName ) => {
+      if ( isFocused ) {
+        setCommonName( taxonName );
       }
     } );
-  }
+  }, [id, isFocused] );
 
-  scrollLeft() {
-    const { item, itemScrolledId, updateItemScrolledId } = this.props;
-
-    if ( this.scrollView && itemScrolledId !== item.taxon.id ) {
-      this.scrollView.scrollTo( {
-        x: 0, y: 0, duration: 300
-      } );
-
-      updateItemScrolledId( null );
-    }
-  }
-
-  render() {
-    const {
-      navigation,
-      item,
-      openModal,
-      updateItemScrolledId
-    } = this.props;
-    const { photo, commonName } = this.state;
-    const { taxon } = item;
-
-    return (
-      <ScrollView
-        ref={( ref ) => { this.scrollView = ref; }}
-        contentContainerStyle={styles.card}
-        horizontal
-        onScrollBeginDrag={() => updateItemScrolledId( taxon.id )}
-        showsHorizontalScrollIndicator={false}
+  return (
+    <ScrollView
+      ref={scrollView}
+      contentContainerStyle={styles.card}
+      horizontal
+      onScrollBeginDrag={() => updateItemScrolledId( id )}
+      showsHorizontalScrollIndicator={false}
+    >
+      <SpeciesCard
+        commonName={commonName}
+        handlePress={() => {
+          setSpeciesId( id );
+          setRoute( "Observations" );
+          navigate( "Species" );
+        }}
+        iconicTaxonId={iconicTaxonId}
+        photo={photo}
+        scientificName={name}
+      />
+      <TouchableOpacity
+        onPress={() => openModal(
+          id,
+          photo,
+          commonName,
+          name,
+          iconicTaxonId
+        )}
+        style={styles.deleteButton}
       >
-        <SpeciesCard
-          commonName={commonName}
-          handlePress={() => {
-            setSpeciesId( taxon.id );
-            setRoute( "Observations" );
-            navigation.navigate( "Species" );
-          }}
-          iconicTaxonId={taxon.iconicTaxonId}
-          photo={photo}
-          scientificName={taxon.name}
-        />
-        <TouchableOpacity
-          onPress={() => openModal(
-            taxon.id,
-            photo,
-            commonName,
-            taxon.name,
-            taxon.iconicTaxonId
-          )}
-          style={styles.deleteButton}
-        >
-          <Image source={icons.delete} />
-        </TouchableOpacity>
-      </ScrollView>
-    );
-  }
-}
+        <Image source={icons.delete} />
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
 
-export default withNavigation( ObservationCard );
+export default ObservationCard;

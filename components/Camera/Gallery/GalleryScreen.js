@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import {
   Platform,
   View,
@@ -8,43 +8,90 @@ import {
   SafeAreaView
 } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useIsFocused } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryContainer from "./GalleryContainer";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { colors } from "../../../styles/global";
 
 const GalleryScreen = () => {
+  const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const [album, setAlbum] = useState( null );
-  const [photos, setPhotos] = useState( [] );
-  const [error, setError] = useState( null );
-  const [hasNextPage, setHasNextPage] = useState( true );
-  const [lastCursor, setLastCursor] = useState( null );
-  const [stillLoading, setStillLoading] = useState( false );
-  const groupTypes = ( album === null ) ? "All" : "Album";
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SET_ALBUM":
+        return {
+          album: action.album,
+          photos: [],
+          error: null,
+          hasNextPage: true,
+          lastCursor: null,
+          stillLoading: false,
+          loading: true
+        };
+      case "SHOW_LOADING_WHEEL":
+        return { ...state, loading: true };
+      case "HIDE_LOADING_WHEEL":
+        return { ...state, loading: false };
+      case "FETCHING_PHOTOS":
+        return { ...state, stillLoading: true };
+      case "APPEND_PHOTOS":
+        return {
+          ...state,
+          photos: action.photos,
+          stillLoading: false,
+          hasNextPage: action.pageInfo.has_next_page,
+          lastCursor: action.pageInfo.end_cursor,
+          loading: false
+        };
+      case "ERROR":
+        return { ...state, error: action.error, loading: false };
+      default:
+        throw new Error();
+    }
+  }, {
+    album: null,
+    photos: [],
+    error: null,
+    hasNextPage: true,
+    lastCursor: null,
+    stillLoading: false,
+    loading: true
+  } );
+
+  const {
+    album,
+    photos,
+    error,
+    hasNextPage,
+    lastCursor,
+    stillLoading,
+    loading
+  } = state;
 
   const appendPhotos = useCallback( ( data, pageInfo ) => {
     if ( photos.length === 0 && data.length === 0 && !pageInfo.has_next_page ) {
-      setError( "photos" );
+      dispatch( { type: "ERROR", error: "photos" } );
     } else {
       const updatedPhotos = photos.concat( data );
-      setPhotos( updatedPhotos );
-      setStillLoading( false );
+      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
     }
-    setHasNextPage( pageInfo.has_next_page );
-    setLastCursor( pageInfo.end_cursor );
   }, [photos] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
     if ( hasNextPage && !stillLoading ) {
-      setStillLoading( true );
+      dispatch( { type: "FETCHING_PHOTOS" } );
 
       CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
         appendPhotos( results.edges, results.page_info );
-      } ).catch( ( err ) => {
-        console.log( err, "error" );
+      } ).catch( ( { message } ) => {
+        if ( message === "Access to photo library was denied" ) {
+          dispatch( { type: "ERROR", error: "gallery" } );
+        }
       } );
     }
   }, [hasNextPage, stillLoading, appendPhotos] );
@@ -53,7 +100,8 @@ const GalleryScreen = () => {
     const photoOptions = {
       first: 28, // only 28 at a time can display
       assetType: "Photos",
-      groupTypes // this is required in RN 0.59+,
+      groupTypes: ( album === null ) ? "All" : "Album",
+      include: ["location"]
     };
 
     if ( album ) { // append for cases where album isn't null
@@ -67,53 +115,67 @@ const GalleryScreen = () => {
     }
 
     fetchPhotos( photoOptions );
-  }, [groupTypes, album, lastCursor, fetchPhotos] );
-
-  useEffect( () => {
-    setPhotos( [] );
-    setError( null );
-    setHasNextPage( true );
-    setLastCursor( null );
-    setStillLoading( false );
-  }, [album] );
+  }, [album, lastCursor, fetchPhotos] );
 
   const updateAlbum = useCallback( ( newAlbum: string ) => {
-    setAlbum( newAlbum !== "All" ? newAlbum : null );
-  }, [] );
+    if ( album === newAlbum ) { // prevent user from reloading the same album twice
+      return;
+    }
+    dispatch( { type: "SET_ALBUM", album: newAlbum } );
+  }, [album] );
 
   const setupPhotos = useCallback( () => {
-    if ( photos.length === 0 ) {
+    if ( photos.length === 0 && loading ) {
       setPhotoParams();
     }
-  }, [photos, setPhotoParams] );
+  }, [photos.length, loading, setPhotoParams] );
 
   useEffect( () => {
-    if ( isFocused ) {
+    if ( photos.length === 0 && loading && isFocused ) {
+      setPhotoParams();
+    }
+  }, [photos.length, loading, setPhotoParams, isFocused] );
+
+  const renderLoadingWheel = () => (
+    <View style={styles.loadingWheel}>
+      <LoadingWheel color={colors.darkGray} />
+    </View>
+  );
+
+  const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
+
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
       if ( Platform.OS === "android" ) {
         const requestAndroidPermissions = async () => {
           const permission = await checkCameraRollPermissions();
-          if ( permission === true ) {
-            setupPhotos();
-          } else {
-            setError( "gallery" );
+          if ( !permission && isFocused ) {
+            dispatch( { type: "ERROR", error: "gallery" } );
           }
         };
         requestAndroidPermissions();
-      } else {
-        setupPhotos();
       }
-    }
-  }, [isFocused, setupPhotos] );
+    } );
+
+    navigation.addListener( "blur", () => {
+      if ( isFocused ) {
+        dispatch( { type: "HIDE_LOADING_WHEEL" } );
+      }
+    } );
+  }, [navigation, photos.length, setupPhotos, isFocused] );
 
   return (
     <View style={styles.background}>
       <SafeAreaView style={styles.safeViewTop} />
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
+      {loading && renderLoadingWheel()}
       <GalleryContainer
         setPhotoParams={setPhotoParams}
         error={error}
         photos={photos}
+        startLoading={startLoading}
+        loading={loading}
       />
     </View>
   );

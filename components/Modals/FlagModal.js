@@ -1,104 +1,61 @@
 // @flow
 
 import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity
-} from "react-native";
-import LinearGradient from "react-native-linear-gradient";
+import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/flagModal";
-import icons from "../../assets/icons";
 import Button from "../UIComponents/Buttons/Button";
+import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
+import { removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {
   +closeModal: Function,
-  +deleteObservation: Function,
   +userImage: string,
-  +speciesSeenImage?: ?string,
-  +speciesText?: ?string,
-  +seenDate?: ?string
+  +speciesSeenImage: ?string,
+  +speciesText: ?string,
+  +seenDate: ?string,
+  +taxaId: number
 };
 
 const FlagModal = ( {
   closeModal,
-  deleteObservation,
   userImage,
   speciesSeenImage,
   speciesText,
-  seenDate
-}: Props ) => {
-  const gradientColorDark = "#404040";
-  const gradientColorLight = "#5e5e5e";
-
-  return (
-    <View style={styles.innerContainer}>
-      <LinearGradient
-        colors={[gradientColorDark, gradientColorLight]}
-        style={styles.flagHeader}
-      >
-        <View style={[styles.flagTextContainer, styles.row]}>
-          <Text allowFontScaling={false} style={[styles.buttonText, styles.paddingSmall]}>
-            {i18n.t( "results.flag" ).toLocaleUpperCase()}
-          </Text>
-          <TouchableOpacity
-            onPress={() => closeModal()}
-            style={styles.flagBackButton}
-          >
-            <Image source={icons.closeWhite} />
-          </TouchableOpacity>
-        </View>
-        <View style={[styles.flagButtonContainer, styles.row]}>
-          <Image
-            source={{ uri: userImage }}
-            style={styles.flagImageCell}
-          />
-          {speciesSeenImage ? (
-            <Image
-              source={{ uri: speciesSeenImage }}
-              style={[styles.flagImageCell, styles.marginLeft]}
-            />
-          ) : null}
-        </View>
-      </LinearGradient>
-      <View style={styles.flagContainer}>
-        <View style={styles.marginLarge} />
-        <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
-        <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
-        <View style={styles.marginSmall} />
-        <Button
-          handlePress={() => {
-            if ( seenDate ) {
-              closeModal( true );
-            } else {
-              deleteObservation();
-              closeModal( true );
-            }
-          }}
-          text={seenDate
-            ? "results.yes_resighted"
-            : "results.yes"}
-          large
-        />
-        <View style={styles.marginSmall} />
-        <Button
-          handlePress={() => closeModal()}
-          text="results.no"
-          color={gradientColorLight}
-        />
-        <View style={styles.marginMedium} />
-      </View>
-    </View>
-  );
-};
-
-FlagModal.defaultProps = {
-  seenDate: null,
-  speciesSeenImage: null,
-  speciesText: null
-};
+  seenDate,
+  taxaId
+}: Props ) => (
+  <ModalWithGradient
+    color="gray"
+    closeModal={closeModal}
+    userImage={userImage}
+    speciesSeenImage={speciesSeenImage}
+  >
+    <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
+    <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
+    <View style={styles.marginSmall} />
+    <Button
+      handlePress={() => {
+        if ( seenDate ) {
+          closeModal( true );
+        } else {
+          removeFromCollection( taxaId );
+          closeModal( true );
+        }
+      }}
+      text={seenDate
+        ? "results.yes_resighted"
+        : "results.yes"}
+      large
+    />
+    <View style={styles.marginSmall} />
+    <Button
+      handlePress={() => closeModal()}
+      text="results.no"
+      color="#5e5e5e"
+    />
+  </ModalWithGradient>
+);
 
 export default FlagModal;

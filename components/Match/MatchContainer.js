@@ -13,16 +13,15 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import { ScientificNamesContext } from "../UserContext";
 
 type Props = {
   image: Object,
   taxon: Object,
-  userImage: string,
   seenDate: ?string,
   match: boolean,
   setNavigationPath: Function,
-  gradientColorLight: string
+  gradientColorLight: string,
+  speciesText: ?string
 }
 
 const MatchContainer = ( {
@@ -32,7 +31,7 @@ const MatchContainer = ( {
   setNavigationPath,
   gradientColorLight,
   image,
-  userImage
+  speciesText
 }: Props ) => {
   const navigation = useNavigation();
   const speciesIdentified = seenDate || match;
@@ -44,20 +43,6 @@ const MatchContainer = ( {
     commonAncestor,
     rank
   } = taxon;
-
-  const renderSpeciesText = ( { scientificNames } ) => {
-    let speciesText;
-
-    if ( seenDate ) {
-      speciesText = !scientificNames ? taxaName : scientificName;
-    } else if ( taxaName && match ) {
-      speciesText = !scientificNames ? taxaName : scientificName;
-    } else if ( commonAncestor ) {
-      speciesText = !scientificNames ? commonAncestor : scientificName;
-    }
-
-    return speciesText;
-  };
 
   const renderHeaderText = () => {
     let headerText;
@@ -101,68 +86,57 @@ const MatchContainer = ( {
   };
 
   return (
-    <ScientificNamesContext.Consumer>
-      {names => (
+    <View style={styles.marginLarge}>
+      <View style={styles.textContainer}>
+        <Text style={[styles.headerText, { color: gradientColorLight }]}>{renderHeaderText()}</Text>
+        {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
+        <Text style={styles.text}>{renderText()}</Text>
+      </View>
+      <View style={styles.marginMedium} />
+      <View style={styles.textContainer}>
+        <GreenButton
+          color={gradientColorLight}
+          handlePress={() => {
+            if ( speciesIdentified ) {
+              setNavigationPath( "Species" );
+            } else {
+              navigation.navigate( "Camera" );
+            }
+          }}
+          text={speciesIdentified ? "results.view_species" : "results.take_photo"}
+        />
+      </View>
+      <View style={styles.marginMedium} />
+      {( commonAncestor && rank !== ( 60 || 70 ) ) && (
         <>
-          <View style={styles.marginLarge} />
-          <View style={styles.textContainer}>
-            <Text style={[styles.headerText, { color: gradientColorLight }]}>
-              {renderHeaderText()}
-            </Text>
-            {( renderSpeciesText( names ) )
-              && <Text style={styles.speciesText}>{renderSpeciesText( names )}</Text>}
-            <Text style={styles.text}>{renderText()}</Text>
-          </View>
+          <SpeciesNearby
+            ancestorId={taxaId}
+            lat={image.latitude}
+            lng={image.longitude}
+          />
           <View style={styles.marginMedium} />
-          <View style={styles.textContainer}>
-            <GreenButton
-              color={gradientColorLight}
-              handlePress={() => {
-                if ( speciesIdentified ) {
-                  setNavigationPath( "Species" );
-                } else {
-                  navigation.navigate( "Camera" );
-                }
-              }}
-              text={speciesIdentified ? "results.view_species" : "results.take_photo"}
-            />
-          </View>
-          <View style={styles.marginMedium} />
-          {( commonAncestor && rank !== ( 60 || 70 ) ) && (
-            <>
-              <SpeciesNearby
-                ancestorId={taxaId}
-                lat={image.latitude}
-                lng={image.longitude}
-              />
-              <View style={styles.marginMedium} />
-            </>
-          )}
-          <View style={styles.textContainer}>
-            {speciesIdentified && (
-              <TouchableOpacity
-                onPress={() => setNavigationPath( "Camera" )}
-                style={styles.link}
-              >
-                <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
-              </TouchableOpacity>
-            )}
-            {image.latitude && ( // need to make sure this only applies for AR Camera photos
-              <PostToiNat
-                color={gradientColorLight}
-                taxaInfo={{
-                  preferredCommonName: taxaName || commonAncestor,
-                  taxaId,
-                  userImage,
-                  scientificName,
-                  image
-                }}
-              />
-            )}
-          </View>
         </>
-      ) }
-    </ScientificNamesContext.Consumer>
+      )}
+      <View style={styles.textContainer}>
+        {speciesIdentified && (
+          <TouchableOpacity
+            onPress={() => setNavigationPath( "Camera" )}
+            style={styles.link}
+          >
+            <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
+          </TouchableOpacity>
+        )}
+        <PostToiNat
+          color={gradientColorLight}
+          taxaInfo={{
+            preferredCommonName: taxaName || commonAncestor,
+            taxaId,
+            scientificName,
+            image
+          }}
+        />
+      </View>
+    </View>
   );
 };
 

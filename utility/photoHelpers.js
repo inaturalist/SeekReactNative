@@ -1,8 +1,7 @@
 // @flow
-import ImageResizer from "react-native-image-resizer"; // eslint-disable-line import/no-unresolved
+import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
-import GalleryManager from "react-native-gallery-manager";
 import Realm from "realm";
 
 import realmConfig from "../models/index";
@@ -138,33 +137,6 @@ const createBackupUri = async ( uri, uuid ) => {
   }
 };
 
-const getAlbumNames = async () => {
-  const albumNames = [{
-    label: i18n.t( "gallery.camera_roll" ),
-    value: "All"
-  }];
-
-  try {
-    const { albums } = await GalleryManager.getAlbums();
-
-    if ( albums && albums.length > 0 ) { // attempt to fix error on android
-      albums.forEach( ( album ) => {
-        const { assetCount, title } = album;
-
-        if ( assetCount > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-          albumNames.push( {
-            label: title,
-            value: title
-          } );
-        }
-      } );
-    }
-    return albumNames;
-  } catch ( e ) {
-    return albumNames;
-  }
-};
-
 const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const oldFile = `${oldAndroidDir}/${timestamp}`;
@@ -220,7 +192,7 @@ const updateRealmThumbnails = () => {
 
       const duplicates = findDuplicates( backups );
 
-      const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' );
+      const filtered = databasePhotos.filtered( 'backupUri CONTAINS "/Pictures/"' ); // eslint-disable-line quotes
 
       filtered.forEach( ( photo ) => {
         const { backupUri } = photo;
@@ -322,17 +294,36 @@ const regenerateBackupUris = async () => {
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };
 
+const replacePhoto = async ( id, uri ) => {
+  const backupUri = await createBackupUri( uri );
+  // edit realm photo object attached to observation
+  // using id, create a new backup photo URI and save new cameraroll uri
+  Realm.open( realmConfig ).then( ( realm ) => {
+    realm.write( () => {
+      const obsToEdit = realm.objects( "ObservationRealm" ).filtered( `taxon.id == ${id}` );
+      const taxonToEdit = obsToEdit[0].taxon;
+      const photoToEdit = taxonToEdit.defaultPhoto;
+
+      photoToEdit.backupUri = backupUri;
+      photoToEdit.mediumUrl = uri;
+      photoToEdit.lastUpdated = new Date();
+    } );
+  } ).catch( ( e ) => {
+    console.log( e, "error editing photo object" );
+  } );
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
   movePhotoToAppStorage,
   localizeAttributions,
   createBackupUri,
-  getAlbumNames,
   moveAndroidFilesToInternalStorage,
   deleteFile,
   regenerateBackupUris,
   checkForDirectory,
   writeToDebugLog,
-  deleteDebugLogAfter7Days
+  deleteDebugLogAfter7Days,
+  replacePhoto
 };

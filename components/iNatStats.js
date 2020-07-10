@@ -116,7 +116,7 @@ const INatStatsScreen = () => {
     if ( photos.length === 0 ) {
       fetchProjectPhotos( isSubscribed );
     }
-    return () => isSubscribed = false;
+    return () => isSubscribed = false; // eslint-disable-line no-return-assign
   }, [observations, photos] );
 
   const photoList = renderPhotos();

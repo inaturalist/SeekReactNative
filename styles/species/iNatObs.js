@@ -13,10 +13,6 @@ export default StyleSheet.create( {
     width: 73
   },
   center,
-  headerMargins: {
-    marginBottom: 23,
-    marginTop: 45
-  },
   margin: {
     marginTop: 28
   },

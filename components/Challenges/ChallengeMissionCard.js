@@ -56,7 +56,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
           <View>
             <Text style={styles.text}>{i18n.t( item.mission )}</Text>
             <Text style={styles.greenText}>
-              {i18n.t( "challenges.number_observed", { count: item.observations } )}
+              {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
             </Text>
           </View>
         </View>

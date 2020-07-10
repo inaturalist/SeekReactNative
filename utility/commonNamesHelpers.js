@@ -4,11 +4,9 @@ import * as RNLocalize from "react-native-localize";
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
 
-const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
-  const { languageCode } = RNLocalize.getLocales()[0];
-  // console.log( languageCode, "language code" );
+const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
-    if ( commonNameRow.l === languageCode ) {
+    if ( commonNameRow.l === seekLocale ) {
       // only create realm objects if language matches current locale
       realm.create( "CommonNamesRealm", {
         taxon_id: commonNameRow.i,
@@ -19,53 +17,57 @@ const addCommonNamesFromFile = ( realm, commonNamesDict ) => {
   } );
 };
 
-const setupCommonNames = () => {
+const setupCommonNames = ( preferredLanguage ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        // check to see if names are already in Realm. There are about 96k names.
-        const numberInserted = realm.objects( "CommonNamesRealm" ).length;
+        const { languageCode } = RNLocalize.getLocales()[0];
+        const seekLocale = ( preferredLanguage && preferredLanguage !== "device" ) ? preferredLanguage : languageCode;
+        const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
-        if ( numberInserted < 96000 ) {
-          // delete all existing common names from Realm
-          realm.delete( realm.objects( "CommonNamesRealm" ) );
-          // load names from each file. React-native requires need to be strings
-          // so each file is listed here instead of some kind of loop
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-0" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-1" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-2" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-3" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-4" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-5" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-6" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-7" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-8" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-9" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-10" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-11" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-12" ).default );
+        // if common names for desired locale already exist in realm, do nothing
+        if ( realmLocale.length > 0 ) {
+          return;
         }
+
+        // otherwise, delete all existing common names from Realm and update with preferred language
+        realm.delete( realm.objects( "CommonNamesRealm" ) );
+        // load names from each file. React-native requires need to be strings
+        // so each file is listed here instead of some kind of loop
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-0" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-1" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-2" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-3" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-4" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-5" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-6" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-7" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-8" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-9" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-10" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-11" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-12" ).default, seekLocale );
       } );
-    // } ).then( () => {
-    //   console.log( new Date().getTime(), "end time for realm" );
+      // } ).then( () => {
+      //   console.log( new Date().getTime(), "end time for realm" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );
     } );
 };
 
 export {
-  setupCommonNames // eslint-disable-line import/prefer-default-export
+  setupCommonNames
 };

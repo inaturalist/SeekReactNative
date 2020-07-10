@@ -91,7 +91,8 @@ const SpeciesNearbyList = ( {
             setSpeciesId( item.id );
             if ( match ) {
               setRoute( "Match" );
-              navigation.navigate( "Species", { ...route.params } );
+              // full nav path for QuickActions
+              navigation.navigate( "MainTab", { screen: "Species", params: { ...route.params } } );
             } else if ( fetchiNatData ) {
               fetchiNatData();
             } else {
@@ -110,7 +111,9 @@ const SpeciesNearbyList = ( {
           </ImageBackground>
           <View style={styles.cellTitle}>
             <Text numberOfLines={3} style={styles.cellTitleText}>
-              {capitalizeNames( item.preferred_common_name || item.name )}
+              {i18n.locale === "de"
+                ? capitalizeNames( item.preferred_common_name || item.name ).replace( /(- |-)/g, "-\n" )
+                : capitalizeNames( item.preferred_common_name || item.name )}
             </Text>
           </View>
         </TouchableOpacity>

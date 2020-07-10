@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, I18nManager } from "react-native";
 import {
   colors,
   fonts
@@ -45,6 +45,10 @@ export default StyleSheet.create( {
     paddingTop: 21,
     textAlignVertical: "top",
     width: width - 54
+  },
+  rotate: {
+    tintColor: colors.seekForestGreen,
+    transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }]
   },
   row: {
     alignItems: "flex-start",

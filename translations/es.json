@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenta",
-    "initiative": "iNaturalist es una iniciativa conjunta de la California Academy of Sciences y la National Geographic Society"
-  },
   "species_nearby": {
     "header": "Especies en las cercanías",
     "location_error": "Para mostrarte las especies en las cercanías, necesitamos usar tu ubicación.",
@@ -37,7 +33,8 @@
     "challenge_completed": "¡Felicidades! Completaste un desafío",
     "view_challenges": "Ver desafío",
     "none": "¡Aún no tienes notificaciones!",
-    "about": "Recibirás aquí las notificaciones sobre los nuevos desafíos a medida que estén disponibles las actualizaciones de Seek y otra información relevante."
+    "about": "Recibirás aquí las notificaciones sobre los nuevos desafíos a medida que estén disponibles las actualizaciones de Seek y otra información relevante.",
+    "new_challenge": "There's a new challenge available!"
   },
   "login": {
     "log_in": "Inicia sesión en iNaturalist",
@@ -165,7 +162,14 @@
     "no_new_challenges_header": "No tienes nuevos desafíos.",
     "no_new_challenges": "Te avisaremos cuando haya nuevos desafíos disponibles.",
     "completed_all": "Has completado todos los desafíos disponibles.",
-    "number_observed": "{{number}} observado(s) hasta ahora",
+    "number_observed_plural": {
+      "zero": "{{count}} observed so far",
+      "one": "{{count}} observed so far",
+      "two": "{{count}} observed so far",
+      "few": "{{count}} observed so far",
+      "many": "{{count}} observed so far",
+      "other": "{{count}} observed so far"
+    },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "Este desafío será lanzado el {{date}}.",
     "get_involved": "Participa",
@@ -242,7 +246,14 @@
     "error_image": "Lo sentimos, no hemos podido procesar tu imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_species": "Lo sentimos, no pudimos identificar los detalles específicos de esta imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_location": "Para añadir especies a tus observaciones, debes activar tu ubicación. Seek utiliza tu ubicación para recordarte dónde has visto un organismo y contribuir a la ciencia ciudadana si las publicas en iNaturalist.",
-    "error_downtime": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{number}} horas.",
+    "error_downtime_plural": {
+      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
+      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+    },
     "error_few": "unas pocas",
     "error_gps": "No pudimos encontrar tu ubicación GPS. Por favor, intenta moverte a un lugar donde puedas ver el cielo y comprueba que la ubicación de tu dispositivo esté encendida para guardar observaciones.",
     "error_timeout": "No hemos podido guardar tu observación debido a un exceso del tiempo de espera de tu ubicación. Por favor, inténtalo de nuevo más tarde.",
@@ -256,7 +267,14 @@
     "challenge_progress": "¡Has encontrado otra especie!",
     "challenge_view": "Comprueba tu progreso",
     "level_up": "¡Has subido de nivel!",
-    "number_seen": "¡Has visto {{number}}!"
+    "number_seen_plural": {
+      "zero": "You’ve seen {{count}} species!",
+      "one": "You’ve seen {{count}} species!",
+      "two": "You’ve seen {{count}} species!",
+      "few": "You’ve seen {{count}} species!",
+      "many": "You’ve seen {{count}} species!",
+      "other": "You’ve seen {{count}} species!"
+    }
   },
   "camera": {
     "label": "cámara",
@@ -282,7 +300,9 @@
     "error_save": "Lo sentimos, hubo un problema al guardar tu foto",
     "error_take": "Sorry, we weren't able to capture your photo",
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}."
+    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
+    "error_cameraManager": "Sorry, the Camera Manager failed to load",
+    "error_photoError": "Sorry, the photo object was not found"
   },
   "gallery": {
     "label": "Fotos",
@@ -322,7 +342,14 @@
     "your_level": "Tu nivel",
     "login": "¡Inicia sesión con iNaturalist para publicar observaciones en la comunidad en línea!",
     "achievements": "Logros",
-    "observe": "¡Observa {{number}} especies para llegar al siguiente nivel!",
+    "observe_plural": {
+      "zero": "Observe {{count}} species to get to the next level!",
+      "one": "Observe {{count}} species to get to the next level!",
+      "two": "Observe {{count}} species to get to the next level!",
+      "few": "Observe {{count}} species to get to the next level!",
+      "many": "Observe {{count}} species to get to the next level!",
+      "other": "Observe {{count}} species to get to the next level!"
+    },
     "observe_max": "¡Has alcanzado el nivel máximo en Seek!",
     "observe_species": "Observa",
     "species_badges": "Insignias de especies",
@@ -458,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie,  Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary y Yaron Budowski. Agradecemos especialmente a Visipedia y la comunidad iNaturalist.",
     "version": "Versión",
     "help": "Para recibir ayuda con Seek, por favor envía un correo electrónico a help+seek@inaturalist.org.",
-    "translations": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Carnifex, Danielle Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch y Yulia Lygina.",
+    "translations": "Estamos agradecidos por la asistencia de traducción proporcionada por la comunidad de crowdin.com, en particular: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch y Yulia Lygina.",
     "join_crowdin": "Para unirte al equipo de traducción de Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -550,7 +577,13 @@
   "settings": {
     "header": "Seek Camera",
     "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names"
+    "scientific_names": "Display Scientific Names",
+    "donate": "Donate",
+    "donate_header": "Help support iNaturalist",
+    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "language": "In-app language",
+    "device_settings": "Use device language settings",
+    "auto_capture": "Automatically take a picture when the identification reaches species."
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -566,6 +599,24 @@
     "mission_1_may_2020": "Encuentra 5 plantas",
     "mission_2_may_2020": "Encuentra 2 insectos",
     "mission_3_may_2020": "Encuentra 1 aracnido",
-    "mission_4_may_2020": "Encuentra 2 aves"
+    "mission_4_may_2020": "Encuentra 2 aves",
+    "resilience": "Resilience Challenge",
+    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
+    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
+    "river": "River Challenge",
+    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
+    "mission_3_july_2020": "Find 1 mollusk",
+    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?"
+  },
+  "replace_photo": {
+    "header": "Replace Photo?",
+    "description": "Would you like to replace the photo of your resighted observation?",
+    "new": "Use new photo",
+    "old": "Keep old photo"
   }
 }

@@ -1,10 +1,5 @@
-import React, { useState, useRef } from "react";
-import {
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity
-} from "react-native";
+import React, { useRef, useState } from "react";
+import { Image, FlatList, TouchableOpacity } from "react-native";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
@@ -17,100 +12,80 @@ type Props = {
 }
 
 const HorizontalScroll = ( { photoList, screen }: Props ) => {
-  const [scrollIndex, setScrollIndex] = useState( 0 );
-  const [scrollOffset, setScrollOffset] = useState( 0 );
-
   const flatList = useRef( null );
+  const viewConfigRef = useRef( {
+    waitForInteraction: true,
+    viewAreaCoveragePercentThreshold: 95
+  } );
   const length = photoList.length - 1;
+  const { width } = dimensions;
+  const [scrollIndex, setScrollIndex] = useState( 0 );
+
   const nextIndex = scrollIndex < length ? scrollIndex + 1 : length;
   const prevIndex = scrollIndex > 0 ? scrollIndex - 1 : 0;
 
-  const scrollRight = () => {
-    const nextOffset = scrollOffset + dimensions.width;
-
+  const scroll = ( index ) => {
+    if ( index < 0 || index >= photoList.length ) {
+      return;
+    }
     if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( {
-        index: nextIndex, animated: true
-      } );
-
-      if ( nextIndex !== scrollIndex ) {
-        setScrollIndex( nextIndex );
-        setScrollOffset( nextOffset );
-      }
+      flatList.current.scrollToIndex( { index, animated: true } );
     }
   };
 
-  const scrollLeft = () => {
-    const prevOffset = scrollOffset - dimensions.width;
+  const scrollRight = () => scroll( nextIndex );
+  const scrollLeft = () => scroll( prevIndex );
 
-    if ( flatList && flatList.current !== null ) {
-      flatList.current.scrollToIndex( {
-        index: prevIndex, animated: true
-      } );
-
-      if ( prevIndex !== scrollIndex ) {
-        setScrollIndex( prevIndex );
-        setScrollOffset( prevOffset );
-      }
-    }
-  };
-
-  const calculateScrollIndex = ( e ) => {
-    const { contentOffset } = e.nativeEvent;
-
-    if ( contentOffset.x > scrollOffset ) {
-      setScrollIndex( nextIndex );
-      setScrollOffset( contentOffset.x );
-    } else if ( contentOffset.x < scrollOffset ) {
-      setScrollIndex( prevIndex );
-      setScrollOffset( contentOffset.x );
-    }
-  };
+  const onViewRef = useRef( ( { changed } ) => {
+    const { index } = changed[0];
+    setScrollIndex( index );
+  } );
 
   return (
-    <View>
+    <>
       <FlatList
         ref={flatList}
         bounces={false}
+        viewabilityConfig={viewConfigRef.current}
+        onViewableItemsChanged={onViewRef.current}
         contentContainerStyle={screen === "SpeciesPhotos" ? styles.speciesPhotoContainer : styles.photoContainer}
         data={photoList}
         getItemLayout={( data, index ) => (
           // skips measurement of dynamic content for faster loading
           {
-            length: ( dimensions.width ),
-            offset: ( dimensions.width ) * index,
+            length: ( width ),
+            offset: ( width ) * index,
             index
           }
         )}
         horizontal
         indicatorStyle="white"
         initialNumToRender={1}
-        onScrollEndDrag={( e ) => calculateScrollIndex( e )}
         pagingEnabled
         renderItem={( { item } ) => item}
         showsHorizontalScrollIndicator={screen === "iNatStats"}
       />
-      {scrollIndex !== 0 && (
+      {scrollIndex > 0 && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
           onPress={() => scrollLeft()}
           style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
         >
-          <Image source={icons.swipeLeft} />
+          <Image source={icons.swipeRight} style={styles.rotate} />
         </TouchableOpacity>
       )}
-      {scrollIndex !== photoList.length - 1 && (
+      {scrollIndex < length && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible
           onPress={() => scrollRight()}
           style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
         >
-          <Image source={icons.swipeRight} />
+          <Image source={icons.swipeRight} style={styles.rotateRTL} />
         </TouchableOpacity>
       )}
-    </View>
+    </>
   );
 };
 

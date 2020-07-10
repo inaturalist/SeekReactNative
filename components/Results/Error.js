@@ -23,7 +23,7 @@ const ErrorScreen = ( { error, number }: Props ) => {
   } else if ( error === "taxaInfo" ) {
     errorText = i18n.t( "results.error_species" );
   } else if ( error === "downtime" ) {
-    errorText = i18n.t( "results.error_downtime", {
+    errorText = i18n.t( "results.error_downtime_plural", {
       count: number || i18n.t( "results.error_few" )
     } );
   }

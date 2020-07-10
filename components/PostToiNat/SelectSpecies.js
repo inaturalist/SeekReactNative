@@ -14,9 +14,10 @@ import {
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
 
+import { colors } from "../../styles/global";
 import styles from "../../styles/posting/selectSpecies";
 import i18n from "../../i18n";
-import postingIcons from "../../assets/posting";
+import posting from "../../assets/posting";
 import SpeciesCard from "../UIComponents/SpeciesCard";
 import { capitalizeNames } from "../../utility/helpers";
 import GreenText from "../UIComponents/GreenText";
@@ -53,7 +54,6 @@ const SelectSpecies = ( {
   useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   const searchForSpecies = ( speciesName ) => {
-    console.log( speciesName, "species name" );
     setSearching( true );
     const params = {
       q: speciesName,
@@ -114,7 +114,11 @@ const SelectSpecies = ( {
           <Image source={{ uri: image }} style={styles.image} />
         </View>
         <View style={styles.row}>
-          <Image source={postingIcons.search} />
+          <Image
+            source={posting.searchGreen}
+            tintColor={colors.white}
+            style={styles.search}
+          />
           <TextInput
             onChangeText={text => searchForSpecies( text )}
             placeholder={i18n.t( "posting.look_up" )}

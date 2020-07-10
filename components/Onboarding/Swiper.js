@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { ScrollView, View } from "react-native";
+import { View, FlatList } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 import styles from "../../styles/onboarding";
@@ -17,53 +17,44 @@ const gradientColors = {
 };
 
 const Swiper = ( { children }: Props ) => {
-  const scrollView = useRef( null );
-  const [index, setIndex] = useState( 0 );
-  const [offset, setOffset] = useState( 0 );
+  const flatList = useRef( null );
+  const viewConfigRef = useRef( {
+    waitForInteraction: true,
+    viewAreaCoveragePercentThreshold: 95
+  } );
+  const [scrollIndex, setScrollIndex] = useState( 0 );
 
-  const calculateScrollIndex = ( e ) => {
-    const { contentOffset } = e.nativeEvent;
-    const { x } = contentOffset;
-
-    if ( x === offset ) {
-      return;
-    }
-
-    if ( x === 0 ) {
-      setIndex( 0 );
-    } else if ( x > offset && index < 2 ) {
-      setIndex( index + 1 );
-    } else if ( x < offset && index > 0 ) {
-      setIndex( index - 1 );
-    }
-    setOffset( x );
-  };
+  const onViewRef = useRef( ( { changed } ) => {
+    const { index } = changed[0];
+    setScrollIndex( index );
+  } );
 
   const renderScrollView = ( pages ) => (
-    <ScrollView
-      ref={scrollView}
+    <FlatList
+      ref={flatList}
       bounces={false}
+      viewabilityConfig={viewConfigRef.current}
+      onViewableItemsChanged={onViewRef.current}
+      data={pages}
+      renderItem={( { item, index } ) => (
+        <View key={`page-${index.toString()}`} style={styles.contentContainer}>
+          {item}
+        </View>
+      )}
       horizontal
-      onMomentumScrollEnd={( e ) => calculateScrollIndex( e )}
       pagingEnabled
       showsHorizontalScrollIndicator={false}
-    >
-      {pages.map( ( page, i ) => (
-        <View key={`page-${i.toString()}`} style={styles.contentContainer}>
-          {page}
-        </View>
-      ) )}
-    </ScrollView>
+    />
   );
 
   return (
     <LinearGradient
-      colors={[gradientColors[index][0], gradientColors[index][1]]}
+      colors={[gradientColors[scrollIndex][0], gradientColors[scrollIndex][1]]}
       style={styles.container}
     >
       {renderScrollView( children )}
-      <Dots index={index} />
-      <Button index={index} />
+      <Dots index={scrollIndex} />
+      <Button index={scrollIndex} />
     </LinearGradient>
   );
 };

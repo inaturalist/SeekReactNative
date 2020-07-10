@@ -1,8 +1,4 @@
 {
-  "splash": {
-    "presents": "presenteert",
-    "initiative": "iNaturalist is een gezamenlijk initiatief van de California Academy of Sciences en de National Geographic Society"
-  },
   "species_nearby": {
     "header": "Soorten in de buurt",
     "location_error": "Om soorten in de buurt te tonen moeten we je locatie gebruiken.",
@@ -37,7 +33,8 @@
     "challenge_completed": "Gefeliciteerd! Je hebt een uitdaging voltooid",
     "view_challenges": "Bekijk uitdaging",
     "none": "Je hebt nog geen meldingen!",
-    "about": "Hier word je op de hoogte gesteld van nieuwe uitdagingen wanneer ze beschikbaar zijn, updates voor Seek en andere relevante informatie."
+    "about": "Hier word je op de hoogte gesteld van nieuwe uitdagingen wanneer ze beschikbaar zijn, updates voor Seek en andere relevante informatie.",
+    "new_challenge": "Er is een nieuwe uitdaging beschikbaar!"
   },
   "login": {
     "log_in": "Inloggen met iNaturalist",
@@ -165,7 +162,14 @@
     "no_new_challenges_header": "Je hebt geen nieuwe uitdagingen.",
     "no_new_challenges": "We laten je weten wanneer nieuwe uitdagingen beschikbaar zijn.",
     "completed_all": "Je hebt alle beschikbare uitdagingen voltooid!",
-    "number_observed": "{{number}} tot dusver waargenomen",
+    "number_observed_plural": {
+      "zero": "{{count}} waargenomen tot nu toe ",
+      "one": "{{count}} waargenomen tot nu toe ",
+      "two": "{{count}} waargenomen tot nu toe ",
+      "few": "{{count}} waargenomen tot nu toe ",
+      "many": "{{count}} waargenomen tot nu toe ",
+      "other": "{{count}} waargenomen tot nu toe "
+    },
     "how_to": "Voltooi de Seek Uitdaging voor {{month}}!",
     "released": "Deze uitdaging zal worden vrijgegeven {{date}}.",
     "get_involved": "Doe mee",
@@ -237,15 +241,22 @@
     "yes": "Ja, verwijder het uit mijn waarnemingen",
     "yes_resighted": "Ja, deze soort is onjuist gedetermineerd",
     "no": "Nee, het is juist",
-    "enable_location": "Locatiebepaling aanzetten om waarnemingen op te kunnen slaan",
+    "enable_location": "Je waarneming heeft geen locatie",
     "error_server": "Het spijt ons, we konden deze afbeelding niet scoren. Controleer je internetverbinding en probeer het opnieuw.",
     "error_image": "Het spijt ons, maar je afbeelding kunnen we niet verwerken. Controleer je internetverbinding en probeer het opnieuw.",
     "error_species": "Het spijt ons maar we kunnen geen soortinformatie ophalen voor deze afbeelding. Controleer je internetverbinding en probeer het opnieuw.",
-    "error_location": "Om soorten aan je waarnemingen toe te kunnen voegen moet je je locatiebepaling aanzetten. Seek gebruikt je locatie om je te herinneren waar je een organisme heb gezien, en om bij te dragen aan burgerwetenschap als je gegevens op iNaturalist zet.",
-    "error_downtime": "Dienst tijdelijk niet beschikbaar. Probeer het opnieuw over {{number}} uur.",
+    "error_location": "Je kunt geen verspreidingskaarten bekijken, soorten dichtbij verkennen of deze waarneming in iNaturalist plaatsen. Als je de locatie in Seek inschakelt, kun je gedetailleerde informatie over je waarnemingen bekijken en bijdragen aan de burgerwetenschap. Je locatie wordt niet gepubliceerd tenzij je iets post in iNaturalist.",
+    "error_downtime_plural": {
+      "zero": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "one": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "two": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "few": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "many": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw.",
+      "other": "Service tijdelijk niet beschikbaar. Probeer het over {{count}} uur opnieuw."
+    },
     "error_few": "een paar",
-    "error_gps": "We konden je GPS-locatie niet vinden. Probeer alsjeblieft naar een plek te gaan waar je de hemel kunt zien en controleer of de locatiebepaling van je apparaat is ingeschakeld om waarnemingen op te slaan.",
-    "error_timeout": "We konden je waarneming niet opslaan door een locatie time-out. Probeer het later nog eens.",
+    "error_gps": "Seek kan je GPS-locatie niet vinden. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals verspreidingskaarten niet bekijken.  Ga naar een plek waar je de lucht kunt zien en controleer of de locatieservices van je apparaat zijn ingeschakeld.",
+    "error_timeout": "Het duurde te lang voordat je toestel een gps-fix had. Je waarneming is opgeslagen maar zonder locatie kun je gedetailleerde informatie zoals de verspreidingskaart niet bekijken. Probeer het later nog eens.",
     "nearby": "Soorten in dit taxon in de buurt",
     "nothing_nearby": "Zo te zien zijn er nog niet veel soorten in dit taxon in de buurt waargenomen! Probeer nog een foto te nemen of het op iNaturalist te plaatsen.",
     "tap": "Tik om soorten in de buurt te laden"
@@ -256,7 +267,14 @@
     "challenge_progress": "Je hebt nog een soort gevonden!",
     "challenge_view": "Bekijk je voortgang",
     "level_up": "Je bereikt een hoger level!",
-    "number_seen": "Je hebt {{number}} soorten gezien!"
+    "number_seen_plural": {
+      "zero": "Je hebt {{count}} soorten gezien!",
+      "one": "Je hebt {{count}} soort gezien!",
+      "two": "Je hebt {{count}} soorten gezien!",
+      "few": "Je hebt {{count}} soorten gezien!",
+      "many": "Je hebt {{count}} soorten gezien!",
+      "other": "Je hebt {{count}} soorten gezien!"
+    }
   },
   "camera": {
     "label": "Camera",
@@ -282,7 +300,9 @@
     "error_save": "Sorry, er was een probleem bij het bewaren van je foto",
     "error_take": "Het spijt ons, we konden je foto niet opslaan",
     "error_photos": "Er zijn geen foto's gevonden in dit fotoalbum. Probeer een ander album.",
-    "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}."
+    "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
+    "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
+    "error_photoError": "Sorry, het foto-object is niet gevonden"
   },
   "gallery": {
     "label": "Foto’s",
@@ -322,7 +342,14 @@
     "your_level": "Jouw niveau",
     "login": "Meld je aan bij iNaturalist om waarnemingen te posten in de online gemeenschap!",
     "achievements": "Prestaties",
-    "observe": "Nog {{number}} soorten waarnemen om het volgende niveau te halen!",
+    "observe_plural": {
+      "zero": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "one": "Nog {{count}} soort waarnemen om het volgende niveau te halen!",
+      "two": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "few": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "many": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!",
+      "other": "Nog {{count}} soorten waarnemen om het volgende niveau te halen!"
+    },
     "observe_max": "Je hebt het maximale level bereikt op Seek!",
     "observe_species": "Waarnemen",
     "species_badges": "Soort Badges",
@@ -458,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary en Yaron Budowski. Speciale dank aan Visipedia en de iNaturalist gemeenschap.",
     "version": "Versie",
     "help": "Vragen over Seek kun je sturen naar help+seek@inaturalist.org.",
-    "translations": "We zijn de crowdin.com gemeenschap dankbaar voor de hulp met het vertalen, in het bijzonder: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, Wouter Koch, en Yulia Lygina.",
+    "translations": "We zijn de crowdin.com gemeenschap dankbaar voor de hulp met het vertalen, in het bijzonder: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch en Yulia Lygina.",
     "join_crowdin": "Om deel te nemen aan het Seek-vertaalteam bezoek https://crowdin.com/project/search"
   },
   "posting": {
@@ -550,7 +577,13 @@
   "settings": {
     "header": "Seek's Camera",
     "common_names": "Toon Gewone namen",
-    "scientific_names": "Toon Wetenschappelijke namen"
+    "scientific_names": "Toon Wetenschappelijke namen",
+    "donate": "Doneer",
+    "donate_header": "Help en ondersteun iNaturalist",
+    "donate_description": "Help en ondersteun iNaturalist",
+    "language": "In-app taal",
+    "device_settings": "Systeemtaal gebruiken",
+    "auto_capture": "Automatisch een foto nemen als de determinatie het soortniveau bereikt."
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -566,6 +599,24 @@
     "mission_1_may_2020": "Vind 5 planten",
     "mission_2_may_2020": "Vind 2 insecten",
     "mission_3_may_2020": "Vind 1 spinachtige",
-    "mission_4_may_2020": "Vind 2 vogelsoorten"
+    "mission_4_may_2020": "Vind 2 vogelsoorten",
+    "resilience": "Weerstandsuitdaging",
+    "mission_1_june_2020": "Vind 2 planten van de orde Asterales (Asters, Bellbloemen, Fanbloemen en verwanten)",
+    "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (Perching Birds)",
+    "mission_3_june_2020": "Vind 1 insect van de orde Coleoptera (Kevers)",
+    "june_2020_description": "De natuur is veerkrachtig en overal om ons heen. Van steden tot het platteland, planten en dieren vinden een manier om te gedijen. Zelfs in stedelijke gebieden leven planten, vogels en insecten samen met ons.",
+    "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!",
+    "river": "Rivier Uitdaging",
+    "mission_1_july_2020": "Vind 2 vissen of amfibieën",
+    "mission_2_july_2020": "Vind 3 watervogels uit de orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes & Suliformes",
+    "mission_3_july_2020": "Vind 1 weekdier",
+    "july_2020_description": "Rivieren vormen een knooppunt voor de biodiversiteit. Er leeft van alles, van microinvertebraten tot grote gewervelden. In de  rivieren gedijen allerlei organismen.",
+    "action_july_2020": "Welke organismen kun je vinden in de buurt van water? Welke soorten zwemmen in het water? Welke soorten vliegen erboven? Zijn er organismen in het water die je misschien niet kunt zien?"
+  },
+  "replace_photo": {
+    "header": "Foto vervangen?",
+    "description": "Wilt je de foto van jouw tweede waarneming vervangen?",
+    "new": "Kies een nieuwe foto",
+    "old": "Behoud de oude foto"
   }
 }

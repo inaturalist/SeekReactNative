@@ -11,26 +11,20 @@ import styles from "../../styles/species/speciesError";
 import icons from "../../assets/icons";
 
 type Props = {
-  +seenDate: any,
-  +updateScreen: Function
+  +seenTaxa: any,
+  +checkForInternet: Function
 }
 
-const SpeciesError = ( { seenDate, updateScreen }: Props ) => (
-  <View>
+const SpeciesError = ( { seenTaxa, checkForInternet }: Props ) => (
+  <View style={styles.background}>
     <TouchableOpacity
-      onPress={() => updateScreen()}
-      style={styles.errorContainer}
+      onPress={() => checkForInternet()}
+      style={[styles.errorContainer, styles.center, styles.row]}
     >
-      <View style={styles.errorRow}>
-        <Image source={icons.internet} />
-        <Text style={styles.errorText}>{i18n.t( "species_detail.internet_error" )}</Text>
-      </View>
+      <Image source={icons.internet} />
+      <Text style={styles.errorText}>{i18n.t( "species_detail.internet_error" )}</Text>
     </TouchableOpacity>
-    {seenDate ? (
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( "species_detail.species_saved" )}</Text>
-      </View>
-    ) : null}
+    {seenTaxa && <Text style={styles.text}>{i18n.t( "species_detail.species_saved" )}</Text>}
   </View>
 );
 

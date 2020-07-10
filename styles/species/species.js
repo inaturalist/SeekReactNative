@@ -11,14 +11,13 @@ export default StyleSheet.create( {
     left: 0,
     paddingBottom: 18,
     paddingHorizontal: 23,
-    paddingTop: 18,
+    paddingTop: 23,
     position: "absolute",
     zIndex: 1
   },
   background: {
     backgroundColor: colors.white
   },
-
   checkmark: {
     marginRight: 10
   },
@@ -55,15 +54,12 @@ export default StyleSheet.create( {
     paddingBottom: Platform.OS === "android" ? 11 : 8,
     paddingTop: 12
   },
-  linkContainer: {
-    paddingBottom: 20,
-    paddingTop: 10
-  },
   linkText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
+    paddingTop: 10,
     textDecorationLine: "underline"
   },
   marginSmall: {
@@ -79,9 +75,6 @@ export default StyleSheet.create( {
     fontSize: 19,
     lineHeight: 21,
     marginTop: 10
-  },
-  secondTextContainer: {
-    marginHorizontal: 28
   },
   text: {
     color: colors.black,

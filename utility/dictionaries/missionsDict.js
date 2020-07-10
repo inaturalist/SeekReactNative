@@ -98,6 +98,34 @@ const missions = {
       number: 2,
       types: ["birds"]
     }
+  },
+  10: {
+    0: {
+      number: 2,
+      types: ["Asterales"]
+    },
+    1: {
+      number: 3,
+      types: ["Passeriformes"]
+    },
+    2: {
+      number: 1,
+      types: ["Coleoptera"]
+    }
+  },
+  11: {
+    0: {
+      number: 2,
+      types: ["amphibians", "fish"]
+    },
+    1: {
+      number: 3,
+      types: ["Anseriformes", "Charadriiformes", "Coraciiformes", "Gaviiformes", "Gruiformes", "Pelecaniformes", "Phoenicopteriformes", "Podicipediformes", "Procellariformes", "Sphenisciformes", "Suliformes"]
+    },
+    2: {
+      number: 1,
+      types: ["mollusks"]
+    }
   }
 };
 

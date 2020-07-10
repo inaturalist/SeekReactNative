@@ -16,6 +16,8 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
+import { getRoute } from "../../utility/helpers";
+// import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
 import realmConfig from "../../models";
 import i18n from "../../i18n";
@@ -24,11 +26,10 @@ import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
 import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";
-import ObservationListHeader from "./ObservationListHeader";
+import SectionHeader from "./SectionHeader";
 import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
-import BottomSpacer from "../UIComponents/BottomSpacer";
 import GreenHeader from "../UIComponents/GreenHeader";
 
 const ObservationList = () => {
@@ -40,6 +41,7 @@ const ObservationList = () => {
   const [showModal, setModal] = useState( false );
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
+  const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
 
   useFocusEffect(
     useCallback( () => {
@@ -53,6 +55,26 @@ const ObservationList = () => {
       return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
     }, [navigation] )
   );
+
+  // const getItemLayout = sectionListGetItemLayout( {
+  //   getItemHeight: () => 80,
+    // getSeparatorHeight: () => 18,
+    // getSectionHeaderHeight: () => 42,
+    // getSectionFooterHeight: () => 69,
+  //   listHeaderHeight: 75 // GreenHeader height
+  // } );
+
+  // const scrollToLocation = () => {
+  //   if ( sectionList.current ) {
+  //     console.log( sectionList.current.scrollToLocation, "scroll to location" );
+  //     sectionList.current.scrollToLocation( {
+  //       animated: Platform.OS === "android",
+  //       itemIndex: 0,
+  //       sectionIndex: 3,
+  //       viewOffset: 60
+  //     } );
+  //   }
+  // };
 
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {
@@ -69,35 +91,47 @@ const ObservationList = () => {
   const updateItemScrolledId = ( id ) => setItemScrolledId( id );
 
   const toggleSection = ( id ) => {
-    const updatedObs = observations.slice();
-    const section = updatedObs.find( item => item.id === id );
+    const updatedObs = observations.slice(); // this is needed to force a refresh of SectionList
+    const idToHide = hiddenSections.indexOf( id );
 
-    // $FlowFixMe
-    if ( section.open === true ) {
-      // $FlowFixMe
-      section.open = false;
+    if ( idToHide !== -1 ) {
+      hiddenSections.splice( idToHide, 1 );
     } else {
-      // $FlowFixMe
-      section.open = true;
+      hiddenSections.push( id );
     }
 
     setObservations( updatedObs );
   };
 
+  const setEmptyState = () => setLoading( false );
+
   const fetchObservations = () => {
     Realm.open( realmConfig ).then( ( realm ) => {
-      const obs = createSectionList( realm );
-      setObservations( obs );
-      setLoading( false );
+      const species = realm.objects( "ObservationRealm" );
+      if ( species.length === 0 ) {
+        setEmptyState();
+      } else {
+        const obs = createSectionList( realm, species );
+        setObservations( obs );
+        setLoading( false );
+      }
     } ).catch( () => {
       // console.log( "Err: ", err )
     } );
   };
 
-  useEffect( () => {
-    const unsub = navigation.addListener( "focus", () => {
+  const fetchRoute = async () => {
+    const routeName = await getRoute();
+    // don't fetch if user is toggling back and forth from SpeciesDetail screens
+    if ( routeName !== "Observations" ) {
       setLoading( true );
       fetchObservations();
+    }
+  };
+
+  useEffect( () => {
+    const unsub = navigation.addListener( "focus", () => {
+      fetchRoute();
     } );
 
     return unsub;
@@ -109,71 +143,51 @@ const ObservationList = () => {
     fetchObservations();
   };
 
-  let content;
+  const sectionIsHidden = ( id ) => hiddenSections.includes( id );
 
-  if ( loading ) {
-    content = (
-      <View style={styles.loadingWheel}>
-        <LoadingWheel color={colors.darkGray} />
-      </View>
-    );
-  } else {
-    content = (
-      <SectionList
-        ref={sectionList}
-        contentContainerStyle={[styles.padding, styles.flexGrow]}
-        initialNumToRender={6}
-        keyExtractor={( item, index ) => item + index}
-        renderItem={( { item, section } ) => {
-          if ( section.open === true ) {
-            return (
-              <ObservationCard
-                item={item}
-                itemScrolledId={itemScrolledId}
-                openModal={openModal}
-                updateItemScrolledId={updateItemScrolledId}
-              />
-            );
-          }
-          return null;
-        }}
-        renderSectionFooter={( {
-          section: {
-            id,
-            data,
-            open
-          }
-        } ) => {
-          if ( data.length === 0 && open ) {
-            return (
-              <>
-                <View style={styles.textContainer}>
-                  <Text style={styles.text}>
-                    {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
-                  </Text>
-                </View>
-                {id === 1 && <BottomSpacer />}
-              </>
-            );
-          }
-          return null;
-        }}
-        renderSectionHeader={( { section } ) => (
-          <ObservationListHeader section={section} toggleSection={toggleSection} />
-        )}
-        sections={observations}
-        stickySectionHeadersEnabled={false}
-        ListEmptyComponent={() => <EmptyState />}
+  const renderItem = ( item, section ) => {
+    if ( sectionIsHidden( section.id ) ) {
+      return null;
+    }
+    return (
+      <ObservationCard
+        item={item}
+        itemScrolledId={itemScrolledId}
+        openModal={openModal}
+        updateItemScrolledId={updateItemScrolledId}
       />
     );
-  }
+  };
+
+  const renderSectionFooter = ( section ) => {
+    const { id, data } = section;
+    if ( sectionIsHidden( id ) && data.length === 0 ) {
+      return <View style={styles.sectionSeparator} />;
+    }
+
+    if ( data.length === 0 ) {
+      return (
+        <Text style={[styles.text, styles.sectionSeparator]}>
+          {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
+        </Text>
+      );
+    }
+
+    return null;
+  };
+
+  const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
+
+  const renderItemSeparator = ( section ) => {
+    if ( !sectionIsHidden( section.id ) ) {
+      return <View style={styles.itemSeparator} />;
+    }
+    return null;
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <GreenHeader
-        header="observations.header"
-        route="Home"
-      />
+      <GreenHeader header="observations.header" route="Home" />
       <Modal isVisible={showModal}>
         <DeleteModal
           deleteObservation={deleteObservation}
@@ -182,7 +196,35 @@ const ObservationList = () => {
         />
       </Modal>
       <View style={styles.whiteContainer}>
-        {content}
+        {loading ? (
+          <View style={[styles.center, styles.flexGrow]}>
+            <LoadingWheel color={colors.darkGray} />
+          </View>
+        ) : (
+          <SectionList
+            ref={sectionList}
+            contentContainerStyle={styles.flexGrow}
+            sections={observations}
+            initialNumToRender={5}
+            stickySectionHeadersEnabled={false}
+            // getItemLayout={getItemLayout}
+            keyExtractor={( item, index ) => item + index}
+            ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
+            renderSectionHeader={( { section } ) => (
+              <SectionHeader
+                section={section}
+                open={!sectionIsHidden( section.id )}
+                toggleSection={toggleSection}
+              />
+            )}
+            renderItem={( { item, section } ) => renderItem( item, section )}
+            ItemSeparatorComponent={( { section } ) => renderItemSeparator( section )}
+            renderSectionFooter={( { section } ) => renderSectionFooter( section )}
+            SectionSeparatorComponent={() => renderSectionSeparator()}
+            ListFooterComponent={() => <View style={styles.padding} />}
+            ListEmptyComponent={() => <EmptyState />}
+          />
+        )}
       </View>
     </View>
   );

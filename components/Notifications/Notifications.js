@@ -1,6 +1,11 @@
 // @flow
 
-import React, { useState, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from "react";
 import {
   FlatList,
   View,
@@ -15,18 +20,26 @@ import NotificationCard from "./NotificationCard";
 import realmConfig from "../../models";
 import GreenHeader from "../UIComponents/GreenHeader";
 import EmptyState from "../UIComponents/EmptyState";
-import { updateNotifications } from "../../utility/notificationHelpers";
 import Padding from "../UIComponents/Padding";
 import BottomSpacer from "../UIComponents/BottomSpacer";
+import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 
 const NotificationsScreen = () => {
   const insets = useSafeArea();
   const navigation = useNavigation();
-
   const scrollView = useRef( null );
   const [notifications, setNotifications] = useState( [] );
 
-  const useScrollToTop = () => {
+  const fetchNotifications = useCallback( () => {
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const notificationList = realm.objects( "NotificationRealm" ).sorted( "index", true );
+      setNotifications( notificationList );
+    } ).catch( () => {
+      // console.log( "[DEBUG] Failed to open realm, error: ", err );
+    } );
+  }, [] );
+
+  useEffect( () => {
     const scrollToTop = () => {
       if ( scrollView && scrollView.current !== null ) {
         scrollView.current.scrollToOffset( {
@@ -35,32 +48,12 @@ const NotificationsScreen = () => {
       }
     };
 
-    useEffect( () => {
-      navigation.addListener( "focus", () => {
-        scrollToTop();
-      } );
+    navigation.addListener( "focus", () => {
+      markNotificationsAsViewed();
+      fetchNotifications();
+      scrollToTop();
     } );
-  };
-
-  useScrollToTop();
-
-  const fetchNotifications = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const notificationList = realm.objects( "NotificationRealm" ).sorted( "index", true );
-        setNotifications( notificationList );
-      } ).catch( () => {
-        // console.log( "[DEBUG] Failed to open realm, error: ", err );
-      } );
-  };
-
-  useEffect( () => { fetchNotifications(); }, [] );
-
-  useEffect( () => {
-    navigation.addListener( "blur", () => {
-      updateNotifications();
-    } );
-  }, [navigation] );
+  }, [fetchNotifications, navigation] );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -78,6 +71,7 @@ const NotificationsScreen = () => {
         )}
         renderItem={( { item } ) => <NotificationCard item={item} />}
         ListEmptyComponent={() => <EmptyState />}
+        ItemSeparatorComponent={() => <View style={styles.divider} />}
       />
     </View>
   );

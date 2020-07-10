@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, I18nManager } from "react-native";
 import {
   colors,
   fonts
@@ -25,9 +25,11 @@ const setCarouselWidth = () => {
 
 export default StyleSheet.create( {
   arrow: {
+    padding: 27,
     position: "absolute",
-    right: 27,
-    top: 190,
+    right: 0,
+    top: 190 - 27,
+    transform: [{ rotate: I18nManager.isRTL ? "180deg" : "0deg" }],
     zIndex: 1
   },
   bullets: {
@@ -50,10 +52,11 @@ export default StyleSheet.create( {
     resizeMode: "contain"
   },
   leftArrow: {
-    left: 27,
+    left: 0,
+    padding: 27,
     position: "absolute",
-    top: 190,
-    transform: [{ rotate: "180deg" }],
+    top: 190 - 27,
+    transform: [{ rotate: I18nManager.isRTL ? "0deg" : "180deg" }],
     zIndex: 1
   },
   margin: {

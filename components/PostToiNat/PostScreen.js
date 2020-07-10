@@ -1,364 +1,207 @@
 // @flow
 
-import React, { Component } from "react";
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-  Modal,
-  Platform,
-  TextInput,
-  Keyboard,
-  ScrollView
-} from "react-native";
-import { NavigationEvents } from "@react-navigation/compat";
+import React, {
+  useReducer,
+  useEffect,
+  useCallback,
+  useContext
+} from "react";
+import { View, Modal, Platform } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs, { FileUpload } from "inaturalistjs";
 import { formatISO, isAfter } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
-import { fetchAccessToken, savePostingSuccess } from "../../utility/loginHelpers";
+import { savePostingSuccess } from "../../utility/loginHelpers";
 import {
   fetchUserLocation,
-  fetchLocationName,
   checkForTruncatedCoordinates
 } from "../../utility/locationHelpers";
-import { checkLocationPermissions } from "../../utility/androidHelpers.android";
 import { resizeImage } from "../../utility/photoHelpers";
-import GreenHeader from "../UIComponents/GreenHeader";
 import i18n from "../../i18n";
-import posting from "../../assets/posting";
-import LocationPicker from "./LocationPicker";
-import GeoprivacyPicker from "./GeoprivacyPicker";
-import CaptivePicker from "./CaptivePicker";
+import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
+import CaptivePicker from "./Pickers/CaptivePicker";
 import PostStatus from "./PostStatus";
-import SelectSpecies from "./SelectSpecies";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import SafeAreaView from "../UIComponents/SafeAreaView";
-import DateTimePicker from "../UIComponents/DateTimePicker";
-import SpeciesCard from "../UIComponents/SpeciesCard";
 import createUserAgent from "../../utility/userAgent";
 import { formatYearMonthDay, setISOTime } from "../../utility/dateHelpers";
+import { useLocationName } from "../../utility/customHooks";
+import { UserContext } from "../UserContext";
+import Notes from "./Notes";
+import LocationPickerCard from "./Pickers/LocationPickerCard";
+import DatePicker from "./Pickers/DateTimePicker";
+import PostingHeader from "./PostingHeader";
+import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
-type Props = {
-  +route: any
-};
+const PostScreen = () => {
+  const navigation = useNavigation();
+  const { params } = useRoute();
+  const { login } = useContext( UserContext );
 
-type State = {
-  image: Object,
-  location: ?string,
-  date: ?string,
-  captive: ?boolean,
-  geoprivacy: ?boolean,
-  userImage: string,
-  taxon: Object,
-  seekId: Object,
-  modalVisible: boolean,
-  isDateTimePickerVisible: boolean,
-  error: ?boolean,
-  showPostModal: boolean,
-  showSpeciesModal: boolean,
-  loading: boolean,
-  postingSuccess: ?boolean,
-  description: ?string,
-  status: ?string,
-  imageForUploading: ?string,
-  errorText: ?string,
-  accuracy: ?number
-};
+  const {
+    preferredCommonName,
+    taxaId,
+    scientificName
+  } = params;
 
-class PostScreen extends Component<Props, State> {
-  constructor( { route }: Props ) {
-    super();
-
-    const {
+  const initialDate = params.image.time ? setISOTime( params.image.time ) : null;
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SELECT_SPECIES":
+        return {
+          ...state,
+          taxon: {
+            name: action.selectedSpecies.name,
+            taxaId: action.selectedSpecies.id,
+            preferredCommonName: action.selectedSpecies.commonName
+          }
+        };
+      case "UPDATE_DESCRIPTION":
+        return { ...state, description: action.value };
+      case "UPDATE_DATE":
+        return { ...state, date: action.date };
+      case "UPDATE_LOCATION":
+        return {
+          ...state,
+          image: {
+            latitude: action.coords.latitude,
+            longitude: action.coords.longitude,
+            accuracy: action.coords.accuracy,
+            uri: state.image.uri
+          }
+        };
+      case "UPDATE_GEOPRIVACY":
+        return { ...state, geoprivacy: action.geoprivacy };
+      case "UPDATE_CAPTIVE":
+        return { ...state, captive: action.captive };
+      case "TOGGLE_POST_STATUS":
+        return { ...state, showPostingStatus: !state.showPostingStatus };
+      case "SHOW_POST_STATUS":
+        return { ...state, showPostingStatus: true };
+      case "RESIZED_IMAGE":
+        return { ...state, resizedImage: action.userImage };
+      case "POSTING_SUCCEEDED":
+        return { ...state, postingSuccess: true };
+      case "POSTING_FAILED":
+        return {
+          ...state,
+          postingSuccess: false,
+          errorText: action.errorText,
+          status: action.status
+        };
+      default:
+        throw new Error();
+    }
+  }, {
+    image: params.image,
+    date: initialDate,
+    captive: null,
+    geoprivacy: null,
+    taxon: {
       preferredCommonName,
-      taxaId,
-      image,
-      userImage,
-      scientificName
-    } = route.params;
+      name: scientificName,
+      taxaId
+    },
+    showPostingStatus: null,
+    postingSuccess: null,
+    description: null,
+    status: null,
+    resizedImage: null,
+    errorText: null
+  } );
 
-    const date = image.time ? setISOTime( image.time ) : null;
+  const {
+    image,
+    resizedImage,
+    taxon,
+    geoprivacy,
+    description,
+    date,
+    captive,
+    showPostingStatus,
+    postingSuccess,
+    status,
+    errorText
+  } = state;
 
-    this.state = {
-      image,
-      location: null,
-      date,
-      captive: null,
-      geoprivacy: null,
-      userImage,
-      taxon: {
-        preferredCommonName,
-        name: scientificName,
-        taxaId
-      },
-      seekId: {
-        preferredCommonName,
-        name: scientificName,
-        taxaId
-      },
-      modalVisible: false,
-      isDateTimePickerVisible: false,
-      error: null,
-      showPostModal: false,
-      showSpeciesModal: false,
-      loading: false,
-      postingSuccess: null,
-      description: null,
-      status: null,
-      imageForUploading: null,
-      errorText: null,
-      accuracy: null
-    };
+  const location = useLocationName( image.latitude, image.longitude );
 
-    ( this:any ).updateGeoprivacy = this.updateGeoprivacy.bind( this );
-    ( this:any ).updateCaptive = this.updateCaptive.bind( this );
-    ( this:any ).updateLocation = this.updateLocation.bind( this );
-    ( this:any ).toggleLocationPicker = this.toggleLocationPicker.bind( this );
-    ( this:any ).togglePostModal = this.togglePostModal.bind( this );
-    ( this:any ).toggleSpeciesModal = this.toggleSpeciesModal.bind( this );
-    ( this:any ).updateTaxon = this.updateTaxon.bind( this );
-    ( this:any ).handleDatePicked = this.handleDatePicked.bind( this );
-    ( this:any ).toggleDateTimePicker = this.toggleDateTimePicker.bind( this );
-  }
-
-  setUserLocation() {
-    const { image } = this.state;
+  const setUserLocation = useCallback( () => {
     fetchUserLocation().then( ( coords ) => {
-      const lat = coords.latitude;
-      const long = coords.longitude;
-      const { accuracy } = coords;
-      this.reverseGeocodeLocation( lat, long );
-      image.latitude = lat;
-      image.longitude = long;
+      dispatch( { type: "UPDATE_LOCATION", coords } );
+    } ).catch( ( err ) => console.log( err ) );
+  }, [] );
 
-      this.setState( { image } );
-      this.setAccuracy( accuracy );
-    } ).catch( ( err ) => {
-      console.log( err );
-    } );
-  }
-
-  getLocation() {
-    const { image } = this.state;
+  const getLocation = useCallback( () => {
     const truncated = checkForTruncatedCoordinates( image.latitude );
 
-    if ( image.latitude && !truncated ) {
-      this.reverseGeocodeLocation( image.latitude, image.longitude );
-    } else if ( truncated ) {
-      this.setUserLocation();
-    } else {
-      this.setLocationUndefined();
+    if ( truncated ) {
+      setUserLocation();
     }
-  }
+  }, [setUserLocation, image] );
 
-  async getToken() {
-    this.setLoading( true );
-    const token = await fetchAccessToken();
-    if ( token ) {
-      this.fetchJSONWebToken( token );
-    }
-  }
-
-  setLoading( loading: boolean ) {
-    this.setState( { loading } );
-  }
-
-  setAccuracy( accuracy: number ) {
-    this.setState( { accuracy } );
-  }
-
-  setLocationUndefined() {
-    this.setState( { location: i18n.t( "location_picker.undefined" ) } );
-  }
-
-  setLocation( location: string ) {
-    this.setState( { location } );
-  }
-
-  setPostSucceeded() {
+  const setPostSucceeded = () => {
     savePostingSuccess( true );
-
-    this.setState( {
-      postingSuccess: true,
-      loading: false
-    } );
-  }
-
-  setPostFailed( errorText: string, status: string ) {
-    savePostingSuccess( false );
-
-    this.setState( {
-      postingSuccess: false,
-      loading: false,
-      errorText,
-      status
-    } );
-  }
-
-  setImageForUploading( imageForUploading: string ) {
-    this.setState( { imageForUploading } );
-  }
-
-  toggleDateTimePicker = () => {
-    const { isDateTimePickerVisible } = this.state;
-    this.setState( { isDateTimePickerVisible: !isDateTimePickerVisible } );
+    dispatch( { type: "POSTING_SUCCEEDED" } );
   };
 
-  isAndroidDateInFuture = ( date: Date ) => {
-    if ( Platform.OS === "android" && isAfter( date, new Date() ) ) {
+  const setPostFailed = ( err, errorStatus ) => {
+    savePostingSuccess( false );
+    dispatch( { type: "POSTING_FAILED", errorText: err, status: errorStatus } );
+  };
+
+  const isAndroidDateInFuture = ( selectedDate ) => {
+    if ( Platform.OS === "android" && isAfter( selectedDate, new Date() ) ) {
       return true;
     }
     return false;
-  }
+  };
 
-  handleDatePicked = ( date: Date ) => {
-    if ( date ) {
-      console.log( date, "date picked" );
-      let newDate;
-      const isFuture = this.isAndroidDateInFuture( date );
-
-      if ( isFuture ) {
-        console.log( isFuture, "is future android" );
-        newDate = formatISO( new Date() );
-      } else {
-        newDate = formatISO( date );
-      }
-
-      console.log( newDate, "new date" );
-
-      this.setState( {
-        date: newDate.toString()
-      }, this.toggleDateTimePicker() );
+  const handleDatePicked = ( selectedDate ) => {
+    if ( selectedDate ) {
+      const isFuture = isAndroidDateInFuture( selectedDate );
+      const newDate = isFuture ? formatISO( new Date() ) : formatISO( selectedDate );
+      dispatch( { type: "UPDATE_DATE", date: newDate.toString() } );
     }
   };
 
-  resizeImageForUploading() {
-    const { image } = this.state;
-
+  const resizeImageForUploading = useCallback( () => {
+    if ( resizedImage ) { return; }
     resizeImage( image.uri, 2048 ).then( ( userImage ) => {
       if ( userImage ) {
-        this.setImageForUploading( userImage );
-      } else {
-        console.log( "couldn't resize image for uploading" );
+        dispatch( { type: "RESIZED_IMAGE", userImage } );
       }
     } ).catch( () => console.log( "couldn't resize image for uploading" ) );
-  }
+  }, [image.uri, resizedImage] );
 
-  checkPermissions() {
-    if ( Platform.OS === "android" ) {
-      checkLocationPermissions().then( ( granted ) => {
-        if ( granted ) {
-          this.setUserLocation();
-        }
-      } );
-    } else {
-      this.setUserLocation();
-    }
-  }
+  const updateLocation = ( latitude, longitude, newAccuracy ) => {
+    const coords = { latitude, longitude, accuracy: newAccuracy };
+    dispatch( { type: "UPDATE_LOCATION", coords } );
+  };
 
-  togglePostModal() {
-    const { showPostModal } = this.state;
-    this.setState( { showPostModal: !showPostModal } );
-  }
-
-  toggleSpeciesModal() {
-    const { showSpeciesModal } = this.state;
-    this.setState( { showSpeciesModal: !showSpeciesModal } );
-  }
-
-  toggleLocationPicker() {
-    const { modalVisible, error } = this.state;
-
-    if ( !error ) {
-      this.setState( {
-        modalVisible: !modalVisible
-      } );
-    }
-  }
-
-  updateLocation( latitude: number, longitude: number, accuracy: number ) {
-    const { image } = this.state;
-    this.reverseGeocodeLocation( latitude, longitude );
-
-    image.latitude = latitude;
-    image.longitude = longitude;
-
-    this.setState( { image } );
-    this.setAccuracy( accuracy );
-    this.toggleLocationPicker();
-  }
-
-  updateGeoprivacy( geoprivacy: boolean ) {
-    this.setState( { geoprivacy } );
-  }
-
-  updateCaptive( captive: boolean ) {
-    this.setState( { captive } );
-  }
-
-  reverseGeocodeLocation( lat: number, lng: number ) {
-    fetchLocationName( lat, lng ).then( ( location ) => {
-      if ( location ) {
-        this.setLocation( location );
-      } else {
-        this.setLocationUndefined();
-      }
-    } ).catch( () => {
-      this.setLocationUndefined();
-    } );
-  }
-
-  fetchJSONWebToken( token: string ) {
-    const headers = {
-      "Content-Type": "application/json",
-      "User-Agent": createUserAgent()
+  const addPhotoToObservation = ( obsId, token ) => {
+    const photoParams = {
+      "observation_photo[observation_id]": obsId,
+      file: new FileUpload( {
+        uri: resizedImage,
+        name: "photo.jpeg",
+        type: "image/jpeg"
+      } )
     };
 
-    const site = "https://www.inaturalist.org";
+    const options = { api_token: token, user_agent: createUserAgent() };
 
-    if ( token ) {
-      // $FlowFixMe
-      headers.Authorization = `Bearer ${token}`;
-    }
+    inatjs.observation_photos.create( photoParams, options ).then( () => {
+      setPostSucceeded();
+    } ).catch( ( e ) => {
+      setPostFailed( e, "duringPhotoUpload" );
+    } );
+  };
 
-    fetch( `${site}/users/api_token`, { headers } )
-      .then( response => response.json() )
-      .then( ( responseJson ) => {
-        const apiToken = responseJson.api_token;
-        this.createObservation( apiToken );
-      } ).catch( ( e ) => {
-        if ( e instanceof SyntaxError ) { // this is from the iNat server being down
-          this.setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
-        } else {
-          this.setPostFailed( e, "beforeObservation" );
-        }
-      } );
-  }
-
-  createObservation( token: string ) {
-    const {
-      geoprivacy,
-      captive,
-      location,
-      date,
-      taxon,
-      image,
-      description,
-      accuracy
-    } = this.state;
-
-    const { latitude, longitude } = image;
-
-    let captiveState;
+  const createObservation = ( token ) => {
+    const { latitude, longitude, accuracy } = image;
     let geoprivacyState;
-
-    if ( captive === i18n.t( "posting.yes" ) ) {
-      captiveState = true;
-    } else {
-      captiveState = false;
-    }
 
     if ( geoprivacy === i18n.t( "posting.private" ) ) {
       geoprivacyState = "private";
@@ -368,12 +211,12 @@ class PostScreen extends Component<Props, State> {
       geoprivacyState = "open";
     }
 
-    const params = {
+    const obsParams = {
       observation: {
         observed_on_string: date,
         taxon_id: taxon.taxaId,
         geoprivacy: geoprivacyState,
-        captive_flag: captiveState,
+        captive_flag: ( captive === i18n.t( "posting.yes" ) ) || false,
         place_guess: location,
         latitude, // use the non-truncated version
         longitude, // use the non-truncated version
@@ -386,190 +229,101 @@ class PostScreen extends Component<Props, State> {
 
     const options = { api_token: token, user_agent: createUserAgent() };
 
-    inatjs.observations.create( params, options ).then( ( response ) => {
+    inatjs.observations.create( obsParams, options ).then( ( response ) => {
       const { id } = response[0];
-      this.addPhotoToObservation( id, token ); // get the obs id, then add photo
+      addPhotoToObservation( id, token ); // get the obs id, then add photo
     } ).catch( ( e ) => {
-      this.setPostFailed( e, "beforePhotoAdded" );
+      setPostFailed( e, "beforePhotoAdded" );
     } );
-  }
+  };
 
-  addPhotoToObservation( obsId: number, token: string ) {
-    const { imageForUploading } = this.state;
-
-    const params = {
-      "observation_photo[observation_id]": obsId,
-      file: new FileUpload( {
-        uri: imageForUploading,
-        name: "photo.jpeg",
-        type: "image/jpeg"
-      } )
+  const fetchJSONWebToken = () => {
+    const headers = {
+      "Content-Type": "application/json",
+      "User-Agent": createUserAgent()
     };
 
-    const options = { api_token: token, user_agent: createUserAgent() };
+    const site = "https://www.inaturalist.org";
 
-    inatjs.observation_photos.create( params, options ).then( () => {
-      this.setPostSucceeded();
-    } ).catch( ( e ) => {
-      this.setPostFailed( e, "duringPhotoUpload" );
+    if ( login ) {
+      // $FlowFixMe
+      headers.Authorization = `Bearer ${login}`;
+    }
+
+    fetch( `${site}/users/api_token`, { headers } )
+      .then( response => response.json() )
+      .then( ( responseJson ) => {
+        const apiToken = responseJson.api_token;
+        createObservation( apiToken );
+      } ).catch( ( e ) => {
+        if ( e instanceof SyntaxError ) { // this is from the iNat server being down
+          setPostFailed( "", "beforeObservation" ); // HTML not parsed correctly, so skip showing error text
+        } else {
+          setPostFailed( e, "beforeObservation" );
+        }
+      } );
+  };
+
+  const updateTaxon = ( id, commonName, name ) => {
+    const selectedSpecies = { id, commonName, name };
+    dispatch( { type: "SELECT_SPECIES", selectedSpecies } );
+  };
+
+  const closePostModal = () => dispatch( { type: "CLOSE_POST_STATUS" } );
+  const updateDescription = ( value ) => dispatch( { type: "UPDATE_DESCRIPTION", value } );
+  const updateGeoprivacy = ( newGeoprivacy ) => dispatch( { type: "UPDATE_GEOPRIVACY", geoprivacy: newGeoprivacy } );
+  const updateCaptive = ( newCaptive ) => dispatch( { type: "UPDATE_CAPTIVE", captive: newCaptive } );
+  const showPostStatus = () => dispatch( { type: "SHOW_POST_STATUS" } );
+
+  useEffect( () => {
+    navigation.addListener( "focus", () => {
+      // make sure these only happen on first page load, not when a user taps posting help
+      getLocation();
+      resizeImageForUploading();
     } );
-  }
+  }, [navigation, getLocation, resizeImageForUploading] );
 
-  updateTaxon( taxaId: number, preferredCommonName: string, name: string ) {
-    this.setState( {
-      taxon: {
-        taxaId,
-        preferredCommonName,
-        name
-      }
-    } );
-  }
+  const dateToDisplay = date && formatYearMonthDay( date );
 
-  render() {
-    const {
-      taxon,
-      seekId,
-      userImage,
-      date,
-      location,
-      image,
-      modalVisible,
-      isDateTimePickerVisible,
-      showPostModal,
-      showSpeciesModal,
-      loading,
-      postingSuccess,
-      description,
-      status,
-      errorText
-    } = this.state;
-
-    const dateToDisplay = date && formatYearMonthDay( date );
-
-    return (
-      <View style={styles.container}>
-        <NavigationEvents
-          onWillFocus={() => {
-            this.getLocation();
-            this.resizeImageForUploading();
+  return (
+    <ScrollWithHeader header="posting.header">
+      <Modal
+        onRequestClose={() => closePostModal()}
+        visible={showPostingStatus}
+      >
+        <PostStatus
+          errorText={errorText}
+          postingSuccess={postingSuccess}
+          status={status}
+          togglePostModal={closePostModal}
+        />
+      </Modal>
+      <PostingHeader
+        taxon={taxon}
+        image={image}
+        updateTaxon={updateTaxon}
+      />
+      <Notes description={description} updateDescription={updateDescription} />
+      <View style={styles.divider} />
+      <DatePicker dateToDisplay={dateToDisplay} handleDatePicked={handleDatePicked} />
+      <View style={styles.divider} />
+      <LocationPickerCard updateLocation={updateLocation} location={location} image={image} />
+      <View style={styles.divider} />
+      <GeoprivacyPicker updateGeoprivacy={updateGeoprivacy} />
+      <View style={styles.divider} />
+      <CaptivePicker updateCaptive={updateCaptive} />
+      <View style={styles.divider} />
+      <View style={styles.textContainer}>
+        <GreenButton
+          handlePress={() => {
+            fetchJSONWebToken();
+            showPostStatus();
           }}
+          text="posting.header"
         />
-        <SafeAreaView />
-        <DateTimePicker
-          datetime
-          isDateTimePickerVisible={isDateTimePickerVisible}
-          onDatePicked={this.handleDatePicked}
-          toggleDateTimePicker={this.toggleDateTimePicker}
-        />
-        <Modal
-          onRequestClose={() => this.toggleSpeciesModal()}
-          visible={showSpeciesModal}
-        >
-          <SelectSpecies
-            image={userImage}
-            seekId={seekId}
-            toggleSpeciesModal={this.toggleSpeciesModal}
-            updateTaxon={this.updateTaxon}
-          />
-        </Modal>
-        <Modal
-          onRequestClose={() => this.toggleLocationPicker()}
-          visible={modalVisible}
-        >
-          <LocationPicker
-            latitude={image.latitude}
-            longitude={image.longitude}
-            toggleLocationPicker={this.toggleLocationPicker}
-            updateLocation={this.updateLocation}
-          />
-        </Modal>
-        <Modal
-          onRequestClose={() => this.togglePostModal()}
-          visible={showPostModal}
-        >
-          <PostStatus
-            errorText={errorText}
-            loading={loading}
-            postingSuccess={postingSuccess}
-            status={status}
-            togglePostModal={this.togglePostModal}
-          />
-        </Modal>
-        <GreenHeader header="posting.header" />
-        <ScrollView
-          keyboardDismissMode="on-drag"
-          onScroll={() => Keyboard.dismiss()}
-          scrollEventThrottle={1}
-        >
-          <TouchableOpacity
-            onPress={() => this.toggleSpeciesModal()}
-            style={styles.card}
-          >
-            <SpeciesCard
-              commonName={taxon.preferredCommonName}
-              handlePress={() => this.toggleSpeciesModal()}
-              photo={{ uri: userImage }}
-              scientificName={taxon.name}
-            />
-            <Image source={posting.expand} style={styles.buttonIcon} />
-          </TouchableOpacity>
-          <TextInput
-            keyboardType="default"
-            multiline
-            onChangeText={value => this.setState( { description: value } )}
-            placeholder={i18n.t( "posting.notes" )}
-            placeholderTextColor="#828282"
-            style={styles.inputField}
-            value={description}
-          />
-          <View style={styles.divider} />
-          <TouchableOpacity
-            onPress={() => this.toggleDateTimePicker()}
-            style={styles.thinCard}
-          >
-            <Image source={posting.date} style={styles.icon} />
-            <View style={styles.row}>
-              <Text style={styles.greenText}>
-                {i18n.t( "posting.date" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.text}>{dateToDisplay}</Text>
-            </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
-          </TouchableOpacity>
-          <View style={styles.divider} />
-          <TouchableOpacity
-            onPress={() => this.toggleLocationPicker()}
-            style={styles.thinCard}
-          >
-            <Image source={posting.location} style={[styles.icon, styles.extraMargin]} />
-            <View style={styles.row}>
-              <Text style={styles.greenText}>
-                {i18n.t( "posting.location" ).toLocaleUpperCase()}
-              </Text>
-              <Text style={styles.text}>
-                {location}
-              </Text>
-            </View>
-            <Image source={posting.expand} style={styles.buttonIcon} />
-          </TouchableOpacity>
-          <View style={styles.divider} />
-          <GeoprivacyPicker updateGeoprivacy={this.updateGeoprivacy} />
-          <View style={styles.divider} />
-          <CaptivePicker updateCaptive={this.updateCaptive} />
-          <View style={styles.divider} />
-          <View style={styles.textContainer}>
-            <GreenButton
-              handlePress={() => {
-                this.getToken();
-                this.togglePostModal();
-              }}
-              text="posting.header"
-            />
-          </View>
-        </ScrollView>
       </View>
-    );
-  }
-}
+    </ScrollWithHeader>
+  );
+};
 
 export default PostScreen;

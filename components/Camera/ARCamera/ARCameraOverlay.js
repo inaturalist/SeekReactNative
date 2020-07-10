@@ -1,13 +1,13 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
@@ -18,12 +18,13 @@ import Modal from "../../UIComponents/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
 import { checkIfCameraLaunched } from "../../../utility/helpers";
+import { CameraContext } from "../../UserContext";
 
 type Props = {
   takePicture: Function,
   ranks: Object,
   pictureTaken: boolean,
-  cameraLoaded: boolean, 
+  cameraLoaded: boolean,
   error: ?string
 }
 
@@ -34,13 +35,21 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   error
 }: Props ) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
+  const { params } = useRoute();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
+  const { autoCapture } = useContext( CameraContext );
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
+
+  useEffect( () => {
+    if ( params.showWarning === "true" ) {
+      openModal();
+    }
+  }, [params] );
 
   useEffect( () => {
     const checkForFirstCameraLaunch = async () => {
@@ -51,6 +60,12 @@ const ARCameraOverlay = ( {
     };
     checkForFirstCameraLaunch();
   }, [] );
+
+  useEffect( () => {
+    if ( rankToRender === "species" && autoCapture ) {
+      takePicture();
+    }
+  }, [rankToRender, takePicture, autoCapture] );
 
   return (
     <>
@@ -80,7 +95,7 @@ const ARCameraOverlay = ( {
           <TouchableOpacity
             accessibilityLabel={i18n.t( "accessibility.help" )}
             accessible
-            onPress={() => navigation.navigate( "CameraHelp" )}
+            onPress={() => navigate( "CameraHelp" )}
             style={styles.help}
           >
             <Image source={icons.cameraHelp} />

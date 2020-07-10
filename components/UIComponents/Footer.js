@@ -15,22 +15,23 @@ import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
 import backgrounds from "../../assets/backgrounds";
+import { colors } from "../../styles/global";
+import logos from "../../assets/logos";
 
 const Footer = () => {
   let challenge;
   const navigation = useNavigation();
   const route = useRoute();
+  const [notifications, setNotifications] = useState( false );
 
   if ( route.name === "Challenges" || route.name === "ChallengeDetails" ) {
     challenge = true;
   }
 
-  const [notifications, setNotifications] = useState( false );
-
-  const fetchNotifications = () => {
-    Realm.open( realmConfig )
-      .then( ( realm ) => {
-        const newNotifications = realm.objects( "NotificationRealm" ).filtered( "seen == false" ).length;
+  useEffect( () => {
+    const fetchNotifications = () => {
+      Realm.open( realmConfig ).then( ( realm ) => {
+        const newNotifications = realm.objects( "NotificationRealm" ).filtered( "viewed == false" ).length;
         if ( newNotifications > 0 ) {
           setNotifications( true );
         } else {
@@ -39,11 +40,12 @@ const Footer = () => {
       } ).catch( () => {
         console.log( "[DEBUG] Failed to fetch notifications: " );
       } );
-  };
+    };
 
-  useEffect( () => {
-    fetchNotifications();
-  } );
+    navigation.addListener( "focus", () => {
+      fetchNotifications();
+    } );
+  }, [navigation] );
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -72,7 +74,7 @@ const Footer = () => {
               onPress={() => navigation.navigate( "iNatStats" )}
               style={styles.rightIcon}
             >
-              <Image source={icons.birdTeal} />
+              <Image source={logos.bird} tintColor={colors.seekForestGreen} style={styles.bird} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -81,9 +83,7 @@ const Footer = () => {
               onPress={() => navigation.navigate( "Notifications" )}
               style={styles.notificationPadding}
             >
-              {notifications
-                ? <Image source={icons.notifications} />
-                : <Image source={icons.notificationsInactive} />}
+              <Image source={notifications ? icons.notifications : icons.notificationsInactive} />
             </TouchableOpacity>
           )}
         </View>

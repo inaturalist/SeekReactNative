@@ -3,6 +3,7 @@ import * as RNLocalize from "react-native-localize";
 import i18n from "i18n-js";
 
 import af from "./translations/af.json";
+import ar from "./translations/ar.json";
 import ca from "./translations/ca.json";
 import cs from "./translations/cs.json";
 import da from "./translations/da.json";
@@ -19,10 +20,11 @@ import nb from "./translations/nb.json";
 import ru from "./translations/ru.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
-import zh from "./translations/zh.json";
+import zh from "./translations/zh-TW.json";
 
 i18n.translations = {
   af,
+  ar,
   ca,
   cs,
   da,

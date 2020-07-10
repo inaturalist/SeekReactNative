@@ -614,11 +614,11 @@
     "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?",
     "pollinator": "Pollinator Challenge",
     "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the order Polypodisida (Ferns)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
     "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nMantodea (Mantises);\nLepidoptera (Butterflies and Moths)",
-    "aug_2020_description": "Pollinators give us the plants, flowers, and crops that we eat! By moving pollen between different plants using their bodies, pollinators help plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or hummingbirds around the flowers in your garden or neighborhood?"
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
   },
   "replace_photo": {
     "header": "Replace Photo?",

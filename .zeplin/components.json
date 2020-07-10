@@ -1,0 +1,15 @@
+{
+  "projects": ["5eb0ad84c9476f1b4170a7fe"],
+  "plugins": [{
+    "name": "@zeplin/cli-connect-react-plugin"
+  }],
+  "components": [
+      {
+          "name": "Settings",
+          "path": "./components/Settings/Settings.js",
+          "zeplinNames": [
+              "Menu-3-Settings"
+          ]
+      }
+  ]
+}

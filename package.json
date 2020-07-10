@@ -36,8 +36,8 @@
     "date-fns": "^2.14.0",
     "i18n-js": "^3.7.1",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
-    "react": "^16.11.0",
-    "react-native": "^0.62.2",
+    "react": "^16.13.1",
+    "react-native": "^0.63.0",
     "react-native-check-box": "^2.1.7",
     "react-native-device-info": "^5.6.1",
     "react-native-fs": "^2.16.6",
@@ -80,10 +80,11 @@
     "eslint": "^5.16.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-jest": "^23.17.1",
+    "flow-bin": "^0.122.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
-    "metro-react-native-babel-preset": "^0.58.0",
+    "metro-react-native-babel-preset": "^0.59.0",
     "react-native-testing-library": "^2.1.0"
   }
 }

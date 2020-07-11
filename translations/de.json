@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Finde 3 Wasservögel aus den Ordnungen Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
     "july_2020_description": "Die Flüsse sind eine Drehscheibe für die biologische Vielfalt. Von mikroskopischen Lebensformen bis hin zu großen Wirbeltieren - Flüsse unterstützen die Organismen um sie herum zu wachsen und zu gedeihen.",
-    "action_july_2020": "Welche Organismen siehst du, wenn du dich in der Nähe eines Gewässers befindest? Welche Arten schwimmen im Wasser? Welche Arten fliegen über der Wasseroberfläche? Gibt es Organismen im Wasser, die du vielleicht nicht sehen kannst?"
+    "action_july_2020": "Welche Organismen siehst du, wenn du dich in der Nähe eines Gewässers befindest? Welche Arten schwimmen im Wasser? Welche Arten fliegen über der Wasseroberfläche? Gibt es Organismen im Wasser, die du vielleicht nicht sehen kannst?",
+    "pollinator": "Pollinator Challenge",
+    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
+    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

@@ -1,39 +1,30 @@
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts
-} from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   bullets: {
-    fontSize: 27,
-    marginTop: 8
+    fontSize: 29,
+    marginTop: 7
   },
   checklist: {
     marginTop: 20
   },
   circleStyle: {
     height: 59,
-    position: "absolute",
-    right: 0,
-    top: 39,
     width: 59
   },
   container: {
     marginBottom: 20,
-    marginTop: 21
+    marginTop: 36
   },
   greenText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium,
-    fontSize: 16,
-    lineHeight: 21,
     marginTop: 4
   },
   leftItem: {
     alignItems: "center",
-    marginRight: 21,
-    width: 20
+    marginRight: 22
   },
   row: {
     flexDirection: "row",
@@ -45,6 +36,10 @@ export default StyleSheet.create( {
     fontSize: 16,
     lineHeight: 21,
     marginTop: 16,
-    width: 205
+    maxWidth: 274
+  },
+  textContainer: {
+    flex: 1,
+    paddingRight: 18
   }
 } );

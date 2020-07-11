@@ -43,13 +43,25 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     setMissions( newMissions );
   }, [challenge] );
 
+  const formatLongMissionText = ( text ) => {
+  let newText = text;
+
+    if ( text.includes( ";\n" ) ) {
+      newText = text.replace( /-/g, "" )
+        .replace( /:\n\n/g, ":\n\n\u2022 " )
+        .replace( /;\n/g, ";\n\u2022 " );
+    }
+
+    return <Text style={styles.text}>{newText}</Text>;
+  };
+
   const renderMissionText = () => missions.map( ( item, i ) => (
     <View key={`${item}${i.toString()}`} style={styles.row}>
       {missionNumbers[i] && missionNumbers[i].number === item.observations
         ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
         : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{i18n.t( item.mission )}</Text>
+        {formatLongMissionText( i18n.t( item.mission ) )}
         <Text style={[styles.text, styles.greenText]}>
           {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
         </Text>

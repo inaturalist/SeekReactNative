@@ -612,13 +612,13 @@
     "mission_3_july_2020": "Найти 1 моллюска",
     "july_2020_description": "Реки - это центр биоразнообразия. Поддерживая всё, от микробеспозвоночных до крупных позвоночных, реки помогают организмам рядом с ними процветать.",
     "action_july_2020": "Когда вы находитесь рядом с водоемом, какие организмы вы замечаете? Какие виды плавают в воде? Какие виды летают над ним? Есть ли в воде организмы, которых вы не можете видеть?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "Испытание по опылителям",
+    "mission_1_aug_2020": "Найти 2 растения отряда Ясноткоцветные (Яснотковые, Подорожники, Маслиновые  и близкие виды)",
+    "mission_2_aug_2020": "Найти 1 растение семейства Сложноцветные (Подсолнечники, Маргаритки, Астры   и близкие виды)",
+    "mission_3_aug_2020": "Найти 1 растение отряда Розоцветные (Шиповники, Вязы, Фикусы и близкие виды)",
+    "mission_4_aug_2020": "Найти 2 насекомых из отрядов:\n\nПерепончатокрылые (Муравьи, Пчёлы, Осы и Пилильщики);\nЧешуекрылые (Бабочки и Моли); \nЖесткокрылые (Жуки);\nДвукрылые (Мухи)",
+    "aug_2020_description": "Опылители дают нам пищу, которую мы едим, и цветы, которыми мы наслаждаемся! Перенося пыльцу между различными растениями, используя свои тела, опылители помогают многим видам растений размножаться.",
+    "action_aug_2020": "Обратите внимание на опылителей вокруг вас. Есть ли пчелы или бабочки, прилетающие на цветы в вашем саду или по соседству?"
   },
   "replace_photo": {
     "header": "Заменить фото?",

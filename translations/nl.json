@@ -612,13 +612,13 @@
     "mission_3_july_2020": "Vind 1 weekdier",
     "july_2020_description": "Rivieren vormen een knooppunt voor de biodiversiteit. Er leeft van alles, van microinvertebraten tot grote gewervelden. In de  rivieren gedijen allerlei organismen.",
     "action_july_2020": "Welke organismen kun je vinden in de buurt van water? Welke soorten zwemmen in het water? Welke soorten vliegen erboven? Zijn er organismen in het water die je misschien niet kunt zien?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "Bestuivers Uitdaging",
+    "mission_1_aug_2020": "Vind 2 planten uit de orde Lamiales (Lipbloemenfamilie, Weegbreefamilie, Olijffamilie en verwanten)",
+    "mission_2_aug_2020": "Vind 1 plant uit de composietenfamilie (Asteraceae bijvoorbeeld zonnebloemen, madeliefjes, asters en verwanten)",
+    "mission_3_aug_2020": "Vind 1 plant uit de orde Rozen (Rozen, Iepen, Vijgen en verwanten)",
+    "mission_4_aug_2020": "Vind 2 insecten uit de orde:\n\nHymenoptera (Angeldragers zoals Mieren, Bijen, Wespen en Sawflies);\nLepidoptera (Dagvlinders, Nachtvlinders en motten);\nKevers (Coleoptera);\nVliegen (Diptera)",
+    "aug_2020_description": "Bestuivers geven ons voedsel dat we eten en bloemen waar we van genieten! Door het verplaatsen van stuifmeel tussen verschillende planten door hun lichaam te gebruiken helpen bestuivers vele soorten planten bij de voortplanting.",
+    "action_aug_2020": "Kijk naar de bestuivers om je heen. Zijn er bijen of vlinders die de bloemen bezoeken in je tuin of buurt?"
   },
   "replace_photo": {
     "header": "Foto vervangen?",

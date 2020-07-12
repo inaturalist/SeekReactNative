@@ -612,13 +612,13 @@
     "mission_3_july_2020": "1 yumuşakça bul",
     "july_2020_description": "Nehirler biyolojik çeşitlilik için bir merkezdir. Mikro omurgasızlardan büyük omurgalılara kadar her şeyi sağlayan nehirler, çevrelerindeki organizmaların gelişmesine yardımcı olur.",
     "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "Tozlayıcı Mücadelesi",
+    "mission_1_aug_2020": "Lamiles takımından 2 bitki bul (Nane, Plantains, Zeytin ve Akrabaları)",
+    "mission_2_aug_2020": "Asteraceae ailesinden 1 bitki bul (Ayçiçekleri, Papatyalar, Yıldızpatılar ve Akrabaları)",
+    "mission_3_aug_2020": "Rosales takımından 1 bitki bul (Güller, Karaağaçlar, İncir ve Akrabaları)",
+    "mission_4_aug_2020": "Şu takımlardan 2 böcek bulun:\n\nZar kanatlılar (Karıncalar, Arılar, Yaban arıları ve Testere sinekleri);\nPul kanatlılar (Kelebekler ve Güveler);\nKın kanatlılar (Coleoptera);\nSinekler (Sinek)",
+    "aug_2020_description": "Tozlayıcılar bize yediğimiz yiyecekleri ve sevdiğimiz çiçekleri verir! Tozlayıcı değişik bitkiler vücutlarını kullanarak çiçek tozlarıyla, birçok bitkinin üremesine yardımcı olur.",
+    "action_aug_2020": "Etrafınızdaki tozlaştırıcılara dikkat edin. Bahçenizdeki ya da çevrenizdeki çiçekleri ziyaret eden arılar ya da kelebekler var mı?"
   },
   "replace_photo": {
     "header": "Fotoğraf değişsin mi?",

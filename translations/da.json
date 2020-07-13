@@ -621,9 +621,9 @@
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
+    "header": "Erstat foto?",
     "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "new": "Brug nyt foto",
+    "old": "Behold gammelt foto"
   }
 }

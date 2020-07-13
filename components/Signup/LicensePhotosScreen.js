@@ -12,6 +12,7 @@ import InputField from "../UIComponents/InputField";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
 
 type Props = {
   +navigation: any
@@ -81,6 +82,7 @@ class LicensePhotosScreen extends Component<Props, State> {
             {i18n.t( "inat_signup.release_photos" )}
           </Text>
         </View>
+        <PrivacyAndTerms />
         <View style={[styles.row, styles.marginLeft]}>
           <Text
             allowFontScaling={false}

@@ -110,9 +110,9 @@ export default StyleSheet.create( {
   marginLarge: {
     marginTop: 29
   },
-  marginLeft: {
-    marginLeft: 14
-  },
+  // marginLeft: {
+  //   marginLeft: 14
+  // },
   marginMedium: {
     marginTop: 25
   },
@@ -150,13 +150,6 @@ export default StyleSheet.create( {
     alignSelf: "center",
     marginHorizontal: 31,
     maxWidth: 455
-  },
-  textLink: {
-    color: colors.black,
-    fontFamily: fonts.book,
-    fontSize: 17,
-    marginTop: 26,
-    textDecorationLine: "underline"
   },
   underline: {
     textDecorationLine: "underline"

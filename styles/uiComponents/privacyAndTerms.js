@@ -19,5 +19,12 @@ export default StyleSheet.create( {
     fontSize: 17,
     marginTop: 26,
     textDecorationLine: "underline"
+  },
+  signupTextLink: {
+    color: colors.seekForestGreen,
+    fontSize: 16,
+    lineHeight: 21,
+    marginTop: 22,
+    textAlign: "center"
   }
 } );

@@ -9,6 +9,7 @@ import styles from "../../styles/login/login";
 import GreenText from "../UIComponents/GreenText";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
 
 const LoginSuccessScreen = () => {
   const { navigate } = useNavigation();
@@ -41,22 +42,7 @@ const LoginSuccessScreen = () => {
         login
         text="inat_signup.continue"
       />
-      <View style={[styles.center, styles.row]}>
-        <Text
-          allowFontScaling={false}
-          style={styles.textLink}
-          onPress={() => navigate( "Privacy" )}
-        >
-          {i18n.t( "inat_signup.privacy" )}
-        </Text>
-        <Text
-          allowFontScaling={false}
-          onPress={() => navigate( "TermsOfService" )}
-          style={[styles.textLink, styles.marginLeft]}
-        >
-          {i18n.t( "inat_signup.terms" )}
-        </Text>
-      </View>
+      <PrivacyAndTerms />
     </ScrollWithHeader>
   );
 };

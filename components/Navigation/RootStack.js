@@ -18,6 +18,8 @@ import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
+import PrivacyPolicyScreen from "../Login/PrivacyPolicyScreen";
+import TermsOfServiceScreen from "../Login/TermsOfServiceScreen";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -117,6 +119,16 @@ const App = () => (
           name="Donation"
           component={Donation}
           options={verticalConfig}
+        />
+        <Stack.Screen
+          name="Privacy"
+          component={PrivacyPolicyScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="TermsOfService"
+          component={TermsOfServiceScreen}
+          options={defaultConfig}
         />
       </Stack.Navigator>
     </NavigationContainer>

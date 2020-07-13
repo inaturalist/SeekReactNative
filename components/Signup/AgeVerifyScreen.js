@@ -14,6 +14,7 @@ import GreenHeader from "../UIComponents/GreenHeader";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import SafeAreaView from "../UIComponents/SafeAreaView";
 import DateTimePicker from "../UIComponents/DateTimePicker";
+import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
 
 type Props = {
   +navigation: any
@@ -97,22 +98,7 @@ class AgeVerifyScreen extends Component<Props, State> {
             login
             text="inat_signup.next"
           />
-          <View style={[styles.row, styles.center]}>
-            <Text
-              allowFontScaling={false}
-              onPress={() => navigation.navigate( "Privacy" )}
-              style={styles.privacy}
-            >
-              {i18n.t( "inat_signup.privacy" )}
-            </Text>
-            <Text
-              allowFontScaling={false}
-              onPress={() => navigation.navigate( "TermsOfService" )}
-              style={[styles.privacy, styles.marginLeftSmall]}
-            >
-              {i18n.t( "inat_signup.terms" )}
-            </Text>
-          </View>
+          <PrivacyAndTerms />
         </View>
       </View>
     );

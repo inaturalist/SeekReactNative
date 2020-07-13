@@ -11,8 +11,6 @@ import ParentalConsentScreen from "../Signup/ParentalConsentScreen";
 import ParentCheckEmailScreen from "../Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "../Signup/LicensePhotosScreen";
 import SignUpScreen from "../Signup/SignUpScreen";
-import PrivacyPolicyScreen from "../Login/PrivacyPolicyScreen";
-import TermsOfServiceScreen from "../Login/TermsOfServiceScreen";
 
 const Stack = createStackNavigator();
 
@@ -78,16 +76,6 @@ const LoginStack = () => (
     <Stack.Screen
       name="Signup"
       component={SignUpScreen}
-      options={defaultConfig}
-    />
-    <Stack.Screen
-      name="Privacy"
-      component={PrivacyPolicyScreen}
-      options={defaultConfig}
-    />
-    <Stack.Screen
-      name="TermsOfService"
-      component={TermsOfServiceScreen}
       options={defaultConfig}
     />
   </Stack.Navigator>

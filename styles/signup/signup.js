@@ -117,15 +117,6 @@ export default StyleSheet.create( {
   marginTop: {
     marginTop: 51
   },
-  privacy: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.book,
-    fontSize: 16,
-    lineHeight: 21,
-    marginTop: 22,
-    textAlign: "center",
-    textDecorationLine: "underline"
-  },
   row,
   secondHeaderText: {
     color: colors.white,

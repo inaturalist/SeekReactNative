@@ -11,17 +11,18 @@ const PrivacyAndTerms = () => {
   const { navigate } = useNavigation();
   const { name } = useRoute();
 
-  console.log( name, "name in route" );
+  const screens = ["Age", "LicensePhotos", "About"];
+  const greenText = screens.includes( name );
 
   return (
     <View style={[styles.center, styles.row]}>
       <Text
         allowFontScaling={false}
+        onPress={() => navigate( "Privacy" )}
         style={[
           styles.textLink,
-          name === "Age" && styles.signupTextLink
+          greenText && styles.signupTextLink
         ]}
-        onPress={() => navigate( "Privacy" )}
       >
         {i18n.t( "inat_signup.privacy" )}
       </Text>
@@ -31,7 +32,7 @@ const PrivacyAndTerms = () => {
         onPress={() => navigate( "TermsOfService" )}
         style={[
           styles.textLink,
-          name === "Age" && styles.signupTextLink
+          greenText && styles.signupTextLink
         ]}
       >
         {i18n.t( "inat_signup.terms" )}

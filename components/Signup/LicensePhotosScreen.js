@@ -58,7 +58,6 @@ class LicensePhotosScreen extends Component<Props, State> {
 
   render() {
     const { email, licensePhotos, error } = this.state;
-    const { navigation } = this.props;
 
     return (
       <ScrollWithHeader header="login.sign_up">
@@ -83,22 +82,6 @@ class LicensePhotosScreen extends Component<Props, State> {
           </Text>
         </View>
         <PrivacyAndTerms />
-        <View style={[styles.row, styles.marginLeft]}>
-          <Text
-            allowFontScaling={false}
-            onPress={() => navigation.navigate( "Privacy" )}
-            style={[styles.privacy, styles.marginSmall]}
-          >
-            {i18n.t( "inat_signup.privacy" )}
-          </Text>
-          <Text
-            allowFontScaling={false}
-            onPress={() => navigation.navigate( "TermsOfService" )}
-            style={[styles.privacy, styles.marginSmall, styles.marginLeftSmall]}
-          >
-            {i18n.t( "inat_signup.terms" )}
-          </Text>
-        </View>
         {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
         <GreenButton
           handlePress={() => this.submit()}

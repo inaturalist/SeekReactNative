@@ -24,7 +24,7 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontSize: 16,
     lineHeight: 21,
-    marginTop: 22,
+    marginTop: 23,
     textAlign: "center"
   }
 } );

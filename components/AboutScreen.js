@@ -16,6 +16,7 @@ import logos from "../assets/logos";
 import i18n from "../i18n";
 import { UserContext } from "./UserContext";
 import ScrollWithHeader from "./UIComponents/ScrollWithHeader";
+import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
 
 const AboutScreen = () => {
   const navigation = useNavigation();
@@ -45,6 +46,7 @@ const AboutScreen = () => {
         <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
         <View style={styles.marginSmallest} />
         <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
+        <PrivacyAndTerms />
         <TouchableOpacity
           onPress={() => navigation.navigate( "DebugAndroid" )}
           style={styles.debug}

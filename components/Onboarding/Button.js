@@ -19,7 +19,7 @@ const Button = ( { index }: Props ) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate( "Login" )}
+      onPress={() => navigation.navigate( "LoginOrSignup" )}
       style={[styles.buttonContainer, styles.center]}
     >
       {index === 2

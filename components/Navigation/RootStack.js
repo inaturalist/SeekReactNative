@@ -6,7 +6,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
 import Drawer from "./SideDrawer";
-import Login from "./LoginStack";
 import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
@@ -20,6 +19,16 @@ import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
 import PrivacyPolicyScreen from "../Login/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "../Login/TermsOfServiceScreen";
+import LoginOrSignupScreen from "../LoginOrSignupScreen";
+import LoginScreen from "../Login/LoginScreen";
+import LoginSuccessScreen from "../Login/LoginSuccessScreen";
+import ForgotPasswordScreen from "../Login/ForgotPasswordScreen";
+import PasswordEmailScreen from "../Login/PasswordEmailScreen";
+import AgeVerifyScreen from "../Signup/AgeVerifyScreen";
+import ParentalConsentScreen from "../Signup/ParentalConsentScreen";
+import ParentCheckEmailScreen from "../Signup/ParentCheckEmailScreen";
+import LicensePhotosScreen from "../Signup/LicensePhotosScreen";
+import SignUpScreen from "../Signup/SignUpScreen";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -63,11 +72,6 @@ const App = () => (
         <Stack.Screen
           name="Onboarding"
           component={Onboarding}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
           options={defaultConfig}
         />
         <Stack.Screen
@@ -128,6 +132,56 @@ const App = () => (
         <Stack.Screen
           name="TermsOfService"
           component={TermsOfServiceScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LoginOrSignup"
+          component={LoginOrSignupScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Age"
+          component={AgeVerifyScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Forgot"
+          component={ForgotPasswordScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="PasswordEmail"
+          component={PasswordEmailScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="ParentCheck"
+          component={ParentCheckEmailScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LoginSuccess"
+          component={LoginSuccessScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Parent"
+          component={ParentalConsentScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LicensePhotos"
+          component={LicensePhotosScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={SignUpScreen}
           options={defaultConfig}
         />
       </Stack.Navigator>

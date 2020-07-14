@@ -317,7 +317,6 @@ const replacePhoto = async ( id, image ) => {
       photoToEdit.backupUri = backupUri;
       photoToEdit.mediumUrl = uri;
       photoToEdit.lastUpdated = time ? setISOTime( time ) : new Date();
-      console.log( "testing focus" );
     } );
   } ).catch( ( e ) => {
     console.log( e, "error editing photo object" );

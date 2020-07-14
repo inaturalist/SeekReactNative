@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/login/login";
-import { checkIsEmailValid } from "../../utility/loginHelpers";
-import ErrorMessage from "../Signup/ErrorMessage";
-import InputField from "../UIComponents/InputField";
-import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import createUserAgent from "../../utility/userAgent";
-import { createJwtToken } from "../../utility/helpers";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/login";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import ErrorMessage from "../ErrorMessage";
+import InputField from "../../UIComponents/InputField";
+import GreenText from "../../UIComponents/GreenText";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import createUserAgent from "../../../utility/userAgent";
+import { createJwtToken } from "../../../utility/helpers";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
 
 const ForgotPasswordScreen = () => {
   const { navigate } = useNavigation();

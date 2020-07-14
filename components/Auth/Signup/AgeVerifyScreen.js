@@ -4,13 +4,13 @@ import React, { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import { requiresParent, formatShortMonthDayYear } from "../../utility/dateHelpers";
-import styles from "../../styles/signup/signup";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ViewWithHeader from "../UIComponents/ViewWithHeader";
-import DateTimePicker from "../UIComponents/DateTimePicker";
-import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
+import i18n from "../../../i18n";
+import { requiresParent, formatShortMonthDayYear } from "../../../utility/dateHelpers";
+import styles from "../../../styles/auth/signup";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ViewWithHeader from "../../UIComponents/ViewWithHeader";
+import DateTimePicker from "../../UIComponents/DateTimePicker";
+import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const AgeVerifyScreen = () => {
   const { navigate } = useNavigation();

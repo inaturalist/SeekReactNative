@@ -3,10 +3,10 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/login/login";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/login";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
 
 type Props = {
   +navigation: any

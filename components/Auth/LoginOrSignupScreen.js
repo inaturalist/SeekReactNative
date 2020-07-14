@@ -10,13 +10,13 @@ import {
 } from "react-native";
 import { useSafeArea } from "react-native-safe-area-context";
 
-import i18n from "../i18n";
-import { colors } from "../styles/global";
-import styles from "../styles/loginOrSignup";
-import logoImages from "../assets/logos";
-import backgrounds from "../assets/backgrounds";
-import Button from "./UIComponents/Buttons/Button";
-import { enabledLargeFonts } from "../utility/textHelpers";
+import i18n from "../../i18n";
+import { colors } from "../../styles/global";
+import styles from "../../styles/auth/loginOrSignup";
+import logoImages from "../../assets/logos";
+import backgrounds from "../../assets/backgrounds";
+import Button from "../UIComponents/Buttons/Button";
+import { enabledLargeFonts } from "../../utility/textHelpers";
 
 type Props = {
   +navigation: any

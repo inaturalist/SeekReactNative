@@ -3,18 +3,18 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 
-import i18n from "../../i18n";
-import config from "../../config";
-import styles from "../../styles/signup/signup";
-import InputField from "../UIComponents/InputField";
-import GreenText from "../UIComponents/GreenText";
-import ErrorMessage from "./ErrorMessage";
-import { checkIsUsernameValid, saveAccessToken, formatError } from "../../utility/loginHelpers";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import createUserAgent from "../../utility/userAgent";
-import { createJwtToken } from "../../utility/helpers";
-import { UserContext } from "../UserContext";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import i18n from "../../../i18n";
+import config from "../../../config";
+import styles from "../../../styles/auth/signup";
+import InputField from "../../UIComponents/InputField";
+import GreenText from "../../UIComponents/GreenText";
+import ErrorMessage from "../ErrorMessage";
+import { checkIsUsernameValid, saveAccessToken, formatError } from "../../../utility/loginHelpers";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import createUserAgent from "../../../utility/userAgent";
+import { createJwtToken } from "../../../utility/helpers";
+import { UserContext } from "../../UserContext";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
 
 type Props = {
   +route: any,

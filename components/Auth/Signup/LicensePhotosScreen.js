@@ -4,16 +4,16 @@ import React, { Component } from "react";
 import { View, Text } from "react-native";
 import Checkbox from "react-native-check-box";
 
-import i18n from "../../i18n";
-import styles from "../../styles/signup/signup";
-import { colors } from "../../styles/global";
-import { checkIsEmailValid } from "../../utility/loginHelpers";
-import ErrorMessage from "./ErrorMessage";
-import InputField from "../UIComponents/InputField";
-import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
-import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/signup";
+import { colors } from "../../../styles/global";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import ErrorMessage from "../ErrorMessage";
+import InputField from "../../UIComponents/InputField";
+import GreenText from "../../UIComponents/GreenText";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 type Props = {
   +navigation: any

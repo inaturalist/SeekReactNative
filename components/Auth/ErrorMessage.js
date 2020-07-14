@@ -9,7 +9,7 @@ import {
 
 import icons from "../../assets/icons";
 import i18n from "../../i18n";
-import styles from "../../styles/signup/error";
+import styles from "../../styles/auth/error";
 import { colors } from "../../styles/global";
 
 type Props = {

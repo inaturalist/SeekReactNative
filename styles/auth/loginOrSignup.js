@@ -5,7 +5,7 @@ import {
   colors,
   center,
   dimensions
-} from "./global";
+} from "../global";
 
 export default StyleSheet.create( {
   center,

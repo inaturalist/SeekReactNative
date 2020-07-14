@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 
-import styles from "../../styles/login/privacy";
+import styles from "../../styles/auth/privacy";
 import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
 
 const PrivacyPolicyScreen = () => (

@@ -3,16 +3,16 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/signup/signup";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ErrorMessage from "./ErrorMessage";
-import LoadingWheel from "../UIComponents/LoadingWheel";
-import GreenText from "../UIComponents/GreenText";
-import InputField from "../UIComponents/InputField";
-import { checkIsEmailValid } from "../../utility/loginHelpers";
-import { createJwtToken } from "../../utility/helpers";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/signup";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ErrorMessage from "../ErrorMessage";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import GreenText from "../../UIComponents/GreenText";
+import InputField from "../../UIComponents/InputField";
+import { checkIsEmailValid } from "../../../utility/loginHelpers";
+import { createJwtToken } from "../../../utility/helpers";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
 
 type Props = {
   +navigation: any

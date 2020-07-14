@@ -17,18 +17,18 @@ import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
-import PrivacyPolicyScreen from "../Login/PrivacyPolicyScreen";
-import TermsOfServiceScreen from "../Login/TermsOfServiceScreen";
-import LoginOrSignupScreen from "../LoginOrSignupScreen";
-import LoginScreen from "../Login/LoginScreen";
-import LoginSuccessScreen from "../Login/LoginSuccessScreen";
-import ForgotPasswordScreen from "../Login/ForgotPasswordScreen";
-import PasswordEmailScreen from "../Login/PasswordEmailScreen";
-import AgeVerifyScreen from "../Signup/AgeVerifyScreen";
-import ParentalConsentScreen from "../Signup/ParentalConsentScreen";
-import ParentCheckEmailScreen from "../Signup/ParentCheckEmailScreen";
-import LicensePhotosScreen from "../Signup/LicensePhotosScreen";
-import SignUpScreen from "../Signup/SignUpScreen";
+import PrivacyPolicyScreen from "../Auth/PrivacyPolicyScreen";
+import TermsOfServiceScreen from "../Auth/TermsOfServiceScreen";
+import LoginOrSignupScreen from "../Auth/LoginOrSignupScreen";
+import LoginScreen from "../Auth/Login/LoginScreen";
+import LoginSuccessScreen from "../Auth/Login/LoginSuccessScreen";
+import ForgotPasswordScreen from "../Auth/Login/ForgotPasswordScreen";
+import PasswordEmailScreen from "../Auth/Login/PasswordEmailScreen";
+import AgeVerifyScreen from "../Auth/Signup/AgeVerifyScreen";
+import ParentalConsentScreen from "../Auth/Signup/ParentalConsentScreen";
+import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
+import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
+import SignUpScreen from "../Auth/Signup/SignUpScreen";
 
 const MyTheme = {
   ...DefaultTheme,

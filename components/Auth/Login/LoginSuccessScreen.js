@@ -4,12 +4,12 @@ import React from "react";
 import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/login/login";
-import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
-import PrivacyAndTerms from "../UIComponents/PrivacyAndTerms";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/login";
+import GreenText from "../../UIComponents/GreenText";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const LoginSuccessScreen = () => {
   const { navigate } = useNavigation();

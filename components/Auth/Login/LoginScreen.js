@@ -8,17 +8,17 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import i18n from "../../i18n";
-import styles from "../../styles/login/login";
-import InputField from "../UIComponents/InputField";
-import GreenText from "../UIComponents/GreenText";
-import GreenButton from "../UIComponents/Buttons/GreenButton";
-import ErrorMessage from "../Signup/ErrorMessage";
-import { saveAccessToken } from "../../utility/loginHelpers";
-import config from "../../config";
-import createUserAgent from "../../utility/userAgent";
-import { UserContext } from "../UserContext";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import i18n from "../../../i18n";
+import styles from "../../../styles/auth/login";
+import InputField from "../../UIComponents/InputField";
+import GreenText from "../../UIComponents/GreenText";
+import GreenButton from "../../UIComponents/Buttons/GreenButton";
+import ErrorMessage from "../ErrorMessage";
+import { saveAccessToken } from "../../../utility/loginHelpers";
+import config from "../../../config";
+import createUserAgent from "../../../utility/userAgent";
+import { UserContext } from "../../UserContext";
+import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
 
 const LoginScreen = () => {
   const { navigate } = useNavigation();

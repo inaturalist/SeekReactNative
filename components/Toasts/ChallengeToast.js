@@ -11,6 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import i18n from "../../i18n";
 import styles from "../../styles/toasts/badgeToast";
 import PercentCircle from "../UIComponents/PercentCircle";
+import { setChallengeIndex } from "../../utility/challengeHelpers";
 
 type Props = {
   +challenge: Object
@@ -21,7 +22,10 @@ const ChallengeToast = ( { challenge }: Props ) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate( "Challenges" )}
+      onPress={() => {
+        setChallengeIndex( challenge.index );
+        navigation.navigate( "ChallengeDetails" );
+      }}
       style={styles.row}
     >
       <View>

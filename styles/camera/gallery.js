@@ -18,7 +18,7 @@ export default StyleSheet.create( {
     position: "absolute"
   },
   background: {
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.white,
     flex: 1
   },
   button: {
@@ -30,6 +30,9 @@ export default StyleSheet.create( {
     tintColor: colors.seekForestGreen
   },
   center,
+  grayContainer: {
+    backgroundColor: colors.lightGray
+  },
   header: {
     backgroundColor: colors.white,
     height: 55
@@ -56,9 +59,5 @@ export default StyleSheet.create( {
   margin: {
     marginLeft: 15
   },
-  row,
-  safeViewTop: {
-    backgroundColor: colors.white,
-    flex: 0
-  }
+  row
 } );

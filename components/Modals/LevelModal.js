@@ -13,7 +13,7 @@ import styles from "../../styles/modals/levelModal";
 import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
 import GreenText from "../UIComponents/GreenText";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +level: Object,

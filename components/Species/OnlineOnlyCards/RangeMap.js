@@ -16,7 +16,7 @@ import icons from "../../../assets/icons";
 import GreenHeader from "../../UIComponents/GreenHeader";
 import SafeAreaView from "../../UIComponents/SafeAreaView";
 import Legend from "../../Modals/LegendModal";
-import Modal from "../../UIComponents/Modal";
+import Modal from "../../UIComponents/Modals/Modal";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;

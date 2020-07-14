@@ -57,6 +57,7 @@
     "react-native-progress-circle": "^2.1.0",
     "react-native-quick-actions": "^0.3.13",
     "react-native-reanimated": "^1.9.0",
+    "react-native-render-html": "^4.2.1",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.5.0",
     "react-native-simple-radio-button": "^2.7.4",

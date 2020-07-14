@@ -3,8 +3,8 @@
 import React from "react";
 import { View } from "react-native";
 
-import styles from "../../styles/uiComponents/whiteModal";
-import BackButton from "./Buttons/ModalBackButton";
+import styles from "../../../styles/uiComponents/modals/whiteModal";
+import BackButton from "../Buttons/ModalBackButton";
 
 type Props = {
   +children: any,

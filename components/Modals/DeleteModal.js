@@ -14,7 +14,7 @@ import styles from "../../styles/modals/deleteModal";
 import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import Button from "../UIComponents/Buttons/Button";
 
 type Props = {

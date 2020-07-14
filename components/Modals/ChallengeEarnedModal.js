@@ -13,7 +13,7 @@ import i18n from "../../i18n";
 import logos from "../../assets/logos";
 import badges from "../../assets/badges";
 import icons from "../../assets/icons";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import backgrounds from "../../assets/backgrounds";
 
 type Props = {

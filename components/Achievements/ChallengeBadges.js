@@ -14,7 +14,7 @@ import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
 import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
-import Modal from "../UIComponents/Modal";
+import Modal from "../UIComponents/Modals/Modal";
 
 const ChallengeBadges = () => {
   const [showModal, setModal] = useState( false );

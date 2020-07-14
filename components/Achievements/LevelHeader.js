@@ -14,7 +14,7 @@ import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
 import { colors } from "../../styles/global";
-import Modal from "../UIComponents/Modal";
+import Modal from "../UIComponents/Modals/Modal";
 import { localizeNumber } from "../../utility/helpers";
 
 type Props = {

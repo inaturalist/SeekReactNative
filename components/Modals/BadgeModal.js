@@ -17,7 +17,7 @@ import BannerHeader from "../Achievements/BannerHeader";
 import LargeProgressCircle from "../Achievements/LargeProgressCircle";
 import icons from "../../assets/icons";
 import GreenText from "../UIComponents/GreenText";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +badges: Array<Object>,

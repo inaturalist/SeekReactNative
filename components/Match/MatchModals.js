@@ -19,7 +19,7 @@ import ReplacePhotoModal from "../Modals/ReplacePhotoModal";
 import Toasts from "../Toasts/Toasts";
 import { fetchNumberSpeciesSeen, setSpeciesId, setRoute } from "../../utility/helpers";
 import { showAppStoreReview, showPlayStoreReview } from "../../utility/reviewHelpers";
-import RNModal from "../UIComponents/Modal";
+import RNModal from "../UIComponents/Modals/Modal";
 
 type Props = {
   match: boolean,

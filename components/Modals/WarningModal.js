@@ -12,7 +12,7 @@ import styles from "../../styles/modals/warningModal";
 import { dimensions } from "../../styles/global";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +closeModal: Function

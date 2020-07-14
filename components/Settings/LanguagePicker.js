@@ -5,6 +5,7 @@ import * as RNLocalize from "react-native-localize";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
+import { colors } from "../../styles/global";
 import Picker from "../UIComponents/Picker";
 import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
@@ -60,7 +61,7 @@ const LanguagePicker = () => {
       {deviceLanguageSupported && (
         <View style={[styles.row, styles.checkboxRow]}>
           <Checkbox
-            checkBoxColor="#979797"
+            checkBoxColor={colors.checkboxColor}
             isChecked={isChecked}
             disabled={isChecked}
             onClick={() => handleValueChange( "device" )}

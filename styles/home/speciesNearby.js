@@ -12,7 +12,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1,
-    paddingTop: padding.iOSButtonPadding
+    paddingTop: padding.iOSPaddingFontSize18
   },
   container: {
     backgroundColor: colors.seekForestGreen

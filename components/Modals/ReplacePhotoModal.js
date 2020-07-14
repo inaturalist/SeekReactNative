@@ -64,7 +64,7 @@ const ReplacePhotoModal = ( {
       <Button
         handlePress={() => closeModal()}
         text="replace_photo.old"
-        color="#5e5e5e"
+        color={colors.grayGradientLight}
       />
     </ModalWithGradient>
   );

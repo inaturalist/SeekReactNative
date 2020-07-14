@@ -13,6 +13,7 @@ import { useSafeArea } from "react-native-safe-area-context";
 
 import realmConfig from "../../models";
 import styles from "../../styles/challenges/challengeDetails";
+import { colors } from "../../styles/global";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import Spacer from "../UIComponents/TopSpacer";
@@ -61,7 +62,7 @@ const ChallengeDetailsScreen = () => {
     <View style={[styles.safeView, { paddingTop: insets.top }]}>
       <ScrollView ref={scrollView}>
         <StatusBar barStyle="light-content" />
-        <Spacer backgroundColor="#000000" />
+        <Spacer backgroundColor={colors.black} />
         <ChallengeDetailsHeader
           challenge={challenge}
           showMission={fetchChallenge}

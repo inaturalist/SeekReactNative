@@ -6,6 +6,7 @@ import Checkbox from "react-native-check-box";
 
 import i18n from "../../i18n";
 import styles from "../../styles/signup/signup";
+import { colors } from "../../styles/global";
 import { checkIsEmailValid } from "../../utility/loginHelpers";
 import ErrorMessage from "./ErrorMessage";
 import InputField from "../UIComponents/InputField";
@@ -72,7 +73,7 @@ class LicensePhotosScreen extends Component<Props, State> {
         />
         <View style={[styles.row, styles.margin]}>
           <Checkbox
-            checkBoxColor="#979797"
+            checkBoxColor={colors.checkboxColor}
             isChecked={licensePhotos}
             onClick={() => this.toggleLicensePhotos()}
             style={styles.checkBox}

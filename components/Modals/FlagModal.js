@@ -5,6 +5,7 @@ import { View, Text } from "react-native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/flagModal";
+import { colors } from "../../styles/global";
 import Button from "../UIComponents/Buttons/Button";
 import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
@@ -53,7 +54,7 @@ const FlagModal = ( {
     <Button
       handlePress={() => closeModal()}
       text="results.no"
-      color="#5e5e5e"
+      color={colors.grayGradientLight}
     />
   </ModalWithGradient>
 );

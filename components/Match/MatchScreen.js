@@ -119,14 +119,14 @@ const MatchScreen = () => {
   const speciesText = renderSpeciesText();
 
   if ( seenDate || match ) {
-    gradientColorDark = "#22784d";
+    gradientColorDark = colors.greenGradientDark;
     gradientColorLight = colors.seekForestGreen;
   } else if ( commonAncestor ) {
-    gradientColorDark = "#175f67";
+    gradientColorDark = colors.tealGradientDark;
     gradientColorLight = colors.seekTeal;
   } else {
-    gradientColorDark = "#404040";
-    gradientColorLight = "#5e5e5e";
+    gradientColorDark = colors.grayGradientDark;
+    gradientColorLight = colors.grayGradientLight;
   }
 
   return (

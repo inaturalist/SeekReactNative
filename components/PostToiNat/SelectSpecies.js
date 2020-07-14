@@ -122,7 +122,7 @@ const SelectSpecies = ( {
           <TextInput
             onChangeText={text => searchForSpecies( text )}
             placeholder={i18n.t( "posting.look_up" )}
-            placeholderTextColor="#828282"
+            placeholderTextColor={colors.placeholderGray}
             style={styles.inputField}
           />
         </View>

@@ -78,9 +78,11 @@ const GalleryScreen = () => {
       dispatch( { type: "ERROR", error: "photos" } );
     } else {
       const updatedPhotos = photos.concat( data );
-      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
+      if ( isFocused ) {
+        dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
+      }
     }
-  }, [photos] );
+  }, [photos, isFocused] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
     if ( hasNextPage && !stillLoading ) {

@@ -2,8 +2,7 @@ import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
-  row,
-  footerMargin
+  row
 } from "../global";
 
 export default StyleSheet.create( {
@@ -29,7 +28,9 @@ export default StyleSheet.create( {
     lineHeight: 31,
     marginTop: 23
   },
-  footerMargin,
+  footerMargin: {
+    marginBottom: 74
+  },
   greenBanner: {
     backgroundColor: colors.seekForestGreen
   },

@@ -10,6 +10,7 @@ import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/levelModal";
+import { colors } from "../../styles/global";
 import badgeImages from "../../assets/badges";
 import GreenText from "../UIComponents/GreenText";
 import WhiteModal from "../UIComponents/WhiteModal";
@@ -35,7 +36,7 @@ const LevelModal = ( {
       />
     </View>
     <LinearGradient
-      colors={["#38976d", "#22784d"]}
+      colors={[colors.greenGradientLight, colors.greenGradientDark]}
       style={styles.backgroundColor}
     >
       <Image

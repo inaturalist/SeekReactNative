@@ -13,6 +13,7 @@ import LevelModal from "../Modals/LevelModal";
 import i18n from "../../i18n";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
+import { colors } from "../../styles/global";
 import Modal from "../UIComponents/Modal";
 import { localizeNumber } from "../../utility/helpers";
 
@@ -50,7 +51,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
         modal={renderModalContent()}
       />
       <LinearGradient
-        colors={["#22784d", "#38976d"]}
+        colors={[colors.greenGradientDark, colors.greenGradientLight]}
         style={[styles.header, styles.center]}
       >
         {level && (

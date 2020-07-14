@@ -12,6 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/achievements";
+import { colors } from "../../styles/global";
 import LevelHeader from "./LevelHeader";
 import SpeciesBadges from "./SpeciesBadges";
 import ChallengeBadges from "./ChallengeBadges";
@@ -86,7 +87,7 @@ const AchievementsScreen = () => {
 
   return (
     <ScrollWithHeader header="badges.achievements" loading={loading}>
-      <Spacer backgroundColor="#22784d" />
+      <Spacer backgroundColor={colors.greenGradientDark} />
       {state.level && (
         <LevelHeader
           level={state.level}

@@ -241,7 +241,7 @@
     "yes": "Ano, odstranit to z mých pozorování",
     "yes_resighted": "Ano, tento druh byl identifikován nesprávně",
     "no": "Ne, je to správně",
-    "enable_location": "Your observation has no location",
+    "enable_location": "Vaše pozorování nemá polohu",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
@@ -306,7 +306,7 @@
   },
   "gallery": {
     "label": "Fotografie",
-    "camera_roll": "Camera Roll"
+    "camera_roll": "Fotogalerie"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -429,9 +429,9 @@
   "species_detail": {
     "near": "Poblíž",
     "about": "O organismu",
-    "range_map": "Range map",
-    "range_about": "A map of observations of this species seen on iNaturalist.",
-    "view_map": "View range map",
+    "range_map": "Mapa rozšíření",
+    "range_about": "Mapa pozorování tohoto druhu na iNaturalist.",
+    "view_map": "Prohlížet mapu rozšíření",
     "legend": "Legenda",
     "current_location": "Současná poloha",
     "obs": "Moje Seek pozorování",

@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/speciesPhotos";
@@ -21,7 +22,8 @@ type Props = {
 };
 
 const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
-  const userPhoto = useUserPhoto( seenTaxa );
+  const isFocused = useIsFocused();
+  const userPhoto = useUserPhoto( seenTaxa, isFocused );
   const [photoList, setPhotoList] = useState( [] );
 
   useEffect( () => {

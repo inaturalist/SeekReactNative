@@ -231,12 +231,10 @@ const OfflineARResults = () => {
   }, [loading, showResults] );
 
   useEffect( () => {
-    if ( newObs ) {
+    if ( observation ) { // need lat/lng for resighted photo too
       getUserLocation();
-    } else if ( observation ) {
-      dispatch( { type: "FINISHED_LOADING" } );
     }
-  }, [newObs, observation, getUserLocation] );
+  }, [observation, getUserLocation] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {

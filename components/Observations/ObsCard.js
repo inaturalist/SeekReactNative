@@ -43,7 +43,7 @@ const ObservationCard = ( {
     iconicTaxonId
   } = taxon;
 
-  const photo = useUserPhoto( item );
+  const photo = useUserPhoto( item, isFocused );
 
   useEffect( () => {
     const scrollLeft = () => {

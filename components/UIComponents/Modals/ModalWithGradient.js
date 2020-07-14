@@ -68,17 +68,19 @@ const ModalWithGradient = ( {
             />
           </ImageBackground>
         )}
-        {( color === "gray" && speciesSeenImage ) && (
-          <Image
-            source={{ uri: speciesSeenImage }}
-            style={[styles.imageCell, styles.marginLeft]}
-          />
-        )}
-        {displayDate && (
-          <View style={styles.grayButton}>
-            <Text style={styles.grayButtonText}>{displayDate}</Text>
-          </View>
-        )}
+        <View>
+          {( color === "gray" && speciesSeenImage ) && (
+              <Image
+                source={{ uri: speciesSeenImage }}
+                style={[styles.imageCell, styles.marginLeft]}
+              />
+          )}
+          {displayDate && (
+            <View style={styles.grayButton}>
+              <Text style={styles.grayButtonText}>{displayDate}</Text>
+            </View>
+          )}
+        </View>
       </View>
     </LinearGradient>
     <View style={styles.innerContainer}>

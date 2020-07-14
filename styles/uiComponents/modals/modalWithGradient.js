@@ -2,8 +2,7 @@ import { StyleSheet, Platform, PixelRatio } from "react-native";
 import {
   colors,
   fonts,
-  row,
-  padding
+  row
 } from "../../global";
 
 const fontScale = PixelRatio.getFontScale();
@@ -38,13 +37,12 @@ export default StyleSheet.create( {
     paddingVertical: 5,
     position: "absolute",
     right: 17.5,
-    top: 113
+    top: 45
   },
   grayButtonText: {
     color: colors.white,
     fontFamily: fonts.medium,
-    fontSize: 12,
-    paddingTop: padding.iOSPaddingSmall
+    fontSize: 12
   },
   header: {
     borderTopLeftRadius: 40,

@@ -222,7 +222,7 @@ const MatchModals = ( {
               seenDate={seenDate}
               speciesText={speciesText}
               closeModal={closeReplacePhotoModal}
-              userImage={image.uri}
+              image={image}
               taxaId={taxon.taxaId}
             />
           </Modal>

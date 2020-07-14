@@ -56,7 +56,7 @@ const useLocationName = ( latitude, longitude ) => {
   return location;
 };
 
-const useUserPhoto = ( item ) => {
+const useUserPhoto = ( item, isFocused ) => {
   const [photo, setPhoto] = useState( null );
 
   const checkForSeekV2Photos = useCallback( () => {
@@ -71,17 +71,23 @@ const useUserPhoto = ( item ) => {
       if ( Platform.OS === "ios" ) {
         const uri = backupUri.split( "Pictures/" );
         const backupFilepath = `${dirPictures}/${uri[1]}`;
-        setPhoto( { uri: backupFilepath } );
+        if ( isFocused ) {
+          setPhoto( { uri: backupFilepath } );
+        }
       } else {
         writeToDebugLog( backupUri );
         RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          if ( isFocused ) {
+            setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          }
         } ).catch( ( e ) => console.log( "Error reading backupUri file in hooks:", e ) );
       }
     } else if ( mediumUrl ) {
-      setPhoto( { uri: mediumUrl } );
+      if ( isFocused ) {
+        setPhoto( { uri: mediumUrl } );
+      }
     }
-  }, [item] );
+  }, [item, isFocused] );
 
   const checkV1 = useCallback( async ( uuidString ) => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
@@ -92,7 +98,9 @@ const useUserPhoto = ( item ) => {
 
       if ( isv1Photo ) {
         RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-          setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          if ( isFocused ) {
+            setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
+          }
         } ).catch( () => checkForSeekV2Photos() );
       } else {
         // this is the one being fetched in test device
@@ -101,7 +109,7 @@ const useUserPhoto = ( item ) => {
     } catch ( e ) {
       console.log( e, "error checking for v1 photo existence" );
     }
-  }, [checkForSeekV2Photos] );
+  }, [checkForSeekV2Photos, isFocused] );
 
   useEffect( () => {
     if ( item !== null ) {
@@ -177,7 +185,7 @@ const useTruncatedUserCoords = ( granted ) => {
   return coords;
 };
 
-const useSeenTaxa = ( id ) => {
+const useSeenTaxa = ( id, isFocused ) => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
@@ -185,10 +193,12 @@ const useSeenTaxa = ( id ) => {
       Realm.open( realmConfig ).then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seen = observations.filtered( `taxon.id == ${id}` )[0];
-        setSeenTaxa( seen );
+        if ( isFocused ) {
+          setSeenTaxa( seen );
+        }
       } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
     }
-  }, [id] );
+  }, [id, isFocused] );
 
   return seenTaxa;
 };

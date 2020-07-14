@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    paddingTop: padding.iOSPadding
+    paddingTop: padding.iOSPaddingFontSize18
   },
   center,
   checkBox: {
@@ -36,12 +36,11 @@ export default StyleSheet.create( {
     textAlign: "center"
   },
   dateButton: {
-    alignItems: "center",
+    alignSelf: "center",
     backgroundColor: colors.seekForestGreen,
     borderRadius: 6,
     height: 43,
-    justifyContent: "center",
-    paddingHorizontal: 14
+    width: 237
   },
   flexCenter: {
     flexGrow: 1,
@@ -67,16 +66,19 @@ export default StyleSheet.create( {
     marginTop: 22,
     textAlign: "center"
   },
-  inputField: {
-    backgroundColor: colors.white,
-    borderColor: colors.darkGray,
-    borderRadius: 40,
-    borderWidth: 1,
-    color: colors.black,
-    height: 37,
-    paddingLeft: 15,
-    width: 307
+  whiteContainer: {
+    backgroundColor: colors.white
   },
+  // inputField: {
+  //   backgroundColor: colors.white,
+  //   borderColor: colors.darkGray,
+  //   borderRadius: 40,
+  //   borderWidth: 1,
+  //   color: colors.black,
+  //   height: 37,
+  //   paddingLeft: 15,
+  //   width: 307
+  // },
   keyboardText: {
     marginHorizontal: ( Platform.OS === "android" || height < 570 ) ? 24 : 28,
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 20

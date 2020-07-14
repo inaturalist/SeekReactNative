@@ -612,13 +612,13 @@
     "mission_3_july_2020": "Hitta 1 blötdjur",
     "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
     "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "Pollinatörutmaning",
+    "mission_1_aug_2020": "Hitta 2 växter i ordningen Lamiales (myntor, groblad, oliver och släktingar)",
+    "mission_2_aug_2020": "Hitta 1 växt från familjen Asteraceae (solrosor, tusenskönor, astrar och släktingar)",
+    "mission_3_aug_2020": "Hitta 1 växt från ordningen Rosales (rosor, almar, fikon och släktingar)",
+    "mission_4_aug_2020": "Hitta 2 insekter från ordningarna:\n\nsteklar (Hymenoptera);\nfjärilar (Lepidoptera);\nskalbaggar (Coleoptera);\nflugor och myggor (Diptera)",
+    "aug_2020_description": "Pollinatörer ger oss mat vi äter och blommor vi njuter av! Genom att flytta pollen mellan olika växter med hjälp av sina kroppar, hjälper pollinatörer många typer av växter att reproducera sig.",
+    "action_aug_2020": "Var uppmärksam på pollinatörerna runt omkring dig. Finns det bin eller fjärilar som besöker blommorna i din trädgård eller din omgivning?"
   },
   "replace_photo": {
     "header": "Ersätt bild?",

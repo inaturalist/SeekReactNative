@@ -9,6 +9,9 @@ export default StyleSheet.create( {
     lineHeight: 23,
     marginBottom: 20
   },
+  list: {
+    marginLeft: -15
+  },
   text: {
     color: colors.black,
     fontFamily: fonts.book,

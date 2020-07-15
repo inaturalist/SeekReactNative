@@ -311,7 +311,7 @@ const PrivacyPolicyScreen = () => {
       <HTML
         containerStyle={styles.textContainer}
         html={html}
-        tagsStyles={ { p: styles.text, h3: styles.headerText, a: styles.text } }
+        tagsStyles={ { p: styles.text, h3: styles.headerText, a: styles.text, li: styles.list } }
       />
     </ScrollWithHeader>
   );

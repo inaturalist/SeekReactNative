@@ -11,27 +11,25 @@ import ModalWithGradient from "../UIComponents/Modals/ModalWithGradient";
 import { removeFromCollection } from "../../utility/observationHelpers";
 
 type Props = {
+  +taxon: Object,
   +closeModal: Function,
   +userImage: string,
-  +speciesSeenImage: ?string,
   +speciesText: ?string,
-  +seenDate: ?string,
-  +taxaId: number
+  +seenDate: ?string
 };
 
 const FlagModal = ( {
+  taxon,
   closeModal,
   userImage,
-  speciesSeenImage,
   speciesText,
-  seenDate,
-  taxaId
+  seenDate
 }: Props ) => (
   <ModalWithGradient
     color="gray"
     closeModal={closeModal}
     userImage={userImage}
-    speciesSeenImage={speciesSeenImage}
+    originalImage={taxon.speciesSeenImage || null}
   >
     <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
     <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>
@@ -41,7 +39,7 @@ const FlagModal = ( {
         if ( seenDate ) {
           closeModal( true );
         } else {
-          removeFromCollection( taxaId );
+          removeFromCollection( taxon.taxaId );
           closeModal( true );
         }
       }}

@@ -21,7 +21,7 @@ type Props = {
   +closeModal: Function,
   +color: string,
   +userImage: string,
-  +speciesSeenImage: ?string,
+  +originalImage: ?string,
   +displayDate?: ?Date
 };
 
@@ -30,7 +30,7 @@ const ModalWithGradient = ( {
   closeModal,
   color,
   userImage,
-  speciesSeenImage,
+  originalImage,
   displayDate
 }: Props ) => (
   <View style={styles.container}>
@@ -56,24 +56,24 @@ const ModalWithGradient = ( {
           source={{ uri: userImage }}
           style={styles.imageCell}
         />
-        {( color === "green" && speciesSeenImage ) && (
+        {( color === "green" && originalImage ) && (
           <ImageBackground
             source={iconicTaxa[1]} // for cases where uri exists but photo is blank
             style={[styles.imageCell, styles.marginLeft]}
             imageStyle={styles.imageCell}
           >
             <Image
-              source={{ uri: speciesSeenImage }}
+              source={{ uri: originalImage }}
               style={styles.imageCell}
             />
           </ImageBackground>
         )}
         <View>
-          {( color === "gray" && speciesSeenImage ) && (
-              <Image
-                source={{ uri: speciesSeenImage }}
-                style={[styles.imageCell, styles.marginLeft]}
-              />
+          {( color === "gray" && originalImage ) && (
+            <Image
+              source={{ uri: originalImage }}
+              style={[styles.imageCell, styles.marginLeft]}
+            />
           )}
           {displayDate && (
             <View style={styles.grayButton}>

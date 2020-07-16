@@ -134,6 +134,7 @@ const OfflineARResults = () => {
     const reversePredictions = image.predictions.reverse();
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
+
     if ( ancestor && ancestor.rank !== 100 ) {
       fetchAncestorPhoto( ancestor );
     } else {

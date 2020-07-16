@@ -48,7 +48,7 @@ const ReplacePhotoModal = ( {
       color="green"
       closeModal={closeModal}
       userImage={image.uri}
-      speciesSeenImage={currentUserPhoto.uri}
+      originalImage={currentUserPhoto.uri}
       displayDate={displayDate}
     >
       <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>

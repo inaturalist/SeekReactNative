@@ -27,7 +27,6 @@ type Props = {
   setNavigationPath: Function,
   params: Object,
   flagModal: boolean,
-  speciesSeenImage: string,
   speciesText: ?string,
   navPath: ?string
 };
@@ -38,7 +37,6 @@ const MatchModals = ( {
   params,
   setNavigationPath,
   flagModal,
-  speciesSeenImage,
   speciesText,
   navPath
 }: Props ) => {
@@ -230,9 +228,8 @@ const MatchModals = ( {
       )}
       <Modal isVisible={flagModal}>
         <FlagModal
-          taxaId={taxon.taxaId}
+          taxon={taxon}
           seenDate={seenDate}
-          speciesSeenImage={speciesSeenImage}
           speciesText={speciesText}
           closeModal={closeFlagModal}
           userImage={image.uri}

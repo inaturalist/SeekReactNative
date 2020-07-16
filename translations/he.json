@@ -485,7 +485,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ו Yaron Budowski. תודות מיוחדות ל Visipedia וקהילת iNaturalist.",
     "version": "גירסה",
     "help": "לתמיכה עם Seek, שלחו דואל help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "אנו אסירי תודה לעזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, ו Yulia Lygina.",
     "join_crowdin": "להצטרף לצוות המתרגמים של Seek, בבקשה תבקרו באתר: https://crowdin.com/project/seek"
   },
   "posting": {
@@ -583,7 +583,7 @@
     "donate_description": "תמיכה בiNaturalist",
     "language": "שפה בתוך האפליקציה",
     "device_settings": "השתמש/י בהגדרות השפה של המכשיר",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "קח תמונה אוטומטית מיז שהזיהוי מגיע למין."
   },
   "seek_challenges": {
     "badge": "תג של Seek",
@@ -612,18 +612,18 @@
     "mission_3_july_2020": "מצאו רכיכה אחת",
     "july_2020_description": "נהרות הם מצע של שונות. מחסרי חוליות ועד בעלי חוליות גדולים, נהרות תומכים ביצורים שסביבם ובתוכם לגדול.",
     "action_july_2020": "כאשר אתם ליד גוף מים גדול, אילו יצורים אתם רואים? אילו מינים שוחים במים? אלו מינים עפים מעל? האם יש יצורים בתוך המים שאתם לא יכולים לראות?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "אתגר המאביקים",
+    "mission_1_aug_2020": "מצאו 2 צמחים מסדרת הצינוראים (מנטה, לחך, זיתים ואחרים)",
+    "mission_2_aug_2020": "מצאו צמח אחד ממשפחת המורכבים (חמניות, חרציות, אסטראים וכו')",
+    "mission_3_aug_2020": "מצאו צמח אחד מסדרת ורדנאים (ורדים, אולמוסים, פיקוסים וכו)",
+    "mission_4_aug_2020": "מצאו שני חרקים מסדרות:\n\nדבוראים (נמלים, דבורים, צרעות ושפיריות);\nפרפראים (פרפרים ועש);\nחיפושיות ;\nזבובאים ",
+    "aug_2020_description": "מאביקיםמעניקים לנו מזון לאכול וצמחים להנאנתו! על ידי העברת האבקה בין הצמחים בעזרת גופם, מאביקים עוזרים לצמחים רבים להתרבות.",
+    "action_aug_2020": "שימו לב למאביקים סביבכם. האם יש דבורים או פרפרים שמבקרים את הצמחים בגינה שלכם או בשכונה?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "להחליף תמונה?",
+    "description": "האם תרצו להחליף את התמונה עבור הזיהוי החוזר?",
+    "new": "השתמש בתמונה חדשה",
+    "old": "השתמש בתמונה ישנה"
   }
 }

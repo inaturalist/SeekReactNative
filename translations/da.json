@@ -611,12 +611,19 @@
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Find 1 bløddyr",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
-    "action_july_2020": "Hvilke organismer lægger du mærke til, når du er nær noget vand? Hvilke arter svømmer i vandet? Hvilke arter flyver oppe over det? Er der nogle organismer i vandet, som du måske ikke kan se?"
+    "action_july_2020": "Hvilke organismer lægger du mærke til, når du er nær noget vand? Hvilke arter svømmer i vandet? Hvilke arter flyver oppe over det? Er der nogle organismer i vandet, som du måske ikke kan se?",
+    "pollinator": "Pollinator Challenge",
+    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
+    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "action_aug_2020": "Læg mærke til bestøverne omkring dig. Besøger bier eller sommerfugle blomsterne i din have eller nabolag?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
+    "header": "Erstat foto?",
     "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "new": "Brug nyt foto",
+    "old": "Behold gammelt foto"
   }
 }

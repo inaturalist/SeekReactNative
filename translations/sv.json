@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Hitta 3 vattenfåglar ur ordningarna Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Fenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes & Suliformes",
     "mission_3_july_2020": "Hitta 1 blötdjur",
     "july_2020_description": "Floder är ett nav för biologisk mångfald. Genom att stötta allt från små ryggradslös djur till stora ryggradsdjur, hjälper floder organismerna runt dem att frodas.",
-    "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?"
+    "action_july_2020": "När du är nära ett vattendrag, vilka organismer lägger du märke till? Vilka arter simmar i vattnet? Vilka arter flyger ovanför? Finns det organismer i vattnet som du kanske inte kan se?",
+    "pollinator": "Pollinatörutmaning",
+    "mission_1_aug_2020": "Hitta 2 växter i ordningen Lamiales (myntor, groblad, oliver och släktingar)",
+    "mission_2_aug_2020": "Hitta 1 växt från familjen Asteraceae (solrosor, tusenskönor, astrar och släktingar)",
+    "mission_3_aug_2020": "Hitta 1 växt från ordningen Rosales (rosor, almar, fikon och släktingar)",
+    "mission_4_aug_2020": "Hitta 2 insekter från ordningarna:\n\nsteklar (Hymenoptera);\nfjärilar (Lepidoptera);\nskalbaggar (Coleoptera);\nflugor och myggor (Diptera)",
+    "aug_2020_description": "Pollinatörer ger oss mat vi äter och blommor vi njuter av! Genom att flytta pollen mellan olika växter med hjälp av sina kroppar, hjälper pollinatörer många typer av växter att reproducera sig.",
+    "action_aug_2020": "Var uppmärksam på pollinatörerna runt omkring dig. Finns det bin eller fjärilar som besöker blommorna i din trädgård eller din omgivning?"
   },
   "replace_photo": {
     "header": "Ersätt bild?",

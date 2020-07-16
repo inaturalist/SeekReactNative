@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Trouver 3 oiseaux aquatiques des ordres des Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes et Suliformes",
     "mission_3_july_2020": "Trouvez 1 mollusque",
     "july_2020_description": "Les rivières sont une plaque tournante de la biodiversité. Accueillant des microinvertébrés jusqu'aux grands vertébrés, les rivières aident des organismes variés à prospérer.",
-    "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?"
+    "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?",
+    "pollinator": "Pollinator Challenge",
+    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
+    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
   },
   "replace_photo": {
     "header": "Replace Photo?",

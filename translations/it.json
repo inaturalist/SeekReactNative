@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Trova qualsiasi 3 uccelli acquatici dagli ordini Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Trova 1 mollusco",
     "july_2020_description": "I fiumi sono un hotspot di biodiversità. Sostengono tutto, dai microinvertebrati ai grandi vertebrati, i fiumi aiutano a prosperare gli organismi che li circondano.",
-    "action_july_2020": "Quando sei vicino a un corpo d'acqua, quali organismi osservi? Quali specie nuotano nell'acqua? Quali specie volano sopra di esso? Ci sono organismi nell'acqua che potresti non essere in grado di vedere?"
+    "action_july_2020": "Quando sei vicino a un corpo d'acqua, quali organismi osservi? Quali specie nuotano nell'acqua? Quali specie volano sopra di esso? Ci sono organismi nell'acqua che potresti non essere in grado di vedere?",
+    "pollinator": "Sfida Impollinatori",
+    "mission_1_aug_2020": "Trova 2 piante nell'ordine Lamiales (Mente, Plantago, Olive, e simili)",
+    "mission_2_aug_2020": "Trova 1 pianta della famiglia Asteraceae (Girasoli, Margherite, Astri, e simili)",
+    "mission_3_aug_2020": "Trovare 1 pianta dall'ordine Rosales (Rose, Olmi, Fichi e simili)",
+    "mission_4_aug_2020": "Trova 2 insetti degli ordini:\n\nHymenoptera (Formiche, Api, Vespe e Sinfiti);\nLepidoptera (Farfalle e Falene);\nColeotteri (Coleoptera);\nMosche (Diptera)",
+    "aug_2020_description": "Gli impollinatori ci danno il cibo che mangiamo e i fiori che amiamo! Spostando il polline tra piante diverse utilizzando i loro corpi, gli impollinatori aiutano molti tipi di piante a riprodursi.",
+    "action_aug_2020": "Presta attenzione agli impollinatori che ti circondano. Ci sono api o farfalle che visitano i fiori nel tuo giardino o nel tuo quartiere?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

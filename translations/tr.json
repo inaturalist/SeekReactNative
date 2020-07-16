@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Şu takımlardan herhangi 3 su kuşu bulun: Kazsılar, Yağmur kuşları, Gökkuzgunumsular, Dalgıç kuşları, Turnamsılar, Pelikansılar, Flamingolar, Batağanlar, Tüp burunlu kuşlar, Penguenler ve Suliformes.",
     "mission_3_july_2020": "1 yumuşakça bul",
     "july_2020_description": "Nehirler biyolojik çeşitlilik için bir merkezdir. Mikro omurgasızlardan büyük omurgalılara kadar her şeyi sağlayan nehirler, çevrelerindeki organizmaların gelişmesine yardımcı olur.",
-    "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?"
+    "action_july_2020": "Bir su kütlesinin yakınında olduğunuzda, hangi organizmaları fark ediyorsunuz? Suda hangi türler yüzüyor? Üzerinde hangi türler uçuyor? Suda göremeyeceğiniz organizmalar var mı?",
+    "pollinator": "Tozlayıcı Mücadelesi",
+    "mission_1_aug_2020": "Lamiles takımından 2 bitki bul (Nane, Plantains, Zeytin ve Akrabaları)",
+    "mission_2_aug_2020": "Asteraceae ailesinden 1 bitki bul (Ayçiçekleri, Papatyalar, Yıldızpatılar ve Akrabaları)",
+    "mission_3_aug_2020": "Rosales takımından 1 bitki bul (Güller, Karaağaçlar, İncir ve Akrabaları)",
+    "mission_4_aug_2020": "Şu takımlardan 2 böcek bulun:\n\nZar kanatlılar (Karıncalar, Arılar, Yaban arıları ve Testere sinekleri);\nPul kanatlılar (Kelebekler ve Güveler);\nKın kanatlılar (Coleoptera);\nSinekler (Sinek)",
+    "aug_2020_description": "Tozlayıcılar bize yediğimiz yiyecekleri ve sevdiğimiz çiçekleri verir! Tozlayıcı değişik bitkiler vücutlarını kullanarak çiçek tozlarıyla, birçok bitkinin üremesine yardımcı olur.",
+    "action_aug_2020": "Etrafınızdaki tozlaştırıcılara dikkat edin. Bahçenizdeki ya da çevrenizdeki çiçekleri ziyaret eden arılar ya da kelebekler var mı?"
   },
   "replace_photo": {
     "header": "Fotoğraf değişsin mi?",

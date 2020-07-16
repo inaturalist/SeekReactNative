@@ -241,7 +241,7 @@
     "yes": "Ano, odstranit to z mých pozorování",
     "yes_resighted": "Ano, tento druh byl identifikován nesprávně",
     "no": "Ne, je to správně",
-    "enable_location": "Your observation has no location",
+    "enable_location": "Vaše pozorování nemá polohu",
     "error_server": "Sorry, we couldn't score this image. Please check your internet connection and try again.",
     "error_image": "Sorry, we couldn't process your image. Please check your internet connection and try again.",
     "error_species": "Sorry, we couldn't fetch species details for this image. Please check your internet connection and try again.",
@@ -306,7 +306,7 @@
   },
   "gallery": {
     "label": "Fotografie",
-    "camera_roll": "Camera Roll"
+    "camera_roll": "Fotogalerie"
   },
   "camera_help": {
     "title": "Seek's Camera",
@@ -429,9 +429,9 @@
   "species_detail": {
     "near": "Poblíž",
     "about": "O organismu",
-    "range_map": "Range map",
-    "range_about": "A map of observations of this species seen on iNaturalist.",
-    "view_map": "View range map",
+    "range_map": "Mapa rozšíření",
+    "range_about": "Mapa pozorování tohoto druhu na iNaturalist.",
+    "view_map": "Prohlížet mapu rozšíření",
     "legend": "Legenda",
     "current_location": "Současná poloha",
     "obs": "Moje Seek pozorování",
@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Najdi jakékoliv 3 vodní ptáky z řádů Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariformes, Sphenisciformes a Suliformes",
     "mission_3_july_2020": "Najdi 1 měkkýše",
     "july_2020_description": "Řeky jsou centry biologické rozmanitosti. Ukrývajíce vše od mikro-bezobratlých po velké obratlovce, řeky pomáhají organismům kolem nich vzkvétat.",
-    "action_july_2020": "Když jste poblíž vodního těla, jaké organismy vidíte? Jaké druhy plavou ve vodě? Jaké druhy nad ní létají? Jsou ve vodě organismy, které není možné spatřit?"
+    "action_july_2020": "Když jste poblíž vodního těla, jaké organismy vidíte? Jaké druhy plavou ve vodě? Jaké druhy nad ní létají? Jsou ve vodě organismy, které není možné spatřit?",
+    "pollinator": "Výzva opylovačů",
+    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
+    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Opylovači nám dávají jídlo, které jíme, a květiny, které nás těší! Tím, že svými těli přenášejí pyl mezi rozličnými rostlinami, pomáhají opylovači mnoha druhům rostlin v rozmnožování.",
+    "action_aug_2020": "Věnujte pozornost opylovačům kolem vás. Jsou ve vaší zahradě nebo v sousedství včely nebo motýli?"
   },
   "replace_photo": {
     "header": "Nahradit fotografii?",

@@ -16,8 +16,6 @@ type Props = {
   +id: ?number
 }
 
-// taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
-
 const About = ( {
   about,
   wikiUrl,
@@ -27,17 +25,17 @@ const About = ( {
   const { login } = useContext( UserContext );
   const commonName = useCommonName( id );
 
-  console.log( about, "about" );
-
   const html = `<p>${about}</p>`.replaceAll( "<b>", "" );
 
   return (
     <SpeciesDetailCard text="species_detail.about">
-      <HTML
-        baseFontStyle={styles.text}
-        html={html}
-        tagsStyles={ { p: styles.text } }
-      />
+      {about && (
+        <HTML
+          baseFontStyle={styles.text}
+          html={html}
+          tagsStyles={ { p: styles.text } }
+        />
+      )}
       <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
       {( login && id !== 43584 ) && (
         <Text

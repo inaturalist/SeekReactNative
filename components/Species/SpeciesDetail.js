@@ -153,6 +153,8 @@ const SpeciesDetail = () => {
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = createTaxonomyList( taxa.ancestors, scientificName, commonName );
 
+      console.log( taxa.wikipedia_summary, "wiki summary" );
+
       dispatch( {
         type: "SET_TAXON_DETAILS",
         taxon: {
@@ -162,10 +164,7 @@ const SpeciesDetail = () => {
         photos: taxa.taxon_photos.map( ( p ) => p.photo ),
         details: {
           wikiUrl: taxa.wikipedia_url,
-          about: taxa.wikipedia_summary
-            && i18n.t( "species_detail.wikipedia", {
-              about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
-            } ),
+          about: taxa.wikipedia_summary && taxa.wikipedia_summary,
           timesSeen: taxa.observations_count,
           ancestors,
           stats: {
@@ -210,6 +209,8 @@ const SpeciesDetail = () => {
       dispatch( { type: "RESET_SCREEN" } );
     } );
   }, [navigation, fetchiNatData] );
+
+  console.log( details.about, "about screen" );
 
   return (
     <ScrollView

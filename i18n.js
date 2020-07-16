@@ -17,6 +17,7 @@ import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
 import nb from "./translations/nb.json";
+import ro from "./translations/ro.json";
 import ru from "./translations/ru.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
@@ -38,6 +39,7 @@ i18n.translations = {
   ja,
   nl,
   nb,
+  ro,
   ru,
   sv,
   tr,

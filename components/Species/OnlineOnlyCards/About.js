@@ -30,13 +30,15 @@ const About = ( {
   return (
     <SpeciesDetailCard text="species_detail.about">
       {about && (
-        <HTML
-          baseFontStyle={styles.text}
-          html={html}
-          tagsStyles={ { p: styles.text } }
-        />
+        <>
+          <HTML
+            baseFontStyle={styles.text}
+            html={html}
+            tagsStyles={ { p: styles.text } }
+          />
+          <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
+        </>
       )}
-      <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
       {( login && id !== 43584 ) && (
         <Text
           onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}

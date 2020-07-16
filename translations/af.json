@@ -583,7 +583,7 @@
     "donate_description": "Help om iNaturalist te steun",
     "language": "Toepgebonde taal",
     "device_settings": "Gebruik toesteltaalinstellings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is."
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -611,12 +611,19 @@
     "mission_2_july_2020": "Vind enige 3 watervoëls van die ordes Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes & Suliformes",
     "mission_3_july_2020": "Vind 1 weekdier",
     "july_2020_description": "Riviere is ’n kern vir biodiversiteit. Dit ondersteun alles van mikroinvertebrate tot groot gewerweldes. In die  riviere gedy allerlei organismes.",
-    "action_july_2020": "Welke organismes kun u naby ’n waterliggaam vind? Welke spesies swem in die water? Welke spesies vlieg bo die water? Is daar organismes in die water wat u dalk nie kan sien nie?"
+    "action_july_2020": "Welke organismes kun u naby ’n waterliggaam vind? Welke spesies swem in die water? Welke spesies vlieg bo die water? Is daar organismes in die water wat u dalk nie kan sien nie?",
+    "pollinator": "Bestuiwer-uitdaging",
+    "mission_1_aug_2020": "Vind 2 plante in die orde Lamiales (mente, weeblare, olywe en verwant)",
+    "mission_2_aug_2020": "Vind 1 plant van die Asteraceae-familie (sonneblomme, madeliefies, asters en verwant)",
+    "mission_3_aug_2020": "Vind 1 plant van die orde Rosales (rose, iepe, vye en verwant)",
+    "mission_4_aug_2020": "Vind 2 insekte van die ordes:\n\nHymenoptera (miere, bye, wespe en bladwespe);\nLepidoptera (vlinders en motte);\nKewers (Coleoptera);\nVlieë (Diptera)",
+    "aug_2020_description": "Bestuiwers gee ons kos te ete en blomm te geniet! Deur stuifmeel met hul liggame tussen verskillende plante te skuif, help bestuiwers talle plante om voort te plant.",
+    "action_aug_2020": "Geen aandag aan die bestuiwers om u. Is daat bye of vlinders wat die blomme in u tuin of omgewing besoek?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Vervang foto?",
+    "description": "Wil u die foto van u tweede waarneming vervang?",
+    "new": "Gebruik nuwe foto",
+    "old": "Behou ou foto"
   }
 }

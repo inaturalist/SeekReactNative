@@ -215,7 +215,7 @@
     "by": "by",
     "thanks": "The iNaturalist community is made up of people like you! Join the community and add your own observations at inaturalist.org!",
     "logged_in": "You are logged in to Seek with your iNaturalist account. Thanks for being part of this community!",
-    "sign_out": "SIgn out of iNaturalist"
+    "sign_out": "Sign out of iNaturalist"
   },
   "results": {
     "observed_species": "You observed a new species!",
@@ -611,7 +611,14 @@
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "找到一种软体动物",
     "july_2020_description": "河流是一个生物多样性的中心，支持着从微生物到大型脊椎动物在内的一切生物，并帮助它们繁衍生息。",
-    "action_july_2020": "当你靠近一片水域的时候，你看到了哪些生物呢？水中游着什么物种？水面上又飞翔着哪些物种？有哪些物种是在水中但无法被我们肉眼看到的？"
+    "action_july_2020": "当你靠近一片水域的时候，你看到了哪些生物呢？水中游着什么物种？水面上又飞翔着哪些物种？有哪些物种是在水中但无法被我们肉眼看到的？",
+    "pollinator": "Pollinator Challenge",
+    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
+    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
+    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
+    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
   },
   "replace_photo": {
     "header": "Replace Photo?",

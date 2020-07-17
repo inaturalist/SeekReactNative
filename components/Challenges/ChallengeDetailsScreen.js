@@ -67,9 +67,7 @@ const ChallengeDetailsScreen = () => {
           challenge={challenge}
           showMission={fetchChallenge}
         />
-        <ChallengeDetailsContainer
-          challenge={challenge}
-        />
+        <ChallengeDetailsContainer challenge={challenge} />
         <Padding />
         <BottomSpacer />
       </ScrollView>

@@ -21,6 +21,14 @@ export default StyleSheet.create( {
     lineHeight: 21,
     textAlign: "center"
   },
+  checkbox: {
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+    height: 24,
+    width: 24
+  },
   gridCell: {
     marginRight: 23
   }

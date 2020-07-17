@@ -54,10 +54,6 @@ export default StyleSheet.create( {
     fontSize: 14,
     textAlign: "center"
   },
-  safeView: {
-    backgroundColor: colors.black,
-    flex: 0
-  },
   viewText: {
     color: colors.seekTeal,
     fontFamily: fonts.book,

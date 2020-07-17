@@ -15,7 +15,7 @@ export default StyleSheet.create( {
     width: 108
   },
   cellTitleText: {
-    color: colors.white,
+    color: colors.black,
     fontFamily: fonts.medium,
     fontSize: 16,
     lineHeight: 21,

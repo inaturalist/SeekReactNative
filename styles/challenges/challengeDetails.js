@@ -66,8 +66,10 @@ export default StyleSheet.create( {
     textAlign: "center",
     textDecorationLine: "underline"
   },
+  textContainer: {
+    paddingHorizontal: 35
+  },
   whiteContainer: {
-    backgroundColor: colors.white,
-    paddingHorizontal: 36
+    backgroundColor: colors.white
   }
 } );

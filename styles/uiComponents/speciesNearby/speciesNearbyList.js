@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export default StyleSheet.create( {
   taxonList: {
-    paddingHorizontal: 20,
+    paddingLeft: 23,
     paddingTop: 29
   }
 } );

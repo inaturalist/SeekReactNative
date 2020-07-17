@@ -312,5 +312,6 @@ export {
   setChallengeIndex,
   getChallengeIndex,
   setChallengeProgress,
-  checkForChallengesCompleted
+  checkForChallengesCompleted,
+  fetchObservationsAfterChallengeStarted
 };

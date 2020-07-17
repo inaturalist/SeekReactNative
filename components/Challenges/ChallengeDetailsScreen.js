@@ -1,35 +1,18 @@
 // @flow
 
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  useCallback
-} from "react";
-import { ScrollView, View, StatusBar } from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
 import Realm from "realm";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useIsFocused } from "@react-navigation/native";
 
 import realmConfig from "../../models";
-import styles from "../../styles/challenges/challengeDetails";
-import { colors } from "../../styles/global";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
-import Spacer from "../UIComponents/TopSpacer";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
-import { useScrollToTop } from "../../utility/customHooks";
-import BottomSpacer from "../UIComponents/BottomSpacer";
-import Padding from "../UIComponents/Padding";
+import ScrollNoHeader from "../UIComponents/ScrollNoHeader";
 
 const ChallengeDetailsScreen = () => {
-  const insets = useSafeArea();
-  const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const scrollView = useRef( null );
   const [challenge, setChallenge] = useState( null );
-
-  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   const fetchChallenge = ( index ) => {
     Realm.open( realmConfig )
@@ -59,19 +42,10 @@ const ChallengeDetailsScreen = () => {
   }, [setupScreen, isFocused] );
 
   return (
-    <View style={[styles.safeView, { paddingTop: insets.top }]}>
-      <ScrollView ref={scrollView}>
-        <StatusBar barStyle="light-content" />
-        <Spacer backgroundColor={colors.black} />
-        <ChallengeDetailsHeader
-          challenge={challenge}
-          showMission={fetchChallenge}
-        />
-        <ChallengeDetailsContainer challenge={challenge} />
-        <Padding />
-        <BottomSpacer />
-      </ScrollView>
-    </View>
+    <ScrollNoHeader>
+      <ChallengeDetailsHeader challenge={challenge} showMission={fetchChallenge} />
+      <ChallengeDetailsContainer challenge={challenge} />
+    </ScrollNoHeader>
   );
 };
 

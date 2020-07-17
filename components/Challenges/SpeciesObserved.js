@@ -3,10 +3,11 @@ import { View } from "react-native";
 import Realm from "realm";
 
 import { colors } from "../../styles/global";
+import styles from "../../styles/challenges/challengeDetails";
 import realmConfig from "../../models/index";
 import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
-import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
+import GreenText from "../UIComponents/GreenText";
 import { fetchObservationsAfterChallengeStarted, checkForAncestors } from "../../utility/challengeHelpers";
 import missionsDict from "../../utility/dictionaries/missionsDict";
 import taxonDict from "../../utility/dictionaries/taxonDictForMissions";
@@ -24,7 +25,7 @@ const SpeciesObserved = ( { challenge }: Props ) => {
       Realm.open( realmConfig ).then( ( realm ) => {
         const seenTaxa = fetchObservationsAfterChallengeStarted( realm, challenge );
 
-        console.log( seenTaxa, "seen taxa" );
+        // console.log( seenTaxa, "seen taxa" );
 
         const challengeMonth = missionsDict[challenge.index];
         const challengeMissions = Object.keys( challengeMonth );
@@ -32,12 +33,12 @@ const SpeciesObserved = ( { challenge }: Props ) => {
         let species = [];
 
         challengeMissions.forEach( ( mission ) => {
-          const { types } = challengeMonth[mission];
+          console.log( challengeMonth[mission], "mission" );
+          const { types, number } = challengeMonth[mission];
           types.forEach( ( taxa ) => {
-            // let taxaPerMission;
-
             if ( taxa === "all" ) {
-              species = seenTaxa;
+              // show seenTaxa up to the total required to complete the challenge
+              species = seenTaxa.splice( 0, number );
             } else {
               const taxaId = taxonDict[taxa];
               const taxaTypeSeen = seenTaxa.filter( ( t ) => (
@@ -56,7 +57,7 @@ const SpeciesObserved = ( { challenge }: Props ) => {
             }
           } );
         } );
-        console.log( species, "species in set species" );
+        // console.log( species, "species in set species" );
         setSpeciesObserved( species );
         setLoading( false );
       } );
@@ -66,15 +67,16 @@ const SpeciesObserved = ( { challenge }: Props ) => {
     console.log( challenge, "challenge in use effect" );
   }, [challenge] );
 
-  console.log( speciesObserved, "observed" );
-
   return (
-    <SpeciesDetailCard text="challenges.species_observed">
-      {/* <LoadingWheel color={colors.black} /> */}
+    <>
+      <View style={styles.textContainer}>
+        <GreenText text="challenges.species_observed" />
+      </View>
       {loading
         ? <LoadingWheel color={colors.black} />
         : <SpeciesNearbyList taxa={speciesObserved} />}
-    </SpeciesDetailCard>
+      <View style={styles.marginSmall} />
+    </>
   );
 };
 

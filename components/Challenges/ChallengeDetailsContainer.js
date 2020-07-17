@@ -28,7 +28,7 @@ const ChallengeDetailsContainer = ( { challenge }: Props ) => {
             {challenge.startedDate && <ChallengeMissionCard challenge={challenge} />}
             <View style={styles.marginSmall} />
             <Text style={styles.descriptionText}>{i18n.t( challenge.description )}</Text>
-            {/* <View style={styles.marginLarge} /> */}
+            <View style={styles.marginLarge} />
           </View>
           {challenge.percentComplete > 0 && <SpeciesObserved challenge={challenge} />}
           <View style={styles.textContainer}>

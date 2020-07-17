@@ -6,6 +6,7 @@ import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
 import realmConfig from "../../models";
+import { colors } from "../../styles/global";
 import styles from "../../styles/challenges/challenges";
 import ChallengeProgressCard from "./ChallengeProgressCard";
 import GreenText from "../UIComponents/GreenText";
@@ -106,6 +107,7 @@ const ChallengeScreen = () => {
       header="challenges.header"
       route="Home"
       loading={loading}
+      backgroundColor={colors.black}
     >
       {noChallenges && (
         <View style={styles.margins}>

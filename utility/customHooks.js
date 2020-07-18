@@ -146,11 +146,13 @@ const useLocationPermission = () => {
   return granted;
 };
 
-const useCommonName = ( id ) => {
+const useCommonName = ( id, isFocused ) => {
   const [commonName, setCommonName] = useState( null );
 
   getTaxonCommonName( id ).then( ( name ) => {
-    setCommonName( name );
+    if ( isFocused ) {
+      setCommonName( name );
+    }
   } );
 
   return commonName;

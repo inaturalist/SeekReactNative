@@ -313,5 +313,6 @@ export {
   getChallengeIndex,
   setChallengeProgress,
   checkForChallengesCompleted,
-  fetchObservationsAfterChallengeStarted
+  fetchObservationsAfterChallengeStarted,
+  checkForAncestors
 };

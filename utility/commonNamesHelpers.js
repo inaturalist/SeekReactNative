@@ -60,6 +60,8 @@ const setupCommonNames = ( preferredLanguage ) => {
           require( "./commonNames/commonNamesDict-11" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-12" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-13" ).default, seekLocale );
       } );
       // } ).then( () => {
       //   console.log( new Date().getTime(), "end time for realm" );

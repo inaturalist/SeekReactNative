@@ -69,16 +69,6 @@ export default StyleSheet.create( {
   whiteContainer: {
     backgroundColor: colors.white
   },
-  // inputField: {
-  //   backgroundColor: colors.white,
-  //   borderColor: colors.darkGray,
-  //   borderRadius: 40,
-  //   borderWidth: 1,
-  //   color: colors.black,
-  //   height: 37,
-  //   paddingLeft: 15,
-  //   width: 307
-  // },
   keyboardText: {
     marginHorizontal: ( Platform.OS === "android" || height < 570 ) ? 24 : 28,
     marginTop: ( Platform.OS === "android" || height < 570 ) ? 10 : 20
@@ -135,5 +125,12 @@ export default StyleSheet.create( {
     marginHorizontal: 38,
     marginTop: 20,
     textAlign: "center"
+  },
+  linkText: {
+    color: colors.seekForestGreen,
+    marginTop: 0,
+    marginHorizontal: 0,
+    textAlign: "center",
+    textDecorationLine: "underline"
   }
 } );

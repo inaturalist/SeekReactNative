@@ -19,6 +19,7 @@ import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
 import PrivacyPolicyScreen from "../Auth/PrivacyPolicyScreen";
 import TermsOfServiceScreen from "../Auth/TermsOfServiceScreen";
+import CommunityGuidelines from "../Auth/CommunityGuidelines";
 import LoginOrSignupScreen from "../Auth/LoginOrSignupScreen";
 import LoginScreen from "../Auth/Login/LoginScreen";
 import LoginSuccessScreen from "../Auth/Login/LoginSuccessScreen";
@@ -132,6 +133,11 @@ const App = () => (
         <Stack.Screen
           name="TermsOfService"
           component={TermsOfServiceScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="CommunityGuidelines"
+          component={CommunityGuidelines}
           options={defaultConfig}
         />
         <Stack.Screen

@@ -60,7 +60,7 @@
     "email": "Email",
     "username": "username",
     "password": "password",
-    "release_photos": "Yes, license my photos so scientists can use my data!",
+    "release_photos": "Yes, license my photos so scientists can use my data (recommended)!",
     "create_account": "Create my account",
     "thanks": "Thanks!",
     "parent_instructions": "We sent your parent or guardian an email with instructions.",
@@ -72,7 +72,9 @@
     "observations": "Observations Saved on Device",
     "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
     "observations_2": "Deleting the app will delete all your observations made in Seek.",
-    "observations_3": "Seek does not sync your observations to other devices."
+    "observations_3": "Seek does not sync your observations to other devices.",
+    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Community Guidelines"
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",

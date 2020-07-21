@@ -106,6 +106,9 @@ export default StyleSheet.create( {
   marginSmall: {
     marginTop: 2
   },
+  marginTopSmall: {
+    marginTop: 29
+  },
   marginTop: {
     marginTop: 51
   },
@@ -128,9 +131,6 @@ export default StyleSheet.create( {
   },
   linkText: {
     color: colors.seekForestGreen,
-    marginTop: 0,
-    marginHorizontal: 0,
-    textAlign: "center",
     textDecorationLine: "underline"
   }
 } );

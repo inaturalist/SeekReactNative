@@ -2,27 +2,31 @@
 
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import Checkbox from "react-native-check-box";
 import HTML from "react-native-render-html";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
-import styles from "../../../styles/auth/signup";
 import { colors } from "../../../styles/global";
+import styles from "../../../styles/auth/signup";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import ErrorMessage from "../ErrorMessage";
 import InputField from "../../UIComponents/InputField";
 import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import CheckboxRow from "./CheckboxRow";
 
 const LicensePhotosScreen = () => {
   const { navigate } = useNavigation();
   const [email, setEmail] = useState( "" );
   const [licensePhotos, setLicensePhotos] = useState( true );
   const [error, setError] = useState( false );
+  const [storeData, setStoreData] = useState( false );
+  const [agreeTerms, setAgreeTerms] = useState( false );
 
   const toggleLicensePhotos = () => setLicensePhotos( !licensePhotos );
+  const toggleAgreeTerms = () => setAgreeTerms( !agreeTerms );
+  const toggleStoreData = () => setStoreData( !storeData );
 
   const submit = () => {
     if ( checkIsEmailValid( email ) ) {
@@ -46,18 +50,6 @@ const LicensePhotosScreen = () => {
     );
   };
 
-  const myTagRenderer = ( htmlAttribs, children ) => {
-    return (
-      <Text
-        allowFontScaling={false}
-        onPress={() => navigate( "TermsOfService" )}
-        style={styles.linkText}
-      >
-        {i18n.t( "inat_signup.terms" )}
-      </Text>
-    );
-  };
-
   const html = `<p>${i18n.t( "inat_signup.agree_to_terms" )}</p>`;
 
   return (
@@ -71,40 +63,38 @@ const LicensePhotosScreen = () => {
         text={email}
         type="emailAddress"
       />
-      <View style={[styles.row, styles.margin]}>
-        <Checkbox
-          checkBoxColor={colors.checkboxColor}
-          isChecked={licensePhotos}
-          onClick={() => toggleLicensePhotos()}
-          style={styles.checkBox}
-        />
-        <Text allowFontScaling={false} style={styles.licenseText}>
-          {i18n.t( "inat_signup.release_photos" )}
-        </Text>
-      </View>
-      <View style={[styles.row, styles.margin]}>
-        <Checkbox
-          checkBoxColor={colors.checkboxColor}
-          isChecked={licensePhotos}
-          onClick={() => toggleLicensePhotos()}
-          style={styles.checkBox}
-        />
-        <HTML
-          html={html}
-          tagsStyles={{ p: styles.licenseText }}
-          renderers={{
-            terms: { renderer: myTagRenderer, wrapper: "Text" },
-            // terms: () => renderLink( "TermsOfService", "terms" ),
-            privacy: () => renderLink( "Privacy", "privacy" ),
-            guidelines: () => renderLink( "CommunityGuidelines", "guidelines" )
-          }}
-        />
-      </View>
-      {error ? <ErrorMessage error="email" /> : <View style={styles.greenButtonMargin} />}
+      <CheckboxRow
+        isChecked={licensePhotos}
+        toggleCheckbox={toggleLicensePhotos}
+        text={i18n.t( "inat_signup.release_photos" )}
+      />
+      <CheckboxRow
+        isChecked={agreeTerms}
+        toggleCheckbox={toggleAgreeTerms}
+        children={(
+          <HTML
+            html={html}
+            tagsStyles={{ p: styles.licenseText }}
+            renderers={{
+              terms: { renderer: () => renderLink( "TermsOfService", "terms" ), wrapper: "Text" },
+              privacy: { renderer: () => renderLink( "Privacy", "privacy" ), wrapper: "Text" },
+              guidelines: { renderer: () => renderLink( "CommunityGuidelines", "guidelines" ), wrapper: "Text" }
+            }}
+          />
+        )}
+      />
+      <CheckboxRow
+        isChecked={storeData}
+        toggleCheckbox={toggleStoreData}
+        text={i18n.t( "inat_signup.store_data" )}
+      />
+      {error ? <ErrorMessage error="email" /> : <View style={styles.marginTopSmall} />}
       <GreenButton
+        color={( !agreeTerms || !storeData ) && colors.seekTransparent}
         handlePress={() => submit()}
         login
         text="inat_signup.next"
+        disabled={!agreeTerms || !storeData}
       />
     </ScrollWithHeader>
   );

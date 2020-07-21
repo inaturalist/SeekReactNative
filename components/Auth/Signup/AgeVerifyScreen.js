@@ -5,7 +5,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../../i18n";
-import { requiresParent, formatShortMonthDayYear } from "../../../utility/dateHelpers";
+import { requiresParent, formatYearMonthDay } from "../../../utility/dateHelpers";
 import styles from "../../../styles/auth/signup";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import ViewWithHeader from "../../UIComponents/ViewWithHeader";
@@ -14,17 +14,18 @@ import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const AgeVerifyScreen = () => {
   const { navigate } = useNavigation();
-  const [date, setDate] = useState( formatShortMonthDayYear( new Date() ) );
+  const [date, setDate] = useState( formatYearMonthDay() );
   const [isPickerVisible, setPicker] = useState( false );
 
-  const togglePicker = useCallback( () => setPicker( !isPickerVisible ), [isPickerVisible] );
+  const openPicker = () => setPicker( true );
+  const closePicker = useCallback( () => setPicker( false ), [] );
 
   const handleDatePicked = useCallback( ( newDate ) => {
     if ( newDate ) {
-      setDate( formatShortMonthDayYear( newDate ) );
-      setPicker( !isPickerVisible );
+      closePicker();
+      setDate( formatYearMonthDay( newDate ) );
     }
-  }, [isPickerVisible] );
+  }, [closePicker] );
 
   const submit = () => {
     if ( requiresParent( date ) ) {
@@ -45,7 +46,7 @@ const AgeVerifyScreen = () => {
         </Text>
         <View style={styles.marginLarge} />
         <TouchableOpacity
-          onPress={() => togglePicker()}
+          onPress={() => openPicker()}
           style={[styles.dateButton, styles.center]}
         >
           <Text style={styles.buttonText}>{date}</Text>
@@ -54,7 +55,7 @@ const AgeVerifyScreen = () => {
           <DateTimePicker
             isDateTimePickerVisible={isPickerVisible}
             onDatePicked={handleDatePicked}
-            toggleDateTimePicker={togglePicker}
+            toggleDateTimePicker={closePicker}
           />
         )}
         <View style={styles.marginExtraLarge} />

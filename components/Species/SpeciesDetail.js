@@ -210,8 +210,6 @@ const SpeciesDetail = () => {
     } );
   }, [navigation, fetchiNatData] );
 
-  console.log( details.about, "about screen" );
-
   return (
     <ScrollView
       ref={scrollView}

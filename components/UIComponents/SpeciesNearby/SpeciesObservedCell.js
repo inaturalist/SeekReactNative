@@ -11,7 +11,7 @@ import { useIsFocused, useNavigation } from "@react-navigation/native";
 import styles from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
-import { capitalizeNames, setSpeciesId } from "../../../utility/helpers";
+import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
 import { useCommonName, useSeenTaxa, useUserPhoto } from "../../../utility/customHooks";
 
@@ -32,6 +32,7 @@ const SpeciesObservedCell = ( { item }: Props ) => {
     <TouchableOpacity
       style={styles.gridCell}
       onPress={() => {
+        setRoute( "ChallengeDetails" );
         setSpeciesId( item.taxon.id );
         navigate( "Species" );
       }}

@@ -11,7 +11,7 @@ import Observations from "../Observations/Observations";
 import iNatStats from "../iNatStats";
 import About from "../AboutScreen";
 import Settings from "../Settings/Settings";
-import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
+// import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,11 +27,11 @@ const ChallengesFooter = () => (
   </Tab.Navigator>
 );
 
-const ChallengeDetailsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
-    <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
-  </Tab.Navigator>
-);
+// const ChallengeDetailsFooter = () => (
+//   <Tab.Navigator tabBar={props => <Footer {...props} />}>
+//     <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
+//   </Tab.Navigator>
+// );
 
 const ObservationsFooter = () => (
   <Tab.Navigator tabBar={props => <Footer {...props} />}>
@@ -67,7 +67,7 @@ const SideMenuDrawer = () => (
     <Drawer.Screen name="Main" component={MainStack} />
     <Drawer.Screen name="Achievements" component={AchievementsFooter} />
     <Drawer.Screen name="Challenges" component={ChallengesFooter} />
-    <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} />
+    {/* <Drawer.Screen name="ChallengeDetails" component={ChallengeDetailsFooter} /> */}
     <Drawer.Screen name="Observations" component={ObservationsFooter} />
     <Drawer.Screen name="iNatStats" component={iNatStatsFooter} />
     <Drawer.Screen name="About" component={AboutFooter} />

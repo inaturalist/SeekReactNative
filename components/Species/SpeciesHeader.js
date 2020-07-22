@@ -31,6 +31,7 @@ const SpeciesHeader = ( {
 
   const fetchRoute = async () => {
     const route = await getRoute();
+    console.log( route, "route in back species detail" );
     setRouteName( route );
   };
 

@@ -301,8 +301,8 @@
     "error_take": "Beklager, vi kunne ikke tage dit foto",
     "error_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album.",
     "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
-    "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_cameraManager": "Beklager, kamera-manageren kunne ikke starte.",
+    "error_photoError": "Beklager, fotoobjektet blev ikke fundet"
   },
   "gallery": {
     "label": "Fotos",
@@ -343,7 +343,7 @@
     "login": "Log ind med iNaturalist for at tilføje observationer til online-fællesskabet!",
     "achievements": "Resultater",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
+      "zero": "Observer {{count}} arter for at nå til det næste niveau!",
       "one": "Observe {{count}} species to get to the next level!",
       "two": "Observe {{count}} species to get to the next level!",
       "few": "Observe {{count}} species to get to the next level!",

@@ -102,7 +102,6 @@ const SpeciesObserved = ( { challenge }: Props ) => {
           }
         } );
 
-        // console.log( species, "species in set species" );
         setSpeciesObserved( species );
         setLoading( false );
       } );

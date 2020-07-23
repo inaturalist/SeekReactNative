@@ -344,11 +344,11 @@
     "achievements": "Resultater",
     "observe_plural": {
       "zero": "Observer {{count}} arter for at nå til det næste niveau!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "one": "Observer {{count}} art for at nå til det næste niveau!",
+      "two": "Observer {{count}} arter for at nå til det næste niveau!",
+      "few": "Observer {{count}} arter for at nå til det næste niveau!",
+      "many": "Observer {{count}} arter for at nå til det næste niveau!",
+      "other": "Observer {{count}} arter for at nå til det næste niveau!"
     },
     "observe_max": "Du har nået det højeste niveau på Seek!",
     "observe_species": "Observer",
@@ -583,7 +583,7 @@
     "donate_description": "Glad for Seek? Overvej en donation til iNaturalist! Vi er afhængige af donationer fra folk som dig for at vores apps fortsat kan tilbydes gratis.",
     "language": "App-sprog",
     "device_settings": "Benyt enhedens sprogindstilling",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Tag automatisk et billede hvis identifikationen når frem til art."
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -600,17 +600,17 @@
     "mission_2_may_2020": "Find 2 insekter",
     "mission_3_may_2020": "Find 1 spindler",
     "mission_4_may_2020": "Find 2 fugle",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
-    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "resilience": "Robusthedsudfordring",
+    "mission_1_june_2020": "Find 2 planter i ordenen Asterales (Kurvplanter)",
+    "mission_2_june_2020": "Find 3 fugle fra ordenen Passeriformes (Spurvefugle)",
+    "mission_3_june_2020": "Find 1 insekt fra ordenen Coleoptera (Biller)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
     "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
     "river": "Flod-udfordring",
     "mission_1_july_2020": "Find 2 slags fisk eller padder",
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Find 1 bløddyr",
-    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
+    "july_2020_description": "Floder er et knudepunkt for biodiversitet. Som livsgrundlag for alt fra mikroinvertebrater til store vertebrater hjælper floder organismerne omkring dem med at trives.",
     "action_july_2020": "Hvilke organismer lægger du mærke til, når du er nær noget vand? Hvilke arter svømmer i vandet? Hvilke arter flyver oppe over det? Er der nogle organismer i vandet, som du måske ikke kan se?",
     "pollinator": "Bestøver-udfordring",
     "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",

@@ -8,6 +8,7 @@ import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import styles from "../../../styles/species/species";
+import { colors, fonts } from "../../../styles/global";
 import { useCommonName } from "../../../utility/customHooks";
 
 type Props = {
@@ -35,7 +36,6 @@ const About = ( {
           <HTML
             baseFontStyle={styles.text}
             html={html}
-            tagsStyles={ { p: styles.text } }
           />
           <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
         </>

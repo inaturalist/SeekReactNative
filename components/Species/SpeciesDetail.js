@@ -153,8 +153,6 @@ const SpeciesDetail = () => {
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
       const ancestors = createTaxonomyList( taxa.ancestors, scientificName, commonName );
 
-      console.log( taxa.wikipedia_summary, "wiki summary" );
-
       dispatch( {
         type: "SET_TAXON_DETAILS",
         taxon: {

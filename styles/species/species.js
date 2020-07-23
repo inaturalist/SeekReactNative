@@ -1,9 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
-import {
-  colors,
-  fonts,
-  row
-} from "../global";
+import { colors, fonts, row } from "../global";
 
 export default StyleSheet.create( {
   backButton: {
@@ -45,6 +41,12 @@ export default StyleSheet.create( {
     lineHeight: 21,
     marginTop: 45,
     textAlign: "center"
+  },
+  italicText: {
+    color: colors.black,
+    fontFamily: fonts.bookItalic,
+    fontSize: 16,
+    lineHeight: 21
   },
   iconicTaxaText: {
     color: colors.white,

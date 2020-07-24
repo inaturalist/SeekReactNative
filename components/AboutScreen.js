@@ -46,7 +46,7 @@ const AboutScreen = () => {
         <Text style={styles.text}>{i18n.t( "about.translations" )}</Text>
         <View style={styles.marginSmallest} />
         <Text style={styles.text}>{i18n.t( "about.join_crowdin" )}</Text>
-        <PrivacyAndTerms />
+        {login && <PrivacyAndTerms />}
         <TouchableOpacity
           onPress={() => navigation.navigate( "DebugAndroid" )}
           style={styles.debug}

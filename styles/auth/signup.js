@@ -131,6 +131,7 @@ export default StyleSheet.create( {
   },
   linkText: {
     color: colors.seekForestGreen,
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    padding: 10
   }
 } );

@@ -36,12 +36,12 @@ class SpeciesNearby extends Component<Props> {
   setParamsForSpeciesNearby() {
     this.setState( { loading: true, notLoaded: null } );
     const { ancestorId, image } = this.props;
-    const { lat, lng } = image;
+    const { latitude, longitude } = image;
 
     const params = {
       per_page: 20,
-      lat,
-      lng,
+      lat: latitude,
+      lng: longitude,
       observed_on: new Date(),
       seek_exceptions: true,
       locale: i18n.locale,

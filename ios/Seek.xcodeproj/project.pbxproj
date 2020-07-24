@@ -88,6 +88,7 @@
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DA6884242AB4CB00F3C235 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = ../af.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		37E2583324CB62CB00424D49 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ../ro.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37E6180A23CD006C00B7600B /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ../ca.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37E6180B23CD007500B7600B /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = ../nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -357,6 +358,7 @@
 				cs,
 				he,
 				ar,
+				ro,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -523,6 +525,7 @@
 				378785E5245A1F2400D4509C /* cs */,
 				378785E6245A1F2B00D4509C /* he */,
 				37A0EA3C24A2AD6A006A21C7 /* ar */,
+				37E2583324CB62CB00424D49 /* ro */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

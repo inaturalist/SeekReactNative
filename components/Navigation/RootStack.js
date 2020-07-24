@@ -3,7 +3,6 @@ import React from "react";
 import { createStackNavigator, CardStyleInterpolators } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { colors } from "../../styles/global";
 import Drawer from "./SideDrawer";
@@ -31,10 +30,6 @@ import ParentalConsentScreen from "../Auth/Signup/ParentalConsentScreen";
 import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
 import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
 import SignUpScreen from "../Auth/Signup/SignUpScreen";
-import ChallengeDetails from "../Challenges/ChallengeDetailsScreen";
-import Footer from "../UIComponents/Footer";
-
-const Tab = createBottomTabNavigator();
 
 const MyTheme = {
   ...DefaultTheme,
@@ -58,12 +53,6 @@ const verticalConfig = {
   headerShown: false,
   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS
 };
-
-const ChallengeDetailsFooter = () => (
-  <Tab.Navigator tabBar={props => <Footer {...props} />}>
-    <Tab.Screen name="ChallengeDetails" component={ChallengeDetails} />
-  </Tab.Navigator>
-);
 
 const Stack = createStackNavigator();
 
@@ -199,11 +188,6 @@ const App = () => (
         <Stack.Screen
           name="Signup"
           component={SignUpScreen}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="ChallengeDetails"
-          component={ChallengeDetailsFooter}
           options={defaultConfig}
         />
       </Stack.Navigator>

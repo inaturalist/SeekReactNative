@@ -159,7 +159,6 @@ const useCommonName = ( id, isFocused ) => {
 };
 
 const useTruncatedUserCoords = ( granted ) => {
-  // const granted = useLocationPermission();
   const [coords, setCoords] = useState( null );
 
   const fetchCoords = useCallback( async () => {

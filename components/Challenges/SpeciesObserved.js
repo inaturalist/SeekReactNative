@@ -73,9 +73,7 @@ const SpeciesObserved = ( { challenge }: Props ) => {
                   species = species.concat( taxaTypeSeen.splice( 0, number ) );
                 } else {
                   taxaForMission.push( taxaId );
-                  // console.log( taxaForMission );
 
-                  console.log( taxaForMission, Object.keys( types ) );
                   if ( taxaForMission.length === Object.keys( types ).length ) {
                     // make sure to show the appropriate number of taxa for missions with more than one taxa
                     const taxaSeen = seenTaxa.filter( ( t ) => t.taxon && taxaForMission.includes( t.taxon.iconicTaxonId ) );

@@ -23,8 +23,11 @@ const SpeciesObservedCell = ( { item }: Props ) => {
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
   const commonName = useCommonName( item.taxon.id, isFocused );
+
   const seenTaxa = useSeenTaxa( item.taxon.id, isFocused );
   const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
+
+  const displayName = commonName || item.taxon.name;
 
   const { taxon } = item;
 
@@ -50,8 +53,8 @@ const SpeciesObservedCell = ( { item }: Props ) => {
           <View style={styles.cellTitle}>
             <Text numberOfLines={3} style={styles.cellTitleText}>
               {i18n.locale === "de"
-                ? capitalizeNames( commonName ).replace( /(- |-)/g, "-\n" )
-                : capitalizeNames( commonName )}
+                ? capitalizeNames( displayName ).replace( /(- |-)/g, "-\n" )
+                : capitalizeNames( displayName )}
             </Text>
           </View>
         </>

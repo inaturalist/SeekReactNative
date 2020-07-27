@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3739CB162242B17600D8B525 /* optimized_model.mlmodel */; };
 		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
+		3763EE6F24CF8E18005EE9D3 /* SeekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763EE6E24CF8E18005EE9D3 /* SeekUITests.swift */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
@@ -40,6 +41,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 4107012F1ACB723B00C6AA39;
 			remoteInfo = RNGL;
+		};
+		3763EE7124CF8E18005EE9D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Seek;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,6 +86,9 @@
 		3739CB172242B17600D8B525 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
 		374AF64122DE43690040B45F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = ../da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
+		3763EE6C24CF8E18005EE9D3 /* SeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3763EE6E24CF8E18005EE9D3 /* SeekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekUITests.swift; sourceTree = "<group>"; };
+		3763EE7024CF8E18005EE9D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		378785D6244E5B7C00D4509C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		378785E4245A1F1B00D4509C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = ../fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		378785E5245A1F2400D4509C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = ../cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -129,6 +140,13 @@
 				37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */,
 				37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */,
 				E79376F424957CEF3FE2895E /* libPods-Seek.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3763EE6924CF8E18005EE9D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +219,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3763EE6D24CF8E18005EE9D3 /* SeekUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3763EE6E24CF8E18005EE9D3 /* SeekUITests.swift */,
+				3763EE7024CF8E18005EE9D3 /* Info.plist */,
+			);
+			path = SeekUITests;
+			sourceTree = "<group>";
+		};
 		37DFB70121FFA4BE007B4E22 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +261,7 @@
 				13B07FAE1A68108700A75B9A /* Seek */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SeekTests */,
+				3763EE6D24CF8E18005EE9D3 /* SeekUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				AE2D56F50A4845E09545597E /* Resources */,
@@ -250,6 +278,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* Seek.app */,
 				00E356EE1AD99517003FC87E /* SeekTests.xctest */,
+				3763EE6C24CF8E18005EE9D3 /* SeekUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,12 +339,31 @@
 			productReference = 13B07F961A680F5B00A75B9A /* Seek.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3763EE6B24CF8E18005EE9D3 /* SeekUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3763EE7524CF8E18005EE9D3 /* Build configuration list for PBXNativeTarget "SeekUITests" */;
+			buildPhases = (
+				3763EE6824CF8E18005EE9D3 /* Sources */,
+				3763EE6924CF8E18005EE9D3 /* Frameworks */,
+				3763EE6A24CF8E18005EE9D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3763EE7224CF8E18005EE9D3 /* PBXTargetDependency */,
+			);
+			name = SeekUITests;
+			productName = SeekUITests;
+			productReference = 3763EE6C24CF8E18005EE9D3 /* SeekUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = iNaturalist;
 				TargetAttributes = {
@@ -331,6 +379,11 @@
 								enabled = 1;
 							};
 						};
+					};
+					3763EE6B24CF8E18005EE9D3 = {
+						CreatedOnToolsVersion = 11.5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -373,6 +426,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* Seek */,
 				00E356ED1AD99517003FC87E /* SeekTests */,
+				3763EE6B24CF8E18005EE9D3 /* SeekUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,6 +461,13 @@
 				CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */,
 				FDF5B89C59BD4E16B8381B96 /* Whitney-Light-Pro.otf in Resources */,
 				3739CB192242B17600D8B525 /* taxonomy.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3763EE6A24CF8E18005EE9D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +554,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3763EE6824CF8E18005EE9D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3763EE6F24CF8E18005EE9D3 /* SeekUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -500,6 +569,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* Seek */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		3763EE7224CF8E18005EE9D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Seek */;
+			targetProxy = 3763EE7124CF8E18005EE9D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -688,6 +762,59 @@
 			};
 			name = Release;
 		};
+		3763EE7324CF8E18005EE9D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SeekUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.SeekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Seek;
+			};
+			name = Debug;
+		};
+		3763EE7424CF8E18005EE9D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SeekUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.SeekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Seek;
+			};
+			name = Release;
+		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -816,6 +943,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3763EE7524CF8E18005EE9D3 /* Build configuration list for PBXNativeTarget "SeekUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3763EE7324CF8E18005EE9D3 /* Debug */,
+				3763EE7424CF8E18005EE9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Seek.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3763EE6B24CF8E18005EE9D3"
+               BuildableName = "SeekUITests.xctest"
+               BlueprintName = "SeekUITests"
+               ReferencedContainer = "container:Seek.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

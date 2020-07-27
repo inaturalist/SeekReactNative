@@ -13,16 +13,23 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+fastlane_require "dotenv"
+
+before_all do
+  Dotenv.overload ".env"
+end
+
 default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
   lane :beta do
-    get_certificates           # invokes cert
-    get_provisioning_profile   # invokes sigh
+    get_certificates(username: ENV["USERNAME"]) # invokes cert
+    get_provisioning_profile(username: ENV["USERNAME"],
+                          app_identifier: ENV["APPLE_ID"]) # invokes sigh
     build_app(scheme: "Seek",
             workspace: "ios/Seek.xcworkspace",
             include_bitcode: true)
-    upload_to_testflight
+    upload_to_testflight(username: ENV["USERNAME"])
   end
 end

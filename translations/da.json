@@ -608,21 +608,21 @@
     "action_june_2020": "Vidste du, at du kan se videnskabelige navne i stedet for almindelige navne i Seek-kameraet? Gå til siden med indstillinger fra menuen for at ældre visningen af almindelige navne til videnskabelige navne!",
     "river": "Flod-udfordring",
     "mission_1_july_2020": "Find 2 slags fisk eller padder",
-    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
+    "mission_2_july_2020": "Find 3 vandfugle fra ordenerne Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
     "mission_3_july_2020": "Find 1 bløddyr",
     "july_2020_description": "Floder er et knudepunkt for biodiversitet. Som livsgrundlag for alt fra mikroinvertebrater til store vertebrater hjælper floder organismerne omkring dem med at trives.",
     "action_july_2020": "Hvilke organismer lægger du mærke til, når du er nær noget vand? Hvilke arter svømmer i vandet? Hvilke arter flyver oppe over det? Er der nogle organismer i vandet, som du måske ikke kan se?",
     "pollinator": "Bestøver-udfordring",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
+    "mission_1_aug_2020": "Find 2 planter fra ordenen Lamiales (mynte, vejbred, oliven og slægtninge)",
+    "mission_2_aug_2020": "Find 1 plante fra familien Asteraceae (solsikke, mælkebøtte, tusindfryd og slægtninge)",
+    "mission_3_aug_2020": "Find 1 plante fra ordenen (roser, elme, figner og slægtninge)",
+    "mission_4_aug_2020": "Find 2 insekter fra ordenerne:\n\nHymenoptera (myrer, bier, hvepse og bladhvepse);\nLepidoptera (sommerfugle og møl);\nBiller (Coleoptera);\nFluer (Diptera)",
+    "aug_2020_description": "Bestøvere giver os mad og blomster, som vi nyder godt af! Ved at flytte pollen mellem forskellige planter med deres krop, hjælper bestøvere mange slags planter med reproduktion.",
     "action_aug_2020": "Læg mærke til bestøverne omkring dig. Besøger bier eller sommerfugle blomsterne i din have eller nabolag?"
   },
   "replace_photo": {
     "header": "Erstat foto?",
-    "description": "Would you like to replace the photo of your resighted observation?",
+    "description": "Vil du gerne erstatte billedet af din gentaget observation?",
     "new": "Brug nyt foto",
     "old": "Behold gammelt foto"
   }

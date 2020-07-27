@@ -2,6 +2,7 @@
 
 import React from "react";
 import { View, Text } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -14,7 +15,7 @@ import { formatShortMonthDayYear } from "../../utility/dateHelpers";
 
 type Props = {
   +closeModal: Function,
-  +userImage: string,
+  +image: Object,
   +speciesText?: ?string,
   +seenDate: Date,
   +taxaId: Number
@@ -22,13 +23,14 @@ type Props = {
 
 const ReplacePhotoModal = ( {
   closeModal,
-  userImage,
+  image,
   speciesText,
   seenDate,
   taxaId
 }: Props ) => {
-  const seenTaxa = useSeenTaxa( taxaId );
-  const currentUserPhoto = useUserPhoto( seenTaxa );
+  const isFocused = useIsFocused();
+  const seenTaxa = useSeenTaxa( taxaId, isFocused );
+  const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
 
   if ( !currentUserPhoto ) {
     return null;
@@ -45,8 +47,8 @@ const ReplacePhotoModal = ( {
     <ModalWithGradient
       color="green"
       closeModal={closeModal}
-      userImage={userImage}
-      speciesSeenImage={currentUserPhoto.uri}
+      userImage={image.uri}
+      originalImage={currentUserPhoto.uri}
       displayDate={displayDate}
     >
       <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
@@ -54,7 +56,7 @@ const ReplacePhotoModal = ( {
       <View style={styles.marginMedium} />
       <Button
         handlePress={() => {
-          replacePhoto( taxaId, userImage );
+          replacePhoto( taxaId, image );
           closeModal( true );
         }}
         text="replace_photo.new"
@@ -64,7 +66,7 @@ const ReplacePhotoModal = ( {
       <Button
         handlePress={() => closeModal()}
         text="replace_photo.old"
-        color="#5e5e5e"
+        color={colors.grayGradientLight}
       />
     </ModalWithGradient>
   );

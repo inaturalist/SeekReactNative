@@ -160,6 +160,21 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 6, 1 ),
     action: "seek_challenges.action_july_2020"
+  },
+  aug2020: {
+    name: "seek_challenges.pollinator",
+    description: "seek_challenges.aug_2020_description",
+    totalSpecies: 6,
+    backgroundName: "img-challengedetail-august2020",
+    earnedIconName: "badge_inaturalist_august2020",
+    missions: [
+      "seek_challenges.mission_1_aug_2020",
+      "seek_challenges.mission_2_aug_2020",
+      "seek_challenges.mission_3_aug_2020",
+      "seek_challenges.mission_4_aug_2020"
+    ],
+    availableDate: new Date( 2020, 7, 1 ),
+    action: "seek_challenges.action_aug_2020"
   }
 };
 

@@ -4,25 +4,23 @@ import { colors } from "../global";
 export default StyleSheet.create( {
   leftArrow: {
     left: 0,
-    paddingBottom: 20,
     paddingLeft: 5,
     paddingRight: 20,
-    paddingTop: 20,
+    paddingVertical: 20,
     position: "absolute",
-    top: 117,
+    top: 1010,
     zIndex: 1
   },
   photoContainer: {
     height: 375
   },
   rightArrow: {
-    paddingBottom: 20,
     paddingLeft: 20,
     paddingRight: 5,
-    paddingTop: 20,
+    paddingVertical: 20,
     position: "absolute",
     right: 0,
-    top: 117,
+    top: 1010,
     zIndex: 1
   },
   rotate: {

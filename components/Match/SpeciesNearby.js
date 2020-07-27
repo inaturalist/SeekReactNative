@@ -7,14 +7,13 @@ import {
 
 import i18n from "../../i18n";
 import styles from "../../styles/match/speciesNearby";
-import SpeciesNearbyList from "../UIComponents/SpeciesNearbyList";
+import SpeciesNearbyList from "../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 
 type Props = {
   +ancestorId:number,
-  +lat:number,
-  +lng:number
+  +image: Object
 }
 
 class SpeciesNearby extends Component<Props> {
@@ -36,16 +35,13 @@ class SpeciesNearby extends Component<Props> {
 
   setParamsForSpeciesNearby() {
     this.setState( { loading: true, notLoaded: null } );
-    const {
-      ancestorId,
-      lat,
-      lng
-    } = this.props;
+    const { ancestorId, image } = this.props;
+    const { latitude, longitude } = image;
 
     const params = {
       per_page: 20,
-      lat,
-      lng,
+      lat: latitude,
+      lng: longitude,
       observed_on: new Date(),
       seek_exceptions: true,
       locale: i18n.locale,
@@ -75,37 +71,30 @@ class SpeciesNearby extends Component<Props> {
 
     let species;
 
-    if ( notLoaded ) {
-      species = (
-        <TouchableOpacity
-          onPress={() => this.setParamsForSpeciesNearby()}
-          style={[styles.center, styles.speciesNearbyContainer]}
-        >
-          <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>
-        </TouchableOpacity>
-      );
-    } else if ( loading ) {
-      species = (
-        <LoadingWheel color={colors.black} />
-      );
+    if ( loading ) {
+      species = <LoadingWheel color={colors.black} />;
     } else {
-      species = (
-        <SpeciesNearbyList
-          match
-          taxa={taxa}
-        />
-      );
+      species = <SpeciesNearbyList taxa={taxa} />;
     }
 
     return (
-      <View>
+      <>
         <Text style={styles.headerText}>
           {i18n.t( "results.nearby" ).toLocaleUpperCase()}
         </Text>
-        <View style={[styles.speciesNearbyContainer, !notLoaded && styles.largerHeight]}>
-          {species}
-        </View>
-      </View>
+        {notLoaded ? (
+          <TouchableOpacity
+            onPress={() => this.setParamsForSpeciesNearby()}
+            style={[styles.center, styles.speciesNearbyContainer]}
+          >
+            <Text style={styles.text}>{i18n.t( "results.tap" )}</Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={[styles.speciesNearbyContainer, styles.center, styles.largerHeight]}>
+            {species}
+          </View>
+        )}
+      </>
     );
   }
 }

@@ -6,7 +6,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
 import Drawer from "./SideDrawer";
-import Login from "./LoginStack";
 import Splash from "../Splash";
 import Onboarding from "../Onboarding/OnboardingScreen";
 import Camera from "./CameraTab";
@@ -18,6 +17,19 @@ import Post from "../PostToiNat/PostScreen";
 import PostingHelp from "../PostToiNat/PostingHelpScreen";
 import RangeMap from "../Species/OnlineOnlyCards/RangeMap";
 import Donation from "../Settings/Donation";
+import PrivacyPolicyScreen from "../Auth/PrivacyPolicyScreen";
+import TermsOfServiceScreen from "../Auth/TermsOfServiceScreen";
+import CommunityGuidelines from "../Auth/CommunityGuidelines";
+import LoginOrSignupScreen from "../Auth/LoginOrSignupScreen";
+import LoginScreen from "../Auth/Login/LoginScreen";
+import LoginSuccessScreen from "../Auth/Login/LoginSuccessScreen";
+import ForgotPasswordScreen from "../Auth/Login/ForgotPasswordScreen";
+import PasswordEmailScreen from "../Auth/Login/PasswordEmailScreen";
+import AgeVerifyScreen from "../Auth/Signup/AgeVerifyScreen";
+import ParentalConsentScreen from "../Auth/Signup/ParentalConsentScreen";
+import ParentCheckEmailScreen from "../Auth/Signup/ParentCheckEmailScreen";
+import LicensePhotosScreen from "../Auth/Signup/LicensePhotosScreen";
+import SignUpScreen from "../Auth/Signup/SignUpScreen";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -61,11 +73,6 @@ const App = () => (
         <Stack.Screen
           name="Onboarding"
           component={Onboarding}
-          options={defaultConfig}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
           options={defaultConfig}
         />
         <Stack.Screen
@@ -117,6 +124,71 @@ const App = () => (
           name="Donation"
           component={Donation}
           options={verticalConfig}
+        />
+        <Stack.Screen
+          name="Privacy"
+          component={PrivacyPolicyScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="TermsOfService"
+          component={TermsOfServiceScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="CommunityGuidelines"
+          component={CommunityGuidelines}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LoginOrSignup"
+          component={LoginOrSignupScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Age"
+          component={AgeVerifyScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Forgot"
+          component={ForgotPasswordScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="PasswordEmail"
+          component={PasswordEmailScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="ParentCheck"
+          component={ParentCheckEmailScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LoginSuccess"
+          component={LoginSuccessScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Parent"
+          component={ParentalConsentScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="LicensePhotos"
+          component={LicensePhotosScreen}
+          options={defaultConfig}
+        />
+        <Stack.Screen
+          name="Signup"
+          component={SignUpScreen}
+          options={defaultConfig}
         />
       </Stack.Navigator>
     </NavigationContainer>

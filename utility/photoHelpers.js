@@ -12,7 +12,8 @@ import {
   namePhotoByTime,
   isWithin7Days,
   formatYearMonthDay,
-  formatHourMonthSecond
+  formatHourMonthSecond,
+  setISOTime
 } from "./dateHelpers";
 import { checkCameraRollPermissions } from "./androidHelpers.android";
 
@@ -294,7 +295,13 @@ const regenerateBackupUris = async () => {
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };
 
-const replacePhoto = async ( id, uri ) => {
+const replacePhoto = async ( id, image ) => {
+  const {
+    latitude,
+    longitude,
+    uri,
+    time
+  } = image;
   const backupUri = await createBackupUri( uri );
   // edit realm photo object attached to observation
   // using id, create a new backup photo URI and save new cameraroll uri
@@ -304,9 +311,12 @@ const replacePhoto = async ( id, uri ) => {
       const taxonToEdit = obsToEdit[0].taxon;
       const photoToEdit = taxonToEdit.defaultPhoto;
 
+      obsToEdit.latitude = latitude || null;
+      obsToEdit.longitude = longitude || null;
+
       photoToEdit.backupUri = backupUri;
       photoToEdit.mediumUrl = uri;
-      photoToEdit.lastUpdated = new Date();
+      photoToEdit.lastUpdated = time ? setISOTime( time ) : new Date();
     } );
   } ).catch( ( e ) => {
     console.log( e, "error editing photo object" );

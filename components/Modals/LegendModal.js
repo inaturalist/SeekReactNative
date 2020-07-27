@@ -10,7 +10,7 @@ import {
 import i18n from "../../i18n";
 import styles from "../../styles/species/rangeMap";
 import icons from "../../assets/icons";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +closeModal: Function

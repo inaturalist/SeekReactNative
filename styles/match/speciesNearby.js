@@ -18,7 +18,6 @@ export default StyleSheet.create( {
     marginTop: 4
   },
   largerHeight: {
-    backgroundColor: colors.seekTeal,
     height: 231
   },
   speciesNearbyContainer: {

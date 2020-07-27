@@ -4,6 +4,7 @@ import React from "react";
 import { FlatList } from "react-native";
 
 import CameraError from "../CameraError";
+import styles from "../../../styles/camera/gallery";
 import { dimensions } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
 
@@ -25,6 +26,7 @@ const GalleryContainer = ( {
   const renderGallery = () => (
     <FlatList
       data={photos}
+      contentContainerStyle={styles.grayContainer}
       getItemLayout={( data, index ) => (
         // skips measurement of dynamic content for faster loading
         {

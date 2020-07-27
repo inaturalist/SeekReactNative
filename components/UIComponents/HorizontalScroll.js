@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Image, FlatList, TouchableOpacity } from "react-native";
+import { useRoute } from "@react-navigation/native";
 
 import styles from "../../styles/uiComponents/horizontalScroll";
 import i18n from "../../i18n";
@@ -7,11 +8,11 @@ import icons from "../../assets/icons";
 import { dimensions } from "../../styles/global";
 
 type Props = {
-  photoList: Array<Object>,
-  screen: string
+  photoList: Array<Object>
 }
 
-const HorizontalScroll = ( { photoList, screen }: Props ) => {
+const HorizontalScroll = ( { photoList }: Props ) => {
+  const { name } = useRoute();
   const flatList = useRef( null );
   const viewConfigRef = useRef( {
     waitForInteraction: true,
@@ -48,7 +49,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         bounces={false}
         viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
-        contentContainerStyle={screen === "SpeciesPhotos" ? styles.speciesPhotoContainer : styles.photoContainer}
+        contentContainerStyle={name === "iNatStats" ? styles.photoContainer : styles.speciesPhotoContainer}
         data={photoList}
         getItemLayout={( data, index ) => (
           // skips measurement of dynamic content for faster loading
@@ -63,14 +64,14 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
         initialNumToRender={1}
         pagingEnabled
         renderItem={( { item } ) => item}
-        showsHorizontalScrollIndicator={screen === "iNatStats"}
+        showsHorizontalScrollIndicator={name === "iNatStats"}
       />
       {scrollIndex > 0 && (
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
           accessible
           onPress={() => scrollLeft()}
-          style={[styles.leftArrow, screen === "SpeciesPhotos" && styles.speciesLeftArrow]}
+          style={[styles.leftArrow, name === "Species" && styles.speciesLeftArrow]}
         >
           <Image source={icons.swipeRight} style={styles.rotate} />
         </TouchableOpacity>
@@ -80,7 +81,7 @@ const HorizontalScroll = ( { photoList, screen }: Props ) => {
           accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
           accessible
           onPress={() => scrollRight()}
-          style={[styles.rightArrow, screen === "SpeciesPhotos" && styles.speciesRightArrow]}
+          style={[styles.rightArrow, name === "Species" && styles.speciesRightArrow]}
         >
           <Image source={icons.swipeRight} style={styles.rotateRTL} />
         </TouchableOpacity>

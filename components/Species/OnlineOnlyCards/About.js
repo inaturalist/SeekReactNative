@@ -1,11 +1,14 @@
 // @flow
 import React, { useContext } from "react";
 import { Text } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
+import HTML from "react-native-render-html";
 
+import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import styles from "../../../styles/species/species";
+import { colors, fonts } from "../../../styles/global";
 import { useCommonName } from "../../../utility/customHooks";
 
 type Props = {
@@ -20,12 +23,23 @@ const About = ( {
   id
 }: Props ) => {
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
   const { login } = useContext( UserContext );
-  const commonName = useCommonName( id );
+  const commonName = useCommonName( id, isFocused );
+
+  const html = `<p>${about}</p>`.replace( /<b>/g, "" );
 
   return (
     <SpeciesDetailCard text="species_detail.about">
-      <Text style={styles.text}>{about}</Text>
+      {about && (
+        <>
+          <HTML
+            baseFontStyle={styles.text}
+            html={html}
+          />
+          <Text style={styles.text}>{"\n("}{i18n.t( "species_detail.wikipedia" )}{")"}</Text>
+        </>
+      )}
       {( login && id !== 43584 ) && (
         <Text
           onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}

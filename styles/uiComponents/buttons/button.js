@@ -20,7 +20,7 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     lineHeight: 24,
-    paddingTop: Platform.OS === "ios" ? 7 : 0,
+    paddingTop: Platform.OS === "ios" ? 3 : 0,
     textAlign: "center"
   },
   center,

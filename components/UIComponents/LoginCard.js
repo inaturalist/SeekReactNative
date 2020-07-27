@@ -52,9 +52,7 @@ const LoginCard = () => {
                 if ( user.login ) {
                   logUserOut( user );
                 } else {
-                  navigation.navigate( "Login", {
-                    screen: "LoginOrSignup"
-                  } );
+                  navigation.navigate( "LoginOrSignup" );
                 }
               }}
               text={user.login

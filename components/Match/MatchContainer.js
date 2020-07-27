@@ -91,9 +91,7 @@ const MatchContainer = ( {
         <Text style={[styles.headerText, { color: gradientColorLight }]}>{renderHeaderText()}</Text>
         {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
         <Text style={styles.text}>{renderText()}</Text>
-      </View>
-      <View style={styles.marginMedium} />
-      <View style={styles.textContainer}>
+        <View style={styles.marginMedium} />
         <GreenButton
           color={gradientColorLight}
           handlePress={() => {
@@ -107,13 +105,9 @@ const MatchContainer = ( {
         />
       </View>
       <View style={styles.marginMedium} />
-      {( commonAncestor && rank !== ( 60 || 70 ) ) && (
+      {( commonAncestor && rank < 60 ) && (
         <>
-          <SpeciesNearby
-            ancestorId={taxaId}
-            lat={image.latitude}
-            lng={image.longitude}
-          />
+          <SpeciesNearby ancestorId={taxaId} image={image} />
           <View style={styles.marginMedium} />
         </>
       )}

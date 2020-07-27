@@ -4,7 +4,7 @@ import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/similarSpecies";
-import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
 import createUserAgent from "../../../utility/userAgent";
 

@@ -4,6 +4,7 @@ import React from "react";
 import { TextInput } from "react-native";
 
 import styles from "../../styles/posting/postToiNat";
+import { colors } from "../../styles/global";
 import i18n from "../../i18n";
 
 type Props = {
@@ -17,7 +18,7 @@ const Notes = ( { description, updateDescription }: Props ) => (
     multiline
     onChangeText={value => updateDescription( value )}
     placeholder={i18n.t( "posting.notes" )}
-    placeholderTextColor="#828282"
+    placeholderTextColor={colors.placeholderGray}
     style={styles.inputField}
     value={description}
   />

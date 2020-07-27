@@ -124,7 +124,8 @@ const NoInternetError = ( {
     <View style={styles.background}>
       {showGreenButtons && <SpeciesStats stats={greenButtons} />}
       {seenDate && <SeenDate showGreenButtons={showGreenButtons} seenDate={seenDate} />}
-      <About about={about} wikiUrl={wikiUrl} id={id} />
+      {/* about summary and url do not show up for locales like romanian */}
+      {( about || wikiUrl ) && <About about={about} wikiUrl={wikiUrl} id={id} />}
       {id !== 43584 ? (
         <>
           {region && <SpeciesMap id={id} region={region} seenDate={seenDate} />}

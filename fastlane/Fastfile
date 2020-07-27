@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+fastlane_require "dotenv"
+
+before_all do
+  Dotenv.overload ".env"
+end
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :beta do
+    get_certificates(username: ENV["USERNAME"]) # invokes cert
+    get_provisioning_profile(username: ENV["USERNAME"],
+                          app_identifier: ENV["APPLE_ID"]) # invokes sigh
+    build_app(scheme: "Seek",
+            workspace: "ios/Seek.xcworkspace",
+            include_bitcode: true)
+    upload_to_testflight(username: ENV["USERNAME"])
+  end
+end

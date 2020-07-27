@@ -6,7 +6,7 @@ import { View } from "react-native";
 import styles from "../../../styles/home/speciesNearby";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
-import SpeciesNearbyList from "../../UIComponents/SpeciesNearbyList";
+import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import i18n from "../../../i18n";
 import taxonIds from "../../../utility/dictionaries/taxonDict";
 import createUserAgent from "../../../utility/userAgent";
@@ -37,7 +37,10 @@ const SpeciesNearbyContainer = ( {
 
     fetch( `${site}?${queryString}`, options )
       .then( response => response.json() )
-      .then( ( { results } ) => setTaxa( results.map( r => r.taxon ) ) )
+      .then( ( { results } ) => {
+        setTaxa( results.map( r => r.taxon ) );
+        setLoading( false );
+       } )
       .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
         if ( e instanceof SyntaxError ) { // this is from the iNat server being down
           updateDowntimeError();

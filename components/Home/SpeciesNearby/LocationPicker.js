@@ -121,7 +121,7 @@ const LocationPicker = ( {
             autoCapitalize="words"
             onChangeText={text => setCoordsByLocationName( text )}
             placeholder={inputLocation}
-            placeholderTextColor="#828282"
+            placeholderTextColor={colors.placeholderGray}
             style={styles.inputField}
             textContentType="addressCity"
           />

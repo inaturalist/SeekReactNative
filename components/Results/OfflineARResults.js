@@ -27,18 +27,19 @@ const OfflineARResults = () => {
         return {
           ...state,
           observation: action.obs,
-          taxon: action.newTaxon
+          taxon: action.newTaxon,
+          loading: false
         };
       case "SET_ANCESTOR":
         return { ...state, taxon: action.newTaxon, loading: false };
       case "SPECIES_SEEN":
         return { ...state, seenDate: action.date };
-      case "FINISHED_LOADING":
+      case "NO_MATCH":
         return { ...state, loading: false };
       case "ADD_LOCATION_TO_NEW_OBS":
-        return { ...state, image: action.image, loading: false };
+        return { ...state, image: action.image };
       case "SET_LOCATION_ERROR":
-        return { ...state, errorCode: action.code, loading: false };
+        return { ...state, errorCode: action.code };
       default:
         throw new Error();
     }
@@ -133,10 +134,11 @@ const OfflineARResults = () => {
     const reversePredictions = image.predictions.reverse();
     const ancestor = reversePredictions.find( leaf => leaf.score > threshold );
 
+
     if ( ancestor && ancestor.rank !== 100 ) {
       fetchAncestorPhoto( ancestor );
     } else {
-      dispatch( { type: "FINISHED_LOADING" } );
+      dispatch( { type: "NO_MATCH" } );
     }
   }, [fetchAncestorPhoto, image.predictions] );
 
@@ -175,7 +177,7 @@ const OfflineARResults = () => {
   const getUserLocation = useCallback( () => {
     // Android photo gallery images should already have lat/lng
     if ( image.latitude ) {
-      dispatch( { type: "FINISHED_LOADING" } );
+      return;
     }
 
     if ( Platform.OS === "android" && !granted ) {
@@ -231,18 +233,11 @@ const OfflineARResults = () => {
   }, [loading, showResults] );
 
   useEffect( () => {
-    if ( newObs ) {
-      getUserLocation();
-    } else if ( observation ) {
-      dispatch( { type: "FINISHED_LOADING" } );
-    }
-  }, [newObs, observation, getUserLocation] );
-
-  useEffect( () => {
     navigation.addListener( "focus", () => {
+      getUserLocation(); // need this for Species Nearby This Taxon on Match Screen
       checkVisionResults();
     } );
-  }, [navigation, checkVisionResults] );
+  }, [navigation, checkVisionResults, getUserLocation] );
 
   return <FullPhotoLoading uri={params.image.uri} />;
 };

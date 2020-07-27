@@ -16,7 +16,7 @@ import backgrounds from "../../assets/backgrounds";
 import ChallengeEarnedModal from "../Modals/ChallengeEarnedModal";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import { colors } from "../../styles/global";
-import Modal from "../UIComponents/Modal";
+import Modal from "../UIComponents/Modals/Modal";
 import { setChallengeDetailsButtonText } from "../../utility/textHelpers";
 import { startChallenge } from "../../utility/challengeHelpers";
 import ChallengeTitle from "../UIComponents/Challenges/ChallengeTitle";

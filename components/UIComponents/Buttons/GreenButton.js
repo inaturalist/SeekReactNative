@@ -18,7 +18,8 @@ type Props = {
   +login?: boolean,
   +fontSize?: number,
   +width?: ?number,
-  +allowFontScaling?: boolean
+  +allowFontScaling?: boolean,
+  +disabled?: boolean
 }
 
 const GreenButton = ( {
@@ -29,7 +30,8 @@ const GreenButton = ( {
   fontSize,
   text,
   width,
-  allowFontScaling
+  allowFontScaling,
+  disabled
 }: Props ) => (
   <TouchableOpacity
     onPress={() => handlePress()}
@@ -39,6 +41,7 @@ const GreenButton = ( {
       login && styles.loginHeight,
       width && { width }
     ]}
+    disabled={disabled}
   >
     <Text
       style={[styles.buttonText, { letterSpacing }, { fontSize }]}

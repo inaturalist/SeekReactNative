@@ -14,7 +14,7 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import { setCameraHelpText } from "../../../utility/textHelpers";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
-import Modal from "../../UIComponents/Modal";
+import Modal from "../../UIComponents/Modals/Modal";
 import WarningModal from "../../Modals/WarningModal";
 import ARCameraHeader from "./ARCameraHeader";
 import { checkIfCameraLaunched } from "../../../utility/helpers";

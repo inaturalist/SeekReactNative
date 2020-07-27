@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <exclude domain="sharedpref" path="."/>
+    <exclude domain="file" path="." />
+    <!-- <exclude domain="file" path="taxonomy.csv" />
+    <exclude domain="file" path="optimized-model.tflite" />
+    <exclude domain="file" path="ReactNativeDevBundle.js" />
+    <exclude domain="file" path="ZoomTables.data.v1" /> -->
+    <exclude domain="database" path="." />
+    <exclude domain="external" path="." /> 
+    <exclude domain="root" path="." /> 
+</full-backup-content>

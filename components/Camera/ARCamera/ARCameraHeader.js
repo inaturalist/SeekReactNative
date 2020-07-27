@@ -1,11 +1,7 @@
 // @flow
 
 import React, { useEffect, useState, useContext } from "react";
-import {
-  View,
-  Text,
-  Image
-} from "react-native";
+import { View, Text, Image } from "react-native";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
@@ -22,6 +18,7 @@ const ARCameraHeader = ( { ranks }: Props ) => {
   const rankToRender = Object.keys( ranks )[0] || null;
   const [commonName, setCommonName] = useState( null );
   const { scientificNames } = useContext( CameraContext );
+
   let id = null;
 
   if ( rankToRender && !scientificNames ) {

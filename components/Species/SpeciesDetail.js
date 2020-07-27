@@ -162,10 +162,7 @@ const SpeciesDetail = () => {
         photos: taxa.taxon_photos.map( ( p ) => p.photo ),
         details: {
           wikiUrl: taxa.wikipedia_url,
-          about: taxa.wikipedia_summary
-            && i18n.t( "species_detail.wikipedia", {
-              about: taxa.wikipedia_summary.replace( /<[^>]+>/g, "" ).replace( "&amp", "&" )
-            } ),
+          about: taxa.wikipedia_summary && taxa.wikipedia_summary,
           timesSeen: taxa.observations_count,
           ancestors,
           stats: {

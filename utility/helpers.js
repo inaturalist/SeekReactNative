@@ -30,6 +30,9 @@ const checkForInternet = () => (
 );
 
 const capitalizeNames = ( name ) => {
+  if ( name === null ) {
+    return;
+  }
   const titleCaseName = name.split( " " )
     .map( ( string ) => string.charAt( 0 ).toUpperCase() + string.substring( 1 ) )
     .join( " " );

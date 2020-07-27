@@ -11,6 +11,7 @@ export const colors = {
   seekTeal: "#297f87",
   seekGreen: "#44ab55",
   seekForestGreen: "#38976d",
+  seekTransparent: "#38976d33",
   speciesNearbyGreen: "#2a7353",
   dividerGray: "#d8d8d8",
   dividerWhite: "#63d4ab",
@@ -27,7 +28,10 @@ export const colors = {
   grayGradientDark: "#404040",
   grayGradientLight: "#5e5e5e",
   greenGradientDark: "#22784d",
-  greenGradientLight: "#38976d"
+  greenGradientLight: "#38976d",
+  tealGradientDark: "#175f67",
+  checkboxColor: "#979797",
+  placeholderGray: "#828282"
 };
 
 export const fonts = {
@@ -40,7 +44,8 @@ export const fonts = {
 
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
-  iOSButtonPadding: Platform.OS === "ios" ? 7 : 0,
+  iOSButtonPadding: Platform.OS === "ios" ? 7 : 0, // this looks different on RN 0.63.x
+  iOSPaddingFontSize18: Platform.OS === "ios" ? 4 : 0, // so does this
   iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0
 };
 
@@ -58,8 +63,4 @@ export const row = {
   alignItems: "center",
   flexDirection: "row",
   flexWrap: "nowrap"
-};
-
-export const footerMargin = {
-  marginBottom: 74
 };

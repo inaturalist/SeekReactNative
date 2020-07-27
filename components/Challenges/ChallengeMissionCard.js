@@ -43,29 +43,43 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     setMissions( newMissions );
   }, [challenge] );
 
+  const formatLongMissionText = ( text ) => {
+  let newText = text;
+
+    if ( text.includes( ";\n" ) ) {
+      newText = text.replace( /-/g, "" )
+        .replace( /:\n\n/g, ":\n\n\u2022 " )
+        .replace( /;\n/g, ";\n\u2022 " );
+    }
+
+    return <Text style={styles.text}>{newText}</Text>;
+  };
+
+  const renderMissionText = () => missions.map( ( item, i ) => (
+    <View key={`${item}${i.toString()}`} style={styles.row}>
+      {missionNumbers[i] && missionNumbers[i].number === item.observations
+        ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
+        : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
+      <View style={styles.textContainer}>
+        {formatLongMissionText( i18n.t( item.mission ) )}
+        <Text style={[styles.text, styles.greenText]}>
+          {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
+        </Text>
+      </View>
+      {i === 0 && (
+        <View style={styles.circleStyle}>
+          {challenge.percentComplete === 100
+            ? <Image source={icons.completed} />
+            : <PercentCircle challenge={challenge} />}
+        </View>
+      )}
+    </View>
+  ) );
+
   return (
     <View style={styles.container}>
       <GreenText text="challenges.your_mission" />
-      {missions.length > 0 && missions.map( ( item, index ) => (
-        <View key={`${item}${index.toString()}`} style={styles.row}>
-          <View style={styles.leftItem}>
-            {missionNumbers[index] && missionNumbers[index].number === item.observations
-              ? <Image source={icons.checklist} style={styles.checklist} />
-              : <Text allowFontScaling={false} style={styles.bullets}>&#8226;</Text>}
-          </View>
-          <View>
-            <Text style={styles.text}>{i18n.t( item.mission )}</Text>
-            <Text style={styles.greenText}>
-              {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
-            </Text>
-          </View>
-        </View>
-      ) )}
-      <View style={styles.circleStyle}>
-        {challenge.percentComplete === 100
-          ? <Image source={icons.completed} />
-          : <PercentCircle challenge={challenge} />}
-      </View>
+      {missions.length > 0 && renderMissionText()}
     </View>
   );
 };

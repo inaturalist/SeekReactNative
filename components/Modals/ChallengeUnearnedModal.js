@@ -18,7 +18,7 @@ import { setChallengeIndex } from "../../utility/challengeHelpers";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
 import PercentCircle from "../UIComponents/PercentCircle";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +closeModal: Function,

@@ -22,7 +22,7 @@ import ChallengeCard from "./Challenges/ChallengeCard";
 import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";
 import Spacer from "../UIComponents/TopSpacer";
-import RNModal from "../UIComponents/Modal";
+import RNModal from "../UIComponents/Modals/Modal";
 import { useScrollToTop } from "../../utility/customHooks";
 import BottomSpacer from "../UIComponents/BottomSpacer";
 

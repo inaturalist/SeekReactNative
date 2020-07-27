@@ -11,9 +11,10 @@ import LinearGradient from "react-native-linear-gradient";
 
 import i18n from "../../i18n";
 import styles from "../../styles/modals/deleteModal";
+import { colors } from "../../styles/global";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
-import WhiteModal from "../UIComponents/WhiteModal";
+import WhiteModal from "../UIComponents/Modals/WhiteModal";
 import Button from "../UIComponents/Buttons/Button";
 
 type Props = {
@@ -27,9 +28,6 @@ const DeleteModal = ( {
   deleteObservation,
   itemToDelete
 }: Props ) => {
-  const gradientColorDark = "#404040";
-  const gradientColorLight = "#5e5e5e";
-
   const {
     id,
     photo,
@@ -41,7 +39,7 @@ const DeleteModal = ( {
   return (
     <WhiteModal noButton>
       <LinearGradient
-        colors={[gradientColorDark, gradientColorLight]}
+        colors={[colors.grayGradientDark, colors.grayGradientLight]}
         style={styles.flagHeader}
       >
         <View style={[styles.flagTextContainer, styles.row]}>
@@ -79,7 +77,7 @@ const DeleteModal = ( {
       <Button
         handlePress={() => closeModal()}
         text="delete.no"
-        color={gradientColorLight}
+        color={colors.grayGradientLight}
       />
       <View style={styles.marginLarge} />
     </WhiteModal>

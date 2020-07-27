@@ -7,6 +7,7 @@ import {
 } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
+import { colors } from "../../styles/global";
 
 type Props = {
   +handleTextChange: Function,
@@ -40,7 +41,7 @@ const InputField = ( {
       keyboardType={keyboardType}
       onChangeText={value => handleTextChange( value )}
       placeholder={placeholder}
-      placeholderTextColor="#828282"
+      placeholderTextColor={colors.placeholderGray}
       secureTextEntry={type === "password"}
       selectTextOnFocus={Platform.OS === "android"}
       style={styles.inputField}

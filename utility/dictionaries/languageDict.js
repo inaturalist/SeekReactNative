@@ -1,3 +1,4 @@
+// using names from https://github.com/inaturalist/iNaturalistAndroid/blob/master/iNaturalist/src/main/res/values/constants.xml
 const languages = {
   af: "Afrikaans",
   ar: "عربى",
@@ -14,6 +15,7 @@ const languages = {
   ja: "日本語",
   nl: "Nederlands",
   nb: "Norsk",
+  ro: "Română",
   ru: "Русский",
   sv: "Svenska",
   tr: "Türkçe",

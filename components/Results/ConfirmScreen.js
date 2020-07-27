@@ -5,6 +5,7 @@ import { View, Image } from "react-native";
 import { useSafeArea } from "react-native-safe-area-context";
 
 import styles from "../../styles/results/confirm";
+import { colors } from "../../styles/global";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 import GreenText from "../UIComponents/GreenText";
@@ -47,7 +48,7 @@ const ConfirmScreen = ( {
       </View>
       <View style={styles.footer}>
         <GreenButton
-          color={clicked ? "#38976d33" : null}
+          color={clicked && colors.seekTransparent}
           handlePress={() => updateClicked()}
           text="confirm.button"
         />

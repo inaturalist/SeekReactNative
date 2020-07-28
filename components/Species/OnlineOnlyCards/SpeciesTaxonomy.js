@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 
 import { capitalizeNames, getTaxonCommonName } from "../../../utility/helpers";
@@ -13,37 +13,48 @@ type Props = {
 };
 
 const SpeciesTaxonomy = ( { ancestors, predictions }: Props ) => {
+  const [taxonomyList, setTaxonomyList] = useState( ancestors );
+
   let marginLeft = 0;
 
-  const rankNames = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
-  let ranks = [70, 60, 50, 40, 30, 20, 10];
+  useEffect( () => {
+    const rankNames = ["kingdom", "phylum", "class", "order", "family", "genus", "species"];
+    let ranks = [70, 60, 50, 40, 30, 20, 10];
 
-  const createAncestors = () => {
-    const predictionAncestors = [];
+    const createAncestors = () => {
+      const predictionAncestors = [];
 
-    predictions.forEach( ( ancestor, i ) => {
-      if ( !ranks.includes( ancestor.rank ) ) {
-        return;
-      }
+      predictions.forEach( ( ancestor, i ) => {
+        if ( !ranks.includes( ancestor.rank ) ) {
+          return;
+        }
 
-      // getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
-      //   console.log( commonName, "common name" );
-        const obj = {
-          rank: rankNames[i - 1],
-          name: ancestor.name,
-          preferred_common_name: null
-        };
-        predictionAncestors.push( obj );
+        predictionAncestors.push(
+          getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+            const taxon = {
+              rank: rankNames[i - 1],
+              name: ancestor.name,
+              preferred_common_name: commonName
+            };
+
+            return taxon;
+          } )
+        );
       } );
-    // } );
-    return predictionAncestors;
-  };
 
-  console.log( createAncestors(), "ancestors" );
+      Promise.all( predictionAncestors ).then( ( result ) => {
+        setTaxonomyList( result );
+      } );
+    };
+
+    if ( predictions && predictions.length > 0 ) {
+      createAncestors();
+    }
+  }, [predictions] );
 
   return (
     <SpeciesDetailCard text="species_detail.taxonomy" hide={ancestors.length === 0}>
-      {ancestors.map( ( ancestor, index ) => {
+      {taxonomyList.map( ( ancestor, index ) => {
         marginLeft += 15;
 
         return (

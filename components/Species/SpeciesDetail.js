@@ -126,6 +126,7 @@ const SpeciesDetail = () => {
   };
 
   const createTaxonomyList = useCallback( ( ancestors, scientificName ) => {
+    console.log( ancestors, "ancestors in details" );
     const taxonomyList = [];
     const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
     ancestors.forEach( ( ancestor ) => {

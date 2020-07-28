@@ -26,16 +26,16 @@ const SpeciesTaxonomy = ( { ancestors, predictions }: Props ) => {
         return;
       }
 
-      getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
-        console.log( commonName, "common name" );
+      // getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+      //   console.log( commonName, "common name" );
         const obj = {
           rank: rankNames[i - 1],
           name: ancestor.name,
-          preferred_common_name: commonName || null
+          preferred_common_name: null
         };
         predictionAncestors.push( obj );
       } );
-    } );
+    // } );
     return predictionAncestors;
   };
 

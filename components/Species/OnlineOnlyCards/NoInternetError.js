@@ -26,14 +26,16 @@ type Props = {
   +details: Object,
   +id: ?number,
   +seenTaxa: ?Object,
-  +fetchiNatData: Function
+  +fetchiNatData: Function,
+  +predictions: Array
 }
 
 const NoInternetError = ( {
   id,
   seenTaxa,
   details,
-  fetchiNatData
+  fetchiNatData,
+  predictions
 }: Props ) => {
   const {
     stats,
@@ -129,7 +131,7 @@ const NoInternetError = ( {
       {id !== 43584 ? (
         <>
           {region && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
-          {ancestors && <SpeciesTaxonomy ancestors={ancestors} />}
+          {ancestors && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} />}
           {region && <INatObs id={id} timesSeen={timesSeen} region={region} />}
           <SpeciesChart id={id} />
           <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />

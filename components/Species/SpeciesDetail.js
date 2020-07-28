@@ -7,7 +7,7 @@ import React, {
   useCallback
 } from "react";
 import { ScrollView, Platform } from "react-native";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation, useIsFocused, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -27,6 +27,7 @@ const SpeciesDetail = () => {
   const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
+  const { params } = useRoute();
   const isFocused = useIsFocused();
   const commonName = useCommonName( id, isFocused );
 
@@ -124,7 +125,7 @@ const SpeciesDetail = () => {
     } );
   };
 
-  const createTaxonomyList = ( ancestors, scientificName ) => {
+  const createTaxonomyList = useCallback( ( ancestors, scientificName ) => {
     const taxonomyList = [];
     const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
     ancestors.forEach( ( ancestor ) => {
@@ -140,7 +141,7 @@ const SpeciesDetail = () => {
     } );
 
     return taxonomyList;
-  };
+  }, [commonName] );
 
   const fetchTaxonDetails = useCallback( () => {
     if ( id === null ) {
@@ -173,7 +174,7 @@ const SpeciesDetail = () => {
         }
       } );
     } ).catch( () => checkInternetConnection() );
-  }, [id] );
+  }, [id, createTaxonomyList] );
 
   const fetchiNatData = useCallback( () => {
     setupScreen();
@@ -236,6 +237,7 @@ const SpeciesDetail = () => {
             fetchiNatData={fetchiNatData}
             id={id}
             seenTaxa={seenTaxa}
+            predictions={( params.image && params.image.predictions ) ? params.image.predictions : null}
           />
         )}
     </ScrollView>

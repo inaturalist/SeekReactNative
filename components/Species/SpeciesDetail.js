@@ -7,10 +7,11 @@ import React, {
   useCallback
 } from "react";
 import { ScrollView, Platform } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import { useSafeArea } from "react-native-safe-area-context";
+import { useCommonName } from "../../utility/customHooks";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
@@ -26,6 +27,8 @@ const SpeciesDetail = () => {
   const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
+  const commonName = useCommonName( id, isFocused );
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -121,7 +124,7 @@ const SpeciesDetail = () => {
     } );
   };
 
-  const createTaxonomyList = ( ancestors, scientificName, commonName ) => {
+  const createTaxonomyList = ( ancestors, scientificName ) => {
     const taxonomyList = [];
     const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
     ancestors.forEach( ( ancestor ) => {
@@ -148,10 +151,9 @@ const SpeciesDetail = () => {
 
     inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
       const taxa = response.results[0];
-      const commonName = taxa.preferred_common_name;
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
-      const ancestors = createTaxonomyList( taxa.ancestors, scientificName, commonName );
+      const ancestors = createTaxonomyList( taxa.ancestors, scientificName );
 
       dispatch( {
         type: "SET_TAXON_DETAILS",

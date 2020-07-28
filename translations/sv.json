@@ -72,7 +72,10 @@
     "observations": "Observationer sparade på enheten",
     "observations_1": "Dina observationer i Seek lagras på din enhet och säkerhetskopieras INTE online.",
     "observations_2": "Raderar du appen kommer alla dina observationer som gjorts i Seek att raderas.",
-    "observations_3": "Seek synkroniserar inte dina observationer med andra enheter."
+    "observations_3": "Seek synkroniserar inte dina observationer med andra enheter.",
+    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Community Guidelines",
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
   },
   "inat_login": {
     "log_in_with_inat": "Logga in med ditt iNaturalist-konto",
@@ -203,7 +206,8 @@
     "photographer_august": "Foto © Ben Macdonald, Netflix / Silverback Films",
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
-    "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films"
+    "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
+    "species_observed": "Species Observed"
   },
   "inat_stats": {
     "global_observations": "Globala observationer",

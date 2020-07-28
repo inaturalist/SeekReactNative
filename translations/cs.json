@@ -72,7 +72,10 @@
     "observations": "Pozorování uložena v zařízení",
     "observations_1": "Vaše pozorování v Seeku jsou uložena ve vašem zařízení a NEJSOU zálohována online.",
     "observations_2": "Smazáním aplikace smažete také všechna vaše pozorování provedená v Seek aplikaci.",
-    "observations_3": "Seek nesynchronizuje vaše pozorování s jinými zařízeními."
+    "observations_3": "Seek nesynchronizuje vaše pozorování s jinými zařízeními.",
+    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Community Guidelines",
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
   },
   "inat_login": {
     "log_in_with_inat": "Přihlaste se pomocí svého účtu iNaturalist",
@@ -203,7 +206,8 @@
     "photographer_august": "Fotografie © Ben Macdonald, Netflix / Silverback Films",
     "photographer_september": "Fotografie © Netflix / Silverback Films",
     "photographer_october": "Fotografie © Netflix / Silverback Films",
-    "photographer_december": "Fotografie © Sophie Lanfear, Netflix / Silverback Films"
+    "photographer_december": "Fotografie © Sophie Lanfear, Netflix / Silverback Films",
+    "species_observed": "Species Observed"
   },
   "inat_stats": {
     "global_observations": "Globální pozorování",
@@ -485,7 +489,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary a Yaron Budowski. Zvláštní poděkování Visipedii a komunitě iNaturalist.",
     "version": "Verze",
     "help": "Potřebujete-li pomoci se Seekem, kontaktujte nás na emailové adrese help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Chcete-li se připojit k týmu překladatelů, navštivte prosím https://crowdin.com/project/seek"
   },
   "posting": {

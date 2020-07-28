@@ -72,7 +72,10 @@
     "observations": "תצפיות ששמורות על המכשיר",
     "observations_1": "התצפיות שלכם שמורות על המכשיר שלכם, ולא מגובות בענן.",
     "observations_2": "מחיקת האפליקקציהתמחק את כל התצפיות שעשיתם עם Seek.",
-    "observations_3": "Seek לא מסנכרנת נידע בין מכשירים שונים."
+    "observations_3": "Seek לא מסנכרנת נידע בין מכשירים שונים.",
+    "agree_to_terms": "אני מסכים לתנאי השימוש  <terms>{{terms}}</terms> והפרטיות <privacy>{{privacy}}</privacy>, וקראתי את ההנחיות  <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "כליים לקהילה",
+    "store_data": "אני נותן את הסכמתי לאפשר ל iNaturalist לשמור ולעבד פרטי מידע אישי אודותיי על מנת לנהל את חשבוני"
   },
   "inat_login": {
     "log_in_with_inat": "התחברו עם חשבון ה iNaturalist",
@@ -203,7 +206,8 @@
     "photographer_august": "תמונה © Ben Macdonald, Netflix / Silverback Films ",
     "photographer_september": "תמונה © Netflix / Silverback Films",
     "photographer_october": "תמונה © Netflix / Silverback Films",
-    "photographer_december": "תמונה © Sophie Lanfear, Netflix / Silverback Films "
+    "photographer_december": "תמונה © Sophie Lanfear, Netflix / Silverback Films ",
+    "species_observed": "מינים שנצפו"
   },
   "inat_stats": {
     "global_observations": "תצפיות עולמיות",

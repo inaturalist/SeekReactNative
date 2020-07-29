@@ -73,9 +73,9 @@
     "observations_1": "Observațiile tale din Seek sunt stocate pe aparatul tău și NU sunt salvate online.",
     "observations_2": "Ștergerea aplicației va șterge toate observațiile făcute în Seek.",
     "observations_3": "Seek nu vă sincronizează observațiile cu alte aparate.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Sunt de acord cu <terms>{{terms}}</terms> și <privacy>{{privacy}}</privacy>, și am revizuit <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Orientările Comunității",
+    "store_data": "Sunt de acord să permit iNaturalist să stocheze și să prelucreze informații personale limitate despre mine pentru a-mi gestiona contul."
   },
   "inat_login": {
     "log_in_with_inat": "Conectează-te cu contul tău iNaturalist",
@@ -207,7 +207,7 @@
     "photographer_september": "Fotografia © Netflix / Silverback Films",
     "photographer_october": "Fotografia © Netflix / Silverback Films",
     "photographer_december": "Fotografia © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Specii Observate"
   },
   "inat_stats": {
     "global_observations": "Observații Globale",

@@ -73,9 +73,9 @@
     "observations_1": "Your observations in Seek are stored on your device, and are NOT backed up online.",
     "observations_2": "Deleting the app will delete all your observations made in Seek.",
     "observations_3": "Seek does not sync your observations to other devices.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Estoy de acuerdo con los <terms>{{terms}}</terms> y <privacy>{{privacy}}</privacy>, y he revisado el <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Lineamientos de la comunidad",
+    "store_data": "Permito que iNaturalist almacene y procese información personal limitada para gestionar mi cuenta."
   },
   "inat_login": {
     "log_in_with_inat": "Log in with your iNaturalist account",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Especies\nobservadas"
   },
   "inat_stats": {
     "global_observations": "Observaciones globales",

@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <full-backup-content>
-    <exclude domain="sharedpref" path="."/>
-    <exclude domain="file" path="." />
-    <!-- <exclude domain="file" path="taxonomy.csv" />
+    <!-- <exclude domain="sharedpref" path="WebViewChromiumPrefs.xml" />
+    <exclude domain="sharedpref" path="google_bug_154855417.xml" />
+    <exclude domain="sharedpref" path="react-native-device-info.xml" /> -->
+    <!-- <include domain="file" path="db.realm" /> -->
+    <include domain="database" path="db.realm" />
+    <!-- <exclude domain="file" path="db.realm.lock" />
+    <exclude domain="file" path="db.realm.management" />
+    <exclude domain="file" path="db.realm.note" />
+    <exclude domain="file" path="taxonomy.csv" />
     <exclude domain="file" path="optimized-model.tflite" />
     <exclude domain="file" path="ReactNativeDevBundle.js" />
-    <exclude domain="file" path="ZoomTables.data.v1" /> -->
-    <exclude domain="database" path="." />
+    <exclude domain="file" path="ReactNativeDevBundle.js.tmp" />
+    <exclude domain="file" path="ZoomTables.data.v1" />
+    <exclude domain="database" path="RKStorage" />
+    <exclude domain="database" path="RKStorage-journal" />
     <exclude domain="external" path="." /> 
-    <exclude domain="root" path="." /> 
+    <exclude domain="root" path="." />  -->
+    <exclude domain="external" path="." /> 
+    <exclude domain="root" path="." />
+    <exclude domain="file" path="." /> 
+    <exclude domain="root" path="." />
 </full-backup-content>

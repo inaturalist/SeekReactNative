@@ -2,18 +2,19 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 
-import { capitalizeNames, getTaxonCommonName } from "../../../utility/helpers";
-import styles from "../../../styles/species/speciesTaxonomy";
-import icons from "../../../assets/icons";
-import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
+import { capitalizeNames, getTaxonCommonName } from "../../utility/helpers";
+import styles from "../../styles/species/speciesTaxonomy";
+import icons from "../../assets/icons";
+import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
 
 type Props = {
-  +ancestors: Array<Object>,
-  +predictions: Array<Object>
+  +ancestors: ?Array<Object>,
+  +predictions: ?Array<Object>,
+  +commonName: ?string
 };
 
-const SpeciesTaxonomy = ( { ancestors, predictions }: Props ) => {
-  const [taxonomyList, setTaxonomyList] = useState( ancestors );
+const SpeciesTaxonomy = ( { ancestors, predictions, commonName }: Props ) => {
+  const [taxonomyList, setTaxonomyList] = useState( [] );
 
   let marginLeft = 0;
 
@@ -30,11 +31,13 @@ const SpeciesTaxonomy = ( { ancestors, predictions }: Props ) => {
         }
 
         predictionAncestors.push(
-          getTaxonCommonName( ancestor.taxon_id ).then( ( commonName ) => {
+          getTaxonCommonName( ancestor.taxon_id ).then( ( name ) => {
+            const rankIndex = ranks.indexOf( ancestor.rank );
+
             const taxon = {
-              rank: rankNames[i - 1],
+              rank: rankNames[rankIndex],
               name: ancestor.name,
-              preferred_common_name: commonName
+              preferred_common_name: name
             };
 
             return taxon;
@@ -52,9 +55,17 @@ const SpeciesTaxonomy = ( { ancestors, predictions }: Props ) => {
     }
   }, [predictions] );
 
+  useEffect( () => {
+    if ( ( ancestors && ancestors.length > 0 ) && commonName ) {
+      const species = ancestors.filter( ( a ) => a.rank === "species" );
+      species[0].preferred_common_name = commonName || null;
+      setTaxonomyList( ancestors );
+    }
+  }, [ancestors, commonName] );
+
   return (
-    <SpeciesDetailCard text="species_detail.taxonomy" hide={ancestors.length === 0}>
-      {taxonomyList.map( ( ancestor, index ) => {
+    <SpeciesDetailCard text="species_detail.taxonomy" hide={taxonomyList.length === 0}>
+      {taxonomyList.length > 0 && taxonomyList.map( ( ancestor, index ) => {
         marginLeft += 15;
 
         return (

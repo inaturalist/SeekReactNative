@@ -4,20 +4,21 @@ import { View, Text } from "react-native";
 import inatjs from "inaturalistjs";
 import { useIsFocused } from "@react-navigation/native";
 
-import SpeciesStats from "./SpeciesStats";
-import SimilarSpecies from "./SimilarSpecies";
-import SpeciesChart from "./SpeciesChart";
-import SpeciesMap from "./SpeciesMap";
+import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
+import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
+import SpeciesChart from "./OnlineOnlyCards/SpeciesChart";
+import SpeciesMap from "./OnlineOnlyCards/SpeciesMap";
 import SpeciesTaxonomy from "./SpeciesTaxonomy";
-import INatObs from "./INatObs";
-import Padding from "../../UIComponents/Padding";
-import styles from "../../../styles/species/species";
-import i18n from "../../../i18n";
-import About from "./About";
-import SeenDate from "./SeenDate";
-import { formatShortMonthDayYear } from "../../../utility/dateHelpers";
-import { useTruncatedUserCoords, useLocationPermission } from "../../../utility/customHooks";
-import createUserAgent from "../../../utility/userAgent";
+import INatObs from "./OnlineOnlyCards/INatObs";
+import Padding from "../UIComponents/Padding";
+import styles from "../../styles/species/species";
+import i18n from "../../i18n";
+import About from "./OnlineOnlyCards/About";
+import SeenDate from "./OnlineOnlyCards/SeenDate";
+import { formatShortMonthDayYear } from "../../utility/dateHelpers";
+import { useTruncatedUserCoords, useLocationPermission, useCommonName } from "../../utility/customHooks";
+import createUserAgent from "../../utility/userAgent";
+import SpeciesError from "./SpeciesError";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -27,15 +28,21 @@ type Props = {
   +id: ?number,
   +seenTaxa: ?Object,
   +fetchiNatData: Function,
-  +predictions: Array
+  +predictions: Array,
+  +checkForInternet: Function,
+  +error: ?string,
+  +taxon: Object
 }
 
-const NoInternetError = ( {
+const SpeciesContainer = ( {
   id,
   seenTaxa,
   details,
   fetchiNatData,
-  predictions
+  predictions,
+  checkForInternet,
+  error,
+  taxon
 }: Props ) => {
   const {
     stats,
@@ -48,6 +55,7 @@ const NoInternetError = ( {
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission();
   const coords = useTruncatedUserCoords( granted );
+  const commonName = useCommonName( id, isFocused );
   const [region, setRegion] = useState( {} );
   const [greenButtons, setGreenButtons] = useState( {} );
 
@@ -122,28 +130,45 @@ const NoInternetError = ( {
     }
   }, [stats, greenButtons] );
 
-  return (
-    <View style={styles.background}>
+  const renderOnlineOnlyCardsTop = () => (
+    <>
       {showGreenButtons && <SpeciesStats stats={greenButtons} />}
-      {seenDate && <SeenDate showGreenButtons={showGreenButtons} seenDate={seenDate} />}
+      {( !error && seenDate ) && <SeenDate showGreenButtons={showGreenButtons} seenDate={seenDate} />}
       {/* about summary and url do not show up for locales like romanian */}
       {( about || wikiUrl ) && <About about={about} wikiUrl={wikiUrl} id={id} />}
-      {id !== 43584 ? (
+    </>
+  );
+
+  const renderHumanCard = () => (
+    <View style={styles.textContainer}>
+      <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
+      <Padding />
+    </View>
+  );
+
+  const renderSpeciesCards = () => (
+    <>
+      {( region && !error ) && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
+      {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} commonName={commonName} />}
+      {( predictions && predictions.length > 0 && error ) && <Padding />}
+      {!error && (
         <>
-          {region && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
-          {ancestors && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} />}
           {region && <INatObs id={id} timesSeen={timesSeen} region={region} />}
           <SpeciesChart id={id} />
           <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />
         </>
-      ) : (
-        <View style={styles.textContainer}>
-          <Text style={styles.humanText}>{i18n.t( "species_detail.you" )}</Text>
-          <Padding />
-        </View>
       )}
+    </>
+  );
+
+  return (
+    <View style={styles.background}>
+      {error
+        ? <SpeciesError seenTaxa={seenTaxa} checkForInternet={checkForInternet} />
+        : renderOnlineOnlyCardsTop()}
+      {id !== 43584 ? renderSpeciesCards() : renderHumanCard()}
     </View>
   );
 };
 
-export default NoInternetError;
+export default SpeciesContainer;

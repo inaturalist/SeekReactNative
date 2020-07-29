@@ -23,7 +23,7 @@ import BackArrow from "./UIComponents/Buttons/BackArrow";
 import GreenText from "./UIComponents/GreenText";
 import createUserAgent from "../utility/userAgent";
 import HorizontalScroll from "./UIComponents/HorizontalScroll";
-import ScrollNoHeader from "./UIComponents/ScrollNoHeader";
+import ScrollNoHeader from "./UIComponents/Screens/ScrollNoHeader";
 
 const INatStatsScreen = () => {
   const [observations, setObservations] = useState( null );

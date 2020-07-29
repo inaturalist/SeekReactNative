@@ -18,6 +18,7 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="true"
+      android:fullBackupContent="@xml/my_backup_rules"
       android:theme="@style/AppTheme"
       android:largeHeap="true">
       <activity

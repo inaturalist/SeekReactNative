@@ -3,36 +3,20 @@
 import React, {
   useState,
   useEffect,
-  useRef,
   useCallback
 } from "react";
-import {
-  View,
-  ScrollView,
-  StatusBar,
-  BackHandler
-} from "react-native";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { BackHandler } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 
-import styles from "../../styles/home/home";
 import SpeciesNearby from "./SpeciesNearby/SpeciesNearby";
 import GetStarted from "../Modals/GetStarted";
 import ChallengeCard from "./Challenges/ChallengeCard";
-import Padding from "../UIComponents/Padding";
 import { checkIfCardShown } from "../../utility/helpers";
-import Spacer from "../UIComponents/TopSpacer";
 import RNModal from "../UIComponents/Modals/Modal";
-import { useScrollToTop } from "../../utility/customHooks";
-import BottomSpacer from "../UIComponents/BottomSpacer";
+import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 
 const HomeScreen = () => {
-  const insets = useSafeArea();
-  const navigation = useNavigation();
-  const scrollView = useRef( null );
   const [showModal, setModal] = useState( false );
-
-  useScrollToTop( scrollView, navigation ); // custom, reusable hook
 
   const openModal = () => setModal( true );
   const closeModal = () => setModal( false );
@@ -60,21 +44,15 @@ const HomeScreen = () => {
   );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <StatusBar barStyle="light-content" />
+    <ScrollNoHeader color="green">
       <RNModal
         showModal={showModal}
         closeModal={closeModal}
         modal={<GetStarted closeModal={closeModal} />}
       />
-      <ScrollView ref={scrollView}>
-        <Spacer />
         <SpeciesNearby />
         <ChallengeCard />
-        <Padding />
-        <BottomSpacer />
-      </ScrollView>
-    </View>
+    </ScrollNoHeader>
   );
 };
 

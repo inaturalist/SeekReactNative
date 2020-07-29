@@ -73,9 +73,9 @@
     "observations_1": "Vaše pozorování v Seeku jsou uložena ve vašem zařízení a NEJSOU zálohována online.",
     "observations_2": "Smazáním aplikace smažete také všechna vaše pozorování provedená v Seek aplikaci.",
     "observations_3": "Seek nesynchronizuje vaše pozorování s jinými zařízeními.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Souhlasím s <terms>{{terms}}</terms> a <privacy>{{privacy}}</privacy> a četl/a jsem <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Pravidla komunity",
+    "store_data": "Souhlasím s tím, že za účelem správy mého účtu umožním iNaturalist ukládat a zpracovávat v omezené míře mé osobní údaje."
   },
   "inat_login": {
     "log_in_with_inat": "Přihlaste se pomocí svého účtu iNaturalist",
@@ -207,7 +207,7 @@
     "photographer_september": "Fotografie © Netflix / Silverback Films",
     "photographer_october": "Fotografie © Netflix / Silverback Films",
     "photographer_december": "Fotografie © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Pozorované druhy"
   },
   "inat_stats": {
     "global_observations": "Globální pozorování",

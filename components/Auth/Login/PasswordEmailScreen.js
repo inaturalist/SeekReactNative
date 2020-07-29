@@ -6,7 +6,7 @@ import { View, Text } from "react-native";
 import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 type Props = {
   +navigation: any

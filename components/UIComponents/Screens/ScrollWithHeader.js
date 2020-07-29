@@ -11,13 +11,13 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
 
-import styles from "../../styles/uiComponents/scrollWithHeader";
-import { useScrollToTop } from "../../utility/customHooks";
-import BottomSpacer from "./BottomSpacer";
-import GreenHeader from "./GreenHeader";
-import Padding from "./Padding";
-import LoadingWheel from "./LoadingWheel";
-import { colors } from "../../styles/global";
+import styles from "../../../styles/uiComponents/scrollWithHeader";
+import { useScrollToTop } from "../../../utility/customHooks";
+import BottomSpacer from "../BottomSpacer";
+import GreenHeader from "../GreenHeader";
+import Padding from "../Padding";
+import LoadingWheel from "../LoadingWheel";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +children: any,

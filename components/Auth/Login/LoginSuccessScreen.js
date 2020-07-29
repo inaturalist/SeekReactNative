@@ -8,7 +8,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/auth/login";
 import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 
 const LoginSuccessScreen = () => {

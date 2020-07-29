@@ -12,7 +12,7 @@ import GreenText from "../../UIComponents/GreenText";
 import InputField from "../../UIComponents/InputField";
 import { checkIsEmailValid } from "../../../utility/loginHelpers";
 import { createJwtToken } from "../../../utility/helpers";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 type Props = {
   +navigation: any

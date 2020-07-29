@@ -4,8 +4,8 @@ import React from "react";
 import { View, StatusBar } from "react-native";
 import { useSafeArea } from "react-native-safe-area-context";
 
-import styles from "../../styles/uiComponents/scrollWithHeader";
-import GreenHeader from "./GreenHeader";
+import styles from "../../../styles/uiComponents/scrollWithHeader";
+import GreenHeader from "../GreenHeader";
 
 type Props = {
   +children: any,

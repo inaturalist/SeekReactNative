@@ -142,7 +142,6 @@ const MatchScreen = () => {
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
         params={params}
-        // speciesSeenImage={speciesSeenImage}
         speciesText={speciesText}
         navPath={navPath}
         setNavigationPath={setNavigationPath}

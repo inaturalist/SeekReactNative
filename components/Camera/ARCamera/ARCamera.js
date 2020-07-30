@@ -111,6 +111,16 @@ const ARCamera = () => {
       } );
   }, [navigateToResults, updateError] );
 
+  const filterPredictionsByIconicTaxa = ( prediction ) => {
+    const iconicTaxa = 3;
+    if ( Platform.OS === "android" ) {
+      if ( prediction.ancestor_ids.includes( iconicTaxa ) || prediction.taxon_id === iconicTaxa ) {
+        return true;
+      }
+      return false;
+    }
+  };
+
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
 
@@ -132,7 +142,10 @@ const ARCamera = () => {
         if ( predictions[rank] ) {
           predictionSet = true;
           const prediction = predictions[rank][0];
-          dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+
+          // if ( filterPredictionsByIconicTaxa( prediction ) ) {
+            dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
+          // }
         }
         if ( !predictionSet ) {
           resetPredictions();

@@ -28,7 +28,11 @@ const ScrollNoHeader = ( { children, color }: Props ) => {
   useScrollToTop( scrollView, navigation );
 
   return (
-    <View style={[styles.container, color === "green" ? styles.green : styles.containerWhite, { paddingTop: insets.top }]}>
+    <View style={[
+      styles.container,
+      color === "green" ? styles.green : styles.containerWhite,
+      { paddingTop: insets.top }]
+    }>
       <StatusBar barStyle="dark-content" />
       <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
         {children}

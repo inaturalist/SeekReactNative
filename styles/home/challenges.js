@@ -7,13 +7,13 @@ export default StyleSheet.create( {
     flex: 1
   },
   container: {
-    backgroundColor: colors.white,
-    marginTop: 5
+    backgroundColor: colors.white
   },
   header: {
     paddingBottom: Platform.OS === "ios" ? 19 : 21,
     paddingLeft: 22,
-    paddingTop: Platform.OS === "ios" ? 23 : 21
+    paddingRight: 22,
+    paddingTop: Platform.OS === "ios" ? 23 : 0
   },
   marginMedium: {
     marginTop: 28

@@ -88,11 +88,14 @@ const SpeciesNearbyContainer = ( {
   }, [taxa] );
 
   return (
-    <View style={styles.speciesNearbyContainer}>
-      {loading
-        ? <LoadingWheel color={colors.black} />
-        : <SpeciesNearbyList taxa={taxa} />}
-    </View>
+    <>
+      <View style={styles.speciesNearbyContainer}>
+        {loading
+          ? <LoadingWheel color={colors.black} />
+          : <SpeciesNearbyList taxa={taxa} />}
+      </View>
+      <View style={styles.speciesNearbyPadding} />
+    </>
   );
 };
 

@@ -56,6 +56,10 @@ export default StyleSheet.create( {
     backgroundColor: colors.speciesNearbyGreen,
     height: 223
   },
+  speciesNearbyPadding: {
+    backgroundColor: colors.seekForestGreen,
+    paddingBottom: 20
+  },
   whiteButton: {
     backgroundColor: colors.white,
     borderRadius: 6,

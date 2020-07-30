@@ -60,7 +60,7 @@
     "email": "Email",
     "username": "brugernavn",
     "password": "adgangskode",
-    "release_photos": "Ja, licensér mine fotos, så forskere kan benytte mine data!",
+    "release_photos": "Ja, licensér mine fotos og observationer, så forskere kan benytte mine data (anbefalet)!",
     "create_account": "Opret min konto",
     "thanks": "Tak!",
     "parent_instructions": "Vi har sent en email til dine forældre eller værge med instruktioner.",
@@ -461,7 +461,7 @@
     "threatened_about": "Denne art er i overhængende fare for at blev udrydningstruet i fremtiden.",
     "introduced_about": "Denne art blev indført til dette område af mennesker og forekommer ikke naturligt her.",
     "got_it": "Forstået!",
-    "wikipedia": "{{about}} \n\nKilde: Wikipedia",
+    "wikipedia": "Kilde: Wikipedia",
     "wikipedia_1": "Wikipedia",
     "similar": "Lignende arter",
     "similar_about": "Organismer som ofte forveksles med denne art.",
@@ -489,7 +489,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary og Yaron Budowski. En særlig tak til Visipedia og iNaturalist-fællesskabet.",
     "version": "Version",
     "help": "For hjælp med Seek, send venligst en email til help+seek@inaturalist.org.",
-    "translations": "Vi er taknemmelige for hjælpen med oversættelse fra crowdin.com-fællesskabet, specielt: Carnifex, Daniele Seglie, Eduardo Martínez, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Sakatur, og Wouter Koch, Yulia Lygina.",
+    "translations": "Vi er taknemmelige for hjælpen med oversættelse fra crowdin.com-fællesskabet, specielt: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch og Yulia Lygina.",
     "join_crowdin": "Bliv en del af Seek-oversættelsesholdet ved at besøge https://crowdin.com/project/seek"
   },
   "posting": {

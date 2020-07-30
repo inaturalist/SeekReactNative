@@ -75,7 +75,7 @@
     "observations_3": "Seek nie synchronizuje Twoich obserwacji z innymi urządzeniami.",
     "agree_to_terms": "Wyrażam zgodę na <terms>{{terms}}</terms> oraz <privacy>{{privacy}}</privacy> oraz są mi znane <guidelines>{{guidelines}}</guidelines>.",
     "guidelines": "Wytyczne społeczności",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "store_data": "Wyrażam zgodę na to, aby iNaturalist przechowywał i przetwarzał o mnie ograniczone informacje osobiste w celu zarządzania moim kontem."
   },
   "inat_login": {
     "log_in_with_inat": "Zaloguj się do swojego konta iNaturalist",
@@ -207,7 +207,7 @@
     "photographer_september": "Zdjęcie © Netflix / Silverback Films",
     "photographer_october": "Zdjęcie © Netflix / Silverback Films",
     "photographer_december": "Zdjęcie © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Gatunki zaobserwowane"
   },
   "inat_stats": {
     "global_observations": "Globalne obserwacje",
@@ -215,7 +215,7 @@
     "seek_data": "Seek pobiera dane z iNaturalist.",
     "about_inat": "iNaturalist is the largest community for naturalists in the world. Users upload photos of organisms across the globe, and our community works together to identify them. These observations are what we use to train our identification model, display range maps, and generate nearby observations in Seek.",
     "contribute": "Interested in contributing to citizen science with a global community of naturalists?",
-    "join": "Log in with iNaturalist",
+    "join": "Zaloguj się przez iNaturalist",
     "by": "by",
     "thanks": "Społeczność iNaturalist składa się z osób takich jak Ty! Dołącz do nich i dodawaj swoje obserwacje na inaturalist.org!",
     "logged_in": "Zalogowano do Seek używając konta iNaturalist. Dziękujemy Ci za bycie częścią tej społeczności!",
@@ -452,10 +452,10 @@
     "seen_on": "Zaobserwowano w dniu {{date}}",
     "endangered": "Zagrożony",
     "endemic": "Endemiczny",
-    "native": "Native",
-    "threatened": "Threatened",
-    "introduced": "Introduced",
-    "endangered_about": "This species is in danger of going extinct throughout all or a significant portion of its range.",
+    "native": "Natywny",
+    "threatened": "Zagrożony",
+    "introduced": "Introdukowany",
+    "endangered_about": "Gatunek ten jest zagrożony wyginięciem w całym lub znacznej części jego zasięgu występowania.",
     "endemic_about": "This species naturally occurs in this area and isn’t found anywhere else.",
     "native_about": "This species naturally occurs in this area and was not brought here by humans.",
     "threatened_about": "This species is likely to become in danger of extinction in the future.",
@@ -481,16 +481,16 @@
     "internet_error": "We need the internet to generate the species detail screen. Tap to try again."
   },
   "about": {
-    "header": "About",
+    "header": "O aplikacji",
     "seek": "Seek został stworzony przez zespół iNaturalist.",
     "joint_initiative": "iNaturalist is a joint initiative of the California Academy of Sciences and the National Geographic Society.",
     "original": "Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.",
-    "designed_by": "Designed & developed by the iNaturalist team:",
-    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, and Yaron Budowski. Special thanks to Visipedia and the iNaturalist community.",
+    "designed_by": "Zaprojektowane i rozwijane przez zespół iNaturalist:",
+    "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary i Yaron Budowski. Specjalne podziękowania dla Visipedii i społeczności iNaturalistów.",
     "version": "Wersja",
-    "help": "For help with Seek, please email help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
-    "join_crowdin": "To join the Seek translation team, please visit https://crowdin.com/project/seek"
+    "help": "Aby uzyskać pomoc dotyczącą aplikacji Seek, napisz na adres help+seek@inaturalist.org.",
+    "translations": "Jesteśmy wdzięczni za pomoc w tłumaczeniach ze strony społeczności  crowdin.com, zwłaszcza: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martiţnez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, i Yulia Lygina.",
+    "join_crowdin": "Aby dołączyć do zespołu tłumaczy aplikacji Seek, odwiedź https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "Publikuj na iNaturalist",
@@ -512,9 +512,9 @@
     "posting": "Trwa publikowanie twojej obserwacji",
     "posting_success": "Wysłano do iNaturalist!",
     "posting_failure": "Nie udało się wysłać do iNaturalist",
-    "error_photo_upload": "Your observation was posted to iNaturalist, but your photo unfortunately could not be uploaded.\n\nTry logging into the iNaturalist web or mobile app to view your observation and add a photo.",
-    "error_observation": "Your observation was not posted to iNaturalist. Try checking your internet connection and try again.",
-    "error_token": "We weren't able to make an authenticated connection to the iNaturalist server. Please try again later.",
+    "error_photo_upload": "Twoja obserwacja została wysłana do iNaturalist, ale niestety nie można przesłać zdjęcia.\n\nSpróbuj zalogować się do iNaturalist poprzez stronę lub aplikację mobilną, znaleźć swoją obserwację i dodać zdjęcie.",
+    "error_observation": "Twoja obserwacja nie została przesłana do iNaturalist. Sprawdź swoje połączenie internetowe i spróbuj ponownie.",
+    "error_token": "Nie byliśmy w stanie nawiązać uwierzytelnionego połączenia z serwerem iNaturalist. Spróbuj ponownie później.",
     "ok": "OK",
     "wait": "To może zająć minutę",
     "look_up": "Szukaj gatunków według nazwy"
@@ -531,23 +531,23 @@
     "closed_header": "Zamknięte: ",
     "yes_header": "Tak: ",
     "no_header": "Nie: ",
-    "open": "Other users on iNaturalist will be able to see where this species was observed, and scientists can use this data for research.",
+    "open": "Inni użytkownicy iNaturalist będą mogli zobaczyć, gdzie obserwowano ten gatunek, a naukowcy mogą wykorzystać te dane do badań.",
     "obscured": "The exact location of this observation will be hidden from other users on iNaturalist, and instead expanded to a larger area. (The locations of all threatened and endangered species is automatically obscured)",
     "closed": "The location of this observation will not be shared with other users on iNaturalist.",
     "captive": "Hodowlany / Uprawiany?",
-    "no": "This is an organism that naturally occurs in the wild, and wasn’t brought to this location by humans.",
+    "no": "Ten organizm występuje w środowisku naturalnym i nie został wprowadzony do tego miejsca przez ludzi.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
-    "addendum": "*Adding observations to projects is not supported in Seek. If you’d like to add your observations to a project, please do so on iNaturalist.org or use the iNaturalist app."
+    "addendum": "*Dodawanie obserwacji do projektów nie jest obsługiwane w aplikacji Seek. Jeśli chcesz dodawać swoje obserwacje do projektów, możesz to zróbić na iNaturalist.org lub skorzystać z aplikacji iNaturalist."
   },
   "delete": {
     "header": "Usunąć gatunek?",
-    "description": "Do you want to remove this species from your observations? This may affect your challenges and badges.",
+    "description": "Czy chcesz usunąć ten gatunek z listy obserwacji? Może to wpłynąć na Twoje wyzwania i odznaki.",
     "yes": "Tak, usuń to z moich obserwacji",
     "no": "Anuluj"
   },
   "warning": {
     "remember": "Zapamiętaj",
-    "tip_1": "Always be aware of your surroundings, stay safe, and don’t trespass.",
+    "tip_1": "Zawsze bądź świadomy swojego otoczenia, dbaj o bezpieczeństwo i nie wchodź na teren prywatny.",
     "tip_2": "Nie jedz wszystkiego, co znajdziesz w dziczy.",
     "tip_3": "Szanuj inne żywe organizmy, nie nękając oraz nie dotykając ich. Niektóre mogą ukłuć lub ukąsić.",
     "tip_4": "Dzieci mogą wymagać opieki osób dorosłych."
@@ -567,7 +567,7 @@
   },
   "review": {
     "title": "Oceń tę aplikację",
-    "rate": "If you like this app, please take a moment to rate it in the Play Store. Thank you for your support!",
+    "rate": "Jeśli podoba Ci się ta aplikacja, proszę poświęć chwilę, aby ocenić ją w Sklepie Play. Dziękujemy za wsparcie!",
     "rate_now": "Oceń teraz",
     "later": "Później"
   },
@@ -584,7 +584,7 @@
     "scientific_names": "Wyświetl nazwy naukowe",
     "donate": "Wesprzyj",
     "donate_header": "Wesprzyj iNaturalist",
-    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
+    "donate_description": "Podoba Ci się aplikacja Seek? Rozważ przekazanie darowizny iNaturalist! Polegamy na datkach od ludzi takich jak Ty, aby nasze aplikacje pozostały darmowe.",
     "language": "Język aplikacji",
     "device_settings": "Użyj ustawień języka urządzenia",
     "auto_capture": "Automatycznie zrób zdjęcie, gdy identyfikator znajdzie gatunek."
@@ -592,8 +592,8 @@
   "seek_challenges": {
     "badge": "Odznaka Seek",
     "header": "Ukończono Wyzwanie Seek na dzień {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
+    "text": "Dziękujemy za udział w globalnym wyzwaniu! Seek jest po to, aby pomóc Ci połączyć się ze wszystkimi otaczającymi nas gatunkami. Wejdź na zewnątrz, odkrywaj i dowiedz się o naturze wokół Ciebie!",
+    "citizen_science": "Wyzwanie nauki obywatelskiej",
     "completed": "Ukończono wyzwanie i otrzymano odznakę za wyzwanie!",
     "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
     "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
@@ -604,16 +604,16 @@
     "mission_2_may_2020": "Znajdź 2 owady",
     "mission_3_may_2020": "Znajdź 1 pajęczaka",
     "mission_4_may_2020": "Znajdź 2 ptaki",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
+    "resilience": "Wyzwanie odporności",
+    "mission_1_june_2020": "Znajdź dwie rośliny w rzędu Astrowce (Astry, Dzwonki i podobne)",
     "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
+    "mission_3_june_2020": "Znajdź jednego owada w rzędu Coleoptera (chrząszcze)",
     "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
     "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
     "river": "Wyzwanie Rzeczne",
-    "mission_1_july_2020": "Find any 2 fish or amphibians",
+    "mission_1_july_2020": "Znajdź dwie dowolne ryby lub płazy",
     "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
-    "mission_3_july_2020": "Find 1 mollusk",
+    "mission_3_july_2020": "Znajdź jednego mięczaka",
     "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
     "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?",
     "pollinator": "Wyzwanie zapylaczy",

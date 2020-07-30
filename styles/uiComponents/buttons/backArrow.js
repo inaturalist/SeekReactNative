@@ -3,9 +3,9 @@ import { colors } from "../../global";
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
-    paddingBottom: 18,
-    paddingTop: 18,
+    left: 0,
+    paddingVertical: 18,
+    paddingHorizontal: 23,
     position: "absolute",
     transform: [{ scaleX: I18nManager.isRTL ? -1 : 1 }]
   },

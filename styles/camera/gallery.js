@@ -12,9 +12,8 @@ import { enabledLargeFonts } from "../../utility/textHelpers";
 export default StyleSheet.create( {
   backButton: {
     left: 0,
-    paddingBottom: 18,
     paddingHorizontal: 23,
-    paddingTop: 18,
+    paddingVertical: 18,
     position: "absolute"
   },
   background: {

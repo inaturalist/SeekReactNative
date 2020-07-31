@@ -50,6 +50,10 @@ const INatStatsScreen = () => {
       taxa.forEach( ( photo ) => {
         const { defaultPhoto } = photo;
 
+        if ( !defaultPhoto ) {
+          return;
+        }
+
         if ( defaultPhoto.license_code && defaultPhoto.original_dimensions ) {
           // some original dimensions can be null
           if ( defaultPhoto.original_dimensions.width > defaultPhoto.original_dimensions.height ) {

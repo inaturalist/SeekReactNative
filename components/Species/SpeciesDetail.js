@@ -142,10 +142,10 @@ const SpeciesDetail = () => {
     if ( id === null ) {
       return;
     }
-    const params = { locale: i18n.currentLocale() };
+    const localeParams = { locale: i18n.currentLocale() };
     const options = { user_agent: createUserAgent() };
 
-    inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
+    inatjs.taxa.fetch( id, localeParams, options ).then( ( response ) => {
       const taxa = response.results[0];
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;

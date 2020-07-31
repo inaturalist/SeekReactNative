@@ -95,14 +95,14 @@ const SpeciesContainer = ( {
 
       inatjs.observations.search( params, options ).then( ( { results } ) => {
         if ( results.length > 0 ) {
-          const { taxon } = results[0];
-          if ( taxon ) {
+          const taxonStats = results[0].taxon;
+          if ( taxonStats ) {
             const {
               threatened,
               endemic,
               introduced,
               native
-            } = taxon;
+            } = taxonStats;
 
             setGreenButtons( {
               threatened,

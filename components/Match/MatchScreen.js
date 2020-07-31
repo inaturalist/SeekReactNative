@@ -153,7 +153,7 @@ const MatchScreen = () => {
           gradientColorLight={gradientColorLight}
           setNavigationPath={setNavigationPath}
           userImage={image.uri}
-          speciesSeenImage={speciesSeenImage}
+          speciesSeenImage={taxon && speciesSeenImage ? speciesSeenImage : null}
         />
         <MatchContainer
           image={image}

@@ -8,7 +8,6 @@ import i18n from "../../../i18n";
 import { UserContext } from "../../UserContext";
 import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import styles from "../../../styles/species/species";
-import { colors, fonts } from "../../../styles/global";
 import { useCommonName } from "../../../utility/customHooks";
 
 type Props = {

@@ -97,7 +97,7 @@
   "menu": {
     "home": "Koti",
     "achievements": "Saavutukset",
-    "challenges": "Challenges",
+    "challenges": "Haasteet",
     "observations": "Omat havainnot",
     "inat": "iNaturalist",
     "about": "Tietoja",
@@ -108,7 +108,7 @@
     "onboarding_2": "Opi kaikkialla ympärilläsi olevista organismeista",
     "onboarding_3": "Ansaitse merkkejä erityyppisten lajien tarkkailemisesta",
     "skip": "Ohita toistaiseksi",
-    "continue": "Continue"
+    "continue": "Jatka"
   },
   "location_picker": {
     "species_nearby": "Species nearby",

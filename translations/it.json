@@ -60,7 +60,7 @@
     "email": "Email",
     "username": "nome utente",
     "password": "password",
-    "release_photos": "Si, autorizzo l'utilizzo delle mie foto affinché gli scienziati possano usare i miei dati!",
+    "release_photos": "Si, autorizzo l'utilizzo delle mie foto affinché gli scienziati possano usare i miei dati (raccomandato)!",
     "create_account": "Crea il mio account",
     "thanks": "Grazie!",
     "parent_instructions": "Abbiamo inviato al tuo genitore o tutore un'email con le istruzioni.",
@@ -73,9 +73,9 @@
     "observations_1": "Le tue osservazioni in Seek sono memorizzate sul tuo dispositivo e NON sono salvate online.",
     "observations_2": "Eliminando l'app verranno eliminate tutte le tue osservazioni fatte in Seek.",
     "observations_3": "Seek non sincronizza le tue osservazioni su altri dispositivi.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Accetto i <terms>{{terms}}</terms> e la <privacy>{{privacy}}</privacy>, e ho visto le <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Linee Guida della Comunità",
+    "store_data": "Io acconsento che iNaturalist conservi e processi un limitato tipo di mie informazioni personali al fine di gestire il mio account."
   },
   "inat_login": {
     "log_in_with_inat": "Accedi con il tuo account iNaturalist",
@@ -151,7 +151,7 @@
     "start_challenge": "Comincia la sfida",
     "open_camera": "Avvia fotocamera",
     "view_badge": "Mostra Distintivo",
-    "your_mission": "La tua missione",
+    "your_mission": "La tua missione:",
     "mission_1_may": "Trova 4 diversi uccelli, mammiferi, rettili, anfibi o pesci",
     "mission_2_may": "Trova 4 insetti diversi",
     "mission_3_may": "Trova 3 aracnidi diversi",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Specie Osservate"
   },
   "inat_stats": {
     "global_observations": "Osservazioni Totali",
@@ -461,7 +461,7 @@
     "threatened_about": "Questa specie rischia di essere in pericolo di estinzione in futuro.",
     "introduced_about": "Questa specie è stata portata in questa zona dagli esseri umani, ma non ci vive naturalmente.",
     "got_it": "Ricevuto!",
-    "wikipedia": "{{about}}\n\nFonte: Wikipedia",
+    "wikipedia": "Fonte: Wikipedia",
     "wikipedia_1": "Wikipedia",
     "similar": "Specie Simili",
     "similar_about": "Organismi comunemente identificati erroneamente come questa specie.",
@@ -489,7 +489,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, e Yulia Lygina.",
+    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {

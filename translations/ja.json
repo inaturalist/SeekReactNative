@@ -72,7 +72,10 @@
     "observations": "デバイスに保存された観察記録",
     "observations_1": "Seekの観察記録はあなたのデバイスに保存されていて、オンラインのバックアップはありません。",
     "observations_2": "アプリを削除すると、Seek内のあなたの観察記録が全部破棄されます。",
-    "observations_3": "Seekはあなたの観察記録のデータを他のデバイスに同期しません。"
+    "observations_3": "Seekはあなたの観察記録のデータを他のデバイスに同期しません。",
+    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Community Guidelines",
+    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalistアカウントでログインする",
@@ -203,7 +206,8 @@
     "photographer_august": "© Ben Macdonald, ネットフリックス / Silverback Films",
     "photographer_september": "© ネットフリックス / Silverback Films",
     "photographer_october": "© ネットフリックス / Silverback Films",
-    "photographer_december": "© Sophie Lanfear, ネットフリックス / Silverback Films"
+    "photographer_december": "© Sophie Lanfear, ネットフリックス / Silverback Films",
+    "species_observed": "Species Observed"
   },
   "inat_stats": {
     "global_observations": "世界中の観察",
@@ -457,7 +461,7 @@
     "threatened_about": "この種は絶滅危機種になる可能性が高いです。",
     "introduced_about": "この生き物はこの場所に人間が持ってきたものであり、自然とこの地域に生息するものではありません。",
     "got_it": "了解しました！",
-    "wikipedia": "{{about}}\n\n出典：ウィキペディア",
+    "wikipedia": "出典：ウィキペディア",
     "wikipedia_1": "ウィキペディア",
     "similar": "似たような種",
     "similar_about": "頻繁この種として誤って判定される生き物",
@@ -485,7 +489,7 @@
     "inat_team": "Abhas Misraraj、Amanda Bullington、Alex Shepard、Scott Loarie、 Ken-ichi Ueda、Carrie Seltzer、Tony Iwane、Patrick Leary、Yaron Budowski。VisipediaとiNaturalist のコミュニティには特に感謝します。",
     "version": "バージョン",
     "help": "Seekのサポートが必要ならば、help+seek@inaturalist.orgまでメールをお送りください。",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Seekの翻訳チームに参加するには、以下のURLにアクセスしてください。\nhttps://crowdin.com/project/seek"
   },
   "posting": {

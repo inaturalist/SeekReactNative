@@ -622,7 +622,13 @@
     "mission_3_aug_2020": "Encuentra 1 planta del orden Rosales (rosas, olmos, higueras y otras)",
     "mission_4_aug_2020": "Encuentra 2 insectos de las órdenes:\n\nHymenoptera (hormigas, abejas, avispas y sílfidos);\nLepidoptera (Mariposas y polillas);\nEscarabajos (Coleoptera);\nMoscas (Diptera)",
     "aug_2020_description": "Los polinizadores nos dan alimentos que comemos y las flores de las que disfrutamos! Al mover el polen entre diferentes plantas en sus cuerpos, los polinizadores ayudan a que muchos tipos de plantas se reproduzcan.",
-    "action_aug_2020": "Presta atención a los polinizadores que te rodean. ¿Hay abejas o mariposas visitando las flores de tu jardín o vecindario?"
+    "action_aug_2020": "Presta atención a los polinizadores que te rodean. ¿Hay abejas o mariposas visitando las flores de tu jardín o vecindario?",
+    "herbivore": "Herbivore Challenge",
+    "mission_1_sept_2020": "Find 10 plants",
+    "mission_2_sept_2020": "Find 1 mammal",
+    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
+    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
   },
   "replace_photo": {
     "header": "¿Substituir la foto?",

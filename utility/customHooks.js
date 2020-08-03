@@ -11,20 +11,22 @@ import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./helpers";
 import realmConfig from "../models";
 
-const useScrollToTop = ( scrollView, navigation ) => {
-  const scrollToTop = () => {
+const useScrollToTop = ( scrollView, navigation, route ) => {
+  const scrollToTop = useCallback( () => {
     if ( scrollView && scrollView.current !== null ) {
       scrollView.current.scrollTo( {
         x: 0, y: 0, animated: Platform.OS === "android"
       } );
     }
-  };
+  }, [scrollView] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      scrollToTop();
+      if ( route !== "Challenges" ) {
+        scrollToTop();
+      }
     } );
-  } );
+  }, [route, navigation, scrollToTop] );
 };
 
 const useLocationName = ( latitude, longitude ) => {

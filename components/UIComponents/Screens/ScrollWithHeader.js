@@ -37,7 +37,7 @@ const ScrollWithHeader = ( {
   const { name } = useRoute();
   const scrollView = useRef( null );
 
-  useScrollToTop( scrollView, navigation );
+  useScrollToTop( scrollView, navigation, name );
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

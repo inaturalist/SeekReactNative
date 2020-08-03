@@ -73,9 +73,9 @@
     "observations_1": "Les teves observacions de Seek es guarden en el teu dispositiu i NO s'envien online.",
     "observations_2": "Si esborres l'App s'esborraran també totes les observacions fetes amb Seek.",
     "observations_3": "Seek no sincronitza les teves observacions amb altres dispositius.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Estic d'acord amb les  <terms>{{terms}}</terms> i <privacy>{{privacy}}</privacy>, i he revisat les <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Directrius de la comunitat",
+    "store_data": "Autoritzo a iNaturalist a guardar i processar determinades informacions de caràcter personal sobre mi per gestionar el meu compte"
   },
   "inat_login": {
     "log_in_with_inat": "Inicieu sessió al vostre compte d'iNaturalist",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Espècies Observades"
   },
   "inat_stats": {
     "global_observations": "Observacions globals",
@@ -587,7 +587,7 @@
     "donate_description": "T'agrada Seek? Considera donar a iNaturalist! Depenem de les donacions de persones com tu per mantenir les nostres apps gratuïtes",
     "language": "Idioma de la aplicació",
     "device_settings": "Usar l'idioma del telèfon.",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie."
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -616,18 +616,18 @@
     "mission_3_july_2020": "Troba 1 mol·lusc",
     "july_2020_description": "Els rius són un node de biodiversitat. Suporten moltes formes de vida, des d'invertebrats a grans vertebrats, els rius ajuden als organismes del seu entorn a prosperar.",
     "action_july_2020": "Quan estas a prop d'una zona humida, quins organismes pots veure? Quines espècies neden a l'aigua? Quines volen sobre elles? Hi ha organismes en l'aigua que pot ser no puguis veure?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "pollinator": "Repte Pol·linitzador",
+    "mission_1_aug_2020": "Troba dues plantes de l'ordre Lamians (Mentes, Platans, Oliveres i altres)",
+    "mission_2_aug_2020": "Troba 1 planta de la família de les Asteràcies (Gira-sols, Margarides, Cards i altres)",
+    "mission_3_aug_2020": "Troba 1 planta de l'ordre de les Rosals (Roses, Oms, Figueres i altres)",
+    "mission_4_aug_2020": "Troba 2 insectes dels ordres:\nHimenòpters (Formigues, abelles, vespes i símfids)\nLepidòpters (Papallones i arnes)\nEscarabats (Coleòpters)\nMosques (Dípters)",
+    "aug_2020_description": "Els pol·linitzadors ens ofereixen els aliments que mengem i les flors de les quals gaudim! Movent el pol·len d'un lloc a un altres utilitzant els seus cosos, els pol·linitzadors ajuden moltes plantes a reproduir-se.",
+    "action_aug_2020": "Presta atenció als pol·linitzadors que hi ha al teu voltant. Les abelles i les papallones estan visitant les flors del teu jardí o veïnatge?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Substituir foto",
+    "description": "Voleu substituir la fotografia de la teva nova observació?",
+    "new": "Utilitzar la nova foto",
+    "old": "Mantenir la foto anterior"
   }
 }

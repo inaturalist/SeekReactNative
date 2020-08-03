@@ -10,10 +10,9 @@ export default StyleSheet.create( {
     backgroundColor: colors.white
   },
   header: {
-    paddingBottom: Platform.OS === "ios" ? 19 : 21,
-    paddingLeft: 22,
-    paddingRight: 22,
-    paddingTop: Platform.OS === "ios" ? 23 : 0
+    paddingBottom: 21,
+    paddingHorizontal: 22,
+    paddingTop: Platform.OS === "ios" ? 10 : 0
   },
   marginMedium: {
     marginTop: 28

@@ -622,7 +622,13 @@
     "mission_3_aug_2020": "Trovare 1 pianta dall'ordine Rosales (Rose, Olmi, Fichi e simili)",
     "mission_4_aug_2020": "Trova 2 insetti degli ordini:\n\nHymenoptera (Formiche, Api, Vespe e Sinfiti);\nLepidoptera (Farfalle e Falene);\nColeotteri (Coleoptera);\nMosche (Diptera)",
     "aug_2020_description": "Gli impollinatori ci danno il cibo che mangiamo e i fiori che amiamo! Spostando il polline tra piante diverse utilizzando i loro corpi, gli impollinatori aiutano molti tipi di piante a riprodursi.",
-    "action_aug_2020": "Presta attenzione agli impollinatori che ti circondano. Ci sono api o farfalle che visitano i fiori nel tuo giardino o nel tuo quartiere?"
+    "action_aug_2020": "Presta attenzione agli impollinatori che ti circondano. Ci sono api o farfalle che visitano i fiori nel tuo giardino o nel tuo quartiere?",
+    "herbivore": "Herbivore Challenge",
+    "mission_1_sept_2020": "Find 10 plants",
+    "mission_2_sept_2020": "Find 1 mammal",
+    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
+    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

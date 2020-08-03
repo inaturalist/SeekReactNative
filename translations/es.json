@@ -22,7 +22,7 @@
     "take_challenge": "Acepta el desafío",
     "continue_challenge": "Continuar con el desafío",
     "view_all": "Ver todos los desafíos",
-    "new_join": "Add observations with the Seek Camera to earn the Challenge badge!"
+    "new_join": "Únete al desafío de observación global y síguelo con Our Planet en Netflix!"
   },
   "notifications": {
     "header": "Notificaciones",
@@ -34,7 +34,7 @@
     "view_challenges": "Ver desafío",
     "none": "¡Aún no tienes notificaciones!",
     "about": "Recibirás aquí las notificaciones sobre los nuevos desafíos a medida que estén disponibles las actualizaciones de Seek y otra información relevante.",
-    "new_challenge": "There's a new challenge available!"
+    "new_challenge": "Hay un nuevo reto disponible"
   },
   "login": {
     "log_in": "Inicia sesión en iNaturalist",
@@ -73,9 +73,9 @@
     "observations_1": "Tus observaciones en Seek se almacenan en tu dispositivo y NO están guardadas en línea.",
     "observations_2": "Eliminar la aplicación eliminará todas tus observaciones realizadas en Seek.",
     "observations_3": "Seek no sincroniza tus observaciones con otros dispositivos.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Estoy de acuerdo con los <terms>{{terms}}</terms> y <privacy>{{privacy}}</privacy>, y he revisado las <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Directrices de la comunidad",
+    "store_data": "Autorizo a iNaturalist a almacenar y procesar ciertos tipos de información personal para administrar mi cuenta"
   },
   "inat_login": {
     "log_in_with_inat": "Inicia sesión con tu cuenta de iNaturalist",
@@ -104,9 +104,9 @@
     "settings": "Ajustes"
   },
   "onboarding": {
-    "onboarding_1": "Use Seek’s Camera to identify plants, animals, and fungi",
-    "onboarding_2": "Learn about the organisms all around you",
-    "onboarding_3": "Earn badges for observing different types of species",
+    "onboarding_1": "Utiliza la cámara de Seek para identificar plantas, animales y hongos",
+    "onboarding_2": "Aprende cosas sobre los organismos de tu alrededor",
+    "onboarding_3": "Gana insignias por observar diferentes especies",
     "skip": "Omitir por ahora",
     "continue": "Continuar"
   },
@@ -166,14 +166,14 @@
     "no_new_challenges": "Te avisaremos cuando haya nuevos desafíos disponibles.",
     "completed_all": "Has completado todos los desafíos disponibles.",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "{{count}} observado hasta ahora",
+      "one": "{{count}} observado hasta ahora",
+      "two": "{{count}} observados hasta ahora",
+      "few": "{{count}} observados hasta ahora",
+      "many": "{{count}} observados hasta ahora",
+      "other": "{{count}} observados hasta ahora"
     },
-    "how_to": "Complete the Seek Challenge for {{month}}!",
+    "how_to": "¡Completa el desafío deSeek del mes de {{month}}!",
     "released": "Este desafío será lanzado el {{date}}.",
     "get_involved": "Participa",
     "action_april": "Verifica si vives cerca de una ciudad que forma parte del City Nature Challenge y, de ser así, presta atención a las actividades de identificación y registro de la naturaleza para la vida silvestre urbana.",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Especies observadas"
   },
   "inat_stats": {
     "global_observations": "Observaciones globales",
@@ -231,11 +231,11 @@
     "sorry": "Lo sentimos. ¡Seek todavía est aprendiendo!\n\nPuedes intentar un ngulo diferente, acercar, o intentar obtener una imagen ms clara del organismo.",
     "take_photo": "Toma otra foto",
     "common_ancestor": "Pero no pudimos identificar la especie exacta.\n\nPuedes intentar un ngulo diferente, acercar, o intentar obtener una imagen ms clara del organismo.",
-    "believe": "We believe this is a member of",
-    "genus": "We believe this is a member of the genus",
-    "family": "We believe this is a member of the family",
-    "order": "We believe this is a member of the order",
-    "class": "We believe this is a member of the class",
+    "believe": "Creemos que este es un miembro de",
+    "genus": "Creemos que este es un miembro del género",
+    "family": "Creemos que este es un miembro de la familia",
+    "order": "Creemos que este es un miembro del orden",
+    "class": "Creemos que este es un miembro de la clase",
     "resighted": "¡Has vuelto a ver una especie!",
     "date_observed": "La observaste primero el:\n{{seenDate}}",
     "post_inat": "Si tomaste una foto original del organismo, puedes ayudar a entrenar a Seek en esta especie publicándola en iNaturalist, donde la comunidad ayudará a identificarla y a mejorar las versiones futuras.",
@@ -251,12 +251,12 @@
     "error_species": "Lo sentimos, no pudimos identificar los detalles específicos de esta imagen. Por favor, comprueba tu conexión a internet e inténtalo de nuevo.",
     "error_location": "Para añadir especies a tus observaciones, debes activar tu ubicación. Seek utiliza tu ubicación para recordarte dónde has visto un organismo y contribuir a la ciencia ciudadana si las publicas en iNaturalist.",
     "error_downtime_plural": {
-      "zero": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "one": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "two": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "few": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "many": "Service temporarily unavailable. Please try again in {{count}} hours.",
-      "other": "Service temporarily unavailable. Please try again in {{count}} hours."
+      "zero": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} horas.",
+      "one": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} hora.",
+      "two": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} horas.",
+      "few": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} horas.",
+      "many": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} horas.",
+      "other": "Servicio no disponible temporalmente. Inténtalo de nuevo en {{count}} horas."
     },
     "error_few": "unas pocas",
     "error_gps": "No pudimos encontrar tu ubicación GPS. Por favor, intenta moverte a un lugar donde puedas ver el cielo y comprueba que la ubicación de tu dispositivo esté encendida para guardar observaciones.",
@@ -272,12 +272,12 @@
     "challenge_view": "Comprueba tu progreso",
     "level_up": "¡Has subido de nivel!",
     "number_seen_plural": {
-      "zero": "You’ve seen {{count}} species!",
-      "one": "You’ve seen {{count}} species!",
-      "two": "You’ve seen {{count}} species!",
-      "few": "You’ve seen {{count}} species!",
-      "many": "You’ve seen {{count}} species!",
-      "other": "You’ve seen {{count}} species!"
+      "zero": "¡Has visto {{count}} especies!",
+      "one": "¡Has visto {{count}} especie!",
+      "two": "¡Has visto {{count}} especies!",
+      "few": "¡Has visto {{count}} especies!",
+      "many": "¡Has visto {{count}} especies!",
+      "other": "¡Has visto {{count}} especies!"
     }
   },
   "camera": {
@@ -295,18 +295,18 @@
     "family": "familia",
     "genus": "género",
     "species": "especies",
-    "error_permissions": "We need access to the camera to help you identify species!",
+    "error_permissions": "¡Necesitamos acceso a la cámara para ayudarte a identificar las especies!",
     "error_gallery": "¡Necesitamos acceso a tu carrete para guardar las fotos que tomes!",
     "permissions": "Habilitar permisos en los ajustes",
     "error_classifier": "Lo sentimos, no hemos podido cargar el clasificador",
-    "error_camera": "Sorry, we weren't able to load the camera",
-    "error_device": "Sorry, the device you are using is not supported",
+    "error_camera": "Lo sentimos, no hemos podido cargar la cámara",
+    "error_device": "Lo sentimos, el dispositivo que estás usando no es compatible",
     "error_save": "Lo sentimos, hubo un problema al guardar tu foto",
-    "error_take": "Sorry, we weren't able to capture your photo",
-    "error_photos": "No photos were found in this photo album. Try selecting a different album.",
-    "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
-    "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_take": "Lo sentimos, no hemos podido capturar tu foto",
+    "error_photos": "No se encontraron fotos en este álbum de fotos. Intenta seleccionar un álbum diferente.",
+    "error_version": "La cámara AR de Seek requiere iOS 11.0+. Tu dispositivo está ejecutando la versión {{OS}} de OS.",
+    "error_cameraManager": "No se ha podido cargar el Administrador de Cámara",
+    "error_photoError": "Lo sentimos, no se encontró el objeto de foto"
   },
   "gallery": {
     "label": "Fotos",
@@ -347,12 +347,12 @@
     "login": "¡Inicia sesión con iNaturalist para publicar observaciones en la comunidad en línea!",
     "achievements": "Logros",
     "observe_plural": {
-      "zero": "Observe {{count}} species to get to the next level!",
-      "one": "Observe {{count}} species to get to the next level!",
-      "two": "Observe {{count}} species to get to the next level!",
-      "few": "Observe {{count}} species to get to the next level!",
-      "many": "Observe {{count}} species to get to the next level!",
-      "other": "Observe {{count}} species to get to the next level!"
+      "zero": "¡Observa {{count}} especies para llegar al siguiente nivel!",
+      "one": "¡Observa {{count}} especie para llegar al siguiente nivel!",
+      "two": "¡Observa {{count}} especies para llegar al siguiente nivel!",
+      "few": "¡Observa {{count}} especies para llegar al siguiente nivel!",
+      "many": "¡Observa {{count}} especies para llegar al siguiente nivel!",
+      "other": "¡Observa {{count}} especies para llegar al siguiente nivel!"
     },
     "observe_max": "¡Has alcanzado el nivel máximo en Seek!",
     "observe_species": "Observa",
@@ -550,7 +550,7 @@
     "tip_1": "Vigila siempre a to alrededor, permanece seguro y no entres en propiedades privadas.",
     "tip_2": "No comas nada de lo que encuentres en la naturaleza.",
     "tip_3": "Respeta a todos los seres vivos, no los acoses ni los toques. Algunos pueden picar o morder.",
-    "tip_4": "Children may require adult supervision."
+    "tip_4": "Los menores pueden requerir la supervisión de adultos."
   },
   "accessibility": {
     "menu": "Abrir menú",
@@ -576,58 +576,58 @@
     "some": "algunos derechos reservados"
   },
   "debug": {
-    "logs": "Send debug logs by email"
+    "logs": "Enviar registros vía email"
   },
   "settings": {
-    "header": "Seek Camera",
-    "common_names": "Display Common Names",
-    "scientific_names": "Display Scientific Names",
-    "donate": "Donate",
-    "donate_header": "Help support iNaturalist",
-    "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
-    "language": "In-app language",
-    "device_settings": "Use device language settings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "header": "Cámara de Seek",
+    "common_names": "Mostrar nombres comunes",
+    "scientific_names": "Mostrar nombres científicos",
+    "donate": "Donar",
+    "donate_header": "Apoya iNaturalist",
+    "donate_description": "¿Te gusta Seek? ¡Considera donar a iNaturalist! Dependemos de donaciones de personas como tú para mantener gratuitas nuestras aplicaciones.",
+    "language": "Idioma de la aplicación",
+    "device_settings": "Usar las opciones de idioma del móvil",
+    "auto_capture": "Tomar automáticamente una foto cuando la identificación llegue a especie."
   },
   "seek_challenges": {
-    "badge": "Seek badge",
-    "header": "You completed the Seek Challenge for {{date}}!",
-    "text": "Thanks for participating in the global challenge! Seek is here to help you connect to all the species surrounding us. Get outside, explore, and learn about the nature all around you!",
-    "citizen_science": "Citizen Science Challenge",
-    "completed": "You completed the challenge and earned the challenge badge!",
-    "april_2020_description": "April 2020 is the one-year anniversary of the release of the new Seek by iNaturalist! In the past year, we’ve grown a lot and have helped over a million people feel more connected to the world around them. Nature is all around you, you simply need to Seek it out!\n\nTo start off our next round of challenges, see if you can find 10 species you haven’t observed yet.",
-    "action_april_2020": "April is Citizen Science Month! You can contribute to scientific understand of biodiversity as a citizen scientist by posting your Seek observations to iNaturalist.\n\nIf you are 13 or older (or with parental permission), you can make an iNaturalist account and post observations to iNaturalist to share your observations with a broader community, including scientists!",
-    "backyard": "Backyard Challenge",
-    "may_2020_description": "You don't need to go far to find nature all around you. Even in just your backyard or neighborhood, you can find plants, birds, and insects that share your space.",
-    "action_may_2020": "Use Seek's Species Nearby on the home screen to learn about all the birds, plants, and insects that have been observed around you and check out their species pages. What time of year are they most observed? Then try exploring somewhere new: what species could you find near Cairo, Paris, or Jakarta?",
+    "badge": "Ver insignia",
+    "header": "¡Has completado el desafío de Seek de {{date}}!",
+    "text": "¡Gracias por participar en el desafío global! Seek está aquí para ayudarte a conectar con todas las especies que nos rodean. ¡Sal fuera, explora y aprende sobre la naturaleza a tu alrededor!",
+    "citizen_science": "Desafío Ciencia Ciudadana",
+    "completed": "¡Has completado el desafío y ganado la insignia del desafío!",
+    "april_2020_description": "Abril de 2020 es el aniversario de la liberación del nuevo Seek de iNaturalist! En el último año, hemos crecido mucho y hemos ayudado a más de un millón de personas a sentirse más conectadas con el mundo que les rodea. La naturaleza está a tu alrededor, ¡simplemente tienes que buscarla con Seek!\n\nPara comenzar nuestra siguiente ronda de desafíos, mira si puedes encontrar 10 especies que aún no has observado.",
+    "action_april_2020": "¡Abril es el Mes de la Ciencia Ciudadana! Puedes contribuir a la comprensión científica de la biodiversidad como un científico ciudadano mediante la publicación de tus observaciones de Seek de iNaturalist.\n\nSi tienes 13 años o más (o con permisos parentales) puedes abrir una cuenta de iNaturalist y publicar tus observaciones en iNaturalist para compartir tus observaciones con una comunidad más amplia, incluyendo a científicos!",
+    "backyard": "Desafío del Jardín Trasero",
+    "may_2020_description": "No es necesario ir muy lejos para encontrar la naturaleza a su alrededor. Incluso en tu patio trasero o vecindario, puedes encontrar plantas, pájaros e insectos que comparten su espacio.",
+    "action_may_2020": "Usa las especies cercanas de Seek de la pantalla de inicio para aprender sobre todas las aves, plantas y los insectos que se han observado a tu alrededor y ver las páginas de estas especies. ¿Qué época del año son más observadas? Después trata de explorar algún lugar nuevo: ¿qué especies podrías encontrar cerca de el Cairo, París o Yakarta?",
     "mission_1_may_2020": "Encuentra 5 plantas",
     "mission_2_may_2020": "Encuentra 2 insectos",
     "mission_3_may_2020": "Encuentra 1 aracnido",
     "mission_4_may_2020": "Encuentra 2 aves",
-    "resilience": "Resilience Challenge",
-    "mission_1_june_2020": "Find 2 plants in the order Asterales (Asters, Bellflowers, Fanflowers, and Allies)",
-    "mission_2_june_2020": "Find 3 birds in the order Passeriformes (Perching Birds)",
-    "mission_3_june_2020": "Find 1 insect in the order Coleoptera (Beetles)",
-    "june_2020_description": "Nature is resilient and all around us. From cities to farmland, plants and animals find a way to thrive. Even in urban areas, plants, birds, and insects coexist with us.",
-    "action_june_2020": "Did you know you can view scientific names instead of common names in the Seek camera? Go to the settings page from the menu to change the display from common names to scientific names!",
-    "river": "River Challenge",
-    "mission_1_july_2020": "Find any 2 fish or amphibians",
-    "mission_2_july_2020": "Find any 3 aquatic birds from the orders Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Sphenisciformes, & Suliformes",
-    "mission_3_july_2020": "Find 1 mollusk",
-    "july_2020_description": "Rivers are a hub for biodiversity. Supporting everything from microinvertebrates to large vertebrates, rivers help the organisms around them thrive.",
-    "action_july_2020": "When you're near a body of water, what organisms do you notice? What species are swimming in the water? What species are flying above it? Are there organisms in the water you might not be able to see?",
-    "pollinator": "Pollinator Challenge",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
-    "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
-    "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?"
+    "resilience": "Desafío de Resiliencia",
+    "mission_1_june_2020": "Encuentra 2 plantas en el orden de los Asterales (de flores compuestes o asteráceas y campanuláceas)",
+    "mission_2_june_2020": "Encuentra 3 pájaros en el orden Passeriformes (pájaros)",
+    "mission_3_june_2020": "Encuentra 1 insecto en el orden Coleoptera (Escarabajos)",
+    "june_2020_description": "La naturaleza es resiliente y nos rodea. Desde las ciudades a las tierras de cultivo, las plantas y los animales encuentran la manera para estar. Incluso en las zonas urbanas, las plantas, las aves y los insectos coexisten con nosotros.",
+    "action_june_2020": "¿Sabías que puedes ver nombres científicos en lugar de nombres comunes en la cámara Seek? ¡Ves a la página de ajustes del menú para cambiar la pantalla de nombres comunes a los científicos!",
+    "river": "Desafío fluvial",
+    "mission_1_july_2020": "Encuentra 2 peces o anfibios",
+    "mission_2_july_2020": "Encuentre 3 aves acuáticas de los órdenes Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Esfenisciformes, y Suliformes",
+    "mission_3_july_2020": "Encuentra 1 molusco",
+    "july_2020_description": "Los ríos son un centro de biodiversidad. Apoyando desde microinvertebrados hasta grandes vertebrados, los ríos ayudan a los organismos que los rodean.",
+    "action_july_2020": "Cuando estás cerca de una zona con agua, ¿qué organismos observas? ¿Qué especies nadan en el agua? ¿Qué especies vuelan por encima de ella? ¿Hay organismos en el agua que podrías no ser capaz de ver?",
+    "pollinator": "Desafío polinizador",
+    "mission_1_aug_2020": "Encuentra 2 plantas del orden Lamiales (Mentas, Platanos, Olivos y otras)",
+    "mission_2_aug_2020": "Encuentra 1 planta de la familia Asteráceas (Girasoles, Margaritas, Cardos y otras)",
+    "mission_3_aug_2020": "Encuentra 1 planta del orden Rosales (rosas, olmos, higueras y otras)",
+    "mission_4_aug_2020": "Encuentra 2 insectos de las órdenes:\n\nHymenoptera (hormigas, abejas, avispas y sílfidos);\nLepidoptera (Mariposas y polillas);\nEscarabajos (Coleoptera);\nMoscas (Diptera)",
+    "aug_2020_description": "Los polinizadores nos dan alimentos que comemos y las flores de las que disfrutamos! Al mover el polen entre diferentes plantas en sus cuerpos, los polinizadores ayudan a que muchos tipos de plantas se reproduzcan.",
+    "action_aug_2020": "Presta atención a los polinizadores que te rodean. ¿Hay abejas o mariposas visitando las flores de tu jardín o vecindario?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "¿Substituir la foto?",
+    "description": "¿Quieres reemplazar la foto de tu nueva observación?",
+    "new": "Usar la foto nueva",
+    "old": "Usar foto anterior"
   }
 }

@@ -44,7 +44,7 @@ const HomeScreen = () => {
   );
 
   return (
-    <ScrollNoHeader color="green">
+    <ScrollNoHeader>
       <RNModal
         showModal={showModal}
         closeModal={closeModal}

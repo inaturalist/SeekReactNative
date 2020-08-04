@@ -8,7 +8,7 @@
     "no_location": "Nincs helyszín",
     "no_species": "Úgy tűnik, a közelben még sok faj nincs felfedezve! Változtasd meg a helyed vagy szélesítsd a faj szűrő beállításait.",
     "no_gps": "A GPS jel nem elérhető.",
-    "location_timeout": "Your location request timed out. Please try again."
+    "location_timeout": "A helylekérésed lejárt. Kérlek, próbáld meg újra!"
   },
   "get_started": {
     "header": "Kezdjük!",
@@ -73,9 +73,9 @@
     "observations_1": "A Seek-ben történt felfedezéseid a készülékre lesznek lementve. Online nincs belőlük másolat!",
     "observations_2": "Az app törlésével a Seek felfedezéseid is automatikusan törlődnek.",
     "observations_3": "A Seek nem hangolja össze a felfedezéseid más készülékekkel.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Elfogadom a <terms>{{terms}}</terms> és a <privacy>{{privacy}}</privacy>, illetve elolvastam a <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Közösségi irányelvek",
+    "store_data": "Beleegyezem, hogy az iNaturalist korlátozott típusú személyes információkat tároljon és dolgozzon fel rólam a fiókom kezelése érdekében."
   },
   "inat_login": {
     "log_in_with_inat": "Bejelentkezés iNaturalist fiókkal",
@@ -148,8 +148,8 @@
     "start_now": "Elkezdem!",
     "mission_1_april": "Fedezz fel 10 új fajt!",
     "april_description": "Nem vagyunk egyedül a bolygón! Körülvesz a vadvilág, még akkor is, ha nem vesszük észre. Az otthonunkban, a kertben, falvakban és városokban rengeteg rejtett világ vár felfedezésre. Nézz szét ott, ahol vagy! Talán meglepődsz majd, mennyi kis vadon élő szomszédot találsz.\n\nKeress növényeket, gombákat, bogarakat, madarakat és más állatokat. Figyelj a rejtőzködő életformák jeleire: az ürülék, szőr, fészek, nyomok és a pókháló máris elvezetnek ezekhez az élőlényekhez.",
-    "start_challenge": "Start the challenge",
-    "open_camera": "Open camera",
+    "start_challenge": "Kihívás indítása",
+    "open_camera": "Kamera megnyitása",
     "view_badge": "Kitűző megtekintése",
     "your_mission": "Küldetés",
     "mission_1_may": "Fedezz fel 4 különböző madarat, emlőst, hüllőt, puhatestűt vagy halat!",
@@ -160,18 +160,18 @@
     "may_description": "A legnagyobb dzsungeltől a legkisebb parkig hihetetlenül sok élőlénnyel osztozunk a bolygónkon, és mindegyik alkalmazkodott a különleges környezethez, amiben élnek. Tegyél látogatást a természetbe, és nézd meg, milyen különböző élőlényekre lelhetsz. Az út során tanulni fogsz azokról a jellemzőikről is, amelyek könnyen megkülönböztethetővé teszik egymástól őket!",
     "congrats": "Teljesítetted az Our Planet - Bolygónk csodái Kihívást {{month}} hónapra!",
     "thanks": "Köszönjük! A természetnek elkél a segítő kéz. Kövesd a kalandjainkat a Netflix Our Planet  - Bolygónk Csodái sorozatban vagy látogass el az ourplanet.com-ra!",
-    "no_completed_challenges": "Your completed challenges will appear here.",
-    "no_challenges_in_progress": "Start a new challenge below to earn badges!",
-    "no_new_challenges_header": "You have no new challenges.",
-    "no_new_challenges": "We’ll let you know when new challenges are available.",
-    "completed_all": "You’ve completed all available challenges!",
+    "no_completed_challenges": "Itt jelennek meg a teljesített kihívások.",
+    "no_challenges_in_progress": "Kezdj el egy új kihívást alább, hogy kitűzőket szerezz!",
+    "no_new_challenges_header": "Nincsenek új kihívásaid.",
+    "no_new_challenges": "Értesítünk, ha új kihívások állnak rendelkezésre.",
+    "completed_all": "Teljesítetted az összes elérhető kihívást!",
     "number_observed_plural": {
-      "zero": "{{count}} observed so far",
-      "one": "{{count}} observed so far",
-      "two": "{{count}} observed so far",
-      "few": "{{count}} observed so far",
-      "many": "{{count}} observed so far",
-      "other": "{{count}} observed so far"
+      "zero": "Eddig {{count}} megfigyelés",
+      "one": "Eddig {{count}} megfigyelés",
+      "two": "Eddig {{count}} megfigyelés",
+      "few": "Eddig {{count}} megfigyelés",
+      "many": "Eddig {{count}} megfigyelés",
+      "other": "Eddig {{count}} megfigyelés"
     },
     "how_to": "Complete the Seek Challenge for {{month}}!",
     "released": "This challenge will be released {{date}}.",

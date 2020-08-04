@@ -73,9 +73,9 @@
     "observations_1": "Vos observations Seek sont stockées sur votre appareil et ne sont PAS sauvegardées en ligne.",
     "observations_2": "Supprimer l'application supprimera toutes vos observations Seek.",
     "observations_3": "Seek ne synchronise pas vos observations sur d'autres appareils.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "J’accepte les <terms>{{terms}}</terms> et la <privacy>{{privacy}}</privacy>, j’ai également pris connaissance des <guidelines>{{guidelines}}</guidelines>.",
+    "guidelines": "Règles de la communauté",
+    "store_data": "Dans le cadre de la gestion de mon compte, j’autorise iNaturalist à stocker et utiliser certaines informations personnelles limitées me concernant."
   },
   "inat_login": {
     "log_in_with_inat": "Se connecter avec votre compte iNaturalist",
@@ -207,7 +207,7 @@
     "photographer_september": "Photo © Netflix / Silverback Films",
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Photo © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Espèces Observées"
   },
   "inat_stats": {
     "global_observations": "Observations modiales",
@@ -452,7 +452,7 @@
     "seen_on": "Vous l’avez observé(e) le {{date}}",
     "endangered": "En voie d’extinction",
     "endemic": "Endémique",
-    "native": "Native",
+    "native": "Indigène",
     "threatened": "Menacée",
     "introduced": "Introduite",
     "endangered_about": "Cette espèce est en voie d'extinction dans toute sa zone de répartition ou une importante partie de celle-ci.",
@@ -489,7 +489,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary et Yaron Budowski. Nous remercions tout particulièrement Visipedia et la communauté iNaturalist.",
     "version": "Version",
     "help": "Afin d’obtenir de l’aide pour l’utilisation de Seek, merci d’envoyer un courriel à help+seek@inaturalist.org.",
-    "translations": "We are grateful for the translation assistance provided by the crowdin.com community, especially: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Nous sommes reconnaissants à la communauté crowdin.com pour son aide à la traduction et plus particulièrement à: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Pour rejoindre l'équipe de traduction de Seek, rendez-vous sur https://crowdin.com/project/seek"
   },
   "posting": {
@@ -587,7 +587,7 @@
     "donate_description": "Soutenir iNaturalist",
     "language": "Langue de l'appli",
     "device_settings": "Utiliser la langue du système d'exploitation",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Prendre automatiquement la photo lorsque la jauge reconnaît l’espèce."
   },
   "seek_challenges": {
     "badge": "Badge Seek",
@@ -616,24 +616,24 @@
     "mission_3_july_2020": "Trouvez 1 mollusque",
     "july_2020_description": "Les rivières sont une plaque tournante de la biodiversité. Accueillant des microinvertébrés jusqu'aux grands vertébrés, les rivières aident des organismes variés à prospérer.",
     "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?",
-    "pollinator": "Pollinator Challenge",
+    "pollinator": "Défi Pollinisateur",
     "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
     "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
     "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
     "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
     "aug_2020_description": "Pollinators give us foods we eat and flowers we enjoy! By moving pollen between different plants using their bodies, pollinators help many kinds of plants reproduce.",
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?",
-    "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
+    "herbivore": "Défi Herbivore",
+    "mission_1_sept_2020": "Trouvez 10 plantes",
+    "mission_2_sept_2020": "Trouvez 1 mammifère",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
   },
   "replace_photo": {
-    "header": "Replace Photo?",
-    "description": "Would you like to replace the photo of your resighted observation?",
-    "new": "Use new photo",
-    "old": "Keep old photo"
+    "header": "Remplacer la photo ?",
+    "description": "Souhaitez-vous remplacer la photo de l’espèce que vous avez réobservée ?",
+    "new": "Utiliser la nouvelle photo",
+    "old": "Garder l’ancienne photo"
   }
 }

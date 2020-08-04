@@ -20,7 +20,16 @@ or alternatively using `brew install fastlane`
 ```
 fastlane ios beta
 ```
-Description of what the lane does
+Distributes a beta version of Seek on TestFlight
+
+----
+
+## Android
+### android beta
+```
+fastlane android beta
+```
+Distributes an Android bundle to the Play Store beta track
 
 ----
 

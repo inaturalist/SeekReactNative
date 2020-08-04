@@ -19,7 +19,7 @@ before_all do
   Dotenv.overload ".env"
 end
 
-default_platform(:ios)
+default_platform(:android)
 
 platform :ios do
   desc "Distributes a beta version of Seek on TestFlight"
@@ -37,7 +37,19 @@ end
 platform :android do
  desc "Distributes an Android bundle to the Play Store beta track"
  lane :beta do
-   gradle(task: 'bundle', build_type: 'Release')
-   upload_to_play_store(track: 'beta', package_name: ENV["PACKAGE_NAME"])
+   gradle(task: "bundle", build_type: "Release", project_dir: "android" )
+   upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"])
  end
+
+ desc "Build debug and test APK for screenshots"
+  lane :build_for_screengrab do
+    build_android_app(
+      task: "assemble",
+      build_type: "Debug"
+    )
+    build_android_app(
+      task: "assemble",
+      build_type: "AndroidTest"
+    )
+  end
 end

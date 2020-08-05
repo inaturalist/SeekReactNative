@@ -622,7 +622,13 @@
     "mission_3_aug_2020": "Znajdź 1 roślinę z rzędu Różowce (róża, wiąz, figa i podobne)",
     "mission_4_aug_2020": "Znajdź 2 owady z rzędów:\n\nBłonkoskrzydłe (Mrówki, Pszczoły, Osy i Rośliniarki);\nŁuskoskrzydłe (Motyle i  Ćmy);\nChrząszcze (Coleoptera);\nMuchówki (Diptera)",
     "aug_2020_description": "Dzięki zapylaczom mamy jedzenie oraz kwiaty, które możemy podziwiać. Poprzez przenoszenie na swoich ciałach pyłków pomiędzy roślinami, zapylacze pomagają rozmnażać się wielu roślinom.",
-    "action_aug_2020": "Zwróć uwagę na zapylaczy wokół Siebie. Czy w Twoim ogrodzie lub sąsiedztwie są pszczoły lub motyle odwiedzające kwiaty?"
+    "action_aug_2020": "Zwróć uwagę na zapylaczy wokół Siebie. Czy w Twoim ogrodzie lub sąsiedztwie są pszczoły lub motyle odwiedzające kwiaty?",
+    "herbivore": "Herbivore Challenge",
+    "mission_1_sept_2020": "Find 10 plants",
+    "mission_2_sept_2020": "Find 1 mammal",
+    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
+    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
   },
   "replace_photo": {
     "header": "Zastąpić zdjęcie?",

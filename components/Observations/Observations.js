@@ -100,6 +100,22 @@ const ObservationList = () => {
     } );
   };
 
+  const fetchFilteredObservations = useCallback( ( searchText ) => {
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name == ${searchText}` );
+      console.log( searchText, "search text and: ", species.length );
+      if ( species.length === 0 ) {
+        setEmptyState();
+      } else {
+        const obs = createSectionList( realm, species );
+        setObservations( obs );
+        setLoading( false );
+      }
+    } ).catch( () => {
+      // console.log( "Err: ", err )
+    } );
+  }, [] );
+
   const fetchRoute = async () => {
     const routeName = await getRoute();
     // don't fetch if user is toggling back and forth from SpeciesDetail screens
@@ -188,7 +204,8 @@ const ObservationList = () => {
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
-            ListHeaderComponent={() => <SearchBar />}
+            ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
+            // ListHeaderComponent={() => <SearchBar fetchFilteredObservations={fetchFilteredObservations} />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}

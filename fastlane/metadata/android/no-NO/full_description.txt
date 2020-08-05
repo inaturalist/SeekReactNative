@@ -1,0 +1,26 @@
+Bruk kunstig intelligens til å identifisere plantene og dyrene rundt deg. Earn badges for seeing different types of plants, birds, fungi and more!
+
+• Get outside and point the Seek Camera at living things
+
+• Identify wildlife, plants, and fungi and learn about the organisms all around you
+
+• Earn badges for observing different types of species and participating in challenges
+
+
+OPEN THE CAMERA AND START SEEKING!
+
+Found a mushroom, flower, or bug, and not sure what it is? Prøv Seek-kameraet og se om det vet!
+
+Basert på millioner av observasjoner av dyreliv i iNaturalist viser Seek deg lister av vanlige innsekter, fugler, planter, amfibier og andre organismer i ditt område. Skann miljøet med Seek-kameraet og identifiser organismer gjennom livstreet. Add different species to your observations and learn all about them in the process! Jo flere observasjoner, desto flere badges får du!
+
+Dette er en flott app for familier som vil bruke mer tid på å utforske naturen sammen, og for alle som ønsker å lære mer om livet rundt seg.
+
+BARNEVENNLIG
+
+Seek trenger ingen registrering og samler ingen brukerdata som standard. Noen brukerdata samles hvis du velger å logge på med en iNaturalist-konto, men du må være over 13 år eller ha tillatelse fra dine foreldre for å gjøre det.
+
+Seek kommer til å be om tillatelse til å slå på posisjoneringstjenester, men din posisjon er skjermet for å ivareta ditt privatliv og samtidig muliggjøre artsforslag fra ditt generelle område. Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+
+Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+
+Seek is created by the iNaturalist team. iNaturalist er et felles initiativ av California Academy of Sciences og National Geographic Society. Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.

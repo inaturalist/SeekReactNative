@@ -2,7 +2,7 @@ import React from "react";
 import HTML from "react-native-render-html";
 
 import styles from "../../styles/auth/privacy";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const PrivacyPolicyScreen = () => {
   const html = `<p><i>Last Modified on April 7, 2020</i></p>

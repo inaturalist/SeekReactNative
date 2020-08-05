@@ -13,7 +13,7 @@ import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
 import { createJwtToken } from "../../../utility/helpers";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 const ForgotPasswordScreen = () => {
   const { navigate } = useNavigation();

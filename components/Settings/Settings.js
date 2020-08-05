@@ -4,7 +4,7 @@ import { View, Platform } from "react-native";
 import styles from "../../styles/settings";
 import { UserContext } from "../UserContext";
 import LanguagePicker from "./LanguagePicker";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import DonateButton from "./DonateButton";
 import CameraSettings from "./CameraSettings";
 

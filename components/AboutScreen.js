@@ -15,7 +15,7 @@ import styles from "../styles/about";
 import logos from "../assets/logos";
 import i18n from "../i18n";
 import { UserContext } from "./UserContext";
-import ScrollWithHeader from "./UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "./UIComponents/Screens/ScrollWithHeader";
 import PrivacyAndTerms from "./UIComponents/PrivacyAndTerms";
 
 const AboutScreen = () => {

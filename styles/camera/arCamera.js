@@ -12,16 +12,15 @@ const fontScale = PixelRatio.getFontScale();
 export default StyleSheet.create( {
   backButton: {
     left: 0,
-    paddingBottom: 18,
     paddingHorizontal: 23,
-    paddingTop: 18,
+    paddingVertical: 18,
     position: "absolute",
     top: height > 670 ? 31 : 0
   },
   camera: {
     height,
     width: Platform.OS === "android" ? width + 100 : width, // this should account for offcenter photos on android
-    zIndex: -2
+    zIndex: -1
   },
   container: {
     alignItems: "center",
@@ -36,16 +35,6 @@ export default StyleSheet.create( {
   },
   dots: {
     marginHorizontal: width / 32
-  },
-  errorText: {
-    color: colors.white,
-    fontFamily: fonts.medium,
-    fontSize: 19,
-    lineHeight: 24,
-    marginHorizontal: 41,
-    position: "absolute",
-    textAlign: "center",
-    top: "50%"
   },
   greenButton: {
     alignItems: "center",
@@ -69,12 +58,11 @@ export default StyleSheet.create( {
   },
   help: {
     bottom: 0,
-    paddingBottom: 35,
     paddingHorizontal: 10,
-    paddingTop: 35,
+    paddingVertical: 35,
     position: "absolute",
-    right: 64 - 10,
-    zIndex: 1
+    right: 64 - 10
+    // zIndex: 1
   },
   loading: {
     position: "absolute",
@@ -89,10 +77,6 @@ export default StyleSheet.create( {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
-  },
-  safeView: {
-    backgroundColor: colors.black,
-    flex: 0
   },
   scanText: {
     bottom: 95,
@@ -110,10 +94,9 @@ export default StyleSheet.create( {
   },
   shutter: {
     bottom: 0,
-    paddingBottom: 18,
     paddingHorizontal: 48,
-    paddingTop: 18,
-    position: "absolute",
-    zIndex: 1
+    paddingVertical: 18,
+    position: "absolute"
+    // zIndex: 1
   }
 } );

@@ -8,7 +8,7 @@ import realmConfig from "../../models";
 import ChallengeDetailsHeader from "./ChallengeDetailsHeader";
 import { getChallengeIndex, recalculateChallenges } from "../../utility/challengeHelpers";
 import ChallengeDetailsContainer from "./ChallengeDetailsContainer";
-import ScrollNoHeader from "../UIComponents/ScrollNoHeader";
+import ScrollNoHeader from "../UIComponents/Screens/ScrollNoHeader";
 
 const ChallengeDetailsScreen = () => {
   const isFocused = useIsFocused();

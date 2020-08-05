@@ -9,6 +9,12 @@ export default StyleSheet.create( {
   containerWhite: {
     backgroundColor: colors.white
   },
+  green: {
+    backgroundColor: colors.seekForestGreen
+  },
+  black: {
+    backgroundColor: colors.black
+  },
   loadingWheel: {
     alignItems: "center",
     flexGrow: 1,

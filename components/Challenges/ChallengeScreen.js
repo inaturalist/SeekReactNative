@@ -12,7 +12,7 @@ import ChallengeProgressCard from "./ChallengeProgressCard";
 import GreenText from "../UIComponents/GreenText";
 import { recalculateChallenges } from "../../utility/challengeHelpers";
 import NoChallenges from "../Home/Challenges/NoChallenges";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import EmptyChallengesCard from "./EmptyChallengesCard";
 
 const ChallengeScreen = () => {

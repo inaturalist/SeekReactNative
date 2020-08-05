@@ -18,7 +18,7 @@ import { saveAccessToken } from "../../../utility/loginHelpers";
 import config from "../../../config";
 import createUserAgent from "../../../utility/userAgent";
 import { UserContext } from "../../UserContext";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 const LoginScreen = () => {
   const { navigate } = useNavigation();

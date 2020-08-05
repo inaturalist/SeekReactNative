@@ -8,7 +8,7 @@ import i18n from "../../../i18n";
 import { requiresParent, formatYearMonthDay } from "../../../utility/dateHelpers";
 import styles from "../../../styles/auth/signup";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ViewWithHeader from "../../UIComponents/ViewWithHeader";
+import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 import DateTimePicker from "../../UIComponents/DateTimePicker";
 import PrivacyAndTerms from "../../UIComponents/PrivacyAndTerms";
 

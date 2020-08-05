@@ -85,7 +85,7 @@ const MatchScreen = () => {
 
   const closeFlagModal = useCallback( ( showFailure ) => {
     dispatch( { type: "CLOSE_FLAG" } );
-    if ( showFailure ) {
+    if ( showFailure && taxon ) {
       taxon.commonAncestor = null;
       taxon.speciesSeenImage = null;
       dispatch( { type: "MISIDENTIFIED", taxon } );
@@ -142,7 +142,6 @@ const MatchScreen = () => {
         flagModal={flagModal}
         closeFlagModal={closeFlagModal}
         params={params}
-        // speciesSeenImage={speciesSeenImage}
         speciesText={speciesText}
         navPath={navPath}
         setNavigationPath={setNavigationPath}
@@ -154,7 +153,7 @@ const MatchScreen = () => {
           gradientColorLight={gradientColorLight}
           setNavigationPath={setNavigationPath}
           userImage={image.uri}
-          speciesSeenImage={speciesSeenImage}
+          speciesSeenImage={taxon && speciesSeenImage ? speciesSeenImage : null}
         />
         <MatchContainer
           image={image}

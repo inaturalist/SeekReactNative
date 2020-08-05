@@ -7,7 +7,7 @@ import React, {
   useCallback
 } from "react";
 import { ScrollView, Platform } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -15,10 +15,9 @@ import { useSafeArea } from "react-native-safe-area-context";
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
-import SpeciesError from "./SpeciesError";
 import Spacer from "../UIComponents/TopSpacer";
 import { getSpeciesId, checkForInternet } from "../../utility/helpers";
-import NoInternetError from "./OnlineOnlyCards/NoInternetError";
+import SpeciesContainer from "./SpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 
@@ -26,6 +25,7 @@ const SpeciesDetail = () => {
   const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
+  const { params } = useRoute();
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -121,7 +121,7 @@ const SpeciesDetail = () => {
     } );
   };
 
-  const createTaxonomyList = ( ancestors, scientificName, commonName ) => {
+  const createTaxonomyList = ( ancestors, scientificName ) => {
     const taxonomyList = [];
     const ranks = ["kingdom", "phylum", "class", "order", "family", "genus"];
     ancestors.forEach( ( ancestor ) => {
@@ -132,8 +132,7 @@ const SpeciesDetail = () => {
 
     taxonomyList.push( {
       rank: "species",
-      name: scientificName || null,
-      preferred_common_name: commonName || null
+      name: scientificName || null
     } );
 
     return taxonomyList;
@@ -143,15 +142,13 @@ const SpeciesDetail = () => {
     if ( id === null ) {
       return;
     }
-    const params = { locale: i18n.currentLocale() };
+    const localeParams = { locale: i18n.currentLocale() };
     const options = { user_agent: createUserAgent() };
 
-    inatjs.taxa.fetch( id, params, options ).then( ( response ) => {
+    inatjs.taxa.fetch( id, localeParams, options ).then( ( response ) => {
       const taxa = response.results[0];
-      const commonName = taxa.preferred_common_name;
       const scientificName = taxa.name;
       const conservationStatus = taxa.taxon_photos[0].taxon.conservation_status;
-      const ancestors = createTaxonomyList( taxa.ancestors, scientificName, commonName );
 
       dispatch( {
         type: "SET_TAXON_DETAILS",
@@ -164,7 +161,7 @@ const SpeciesDetail = () => {
           wikiUrl: taxa.wikipedia_url,
           about: taxa.wikipedia_summary && taxa.wikipedia_summary,
           timesSeen: taxa.observations_count,
-          ancestors,
+          ancestors: createTaxonomyList( taxa.ancestors, scientificName ),
           stats: {
             endangered: ( conservationStatus && conservationStatus.status_name === "endangered" ) || false
           }
@@ -174,6 +171,7 @@ const SpeciesDetail = () => {
   }, [id] );
 
   const fetchiNatData = useCallback( () => {
+    dispatch( { type: "RESET_SCREEN" } );
     setupScreen();
 
     const scrollToTop = () => {
@@ -225,17 +223,15 @@ const SpeciesDetail = () => {
         seenTaxa={seenTaxa}
         photos={photos}
       />
-      {error
-        ? <SpeciesError seenTaxa={seenTaxa} checkForInternet={checkInternetConnection} />
-        : (
-          <NoInternetError
-            details={details}
-            error={error}
-            fetchiNatData={fetchiNatData}
-            id={id}
-            seenTaxa={seenTaxa}
-          />
-        )}
+      <SpeciesContainer
+        checkForInternet={checkInternetConnection}
+        details={details}
+        error={error}
+        fetchiNatData={fetchiNatData}
+        id={id}
+        seenTaxa={seenTaxa}
+        predictions={( params && params.image && params.image.predictions ) ? params.image.predictions : null}
+      />
     </ScrollView>
   );
 };

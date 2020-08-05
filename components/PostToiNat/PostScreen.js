@@ -31,7 +31,7 @@ import Notes from "./Notes";
 import LocationPickerCard from "./Pickers/LocationPickerCard";
 import DatePicker from "./Pickers/DateTimePicker";
 import PostingHeader from "./PostingHeader";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const PostScreen = () => {
   const navigation = useNavigation();

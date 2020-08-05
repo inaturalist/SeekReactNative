@@ -14,7 +14,7 @@ import GreenButton from "../../UIComponents/Buttons/GreenButton";
 import createUserAgent from "../../../utility/userAgent";
 import { createJwtToken } from "../../../utility/helpers";
 import { UserContext } from "../../UserContext";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 type Props = {
   +route: any,

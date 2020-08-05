@@ -11,7 +11,7 @@
 #
 
 # Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 fastlane_require "dotenv"
 
@@ -22,7 +22,7 @@ end
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc "Distributes a beta version of Seek on TestFlight"
   lane :beta do
     get_certificates(username: ENV["USERNAME"]) # invokes cert
     get_provisioning_profile(username: ENV["USERNAME"],
@@ -32,4 +32,12 @@ platform :ios do
             include_bitcode: true)
     upload_to_testflight(username: ENV["USERNAME"])
   end
+end
+
+platform :android do
+ desc "Distributes an Android bundle to the Play Store beta track"
+ lane :beta do
+   gradle(task: 'bundle', build_type: 'Release')
+   upload_to_play_store(track: 'beta', package_name: ENV["PACKAGE_NAME"])
+ end
 end

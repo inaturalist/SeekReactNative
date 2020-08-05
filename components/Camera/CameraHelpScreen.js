@@ -8,7 +8,7 @@ import {
 import styles from "../../styles/camera/help";
 import i18n from "../../i18n";
 import icons from "../../assets/icons";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const CameraHelpScreen = () => {
   const tips = [

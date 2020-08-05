@@ -157,6 +157,7 @@ const MatchModals = ( {
 
   const checkLocationPermissions = useCallback( () => {
     if ( !image.latitude ) {
+      console.log( "creating location alerts" );
       createLocationAlert( errorCode );
     }
   }, [image.latitude, errorCode] );

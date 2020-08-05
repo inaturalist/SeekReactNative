@@ -20,7 +20,7 @@ import GreenText from "../UIComponents/GreenText";
 import LoginCard from "../UIComponents/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber, setRoute } from "../../utility/helpers";
-import ScrollWithHeader from "../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const AchievementsScreen = () => {
   const navigation = useNavigation();

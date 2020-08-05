@@ -13,7 +13,7 @@ import ErrorMessage from "../ErrorMessage";
 import InputField from "../../UIComponents/InputField";
 import GreenText from "../../UIComponents/GreenText";
 import GreenButton from "../../UIComponents/Buttons/GreenButton";
-import ScrollWithHeader from "../../UIComponents/ScrollWithHeader";
+import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 import CheckboxRow from "./CheckboxRow";
 
 const LicensePhotosScreen = () => {

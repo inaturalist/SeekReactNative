@@ -1,0 +1,24 @@
+使用影像辨識科技的威力來鑑定您周遭的動植物。 Earn badges for seeing different types of plants, birds, fungi and more!
+
+• Get outside and point the Seek Camera at living things
+
+• Identify wildlife, plants, and fungi and learn about the organisms all around you
+
+• Earn badges for observing different types of species and participating in challenges
+
+
+OPEN THE CAMERA AND START SEEKING!
+
+Found a mushroom, flower, or bug, and not sure what it is? 開啟 Seek 的照相機來看看它是否認識！
+
+根據iNaturalist的數百萬筆觀察資料，Seek為您列出您所在地區經常被記錄的昆蟲、鳥類、植物、兩棲類及其他生物。 使用Seek Camera掃描環境來透過生命樹辨識生物。 將不同物種加入您的觀察紀錄，並透過此一過程瞭解所有相關知識 ! 觀察紀錄愈多，贏得的獎章愈多!
+
+對於想利用更多時間共同探索大自然的家庭，以及任何想更了解周遭生物的人來說，這都是一款絕佳的手機應用。
+
+適合兒童使用
+
+毋須註冊, 亦不收集使用者資料。 Some user data will be collected if you choose to sign in with an iNaturalist account, but you must be over 13 or have your parents permission to do so. Seek將請求您允許開啟定位服務，但我們會隱藏您的位置以尊重個人隱私，同時仍能透過您所在的大致區域提供物種辨認建議。我們永遠不會在這款應用程式裡儲存您的精確位置或將其發送到iNaturalist 。 Your precise location is never stored in the app or sent to iNaturalist unless you sign in to your iNaturalist account and submit your observations.
+
+Our image recognition technology is based on observations submitted to iNaturalist.org and partner sites, and identified by the iNaturalist community.
+
+Seek is created by the iNaturalist team. iNaturalist 是加州科學院與美國國家地理學會之間的共同創舉。 Seek was originally created with support from HHMI Tangled Bank Studios and enhanced with support from Our Planet on Netflix and WWF.

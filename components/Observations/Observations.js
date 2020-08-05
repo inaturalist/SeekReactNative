@@ -17,7 +17,6 @@ import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
 import { getRoute } from "../../utility/helpers";
-// import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
 import realmConfig from "../../models";
 import i18n from "../../i18n";
@@ -31,6 +30,7 @@ import DeleteModal from "../Modals/DeleteModal";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import GreenHeader from "../UIComponents/GreenHeader";
+import SearchBar from "./SearchBar";
 
 const ObservationList = () => {
   const insets = useSafeArea();
@@ -55,26 +55,6 @@ const ObservationList = () => {
       return () => BackHandler.removeEventListener( "hardwareBackPress", onBackPress );
     }, [navigation] )
   );
-
-  // const getItemLayout = sectionListGetItemLayout( {
-  //   getItemHeight: () => 80,
-    // getSeparatorHeight: () => 18,
-    // getSectionHeaderHeight: () => 42,
-    // getSectionFooterHeight: () => 69,
-  //   listHeaderHeight: 75 // GreenHeader height
-  // } );
-
-  // const scrollToLocation = () => {
-  //   if ( sectionList.current ) {
-  //     console.log( sectionList.current.scrollToLocation, "scroll to location" );
-  //     sectionList.current.scrollToLocation( {
-  //       animated: Platform.OS === "android",
-  //       itemIndex: 0,
-  //       sectionIndex: 3,
-  //       viewOffset: 60
-  //     } );
-  //   }
-  // };
 
   const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
     setItemToDelete( {
@@ -207,9 +187,8 @@ const ObservationList = () => {
             sections={observations}
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
-            // getItemLayout={getItemLayout}
             keyExtractor={( item, index ) => item + index}
-            ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
+            ListHeaderComponent={() => <SearchBar />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}

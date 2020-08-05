@@ -428,7 +428,8 @@
     "no_obs": "You don’t have any observations yet!",
     "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
     "open_camera": "Open Camera",
-    "not_seen": "You haven’t observed any {{iconicTaxon}} yet!"
+    "not_seen": "You haven’t observed any {{iconicTaxon}} yet!",
+    "search": "Search observations"
   },
   "species_detail": {
     "near": "Nearby",

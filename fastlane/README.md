@@ -30,6 +30,11 @@ Distributes a beta version of Seek on TestFlight
 fastlane android beta
 ```
 Distributes an Android bundle to the Play Store beta track
+### android build_for_screengrab
+```
+fastlane android build_for_screengrab
+```
+Build debug and test APK for screenshots
 
 ----
 

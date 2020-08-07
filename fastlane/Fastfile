@@ -26,33 +26,51 @@ platform :ios do
   lane :beta do
     get_certificates(username: ENV["USERNAME"]) # invokes cert
     get_provisioning_profile(username: ENV["USERNAME"],
-                          app_identifier: ENV["APPLE_ID"]) # invokes sigh
+                         app_identifier: ENV["APPLE_ID"]) # invokes sigh
     build_app(scheme: "Seek",
-            workspace: "ios/Seek.xcworkspace",
-            include_bitcode: true)
+           workspace: "ios/Seek.xcworkspace",
+           include_bitcode: true)
     upload_to_testflight(username: ENV["USERNAME"])
-  end
-end
-
-platform :android do
- desc "Distributes an Android bundle to the Play Store beta track"
- lane :beta do
-  get_android_version(apk: ENV["ANDROID_APK"])
-   # gradle(task: "bundle", build_type: "Release", project_dir: "android" )
-   # upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"])
-   slack(
-      message: "Android beta successfully deployed!",
+    app_store_build_number(live: false, username: ENV["USERNAME"], app_identifier: ENV["APPLE_ID"])
+    slack(
+      message: "Seek iOS beta successfully deployed!",
       success: true,
       slack_url: ENV["SLACK_WEBHOOK"],
       default_payloads: [:lane, :test_result, :git_branch, :last_git_commit_hash],
       attachment_properties: {
            fields: [
                {
-                  title: "Version number",
+                  title: "Version Number",
+                  value: lane_context[SharedValues::LATEST_VERSION]
+               },
+               {
+                 title: "Build Number",
+                 value: lane_context[SharedValues::LATEST_BUILD_NUMBER]
+               }
+           ]
+       })
+  end
+end
+
+platform :android do
+ desc "Distributes an Android bundle to the Play Store beta track"
+ lane :beta do
+    get_android_version(apk: ENV["ANDROID_APK"])
+    gradle(task: "bundle", build_type: "Release", project_dir: "android" )
+    upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"], skip_upload_apk: true)
+    slack(
+      message: "Seek Android beta successfully deployed!",
+      success: true,
+      slack_url: ENV["SLACK_WEBHOOK"],
+      default_payloads: [:lane, :test_result, :git_branch, :last_git_commit_hash],
+      attachment_properties: {
+           fields: [
+               {
+                  title: "Version Number",
                   value: lane_context[SharedValues::GET_ANDROID_VERSION_NAME]
                },
                {
-                 title: "Build number",
+                 title: "Build Number",
                  value: lane_context[SharedValues::GET_ANDROID_VERSION_CODE]
                }
            ]

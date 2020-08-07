@@ -73,9 +73,9 @@
     "observations_1": "Je waarnemingen in Seek worden opgeslagen op je apparaat en worden NIET online geback-upt.",
     "observations_2": "Het verwijderen van de app zal al je waarnemingen in Seek verwijderen.",
     "observations_3": "Seek synchroniseert je waarnemingen niet met andere apparaten.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Ik ga akkoord met de <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ik heb de <guidelines>{{guidelines}}</guidelines> bekeken.",
+    "guidelines": "Gemeenschapsrichtlijnen",
+    "store_data": "Ik stem ermee in dat iNaturalist persoonlijke informatie over mij kan opslaan en verwerken om mijn account te beheren"
   },
   "inat_login": {
     "log_in_with_inat": "Meld je aan met je iNaturalist account",
@@ -144,12 +144,12 @@
     "flow": "Zoetwateruitdaging",
     "hotspots": "Open Zee Uitdaging",
     "ice": "Klimaatuitdaging",
-    "op": "Our Planet",
+    "op": "Onze Planeet",
     "start_now": "Nu beginnen",
     "mission_1_april": "Vind 10 nieuwe soorten!",
     "april_description": "We zijn niet alleen op onze planeet! Natuur is altijd om ons heen of we het opmerken of niet. In onze huizen, tuinen, steden en parken zijn verborgen werelden te ontdekken. Zoek in en rond je huis en je zal verbaasd zijn over hoeveel wilde buren die je vindt.\n\nZoek planten, paddenstoelen, kranswieren, vogels en dieren. Kijk eens uit naar tekens van meer ongrijpbaar leven – poep, haren, nesten, sporen en webben zijn allemaal aanwijzingen dat andere wezens hun thuis met je delen.",
     "start_challenge": "Neem de uitdaging aan",
-    "open_camera": "Open camera",
+    "open_camera": "Activeer de camera",
     "view_badge": "Bekijk badge",
     "your_mission": "Jouw missie",
     "mission_1_may": "Vind 4 verschillende vogels, zoogdieren, reptielen, amfibieën of vissen",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Waargenomen soorten"
   },
   "inat_stats": {
     "global_observations": "Algemene Waarnemingen",
@@ -289,11 +289,11 @@
     "scan_genus": "Bijna tot op soort!",
     "scan_species": "Dat is het! Neem nu een foto om deze soort toe te voegen aan je waarnemingen.",
     "kingdom": "koninkrijk",
-    "phylum": "phylum",
+    "phylum": "Stam",
     "class": "klasse",
     "order": "orde",
     "family": "familie",
-    "genus": "genus",
+    "genus": "geslacht",
     "species": "soort",
     "error_permissions": "We hebben toegang tot de camera nodig om je te helpen bij het determineren van soorten!",
     "error_gallery": "Er is toegang tot opslag nodig om je foto's op te slaan!",
@@ -337,7 +337,7 @@
     "tracker": "Tracker",
     "surveyor": "Landmeter",
     "naturalist": "Naturalist",
-    "seeker": "Seeker",
+    "seeker": "Seekers",
     "explorer": "Ontdekker",
     "adventurer": "Avonturier",
     "biologist": "Bioloog"
@@ -427,7 +427,7 @@
     "header": "Mijn Waarnemingen",
     "no_obs": "Je hebt nog geen waarnemingen!",
     "help": "Neem een foto van een plant, dier, Cthulhu, Ophiocistioidea of iets dat leeft met onze camera en ons AI-model geeft het een naam!",
-    "open_camera": "Open Camera",
+    "open_camera": "Activeer de camera",
     "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!"
   },
   "species_detail": {
@@ -554,7 +554,7 @@
   },
   "accessibility": {
     "menu": "Open menu",
-    "camera": "Open camera",
+    "camera": "Activeer de camera",
     "notifications": "Toon meldingen",
     "iNatStats": "Toon iNat statistieken",
     "flag": "Markeer deze waarneming als onjuist",
@@ -569,7 +569,7 @@
     "title": "Beoordeel deze app",
     "rate": "Als je deze app leuk vindt, neem dan even de tijd om deze te beoordelen in de Play Store. Bedankt voor je steun!",
     "rate_now": "Beoordeel nu",
-    "later": "Later"
+    "later": "Dat doe ik later"
   },
   "attributions": {
     "all": "alle rechten voorbehouden",
@@ -623,12 +623,12 @@
     "mission_4_aug_2020": "Vind 2 insecten uit de orde:\n\nAngeldragers (Hymenoptera zoals Mieren, Bijen, Wespen en Bladwespen);\nVlinders (Lepidoptera zoals Dagvlinders, Nachtvlinders en motten);\nKevers (Coleoptera);\nVliegen (Diptera)",
     "aug_2020_description": "Bestuivers geven ons voedsel dat we eten en bloemen waar we van genieten! Door het verplaatsen van stuifmeel tussen verschillende planten door hun lichaam te gebruiken helpen bestuivers vele soorten planten bij de voortplanting.",
     "action_aug_2020": "Kijk naar de bestuivers om je heen. Zijn er bijen of vlinders die de bloemen bezoeken in je tuin of buurt?",
-    "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "herbivore": "Planteneter Uitdaging",
+    "mission_1_sept_2020": "Vind 10 planten",
+    "mission_2_sept_2020": "Vind 1 zoogdier",
+    "mission_3_sept_2020": "Vind 2 insecten uit de ordes:\n\nLepidoptera (Dag- en Nachtvlinders);\nHemiptera (Wantsen, bladluizen en cicaden)",
+    "sept_2020_description": "Herbivoren zijn dieren die zo zijn aangepast dat ze alleen planten kunnen eten. Plantenetende zoogdieren hebben vaak complexe spijsverteringssystemen waarmee ze grote hoeveelheden plantaardig materiaal kunnen afbreken. Koeien hebben bijvoorbeeld 4 magen om de planten die ze consumeren af te breken. Andere zoogdieren specialiseren zich in fruit (fruitvleermuizen) of zaden (eekhoorns). Veel insecten zijn ook aangepast aan het eten van verschillende plantenonderdelen, zoals rupsen die eten bladeren of Lantaarndragerachtigen die sap uit stengels zuigen.",
+    "action_sept_2020": "Onderzoek de invloed van vleesconsumptie op het milieu. Welke stappen kan je nemen om je eigen effect te verminderen?\n\nAlternatief: welke planten eet je? Welke onderdeel van de plant zijn ze? Weet je welke diersoorten ze ook graag eten?"
   },
   "replace_photo": {
     "header": "Foto vervangen?",

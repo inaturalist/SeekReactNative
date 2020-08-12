@@ -73,9 +73,9 @@
     "observations_1": "U waarnemings in Seek word op u toestel bewaar en word nie aanlyn gerugsteun nie.",
     "observations_2": "Deur die toep te skrap word al u waarnemings in Seek ook geskrap.",
     "observations_3": "Seek sinchroniseer nie u waarnemings met ander toestelle nie.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "Ek stem in tot die <terms>{{terms}}</terms> en <privacy>{{privacy}}</privacy> en ek het die <guidelines>{{guidelines}}</guidelines> nagegaan.",
+    "guidelines": "Gemeenskapsriglyne",
+    "store_data": "Ek stem daarrmee in dat iNaturalist persoonlike inligting oor my kan bewaar en verwerk om my rekening te beheer."
   },
   "inat_login": {
     "log_in_with_inat": "Teken aan met u iNaturalist-rekening",
@@ -207,7 +207,7 @@
     "photographer_september": "Foto © Netflix / Silverback Films",
     "photographer_october": "Foto © Netflix / Silverback Films",
     "photographer_december": "Foto © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Spesies waargeneem"
   },
   "inat_stats": {
     "global_observations": "Globale Waarnemings",
@@ -289,7 +289,7 @@
     "scan_genus": "Byna by spesie!",
     "scan_species": "Het dit! Neem nou ’n foto om hierdie spesie tot u waarnemings toe te voeg.",
     "kingdom": "koninkryk",
-    "phylum": "phylum",
+    "phylum": "stam",
     "class": "klas",
     "order": "orde",
     "family": "familie",
@@ -623,12 +623,12 @@
     "mission_4_aug_2020": "Vind 2 insekte van die ordes:\n\nHymenoptera (miere, bye, wespe en bladwespe);\nLepidoptera (vlinders en motte);\nKewers (Coleoptera);\nVlieë (Diptera)",
     "aug_2020_description": "Bestuiwers gee ons kos te ete en blomm te geniet! Deur stuifmeel met hul liggame tussen verskillende plante te skuif, help bestuiwers talle plante om voort te plant.",
     "action_aug_2020": "Geen aandag aan die bestuiwers om u. Is daat bye of vlinders wat die blomme in u tuin of omgewing besoek?",
-    "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "herbivore": "Planteter-uitdaging",
+    "mission_1_sept_2020": "Vind 10 plante",
+    "mission_2_sept_2020": "Vind 1 soogdier",
+    "mission_3_sept_2020": "Vind 2 insekte uit die ordes:\n\nLepidoptera (Dag- en Nagvlinders);\nHemiptera (Wantse, bladluise en sonbesies)",
+    "sept_2020_description": "Herbivore is diere wat só aangepas is dat hulle net plante kan eet. Plantetende soogdiere het dikwels ingewikkelde spysverteringstelsels waarmee hulle groot hoeveelhede plantaardige materiaal kan afbreek. Koeie het bvv. 4 mae om die plante wat hulle inneem, af te breek. Ander soogdiere spesialiseer in vrugte (vrugtevlermuise) of sade (eekhorings). Baie insekte is ook aangepas by die eet van verskillende plantenonderdele, soos ruspes wat blare eet of plantspringers wat sap uit stingels suig.",
+    "action_sept_2020": "Ondersoek die invloed van vleisverbruik op die omgewing. Welke stappe kan u neem om u eie impak te verminder?\n\nAlternatief: welke plante eet u? Van welke onderdeel van die plant kom dit? Weet u welke diersoorte dieselfde plante ook graag eet?"
   },
   "replace_photo": {
     "header": "Vervang foto?",

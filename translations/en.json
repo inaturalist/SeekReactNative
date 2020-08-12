@@ -588,7 +588,11 @@
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Use device language settings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Automatically take a picture when the identification reaches species.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek badge",

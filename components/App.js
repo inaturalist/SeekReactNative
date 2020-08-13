@@ -97,9 +97,7 @@ const App = () => {
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     if ( preferredLanguage !== "device" ) {
-      const preferredNoHyphens = preferredLanguage.replace( "-","" );
-      i18n.locale = preferredNoHyphens;
-      console.log( i18n.locale, "locale" );
+      i18n.locale = preferredLanguage;
       setRTL( preferredLanguage );
       setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     } else {

@@ -11,8 +11,8 @@ import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
-import { UserContext, CameraContext, LanguageContext } from "./UserContext";
-import { getScientificNames, getLanguage, getAutoCapture } from "../utility/settingsHelpers";
+import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
+import { getScientificNames, getLanguage, getAutoCapture, getSeasonality } from "../utility/settingsHelpers";
 
 const setRTL = ( locale ) => {
   if ( Platform.OS === "android" ) {
@@ -39,16 +39,19 @@ const App = () => {
   const [scientificNames, setScientificNames] = useState( false );
   const [preferredLanguage, setLanguage] = useState( null );
   const [autoCapture, setAutoCapture] = useState( false );
+  const [localSeasonality, setLocalSeasonality] = useState( false );
 
   const getLoggedIn = async () => setLogin( await fetchAccessToken() );
   const fetchScientificNames = async () => setScientificNames( await getScientificNames() );
   const getLanguagePreference = async () => setLanguage( await getLanguage() );
   const fetchAutoCapture = async () => setAutoCapture( await getAutoCapture() );
+  const fetchLocalSeasonality = async () => setLocalSeasonality( await getSeasonality() );
 
   const toggleLogin = () => getLoggedIn();
   const toggleNames = () => fetchScientificNames();
   const toggleLanguagePreference = () => getLanguagePreference();
   const toggleAutoCapture = () => fetchAutoCapture();
+  const toggleLocalSeasonality = () => fetchLocalSeasonality();
 
   const userContextValue = { login, toggleLogin };
   const CameraContextValue = {
@@ -58,6 +61,7 @@ const App = () => {
     toggleAutoCapture
   };
   const languageValue = { preferredLanguage, toggleLanguagePreference };
+  const seasonalityValue = { localSeasonality, toggleLocalSeasonality };
 
   const handleLocalizationChange = () => {
     const fallback = { languageTag: "en" };
@@ -110,6 +114,7 @@ const App = () => {
     fetchScientificNames();
     getLanguagePreference();
     fetchAutoCapture();
+    fetchLocalSeasonality();
     setTimeout( setupChallenges, 3000 );
     setTimeout( addARCameraFiles, 3000 );
 
@@ -126,7 +131,9 @@ const App = () => {
     <UserContext.Provider value={userContextValue}>
       <CameraContext.Provider value={CameraContextValue}>
         <LanguageContext.Provider value={languageValue}>
-          <RootStack />
+          <SpeciesDetailContext.Provider value={seasonalityValue}>
+            <RootStack />
+          </SpeciesDetailContext.Provider>
         </LanguageContext.Provider>
       </CameraContext.Provider>
     </UserContext.Provider>

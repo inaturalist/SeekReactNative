@@ -1,7 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-community/async-storage";
 
-const toggleScientificNames = ( boolean ) => {
+const toggleScientificNames = ( boolean: boolean ) => {
   AsyncStorage.setItem( "scientific_names", boolean.toString() );
 };
 
@@ -17,7 +17,7 @@ const getScientificNames = async () => {
   }
 };
 
-const toggleLanguage = ( language ) => {
+const toggleLanguage = ( language: string ) => {
   AsyncStorage.setItem( "language", language );
 };
 
@@ -30,7 +30,7 @@ const getLanguage = async () => {
   }
 };
 
-const toggleCameraCapture = ( boolean ) => {
+const toggleCameraCapture = ( boolean: boolean ) => {
   AsyncStorage.setItem( "camera", boolean.toString() );
 };
 
@@ -46,11 +46,29 @@ const getAutoCapture = async () => {
   }
 };
 
+const toggleSeasonality = ( boolean: boolean ) => {
+  AsyncStorage.setItem( "seasonality", boolean.toString() );
+};
+
+const getSeasonality = async () => {
+  try {
+    const seasonality = await AsyncStorage.getItem( "seasonality" );
+    if ( seasonality === null || seasonality === "false" ) {
+      return false;
+    }
+    return true;
+  } catch ( error ) {
+    return false;
+  }
+};
+
 export {
   toggleScientificNames,
   getScientificNames,
   toggleLanguage,
   getLanguage,
   toggleCameraCapture,
-  getAutoCapture
+  getAutoCapture,
+  toggleSeasonality,
+  getSeasonality
 };

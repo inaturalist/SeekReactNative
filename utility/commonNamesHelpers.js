@@ -17,7 +17,7 @@ const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
   } );
 };
 
-const setupCommonNames = ( preferredLanguage ) => {
+const setupCommonNames = ( preferredLanguage: string ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
@@ -62,6 +62,10 @@ const setupCommonNames = ( preferredLanguage ) => {
           require( "./commonNames/commonNamesDict-12" ).default, seekLocale );
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-13" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-14" ).default, seekLocale );
+        addCommonNamesFromFile( realm,
+          require( "./commonNames/commonNamesDict-15" ).default, seekLocale );
       } );
       // } ).then( () => {
       //   console.log( new Date().getTime(), "end time for realm" );

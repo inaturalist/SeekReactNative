@@ -30,8 +30,6 @@ const SpeciesDetail = () => {
     }
   };
 
-  console.log( granted, "granted" );
-
   if ( granted ) {
     return (
       <View style={styles.margin}>

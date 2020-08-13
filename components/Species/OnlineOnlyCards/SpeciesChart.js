@@ -51,8 +51,6 @@ const SpeciesChart = ( { id }: Props ) => {
       params.radius = 50;
     }
 
-    console.log( params, "params" );
-
     const options = { user_agent: createUserAgent() };
 
     inatjs.observations.histogram( params, options ).then( ( { results } ) => {

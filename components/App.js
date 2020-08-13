@@ -91,11 +91,15 @@ const App = () => {
       return;
     }
 
+    console.log( preferredLanguage, "preferred language in app" );
+
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names
     // are not needed immediately
     if ( preferredLanguage !== "device" ) {
-      i18n.locale = preferredLanguage;
+      const preferredNoHyphens = preferredLanguage.replace( "-","" );
+      i18n.locale = preferredNoHyphens;
+      console.log( i18n.locale, "locale" );
       setRTL( preferredLanguage );
       setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
     } else {

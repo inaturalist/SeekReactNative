@@ -23,5 +23,13 @@ export default StyleSheet.create( {
   },
   gridCell: {
     marginRight: 23
-  }
+  },
+  checkbox: {
+    position: "absolute",
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+    height: 24,
+    width: 24
+  },
 } );

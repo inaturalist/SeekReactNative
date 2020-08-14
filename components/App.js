@@ -67,6 +67,8 @@ const App = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
+    console.log( languageTag, "language tag" );
+
     i18n.locale = languageTag;
     setRTL( languageTag );
   };
@@ -90,8 +92,6 @@ const App = () => {
     if ( !preferredLanguage ) {
       return;
     }
-
-    console.log( preferredLanguage, "preferred language in app" );
 
     // do not wait for commonNames setup to complete. It could take a while to
     // add all names to Realm and we don't want to hold up the UI as names

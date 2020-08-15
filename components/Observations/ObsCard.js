@@ -64,7 +64,6 @@ const ObservationCard = ( {
 
   useEffect( () => {
     getTaxonCommonName( id ).then( ( taxonName ) => {
-      console.log( taxonName, "taxon name" );
       if ( isFocused ) {
         setCommonName( taxonName );
       }

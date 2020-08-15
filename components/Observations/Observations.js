@@ -42,6 +42,7 @@ const ObservationList = () => {
   const [itemToDelete, setItemToDelete] = useState( null );
   const [loading, setLoading] = useState( true );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
+  const [searchText, setSearchText] = useState( "" );
 
   useFocusEffect(
     useCallback( () => {
@@ -100,10 +101,11 @@ const ObservationList = () => {
     } );
   };
 
-  const fetchFilteredObservations = useCallback( ( searchText ) => {
+  const fetchFilteredObservations = useCallback( ( text ) => {
+    setSearchText( text );
     Realm.open( realmConfig ).then( ( realm ) => {
-      const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name == ${searchText}` );
-      console.log( searchText, "search text and: ", species.length );
+      const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}'` );
+      console.log( text, "search text and: ", species.length );
       if ( species.length === 0 ) {
         setEmptyState();
       } else {
@@ -204,8 +206,8 @@ const ObservationList = () => {
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
-            ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
-            // ListHeaderComponent={() => <SearchBar fetchFilteredObservations={fetchFilteredObservations} />}
+            // ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
+            ListHeaderComponent={() => <SearchBar fetchFilteredObservations={fetchFilteredObservations} searchText={searchText} />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader
                 section={section}

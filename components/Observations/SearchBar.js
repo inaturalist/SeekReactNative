@@ -9,21 +9,19 @@ import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 
 type Props = {
-  fetchFilteredObservations: Function
+  fetchFilteredObservations: Function,
+  searchText: string
 }
 
-const SearchBar = ( { fetchFilteredObservations }: Props ) => (
+const SearchBar = ( { fetchFilteredObservations, searchText }: Props ) => (
   <View style={[styles.row, styles.margins]}>
-    <Image
-      source={posting.searchGreen}
-      // tintColor={colors.white}
-      style={styles.search}
-    />
+    <Image source={posting.searchGreen} style={styles.search} />
     <TextInput
-      onChangeText={text => fetchFilteredObservations( text )}
+      onChangeText={fetchFilteredObservations}
       placeholder={i18n.t( "observations.search" )}
       placeholderTextColor={colors.placeholderGray}
       style={styles.inputField}
+      value={searchText}
     />
   </View>
 );

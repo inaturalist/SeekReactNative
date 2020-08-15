@@ -67,8 +67,6 @@ const App = () => {
     const fallback = { languageTag: "en" };
     const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
-    console.log( languageTag, "language tag" );
-
     i18n.locale = languageTag;
     setRTL( languageTag );
   };

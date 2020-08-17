@@ -206,7 +206,6 @@ const ObservationList = () => {
             initialNumToRender={5}
             stickySectionHeadersEnabled={false}
             keyExtractor={( item, index ) => item + index}
-            // ListHeaderComponent={() => <View style={styles.sectionSeparator} />}
             ListHeaderComponent={() => <SearchBar fetchFilteredObservations={fetchFilteredObservations} searchText={searchText} />}
             renderSectionHeader={( { section } ) => (
               <SectionHeader

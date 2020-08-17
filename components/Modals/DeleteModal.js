@@ -31,8 +31,8 @@ const DeleteModal = ( {
   const {
     id,
     photo,
-    commonName,
-    scientificName,
+    preferredCommonName,
+    name,
     iconicTaxonId
   } = itemToDelete;
 
@@ -57,10 +57,10 @@ const DeleteModal = ( {
       <View style={styles.margin} />
       <SpeciesCard
         allowFontScaling={false}
-        commonName={commonName}
+        commonName={preferredCommonName}
         iconicTaxonId={iconicTaxonId}
         photo={photo}
-        scientificName={scientificName}
+        scientificName={name}
       />
       <View style={styles.margin} />
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "delete.description" )}</Text>

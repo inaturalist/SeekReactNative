@@ -16,8 +16,8 @@ import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 import { useSafeArea } from "react-native-safe-area-context";
-import { getRoute } from "../../utility/helpers";
 
+import { getRoute, getTaxonCommonName } from "../../utility/helpers";
 import realmConfig from "../../models";
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
@@ -57,12 +57,13 @@ const ObservationList = () => {
     }, [navigation] )
   );
 
-  const openModal = ( id, photo, commonName, scientificName, iconicTaxonId ) => {
+  const openModal = ( photo, taxon ) => {
+    const { id, preferredCommonName, name, iconicTaxonId } = taxon;
     setItemToDelete( {
       id,
       photo,
-      commonName,
-      scientificName,
+      preferredCommonName,
+      name,
       iconicTaxonId
     } );
     setModal( true );
@@ -84,17 +85,40 @@ const ObservationList = () => {
     setObservations( updatedObs );
   };
 
-  const setEmptyState = () => setLoading( false );
+  const setupObsList = ( realm, species ) => {
+    const obs = createSectionList( realm, species );
+    setObservations( obs );
+    setLoading( false );
+  };
+
+  const fetchCommonNames = ( realm, species ) => {
+    const commonNames = [];
+
+    species.forEach( ( { taxon } ) => {
+      const { id } = taxon;
+      commonNames.push(
+        getTaxonCommonName( id ).then( ( taxonName ) => {
+          realm.write( () => {
+            taxon.preferredCommonName = taxonName;
+          } );
+        } )
+      );
+    } );
+
+    // wait until all commonNames are fetched before setting up obsList
+    Promise.all( commonNames ).then( ( result ) => {
+      setupObsList( realm, species );
+    } );
+  };
 
   const fetchObservations = () => {
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" );
+
       if ( species.length === 0 ) {
-        setEmptyState();
-      } else {
-        const obs = createSectionList( realm, species );
-        setObservations( obs );
         setLoading( false );
+      } else {
+        fetchCommonNames( realm, species );
       }
     } ).catch( () => {
       // console.log( "Err: ", err )
@@ -105,10 +129,7 @@ const ObservationList = () => {
     setSearchText( text );
     Realm.open( realmConfig ).then( ( realm ) => {
       const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
-      console.log( text, "search text and: ", species.length );
-      const obs = createSectionList( realm, species );
-      setObservations( obs );
-      setLoading( false );
+      setupObsList( realm, species );
     } ).catch( () => {
       // console.log( "Err: ", err )
     } );
@@ -118,6 +139,7 @@ const ObservationList = () => {
     const routeName = await getRoute();
     // don't fetch if user is toggling back and forth from SpeciesDetail screens
     if ( routeName !== "Observations" ) {
+      setSearchText( "" );
       setLoading( true );
       fetchObservations();
     }

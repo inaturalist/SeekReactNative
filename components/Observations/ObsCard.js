@@ -28,12 +28,7 @@ const ObservationCard = ( {
   const { navigate } = useNavigation();
 
   const { taxon } = item;
-  const {
-    id,
-    name,
-    iconicTaxonId,
-    preferredCommonName
-  } = taxon;
+  const { id } = taxon;
 
   const photo = useUserPhoto( item, isFocused );
 
@@ -63,15 +58,13 @@ const ObservationCard = ( {
       showsHorizontalScrollIndicator={false}
     >
       <SpeciesCard
-        commonName={preferredCommonName}
+        taxon={taxon}
         handlePress={() => {
           setSpeciesId( id );
           setRoute( "Observations" );
           navigate( "Species" );
         }}
-        iconicTaxonId={iconicTaxonId}
         photo={photo}
-        scientificName={name}
       />
       <TouchableOpacity
         onPress={() => openModal( photo, taxon )}

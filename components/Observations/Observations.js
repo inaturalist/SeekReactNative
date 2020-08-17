@@ -104,15 +104,11 @@ const ObservationList = () => {
   const fetchFilteredObservations = useCallback( ( text ) => {
     setSearchText( text );
     Realm.open( realmConfig ).then( ( realm ) => {
-      const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}'` );
+      const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
       console.log( text, "search text and: ", species.length );
-      if ( species.length === 0 ) {
-        setEmptyState();
-      } else {
-        const obs = createSectionList( realm, species );
-        setObservations( obs );
-        setLoading( false );
-      }
+      const obs = createSectionList( realm, species );
+      setObservations( obs );
+      setLoading( false );
     } ).catch( () => {
       // console.log( "Err: ", err )
     } );

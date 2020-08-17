@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback
 } from "react";
-import { View, BackHandler } from "react-native";
+import { View, BackHandler, Keyboard } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -103,7 +103,8 @@ const Observations = () => {
   const fetchFilteredObservations = useCallback( ( text ) => {
     setSearchText( text );
 
-    if ( text.length > 2 ) {
+    // otherwise hard to use search in languages with characters
+    if ( text.length >= 1 ) {
       Realm.open( realmConfig ).then( ( realm ) => {
         const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
         setupObsList( realm, species );

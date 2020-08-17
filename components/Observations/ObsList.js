@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import {
   View,
   SectionList,
@@ -50,7 +50,7 @@ const ObsList = ( {
 
   const sectionIsHidden = ( id ) => hiddenSections.includes( id );
 
-  const renderItem = ( item, section ) => {
+  const renderItem = ( { item, section } ) => {
     if ( sectionIsHidden( section.id ) ) {
       return null;
     }
@@ -64,7 +64,7 @@ const ObsList = ( {
     );
   };
 
-  const renderSectionFooter = ( section ) => {
+  const renderSectionFooter = ( { section } ) => {
     const { id, data } = section;
     if ( sectionIsHidden( id ) && data.length === 0 ) {
       return <View style={styles.sectionSeparator} />;
@@ -83,36 +83,44 @@ const ObsList = ( {
 
   const renderSectionSeparator = () => <View style={styles.sectionWithDataSeparator} />;
 
-  const renderItemSeparator = ( section ) => {
+  const renderItemSeparator = ( { section } ) => {
     if ( !sectionIsHidden( section.id ) ) {
       return <View style={styles.itemSeparator} />;
     }
     return null;
   };
 
+  const renderSectionHeader = ( { section } ) => (
+    <SectionHeader
+      section={section}
+      open={!sectionIsHidden( section.id )}
+      toggleSection={toggleSection}
+    />
+  );
+
+  const renderListFooter = () => <View style={styles.padding} />;
+  const renderListEmpty = () => <EmptyState />;
+
+  const renderHeader = useMemo( () => (
+    <SearchBar fetchFilteredObservations={fetchFilteredObservations} searchText={searchText} />
+  ), [fetchFilteredObservations, searchText] );
+
   return (
     <SectionList
       ref={sectionList}
-      keyboardShouldPersistTaps="handled"
       contentContainerStyle={styles.flexGrow}
       sections={observations}
       initialNumToRender={5}
       stickySectionHeadersEnabled={false}
       keyExtractor={( item, index ) => item + index}
-      ListHeaderComponent={() => <SearchBar fetchFilteredObservations={fetchFilteredObservations} searchText={searchText} />}
-      renderSectionHeader={( { section } ) => (
-        <SectionHeader
-          section={section}
-          open={!sectionIsHidden( section.id )}
-          toggleSection={toggleSection}
-        />
-      )}
-      renderItem={( { item, section } ) => renderItem( item, section )}
-      ItemSeparatorComponent={( { section } ) => renderItemSeparator( section )}
-      renderSectionFooter={( { section } ) => renderSectionFooter( section )}
-      SectionSeparatorComponent={() => renderSectionSeparator()}
-      ListFooterComponent={() => <View style={styles.padding} />}
-      ListEmptyComponent={() => <EmptyState />}
+      ListHeaderComponent={renderHeader}
+      renderSectionHeader={renderSectionHeader}
+      renderItem={renderItem}
+      ItemSeparatorComponent={renderItemSeparator}
+      renderSectionFooter={renderSectionFooter}
+      SectionSeparatorComponent={renderSectionSeparator}
+      ListFooterComponent={renderListFooter}
+      ListEmptyComponent={renderListEmpty}
     />
   );
 };

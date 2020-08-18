@@ -41,13 +41,11 @@ const ObservationCard = ( {
       }
     };
 
-    if ( isFocused ) {
-      if ( itemScrolledId && itemScrolledId !== id ) {
-        updateItemScrolledId( null );
-        scrollLeft();
-      }
+    if ( itemScrolledId && itemScrolledId !== id ) {
+      updateItemScrolledId( null );
+      scrollLeft();
     }
-  }, [updateItemScrolledId, id, itemScrolledId, isFocused] );
+  }, [updateItemScrolledId, id, itemScrolledId] );
 
   return (
     <ScrollView

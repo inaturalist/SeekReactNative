@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useCallback
 } from "react";
-import { View, BackHandler, Keyboard } from "react-native";
+import { View, BackHandler } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import Realm from "realm";
 import Modal from "react-native-modal";
@@ -20,7 +20,6 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import GreenHeader from "../UIComponents/GreenHeader";
 import ObsList from "./ObsList";
-import { reset } from "i18n-js";
 
 const Observations = () => {
   const insets = useSafeArea();
@@ -58,8 +57,8 @@ const Observations = () => {
 
   const closeModal = () => setModal( false );
 
-  const setupObsList = ( realm, species ) => {
-    const obs = createSectionList( realm, species );
+  const setupObsList = ( realm, species, hideSections = false ) => {
+    const obs = createSectionList( realm, species, hideSections );
     setObservations( obs );
     setLoading( false );
   };
@@ -117,7 +116,7 @@ const Observations = () => {
     if ( text.length >= 1 ) {
       Realm.open( realmConfig ).then( ( realm ) => {
         const species = realm.objects( "ObservationRealm" ).filtered( `taxon.name CONTAINS[c] '${text}' OR taxon.preferredCommonName CONTAINS[c] '${text}'` );
-        setupObsList( realm, species );
+        setupObsList( realm, species, true );
       } ).catch( () => {
         // console.log( "Err: ", err )
       } );

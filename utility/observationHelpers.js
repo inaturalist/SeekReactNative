@@ -110,14 +110,21 @@ const sortNewestToOldest = ( observations ) => {
   } );
 };
 
-const createSectionList = ( realm, species ) => {
+const createSectionList = ( realm, species, hideSections ) => {
   const obs = [];
 
   const taxaList = [47126, 20978, 47170, 47178, 26036, 47119, 3, 47158, 47115, 40151];
 
   taxaList.forEach( ( id ) => {
     const data = species.filtered( `taxon.iconicTaxonId == ${id}` ).sorted( "date", true );
-    obs.push( { id, data } );
+
+    if ( hideSections ) {
+      if ( data.length > 0 ) {
+        obs.push( { id, data } );
+      }
+    } else {
+      obs.push( { id, data } );
+    }
   } );
 
   sortNewestToOldest( obs );
@@ -127,7 +134,13 @@ const createSectionList = ( realm, species ) => {
     .sorted( "date", true );
   // added protozoans here because they weren't saving with iconicTaxonId == 1 on iOS
 
-  obs.push( { id: 1, data: otherData } );
+  if ( hideSections ) {
+    if ( otherData.length > 0 ) {
+      obs.push( { id: 1, data: otherData } );
+    }
+  } else {
+    obs.push( { id: 1, data: otherData } );
+  }
 
   return obs;
 };

@@ -25,5 +25,16 @@ export default StyleSheet.create( {
     width: "88%",
     marginLeft: 12,
     paddingLeft: 15
+  },
+  top: {
+    zIndex: 1,
+    position: "absolute",
+    right: 0,
+    padding: 39
+  },
+  clear: {
+    height: 13,
+    width: 13,
+    resizeMode: "contain"
   }
 } );

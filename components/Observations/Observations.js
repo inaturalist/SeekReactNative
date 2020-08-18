@@ -145,6 +145,8 @@ const Observations = () => {
     fetchObservations();
   };
 
+  const clearText = useCallback( () => setSearchText( "" ), [] );
+
   const updateObs = useCallback( ( obs ) => setObservations( obs ), [] );
 
   return (
@@ -167,6 +169,7 @@ const Observations = () => {
             fetchFilteredObservations={fetchFilteredObservations}
             observations={observations}
             searchText={searchText}
+            clearText={clearText}
             openModal={openModal}
             updateObs={updateObs}
           />

@@ -1,11 +1,7 @@
 // @flow
 
 import React, { useState, useRef, useMemo } from "react";
-import {
-  View,
-  SectionList,
-  Text
-} from "react-native";
+import { View, SectionList, Text } from "react-native";
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
@@ -19,7 +15,8 @@ type Props = {
   observations: Array<Object>,
   searchText: string,
   openModal: Function,
-  updateObs: Function
+  updateObs: Function,
+  clearText: Function
 }
 
 const ObsList = ( {
@@ -27,7 +24,8 @@ const ObsList = ( {
   observations,
   searchText,
   openModal,
-  updateObs
+  updateObs,
+  clearText
 }: Props ) => {
   const sectionList = useRef( null );
   const [hiddenSections, setHiddenSections] = useState( [] ); // eslint-disable-line no-unused-vars
@@ -102,8 +100,12 @@ const ObsList = ( {
   const renderListEmpty = () => <EmptyState />;
 
   const renderHeader = useMemo( () => (
-    <SearchBar fetchFilteredObservations={fetchFilteredObservations} searchText={searchText} />
-  ), [fetchFilteredObservations, searchText] );
+    <SearchBar
+      fetchFilteredObservations={fetchFilteredObservations}
+      searchText={searchText}
+      clearText={clearText}
+    />
+  ), [fetchFilteredObservations, searchText, clearText] );
 
   return (
     <SectionList

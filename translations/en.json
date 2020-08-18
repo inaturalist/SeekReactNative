@@ -429,7 +429,9 @@
     "help": "Take a photo of a plant, animal, or anything living using our camera, and our AI model will help you identify it!",
     "open_camera": "Open Camera",
     "not_seen": "You haven’t observed any {{iconicTaxon}} yet!",
-    "search": "Search observations"
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Nearby",

@@ -9,6 +9,7 @@ import EmptyState from "../UIComponents/EmptyState";
 import ObservationCard from "./ObsCard";
 import SectionHeader from "./SectionHeader";
 import SearchBar from "./SearchBar";
+import SearchEmpty from "./SearchEmpty";
 
 type Props = {
   fetchFilteredObservations: Function,
@@ -97,7 +98,14 @@ const ObsList = ( {
   );
 
   const renderListFooter = () => <View style={styles.padding} />;
-  const renderListEmpty = () => <EmptyState />;
+
+  const renderListEmpty = () => {
+    if ( searchText.length > 0 ) {
+      return <SearchEmpty clearText={clearText} />;
+    } else {
+      return <EmptyState />;
+    }
+  };
 
   const renderHeader = useMemo( () => (
     <SearchBar

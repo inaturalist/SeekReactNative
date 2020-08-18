@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useRef, useMemo } from "react";
-import { View, SectionList, Text } from "react-native";
+import { View, SectionList, Text, Keyboard } from "react-native";
 import i18n from "../../i18n";
 import styles from "../../styles/observations/observations";
 import taxaIds from "../../utility/dictionaries/iconicTaxonDictById";
@@ -110,6 +110,9 @@ const ObsList = ( {
   return (
     <SectionList
       ref={sectionList}
+      keyboardDismissMode="on-drag"
+      onScroll={() => Keyboard.dismiss()}
+      scrollEventThrottle={1}
       contentContainerStyle={styles.flexGrow}
       sections={observations}
       initialNumToRender={5}

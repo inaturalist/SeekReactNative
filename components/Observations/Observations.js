@@ -20,6 +20,7 @@ import LoadingWheel from "../UIComponents/LoadingWheel";
 import { colors } from "../../styles/global";
 import GreenHeader from "../UIComponents/GreenHeader";
 import ObsList from "./ObsList";
+import { reset } from "i18n-js";
 
 const Observations = () => {
   const insets = useSafeArea();
@@ -100,6 +101,15 @@ const Observations = () => {
     } );
   };
 
+  const resetObservations = useCallback( () => {
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const species = realm.objects( "ObservationRealm" );
+      setupObsList( realm, species );
+    } ).catch( () => {
+        // console.log( "Err: ", err )
+    } );
+  }, [] );
+
   const fetchFilteredObservations = useCallback( ( text ) => {
     setSearchText( text );
 
@@ -112,14 +122,9 @@ const Observations = () => {
         // console.log( "Err: ", err )
       } );
     } else {
-      Realm.open( realmConfig ).then( ( realm ) => {
-        const species = realm.objects( "ObservationRealm" );
-        setupObsList( realm, species );
-      } ).catch( () => {
-          // console.log( "Err: ", err )
-      } );
+      resetObservations();
     }
-  }, [] );
+  }, [resetObservations] );
 
   const fetchRoute = async () => {
     const routeName = await getRoute();
@@ -145,7 +150,10 @@ const Observations = () => {
     fetchObservations();
   };
 
-  const clearText = useCallback( () => setSearchText( "" ), [] );
+  const clearText = useCallback( () => {
+    setSearchText( "" );
+    resetObservations();
+  }, [resetObservations] );
 
   const updateObs = useCallback( ( obs ) => setObservations( obs ), [] );
 

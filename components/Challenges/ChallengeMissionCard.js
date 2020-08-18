@@ -58,7 +58,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     }
 
     const list = secondLevelBullets.map( ( bullet, i ) => (
-      <View key={i.toString()} style={[styles.missionRow, styles.subBulletContainer]}>
+      <View key={i.toString()} style={styles.missionRow}>
         <Image source={icons.grayBullet} style={styles.subBullets} />
         <Text style={styles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
       </View>
@@ -70,26 +70,18 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
       </Text>
     );
 
-    if ( missionNoSubBullets ) {
-      return (
-        <>
-          {missionNumbers[index] && missionNumbers[index].number === item.observations
-            ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
-            : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>{missionNoSubBullets}</Text>
-            {observedCount}
-          </View>
-        </>
-      );
-    }
-
     return (
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{header}</Text>
-        {list}
-        {observedCount}
-      </View>
+      <>
+        {missionNumbers[index] && missionNumbers[index].number === item.observations
+          ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
+          : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{missionNoSubBullets || header}</Text>
+          {header && <View style={styles.marginTop} />}
+          {list}
+          {observedCount}
+        </View>
+      </>
     );
   };
 

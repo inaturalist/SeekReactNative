@@ -7,7 +7,7 @@ export default StyleSheet.create( {
     marginTop: 7
   },
   subBullets: {
-    marginTop: 14,
+    marginTop: 15,
     marginRight: 10
   },
   checklist: {
@@ -30,6 +30,9 @@ export default StyleSheet.create( {
     alignItems: "center",
     marginRight: 22
   },
+  marginTop: {
+    marginTop: 6
+  },
   missionRow: {
     flexDirection: "row",
     flexWrap: "nowrap"
@@ -39,11 +42,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 14,
     lineHeight: 21,
-    marginTop: 5,
+    marginTop: 6,
     maxWidth: 274
-  },
-  subBulletContainer: {
-    marginLeft: 22
   },
   text: {
     color: colors.black,

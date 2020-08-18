@@ -1,14 +1,14 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, center } from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   container: {
     flex: 1,
     alignItems: "center",
-    marginTop: 65
+    marginTop: 43 - 24
   },
   margin: {
-    marginTop: 50
+    marginTop: 42
   },
   headerText: {
     textAlign: "center",

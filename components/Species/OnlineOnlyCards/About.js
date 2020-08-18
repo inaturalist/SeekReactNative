@@ -26,7 +26,7 @@ const About = ( {
   const { login } = useContext( UserContext );
   const commonName = useCommonName( id, isFocused );
 
-  const html = `<p>${about}</p>`.replace( /<b>/g, "" );
+  const html = about && `<p>${about}</p>`.replace( /<b>/g, "" );
 
   return (
     <SpeciesDetailCard text="species_detail.about">

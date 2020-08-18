@@ -82,7 +82,6 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
         selectAndResizeImage( item.node );
       }}
       style={styles.button}
-      underlayColor="transparent"
       disabled={loading}
     >
       <Image

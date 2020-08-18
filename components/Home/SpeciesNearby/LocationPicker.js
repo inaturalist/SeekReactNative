@@ -114,6 +114,7 @@ const LocationPicker = ( {
           {i18n.t( "location_picker.species_nearby" ).toLocaleUpperCase()}
         </Text>
         <View style={[styles.row, styles.inputRow]}>
+          {/* $FlowFixMe */}
           <Image source={posting.location} tintColor={colors.white} style={styles.white} />
           <TextInput
             accessibilityLabel={inputLocation}

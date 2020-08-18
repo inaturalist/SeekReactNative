@@ -64,6 +64,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
         onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
         style={styles.backButton}
       >
+        {/* $FlowFixMe */}
         <Image
           source={icons.closeWhite}
           tintColor={colors.seekForestGreen}

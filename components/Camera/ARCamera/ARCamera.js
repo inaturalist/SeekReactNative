@@ -97,7 +97,7 @@ const ARCamera = () => {
   };
 
   const savePhoto = useCallback( ( photo ) => {
-    CameraRoll.save( photo.uri, "photo" )
+    CameraRoll.save( photo.uri, { type: "photo" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";
@@ -111,15 +111,15 @@ const ARCamera = () => {
       } );
   }, [navigateToResults, updateError] );
 
-  const filterPredictionsByIconicTaxa = ( prediction ) => {
-    const iconicTaxa = 3;
-    if ( Platform.OS === "android" ) {
-      if ( prediction.ancestor_ids.includes( iconicTaxa ) || prediction.taxon_id === iconicTaxa ) {
-        return true;
-      }
-      return false;
-    }
-  };
+  // const filterPredictionsByIconicTaxa = ( prediction ) => {
+  //   const iconicTaxa = 3;
+  //   if ( Platform.OS === "android" ) {
+  //     if ( prediction.ancestor_ids.includes( iconicTaxa ) || prediction.taxon_id === iconicTaxa ) {
+  //       return true;
+  //     }
+  //     return false;
+  //   }
+  // };
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };

@@ -48,6 +48,7 @@ const DatePicker = ( { dateToDisplay, handleDatePicked }: Props ) => {
           </Text>
           <Text style={styles.text}>{dateToDisplay}</Text>
         </View>
+        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
           tintColor={colors.seekForestGreen}

@@ -58,7 +58,7 @@ const SectionHeader = ( { section, open, toggleSection }: Props ) => {
       </Text>
       <View style={styles.row}>
         <Text style={styles.numberText} allowFontScaling={false}>{data.length}</Text>
-        {id !== 1 && (
+        {id !== 1 && ( // $FlowFixMe
           <Image
             source={noBadge ? badges.badge_empty_small : badge}
             style={[styles.badge, noBadge && styles.empty, tint && { tintColor: tint }]}

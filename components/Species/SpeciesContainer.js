@@ -28,7 +28,7 @@ type Props = {
   +id: ?number,
   +seenTaxa: ?Object,
   +fetchiNatData: Function,
-  +predictions: Array,
+  +predictions: Array<Object>,
   +checkForInternet: Function,
   +error: ?string,
   +taxon: Object

@@ -34,6 +34,7 @@ const ErrorMessage = ( { error }: Props ) => {
       error === "credentials" && styles.smallerMargin
     ]}
     >
+      {/* $FlowFixMe */}
       <Image source={icons.error} style={styles.image} tintColor={colors.seekiNatGreen} />
       <View style={styles.textContainer}>
         <Text allowFontScaling={false} style={styles.text}>{message}</Text>

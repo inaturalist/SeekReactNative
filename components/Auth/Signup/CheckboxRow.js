@@ -8,7 +8,7 @@ import styles from "../../../styles/auth/signup";
 import { colors } from "../../../styles/global";
 
 type Props = {
-  isChecked: Boolean,
+  isChecked: boolean,
   toggleCheckbox: Function,
   text?: string,
   children?: any

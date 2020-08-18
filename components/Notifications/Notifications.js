@@ -42,8 +42,8 @@ const NotificationsScreen = () => {
   useEffect( () => {
     const scrollToTop = () => {
       if ( scrollView && scrollView.current !== null ) {
-        scrollView.current.scrollToOffset( {
-          x: 0, y: 0, animated: Platform.OS === "android"
+        scrollView.current.scrollToIndex( {
+          index: 0, animated: Platform.OS === "android"
         } );
       }
     };

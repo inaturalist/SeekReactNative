@@ -1,10 +1,7 @@
 // @flow
 
 import React from "react";
-import {
-  TextInput,
-  Platform
-} from "react-native";
+import { TextInput, Platform } from "react-native";
 
 import styles from "../../styles/uiComponents/inputField";
 import { colors } from "../../styles/global";

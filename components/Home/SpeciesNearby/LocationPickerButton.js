@@ -51,6 +51,7 @@ const LocationPickerButton = ( {
         style={[styles.row, styles.marginLeft, styles.paddingBottom]}
         disabled={error !== null}
       >
+        {/* $FlowFixMe */}
         <Image source={posting.location} tintColor={colors.white} style={styles.image} />
         <View style={styles.whiteButton}>
           <Text style={styles.buttonText}>

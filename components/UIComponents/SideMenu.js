@@ -64,6 +64,7 @@ const SideMenu = ( { navigation }: Props ) => {
                 }}
                 style={[styles.row, styles.height]}
               >
+                {/* $FlowFixMe */}
                 <Image
                   source={icons[`menu${capitalizeNames( item )}`]}
                   style={styles.image}

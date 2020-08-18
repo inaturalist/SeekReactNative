@@ -77,7 +77,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
           : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
         <View style={styles.textContainer}>
           <Text style={styles.text}>{missionNoSubBullets || header}</Text>
-          {header && <View style={styles.marginTop} />}
+          {header.length > 0 && <View style={styles.marginTop} />}
           {list}
           {observedCount}
         </View>

@@ -428,7 +428,10 @@
     "no_obs": "観察記録がまだありません。",
     "help": "植物や動物など、生き物ならなんでもSeekで写真を撮りましょう。SeekのAIのモデルが種判定をしてくれます！",
     "open_camera": "カメラを起動",
-    "not_seen": "あなたはまだ{{iconicTaxon}}の生き物を観察していません！"
+    "not_seen": "あなたはまだ{{iconicTaxon}}の生き物を観察していません！",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "この付近で",
@@ -587,7 +590,11 @@
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Use device language settings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Automatically take a picture when the identification reaches species.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -635,5 +642,13 @@
     "description": "Would you like to replace the photo of your resighted observation?",
     "new": "Use new photo",
     "old": "Keep old photo"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

@@ -428,7 +428,10 @@
     "no_obs": "U het nog geen waarnemings nie!",
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
-    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!"
+    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Naby",
@@ -587,7 +590,11 @@
     "donate_description": "Help om iNaturalist te steun",
     "language": "Toepgebonde taal",
     "device_settings": "Gebruik toesteltaalinstellings",
-    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is."
+    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -635,5 +642,13 @@
     "description": "Wil u die foto van u tweede waarneming vervang?",
     "new": "Gebruik nuwe foto",
     "old": "Behou ou foto"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

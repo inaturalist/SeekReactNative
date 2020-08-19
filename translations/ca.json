@@ -428,7 +428,10 @@
     "no_obs": "Encara no tens observacions!",
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
-    "not_seen": "Encara no has observat cap {{iconicTaxon}}!"
+    "not_seen": "Encara no has observat cap {{iconicTaxon}}!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Propera",
@@ -587,7 +590,11 @@
     "donate_description": "T'agrada Seek? Considera donar a iNaturalist! Depenem de les donacions de persones com tu per mantenir les nostres apps gratuïtes",
     "language": "Idioma de la aplicació",
     "device_settings": "Usar l'idioma del telèfon.",
-    "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie."
+    "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -635,5 +642,13 @@
     "description": "Voleu substituir la fotografia de la teva nova observació?",
     "new": "Utilitzar la nova foto",
     "old": "Mantenir la foto anterior"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

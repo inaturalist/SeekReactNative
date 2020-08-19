@@ -428,7 +428,10 @@
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
-    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!"
+    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!",
+    "search": "Suche nach Beobachtungen",
+    "search_empty": "Keine Beobachtungen mit diesem Suchbegriff gefunden.",
+    "reset_search": "Suche zurücksetzen"
   },
   "species_detail": {
     "near": "In der Nähe",
@@ -587,7 +590,11 @@
     "donate_description": "Hilf mit, iNaturalist zu unterstützen",
     "language": "Sprache der App",
     "device_settings": "Spracheinstellungen des Geräts benutzen",
-    "auto_capture": "Automatisch ein Bild aufnehmen, wenn Bestimmung auf Artniveau erfolgt ist."
+    "auto_capture": "Automatisch ein Bild aufnehmen, wenn Bestimmung auf Artniveau erfolgt ist.",
+    "species_detail": "Artendetails",
+    "seasonality": "Jahreszeitliche Verteilung",
+    "seasonality_option_1": "Zeige die jahreszeitliche Verteilung basierend auf weltweiten iNaturalist Beobachtungen",
+    "seasonality_option_2": "Zeige die jahreszeitliche Verteilung basierend auf iNaturalist-Beobachtungen in der Nähe meines aktuellen Standortes (bei nicht in der Nähe meines Standortes gefundenen Arten wird diese Verteilung nicht angezeigt)"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -635,5 +642,13 @@
     "description": "Möchtest du das Foto durch diese erneute Beobachtung ersetzen?",
     "new": "Neues Foto verwenden",
     "old": "Altes Foto behalten"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Wir denken, dass dir iNaturalist bestimmt gefallen wird.",
+    "text_1": "Vertiefe dein Wissen über die Lebewesen in deiner Umgebung",
+    "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
+    "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
+    "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
   }
 }

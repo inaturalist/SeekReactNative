@@ -428,7 +428,10 @@
     "no_obs": "Du har inga observationer ännu!",
     "help": "Ta en bild av en växt, ett djur eller något annat levande med vår kamera så hjälper vår AI-modell dig att bestämma den!",
     "open_camera": "Öppna kameran",
-    "not_seen": "Du har inte observerat någon {{iconicTaxon}} ännu!"
+    "not_seen": "Du har inte observerat någon {{iconicTaxon}} ännu!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Närliggande",
@@ -587,7 +590,11 @@
     "donate_description": "Stöd iNaturalist",
     "language": "Språk i appen",
     "device_settings": "Använd enhetens språkinställningar",
-    "auto_capture": "Ta automatiskt en bild när bestämningen kommer fram till art."
+    "auto_capture": "Ta automatiskt en bild när bestämningen kommer fram till art.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -635,5 +642,13 @@
     "description": "Vill du ersätta bilden för din återfunna observation?",
     "new": "Använd ny bild",
     "old": "Behåll gammal bild"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

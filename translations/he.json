@@ -428,7 +428,10 @@
     "no_obs": "אין לך עדיין תצפיות!",
     "help": "צלמו צמח, בעל חיים או כל ייצו רחי אחר באמצעות המצלמה, ומערכת הבינה מלאכותית שלנו תעזור לכם לזהות אותו!",
     "open_camera": "פתח מצלמה",
-    "not_seen": "עדיין לא צפיתם אף {{iconicTaxon}} עדיין!"
+    "not_seen": "עדיין לא צפיתם אף {{iconicTaxon}} עדיין!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "בקרבת מקום",
@@ -587,7 +590,11 @@
     "donate_description": "תמיכה בiNaturalist",
     "language": "שפה בתוך האפליקציה",
     "device_settings": "השתמש/י בהגדרות השפה של המכשיר",
-    "auto_capture": "קח תמונה אוטומטית מיז שהזיהוי מגיע למין."
+    "auto_capture": "קח תמונה אוטומטית מיז שהזיהוי מגיע למין.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "תג של Seek",
@@ -635,5 +642,13 @@
     "description": "האם תרצו להחליף את התמונה עבור הזיהוי החוזר?",
     "new": "השתמש בתמונה חדשה",
     "old": "השתמש בתמונה ישנה"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

@@ -230,7 +230,7 @@ const SpeciesDetail = () => {
         fetchiNatData={fetchiNatData}
         id={id}
         seenTaxa={seenTaxa}
-        predictions={( params && params.image && params.image.predictions ) ? params.image.predictions : null}
+        predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
       />
     </ScrollView>
   );

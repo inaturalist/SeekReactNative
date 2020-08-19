@@ -100,7 +100,7 @@ class SpeciesBadges extends Component<Props, State> {
 
     return (
       <View style={styles.center}>
-        {iconicTaxonBadges.length > 0 ? (
+        {iconicTaxonBadges.length > 0 && (
           <Modal
             isVisible={showModal}
             onBackdropPress={() => this.closeModal()}
@@ -111,7 +111,7 @@ class SpeciesBadges extends Component<Props, State> {
               closeModal={this.closeModal}
             />
           </Modal>
-        ) : null}
+        )}
         <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
         {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
         {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}

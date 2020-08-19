@@ -9,7 +9,7 @@
 # .*/node_modules/react-native/Libraries/Components/.*
 
 ; We fork some components by platform
-.*/*[.]android.js
+.*/node_modules/.*/*[.]android.js
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
@@ -42,6 +42,7 @@ esproposal.nullish_coalescing=enable
 module.file_ext=.js
 module.file_ext=.json
 module.file_ext=.ios.js
+module.file_ext=.android.js
 
 munge_underscores=true
 

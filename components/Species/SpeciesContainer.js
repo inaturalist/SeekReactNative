@@ -30,8 +30,7 @@ type Props = {
   +fetchiNatData: Function,
   +predictions: Array<Object>,
   +checkForInternet: Function,
-  +error: ?string,
-  +taxon: Object
+  +error: ?string
 }
 
 const SpeciesContainer = ( {
@@ -41,8 +40,7 @@ const SpeciesContainer = ( {
   fetchiNatData,
   predictions,
   checkForInternet,
-  error,
-  taxon
+  error
 }: Props ) => {
   const {
     stats,

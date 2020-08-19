@@ -11,7 +11,7 @@ import { checkIfChallengeAvailable, isWithinCurrentMonth } from "./dateHelpers";
 
 const calculatePercent = ( seen: number, total: number ) => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index: number ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
+const setChallengeProgress = async ( index: any ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
 const fetchIncompleteChallenges = ( realm ) => {
   const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );

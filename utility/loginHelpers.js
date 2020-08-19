@@ -1,7 +1,7 @@
 // @flow
 import AsyncStorage from "@react-native-community/async-storage";
 
-const checkIsEmailValid = ( email ) => {
+const checkIsEmailValid = ( email: string ) => {
   if ( email && email.length > 5 ) {
     if ( email.includes( "@" ) && email.includes( "." ) ) {
       return true;
@@ -10,7 +10,7 @@ const checkIsEmailValid = ( email ) => {
   return false;
 };
 
-const checkIsUsernameValid = ( username ) => {
+const checkIsUsernameValid = ( username: string ) => {
   if ( username && ( username.length >= 3 && username.length <= 40 ) ) {
     if ( typeof ( username.charAt( 0 ) ) !== "number" ) {
       return true;
@@ -41,7 +41,7 @@ const removeAccessToken = async () => {
   }
 };
 
-const savePostingSuccess = ( success ) => {
+const savePostingSuccess = ( success: boolean ) => {
   AsyncStorage.setItem( "posting_success", success.toString() );
 };
 
@@ -54,7 +54,7 @@ const fetchPostingSuccess = async () => {
   }
 };
 
-const formatError = ( error ) => {
+const formatError = ( error: string ) => {
   let newError;
 
   if ( error.includes( "\n" ) ) {

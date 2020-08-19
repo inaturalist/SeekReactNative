@@ -13,14 +13,11 @@ import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
-import {
-  dirModel,
-  dirTaxonomy
-} from "./dirStorage";
+import { dirModel, dirTaxonomy } from "./dirStorage";
 import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
-  new Promise( ( resolve ) => {
+  new Promise<any>( ( resolve ) => {
     NetInfo.fetch().then( ( { type } ) => {
       resolve( type );
     } ).catch( () => {
@@ -29,7 +26,7 @@ const checkForInternet = () => (
   } )
 );
 
-const capitalizeNames = ( name ) => {
+const capitalizeNames = ( name: string ) => {
   if ( name === null ) {
     return;
   }
@@ -80,7 +77,7 @@ const resizePhoto = async ( uri ) => {
   }
 };
 
-const flattenUploadParameters = async ( image ) => {
+const flattenUploadParameters = async ( image: Object ) => {
   const {
     latitude,
     longitude,
@@ -134,7 +131,7 @@ const checkIfFirstLaunch = async () => {
 
 const CAMERA_LAUNCHED = "camera_launched";
 
-const setCameraLaunched = ( boolean ) => {
+const setCameraLaunched = ( boolean: boolean ) => {
   AsyncStorage.setItem( CAMERA_LAUNCHED, boolean.toString() );
 };
 
@@ -193,7 +190,7 @@ const getTaxonCommonName = ( taxonID: number ) => (
   } )
 );
 
-const setSpeciesId = ( id ) => {
+const setSpeciesId = ( id: number ) => {
   AsyncStorage.setItem( "id", id.toString() );
 };
 
@@ -206,7 +203,7 @@ const getSpeciesId = async () => {
   }
 };
 
-const setRoute = ( route ) => {
+const setRoute = ( route: string ) => {
   AsyncStorage.setItem( "route", route );
 };
 
@@ -219,7 +216,7 @@ const getRoute = async () => {
   }
 };
 
-const checkForIconicTaxonId = ( ancestorIds ) => {
+const checkForIconicTaxonId = ( ancestorIds: Array<number> ) => {
   const taxaIdList = Object.keys( iconicTaxaIds ).reverse();
   taxaIdList.pop();
   taxaIdList.push( 47686, 48222 ); // checking for protozoans and kelp
@@ -236,7 +233,7 @@ const checkForIconicTaxonId = ( ancestorIds ) => {
 };
 
 const fetchNumberSpeciesSeen = () => (
-  new Promise( ( resolve ) => {
+  new Promise<any>( ( resolve ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const { length } = realm.objects( "TaxonRealm" );
@@ -257,7 +254,7 @@ const createJwtToken = () => {
   return token;
 };
 
-const localizeNumber = ( number ) => {
+const localizeNumber = ( number: number ) => {
   const { decimalSeparator, groupingSeparator } = RNLocalize.getNumberFormatSettings();
   return i18n.toNumber( number, {
     precision: 0,
@@ -266,11 +263,11 @@ const localizeNumber = ( number ) => {
   } );
 };
 
-const localizePercentage = ( number ) => i18n.toPercentage( number, { precision: 0 } );
+const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
 
 const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
 
-const navigateToMainStack = ( navigate, screen, params ) => {
+const navigateToMainStack = ( navigate: Function, screen: string, params: Object ) => {
   navigate( "Drawer", { screen: "Main", params: { screen, params } } );
 };
 

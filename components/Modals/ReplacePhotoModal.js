@@ -18,7 +18,7 @@ type Props = {
   +image: Object,
   +speciesText?: ?string,
   +seenDate: Date,
-  +taxaId: Number
+  +taxaId: number
 };
 
 const ReplacePhotoModal = ( {

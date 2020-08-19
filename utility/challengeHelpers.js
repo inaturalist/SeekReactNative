@@ -9,16 +9,16 @@ import realmConfig from "../models/index";
 import challengesDict from "./dictionaries/challengesDict";
 import { checkIfChallengeAvailable, isWithinCurrentMonth } from "./dateHelpers";
 
-const calculatePercent = ( seen, total ) => Math.round( ( seen / total ) * 100 );
+const calculatePercent = ( seen: number, total: number ) => Math.round( ( seen / total ) * 100 );
 
-const setChallengeProgress = async ( index ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
+const setChallengeProgress = async ( index: number ) => AsyncStorage.setItem( "challengeProgress", index.toString() );
 
 const fetchIncompleteChallenges = ( realm ) => {
   const incomplete = realm.objects( "ChallengeRealm" ).filtered( "percentComplete != 100 AND startedDate != null" );
   return incomplete;
 };
 
-const fetchObservationsAfterChallengeStarted = ( realm, challenge ) => {
+const fetchObservationsAfterChallengeStarted = ( realm: any, challenge: Object ) => {
   const { startedDate } = challenge;
 
   const seenTaxa = [];
@@ -76,7 +76,7 @@ const updateNumberObservedPerMission = ( challenge, count, number ) => {
   return totalSeen;
 };
 
-const checkForAncestors = ( seenTaxa, taxaId ) => {
+const checkForAncestors = ( seenTaxa: Array<Object>, taxaId: number ) => {
   const taxaWithAncestors = seenTaxa.filter( ( t ) => (
     t.taxon && t.taxon.ancestorIds.length > 0
   ) );
@@ -147,7 +147,7 @@ const recalculateChallenges = () => {
   } );
 };
 
-const startChallenge = ( index ) => {
+const startChallenge = ( index: number ) => {
   Realm.open( realmConfig ).then( ( realm ) => {
     const challenges = realm.objects( "ChallengeRealm" ).filtered( `index == ${index}` );
 
@@ -236,7 +236,7 @@ const getChallengesCompleted = async () => {
   }
 };
 
-const setChallengeIndex = ( index ) => {
+const setChallengeIndex = ( index: number ) => {
   AsyncStorage.setItem( "index", index.toString() );
 };
 

@@ -428,7 +428,10 @@
     "no_obs": "Du har ingen observasjoner ennå!",
     "help": "Ta et bilde av en plante, et dyr, eller noe annet som lever med kameraet vårt, og vår AI-modell hjelper deg med å identifisere det!",
     "open_camera": "Åpne kamera",
-    "not_seen": "Du har ikke observert noen {{iconicTaxon}} ennå!"
+    "not_seen": "Du har ikke observert noen {{iconicTaxon}} ennå!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "I nærheten",
@@ -587,7 +590,11 @@
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Bruk enhetens språkinnstillinger",
-    "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten."
+    "auto_capture": "Ta et bilde automatisk når identifiseringen kommer frem til arten.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek merke",
@@ -635,5 +642,13 @@
     "description": "Vil du erstatte bildet til din gjentatte observasjon?",
     "new": "Bruk nytt bilde",
     "old": "Behold gammelt bilde"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

@@ -428,7 +428,10 @@
     "no_obs": "Deocamdată nu ai nicio observație!",
     "help": "Fotografiază cu camera noastră o plantă, un animal sau orice altceva viu, iar modelul nostru AI te va ajuta la identificare!",
     "open_camera": "Deschide Camera",
-    "not_seen": "Deocamdată nu ai niciun {{iconicTaxon}} încă! "
+    "not_seen": "Deocamdată nu ai niciun {{iconicTaxon}} încă! ",
+    "search": "Caută observații",
+    "search_empty": "Nu au fost găsite observații cu acest termen de căutare.",
+    "reset_search": "Resetare căutare"
   },
   "species_detail": {
     "near": "Din jur",
@@ -587,7 +590,11 @@
     "donate_description": "Dacă îți place Seek consideră o donație către iNaturalist. Donații de la persoane ca tine mențin aplicațiile noastre gratuite.",
     "language": "Limba aplicației",
     "device_settings": "Folosește setarea de limbă a aparatului",
-    "auto_capture": "Fă automat o fotografie când s-a făcut determinarea la nivelul speciilor."
+    "auto_capture": "Fă automat o fotografie când s-a făcut determinarea la nivelul speciilor.",
+    "species_detail": "Detalii specii",
+    "seasonality": "Sezonalitate",
+    "seasonality_option_1": "Afișează sezonalitatea bazată pe observații iNaturalist la nivel mondial",
+    "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)"
   },
   "seek_challenges": {
     "badge": "Insignă Seek",
@@ -635,5 +642,13 @@
     "description": "Dorești să înlocuiești fotografia observației tale re-vizionate?",
     "new": "Utilizează o nouă poză",
     "old": "Păstrează vechea poză"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Credem că îți va plăcea iNaturalist.",
+    "text_1": "aprofundează-ți cunoștințele despre organismele din jurul tău",
+    "text_2": "fă parte dintr-o comunitate la fel de curioasă despre natură ca tine",
+    "text_3": "Împărtășește observații cu comunitatea și chiar împărtășește observații prin Seek!",
+    "download": "Începe prin descărcarea aplicației iNaturalist sau vizitând inaturalist.org.\n\nAi deja un cont iNaturalist? Conectează-te pe Seek cu contul tău existent!"
   }
 }

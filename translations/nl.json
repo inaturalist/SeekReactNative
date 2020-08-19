@@ -428,7 +428,10 @@
     "no_obs": "Je hebt nog geen waarnemingen!",
     "help": "Neem een foto van een plant, dier, Cthulhu, Ophiocistioidea of iets dat leeft met onze camera en ons AI-model geeft het een naam!",
     "open_camera": "Activeer de camera",
-    "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!"
+    "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "In de buurt",
@@ -587,7 +590,11 @@
     "donate_description": "Help en ondersteun iNaturalist",
     "language": "In-app taal",
     "device_settings": "Systeemtaal gebruiken",
-    "auto_capture": "Automatisch een foto nemen als de determinatie het soortniveau bereikt."
+    "auto_capture": "Automatisch een foto nemen als de determinatie het soortniveau bereikt.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -635,5 +642,13 @@
     "description": "Wilt je de foto van jouw tweede waarneming vervangen?",
     "new": "Kies een nieuwe foto",
     "old": "Behoud de oude foto"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

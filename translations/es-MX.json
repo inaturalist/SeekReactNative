@@ -428,7 +428,10 @@
     "no_obs": "¡Aún no tienes observaciones!",
     "help": "Toma una foto de una planta, animal o cualquier ser vivo con tu cámara y nuestro modelo AI te ayudará a identificarlo.",
     "open_camera": "Cámara abierta",
-    "not_seen": "¡No has observado ningún {{iconicTaxon}} todavía!"
+    "not_seen": "¡No has observado ningún {{iconicTaxon}} todavía!",
+    "search": "Busca observaciones",
+    "search_empty": "No se encontraron observaciones con ese término de búsqueda.",
+    "reset_search": "Restablece búsqueda"
   },
   "species_detail": {
     "near": "Cercano",
@@ -587,7 +590,11 @@
     "donate_description": "¿Te gusta Seek? ¡Considera donar a iNaturalist! Dependemos de donaciones de personas como tú para mantener gratuitas nuestras aplicaciones.",
     "language": "Idioma de la aplicación",
     "device_settings": "Usar las opciones de idioma del móvil",
-    "auto_capture": "Tomar automáticamente una foto cuando la identificación llegue a especie."
+    "auto_capture": "Tomar automáticamente una foto cuando la identificación llegue a especie.",
+    "species_detail": "Detalle de la especie",
+    "seasonality": "Estacionalidad",
+    "seasonality_option_1": "Mostrar estacionalidad basada en observaciones mundiales de iNaturalist",
+    "seasonality_option_2": "Mostrar estacionalidad basada en observaciones de iNaturalist cerca de mi ubicación actual (especies no encontradas cerca de mi ubicación no tendrán estacionalidad)"
   },
   "seek_challenges": {
     "badge": "Ver insignia",
@@ -635,5 +642,13 @@
     "description": "¿Quieres reemplazar la foto de tu nueva observación?",
     "new": "Usar la foto nueva",
     "old": "Usar foto anterior"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Creemos que realmente te gustará Naturalista.",
+    "text_1": "aprende más sobre los seres que te rodean",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

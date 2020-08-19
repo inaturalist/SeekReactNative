@@ -24,6 +24,7 @@ const toggleLanguage = ( language: string ) => {
 const getLanguage = async () => {
   try {
     const language = await AsyncStorage.getItem( "language" );
+    console.log( language, "langauge in get langggg" );
     return language || "device"; // return device to trigger common names loading
   } catch ( error ) {
     return false;

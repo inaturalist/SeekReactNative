@@ -429,9 +429,9 @@
     "help": "Tire uma foto de uma planta, um animal ou qualquer ser vivo usando a nossa câmera e o nosso modelo de IA ajudará você a identificá-lo!",
     "open_camera": "Abrir câmera",
     "not_seen": "Você ainda não observou nenhum {{iconicTaxon}}!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Pesquisar observações",
+    "search_empty": "Não foram encontradas observações com esse termo de pesquisa.",
+    "reset_search": "Redefinir pesquisa"
   },
   "species_detail": {
     "near": "Ao redor",
@@ -591,10 +591,10 @@
     "language": "Língua do aplicativo",
     "device_settings": "Use as configurações de idioma do dispositivo",
     "auto_capture": "Tirar automaticamente uma foto quando a identificação obter a espécie.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "species_detail": "Detalhe da espécie",
+    "seasonality": "Sazonalidade",
+    "seasonality_option_1": "Mostrar sazonalidade com base em observações mundiais do iNaturalist",
+    "seasonality_option_2": "Mostrar sazonalidade com base em observações do iNaturalist próximo da minha localização atual (espécies não encontradas perto da minha localização não terão sazonalidade)"
   },
   "seek_challenges": {
     "badge": "Distintivo do Seek",
@@ -645,10 +645,10 @@
   },
   "inat_card": {
     "header": "iNaturalist",
-    "header_1": "We think you’ll really like iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
-    "text_2": "be part of a community that’s as curious about nature as you",
-    "text_3": "share observations with the community, and even share observations through Seek!",
-    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+    "header_1": "Achamos que você vai gostar do iNaturalist.",
+    "text_1": "aprenda mais sobre os seres vivos ao seu redor",
+    "text_2": "faça parte de uma comunidade que é tão curiosa sobre a natureza como você",
+    "text_3": "compartilhe observações com a comunidade como também compartilhe observações através do Seek!",
+    "download": "Comece baixando o aplicativo iNaturalist ou visite inaturalist.org.\n\nJá tem uma conta iNaturalist? Entre no Seek com a sua conta atual!"
   }
 }

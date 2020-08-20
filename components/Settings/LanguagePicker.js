@@ -75,6 +75,7 @@ const LanguagePicker = () => {
           handleValueChange={handleValueChange}
           selectedValue={displayLanguage}
           itemList={localeList}
+          testId="picker"
         >
           <View style={[styles.marginGreenButton, styles.center]}>
             <View style={styles.greenButton}>

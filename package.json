@@ -79,6 +79,7 @@
     "@babel/runtime": "^7.10.4",
     "@react-native-community/eslint-config": "^2.0.0",
     "@testing-library/jest-native": "^3.3.0",
+    "@testing-library/react-hooks": "^3.4.1",
     "@testing-library/react-native": "^7.0.2",
     "babel-jest": "^26.3.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
@@ -87,6 +88,7 @@
     "husky": "^4.2.5",
     "jest": "^26.4.0",
     "lint-staged": "^10.2.11",
-    "metro-react-native-babel-preset": "^0.58.0"
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "^16.13.1"
   }
 }

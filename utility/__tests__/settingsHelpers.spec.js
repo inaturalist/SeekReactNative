@@ -19,7 +19,6 @@ describe( "getLanguage", () => {
   } );
 
   it( "returns device locale when toggleLanguage is null", async () => {
-    // using the same language as the __mocks__ findBestAvailableLanguage function
     toggleLanguage( null );
 
     const result = await getLanguage();

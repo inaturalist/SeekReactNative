@@ -16,7 +16,7 @@ export default StyleSheet.create( {
     marginRight: -1
   },
   header: {
-    height: 39,
+    height: 25,
     justifyContent: "space-between",
     marginHorizontal: 24
   },

@@ -429,9 +429,9 @@
     "help": "Vyfoťte rostlinu, zvíře nebo cokoli žijícího pomocí našeho fotoaparátu a náš AI model Vám ji pomůže identifikovat!",
     "open_camera": "Otevřít fotoaparát",
     "not_seen": "Zatím jste neviděli žádné {{iconicTaxon}}!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Hledat pozorování",
+    "search_empty": "Hledanému výrazu neodpovídají žádná pozorování.",
+    "reset_search": "Obnovit vyhledávání"
   },
   "species_detail": {
     "near": "Poblíž",
@@ -591,10 +591,10 @@
     "language": "Jazyk aplikace",
     "device_settings": "Použít jazykové nastavení zařízení",
     "auto_capture": "Automaticky fotit, když je identifikován druh.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "species_detail": "Detail druhu",
+    "seasonality": "Sezónnost",
+    "seasonality_option_1": "Zobrazit sezónnost na základě celosvětových pozorování iNaturalist",
+    "seasonality_option_2": "Zobrazit sezónnost na základě pozorování iNaturalist poblíž mé aktuální polohy (druhy, které nebyly nalezeny v blízkosti mé polohy, nebudou mít žádnou sezónnost)"
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",
@@ -645,10 +645,10 @@
   },
   "inat_card": {
     "header": "iNaturalist",
-    "header_1": "We think you’ll really like iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
-    "text_2": "be part of a community that’s as curious about nature as you",
-    "text_3": "share observations with the community, and even share observations through Seek!",
-    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+    "header_1": "Myslíme si, že iNaturalist se vám bude opravdu líbit.",
+    "text_1": "ponořte se do poznávání organismů ve svém okolí",
+    "text_2": "buďte součástí komunity, která je stejně nadšená přírodou jako vy",
+    "text_3": "sdílejte pozorování s komunitou, nebo dokonce sdílejte pozorování přes Seek!",
+    "download": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nJiž máte účet iNaturalist? Přihlaste se do Seeku svým stávajícím účtem!"
   }
 }

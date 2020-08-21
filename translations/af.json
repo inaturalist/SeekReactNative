@@ -429,9 +429,9 @@
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
     "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Soek waarnemings",
+    "search_empty": "Geen waarnemings met daardie soekterm gevind.",
+    "reset_search": "Stel soekopdrag terug"
   },
   "species_detail": {
     "near": "Naby",
@@ -591,10 +591,10 @@
     "language": "Toepgebonde taal",
     "device_settings": "Gebruik toesteltaalinstellings",
     "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "species_detail": "Spesiedetail",
+    "seasonality": "Seisoensgebonde",
+    "seasonality_option_1": "Toon seisoensgebondenheid gebaseer op wêreldwye iNaturalis-waarnemings",
+    "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -645,10 +645,10 @@
   },
   "inat_card": {
     "header": "iNaturalist",
-    "header_1": "We think you’ll really like iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
-    "text_2": "be part of a community that’s as curious about nature as you",
-    "text_3": "share observations with the community, and even share observations through Seek!",
-    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+    "header_1": "Ons dink u sak van iNaturalist hou.",
+    "text_1": "duik dieper in en leer van organismes om u heen",
+    "text_2": "Wees deel van ’n gemeenskap wat so nuuskierig soos u oor die natuur is",
+    "text_3": "deel waarnemings met die gemeenskap en deel selfs u waarnemings via Seek!",
+    "download": "Val weg deur die iNaturalist-toep af te laai of inaturalist.org te besoek.\n\nHet u reeds ’n iNaturalist-rekening? Teken met u bestaande rekening op Seek aan!"
   }
 }

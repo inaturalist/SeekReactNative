@@ -84,8 +84,7 @@ GEM
       xcpretty-travis-formatter (>= 0.0.3)
     fastlane-plugin-get_android_version (0.3.5)
       apktools
-    fastlane-plugin-versioning (0.4.3)
-    fastlane-plugin-versioning_ios (0.1.0)
+    fastlane-plugin-versioning_android (0.1.0)
     gh_inspector (1.1.3)
     google-api-client (0.38.0)
       addressable (~> 2.5, >= 2.5.1)
@@ -180,8 +179,7 @@ PLATFORMS
 DEPENDENCIES
   fastlane
   fastlane-plugin-get_android_version
-  fastlane-plugin-versioning
-  fastlane-plugin-versioning_ios
+  fastlane-plugin-versioning_android
 
 BUNDLED WITH
    2.1.4

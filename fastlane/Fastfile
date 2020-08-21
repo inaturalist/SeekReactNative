@@ -55,26 +55,25 @@ end
 platform :android do
  desc "Distributes an Android bundle to the Play Store beta track"
  lane :beta do
-    get_android_version(apk: ENV["ANDROID_APK"])
     gradle(task: "bundle", build_type: "Release", project_dir: "android" )
     upload_to_play_store(track: "beta", package_name: ENV["PACKAGE_NAME"], skip_upload_apk: true)
     slack(
-      message: "Seek Android beta successfully deployed!",
-      success: true,
-      slack_url: ENV["SLACK_WEBHOOK"],
-      default_payloads: [:lane, :test_result, :git_branch, :last_git_commit_hash],
-      attachment_properties: {
-           fields: [
-               {
-                  title: "Version Number",
-                  value: lane_context[SharedValues::GET_ANDROID_VERSION_NAME]
-               },
-               {
-                 title: "Build Number",
-                 value: lane_context[SharedValues::GET_ANDROID_VERSION_CODE]
-               }
-           ]
-       })
+     message: "Seek Android beta successfully deployed!",
+     success: true,
+     slack_url: ENV["SLACK_WEBHOOK"],
+     default_payloads: [:lane, :test_result, :git_branch, :last_git_commit_hash],
+     attachment_properties: {
+          fields: [
+              {
+                 title: "Version Number",
+                 value: android_get_version_name(gradle_file: "android/app/build.gradle")
+              },
+              {
+                title: "Build Number",
+                value: android_get_version_code(gradle_file: "android/app/build.gradle")
+              }
+          ]
+      })
  end
 
  desc "Build debug and test APK for screenshots"

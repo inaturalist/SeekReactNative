@@ -7,6 +7,7 @@ import LanguagePicker from "./LanguagePicker";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 import DonateButton from "./DonateButton";
 import CameraSettings from "./CameraSettings";
+import SpeciesDetail from "./SpeciesDetail";
 
 const SettingsScreen = () => {
   const { login } = useContext( UserContext );
@@ -15,6 +16,7 @@ const SettingsScreen = () => {
     <ScrollWithHeader header="menu.settings">
       <View style={[styles.marginHorizontal, styles.marginTop]}>
         <CameraSettings />
+        <SpeciesDetail />
         <LanguagePicker />
         {( login && Platform.OS === "android" ) && <DonateButton />}
       </View>

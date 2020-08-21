@@ -31,7 +31,9 @@ export const colors = {
   greenGradientLight: "#38976d",
   tealGradientDark: "#175f67",
   checkboxColor: "#979797",
-  placeholderGray: "#828282"
+  placeholderGray: "#828282",
+  searchGray: "#b5b5b5",
+  settingsGray: "#999999"
 };
 
 export const fonts = {

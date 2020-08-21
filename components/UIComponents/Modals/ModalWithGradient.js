@@ -34,6 +34,7 @@ const ModalWithGradient = ( {
   displayDate
 }: Props ) => (
   <View style={styles.container}>
+    {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors[`${color}GradientDark`], colors[`${color}GradientLight`]]}
       style={styles.header}

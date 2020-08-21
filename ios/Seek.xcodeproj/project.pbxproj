@@ -86,6 +86,10 @@
 		3721C5C122B30F7E00151678 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = ../de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3739CB162242B17600D8B525 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
 		3739CB172242B17600D8B525 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
+		373E63AB24E60C2700E98448 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "../pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		373E63AC24E60C3100E98448 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		373E63AD24E60C3E00E98448 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = ../pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		373E63AE24E60C5400E98448 /* es-MX */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-MX"; path = "../es-MX.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		374AF64122DE43690040B45F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = ../da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		375C595B24491334000C16B5 /* Seek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Seek-Bridging-Header.h"; sourceTree = "<group>"; };
 		3763EE6C24CF8E18005EE9D3 /* SeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -415,6 +419,10 @@
 				he,
 				ar,
 				ro,
+				"pt-BR",
+				ja,
+				pl,
+				"es-MX",
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -604,6 +612,10 @@
 				378785E6245A1F2B00D4509C /* he */,
 				37A0EA3C24A2AD6A006A21C7 /* ar */,
 				37E2583324CB62CB00424D49 /* ro */,
+				373E63AB24E60C2700E98448 /* pt-BR */,
+				373E63AC24E60C3100E98448 /* ja */,
+				373E63AD24E60C3E00E98448 /* pl */,
+				373E63AE24E60C5400E98448 /* es-MX */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -783,6 +795,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.SeekUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -810,6 +826,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-DFB_SONARKIT_ENABLED=1",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.inaturalist.SeekUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

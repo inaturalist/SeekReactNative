@@ -50,6 +50,7 @@ const LevelHeader = ( { level, nextLevelCount, speciesCount }: Props ) => {
         closeModal={closeModal}
         modal={renderModalContent()}
       />
+      {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.greenGradientDark, colors.greenGradientLight]}
         style={[styles.header, styles.center]}

@@ -35,6 +35,7 @@ const LevelModal = ( {
         : "banner.level_up"}
       />
     </View>
+    {/* $FlowFixMe */}
     <LinearGradient
       colors={[colors.greenGradientLight, colors.greenGradientDark]}
       style={styles.backgroundColor}

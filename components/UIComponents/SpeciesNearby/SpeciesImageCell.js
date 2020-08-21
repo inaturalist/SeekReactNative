@@ -6,12 +6,14 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import { useRoute, useNavigation } from "@react-navigation/native";
+import { useRoute, useNavigation, useIsFocused } from "@react-navigation/native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
+import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
+import { useSeenTaxa } from "../../../utility/customHooks";
 
 type Props = {
   +item: Object,
@@ -22,6 +24,9 @@ const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
   const { navigate } = useNavigation();
   const route = useRoute();
   const { name } = route;
+  const isFocused = useIsFocused();
+
+  const seenTaxa = useSeenTaxa( item.id, isFocused );
 
   const renderSpeciesImage = () => {
     const photo = item.default_photo;
@@ -65,6 +70,7 @@ const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
         imageStyle={styles.cellImage}
       >
         {item.default_photo && renderSpeciesImage()}
+        {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
       </ImageBackground>
       <View style={styles.cellTitle}>
         <Text numberOfLines={3} style={styles.cellTitleText}>

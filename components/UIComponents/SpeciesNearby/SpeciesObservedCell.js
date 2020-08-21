@@ -48,7 +48,7 @@ const SpeciesObservedCell = ( { item }: Props ) => {
             imageStyle={styles.cellImage}
           >
             <Image source={{ uri: currentUserPhoto.uri }} style={styles.cellImage} />
-            <Image source={icons.completed} style={styles.checkbox} />
+            <Image source={icons.speciesObserved} style={styles.checkbox} />
           </ImageBackground>
           <View style={styles.cellTitle}>
             <Text numberOfLines={3} style={styles.cellTitleText}>

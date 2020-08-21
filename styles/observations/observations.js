@@ -11,6 +11,10 @@ export default StyleSheet.create( {
     backgroundColor: colors.seekForestGreen,
     flex: 1
   },
+  emptyText: {
+    paddingTop: 14,
+    paddingBottom: 31
+  },
   flexGrow: {
     flexGrow: 1
   },
@@ -19,20 +23,22 @@ export default StyleSheet.create( {
   },
   padding: {
     backgroundColor: colors.white,
-    paddingBottom: Platform.OS === "android" ? 24 : 44
+    paddingBottom: Platform.OS === "android" ? 37 : 44
   },
-  sectionSeparator: {
-    paddingBottom: 14
+  hiddenSectionSeparator: {
+    paddingBottom: 31
   },
   sectionWithDataSeparator: {
-    paddingBottom: 14 / 2
+    paddingBottom: 22
+  },
+  bottomOfSectionPadding: {
+    paddingBottom: 12
   },
   text: {
     color: colors.black,
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21,
-    marginTop: 4,
     textAlign: "center"
   },
   whiteContainer: {

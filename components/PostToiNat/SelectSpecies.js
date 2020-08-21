@@ -138,14 +138,16 @@ const SelectSpecies = ( {
               style={styles.card}
             >
               <SpeciesCard
-                commonName={item.commonName}
+                taxon={{
+                  preferredCommonName: item.commonName,
+                  name: item.scientificName,
+                  iconicTaxonId: item.iconicTaxonId
+                }}
                 handlePress={() => {
                   updateTaxon( item.id, item.commonName, item.scientificName );
                   toggleSpeciesModal();
                 }}
-                iconicTaxonId={item.iconicTaxonId}
                 photo={item.image && { uri: item.image }} // account for null case
-                scientificName={item.scientificName}
               />
             </View>
           ) )}

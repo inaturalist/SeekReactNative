@@ -16,52 +16,52 @@ import i18n from "../../i18n";
 type Props = {
   +handlePress?: Function,
   +photo: Object,
-  +iconicTaxonId?: ?number,
-  +commonName: ?string,
-  +scientificName: string,
-  +allowFontScaling?: boolean
+  +allowFontScaling?: boolean,
+  +taxon: Object
 }
 
 const SpeciesCard = ( {
   handlePress,
   photo,
-  iconicTaxonId,
-  commonName,
-  scientificName,
-  allowFontScaling
-}: Props ) => (
-  <TouchableOpacity
-    onPress={() => {
-      if ( handlePress ) {
-        handlePress();
-      }
-    }}
-    style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
-    disabled={!handlePress}
-  >
-    {iconicTaxonId ? (
-      <ImageBackground
-        imageStyle={styles.image}
-        source={iconicTaxa[iconicTaxonId] || iconicTaxa[1]}
-        style={styles.image}
-      >
-        <Image source={photo} style={styles.image} />
-      </ImageBackground>
-    ) : <Image source={photo} style={styles.image} />}
-    <View style={styles.speciesNameContainer}>
-      <Text allowFontScaling={allowFontScaling} style={styles.commonNameText}>
-        {( commonName || scientificName )
-          ? commonName || scientificName
-          : i18n.t( "posting.unknown" )}
-      </Text>
-      {scientificName && (
-        <Text allowFontScaling={allowFontScaling} style={styles.scientificNameText}>
-          {scientificName}
+  allowFontScaling,
+  taxon
+}: Props ) => {
+  const { preferredCommonName, name, iconicTaxonId } = taxon;
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        if ( handlePress ) {
+          handlePress();
+        }
+      }}
+      style={[!handlePress ? styles.notTouchable : styles.touchableArea, styles.row]}
+      disabled={!handlePress}
+    >
+      {iconicTaxonId ? (
+        <ImageBackground
+          imageStyle={styles.image}
+          source={iconicTaxa[iconicTaxonId] || iconicTaxa[1]}
+          style={styles.image}
+        >
+          <Image source={photo} style={styles.image} />
+        </ImageBackground>
+      ) : <Image source={photo} style={styles.image} />}
+      <View style={styles.speciesNameContainer}>
+        <Text allowFontScaling={allowFontScaling} style={styles.commonNameText}>
+          {( preferredCommonName || name )
+            ? preferredCommonName || name
+            : i18n.t( "posting.unknown" )}
         </Text>
-      )}
-    </View>
-  </TouchableOpacity>
-);
+        {name && (
+          <Text allowFontScaling={allowFontScaling} style={styles.scientificNameText}>
+            {name}
+          </Text>
+        )}
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 SpeciesCard.defaultProps = {
   iconicTaxonId: null,

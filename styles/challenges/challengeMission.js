@@ -6,8 +6,12 @@ export default StyleSheet.create( {
     fontSize: 29,
     marginTop: 7
   },
+  subBullets: {
+    marginTop: 15,
+    marginRight: 10
+  },
   checklist: {
-    marginTop: 20
+    marginTop: 19
   },
   circleStyle: {
     height: 59,
@@ -20,15 +24,26 @@ export default StyleSheet.create( {
   greenText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium,
-    marginTop: 4
+    marginTop: 9
   },
   leftItem: {
     alignItems: "center",
     marginRight: 22
   },
-  row: {
+  marginTop: {
+    marginTop: 6
+  },
+  missionRow: {
     flexDirection: "row",
     flexWrap: "nowrap"
+  },
+  secondLevelBulletText: {
+    color: colors.black,
+    fontFamily: fonts.book,
+    fontSize: 14,
+    lineHeight: 21,
+    marginTop: 6,
+    maxWidth: 274
   },
   text: {
     color: colors.black,

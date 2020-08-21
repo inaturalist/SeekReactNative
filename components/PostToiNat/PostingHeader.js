@@ -47,10 +47,9 @@ const PostingHeader = ( {
         style={styles.card}
       >
         <SpeciesCard
-          commonName={taxon.preferredCommonName}
+          taxon={taxon}
           handlePress={() => openModal()}
           photo={{ uri: image.uri }}
-          scientificName={taxon.name}
         />
         <Image
           source={icons.backButton}

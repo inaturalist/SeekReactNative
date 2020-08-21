@@ -108,27 +108,21 @@ const SpeciesContainer = ( {
               threatened,
               endemic,
               introduced,
-              native
+              native,
+              endangered: stats.endangered
             } );
           }
         }
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
-    if ( region.latitude && id !== null && isFocused ) {
+    if ( region.latitude && id !== null && isFocused && stats ) {
       checkStats();
+    } else {
+      // reset state
+      setGreenButtons( {} );
     }
-  }, [region, id, isFocused] );
-
-  useEffect( () => {
-    if ( stats ) {
-      const newStats = greenButtons;
-      // it's unlikely that Seek will identify any endangered species
-      // since there probably aren't enough photographs
-      newStats.endangered = stats.endangered;
-      setGreenButtons( newStats );
-    }
-  }, [stats, greenButtons] );
+  }, [region, id, isFocused, stats] );
 
   const renderOnlineOnlyCardsTop = () => (
     <>

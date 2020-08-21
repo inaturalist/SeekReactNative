@@ -22,6 +22,12 @@ export default StyleSheet.create( {
     paddingHorizontal: 18,
     paddingTop: Platform.OS === "ios" ? 18 : 12
   },
+  subHeader: {
+    color: colors.settingsGray,
+    fontFamily: fonts.semibold,
+    fontSize: 17,
+    letterSpacing: 0.94
+  },
   header: {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
@@ -61,7 +67,7 @@ export default StyleSheet.create( {
     paddingTop: padding.iOSPaddingSmall
   },
   radioMargin: {
-    marginBottom: 11,
+    marginBottom: 19,
     marginLeft: 10
   },
   row,
@@ -73,6 +79,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.book,
     fontSize: 16,
     lineHeight: 21
+  },
+  radioButtonWidth: {
+    maxWidth: 295
   },
   textWidth: {
     maxWidth: 239

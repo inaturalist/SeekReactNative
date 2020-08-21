@@ -10,6 +10,7 @@ import da from "./translations/da.json";
 import de from "./translations/de.json";
 import en from "./translations/en.json";
 import es from "./translations/es.json";
+import esMX from "./translations/es-MX.json";
 import fi from "./translations/fi.json";
 import fr from "./translations/fr.json";
 import he from "./translations/he.json";
@@ -17,6 +18,8 @@ import it from "./translations/it.json";
 import ja from "./translations/ja.json";
 import nl from "./translations/nl.json";
 import nb from "./translations/nb.json";
+import pl from "./translations/pl.json";
+import ptBR from "./translations/pt-BR.json";
 import ro from "./translations/ro.json";
 import ru from "./translations/ru.json";
 import sv from "./translations/sv.json";
@@ -32,6 +35,7 @@ i18n.translations = {
   de,
   en,
   es,
+  "es-MX": esMX,
   fi,
   fr,
   he,
@@ -39,6 +43,8 @@ i18n.translations = {
   ja,
   nl,
   nb,
+  pl,
+  "pt-BR": ptBR,
   ro,
   ru,
   sv,

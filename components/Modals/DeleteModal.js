@@ -31,13 +31,14 @@ const DeleteModal = ( {
   const {
     id,
     photo,
-    commonName,
-    scientificName,
+    preferredCommonName,
+    name,
     iconicTaxonId
   } = itemToDelete;
 
   return (
     <WhiteModal noButton>
+      {/* $FlowFixMe */}
       <LinearGradient
         colors={[colors.grayGradientDark, colors.grayGradientLight]}
         style={styles.flagHeader}
@@ -57,10 +58,12 @@ const DeleteModal = ( {
       <View style={styles.margin} />
       <SpeciesCard
         allowFontScaling={false}
-        commonName={commonName}
-        iconicTaxonId={iconicTaxonId}
+        taxon={{
+          preferredCommonName,
+          name,
+          iconicTaxonId
+        }}
         photo={photo}
-        scientificName={scientificName}
       />
       <View style={styles.margin} />
       <Text allowFontScaling={false} style={styles.text}>{i18n.t( "delete.description" )}</Text>

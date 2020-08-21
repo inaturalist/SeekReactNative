@@ -1,6 +1,6 @@
 [ignore]
 ; We fork some components by platform
-.*/*[.]android/.*
+.*/*[.]android.js
 
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
@@ -16,7 +16,6 @@ node_modules/warning/.*
 .*/Libraries/Utilities/LoadingView.js
 
 [untyped]
-.*/node_modules/*
 .*/node_modules/@react-native-community/cli/.*/.*
 
 [include]
@@ -57,7 +56,6 @@ untyped-type-import=warn
 nonstrict-import=warn
 deprecated-type=warn
 unsafe-getters-setters=warn
-inexact-spread=warn
 unnecessary-invariant=warn
 signature-verification-failure=warn
 deprecated-utility=error

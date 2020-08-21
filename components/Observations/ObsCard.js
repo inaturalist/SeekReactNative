@@ -1,18 +1,10 @@
 // @flow
 
-import React, {
-  useState,
-  useRef,
-  useEffect
-} from "react";
-import {
-  Image,
-  TouchableOpacity,
-  ScrollView
-} from "react-native";
+import React, { useRef, useEffect } from "react";
+import { Image, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 
-import { setSpeciesId, setRoute, getTaxonCommonName } from "../../utility/helpers";
+import { setSpeciesId, setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
 import icons from "../../assets/icons";
 import SpeciesCard from "../UIComponents/SpeciesCard";
@@ -34,14 +26,9 @@ const ObservationCard = ( {
   const isFocused = useIsFocused();
   const scrollView = useRef( null );
   const { navigate } = useNavigation();
-  const [commonName, setCommonName] = useState( null );
 
   const { taxon } = item;
-  const {
-    id,
-    name,
-    iconicTaxonId
-  } = taxon;
+  const { id } = taxon;
 
   const photo = useUserPhoto( item, isFocused );
 
@@ -54,21 +41,11 @@ const ObservationCard = ( {
       }
     };
 
-    if ( isFocused ) {
-      if ( itemScrolledId && itemScrolledId !== id ) {
-        updateItemScrolledId( null );
-        scrollLeft();
-      }
+    if ( itemScrolledId && itemScrolledId !== id ) {
+      updateItemScrolledId( null );
+      scrollLeft();
     }
-  }, [updateItemScrolledId, id, itemScrolledId, isFocused] );
-
-  useEffect( () => {
-    getTaxonCommonName( id ).then( ( taxonName ) => {
-      if ( isFocused ) {
-        setCommonName( taxonName );
-      }
-    } );
-  }, [id, isFocused] );
+  }, [updateItemScrolledId, id, itemScrolledId] );
 
   return (
     <ScrollView
@@ -79,24 +56,16 @@ const ObservationCard = ( {
       showsHorizontalScrollIndicator={false}
     >
       <SpeciesCard
-        commonName={commonName}
+        taxon={taxon}
         handlePress={() => {
           setSpeciesId( id );
           setRoute( "Observations" );
           navigate( "Species" );
         }}
-        iconicTaxonId={iconicTaxonId}
         photo={photo}
-        scientificName={name}
       />
       <TouchableOpacity
-        onPress={() => openModal(
-          id,
-          photo,
-          commonName,
-          name,
-          iconicTaxonId
-        )}
+        onPress={() => openModal( photo, taxon )}
         style={styles.deleteButton}
       >
         <Image source={icons.delete} />

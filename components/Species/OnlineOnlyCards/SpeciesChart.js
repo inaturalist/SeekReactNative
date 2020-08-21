@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
@@ -12,15 +12,28 @@ import SpeciesDetailCard from "../../UIComponents/SpeciesDetailCard";
 import { capitalizeNames } from "../../../utility/helpers";
 import { createShortMonthsList } from "../../../utility/dateHelpers";
 import createUserAgent from "../../../utility/userAgent";
+import { SpeciesDetailContext } from "../../UserContext";
+import { useLocationPermission } from "../../../utility/customHooks";
+import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 
 type Props = {
   +id: ?number
 };
 
 const SpeciesChart = ( { id }: Props ) => {
+  const { localSeasonality } = useContext( SpeciesDetailContext );
+  const granted = useLocationPermission();
+
   const isFocused = useIsFocused();
   const allMonths = createShortMonthsList();
   const [data, setData] = useState( [] );
+  const [latLng, setLatLng] = useState( {} );
+
+  const getGeolocation = useCallback( () => {
+    fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
+      setLatLng( { latitude, longitude } );
+    } ).catch( ( errorCode ) => console.log( errorCode, "error fetching geolocation" ) );
+  }, [] );
 
   const fetchHistogram = useCallback( () => {
     const params = {
@@ -28,6 +41,15 @@ const SpeciesChart = ( { id }: Props ) => {
       interval: "month_of_year",
       taxon_id: id
     };
+
+    if ( localSeasonality ) {
+      // $FlowFixMe
+      params.lat = latLng.latitude;
+      // $FlowFixMe
+      params.lng = latLng.longitude;
+      // $FlowFixMe
+      params.radius = 50;
+    }
 
     const options = { user_agent: createUserAgent() };
 
@@ -45,7 +67,9 @@ const SpeciesChart = ( { id }: Props ) => {
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );
-  }, [id] );
+  }, [id, localSeasonality, latLng] );
+
+  useEffect( () => { getGeolocation(); }, [granted, getGeolocation] );
 
   useEffect( () => {
     if ( isFocused ) {

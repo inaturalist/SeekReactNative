@@ -37,6 +37,7 @@ const MatchHeader = ( {
   );
 
   return (
+    // $FlowFixMe
     <LinearGradient
       colors={[gradientColorDark, gradientColorLight]}
       style={styles.header}

@@ -43,29 +43,51 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     setMissions( newMissions );
   }, [challenge] );
 
-  const formatLongMissionText = ( text ) => {
-  let newText = text;
+  const formatLongMissionText = ( item, index ) => {
+    const text = i18n.t( item.mission );
+    let missionNoSubBullets = null;
+    let header = "";
+    let secondLevelBullets = [];
 
     if ( text.includes( ";\n" ) ) {
-      newText = text.replace( /-/g, "" )
-        .replace( /:\n\n/g, ":\n\n\u2022 " )
-        .replace( /;\n/g, ";\n\u2022 " );
+      const sections = text.split( ":\n\n" );
+      header = `${sections[0]}:`;
+      secondLevelBullets = sections[1].split( ";\n" );
+    } else {
+      missionNoSubBullets = text;
     }
 
-    return <Text style={styles.text}>{newText}</Text>;
+    const list = secondLevelBullets.map( ( bullet, i ) => (
+      <View key={i.toString()} style={styles.missionRow}>
+        <Image source={icons.grayBullet} style={styles.subBullets} />
+        <Text style={styles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
+      </View>
+    ) );
+
+    const observedCount = (
+      <Text style={[styles.text, styles.greenText]}>
+        {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
+      </Text>
+    );
+
+    return (
+      <>
+        {missionNumbers[index] && missionNumbers[index].number === item.observations
+          ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
+          : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{missionNoSubBullets || header}</Text>
+          {header.length > 0 && <View style={styles.marginTop} />}
+          {list}
+          {observedCount}
+        </View>
+      </>
+    );
   };
 
   const renderMissionText = () => missions.map( ( item, i ) => (
-    <View key={`${item}${i.toString()}`} style={styles.row}>
-      {missionNumbers[i] && missionNumbers[i].number === item.observations
-        ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
-        : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
-      <View style={styles.textContainer}>
-        {formatLongMissionText( i18n.t( item.mission ) )}
-        <Text style={[styles.text, styles.greenText]}>
-          {i18n.t( "challenges.number_observed_plural", { count: item.observations } )}
-        </Text>
-      </View>
+    <View key={`${item.toString()}${i.toString()}`} style={styles.missionRow}>
+      {formatLongMissionText( item, i )}
       {i === 0 && (
         <View style={styles.circleStyle}>
           {challenge.percentComplete === 100

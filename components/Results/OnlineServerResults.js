@@ -164,6 +164,9 @@ const OnlineServerResults = () => {
         setMatch( false );
       }
     } ).catch( ( { response } ) => {
+      if ( !response ) {
+        setError( "onlineVision" );
+      }
       if ( response.status && response.status === 503 ) {
         const gmtTime = response.headers.map["retry-after"];
         const hours = serverBackOnlineTime( gmtTime );
@@ -172,8 +175,6 @@ const OnlineServerResults = () => {
           setNumberOfHours( hours );
         }
         setError( "downtime" );
-      } else {
-        setError( "onlineVision" );
       }
     } );
   }, [checkCommonAncestorRank] );
@@ -235,6 +236,8 @@ const OnlineServerResults = () => {
       checkMetaData();
     } );
   }, [navigation, checkMetaData] );
+
+  console.log( error, "error" );
 
   return (
     <>

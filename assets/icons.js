@@ -46,7 +46,10 @@ const icons = {
   delete: require( "./icons/button-deleteobservation.webp" ),
   warning_1: require( "./icons/icon-donttrespass.webp" ),
   warning_2: require( "./icons/icon-donteat.webp" ),
-  warning_3: require( "./icons/icon-donttouch.webp" )
+  warning_3: require( "./icons/icon-donttouch.webp" ),
+  grayBullet: require( "./icons/img-bullet-small.webp" ),
+  speciesObserved: require( "./icons/icon-speciesobserved.webp" ),
+  closeGray: require( "./icons/icon-close-small-gray.webp" )
 };
 
 export default icons;

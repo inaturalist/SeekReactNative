@@ -92,7 +92,7 @@
     "return_login": "Palaa kirjautumiseen"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Tietosuojakäytäntö"
   },
   "menu": {
     "home": "Koti",
@@ -215,7 +215,7 @@
     "seek_data": "Seek saa tiedot iNaturalistilta.",
     "about_inat": "iNaturalist on suurin luonnontieteilijöiden yhteisö maailmassa. Käyttäjät lähettävät valokuvia organismeista ympäri maailmaa, ja yhteisömme tunnistaa ne yhdessä. Näitä havaintoja käytetään tunnistusmallimme opettamisessa, etäisyyskarttojen näyttämisessä ja lähellä olevien havaintojen tuottamisessa Seekissä.",
     "contribute": "Oletko kiinnostunut osallistumaan kansalaistieteeseen globaalin luonnontieteilijäyhteisön kanssa?",
-    "join": "Log in with iNaturalist",
+    "join": "Kirjaudu sisään iNaturalistilla",
     "by": "by",
     "thanks": "iNaturalist-yhteisö koostuu kaltaisistasi ihmisistä! Liity yhteisöön ja lisää omat havaintosi inaturalist.org-sivustolle!",
     "logged_in": "Olet kirjautunut sisään Seekiin iNaturalist-tilisi kautta. Kiitos, että olet osa tätä yhteisöä!",
@@ -345,7 +345,7 @@
   "badges": {
     "your_level": "Sinun tasosi",
     "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
-    "achievements": "Achievements",
+    "achievements": "Saavutukset",
     "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
@@ -435,7 +435,7 @@
   },
   "species_detail": {
     "near": "Lähistöllä",
-    "about": "About",
+    "about": "Tietoja",
     "range_map": "Aluekartta",
     "range_about": "Kartta tämän lajin havainnoista iNaturalistissa.",
     "view_map": "Näytä aluekartta",
@@ -501,7 +501,7 @@
     "date": "päivämäärä",
     "location": "sijainti",
     "geoprivacy": "geoyksityisyys",
-    "open": "Open",
+    "open": "Avoin",
     "obscured": "Piilotettu",
     "private": "Yksityinen",
     "yes": "Kyllä",
@@ -557,7 +557,7 @@
   },
   "accessibility": {
     "menu": "Avaa valikko",
-    "camera": "Open camera",
+    "camera": "Avaa kamera",
     "notifications": "Näytä ilmoitukset",
     "iNatStats": "Näytä iNat-tilastonäyttö",
     "flag": "Merkitse tämä havainto vääräksi",
@@ -585,8 +585,8 @@
     "header": "Seek-kamera",
     "common_names": "Näytä yleiset nimet",
     "scientific_names": "Näytä tieteelliset nimet",
-    "donate": "Donate",
-    "donate_header": "Help support iNaturalist",
+    "donate": "Lahjoita",
+    "donate_header": "Auta tukemaan iNaturalistia",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Use device language settings",

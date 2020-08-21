@@ -175,6 +175,20 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 7, 1 ),
     action: "seek_challenges.action_aug_2020"
+  },
+  sept2020: {
+    name: "seek_challenges.herbivore",
+    description: "seek_challenges.sept_2020_description",
+    totalSpecies: 13,
+    backgroundName: "img-challengedetail-september2020",
+    earnedIconName: "badge_inaturalist_september2020",
+    missions: [
+      "seek_challenges.mission_1_sept_2020",
+      "seek_challenges.mission_2_sept_2020",
+      "seek_challenges.mission_3_sept_2020"
+    ],
+    availableDate: new Date( 2020, 8, 1 ),
+    action: "seek_challenges.action_sept_2020"
   }
 };
 

@@ -144,6 +144,20 @@ const missions = {
       number: 2,
       types: ["Hymenoptera", "Lepidoptera", "Coleoptera", "Diptera"]
     }
+  },
+  13: {
+    0: {
+      number: 10,
+      types: ["plants"]
+    },
+    1: {
+      number: 1,
+      types: ["mammals"]
+    },
+    2: {
+      number: 2,
+      types: ["Lepidoptera", "Hemiptera"]
+    },
   }
 };
 

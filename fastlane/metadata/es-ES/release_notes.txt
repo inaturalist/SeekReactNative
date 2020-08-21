@@ -1,0 +1,1 @@
+- Corrección de errores, árbol de la taxonomía en línea visible en la pantalla Detalle de Especies al tomar una nueva foto

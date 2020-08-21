@@ -1,0 +1,1 @@
+- Hata düzeltmeleri, Türler Detay ekranında taksonomisi ağaç görünür çevrimdışı yeni bir fotoğraf çekerken

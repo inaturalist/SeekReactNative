@@ -1,0 +1,1 @@
+- Correzioni di bug, struttura della tassonomia offline visibile sullo schermo Dettaglio Specie quando si scatta una nuova foto

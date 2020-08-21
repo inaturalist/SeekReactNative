@@ -24,7 +24,7 @@ export default StyleSheet.create( {
   greenText: {
     color: colors.seekForestGreen,
     fontFamily: fonts.medium,
-    marginTop: 4
+    marginTop: 9
   },
   leftItem: {
     alignItems: "center",

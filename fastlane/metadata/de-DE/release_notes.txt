@@ -1,0 +1,1 @@
+- Bug-Fixes, Taxonomie Baum sichtbar offline auf Arten Detailbild bei der Einnahme ein neues Foto

@@ -1,0 +1,1 @@
+- remedieri de erori, taxonomie copac off vizibil pe ecran Detalii Specii atunci când ia o fotografie nouă

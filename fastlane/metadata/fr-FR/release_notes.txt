@@ -1,0 +1,1 @@
+- Correction de bugs, arbre de taxonomie hors ligne visible sur les espèces écran Détail lors de la prise d'une nouvelle photo

@@ -1,0 +1,1 @@
+- Opravy chyb, taxonomie strom viditelný v režimu offline na obrazovce druhů detailního při pořizování nové foto

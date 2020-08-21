@@ -19,6 +19,7 @@ const taxonIds = {
   Fagales: 47853,
   Gaviiformes: 67562,
   Gruiformes: 4,
+  Hemiptera: 47744,
   Hymenoptera: 47201,
   Lagomorpha: 43094,
   Lamiales: 48151,

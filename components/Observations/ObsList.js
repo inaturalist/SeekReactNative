@@ -49,29 +49,32 @@ const ObsList = ( {
 
   const sectionIsHidden = ( id ) => hiddenSections.includes( id );
 
-  const renderItem = ( { item, section } ) => {
+  const renderItem = ( { item, section, index } ) => {
     if ( sectionIsHidden( section.id ) ) {
       return null;
     }
     return (
-      <ObservationCard
-        item={item}
-        itemScrolledId={itemScrolledId}
-        openModal={openModal}
-        updateItemScrolledId={updateItemScrolledId}
-      />
+      <>
+        <ObservationCard
+          item={item}
+          itemScrolledId={itemScrolledId}
+          openModal={openModal}
+          updateItemScrolledId={updateItemScrolledId}
+        />
+       {index === section.data.length - 1 && <View style={styles.bottomOfSectionPadding} />}
+      </>
     );
   };
 
   const renderSectionFooter = ( { section } ) => {
     const { id, data } = section;
     if ( sectionIsHidden( id ) && data.length === 0 ) {
-      return <View style={styles.sectionSeparator} />;
+      return <View style={styles.hiddenSectionSeparator} />;
     }
 
     if ( data.length === 0 ) {
       return (
-        <Text style={[styles.text, styles.sectionSeparator]}>
+        <Text style={[styles.text, styles.emptyText]}>
           {i18n.t( "observations.not_seen", { iconicTaxon: i18n.t( taxaIds[id] ) } )}
         </Text>
       );

@@ -6,11 +6,7 @@ import React, {
   useRef,
   useCallback
 } from "react";
-import {
-  FlatList,
-  View,
-  Platform
-} from "react-native";
+import { FlatList, View, Platform } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -42,8 +38,8 @@ const NotificationsScreen = () => {
   useEffect( () => {
     const scrollToTop = () => {
       if ( scrollView && scrollView.current !== null ) {
-        scrollView.current.scrollToIndex( {
-          index: 0, animated: Platform.OS === "android"
+        scrollView.current.scrollToOffset( {
+          offset: 0, animated: Platform.OS === "android"
         } );
       }
     };

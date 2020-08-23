@@ -429,9 +429,9 @@
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
     "not_seen": "Encara no has observat cap {{iconicTaxon}}!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Busca observacions",
+    "search_empty": "No s'han trobat observacions amb aquest terme de cerca.",
+    "reset_search": "Reiniciar cerca"
   },
   "species_detail": {
     "near": "Propera",
@@ -533,7 +533,7 @@
     "obscured_header": "Enfosquit: ",
     "closed_header": "Tancat: ",
     "yes_header": "Sí: ",
-    "no_header": "No: ",
+    "no_header": "No:",
     "open": "Altres usuaris d'iNaturalist podran veure que aquesta espècie ha estat observada, i els científica podran utilitzar aquestes dades per a la investigació.",
     "obscured": "La ubicació exacta d'aquesta observació s'ocultarà a la resta d'usuaris d'iNaturalist i, a canvi, es mostraran en una àrea més gran. (Les ubicacions de totes les espècies amenaçades i en perill d'extinció s'oculten automàticament)",
     "closed": "La localització d'aquesta observació no es compartirà amb altres usuaris d'iNaturalist.",
@@ -591,9 +591,9 @@
     "language": "Idioma de la aplicació",
     "device_settings": "Usar l'idioma del telèfon.",
     "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "species_detail": "Detalls de l'espècie",
+    "seasonality": "Estacionalitat",
+    "seasonality_option_1": "Mostrar estacionalitat basada en les observacions mundials d'iNaturalist",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {

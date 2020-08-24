@@ -16,7 +16,7 @@ type Props = {
   loading: boolean
 }
 
-const GalleryContainer = ( {
+const GalleryImageList = ( {
   setPhotoParams,
   error,
   photos,
@@ -53,4 +53,4 @@ const GalleryContainer = ( {
   );
 };
 
-export default GalleryContainer;
+export default GalleryImageList;

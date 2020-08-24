@@ -30,7 +30,8 @@ export default StyleSheet.create( {
   },
   center,
   grayContainer: {
-    backgroundColor: colors.lightGray
+    backgroundColor: colors.lightGray,
+    flexGrow: 1
   },
   header: {
     backgroundColor: colors.white,

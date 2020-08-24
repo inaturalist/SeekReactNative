@@ -97,7 +97,7 @@ const ARCamera = () => {
   };
 
   const savePhoto = useCallback( ( photo ) => {
-    CameraRoll.save( photo.uri, { type: "photo" } )
+    CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";

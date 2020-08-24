@@ -1,4 +1,4 @@
-# Seek App Version 2.0
+# Seek App Version 2.x
 
 [Seek](https://www.inaturalist.org/pages/seek_app) is an app for identifying plants and animals. It is available on iOS and Android.
 
@@ -19,7 +19,6 @@
 ## Run build
 1. Run `npm start`
 2. Build locally to a device or simulator by running `npm run ios` or `npm run android`
-
 
 ## Manual Linking
 Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). Any exceptions are listed in the `react-native.config.js` file. Currently, [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is manually linked.

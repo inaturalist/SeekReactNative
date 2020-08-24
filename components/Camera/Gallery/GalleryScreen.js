@@ -9,7 +9,7 @@ import { useSafeArea } from "react-native-safe-area-context";
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
-import GalleryContainer from "./GalleryContainer";
+import GalleryImageList from "./GalleryImageList";
 import LoadingWheel from "../../UIComponents/LoadingWheel";
 import { colors } from "../../../styles/global";
 
@@ -168,7 +168,7 @@ const GalleryScreen = () => {
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
       {loading && renderLoadingWheel()}
-      <GalleryContainer
+      <GalleryImageList
         setPhotoParams={setPhotoParams}
         error={error}
         photos={photos}

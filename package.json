@@ -45,7 +45,7 @@
     "react-native-geolocation-service": "^5.0.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-resizer": "^1.2.3",
-    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera",
+    "react-native-inat-camera": "github:inaturalist/react-native-inat-camera#8e5e1548c18fcc0bd0233c0e93cbda4a258db694",
     "react-native-jwt-io": "^1.0.3",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-localize": "^1.4.0",

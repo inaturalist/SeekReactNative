@@ -44,6 +44,7 @@ const InputField = ( {
       style={styles.inputField}
       textContentType={type} // iOS only
       value={text}
+      testID={type}
     />
   );
 };

@@ -31,5 +31,5 @@ export default StyleSheet.create( {
     zIndex: 1,
     height: 24,
     width: 24
-  },
+  }
 } );

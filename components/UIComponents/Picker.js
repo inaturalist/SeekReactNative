@@ -1,7 +1,6 @@
 import React from "react";
 import RNPickerSelect from "react-native-picker-select";
 
-
 type Props = {
   handleValueChange: Function,
   icon: any,

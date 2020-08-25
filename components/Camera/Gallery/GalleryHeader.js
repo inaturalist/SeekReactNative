@@ -77,7 +77,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
           <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
         </View>
       ) : (
-        <Text style={styles.headerText}>
+        <Text style={styles.headerText} testID="cameraRollText">
           {i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()}
         </Text>
       )}

@@ -49,6 +49,7 @@ const GreenButton = ( {
         widthStyle
       ]}
       disabled={disabled}
+      testID="greenButton"
     >
       <Text
         style={[styles.buttonText, { letterSpacing }, { fontSize }]}

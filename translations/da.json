@@ -336,7 +336,7 @@
     "cub": "Hvalp",
     "tracker": "Tracker",
     "surveyor": "Kortlægger",
-    "naturalist": "Naturalist",
+    "naturalist": "Naturelsker",
     "seeker": "Seeker",
     "explorer": "Opdagelsesrejsende",
     "adventurer": "Eventyrer",
@@ -591,7 +591,7 @@
     "language": "App-sprog",
     "device_settings": "Benyt enhedens sprogindstilling",
     "auto_capture": "Tag automatisk et billede hvis identifikationen når frem til art.",
-    "species_detail": "Species detail",
+    "species_detail": "Artsdetaljer",
     "seasonality": "Sæsonudsving",
     "seasonality_option_1": "Vis sæsonudsving baseret på verdensomspændende iNaturalist-observationer",
     "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"

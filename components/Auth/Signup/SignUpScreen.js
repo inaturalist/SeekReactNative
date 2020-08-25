@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import { View } from "react-native";
+import * as RNLocalize from "react-native-localize";
 
 import i18n from "../../../i18n";
 import config from "../../../config";
@@ -103,13 +104,16 @@ class SignUpScreen extends Component<Props, State> {
 
     const token = createJwtToken();
 
+    console.log( RNLocalize.getTimeZone(), "time zone in signup" );
+
     const params = {
       user: {
         login: username,
         email,
         password,
         password_confirmation: password,
-        locale: i18n.currentLocale()
+        locale: i18n.currentLocale(),
+        time_zone: RNLocalize.getTimeZone()
       }
     };
 

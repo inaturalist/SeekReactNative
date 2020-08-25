@@ -5,5 +5,8 @@
     "comma-dangle": [2, "never"],
     "space-in-parens": [2, "always"],
     "prettier/prettier": 0
+  },
+  "env": {
+    "jest": true
   }
 }

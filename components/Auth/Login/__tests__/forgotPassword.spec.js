@@ -10,12 +10,10 @@ describe( "ForgotPassword", () => {
   describe( "clicking submit", () => {
     const testEmail = "123@me.com";
     let getByTestId;
-    let checkIsEmailValid;
 
     beforeEach( () => {
       ( {getByTestId} = render( <ForgotPassword /> ) );
 
-      checkIsEmailValid = jest.fn();
       fetch.mockResponseOnce( JSON.stringify( { status: 200 } ) );
 
       fireEvent.changeText( getByTestId( "emailAddress" ), testEmail );

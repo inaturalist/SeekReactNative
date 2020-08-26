@@ -104,8 +104,6 @@ class SignUpScreen extends Component<Props, State> {
 
     const token = createJwtToken();
 
-    console.log( RNLocalize.getTimeZone(), "time zone in signup" );
-
     const params = {
       user: {
         login: username,

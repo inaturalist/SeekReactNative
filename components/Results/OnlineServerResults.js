@@ -237,8 +237,6 @@ const OnlineServerResults = () => {
     } );
   }, [navigation, checkMetaData] );
 
-  console.log( error, "error" );
-
   return (
     <>
       {error ? (

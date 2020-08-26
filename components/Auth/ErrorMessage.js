@@ -37,7 +37,7 @@ const ErrorMessage = ( { error }: Props ) => {
       {/* $FlowFixMe */}
       <Image source={icons.error} style={styles.image} tintColor={colors.seekiNatGreen} />
       <View style={styles.textContainer}>
-        <Text allowFontScaling={false} style={styles.text}>{message}</Text>
+        <Text allowFontScaling={false} style={styles.text} testID="loginError">{message}</Text>
       </View>
     </View>
   );

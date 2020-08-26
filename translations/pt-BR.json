@@ -635,7 +635,14 @@
     "mission_2_sept_2020": "Encontre 1 mamífero",
     "mission_3_sept_2020": "Encontre 2 insetos das ordens:\n\nLepidoptera (borboletas e mariposas);\nHemiptera (percevejos, cigarrinhas, pulgões e similares)",
     "sept_2020_description": "Os herbívoros são animais adaptados para se alimentarem apenas de plantas. Os mamíferos herbívoros muitas vezes têm sistemas digestórios complexos que lhes permitem fazer a digestão de grandes quantidades de material vegetal. Por exemplo, as vacas têm na verdade 4 estômagos para digerir as plantas que consomem. Outros mamíferos são especializados em frutas (morcegos-da-fruta) ou sementes (esquilos). Muitos insetos são também adaptados à alimentação de diferentes partes das plantas, como as lagartas que comem folhas ou os pulgões que consomem a seiva das raízes.",
-    "action_sept_2020": "Faça uma pesquisa sobre como o consumo de carne impacta no meio ambiente. Que passos você pode dar para reduzir o seu próprio impacto?\n\nAlternativa: que tipos de planta você consome? De que partes da planta eles vêm? Você consegue descobrir que animais também gostam de consumir essas plantas?"
+    "action_sept_2020": "Faça uma pesquisa sobre como o consumo de carne impacta no meio ambiente. Que passos você pode dar para reduzir o seu próprio impacto?\n\nAlternativa: que tipos de planta você consome? De que partes da planta eles vêm? Você consegue descobrir que animais também gostam de consumir essas plantas?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Substituir foto?",

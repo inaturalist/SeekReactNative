@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import {
-  Text,
-  Image,
-  View
-} from "react-native";
+import { Text, Image, View } from "react-native";
 
-import i18n from "../../../i18n";
+// import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/gallery";
 import Picker from "../../UIComponents/Picker";
@@ -29,14 +25,15 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
       selectedValue={album}
       icon={<Image source={icons.dropdownOpen} style={styles.margin} />}
       itemList={albumNames}
+      disabled={albumNames.length <= 1}
     >
       <View style={[styles.row, styles.center]}>
-        <Text style={styles.headerText}>
+        <Text style={styles.headerText} testID="cameraRollText">
           {album === "All"
-            ? i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()
+            ? albumNames[0].label.toLocaleUpperCase()
             : album.toLocaleUpperCase()}
         </Text>
-        <Image source={icons.dropdownOpen} style={styles.margin} />
+        {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
       </View>
     </Picker>
   );

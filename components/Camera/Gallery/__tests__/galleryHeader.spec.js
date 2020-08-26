@@ -1,17 +1,16 @@
-// import "react-native";
-// import React from "react";
-// import { fireEvent, render } from "@testing-library/react-native";
+import React from "react";
+import { render } from "@testing-library/react-native";
 
-// import GalleryHeader from "../GalleryHeader";
-// import i18n from "../../../../i18n";
+import GalleryHeader from "../GalleryHeader";
+import i18n from "../../../../i18n";
 
-// describe( "GalleryHeader", () => {
-//   describe( "displaying album names", () => {
-//     it( "component loads with initial state of []", () => {
-//       const cameraRollText = i18n.t( "gallery.camera_roll" ).toLocaleUpperCase();
-//       const { getByTestId } = render( <GalleryHeader /> );
+describe( "GalleryHeader", () => {
+  describe( "before album names are loaded", () => {
+    const { getByTestId } = render( <GalleryHeader /> );
+    it( "displays plain text that says camera roll", () => {
+      const cameraRollText = i18n.t( "gallery.camera_roll" ).toLocaleUpperCase();
 
-//       expect( getByTestId( "cameraRollText" ) ).toEqual( cameraRollText );
-//     } );
-//   } );
-// } );
+      expect( getByTestId( "cameraRollText" ).props.children ).toEqual( cameraRollText );
+    } );
+  } );
+} );

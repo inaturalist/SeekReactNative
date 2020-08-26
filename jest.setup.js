@@ -38,3 +38,7 @@ jest.mock( "react-native-device-info", () => ( {
 jest.mock( "react-native-geolocation-service", () => ( {
   getCurrentPosition: jest.fn()
 } ) );
+
+NativeModules.CameraRoll = {
+  getAlbums: jest.fn()
+};

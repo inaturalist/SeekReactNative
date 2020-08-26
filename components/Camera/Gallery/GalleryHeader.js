@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Text,
   Alert
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -24,15 +23,13 @@ type Props = {
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {
   const navigation = useNavigation();
-  const [albumNames, setAlbumNames] = useState( [] );
+
+  const cameraRoll = [{ label: i18n.t( "gallery.camera_roll" ), value: "All" }];
+  const [albumNames, setAlbumNames] = useState( cameraRoll );
 
   const fetchAlbumNames = useCallback( async () => {
     try {
-      const names = [{
-        label: i18n.t( "gallery.camera_roll" ),
-        value: "All"
-      }];
-
+      const names = cameraRoll;
       const albums = await CameraRoll.getAlbums( { assetType: "Photos" } );
 
       if ( albums && albums.length > 0 ) { // attempt to fix error on android
@@ -46,11 +43,11 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
     } catch ( e ) {
       Alert.alert( `Error fetching photo albums: ${e}` );
     }
-  }, [] );
+  }, [cameraRoll] );
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      if ( albumNames.length === 0 ) {
+      if ( albumNames.length === 1 ) {
         fetchAlbumNames();
       }
     } );
@@ -71,16 +68,10 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
           style={styles.buttonImage}
         />
       </TouchableOpacity>
-      {albumNames.length > 1 ? (
-        <View>
-          {/* view is used to make sure back button is still touchable */}
-          <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
-        </View>
-      ) : (
-        <Text style={styles.headerText} testID="cameraRollText">
-          {i18n.t( "gallery.camera_roll" ).toLocaleUpperCase()}
-        </Text>
-      )}
+      <View>
+        {/* view is used to make sure back button is still touchable */}
+        <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
+      </View>
     </View>
   );
 };

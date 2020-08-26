@@ -76,11 +76,7 @@ const ARCameraOverlay = ( {
       />
       {!error && (
         <>
-          {( pictureTaken || !cameraLoaded ) && (
-            <View style={styles.loading}>
-              <LoadingWheel color="white" />
-            </View>
-          )}
+          {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
           <ARCameraHeader ranks={ranks} />
           <Text style={styles.scanText}>{helpText}</Text>
           <TouchableOpacity

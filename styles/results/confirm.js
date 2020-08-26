@@ -32,8 +32,4 @@ export default StyleSheet.create( {
     top: "50%",
     zIndex: 1
   }
-  // safeViewTop: {
-  //   backgroundColor: colors.white,
-  //   flex: 0
-  // }
 } );

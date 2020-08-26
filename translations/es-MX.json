@@ -635,7 +635,14 @@
     "mission_2_sept_2020": "Find 1 mammal",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "scavenger": "Desafío de Carroñero",
+    "mission_1_oct_2020": "Encuentra 4 hongos",
+    "mission_2_oct_2020": "Encuentra un organismo de las órdenes:\n\nAccipitriformes (Halcones, Gavilanes y Águilas);\nCatartiformes (Zopilotes);\nCarnívora (Carnívoros)",
+    "mission_3_oct_2020": "Encuentra un Molusco",
+    "mission_4_oct_2020": "Encuentra un Artrópodo",
+    "oct_2020_description": "Los carroñeros y descomponedores son esenciales para la vida en nuestro planeta, ayudan a reciclar nutrientes y reintegran materia que no lo haría de otra manera.",
+    "action_oct_2020": "Descubre qué tipo de descomponedores y carroñeros viven a tu alrededor. ¿Cómo ayudan al medio ambiente con su nicho?"
   },
   "replace_photo": {
     "header": "¿Substituir la foto?",

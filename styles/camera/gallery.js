@@ -49,13 +49,6 @@ export default StyleSheet.create( {
     height: dimensions.width / 4 - 2,
     width: dimensions.width / 4 - 2
   },
-  loadingWheel: {
-    backgroundColor: colors.white,
-    left: dimensions.width / 2 - 15,
-    position: "absolute",
-    top: dimensions.height / 2 - 50,
-    zIndex: 1
-  },
   margin: {
     marginLeft: 15
   },

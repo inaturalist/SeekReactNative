@@ -162,11 +162,7 @@ const GalleryScreen = () => {
     } );
   }, [navigation, photos.length, isFocused, loading] );
 
-  const renderLoadingWheel = () => (
-    <View style={styles.loadingWheel}>
-      <LoadingWheel color={colors.darkGray} />
-    </View>
-  );
+  const renderLoadingWheel = () => <LoadingWheel color={colors.darkGray} />;
 
   const renderGalleryList = useMemo( () => (
     <GalleryImageList

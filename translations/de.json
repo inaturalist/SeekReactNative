@@ -635,7 +635,14 @@
     "mission_2_sept_2020": "Finde 1 Säugetier",
     "mission_3_sept_2020": "Finde 2 Insekten aus diesen Ordnungen:\nLepidoptera (Schmetterlinge und Motten);\nHemiptera (Wanzen, Zikaden, Blattläuse und Verwandte)",
     "sept_2020_description": "Herbivore sind Tiere, die sich an pflanzliche Nahrung angepasst haben. Pflanzenfressende Säugetiere verfügen oft über komplexe Verdauungssysteme, die es ihnen ermöglichen, große Mengen an Pflanzenmaterial zu zerkleinern. So haben Kühe tatsächlich 4 Mägen, um die von ihnen verzehrten Pflanzen zu verdauuen. Andere Säugetiere haben sich auf Obst (Flughunde) oder Samen (Eichhörnchen) spezialisiert. Viele Insekten haben sich ebenfalls daran angepasst, nur bestimmte Teile von Pflanzen zu fressen - wie z.B. Raupen, die Blätter fressen, oder Zikaden, die Pflanzensäfte aus den Stängeln saugen.",
-    "action_sept_2020": "Mach dich schlau darüber, wie sich der Fleischkonsum auf die Umwelt auswirkt. Welche Schritte kannst du unternehmen, um deine eigenen Auswirkungen zu verringern?\n\nAlternative: Welche Arten von Pflanzen isst du? Aus welchen Teilen der Pflanze kommen sie? Kannst du herausfinden, welche Tierarten diese Pflanzen auch gerne essen?"
+    "action_sept_2020": "Mach dich schlau darüber, wie sich der Fleischkonsum auf die Umwelt auswirkt. Welche Schritte kannst du unternehmen, um deine eigenen Auswirkungen zu verringern?\n\nAlternative: Welche Arten von Pflanzen isst du? Aus welchen Teilen der Pflanze kommen sie? Kannst du herausfinden, welche Tierarten diese Pflanzen auch gerne essen?",
+    "scavenger": "Aasfresser-Mission",
+    "mission_1_oct_2020": "Finde 4 Pilze",
+    "mission_2_oct_2020": "Finde 1 Organismus aus den Ordnungen:\n\nAccipitriformes (Bussarde, Adler & Milane);\nCathartiformes (Geier);\nCarnivora (Raubtiere)",
+    "mission_3_oct_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
+    "mission_4_oct_2020": "Finde 1 Arthropoden (Gliederfüßer)",
+    "oct_2020_description": "Aasfresser und Zersetzer sind für das Leben auf unserem Planeten unentbehrlich und tragen dazu bei, Nährstoffe zu recyceln und Substrate zu zersetzen, die sonst nicht abgebaut werden würden.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

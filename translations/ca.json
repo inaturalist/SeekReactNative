@@ -635,7 +635,14 @@
     "mission_2_sept_2020": "Troba 1 mamífer",
     "mission_3_sept_2020": "Troba 2 insectes dels ordres:\n\nLepidoptera (Papallones i Arnes)\nHemiptera (Xinxes, Pugons i Cigales)",
     "sept_2020_description": "Els herbívors són animals que estan adaptats per alimentar-se només en plantes. Els mamífers herbívors sovint tenen sistemes digestius complexos que els permet processar grans quantitats de matèria vegetal. Per exemple, les vaques de fet tenen 4 estómacs per trencar les plantes que consumeixen. Altres mamífers s'especialitzen a menjar fruita (ratpenats de fruita) o llavors (esquirols). Molts insectes estan també adaptats per menjar parts diferents de plantes, com les erugues que mengen fulles o pugons de les plantes tremuges que xuclen la saba de les tiges.",
-    "action_sept_2020": "Fes alguna recerca sobre l'impacte ambiental que té el consum. Quins passos pots dunar per reduir el vostre impacte?\n\nAlternativa: Quines classes de plantes menges? De quines parts de la planta provenen? Pots esbrinar quins tipus d'animals també menges aquelles plantes?"
+    "action_sept_2020": "Fes alguna recerca sobre l'impacte ambiental que té el consum. Quins passos pots dunar per reduir el vostre impacte?\n\nAlternativa: Quines classes de plantes menges? De quines parts de la planta provenen? Pots esbrinar quins tipus d'animals també menges aquelles plantes?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Substituir foto",

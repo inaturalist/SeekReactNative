@@ -10,8 +10,6 @@ import { checkCameraRollPermissions } from "../../../utility/androidHelpers.andr
 import styles from "../../../styles/camera/gallery";
 import GalleryHeader from "./GalleryHeader";
 import GalleryImageList from "./GalleryImageList";
-import LoadingWheel from "../../UIComponents/LoadingWheel";
-import { colors } from "../../../styles/global";
 import CameraError from "../CameraError";
 
 const GalleryScreen = () => {
@@ -162,8 +160,6 @@ const GalleryScreen = () => {
     } );
   }, [navigation, photos.length, isFocused, loading] );
 
-  const renderLoadingWheel = () => <LoadingWheel color={colors.darkGray} />;
-
   const renderGalleryList = useMemo( () => (
     <GalleryImageList
       setPhotoParams={setPhotoParams}
@@ -177,7 +173,6 @@ const GalleryScreen = () => {
     <View style={[styles.background, { paddingTop: insets.top }]}>
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
-      {loading && renderLoadingWheel()}
       {error ? <CameraError error={error} errorEvent={errorEvent} /> : renderGalleryList}
     </View>
   );

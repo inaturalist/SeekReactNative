@@ -33,10 +33,10 @@ const LanguagePicker = () => {
   const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
 
   const handleValueChange = ( value ) => {
+    // this prevents the double render on new Android install
+    // without this, the user changes the language
+    // and handleValueChange is immediately called with "en"
     if ( value === displayLanguage && preferredLanguage === "device" ) {
-      // this prevents the double render on new Android install
-      // without this, the user changes the language
-      // and handleValueChange is immediately called with "en"
       return;
     }
 

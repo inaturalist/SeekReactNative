@@ -98,7 +98,7 @@
     "home": "P·gina inicial",
     "achievements": "Conquistas",
     "challenges": "Desafios",
-    "observations": "ObservaÁıes",
+    "observations": "Observações",
     "inat": "iNaturalist",
     "about": "Sobre",
     "settings": "Configurações"
@@ -106,7 +106,7 @@
   "onboarding": {
     "onboarding_1": "Use a Câmera de Seek para identificar plantas, animais e fungos",
     "onboarding_2": "Saiba mais sobre os organismos ao seu redor",
-    "onboarding_3": "Ganhe distintivos para observar espécies diferentes",
+    "onboarding_3": "Ganhe distintivos por observar diferentes espécies",
     "skip": "Ignorar por enquanto",
     "continue": "Continuar"
   },
@@ -619,7 +619,7 @@
     "action_june_2020": "Sabia que pode ver nomes científicos em vez de nomes comuns na câmera do Seek? Vá para a página de configurações do menu para alterar a exibição de nomes comuns para nomes científicos!",
     "river": "Desafio do Rio",
     "mission_1_july_2020": "Encontre 2 peixes ou anfíbios",
-    "mission_2_july_2020": "Encontre 3 pássaros aquáticos das ordens Anseriformes, Charadriformes, Coraciiformes, Gaviiformes, Gruíformes, Pelecaniformes, Phoenicopformes, Podipediformes, procelularicidade, Sfenisciformes e Suliformes",
+    "mission_2_july_2020": "Encontre 3 aves aquáticas das ordens Anseriformes, Charadriiformes, Coraciiformes, Gaviiformes, Gruiformes, Pelecaniformes, Phoenicopteriformes, Podicipediformes, Procellariiformes, Esfenisciformes, e Suliformes",
     "mission_3_july_2020": "Encontre 1 molusco",
     "july_2020_description": "Os rios são um centro de biodiversidade. Abriga desde microinvertebrados a grandes vertebrados, os rios ajudam os organismos em torno deles a prosperar.",
     "action_july_2020": "Quando você está perto de uma área com água, que organismos você observa? Que espécie está nadando na água? Que espécies estão voando sobre ela? Há organismos na água que você não consegue ver?",
@@ -636,13 +636,13 @@
     "mission_3_sept_2020": "Encontre 2 insetos das ordens:\n\nLepidoptera (borboletas e mariposas);\nHemiptera (percevejos, cigarrinhas, pulgões e similares)",
     "sept_2020_description": "Os herbívoros são animais adaptados para se alimentarem apenas de plantas. Os mamíferos herbívoros muitas vezes têm sistemas digestórios complexos que lhes permitem fazer a digestão de grandes quantidades de material vegetal. Por exemplo, as vacas têm na verdade 4 estômagos para digerir as plantas que consomem. Outros mamíferos são especializados em frutas (morcegos-da-fruta) ou sementes (esquilos). Muitos insetos são também adaptados à alimentação de diferentes partes das plantas, como as lagartas que comem folhas ou os pulgões que consomem a seiva das raízes.",
     "action_sept_2020": "Faça uma pesquisa sobre como o consumo de carne impacta no meio ambiente. Que passos você pode dar para reduzir o seu próprio impacto?\n\nAlternativa: que tipos de planta você consome? De que partes da planta eles vêm? Você consegue descobrir que animais também gostam de consumir essas plantas?",
-    "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
-    "mission_4_oct_2020": "Find 1 Arthropod",
-    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
+    "scavenger": "Desafio do Detritívoro",
+    "mission_1_oct_2020": "Encontre 4 fungos",
+    "mission_2_oct_2020": "Encontre 1 organismo das ordens:\n\nAccipitriformes (Gaviões e Águias);\nCatartiformes (Urubus);\nCarnívora (Carnívoros)",
+    "mission_3_oct_2020": "Encontre 1 molusco",
+    "mission_4_oct_2020": "Encontre 1 artrópode",
+    "oct_2020_description": "Os detritívoros e os decompositores são essenciais para a vida no nosso planeta, pois ajudam a reciclar nutrientes e decompor a matéria.",
+    "action_oct_2020": "Descubra que tipos de decompositor e detritívoro vivem nas áreas à sua volta. Como eles ajudam o ambiente com o seu nicho?"
   },
   "replace_photo": {
     "header": "Substituir foto?",

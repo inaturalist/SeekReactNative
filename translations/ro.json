@@ -636,13 +636,13 @@
     "mission_3_sept_2020": "Găsește 2 insecte din ordinul:\n\nLepidoptera (Fluturi și Molii);\nHemiptere (Ploșnițe, Lăcuste, Păduchi, și Similare)",
     "sept_2020_description": "Erbivorele sunt animale adaptate să se hrănească doar cu plante. Mamiferele erbivore au adesea sisteme digestive complexe ce le permit să descompună cantități mari de material vegetal. De exemplu, vacile au de fapt 4 stomacuri ca să descompună plantele consumate. Alte mamifere sunt specializate în fructe (lilieci de fructe) sau semințe (veverițe). Multe insecte sunt, de asemenea, adaptate pentru a mânca diferite părți ale plantelor, cum ar fi omizile care mănâncă frunze sau fulgoromorphele (seamănă cu o frunză și sar) care sug seva din tulpini.",
     "action_sept_2020": "Efectuați câteva cercetări cu privire la impactul consumului de carne asupra mediului. Ce pași puteți face pentru a reduce propriul impact?\n\nAlternativă: Ce fel de plante mănânci? Din ce părți ale plantei provin? Poți afla căror animale le place de asemenea să mănânce acele plante?",
-    "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
-    "mission_4_oct_2020": "Find 1 Arthropod",
-    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
+    "scavenger": "Provocarea Necrofagelor",
+    "mission_1_oct_2020": "Găsește 4 ciuperci",
+    "mission_2_oct_2020": "Găsește orice 1 organism din ordinele:\n\nAccipitriforme (Șoimi, Vulturi & Ulii);\nCathartiformes (Vulturi pleșuvi, Condori);\nCarnivora (Carnivore)",
+    "mission_3_oct_2020": "Găsește 1 Moluscă",
+    "mission_4_oct_2020": "Găsește o Artropodă",
+    "oct_2020_description": "Necrofagele și Decompunătorii sunt esențiali viații pe planeta noastră. Ele ajută la reciclarea nutrienților și descompunerea materiei care altfel nu ar fi defalcată.",
+    "action_oct_2020": "Află ce fel de decompunători  și necrofage trăiesc în zonele din jurul tău. Cum sunt ele utile pentru mediu în funcția lor?"
   },
   "replace_photo": {
     "header": "Înlocuiești Fotografia?",

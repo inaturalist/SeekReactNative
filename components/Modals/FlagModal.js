@@ -29,7 +29,7 @@ const FlagModal = ( {
     color="gray"
     closeModal={closeModal}
     userImage={userImage}
-    originalImage={taxon && taxon.speciesSeenImage ? taxon.speciesSeenImage : null}
+    originalImage={( taxon && taxon.speciesSeenImage ) ? taxon.speciesSeenImage : null}
   >
     <Text allowFontScaling={false} style={styles.speciesText}>{speciesText}</Text>
     <Text allowFontScaling={false} style={styles.text}>{i18n.t( "results.incorrect" )}</Text>

@@ -20,7 +20,7 @@ type Props = {
   seenDate: ?string,
   match: boolean,
   setNavigationPath: Function,
-  gradientColorLight: string,
+  gradientLight: string,
   speciesText: ?string
 }
 
@@ -29,7 +29,7 @@ const MatchContainer = ( {
   seenDate,
   match,
   setNavigationPath,
-  gradientColorLight,
+  gradientLight,
   image,
   speciesText
 }: Props ) => {
@@ -88,12 +88,12 @@ const MatchContainer = ( {
   return (
     <View style={styles.marginLarge}>
       <View style={styles.textContainer}>
-        <Text style={[styles.headerText, { color: gradientColorLight }]}>{renderHeaderText()}</Text>
+        <Text style={[styles.headerText, { color: gradientLight }]}>{renderHeaderText()}</Text>
         {speciesText && <Text style={styles.speciesText}>{speciesText}</Text>}
         <Text style={styles.text}>{renderText()}</Text>
         <View style={styles.marginMedium} />
         <GreenButton
-          color={gradientColorLight}
+          color={gradientLight}
           handlePress={() => {
             if ( speciesIdentified ) {
               setNavigationPath( "Species" );
@@ -121,7 +121,7 @@ const MatchContainer = ( {
           </TouchableOpacity>
         )}
         <PostToiNat
-          color={gradientColorLight}
+          color={gradientLight}
           taxaInfo={{
             preferredCommonName: taxaName || commonAncestor,
             taxaId,

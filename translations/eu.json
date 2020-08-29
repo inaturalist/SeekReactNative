@@ -1,7 +1,7 @@
 {
   "species_nearby": {
     "header": "Gertu dauden espezieak",
-    "location_error": "Gertu dauden espezieak erakusteko zure kokapena jakin behar dugu.",
+    "location_error": "Gertu dauden espezieak erakusteko, zure kokapena jakin behar dugu.",
     "location_device": "Seek-ek zure kokapena behar du gertu dauden espezieak eta behaketak gehitzeko. Mesedez, ziurtatu zure gailuaren kokapena piztuta dagoela.",
     "enable_location": "Gaitu kokapena hobespenetan",
     "internet_error": "Interneterako konexioa behar dugu gertuko espezieak erakusteko. Ukitu berriro probatzeko.",
@@ -54,10 +54,10 @@
     "enter_email": "Zure gurasoen e-posta sartu",
     "parent_email": "Gurasoaren/Tutorearen e-posta",
     "under_13": "13 urte baino gutxiago dituzunez, zure guraso edo tutorearen baimena behar dugu kontu bat sortu aurretik.",
-    "sign_up": "Kontua sortu",
+    "sign_up": "Sortu kontua",
     "next": "Hurrengoa",
     "submit": "Bidali",
-    "email": "Eposta",
+    "email": "Posta elektronikoa",
     "username": "erabiltzaile izena",
     "password": "pasahitza",
     "release_photos": "Bai, nire argazkiei eta behaketei baimena eman zientzialariek erabil ditzaten (gomendatua)!",

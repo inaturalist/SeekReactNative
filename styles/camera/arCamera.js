@@ -62,11 +62,21 @@ export default StyleSheet.create( {
     paddingVertical: 35,
     position: "absolute",
     right: 64 - 10
-    // zIndex: 1
   },
   loading: {
     position: "absolute",
     top: height / 2 - 50
+  },
+  plantFilter: {
+    bottom: 175,
+    position: "absolute"
+  },
+  plantFilterSettings: {
+    bottom: 0,
+    paddingHorizontal: 10,
+    paddingVertical: 35,
+    position: "absolute",
+    left: 64 - 10
   },
   predictions: {
     color: colors.white,

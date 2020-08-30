@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
 import { dimensions, colors } from "../../../styles/global";
@@ -27,28 +27,25 @@ const GalleryImageList = ( {
   );
 
   return (
-    <>
-      {loading && photos.length > 0 && renderLoading()}
-      <FlatList
-        data={photos}
-        contentContainerStyle={styles.grayContainer}
-        getItemLayout={( data, index ) => (
-          // skips measurement of dynamic content for faster loading
-          {
-            length: ( dimensions.width / 4 - 2 ),
-            offset: ( dimensions.width / 4 - 2 ) * index,
-            index
-          }
-        )}
-        initialNumToRender={20}
-        keyExtractor={( item, index ) => `${item}${index}`}
-        numColumns={4}
-        onEndReachedThreshold={1}
-        onEndReached={setPhotoParams}
-        ListEmptyComponent={renderLoading}
-        renderItem={renderPhoto}
-      />
-    </>
+    <FlatList
+      data={photos}
+      contentContainerStyle={styles.grayContainer}
+      getItemLayout={( data, index ) => (
+        // skips measurement of dynamic content for faster loading
+        {
+          length: ( dimensions.width / 4 - 2 ),
+          offset: ( dimensions.width / 4 - 2 ) * index,
+          index
+        }
+      )}
+      initialNumToRender={20}
+      keyExtractor={( item, index ) => `${item}${index}`}
+      numColumns={4}
+      onEndReachedThreshold={1}
+      onEndReached={setPhotoParams}
+      ListEmptyComponent={renderLoading}
+      renderItem={renderPhoto}
+    />
   );
 };
 

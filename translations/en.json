@@ -306,7 +306,9 @@
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
     "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Photos",

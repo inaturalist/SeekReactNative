@@ -66,6 +66,8 @@ const SpeciesNearby = () => {
       dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else if ( errorCode === 2 ) {
       dispatch( { type: "LOCATION_ERROR", error: "no_gps" } );
+    } else if ( errorCode === 5 ) {
+      dispatch( { type: "LOCATION_ERROR", error: "location_settings" } );
     } else {
       dispatch( { type: "LOCATION_ERROR", error: "location_timeout" } );
     }

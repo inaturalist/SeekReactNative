@@ -22,7 +22,8 @@ const fetchUserLocation = ( enableHighAccuracy ) => (
     }, {
       // enableHighAccuracy to use GPS instead of Wifi location (i.e. cell towers )
       // on error (particular Android devices), try again with enableHighAccuracy = false
-      enableHighAccuracy
+      enableHighAccuracy,
+      showLocationDialog: false
     } );
   } )
 );
@@ -38,6 +39,7 @@ const fetchTruncatedUserLocation = () => (
   new Promise( ( resolve, reject ) => {
     requestiOSPermissions();
     Geolocation.getCurrentPosition( ( { coords } ) => {
+      console.log( coords, "coords in truncated user location" );
       const latitude = truncateCoordinates( coords.latitude );
       const longitude = truncateCoordinates( coords.longitude );
       const truncatedCoords = {
@@ -46,8 +48,10 @@ const fetchTruncatedUserLocation = () => (
       };
       resolve( truncatedCoords );
     }, ( { code } ) => {
+      console.log( code, "reject code in user location" );
       reject( code );
-    }, { timeout: 30000 } );
+      // remove annoying Google location accuracy popup on older Android devices
+    }, { timeout: 30000, showLocationDialog: false } );
   } )
 );
 

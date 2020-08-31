@@ -13,10 +13,7 @@ import { formatISO, isAfter } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
-import {
-  fetchUserLocation,
-  checkForTruncatedCoordinates
-} from "../../utility/locationHelpers";
+import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
@@ -129,12 +126,15 @@ const PostScreen = () => {
 
   const setUserLocation = useCallback( () => {
     fetchUserLocation().then( ( coords ) => {
+      console.log( coords, "coords in fetch user location" );
       dispatch( { type: "UPDATE_LOCATION", coords } );
     } ).catch( ( err ) => console.log( err ) );
   }, [] );
 
   const getLocation = useCallback( () => {
     const truncated = checkForTruncatedCoordinates( image.latitude );
+
+    console.log( truncated, "truncated coordinates in post screen" );
 
     if ( truncated ) {
       setUserLocation();

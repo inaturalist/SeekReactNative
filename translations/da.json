@@ -336,7 +336,7 @@
     "cub": "Hvalp",
     "tracker": "Tracker",
     "surveyor": "Kortlægger",
-    "naturalist": "Naturalist",
+    "naturalist": "Naturelsker",
     "seeker": "Seeker",
     "explorer": "Opdagelsesrejsende",
     "adventurer": "Eventyrer",
@@ -428,7 +428,10 @@
     "no_obs": "Du har ingen observationer endnu!",
     "help": "Tag et foto af en plante, et dyr eller noget andet levende med vores kamera. Så vil vores AI-model hjælpe dig med at identificere det!",
     "open_camera": "Åbn kamera",
-    "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!"
+    "not_seen": "Du har endnu ikke observeret nogle {{iconicTaxon}}!",
+    "search": "Søg efter observationer",
+    "search_empty": "Ingen observationer fundet med dette søgeord.",
+    "reset_search": "Nulstil søgning"
   },
   "species_detail": {
     "near": "I nærheden",
@@ -587,7 +590,11 @@
     "donate_description": "Glad for Seek? Overvej en donation til iNaturalist! Vi er afhængige af donationer fra folk som dig for at vores apps fortsat kan tilbydes gratis.",
     "language": "App-sprog",
     "device_settings": "Benyt enhedens sprogindstilling",
-    "auto_capture": "Tag automatisk et billede hvis identifikationen når frem til art."
+    "auto_capture": "Tag automatisk et billede hvis identifikationen når frem til art.",
+    "species_detail": "Artsdetaljer",
+    "seasonality": "Sæsonudsving",
+    "seasonality_option_1": "Vis sæsonudsving baseret på verdensomspændende iNaturalist-observationer",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek-duelighedsmærke",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Find 1 pattedyr",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Erstat foto?",
     "description": "Vil du gerne erstatte billedet af din gentaget observation?",
     "new": "Brug nyt foto",
     "old": "Behold gammelt foto"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "vær en del af et fællesskab, der er lige så interesseret i naturen som dig",
+    "text_3": "del observationer med fællesskabet, og del observationer gennem Seek!",
+    "download": "Kom i gang ved at downloade iNaturalist-appen eller besøge inaturalist.org.\n\nHar du allerede en iNaturalist-konto? Log ind på Seek med din eksisterende konto!"
   }
 }

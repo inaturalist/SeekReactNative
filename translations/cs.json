@@ -57,7 +57,7 @@
     "sign_up": "Přihlásit se",
     "next": "Další",
     "submit": "Potvrdit",
-    "email": "Email",
+    "email": "E-mail",
     "username": "uživatelské jméno",
     "password": "heslo",
     "release_photos": "Ano, nastavte u mých fotografií licenci tak, aby vědci mohli používat moje data!",
@@ -84,7 +84,7 @@
     "forgot_password_header": "Zapomenuté heslo",
     "forgot_password": "Zapomněli jste heslo?",
     "log_in": "Přihlášení",
-    "email": "Email",
+    "email": "E-mail",
     "no_worries": "Žádné obavy. Instrukce pro obnovení hesla zašleme na Váš e-mail.",
     "reset": "Obnovit heslo",
     "check_email": "Zkontrolujte svůj email!",
@@ -428,7 +428,10 @@
     "no_obs": "Zatím nemáte žádná pozorování!",
     "help": "Vyfoťte rostlinu, zvíře nebo cokoli žijícího pomocí našeho fotoaparátu a náš AI model Vám ji pomůže identifikovat!",
     "open_camera": "Otevřít fotoaparát",
-    "not_seen": "Zatím jste neviděli žádné {{iconicTaxon}}!"
+    "not_seen": "Zatím jste neviděli žádné {{iconicTaxon}}!",
+    "search": "Hledat pozorování",
+    "search_empty": "Hledanému výrazu neodpovídají žádná pozorování.",
+    "reset_search": "Obnovit vyhledávání"
   },
   "species_detail": {
     "near": "Poblíž",
@@ -587,7 +590,11 @@
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "Jazyk aplikace",
     "device_settings": "Použít jazykové nastavení zařízení",
-    "auto_capture": "Automaticky fotit, když je identifikován druh."
+    "auto_capture": "Automaticky fotit, když je identifikován druh.",
+    "species_detail": "Detail druhu",
+    "seasonality": "Sezónnost",
+    "seasonality_option_1": "Zobrazit sezónnost na základě celosvětových pozorování iNaturalist",
+    "seasonality_option_2": "Zobrazit sezónnost na základě pozorování iNaturalist poblíž mé aktuální polohy (druhy, které nebyly nalezeny v blízkosti mé polohy, nebudou mít žádnou sezónnost)"
   },
   "seek_challenges": {
     "badge": "Odznak Seeku",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Find 1 mammal",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "scavenger": "Výzva mrchožroutů",
+    "mission_1_oct_2020": "Najděte 4 houby",
+    "mission_2_oct_2020": "Najděte jakýkoliv 1 organismus z řádů:\n\nAccipitriformes (dravci, např. jestřábi nebo orli);\nCathartiformes (kondoři);\nCarnivora (šelmy)",
+    "mission_3_oct_2020": "Najděte 1 měkkýše",
+    "mission_4_oct_2020": "Najděte 1 členovce",
+    "oct_2020_description": "Mrchožrouti a rozkladači jsou zásadní pro život na naší planetě. Pomáhají recyklovat živiny a rozkládat hmotu, která by se jinak nerozložila.",
+    "action_oct_2020": "Zjistěte, jaké druhy rozkladačů a mrchožroutů žijí kolem vás. Jak pomáhají životnímu prostředí svou ekologickou nikou?"
   },
   "replace_photo": {
     "header": "Nahradit fotografii?",
     "description": "Přejete si nahradit fotografii svého opakovaného pozorování?",
     "new": "Použít novou fotografii",
     "old": "Ponechat starou fotografii"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Myslíme si, že iNaturalist se vám bude opravdu líbit.",
+    "text_1": "ponořte se do poznávání organismů ve svém okolí",
+    "text_2": "buďte součástí komunity, která je stejně nadšená přírodou jako vy",
+    "text_3": "sdílejte pozorování s komunitou, nebo dokonce sdílejte pozorování přes Seek!",
+    "download": "Začněte stažením aplikace iNaturalist nebo navštívením inaturalist.org.\n\nJiž máte účet iNaturalist? Přihlaste se do Seeku svým stávajícím účtem!"
   }
 }

@@ -92,7 +92,7 @@
     "return_login": "Palaa kirjautumiseen"
   },
   "privacy": {
-    "header": "Privacy Policy"
+    "header": "Tietosuojakäytäntö"
   },
   "menu": {
     "home": "Koti",
@@ -215,7 +215,7 @@
     "seek_data": "Seek saa tiedot iNaturalistilta.",
     "about_inat": "iNaturalist on suurin luonnontieteilijöiden yhteisö maailmassa. Käyttäjät lähettävät valokuvia organismeista ympäri maailmaa, ja yhteisömme tunnistaa ne yhdessä. Näitä havaintoja käytetään tunnistusmallimme opettamisessa, etäisyyskarttojen näyttämisessä ja lähellä olevien havaintojen tuottamisessa Seekissä.",
     "contribute": "Oletko kiinnostunut osallistumaan kansalaistieteeseen globaalin luonnontieteilijäyhteisön kanssa?",
-    "join": "Log in with iNaturalist",
+    "join": "Kirjaudu sisään iNaturalistilla",
     "by": "by",
     "thanks": "iNaturalist-yhteisö koostuu kaltaisistasi ihmisistä! Liity yhteisöön ja lisää omat havaintosi inaturalist.org-sivustolle!",
     "logged_in": "Olet kirjautunut sisään Seekiin iNaturalist-tilisi kautta. Kiitos, että olet osa tätä yhteisöä!",
@@ -345,7 +345,7 @@
   "badges": {
     "your_level": "Sinun tasosi",
     "login": "Kirjaudu sisään käyttämällä iNaturalist-tiliä, jotta voit lähettää havaintoja online-yhteisöön!",
-    "achievements": "Achievements",
+    "achievements": "Saavutukset",
     "observe_plural": {
       "zero": "Observe {{count}} species to get to the next level!",
       "one": "Observe {{count}} species to get to the next level!",
@@ -428,11 +428,14 @@
     "no_obs": "Sinulla ei ole vielä havaintoja!",
     "help": "Ota valokuva kasvista, eläimestä tai muusta elävästä kamerallamme. Tekoälymalli auttaa sinua tunnistamaan sen!",
     "open_camera": "Avaa kamera",
-    "not_seen": "Et ole havainnut vielä yhtään {{iconicTaxon}}!"
+    "not_seen": "Et ole havainnut vielä yhtään {{iconicTaxon}}!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Lähistöllä",
-    "about": "About",
+    "about": "Tietoja",
     "range_map": "Aluekartta",
     "range_about": "Kartta tämän lajin havainnoista iNaturalistissa.",
     "view_map": "Näytä aluekartta",
@@ -498,7 +501,7 @@
     "date": "päivämäärä",
     "location": "sijainti",
     "geoprivacy": "geoyksityisyys",
-    "open": "Open",
+    "open": "Avoin",
     "obscured": "Piilotettu",
     "private": "Yksityinen",
     "yes": "Kyllä",
@@ -554,7 +557,7 @@
   },
   "accessibility": {
     "menu": "Avaa valikko",
-    "camera": "Open camera",
+    "camera": "Avaa kamera",
     "notifications": "Näytä ilmoitukset",
     "iNatStats": "Näytä iNat-tilastonäyttö",
     "flag": "Merkitse tämä havainto vääräksi",
@@ -582,12 +585,16 @@
     "header": "Seek-kamera",
     "common_names": "Näytä yleiset nimet",
     "scientific_names": "Näytä tieteelliset nimet",
-    "donate": "Donate",
-    "donate_header": "Help support iNaturalist",
+    "donate": "Lahjoita",
+    "donate_header": "Auta tukemaan iNaturalistia",
     "donate_description": "Enjoying Seek? Consider donating to iNaturalist! We depend on donations from people like you to keep our apps free.",
     "language": "In-app language",
     "device_settings": "Use device language settings",
-    "auto_capture": "Automatically take a picture when the identification reaches species."
+    "auto_capture": "Automatically take a picture when the identification reaches species.",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Seek-merkki",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Find 1 mammal",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Replace Photo?",
     "description": "Would you like to replace the photo of your resighted observation?",
     "new": "Use new photo",
     "old": "Keep old photo"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

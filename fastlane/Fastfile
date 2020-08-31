@@ -50,6 +50,34 @@ platform :ios do
            ]
        })
   end
+
+  lane :release do
+    deliver(
+      submit_for_review: false,
+      automatic_release: false,
+      force: false, # Skip HTMl report verification
+      skip_metadata: false,
+      skip_screenshots: true,
+      skip_binary_upload: true
+    )
+    slack(
+      message: "Successfully uploaded a new App Store release build",
+      success: true,
+      slack_url: ENV["SLACK_WEBHOOK"],
+      default_payloads: [:lane, :test_result, :git_branch, :last_git_commit_hash],
+      attachment_properties: {
+           fields: [
+               {
+                  title: "Version Number",
+                  value: lane_context[SharedValues::LATEST_VERSION]
+               },
+               {
+                 title: "Build Number",
+                 value: lane_context[SharedValues::LATEST_BUILD_NUMBER]
+               }
+           ]
+       })
+  end
 end
 
 platform :android do
@@ -87,4 +115,5 @@ platform :android do
       build_type: "AndroidTest"
     )
   end
+
 end

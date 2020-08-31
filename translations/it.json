@@ -428,7 +428,10 @@
     "no_obs": "Non hai ancora nessuna osservazione!",
     "help": "Scatta una foto di una pianta, animale o qualsiasi essere vivente usando la nostra fotocamera, e il nostro programma di IA ti aiuterà a identificarla!",
     "open_camera": "Apri Fotocamera",
-    "not_seen": "Non hai ancora osservato nessun {{iconicTaxon}}!"
+    "not_seen": "Non hai ancora osservato nessun {{iconicTaxon}}!",
+    "search": "Cerca osservazioni",
+    "search_empty": "Nessuna osservazione trovata con questo termine di ricerca.",
+    "reset_search": "Azzera la ricerca"
   },
   "species_detail": {
     "near": "Nelle vicinanze",
@@ -587,7 +590,11 @@
     "donate_description": "Ti piace Seek? Considera la possibilità di donare ad iNaturalist! Dipendiamo dalle donazioni di persone come te per mantenere le nostre app gratuite.",
     "language": "Lingua dell'applicazione",
     "device_settings": "Usa le impostazioni della lingua del dispositivo",
-    "auto_capture": "Scatta automaticamente una foto quando l'identificazione raggiunge il livello di specie."
+    "auto_capture": "Scatta automaticamente una foto quando l'identificazione raggiunge il livello di specie.",
+    "species_detail": "Dettagli specie",
+    "seasonality": "Stagionalità",
+    "seasonality_option_1": "Mostra la stagionalità basata sulle osservazioni iNaturalist in tutto il mondo",
+    "seasonality_option_2": "Mostra la stagionalità basata sulle osservazioni iNaturalist vicino alla mia posizione attuale (le specie non trovate vicino alla mia posizione non avranno la stagionalità)"
   },
   "seek_challenges": {
     "badge": "Distintivo Seek",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Trova 1 mammifero",
     "mission_3_sept_2020": "Trova 2 insetti degli ordini:\n\nLepidotteri (Farfalle e Falene);\nEmitteri (Cimici, Cicaline, Afidi e simili)",
     "sept_2020_description": "Gli erbivori sono animali che si sono adattati a nutrirsi unicamente di piante. I mammiferi erbivori hanno spesso sistemi digestivi complessi che consentono loro di scomporre grandi quantità di materiale vegetale. Ad esempio, le mucche hanno in realtà 4 stomaci per digerire le piante che consumano. Altri mammiferi sono specializzati in frutta (pipistrelli) o semi (scoiattoli). Molti insetti sono anche adattati per mangiare diverse parti di piante, come i bruchi che mangiano le foglie o le cicaline che succhiano la linfa dagli steli.",
-    "action_sept_2020": "Fai alcune ricerche su come il consumo di carne ha un impatto sull'ambiente. Quali passi puoi intraprendere per ridurre il tuo impatto?\n\nAlternativa: Che tipo di piante mangi? Da quali parti della pianta provengono? Riesci a scoprire a quali altri animali piace mangiare anche quelle piante?"
+    "action_sept_2020": "Fai alcune ricerche su come il consumo di carne ha un impatto sull'ambiente. Quali passi puoi intraprendere per ridurre il tuo impatto?\n\nAlternativa: Che tipo di piante mangi? Da quali parti della pianta provengono? Riesci a scoprire a quali altri animali piace mangiare anche quelle piante?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",
     "description": "Vuoi sostituire la foto della tua osservazione riavvistata?",
     "new": "Usa la nuova foto",
     "old": "Mantieni la foto vecchia"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Pensiamo che ti piacerà davvero iNaturalist.",
+    "text_1": "immergetevi più a fondo nella conoscenza degli organismi che vi circondano",
+    "text_2": "diventa parte di una comunità che è curiosa come te verso la natura",
+    "text_3": "condividi le osservazioni con la comunità, e condividi anche le osservazioni attraverso Seek!",
+    "download": "Inizia scaricando l'app iNaturalist o visitando inaturalist.org.\n\nHai già un account iNaturalist? Accedi in Seek con il tuo account esistente!"
   }
 }

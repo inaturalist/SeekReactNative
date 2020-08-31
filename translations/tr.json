@@ -428,7 +428,10 @@
     "no_obs": "Henüz herhangi bir gözleminiz yok!",
     "help": "Bir bitkinin, hayvanın ya da kameranızı kullanarak yaşayan herhangi bir şeyin fotoğrafını çekin; YZ modelimiz bunu tanımlamanıza yardımcı olacaktır!",
     "open_camera": "Kamerayı Aç",
-    "not_seen": "Henüz herhangi bir {{iconicTaxon}} gözlemlemedin!"
+    "not_seen": "Henüz herhangi bir {{iconicTaxon}} gözlemlemedin!",
+    "search": "Search observations",
+    "search_empty": "No observations found with that search term.",
+    "reset_search": "Reset search"
   },
   "species_detail": {
     "near": "Yakında",
@@ -587,7 +590,11 @@
     "donate_description": "Seek'ten hoşnut musunuz? iNaturalist'e bağış yapmayı düşünün! Uygulamalarımızı ücretsiz tutmak için sizin gibi kişilerin bağışlarına bağlıyız.",
     "language": "Uygulama dili",
     "device_settings": "Cihazınızın dil ayarlarını kullanın",
-    "auto_capture": "Tanımlama türe eriştiğinde otomatik fotoğraf çek"
+    "auto_capture": "Tanımlama türe eriştiğinde otomatik fotoğraf çek",
+    "species_detail": "Species detail",
+    "seasonality": "Seasonality",
+    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
+    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Find 1 mammal",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Fotoğraf değişsin mi?",
     "description": "Yeniden gözden geçirdiğiniz gözleminizin fotoğrafını değiştirmek ister misiniz?",
     "new": "Yeni fotoğraf kullan",
     "old": "Eski fotoğrafı tut"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "We think you’ll really like iNaturalist.",
+    "text_1": "dive deeper into learning about the organisms around you",
+    "text_2": "be part of a community that’s as curious about nature as you",
+    "text_3": "share observations with the community, and even share observations through Seek!",
+    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
   }
 }

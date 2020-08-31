@@ -428,7 +428,10 @@
     "no_obs": "Encara no tens observacions!",
     "help": "Prem una foto d'una planta, un animal o qualsevol ésser viu utilitzant la nostra càmera, i el nostre model d'IA t'ajudarà a identificar-lo!",
     "open_camera": "Obre la càmera",
-    "not_seen": "Encara no has observat cap {{iconicTaxon}}!"
+    "not_seen": "Encara no has observat cap {{iconicTaxon}}!",
+    "search": "Busca observacions",
+    "search_empty": "No s'han trobat observacions amb aquest terme de cerca.",
+    "reset_search": "Reiniciar cerca"
   },
   "species_detail": {
     "near": "Propera",
@@ -530,7 +533,7 @@
     "obscured_header": "Enfosquit: ",
     "closed_header": "Tancat: ",
     "yes_header": "Sí: ",
-    "no_header": "No: ",
+    "no_header": "No:",
     "open": "Altres usuaris d'iNaturalist podran veure que aquesta espècie ha estat observada, i els científica podran utilitzar aquestes dades per a la investigació.",
     "obscured": "La ubicació exacta d'aquesta observació s'ocultarà a la resta d'usuaris d'iNaturalist i, a canvi, es mostraran en una àrea més gran. (Les ubicacions de totes les espècies amenaçades i en perill d'extinció s'oculten automàticament)",
     "closed": "La localització d'aquesta observació no es compartirà amb altres usuaris d'iNaturalist.",
@@ -587,7 +590,11 @@
     "donate_description": "T'agrada Seek? Considera donar a iNaturalist! Depenem de les donacions de persones com tu per mantenir les nostres apps gratuïtes",
     "language": "Idioma de la aplicació",
     "device_settings": "Usar l'idioma del telèfon.",
-    "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie."
+    "auto_capture": "Pren automàticament una imatge quan la identificació arribi al nivell d'espècie.",
+    "species_detail": "Detalls de l'espècie",
+    "seasonality": "Estacionalitat",
+    "seasonality_option_1": "Mostrar estacionalitat basada en les observacions mundials d'iNaturalist",
+    "seasonality_option_2": "Mostrar estacionalitat basada en les observacions d'iNaturalist properes a la meva ubicació actual (les espècies que no es troben prop de la meva localització no tenen estacionalitat)"
   },
   "seek_challenges": {
     "badge": "Veure insignia",
@@ -623,17 +630,32 @@
     "mission_4_aug_2020": "Troba 2 insectes dels ordres:\nHimenòpters (Formigues, abelles, vespes i símfids)\nLepidòpters (Papallones i arnes)\nEscarabats (Coleòpters)\nMosques (Dípters)",
     "aug_2020_description": "Els pol·linitzadors ens ofereixen els aliments que mengem i les flors de les quals gaudim! Movent el pol·len d'un lloc a un altres utilitzant els seus cosos, els pol·linitzadors ajuden moltes plantes a reproduir-se.",
     "action_aug_2020": "Presta atenció als pol·linitzadors que hi ha al teu voltant. Les abelles i les papallones estan visitant les flors del teu jardí o veïnatge?",
-    "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?"
+    "herbivore": "Repte herbívor",
+    "mission_1_sept_2020": "Troba 10 plantes",
+    "mission_2_sept_2020": "Troba 1 mamífer",
+    "mission_3_sept_2020": "Troba 2 insectes dels ordres:\n\nLepidoptera (Papallones i Arnes)\nHemiptera (Xinxes, Pugons i Cigales)",
+    "sept_2020_description": "Els herbívors són animals que estan adaptats per alimentar-se només en plantes. Els mamífers herbívors sovint tenen sistemes digestius complexos que els permet processar grans quantitats de matèria vegetal. Per exemple, les vaques de fet tenen 4 estómacs per trencar les plantes que consumeixen. Altres mamífers s'especialitzen a menjar fruita (ratpenats de fruita) o llavors (esquirols). Molts insectes estan també adaptats per menjar parts diferents de plantes, com les erugues que mengen fulles o pugons de les plantes tremuges que xuclen la saba de les tiges.",
+    "action_sept_2020": "Fes alguna recerca sobre l'impacte ambiental que té el consum. Quins passos pots dunar per reduir el vostre impacte?\n\nAlternativa: Quines classes de plantes menges? De quines parts de la planta provenen? Pots esbrinar quins tipus d'animals també menges aquelles plantes?",
+    "scavenger": "Repte Necròfag",
+    "mission_1_oct_2020": "Troba 4 fongs",
+    "mission_2_oct_2020": "Troba 1 organisme dels ordres:\n\nAccipitriformes (Falcons, Àligues i Aligots);\nCathartiformes (Voltors);\nCarnivora (Carnívors)",
+    "mission_3_oct_2020": "Troba 1 mol·lusc",
+    "mission_4_oct_2020": "Troba 1 Artròpode",
+    "oct_2020_description": "Els Necròfags i Descomponedors són essencials per a la vida del nostre planeta. Ajuden a reciclar els nutrients i descompondre els materials que d'altra forma no ho farien",
+    "action_oct_2020": "Troba quins tipus de descomponedors i necròfags viuen al teu entorn. Com creus que ajuden el medi ambient amb el seu nínxol?"
   },
   "replace_photo": {
     "header": "Substituir foto",
     "description": "Voleu substituir la fotografia de la teva nova observació?",
     "new": "Utilitzar la nova foto",
     "old": "Mantenir la foto anterior"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Creiem que us agradarà iNaturalist.",
+    "text_1": "aprofundeix en l'aprenentatge sobre els organismes del teu voltant",
+    "text_2": "forma part d'una comunitat que és tan curiosa sobre la natura com tu",
+    "text_3": "comparteix observacions amb la comunitat, i fins i tot comparteix les observacions a través de Seek!",
+    "download": "Comença descarregant l'aplicació d'iNaturalist o visita inaturalist.org.\n\nJa tens un compte a iNaturalist? Registra't a Seek amb el teu compte!"
   }
 }

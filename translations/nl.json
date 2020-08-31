@@ -428,7 +428,10 @@
     "no_obs": "Je hebt nog geen waarnemingen!",
     "help": "Neem een foto van een plant, dier, Cthulhu, Ophiocistioidea of iets dat leeft met onze camera en ons AI-model geeft het een naam!",
     "open_camera": "Activeer de camera",
-    "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!"
+    "not_seen": "Je hebt nog geen {{iconicTaxon}} waargenomen!",
+    "search": "Waarnemingen zoeken...",
+    "search_empty": "Geen waarnemingen gevonden met die zoekterm.",
+    "reset_search": "Reset zoekopdracht"
   },
   "species_detail": {
     "near": "In de buurt",
@@ -587,7 +590,11 @@
     "donate_description": "Help en ondersteun iNaturalist",
     "language": "In-app taal",
     "device_settings": "Systeemtaal gebruiken",
-    "auto_capture": "Automatisch een foto nemen als de determinatie het soortniveau bereikt."
+    "auto_capture": "Automatisch een foto nemen als de determinatie het soortniveau bereikt.",
+    "species_detail": "Soort details",
+    "seasonality": "Seizoensgebonden",
+    "seasonality_option_1": "Geef seizoensgebondenheid weer op basis van wereldwijde iNaturalist waarnemingen",
+    "seasonality_option_2": "Seizoensgebonden weergave op basis van iNaturalist waarnemingen bij mijn huidige locatie (soorten die niet gevonden zijn in de buurt van mijn locatie zullen geen seizoensgebonden karakter hebben)"
   },
   "seek_challenges": {
     "badge": "Seek badge",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Vind 1 zoogdier",
     "mission_3_sept_2020": "Vind 2 insecten uit de ordes:\n\nLepidoptera (Dag- en Nachtvlinders);\nHemiptera (Wantsen, bladluizen en cicaden)",
     "sept_2020_description": "Herbivoren zijn dieren die zo zijn aangepast dat ze alleen planten kunnen eten. Plantenetende zoogdieren hebben vaak complexe spijsverteringssystemen waarmee ze grote hoeveelheden plantaardig materiaal kunnen afbreken. Koeien hebben bijvoorbeeld 4 magen om de planten die ze consumeren af te breken. Andere zoogdieren specialiseren zich in fruit (fruitvleermuizen) of zaden (eekhoorns). Veel insecten zijn ook aangepast aan het eten van verschillende plantenonderdelen, zoals rupsen die eten bladeren of Lantaarndragerachtigen die sap uit stengels zuigen.",
-    "action_sept_2020": "Onderzoek de invloed van vleesconsumptie op het milieu. Welke stappen kan je nemen om je eigen effect te verminderen?\n\nAlternatief: welke planten eet je? Welke onderdeel van de plant zijn ze? Weet je welke diersoorten ze ook graag eten?"
+    "action_sept_2020": "Onderzoek de invloed van vleesconsumptie op het milieu. Welke stappen kan je nemen om je eigen effect te verminderen?\n\nAlternatief: welke planten eet je? Welke onderdeel van de plant zijn ze? Weet je welke diersoorten ze ook graag eten?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Foto vervangen?",
     "description": "Wilt je de foto van jouw tweede waarneming vervangen?",
     "new": "Kies een nieuwe foto",
     "old": "Behoud de oude foto"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Wij denken dat je iNaturalist heel leuk zult vinden.",
+    "text_1": "duik dieper in het leren van organismen om je heen",
+    "text_2": "maak deel uit van een gemeenschap die even nieuwsgierig is naar de natuur als jij",
+    "text_3": "deel waarnemingen met de gemeenschap en deel zelfs waarnemingen via Seek!",
+    "download": "Aan de slag door de iNaturalist app te downloaden of door het bezoeken van inaturalist.org.\n\nHeb je al een iNaturalist account? Log in op Seek met jouw bestaande account!"
   }
 }

@@ -428,7 +428,10 @@
     "no_obs": "Deocamdată nu ai nicio observație!",
     "help": "Fotografiază cu camera noastră o plantă, un animal sau orice altceva viu, iar modelul nostru AI te va ajuta la identificare!",
     "open_camera": "Deschide Camera",
-    "not_seen": "Deocamdată nu ai niciun {{iconicTaxon}} încă! "
+    "not_seen": "Deocamdată nu ai niciun {{iconicTaxon}} încă! ",
+    "search": "Caută observații",
+    "search_empty": "Nu au fost găsite observații cu acest termen de căutare.",
+    "reset_search": "Resetare căutare"
   },
   "species_detail": {
     "near": "Din jur",
@@ -587,7 +590,11 @@
     "donate_description": "Dacă îți place Seek consideră o donație către iNaturalist. Donații de la persoane ca tine mențin aplicațiile noastre gratuite.",
     "language": "Limba aplicației",
     "device_settings": "Folosește setarea de limbă a aparatului",
-    "auto_capture": "Fă automat o fotografie când s-a făcut determinarea la nivelul speciilor."
+    "auto_capture": "Fă automat o fotografie când s-a făcut determinarea la nivelul speciilor.",
+    "species_detail": "Detalii specii",
+    "seasonality": "Sezonalitate",
+    "seasonality_option_1": "Afișează sezonalitatea bazată pe observații iNaturalist la nivel mondial",
+    "seasonality_option_2": "Afișează sezonalitatea bazată pe observații iNaturalist aproape de locația mea actuală (speciile care nu sunt găsite în apropierea locației mele nu vor avea sezonalitate)"
   },
   "seek_challenges": {
     "badge": "Insignă Seek",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Găsește 1 mamifer",
     "mission_3_sept_2020": "Găsește 2 insecte din ordinul:\n\nLepidoptera (Fluturi și Molii);\nHemiptere (Ploșnițe, Lăcuste, Păduchi, și Similare)",
     "sept_2020_description": "Erbivorele sunt animale adaptate să se hrănească doar cu plante. Mamiferele erbivore au adesea sisteme digestive complexe ce le permit să descompună cantități mari de material vegetal. De exemplu, vacile au de fapt 4 stomacuri ca să descompună plantele consumate. Alte mamifere sunt specializate în fructe (lilieci de fructe) sau semințe (veverițe). Multe insecte sunt, de asemenea, adaptate pentru a mânca diferite părți ale plantelor, cum ar fi omizile care mănâncă frunze sau fulgoromorphele (seamănă cu o frunză și sar) care sug seva din tulpini.",
-    "action_sept_2020": "Efectuați câteva cercetări cu privire la impactul consumului de carne asupra mediului. Ce pași puteți face pentru a reduce propriul impact?\n\nAlternativă: Ce fel de plante mănânci? Din ce părți ale plantei provin? Poți afla căror animale le place de asemenea să mănânce acele plante?"
+    "action_sept_2020": "Efectuați câteva cercetări cu privire la impactul consumului de carne asupra mediului. Ce pași puteți face pentru a reduce propriul impact?\n\nAlternativă: Ce fel de plante mănânci? Din ce părți ale plantei provin? Poți afla căror animale le place de asemenea să mănânce acele plante?",
+    "scavenger": "Provocarea Necrofagelor",
+    "mission_1_oct_2020": "Găsește 4 ciuperci",
+    "mission_2_oct_2020": "Găsește orice 1 organism din ordinele:\n\nAccipitriforme (Șoimi, Vulturi & Ulii);\nCathartiformes (Vulturi pleșuvi, Condori);\nCarnivora (Carnivore)",
+    "mission_3_oct_2020": "Găsește 1 Moluscă",
+    "mission_4_oct_2020": "Găsește o Artropodă",
+    "oct_2020_description": "Necrofagele și Decompunătorii sunt esențiali viații pe planeta noastră. Ele ajută la reciclarea nutrienților și descompunerea materiei care altfel nu ar fi defalcată.",
+    "action_oct_2020": "Află ce fel de decompunători  și necrofage trăiesc în zonele din jurul tău. Cum sunt ele utile pentru mediu în funcția lor?"
   },
   "replace_photo": {
     "header": "Înlocuiești Fotografia?",
     "description": "Dorești să înlocuiești fotografia observației tale re-vizionate?",
     "new": "Utilizează o nouă poză",
     "old": "Păstrează vechea poză"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Credem că îți va plăcea iNaturalist.",
+    "text_1": "aprofundează-ți cunoștințele despre organismele din jurul tău",
+    "text_2": "fă parte dintr-o comunitate la fel de curioasă despre natură ca tine",
+    "text_3": "împărtășește observații cu comunitatea și chiar împărtășește observații prin Seek!",
+    "download": "Începe prin descărcarea aplicației iNaturalist sau vizitând inaturalist.org.\n\nAi deja un cont iNaturalist? Conectează-te pe Seek cu contul tău existent!"
   }
 }

@@ -428,7 +428,10 @@
     "no_obs": "Du hast noch keine Beobachtungen!",
     "help": "Fotografiere eine Pflanze, ein Tier oder ein anderes Lebewesen mit unserer Kamera, und unser Algorithmus wird dabei helfen, es zu identifizieren!",
     "open_camera": "Kamera öffnen",
-    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!"
+    "not_seen": "Du hast noch keine {{iconicTaxon}} beobachtet!",
+    "search": "Suche nach Beobachtungen",
+    "search_empty": "Keine Beobachtungen mit diesem Suchbegriff gefunden.",
+    "reset_search": "Suche zurücksetzen"
   },
   "species_detail": {
     "near": "In der Nähe",
@@ -587,7 +590,11 @@
     "donate_description": "Hilf mit, iNaturalist zu unterstützen",
     "language": "Sprache der App",
     "device_settings": "Spracheinstellungen des Geräts benutzen",
-    "auto_capture": "Automatisch ein Bild aufnehmen, wenn Bestimmung auf Artniveau erfolgt ist."
+    "auto_capture": "Automatisch ein Bild aufnehmen, wenn Bestimmung auf Artniveau erfolgt ist.",
+    "species_detail": "Artendetails",
+    "seasonality": "Jahreszeitliche Verteilung",
+    "seasonality_option_1": "Zeige die jahreszeitliche Verteilung basierend auf weltweiten iNaturalist Beobachtungen",
+    "seasonality_option_2": "Zeige die jahreszeitliche Verteilung basierend auf iNaturalist-Beobachtungen in der Nähe meines aktuellen Standortes (bei nicht in der Nähe meines Standortes gefundenen Arten wird diese Verteilung nicht angezeigt)"
   },
   "seek_challenges": {
     "badge": "Seek-Abzeichen",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Finde 1 Säugetier",
     "mission_3_sept_2020": "Finde 2 Insekten aus diesen Ordnungen:\nLepidoptera (Schmetterlinge und Motten);\nHemiptera (Wanzen, Zikaden, Blattläuse und Verwandte)",
     "sept_2020_description": "Herbivore sind Tiere, die sich an pflanzliche Nahrung angepasst haben. Pflanzenfressende Säugetiere verfügen oft über komplexe Verdauungssysteme, die es ihnen ermöglichen, große Mengen an Pflanzenmaterial zu zerkleinern. So haben Kühe tatsächlich 4 Mägen, um die von ihnen verzehrten Pflanzen zu verdauuen. Andere Säugetiere haben sich auf Obst (Flughunde) oder Samen (Eichhörnchen) spezialisiert. Viele Insekten haben sich ebenfalls daran angepasst, nur bestimmte Teile von Pflanzen zu fressen - wie z.B. Raupen, die Blätter fressen, oder Zikaden, die Pflanzensäfte aus den Stängeln saugen.",
-    "action_sept_2020": "Mach dich schlau darüber, wie sich der Fleischkonsum auf die Umwelt auswirkt. Welche Schritte kannst du unternehmen, um deine eigenen Auswirkungen zu verringern?\n\nAlternative: Welche Arten von Pflanzen isst du? Aus welchen Teilen der Pflanze kommen sie? Kannst du herausfinden, welche Tierarten diese Pflanzen auch gerne essen?"
+    "action_sept_2020": "Mach dich schlau darüber, wie sich der Fleischkonsum auf die Umwelt auswirkt. Welche Schritte kannst du unternehmen, um deine eigenen Auswirkungen zu verringern?\n\nAlternative: Welche Arten von Pflanzen isst du? Aus welchen Teilen der Pflanze kommen sie? Kannst du herausfinden, welche Tierarten diese Pflanzen auch gerne essen?",
+    "scavenger": "Aasfresser-Mission",
+    "mission_1_oct_2020": "Finde 4 Pilze",
+    "mission_2_oct_2020": "Finde 1 Organismus aus den Ordnungen:\n\nAccipitriformes (Bussarde, Adler & Milane);\nCathartiformes (Geier);\nCarnivora (Raubtiere)",
+    "mission_3_oct_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
+    "mission_4_oct_2020": "Finde 1 Arthropoden (Gliederfüßer)",
+    "oct_2020_description": "Aasfresser und Zersetzer sind für das Leben auf unserem Planeten unentbehrlich und tragen dazu bei, Nährstoffe zu recyceln und Substrate zu zersetzen, die sonst nicht abgebaut werden würden.",
+    "action_oct_2020": "Finde heraus welche Zersetzer und Aasfresser in deiner Umgebung zu finden sind. Wie sind sie in ihrer Funktion hilfreich für die Umwelt?"
   },
   "replace_photo": {
     "header": "Foto ersetzen?",
     "description": "Möchtest du das Foto durch diese erneute Beobachtung ersetzen?",
     "new": "Neues Foto verwenden",
     "old": "Altes Foto behalten"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Wir denken, dass dir iNaturalist bestimmt gefallen wird.",
+    "text_1": "Vertiefe dein Wissen über die Lebewesen in deiner Umgebung",
+    "text_2": "werde Teil einer Gemeinschaft, die ebenso neugierig auf die Natur ist wie du",
+    "text_3": "Teile deine Beobachtungen mit der Gemeinschaft - du kannst sie sogar über Seek teilen!",
+    "download": "Lade die iNaturalist-App herunter oder besuchen inaturalist.org.\n\nHast du bereits ein iNaturalist-Konto? Dann melde dich bei Seek mit dem bestehenden Konto an!"
   }
 }

@@ -428,7 +428,10 @@
     "no_obs": "U het nog geen waarnemings nie!",
     "help": "Neem ’n foto van ’n plant, dier of enige lewende ding met ons kamera sodat ons KI-model u kan help met die identifisering daarvan!",
     "open_camera": "Open Kamera",
-    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!"
+    "not_seen": "U het nog geen {{iconicTaxon}} waargeneem nie!",
+    "search": "Soek waarnemings",
+    "search_empty": "Geen waarnemings met daardie soekterm gevind.",
+    "reset_search": "Stel soekopdrag terug"
   },
   "species_detail": {
     "near": "Naby",
@@ -587,7 +590,11 @@
     "donate_description": "Help om iNaturalist te steun",
     "language": "Toepgebonde taal",
     "device_settings": "Gebruik toesteltaalinstellings",
-    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is."
+    "auto_capture": "Neem outomaties ’n foto wanneer die identifikasie van spesie bereik is.",
+    "species_detail": "Spesiedetail",
+    "seasonality": "Seisoensgebonde",
+    "seasonality_option_1": "Toon seisoensgebondenheid gebaseer op wêreldwye iNaturalis-waarnemings",
+    "seasonality_option_2": "Toon seisoensgebondenheid gebaseer op iNaturalist-waarnemings naby my ligging (spesies ver van my ligging sal geen seisoensgebondenheid hê nie)"
   },
   "seek_challenges": {
     "badge": "Seek-kenteken",
@@ -628,12 +635,27 @@
     "mission_2_sept_2020": "Vind 1 soogdier",
     "mission_3_sept_2020": "Vind 2 insekte uit die ordes:\n\nLepidoptera (Dag- en Nagvlinders);\nHemiptera (Wantse, bladluise en sonbesies)",
     "sept_2020_description": "Herbivore is diere wat só aangepas is dat hulle net plante kan eet. Plantetende soogdiere het dikwels ingewikkelde spysverteringstelsels waarmee hulle groot hoeveelhede plantaardige materiaal kan afbreek. Koeie het bvv. 4 mae om die plante wat hulle inneem, af te breek. Ander soogdiere spesialiseer in vrugte (vrugtevlermuise) of sade (eekhorings). Baie insekte is ook aangepas by die eet van verskillende plantenonderdele, soos ruspes wat blare eet of plantspringers wat sap uit stingels suig.",
-    "action_sept_2020": "Ondersoek die invloed van vleisverbruik op die omgewing. Welke stappe kan u neem om u eie impak te verminder?\n\nAlternatief: welke plante eet u? Van welke onderdeel van die plant kom dit? Weet u welke diersoorte dieselfde plante ook graag eet?"
+    "action_sept_2020": "Ondersoek die invloed van vleisverbruik op die omgewing. Welke stappe kan u neem om u eie impak te verminder?\n\nAlternatief: welke plante eet u? Van welke onderdeel van die plant kom dit? Weet u welke diersoorte dieselfde plante ook graag eet?",
+    "scavenger": "Scavenger Challenge",
+    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_4_oct_2020": "Find 1 Arthropod",
+    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
   },
   "replace_photo": {
     "header": "Vervang foto?",
     "description": "Wil u die foto van u tweede waarneming vervang?",
     "new": "Gebruik nuwe foto",
     "old": "Behou ou foto"
+  },
+  "inat_card": {
+    "header": "iNaturalist",
+    "header_1": "Ons dink u sak van iNaturalist hou.",
+    "text_1": "duik dieper in en leer van organismes om u heen",
+    "text_2": "Wees deel van ’n gemeenskap wat so nuuskierig soos u oor die natuur is",
+    "text_3": "deel waarnemings met die gemeenskap en deel selfs u waarnemings via Seek!",
+    "download": "Val weg deur die iNaturalist-toep af te laai of inaturalist.org te besoek.\n\nHet u reeds ’n iNaturalist-rekening? Teken met u bestaande rekening op Seek aan!"
   }
 }

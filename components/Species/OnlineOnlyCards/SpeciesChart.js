@@ -32,7 +32,11 @@ const SpeciesChart = ( { id }: Props ) => {
   const getGeolocation = useCallback( () => {
     fetchTruncatedUserLocation().then( ( { latitude, longitude } ) => {
       setLatLng( { latitude, longitude } );
-    } ).catch( ( errorCode ) => console.log( errorCode, "error fetching geolocation" ) );
+    } ).catch( ( error ) => {
+      if ( error ) {
+        setLatLng( {} );
+      }
+    } );
   }, [] );
 
   const fetchHistogram = useCallback( () => {

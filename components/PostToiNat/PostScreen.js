@@ -134,8 +134,6 @@ const PostScreen = () => {
   const getLocation = useCallback( () => {
     const truncated = checkForTruncatedCoordinates( image.latitude );
 
-    console.log( truncated, "truncated coordinates in post screen" );
-
     if ( truncated ) {
       setUserLocation();
     }

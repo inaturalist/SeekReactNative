@@ -1,11 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Image,
-  TouchableOpacity,
-  Text
-} from "react-native";
+import { Image, TouchableOpacity, Text } from "react-native";
 import MapView, { PROVIDER_DEFAULT, UrlTile, Marker } from "react-native-maps";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
@@ -13,10 +8,9 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/species/rangeMap";
 import { fetchTruncatedUserLocation } from "../../../utility/locationHelpers";
 import icons from "../../../assets/icons";
-import GreenHeader from "../../UIComponents/GreenHeader";
-import SafeAreaView from "../../UIComponents/SafeAreaView";
 import Legend from "../../Modals/LegendModal";
 import Modal from "../../UIComponents/Modals/Modal";
+import ViewWithHeader from "../../UIComponents/Screens/ViewWithHeader";
 
 const latitudeDelta = 0.2;
 const longitudeDelta = 0.2;
@@ -24,8 +18,8 @@ const longitudeDelta = 0.2;
 const RangeMap = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
-  const { region, id, seenDate } = params;
   // region can be the obs region or the user location, depending on nav
+  const { region, id, seenDate } = params;
 
   const [showModal, setModal] = useState( false );
   const [user, setUser] = useState( {} );
@@ -46,10 +40,20 @@ const RangeMap = () => {
           longitudeDelta
         } );
       }
+    } ).catch( ( error ) => {
+      if ( error ) {
+        setUser( {} );
+      }
     } );
   };
 
   const updateMap = () => {
+    // only show userLocation button if permissions are on
+    // a user can have location off and still see range map for previous observation locations
+    if ( !user.latitude ) {
+      return;
+    }
+
     setMapRegion( {
       latitude: user.latitude,
       longitude: user.longitude,
@@ -65,14 +69,12 @@ const RangeMap = () => {
   }, [navigation] );
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <ViewWithHeader header="species_detail.range_map">
       <Modal
         showModal={showModal}
         closeModal={closeModal}
         modal={<Legend closeModal={closeModal} />}
       />
-      <GreenHeader header="species_detail.range_map" />
       <MapView
         provider={PROVIDER_DEFAULT}
         region={mapRegion}
@@ -95,20 +97,22 @@ const RangeMap = () => {
         )}
       </MapView>
       <TouchableOpacity
-        onPress={() => openModal()}
+        onPress={openModal}
         style={[styles.legend, styles.legendPosition]}
       >
         <Text style={styles.whiteText}>
           {i18n.t( "species_detail.legend" ).toLocaleUpperCase()}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => updateMap()}
-        style={[styles.locationIcon, styles.userLocation]}
-      >
-        <Image source={icons.indicator} />
-      </TouchableOpacity>
-    </View>
+      {user.latitude && (
+        <TouchableOpacity
+          onPress={updateMap}
+          style={[styles.locationIcon, styles.userLocation]}
+        >
+          <Image source={icons.indicator} />
+        </TouchableOpacity>
+      )}
+    </ViewWithHeader>
   );
 };
 

@@ -265,7 +265,6 @@ const ARCamera = () => {
         error={error}
         filterByTaxonId={filterByTaxonId}
       />
-      {console.log( taxonId, negativeFilter, "are props being passed to camera properly" )}
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
           ref={camera}

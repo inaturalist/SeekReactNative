@@ -593,8 +593,8 @@
     "auto_capture": "קח תמונה אוטומטית מיז שהזיהוי מגיע למין.",
     "species_detail": "פירוט מינים",
     "seasonality": "עונתיות",
-    "seasonality_option_1": "הצג עונתיות בהתבסס על תצפיות עולמיות של iNAturalist",
-    "seasonality_option_2": "הצג עונתיות בהתבסס על תצפיות של iNAturalist סביב המיקום שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)"
+    "seasonality_option_1": "הצג עונתיות בהתבסס על תצפיות עולמיות של iNaturalist",
+    "seasonality_option_2": "הצג עונתיות בהתבסס על תצפיות של iNaturalist סביב המיקום שלי (מינים שלא נמצאים באיזור שלי יהיו ללא פירוט עונתיות)"
   },
   "seek_challenges": {
     "badge": "תג של Seek",

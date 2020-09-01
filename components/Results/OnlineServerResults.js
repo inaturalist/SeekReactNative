@@ -34,10 +34,11 @@ const OnlineServerResults = () => {
   const getUserLocation = useCallback( () => {
     fetchTruncatedUserLocation().then( ( coords ) => {
       if ( coords ) {
-        const { latitude, longitude } = coords;
+        const { latitude, longitude, accuracy } = coords;
 
         image.latitude = latitude;
         image.longitude = longitude;
+        image.accuracy = accuracy;
 
         setImage( image );
       }

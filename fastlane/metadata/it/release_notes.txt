@@ -1,1 +1,1 @@
-- Correzioni di bug, struttura della tassonomia offline visibile sullo schermo Dettaglio Specie quando si scatta una nuova foto
+- Correzioni di bug, nuova Seek album fotografico nel rullino fotografico, lingua basca

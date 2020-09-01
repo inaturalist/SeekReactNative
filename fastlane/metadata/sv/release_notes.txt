@@ -1,1 +1,1 @@
-- Buggfixar, taxonomi träd synlig offline på arter Detalj skärmen när du tar ett nytt foto
+- Buggfixar, ny Seek fotoalbum i kamerarullen, baskiska

@@ -1,1 +1,1 @@
-- Hata düzeltmeleri, Türler Detay ekranında taksonomisi ağaç görünür çevrimdışı yeni bir fotoğraf çekerken
+- Hata düzeltmeleri, yeni kamera rulo halinde fotoğraf albümü isteyin, Bask dili

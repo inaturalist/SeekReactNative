@@ -1,1 +1,1 @@
-- Fejlrettelser, taksonomi træet synlig offline på Arter Detail skærmen, når du tager et nyt foto
+- Fejlrettelser, nyt Seek fotoalbum i kamera roll, baskisk sprog

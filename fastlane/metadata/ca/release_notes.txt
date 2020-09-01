@@ -1,1 +1,1 @@
-- Correcció d'errors, arbre de la taxonomia en línia visible a la pantalla Detall d'Espècies a el prendre una nova foto
+- Correcció d'errors, nou Seek àlbum de fotos al rotllo de la càmera, euskera

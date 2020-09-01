@@ -1,1 +1,1 @@
-- Korjauksia, taksonomiapuuna näkyvä offline Laji Tiedot näytöllä otettaessa uusi kuva
+- Korjauksia, uusia hakea valokuva-albumin filmirullasta baskin kieli

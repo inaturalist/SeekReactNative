@@ -1,1 +1,1 @@
-- Bug fixes, taxonomie boom zichtbaar offline op Species Detail scherm bij het nemen van een nieuwe foto
+- Bug fixes, nieuwe Seek foto album in filmrol, Baskisch

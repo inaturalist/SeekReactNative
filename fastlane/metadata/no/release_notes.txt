@@ -1,1 +1,1 @@
-- Feilrettinger, klassifikasjonstreet synlig offline på Arter Detalj skjermen når du tar et nytt bilde
+- Feilrettinger, ny Seek fotoalbum i kameraet roll, Baskisk

@@ -1,6 +1,6 @@
 languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE',
-  'es-ES', 'fi', 'fr-FR', 'he', 'it', 'ja', 'nl-NL', 'no',
-  'ro', 'ru', 'sv', 'tr', 'zh-Hant'
+  'es-ES', 'es-MX', 'fi', 'fr-FR', 'he', 'it', 'ja', 'nl-NL', 'no',
+  'pt-BR', 'ro', 'ru', 'sv', 'tr', 'zh-Hant'
 ])
 
 release_notes({

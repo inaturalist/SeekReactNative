@@ -1,1 +1,1 @@
-- remedieri de erori, taxonomie copac off vizibil pe ecran Detalii Specii atunci când ia o fotografie nouă
+- remedieri de erori, Seek nou album foto în rola aparat de fotografiat, limba bască

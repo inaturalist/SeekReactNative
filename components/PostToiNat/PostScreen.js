@@ -126,7 +126,6 @@ const PostScreen = () => {
 
   const setUserLocation = useCallback( () => {
     fetchUserLocation().then( ( coords ) => {
-      console.log( coords, "coords in fetch user location" );
       dispatch( { type: "UPDATE_LOCATION", coords } );
     } ).catch( ( err ) => console.log( err ) );
   }, [] );

@@ -1,12 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.inaturalist.seek">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--
+      Removing default React Native Permissions that aren't used in Android app:
+      https://reactnative.dev/docs/removing-default-permissions
+    -->
+    <uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission tools:node="remove" android:name="android.vending.CHECK_LICENSE" />
     
     <!--
       Note: you might need to add android:usesCleartextTraffic="true" in Android 9 for local dev. Please don't commit that, though.

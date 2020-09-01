@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios beta
 ```
 Distributes a beta version of Seek on TestFlight
+### ios release
+```
+fastlane ios release
+```
+
 
 ----
 

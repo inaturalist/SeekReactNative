@@ -1,9 +1,5 @@
-import {
-  StyleSheet,
-  Dimensions,
-  Platform
-} from "react-native";
-import { colors, fonts } from "../global";
+import { StyleSheet, Dimensions, Platform } from "react-native";
+import { colors, fonts, row } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
 
@@ -11,9 +7,8 @@ export default StyleSheet.create( {
   backButton: {
     left: 0,
     paddingHorizontal: 23,
-    paddingVertical: 18,
-    position: "absolute",
-    top: height > 670 ? 31 : 0
+    paddingVertical: 19,
+    position: "absolute"
   },
   camera: {
     height,
@@ -25,34 +20,16 @@ export default StyleSheet.create( {
     backgroundColor: colors.black,
     flex: 1
   },
-  dotRow: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    justifyContent: "center"
-  },
+  row,
   dots: {
     marginHorizontal: width / 32
   },
   greenButton: {
-    alignItems: "center",
-    alignSelf: "center",
-    backgroundColor: colors.seekGreen,
-    borderRadius: 6,
-    height: 26,
-    justifyContent: "center",
-    width: 101
-  },
-  greenButtonText: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 16,
-    letterSpacing: 0.94,
-    paddingTop: Platform.OS === "ios" ? 6 : null
+    alignItems: "center"
   },
   header: {
     position: "absolute",
-    top: height > 670 ? 80 : 40
+    top: 58
   },
   loading: {
     position: "absolute",
@@ -62,7 +39,7 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.semibold,
     fontSize: 20,
-    margin: 23,
+    margin: 22,
     textAlign: "center",
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },

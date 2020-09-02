@@ -9,6 +9,8 @@ import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
 import { getTaxonCommonName } from "../../../utility/helpers";
 import { CameraContext } from "../../UserContext";
+import GreenRectangle from "../../UIComponents/GreenRectangle";
+import { colors } from "../../../styles/global";
 
 type Props = {
   +ranks: Object
@@ -42,16 +44,14 @@ const ARCameraHeader = ( { ranks }: Props ) => {
       {( ranks && rankToRender ) && (
         <>
           <View style={styles.greenButton}>
-            <Text style={styles.greenButtonText}>
-              {i18n.t( rankDict[rankToRender] ).toLocaleUpperCase()}
-            </Text>
+            <GreenRectangle text={i18n.t( rankDict[rankToRender] )} letterSpacing={0.94} color={colors.seekGreen} />
           </View>
           <Text style={styles.predictions}>
             {( scientificNames || !commonName )
               ? ranks[rankToRender][0].name
               : commonName}
           </Text>
-          <View style={styles.dotRow}>
+          <View style={styles.row}>
             {rankList.map( ( rank, index ) => (
               <Image
                 key={rank}

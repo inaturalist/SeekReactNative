@@ -1,56 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="org.inaturalist.seek">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!--
       Removing default React Native Permissions that aren't used in Android app:
       https://reactnative.dev/docs/removing-default-permissions
       Remember, this works in production only
     -->
     <uses-permission tools:node="remove" android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission tools:node="remove" android:name="android.vending.CHECK_LICENSE" />
-
-    <!--
-      Note: you might need to add android:usesCleartextTraffic="true" in Android 9 for local dev. Please don't commit that, though.
-    -->
-    <application
-      android:name="org.inaturalist.seek.MainApplication"
-      android:usesCleartextTraffic="${usesCleartextTraffic}"
-      android:label="@string/app_name"
-      android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:allowBackup="true"
-      android:fullBackupContent="@xml/my_backup_rules"
-      android:theme="@style/AppTheme"
-      android:largeHeap="true">
-      <activity
-        android:name="org.inaturalist.seek.MainActivity"
-        android:label="@string/app_name"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
-        android:screenOrientation="portrait"
-        android:launchMode="singleTask"
-        android:windowSoftInputMode="adjustResize">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-     <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-        </intent-filter>
-      </activity>
-      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-      <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="@string/gmaps_api_key"/>
-
-      <!--
-        Apparently this is required for Google Maps in Android 9:
-        https://stackoverflow.com/questions/50782806/android-google-maps-java-lang-noclassdeffounderror-failed-resolution-of-lorg-a
-      -->
-      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-    </application>
 </manifest>

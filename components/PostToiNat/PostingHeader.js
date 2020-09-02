@@ -51,6 +51,7 @@ const PostingHeader = ( {
           handlePress={() => openModal()}
           photo={{ uri: image.uri }}
         />
+        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
           tintColor={colors.seekForestGreen}

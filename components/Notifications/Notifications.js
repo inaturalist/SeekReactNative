@@ -6,11 +6,7 @@ import React, {
   useRef,
   useCallback
 } from "react";
-import {
-  FlatList,
-  View,
-  Platform
-} from "react-native";
+import { FlatList, View, Platform } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 import { useSafeArea } from "react-native-safe-area-context";
@@ -43,7 +39,7 @@ const NotificationsScreen = () => {
     const scrollToTop = () => {
       if ( scrollView && scrollView.current !== null ) {
         scrollView.current.scrollToOffset( {
-          x: 0, y: 0, animated: Platform.OS === "android"
+          offset: 0, animated: Platform.OS === "android"
         } );
       }
     };

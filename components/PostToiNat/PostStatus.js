@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  StatusBar
-} from "react-native";
+import { View, Text, Image, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import i18n from "../../i18n";
@@ -75,12 +70,11 @@ const PostStatus = ( {
           color={!loading && !postingSuccess ? colors.seekTeal : colors.seekiNatGreen}
           text={headerText}
         />
-        <View style={styles.margin} />
         <View style={styles.center}>
+          <View style={styles.margin} />
           {image}
-          <Text style={[styles.text, loading && styles.margin]}>
-            {extraText}
-          </Text>
+          {loading && <View style={styles.margin} />}
+          <Text style={styles.text}>{extraText}</Text>
         </View>
       </View>
       {!loading && (

@@ -51,13 +51,13 @@ const ScrollWithHeader = ( {
         <ScrollView
           ref={scrollView}
           contentContainerStyle={styles.containerWhite}
-          keyboardDismissMode={name === "Post" && "on-drag"}
+          keyboardDismissMode={name === "Post" ? "on-drag" : "none"}
           onScroll={() => {
             if ( name === "Post" ) {
               Keyboard.dismiss();
             }
           }}
-          scrollEventThrottle={name === "Post" && 1}
+          scrollEventThrottle={name === "Post" ? 1 : null}
         >
           {children}
           <Padding />

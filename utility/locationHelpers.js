@@ -22,7 +22,8 @@ const fetchUserLocation = ( enableHighAccuracy ) => (
     }, {
       // enableHighAccuracy to use GPS instead of Wifi location (i.e. cell towers )
       // on error (particular Android devices), try again with enableHighAccuracy = false
-      enableHighAccuracy
+      enableHighAccuracy,
+      showLocationDialog: false
     } );
   } )
 );
@@ -47,7 +48,8 @@ const fetchTruncatedUserLocation = () => (
       resolve( truncatedCoords );
     }, ( { code } ) => {
       reject( code );
-    }, { timeout: 30000 } );
+      // remove annoying Google location accuracy popup on older Android devices
+    }, { timeout: 30000, showLocationDialog: false } );
   } )
 );
 

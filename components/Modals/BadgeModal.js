@@ -48,7 +48,9 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
-    setScrollIndex( index );
+    if ( index ) {
+      setScrollIndex( index );
+    }
   } );
 
   const badgeList = badges.map( ( badge ) => (

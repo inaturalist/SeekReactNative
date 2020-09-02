@@ -10,7 +10,7 @@ type Props = {
 }
 
 const LoadingWheel = ( { color }: Props ) => (
-  <View style={styles.center}>
+  <View style={styles.container}>
     <ActivityIndicator color={color} size="large" />
   </View>
 );

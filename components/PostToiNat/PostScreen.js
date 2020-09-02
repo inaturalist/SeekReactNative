@@ -13,10 +13,7 @@ import { formatISO, isAfter } from "date-fns";
 
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
-import {
-  fetchUserLocation,
-  checkForTruncatedCoordinates
-} from "../../utility/locationHelpers";
+import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
 import { resizeImage } from "../../utility/photoHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";

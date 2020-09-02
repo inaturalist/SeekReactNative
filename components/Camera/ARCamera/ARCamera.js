@@ -52,6 +52,8 @@ const ARCamera = () => {
           error: null,
           ranks: {}
         };
+      case "FILTER_TAXON":
+        return { ...state, negativeFilter: action.negativeFilter, taxonId: action.taxonId };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
       default:
@@ -62,7 +64,9 @@ const ARCamera = () => {
     error: null,
     errorEvent: null,
     pictureTaken: false,
-    cameraLoaded: false
+    cameraLoaded: false,
+    negativeFilter: false,
+    taxonId: null
   } );
 
   const {
@@ -70,7 +74,9 @@ const ARCamera = () => {
     error,
     errorEvent,
     pictureTaken,
-    cameraLoaded
+    cameraLoaded,
+    negativeFilter,
+    taxonId
   } = state;
 
   const rankToRender = Object.keys( ranks )[0] || null;
@@ -97,7 +103,7 @@ const ARCamera = () => {
   };
 
   const savePhoto = useCallback( ( photo ) => {
-    CameraRoll.save( photo.uri, "photo" )
+    CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";
@@ -111,15 +117,9 @@ const ARCamera = () => {
       } );
   }, [navigateToResults, updateError] );
 
-  const filterPredictionsByIconicTaxa = ( prediction ) => {
-    const iconicTaxa = 3;
-    if ( Platform.OS === "android" ) {
-      if ( prediction.ancestor_ids.includes( iconicTaxa ) || prediction.taxon_id === iconicTaxa ) {
-        return true;
-      }
-      return false;
-    }
-  };
+  const filterByTaxonId = useCallback( ( id, filter ) => {
+    dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
+  }, [] );
 
   const handleTaxaDetected = ( event ) => {
     const predictions = { ...event.nativeEvent };
@@ -143,9 +143,7 @@ const ARCamera = () => {
           predictionSet = true;
           const prediction = predictions[rank][0];
 
-          // if ( filterPredictionsByIconicTaxa( prediction ) ) {
-            dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
-          // }
+          dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
         }
         if ( !predictionSet ) {
           resetPredictions();
@@ -265,6 +263,7 @@ const ARCamera = () => {
         takePicture={takePicture}
         cameraLoaded={cameraLoaded}
         error={error}
+        filterByTaxonId={filterByTaxonId}
       />
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
@@ -280,6 +279,10 @@ const ARCamera = () => {
           style={styles.camera}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
           taxonomyPath={dirTaxonomy}
+          // filterByTaxonId="47126"
+          // negativeFilter={false}
+          filterByTaxonId={taxonId}
+          negativeFilter={negativeFilter}
         />
       )}
     </View>

@@ -4,7 +4,6 @@ import RNFS from "react-native-fs";
 export const dirHome = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/Seek`,
   android: `${RNFS.DocumentDirectoryPath}/Seek` // start using internal storage
-  // android: `${RNFS.ExternalStorageDirectoryPath}/Seek`
 } );
 
 export const dirModel = Platform.select( {

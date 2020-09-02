@@ -16,17 +16,13 @@ const FullPhotoLoading = ( { uri }: Props ) => {
         source={{ uri }}
         style={[styles.imageBackground, styles.background]}
       >
-        <View style={styles.loading}>
-          <LoadingWheel color="white" />
-        </View>
+        <LoadingWheel color="white" />
       </ImageBackground>
     );
   }
   return (
     <View style={[styles.background, styles.flex]}>
-      <View style={styles.loading}>
-        <LoadingWheel color="white" />
-      </View>
+      <LoadingWheel color="white" />
     </View>
   );
 };

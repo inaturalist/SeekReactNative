@@ -1,0 +1,1 @@
+- Corrección de errores, nuevo Seek álbum de fotos en el rollo de la cámara, euskera

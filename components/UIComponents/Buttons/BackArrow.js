@@ -34,6 +34,7 @@ const BackArrow = ( { green, route }: Props ) => {
       }}
       style={[styles.backButton, name === "ChallengeDetails" && styles.challengeDetails]}
     >
+      {/* $FlowFixMe */}
       <Image
         source={icons.backButton}
         tintColor={green && colors.seekForestGreen}

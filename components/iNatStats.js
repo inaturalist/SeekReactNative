@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image
-} from "react-native";
+import { View, Text, Image } from "react-native";
 import inatjs from "inaturalistjs";
 
 import styles from "../styles/iNatStats";
@@ -147,7 +143,7 @@ const INatStatsScreen = () => {
         <Text style={styles.missionText}>{i18n.t( "inat_stats.about_inat" )}</Text>
       </View>
       {photoList.length !== 8 ? (
-        <View style={[styles.center, styles.photoContainer]}>
+        <View style={styles.photoContainer}>
           <LoadingWheel color="black" />
         </View>
       ) : <HorizontalScroll photoList={photoList} screen="iNatStats" />}

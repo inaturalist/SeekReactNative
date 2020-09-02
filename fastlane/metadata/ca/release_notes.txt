@@ -1,0 +1,1 @@
+- Correcció d'errors, nou Seek àlbum de fotos al rotllo de la càmera, euskera

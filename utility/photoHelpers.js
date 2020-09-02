@@ -17,7 +17,7 @@ import {
 } from "./dateHelpers";
 import { checkCameraRollPermissions } from "./androidHelpers.android";
 
-const writeToDebugLog = ( newLine ) => {
+const writeToDebugLog = ( newLine: string ) => {
   let line = newLine;
 
   const date = newLine.split( " " );
@@ -48,7 +48,7 @@ const deleteDebugLogAfter7Days = () => {
   }
 };
 
-const checkForPhotoMetaData = ( location ) => {
+const checkForPhotoMetaData = ( location: Object ) => {
   if ( location ) {
     if ( Object.keys( location ).length !== 0 && location.latitude ) {
       return true;
@@ -58,8 +58,8 @@ const checkForPhotoMetaData = ( location ) => {
   return false;
 };
 
-const resizeImage = ( imageUri, width, height ) => (
-  new Promise( ( resolve ) => {
+const resizeImage = ( imageUri: string, width: number, height?: number ) => (
+  new Promise<any>( ( resolve ) => {
     ImageResizer.createResizedImage( imageUri, width, height || width, "JPEG", 100 )
       .then( ( { uri } ) => {
         let userImage;
@@ -76,7 +76,7 @@ const resizeImage = ( imageUri, width, height ) => (
   } )
 );
 
-const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
+const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) => (
   new Promise( ( resolve ) => {
     RNFS.mkdir( dirPictures ) // doesn't throw error if directory already exists
       .then( () => {
@@ -90,7 +90,7 @@ const movePhotoToAppStorage = async ( filePath, newFilepath ) => (
   } )
 );
 
-const localizeAttributions = ( attribution, licenseCode, screen ) => {
+const localizeAttributions = ( attribution: string, licenseCode: string, screen: string ) => {
   const userName = attribution.split( "," )[0];
   const name = userName.split( ") " )[1];
 
@@ -109,7 +109,7 @@ const localizeAttributions = ( attribution, licenseCode, screen ) => {
   return `${userName} ${licenseText} (${licenseCode.toUpperCase()})`;
 };
 
-const createBackupUri = async ( uri, uuid ) => {
+const createBackupUri = async ( uri: string, uuid?: ?string ) => {
   let newImageName;
 
   const timestamp = namePhotoByTime();
@@ -144,7 +144,7 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   const newFile = `${dirPictures}/${timestamp}`;
 
   const imageMoved = await movePhotoToAppStorage( oldFile, newFile );
-  writeToDebugLog( `${imageMoved}: image moved to new location` );
+  writeToDebugLog( `${imageMoved.toString()}: image moved to new location` );
 
   if ( imageMoved ) {
     realm.write( () => {
@@ -153,7 +153,7 @@ const moveFileAndUpdateRealm = async ( timestamp, photo, realm ) => {
   }
 };
 
-const deleteFile = ( filepath ) => {
+const deleteFile = ( filepath: string ) => {
   RNFS.unlink( filepath ).then( () => {
     console.log( "unused backup filepath deleted: ", filepath );
   } ).catch( ( err ) => {
@@ -206,7 +206,7 @@ const updateRealmThumbnails = () => {
     } ).catch( ( e ) => console.log( e, "error checking for database photos" ) );
 };
 
-const checkForDirectory = async ( dir ) => {
+const checkForDirectory = async ( dir: string ) => {
   try {
     const exists = await RNFS.stat( dir );
     if ( exists ) {
@@ -222,7 +222,7 @@ const checkForDirectory = async ( dir ) => {
 const moveAndroidFilesToInternalStorage = async () => {
   const oldAndroidDir = `${RNFS.ExternalStorageDirectoryPath}/Seek/Pictures`;
   const dirExists = await checkForDirectory( oldAndroidDir );
-  writeToDebugLog( `${dirExists}: does /Seek/Pictures still exist` );
+  writeToDebugLog( `${dirExists.toString()}: does /Seek/Pictures still exist` );
 
   if ( dirExists ) {
     const permission = await checkCameraRollPermissions();
@@ -259,12 +259,12 @@ const debugAndroidDirectories = () => {
 
   RNFS.readDir( oldAndroidDir ).then( ( results ) => {
     const path = results.map( ( file => file.path ) );
-    writeToDebugLog( `${path}: filepaths still in /Seek/Pictures` );
+    writeToDebugLog( `${path.toString()}: filepaths still in /Seek/Pictures` );
   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening /Seek/Pictures` ) );
 
   RNFS.readDir( dirPictures ).then( ( results ) => {
     const path = results.map( ( file => file.path ) );
-    writeToDebugLog( `${path}: filepaths in SeekPictures` );
+    writeToDebugLog( `${path.toString()}: filepaths in SeekPictures` );
   } ).catch( ( e ) => writeToDebugLog( `${e}: error opening SeekPictures` ) );
 };
 
@@ -295,7 +295,7 @@ const regenerateBackupUris = async () => {
     } ).catch( ( e ) => console.log( e, "couldn't check database photos for duplicates" ) );
 };
 
-const replacePhoto = async ( id, image ) => {
+const replacePhoto = async ( id: number, image: Object ) => {
   const {
     latitude,
     longitude,

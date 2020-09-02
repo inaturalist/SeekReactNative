@@ -1,11 +1,12 @@
 module.exports = {
-  verbose: true,
+  // verbose: true,
   preset: "react-native",
-  setupFiles: ["<rootDir>/jest.setup.js"],
-  transformIgnorePatterns: [
-    "node_modules/(?!(@react-native-community|react-native|react-navigation|@react-navigation/.*))"
-  ],
-  transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest"
-  }
+  setupFilesAfterEnv: ["@testing-library/jest-native/extend-expect"],
+  setupFiles: ["<rootDir>/jest.setup.js"]
+  // transformIgnorePatterns: [
+  //   "node_modules/(?!(@react-native-community|react-native|react-navigation|@react-navigation/.*))"
+  // ],
+  // transform: {
+  //   "^.+\\.[t|j]sx?$": "babel-jest"
+  // }
 };

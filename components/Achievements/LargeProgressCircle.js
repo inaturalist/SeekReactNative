@@ -1,10 +1,7 @@
 // @flow
 
 import React from "react";
-import {
-  Text,
-  View
-} from "react-native";
+import { Text, View } from "react-native";
 import ProgressCircle from "react-native-progress-circle";
 
 import styles from "../../styles/uiComponents/percentCircle";

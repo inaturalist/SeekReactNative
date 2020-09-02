@@ -26,6 +26,7 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
     badge = <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
   } else {
     badge = (
+      // $FlowFixMe
       <Image
         source={badges.badge_empty}
         tintColor={colors.white}

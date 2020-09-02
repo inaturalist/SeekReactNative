@@ -54,6 +54,7 @@ const LocationPickerCard = ( { location, updateLocation, image }: Props ) => {
             {location || i18n.t( "location_picker.undefined" )}
           </Text>
         </View>
+        {/* $FlowFixMe */}
         <Image
           source={icons.backButton}
           tintColor={colors.seekForestGreen}

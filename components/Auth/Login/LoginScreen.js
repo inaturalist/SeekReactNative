@@ -23,8 +23,8 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 const LoginScreen = () => {
   const { navigate } = useNavigation();
   const { toggleLogin } = useContext( UserContext );
-  const [username, setUsername] = useState( null );
-  const [password, setPassword] = useState( null );
+  const [username, setUsername] = useState( "" );
+  const [password, setPassword] = useState( "" );
   const [error, setError] = useState( false );
 
   const retrieveOAuthToken = () => {

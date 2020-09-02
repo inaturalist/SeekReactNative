@@ -25,6 +25,10 @@ const SpeciesTaxonomy = ( { ancestors, predictions, commonName }: Props ) => {
     const createAncestors = () => {
       const predictionAncestors = [];
 
+      if ( !predictions ) {
+        return;
+      }
+
       predictions.forEach( ( ancestor, i ) => {
         if ( !ranks.includes( ancestor.rank ) ) {
           return;

@@ -340,6 +340,8 @@ PODS:
     - React
   - RNCMaskedView (0.1.10):
     - React
+  - RNCPicker (1.6.0):
+    - React
   - RNDateTimePicker (2.4.3):
     - React
   - RNDeviceInfo (5.6.1):
@@ -354,7 +356,7 @@ PODS:
     - React
   - RNReanimated (1.9.0):
     - React
-  - RNScreens (2.5.0):
+  - RNScreens (2.10.1):
     - React
   - RNStoreReview (0.1.5):
     - React
@@ -432,6 +434,7 @@ DEPENDENCIES:
   - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCPicker (from `../node_modules/@react-native-community/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFS (from `../node_modules/react-native-fs`)
@@ -546,6 +549,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNCPicker:
+    :path: "../node_modules/@react-native-community/picker"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
   RNDeviceInfo:
@@ -624,6 +629,7 @@ SPEC CHECKSUMS:
   RealmJS: b103c28012b1abfe13396ac82e76b4f4d9d47c0d
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
+  RNCPicker: bab63e6fed69ac6122fcd9993209b6854de46d0b
   RNDateTimePicker: 0dc22b9762b332a95eaefac5f7372f88962cb466
   RNDeviceInfo: ab2ab4ca9e7f2bc4f35d62ab6ce2b66f2cbf1e7a
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
@@ -631,7 +637,7 @@ SPEC CHECKSUMS:
   RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
-  RNScreens: ac02d0e4529f08ced69f5580d416f968a6ec3a1d
+  RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c

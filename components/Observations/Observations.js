@@ -167,20 +167,18 @@ const Observations = () => {
         />
       </Modal>
       <View style={styles.whiteContainer}>
-        {loading ? (
-          <View style={[styles.center, styles.flexGrow]}>
-            <LoadingWheel color={colors.darkGray} />
-          </View>
-        ) : (
-          <ObsList
-            fetchFilteredObservations={fetchFilteredObservations}
-            observations={observations}
-            searchText={searchText}
-            clearText={clearText}
-            openModal={openModal}
-            updateObs={updateObs}
-          />
-        )}
+        {loading
+          ? <LoadingWheel color={colors.darkGray} />
+          : (
+            <ObsList
+              fetchFilteredObservations={fetchFilteredObservations}
+              observations={observations}
+              searchText={searchText}
+              clearText={clearText}
+              openModal={openModal}
+              updateObs={updateObs}
+            />
+          )}
       </View>
     </View>
   );

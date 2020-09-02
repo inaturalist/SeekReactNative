@@ -4,8 +4,8 @@
 # no, pl, pt-BR, pt-PT, ro, ru, sk, sv, th, tr, uk, vi, zh-Hans, zh-Hant
 
 languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE',
-  'es-ES', 'es-MX', 'fi', 'fr-FR', 'he', 'it', 'ja', 'nl-NL', 'no', 'pt-BR',
-  'ro', 'ru', 'sv', 'tr', 'zh-Hant'
+  'es-ES', 'es-MX', 'fi', 'fr-FR', 'he', 'it', 'ja', 'nl-NL', 'no',
+  'pt-BR', 'ro', 'ru', 'sv', 'tr', 'zh-Hant'
 ])
 
 release_notes({

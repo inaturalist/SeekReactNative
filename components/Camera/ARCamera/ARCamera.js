@@ -53,7 +53,14 @@ const ARCamera = () => {
           ranks: {}
         };
       case "FILTER_TAXON":
-        return { ...state, negativeFilter: action.negativeFilter, taxonId: action.taxonId };
+        return {
+          ...state,
+          negativeFilter: action.negativeFilter,
+          taxonId: action.taxonId,
+          pictureTaken: false,
+          error: null,
+          ranks: {}
+        };
       case "ERROR":
         return { ...state, error: action.error, errorEvent: action.errorEvent };
       default:
@@ -279,8 +286,6 @@ const ARCamera = () => {
           style={styles.camera}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
           taxonomyPath={dirTaxonomy}
-          // filterByTaxonId="47126"
-          // negativeFilter={false}
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}
         />

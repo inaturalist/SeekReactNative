@@ -33,7 +33,8 @@ export const colors = {
   checkboxColor: "#979797",
   placeholderGray: "#828282",
   searchGray: "#b5b5b5",
-  settingsGray: "#999999"
+  settingsGray: "#999999",
+  cameraFilterGray: "#858585"
 };
 
 export const fonts = {

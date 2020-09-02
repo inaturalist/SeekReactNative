@@ -1,13 +1,11 @@
 import {
   StyleSheet,
   Dimensions,
-  Platform,
-  PixelRatio
+  Platform
 } from "react-native";
 import { colors, fonts } from "../global";
 
 const { width, height } = Dimensions.get( "window" );
-const fontScale = PixelRatio.getFontScale();
 
 export default StyleSheet.create( {
   backButton: {
@@ -56,27 +54,9 @@ export default StyleSheet.create( {
     position: "absolute",
     top: height > 670 ? 80 : 40
   },
-  help: {
-    bottom: 0,
-    paddingHorizontal: 10,
-    paddingVertical: 35,
-    position: "absolute",
-    right: 64 - 10
-  },
   loading: {
     position: "absolute",
     top: height / 2 - 50
-  },
-  plantFilter: {
-    bottom: 175,
-    position: "absolute"
-  },
-  plantFilterSettings: {
-    bottom: 0,
-    paddingHorizontal: 10,
-    paddingVertical: 35,
-    position: "absolute",
-    left: 64 - 10
   },
   predictions: {
     color: colors.white,
@@ -87,26 +67,5 @@ export default StyleSheet.create( {
     textShadowColor: colors.textShadow,
     textShadowOffset: { width: -1, height: 1 },
     textShadowRadius: 3
-  },
-  scanText: {
-    bottom: 95,
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: ( fontScale > 1 ) ? 14 : 16,
-    lineHeight: 21,
-    margin: 20,
-    maxWidth: 293,
-    position: "absolute",
-    textAlign: "center",
-    textShadowColor: colors.textShadow,
-    textShadowOffset: { width: -1, height: 1 },
-    textShadowRadius: 3
-  },
-  shutter: {
-    bottom: 0,
-    paddingHorizontal: 48,
-    paddingVertical: 18,
-    position: "absolute"
-    // zIndex: 1
   }
 } );

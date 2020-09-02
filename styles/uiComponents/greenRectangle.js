@@ -5,18 +5,14 @@ export default StyleSheet.create( {
   greenButton: {
     backgroundColor: colors.seekiNatGreen,
     borderRadius: 6,
-    flexDirection: "row",
-    marginBottom: 6,
-    marginRight: 10,
-    paddingBottom: 4,
-    paddingTop: 4
+    paddingVertical: 6
   },
   greenButtonText: {
     color: colors.white,
     fontFamily: fonts.semibold,
-    fontSize: 18,
-    letterSpacing: 1.0,
-    paddingHorizontal: 9,
+    fontSize: 16,
+    letterSpacing: 0.89,
+    paddingHorizontal: 10,
     paddingTop: padding.iOSPaddingFontSize18
   }
 } );

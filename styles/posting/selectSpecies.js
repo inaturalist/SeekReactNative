@@ -23,7 +23,12 @@ export default StyleSheet.create( {
     fontSize: 21
   },
   container: {
+    backgroundColor: colors.seekForestGreen,
     flex: 1
+  },
+  whiteContainer: {
+    backgroundColor: colors.white,
+    flexGrow: 1
   },
   header: {
     backgroundColor: colors.seekForestGreen,

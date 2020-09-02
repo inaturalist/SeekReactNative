@@ -8,7 +8,7 @@ import {
   ScrollView,
   ImageBackground
 } from "react-native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -23,7 +23,7 @@ type Props = {
 }
 
 const LoginOrSignupScreen = ( { navigation }: Props ) => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
 
   return (
     <ImageBackground

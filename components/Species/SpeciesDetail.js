@@ -10,7 +10,7 @@ import { ScrollView, Platform } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
@@ -22,7 +22,7 @@ import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 
 const SpeciesDetail = () => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();

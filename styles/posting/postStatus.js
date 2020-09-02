@@ -12,6 +12,9 @@ export default StyleSheet.create( {
     marginHorizontal: 23
   },
   center,
+  safeAreaContainer: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: "center",

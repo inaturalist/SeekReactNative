@@ -4,9 +4,9 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground,
-  SafeAreaView
+  ImageBackground
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/uiComponents/footer";
 import icons from "../../assets/icons";
@@ -19,7 +19,7 @@ type Props = {
 }
 
 const MatchFooter = ( { openFlagModal, setNavigationPath }: Props ) => (
-  <SafeAreaView style={styles.safeArea}>
+  <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
     <ImageBackground source={backgrounds.navBar} style={styles.container}>
       <View style={[styles.navbar, styles.row]}>
         <TouchableOpacity

@@ -4,11 +4,11 @@ import {
   View,
   TouchableOpacity,
   Image,
-  ImageBackground,
-  SafeAreaView
+  ImageBackground
 } from "react-native";
 import Realm from "realm";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import realmConfig from "../../models";
 import styles from "../../styles/uiComponents/footer";
@@ -48,7 +48,7 @@ const Footer = () => {
   }, [navigation] );
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView edges={["right", "bottom", "left"]}>
       <ImageBackground source={backgrounds.navBar} style={styles.container}>
         <View style={[styles.navbar, styles.row]}>
           <TouchableOpacity

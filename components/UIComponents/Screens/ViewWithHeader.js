@@ -2,7 +2,7 @@
 
 import React from "react";
 import { View, StatusBar } from "react-native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import GreenHeader from "../GreenHeader";
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const ViewWithHeader = ( { children, header }: Props ) => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

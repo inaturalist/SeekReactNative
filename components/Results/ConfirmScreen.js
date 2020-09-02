@@ -2,7 +2,7 @@
 
 import React from "react";
 import { View, Image } from "react-native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import styles from "../../styles/results/confirm";
 import { colors } from "../../styles/global";
@@ -22,7 +22,7 @@ const ConfirmScreen = ( {
   updateClicked,
   clicked
 }: Props ) => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={{ paddingTop: insets.top }}>

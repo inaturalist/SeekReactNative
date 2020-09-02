@@ -8,7 +8,8 @@ export default StyleSheet.create( {
     left: 0,
     paddingHorizontal: 23,
     paddingVertical: 19,
-    position: "absolute"
+    position: "absolute",
+    top: height > 700 ? 31 : 0
   },
   camera: {
     height,
@@ -29,7 +30,7 @@ export default StyleSheet.create( {
   },
   header: {
     position: "absolute",
-    top: 58
+    top: height > 700 ? 89 : 58
   },
   loading: {
     position: "absolute",

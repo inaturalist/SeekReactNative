@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import GreenHeader from "../UIComponents/GreenHeader";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import styles from "../../styles/results/error";
 
 type Props = {
@@ -29,11 +29,12 @@ const ErrorScreen = ( { error, number }: Props ) => {
   }
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <GreenHeader />
-      <Text style={styles.errorText}>{errorText}</Text>
-    </View>
+      <View style={styles.textContainer}>
+        <Text style={styles.errorText}>{errorText}</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 

@@ -4,7 +4,7 @@ import React, { useReducer, useEffect, useCallback, useMemo } from "react";
 import { Platform, View, StatusBar } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
@@ -15,7 +15,7 @@ import CameraError from "../CameraError";
 const GalleryScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {

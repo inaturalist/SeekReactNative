@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
@@ -35,7 +35,7 @@ const LocationPicker = ( {
   updateLocation,
   closeLocationPicker
 }: Props ) => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
   const [accuracy, setAccuracy] = useState( 90 );
   const [region, setRegion] = useState( {} );
 

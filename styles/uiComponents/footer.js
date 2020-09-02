@@ -44,6 +44,7 @@ export default StyleSheet.create( {
   },
   row,
   safeArea: {
+    // need this for MatchFooter
     backgroundColor: colors.white
   }
 } );

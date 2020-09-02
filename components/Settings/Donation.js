@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { getSystemName } from "react-native-device-info";
 import { WebView } from "react-native-webview";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import i18n from "../../i18n";
 import styles from "../../styles/species/wikipedia";
 import icons from "../../assets/icons";
@@ -19,24 +19,27 @@ type Props = {
   +navigation: any
 };
 
-const Donation = ( { navigation }: Props ) => (
-  <>
-    <SafeAreaView />
-    <View style={styles.header}>
-      <Text style={styles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={styles.back}
-      >
-        <Image source={icons.closeWhite} />
-      </TouchableOpacity>
+const Donation = ( { navigation }: Props ) => {
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      <View style={styles.header}>
+        <Text style={styles.text}>{i18n.t( "settings.donate" ).toLocaleUpperCase()}</Text>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.back}
+        >
+          <Image source={icons.closeWhite} />
+        </TouchableOpacity>
+      </View>
+      <WebView
+        startInLoadingState
+        source={{ uri: `https://www.inaturalist.org/donate?utm_source=Seek_${getSystemName()}}` }}
+      />
+      <View style={styles.bottom} />
     </View>
-    <WebView
-      startInLoadingState
-      source={{ uri: `https://www.inaturalist.org/donate?utm_source=Seek_${getSystemName()}}` }}
-    />
-    <View style={styles.bottom} />
-  </>
-);
+  );
+};
 
 export default Donation;

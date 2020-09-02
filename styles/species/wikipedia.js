@@ -9,6 +9,7 @@ export default StyleSheet.create( {
     top: 0
   },
   bottom: {
+    backgroundColor: colors.seekForestGreen,
     height: 60
   },
   container: {

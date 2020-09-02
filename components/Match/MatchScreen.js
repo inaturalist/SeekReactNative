@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { View, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
@@ -23,7 +23,7 @@ import { useScrollToTop } from "../../utility/customHooks";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();

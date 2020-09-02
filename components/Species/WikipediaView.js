@@ -8,7 +8,7 @@ import {
   Image
 } from "react-native";
 import { WebView } from "react-native-webview";
-import { useSafeArea } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/wikipedia";
@@ -21,7 +21,7 @@ type Props = {
 
 const WikipediaView = ( { navigation, route }: Props ) => {
   const { wikiUrl } = route.params;
-  const insets = useSafeArea();
+  const insets = useSafeAreaInsets();
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>

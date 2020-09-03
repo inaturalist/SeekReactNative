@@ -8,7 +8,8 @@
     "no_location": "Nessuna posizione",
     "no_species": "Sembra che non siano state osservate molte specie nelle vicinanze! Prova a cambiare la tua posizione o ad ampliare il filtro delle specie.",
     "no_gps": "Segnale GPS non trovato.",
-    "location_timeout": "La tua richiesta di acquisizione della posizione è scaduta. Riprova."
+    "location_timeout": "La tua richiesta di acquisizione della posizione è scaduta. Riprova.",
+    "location_settings": "Il servizio di localizzazione non è abilitato o la modalità di localizzazione non è appropriata per la richiesta corrente"
   },
   "get_started": {
     "header": "Iniziamo",
@@ -306,7 +307,9 @@
     "error_photos": "Nessuna foto trovata in questo album. Prova a selezionare un album diverso.",
     "error_version": "La fotocamera AR di Seek richiede iOS 11.0+. Il dispositivo sta utilizzando la versione del sistema operativo {{OS}}.",
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
-    "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato"
+    "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
+    "plant_filter": "Solo piante",
+    "non_plant_filter": "Solo elementi non vegetali"
   },
   "gallery": {
     "label": "Foto",

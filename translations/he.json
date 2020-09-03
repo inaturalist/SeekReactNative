@@ -8,7 +8,8 @@
     "no_location": "חסר מיקום",
     "no_species": "נראה שלא נצפו מינים בסביבה! נסו לשנות מיקום או להרחיב את פילטר המינים.",
     "no_gps": "לא זוהה אות GPS.",
-    "location_timeout": "זיהוי המיקום לוקח יותר מדי זמן; אנא נסו שנית."
+    "location_timeout": "זיהוי המיקום לוקח יותר מדי זמן; אנא נסו שנית.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "התחילו",
@@ -306,7 +307,9 @@
     "error_photos": "לא נמצאו בעיות באלבום תמנות זה. נסו לבחור אלבום אחר.",
     "error_version": "מצלמת הבינה המלאכותית של Seek, דורשת גירסא +iOS 11.0, מכשירך מריץ גרסא {{OS}}.",
     "error_cameraManager": "סליחה, אפליקציית ניהול המצלמה לא מצליחה לעלות",
-    "error_photoError": "סליחה, לא ניתן למצוא את אובייקט התמונה"
+    "error_photoError": "סליחה, לא ניתן למצוא את אובייקט התמונה",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "תמונות",

@@ -8,7 +8,8 @@
     "no_location": "Ingen posisjon",
     "no_species": "Det ser ut som det ikke har blitt observert mange arter i nærheten! Prøv å endre din posisjon eller utvide artsfilteret.",
     "no_gps": "GPS-signal ikke funnet.",
-    "location_timeout": "Din posisjonsspørring ble tidsavbrutt. Vennligst prøv på nytt."
+    "location_timeout": "Din posisjonsspørring ble tidsavbrutt. Vennligst prøv på nytt.",
+    "location_settings": "Posisjonstjenester er ikke aktivert, eller lokasjonsmodus er ikke egnet for denne forespørselen"
   },
   "get_started": {
     "header": "Kom i gang",
@@ -74,7 +75,7 @@
     "observations_2": "Å slette appen sletter alle dine observasjoner gjort i Seek.",
     "observations_3": "Seek synkroniserer ikke dine observasjoner til andre enheter.",
     "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
+    "guidelines": "Fellesskapets rettningslinjer",
     "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
   },
   "inat_login": {
@@ -207,7 +208,7 @@
     "photographer_september": "Bilde © Netflix / Silverback Films",
     "photographer_october": "Bilde © Netflix / Silverback Films",
     "photographer_december": "Bilde © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Arter observert"
   },
   "inat_stats": {
     "global_observations": "Observasjoner fra hele verden",
@@ -306,7 +307,9 @@
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
     "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Kun planter",
+    "non_plant_filter": "Kun ikke-planter"
   },
   "gallery": {
     "label": "Bilder",
@@ -429,9 +432,9 @@
     "help": "Ta et bilde av en plante, et dyr, eller noe annet som lever med kameraet vårt, og vår AI-modell hjelper deg med å identifisere det!",
     "open_camera": "Åpne kamera",
     "not_seen": "Du har ikke observert noen {{iconicTaxon}} ennå!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Søk observasjoner",
+    "search_empty": "Ingen observasjoner funnet med det søkeordet.",
+    "reset_search": "Tilbakestill søk"
   },
   "species_detail": {
     "near": "I nærheten",
@@ -632,7 +635,7 @@
     "action_aug_2020": "Pay attention to the pollinators around you. Are there bees or butterflies visiting the flowers in your garden or neighborhood?",
     "herbivore": "Herbivore Challenge",
     "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
+    "mission_2_sept_2020": "Finn 1 pattedyr",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",

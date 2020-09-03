@@ -348,7 +348,7 @@ PODS:
     - React
   - RNFS (2.16.6):
     - React
-  - RNGestureHandler (1.6.1):
+  - RNGestureHandler (1.7.0):
     - React
   - RNLocalize (1.4.1):
     - React
@@ -633,7 +633,7 @@ SPEC CHECKSUMS:
   RNDateTimePicker: 843eca1c684369861c7dccccb6632f3c104c009c
   RNDeviceInfo: a0a4edaebb926d04db08640d64281b6615f5505d
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
   RNLocalize: c388679af021ddd6069c215f7fdd2acf4e77ede5
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc

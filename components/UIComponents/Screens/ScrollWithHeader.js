@@ -38,6 +38,15 @@ const ScrollWithHeader = ( {
 
   useScrollToTop( scrollView, navigation, name );
 
+  const hideKeyboardThrottle = ( name === "Post" ) ? 1 : 0;
+
+  const hideKeyboard = () => {
+    // need this one for Android
+    if ( name === "Post" ) {
+      Keyboard.dismiss();
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
@@ -51,12 +60,8 @@ const ScrollWithHeader = ( {
           ref={scrollView}
           contentContainerStyle={styles.containerWhite}
           keyboardDismissMode={name === "Post" ? "on-drag" : "none"}
-          onScroll={() => {
-            if ( name === "Post" ) {
-              Keyboard.dismiss();
-            }
-          }}
-          scrollEventThrottle={name === "Post" ? 1 : null}
+          onScroll={hideKeyboard}
+          scrollEventThrottle={hideKeyboardThrottle}
         >
           {children}
           <Padding />

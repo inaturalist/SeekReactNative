@@ -1,14 +1,9 @@
 // @flow
 
 import React, { useRef } from "react";
-import {
-  View,
-  ScrollView,
-  Platform,
-  StatusBar
-} from "react-native";
+import { ScrollView, Platform, StatusBar } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -20,7 +15,6 @@ type Props = {
 };
 
 const ScrollNoHeader = ( { children }: Props ) => {
-  const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef( null );
@@ -38,18 +32,14 @@ const ScrollNoHeader = ( { children }: Props ) => {
   }
 
   return (
-    <View style={[
-      styles.container,
-      backgroundColor,
-      { paddingTop: insets.top }]
-    }>
+    <SafeAreaView style={[styles.container, backgroundColor]} edges={["top"]}>
       <StatusBar barStyle={name === "iNatStats" ? "dark-content" : "light-content"} />
       <ScrollView ref={scrollView} contentContainerStyle={styles.containerWhite}>
         {children}
         <Padding />
         {Platform.OS === "ios" && <BottomSpacer />}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

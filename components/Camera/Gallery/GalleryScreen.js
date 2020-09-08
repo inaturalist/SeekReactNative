@@ -1,10 +1,10 @@
 // @flow
 
 import React, { useReducer, useEffect, useCallback, useMemo } from "react";
-import { Platform, View, StatusBar } from "react-native";
+import { Platform, StatusBar } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
 import styles from "../../../styles/camera/gallery";
@@ -15,7 +15,6 @@ import CameraError from "../CameraError";
 const GalleryScreen = () => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
-  const insets = useSafeAreaInsets();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
@@ -170,11 +169,11 @@ const GalleryScreen = () => {
   ), [loading, photos, setPhotoParams, startLoading] );
 
   return (
-    <View style={[styles.background, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
       {error ? <CameraError error={error} errorEvent={errorEvent} /> : renderGalleryList}
-    </View>
+    </SafeAreaView>
   );
 };
 

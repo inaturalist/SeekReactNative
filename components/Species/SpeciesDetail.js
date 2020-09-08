@@ -10,19 +10,17 @@ import { ScrollView, Platform } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
-import Spacer from "../UIComponents/TopSpacer";
 import { getSpeciesId, checkForInternet } from "../../utility/helpers";
 import SpeciesContainer from "./SpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 
 const SpeciesDetail = () => {
-  const insets = useSafeAreaInsets();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -208,32 +206,28 @@ const SpeciesDetail = () => {
   }, [navigation, fetchiNatData] );
 
   return (
-    <ScrollView
-      ref={scrollView}
-      contentContainerStyle={[
-        styles.footerMargin,
-        styles.background,
-        styles.greenBanner,
-        { paddingTop: insets.top }
-      ]}
-    >
-      <Spacer />
-      <SpeciesHeader
-        id={id}
-        taxon={taxon}
-        seenTaxa={seenTaxa}
-        photos={photos}
-      />
-      <SpeciesContainer
-        checkForInternet={checkInternetConnection}
-        details={details}
-        error={error}
-        fetchiNatData={fetchiNatData}
-        id={id}
-        seenTaxa={seenTaxa}
-        predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
-      />
-    </ScrollView>
+    <SafeAreaView style={styles.greenBanner} edges={["top"]}>
+      <ScrollView
+        ref={scrollView}
+        contentContainerStyle={[styles.footerMargin, styles.background]}
+      >
+        <SpeciesHeader
+          id={id}
+          taxon={taxon}
+          seenTaxa={seenTaxa}
+          photos={photos}
+        />
+        <SpeciesContainer
+          checkForInternet={checkInternetConnection}
+          details={details}
+          error={error}
+          fetchiNatData={fetchiNatData}
+          id={id}
+          seenTaxa={seenTaxa}
+          predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

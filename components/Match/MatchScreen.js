@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { View, ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
@@ -23,7 +23,6 @@ import { useScrollToTop } from "../../utility/customHooks";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
-  const insets = useSafeAreaInsets();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -130,16 +129,8 @@ const MatchScreen = () => {
     gradientLight = colors.grayGradientLight;
   }
 
-  console.log( taxon, "is taxon undefined" );
-
   return (
-    <View style={[
-      styles.container, {
-        paddingTop: insets.top,
-        backgroundColor: gradientDark
-      }
-    ]}
-    >
+    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
       <MatchModals
         match={match}
         flagModal={flagModal}
@@ -172,7 +163,7 @@ const MatchScreen = () => {
       {( match || seenDate ) ? (
         <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
       ) : <Footer />}
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -8,7 +8,7 @@ import {
   Image
 } from "react-native";
 import { WebView } from "react-native-webview";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import styles from "../../styles/species/wikipedia";
@@ -21,10 +21,9 @@ type Props = {
 
 const WikipediaView = ( { navigation, route }: Props ) => {
   const { wikiUrl } = route.params;
-  const insets = useSafeAreaInsets();
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={styles.header}>
         <Text style={styles.text}>{i18n.t( "species_detail.wikipedia_1" ).toLocaleUpperCase()}</Text>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.back}>
@@ -33,7 +32,7 @@ const WikipediaView = ( { navigation, route }: Props ) => {
       </View>
       <WebView startInLoadingState source={{ uri: wikiUrl }} />
       <View style={styles.bottom} />
-    </View>
+    </SafeAreaView>
   );
 };
 

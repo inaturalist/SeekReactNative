@@ -1,8 +1,8 @@
 // @flow
 
 import React from "react";
-import { View, StatusBar } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { StatusBar } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import GreenHeader from "../GreenHeader";
@@ -12,16 +12,12 @@ type Props = {
   +header: string
 };
 
-const ViewWithHeader = ( { children, header }: Props ) => {
-  const insets = useSafeAreaInsets();
-
-  return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
-      <StatusBar barStyle="light-content" />
-      <GreenHeader header={header} />
-      {children}
-    </View>
-  );
-};
+const ViewWithHeader = ( { children, header }: Props ) => (
+  <SafeAreaView style={styles.container} edges={["top"]}>
+    <StatusBar barStyle="light-content" />
+    <GreenHeader header={header} />
+    {children}
+  </SafeAreaView>
+);
 
 export default ViewWithHeader;

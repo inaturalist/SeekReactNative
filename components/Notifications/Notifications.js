@@ -9,7 +9,7 @@ import React, {
 import { FlatList, View, Platform } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/notifications";
 import NotificationCard from "./NotificationCard";
@@ -21,7 +21,6 @@ import BottomSpacer from "../UIComponents/BottomSpacer";
 import { markNotificationsAsViewed } from "../../utility/notificationHelpers";
 
 const NotificationsScreen = () => {
-  const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const scrollView = useRef( null );
   const [notifications, setNotifications] = useState( [] );
@@ -52,7 +51,7 @@ const NotificationsScreen = () => {
   }, [fetchNotifications, navigation] );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <GreenHeader header="notifications.header" />
       <FlatList
         ref={scrollView}
@@ -69,7 +68,7 @@ const NotificationsScreen = () => {
         ListEmptyComponent={() => <EmptyState />}
         ItemSeparatorComponent={() => <View style={styles.divider} />}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

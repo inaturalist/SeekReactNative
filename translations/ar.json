@@ -8,7 +8,8 @@
     "no_location": "لا يوجد موقع",
     "no_species": "يبدو أنه لم يتم رصد العديد من الأنواع بالقرب منك! حاول تغيير موقعك أو توسيع فلتر الأنواع.",
     "no_gps": "لم يتم العثور على إشارة GPS.",
-    "location_timeout": "مهلة طلب الموقع الخاص بك انتهت. المرجو المحاولة مجدداً."
+    "location_timeout": "مهلة طلب الموقع الخاص بك انتهت. المرجو المحاولة مجدداً.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "ابدأ الأن",
@@ -306,7 +307,9 @@
     "error_photos": "لم يتم العثور على صور في ألبوم الصور هذا. حاول اختيار ألبوم مختلف.",
     "error_version": "كاميرا AR الخاصة بتطبيق Seek تتطلب iOS الإصدار 11 وما فوق. جهازك يستخدم إصدار OS الإصدار {{OS}}.",
     "error_cameraManager": "عذرًا، فشل مدير الكاميرا في التحميل",
-    "error_photoError": "عذرًا، لم يتم العثور على كائن الصورة"
+    "error_photoError": "عذرًا، لم يتم العثور على كائن الصورة",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "الصور",

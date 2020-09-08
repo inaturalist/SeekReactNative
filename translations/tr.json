@@ -8,7 +8,8 @@
     "no_location": "Konum yok",
     "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
     "no_gps": "GPS sinyali bulunamadı.",
-    "location_timeout": "Konum isteğiniz zaman aşımına uğradı. Lütfen tekrar deneyin."
+    "location_timeout": "Konum isteğiniz zaman aşımına uğradı. Lütfen tekrar deneyin.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Başla",
@@ -306,7 +307,9 @@
     "error_photos": "Bu albümde hiç fotoğraf bulunamadı. Farklı bir albüm seçmeyi deneyin.",
     "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
     "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
-    "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı"
+    "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Fotoğraflar",

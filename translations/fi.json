@@ -8,7 +8,8 @@
     "no_location": "Ei sijaintia",
     "no_species": "Näyttää siltä, että lähellä ei ole havaittu monia lajeja! Yritä muuttaa sijaintiasi tai laajentaa lajisuodatinta.",
     "no_gps": "GPS-signaalia ei löytynyt.",
-    "location_timeout": "Sijaintipyyntösi aikakatkaistiin. Ole hyvä ja yritä uudelleen."
+    "location_timeout": "Sijaintipyyntösi aikakatkaistiin. Ole hyvä ja yritä uudelleen.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Aloittaminen",
@@ -306,7 +307,9 @@
     "error_photos": "Tästä valokuva-albumista ei löytynyt valokuvia. Yritä valitsemalla toinen albumi.",
     "error_version": "Seekin AR-kameran vähimmäisvaatimus on iOS 11.0. Laitteessasi on käyttöjärjestelmäversio {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Kuvat",

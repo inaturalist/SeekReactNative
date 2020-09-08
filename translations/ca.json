@@ -8,7 +8,8 @@
     "no_location": "Sense ubicació",
     "no_species": "Sembla que no s'han observat moltes espècies properes! Intenta canviar d'ubicació o amplia el filtre d'espècies.",
     "no_gps": "No s’ha trobat el senyal del GPS.",
-    "location_timeout": "La teva sol·licitud d'ubicació ha caducat. Intenta-ho de nou."
+    "location_timeout": "La teva sol·licitud d'ubicació ha caducat. Intenta-ho de nou.",
+    "location_settings": "Els serveis d'ubicació no s'han habilitat o el mode de localització no és l'adequat per a aquesta consulta"
   },
   "get_started": {
     "header": "Començar",
@@ -306,7 +307,9 @@
     "error_photos": "No hem trobat cap foto en aquest àlbum de fotos. Prova seleccionar un altre àlbum.",
     "error_version": "La Càmera AR necessita iOS 11.0+. El teu dispositiu de la versió {{OS}} de OS.",
     "error_cameraManager": "Ho sentim, no s'ha pogut carregar el Gestor de la Càmera",
-    "error_photoError": "Ho sentim, no s'ha trobat l'objecte de la fotografia"
+    "error_photoError": "Ho sentim, no s'ha trobat l'objecte de la fotografia",
+    "plant_filter": "Únicament plantes",
+    "non_plant_filter": "Únicament No plantes"
   },
   "gallery": {
     "label": "Fotos",

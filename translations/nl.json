@@ -8,7 +8,8 @@
     "no_location": "Geen locatie",
     "no_species": "Zo te zien zijn er nog niet veel soorten in de buurt waargenomen! Probeer je locatie te wijzigen of breid het soortenfilter uit.",
     "no_gps": "GPS signaal niet gevonden.",
-    "location_timeout": "Je locatieaanvraag is verlopen. Probeer het alsjeblieft opnieuw."
+    "location_timeout": "Je locatieaanvraag is verlopen. Probeer het alsjeblieft opnieuw.",
+    "location_settings": "Locatieservice is niet ingeschakeld of locatiemodus is niet geschikt voor het huidige verzoek"
   },
   "get_started": {
     "header": "Aan de slag",
@@ -306,7 +307,9 @@
     "error_photos": "Er zijn geen foto's gevonden in dit fotoalbum. Probeer een ander album.",
     "error_version": "Seek's AR Camera vereist iOS 11.0+. Je apparaat draait op OS versie {{OS}}.",
     "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
-    "error_photoError": "Sorry, het foto-object is niet gevonden"
+    "error_photoError": "Sorry, het foto-object is niet gevonden",
+    "plant_filter": "Alleen planten",
+    "non_plant_filter": "Alleen niet-planten"
   },
   "gallery": {
     "label": "Foto’s",

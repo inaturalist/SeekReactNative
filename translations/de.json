@@ -8,7 +8,8 @@
     "no_location": "Kein Standort",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuche, deinen Standort zu ändern oder den Artenfilter zu erweitern.",
     "no_gps": "GPS-Signal nicht gefunden.",
-    "location_timeout": "Die Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut."
+    "location_timeout": "Die Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut.",
+    "location_settings": "Standortdienst ist nicht aktiviert oder der Standortmodus ist nicht geeignet für die aktuelle Anfrage"
   },
   "get_started": {
     "header": "Erste Schritte",
@@ -306,7 +307,9 @@
     "error_photos": "Es wurden keine Fotos in diesem Fotoalbum gefunden. Versuche ein anderes Album auszuwählen.",
     "error_version": "Die AR Kamera von Seek benötigt iOS 11.0+. Dein Gerät benutzt OS-Version {{OS}}.",
     "error_cameraManager": "Der Kamera-Manager konnte nicht geladen werden",
-    "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden"
+    "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden",
+    "plant_filter": "Nur Pflanzen",
+    "non_plant_filter": "Nur Nicht-Pflanzen"
   },
   "gallery": {
     "label": "Fotos",

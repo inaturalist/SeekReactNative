@@ -8,7 +8,8 @@
     "no_location": "Brak lokalizacji",
     "no_species": "Wygląda na to, że w pobliżu nie zaobserwowano zbyt wielu gatunków! Spróbuj zmienić swoje położenie lub rozszerzyć filtr gatunków.",
     "no_gps": "Nie znaleziono sygnału GPS.",
-    "location_timeout": "Upłynął limit czasu na określenie lokalizacji. Spróbuj ponownie."
+    "location_timeout": "Upłynął limit czasu na określenie lokalizacji. Spróbuj ponownie.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Rozpocznij",
@@ -306,7 +307,9 @@
     "error_photos": "W tym albumie nie znaleziono żadnych zdjęć. Spróbuj wybrać inny album.",
     "error_version": "Aparat AR aplikacji Seek wymaga systemu iOS 11.0 lub nowszego. Twoje urządzenie posiada wersję {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Zdjęcia",

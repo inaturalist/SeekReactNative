@@ -8,7 +8,8 @@
     "no_location": "Ingen placering",
     "no_species": "Det ser ikke ud til, at der er blevet observeret ret mange arter i nærheden! Prøv at ændre din placering eller udvid artsfilteret.",
     "no_gps": "GPS-signal ikke fundet.",
-    "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen."
+    "location_timeout": "Din placeringsanmodning udløb. Prøv venligst igen.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Kom i gang",
@@ -306,7 +307,9 @@
     "error_photos": "Ingen billeder blev fundet i dette fotoalbum. Prøv at vælge et andet album.",
     "error_version": "Seek's AR-kamera kræver iOS 11.0+. Din enhed kører OS version {{OS}}.",
     "error_cameraManager": "Beklager, kamera-manageren kunne ikke starte.",
-    "error_photoError": "Beklager, fotoobjektet blev ikke fundet"
+    "error_photoError": "Beklager, fotoobjektet blev ikke fundet",
+    "plant_filter": "Kun planter",
+    "non_plant_filter": "Kun ikke-planter"
   },
   "gallery": {
     "label": "Fotos",
@@ -637,7 +640,7 @@
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
     "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_1_oct_2020": "Find 4 svampe",
     "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
     "mission_3_oct_2020": "Find 1 Mollusk",
     "mission_4_oct_2020": "Find 1 Arthropod",

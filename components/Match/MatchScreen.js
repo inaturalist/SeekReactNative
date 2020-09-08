@@ -86,8 +86,17 @@ const MatchScreen = () => {
   const closeFlagModal = useCallback( ( showFailure ) => {
     dispatch( { type: "CLOSE_FLAG" } );
     if ( showFailure && taxon ) {
-      taxon.commonAncestor = null;
-      taxon.speciesSeenImage = null;
+      let { commonAncestor, speciesSeenImage } = taxon;
+
+      // this seems to be causing crashes on certain android devices when undefined
+      if ( commonAncestor ) {
+        commonAncestor = null;
+      }
+
+      if ( speciesSeenImage ) {
+        speciesSeenImage = null;
+      }
+
       dispatch( { type: "MISIDENTIFIED", taxon } );
     }
   }, [taxon] );
@@ -120,6 +129,8 @@ const MatchScreen = () => {
     gradientDark = colors.grayGradientDark;
     gradientLight = colors.grayGradientLight;
   }
+
+  console.log( taxon, "is taxon undefined" );
 
   return (
     <View style={[

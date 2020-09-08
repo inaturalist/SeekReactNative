@@ -52,7 +52,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
     if ( text.includes( ";\n" ) ) {
       const sections = text.split( ":\n\n" );
       header = `${sections[0]}:`;
-      secondLevelBullets = sections[1].split( ";\n" );
+      secondLevelBullets = sections[1] ? sections[1].split( ";\n" ) : null; // account for case where this doesn't exist
     } else {
       missionNoSubBullets = text;
     }

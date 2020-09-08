@@ -8,7 +8,8 @@
     "no_location": "Kokapenik gabe",
     "no_species": "Antza denez ez duzu espezie nahiko behatuta inguruan! Saiatu zure kokapena aldatzen edo iragazkiak zabaltzen.",
     "no_gps": "GPS seinalerik ez da aurkitu.",
-    "location_timeout": "Zure kokapenaren eskaera denboraz kanpo geratu da. Saiatu berriro, mesedez."
+    "location_timeout": "Zure kokapenaren eskaera denboraz kanpo geratu da. Saiatu berriro, mesedez.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Hasi erabiltzen",
@@ -22,16 +23,16 @@
     "take_challenge": "Erronka hartu",
     "continue_challenge": "Erronka jarraitu",
     "view_all": "Erronka guztiak ikusi",
-    "new_join": "Gehitu behaketak Seek Kamararekin Erronka txapa irabazteko!"
+    "new_join": "Gehitu behaketak Seek Kamerarekin Erronka txapa irabazteko!"
   },
   "notifications": {
     "header": "Ohartarazpenak",
     "learn_more": "iNaturalist-i buruz gehiago ikasi",
     "earned_badges": "Txapa piloa irabazi dituzu! Agian iNaturalist gustuko duzu!",
     "almost_finished": "Ia-ia amaitu duzu erronka honekin!",
-    "view_progress": "Jarrai ezazu zure aurrerapena",
+    "view_progress": "Ikusi zure aurrerapena",
     "challenge_completed": "Zorionak! Erronka amaitu duzu",
-    "view_challenges": "Erronka ikusi",
+    "view_challenges": "Ikusi erronka",
     "none": "Ez duzu oharrik oraindik!",
     "about": "Hemen ikusiko dituzu zeintzuk diren erronka berriak eskuragarri jartzen direnean, Seeken berrikuntzak eta bestelako informazio interesgarria.",
     "new_challenge": "Erronka berria dago eskuragarri!"
@@ -306,7 +307,9 @@
     "error_photos": "Ez da argazkirik aurkitu album honetan. Saia zaitez beste album bat aukeratzen.",
     "error_version": "Seeken AR Kamarak iOS 11.0+ behar du. Zure gailua {{OS}} OS bertsioarekin dabil.",
     "error_cameraManager": "Barka, Kamera Kudeatzailea ez da kargatu",
-    "error_photoError": "Barka, argazkiaren objektua ez da aurkitu"
+    "error_photoError": "Barka, argazkiaren objektua ez da aurkitu",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Argazkiak",

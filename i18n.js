@@ -11,6 +11,7 @@ import de from "./translations/de.json";
 import en from "./translations/en.json";
 import es from "./translations/es.json";
 import esMX from "./translations/es-MX.json";
+import eu from "./translations/eu.json";
 import fi from "./translations/fi.json";
 import fr from "./translations/fr.json";
 import he from "./translations/he.json";
@@ -36,6 +37,7 @@ i18n.translations = {
   en,
   es,
   "es-MX": esMX,
+  eu,
   fi,
   fr,
   he,

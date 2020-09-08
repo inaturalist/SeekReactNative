@@ -9,19 +9,19 @@ import styles from "../../styles/match/match";
 import CustomBackArrow from "../UIComponents/Buttons/CustomBackArrow";
 
 type Props = {
-  gradientColorDark: string,
-  gradientColorLight: string,
+  gradientDark: string,
+  gradientLight: string,
   setNavigationPath: Function,
-  userImage: Object,
-  speciesSeenImage: Object
+  image: Object,
+  taxon: Object
 }
 
 const MatchHeader = ( {
-  gradientColorDark,
-  gradientColorLight,
+  gradientDark,
+  gradientLight,
   setNavigationPath,
-  userImage,
-  speciesSeenImage
+  image,
+  taxon
 }: Props ) => {
   useFocusEffect(
     useCallback( () => {
@@ -39,7 +39,7 @@ const MatchHeader = ( {
   return (
     // $FlowFixMe
     <LinearGradient
-      colors={[gradientColorDark, gradientColorLight]}
+      colors={[gradientDark, gradientLight]}
       style={styles.header}
     >
       <CustomBackArrow
@@ -48,12 +48,12 @@ const MatchHeader = ( {
       />
       <View style={[styles.imageContainer, styles.buttonContainer]}>
         <Image
-          source={{ uri: userImage }}
+          source={{ uri: image.uri }}
           style={styles.imageCell}
         />
-        {speciesSeenImage && (
+        {( taxon && taxon.speciesSeenImage ) && (
           <Image
-            source={{ uri: speciesSeenImage }}
+            source={{ uri: taxon.speciesSeenImage }}
             style={[styles.imageCell, styles.marginLeft]}
           />
         )}

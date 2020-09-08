@@ -95,45 +95,37 @@ const MatchScreen = () => {
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 
   const renderSpeciesText = () => {
-    const {
-      taxaName,
-      commonAncestor,
-      scientificName
-    } = taxon;
-
-    let speciesText = null;
+    const { taxaName, commonAncestor, scientificName } = taxon;
 
     if ( seenDate || ( taxaName && match ) ) {
-      speciesText = !scientificNames ? taxaName : scientificName;
+      return !scientificNames ? taxaName : scientificName;
     } else if ( commonAncestor ) {
-      speciesText = !scientificNames ? commonAncestor : scientificName;
+      return !scientificNames ? commonAncestor : scientificName;
     }
-
-    return speciesText;
   };
 
-  const { speciesSeenImage, commonAncestor } = taxon;
+  const { commonAncestor } = taxon;
 
-  let gradientColorDark;
-  let gradientColorLight;
+  let gradientDark;
+  let gradientLight;
   const speciesText = renderSpeciesText();
 
   if ( seenDate || match ) {
-    gradientColorDark = colors.greenGradientDark;
-    gradientColorLight = colors.seekForestGreen;
+    gradientDark = colors.greenGradientDark;
+    gradientLight = colors.seekForestGreen;
   } else if ( commonAncestor ) {
-    gradientColorDark = colors.tealGradientDark;
-    gradientColorLight = colors.seekTeal;
+    gradientDark = colors.tealGradientDark;
+    gradientLight = colors.seekTeal;
   } else {
-    gradientColorDark = colors.grayGradientDark;
-    gradientColorLight = colors.grayGradientLight;
+    gradientDark = colors.grayGradientDark;
+    gradientLight = colors.grayGradientLight;
   }
 
   return (
     <View style={[
       styles.container, {
         paddingTop: insets.top,
-        backgroundColor: gradientColorDark
+        backgroundColor: gradientDark
       }
     ]}
     >
@@ -147,13 +139,13 @@ const MatchScreen = () => {
         setNavigationPath={setNavigationPath}
       />
       <ScrollView ref={scrollView} contentContainerStyle={styles.whiteContainer}>
-        <Spacer backgroundColor={gradientColorDark} />
+        <Spacer backgroundColor={gradientDark} />
         <MatchHeader
-          gradientColorDark={gradientColorDark}
-          gradientColorLight={gradientColorLight}
+          gradientDark={gradientDark}
+          gradientLight={gradientLight}
           setNavigationPath={setNavigationPath}
-          userImage={image.uri}
-          speciesSeenImage={taxon && speciesSeenImage ? speciesSeenImage : null}
+          image={image}
+          taxon={taxon}
         />
         <MatchContainer
           image={image}
@@ -162,7 +154,7 @@ const MatchScreen = () => {
           match={match}
           speciesText={speciesText}
           setNavigationPath={setNavigationPath}
-          gradientColorLight={gradientColorLight}
+          gradientLight={gradientLight}
         />
         <Padding />
       </ScrollView>

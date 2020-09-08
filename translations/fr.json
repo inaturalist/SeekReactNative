@@ -8,7 +8,8 @@
     "no_location": "Localisation inconnue",
     "no_species": "Il semble que peu d’espèces aient été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces.",
     "no_gps": "Signal GPS introuvable.",
-    "location_timeout": "Votre demande de localisation a expiré. Merci de réessayer."
+    "location_timeout": "Votre demande de localisation a expiré. Merci de réessayer.",
+    "location_settings": "La localisation n'est pas activée ou est impossible pour cette opération."
   },
   "get_started": {
     "header": "Démarrer",
@@ -306,7 +307,9 @@
     "error_photos": "Aucune photo n'a été trouvée dans cet album. Essayez de sélectionner un autre album.",
     "error_version": "La caméra de réalité augmentée de Seek nécessite iOS 11.0+. Votre appareil utilise la version OS {{OS}}.",
     "error_cameraManager": "Désolé, le gestionnaire de caméra n'a pas réussi à charger.",
-    "error_photoError": "Désolé, l'objet photo n'a pas été trouvé"
+    "error_photoError": "Désolé, l'objet photo n'a pas été trouvé",
+    "plant_filter": "Plantes uniquement",
+    "non_plant_filter": "Non-plante seulement"
   },
   "gallery": {
     "label": " Photos",
@@ -431,7 +434,7 @@
     "not_seen": "Vous n'avez encore observé aucun(e) {{iconicTaxon}} !",
     "search": "Rechercher des observations",
     "search_empty": "Aucune observation trouvée avec ce terme de recherche.",
-    "reset_search": "Reset search"
+    "reset_search": "Réinitialiser la recherche"
   },
   "species_detail": {
     "near": "A proximité",
@@ -624,25 +627,25 @@
     "july_2020_description": "Les rivières sont une plaque tournante de la biodiversité. Accueillant des microinvertébrés jusqu'aux grands vertébrés, les rivières aident des organismes variés à prospérer.",
     "action_july_2020": "Lorsque vous êtes près d'un corps, quels organismes remarquez-vous ? Quelles espèces nagent dans l'eau ? Quelles espèces la survolent ? Est-ce qu'il y a des organismes dans l'eau que vous ne pouvez pas voir ?",
     "pollinator": "Défi Pollinisateur",
-    "mission_1_aug_2020": "Find 2 plants in the order Lamiales (Mints, Plantains, Olives, and Allies)",
-    "mission_2_aug_2020": "Find 1 plant from the family Asteraceae (Sunflowers, Daisies, Asters, and Allies)",
-    "mission_3_aug_2020": "Find 1 plant from the order Rosales (Roses, Elms, Figs, and Allies)",
-    "mission_4_aug_2020": "Find 2 insects from the orders:\n\nHymenoptera (Ants, Bees, Wasps, and Sawflies);\nLepidoptera (Butterflies and Moths);\nBeetles (Coleoptera);\nFlies (Diptera)",
+    "mission_1_aug_2020": "Trouver 2 plantes de l'ordre des Lamiales (Menthe, Plantain, Olives et apparentés)",
+    "mission_2_aug_2020": "Trouver 1 plante de la famille des Asteraceae (Tournesol, Chrysanthèmes, Asters et apparentées)",
+    "mission_3_aug_2020": "Trouver 1 plante de l'ordre des Rosales (Roses, Ormes, Figuiers et apparentés)",
+    "mission_4_aug_2020": "Trouver 2 insectes des ordres :\n\nHymenoptera (Fourmis, Abeilles, Guêpes et Symphytes);\nLepidoptera (Papillons de jour et de nuit);\nScarabées (Coleoptera)\nMouches (Diptera)",
     "aug_2020_description": "Les pollinisateurs aident à produire les aliments que nous mangeons et les fleurs que nous sentons ! En transférant le pollen entre les différentes plantes, les pollinisateurs jouent un rôle crucial dans la reproduction des plantes.",
     "action_aug_2020": "Faites attention aux pollinisateurs qui vous entourent. Y a-t-il des papillons ou des abeilles qui visitent les fleurs de votre jardin ou votre quartier ?",
     "herbivore": "Défi Herbivore",
     "mission_1_sept_2020": "Trouvez 10 plantes",
     "mission_2_sept_2020": "Trouvez 1 mammifère",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
+    "mission_3_sept_2020": "Trouver 2 insectes des ordres :\n\nLepidoptera (Papillons de jour et de nuit);\nHemiptera (Punaises, Membracides et Cigales, Pucerons, et apparentés)",
     "sept_2020_description": "Les herbivores sont des animaux s'étant adaptés pour ne se nourrir que de plantes. Les mammifères herbivores ont souvent de systèmes digestifs complexes leur permettant de liquéfier de grandes quantités de végétaux. Par exemple, les vaches ont pas moins de 4 estomacs. D'autres mammifères sont frugivores (chauve-souris roussettes) ou mangent des graines (écureuils). Beaucoup d'insectes se sont aussi adaptés pour manger différentes parties de la plantes, tels que les chenilles mangeuses de feuilles ou les fulgores qui boivent la sève des arbres.",
     "action_sept_2020": "Faites des recherches sur l'impact de votre consommation de viande sur l'environnement. Comment pourriez-vous réduire cet impact ?\n\nAlternative : Quel genre de plantes mangez-vous ? De quelles parties de la plante viennent ces aliments ? Pouvez-vous trouver des animaux qui mangent les mêmes plantes ?",
-    "scavenger": "Scavenger Challenge",
+    "scavenger": "Défi du charognard",
     "mission_1_oct_2020": "Trouvez 4 champignons",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_2_oct_2020": "Trouver un organisme des ordres :\n\nAccipitriformes (Faucons, Aigles et Milans)\nCathartiformes (Vautours)\nCarnivora (Carnivores)",
     "mission_3_oct_2020": "Trouvez 1 Mollusque",
     "mission_4_oct_2020": "Trouvez 1 Arthropode",
-    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
+    "oct_2020_description": "Les charognards et les décomposeurs sont essentiels à la vie sur notre planète. Ils aident à recycler les nutriments et décomposer la matière qui ne l'aurais pas été autrement.",
+    "action_oct_2020": "Trouve quel type de décomposeurs et de charognards vivent dans la zone autour de toi. Comment aident-ils l'environnement avec leur action ?"
   },
   "replace_photo": {
     "header": "Remplacer la photo ?",
@@ -653,7 +656,7 @@
   "inat_card": {
     "header": "iNaturalist",
     "header_1": "Nous pensons que vous aimerez vraiment iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
+    "text_1": "apprenez à mieux connaître les organismes autour de vous",
     "text_2": "rejoignez une communauté aussi fascinée par la nature que vous",
     "text_3": "partagez vos observations avec la communauté, et partagez même vos observations via Seek !",
     "download": "Commencez par télécharger l'application iNaturalist ou visiter inaturalist.org.\n\nVous avez déjà un compte iNaturalist ? Connectez-vous à Seek avec votre compte existant !"

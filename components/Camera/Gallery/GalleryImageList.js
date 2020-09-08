@@ -1,29 +1,32 @@
 // @flow
 
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 
-import CameraError from "../CameraError";
 import styles from "../../../styles/camera/gallery";
-import { dimensions } from "../../../styles/global";
+import { dimensions, colors } from "../../../styles/global";
 import GalleryImage from "./GalleryImage";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 type Props = {
   photos: Array<Object>,
-  error: ?string,
   setPhotoParams: Function,
   startLoading: Function,
   loading: boolean
 }
 
-const GalleryContainer = ( {
+const GalleryImageList = ( {
   setPhotoParams,
-  error,
   photos,
   startLoading,
   loading
 }: Props ) => {
-  const renderGallery = () => (
+  const renderLoading = () => <LoadingWheel color={colors.darkGray} />;
+  const renderPhoto = ( { item } ) => (
+    <GalleryImage item={item} startLoading={startLoading} loading={loading} />
+  );
+
+  return (
     <FlatList
       data={photos}
       contentContainerStyle={styles.grayContainer}
@@ -39,18 +42,11 @@ const GalleryContainer = ( {
       keyExtractor={( item, index ) => `${item}${index}`}
       numColumns={4}
       onEndReachedThreshold={1}
-      onEndReached={() => setPhotoParams()}
-      renderItem={( { item } ) => (
-        <GalleryImage item={item} startLoading={startLoading} loading={loading} />
-      )}
+      onEndReached={setPhotoParams}
+      ListEmptyComponent={renderLoading}
+      renderItem={renderPhoto}
     />
-  );
-
-  return (
-    <>
-      {error ? <CameraError error={error} errorEvent={null} /> : renderGallery()}
-    </>
   );
 };
 
-export default GalleryContainer;
+export default GalleryImageList;

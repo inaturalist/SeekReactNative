@@ -1,11 +1,7 @@
 // @flow
 
 import React from "react";
-import {
-  Platform,
-  Image,
-  TouchableOpacity
-} from "react-native";
+import { Platform, Image, TouchableOpacity } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
 
@@ -82,7 +78,6 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
         selectAndResizeImage( item.node );
       }}
       style={styles.button}
-      underlayColor="transparent"
       disabled={loading}
     >
       <Image

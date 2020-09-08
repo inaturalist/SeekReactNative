@@ -18,14 +18,22 @@ const WhiteModal = ( {
   closeModal,
   noButton,
   width
-}: Props ) => (
-  <>
-    <View style={[styles.innerContainer, width && { width }]}>
-      {children}
-    </View>
-    {!noButton && <BackButton closeModal={closeModal} />}
-  </>
-);
+}: Props ) => {
+  let widthStyle = null;
+
+  if ( width ) {
+    widthStyle = { width };
+  }
+
+  return (
+    <>
+      <View style={[styles.innerContainer, widthStyle]}>
+        {children}
+      </View>
+      {!noButton && <BackButton closeModal={closeModal} />}
+    </>
+  );
+};
 
 WhiteModal.defaultProps = {
   noButton: false,

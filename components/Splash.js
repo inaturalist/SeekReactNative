@@ -1,3 +1,5 @@
+// @flow
+
 import React, { useEffect, useCallback } from "react";
 import {
   Image,
@@ -75,6 +77,7 @@ const SplashScreen = () => {
   return (
     <ImageBackground source={backgrounds.splash} style={styles.backgroundImage}>
       <Image source={logos.seek} style={styles.logo} />
+      {/* $FlowFixMe */}
       <Image source={logos.casNatGeo} tintColor={colors.white} style={styles.joint} />
     </ImageBackground>
   );

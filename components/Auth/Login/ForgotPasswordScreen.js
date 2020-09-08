@@ -17,7 +17,7 @@ import ScrollWithHeader from "../../UIComponents/Screens/ScrollWithHeader";
 
 const ForgotPasswordScreen = () => {
   const { navigate } = useNavigation();
-  const [email, setEmail] = useState( null );
+  const [email, setEmail] = useState( "" );
   const [error, setError] = useState( false );
 
   const emailForgotPassword = () => {

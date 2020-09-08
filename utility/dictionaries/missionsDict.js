@@ -157,7 +157,7 @@ const missions = {
     2: {
       number: 2,
       types: ["Lepidoptera", "Hemiptera"]
-    },
+    }
   }
 };
 

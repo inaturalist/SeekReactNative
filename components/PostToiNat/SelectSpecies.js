@@ -114,6 +114,7 @@ const SelectSpecies = ( {
           <Image source={{ uri: image }} style={styles.image} />
         </View>
         <View style={styles.row}>
+          {/* $FlowFixMe */}
           <Image
             source={posting.searchGreen}
             tintColor={colors.white}

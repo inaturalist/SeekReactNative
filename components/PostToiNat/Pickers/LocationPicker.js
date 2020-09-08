@@ -51,38 +51,37 @@ const LocationPicker = ( {
     setAccuracy( estimatedAccuracy );
   };
 
+  const setCoords = ( coords ) => {
+    if ( coords ) {
+      const lat = coords.latitude;
+      const long = coords.longitude;
+      const newAccuracy = coords.accuracy;
+
+      setRegion( {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta,
+        longitudeDelta
+      } );
+      setAccuracy( newAccuracy );
+    } else {
+      setRegion( {
+        latitude: 37.77,
+        longitude: -122.42,
+        latitudeDelta,
+        longitudeDelta
+      } );
+    }
+  };
+
   const returnToUserLocation = useCallback( () => {
     fetchUserLocation( true ).then( ( coords ) => {
-      if ( coords ) {
-        const lat = coords.latitude;
-        const long = coords.longitude;
-        const newAccuracy = coords.accuracy;
-
-        setRegion( {
-          latitude: lat,
-          longitude: long,
-          latitudeDelta,
-          longitudeDelta
-        } );
-        setAccuracy( newAccuracy );
-      }
+      setCoords( coords );
     } ).catch( ( err ) => {
       if ( err ) {
         fetchUserLocation( false ).then( ( coords ) => {
-          if ( coords ) {
-            const lat = coords.latitude;
-            const long = coords.longitude;
-            const newAccuracy = coords.accuracy;
-
-            setRegion( {
-              latitude: lat,
-              longitude: long,
-              latitudeDelta,
-              longitudeDelta
-            } );
-            setAccuracy( newAccuracy );
-          }
-        } );
+          setCoords( coords );
+        } ).catch( () => setCoords() );
       }
     } );
   }, [] );
@@ -119,12 +118,14 @@ const LocationPicker = ( {
         </TouchableOpacity>
         <Text style={headerStyles.text}>{i18n.t( "posting.edit_location" ).toLocaleUpperCase()}</Text>
       </View>
-      <LocationMap
-        onRegionChange={handleRegionChange}
-        posting
-        region={region}
-        returnToUserLocation={returnToUserLocation}
-      />
+      {region.latitude && (
+        <LocationMap
+          onRegionChange={handleRegionChange}
+          posting
+          region={region}
+          returnToUserLocation={returnToUserLocation}
+        />
+      )}
       <View style={styles.footer}>
         <GreenButton
           handlePress={() => {

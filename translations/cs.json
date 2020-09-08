@@ -8,7 +8,8 @@
     "no_location": "Neznámá poloha",
     "no_species": "Zdá se, že v blízkosti nebylo pozorováno mnoho druhů! Zkuste změnit polohu nebo rozšířit filtr druhů.",
     "no_gps": "GPS signál nebyl nalezen.",
-    "location_timeout": "Vypršel časový limit požadavku na umístění. Zkuste to prosím znovu."
+    "location_timeout": "Vypršel časový limit požadavku na umístění. Zkuste to prosím znovu.",
+    "location_settings": "Služba určování polohy není povolena nebo režim určování polohy není vhodný pro aktuální požadavek"
   },
   "get_started": {
     "header": "Začněme",
@@ -306,7 +307,9 @@
     "error_photos": "V tomto albu nebyly nalezeny žádné fotografie. Zkuste vybrat jiné album.",
     "error_version": "Seek AR Camera vyžaduje iOS 11.0+. Vaše zařízení běží na OS verzi {{OS}}.",
     "error_cameraManager": "Omlouváme se, ale nepodařilo se načíst správce fotoaparátu",
-    "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen"
+    "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen",
+    "plant_filter": "Pouze rostliny",
+    "non_plant_filter": "Bez rostlin"
   },
   "gallery": {
     "label": "Fotografie",

@@ -8,7 +8,8 @@
     "no_location": "Kein Standort",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuche, deinen Standort zu ändern oder den Artenfilter zu erweitern.",
     "no_gps": "GPS-Signal nicht gefunden.",
-    "location_timeout": "Die Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut."
+    "location_timeout": "Die Standortanfrage hat das Zeitlimit erreicht. Bitte versuche es erneut.",
+    "location_settings": "Standortdienst ist nicht aktiviert oder der Standortmodus ist nicht geeignet für die aktuelle Anfrage"
   },
   "get_started": {
     "header": "Erste Schritte",
@@ -306,7 +307,9 @@
     "error_photos": "Es wurden keine Fotos in diesem Fotoalbum gefunden. Versuche ein anderes Album auszuwählen.",
     "error_version": "Die AR Kamera von Seek benötigt iOS 11.0+. Dein Gerät benutzt OS-Version {{OS}}.",
     "error_cameraManager": "Der Kamera-Manager konnte nicht geladen werden",
-    "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden"
+    "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden",
+    "plant_filter": "Nur Pflanzen",
+    "non_plant_filter": "Nur Nicht-Pflanzen"
   },
   "gallery": {
     "label": "Fotos",
@@ -630,10 +633,10 @@
     "mission_4_aug_2020": "Finde 2 Insekten der folgenden Ordnungen:\n\nHymenoptera (Ameisen, Bienen, Hummeln und Wespen);\nLepidoptera (Schmetterlinge und Motten);\nColeoptera (Käfer);\nDiptera (Fliegen)",
     "aug_2020_description": "Durch Bestäuber entwickeln sich Pflanzen, die uns als Nahrung dienen und Blumen, an denen wir uns erfreuen! Mittels Übertragung von Pollen zwischen verschiedenen Pflanzen mit ihren Körpern helfen Bestäuber bei der Vermehrung vieler Pflanzenarten.",
     "action_aug_2020": "Achte auf die Bestäuber in deiner Gegend. Welche Arten von Bienen oder Schmetterlingen gibt es, die Blumen in deinem Garten oder in der Nachbarschaft besuchen?",
-    "herbivore": "Pflanzenfresser-Mission",
+    "herbivore": "Pflanzenfresser- Mission",
     "mission_1_sept_2020": "Finde 10 Pflanzen",
     "mission_2_sept_2020": "Finde 1 Säugetier",
-    "mission_3_sept_2020": "Finde 2 Insekten aus diesen Ordnungen:\nLepidoptera (Schmetterlinge und Motten);\nHemiptera (Wanzen, Zikaden, Blattläuse und Verwandte)",
+    "mission_3_sept_2020": "Finde 2 Insekten aus diesen Ordnungen:\n\nLepidoptera (Schmetterlinge und Motten);\nHemiptera (Wanzen, Zikaden, Blattläuse und Verwandte)",
     "sept_2020_description": "Herbivore sind Tiere, die sich an pflanzliche Nahrung angepasst haben. Pflanzenfressende Säugetiere verfügen oft über komplexe Verdauungssysteme, die es ihnen ermöglichen, große Mengen an Pflanzenmaterial zu zerkleinern. So haben Kühe tatsächlich 4 Mägen, um die von ihnen verzehrten Pflanzen zu verdauuen. Andere Säugetiere haben sich auf Obst (Flughunde) oder Samen (Eichhörnchen) spezialisiert. Viele Insekten haben sich ebenfalls daran angepasst, nur bestimmte Teile von Pflanzen zu fressen - wie z.B. Raupen, die Blätter fressen, oder Zikaden, die Pflanzensäfte aus den Stängeln saugen.",
     "action_sept_2020": "Mach dich schlau darüber, wie sich der Fleischkonsum auf die Umwelt auswirkt. Welche Schritte kannst du unternehmen, um deine eigenen Auswirkungen zu verringern?\n\nAlternative: Welche Arten von Pflanzen isst du? Aus welchen Teilen der Pflanze kommen sie? Kannst du herausfinden, welche Tierarten diese Pflanzen auch gerne essen?",
     "scavenger": "Aasfresser-Mission",

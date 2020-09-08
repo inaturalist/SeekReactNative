@@ -1,0 +1,1 @@
+- Correzioni di bug, nuova Seek album fotografico nel rullino fotografico, lingua basca

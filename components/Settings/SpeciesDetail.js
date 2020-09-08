@@ -39,7 +39,7 @@ const SpeciesDetail = () => {
         <View style={styles.marginMedium}>
           {radioButtons.map( ( obj, i ) => (
             <RadioButton
-              key={`${obj}${i}`}
+              key={`${obj.label}${i}`}
               style={styles.radioMargin}
             >
               <RadioButtonInput

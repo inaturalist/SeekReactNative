@@ -74,6 +74,7 @@ const Footer = () => {
               onPress={() => navigation.navigate( "iNatStats" )}
               style={styles.rightIcon}
             >
+              {/* $FlowFixMe */}
               <Image source={logos.bird} tintColor={colors.seekForestGreen} style={styles.bird} />
             </TouchableOpacity>
           ) : (

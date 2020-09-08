@@ -8,7 +8,8 @@
     "no_location": "Brak lokalizacji",
     "no_species": "Wygląda na to, że w pobliżu nie zaobserwowano zbyt wielu gatunków! Spróbuj zmienić swoje położenie lub rozszerzyć filtr gatunków.",
     "no_gps": "Nie znaleziono sygnału GPS.",
-    "location_timeout": "Upłynął limit czasu na określenie lokalizacji. Spróbuj ponownie."
+    "location_timeout": "Upłynął limit czasu na określenie lokalizacji. Spróbuj ponownie.",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Rozpocznij",
@@ -38,8 +39,8 @@
   },
   "login": {
     "log_in": "Zaloguj się z iNaturalist",
-    "sign_up": "Zarejesruj się w iNaturalist",
-    "about": " Logując się z iNaturalist, możesz poprzez Seek wysyłać swoje obserwacje to tej społeczności.",
+    "sign_up": "Zarejestruj się w iNaturalist",
+    "about": " Logując się z iNaturalist, możesz poprzez Seek wysyłać swoje obserwacje do tej społeczności.",
     "skip_login": "Kontynuuj bez logowania",
     "error_email": "Proszę wprowadź poprawny adres e-mail",
     "error_credentials": "Nieprawidłowa nazwa użytkownika lub hasło",
@@ -306,7 +307,9 @@
     "error_photos": "W tym albumie nie znaleziono żadnych zdjęć. Spróbuj wybrać inny album.",
     "error_version": "Aparat AR aplikacji Seek wymaga systemu iOS 11.0 lub nowszego. Twoje urządzenie posiada wersję {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Zdjęcia",
@@ -391,15 +394,15 @@
     "plant_1": "1 roślina!",
     "plant_5": "5 roślin!",
     "plant_20": "20 roślin!",
-    "name_bird_1": "Brązowa Ozdnaka Ptaki",
-    "name_bird_5": "Srebrna Ozdnaka Ptaki",
-    "name_bird_15": "Złota Ozdnaka Ptaki",
-    "name_amphibian_1": "Brązowa Ozdnaka Płazy",
+    "name_bird_1": "Brązowa Odznaka Ptaki",
+    "name_bird_5": "Srebrna Odznaka Ptaki",
+    "name_bird_15": "Złota Odznaka Ptaki",
+    "name_amphibian_1": "Brązowa Odznaka Płazy",
     "name_amphibian_5": "Srebrna Ozdnaka Płazy",
     "name_amphibian_15": "Złota Ozdnaka Płazy",
     "name_reptile_1": "Brązowa Ozdnaka Gady",
-    "name_reptile_5": "Srebrna Ozdnaka Gady",
-    "name_reptile_15": "Złota Ozdnaka Gady",
+    "name_reptile_5": "Srebrna Odznaka Gady",
+    "name_reptile_15": "Złota Odznaka Gady",
     "name_mammal_1": "Brązowa Ozdnaka Ssaki",
     "name_mammal_5": "Srebrna Ozdnaka Ssaki",
     "name_mammal_15": "Złota Ozdnaka Ssaki",
@@ -540,7 +543,7 @@
     "captive": "Hodowlany / Uprawiany?",
     "no": "Ten organizm występuje w środowisku naturalnym i nie został wprowadzony do tego miejsca przez ludzi.",
     "yes": "This organism was placed in this location by humans. This applies to things like garden plants, pets, and zoo animals.",
-    "addendum": "*Dodawanie obserwacji do projektów nie jest obsługiwane w aplikacji Seek. Jeśli chcesz dodawać swoje obserwacje do projektów, możesz to zróbić na iNaturalist.org lub skorzystać z aplikacji iNaturalist."
+    "addendum": "*Dodawanie obserwacji do projektów nie jest obsługiwane w aplikacji Seek. Jeśli chcesz dodawać swoje obserwacje do projektów, możesz to zrobić na iNaturalist.org lub skorzystać z aplikacji iNaturalist."
   },
   "delete": {
     "header": "Usunąć gatunek?",
@@ -631,15 +634,15 @@
     "aug_2020_description": "Dzięki zapylaczom mamy jedzenie oraz kwiaty, które możemy podziwiać. Poprzez przenoszenie na swoich ciałach pyłków pomiędzy roślinami, zapylacze pomagają rozmnażać się wielu roślinom.",
     "action_aug_2020": "Zwróć uwagę na zapylaczy wokół Siebie. Czy w Twoim ogrodzie lub sąsiedztwie są pszczoły lub motyle odwiedzające kwiaty?",
     "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
+    "mission_1_sept_2020": "Znajdź 10 roślin",
+    "mission_2_sept_2020": "Znajdź 1 ssaka",
     "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
     "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
     "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
     "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
+    "mission_1_oct_2020": "Znajdź 4 grzyby",
     "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
+    "mission_3_oct_2020": "Znajdź 1 mięczaka",
     "mission_4_oct_2020": "Find 1 Arthropod",
     "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
     "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"

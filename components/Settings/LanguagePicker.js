@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Text, View } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
@@ -21,39 +21,36 @@ const LanguagePicker = () => {
   ) );
 
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
-  const [displayLanguage, setDisplayLanguage] = useState( null );
+
+  const chooseDisplayLanguage = () => {
+    if ( preferredLanguage === "device" ) {
+      return deviceLanguageSupported ? deviceLanguage : "en";
+    }
+    return preferredLanguage;
+  };
+
+  const displayLanguage = chooseDisplayLanguage();
   const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
 
   const handleValueChange = ( value ) => {
+    // this prevents the double render on new Android install
+    // without this, the user changes the language
+    // and handleValueChange is immediately called with "en"
     if ( value === displayLanguage && preferredLanguage === "device" ) {
-      // this prevents the double render on new Android install
-      // without this, the user changes the language
-      // and handleValueChange is immediately called with "en"
-      return;
-    }
-    if ( value === preferredLanguage ) { // only update state if new language is desired
       return;
     }
 
-    i18n.locale = value; // this changes translations on Settings screen in real-time
+    // only update state if new language is desired
+    if ( value === preferredLanguage ) {
+      return;
+    }
+
+    // this changes translations on Settings screen in real-time
+    i18n.locale = value;
 
     toggleLanguage( value );
     toggleLanguagePreference();
   };
-
-  useEffect( () => {
-    const chooseDisplayLanguage = () => {
-      if ( preferredLanguage === "device" ) {
-        setDisplayLanguage( deviceLanguageSupported ? deviceLanguage : "en" );
-      } else {
-        setDisplayLanguage( preferredLanguage );
-      }
-    };
-
-    if ( preferredLanguage ) {
-      chooseDisplayLanguage();
-    }
-  }, [preferredLanguage, displayLanguage, deviceLanguage, deviceLanguageSupported] );
 
   return (
     <View style={styles.marginTop}>
@@ -70,21 +67,21 @@ const LanguagePicker = () => {
           <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
         </View>
       )}
-      {displayLanguage && (
-        <Picker
-          handleValueChange={handleValueChange}
-          selectedValue={displayLanguage}
-          itemList={localeList}
-        >
-          <View style={[styles.marginGreenButton, styles.center]}>
-            <View style={styles.greenButton}>
-              <Text style={styles.languageText}>
-                {languages[displayLanguage].toLocaleUpperCase()}
-              </Text>
-            </View>
+      <Picker
+        handleValueChange={handleValueChange}
+        selectedValue={displayLanguage}
+        itemList={localeList}
+        testId="picker"
+        disabled={!displayLanguage}
+      >
+        <View style={[styles.marginGreenButton, styles.center]}>
+          <View style={styles.greenButton}>
+            <Text style={styles.languageText}>
+              {displayLanguage && languages[displayLanguage].toLocaleUpperCase()}
+            </Text>
           </View>
-        </Picker>
-      )}
+        </View>
+      </Picker>
     </View>
   );
 };

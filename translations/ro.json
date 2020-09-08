@@ -8,7 +8,8 @@
     "no_location": "Fără Locație",
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
     "no_gps": "Semnalul GPS nu a fost găsit.",
-    "location_timeout": "Cererea ta de locație a expirat. Te rugăm să încerci din nou."
+    "location_timeout": "Cererea ta de locație a expirat. Te rugăm să încerci din nou.",
+    "location_settings": "Serviciul de localizare nu este activat sau modul de localizare nu este adecvat cererii actuale"
   },
   "get_started": {
     "header": "Să începem",
@@ -306,7 +307,9 @@
     "error_photos": "Nu s-au găsit fotografii în acest album foto. Încearcă să selectezi un album diferit.",
     "error_version": "Camera Seek AR necesită iOS 11.0+. Aparatul tău rulează versiunea OS {{OS}}.",
     "error_cameraManager": "Ne pare rău, Managerul Camerei n-a putut fi încărcat",
-    "error_photoError": "Ne pare rău, obiectul foto nu a fost găsit"
+    "error_photoError": "Ne pare rău, obiectul foto nu a fost găsit",
+    "plant_filter": "Numai plante",
+    "non_plant_filter": "Numai fără plante"
   },
   "gallery": {
     "label": "Fotografii",

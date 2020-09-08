@@ -43,7 +43,7 @@ const CameraSettings = () => {
       <View style={styles.marginSmall}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
-            key={`${obj}${i}`}
+            key={`${obj.label}${i}`}
             style={styles.radioMargin}
           >
             <RadioButtonInput

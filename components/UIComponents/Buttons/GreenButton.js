@@ -32,25 +32,34 @@ const GreenButton = ( {
   width,
   allowFontScaling,
   disabled
-}: Props ) => (
-  <TouchableOpacity
-    onPress={() => handlePress()}
-    style={[
-      styles.greenButton, color
-      && { backgroundColor: color },
-      login && styles.loginHeight,
-      width && { width }
-    ]}
-    disabled={disabled}
-  >
-    <Text
-      style={[styles.buttonText, { letterSpacing }, { fontSize }]}
-      allowFontScaling={allowFontScaling}
+}: Props ) => {
+  let widthStyle = null;
+
+  if ( width ) {
+    widthStyle = { width };
+  }
+
+  return (
+    <TouchableOpacity
+      onPress={() => handlePress()}
+      style={[
+        styles.greenButton, color
+        && { backgroundColor: color },
+        login && styles.loginHeight,
+        widthStyle
+      ]}
+      disabled={disabled}
+      testID="greenButton"
     >
-      {i18n.t( text ).toLocaleUpperCase()}
-    </Text>
-  </TouchableOpacity>
-);
+      <Text
+        style={[styles.buttonText, { letterSpacing }, { fontSize }]}
+        allowFontScaling={allowFontScaling}
+      >
+        {i18n.t( text ).toLocaleUpperCase()}
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
 GreenButton.defaultProps = {
   fontSize: 18,

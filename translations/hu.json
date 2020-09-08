@@ -8,7 +8,8 @@
     "no_location": "Nincs helyszín",
     "no_species": "Úgy tűnik, a közelben még sok faj nincs felfedezve! Változtasd meg a helyed vagy szélesítsd a faj szűrő beállításait.",
     "no_gps": "A GPS jel nem elérhető.",
-    "location_timeout": "A helylekérésed lejárt. Kérlek, próbáld meg újra!"
+    "location_timeout": "A helylekérésed lejárt. Kérlek, próbáld meg újra!",
+    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
   },
   "get_started": {
     "header": "Kezdjük!",
@@ -306,7 +307,9 @@
     "error_photos": "No photos were found in this photo album. Try selecting a different album.",
     "error_version": "Seek's AR Camera requires iOS 11.0+. Your device is running OS version {{OS}}.",
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
-    "error_photoError": "Sorry, the photo object was not found"
+    "error_photoError": "Sorry, the photo object was not found",
+    "plant_filter": "Plants only",
+    "non_plant_filter": "Non-plants only"
   },
   "gallery": {
     "label": "Photos",

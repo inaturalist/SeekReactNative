@@ -9,7 +9,7 @@ import {
   Keyboard
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -32,7 +32,6 @@ const ScrollWithHeader = ( {
   route,
   loading
 }: Props ) => {
-  const insets = useSafeAreaInsets();
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef( null );
@@ -40,7 +39,7 @@ const ScrollWithHeader = ( {
   useScrollToTop( scrollView, navigation, name );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       {loading ? (
@@ -64,7 +63,7 @@ const ScrollWithHeader = ( {
           {Platform.OS === "ios" && <BottomSpacer />}
         </ScrollView>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

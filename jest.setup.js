@@ -16,10 +16,6 @@ jest.mock( "@react-navigation/native", () => ( {
   useRoute: jest.fn().mockReturnValue( { name: "About" } )
 } ) );
 
-jest.mock( "react-native-safe-area-context", () => ( {
-  useSafeAreaInsets: jest.fn().mockReturnValue( { insets: { top: 1 } } )
-} ) );
-
 jest.mock( "@react-native-community/async-storage", () => mockAsyncStorage );
 
 jest.mock( "react-native-fs", () => ( {

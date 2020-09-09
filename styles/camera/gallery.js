@@ -52,5 +52,6 @@ export default StyleSheet.create( {
   margin: {
     marginLeft: 15
   },
-  row
+  row,
+  padding: 50
 } );

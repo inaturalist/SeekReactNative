@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, Image, View } from "react-native";
 
-// import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/gallery";
 import Picker from "../../UIComponents/Picker";
@@ -27,7 +26,7 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
       itemList={albumNames}
       disabled={albumNames.length <= 1}
     >
-      <View style={[styles.row, styles.center]}>
+      <View style={[styles.row, styles.center, styles.padding]}>
         <Text style={styles.headerText} testID="cameraRollText">
           {album === "All"
             ? albumNames[0].label.toLocaleUpperCase()

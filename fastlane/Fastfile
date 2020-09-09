@@ -10,12 +10,10 @@
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
 
-# Uncomment the line if you want fastlane to automatically update itself
-update_fastlane
-
 fastlane_require "dotenv"
 
 before_all do
+  update_fastlane
   Dotenv.overload ".env"
 end
 

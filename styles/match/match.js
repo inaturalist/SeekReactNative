@@ -8,9 +8,9 @@ import {
 
 export default StyleSheet.create( {
   backButton: {
-    left: 23,
-    paddingBottom: 28,
-    paddingTop: 28,
+    left: 0,
+    paddingHorizontal: 23,
+    paddingVertical: 28,
     position: "absolute",
     zIndex: 1
   },

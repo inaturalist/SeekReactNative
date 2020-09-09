@@ -130,6 +130,8 @@ const ARCameraOverlay = ( {
           <Text style={styles.scanText}>{helpText}</Text>
           {isAndroid && (
             <TouchableOpacity
+              accessibilityLabel={settings[filterIndex].text}
+              accessible
               onPress={toggleFilterIndex}
               style={styles.plantFilterSettings}
             >

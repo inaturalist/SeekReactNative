@@ -45,6 +45,8 @@ const CameraSettings = () => {
           <RadioButton
             key={`${obj.label}${i}`}
             style={styles.radioMargin}
+            accessible
+            accessibilityLabel={`${radioButtons[i].label},${i}`}
           >
             <RadioButtonInput
               obj={obj}
@@ -65,6 +67,8 @@ const CameraSettings = () => {
               onPress={( value ) => updateIndex( value )}
               labelHorizontal
               labelStyle={styles.text}
+              accessible
+              accessibilityLabel={`${radioButtons[i].label}`}
             />
           </RadioButton>
         ) )}

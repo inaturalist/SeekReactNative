@@ -41,6 +41,8 @@ const SpeciesDetail = () => {
             <RadioButton
               key={`${obj.label}${i}`}
               style={styles.radioMargin}
+              accessible
+              accessibilityLabel={`${radioButtons[i].label},${i}`}
             >
               <RadioButtonInput
                 obj={obj}
@@ -61,6 +63,8 @@ const SpeciesDetail = () => {
                 onPress={( value ) => updateIndex( value )}
                 labelHorizontal
                 labelStyle={[styles.text, styles.radioButtonWidth]}
+                accessible
+                accessibilityLabel={`${radioButtons[i].label}`}
               />
             </RadioButton>
           ) )}

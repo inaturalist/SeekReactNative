@@ -9,7 +9,7 @@
     "no_species": "Antza denez ez duzu espezie nahiko behatuta inguruan! Saiatu zure kokapena aldatzen edo iragazkiak zabaltzen.",
     "no_gps": "GPS seinalerik ez da aurkitu.",
     "location_timeout": "Zure kokapenaren eskaera denboraz kanpo geratu da. Saiatu berriro, mesedez.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "Kokapen zerbitzua ez dago gaituta edo kokapena jartzeko modua ez da egokia eskari honetarako"
   },
   "get_started": {
     "header": "Hasi erabiltzen",
@@ -308,8 +308,8 @@
     "error_version": "Seeken AR Kamarak iOS 11.0+ behar du. Zure gailua {{OS}} OS bertsioarekin dabil.",
     "error_cameraManager": "Barka, Kamera Kudeatzailea ez da kargatu",
     "error_photoError": "Barka, argazkiaren objektua ez da aurkitu",
-    "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "plant_filter": "Landareak baino ez",
+    "non_plant_filter": "Landare ez direnak baino ez"
   },
   "gallery": {
     "label": "Argazkiak",

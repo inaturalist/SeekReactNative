@@ -40,7 +40,7 @@ const CameraSettings = () => {
   return (
     <>
       <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
-      <View style={styles.marginSmall}>
+      <View style={styles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
             key={`${obj.label}${i}`}
@@ -73,7 +73,7 @@ const CameraSettings = () => {
           </RadioButton>
         ) )}
       </View>
-      <View style={[styles.row, styles.marginSmall]}>
+      <View style={[styles.row, styles.radioButtonSmallMargin]}>
         <Switch
           style={styles.switch}
           value={autoCapture}

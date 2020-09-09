@@ -53,7 +53,7 @@ const LanguagePicker = () => {
   };
 
   return (
-    <View style={styles.marginTop}>
+    <View style={styles.radioButtonMarginBottom}>
       <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
       {deviceLanguageSupported && (
         <View style={[styles.row, styles.checkboxRow]}>

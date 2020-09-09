@@ -36,7 +36,7 @@ const SpeciesDetail = () => {
         <Text style={styles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</Text>
         <View style={styles.marginSmall} />
         <Text style={styles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</Text>
-        <View style={styles.marginMedium}>
+        <View style={styles.radioButtonSmallMargin}>
           {radioButtons.map( ( obj, i ) => (
             <RadioButton
               key={`${obj.label}${i}`}

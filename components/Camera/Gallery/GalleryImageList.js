@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
 import { dimensions, colors } from "../../../styles/global";

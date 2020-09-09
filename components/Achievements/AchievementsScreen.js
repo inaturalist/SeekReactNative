@@ -1,11 +1,7 @@
 // @flow
 
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity
-} from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
@@ -85,6 +81,11 @@ const AchievementsScreen = () => {
     } );
   }, [navigation] );
 
+  const navToObservations = useCallback( () => {
+    setRoute( "Achievements" );
+    navigation.navigate( "Observations" );
+  }, [navigation] );
+
   return (
     <ScrollWithHeader header="badges.achievements" loading={loading}>
       <Spacer backgroundColor={colors.greenGradientDark} />
@@ -99,10 +100,7 @@ const AchievementsScreen = () => {
       <ChallengeBadges />
       <View style={[styles.row, styles.center]}>
         <TouchableOpacity
-          onPress={() => {
-            setRoute( "Achievements" );
-            navigation.navigate( "Observations" );
-          }}
+          onPress={navToObservations}
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />

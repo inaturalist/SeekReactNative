@@ -1,115 +1,56 @@
-import React, { Component } from "react";
+// @flow
+
+import React, { useState } from "react";
 import {
   Text,
   TouchableOpacity,
   Image,
   View
 } from "react-native";
-import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../../i18n";
 import icons from "../../../assets/icons";
 import styles from "../../../styles/home/speciesNearby";
+import Picker from "../../../components/UIComponents/Picker";
 
 type Props = {
   +updateTaxaType: Function,
   +error: ?string
 }
 
-class TaxonPicker extends Component<Props> {
-  constructor() {
-    super();
+const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
+  const [taxonType, setTaxonType] = useState( "all" );
+  const list = ["all", "plants", "amphibians", "fungi", "fish", "reptiles", "arachnids", "birds", "insects", "mollusks", "mammals"];
 
-    this.inputRefs = {};
+  const types = list.map( ( item ) => ( {
+    label: i18n.t( `taxon_picker.${item}` ).toLocaleUpperCase(),
+    value: item
+  } ) );
 
-    this.state = {
-      taxonType: "all",
-      types: [
-        {
-          label: i18n.t( "taxon_picker.all" ).toLocaleUpperCase(),
-          value: "all"
-        },
-        {
-          label: i18n.t( "taxon_picker.plants" ).toLocaleUpperCase(),
-          value: "plants"
-        },
-        {
-          label: i18n.t( "taxon_picker.amphibians" ).toLocaleUpperCase(),
-          value: "amphibians"
-        },
-        {
-          label: i18n.t( "taxon_picker.fungi" ).toLocaleUpperCase(),
-          value: "fungi"
-        },
-        {
-          label: i18n.t( "taxon_picker.fish" ).toLocaleUpperCase(),
-          value: "fish"
-        },
-        {
-          label: i18n.t( "taxon_picker.reptiles" ).toLocaleUpperCase(),
-          value: "reptiles"
-        },
-        {
-          label: i18n.t( "taxon_picker.arachnids" ).toLocaleUpperCase(),
-          value: "arachnids"
-        },
-        {
-          label: i18n.t( "taxon_picker.birds" ).toLocaleUpperCase(),
-          value: "birds"
-        },
-        {
-          label: i18n.t( "taxon_picker.insects" ).toLocaleUpperCase(),
-          value: "insects"
-        },
-        {
-          label: i18n.t( "taxon_picker.mollusks" ).toLocaleUpperCase(),
-          value: "mollusks"
-        },
-        {
-          label: i18n.t( "taxon_picker.mammals" ).toLocaleUpperCase(),
-          value: "mammals"
-        }
-      ]
-    };
-  }
+  const handleValueChange = ( value ) => {
+    setTaxonType( value );
+    updateTaxaType( value );
+  };
 
-  setTaxonType( taxonType ) {
-    const { updateTaxaType } = this.props;
-
-    this.setState( { taxonType } );
-    updateTaxaType( taxonType );
-  }
-
-  render() {
-    const { types, taxonType } = this.state;
-    const { error } = this.props;
-
-    return (
-      <RNPickerSelect
-        ref={( el ) => {
-          this.inputRefs.picker2 = el;
-        }}
-        items={types}
-        onValueChange={( value ) => {
-          this.setTaxonType( value );
-        }}
-        Icon={() => <></>}
-        placeholder={{}}
-        useNativeAndroidPickerStyle={false}
-        value={taxonType}
-        disabled={error !== null}
-      >
-        <TouchableOpacity style={[styles.row, styles.marginLeft]}>
-          <Image source={icons.filter} style={styles.image} />
-          <View style={styles.whiteButton}>
-            <Text style={styles.buttonText}>
-              {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </RNPickerSelect>
-    );
-  }
-}
+  return (
+    <Picker
+      itemList={types}
+      handleValueChange={handleValueChange}
+      Icon={() => <></>}
+      placeholder={{}}
+      value={taxonType}
+      disabled={error !== null}
+    >
+      <TouchableOpacity style={[styles.row, styles.marginLeft]}>
+        <Image source={icons.filter} style={styles.image} />
+        <View style={styles.whiteButton}>
+          <Text style={styles.buttonText}>
+            {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
+          </Text>
+        </View>
+      </TouchableOpacity>
+    </Picker>
+  );
+};
 
 export default TaxonPicker;

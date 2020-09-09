@@ -79,6 +79,8 @@ const CameraSettings = () => {
           value={autoCapture}
           trackColor={colors.seekForestGreen}
           onValueChange={() => setAutoCapture( !autoCapture )}
+          accessible
+          accessibilityLabel={i18n.t( "settings.auto_capture" )}
         />
         <Text style={[styles.text, styles.padding, styles.textWidth]}>
           {i18n.t( "settings.auto_capture" )}

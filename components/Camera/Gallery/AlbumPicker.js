@@ -18,15 +18,12 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
   }, [updateAlbum] );
 
-  const renderAlbumPicker = useMemo( () => (
-    <View style={[styles.row, styles.center, styles.padding]}>
-      <Text style={styles.headerText} testID="cameraRollText">
-        {album === "All"
-          ? albumNames[0].label.toLocaleUpperCase()
-          : album.toLocaleUpperCase()}
-      </Text>
-      {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
-    </View>
+  const renderAlbumTitle = useMemo( () => (
+    <Text style={styles.headerText} testID="cameraRollText">
+      {album === "All"
+        ? albumNames[0].label.toLocaleUpperCase()
+        : album.toLocaleUpperCase()}
+    </Text>
   ), [album, albumNames] );
 
   return (
@@ -36,7 +33,10 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
       itemList={albumNames}
       disabled={albumNames.length <= 1}
     >
-      {renderAlbumPicker}
+      <View style={[styles.row, styles.center, styles.padding]}>
+        {renderAlbumTitle}
+        {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
+      </View>
     </Picker>
   );
 };

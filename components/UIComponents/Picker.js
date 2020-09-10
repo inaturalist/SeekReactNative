@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
 
 type Props = {
@@ -16,11 +16,13 @@ const Picker = ( {
   itemList,
   disabled
 }: Props ) => {
-  const emptyObj = {};
+  const hideIcon = useCallback( () => <></>, [] );
+  const emptyObj = useMemo( () => {}, [] );
 
   return (
     <RNPickerSelect
       hideIcon
+      Icon={hideIcon}
       items={itemList}
       onValueChange={handleValueChange}
       placeholder={emptyObj}

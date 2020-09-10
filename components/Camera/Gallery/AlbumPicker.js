@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Text, Image, View } from "react-native";
 
 import icons from "../../../assets/icons";
@@ -13,10 +13,10 @@ type Props = {
 const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
   const [album, setAlbum] = useState( albumNames[0].label );
 
-  const handleValueChange = ( newAlbum ) => {
+  const handleValueChange = useCallback( ( newAlbum ) => {
     setAlbum( newAlbum );
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
-  };
+  }, [updateAlbum] );
 
   const renderAlbumPicker = useMemo( () => (
     <View style={[styles.row, styles.center, styles.padding]}>

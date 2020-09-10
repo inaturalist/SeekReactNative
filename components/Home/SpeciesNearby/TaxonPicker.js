@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -20,35 +20,40 @@ type Props = {
 
 const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
   const [taxonType, setTaxonType] = useState( "all" );
-  const list = ["all", "plants", "amphibians", "fungi", "fish", "reptiles", "arachnids", "birds", "insects", "mollusks", "mammals"];
 
-  const types = list.map( ( item ) => ( {
-    label: i18n.t( `taxon_picker.${item}` ).toLocaleUpperCase(),
-    value: item
-  } ) );
+  const types = useMemo( () => {
+    const list = ["all", "plants", "amphibians", "fungi", "fish", "reptiles", "arachnids", "birds", "insects", "mollusks", "mammals"];
 
-  const handleValueChange = ( value ) => {
+    return list.map( ( item ) => ( {
+      label: i18n.t( `taxon_picker.${item}` ).toLocaleUpperCase(),
+      value: item
+    } ) );
+  }, [] );
+
+  const handleValueChange = useCallback( ( value ) => {
     setTaxonType( value );
     updateTaxaType( value );
-  };
+  }, [updateTaxaType] );
+
+  const renderTaxonPicker = useMemo( () => (
+    <TouchableOpacity style={[styles.row, styles.marginLeft]}>
+      <Image source={icons.filter} style={styles.image} />
+      <View style={styles.whiteButton}>
+        <Text style={styles.buttonText}>
+          {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
+        </Text>
+      </View>
+    </TouchableOpacity>
+  ), [taxonType] );
 
   return (
     <Picker
       itemList={types}
       handleValueChange={handleValueChange}
-      Icon={() => <></>}
-      placeholder={{}}
       value={taxonType}
       disabled={error !== null}
     >
-      <TouchableOpacity style={[styles.row, styles.marginLeft]}>
-        <Image source={icons.filter} style={styles.image} />
-        <View style={styles.whiteButton}>
-          <Text style={styles.buttonText}>
-            {i18n.t( `taxon_picker.${taxonType}` ).toLocaleUpperCase()}
-          </Text>
-        </View>
-      </TouchableOpacity>
+      {renderTaxonPicker}
     </Picker>
   );
 };

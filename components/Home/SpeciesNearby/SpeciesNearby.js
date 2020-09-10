@@ -57,7 +57,7 @@ const SpeciesNearby = () => {
     dispatch( { type: "LOCATION_UPDATED", coordinates } );
   }, [] );
 
-  const updateTaxaType = ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } );
+  const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
 
   const updateDowntimeError = () => dispatch( { type: "DOWNTIME_ERROR" } );
 

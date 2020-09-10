@@ -42,6 +42,17 @@ const HorizontalScroll = ( { photoList }: Props ) => {
     setScrollIndex( index );
   } );
 
+  const renderPhoto = ( { item } ) => item;
+
+  const getItemLayout = ( data, index ) => (
+    // skips measurement of dynamic content for faster loading
+    {
+      length: ( width ),
+      offset: ( width ) * index,
+      index
+    }
+  );
+
   return (
     <>
       <FlatList
@@ -51,19 +62,12 @@ const HorizontalScroll = ( { photoList }: Props ) => {
         onViewableItemsChanged={onViewRef.current}
         contentContainerStyle={name === "iNatStats" ? styles.photoContainer : styles.speciesPhotoContainer}
         data={photoList}
-        getItemLayout={( data, index ) => (
-          // skips measurement of dynamic content for faster loading
-          {
-            length: ( width ),
-            offset: ( width ) * index,
-            index
-          }
-        )}
+        getItemLayout={getItemLayout}
         horizontal
         indicatorStyle="white"
         initialNumToRender={1}
         pagingEnabled
-        renderItem={( { item } ) => item}
+        renderItem={renderPhoto}
         showsHorizontalScrollIndicator={name === "iNatStats"}
       />
       {scrollIndex > 0 && (

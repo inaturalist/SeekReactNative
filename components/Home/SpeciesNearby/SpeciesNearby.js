@@ -59,7 +59,7 @@ const SpeciesNearby = () => {
 
   const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
 
-  const updateDowntimeError = () => dispatch( { type: "DOWNTIME_ERROR" } );
+  const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
   const setLocationError = useCallback( ( errorCode ) => {
     if ( errorCode === 1 ) {
@@ -128,7 +128,6 @@ const SpeciesNearby = () => {
           taxaType={taxaType}
           latitude={latLng.latitude}
           longitude={latLng.longitude}
-          error={error}
           checkInternet={checkInternet}
           updateDowntimeError={updateDowntimeError}
         />

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback, useMemo } from "react";
 import { Image, FlatList, TouchableOpacity } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
@@ -42,16 +42,14 @@ const HorizontalScroll = ( { photoList }: Props ) => {
     setScrollIndex( index );
   } );
 
-  const renderPhoto = ( { item } ) => item;
+  const renderPhoto = useCallback( ( { item } ) => item, [] );
 
-  const getItemLayout = ( data, index ) => (
-    // skips measurement of dynamic content for faster loading
-    {
-      length: ( width ),
-      offset: ( width ) * index,
-      index
-    }
-  );
+  // skips measurement of dynamic content for faster loading
+  const getItemLayout = useCallback( ( data, index ) => ( {
+    length: ( width ),
+    offset: ( width ) * index,
+    index
+  } ), [width] );
 
   return (
     <>

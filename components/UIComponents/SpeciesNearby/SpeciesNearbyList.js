@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import { FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Text, Image, View } from "react-native";
 
 import icons from "../../../assets/icons";
@@ -18,22 +18,25 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
   };
 
+  const renderAlbumPicker = useMemo( () => (
+    <View style={[styles.row, styles.center, styles.padding]}>
+      <Text style={styles.headerText} testID="cameraRollText">
+        {album === "All"
+          ? albumNames[0].label.toLocaleUpperCase()
+          : album.toLocaleUpperCase()}
+      </Text>
+      {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
+    </View>
+  ), [album, albumNames] );
+
   return (
     <Picker
       handleValueChange={handleValueChange}
       selectedValue={album}
-      icon={<Image source={icons.dropdownOpen} style={styles.margin} />}
       itemList={albumNames}
       disabled={albumNames.length <= 1}
     >
-      <View style={[styles.row, styles.center, styles.padding]}>
-        <Text style={styles.headerText} testID="cameraRollText">
-          {album === "All"
-            ? albumNames[0].label.toLocaleUpperCase()
-            : album.toLocaleUpperCase()}
-        </Text>
-        {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
-      </View>
+      {renderAlbumPicker}
     </Picker>
   );
 };

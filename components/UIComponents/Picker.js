@@ -1,9 +1,8 @@
-import React, { useMemo } from "react";
+import React from "react";
 import RNPickerSelect from "react-native-picker-select";
 
 type Props = {
   handleValueChange: Function,
-  icon?: any,
   selectedValue: string,
   itemList: Array<Object>,
   children: any,
@@ -13,18 +12,15 @@ type Props = {
 const Picker = ( {
   handleValueChange,
   selectedValue,
-  icon,
   children,
   itemList,
   disabled
 }: Props ) => {
-  const showIcon = useMemo( () => icon, [icon] );
-  const emptyObj = useMemo( () => {}, [] );
+  const emptyObj = {};
 
   return (
     <RNPickerSelect
       hideIcon
-      Icon={showIcon}
       items={itemList}
       onValueChange={handleValueChange}
       placeholder={emptyObj}
@@ -35,10 +31,6 @@ const Picker = ( {
       {children}
     </RNPickerSelect>
   );
-};
-
-Picker.defaultProps = {
-  icon: () => <></>
 };
 
 export default Picker;

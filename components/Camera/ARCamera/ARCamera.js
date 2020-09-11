@@ -23,7 +23,7 @@ import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeToDebugLog } from "../../../utility/photoHelpers";
-import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
+import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
@@ -188,6 +188,8 @@ const ARCamera = () => {
       textOS = i18n.t( "camera.error_version", { OS } );
     }
 
+    console.log( event.nativeEvent, "event", getSystemVersion() );
+
     // this uses event.nativeEvent.reason, not .error
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "device", event.nativeEvent.reason );
@@ -232,17 +234,17 @@ const ARCamera = () => {
     }
   }, [savePhoto, updateError] );
 
+  const resetState = () => dispatch( { type: "RESET_STATE" } );
+
   const requestAndroidPermissions = useCallback( () => {
     if ( Platform.OS === "android" ) {
-      checkCameraRollPermissions().then( ( result ) => {
-        if ( result !== true ) {
+      requestAllCameraPermissions().then( ( result ) => {
+        if ( result === "gallery" ) {
           updateError( "gallery" );
         }
-      } ).catch( e => console.log( e, "couldn't get cameraroll permissions" ) );
+      } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
     }
   }, [updateError] );
-
-  const resetState = () => dispatch( { type: "RESET_STATE" } );
 
   useEffect( () => {
     navigation.addListener( "focus", () => requestAndroidPermissions() );

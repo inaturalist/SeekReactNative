@@ -22,7 +22,7 @@ type Props = {
 }
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
   const cameraRoll = useMemo( () => { return [{ label: i18n.t( "gallery.camera_roll" ), value: "All" }]; }, [] );
   const [albumNames, setAlbumNames] = useState( cameraRoll );
@@ -39,26 +39,31 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
           }
         } );
       }
-      setAlbumNames( names );
+
+      if ( names.length > 1 ) {
+        setAlbumNames( names );
+      }
     } catch ( e ) {
       Alert.alert( `Error fetching photo albums: ${e}` );
     }
   }, [cameraRoll] );
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      if ( albumNames.length === 1 ) {
-        fetchAlbumNames();
-      }
-    } );
-  }, [navigation, albumNames, fetchAlbumNames] );
+    if ( albumNames.length === 1 ) {
+      fetchAlbumNames();
+    }
+  }, [fetchAlbumNames, albumNames] );
+
+  console.log( "rendering gallery header" );
+
+  const handleBackNav = useCallback( () => navigateToMainStack( navigate, "Home" ), [navigate] );
 
   return (
     <View style={[styles.header, styles.center]}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
+        onPress={handleBackNav}
         style={styles.backButton}
       >
         {/* $FlowFixMe */}

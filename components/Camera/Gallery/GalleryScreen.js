@@ -17,6 +17,7 @@ const GalleryScreen = () => {
   const isFocused = useIsFocused();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
+    console.log( action.type, "action on gallery" );
     switch ( action.type ) {
       case "SET_ALBUM":
         return {
@@ -140,14 +141,15 @@ const GalleryScreen = () => {
   const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
 
   useEffect( () => {
+    const requestAndroidPermissions = async () => {
+      const permission = await checkCameraRollPermissions();
+      if ( !permission && isFocused ) {
+        dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+      }
+    };
+
     navigation.addListener( "focus", () => {
       if ( Platform.OS === "android" ) {
-        const requestAndroidPermissions = async () => {
-          const permission = await checkCameraRollPermissions();
-          if ( !permission && isFocused ) {
-            dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
-          }
-        };
         requestAndroidPermissions();
       }
     } );
@@ -168,13 +170,13 @@ const GalleryScreen = () => {
     />
   ), [loading, photos, setPhotoParams, startLoading] );
 
-  return (
+  return useMemo( () => (
     <SafeAreaView style={styles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
       {error ? <CameraError error={error} errorEvent={errorEvent} /> : renderGalleryList}
     </SafeAreaView>
-  );
+  ), [error, errorEvent, updateAlbum, renderGalleryList] );
 };
 
 export default GalleryScreen;

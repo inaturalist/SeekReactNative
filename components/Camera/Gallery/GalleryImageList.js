@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import { FlatList } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
@@ -36,7 +36,7 @@ const GalleryImageList = ( {
 
   const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
 
-  return (
+  return useMemo( () => (
     <FlatList
       data={photos}
       contentContainerStyle={styles.grayContainer}
@@ -49,7 +49,7 @@ const GalleryImageList = ( {
       ListEmptyComponent={renderLoading}
       renderItem={renderCameraRollPhoto}
     />
-  );
+  ), [extractKey, renderCameraRollPhoto, renderLoading, getItemLayout, setPhotoParams, photos] );
 };
 
 export default GalleryImageList;

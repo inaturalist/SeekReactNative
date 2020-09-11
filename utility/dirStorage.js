@@ -16,7 +16,6 @@ export const dirTaxonomy = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
 } );
 
-
 export const dirSampleModel = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.mlmodelc`,
   android: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.tflite`

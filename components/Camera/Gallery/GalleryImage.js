@@ -7,6 +7,8 @@ import { useNavigation } from "@react-navigation/native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
+
+// import { dirSampleModel, dirSampleTaxonomy } from "../../../utility/dirStorage";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 
 type Props = {

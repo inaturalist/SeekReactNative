@@ -3,7 +3,6 @@
 [Seek](https://www.inaturalist.org/pages/seek_app) is an app for identifying plants and animals. It is available on iOS and Android.
 
 ## Installation
-
 1. Make sure you're running the Node version specified in `.nvmrc`. Realm only works with certain versions of Node, so you will need this for local data storage.
 2. Install dependences with `npm install`
 3. If building for iOS, run `pod install` from within the `ios` directory.
@@ -11,10 +10,12 @@
 ## Setup files
 1. Go to `android/app/src/main/res/values` and rename `config.xml.example` to `config.xml` (and change its values to match your API keys)
 2. Rename `config.example.js` to `config.js` and change the JWT secret.
-3. Add AR Camera model files to the project.
-  * On Android, these files are named `optimized_model.tflite` and `taxonomy_data.csv`. They should be placed in a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`).
-  * On iOS, these files are named `optimized_model.mlmodel` and `taxonomy.json` and should be added to the Resources folder in XCode. 
-4. Add files to `utility/commonNames` to allow the AR camera to load common names in localized languages. The latest files are attached as assets in `commonNames.tar.gz` on the [Seek releases](https://github.com/inaturalist/SeekReactNative/releases) page.
+3. Add AR Camera model and taxonomy files.
+  1. The sample model files are available in this [`small_model.zip`](https://github.com/inaturalist/SeekReactNative/releases/tag/v2.9.1-138) file.
+  2. On Android, these files are named `small_inception_tf1.tflite` and `small_export_tax.csv`. Create a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`) and place the files there. On iOS, these files are named `small_inception_tf1.mlmodel` and `small_export_tax.json` and should be added to the Resources folder in XCode.
+  3. In `components/App.js`, you'll need to comment out the following line: `import { addARCameraFiles } from "../utility/helpers";` and comment in `import { addSampleARCameraFiles } from "../utility/helpers";` This will move the model and taxonomy files into directories where React Native can load them correctly.
+  4. Change `import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";` to `import { dirSampleModel, dirSampleTaxonomy } from "../../../utility/dirStorage";` in `components/Camera/ARCamera/ARCamera` and `components/Camera/Gallery/GalleryImage`.
+4. Add files to `utility/commonNames` to allow the AR camera to load common names in localized languages. The latest files are attached assets named `commonNames.tar.gz` in the [latest Seek release page](https://github.com/inaturalist/SeekReactNative/releases).
 
 ## Run build
 1. Run `npm start`
@@ -24,7 +25,6 @@
 Most third-party libraries use autolinking as of [React Native 0.60.0](https://facebook.github.io/react-native/blog/2019/07/03/version-60#native-modules-are-now-autolinked). Any exceptions are listed in the `react-native.config.js` file. Currently, [react-native-inat-camera](https://github.com/inaturalist/react-native-inat-camera) on Android is manually linked.
 
 ## Troubleshooting
-
 1. One common issue in React Native involves libraries not being found by the bundler. If this happens, React Native will display an error message that tells you to clear the cache using the following steps: 
   * Clear watchman: `watchman watch-del-all`
   * Delete and reinstall node_modules: `rm -rf node_modules && npm install`

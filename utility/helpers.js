@@ -68,6 +68,38 @@ const addARCameraFiles = async () => {
   }
 };
 
+const addSampleARCameraFiles = async () => {
+  if ( Platform.OS === "android" ) {
+    RNFS.copyFileAssets( "camera/small_inception_tf1.tflite", dirModel )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files", dirModel );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
+
+    RNFS.copyFileAssets( "camera/small_export_tax.csv", dirTaxonomy )
+      .then( ( result ) => {
+        console.log( result, "taxonomy in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
+  } else if ( Platform.OS === "ios" ) {
+    RNFS.copyFile( `${RNFS.MainBundlePath}/small_inception_tf1.mlmodelc`, dirModel )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
+
+    RNFS.copyFile( `${RNFS.MainBundlePath}/small_export_tax.json`, dirTaxonomy )
+      .then( ( result ) => {
+        console.log( result, "model in AR camera files" );
+      } ).catch( ( error ) => {
+        console.log( error, "err in AR camera files" );
+      } );
+  }
+};
+
 const resizePhoto = async ( uri ) => {
   try {
     const image = await resizeImage( uri, 299 );
@@ -272,6 +304,7 @@ const navigateToMainStack = ( navigate: Function, screen: string, params: Object
 };
 
 export {
+  addSampleARCameraFiles,
   addARCameraFiles,
   capitalizeNames,
   flattenUploadParameters,

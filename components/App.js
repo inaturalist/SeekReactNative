@@ -9,6 +9,10 @@ import i18n from "../i18n";
 import RootStack from "./Navigation/RootStack";
 import { setupChallenges } from "../utility/challengeHelpers";
 import { setupCommonNames } from "../utility/commonNamesHelpers";
+
+// if you're not an iNaturalist staff member, you'll want to use addSampleARCameraFiles and comment out the line below it
+
+// import { addSampleARCameraFiles } from "../utility/helpers";
 import { addARCameraFiles } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";

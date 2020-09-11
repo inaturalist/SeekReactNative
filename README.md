@@ -12,9 +12,8 @@
 2. Rename `config.example.js` to `config.js` and change the JWT secret.
 3. Add AR Camera model and taxonomy files.
   1. The sample model files are available in this [`small_model.zip`](https://github.com/inaturalist/SeekReactNative/releases/tag/v2.9.1-138) file.
-  2. On Android, these files are named `small_inception_tf1.tflite` and `small_export_tax.csv`. Create a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`) and place the files there. On iOS, these files are named `small_inception_tf1.mlmodel` and `small_export_tax.json` and should be added to the Resources folder in XCode.
-  3. In `components/App.js`, you'll need to comment out the following line: `import { addARCameraFiles } from "../utility/helpers";` and comment in `import { addSampleARCameraFiles } from "../utility/helpers";` This will move the model and taxonomy files into directories where React Native can load them correctly.
-  4. Change `import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";` to `import { dirSampleModel, dirSampleTaxonomy } from "../../../utility/dirStorage";` in `components/Camera/ARCamera/ARCamera` and `components/Camera/Gallery/GalleryImage`.
+  2. On Android, these files are named `small_inception_tf1.tflite` and `small_export_tax.csv`. Create a camera folder within Android assets (i.e. `android/app/src/main/assets/camera`) and place the files there. 
+  3. On iOS, these files are named `small_inception_tf1.mlmodel` and `small_export_tax.json` and should be added to the Resources folder in XCode.
 4. Add files to `utility/commonNames` to allow the AR camera to load common names in localized languages. The latest files are attached assets named `commonNames.tar.gz` in the [latest Seek release page](https://github.com/inaturalist/SeekReactNative/releases).
 
 ## Run build

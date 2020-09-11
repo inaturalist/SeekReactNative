@@ -13,7 +13,7 @@ import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
-import { dirModel, dirTaxonomy } from "./dirStorage";
+import { dirModel, dirTaxonomy, dirSampleModel, dirSampleTaxonomy } from "./dirStorage";
 import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
@@ -70,28 +70,28 @@ const addARCameraFiles = async () => {
 
 const addSampleARCameraFiles = async () => {
   if ( Platform.OS === "android" ) {
-    RNFS.copyFileAssets( "camera/small_inception_tf1.tflite", dirModel )
+    RNFS.copyFileAssets( "camera/small_inception_tf1.tflite", dirSampleModel )
       .then( ( result ) => {
         console.log( result, "model in AR camera files", dirModel );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFileAssets( "camera/small_export_tax.csv", dirTaxonomy )
+    RNFS.copyFileAssets( "camera/small_export_tax.csv", dirSampleTaxonomy )
       .then( ( result ) => {
         console.log( result, "taxonomy in AR camera files" );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
   } else if ( Platform.OS === "ios" ) {
-    RNFS.copyFile( `${RNFS.MainBundlePath}/small_inception_tf1.mlmodelc`, dirModel )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/small_inception_tf1.mlmodelc`, dirSampleModel )
       .then( ( result ) => {
         console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {
         console.log( error, "err in AR camera files" );
       } );
 
-    RNFS.copyFile( `${RNFS.MainBundlePath}/small_export_tax.json`, dirTaxonomy )
+    RNFS.copyFile( `${RNFS.MainBundlePath}/small_export_tax.json`, dirSampleTaxonomy )
       .then( ( result ) => {
         console.log( result, "model in AR camera files" );
       } ).catch( ( error ) => {

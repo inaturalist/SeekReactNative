@@ -16,6 +16,17 @@ export const dirTaxonomy = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
 } );
 
+
+export const dirSampleModel = Platform.select( {
+  ios: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.mlmodelc`,
+  android: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.tflite`
+} );
+
+export const dirSampleTaxonomy = Platform.select( {
+  ios: `${RNFS.DocumentDirectoryPath}/small_export_tax.json`,
+  android: `${RNFS.DocumentDirectoryPath}/small_export_tax.csv`
+} );
+
 export const dirDebugLogs = Platform.select( {
   android: `${RNFS.ExternalCachesDirectoryPath}/debug-seek.log`
 } );

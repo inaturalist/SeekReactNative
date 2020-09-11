@@ -6,24 +6,19 @@ export const dirHome = Platform.select( {
   android: `${RNFS.DocumentDirectoryPath}/Seek` // start using internal storage
 } );
 
+// export const dirModel = Platform.select( {
+//   ios: `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc`,
+//   android: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`
+// } );
+
 export const dirModel = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/optimized_model.mlmodelc`,
-  android: `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`
+  ios: `${RNFS.DocumentDirectoryPath}/model.mlmodelc`,
+  android: `${RNFS.DocumentDirectoryPath}/model.tflite`
 } );
 
 export const dirTaxonomy = Platform.select( {
   ios: `${RNFS.DocumentDirectoryPath}/taxonomy.json`,
   android: `${RNFS.DocumentDirectoryPath}/taxonomy.csv`
-} );
-
-export const dirSampleModel = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.mlmodelc`,
-  android: `${RNFS.DocumentDirectoryPath}/small_inception_tf1.tflite`
-} );
-
-export const dirSampleTaxonomy = Platform.select( {
-  ios: `${RNFS.DocumentDirectoryPath}/small_export_tax.json`,
-  android: `${RNFS.DocumentDirectoryPath}/small_export_tax.csv`
 } );
 
 export const dirDebugLogs = Platform.select( {

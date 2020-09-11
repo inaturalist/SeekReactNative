@@ -36,67 +36,70 @@ const capitalizeNames = ( name: string ) => {
   return titleCaseName;
 };
 
-const addARCameraFiles = async () => {
-  if ( Platform.OS === "android" ) {
-    RNFS.copyFileAssets( "camera/optimized_model.tflite", dirModel )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files", dirModel );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
+const addCameraFilesAndroid = () => {
+  const copyFilesAndroid = ( source, destination ) => {
+    RNFS.copyFileAssets( source, destination ).then( ( result ) => {
+      console.log( `moved file from ${source} to ${destination}` );
+    } ).catch( ( error ) => {
+      console.log( error, `error moving file from ${source} to ${destination}` );
+    } );
+  };
 
-    RNFS.copyFileAssets( "camera/taxonomy.csv", dirTaxonomy )
-      .then( ( result ) => {
-        console.log( result, "taxonomy in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
-  } else if ( Platform.OS === "ios" ) {
-    RNFS.copyFile( `${RNFS.MainBundlePath}/optimized_model.mlmodelc`, dirModel )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
+  RNFS.readDirAssets( "camera" ).then( ( results ) => {
+    const model = "optimized_model.tflite";
+    const taxonomy = "taxonomy.csv";
+    const sampleModel = "small_inception_tf1.tflite";
+    const sampleTaxonomy = "small_export_tax.csv";
 
-    RNFS.copyFile( `${RNFS.MainBundlePath}/taxonomy.json`, dirTaxonomy )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
-  }
+    const hasModel = results.find( r => r.name === model );
+    const hasSampleModel = results.find( r => r.name === sampleModel );
+
+    if ( hasModel !== undefined ) {
+      copyFilesAndroid( `camera/${model}`, dirModel );
+      copyFilesAndroid( `camera/${taxonomy}`, dirTaxonomy );
+    } else if ( hasSampleModel !== undefined ) {
+      copyFilesAndroid( `camera/${sampleModel}`, dirModel );
+      copyFilesAndroid( `camera/${sampleTaxonomy}`, dirTaxonomy );
+    }
+  } );
 };
 
-const addSampleARCameraFiles = async () => {
+const addCameraFilesiOS = () => {
+  const copyFilesiOS = ( source, destination ) => {
+    RNFS.copyFile( source, destination ).then( ( result ) => {
+      console.log( `moved file from ${source} to ${destination}` );
+    } ).catch( ( error ) => {
+      console.log( error, `error moving file from ${source} to ${destination}` );
+    } );
+  };
+
+  RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
+    const model = "optimized_model.mlmodelc";
+    const taxonomy = "taxonomy.json";
+    const sampleModel = "small_inception_tf1.mlmodelc";
+    const sampleTaxonomy = "small_export_tax.json";
+
+    const hasModel = results.find( r => r.name === model );
+    const hasSampleModel = results.find( r => r.name === sampleModel );
+
+    console.log( hasModel, hasSampleModel, "has model or sample model" );
+
+    if ( hasModel !== undefined ) {
+      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
+    } else if ( hasSampleModel !== undefined ) {
+      copyFilesiOS( `${RNFS.MainBundlePath}/${sampleModel}`, dirModel );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${sampleTaxonomy}`, dirTaxonomy );
+    }
+  } );
+
+};
+
+const addARCameraFiles = async () => {
   if ( Platform.OS === "android" ) {
-    RNFS.copyFileAssets( "camera/small_inception_tf1.tflite", dirSampleModel )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files", dirModel );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
-
-    RNFS.copyFileAssets( "camera/small_export_tax.csv", dirSampleTaxonomy )
-      .then( ( result ) => {
-        console.log( result, "taxonomy in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
+    addCameraFilesAndroid();
   } else if ( Platform.OS === "ios" ) {
-    RNFS.copyFile( `${RNFS.MainBundlePath}/small_inception_tf1.mlmodelc`, dirSampleModel )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
-
-    RNFS.copyFile( `${RNFS.MainBundlePath}/small_export_tax.json`, dirSampleTaxonomy )
-      .then( ( result ) => {
-        console.log( result, "model in AR camera files" );
-      } ).catch( ( error ) => {
-        console.log( error, "err in AR camera files" );
-      } );
+    addCameraFilesiOS();
   }
 };
 
@@ -304,7 +307,6 @@ const navigateToMainStack = ( navigate: Function, screen: string, params: Object
 };
 
 export {
-  addSampleARCameraFiles,
   addARCameraFiles,
   capitalizeNames,
   flattenUploadParameters,

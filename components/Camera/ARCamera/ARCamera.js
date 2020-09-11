@@ -25,7 +25,6 @@ import CameraError from "../CameraError";
 import { writeToDebugLog } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
-// import { dirSampleModel, dirSampleTaxonomy } from "../../../utility/dirStorage";
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";

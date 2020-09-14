@@ -309,7 +309,7 @@
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
     "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
     "plant_filter": "Solo piante",
-    "non_plant_filter": "Solo elementi non vegetali"
+    "non_plant_filter": "Unicamente non vegetali"
   },
   "gallery": {
     "label": "Foto",
@@ -639,13 +639,13 @@
     "mission_3_sept_2020": "Trova 2 insetti degli ordini:\n\nLepidotteri (Farfalle e Falene);\nEmitteri (Cimici, Cicaline, Afidi e simili)",
     "sept_2020_description": "Gli erbivori sono animali che si sono adattati a nutrirsi unicamente di piante. I mammiferi erbivori hanno spesso sistemi digestivi complessi che consentono loro di scomporre grandi quantità di materiale vegetale. Ad esempio, le mucche hanno in realtà 4 stomaci per digerire le piante che consumano. Altri mammiferi sono specializzati in frutta (pipistrelli) o semi (scoiattoli). Molti insetti sono anche adattati per mangiare diverse parti di piante, come i bruchi che mangiano le foglie o le cicaline che succhiano la linfa dagli steli.",
     "action_sept_2020": "Fai alcune ricerche su come il consumo di carne ha un impatto sull'ambiente. Quali passi puoi intraprendere per ridurre il tuo impatto?\n\nAlternativa: Che tipo di piante mangi? Da quali parti della pianta provengono? Riesci a scoprire a quali altri animali piace mangiare anche quelle piante?",
-    "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
-    "mission_4_oct_2020": "Find 1 Arthropod",
-    "oct_2020_description": "Scavengers and Decomposers are essential to life on our planet. They help to recycle nutrients and decompose matter that wouldn’t otherwise.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. How do they help the environment with their niche?"
+    "scavenger": "Sfida Necrofagi",
+    "mission_1_oct_2020": "Trova 4 funghi",
+    "mission_2_oct_2020": "Trova 1 organismo qualsiasi dei seguenti ordini:\n\nAccipitriformes (Poiane, Aquile, & Nibbi);\nCathartiformes (Rapaci);\nCarnivora (Carnivori)",
+    "mission_3_oct_2020": "Trova 1 mollusco",
+    "mission_4_oct_2020": "Trova 1 Artropode",
+    "oct_2020_description": "Necrofagi e Decompositori sono essenziali per la vita sul nostro pianeta. Aiutano a riciclare i nutrienti e a decomporre la materia che altrimenti non verrebbe degradata.",
+    "action_oct_2020": "Scopri che tipo di decompositori e necrofagi vivono nelle zone che ti circondano. Come aiutano l'ambiente nella la loro nicchia?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

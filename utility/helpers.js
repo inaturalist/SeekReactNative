@@ -54,12 +54,7 @@ const addCameraFilesAndroid = () => {
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
 
-    console.log( hasSampleModel, "has sample model" );
-
-    RNFS.readDir( RNFS.DocumentDirectoryPath ).then( ( result ) => {
-      console.log( result, "are files being copied correctly" );
-    } );
-
+    // Android writes over existing files
     if ( hasModel !== undefined ) {
       copyFilesAndroid( `camera/${model}`, dirModel );
       copyFilesAndroid( `camera/${taxonomy}`, dirTaxonomy );
@@ -88,14 +83,23 @@ const addCameraFilesiOS = () => {
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
 
-    console.log( hasModel, hasSampleModel, "has model or sample model" );
-
+    // iOS throws error instead of writing over existing files
     if ( hasModel !== undefined ) {
-      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
+      RNFS.unlink( dirModel ).then( ( result ) => {
+        copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
+      } ).catch( ( e ) => console.log( e, "error unlinking production model file" ) );
+
+      RNFS.unlink( dirTaxonomy ).then( ( result ) => {
+        copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
+      } ).catch( ( e ) => console.log( e, "error unlinking production taxonomy file" ) );
     } else if ( hasSampleModel !== undefined ) {
-      copyFilesiOS( `${RNFS.MainBundlePath}/${sampleModel}`, dirModel );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${sampleTaxonomy}`, dirTaxonomy );
+      RNFS.unlink( dirModel ).then( ( result ) => {
+        copyFilesiOS( `${RNFS.MainBundlePath}/${sampleModel}`, dirModel );
+      } ).catch( ( e ) => console.log( e, "error unlinking sample model file" ) );
+
+      RNFS.unlink( dirTaxonomy ).then( ( result ) => {
+        copyFilesiOS( `${RNFS.MainBundlePath}/${sampleTaxonomy}`, dirTaxonomy );
+      } ).catch( ( e ) => console.log( e, "error unlinking sample taxonomy file" ) );
     }
   } );
 

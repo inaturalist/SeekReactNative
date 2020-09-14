@@ -68,10 +68,10 @@ buck-out/
 config.js
 taxonomy_data.csv
 taxonomy.csv
+small_export_tax.csv
 *.tflite
 taxonomy.json
+small_export_tax.json
 *.mlmodel
 utility/common-names.json
 utility/commonNames/*
-small_export_tax.csv
-small_inception_tf1.tflite

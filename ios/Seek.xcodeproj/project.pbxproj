@@ -13,10 +13,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		372109C124CF937000CC84BC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372109C024CF936F00CC84BC /* SnapshotHelper.swift */; };
-		3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3739CB162242B17600D8B525 /* optimized_model.mlmodel */; };
-		3739CB192242B17600D8B525 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 3739CB172242B17600D8B525 /* taxonomy.json */; };
 		3763EE6F24CF8E18005EE9D3 /* SeekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763EE6E24CF8E18005EE9D3 /* SeekUITests.swift */; };
 		378785D7244E5B7C00D4509C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378785D6244E5B7C00D4509C /* File.swift */; };
+		379EB0DE25101F630059D835 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 379EB0DD25101F630059D835 /* taxonomy.json */; };
+		379EB0E025101F6A0059D835 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
@@ -84,8 +84,6 @@
 		3721C5BC22B30F5D00151678 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = ../nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3721C5BD22B30F6200151678 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = ../fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3721C5C122B30F7E00151678 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = ../de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		3739CB162242B17600D8B525 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
-		3739CB172242B17600D8B525 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
 		373E63AB24E60C2700E98448 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "../pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		373E63AC24E60C3100E98448 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		373E63AD24E60C3E00E98448 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = ../pl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -100,6 +98,8 @@
 		378785E5245A1F2400D4509C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = ../cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		378785E6245A1F2B00D4509C /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = ../he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		379A071821C4328C00F176E3 /* Seek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Seek.entitlements; path = Seek/Seek.entitlements; sourceTree = "<group>"; };
+		379EB0DD25101F630059D835 /* taxonomy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxonomy.json; sourceTree = "<group>"; };
+		379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
 		37A0EA3C24A2AD6A006A21C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */,
-				3739CB162242B17600D8B525 /* optimized_model.mlmodel */,
-				3739CB172242B17600D8B525 /* taxonomy.json */,
+				379EB0DD25101F630059D835 /* taxonomy.json */,
+				379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */,
 				64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */,
 				E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */,
 				FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */,
@@ -465,13 +465,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				379EB0DE25101F630059D835 /* taxonomy.json in Resources */,
 				4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */,
 				9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */,
 				37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */,
 				AD60F69F0DDC4620A56B7ED5 /* Whitney-Book-Pro.otf in Resources */,
 				CB48647667734138B2A82CE7 /* Whitney-BookItalic-Pro.otf in Resources */,
 				FDF5B89C59BD4E16B8381B96 /* Whitney-Light-Pro.otf in Resources */,
-				3739CB192242B17600D8B525 /* taxonomy.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,10 +558,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3739CB182242B17600D8B525 /* optimized_model.mlmodel in Sources */,
 				378785D7244E5B7C00D4509C /* File.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				379EB0E025101F6A0059D835 /* optimized_model.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

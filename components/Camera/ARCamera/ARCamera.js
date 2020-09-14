@@ -24,6 +24,7 @@ import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
 import { writeToDebugLog } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
+
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
 import { createTimestamp } from "../../../utility/dateHelpers";
 import ARCameraOverlay from "./ARCameraOverlay";
@@ -187,8 +188,9 @@ const ARCamera = () => {
       textOS = i18n.t( "camera.error_version", { OS } );
     }
 
-    if ( event.nativeEvent && event.nativeEvent.error ) {
-      updateError( "device", event.nativeEvent.error );
+    // this uses event.nativeEvent.reason, not .error
+    if ( event.nativeEvent && event.nativeEvent.reason ) {
+      updateError( "device", event.nativeEvent.reason );
     } else {
       updateError( "device", textOS );
     }
@@ -235,7 +237,9 @@ const ARCamera = () => {
   const requestAndroidPermissions = useCallback( () => {
     if ( Platform.OS === "android" ) {
       requestAllCameraPermissions().then( ( result ) => {
-        updateError( result );
+        if ( result === "gallery" ) {
+          updateError( "gallery" );
+        }
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
     }
   }, [updateError] );
@@ -248,7 +252,18 @@ const ARCamera = () => {
 
   return (
     <View style={styles.container}>
-      {error && <CameraError error={error} errorEvent={errorEvent} />}
+      {error
+        ? <CameraError error={error} errorEvent={errorEvent} />
+        : (
+          <ARCameraOverlay
+            ranks={ranks}
+            pictureTaken={pictureTaken}
+            takePicture={takePicture}
+            cameraLoaded={cameraLoaded}
+            filterByTaxonId={filterByTaxonId}
+          />
+        )
+      }
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
@@ -257,14 +272,6 @@ const ARCamera = () => {
       >
         <Image source={icons.closeWhite} />
       </TouchableOpacity>
-      <ARCameraOverlay
-        ranks={ranks}
-        pictureTaken={pictureTaken}
-        takePicture={takePicture}
-        cameraLoaded={cameraLoaded}
-        error={error}
-        filterByTaxonId={filterByTaxonId}
-      />
       {isFocused && ( // this is necessary for camera to load properly in iOS
         <INatCamera
           ref={camera}
@@ -279,8 +286,6 @@ const ARCamera = () => {
           style={styles.camera}
           taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
           taxonomyPath={dirTaxonomy}
-          // filterByTaxonId="47126"
-          // negativeFilter={false}
           filterByTaxonId={taxonId}
           negativeFilter={negativeFilter}
         />

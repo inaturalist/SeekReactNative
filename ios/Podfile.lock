@@ -253,7 +253,7 @@ PODS:
     - React
   - react-native-geolocation-service (5.0.0):
     - React
-  - react-native-image-resizer (1.2.3):
+  - react-native-image-resizer (1.2.6):
     - React
   - react-native-inat-camera (1.0.0):
     - React
@@ -265,11 +265,11 @@ PODS:
     - React
   - react-native-open-settings (1.0.0):
     - React
-  - react-native-safe-area-context (0.7.3):
+  - react-native-safe-area-context (3.1.7):
     - React
   - react-native-uuid-generator (6.1.1):
     - React
-  - react-native-webview (10.3.2):
+  - react-native-webview (10.8.3):
     - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
@@ -330,7 +330,7 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
     - ReactCommon/callinvoker (= 0.62.2)
-  - ReactNativeWebPFormat (1.1.1):
+  - ReactNativeWebPFormat (1.1.2):
     - React
     - SDWebImageWebPCoder
   - RealmJS (3.6.5):
@@ -342,19 +342,19 @@ PODS:
     - React
   - RNCPicker (1.6.0):
     - React
-  - RNDateTimePicker (2.4.3):
+  - RNDateTimePicker (3.0.1):
     - React
-  - RNDeviceInfo (5.6.1):
+  - RNDeviceInfo (6.0.1):
     - React
   - RNFS (2.16.6):
     - React
-  - RNGestureHandler (1.6.1):
+  - RNGestureHandler (1.7.0):
     - React
-  - RNLocalize (1.4.0):
+  - RNLocalize (1.4.1):
     - React
   - RNQuickAction (0.3.13):
     - React
-  - RNReanimated (1.9.0):
+  - RNReanimated (1.13.0):
     - React
   - RNScreens (2.10.1):
     - React
@@ -606,15 +606,15 @@ SPEC CHECKSUMS:
   react-native-cameraroll: 7c2e22b5a8e8f30fc6d5566c942b225ca7129752
   react-native-geocoder: b9e3513006fbbfda0bf0ef9793317a8d4c861406
   react-native-geolocation-service: 141e33bdb179bcba10b216ee13962611e21f2be4
-  react-native-image-resizer: 3a0a2ab15953b2aec5dda20338e3c6bd6c26e528
+  react-native-image-resizer: f9fd7a61ffb3683987a6528e15e32bc32eb9dee3
   react-native-inat-camera: 7d0263a8d7bf7e58048a878f76f4d26901553587
   react-native-mail: a864fb211feaa5845c6c478a3266de725afdce89
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-netinfo: 34cf53b69bd112eaf944e931092a899c024adf8d
   react-native-open-settings: adb7298e50ab6776aae70a04a402df4563f29724
-  react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
+  react-native-safe-area-context: fcece23844742b6f7f0627c3715b806a7deff946
   react-native-uuid-generator: 997d9848f07081ce7200a05b76e3f8c7b309963c
-  react-native-webview: e2c0bce9a1a7c7edd4eb30f0c3016fce216245ce
+  react-native-webview: 162c2f2b14555cb524ac0e3b422a9b66ebceefee
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -625,18 +625,18 @@ SPEC CHECKSUMS:
   React-RCTText: fae545b10cfdb3d247c36c56f61a94cfd6dba41d
   React-RCTVibration: 4356114dbcba4ce66991096e51a66e61eda51256
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
-  ReactNativeWebPFormat: 366be2b2f1c10d86335331ab7f51872a4b6be1fc
+  ReactNativeWebPFormat: 4275844b80c2c385a10ab64f50264d720f2d691c
   RealmJS: b103c28012b1abfe13396ac82e76b4f4d9d47c0d
   RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
   RNCPicker: bab63e6fed69ac6122fcd9993209b6854de46d0b
-  RNDateTimePicker: 0dc22b9762b332a95eaefac5f7372f88962cb466
-  RNDeviceInfo: ab2ab4ca9e7f2bc4f35d62ab6ce2b66f2cbf1e7a
+  RNDateTimePicker: 843eca1c684369861c7dccccb6632f3c104c009c
+  RNDeviceInfo: a0a4edaebb926d04db08640d64281b6615f5505d
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-  RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
+  RNGestureHandler: b6b359bb800ae399a9c8b27032bdbf7c18f08a08
+  RNLocalize: c388679af021ddd6069c215f7fdd2acf4e77ede5
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
-  RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
+  RNReanimated: 89f5e0a04d1dd52fbf27e7e7030d8f80a646a3fc
   RNScreens: b748efec66e095134c7166ca333b628cd7e6f3e2
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e

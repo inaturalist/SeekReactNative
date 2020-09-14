@@ -18,8 +18,6 @@
 		379EB0DE25101F630059D835 /* taxonomy.json in Resources */ = {isa = PBXBuildFile; fileRef = 379EB0DD25101F630059D835 /* taxonomy.json */; };
 		379EB0E025101F6A0059D835 /* optimized_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */; };
 		37D71CD4233BE712003423F8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D71CD3233BE712003423F8 /* CloudKit.framework */; };
-		37D7DFE92510062A00196833 /* small_export_tax.json in Resources */ = {isa = PBXBuildFile; fileRef = 37D7DFE72510062A00196833 /* small_export_tax.json */; };
-		37D7DFEA2510062A00196833 /* small_inception_tf1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 37D7DFE82510062A00196833 /* small_inception_tf1.mlmodel */; };
 		37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DFB70221FFA4BE007B4E22 /* LaunchScreen.xib */; };
 		37ED91EF22A05D6B00BF47F4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED91AD22A05D6B00BF47F4 /* JavaScriptCore.framework */; };
 		4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */; };
@@ -104,8 +102,6 @@
 		379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = optimized_model.mlmodel; sourceTree = "<group>"; };
 		37A0EA3C24A2AD6A006A21C7 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ../ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37D71CD3233BE712003423F8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		37D7DFE72510062A00196833 /* small_export_tax.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = small_export_tax.json; sourceTree = "<group>"; };
-		37D7DFE82510062A00196833 /* small_inception_tf1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = small_inception_tf1.mlmodel; sourceTree = "<group>"; };
 		37DA6882242AB4C000F3C235 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = ../sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DA6884242AB4CB00F3C235 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = ../af.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37DFB70321FFA4BE007B4E22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -298,10 +294,8 @@
 			isa = PBXGroup;
 			children = (
 				684CC0AC08D94E7280C030CF /* Whitney-Medium-Pro.otf */,
-				37D7DFE72510062A00196833 /* small_export_tax.json */,
 				379EB0DD25101F630059D835 /* taxonomy.json */,
 				379EB0DF25101F6A0059D835 /* optimized_model.mlmodel */,
-				37D7DFE82510062A00196833 /* small_inception_tf1.mlmodel */,
 				64F4396A383A4CE5AFC7F594 /* Whitney-Book-Pro.otf */,
 				E5D720CBEB824CA1925D443A /* Whitney-BookItalic-Pro.otf */,
 				FAE6ABEBDBF647C19D92F65B /* Whitney-Light-Pro.otf */,
@@ -472,7 +466,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				379EB0DE25101F630059D835 /* taxonomy.json in Resources */,
-				37D7DFE92510062A00196833 /* small_export_tax.json in Resources */,
 				4370DA2F52B544B192BCC02B /* Whitney-Medium-Pro.otf in Resources */,
 				9AC64861B6B14E9B9D1EEDD9 /* Whitney-Semibold-Pro.otf in Resources */,
 				37DFB70421FFA4BE007B4E22 /* LaunchScreen.xib in Resources */,
@@ -565,7 +558,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37D7DFEA2510062A00196833 /* small_inception_tf1.mlmodel in Sources */,
 				378785D7244E5B7C00D4509C /* File.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,

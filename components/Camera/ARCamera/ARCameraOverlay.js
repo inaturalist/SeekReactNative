@@ -28,7 +28,6 @@ type Props = {
   ranks: Object,
   pictureTaken: boolean,
   cameraLoaded: boolean,
-  error: ?string,
   filterByTaxonId: Function
 }
 
@@ -63,7 +62,6 @@ const ARCameraOverlay = ( {
   ranks,
   pictureTaken,
   cameraLoaded,
-  error,
   filterByTaxonId
 }: Props ) => {
   const { navigate } = useNavigation();
@@ -118,45 +116,41 @@ const ARCameraOverlay = ( {
         closeModal={closeModal}
         modal={<WarningModal closeModal={closeModal} />}
       />
-      {!error && (
-        <>
-          {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
-          <ARCameraHeader ranks={ranks} />
-          {isAndroid && (
-            <View style={styles.plantFilter}>
-              <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
-            </View>
-          )}
-          <Text style={styles.scanText}>{helpText}</Text>
-          {isAndroid && (
-            <TouchableOpacity
-              accessibilityLabel={settings[filterIndex].text}
-              accessible
-              onPress={toggleFilterIndex}
-              style={styles.plantFilterSettings}
-            >
-              <Image source={settings[filterIndex].icon} />
-            </TouchableOpacity>
-          )}
+        {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
+        <ARCameraHeader ranks={ranks} />
+        {isAndroid && (
+          <View style={styles.plantFilter}>
+            <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+          </View>
+        )}
+        <Text style={styles.scanText}>{helpText}</Text>
+        {isAndroid && (
           <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+            accessibilityLabel={settings[filterIndex].text}
             accessible
-            onPress={() => takePicture()}
-            style={styles.shutter}
-            disabled={pictureTaken}
+            onPress={toggleFilterIndex}
+            style={styles.plantFilterSettings}
           >
-            <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+            <Image source={settings[filterIndex].icon} />
           </TouchableOpacity>
-          <TouchableOpacity
-            accessibilityLabel={i18n.t( "accessibility.help" )}
-            accessible
-            onPress={() => navigate( "CameraHelp" )}
-            style={styles.help}
-          >
-            <Image source={icons.cameraHelp} />
-          </TouchableOpacity>
-        </>
-      )}
+        )}
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.take_photo" )}
+          accessible
+          onPress={() => takePicture()}
+          style={styles.shutter}
+          disabled={pictureTaken}
+        >
+          <Image source={ranks && ranks.species ? icons.arCameraGreen : icons.arCameraButton} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={i18n.t( "accessibility.help" )}
+          accessible
+          onPress={() => navigate( "CameraHelp" )}
+          style={styles.help}
+        >
+          <Image source={icons.cameraHelp} />
+        </TouchableOpacity>
     </>
   );
 };

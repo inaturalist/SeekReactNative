@@ -143,7 +143,7 @@ const GalleryScreen = () => {
   useEffect( () => {
     const requestAndroidPermissions = async () => {
       const permission = await checkCameraRollPermissions();
-      if ( !permission && isFocused ) {
+      if ( permission !== true ) {
         dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
       }
     };

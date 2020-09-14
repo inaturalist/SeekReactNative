@@ -13,7 +13,7 @@ import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
-import { dirModel, dirTaxonomy, dirSampleModel, dirSampleTaxonomy } from "./dirStorage";
+import { dirModel, dirTaxonomy } from "./dirStorage";
 import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
@@ -53,6 +53,12 @@ const addCameraFilesAndroid = () => {
 
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
+
+    console.log( hasSampleModel, "has sample model" );
+
+    RNFS.readDir( RNFS.DocumentDirectoryPath ).then( ( result ) => {
+      console.log( result, "are files being copied correctly" );
+    } );
 
     if ( hasModel !== undefined ) {
       copyFilesAndroid( `camera/${model}`, dirModel );
@@ -96,6 +102,7 @@ const addCameraFilesiOS = () => {
 };
 
 const addARCameraFiles = async () => {
+  // RNFS overwrites whatever files existed before
   if ( Platform.OS === "android" ) {
     addCameraFilesAndroid();
   } else if ( Platform.OS === "ios" ) {

@@ -188,8 +188,6 @@ const ARCamera = () => {
       textOS = i18n.t( "camera.error_version", { OS } );
     }
 
-    console.log( event.nativeEvent, "event", getSystemVersion() );
-
     // this uses event.nativeEvent.reason, not .error
     if ( event.nativeEvent && event.nativeEvent.reason ) {
       updateError( "device", event.nativeEvent.reason );

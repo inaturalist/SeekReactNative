@@ -1,4 +1,5 @@
 // using names from https://github.com/inaturalist/iNaturalistAndroid/blob/master/iNaturalist/src/main/res/values/constants.xml
+// and Google Translate for Sinhala
 const languages = {
   af: "Afrikaans",
   ar: "عربى",
@@ -21,6 +22,7 @@ const languages = {
   "pt-BR": "Português (Brazil)",
   ro: "Română",
   ru: "Русский",
+  si: "සිංහල",
   sv: "Svenska",
   tr: "Türkçe",
   zh: "中文 (台湾)"

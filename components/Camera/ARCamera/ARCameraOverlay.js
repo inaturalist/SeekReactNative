@@ -35,7 +35,8 @@ const settings = [
   {
     negativeFilter: true,
     taxonId: null,
-    text: i18n.t( "camera.filters_off" ),
+    text: null,
+    // text: i18n.t( "camera.filters_off" ),
     icon: icons.plantFilterOff,
     color: colors.cameraFilterGray
   },
@@ -118,7 +119,7 @@ const ARCameraOverlay = ( {
       />
         {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
         <ARCameraHeader ranks={ranks} />
-        {isAndroid && (
+        {( isAndroid && settings[filterIndex].text ) && (
           <View style={styles.plantFilter}>
             <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
           </View>

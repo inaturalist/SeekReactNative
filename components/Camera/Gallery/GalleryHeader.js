@@ -54,8 +54,6 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
     }
   }, [fetchAlbumNames, albumNames] );
 
-  console.log( "rendering gallery header" );
-
   const handleBackNav = useCallback( () => navigateToMainStack( navigate, "Home" ), [navigate] );
 
   return (

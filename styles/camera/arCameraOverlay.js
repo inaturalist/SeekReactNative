@@ -18,9 +18,9 @@ export default StyleSheet.create( {
   plantFilterSettings: {
     bottom: 0,
     paddingHorizontal: 10,
-    paddingVertical: 35,
+    paddingVertical: 33,
     position: "absolute",
-    left: 63
+    left: 60
   },
   scanText: {
     bottom: 109 - 26,

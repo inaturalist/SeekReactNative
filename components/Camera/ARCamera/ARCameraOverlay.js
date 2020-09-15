@@ -1,12 +1,13 @@
 // @flow
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
-  Platform
+  Platform,
+  Animated
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -35,8 +36,7 @@ const settings = [
   {
     negativeFilter: true,
     taxonId: null,
-    text: null,
-    // text: i18n.t( "camera.filters_off" ),
+    text: i18n.t( "camera.filters_off" ),
     icon: icons.plantFilterOff,
     color: colors.cameraFilterGray
   },
@@ -65,13 +65,14 @@ const ARCameraOverlay = ( {
   cameraLoaded,
   filterByTaxonId
 }: Props ) => {
+  const fadeOut = useRef( new Animated.Value( 0 ) ).current;
   const { navigate } = useNavigation();
   const { params } = useRoute();
   const rankToRender = Object.keys( ranks )[0] || null;
   const helpText = setCameraHelpText( rankToRender );
   const [showModal, setModal] = useState( false );
   const { autoCapture } = useContext( CameraContext );
-  const [filterIndex, setFilterIndex] = useState( 0 );
+  const [filterIndex, setFilterIndex] = useState( null );
 
   const toggleFilterIndex = () => {
     if ( filterIndex < 2 ) {
@@ -85,7 +86,9 @@ const ARCameraOverlay = ( {
   const closeModal = () => setModal( false );
 
   useEffect( () => {
-    filterByTaxonId( settings[filterIndex].taxonId, settings[filterIndex].negativeFilter );
+    if ( filterIndex ) {
+      filterByTaxonId( settings[filterIndex].taxonId, settings[filterIndex].negativeFilter );
+    }
   }, [filterIndex, filterByTaxonId] );
 
   useEffect( () => {
@@ -110,6 +113,46 @@ const ARCameraOverlay = ( {
     }
   }, [rankToRender, takePicture, autoCapture] );
 
+  useEffect( () => {
+    const entrance = {
+      toValue: 1,
+      duration: 0,
+      useNativeDriver: true
+    };
+
+    const exit = {
+      toValue: 0,
+      delay: 2000,
+      duration: 200,
+      useNativeDriver: true
+    };
+
+    if ( filterIndex === 0 ) {
+      Animated.sequence( [
+        Animated.timing( fadeOut, entrance ),
+        Animated.timing( fadeOut, exit )
+      ] ).start();
+    }
+  }, [fadeOut, filterIndex] );
+
+  const showFilterText = () => {
+    if ( filterIndex === 0 || filterIndex === null ) {
+      return;
+    }
+
+    return (
+      <View style={styles.plantFilter}>
+        <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+      </View>
+    );
+  };
+
+  const showAnimation = () => (
+    <Animated.View style={[styles.plantFilter, { opacity: fadeOut }]}>
+      <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
+    </Animated.View>
+  );
+
   return (
     <>
       <Modal
@@ -119,20 +162,17 @@ const ARCameraOverlay = ( {
       />
         {( pictureTaken || !cameraLoaded ) && <LoadingWheel color="white" />}
         <ARCameraHeader ranks={ranks} />
-        {( isAndroid && settings[filterIndex].text ) && (
-          <View style={styles.plantFilter}>
-            <GreenRectangle text={settings[filterIndex].text} color={settings[filterIndex].color} />
-          </View>
-        )}
+        {isAndroid && showFilterText()}
+        {( isAndroid && filterIndex === 0 ) && showAnimation()}
         <Text style={styles.scanText}>{helpText}</Text>
         {isAndroid && (
           <TouchableOpacity
-            accessibilityLabel={settings[filterIndex].text}
+            accessibilityLabel={filterIndex ? settings[filterIndex].text : settings[0].text}
             accessible
             onPress={toggleFilterIndex}
             style={styles.plantFilterSettings}
           >
-            <Image source={settings[filterIndex].icon} />
+            <Image source={filterIndex ? settings[filterIndex].icon : settings[0].icon} />
           </TouchableOpacity>
         )}
         <TouchableOpacity

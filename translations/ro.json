@@ -9,7 +9,7 @@
     "no_species": "Se pare că nu au fost observate multe specii în apropiere! Încearcă să schimbi locația sau să extinzi filtrul de specii.",
     "no_gps": "Semnalul GPS nu a fost găsit.",
     "location_timeout": "Cererea ta de locație a expirat. Te rugăm să încerci din nou.",
-    "location_settings": "Serviciul de localizare nu este activat sau modul de localizare nu este adecvat cererii actuale"
+    "location_settings": "Serviciul de localizare nu este activat sau modul de localizare nu este adecvat pentru solicitarea curentă"
   },
   "get_started": {
     "header": "Să începem",
@@ -309,7 +309,7 @@
     "error_cameraManager": "Ne pare rău, Managerul Camerei n-a putut fi încărcat",
     "error_photoError": "Ne pare rău, obiectul foto nu a fost găsit",
     "plant_filter": "Numai plante",
-    "non_plant_filter": "Numai fără plante"
+    "non_plant_filter": "Numai non-plante"
   },
   "gallery": {
     "label": "Fotografii",
@@ -495,7 +495,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary și Yaron Budowski. Mulțumiri speciale Visipedia și comunității iNaturalist.",
     "version": "Versiune",
     "help": "Pentru ajutor cu Seek, te rugăm trimite un e-mail la help+seek@inaturalist.org.",
-    "translations": "Suntem recunoscători pentru asistența de traducere oferită de comunitatea crowdin.com, în special: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Suntem recunoscători pentru asistența de traducere oferită de comunitatea crowdin.com, în special: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, and Yulia Lygina.",
     "join_crowdin": "Pentru a te alătura echipei de traducere Seek, te rugăm vizitează https://crowdin.com/project/seek"
   },
   "posting": {
@@ -644,8 +644,8 @@
     "mission_2_oct_2020": "Găsește orice 1 organism din ordinele:\n\nAccipitriforme (Șoimi, Vulturi & Ulii);\nCathartiformes (Vulturi pleșuvi, Condori);\nCarnivora (Carnivore)",
     "mission_3_oct_2020": "Găsește 1 Moluscă",
     "mission_4_oct_2020": "Găsește o Artropodă",
-    "oct_2020_description": "Necrofagele și Decompunătorii sunt esențiali viații pe planeta noastră. Ele ajută la reciclarea nutrienților și descompunerea materiei care altfel nu ar fi defalcată.",
-    "action_oct_2020": "Află ce fel de decompunători  și necrofage trăiesc în zonele din jurul tău. Cum sunt ele utile pentru mediu în funcția lor?"
+    "oct_2020_description": "Necrofagele și descompunătorii sunt esențiali viații pe planeta noastră. Ciupercile sunt descompunători care pot descompune țesut mort, cum ar fi lemnul și frunzele. Multe tipuri de animale, ca: vulturi, izopode și unii melci, pot mânca plante sau animale moarte. Ele ajută la reciclarea nutrienților, astfel încât aceștia să fie disponibili pentru o nouă creștere.",
+    "action_oct_2020": "Află ce fel de descompunători și necrofage trăiesc în zonele din jurul tău. Ce consumă? Mănâncă ei mereu aceleași lucruri?"
   },
   "replace_photo": {
     "header": "Înlocuiești Fotografia?",

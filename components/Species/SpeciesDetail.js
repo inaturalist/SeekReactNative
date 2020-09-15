@@ -220,6 +220,7 @@ const SpeciesDetail = () => {
         <SpeciesContainer
           checkForInternet={checkInternetConnection}
           details={details}
+          scientificName={taxon.scientificName}
           error={error}
           fetchiNatData={fetchiNatData}
           id={id}

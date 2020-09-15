@@ -13,13 +13,15 @@ import { useCommonName } from "../../../utility/customHooks";
 type Props = {
   +about: ?string,
   +wikiUrl: ?string,
-  +id: ?number
+  +id: ?number,
+  +scientificName: string
 }
 
 const About = ( {
   about,
   wikiUrl,
-  id
+  id,
+  scientificName
 }: Props ) => {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
@@ -27,6 +29,11 @@ const About = ( {
   const commonName = useCommonName( id, isFocused );
 
   const html = about ? `${about}`.replace( /<b>/g, "" ) : null;
+
+  // hide empty About section
+  if ( !about && !login ) {
+    return null;
+  }
 
   return (
     <SpeciesDetailCard text="species_detail.about">
@@ -41,10 +48,10 @@ const About = ( {
       )}
       {( login && id !== 43584 ) && (
         <Text
-          onPress={() => navigation.navigate( "Wikipedia", { wikiUrl } )}
+          onPress={() => navigation.navigate( "Wikipedia", { wikiUrl, scientificName } )}
           style={styles.linkText}
         >
-          {commonName}
+          {commonName || scientificName}
         </Text>
       )}
     </SpeciesDetailCard>

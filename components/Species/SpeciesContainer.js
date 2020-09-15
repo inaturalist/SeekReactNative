@@ -30,7 +30,8 @@ type Props = {
   +fetchiNatData: Function,
   +predictions: Array<Object>,
   +checkForInternet: Function,
-  +error: ?string
+  +error: ?string,
+  +scientificName: string
 }
 
 const SpeciesContainer = ( {
@@ -40,7 +41,8 @@ const SpeciesContainer = ( {
   fetchiNatData,
   predictions,
   checkForInternet,
-  error
+  error,
+  scientificName
 }: Props ) => {
   const {
     stats,
@@ -126,8 +128,7 @@ const SpeciesContainer = ( {
     <>
       {showGreenButtons && <SpeciesStats stats={greenButtons} />}
       {( !error && seenDate ) && <SeenDate showGreenButtons={showGreenButtons} seenDate={seenDate} />}
-      {/* about summary and url do not show up for locales like romanian */}
-      {( about || wikiUrl ) && <About about={about} wikiUrl={wikiUrl} id={id} />}
+      <About about={about} wikiUrl={wikiUrl} id={id} scientificName={scientificName} />
     </>
   );
 

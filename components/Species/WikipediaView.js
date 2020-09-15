@@ -20,7 +20,17 @@ type Props = {
 };
 
 const WikipediaView = ( { navigation, route }: Props ) => {
-  const { wikiUrl } = route.params;
+  const { wikiUrl, scientificName } = route.params;
+
+  let uri;
+
+  const wikiLocale = i18n.currentLocale().split( "-" )[0].toLowerCase();
+
+  if ( wikiLocale === "en" ) {
+    uri = wikiUrl;
+  } else {
+    uri = `http://${wikiLocale}.wikipedia.org/wiki/${scientificName}`;
+  }
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -30,7 +40,7 @@ const WikipediaView = ( { navigation, route }: Props ) => {
           <Image source={icons.closeWhite} />
         </TouchableOpacity>
       </View>
-      <WebView startInLoadingState source={{ uri: wikiUrl }} />
+      <WebView startInLoadingState source={{ uri }} />
       <View style={styles.bottom} />
     </SafeAreaView>
   );

@@ -129,7 +129,7 @@ const useUserPhoto = ( item, isFocused ) => {
 };
 
 const useLocationPermission = () => {
-  const [granted, setGranted] = useState( true );
+  const [granted, setGranted] = useState( null );
 
   const fetchPermissionStatus = async () => {
     try {

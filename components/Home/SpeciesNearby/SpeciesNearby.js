@@ -82,7 +82,7 @@ const SpeciesNearby = () => {
   const requestAndroidPermissions = useCallback( () => {
     if ( latLng.latitude ) { return; }
     // only update location if user has not selected a location already
-    if ( Platform.OS === "android" && !granted ) {
+    if ( Platform.OS === "android" && granted === false ) {
       dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else {
       getGeolocation();

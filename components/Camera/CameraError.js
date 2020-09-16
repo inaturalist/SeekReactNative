@@ -26,8 +26,6 @@ const CameraError = ( { error, errorEvent }: Props ) => {
     return errorText;
   };
 
-  console.log( error, errorEvent, "error and event" );
-
   return (
     <View style={[styles.blackBackground, styles.center, name === "Gallery" && styles.galleryHeight]}>
       <Text allowFontScaling={false} numberOfLines={23} style={styles.errorText}>

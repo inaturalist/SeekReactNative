@@ -177,7 +177,8 @@ const ARCamera = () => {
 
   // event.nativeEvent.error is not implemented on Android
   // it shows up via handleCameraError on iOS
-  const handleCameraPermissionMissing = () => updateError( "permissions" );
+  // ignoring this callback since we're checking all permissions in React Native
+  const handleCameraPermissionMissing = () => {};
 
   const handleClassifierError = ( event ) => {
     if ( event.nativeEvent && event.nativeEvent.error ) {
@@ -246,7 +247,10 @@ const ARCamera = () => {
       requestAllCameraPermissions().then( ( result ) => {
         if ( result === "gallery" ) {
           updateError( "gallery" );
+        } else if ( result === "permissions" ) {
+          updateError( "permissions" );
         }
+        updateError( null );
       } ).catch( e => console.log( e, "couldn't get camera permissions" ) );
     }
   }, [updateError] );

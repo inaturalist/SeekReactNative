@@ -20,11 +20,15 @@ type Props = {
   +id: ?number
 };
 
+const xAxisSvg = {
+  fontSize: 18,
+  fill: colors.seekTeal
+};
+
 const SpeciesChart = ( { id }: Props ) => {
   const { localSeasonality } = useContext( SpeciesDetailContext );
   const granted = useLocationPermission();
 
-  const isFocused = useIsFocused();
   const allMonths = createShortMonthsList();
   const [data, setData] = useState( [] );
   const [latLng, setLatLng] = useState( {} );
@@ -76,12 +80,8 @@ const SpeciesChart = ( { id }: Props ) => {
   useEffect( () => { getGeolocation(); }, [granted, getGeolocation] );
 
   useEffect( () => {
-    if ( isFocused ) {
-      fetchHistogram();
-    }
-  }, [id, fetchHistogram, isFocused] );
-
-
+    fetchHistogram();
+  }, [id, fetchHistogram] );
 
   // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( ( value ) => (
@@ -94,7 +94,7 @@ const SpeciesChart = ( { id }: Props ) => {
     />
   ) );
 
-  const setXAxis = ( { item } ) => item.month;
+  const setXAxis = useCallback( ( { item } ) => item.month, [] );
 
   const formatLabel = useMemo( ( value ) => {
     const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
@@ -124,10 +124,7 @@ const SpeciesChart = ( { id }: Props ) => {
               data={data}
               formatLabel={formatLabel}
               style={styles.xAxis}
-              svg={{
-                fontSize: 18,
-                fill: colors.seekTeal
-              }}
+              svg={xAxisSvg}
               xAccessor={setXAxis}
             />
           </View>

@@ -180,7 +180,7 @@ const OfflineARResults = () => {
       return;
     }
 
-    if ( Platform.OS === "android" && !granted ) {
+    if ( Platform.OS === "android" && granted === false ) {
       dispatch( { type: "SET_LOCATION_ERROR", code: 1 } );
     } else {
       fetchTruncatedUserLocation().then( ( coords ) => {

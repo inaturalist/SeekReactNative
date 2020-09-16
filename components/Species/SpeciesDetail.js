@@ -88,7 +88,7 @@ const SpeciesDetail = () => {
     seenTaxa
   } = state;
 
-  const setupScreen = useCallback( async () => {
+  const setId = useCallback( async () => {
     const i = await getSpeciesId();
     dispatch( { type: "SET_ID", id: i } );
   }, [] );
@@ -103,8 +103,6 @@ const SpeciesDetail = () => {
 
       if ( seen ) {
         dispatch( { type: "TAXA_SEEN", seen } );
-      } else {
-        dispatch( { type: "TAXA_NOT_SEEN" } );
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
   }, [id] );
@@ -169,8 +167,12 @@ const SpeciesDetail = () => {
   }, [id] );
 
   const fetchiNatData = useCallback( () => {
-    dispatch( { type: "RESET_SCREEN" } );
-    setupScreen();
+    setId();
+
+    // reset seenTaxa if refreshing screen from Similar Species
+    if ( seenTaxa ) {
+      dispatch( { type: "TAXA_NOT_SEEN" } );
+    }
 
     const scrollToTop = () => {
       if ( scrollView.current ) {
@@ -186,7 +188,7 @@ const SpeciesDetail = () => {
     } else {
       scrollToTop();
     }
-  }, [setupScreen] );
+  }, [setId, seenTaxa] );
 
   useEffect( () => {
     if ( id !== null ) {
@@ -196,13 +198,9 @@ const SpeciesDetail = () => {
   }, [id, fetchTaxonDetails, checkIfSpeciesSeen] );
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      // would be nice to stop refetch when a user goes to range map and back
-      fetchiNatData();
-    } );
-    navigation.addListener( "blur", () => {
-      dispatch( { type: "RESET_SCREEN" } );
-    } );
+    // would be nice to stop refetch when a user goes to range map and back
+    navigation.addListener( "focus", () => { fetchiNatData(); } );
+    navigation.addListener( "blur", () => { dispatch( { type: "RESET_SCREEN" } ); } );
   }, [navigation, fetchiNatData] );
 
   return (

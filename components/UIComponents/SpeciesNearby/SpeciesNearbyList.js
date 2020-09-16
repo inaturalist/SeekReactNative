@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useMemo, useCallback } from "react";
+import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 import { useRoute } from "@react-navigation/native";
 
@@ -37,7 +37,7 @@ const SpeciesNearbyList = ( { taxa, fetchiNatData }: Props ) => {
     return <SpeciesImageCell item={item} fetchiNatData={fetchiNatData} />;
   }, [fetchiNatData, name] );
 
-  return useMemo( () => (
+  return (
     <FlatList
       alwaysBounceHorizontal
       bounces={taxa.length > 0}
@@ -50,7 +50,7 @@ const SpeciesNearbyList = ( { taxa, fetchiNatData }: Props ) => {
       ListEmptyComponent={renderEmptyList}
       renderItem={renderSpecies}
     />
-  ), [taxa, getItemLayout, extractKey, renderEmptyList, renderSpecies] );
+  );
 };
 
 export default SpeciesNearbyList;

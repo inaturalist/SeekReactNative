@@ -1,6 +1,6 @@
 // @flow
 
-import React from "react";
+import React, { useCallback } from "react";
 import { Platform, Image, TouchableOpacity } from "react-native";
 import { getPredictionsForImage } from "react-native-inat-camera";
 import { useNavigation } from "@react-navigation/native";
@@ -11,15 +11,13 @@ import styles from "../../../styles/camera/gallery";
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 
 type Props = {
-  item: Object,
-  startLoading: Function,
-  loading: boolean
+  item: Object
 }
 
-const GalleryImage = ( { item, startLoading, loading }: Props ) => {
+const GalleryImage = ( { item }: Props ) => {
   const { navigate } = useNavigation();
 
-  const navigateToResults = ( uri, time, location, predictions ) => {
+  const navigateToResults = useCallback( ( uri, time, location, predictions ) => {
     let latitude = null;
     let longitude = null;
 
@@ -43,9 +41,9 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
     } else {
       navigate( "OnlineServerResults", { image } );
     }
-  };
+  }, [navigate] );
 
-  const getPredictions = ( uri, timestamp, location ) => {
+  const getPredictions = useCallback( ( uri, timestamp, location ) => {
     const path = uri.split( "file://" );
     const reactUri = path[1];
 
@@ -58,28 +56,24 @@ const GalleryImage = ( { item, startLoading, loading }: Props ) => {
     } ).catch( ( err ) => {
       console.log( "Error", err );
     } );
-  };
+  }, [navigateToResults] );
 
-  const selectAndResizeImage = ( node: Object ) => {
-    const { timestamp, location, image } = node;
+  const selectAndResizeImage = useCallback( () => {
+    const { timestamp, location, image } = item.node;
 
     if ( Platform.OS === "android" ) {
       getPredictions( image.uri, timestamp, location );
     } else {
       navigateToResults( image.uri, timestamp, location );
     }
-  };
+  }, [getPredictions, navigateToResults, item] );
 
   return (
     <TouchableOpacity
       accessibilityLabel={item.node.image.filename}
       accessible
-      onPress={() => {
-        startLoading();
-        selectAndResizeImage( item.node );
-      }}
+      onPress={selectAndResizeImage}
       style={styles.button}
-      disabled={loading}
     >
       <Image
         source={{ uri: item.node.image.uri }}

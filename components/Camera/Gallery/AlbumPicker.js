@@ -20,9 +20,11 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
 
   const renderAlbumTitle = useMemo( () => (
     <Text style={styles.headerText} testID="cameraRollText">
-      {album.toLocaleUpperCase()}
+      {album === "All"
+        ? cameraRoll.toLocaleUpperCase()
+        : album.toLocaleUpperCase()}
     </Text>
-  ), [album] );
+  ), [album, cameraRoll] );
 
   return (
     <Picker

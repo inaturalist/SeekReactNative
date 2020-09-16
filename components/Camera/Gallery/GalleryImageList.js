@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { FlatList } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
@@ -10,22 +10,16 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 type Props = {
   photos: Array<Object>,
-  setPhotoParams: Function,
-  startLoading: Function,
-  loading: boolean
+  setPhotoParams: Function
 }
 
 const GalleryImageList = ( {
   setPhotoParams,
-  photos,
-  startLoading,
-  loading
+  photos
 }: Props ) => {
   const renderLoading = useCallback( () => <LoadingWheel color={colors.darkGray} />, [] );
 
-  const renderCameraRollPhoto = useCallback( ( { item } ) => (
-    <GalleryImage item={item} startLoading={startLoading} loading={loading} />
-  ), [loading, startLoading] );
+  const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );
 
   // skips measurement of dynamic content for faster loading
   const getItemLayout = useCallback( ( data, index ) => ( {
@@ -36,7 +30,7 @@ const GalleryImageList = ( {
 
   const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
 
-  return useMemo( () => (
+  return (
     <FlatList
       data={photos}
       contentContainerStyle={styles.grayContainer}
@@ -49,7 +43,7 @@ const GalleryImageList = ( {
       ListEmptyComponent={renderLoading}
       renderItem={renderCameraRollPhoto}
     />
-  ), [extractKey, renderCameraRollPhoto, renderLoading, getItemLayout, setPhotoParams, photos] );
+  );
 };
 
 export default GalleryImageList;

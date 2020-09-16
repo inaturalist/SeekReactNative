@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useReducer, useEffect, useCallback, useMemo } from "react";
+import React, { useReducer, useEffect, useCallback } from "react";
 import { Platform, StatusBar } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import { useNavigation } from "@react-navigation/native";
@@ -25,14 +25,13 @@ const GalleryScreen = () => {
           hasNextPage: true,
           lastCursor: null,
           stillLoading: false,
-          loading: true,
           errorEvent: null
         };
       case "SHOW_LOADING_WHEEL":
         return { ...state, loading: true };
       case "HIDE_LOADING_WHEEL":
         return { ...state, loading: false };
-      case "FETCHING_PHOTOS":
+      case "FETCH_PHOTOS":
         return { ...state, stillLoading: true };
       case "APPEND_PHOTOS":
         return {
@@ -40,15 +39,13 @@ const GalleryScreen = () => {
           photos: action.photos,
           stillLoading: false,
           hasNextPage: action.pageInfo.has_next_page,
-          lastCursor: action.pageInfo.end_cursor,
-          loading: false
+          lastCursor: action.pageInfo.end_cursor
         };
       case "ERROR":
         return {
           ...state,
           error:
           action.error,
-          loading: false,
           errorEvent: action.errorEvent
         };
       default:
@@ -61,7 +58,6 @@ const GalleryScreen = () => {
     hasNextPage: true,
     lastCursor: null,
     stillLoading: false,
-    loading: true,
     errorEvent: null
   } );
 
@@ -72,7 +68,6 @@ const GalleryScreen = () => {
     hasNextPage,
     lastCursor,
     stillLoading,
-    loading,
     errorEvent
   } = state;
 
@@ -86,41 +81,41 @@ const GalleryScreen = () => {
   }, [photos] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
-    if ( hasNextPage && !stillLoading ) {
-      dispatch( { type: "FETCHING_PHOTOS" } );
-
-      CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
-        appendPhotos( results.edges, results.page_info );
-      } ).catch( ( { message } ) => {
-        if ( message === "Access to photo library was denied" ) {
-          dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
-        } else {
-          dispatch( { type: "ERROR", error: "photos", errorEvent: message } );
-        }
-      } );
-    }
-  }, [hasNextPage, stillLoading, appendPhotos] );
+    CameraRoll.getPhotos( photoOptions ).then( ( results ) => {
+      appendPhotos( results.edges, results.page_info );
+    } ).catch( ( { message } ) => {
+      if ( message === "Access to photo library was denied" ) {
+        dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+      } else {
+        dispatch( { type: "ERROR", error: "photos", errorEvent: message } );
+      }
+    } );
+  }, [appendPhotos] );
 
   const setPhotoParams = useCallback( () => {
-    const photoOptions = {
-      first: 28, // only 28 at a time can display
-      assetType: "Photos",
-      groupTypes: ( album === null ) ? "All" : "Album",
-      include: ["location"]
-    };
+    if ( hasNextPage && !stillLoading ) {
+      dispatch( { type: "FETCH_PHOTOS" } );
 
-    if ( album ) { // append for cases where album isn't null
-      // $FlowFixMe
-      photoOptions.groupName = album;
+      const photoOptions = {
+        first: 28, // only 28 at a time can display
+        assetType: "Photos",
+        groupTypes: ( album === null ) ? "All" : "Album",
+        include: ["location"]
+      };
+
+      if ( album ) { // append for cases where album isn't null
+        // $FlowFixMe
+        photoOptions.groupName = album;
+      }
+
+      if ( lastCursor ) {
+        // $FlowFixMe
+        photoOptions.after = lastCursor;
+      }
+
+      fetchPhotos( photoOptions );
     }
-
-    if ( lastCursor ) {
-      // $FlowFixMe
-      photoOptions.after = lastCursor;
-    }
-
-    fetchPhotos( photoOptions );
-  }, [album, lastCursor, fetchPhotos] );
+  }, [album, lastCursor, fetchPhotos, hasNextPage, stillLoading ] );
 
   const updateAlbum = useCallback( ( newAlbum: string ) => {
     // prevent user from reloading the same album twice
@@ -129,50 +124,33 @@ const GalleryScreen = () => {
   }, [album] );
 
   useEffect( () => {
-    if ( photos.length === 0 && loading ) {
+    if ( photos.length === 0 && !error ) {
       setPhotoParams();
     }
-  }, [photos.length, loading, setPhotoParams] );
-
-  const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
+  }, [photos.length, error, setPhotoParams] );
 
   useEffect( () => {
     const requestAndroidPermissions = async () => {
-      const permission = await checkCameraRollPermissions();
-      if ( permission !== true ) {
-        dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+      if ( Platform.OS === "android" ) {
+        const permission = await checkCameraRollPermissions();
+        if ( permission !== true ) {
+          dispatch( { type: "ERROR", error: "gallery", errorEvent: null } );
+        }
       }
     };
 
-    navigation.addListener( "focus", () => {
-      if ( Platform.OS === "android" ) {
-        requestAndroidPermissions();
-      }
-    } );
+    navigation.addListener( "focus", () => { requestAndroidPermissions(); } );
+  }, [navigation] );
 
-    navigation.addListener( "blur", () => {
-      if ( loading ) {
-        dispatch( { type: "HIDE_LOADING_WHEEL" } );
-      }
-    } );
-  }, [navigation, loading] );
-
-  const renderGalleryList = useMemo( () => (
-    <GalleryImageList
-      setPhotoParams={setPhotoParams}
-      photos={photos}
-      startLoading={startLoading}
-      loading={loading}
-    />
-  ), [loading, photos, setPhotoParams, startLoading] );
-
-  return useMemo( () => (
+  return (
     <SafeAreaView style={styles.background} edges={["top"]}>
       <StatusBar barStyle="dark-content" />
       <GalleryHeader updateAlbum={updateAlbum} />
-      {error ? <CameraError error={error} errorEvent={errorEvent} /> : renderGalleryList}
+      {error
+        ? <CameraError error={error} errorEvent={errorEvent} />
+        : <GalleryImageList setPhotoParams={setPhotoParams} photos={photos} />}
     </SafeAreaView>
-  ), [error, errorEvent, updateAlbum, renderGalleryList] );
+  );
 };
 
 export default GalleryScreen;

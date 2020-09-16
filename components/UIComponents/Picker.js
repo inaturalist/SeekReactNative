@@ -1,9 +1,8 @@
-import React, { useMemo, useCallback } from "react";
+import React, { useCallback } from "react";
 import RNPickerSelect from "react-native-picker-select";
 
 type Props = {
   handleValueChange: Function,
-  selectedValue: string,
   itemList: Array<Object>,
   children: any,
   disabled?: boolean
@@ -11,13 +10,11 @@ type Props = {
 
 const Picker = ( {
   handleValueChange,
-  selectedValue,
   children,
   itemList,
   disabled
 }: Props ) => {
   const showIcon = useCallback( () => <></>, [] );
-  const showPlaceholder = useMemo( () => {}, [] );
 
   return (
     <RNPickerSelect
@@ -25,9 +22,8 @@ const Picker = ( {
       Icon={showIcon}
       items={itemList}
       onValueChange={handleValueChange}
-      placeholder={showPlaceholder}
+      placeholder={{}}
       useNativeAndroidPickerStyle={false}
-      value={selectedValue}
       disabled={disabled}
     >
       {children}

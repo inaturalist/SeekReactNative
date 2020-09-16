@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Text, Image, View } from "react-native";
-import RNPickerSelect from "react-native-picker-select";
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/gallery";
@@ -11,7 +10,8 @@ type Props = {
 }
 
 const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
-  const [album, setAlbum] = useState( albumNames[0].label );
+  const cameraRoll = albumNames[0].label;
+  const [album, setAlbum] = useState( cameraRoll );
 
   const handleValueChange = useCallback( ( newAlbum ) => {
     setAlbum( newAlbum );
@@ -20,16 +20,13 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
 
   const renderAlbumTitle = useMemo( () => (
     <Text style={styles.headerText} testID="cameraRollText">
-      {album === "All"
-        ? albumNames[0].label.toLocaleUpperCase()
-        : album.toLocaleUpperCase()}
+      {album.toLocaleUpperCase()}
     </Text>
-  ), [album, albumNames] );
+  ), [album] );
 
   return (
     <Picker
       handleValueChange={handleValueChange}
-      selectedValue={album}
       itemList={albumNames}
       disabled={albumNames.length <= 1}
     >

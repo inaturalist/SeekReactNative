@@ -50,7 +50,6 @@ const TaxonPicker = ( { updateTaxaType, error }: Props ) => {
     <Picker
       itemList={types}
       handleValueChange={handleValueChange}
-      value={taxonType}
       disabled={error !== null}
     >
       {renderTaxonPicker}

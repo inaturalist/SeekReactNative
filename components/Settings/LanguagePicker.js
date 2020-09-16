@@ -80,7 +80,6 @@ const LanguagePicker = () => {
       )}
       <Picker
         handleValueChange={handleValueChange}
-        selectedValue={displayLanguage}
         itemList={localeList}
         testId="picker"
         disabled={!displayLanguage}

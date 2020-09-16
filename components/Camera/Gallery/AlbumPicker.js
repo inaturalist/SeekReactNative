@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Text, Image, View } from "react-native";
+import RNPickerSelect from "react-native-picker-select";
 
 import icons from "../../../assets/icons";
 import styles from "../../../styles/camera/gallery";
 import Picker from "../../UIComponents/Picker";
-
 type Props = {
   +updateAlbum: Function,
   +albumNames: Array

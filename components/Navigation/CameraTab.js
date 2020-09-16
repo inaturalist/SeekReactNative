@@ -21,6 +21,9 @@ const CameraNav = () => (
       style: styles.cameraTab,
       indicatorStyle: styles.indicator
     }}
+    // AR Camera is already a memory intensive screen
+    // lazy means the gallery is not loading at the same time
+    lazy
   >
     <Tab.Screen
       name="ARCamera"

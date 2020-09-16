@@ -17,21 +17,22 @@ const Picker = ( {
   disabled
 }: Props ) => {
   const showIcon = useCallback( () => <></>, [] );
+  const showPlaceholder = useMemo( () => {}, [] );
 
-  return useMemo( () => (
+  return (
     <RNPickerSelect
       hideIcon
       Icon={showIcon}
       items={itemList}
       onValueChange={handleValueChange}
-      placeholder={{}}
+      placeholder={showPlaceholder}
       useNativeAndroidPickerStyle={false}
       value={selectedValue}
       disabled={disabled}
     >
       {children}
     </RNPickerSelect>
-  ), [children, disabled, selectedValue, handleValueChange, itemList, showIcon] );
+  );
 };
 
 export default Picker;

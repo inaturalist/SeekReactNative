@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback, useMemo } from "react";
 import { Text, View } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
@@ -11,16 +11,15 @@ import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 
+const localeList = Object.keys( languages ).map( ( locale ) => (
+  { value: locale, label: languages[locale] }
+) );
+
 const LanguagePicker = () => {
+  const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
   const { languageTag } = RNLocalize.getLocales()[0];
   const deviceLanguage = languageTag.split( "-" )[0].toLowerCase();
   const deviceLanguageSupported = Object.keys( languages ).includes( deviceLanguage );
-
-  const localeList = Object.keys( languages ).map( ( locale ) => (
-    { value: locale, label: languages[locale] }
-  ) );
-
-  const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
 
   const chooseDisplayLanguage = () => {
     if ( preferredLanguage === "device" ) {
@@ -32,7 +31,7 @@ const LanguagePicker = () => {
   const displayLanguage = chooseDisplayLanguage();
   const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
 
-  const handleValueChange = ( value ) => {
+  const handleValueChange = useCallback( ( value ) => {
     // this prevents the double render on new Android install
     // without this, the user changes the language
     // and handleValueChange is immediately called with "en"
@@ -50,7 +49,19 @@ const LanguagePicker = () => {
 
     toggleLanguage( value );
     toggleLanguagePreference();
-  };
+  }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
+
+  const renderLanguagePicker = useMemo( () => (
+    <View style={[styles.marginGreenButton, styles.center]}>
+      <View style={styles.greenButton}>
+        <Text style={styles.languageText}>
+          {displayLanguage && languages[displayLanguage].toLocaleUpperCase()}
+        </Text>
+      </View>
+    </View>
+  ), [displayLanguage] );
+
+  const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );
 
   return (
     <View style={styles.radioButtonMarginBottom}>
@@ -61,7 +72,7 @@ const LanguagePicker = () => {
             checkBoxColor={colors.checkboxColor}
             isChecked={isChecked}
             disabled={isChecked}
-            onClick={() => handleValueChange( "device" )}
+            onClick={setDeviceLanguage}
             style={styles.checkBox}
           />
           <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
@@ -74,13 +85,7 @@ const LanguagePicker = () => {
         testId="picker"
         disabled={!displayLanguage}
       >
-        <View style={[styles.marginGreenButton, styles.center]}>
-          <View style={styles.greenButton}>
-            <Text style={styles.languageText}>
-              {displayLanguage && languages[displayLanguage].toLocaleUpperCase()}
-            </Text>
-          </View>
-        </View>
+        {renderLanguagePicker}
       </Picker>
     </View>
   );

@@ -3,7 +3,7 @@
 import React, { useReducer, useEffect, useCallback, useMemo } from "react";
 import { Platform, StatusBar } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { checkCameraRollPermissions } from "../../../utility/androidHelpers.android";
@@ -14,10 +14,8 @@ import CameraError from "../CameraError";
 
 const GalleryScreen = () => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
-    console.log( action.type, "action on gallery" );
     switch ( action.type ) {
       case "SET_ALBUM":
         return {
@@ -83,11 +81,9 @@ const GalleryScreen = () => {
       dispatch( { type: "ERROR", error: "photos", errorEvent: null } );
     } else {
       const updatedPhotos = photos.concat( data );
-      if ( isFocused ) {
-        dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
-      }
+      dispatch( { type: "APPEND_PHOTOS", photos: updatedPhotos, pageInfo } );
     }
-  }, [photos, isFocused] );
+  }, [photos] );
 
   const fetchPhotos = useCallback( ( photoOptions ) => {
     if ( hasNextPage && !stillLoading ) {
@@ -133,10 +129,10 @@ const GalleryScreen = () => {
   }, [album] );
 
   useEffect( () => {
-    if ( photos.length === 0 && loading && isFocused ) {
+    if ( photos.length === 0 && loading ) {
       setPhotoParams();
     }
-  }, [photos.length, loading, setPhotoParams, isFocused] );
+  }, [photos.length, loading, setPhotoParams] );
 
   const startLoading = useCallback( () => dispatch( { type: "SHOW_LOADING_WHEEL" } ), [] );
 
@@ -155,11 +151,11 @@ const GalleryScreen = () => {
     } );
 
     navigation.addListener( "blur", () => {
-      if ( isFocused && loading ) {
+      if ( loading ) {
         dispatch( { type: "HIDE_LOADING_WHEEL" } );
       }
     } );
-  }, [navigation, photos.length, isFocused, loading] );
+  }, [navigation, loading] );
 
   const renderGalleryList = useMemo( () => (
     <GalleryImageList

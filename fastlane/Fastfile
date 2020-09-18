@@ -52,16 +52,17 @@ platform :ios do
   lane :release do
     deliver(
       username: ENV["USERNAME"],
-      build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],
+      # build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],
       submit_for_review: false,
       automatic_release: false,
       force: false, # Skip HTMl report verification
-      skip_metadata: true,
+      skip_metadata: false, # make sure Deliverfile has latest release notes
       skip_screenshots: true,
       skip_binary_upload: true,
       submission_information: {
         add_id_info_uses_idfa: false
       }
+      precheck_include_in_app_purchases: false
     )
     slack(
       message: "Successfully uploaded a new App Store release build",

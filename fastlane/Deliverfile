@@ -9,6 +9,25 @@ languages(['en-US', 'ar-SA', 'ca', 'cs', 'da', 'de-DE',
 ])
 
 release_notes({
-  'default' => "Bug fixes",
-  'de-DE' => "Fehlerbehebung"
+  'default' => "Wikipedia links in non-English locales; Sinhala language support; performance updates",
+  'en-US' => "Wikipedia links in non-English locales; Sinhala language support; performance updates",
+  'ar-SA' => "يربط يكيبيديا في غير الإنجليزية غات. دعم اللغة السنهالية. تحديثات الأداء",
+  'da' => "Wikipedia links i ikke-engelske locales; Singalesisk støtte; ydeevneopdateringer",
+  'nl-NL' => "Wikipedia verbindt in niet-Engels locales; Singalees taalondersteuning; prestatie-updates",
+  'fi' => "Wikipedia linkkejä ei-Englanti locales; Sinhali tuki; suorituskyky päivitykset",
+  'fr-FR' => "Wikipedia Liens dans des endroits non-anglais; soutien cinghalais; mises à jour de performance",
+  'de-DE' => "Wikipedia Links in nicht-englischen Sprachumgebungen; Singhalesischsprachigen Unterstützung; Performance-Updates",
+  'he' => "ויקיפדיה הקישורים אזורים שאינם דוברי אנגלית; תמיכה בשפה סינהאלה; עדכוני ביצועים",
+  'it' => "Wikipedia collega in localizzazioni non inglesi; supporto per la lingua singalese; aggiornamenti di prestazioni",
+  'ja' => "ウィキペディアは、英語以外のロケールでリンクし;シンハラ語の言語サポート、パフォーマンスの最新情報",
+  'no' => "Wikipedia lenker i andre språk enn engelsk; Singalesisk støtte; ytelsesoppdateringer",
+  'pt-BR' => "Wikipedia liga em locais não-ingleses; suporte ao idioma cingalês; atualizações de desempenho",
+  'ro' => "Wikipedia link-uri în locații non-engleză; limba de sprijin singaleză; actualizări de performanță",
+  'ru' => "Википедия связывает в не-английской локали; Поддержка языка Sinhala; обновления производительности",
+  'es-ES' => "Wikipedia enlaces en lugares no inglesa; apoyo en el idioma cingalés; actualizaciones de rendimiento",
+  'sv' => "Wikipedia länkar i andra språk än engelska, stöd Singalesiska; uppdateringar prestanda",
+  'tr' => "Vikipedi İngilizce olmayan yerel ayarları bağlantılar; Sinhala dil desteği; performansı güncellemeleri",
+  'ca' => "Wikipedia enllaços a llocs no anglesa; suport al Singalès; actualitzacions de rendiment",
+  'cs' => "Wikipedia odkazy na jiné než anglické národní prostředí; Podpora Sinhálština; aktualizace výkonu",
+  'zh-Hant' => "維基百科的鏈接在非英語語言環境;僧伽羅語支持;性能更新"
 })

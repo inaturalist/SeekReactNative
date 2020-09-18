@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
@@ -15,16 +15,11 @@ type Props = {
 
 const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
   const [similarSpecies, setSimilarSpecies] = useState( [] );
-  const [loading, setLoading] = useState( true );
-
   const { length } = similarSpecies;
 
   useEffect( () => {
     if ( id !== null ) {
-      const resetState = () => {
-        setSimilarSpecies( [] );
-        setLoading( true );
-      };
+      const resetState = () => setSimilarSpecies( [] );
 
       const fetchSimilarSpecies = () => {
         const params = {
@@ -40,7 +35,6 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
           const species = results.map( r => r.taxon );
 
           setSimilarSpecies( species );
-          setLoading( false );
         } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
       };
       resetState();
@@ -48,20 +42,16 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
     }
   }, [id] );
 
-  return (
+  return useMemo( () => (
     <>
       {length > 0 && (
         <View>
           <View style={styles.similarSpeciesMargins}>
             <GreenText text="species_detail.similar" />
           </View>
-          <View style={[
-            styles.similarSpeciesContainer,
-            loading && styles.loading
-          ]}
-          >
+          <View style={styles.similarSpeciesContainer}>
             <SpeciesNearbyList
-              fetchiNatData={() => fetchiNatData( "similarSpecies" )}
+              fetchiNatData={fetchiNatData}
               taxa={similarSpecies}
             />
           </View>
@@ -69,7 +59,7 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
       )}
       <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
     </>
-  );
+  ), [fetchiNatData, length, similarSpecies] );
 };
 
 export default SimilarSpecies;

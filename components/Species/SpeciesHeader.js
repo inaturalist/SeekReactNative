@@ -75,7 +75,7 @@ const SpeciesHeader = ( {
         handlePress={backAction}
         style={styles.backButton}
       />
-      <SpeciesPhotos photos={photos} seenTaxa={seenTaxa} />
+      {id !== null && <SpeciesPhotos photos={photos} seenTaxa={seenTaxa} />}
       <View style={styles.greenBanner}>
         {iconicTaxonId && (
           <Text style={styles.iconicTaxaText}>

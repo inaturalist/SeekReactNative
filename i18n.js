@@ -23,6 +23,7 @@ import pl from "./translations/pl.json";
 import ptBR from "./translations/pt-BR.json";
 import ro from "./translations/ro.json";
 import ru from "./translations/ru.json";
+import si from "./translations/si.json";
 import sv from "./translations/sv.json";
 import tr from "./translations/tr.json";
 import zh from "./translations/zh-TW.json";
@@ -49,6 +50,7 @@ i18n.translations = {
   "pt-BR": ptBR,
   ro,
   ru,
+  si,
   sv,
   tr,
   zh

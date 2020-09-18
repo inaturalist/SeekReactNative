@@ -48,15 +48,13 @@ const requestAllCameraPermissions = async () => {
 
     if ( granted[camera] !== RESULTS.GRANTED ) {
       return "permissions";
-    }
-
-    if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== RESULTS.GRANTED ) {
+    } else if ( ( granted[cameraRollRetrieve] || granted[cameraRollSave] ) !== RESULTS.GRANTED ) {
       return "gallery";
     }
+    return true;
   } catch ( e ) {
-    return "camera";
+    return e;
   }
-  return null;
 };
 
 export {

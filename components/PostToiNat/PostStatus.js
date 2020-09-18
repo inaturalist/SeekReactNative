@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, Image, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import styles from "../../styles/posting/postStatus";
@@ -9,7 +10,6 @@ import { colors } from "../../styles/global";
 import posting from "../../assets/posting";
 import icons from "../../assets/icons";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import GreenText from "../UIComponents/GreenText";
 import { setRoute } from "../../utility/helpers";
 
@@ -61,8 +61,7 @@ const PostStatus = ( {
   }
 
   return (
-    <>
-      <SafeAreaView color={colors.white} />
+    <SafeAreaView style={styles.safeAreaContainer}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.container}>
         <GreenText
@@ -93,7 +92,7 @@ const PostStatus = ( {
           />
         </View>
       )}
-    </>
+    </SafeAreaView>
   );
 };
 

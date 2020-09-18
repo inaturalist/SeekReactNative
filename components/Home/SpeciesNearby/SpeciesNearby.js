@@ -57,9 +57,9 @@ const SpeciesNearby = () => {
     dispatch( { type: "LOCATION_UPDATED", coordinates } );
   }, [] );
 
-  const updateTaxaType = ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } );
+  const updateTaxaType = useCallback( ( type ) => dispatch( { type: "TAXATYPE_UPDATED", taxaType: type } ), [] );
 
-  const updateDowntimeError = () => dispatch( { type: "DOWNTIME_ERROR" } );
+  const updateDowntimeError = useCallback( () => dispatch( { type: "DOWNTIME_ERROR" } ), [] );
 
   const setLocationError = useCallback( ( errorCode ) => {
     if ( errorCode === 1 ) {
@@ -82,7 +82,7 @@ const SpeciesNearby = () => {
   const requestAndroidPermissions = useCallback( () => {
     if ( latLng.latitude ) { return; }
     // only update location if user has not selected a location already
-    if ( Platform.OS === "android" && !granted ) {
+    if ( Platform.OS === "android" && granted === false ) {
       dispatch( { type: "LOCATION_ERROR", error: "location_error" } );
     } else {
       getGeolocation();
@@ -128,7 +128,6 @@ const SpeciesNearby = () => {
           taxaType={taxaType}
           latitude={latLng.latitude}
           longitude={latLng.longitude}
-          error={error}
           checkInternet={checkInternet}
           updateDowntimeError={updateDowntimeError}
         />

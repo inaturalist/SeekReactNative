@@ -82,6 +82,8 @@ class SpeciesBadges extends Component<Props, State> {
             <TouchableOpacity
               onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
               style={styles.gridCell}
+              accessible
+              accessibilityLabel={i18n.t( item.infoText )}
             >
               <Image
                 source={badgeIcon}

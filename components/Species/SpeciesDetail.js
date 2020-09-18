@@ -10,19 +10,17 @@ import { ScrollView, Platform } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import inatjs from "inaturalistjs";
 import Realm from "realm";
-import { useSafeArea } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
-import Spacer from "../UIComponents/TopSpacer";
 import { getSpeciesId, checkForInternet } from "../../utility/helpers";
 import SpeciesContainer from "./SpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
 
 const SpeciesDetail = () => {
-  const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -90,7 +88,7 @@ const SpeciesDetail = () => {
     seenTaxa
   } = state;
 
-  const setupScreen = useCallback( async () => {
+  const setId = useCallback( async () => {
     const i = await getSpeciesId();
     dispatch( { type: "SET_ID", id: i } );
   }, [] );
@@ -105,8 +103,6 @@ const SpeciesDetail = () => {
 
       if ( seen ) {
         dispatch( { type: "TAXA_SEEN", seen } );
-      } else {
-        dispatch( { type: "TAXA_NOT_SEEN" } );
       }
     } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
   }, [id] );
@@ -171,8 +167,12 @@ const SpeciesDetail = () => {
   }, [id] );
 
   const fetchiNatData = useCallback( () => {
-    dispatch( { type: "RESET_SCREEN" } );
-    setupScreen();
+    setId();
+
+    // reset seenTaxa if refreshing screen from Similar Species
+    if ( seenTaxa ) {
+      dispatch( { type: "TAXA_NOT_SEEN" } );
+    }
 
     const scrollToTop = () => {
       if ( scrollView.current ) {
@@ -188,7 +188,7 @@ const SpeciesDetail = () => {
     } else {
       scrollToTop();
     }
-  }, [setupScreen] );
+  }, [setId, seenTaxa] );
 
   useEffect( () => {
     if ( id !== null ) {
@@ -198,42 +198,35 @@ const SpeciesDetail = () => {
   }, [id, fetchTaxonDetails, checkIfSpeciesSeen] );
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      // would be nice to stop refetch when a user goes to range map and back
-      fetchiNatData();
-    } );
-    navigation.addListener( "blur", () => {
-      dispatch( { type: "RESET_SCREEN" } );
-    } );
+    // would be nice to stop refetch when a user goes to range map and back
+    navigation.addListener( "focus", () => { fetchiNatData(); } );
+    navigation.addListener( "blur", () => { dispatch( { type: "RESET_SCREEN" } ); } );
   }, [navigation, fetchiNatData] );
 
   return (
-    <ScrollView
-      ref={scrollView}
-      contentContainerStyle={[
-        styles.footerMargin,
-        styles.background,
-        styles.greenBanner,
-        { paddingTop: insets.top }
-      ]}
-    >
-      <Spacer />
-      <SpeciesHeader
-        id={id}
-        taxon={taxon}
-        seenTaxa={seenTaxa}
-        photos={photos}
-      />
-      <SpeciesContainer
-        checkForInternet={checkInternetConnection}
-        details={details}
-        error={error}
-        fetchiNatData={fetchiNatData}
-        id={id}
-        seenTaxa={seenTaxa}
-        predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
-      />
-    </ScrollView>
+    <SafeAreaView style={styles.greenBanner} edges={["top"]}>
+      <ScrollView
+        ref={scrollView}
+        contentContainerStyle={[styles.footerMargin, styles.background]}
+      >
+        <SpeciesHeader
+          id={id}
+          taxon={taxon}
+          seenTaxa={seenTaxa}
+          photos={photos}
+        />
+        <SpeciesContainer
+          checkForInternet={checkInternetConnection}
+          details={details}
+          scientificName={taxon.scientificName}
+          error={error}
+          fetchiNatData={fetchiNatData}
+          id={id}
+          seenTaxa={seenTaxa}
+          predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

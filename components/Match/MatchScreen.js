@@ -6,9 +6,9 @@ import React, {
   useRef,
   useContext
 } from "react";
-import { View, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../styles/match/match";
 import { colors } from "../../styles/global";
@@ -23,7 +23,6 @@ import { useScrollToTop } from "../../utility/customHooks";
 import MatchModals from "./MatchModals";
 
 const MatchScreen = () => {
-  const insets = useSafeArea();
   const scrollView = useRef( null );
   const navigation = useNavigation();
   const { params } = useRoute();
@@ -86,8 +85,17 @@ const MatchScreen = () => {
   const closeFlagModal = useCallback( ( showFailure ) => {
     dispatch( { type: "CLOSE_FLAG" } );
     if ( showFailure && taxon ) {
-      taxon.commonAncestor = null;
-      taxon.speciesSeenImage = null;
+      let { commonAncestor, speciesSeenImage } = taxon;
+
+      // this seems to be causing crashes on certain android devices when undefined
+      if ( commonAncestor ) {
+        commonAncestor = null;
+      }
+
+      if ( speciesSeenImage ) {
+        speciesSeenImage = null;
+      }
+
       dispatch( { type: "MISIDENTIFIED", taxon } );
     }
   }, [taxon] );
@@ -122,13 +130,7 @@ const MatchScreen = () => {
   }
 
   return (
-    <View style={[
-      styles.container, {
-        paddingTop: insets.top,
-        backgroundColor: gradientDark
-      }
-    ]}
-    >
+    <SafeAreaView style={[styles.container, { backgroundColor: gradientDark }]} edges={["top"]}>
       <MatchModals
         match={match}
         flagModal={flagModal}
@@ -161,7 +163,7 @@ const MatchScreen = () => {
       {( match || seenDate ) ? (
         <MatchFooter openFlagModal={openFlagModal} setNavigationPath={setNavigationPath} />
       ) : <Footer />}
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -238,6 +238,8 @@ const OnlineServerResults = () => {
     } );
   }, [navigation, checkMetaData] );
 
+
+
   return (
     <>
       {error ? (
@@ -246,11 +248,11 @@ const OnlineServerResults = () => {
           number={numberOfHours}
         />
       ) : (
-        <ConfirmScreen
-          updateClicked={checkForMatches}
-          clicked={clicked}
-          image={image.uri}
-        />
+         <ConfirmScreen
+           updateClicked={checkForMatches}
+           clicked={clicked}
+           image={image.uri}
+         />
       )}
     </>
   );

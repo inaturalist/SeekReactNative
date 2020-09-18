@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import {
   Image,
   TouchableOpacity,
@@ -22,9 +22,9 @@ type Props = {
 }
 
 const GalleryHeader = ( { updateAlbum }: Props ) => {
-  const navigation = useNavigation();
+  const { navigate } = useNavigation();
 
-  const cameraRoll = [{ label: i18n.t( "gallery.camera_roll" ), value: "All" }];
+  const cameraRoll = useMemo( () => { return [{ label: i18n.t( "gallery.camera_roll" ), value: "All" }]; }, [] );
   const [albumNames, setAlbumNames] = useState( cameraRoll );
 
   const fetchAlbumNames = useCallback( async () => {
@@ -39,26 +39,29 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
           }
         } );
       }
-      setAlbumNames( names );
+
+      if ( names.length > 1 ) {
+        setAlbumNames( names );
+      }
     } catch ( e ) {
       Alert.alert( `Error fetching photo albums: ${e}` );
     }
   }, [cameraRoll] );
 
   useEffect( () => {
-    navigation.addListener( "focus", () => {
-      if ( albumNames.length === 1 ) {
-        fetchAlbumNames();
-      }
-    } );
-  }, [navigation, albumNames, fetchAlbumNames] );
+    if ( albumNames.length === 1 ) {
+      fetchAlbumNames();
+    }
+  }, [fetchAlbumNames, albumNames] );
+
+  const handleBackNav = useCallback( () => navigateToMainStack( navigate, "Home" ), [navigate] );
 
   return (
     <View style={[styles.header, styles.center]}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "accessibility.back" )}
         accessible
-        onPress={() => navigateToMainStack( navigation.navigate, "Home" )}
+        onPress={handleBackNav}
         style={styles.backButton}
       >
         {/* $FlowFixMe */}
@@ -68,10 +71,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
           style={styles.buttonImage}
         />
       </TouchableOpacity>
-      <View>
-        {/* view is used to make sure back button is still touchable */}
-        <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
-      </View>
+      <AlbumPicker albumNames={albumNames} updateAlbum={updateAlbum} />
     </View>
   );
 };

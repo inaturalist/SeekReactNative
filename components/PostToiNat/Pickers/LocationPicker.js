@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../../i18n";
 import LocationMap from "../../Home/SpeciesNearby/LocationMap";
@@ -35,7 +35,6 @@ const LocationPicker = ( {
   updateLocation,
   closeLocationPicker
 }: Props ) => {
-  const insets = useSafeArea();
   const [accuracy, setAccuracy] = useState( 90 );
   const [region, setRegion] = useState( {} );
 
@@ -106,7 +105,7 @@ const LocationPicker = ( {
   }, [latitude, longitude, returnToUserLocation] );
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <View style={[headerStyles.container, headerStyles.center]}>
         <TouchableOpacity
           accessibilityLabel={i18n.t( "accessibility.back" )}
@@ -135,7 +134,7 @@ const LocationPicker = ( {
           text="posting.save_location"
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

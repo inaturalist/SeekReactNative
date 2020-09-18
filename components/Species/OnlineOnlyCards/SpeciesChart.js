@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useCallback, useEffect, useContext } from "react";
+import React, { useState, useCallback, useEffect, useContext, useMemo } from "react";
 import { View } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
@@ -20,11 +20,15 @@ type Props = {
   +id: ?number
 };
 
+const xAxisSvg = {
+  fontSize: 18,
+  fill: colors.seekTeal
+};
+
 const SpeciesChart = ( { id }: Props ) => {
   const { localSeasonality } = useContext( SpeciesDetailContext );
   const granted = useLocationPermission();
 
-  const isFocused = useIsFocused();
   const allMonths = createShortMonthsList();
   const [data, setData] = useState( [] );
   const [latLng, setLatLng] = useState( {} );
@@ -76,12 +80,8 @@ const SpeciesChart = ( { id }: Props ) => {
   useEffect( () => { getGeolocation(); }, [granted, getGeolocation] );
 
   useEffect( () => {
-    if ( isFocused ) {
-      fetchHistogram();
-    }
-  }, [id, fetchHistogram, isFocused] );
-
-  const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
+    fetchHistogram();
+  }, [id, fetchHistogram] );
 
   // $FlowFixMe
   const Decorator = ( { x, y } ) => data.map( ( value ) => (
@@ -94,7 +94,17 @@ const SpeciesChart = ( { id }: Props ) => {
     />
   ) );
 
-  return (
+  const setXAxis = useCallback( ( { item } ) => item.month, [] );
+
+  const formatLabel = useMemo( ( value ) => {
+    const formatXAxis = ( index ) => capitalizeNames( allMonths[index] );
+
+    if ( value ) {
+      formatXAxis( value - 1 );
+    }
+  }, [allMonths] );
+
+  return useMemo( () => (
     <SpeciesDetailCard text="species_detail.monthly_obs" hide={!id || data.length === 0}>
       {data.length > 0 && (
         <View style={styles.container}>
@@ -104,7 +114,7 @@ const SpeciesChart = ( { id }: Props ) => {
               data={data}
               style={styles.chart}
               svg={{ stroke: colors.seekForestGreen }}
-              xAccessor={( { item } ) => item.month}
+              xAccessor={setXAxis}
               yAccessor={( { item } ) => item.count}
             >
               <Decorator />
@@ -112,19 +122,16 @@ const SpeciesChart = ( { id }: Props ) => {
             <XAxis
               contentInset={styles.xAxisWidth}
               data={data}
-              formatLabel={value => formatXAxis( value - 1 )}
+              formatLabel={formatLabel}
               style={styles.xAxis}
-              svg={{
-                fontSize: 18,
-                fill: colors.seekTeal
-              }}
-              xAccessor={( { item } ) => item.month}
+              svg={xAxisSvg}
+              xAccessor={setXAxis}
             />
           </View>
         </View>
       )}
     </SpeciesDetailCard>
-  );
+  ), [id, data, formatLabel] );
 };
 
 export default SpeciesChart;

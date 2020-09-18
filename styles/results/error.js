@@ -1,10 +1,15 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts, dimensions } from "../global";
+import { colors, fonts } from "../global";
 
 export default StyleSheet.create( {
   container: {
-    backgroundColor: colors.black,
+    backgroundColor: colors.seekForestGreen,
     flex: 1
+  },
+  textContainer: {
+    flex: 1,
+    backgroundColor: colors.black,
+    justifyContent: "center"
   },
   errorText: {
     color: colors.white,
@@ -12,7 +17,6 @@ export default StyleSheet.create( {
     fontSize: 19,
     lineHeight: 24,
     marginHorizontal: 41,
-    textAlign: "center",
-    top: dimensions.height / 2 - 150
+    textAlign: "center"
   }
 } );

@@ -49,7 +49,10 @@ const icons = {
   warning_3: require( "./icons/icon-donttouch.webp" ),
   grayBullet: require( "./icons/img-bullet-small.webp" ),
   speciesObserved: require( "./icons/icon-speciesobserved.webp" ),
-  closeGray: require( "./icons/icon-close-small-gray.webp" )
+  closeGray: require( "./icons/icon-close-small-gray.webp" ),
+  nonPlantsFilter: require( "./icons/plantfilter-nonplantsonly.webp" ),
+  plantsFilter: require( "./icons/plantfilter-plantsonly.webp" ),
+  plantFilterOff: require( "./icons/plantfilter-off.webp" )
 };
 
 export default icons;

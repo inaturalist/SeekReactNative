@@ -66,13 +66,21 @@ export default StyleSheet.create( {
   padding: {
     paddingTop: padding.iOSPaddingSmall
   },
+  radioButtonSmallMargin: {
+    paddingTop: 19 / 2
+  },
   radioMargin: {
-    marginBottom: 19,
-    marginLeft: 10
+    paddingVertical: 19 / 2,
+    paddingLeft: 20,
+    paddingRight: 14
+  },
+  radioButtonMarginBottom: {
+    paddingTop: 35 - ( 19 / 2 )
   },
   row,
   switch: {
-    marginRight: 10.3
+    paddingHorizontal: 10.3 / 2,
+    paddingVertical: 19 / 2
   },
   text: {
     color: colors.black,
@@ -81,7 +89,8 @@ export default StyleSheet.create( {
     lineHeight: 21
   },
   radioButtonWidth: {
-    maxWidth: 295
+    maxWidth: 295,
+    marginTop: -3
   },
   textWidth: {
     maxWidth: 239

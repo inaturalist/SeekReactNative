@@ -5,9 +5,9 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Text,
-  SafeAreaView
+  Text
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import i18n from "../../i18n";
 import styles from "../../styles/uiComponents/sideMenu";
@@ -24,8 +24,7 @@ const SideMenu = ( { navigation }: Props ) => {
   const menuItems = ["home", "achievements", "challenges", "observations", "inat", "about", "settings"];
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <SafeAreaView style={styles.container}>
       <TouchableOpacity
         accessibilityLabel={i18n.t( "menu.home" )}
         accessible
@@ -77,7 +76,7 @@ const SideMenu = ( { navigation }: Props ) => {
           );
         } )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

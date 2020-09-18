@@ -36,11 +36,13 @@ const SpeciesDetail = () => {
         <Text style={styles.header}>{i18n.t( "settings.species_detail" ).toLocaleUpperCase()}</Text>
         <View style={styles.marginSmall} />
         <Text style={styles.subHeader}>{i18n.t( "settings.seasonality" ).toLocaleUpperCase()}</Text>
-        <View style={styles.marginMedium}>
+        <View style={styles.radioButtonSmallMargin}>
           {radioButtons.map( ( obj, i ) => (
             <RadioButton
               key={`${obj.label}${i}`}
               style={styles.radioMargin}
+              accessible
+              accessibilityLabel={`${radioButtons[i].label},${i}`}
             >
               <RadioButtonInput
                 obj={obj}
@@ -61,6 +63,8 @@ const SpeciesDetail = () => {
                 onPress={( value ) => updateIndex( value )}
                 labelHorizontal
                 labelStyle={[styles.text, styles.radioButtonWidth]}
+                accessible
+                accessibilityLabel={`${radioButtons[i].label}`}
               />
             </RadioButton>
           ) )}

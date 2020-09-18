@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import inatjs from "inaturalistjs";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { colors } from "../../styles/global";
 import styles from "../../styles/posting/selectSpecies";
@@ -24,7 +25,6 @@ import GreenText from "../UIComponents/GreenText";
 import createUserAgent from "../../utility/userAgent";
 import icons from "../../assets/icons";
 import Padding from "../UIComponents/Padding";
-import SafeAreaView from "../UIComponents/SafeAreaView";
 import { useScrollToTop } from "../../utility/customHooks";
 
 type Props = {
@@ -88,8 +88,7 @@ const SelectSpecies = ( {
   };
 
   return (
-    <View style={styles.container}>
-      <SafeAreaView />
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
       <View style={styles.header}>
         <TouchableOpacity
@@ -106,6 +105,7 @@ const SelectSpecies = ( {
       </View>
       <ScrollView
         ref={scrollView}
+        contentContainerStyle={styles.whiteContainer}
         keyboardDismissMode="on-drag"
         onScroll={() => Keyboard.dismiss()}
         scrollEventThrottle={1}
@@ -155,7 +155,7 @@ const SelectSpecies = ( {
         </View>
         <Padding />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -40,11 +40,13 @@ const CameraSettings = () => {
   return (
     <>
       <Text style={styles.header}>{i18n.t( "settings.header" ).toLocaleUpperCase()}</Text>
-      <View style={styles.marginSmall}>
+      <View style={styles.radioButtonSmallMargin}>
         {radioButtons.map( ( obj, i ) => (
           <RadioButton
             key={`${obj.label}${i}`}
             style={styles.radioMargin}
+            accessible
+            accessibilityLabel={`${radioButtons[i].label},${i}`}
           >
             <RadioButtonInput
               obj={obj}
@@ -65,16 +67,20 @@ const CameraSettings = () => {
               onPress={( value ) => updateIndex( value )}
               labelHorizontal
               labelStyle={styles.text}
+              accessible
+              accessibilityLabel={`${radioButtons[i].label}`}
             />
           </RadioButton>
         ) )}
       </View>
-      <View style={[styles.row, styles.marginSmall]}>
+      <View style={[styles.row, styles.radioButtonSmallMargin]}>
         <Switch
           style={styles.switch}
           value={autoCapture}
           trackColor={colors.seekForestGreen}
           onValueChange={() => setAutoCapture( !autoCapture )}
+          accessible
+          accessibilityLabel={i18n.t( "settings.auto_capture" )}
         />
         <Text style={[styles.text, styles.padding, styles.textWidth]}>
           {i18n.t( "settings.auto_capture" )}

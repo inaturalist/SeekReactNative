@@ -1,7 +1,7 @@
 // @flow
 
-import React from "react";
-import { FlatList, View } from "react-native";
+import React, { useCallback } from "react";
+import { FlatList } from "react-native";
 
 import styles from "../../../styles/camera/gallery";
 import { dimensions, colors } from "../../../styles/global";
@@ -10,41 +10,38 @@ import LoadingWheel from "../../UIComponents/LoadingWheel";
 
 type Props = {
   photos: Array<Object>,
-  setPhotoParams: Function,
-  startLoading: Function,
-  loading: boolean
+  setPhotoParams: Function
 }
 
 const GalleryImageList = ( {
   setPhotoParams,
-  photos,
-  startLoading,
-  loading
+  photos
 }: Props ) => {
-  const renderLoading = () => <LoadingWheel color={colors.darkGray} />;
-  const renderPhoto = ( { item } ) => (
-    <GalleryImage item={item} startLoading={startLoading} loading={loading} />
-  );
+  const renderLoading = useCallback( () => <LoadingWheel color={colors.darkGray} />, [] );
+
+  const renderCameraRollPhoto = useCallback( ( { item } ) => <GalleryImage item={item} />, [] );
+
+  // skips measurement of dynamic content for faster loading
+  const getItemLayout = useCallback( ( data, index ) => ( {
+    length: ( dimensions.width / 4 - 2 ),
+    offset: ( dimensions.width / 4 - 2 ) * index,
+    index
+  } ), [] );
+
+  const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
 
   return (
     <FlatList
       data={photos}
       contentContainerStyle={styles.grayContainer}
-      getItemLayout={( data, index ) => (
-        // skips measurement of dynamic content for faster loading
-        {
-          length: ( dimensions.width / 4 - 2 ),
-          offset: ( dimensions.width / 4 - 2 ) * index,
-          index
-        }
-      )}
+      getItemLayout={getItemLayout}
       initialNumToRender={20}
-      keyExtractor={( item, index ) => `${item}${index}`}
+      keyExtractor={extractKey}
       numColumns={4}
       onEndReachedThreshold={1}
       onEndReached={setPhotoParams}
       ListEmptyComponent={renderLoading}
-      renderItem={renderPhoto}
+      renderItem={renderCameraRollPhoto}
     />
   );
 };

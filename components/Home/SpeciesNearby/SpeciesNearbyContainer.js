@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useReducer } from "react";
 import { View } from "react-native";
 
 import styles from "../../../styles/home/speciesNearby";
@@ -26,8 +26,22 @@ const SpeciesNearbyContainer = ( {
   checkInternet,
   updateDowntimeError
 }: Props ) => {
-  const [taxa, setTaxa] = useState( [] );
-  const [loading, setLoading] = useState( true );
+  // eslint-disable-next-line no-shadow
+  const [state, dispatch] = useReducer( ( state, action ) => {
+    switch ( action.type ) {
+      case "SET_TAXA":
+        return { ...state, taxa: action.taxa, loading: false };
+      case "SET_LOADING":
+        return { ...state, loading: true };
+      default:
+        throw new Error();
+    }
+  }, {
+    loading: true,
+    taxa: []
+  } );
+
+  const { loading, taxa } = state;
 
   const fetchSpeciesNearby = useCallback( ( params ) => {
     const site = "https://api.inaturalist.org/v1/taxa/nearby";
@@ -38,8 +52,8 @@ const SpeciesNearbyContainer = ( {
     fetch( `${site}?${queryString}`, options )
       .then( response => response.json() )
       .then( ( { results } ) => {
-        setTaxa( results.map( r => r.taxon ) );
-        setLoading( false );
+        const newTaxa = results.map( r => r.taxon );
+        dispatch( { type: "SET_TAXA", taxa: newTaxa } );
        } )
       .catch( ( e ) => { // SyntaxError: JSON Parse error: Unrecognized token '<'
         if ( e instanceof SyntaxError ) { // this is from the iNat server being down
@@ -51,6 +65,7 @@ const SpeciesNearbyContainer = ( {
   }, [checkInternet, updateDowntimeError] );
 
   const setParams = useCallback( () => {
+    dispatch( { type: "SET_LOADING" } );
     const params = {
       per_page: 20,
       lat: latitude,
@@ -70,22 +85,11 @@ const SpeciesNearbyContainer = ( {
   }, [taxaType, latitude, longitude, fetchSpeciesNearby] );
 
   useEffect( () => {
-    if ( latitude !== null && loading ) {
-      setParams();
+    if ( latitude === null ) {
+      return;
     }
-  }, [latitude, taxaType, loading, setParams] );
-
-  useEffect( () => {
-    if ( latitude || taxaType ) {
-      setLoading( true );
-    }
-  }, [latitude, taxaType] );
-
-  useEffect( () => {
-    if ( taxa && taxa.length > 0 ) {
-      setLoading( false );
-    }
-  }, [taxa] );
+    setParams();
+  }, [latitude, taxaType, setParams] );
 
   return (
     <>

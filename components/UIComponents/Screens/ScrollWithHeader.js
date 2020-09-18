@@ -9,7 +9,7 @@ import {
   Keyboard
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useSafeArea } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import styles from "../../../styles/uiComponents/scrollWithHeader";
 import { useScrollToTop } from "../../../utility/customHooks";
@@ -32,15 +32,23 @@ const ScrollWithHeader = ( {
   route,
   loading
 }: Props ) => {
-  const insets = useSafeArea();
   const navigation = useNavigation();
   const { name } = useRoute();
   const scrollView = useRef( null );
 
   useScrollToTop( scrollView, navigation, name );
 
+  const hideKeyboardThrottle = ( name === "Post" ) ? 1 : 0;
+
+  const hideKeyboard = () => {
+    // need this one for Android
+    if ( name === "Post" ) {
+      Keyboard.dismiss();
+    }
+  };
+
   return (
-    <View style={[styles.container, { paddingTop: insets.top }]}>
+    <SafeAreaView style={styles.container} edges={["top"]}>
       <StatusBar barStyle="light-content" />
       <GreenHeader header={header} route={route} />
       {loading ? (
@@ -52,19 +60,15 @@ const ScrollWithHeader = ( {
           ref={scrollView}
           contentContainerStyle={styles.containerWhite}
           keyboardDismissMode={name === "Post" ? "on-drag" : "none"}
-          onScroll={() => {
-            if ( name === "Post" ) {
-              Keyboard.dismiss();
-            }
-          }}
-          scrollEventThrottle={name === "Post" ? 1 : null}
+          onScroll={hideKeyboard}
+          scrollEventThrottle={hideKeyboardThrottle}
         >
           {children}
           <Padding />
           {Platform.OS === "ios" && <BottomSpacer />}
         </ScrollView>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

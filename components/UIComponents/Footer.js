@@ -48,7 +48,7 @@ const Footer = () => {
   }, [navigation] );
 
   return (
-    <SafeAreaView edges={["right", "bottom", "left"]}>
+    <SafeAreaView style={styles.safeArea} edges={["right", "bottom", "left"]}>
       <ImageBackground source={backgrounds.navBar} style={styles.container}>
         <View style={[styles.navbar, styles.row]}>
           <TouchableOpacity

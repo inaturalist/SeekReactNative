@@ -48,7 +48,7 @@ export const fonts = {
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
   iOSButtonPadding: Platform.OS === "ios" ? 7 : 0, // this looks different on RN 0.63.x
-  iOSPaddingFontSize18: Platform.OS === "ios" ? 4 : 0, // so does this
+  iOSPaddingFontSize18: Platform.OS === "ios" ? 6 : 0, // so does this
   iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0
 };
 

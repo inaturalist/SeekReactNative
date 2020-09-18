@@ -495,7 +495,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, e Yaron Budowski. Ringraziamenti speciali a Visipedia e la comunità di iNaturalist.",
     "version": "Versione",
     "help": "Per aiuto con Seek, per favore invia un'email a help+seek@inaturalist.org.",
-    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, saariko, Sakatur, TheKakarinka, Wouter Koch, and Yulia Lygina.",
+    "translations": "Siamo grati per l'aiuto nella traduzione fornita dalla comunità crowdin.com, in particolare: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch, e Yulia Lygina.",
     "join_crowdin": "Per unirti al team di traduzione di Seek, visita https://crowdin.com/project/seek"
   },
   "posting": {
@@ -644,8 +644,8 @@
     "mission_2_oct_2020": "Trova 1 organismo qualsiasi dei seguenti ordini:\n\nAccipitriformes (Poiane, Aquile, & Nibbi);\nCathartiformes (Rapaci);\nCarnivora (Carnivori)",
     "mission_3_oct_2020": "Trova 1 mollusco",
     "mission_4_oct_2020": "Trova 1 Artropode",
-    "oct_2020_description": "Necrofagi e Decompositori sono essenziali per la vita sul nostro pianeta. Aiutano a riciclare i nutrienti e a decomporre la materia che altrimenti non verrebbe degradata.",
-    "action_oct_2020": "Scopri che tipo di decompositori e necrofagi vivono nelle zone che ti circondano. Come aiutano l'ambiente nella la loro nicchia?"
+    "oct_2020_description": "Necrofagi e decompositori sono essenziali per la vita sul nostro pianeta. I Funghi sono decompositori che possono decomporre tessuti morti come legno e foglie. Molti tipi di animali, come avvoltoi, isopodi e alcune lumache, possono mangiare piante morte o animali. Aiutano a riciclare i nutrienti in modo che siano disponibili per nuove crescite.",
+    "action_oct_2020": "Scopri che tipo di decompositori e necrofagi vivono nelle zone che ti circondano. Che cosa mangiano? Mangiano sempre gli stessi tipi di cose?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

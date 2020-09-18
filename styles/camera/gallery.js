@@ -14,7 +14,8 @@ export default StyleSheet.create( {
     left: 0,
     paddingHorizontal: 23,
     paddingVertical: 18,
-    position: "absolute"
+    position: "absolute",
+    zIndex: 1
   },
   background: {
     backgroundColor: colors.white,

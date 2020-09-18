@@ -54,6 +54,7 @@ export default StyleSheet.create( {
   },
   row,
   padding: {
-    padding: 50
+    paddingVertical: 15,
+    paddingHorizontal: 50
   }
 } );

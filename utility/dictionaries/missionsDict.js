@@ -158,6 +158,24 @@ const missions = {
       number: 2,
       types: ["Lepidoptera", "Hemiptera"]
     }
+  },
+  14: {
+    0: {
+      number: 4,
+      types: ["fungi"]
+    },
+    1: {
+      number: 1,
+      types: ["Accipitriformes", "Cathartiformes", "carnivora"]
+    },
+    2: {
+      number: 1,
+      types: ["mollusk"]
+    },
+    3: {
+      number: 1,
+      types: ["Arthropoda"]
+    }
   }
 };
 

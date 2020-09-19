@@ -309,7 +309,8 @@
     "error_cameraManager": "No se ha podido cargar el Administrador de Cámara",
     "error_photoError": "Lo sentimos, no se encontró el objeto de foto",
     "plant_filter": "Solo plantas",
-    "non_plant_filter": "Sólo especies que no sean plantas"
+    "non_plant_filter": "Sólo especies que no sean plantas",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Fotos",

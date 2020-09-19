@@ -309,7 +309,8 @@
     "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
     "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
     "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "non_plant_filter": "Non-plants only",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Fotoğraflar",

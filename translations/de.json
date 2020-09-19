@@ -309,7 +309,8 @@
     "error_cameraManager": "Der Kamera-Manager konnte nicht geladen werden",
     "error_photoError": "Entschuldigung, das Foto-Objekt wurde nicht gefunden",
     "plant_filter": "Nur Pflanzen",
-    "non_plant_filter": "Nur Nicht-Pflanzen"
+    "non_plant_filter": "Nur Nicht-Pflanzen",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Fotos",

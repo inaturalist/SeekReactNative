@@ -9,7 +9,7 @@
     "no_species": "נראה שלא נצפו מינים בסביבה! נסו לשנות מיקום או להרחיב את פילטר המינים.",
     "no_gps": "לא זוהה אות GPS.",
     "location_timeout": "זיהוי המיקום לוקח יותר מדי זמן; אנא נסו שנית.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "שירותי מיקום אינם מופעלים או ששירות המיקום אינו מאושר עבור הבקשה הנוכחית"
   },
   "get_started": {
     "header": "התחילו",
@@ -308,8 +308,9 @@
     "error_version": "מצלמת הבינה המלאכותית של Seek, דורשת גירסא +iOS 11.0, מכשירך מריץ גרסא {{OS}}.",
     "error_cameraManager": "סליחה, אפליקציית ניהול המצלמה לא מצליחה לעלות",
     "error_photoError": "סליחה, לא ניתן למצוא את אובייקט התמונה",
-    "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "plant_filter": "צמחים בלבד",
+    "non_plant_filter": "רק לא צמחים",
+    "filters_off": "ללא פילטרים"
   },
   "gallery": {
     "label": "תמונות",
@@ -641,11 +642,11 @@
     "action_sept_2020": "בצעו מחקר כיצד צריכת בשר משפיעה על הסביבה. איזה צעדים ניתן לבצע כדי להקטין השפעות אלו?\n\nלחלופין: אילו צמחים אתם אוכלים? מאיזה חלק של הצמח זה מגיע? האם אתם יכולים למצוא אילו חיות גם אוהבות לאכול חלקי צמחים אלו?",
     "scavenger": "אתגר אוכלי הפגרים",
     "mission_1_oct_2020": "מצאו 4 פטריות",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
+    "mission_2_oct_2020": "מצאו אורגניזם כלשהו ממשפחות:\n\nדורסי יום (נצים, נשרים ודיות)",
     "mission_3_oct_2020": "מצאו רכיכה אחת",
     "mission_4_oct_2020": "מצאו פרוק-רגליים אחד",
     "oct_2020_description": "אוכלי פגרים וממיסים נחוצים לחיים על הכוכב שלנו. הם עוזרים למחזר מרכיבים חיוניים ולבצע פירוק לחומר שלא מתפרק בדרך אחרת.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?"
+    "action_oct_2020": "מצאו איזה סוג של מפרקים ואוכלי נבלות חיים באזורים לידכם. מה הם אוכלים? האם תמיד הם אוכלים את אותו דבר?"
   },
   "replace_photo": {
     "header": "להחליף תמונה?",

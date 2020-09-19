@@ -309,7 +309,8 @@
     "error_cameraManager": "Sorry, de Camera Manager kon niet worden geladen",
     "error_photoError": "Sorry, het foto-object is niet gevonden",
     "plant_filter": "Alleen planten",
-    "non_plant_filter": "Alleen niet-planten"
+    "non_plant_filter": "Alleen niet-planten",
+    "filters_off": "Filters uit"
   },
   "gallery": {
     "label": "Foto’s",

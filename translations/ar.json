@@ -309,7 +309,8 @@
     "error_cameraManager": "عذرًا، فشل مدير الكاميرا في التحميل",
     "error_photoError": "عذرًا، لم يتم العثور على كائن الصورة",
     "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "non_plant_filter": "Non-plants only",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "الصور",

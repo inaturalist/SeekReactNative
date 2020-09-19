@@ -309,7 +309,8 @@
     "error_cameraManager": "Ho sentim, no s'ha pogut carregar el Gestor de la Càmera",
     "error_photoError": "Ho sentim, no s'ha trobat l'objecte de la fotografia",
     "plant_filter": "Únicament plantes",
-    "non_plant_filter": "Únicament No plantes"
+    "non_plant_filter": "Únicament No plantes",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Fotos",

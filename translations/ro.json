@@ -309,7 +309,8 @@
     "error_cameraManager": "Ne pare rău, Managerul Camerei n-a putut fi încărcat",
     "error_photoError": "Ne pare rău, obiectul foto nu a fost găsit",
     "plant_filter": "Numai plante",
-    "non_plant_filter": "Numai non-plante"
+    "non_plant_filter": "Numai non-plante",
+    "filters_off": "Filtre dezactivate"
   },
   "gallery": {
     "label": "Fotografii",

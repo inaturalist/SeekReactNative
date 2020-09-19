@@ -309,7 +309,8 @@
     "error_cameraManager": "Jammer, die Kamerabestuurder kon nie laai nie",
     "error_photoError": "Jammer, die foto-voorwerp is nie gevind nie",
     "plant_filter": "Slegs plante",
-    "non_plant_filter": "Slegs nie-plante"
+    "non_plant_filter": "Slegs nie-plante",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Foto’s",

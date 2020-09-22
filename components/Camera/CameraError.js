@@ -1,7 +1,7 @@
 // @flow
 
 import React from "react";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import OpenSettings from "react-native-open-settings";
 import { useRoute } from "@react-navigation/native";
 
@@ -26,22 +26,38 @@ const CameraError = ( { error, errorEvent }: Props ) => {
     return errorText;
   };
 
-  return (
-    <View style={[styles.blackBackground, styles.center, name === "Gallery" && styles.galleryHeight]}>
-      <Text allowFontScaling={false} numberOfLines={23} style={styles.errorText}>
-        {setCameraErrorText( error, errorEvent )}
-      </Text>
-      {( error === "permissions" || error === "gallery" ) && (
+  const openSettings = () => OpenSettings.openSettings();
+
+  const showPermissionsButton = () => {
+    if ( Platform.OS === "android" ) {
+      return (
         <>
           <View style={styles.margin} />
           <GreenButton
-            handlePress={() => OpenSettings.openSettings()}
+            handlePress={openSettings}
             text="camera.permissions"
             fontSize={16}
             width={323}
           />
         </>
-      )}
+      );
+    }
+    return (
+      <>
+        <View style={styles.margin} />
+        <Text style={styles.whiteText}>
+          {i18n.t( "camera.please_permissions" ).toLocaleUpperCase()}
+        </Text>
+      </>
+    );
+  };
+
+  return (
+    <View style={[styles.blackBackground, styles.center, name === "Gallery" && styles.galleryHeight]}>
+      <Text allowFontScaling={false} numberOfLines={23} style={styles.errorText}>
+        {setCameraErrorText( error, errorEvent )}
+      </Text>
+      {( error === "permissions" || error === "gallery" ) && showPermissionsButton()}
     </View>
   );
 };

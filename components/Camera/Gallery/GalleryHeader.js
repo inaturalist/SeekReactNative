@@ -24,7 +24,7 @@ type Props = {
 const GalleryHeader = ( { updateAlbum }: Props ) => {
   const { navigate } = useNavigation();
 
-  const cameraRoll = useMemo( () => { return [{ label: i18n.t( "gallery.camera_roll" ), value: "All" }]; }, [] );
+  const cameraRoll = useMemo( () => { return [{ label: i18n.t( "gallery.camera_roll" ).toLocaleUpperCase(), value: "All" }]; }, [] );
   const [albumNames, setAlbumNames] = useState( cameraRoll );
 
   const fetchAlbumNames = useCallback( async () => {
@@ -35,7 +35,7 @@ const GalleryHeader = ( { updateAlbum }: Props ) => {
       if ( albums && albums.length > 0 ) { // attempt to fix error on android
         albums.forEach( ( { count, title } ) => {
           if ( count > 0 && title !== "Screenshots" ) { // remove screenshots from gallery
-            names.push( { label: title, value: title } );
+            names.push( { label: title.toLocaleUpperCase(), value: title } );
           }
         } );
       }

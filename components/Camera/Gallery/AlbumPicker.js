@@ -1,42 +1,40 @@
-import React, { useState, useMemo, useCallback } from "react";
-import { Text, Image, View } from "react-native";
+import React, { useCallback } from "react";
+import { Image } from "react-native";
+import RNPickerSelect from "react-native-picker-select";
 
 import icons from "../../../assets/icons";
-import styles from "../../../styles/camera/gallery";
-import Picker from "../../UIComponents/Picker";
+import styles from "../../../styles/camera/galleryHeader";
 type Props = {
   +updateAlbum: Function,
   +albumNames: Array
 }
 
-const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
-  const cameraRoll = albumNames[0].label;
-  const [album, setAlbum] = useState( cameraRoll );
+const placeholder = {};
+const pickerStyles = { ...styles };
 
+const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
   const handleValueChange = useCallback( ( newAlbum ) => {
-    setAlbum( newAlbum );
     updateAlbum( newAlbum !== "All" ? newAlbum : null );
   }, [updateAlbum] );
 
-  const renderAlbumTitle = useMemo( () => (
-    <Text style={styles.headerText} testID="cameraRollText">
-      {album === "All"
-        ? cameraRoll.toLocaleUpperCase()
-        : album.toLocaleUpperCase()}
-    </Text>
-  ), [album, cameraRoll] );
+  const showIcon = useCallback( () => {
+    if ( albumNames.length > 1 ) {
+      return <Image testID="carot" source={icons.dropdownOpen} />;
+    }
+    return <></>;
+  }, [albumNames] );
 
   return (
-    <Picker
-      handleValueChange={handleValueChange}
-      itemList={albumNames}
+    <RNPickerSelect
+      hideIcon
+      Icon={showIcon}
+      items={albumNames}
+      onValueChange={handleValueChange}
+      placeholder={placeholder}
+      useNativeAndroidPickerStyle={false}
       disabled={albumNames.length <= 1}
-    >
-      <View style={[styles.row, styles.center, styles.padding]}>
-        {renderAlbumTitle}
-        {albumNames.length > 1 && <Image testID="carot" source={icons.dropdownOpen} style={styles.margin} />}
-      </View>
-    </Picker>
+      style={pickerStyles}
+    />
   );
 };
 

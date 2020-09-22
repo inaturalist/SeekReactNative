@@ -85,13 +85,8 @@ const addCameraFilesiOS = () => {
 
     // iOS throws error instead of writing over existing files
     if ( hasModel !== undefined ) {
-      RNFS.unlink( dirModel ).then( ( result ) => {
-        copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-      } ).catch( ( e ) => console.log( e, "error unlinking production model file" ) );
-
-      RNFS.unlink( dirTaxonomy ).then( ( result ) => {
-        copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
-      } ).catch( ( e ) => console.log( e, "error unlinking production taxonomy file" ) );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
+      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
     } else if ( hasSampleModel !== undefined ) {
       RNFS.unlink( dirModel ).then( ( result ) => {
         copyFilesiOS( `${RNFS.MainBundlePath}/${sampleModel}`, dirModel );

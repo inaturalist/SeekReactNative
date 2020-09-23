@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import {
   colors,
   fonts,
-  dimensions
+  row
 } from "../global";
 
 import { enabledLargeFonts } from "../../utility/textHelpers";
@@ -40,14 +40,15 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0,
-    maxWidth: dimensions.width - 100
+    letterSpacing: 1.0
   },
   inputAndroidContainer: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "center",
-    paddingHorizontal: 15
+    paddingHorizontal: 30
+  },
+  carot: {
+    marginRight: 15
   }
 } );

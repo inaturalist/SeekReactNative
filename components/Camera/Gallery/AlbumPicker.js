@@ -19,7 +19,7 @@ const AlbumPicker = ( { updateAlbum, albumNames }: Props ) => {
 
   const showIcon = useCallback( () => {
     if ( albumNames.length > 1 ) {
-      return <Image testID="carot" source={icons.dropdownOpen} />;
+      return <Image testID="carot" source={icons.dropdownOpen} style={styles.carot} />;
     }
     return <></>;
   }, [albumNames] );

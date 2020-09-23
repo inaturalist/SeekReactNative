@@ -1,9 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  colors,
-  fonts,
-  row
-} from "../global";
+import { colors, fonts } from "../global";
 
 import { enabledLargeFonts } from "../../utility/textHelpers";
 

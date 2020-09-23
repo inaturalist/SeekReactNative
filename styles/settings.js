@@ -74,6 +74,9 @@ export default StyleSheet.create( {
     paddingLeft: 20,
     paddingRight: 14
   },
+  donateMarginBottom: {
+    paddingTop: 35 - 19
+  },
   radioButtonMarginBottom: {
     paddingTop: 35 - ( 19 / 2 )
   },
@@ -124,7 +127,7 @@ export default StyleSheet.create( {
     paddingTop: 12
   },
   inputAndroidContainer: {
-    marginTop: 19,
+    paddingVertical: 19,
     alignItems: "center"
   }
 } );

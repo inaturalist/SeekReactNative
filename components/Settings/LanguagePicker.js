@@ -72,7 +72,7 @@ const LanguagePicker = () => {
   ), [isChecked, setDeviceLanguage] );
 
   return (
-    <View style={styles.radioButtonMarginBottom}>
+    <View style={styles.donateMarginBottom}>
       <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
       {deviceLanguageSupported && renderDeviceCheckbox}
       <RNPickerSelect

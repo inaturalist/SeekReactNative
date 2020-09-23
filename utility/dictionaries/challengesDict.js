@@ -199,7 +199,8 @@ const challenges = {
     missions: [
       "seek_challenges.mission_1_oct_2020",
       "seek_challenges.mission_2_oct_2020",
-      "seek_challenges.mission_3_oct_2020"
+      "seek_challenges.mission_3_oct_2020",
+      "seek_challenges.mission_4_oct_2020"
     ],
     availableDate: new Date( 2020, 9, 1 ),
     action: "seek_challenges.action_oct_2020"

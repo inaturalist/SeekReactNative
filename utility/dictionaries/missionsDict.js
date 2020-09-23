@@ -157,7 +157,7 @@ const missions = [{
   },
   2: {
     number: 1,
-    types: ["mollusk"]
+    types: ["mollusks"]
   },
   3: {
     number: 1,

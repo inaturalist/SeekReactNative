@@ -73,10 +73,12 @@ const createLocationAlert = ( errorCode ) => {
 
   if ( errorCode === 1 ) {
     body = i18n.t( "results.error_location" );
-    button.unshift( {
-      text: i18n.t( "species_nearby.enable_location" ),
-      onPress: () => OpenSettings.openSettings()
-    } );
+    if ( Platform.OS === "android" ) {
+      button.unshift( {
+        text: i18n.t( "species_nearby.enable_location" ),
+        onPress: () => OpenSettings.openSettings()
+      } );
+    }
   } else if ( errorCode === 2 ) {
     body = i18n.t( "results.error_gps" );
   } else {

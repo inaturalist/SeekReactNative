@@ -83,7 +83,6 @@ const addCameraFilesiOS = () => {
     const hasModel = results.find( r => r.name === model );
     const hasSampleModel = results.find( r => r.name === sampleModel );
 
-    // iOS throws error instead of writing over existing files
     if ( hasModel !== undefined ) {
       copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
       copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );

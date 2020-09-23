@@ -309,7 +309,8 @@
     "error_cameraManager": "Barka, Kamera Kudeatzailea ez da kargatu",
     "error_photoError": "Barka, argazkiaren objektua ez da aurkitu",
     "plant_filter": "Landareak baino ez",
-    "non_plant_filter": "Landare ez direnak baino ez"
+    "non_plant_filter": "Landare ez direnak baino ez",
+    "filters_off": "Iragazkirik gabe"
   },
   "gallery": {
     "label": "Argazkiak",
@@ -645,7 +646,7 @@
     "mission_3_oct_2020": "Aurkitu molusku 1",
     "mission_4_oct_2020": "Aurkitu artropodo 1",
     "oct_2020_description": "Sarraskijaleak eta deskonposatzaileak behar-beharrezkoak dira gure planetako bizitzarako. Elikagaiak birziklatzen dituzte eta materia organikoa deskonposatzen dute, bestela ezinezkoa izango litzatekeena.",
-    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin?"
+    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin? Zer jaten dute? Beti jaten dituzte antzeko gauzak?"
   },
   "replace_photo": {
     "header": "Argazkia ordezkatu?",

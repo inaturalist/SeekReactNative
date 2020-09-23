@@ -309,7 +309,8 @@
     "error_cameraManager": "Sorry, the Camera Manager failed to load",
     "error_photoError": "Sorry, the photo object was not found",
     "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "non_plant_filter": "Non-plants only",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "फोटो",

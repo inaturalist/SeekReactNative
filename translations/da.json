@@ -309,7 +309,8 @@
     "error_cameraManager": "Beklager, kamera-manageren kunne ikke starte.",
     "error_photoError": "Beklager, fotoobjektet blev ikke fundet",
     "plant_filter": "Kun planter",
-    "non_plant_filter": "Kun ikke-planter"
+    "non_plant_filter": "Kun ikke-planter",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Fotos",

@@ -309,7 +309,8 @@
     "error_cameraManager": "Tyvärr kunde inte kamerahanteraren laddas",
     "error_photoError": "Tyvärr kunde inte bildobjektet hittas",
     "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "non_plant_filter": "Non-plants only",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": "Bilder",

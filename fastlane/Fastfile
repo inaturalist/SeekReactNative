@@ -61,7 +61,7 @@ platform :ios do
       skip_binary_upload: true,
       submission_information: {
         add_id_info_uses_idfa: false
-      }
+      },
       precheck_include_in_app_purchases: false
     )
     slack(

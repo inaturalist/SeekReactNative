@@ -9,7 +9,7 @@
     "no_species": "Görünüşe göre yakınında gözlemlenmiş pek tür yok! Tür filtresinden konumunu değiştirmeyi veya genişletmeyi dene.",
     "no_gps": "GPS sinyali bulunamadı.",
     "location_timeout": "Konum isteğiniz zaman aşımına uğradı. Lütfen tekrar deneyin.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "Konum hizmeti etkin değil ya da konum modu mevcut istek için uygun değil"
   },
   "get_started": {
     "header": "Başla",
@@ -74,9 +74,9 @@
     "observations_1": "Seek'deki gözlemleriniz aygıtınızda saklanır ve çevrim içi olarak yedeklenmez.",
     "observations_2": "Uygulamayı silmek, Seek ile yapılan tüm gözlemlerinizi siler.",
     "observations_3": "Seek, gözlemlerinizi diğer aygıtlarda eşleme yapmaz.",
-    "agree_to_terms": "I agree to the <terms>{{terms}}</terms> and <privacy>{{privacy}}</privacy>, and I have reviewed the <guidelines>{{guidelines}}</guidelines>.",
-    "guidelines": "Community Guidelines",
-    "store_data": "I consent to allow iNaturalist to store and process limited kinds of personal information about me in order to manage my account."
+    "agree_to_terms": "<terms>{{terms}}</terms> ve <privacy>{{privacy}}</privacy> onaylıyorum, <guidelines>{{guidelines}}</guidelines> de inceledim.",
+    "guidelines": "Topluluk İlkeleri",
+    "store_data": "iNaturalist'in hesabımı yönetmek için benimle ilgili sınırlı türde kişisel bilgileri saklamasına ve işlemesine izin veriyorum."
   },
   "inat_login": {
     "log_in_with_inat": "iNaturalist hesabınız ile giriş yapın",
@@ -208,7 +208,7 @@
     "photographer_september": "Photo © Netflix / Silverback Films",
     "photographer_october": "Photo © Netflix / Silverback Films",
     "photographer_december": "Photo © Sophie Lanfear, Netflix / Silverback Films",
-    "species_observed": "Species Observed"
+    "species_observed": "Gözlemlenen Türler"
   },
   "inat_stats": {
     "global_observations": "Küresel Gözlemler",
@@ -308,8 +308,9 @@
     "error_version": "Seek'in AR Kameras iOS +11.0 gerektirir. Aygıtınızda OS işletim sisteminin {{OS}} sürümü çalışıyor.",
     "error_cameraManager": "Üzgünüz, Kamera Yöneticisi yüklenemedi",
     "error_photoError": "Üzgünüz, fotoğraf nesnesi bulunamadı",
-    "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only"
+    "plant_filter": "Yalnızca bitkiler",
+    "non_plant_filter": "Yalnızca bitki olmayanlar",
+    "filters_off": "Filtreler kapalı"
   },
   "gallery": {
     "label": "Fotoğraflar",
@@ -340,7 +341,7 @@
     "tracker": "İzci",
     "surveyor": "Araştırmacı",
     "naturalist": "Doğacı",
-    "seeker": "Seeker",
+    "seeker": "Araştıran",
     "explorer": "Gezgin",
     "adventurer": "Serüvenci",
     "biologist": "Biyolog"
@@ -432,9 +433,9 @@
     "help": "Bir bitkinin, hayvanın ya da kameranızı kullanarak yaşayan herhangi bir şeyin fotoğrafını çekin; YZ modelimiz bunu tanımlamanıza yardımcı olacaktır!",
     "open_camera": "Kamerayı Aç",
     "not_seen": "Henüz herhangi bir {{iconicTaxon}} gözlemlemedin!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Gözlemleri ara",
+    "search_empty": "Bu arama terimiyle hiçbir gözlem bulunamadı.",
+    "reset_search": "Aramayı sıfırla"
   },
   "species_detail": {
     "near": "Yakında",
@@ -495,7 +496,7 @@
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ve Yaron Budowski. Visipedia'ya ve iNaturalist topluluğuna özel teşekkürler.",
     "version": "Sürüm",
     "help": "Seek ile ilgili yardım için lütfen help+seek@inaturalist.org adresine e-posta gönderin.",
-    "translations": "Crowdin.com topluluğu tarafından yapılan çeviri yardımları için minnettarız, özellikle: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch ve Yulia Lygina.",
+    "translations": "Crowdin.com topluluğu tarafından sağlanan çeviri yardımı için minnettarız, özellikle: Abdelghani Hourani, Carnifex, cgalindo, Daniele Seglie, Eduardo Martínez, Édson Souza Jr., Galder Gonzalez Larrañaga, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, Nicolae Liviu, Nuwan Wijayaweera, saariko, Sakatur, Sebastian Jasiński, TheKakarinka, Wouter Koch ve Yulia Lygina.",
     "join_crowdin": "Seek çeviri ekibine katılmak için lütfen https://crowdin.com/project/seek adresini ziyaret edin"
   },
   "posting": {
@@ -594,10 +595,10 @@
     "language": "Uygulama dili",
     "device_settings": "Cihazınızın dil ayarlarını kullanın",
     "auto_capture": "Tanımlama türe eriştiğinde otomatik fotoğraf çek",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "species_detail": "Tür ayrıntısı",
+    "seasonality": "Mevsimsellik",
+    "seasonality_option_1": "Dünya çapındaki iNaturalist gözlemlerine göre mevsimselliği görüntüleyin",
+    "seasonality_option_2": "Mevcut konumumun yakınındaki iNaturalist gözlemlerine dayalı mevsimselliği görüntüleyin (konumumun yakınında bulunmayan türlerin mevsimselliği bulunmaz)"
   },
   "seek_challenges": {
     "badge": "Rozet ara",
@@ -633,19 +634,19 @@
     "mission_4_aug_2020": "Şu takımlardan 2 böcek bulun:\n\nZar kanatlılar (Karıncalar, Arılar, Yaban arıları ve Testere sinekleri);\nPul kanatlılar (Kelebekler ve Güveler);\nKın kanatlılar (Coleoptera);\nSinekler (Sinek)",
     "aug_2020_description": "Tozlayıcılar bize yediğimiz yiyecekleri ve sevdiğimiz çiçekleri verir! Tozlayıcı değişik bitkiler vücutlarını kullanarak çiçek tozlarıyla, birçok bitkinin üremesine yardımcı olur.",
     "action_aug_2020": "Etrafınızdaki tozlaştırıcılara dikkat edin. Bahçenizdeki ya da çevrenizdeki çiçekleri ziyaret eden arılar ya da kelebekler var mı?",
-    "herbivore": "Herbivore Challenge",
-    "mission_1_sept_2020": "Find 10 plants",
-    "mission_2_sept_2020": "Find 1 mammal",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
-    "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
-    "mission_4_oct_2020": "Find 1 Arthropod",
-    "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?"
+    "herbivore": "Otobur Mücadelesi",
+    "mission_1_sept_2020": "10 bitki bul",
+    "mission_2_sept_2020": "1 memeli bul",
+    "mission_3_sept_2020": "Listeden iki böcek bulun:\n\nLepidoptera (Kelebekler ve Güveler);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
+    "sept_2020_description": "Otçullar, yalnızca bitkilerle beslenmeye adapte edilmiş hayvanlardır. Otçul memeliler genellikle büyük miktarlarda bitkiyi parçalamalarını sağlayan karmaşık sindirim sistemlerine sahiptir. Örneğin ineklerin aslında tükettikleri bitkileri parçalamak için 4 mideleri vardır. Diğer memeliler meyve (meyve yarasaları) ya da tohumlar (sincaplar) konusunda uzmanlaşmıştır. Pek çok böcek, yaprakları yiyen tırtıllar ya da saplarından özsu emen bitki çekirgeleri gibi bitkilerin değişik kısımlarını yemeye adapte edilmiştir.",
+    "action_sept_2020": "Et tüketiminin çevreyi nasıl etkilediği konusunda biraz araştırma yapın. Kendi etkinizi azaltmak için hangi adımları atabilirsiniz?\n\nAlternatif: Ne tür bitkiler yiyorsunuz? Bitkinin hangi kısımlarından geliyorlar? Bu bitkileri ne tür hayvanların da yemekten hoşlandığını öğrenebilir misin?",
+    "scavenger": "Leşçi Mücadelesi",
+    "mission_1_oct_2020": "4 mantar bul",
+    "mission_2_oct_2020": "Listeden herhangi 1 organizmayı bulun:\n\nAccipitriformes (Şahinler, Kartallar ve Çaylaklar);\nCathartiformes (Akbabalar);\nCarnivora (Etoburlar)",
+    "mission_3_oct_2020": "1 Yumuşakça Bul",
+    "mission_4_oct_2020": "1 Eklembacaklı Bul",
+    "oct_2020_description": "Leşçiler ve ayrıştırıcılar, gezegenimizdeki yaşam için çok önemlidir. Mantarlar, ağaç ve yaprak gibi ölü dokuları parçalayabilen ayrıştırıcılardır. Akbabalar, izopodlar ve bazı salyangozlar gibi birçok hayvan türü ölü bitkileri ya da hayvanları yiyebilir. Besinlerin geri dönüştürülmesine yardımcı olurlar, böylece yeniden büyüme için hazır olurlar.",
+    "action_oct_2020": "Çevrenizdeki alanlarda ne tür ayrıştırıcıların ve çöpçülerin yaşadığını öğrenin. Ne tüketiyorlar? Hep aynı tür şeyleri mi yiyorlar?"
   },
   "replace_photo": {
     "header": "Fotoğraf değişsin mi?",
@@ -655,10 +656,10 @@
   },
   "inat_card": {
     "header": "iNaturalist",
-    "header_1": "We think you’ll really like iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
-    "text_2": "be part of a community that’s as curious about nature as you",
-    "text_3": "share observations with the community, and even share observations through Seek!",
-    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+    "header_1": "iNaturalist'i gerçekten seveceğinizi düşünüyoruz.",
+    "text_1": "çevrenizdeki organizmalarla ilgili bilgi edinmek için daha derine dalın",
+    "text_2": "sizin kadar doğayı merak eden bir topluluğun parçası olun",
+    "text_3": "gözlemlerinizi toplulukla paylaşın ve hatta Seek aracılığıyla gözlemlerinizi paylaşın!",
+    "download": "iNaturalist uygulamasını indirerek ya da inaturalist.org adresini ziyaret ederek başlayın.\n\nZaten bir iNaturalist hesabınız var mı? Arama yapmak için mevcut hesabınızla oturum açın!"
   }
 }

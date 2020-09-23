@@ -309,7 +309,8 @@
     "error_cameraManager": "Siamo spiacenti, il Gestore della Fotocamera non si è caricato",
     "error_photoError": "Siamo spiacenti, l'oggetto foto non è stato trovato",
     "plant_filter": "Solo piante",
-    "non_plant_filter": "Unicamente non vegetali"
+    "non_plant_filter": "Unicamente non vegetali",
+    "filters_off": "Filtri disattivati"
   },
   "gallery": {
     "label": "Foto",

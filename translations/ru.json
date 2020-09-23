@@ -309,7 +309,8 @@
     "error_cameraManager": "К сожалению, не удалось загрузить менеджер камеры",
     "error_photoError": "К сожалению, объект для фото не найден",
     "plant_filter": "Только растения",
-    "non_plant_filter": "Только не растения"
+    "non_plant_filter": "Только не растения",
+    "filters_off": "Фильтры выкл"
   },
   "gallery": {
     "label": "Фото",

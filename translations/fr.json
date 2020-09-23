@@ -309,7 +309,8 @@
     "error_cameraManager": "Désolé, le gestionnaire de caméra n'a pas réussi à charger.",
     "error_photoError": "Désolé, l'objet photo n'a pas été trouvé",
     "plant_filter": "Plantes uniquement",
-    "non_plant_filter": "Non-plante seulement"
+    "non_plant_filter": "Non-plante seulement",
+    "filters_off": "Filters off"
   },
   "gallery": {
     "label": " Photos",

@@ -309,7 +309,8 @@
     "error_cameraManager": "Omlouváme se, ale nepodařilo se načíst správce fotoaparátu",
     "error_photoError": "Omlouváme se, foto-objekt nebyl nalezen",
     "plant_filter": "Pouze rostliny",
-    "non_plant_filter": "Bez rostlin"
+    "non_plant_filter": "Bez rostlin",
+    "filters_off": "Filtry vypnuty"
   },
   "gallery": {
     "label": "Fotografie",

@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   Image,
-  ImageBackground
+  ImageBackground,
+  Platform
 } from "react-native";
 import OpenSettings from "react-native-open-settings";
 
@@ -27,40 +28,59 @@ const Error = ( {
   error,
   checkInternet,
   checkLocation
-}: Props ) => (
-  <TouchableOpacity
-    onPress={() => {
-      if ( error === "internet_error" ) {
-        checkInternet();
-      } else if ( error ) {
-        checkLocation();
-      }
-    }}
-    disabled={error === "downtime"}
-  >
-    <ImageBackground
-      source={backgrounds.noSpeciesNearby}
-      style={[styles.background, styles.center]}
-    >
-      <View style={styles.row}>
-        <Image source={error === "internet_error" ? icons.internet : icons.error} />
-        <Text style={styles.text}>
-          {error === "downtime"
-            ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
-            : i18n.t( `species_nearby.${error}` )}
-        </Text>
-      </View>
-      {error === "location_error" && (
+}: Props ) => {
+  const handlePress = () => {
+    if ( error === "internet_error" ) {
+      checkInternet();
+    } else if ( error ) {
+      checkLocation();
+    }
+  };
+
+  const openSettings = () => OpenSettings.openSettings();
+
+  const showPermissionsButton = () => {
+    if ( Platform.OS === "android" ) {
+      return (
         <View style={styles.greenButton}>
           <GreenButton
             color={colors.seekGreen}
-            handlePress={() => OpenSettings.openSettings()}
+            handlePress={openSettings}
             text="species_nearby.enable_location"
           />
         </View>
-      )}
-    </ImageBackground>
-  </TouchableOpacity>
-);
+      );
+    }
+    return (
+      <View style={styles.greenButton}>
+        <Text style={styles.whiteText}>
+          {i18n.t( "species_nearby.please_enable_location" ).toLocaleUpperCase()}
+        </Text>
+      </View>
+    );
+  };
+
+  return (
+    <TouchableOpacity
+      onPress={handlePress}
+      disabled={error === "downtime"}
+    >
+      <ImageBackground
+        source={backgrounds.noSpeciesNearby}
+        style={[styles.background, styles.center]}
+      >
+        <View style={styles.row}>
+          <Image source={error === "internet_error" ? icons.internet : icons.error} />
+          <Text style={styles.text}>
+            {error === "downtime"
+              ? i18n.t( "results.error_downtime_plural", { count: i18n.t( "results.error_few" ) } )
+              : i18n.t( `species_nearby.${error}` )}
+          </Text>
+        </View>
+        {error === "location_error" && showPermissionsButton()}
+      </ImageBackground>
+    </TouchableOpacity>
+    );
+};
 
 export default Error;

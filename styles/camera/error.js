@@ -3,7 +3,8 @@ import {
   colors,
   fonts,
   center,
-  dimensions
+  dimensions,
+  padding
 } from "../global";
 
 export default StyleSheet.create( {
@@ -25,5 +26,14 @@ export default StyleSheet.create( {
   },
   margin: {
     marginTop: 38
+  },
+  whiteText: {
+    color: colors.white,
+    fontFamily: fonts.semibold,
+    fontSize: 16,
+    letterSpacing: 1.0,
+    paddingTop: padding.iOSButtonPadding,
+    textAlign: "center",
+    maxWidth: 323
   }
 } );

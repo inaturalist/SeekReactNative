@@ -74,29 +74,16 @@ const addCameraFilesiOS = () => {
     } );
   };
 
+  // external devs should swap sample model and taxonomy file
   RNFS.readDir( RNFS.MainBundlePath ).then( ( results ) => {
     const model = "optimized_model.mlmodelc";
     const taxonomy = "taxonomy.json";
-    const sampleModel = "small_inception_tf1.mlmodelc";
-    const sampleTaxonomy = "small_export_tax.json";
+    // const sampleModel = "small_inception_tf1.mlmodelc";
+    // const sampleTaxonomy = "small_export_tax.json";
 
-    const hasModel = results.find( r => r.name === model );
-    const hasSampleModel = results.find( r => r.name === sampleModel );
-
-    if ( hasModel !== undefined ) {
-      copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
-      copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
-    } else if ( hasSampleModel !== undefined ) {
-      RNFS.unlink( dirModel ).then( ( result ) => {
-        copyFilesiOS( `${RNFS.MainBundlePath}/${sampleModel}`, dirModel );
-      } ).catch( ( e ) => console.log( e, "error unlinking sample model file" ) );
-
-      RNFS.unlink( dirTaxonomy ).then( ( result ) => {
-        copyFilesiOS( `${RNFS.MainBundlePath}/${sampleTaxonomy}`, dirTaxonomy );
-      } ).catch( ( e ) => console.log( e, "error unlinking sample taxonomy file" ) );
-    }
+    copyFilesiOS( `${RNFS.MainBundlePath}/${model}`, dirModel );
+    copyFilesiOS( `${RNFS.MainBundlePath}/${taxonomy}`, dirTaxonomy );
   } );
-
 };
 
 const addARCameraFiles = async () => {

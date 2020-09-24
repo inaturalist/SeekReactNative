@@ -3,6 +3,20 @@ import { colors, fonts } from "../global";
 
 import { enabledLargeFonts } from "../../utility/textHelpers";
 
+const pickerContainer = {
+  alignItems: "center",
+  flexDirection: "row",
+  flexWrap: "nowrap",
+  paddingHorizontal: 30
+};
+
+const pickerText = {
+  color: colors.seekForestGreen,
+  fontFamily: fonts.semibold,
+  fontSize: enabledLargeFonts() ? 13 : 18,
+  letterSpacing: 1.0
+};
+
 export default StyleSheet.create( {
   backButton: {
     left: 0,
@@ -15,37 +29,13 @@ export default StyleSheet.create( {
     backgroundColor: colors.white,
     height: 55
   },
-  inputIOS: {
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0,
-    paddingLeft: 30,
-    paddingVertical: 15,
-    paddingRight: 45
-  },
-  inputIOSContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    maxWidth: 250
-  },
+  inputIOS: pickerText,
+  inputIOSContainer: pickerContainer,
   viewContainer: {
     alignItems: "center"
   },
-  inputAndroid: {
-    textTransform: "uppercase",
-    color: colors.seekForestGreen,
-    fontFamily: fonts.semibold,
-    fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0
-  },
-  inputAndroidContainer: {
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    paddingHorizontal: 30
-  },
+  inputAndroid: pickerText,
+  inputAndroidContainer: pickerContainer,
   carot: {
     marginRight: 15
   }

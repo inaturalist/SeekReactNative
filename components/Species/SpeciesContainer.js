@@ -147,7 +147,7 @@ const SpeciesContainer = ( {
       {!error && (
         <>
           {region && <INatObs id={id} timesSeen={timesSeen} region={region} />}
-          <SpeciesChart id={id} />
+          {id !== null && <SpeciesChart id={id} />}
           <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />
         </>
       )}

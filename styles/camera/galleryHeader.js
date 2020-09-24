@@ -19,14 +19,16 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: enabledLargeFonts() ? 13 : 18,
-    letterSpacing: 1.0
+    letterSpacing: 1.0,
+    paddingLeft: 30,
+    paddingVertical: 15,
+    paddingRight: 45
   },
   inputIOSContainer: {
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "center",
-    paddingHorizontal: 15
+    maxWidth: 250
   },
   viewContainer: {
     alignItems: "center"

@@ -1,19 +1,23 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
+import { useIsFocused } from "@react-navigation/native";
 
 import { capitalizeNames, getTaxonCommonName } from "../../utility/helpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
+import { useCommonName } from "../../utility/customHooks";
 
 type Props = {
   +ancestors: ?Array<Object>,
   +predictions: ?Array<Object>,
-  +commonName: ?string
+  +id: number
 };
 
-const SpeciesTaxonomy = ( { ancestors, predictions, commonName }: Props ) => {
+const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
+  const isFocused = useIsFocused();
+  const commonName = useCommonName( id, isFocused );
   const [taxonomyList, setTaxonomyList] = useState( [] );
 
   let marginLeft = 0;

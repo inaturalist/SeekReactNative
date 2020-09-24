@@ -122,8 +122,6 @@ const SpeciesContainer = ( {
     }
   }, [region, id, stats] );
 
-  console.log( "rendering species container" );
-
   const renderOnlineOnlyCardsTop = () => (
     <>
       {showGreenButtons && <SpeciesStats stats={greenButtons} />}

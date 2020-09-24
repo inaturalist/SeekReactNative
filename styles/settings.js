@@ -7,6 +7,23 @@ import {
   padding
 } from "./global";
 
+const greenButton = {
+  color: colors.white,
+  fontFamily: fonts.semibold,
+  fontSize: 20,
+  letterSpacing: 1.11,
+  backgroundColor: colors.seekForestGreen,
+  borderRadius: 6,
+  paddingBottom: 11,
+  paddingHorizontal: 18,
+  paddingTop: 12
+};
+
+const buttonContainer = {
+  paddingVertical: 19,
+  alignItems: "center"
+};
+
 export default StyleSheet.create( {
   center,
   checkBox: {
@@ -98,36 +115,8 @@ export default StyleSheet.create( {
   textWidth: {
     maxWidth: 239
   },
-  inputIOS: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    letterSpacing: 1.11
-  },
-  inputIOSContainer: {
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 6,
-    paddingBottom: 11,
-    paddingHorizontal: 18,
-    paddingTop: 12
-  },
-  viewContainer: {
-    marginTop: 19,
-    alignItems: "center"
-  },
-  inputAndroid: {
-    color: colors.white,
-    fontFamily: fonts.semibold,
-    fontSize: 20,
-    backgroundColor: colors.seekForestGreen,
-    borderRadius: 6,
-    letterSpacing: 1.11,
-    paddingBottom: 11,
-    paddingHorizontal: 18,
-    paddingTop: 12
-  },
-  inputAndroidContainer: {
-    paddingVertical: 19,
-    alignItems: "center"
-  }
+  inputIOS: greenButton,
+  inputIOSContainer: buttonContainer,
+  inputAndroid: greenButton,
+  inputAndroidContainer: buttonContainer
 } );

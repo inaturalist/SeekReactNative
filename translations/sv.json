@@ -4,7 +4,7 @@
     "location_error": "För att visa dig arter i närheten måste vi använda din plats.",
     "location_device": "Seek behöver din plats för att visa arter i närheten och lägga till observationer. Kontrollera att enhetens plats är påslagen.",
     "enable_location": "Aktivera plats i inställningarna",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Vänligen aktivera platstjänster i inställningar ",
     "internet_error": "Vi behöver internet för att skapa arter i närheten. Tryck för att försöka igen.",
     "no_location": "Ingen plats",
     "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din plats eller utöka artfiltret.",

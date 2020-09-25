@@ -24,7 +24,7 @@ release_notes({
 'ro' => "provocare octombrie; actualizări de performanță la selectorul de limbi și album picker",
 'ru' => "Октябрь вызов; Обновления производительности для сборщика языка и альбом подборщика",
 'es-ES' => "desafío de octubre; actualizaciones de rendimiento a selector de idioma y el selector de álbum",
-' prestanda uppdateringar språkväljaren och albumväljaren"' => ""utmaning oktober",
+'sv' => "prestanda uppdateringar språkväljaren och albumväljaren; utmaning oktober",
 'tr' => "Ekim meydan; dil seçici ve albüm seçme aracının performansı güncellemeleri",
 'de-DE' => "Oktober Herausforderung; Performance-Updates zu Sprache Picker und Album-Picker",
 'ca' => "desafiament d'octubre; actualitzacions de rendiment a selector d'idioma i el selector d'àlbum",

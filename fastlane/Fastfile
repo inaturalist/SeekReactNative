@@ -52,8 +52,8 @@ platform :ios do
   lane :release do
     deliver(
       username: ENV["USERNAME"],
-      # build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],
-      submit_for_review: false,
+      build_number: lane_context[SharedValues::LATEST_BUILD_NUMBER],
+      submit_for_review: true,
       automatic_release: false,
       force: false, # Skip HTMl report verification
       skip_metadata: false, # make sure Deliverfile has latest release notes

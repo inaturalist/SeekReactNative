@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text } from "react-native";
 import inatjs from "inaturalistjs";
-import { useIsFocused } from "@react-navigation/native";
 
 import SpeciesStats from "./OnlineOnlyCards/SpeciesStats";
 import SimilarSpecies from "./OnlineOnlyCards/SimilarSpecies";
@@ -16,7 +15,7 @@ import i18n from "../../i18n";
 import About from "./OnlineOnlyCards/About";
 import SeenDate from "./OnlineOnlyCards/SeenDate";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
-import { useTruncatedUserCoords, useLocationPermission, useCommonName } from "../../utility/customHooks";
+import { useTruncatedUserCoords, useLocationPermission } from "../../utility/customHooks";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesError from "./SpeciesError";
 
@@ -25,7 +24,7 @@ const longitudeDelta = 0.2;
 
 type Props = {
   +details: Object,
-  +id: ?number,
+  +id: number,
   +seenTaxa: ?Object,
   +fetchiNatData: Function,
   +predictions: Array<Object>,
@@ -51,11 +50,10 @@ const SpeciesContainer = ( {
     ancestors,
     timesSeen
   } = details;
-  const isFocused = useIsFocused();
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission();
   const coords = useTruncatedUserCoords( granted );
-  const commonName = useCommonName( id, isFocused );
+
   const [region, setRegion] = useState( {} );
   const [greenButtons, setGreenButtons] = useState( {} );
 
@@ -116,13 +114,13 @@ const SpeciesContainer = ( {
       } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
     };
 
-    if ( region.latitude && id !== null && isFocused && stats ) {
+    if ( region.latitude && id !== null && stats ) {
       checkStats();
     } else {
       // reset state
       setGreenButtons( {} );
     }
-  }, [region, id, isFocused, stats] );
+  }, [region, id, stats] );
 
   const renderOnlineOnlyCardsTop = () => (
     <>
@@ -142,7 +140,7 @@ const SpeciesContainer = ( {
   const renderSpeciesCards = () => (
     <>
       {( region && !error ) && <SpeciesMap id={id} region={region} seenDate={seenDate} />}
-      {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} commonName={commonName} />}
+      {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} id={id} />}
       {( predictions && predictions.length > 0 && error ) && <Padding />}
       {!error && (
         <>

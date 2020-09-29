@@ -2,31 +2,36 @@ import React, { useContext, useCallback, useMemo } from "react";
 import { Text, View } from "react-native";
 import Checkbox from "react-native-check-box";
 import * as RNLocalize from "react-native-localize";
+import RNPickerSelect from "react-native-picker-select";
 
 import i18n from "../../i18n";
 import styles from "../../styles/settings";
 import { colors } from "../../styles/global";
-import Picker from "../UIComponents/Picker";
 import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
-  { value: locale, label: languages[locale] }
+  { value: locale, label: languages[locale].toLocaleUpperCase() }
 ) );
+
+const placeholder = {};
+const pickerStyles = { ...styles };
+const showIcon = () => <></>;
+
+const { languageTag } = RNLocalize.getLocales()[0];
+const deviceLanguage = languageTag.split( "-" )[0].toLowerCase();
+const deviceLanguageSupported = Object.keys( languages ).includes( deviceLanguage );
 
 const LanguagePicker = () => {
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
-  const { languageTag } = RNLocalize.getLocales()[0];
-  const deviceLanguage = languageTag.split( "-" )[0].toLowerCase();
-  const deviceLanguageSupported = Object.keys( languages ).includes( deviceLanguage );
 
-  const chooseDisplayLanguage = () => {
+  const chooseDisplayLanguage = useCallback( () => {
     if ( preferredLanguage === "device" ) {
       return deviceLanguageSupported ? deviceLanguage : "en";
     }
     return preferredLanguage;
-  };
+  }, [preferredLanguage] );
 
   const displayLanguage = chooseDisplayLanguage();
   const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
@@ -51,41 +56,37 @@ const LanguagePicker = () => {
     toggleLanguagePreference();
   }, [displayLanguage, preferredLanguage, toggleLanguagePreference] );
 
-  const renderLanguagePicker = useMemo( () => (
-    <View style={[styles.marginGreenButton, styles.center]}>
-      <View style={styles.greenButton}>
-        <Text style={styles.languageText}>
-          {displayLanguage && languages[displayLanguage].toLocaleUpperCase()}
-        </Text>
-      </View>
-    </View>
-  ), [displayLanguage] );
-
   const setDeviceLanguage = useCallback( () => handleValueChange( "device" ), [handleValueChange] );
 
+  const renderDeviceCheckbox = useMemo( () => (
+    <View style={[styles.row, styles.checkboxRow]}>
+      <Checkbox
+        checkBoxColor={colors.checkboxColor}
+        isChecked={isChecked}
+        disabled={isChecked}
+        onClick={setDeviceLanguage}
+        style={styles.checkBox}
+      />
+      <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
+    </View>
+  ), [isChecked, setDeviceLanguage] );
+
   return (
-    <View style={styles.radioButtonMarginBottom}>
+    <View style={styles.donateMarginBottom}>
       <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
-      {deviceLanguageSupported && (
-        <View style={[styles.row, styles.checkboxRow]}>
-          <Checkbox
-            checkBoxColor={colors.checkboxColor}
-            isChecked={isChecked}
-            disabled={isChecked}
-            onClick={setDeviceLanguage}
-            style={styles.checkBox}
-          />
-          <Text style={[styles.text, styles.padding]}>{i18n.t( "settings.device_settings" )}</Text>
-        </View>
-      )}
-      <Picker
-        handleValueChange={handleValueChange}
-        itemList={localeList}
+      {deviceLanguageSupported && renderDeviceCheckbox}
+      <RNPickerSelect
+        hideIcon
+        Icon={showIcon}
+        items={localeList}
+        onValueChange={handleValueChange}
+        placeholder={placeholder}
+        useNativeAndroidPickerStyle={false}
+        value={displayLanguage}
         testId="picker"
         disabled={!displayLanguage}
-      >
-        {renderLanguagePicker}
-      </Picker>
+        style={pickerStyles}
+      />
     </View>
   );
 };

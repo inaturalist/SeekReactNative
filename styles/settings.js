@@ -7,6 +7,23 @@ import {
   padding
 } from "./global";
 
+const greenButton = {
+  color: colors.white,
+  fontFamily: fonts.semibold,
+  fontSize: 20,
+  letterSpacing: 1.11,
+  backgroundColor: colors.seekForestGreen,
+  borderRadius: 6,
+  paddingBottom: 11,
+  paddingHorizontal: 18,
+  paddingTop: 12
+};
+
+const buttonContainer = {
+  paddingVertical: 19,
+  alignItems: "center"
+};
+
 export default StyleSheet.create( {
   center,
   checkBox: {
@@ -74,6 +91,9 @@ export default StyleSheet.create( {
     paddingLeft: 20,
     paddingRight: 14
   },
+  donateMarginBottom: {
+    paddingTop: 35 - 19
+  },
   radioButtonMarginBottom: {
     paddingTop: 35 - ( 19 / 2 )
   },
@@ -94,5 +114,9 @@ export default StyleSheet.create( {
   },
   textWidth: {
     maxWidth: 239
-  }
+  },
+  inputIOS: greenButton,
+  inputIOSContainer: buttonContainer,
+  inputAndroid: greenButton,
+  inputAndroidContainer: buttonContainer
 } );

@@ -215,16 +215,18 @@ const SpeciesDetail = () => {
           seenTaxa={seenTaxa}
           photos={photos}
         />
-        <SpeciesContainer
-          checkForInternet={checkInternetConnection}
-          details={details}
-          scientificName={taxon.scientificName}
-          error={error}
-          fetchiNatData={fetchiNatData}
-          id={id}
-          seenTaxa={seenTaxa}
-          predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
-        />
+        {id !== null && (
+          <SpeciesContainer
+            checkForInternet={checkInternetConnection}
+            details={details}
+            scientificName={taxon.scientificName}
+            error={error}
+            fetchiNatData={fetchiNatData}
+            id={id}
+            seenTaxa={seenTaxa}
+            predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
+          />
+        )}
       </ScrollView>
     </SafeAreaView>
   );

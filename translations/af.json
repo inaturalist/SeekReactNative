@@ -4,7 +4,7 @@
     "location_error": "Om spesies naby u te vertoon moet ons u ligging gebruik.",
     "location_device": "Seek benodig u ligging om nabygeleë spesies te vertoon en waarnemings toe te voeg. Maak seker u toestel se ligging is geaktiveer.",
     "enable_location": "Aktiveer ligging in instellings",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Aktiveer ligging in instellings",
     "internet_error": "Ons benodig die Internet om nabygeleë spesies te genereer. Tik om weer te probeer.",
     "no_location": "Geen Ligging",
     "no_species": "Daar blyk nie baie spesies naby waargeneem te wees nie! Probeer u ligging verander of om die spesiefilter te verbreed.",
@@ -300,7 +300,7 @@
     "error_permissions": "Ons benodig toegang tot u kamera om te help om spesies te identifiseer!",
     "error_gallery": "Ons benodig toegang tot u filmrol om geneemde foto’s te bewaar!",
     "permissions": "Aktiveer toestemmings in instellings",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Aktiveer toestemmings in instellings",
     "error_classifier": "Jammer, ons kon nie die klassifiseerder laai nie",
     "error_camera": "Jammer, ons kon nie die kamera laai nie",
     "error_device": "Jammer, die toestel wat u gebruik word nie gesteun nie",
@@ -312,7 +312,7 @@
     "error_photoError": "Jammer, die foto-voorwerp is nie gevind nie",
     "plant_filter": "Slegs plante",
     "non_plant_filter": "Slegs nie-plante",
-    "filters_off": "Filters off"
+    "filters_off": "Filters af"
   },
   "gallery": {
     "label": "Foto’s",

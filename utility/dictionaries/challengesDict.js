@@ -191,7 +191,7 @@ const challenges = {
     action: "seek_challenges.action_sept_2020"
   },
   oct2020: {
-    name: "seek_challenges.herbivore",
+    name: "seek_challenges.scavenger",
     description: "seek_challenges.oct_2020_description",
     totalSpecies: 7,
     backgroundName: "img-challengedetail-october2020",

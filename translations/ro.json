@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Găsește 1 Moluscă",
     "mission_4_oct_2020": "Găsește o Artropodă",
     "oct_2020_description": "Necrofagele și descompunătorii sunt esențiali viații pe planeta noastră. Ciupercile sunt descompunători care pot descompune țesut mort, cum ar fi lemnul și frunzele. Multe tipuri de animale, ca: vulturi, izopode și unii melci, pot mânca plante sau animale moarte. Ele ajută la reciclarea nutrienților, astfel încât aceștia să fie disponibili pentru o nouă creștere.",
-    "action_oct_2020": "Află ce fel de descompunători și necrofage trăiesc în zonele din jurul tău. Ce consumă? Mănâncă ei mereu aceleași lucruri?"
+    "action_oct_2020": "Află ce fel de descompunători și necrofage trăiesc în zonele din jurul tău. Ce consumă? Mănâncă ei mereu aceleași lucruri?",
+    "adaptation": "Provocarea Adaptării",
+    "mission_1_nov_2020": "Găsește 1 pasăre din ordinul Columbiformes (Porumbei)",
+    "mission_2_nov_2020": "Găsește o plantă din ordinul Fabales (Legume, Poligala, și Similare)",
+    "mission_3_nov_2020": "Găsește 1 arahnidă",
+    "mission_4_nov_2020": "Găsește 2 insecte",
+    "nov_2020_description": "Multe specii au evoluat pentru a se adapta la mediile umane pe măsură ce populațiile noastre au crescut în întreaga lume. Chiar și în zonele urbane dense, putem găsi păsări, plante și insecte care trăiesc printre noi.",
+    "action_nov_2020": "Care sunt speciile sălbatice comune pe care le vezi în zona ta? Sunt aceste specii native, invazive sau introduse? Dacă sunt introduse, vezi dacă poți afla cum au ajuns aceste specii aici."
   },
   "replace_photo": {
     "header": "Înlocuiești Fotografia?",

@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "1 මෘද්වංශිකයෙක් සොයා ගන්න",
     "mission_4_oct_2020": "1 සන්ධිපාදිකයෙක් සොයා ගන්න",
     "oct_2020_description": "අපේ ග්‍රහලෝකයේ ජීවය සඳහා කසළ භෝජකයන් සහ විසංයෝජකයන් අත්‍යවශ්‍ය වේ. ඔවුන් පෝෂ්‍ය පදාර්ථ ප්‍රතිචක්‍රීකරණය කිරීමට සහ වෙනත් ආකාරයකින් විසංයෝජනය නොවන ද්‍රව්‍ය දිරාපත් කිරීමට උපකාරී වේ.",
-    "action_oct_2020": "ඔබ අවට ප්‍රදේශවල ජීවත් වන්නේ කුමන ආකාරයේ විසංයෝජකයන් සහ කසළ භෝජකයන් ද යන්න සොයා බලන්න. ඔවුන් පරිසරයට ඔවුන්ගේ නිකේතනය සමඟ උදව් කරන්නේ කෙසේද?"
+    "action_oct_2020": "ඔබ අවට ප්‍රදේශවල ජීවත් වන්නේ කුමන ආකාරයේ විසංයෝජකයන් සහ කසළ භෝජකයන් ද යන්න සොයා බලන්න. ඔවුන් පරිසරයට ඔවුන්ගේ නිකේතනය සමඟ උදව් කරන්නේ කෙසේද?",
+    "adaptation": "අනුවර්තන අභියෝගය",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_3_nov_2020": "1 අරක්නිඩාවෙක් සොයා ගන්න",
+    "mission_4_nov_2020": "කෘමීන් 2 ක් සොයා ගන්න",
+    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
   },
   "replace_photo": {
     "header": "ඡායාරූපය ප්‍රතිස්ථාපනය කරන්නද?",

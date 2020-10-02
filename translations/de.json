@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
     "mission_4_oct_2020": "Finde 1 Arthropoden (Gliederfüßer)",
     "oct_2020_description": "Aasfresser und Zersetzer sind für das Leben auf unserem Planeten unentbehrlich und tragen dazu bei, Nährstoffe zu recyceln und Substrate zu zersetzen, die sonst nicht abgebaut werden würden.",
-    "action_oct_2020": "Finde heraus welche Zersetzer und Aasfresser in deiner Umgebung zu finden sind. Wie sind sie in ihrer Funktion hilfreich für die Umwelt?"
+    "action_oct_2020": "Finde heraus welche Zersetzer und Aasfresser in deiner Umgebung zu finden sind. Wie sind sie in ihrer Funktion hilfreich für die Umwelt?",
+    "adaptation": "Anpassungs-Mission",
+    "mission_1_nov_2020": "Finde 1 Vogel aus der Ordnung Columbiformes (Tauben)",
+    "mission_2_nov_2020": "Finde 1 Pflanze aus der Ordnung Fabales (Hülsenfrüchtler Kreuzblumen und Verwandte)",
+    "mission_3_nov_2020": "Finde 1 Spinnentier",
+    "mission_4_nov_2020": "Finde 2 Insekten",
+    "nov_2020_description": "Viele Arten haben sich an die menschliche Umwelt angepasst, da unsere Bevölkerung weltweit gewachsen ist. Selbst in dichten städtischen Gebieten finden wir Vögel, Pflanzen und Insekten, die unter uns leben.",
+    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind."
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

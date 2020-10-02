@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Aurkitu molusku 1",
     "mission_4_oct_2020": "Aurkitu artropodo 1",
     "oct_2020_description": "Sarraskijaleak eta deskonposatzaileak behar-beharrezkoak dira gure planetako bizitzarako. Elikagaiak birziklatzen dituzte eta materia organikoa deskonposatzen dute, bestela ezinezkoa izango litzatekeena.",
-    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin? Zer jaten dute? Beti jaten dituzte antzeko gauzak?"
+    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin? Zer jaten dute? Beti jaten dituzte antzeko gauzak?",
+    "adaptation": "Adaptation Challenge",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_3_nov_2020": "Find 1 arachnid",
+    "mission_4_nov_2020": "Find 2 insects",
+    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
   },
   "replace_photo": {
     "header": "Argazkia ordezkatu?",

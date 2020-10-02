@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Encontre 1 molusco",
     "mission_4_oct_2020": "Encontre 1 artrópode",
     "oct_2020_description": "Os detritívoros e os decompositores são essenciais para a vida no nosso planeta, pois ajudam a reciclar nutrientes e decompor a matéria.",
-    "action_oct_2020": "Descubra que tipos de decompositor e detritívoro vivem nas áreas à sua volta. Como eles ajudam o ambiente com o seu nicho?"
+    "action_oct_2020": "Descubra que tipos de decompositor e detritívoro vivem nas áreas à sua volta. Como eles ajudam o ambiente com o seu nicho?",
+    "adaptation": "Adaptation Challenge",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_3_nov_2020": "Find 1 arachnid",
+    "mission_4_nov_2020": "Find 2 insects",
+    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
   },
   "replace_photo": {
     "header": "Substituir foto?",

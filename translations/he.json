@@ -20,7 +20,7 @@
   },
   "challenges_card": {
     "header": "אתגרים",
-    "join": "הוסיפו צפיות באמצעות מצלמת Seek כדי להרוויח את תג ה- Our Planet !",
+    "join": "הוסיפו צפיות באמצעות מצלמת Seek כדי להרוויח את תג ה - Our Planet !",
     "take_challenge": "התחל אתגר",
     "continue_challenge": "המשך אתגר",
     "view_all": "הצג את כל האתגרים",
@@ -365,7 +365,7 @@
     "species_badges": "תגי מינים",
     "challenge_badges": "תגי אתגרים",
     "observed": "מינים שנצפו",
-    "earned": "תגים שקיבלתם",
+    "earned": "תגים שקיבלת",
     "you_found": "אתם מצאתם",
     "bird_1": "ציפור 1!",
     "bird_5": "5 ציפורים!",
@@ -497,9 +497,9 @@
     "designed_by": "עוצב ופותח על ידי צוות iNaturalist:",
     "inat_team": "Abhas Misraraj, Amanda Bullington, Alex Shepard, Scott Loarie, Ken-ichi Ueda, Carrie Seltzer, Tony Iwane, Patrick Leary, ו Yaron Budowski. תודות מיוחדות ל Visipedia וקהילת iNaturalist.",
     "version": "גירסה",
-    "help": "לתמיכה עם Seek, שלחו דואל help+seek@inaturalist.org.",
+    "help": "לקבלת תמיכה באפליקציית Seek, שלחו דואל help+seek@inaturalist.org.",
     "translations": "אנו אסירי תודה לעזרה בתרגום שניתן על ידי קהילת crowdin.com, ובייחוד: Abdelghani Hourani, Carnifex, Daniele Seglie, Eduardo Martínez, Gideon Wentink, Johan Liljeblad, katunchik, Kiara Suzuki, Lekkim, Marcel Hospers, Martin Reith, Monica Nieminen, saariko, Sakatur, TheKakarinka, Wouter Koch, ו Yulia Lygina.",
-    "join_crowdin": "להצטרף לצוות המתרגמים של Seek, בבקשה תבקרו באתר: https://crowdin.com/project/seek"
+    "join_crowdin": "מעוניינים להצטרף לצוות המתרגמים של Seek, בקרו באתר: https://crowdin.com/project/seek"
   },
   "posting": {
     "header": "פרסמו ל iNaturalist",
@@ -596,7 +596,7 @@
     "donate_description": "תמיכה בiNaturalist",
     "language": "שפה בתוך האפליקציה",
     "device_settings": "השתמש/י בהגדרות השפה של המכשיר",
-    "auto_capture": "קח תמונה אוטומטית מיז שהזיהוי מגיע למין.",
+    "auto_capture": "קחו תמונה אוטומטית מיד שהזיהוי מגיע למין.",
     "species_detail": "פירוט מינים",
     "seasonality": "עונתיות",
     "seasonality_option_1": "הצג עונתיות בהתבסס על תצפיות עולמיות של iNaturalist",

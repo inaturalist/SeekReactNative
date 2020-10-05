@@ -312,7 +312,7 @@
     "error_photoError": "Désolé, l'objet photo n'a pas été trouvé",
     "plant_filter": "Plantes uniquement",
     "non_plant_filter": "Non-plante seulement",
-    "filters_off": "Filters off"
+    "filters_off": "Filtres désactivés"
   },
   "gallery": {
     "label": " Photos",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Trouvez 1 Mollusque",
     "mission_4_oct_2020": "Trouvez 1 Arthropode",
     "oct_2020_description": "Les charognards et les décomposeurs sont essentiels à la vie sur notre planète. Ils aident à recycler les nutriments et décomposer la matière qui ne l'aurais pas été autrement.",
-    "action_oct_2020": "Trouve quel type de décomposeurs et de charognards vivent dans la zone autour de toi. Comment aident-ils l'environnement avec leur action ?"
+    "action_oct_2020": "Trouve quel type de décomposeurs et de charognards vivent dans la zone autour de toi. Comment aident-ils l'environnement avec leur action ?",
+    "adaptation": "Défi de l'adaptation",
+    "mission_1_nov_2020": "Trouver 1 oiseau de l'ordre des Colombiformes (Pigeons et Tourterelles)",
+    "mission_2_nov_2020": "Trouver un plante de l'ordre des Fabales (Legumes, Polygales et apparentés)",
+    "mission_3_nov_2020": "Trouver 1 arachnide",
+    "mission_4_nov_2020": "Trouver 2 insectes",
+    "nov_2020_description": "Beaucoup d'espèces ont évoluées en s'adaptant à l'environnement anthropique au fur et à mesure de l'accroissement de la population. Même dans une ville dense, il y a des oiseaux, des plantes et des insectes autour de nous.",
+    "action_nov_2020": "Quelles sont les espèces sauvages communes que l'on peut voir dans votre zone ? Sont-elles natives, invasives ou introduites ? Si introduites, essayez de voir comment ces espèces sont arrivées ici."
   },
   "replace_photo": {
     "header": "Remplacer la photo ?",

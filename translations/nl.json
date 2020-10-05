@@ -4,7 +4,7 @@
     "location_error": "Om soorten in de buurt te tonen moeten we je locatie gebruiken.",
     "location_device": "Seek heeft je locatie nodig om soorten in de buurt weer te geven en waarnemingen toe te voegen. Controleer of de locatiebepaling van je apparaat aan staat.",
     "enable_location": "Locatiebepaling aanzetten in instellingen",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Locatiebepaling aanzetten in instellingen",
     "internet_error": "We hebben het internet nodig om om soorten in de buurt te genereren. Tik om het opnieuw te proberen.",
     "no_location": "Geen locatie",
     "no_species": "Zo te zien zijn er nog niet veel soorten in de buurt waargenomen! Probeer je locatie te wijzigen of breid het soortenfilter uit.",
@@ -14,9 +14,9 @@
   },
   "get_started": {
     "header": "Aan de slag",
-    "tip_1": "Neem foto's met de Seek's camera om levende wezens te determineren.",
+    "tip_1": "Neem foto's met de Seek camera om levende wezens te determineren.",
     "tip_2": "Leer over de soorten die rond je zijn waargenomen met 'Soorten in de buurt'.",
-    "tip_3": "Verdien badges en verhoog je level door verschillende soorten soorten te determineren & deel te nemen aan uitdagingen."
+    "tip_3": "Verdien badges en verhoog je level door verschillende soorten te determineren & deel te nemen aan uitdagingen."
   },
   "challenges_card": {
     "header": "Uitdagingen",
@@ -300,7 +300,7 @@
     "error_permissions": "We hebben toegang tot de camera nodig om je te helpen bij het determineren van soorten!",
     "error_gallery": "Er is toegang tot opslag nodig om je foto's op te slaan!",
     "permissions": "Verleen toestemming bij instellingen",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Verleen toestemming in instellingen",
     "error_classifier": "Het spijt ons, we kunnen de classificeerder niet laden",
     "error_camera": "Het spijt ons, we zijn niet in staat de camera te laden",
     "error_device": "Sorry, het apparaat dat je gebruikt wordt niet ondersteund",
@@ -470,7 +470,7 @@
     "threatened_about": "Deze soort dreigt in de toekomst uit te sterven.",
     "introduced_about": "Deze soort is door mensen naar dit gebied gebracht en komt hier niet van nature voor.",
     "got_it": "Ik snap het!",
-    "wikipedia": "{{about}}\n\nBron: Wikipedia",
+    "wikipedia": "Bron: Wikipedia",
     "wikipedia_1": "Wikipedia",
     "similar": "Dubbelgangers",
     "similar_about": "Organismen die vaak ten onrechte worden aangezien als deze soort.",
@@ -648,12 +648,19 @@
     "mission_3_oct_2020": "Vind 1 Weekdier",
     "mission_4_oct_2020": "Vind 1 Geleedpotige",
     "oct_2020_description": "Aaseters en Reducenten of Destruenten zijn essentieel voor het leven op onze planeet. Ze helpen voedingsstoffen te recyclen en dingen te ontleden die anders niet zouden kunnen.",
-    "action_oct_2020": "Ontdek wat voor soort Aaseters en Reducenten of Destruenten leven in de omgeving om je heen. Hoe helpen ze het milieu met hun niche?"
+    "action_oct_2020": "Ontdek wat voor soort Aaseters en Reducenten of Destruenten leven in de omgeving om je heen. Hoe helpen ze het milieu met hun niche?",
+    "adaptation": "Aanpassingsuitdaging",
+    "mission_1_nov_2020": "Vind 1 vogel uit de orde Columbiformes (duiven)",
+    "mission_2_nov_2020": "Vind 1 plant in order Fabales (Vlinderbloemenfamilie, Vleugeltjesbloemfamilie, Quillajaceae,  Surianaceae)",
+    "mission_3_nov_2020": "Vind 1 spinachtige",
+    "mission_4_nov_2020": "Vind 2 insecten",
+    "nov_2020_description": "Veel soorten zijn geëvolueerd om zich aan te passen aan de menselijke omgeving, aangezien onze bevolkingen wereldwijd zijn gegroeid. Zelfs in dichte stedelijke gebieden kunnen leven vogels, planten en insecten onder ons.",
+    "action_nov_2020": "Welke wilde soorten zie je veel in je omgeving? Zijn deze soorten inheems, invasief of ingevoerd? Als ze ingevoerd zijn, kijk dan of je erachter kunt komen hoe deze soorten hier zijn gekomen."
   },
   "replace_photo": {
     "header": "Foto vervangen?",
     "description": "Wilt je de foto van jouw tweede waarneming vervangen?",
-    "new": "Kies een nieuwe foto",
+    "new": "Gebruik de nieuwe foto",
     "old": "Behoud de oude foto"
   },
   "inat_card": {

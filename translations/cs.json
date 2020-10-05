@@ -4,7 +4,7 @@
     "location_error": "Abychom vám mohli ukázat okolní druhy, musíme použít vaši polohu.",
     "location_device": "Seek potřebuje vaši polohu k zobrazení okolních druhů a k přidání pozorování. Ujistěte se, že je funkce zjišťování polohy ve vašem zařízení zapnutá.",
     "enable_location": "Povolit v nastavení zjišťování polohy",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Povolte prosím v nastavení zjišťování polohy",
     "internet_error": "K vygenerování okolních druhů potřebujeme internet. Klepnutím to zkusíte znovu.",
     "no_location": "Neznámá poloha",
     "no_species": "Zdá se, že v blízkosti nebylo pozorováno mnoho druhů! Zkuste změnit polohu nebo rozšířit filtr druhů.",
@@ -300,7 +300,7 @@
     "error_permissions": "Abychom vám mohli pomoci identifikovat druh, potřebujeme přístup k fotoaparátu!",
     "error_gallery": "We need access to your camera roll to save photos you take!",
     "permissions": "Udělit oprávnění v nastavení",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Povolte prosím v nastavení příslušná oprávnění",
     "error_classifier": "Sorry, we're unable to load the classifier",
     "error_camera": "Omlouváme se, nepodařilo se nám načíst kameru",
     "error_device": "Je nám líto, zařízení, které používáte, není podporováno",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Najděte 1 měkkýše",
     "mission_4_oct_2020": "Najděte 1 členovce",
     "oct_2020_description": "Mrchožrouti a rozkladači jsou zásadní pro život na naší planetě. Pomáhají recyklovat živiny a rozkládat hmotu, která by se jinak nerozložila.",
-    "action_oct_2020": "Zjistěte, jaké druhy rozkladačů a mrchožroutů žijí kolem vás. Jak pomáhají životnímu prostředí svou ekologickou nikou?"
+    "action_oct_2020": "Zjistěte, jaké druhy rozkladačů a mrchožroutů žijí kolem vás. Jak pomáhají životnímu prostředí svou ekologickou nikou?",
+    "adaptation": "Adaptační výzva",
+    "mission_1_nov_2020": "Najdi 1 ptáka z řádu měkkozobí (holubi)",
+    "mission_2_nov_2020": "Najdi 1 rostlinu z řádu bobotvaré (luštěniny, vítody a jim příbuzné)",
+    "mission_3_nov_2020": "Najdi 1 pavoukovce",
+    "mission_4_nov_2020": "Najdi 2 zástupce hmyzu",
+    "nov_2020_description": "Jak naše populace po celém světě roste, mnoho druhů se vyvinulo tak, aby se přizpůsobilo lidskému prostředí. I v hustě osídlených městských oblastech můžeme najít ptáky, rostliny a hmyz, žijící mezi námi.",
+    "action_nov_2020": "Jaké jsou běžné druhy volně žijících živočichů, které vidíte ve vašem okolí? Jsou tyto druhy původní, invazivní nebo vysazené? Pokud byly vysazeny, podívejte se, jestli dokážete zjistit, jak se sem tyto druhy dostaly."
   },
   "replace_photo": {
     "header": "Nahradit fotografii?",

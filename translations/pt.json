@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Encontra 1 Molusco",
     "mission_4_oct_2020": "Encontra 1 Artrópode",
     "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?"
+    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?",
+    "adaptation": "Adaptation Challenge",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_3_nov_2020": "Find 1 arachnid",
+    "mission_4_nov_2020": "Find 2 insects",
+    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
   },
   "replace_photo": {
     "header": "Replace Photo?",

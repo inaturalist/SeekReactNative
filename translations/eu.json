@@ -4,7 +4,7 @@
     "location_error": "Gertu dauden espezieak erakusteko, zure kokapena jakin behar dugu.",
     "location_device": "Seek-ek zure kokapena behar du gertu dauden espezieak eta behaketak gehitzeko. Mesedez, ziurtatu zure gailuaren kokapena piztuta dagoela.",
     "enable_location": "Gaitu kokapena hobespenetan",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Gaitu kokapena hobespenetan",
     "internet_error": "Interneterako konexioa behar dugu gertuko espezieak erakusteko. Ukitu berriro probatzeko.",
     "no_location": "Kokapenik gabe",
     "no_species": "Antza denez ez duzu espezie nahiko behatuta inguruan! Saiatu zure kokapena aldatzen edo iragazkiak zabaltzen.",
@@ -300,7 +300,7 @@
     "error_permissions": "Zure kamerara sarbidea behar dugu espezieak identifikatzen laguntzeko!",
     "error_gallery": "Zure argazki bildumara sarbidea behar dugu egin dituzun argazkiak gorde ahal izateko!",
     "permissions": "Eman baimenak hobestepenetan",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Gaitu baimenak hobespenetan",
     "error_classifier": "Barka, ezin izan dugu sailkatzailea kargatu",
     "error_camera": "Barka, ezin izan dugu kamera piztu",
     "error_device": "Barka, erabiltzen duzun gailua ez dago babestua",
@@ -590,7 +590,7 @@
   "settings": {
     "header": "Seek Kamera",
     "common_names": "Izen arruntak erakutsi",
-    "scientific_names": "Izen zientifikak erakutsi",
+    "scientific_names": "Izen zientifikoak erakutsi",
     "donate": "Dohaintza",
     "donate_header": "iNaturalist lagundu ezazu",
     "donate_description": "Seek gustuko duzu? Baloratu ea iNaturalist-i dohaintza egin nahi ote diozun! Zu bezalako pertsonen dohaintzari esker dira aplikazio hau doakoak.",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Aurkitu molusku 1",
     "mission_4_oct_2020": "Aurkitu artropodo 1",
     "oct_2020_description": "Sarraskijaleak eta deskonposatzaileak behar-beharrezkoak dira gure planetako bizitzarako. Elikagaiak birziklatzen dituzte eta materia organikoa deskonposatzen dute, bestela ezinezkoa izango litzatekeena.",
-    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin? Zer jaten dute? Beti jaten dituzte antzeko gauzak?"
+    "action_oct_2020": "Aurki ezazu zure inguruan bizi diren sarraskijale eta deskonposatzaileak zeintzuk diren. Nola laguntzen dute ingurumena euren nitxoarekin? Zer jaten dute? Beti jaten dituzte antzeko gauzak?",
+    "adaptation": "Egokitzapen erronka",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Bilatu Fabales ordenako landare 1",
+    "mission_3_nov_2020": "Bilatu araknido 1",
+    "mission_4_nov_2020": "Bilatu intsektu 2",
+    "nov_2020_description": "Espezie asko gizakiek eraldatutako ingurugiroetara egokitzeko eboluzionatu dute eta munduan zehar hazi egin dira. Oso dentsitate handiko hiriguneetan ere, topa ditzakegu hegaztiak, landareak eta intsektuak gizakiez inguratuta.",
+    "action_nov_2020": "Zer dute berdinetik zure ingurugiroan bizi diren espezie basatiek? Bertoko espezieak dira, espezie inbasoreak edo berariaz inportatuko espezieak dira? Kanpotik sartu berriak diren espeziak baldin badira, ikertu ezazu ea nola sartu diren zure ingurugiroan."
   },
   "replace_photo": {
     "header": "Argazkia ordezkatu?",

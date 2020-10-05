@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Encuentra un Molusco",
     "mission_4_oct_2020": "Encuentra un Artrópodo",
     "oct_2020_description": "Los carroñeros y descomponedores son esenciales para la vida en nuestro planeta, ayudan a reciclar nutrientes y reintegran materia que no lo haría de otra manera.",
-    "action_oct_2020": "Descubre qué tipo de descomponedores y carroñeros viven a tu alrededor. ¿Cómo ayudan al medio ambiente con su nicho?"
+    "action_oct_2020": "Descubre qué tipo de descomponedores y carroñeros viven a tu alrededor. ¿Cómo ayudan al medio ambiente con su nicho?",
+    "adaptation": "Desafío de adaptación",
+    "mission_1_nov_2020": "Encuentra 1 ave del orden de Columbiformes (Palomas)",
+    "mission_2_nov_2020": "Encuentra 1 planta del orden Fabales (Frijoles, habas y parientes)",
+    "mission_3_nov_2020": "Encuentra 1 arácnido",
+    "mission_4_nov_2020": "Encuentra 2 insectos",
+    "nov_2020_description": "Muchas especies han evolucionado para adaptarse a los entornos humanos a medida que nuestras poblaciones han crecido en todo el mundo. Incluso en zonas urbanas densas podemos encontrar aves, plantas e insectos que viven entre nosotros.",
+    "action_nov_2020": "¿Cuáles son las especies silvestres comunes que ves en tu zona? ¿Son nativas, exóticas o invasoras? Si son introducidas (exóticas), averigua cómo llegaron estas especies."
   },
   "replace_photo": {
     "header": "¿Substituir la foto?",

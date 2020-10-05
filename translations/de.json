@@ -4,7 +4,7 @@
     "location_error": "Um dir Arten in der Nähe anzeigen zu können, benötigen wir deinen Standort.",
     "location_device": "Seek benötigt deinen Standort, um Arten in deiner Umgebung anzuzeigen und um Beobachtungen hinzuzufügen. Bitte stelle sicher, dass der Standort deines Geräts eingeschaltet ist.",
     "enable_location": "Standort in den Einstellungen aktivieren",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Bitte Standort in den Einstellungen aktivieren",
     "internet_error": "Wir brauchen eine Internetverbindung, um Arten in der Nähe anzuzeigen. Tippe, um es erneut zu versuchen.",
     "no_location": "Kein Standort",
     "no_species": "Sieht so aus, als ob in der Nähe nicht viele Arten beobachtet wurden! Versuche, deinen Standort zu ändern oder den Artenfilter zu erweitern.",
@@ -300,7 +300,7 @@
     "error_permissions": "Es wird Zugang zur Kamera benötigt, um dir bei der Identifizierung von Arten zu helfen!",
     "error_gallery": "Wir benötigen Zugang zum Kameraspeicher, um die aufgenommenen Fotos zu speichern!",
     "permissions": "Berechtigungen in den Einstellungen aktivieren",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Bitte Berechtigungen in den Einstellungen aktivieren",
     "error_classifier": "Leider können wir den Klassifikator nicht laden",
     "error_camera": "Wir konnten die Kamera leider nicht laden",
     "error_device": "Das Gerät, das du verwendest, wird nicht unterstützt",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Finde 1 Weichtier (Schnecke, Muschel)",
     "mission_4_oct_2020": "Finde 1 Arthropoden (Gliederfüßer)",
     "oct_2020_description": "Aasfresser und Zersetzer sind für das Leben auf unserem Planeten unentbehrlich und tragen dazu bei, Nährstoffe zu recyceln und Substrate zu zersetzen, die sonst nicht abgebaut werden würden.",
-    "action_oct_2020": "Finde heraus welche Zersetzer und Aasfresser in deiner Umgebung zu finden sind. Wie sind sie in ihrer Funktion hilfreich für die Umwelt?"
+    "action_oct_2020": "Finde heraus welche Zersetzer und Aasfresser in deiner Umgebung zu finden sind. Wie sind sie in ihrer Funktion hilfreich für die Umwelt?",
+    "adaptation": "Anpassungs-Mission",
+    "mission_1_nov_2020": "Finde 1 Vogel aus der Ordnung Columbiformes (Tauben)",
+    "mission_2_nov_2020": "Finde 1 Pflanze aus der Ordnung Fabales (Hülsenfrüchtler Kreuzblumen und Verwandte)",
+    "mission_3_nov_2020": "Finde 1 Spinnentier",
+    "mission_4_nov_2020": "Finde 2 Insekten",
+    "nov_2020_description": "Viele Arten haben sich an die menschliche Umwelt angepasst, da unsere Bevölkerung weltweit gewachsen ist. Selbst in dichten städtischen Gebieten finden wir Vögel, Pflanzen und Insekten, die unter uns leben.",
+    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind."
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

@@ -10,7 +10,7 @@
     "no_species": "Det ser ut som att väldigt få arter har observeras i närheten! Försök att ändra din plats eller utöka artfiltret.",
     "no_gps": "GPS-signalen hittades inte.",
     "location_timeout": "Din platsbegäran tog för lång tid. Försök igen.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "Platstjänsten är inte aktiverad eller platsläget är inte lämpligt för den aktuella begäran"
   },
   "get_started": {
     "header": "Kom igång",
@@ -300,7 +300,7 @@
     "error_permissions": "Vi behöver tillgång till kameran för att hjälpa dig med artbestämning!",
     "error_gallery": "Vi behöver tillgång till din kamerarulle för att spara de bilder du tar!",
     "permissions": "Aktivera behörigheter i inställningarna",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Aktivera behörigheter i inställningarna",
     "error_classifier": "Tyvärr, det går inte att ladda klassificeraren",
     "error_camera": "Tyvärr, vi kunde inte ladda kameran",
     "error_device": "Tyvärr, enheten du använder stöds inte",
@@ -310,9 +310,9 @@
     "error_version": "Seeks AR-kamera kräver iOS 11.0+. Din enhet kör OS-version {{OS}}.",
     "error_cameraManager": "Tyvärr kunde inte kamerahanteraren laddas",
     "error_photoError": "Tyvärr kunde inte bildobjektet hittas",
-    "plant_filter": "Plants only",
-    "non_plant_filter": "Non-plants only",
-    "filters_off": "Filters off"
+    "plant_filter": "Endast växter",
+    "non_plant_filter": "Endast icke-växter",
+    "filters_off": "Filter av"
   },
   "gallery": {
     "label": "Bilder",
@@ -435,9 +435,9 @@
     "help": "Ta en bild av en växt, ett djur eller något annat levande med vår kamera så hjälper vår AI-modell dig att bestämma den!",
     "open_camera": "Öppna kameran",
     "not_seen": "Du har inte observerat någon {{iconicTaxon}} ännu!",
-    "search": "Search observations",
-    "search_empty": "No observations found with that search term.",
-    "reset_search": "Reset search"
+    "search": "Sök observationer",
+    "search_empty": "Inga observationer hittades med den söktermen.",
+    "reset_search": "Återställ sök"
   },
   "species_detail": {
     "near": "Närliggande",
@@ -597,10 +597,10 @@
     "language": "Språk i appen",
     "device_settings": "Använd enhetens språkinställningar",
     "auto_capture": "Ta automatiskt en bild när bestämningen kommer fram till art.",
-    "species_detail": "Species detail",
-    "seasonality": "Seasonality",
-    "seasonality_option_1": "Display seasonality based on worldwide iNaturalist observations",
-    "seasonality_option_2": "Display seasonality based on iNaturalist observations near my current location (species not found near my location will have no seasonality)"
+    "species_detail": "Artdetaljer",
+    "seasonality": "Säsongsvariation",
+    "seasonality_option_1": "Visa säsongsvariation baserat på iNaturalist-observationer från hela världen",
+    "seasonality_option_2": "Visa säsongsvariation baserat på iNaturalist-observationer nära min nuvarande plats (arter inte funna nära min plats kommer inte ha någon säsongsvariation)"
   },
   "seek_challenges": {
     "badge": "Seek-märke",
@@ -638,24 +638,24 @@
     "action_aug_2020": "Var uppmärksam på pollinatörerna runt omkring dig. Finns det bin eller fjärilar som besöker blommorna i din trädgård eller din omgivning?",
     "herbivore": "Växtätar utmaning",
     "mission_1_sept_2020": "Hitta 10 växter",
-    "mission_2_sept_2020": "Find 1 mammal",
-    "mission_3_sept_2020": "Find 2 insects from the orders:\n\nLepidoptera (Butterflies and Moths);\nHemiptera (True Bugs, Hoppers, Aphids, and Allies)",
-    "sept_2020_description": "Herbivores are animals that are adapted to feed only on plants. Herbivorous mammals often have complex digestive systems that enable them to break down large amounts of plant material. For example, cows actually have 4 stomachs to break down the plants they consume. Other mammals specialize in fruit (fruit bats) or seeds (squirrels). Many insects are also adapted to eat different parts of plants, such as caterpillars that eat leaves or plant hoppers that suck sap from stems.",
-    "action_sept_2020": "Do some research on how meat consumption impacts the environment. What steps can you take to reduce your own impact?\n\nAlternative: What kinds of plants do you eat? What parts of the plant do they come from? Can you find out what kinds of animals also like to eat those plants?",
-    "scavenger": "Scavenger Challenge",
-    "mission_1_oct_2020": "Find 4 fungi",
-    "mission_2_oct_2020": "Find any 1 organism from the orders:\n\nAccipitriformes (Hawks, Eagles, & Kites);\nCathartiformes (Vultures);\nCarnivora (Carnivores)",
-    "mission_3_oct_2020": "Find 1 Mollusk",
-    "mission_4_oct_2020": "Find 1 Arthropod",
-    "oct_2020_description": "Scavengers and decomposers are essential to life on our planet. Fungi are decomposers that can break down dead tissue such as wood and leaves. Many types of animals such as vultures, isopods, and some snails can eat dead plants or animals. They help to recycle nutrients so they are available for new growth.",
-    "action_oct_2020": "Find out what kind of decomposers and scavengers live in the areas around you. What are they consuming? Do they always eat the same kinds of things?",
+    "mission_2_sept_2020": "Hitta 1 däggdjur",
+    "mission_3_sept_2020": "Hitta 2 insekter från ordningarna:\n\nLepidoptera (fjärilar);\nHemiptera (skinnbaggar, stritar, bladlöss och liknande)",
+    "sept_2020_description": "Växtätare är djur som är anpassade för att endast livnära sig på växter. Växtätande däggdjur har ofta komplexa matsmältningssystem som gör det möjligt för dem att bryta ner stora mängder växtmaterial. Till exempel, kor har faktiskt 4 magar för att bryta ner växterna de konsumerar. Andra däggdjur är specialiserade på frukt (fruktfladdermöss) eller frön (ekorrar). Många insekter är också anpassade för att äta olika växtdelar, t.ex. larver som äter blad eller bladloppor som suger växtsaft från stjälkar.",
+    "action_sept_2020": "Ta reda på hur köttkonsumtion påverkar miljön. Vad kan du göra för att minska din egen påverkan?\n\nAlternativ: Vilken sorts växter äter du? Vilka delar av växten kommer de ifrån? Kan du ta reda på vilka typer av djur som också gillar att äta dessa växter?",
+    "scavenger": "Asätarutmaning",
+    "mission_1_oct_2020": "Hitta 4 svampar",
+    "mission_2_oct_2020": "Hitta 1 organism från varje ordning:\n\nAccipitriformes (hökar, örnar & glador);\nCathartiformes (gamar);\nCarnivora (rovdjur)",
+    "mission_3_oct_2020": "Hitta 1 blötdjur",
+    "mission_4_oct_2020": "Hitta 1 leddjur",
+    "oct_2020_description": "Asätare och nedbrytare är nödvändiga för livet på vår planet. Svampar är nedbrytare som kan bryta ner död vävnad som trä och löv. Många sorters djur såsom gamar, gråsuggor och vissa snäckor kan äta döda växter eller djur. De hjälper till att återvinna näringsämnen och tillgängliggör dem för ny tillväxt.",
+    "action_oct_2020": "Ta reda på vilken typ av nedbrytare och asätare som lever i områdena runt omkring dig. Vad konsumerar de? Äter de alltid samma saker?",
     "adaptation": "Anpassningsutmaning",
     "mission_1_nov_2020": "Hitta 1 fågel i ordningen Columbiformes (duvfåglar)",
     "mission_2_nov_2020": "Hitta 1 växt i ordningen Fabales (ärtväxter, jungfrulinväxter, och närbesläktade)",
-    "mission_3_nov_2020": "Find 1 arachnid",
-    "mission_4_nov_2020": "Find 2 insects",
-    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
+    "mission_3_nov_2020": "Hitta 1 spindeldjur",
+    "mission_4_nov_2020": "Hitta 2 insekter",
+    "nov_2020_description": "Många arter har utvecklat anpassningar till mänskliga miljöer allteftersom våra populationer har vuxit runtom i världen. Även i tätbefolkade stadsområden kan vi hitta fåglar, växter och insekter som lever bland oss.",
+    "action_nov_2020": "Vilka vanliga vilda arter ser du i ditt område? Är dessa arter inhemska, invasiva eller introducerade? Om de är introducerade, försök ta reda på hur de kom hit."
   },
   "replace_photo": {
     "header": "Ersätt bild?",
@@ -665,10 +665,10 @@
   },
   "inat_card": {
     "header": "iNaturalist",
-    "header_1": "We think you’ll really like iNaturalist.",
-    "text_1": "dive deeper into learning about the organisms around you",
-    "text_2": "be part of a community that’s as curious about nature as you",
-    "text_3": "share observations with the community, and even share observations through Seek!",
-    "download": "Get started by downloading the iNaturalist app or visiting inaturalist.org.\n\nAlready have an iNaturalist account? Log in to Seek with your existing account!"
+    "header_1": "Vi tror att du kommer att gilla iNaturalist.",
+    "text_1": "gör en djupdykning och lär dig om organismerna omkring dig",
+    "text_2": "vara en del av en gemenskap som är lika nyfiken på naturen som du",
+    "text_3": "dela observationer med gemenskapen, och t.o.m. dela observationer via Seek!",
+    "download": "Kom igång genom att ladda ner iNaturalist-appen eller besöka inaturalist.org.\n\nHar du redan ett iNaturalist-konto? Logga in i Seek med ditt befintliga konto!"
   }
 }

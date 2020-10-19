@@ -208,7 +208,7 @@ const challenges = {
   nov2020: {
     name: "seek_challenges.adaptation",
     description: "seek_challenges.nov_2020_description",
-    totalSpecies: 7,
+    totalSpecies: 5,
     backgroundName: "img-challengedetail-november2020",
     earnedIconName: "badge_inaturalist_november2020",
     missions: [

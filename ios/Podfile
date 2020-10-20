@@ -8,10 +8,10 @@ target 'Seek' do
 
   use_react_native!(:path => config["reactNativePath"])
   
-  target 'SeekTests' do
-    inherit! :complete
+  # target 'SeekTests' do
+  #   inherit! :complete
     # Pods for testing
-  end
+  # end
 
   # Enables Flipper.
   #

@@ -1,7 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import { I18nManager, Platform, YellowBox } from "react-native";
+import { I18nManager, Platform, LogBox } from "react-native";
 import * as RNLocalize from "react-native-localize";
 import QuickActions from "react-native-quick-actions";
 
@@ -27,8 +27,8 @@ const setRTL = ( locale ) => {
   }
 };
 
-const hideYellowWarnings = () => {
-  YellowBox.ignoreWarnings( [
+const hideLogs = () => {
+  LogBox.ignoreLogs( [
     "Picker has been extracted",
     "Failed prop type: Invalid prop `confidenceThreshold`",
     "Failed prop type: Invalid prop `taxaDetectionInterval`"
@@ -106,7 +106,7 @@ const App = () => {
   }, [preferredLanguage] );
 
   useEffect( () => {
-    hideYellowWarnings();
+    hideLogs();
     if ( Platform.OS === "android" ) {
       setQuickActions();
     }

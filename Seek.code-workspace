@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../.Trash/Seek.xcodeproj"
 		}
 	],
 	"settings": {

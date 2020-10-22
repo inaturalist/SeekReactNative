@@ -204,6 +204,21 @@ const challenges = {
     ],
     availableDate: new Date( 2020, 9, 1 ),
     action: "seek_challenges.action_oct_2020"
+  },
+  nov2020: {
+    name: "seek_challenges.adaptation",
+    description: "seek_challenges.nov_2020_description",
+    totalSpecies: 5,
+    backgroundName: "img-challengedetail-november2020",
+    earnedIconName: "badge_inaturalist_november2020",
+    missions: [
+      "seek_challenges.mission_1_nov_2020",
+      "seek_challenges.mission_2_nov_2020",
+      "seek_challenges.mission_3_nov_2020",
+      "seek_challenges.mission_4_nov_2020"
+    ],
+    availableDate: new Date( 2020, 10, 1 ),
+    action: "seek_challenges.action_nov_2020"
   }
 };
 

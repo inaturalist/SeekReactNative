@@ -26,6 +26,8 @@ const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
   const userPhoto = useUserPhoto( seenTaxa, isFocused );
   const [photoList, setPhotoList] = useState( [] );
 
+  console.log( photos, "photos" );
+
   useEffect( () => {
     if ( photos.length === 0 ) {
       return;
@@ -47,9 +49,9 @@ const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
     photos.forEach( ( photo ) => {
       if ( photo.license_code && list.length < 9 ) {
         const image = (
-          <View key={`image${photo.original_url}`}>
+          <View key={`image${photo.medium_url}`}>
             <Image
-              source={{ uri: photo.original_url }}
+              source={{ uri: photo.medium_url }}
               style={styles.image}
             />
             <TouchableOpacity

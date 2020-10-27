@@ -32,8 +32,17 @@ const SpeciesChart = ( { id }: Props ) => {
 
   const [data, setData] = useState( [] );
 
+  const createHistogram = ( results ) => {
+    const countsByMonth = results.month_of_year;
+    const obsByMonth = [];
+
+    for ( let i = 1; i <= 12; i += 1 ) {
+      obsByMonth.push( { month: i, count: countsByMonth[i] } );
+    }
+    setData( obsByMonth );
+  };
+
   const fetchHistogram = useCallback( ( latLng ) => {
-    console.log( "fetching histogram", latLng );
     const params = {
       date_field: "observed",
       interval: "month_of_year",
@@ -52,16 +61,7 @@ const SpeciesChart = ( { id }: Props ) => {
     const options = { user_agent: createUserAgent() };
 
     inatjs.observations.histogram( params, options ).then( ( { results } ) => {
-      const countsByMonth = results.month_of_year;
-      const obsByMonth = [];
-
-      for ( let i = 1; i <= 12; i += 1 ) {
-        obsByMonth.push( {
-          month: i,
-          count: countsByMonth[i]
-        } );
-      }
-      setData( obsByMonth );
+      createHistogram( results );
     } ).catch( ( err ) => {
       console.log( err, ": couldn't fetch histogram" );
     } );

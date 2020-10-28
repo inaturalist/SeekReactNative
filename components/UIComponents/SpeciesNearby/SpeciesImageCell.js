@@ -13,7 +13,7 @@ import icons from "../../../assets/icons";
 import i18n from "../../../i18n";
 import { capitalizeNames, setSpeciesId, setRoute } from "../../../utility/helpers";
 import iconicTaxa from "../../../assets/iconicTaxa";
-import { useSeenTaxa } from "../../../utility/customHooks";
+import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 
 type Props = {
   +item: Object,
@@ -27,6 +27,7 @@ const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
   const isFocused = useIsFocused();
 
   const seenTaxa = useSeenTaxa( item.id, isFocused );
+  const commonName = useCommonName( item.id, isFocused );
 
   const renderSpeciesImage = () => {
     const photo = item.default_photo;
@@ -75,8 +76,8 @@ const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
       <View style={styles.cellTitle}>
         <Text numberOfLines={3} style={styles.cellTitleText}>
           {i18n.locale === "de"
-            ? capitalizeNames( item.preferred_common_name || item.name ).replace( /(- |-)/g, "-\n" )
-            : capitalizeNames( item.preferred_common_name || item.name )}
+            ? capitalizeNames( commonName || item.name ).replace( /(- |-)/g, "-\n" )
+            : capitalizeNames( commonName || item.name )}
         </Text>
       </View>
     </TouchableOpacity>

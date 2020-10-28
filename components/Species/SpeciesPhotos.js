@@ -26,8 +26,6 @@ const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
   const userPhoto = useUserPhoto( seenTaxa, isFocused );
   const [photoList, setPhotoList] = useState( [] );
 
-  console.log( photos, "photos" );
-
   useEffect( () => {
     if ( photos.length === 0 ) {
       return;

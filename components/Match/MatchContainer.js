@@ -13,6 +13,7 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
+import SocialSharing from "./SocialSharing";
 
 type Props = {
   image: Object,
@@ -104,6 +105,15 @@ const MatchContainer = ( {
           text={speciesIdentified ? "results.view_species" : "results.take_photo"}
         />
       </View>
+      {/* experimenting with social sharing button */}
+      <View style={styles.marginMedium} />
+      <View style={styles.textContainer}>
+        <SocialSharing
+          image={image}
+          gradientLight={gradientLight}
+        />
+      </View>
+       {/* end experiment */}
       <View style={styles.marginMedium} />
       {( commonAncestor && rank < 60 ) && (
         <>

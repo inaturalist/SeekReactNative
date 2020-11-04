@@ -354,6 +354,8 @@ PODS:
     - React
   - RNGestureHandler (1.8.0):
     - React
+  - RNImageMarker (0.6.1):
+    - React
   - RNLocalize (1.4.2):
     - React-Core
   - RNQuickAction (0.3.13):
@@ -362,6 +364,8 @@ PODS:
     - React
   - RNScreens (2.11.0):
     - React
+  - RNShare (4.0.4):
+    - React-Core
   - RNStoreReview (0.1.5):
     - React
   - RNSVG (12.1.0):
@@ -443,10 +447,12 @@ DEPENDENCIES:
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageMarker (from `../node_modules/react-native-image-marker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNQuickAction (from `../node_modules/react-native-quick-actions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNShare (from `../node_modules/react-native-share`)
   - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -565,6 +571,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageMarker:
+    :path: "../node_modules/react-native-image-marker"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNQuickAction:
@@ -573,6 +581,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNShare:
+    :path: "../node_modules/react-native-share"
   RNStoreReview:
     :path: "../node_modules/react-native-store-review/ios"
   RNSVG:
@@ -641,10 +651,12 @@ SPEC CHECKSUMS:
   RNDeviceInfo: 980848feea8d74412b16f2e3e8758c8294d63ca2
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
+  RNImageMarker: 3d2ad96afe3db0965ecff23ca97d65b812d06b47
   RNLocalize: 4071198b59b461f3b74eebc5fee8c50f13e39e79
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
+  RNShare: af2aeae0587bf3e40e5268f1ef96aa162f1a6ac9
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: 0b42b8719ab0c5257177d5894306e8a336b21cbb

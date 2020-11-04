@@ -265,7 +265,8 @@
     "error_timeout": "Your location took too long to retrieve. Your observation has been saved, but without location, you won't be able to view detailed information such as range maps. Please try again later.",
     "nearby": "Species nearby in this taxon",
     "nothing_nearby": "Looks like there haven’t been many species observed nearby in this taxon! Try taking another photo or posting it to iNaturalist.",
-    "tap": "Tap to load species nearby"
+    "tap": "Tap to load species nearby",
+    "social": "Share on social"
   },
   "banner": {
     "view": "View badge",

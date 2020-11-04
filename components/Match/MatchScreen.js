@@ -27,28 +27,13 @@ const MatchScreen = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
   const { scientificNames } = useContext( CameraContext );
-  const { image } = params;
+  const { image, taxon, seenDate } = params;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
     switch ( action.type ) {
-      case "MISIDENTIFIED":
-        return {
-          ...state,
-          seenDate: null,
-          match: false,
-          taxon: action.taxon
-        };
       case "SET_NAV_PATH":
         return { ...state, navPath: action.path };
-      case "SET_BADGES":
-        return { ...state, latestBadge: action.latestBadge, latestLevel: action.latestLevel };
-      case "SET_CHALLENGES":
-        return {
-          ...state,
-          challenge: action.challenge,
-          challengeInProgress: action.challengeInProgress
-        };
       case "OPEN_FLAG_MODAL":
         return { ...state, flagModal: true };
       case "CLOSE_FLAG":
@@ -57,48 +42,27 @@ const MatchScreen = () => {
         throw new Error();
     }
   }, {
-    taxon: params.taxon,
-    badge: null,
-    seenDate: params.seenDate,
-    latestLevel: null,
-    challenge: null,
-    challengeInProgress: null,
     navPath: null,
-    firstRender: true,
-    match: ( params.taxon && params.taxon.taxaName ) && !params.seenDate,
-    challengeShown: false,
     flagModal: false
   } );
 
-  const {
-    taxon,
-    seenDate,
-    navPath,
-    match,
-    flagModal
-  } = state;
+  const { navPath, flagModal } = state;
+
+  const match = ( taxon && taxon.taxaName ) && !seenDate;
 
   useScrollToTop( scrollView, navigation );
 
   const openFlagModal = () => dispatch( { type: "OPEN_FLAG_MODAL" } );
 
   const closeFlagModal = useCallback( ( showFailure ) => {
-    dispatch( { type: "CLOSE_FLAG" } );
-    if ( showFailure && taxon ) {
-      let { commonAncestor, speciesSeenImage } = taxon;
-
-      // this seems to be causing crashes on certain android devices when undefined
-      if ( commonAncestor ) {
-        commonAncestor = null;
-      }
-
-      if ( speciesSeenImage ) {
-        speciesSeenImage = null;
-      }
-
-      dispatch( { type: "MISIDENTIFIED", taxon } );
+    if ( showFailure ) {
+      params.taxon = {};
+      params.seenDate = null;
+      dispatch( { type: "CLOSE_FLAG" } );
+    } else {
+      dispatch( { type: "CLOSE_FLAG" } );
     }
-  }, [taxon] );
+  }, [params] );
 
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 

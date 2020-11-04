@@ -15,9 +15,7 @@ import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
 
 type Props = {
-  image: Object,
-  taxon: Object,
-  seenDate: ?string,
+  params: Object,
   match: boolean,
   setNavigationPath: Function,
   gradientLight: string,
@@ -25,16 +23,16 @@ type Props = {
 }
 
 const MatchContainer = ( {
-  taxon,
-  seenDate,
+  params,
   match,
   setNavigationPath,
   gradientLight,
-  image,
   speciesText
 }: Props ) => {
   const navigation = useNavigation();
+  const { taxon, image, seenDate } = params;
   const speciesIdentified = seenDate || match;
+
 
   const {
     taxaName,

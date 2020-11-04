@@ -110,13 +110,10 @@ const MatchScreen = () => {
           gradientDark={gradientDark}
           gradientLight={gradientLight}
           setNavigationPath={setNavigationPath}
-          image={image}
-          taxon={taxon}
+          params={params}
         />
         <MatchContainer
-          image={image}
-          taxon={taxon}
-          seenDate={seenDate}
+          params={params}
           match={match}
           speciesText={speciesText}
           setNavigationPath={setNavigationPath}

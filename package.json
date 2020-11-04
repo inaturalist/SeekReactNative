@@ -69,7 +69,7 @@
     "react-native-tab-view": "^2.15.1",
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
-    "react-native-webview": "^10.9.2",
+    "react-native-webview": "^10.10.0",
     "realm": "^3.6.5"
   },
   "devDependencies": {

@@ -27,7 +27,7 @@ const MatchScreen = () => {
   const navigation = useNavigation();
   const { params } = useRoute();
   const { scientificNames } = useContext( CameraContext );
-  const { image, taxon, seenDate } = params;
+  const { taxon, seenDate } = params;
 
   // eslint-disable-next-line no-shadow
   const [state, dispatch] = useReducer( ( state, action ) => {
@@ -37,18 +37,17 @@ const MatchScreen = () => {
       case "OPEN_FLAG_MODAL":
         return { ...state, flagModal: true };
       case "CLOSE_FLAG":
-        return { ...state, flagModal: false };
+        return { ...state, flagModal: false, match: action.match };
       default:
         throw new Error();
     }
   }, {
     navPath: null,
-    flagModal: false
+    flagModal: false,
+    match: ( taxon && taxon.taxaName ) && !seenDate
   } );
 
-  const { navPath, flagModal } = state;
-
-  const match = ( taxon && taxon.taxaName ) && !seenDate;
+  const { navPath, flagModal, match } = state;
 
   useScrollToTop( scrollView, navigation );
 
@@ -58,11 +57,11 @@ const MatchScreen = () => {
     if ( showFailure ) {
       params.taxon = {};
       params.seenDate = null;
-      dispatch( { type: "CLOSE_FLAG" } );
+      dispatch( { type: "CLOSE_FLAG", match: false } );
     } else {
-      dispatch( { type: "CLOSE_FLAG" } );
+      dispatch( { type: "CLOSE_FLAG", match } );
     }
-  }, [params] );
+  }, [params, match] );
 
   const setNavigationPath = useCallback( ( path ) => dispatch( { type: "SET_NAV_PATH", path } ), [] );
 

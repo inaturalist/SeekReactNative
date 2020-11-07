@@ -4,7 +4,7 @@
     "location_error": "Per mostrar-te les espècies properes, necessitem utilitzar la teva ubicació.",
     "location_device": "Seek necessita la teva ubicació per a mostrar les espècies properes i afegir les observacions. Si us plau, assegura't que has activar la localització.",
     "enable_location": "Activar el servei d'ubicació",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Si us plau, activa la localització a la configuració",
     "internet_error": "Necessitem accés a internet per generar les espècies properes. Toca per intentar-ho de nou.",
     "no_location": "Sense ubicació",
     "no_species": "Sembla que no s'han observat moltes espècies properes! Intenta canviar d'ubicació o amplia el filtre d'espècies.",
@@ -300,7 +300,7 @@
     "error_permissions": "Necessitem accés a la càmera per ajudar-te a identificar l'espècie!",
     "error_gallery": "Necessitem accés al rodet de la càmera per desar la imatges que prens!",
     "permissions": "Acceptar els permisos a la configuració",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Si us plau, activa els permisos a la configuració",
     "error_classifier": "Ho sentim, no hem pogut carregar el classificador",
     "error_camera": "Ho sentim, no hem pogut accedir a la càmera",
     "error_device": "Ho sentim, el dispositiu que utilitzes no està suportat",
@@ -312,7 +312,7 @@
     "error_photoError": "Ho sentim, no s'ha trobat l'objecte de la fotografia",
     "plant_filter": "Únicament plantes",
     "non_plant_filter": "Únicament No plantes",
-    "filters_off": "Filters off"
+    "filters_off": "Filtres apagats"
   },
   "gallery": {
     "label": "Fotos",
@@ -649,8 +649,8 @@
     "mission_4_oct_2020": "Troba 1 Artròpode",
     "oct_2020_description": "Els Necròfags i Descomponedors són essencials per a la vida del nostre planeta. Ajuden a reciclar els nutrients i descompondre els materials que d'altra forma no ho farien",
     "action_oct_2020": "Troba quins tipus de descomponedors i necròfags viuen al teu entorn. Com creus que ajuden el medi ambient amb el seu nínxol?",
-    "adaptation": "Adaptation Challenge",
-    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "adaptation": "Repte d'Adaptació",
+    "mission_1_nov_2020": "Trona 1 ocell de l'ordre Columbiformes (Coloms i Tórtores)",
     "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
     "mission_3_nov_2020": "Find 1 arachnid",
     "mission_4_nov_2020": "Find 2 insects",

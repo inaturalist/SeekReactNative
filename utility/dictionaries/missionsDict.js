@@ -163,6 +163,23 @@ const missions = [{
     number: 1,
     types: ["Arthropoda"]
   }
+}, {
+  0: {
+    number: 1,
+    types: ["Columbiformes"]
+  },
+  1: {
+    number: 1,
+    types: ["Fabales"]
+  },
+  2: {
+    number: 1,
+    types: ["arachnids"]
+  },
+  3: {
+    number: 2,
+    types: ["insects"]
+  }
 }];
 
 export default missions;

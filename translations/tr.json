@@ -470,7 +470,7 @@
     "threatened_about": "Bu türün gelecekte neslinin tükenme tehlikesi altında olması olasıdır.",
     "introduced_about": "Bu türü insanlar bu alana getirdi ve burada doğal olarak ortaya çıkmıyor.",
     "got_it": "Anlaşıldı!",
-    "wikipedia": "{{about}}\n\nKaynak: Vikipedi",
+    "wikipedia": "Kaynak: Vikipedi",
     "wikipedia_1": "Vikipedi",
     "similar": "Benzer Tür",
     "similar_about": "Organizmalar, bu tür olarak genellikle yanlış tanımlanır.",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "1 Yumuşakça Bul",
     "mission_4_oct_2020": "1 Eklembacaklı Bul",
     "oct_2020_description": "Leşçiler ve ayrıştırıcılar, gezegenimizdeki yaşam için çok önemlidir. Mantarlar, ağaç ve yaprak gibi ölü dokuları parçalayabilen ayrıştırıcılardır. Akbabalar, izopodlar ve bazı salyangozlar gibi birçok hayvan türü ölü bitkileri ya da hayvanları yiyebilir. Besinlerin geri dönüştürülmesine yardımcı olurlar, böylece yeniden büyüme için hazır olurlar.",
-    "action_oct_2020": "Çevrenizdeki alanlarda ne tür ayrıştırıcıların ve çöpçülerin yaşadığını öğrenin. Ne tüketiyorlar? Hep aynı tür şeyleri mi yiyorlar?"
+    "action_oct_2020": "Çevrenizdeki alanlarda ne tür ayrıştırıcıların ve çöpçülerin yaşadığını öğrenin. Ne tüketiyorlar? Hep aynı tür şeyleri mi yiyorlar?",
+    "adaptation": "Adaptation Challenge",
+    "mission_1_nov_2020": "Find 1 bird in the order Columbiformes (Pigeons and Doves)",
+    "mission_2_nov_2020": "Find 1 plant in the order Fabales (Legumes, Milkworts, and Allies)",
+    "mission_3_nov_2020": "Find 1 arachnid",
+    "mission_4_nov_2020": "Find 2 insects",
+    "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
   },
   "replace_photo": {
     "header": "Fotoğraf değişsin mi?",

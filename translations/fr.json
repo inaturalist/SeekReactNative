@@ -4,7 +4,7 @@
     "location_error": "Afin de vous montrer les espèces à proximité, nous devons connaître votre emplacement.",
     "location_device": "Afin de générer les espèces à proximité, Seek a besoin de connaître votre emplacement. Merci de vous assurer que le service de localisation est activé sur votre appareil.",
     "enable_location": "Activer le service de localisation dans les paramètres",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "Veuillez activer la localisation dans les paramètres",
     "internet_error": "Afin de générer les espèces à proximité, nous avons besoin d’une connexion internet. Appuyez pour réessayer.",
     "no_location": "Localisation inconnue",
     "no_species": "Il semble que peu d’espèces aient été observées à proximité ! Essayez de changer votre position ou d'élargir le filtre des espèces.",
@@ -300,7 +300,7 @@
     "error_permissions": "Pour vous aider à identifier les espèces, nous avons besoin d'accéder à la caméra !",
     "error_gallery": "Nous avons besoin d'accéder à la caméra afin d'enregistrer les photos que vous prenez !",
     "permissions": "Activer les autorisations dans les paramètres",
-    "please_permissions": "Please enable permissions in settings",
+    "please_permissions": "Veuillez accepter les autorisations dans les paramètres",
     "error_classifier": "Désolé, nous n’arrivons pas à charger le répertoire",
     "error_camera": "Désolé, nous n’avons pas réussi à charger la caméra",
     "error_device": "Désolé, l’appareil utilisé n’est pas pris en charge",
@@ -312,7 +312,7 @@
     "error_photoError": "Désolé, l'objet photo n'a pas été trouvé",
     "plant_filter": "Plantes uniquement",
     "non_plant_filter": "Non-plante seulement",
-    "filters_off": "Filters off"
+    "filters_off": "Filtres désactivés"
   },
   "gallery": {
     "label": " Photos",
@@ -470,7 +470,7 @@
     "threatened_about": "A l'avenir, cette espèce est susceptible de devenir une espèce en voie de disparition.",
     "introduced_about": "Cette espèce a été introduite dans cette région par l'Homme et n’y est pas naturellement présente.",
     "got_it": "Compris !",
-    "wikipedia": "{{about}} Source : Wikipedia",
+    "wikipedia": "Source: Wikipedia",
     "wikipedia_1": "Wikipédia",
     "similar": "Espèces similaires",
     "similar_about": "Organismes souvent confondus avec cette espèce.",
@@ -648,7 +648,14 @@
     "mission_3_oct_2020": "Trouvez 1 Mollusque",
     "mission_4_oct_2020": "Trouvez 1 Arthropode",
     "oct_2020_description": "Les charognards et les décomposeurs sont essentiels à la vie sur notre planète. Ils aident à recycler les nutriments et décomposer la matière qui ne l'aurais pas été autrement.",
-    "action_oct_2020": "Trouve quel type de décomposeurs et de charognards vivent dans la zone autour de toi. Comment aident-ils l'environnement avec leur action ?"
+    "action_oct_2020": "Trouve quel type de décomposeurs et de charognards vivent dans la zone autour de toi. Comment aident-ils l'environnement avec leur action ?",
+    "adaptation": "Défi de l'adaptation",
+    "mission_1_nov_2020": "Trouver 1 oiseau de l'ordre des Colombiformes (Pigeons et Tourterelles)",
+    "mission_2_nov_2020": "Trouver un plante de l'ordre des Fabales (Legumes, Polygales et apparentés)",
+    "mission_3_nov_2020": "Trouver 1 arachnide",
+    "mission_4_nov_2020": "Trouver 2 insectes",
+    "nov_2020_description": "Beaucoup d'espèces ont évoluées en s'adaptant à l'environnement anthropique au fur et à mesure de l'accroissement de la population. Même dans une ville dense, il y a des oiseaux, des plantes et des insectes autour de nous.",
+    "action_nov_2020": "Quelles sont les espèces sauvages communes que l'on peut voir dans votre zone ? Sont-elles natives, invasives ou introduites ? Si introduites, essayez de voir comment ces espèces sont arrivées ici."
   },
   "replace_photo": {
     "header": "Remplacer la photo ?",

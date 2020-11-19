@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Finde 1 Spinnentier",
     "mission_4_nov_2020": "Finde 2 Insekten",
     "nov_2020_description": "Viele Arten haben sich an die menschliche Umwelt angepasst, da unsere Bevölkerung weltweit gewachsen ist. Selbst in dichten städtischen Gebieten finden wir Vögel, Pflanzen und Insekten, die unter uns leben.",
-    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind."
+    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind.",
+    "ecosystem": "Ecosystem Challenge",
+    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
+    "mission_2_dec_2020": "Find 3 plants",
+    "mission_3_dec_2020": "Find 3 insects",
+    "mission_4_dec_2020": "Find 1 arachnid",
+    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
+    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

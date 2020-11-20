@@ -656,13 +656,13 @@
     "mission_4_nov_2020": "Najdi 2 zástupce hmyzu",
     "nov_2020_description": "Jak naše populace po celém světě roste, mnoho druhů se vyvinulo tak, aby se přizpůsobilo lidskému prostředí. I v hustě osídlených městských oblastech můžeme najít ptáky, rostliny a hmyz, žijící mezi námi.",
     "action_nov_2020": "Jaké jsou běžné druhy volně žijících živočichů, které vidíte ve vašem okolí? Jsou tyto druhy původní, invazivní nebo vysazené? Pokud byly vysazeny, podívejte se, jestli dokážete zjistit, jak se sem tyto druhy dostaly.",
-    "ecosystem": "Ecosystem Challenge",
-    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
-    "mission_2_dec_2020": "Find 3 plants",
-    "mission_3_dec_2020": "Find 3 insects",
-    "mission_4_dec_2020": "Find 1 arachnid",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "ecosystem": "Výzva ekosystému",
+    "mission_1_dec_2020": "Najdi jakékoliv 3 obratlovce (ptáci, savci, plazi, obojživelníci a ryby)",
+    "mission_2_dec_2020": "Najdi 3 rostliny",
+    "mission_3_dec_2020": "Najdi 3 zástupce hmyzu",
+    "mission_4_dec_2020": "Najdi 1 pavoukovce",
+    "dec_2020_description": "Ekosystémy fungují v rámci organismů všech různých typů a jejich funkcí. Producenti, konzumenti a rozkladači spolupracují na rovnováze ekosystému.",
+    "action_dec_2020": "Prozkoumejte, jak různé typy ekosystémů fungují s organismy v různých částech potravního řetězce. Jak se liší v různých částech světa a v různých biosférách."
   },
   "replace_photo": {
     "header": "Nahradit fotografii?",

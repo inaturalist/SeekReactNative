@@ -656,13 +656,13 @@
     "mission_4_nov_2020": "Trova 2 insetti",
     "nov_2020_description": "Molte specie si sono evolute per adattarsi agli ambienti umani man mano che le nostre popolazioni sono cresciute in tutto il mondo. Anche nelle zone urbane dense, possiamo trovare uccelli, piante e insetti che vivono tra noi.",
     "action_nov_2020": "Quali sono le specie selvatiche comuni che vedete nella vostra zona? Queste specie sono native, invasive o introdotte? Se introdotte, prova a scoprire come queste specie sono arrivate qui.",
-    "ecosystem": "Ecosystem Challenge",
-    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
-    "mission_2_dec_2020": "Find 3 plants",
-    "mission_3_dec_2020": "Find 3 insects",
-    "mission_4_dec_2020": "Find 1 arachnid",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "ecosystem": "Sfida Ecosistema",
+    "mission_1_dec_2020": "Trova 3 vertebrati qualsiasi (uccelli, mammiferi, rettili, anfibi e pesci)",
+    "mission_2_dec_2020": "Trova 3 piante",
+    "mission_3_dec_2020": "Trova 3 insetti",
+    "mission_4_dec_2020": "Trova 1 aracnide",
+    "dec_2020_description": "Gli ecosistemi funzionano con organismi di ogni tipo e nicchia. Produttori, consumatori e decompositori lavorano insieme per equilibrare l'ecosistema.",
+    "action_dec_2020": "Esplora come funzionano diversi tipi di ecosistemi con organismi distribuiti nella catena alimentare. Come differiscono in diverse parti del mondo e in diversi biomi?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

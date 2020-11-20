@@ -656,12 +656,12 @@
     "mission_4_nov_2020": "Encuentra 2 insectos",
     "nov_2020_description": "Muchas especies han evolucionado para adaptarse a los entornos humanos a medida que nuestras poblaciones han crecido en todo el mundo. Incluso en zonas urbanas densas podemos encontrar aves, plantas e insectos que viven entre nosotros.",
     "action_nov_2020": "¿Cuáles son las especies silvestres comunes que ves en tu zona? ¿Son nativas, exóticas o invasoras? Si son introducidas (exóticas), averigua cómo llegaron estas especies.",
-    "ecosystem": "Ecosystem Challenge",
-    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
-    "mission_2_dec_2020": "Find 3 plants",
-    "mission_3_dec_2020": "Find 3 insects",
-    "mission_4_dec_2020": "Find 1 arachnid",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
+    "ecosystem": "Desafío de ecosistema",
+    "mission_1_dec_2020": "Encuentra 3 aves, mamíferos, reptiles, anfibios o peces diferentes)",
+    "mission_2_dec_2020": "Encuentra 3 plantas",
+    "mission_3_dec_2020": "Encuentra 3 insectos",
+    "mission_4_dec_2020": "Encuentra 1 arácnido",
+    "dec_2020_description": "Los ecosistemas funcionan con organismos de todos los tipos y nichos, y  el trabajo de los productores, consumidores y descomponedores equilibra el ecosistema.",
     "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
   "replace_photo": {

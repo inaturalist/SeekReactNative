@@ -20,13 +20,13 @@ import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
 
 const AchievementsScreen = () => {
   const navigation = useNavigation();
-  const [speciesCount, setSpeciesCount] = useState( null );
+  const [speciesCount, setSpeciesCount] = useState( 0 );
   const [loading, setLoading] = useState( true );
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
-    nextLevelCount: null,
-    badgesEarned: null
+    nextLevelCount: 0,
+    badgesEarned: 0
   } );
 
   const fetchBadges = () => {

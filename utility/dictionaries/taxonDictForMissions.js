@@ -65,7 +65,6 @@ const taxonIds = {
   Suliformes: 71268,
   Typhaceae: 48694,
   Ulmaceae: 53548,
-  Vertibrata: 355675,
   all: null,
   amphibians: 20978,
   arachnids: 47119,

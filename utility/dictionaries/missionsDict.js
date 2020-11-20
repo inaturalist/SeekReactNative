@@ -180,23 +180,6 @@ const missions = [{
     number: 2,
     types: ["insects"]
   }
-}, {
-  0: {
-    number: 3,
-    types: ["Vertebrata"]
-  },
-  1: {
-    number: 3,
-    types: ["plants"]
-  },
-  2: {
-    number: 3,
-    types: ["insects"]
-  },
-  3: {
-    number: 1,
-    types: ["arachnids"]
-  }
 }];
 
 export default missions;

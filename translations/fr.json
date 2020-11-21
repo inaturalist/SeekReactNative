@@ -656,13 +656,13 @@
     "mission_4_nov_2020": "Trouver 2 insectes",
     "nov_2020_description": "Beaucoup d'espèces ont évoluées en s'adaptant à l'environnement anthropique au fur et à mesure de l'accroissement de la population. Même dans une ville dense, il y a des oiseaux, des plantes et des insectes autour de nous.",
     "action_nov_2020": "Quelles sont les espèces sauvages communes que l'on peut voir dans votre zone ? Sont-elles natives, invasives ou introduites ? Si introduites, essayez de voir comment ces espèces sont arrivées ici.",
-    "ecosystem": "Ecosystem Challenge",
-    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
-    "mission_2_dec_2020": "Find 3 plants",
-    "mission_3_dec_2020": "Find 3 insects",
-    "mission_4_dec_2020": "Find 1 arachnid",
-    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
-    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
+    "ecosystem": "Défi Ecosystème",
+    "mission_1_dec_2020": "Trouver 3 vertébrés (oiseaux, mammifères, reptiles, amphibiens ou poisson)",
+    "mission_2_dec_2020": "Trouver 3 plantes",
+    "mission_3_dec_2020": "Trouver 3 insectes",
+    "mission_4_dec_2020": "Trouver 1 arachnide",
+    "dec_2020_description": "Les écosystèmes fonctionnent avec des organismes de tout types. Producteurs, consommateurs et décomposeurs travaillent ensembles à équilibrer l'écosystème.",
+    "action_dec_2020": "Explorez différents types d'écosystèmes et des organismes de toute la chaîne alimentaire. En quoi sont-ils différents dans diverses parties du monde et dans divers biomes ?"
   },
   "replace_photo": {
     "header": "Remplacer la photo ?",

@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Trova 1 aracnide",
     "mission_4_nov_2020": "Trova 2 insetti",
     "nov_2020_description": "Molte specie si sono evolute per adattarsi agli ambienti umani man mano che le nostre popolazioni sono cresciute in tutto il mondo. Anche nelle zone urbane dense, possiamo trovare uccelli, piante e insetti che vivono tra noi.",
-    "action_nov_2020": "Quali sono le specie selvatiche comuni che vedete nella vostra zona? Queste specie sono native, invasive o introdotte? Se introdotte, prova a scoprire come queste specie sono arrivate qui."
+    "action_nov_2020": "Quali sono le specie selvatiche comuni che vedete nella vostra zona? Queste specie sono native, invasive o introdotte? Se introdotte, prova a scoprire come queste specie sono arrivate qui.",
+    "ecosystem": "Sfida Ecosistema",
+    "mission_1_dec_2020": "Trova 3 vertebrati qualsiasi (uccelli, mammiferi, rettili, anfibi e pesci)",
+    "mission_2_dec_2020": "Trova 3 piante",
+    "mission_3_dec_2020": "Trova 3 insetti",
+    "mission_4_dec_2020": "Trova 1 aracnide",
+    "dec_2020_description": "Gli ecosistemi funzionano con organismi di ogni tipo e nicchia. Produttori, consumatori e decompositori lavorano insieme per equilibrare l'ecosistema.",
+    "action_dec_2020": "Esplora come funzionano diversi tipi di ecosistemi con organismi distribuiti nella catena alimentare. Come differiscono in diverse parti del mondo e in diversi biomi?"
   },
   "replace_photo": {
     "header": "Sostituisci foto?",

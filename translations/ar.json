@@ -4,13 +4,13 @@
     "location_error": "نحتاج إلى استخدام موقعك من أجل إظهار الأنواع القريبة.",
     "location_device": "يحتاج Seek إلى موقعك لعرض الأنواع القريبة و إضافة الملاحظات. المرجو التأكد من تشغيل الموقع على جهازك.",
     "enable_location": "تشغيل الموقع في الإعدادات",
-    "please_enable_location": "Please enable location in settings",
+    "please_enable_location": "الرجاء تمكين الموقع في الإعدادات",
     "internet_error": "نحتاج إلى الإنترنيت لتوليد الأنواع القريبة، انقر لإعادة المحاولة.",
     "no_location": "لا يوجد موقع",
     "no_species": "يبدو أنه لم يتم رصد العديد من الأنواع بالقرب منك! حاول تغيير موقعك أو توسيع فلتر الأنواع.",
     "no_gps": "لم يتم العثور على إشارة GPS.",
     "location_timeout": "مهلة طلب الموقع الخاص بك انتهت. المرجو المحاولة مجدداً.",
-    "location_settings": "Location service is not enabled or location mode is not appropriate for the current request"
+    "location_settings": "خدمة الموقع غير مفعلة أو وضع الموقع غير مناسب للطلب الحالي"
   },
   "get_started": {
     "header": "ابدأ الأن",
@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Find 1 arachnid",
     "mission_4_nov_2020": "Find 2 insects",
     "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
+    "ecosystem": "Ecosystem Challenge",
+    "mission_1_dec_2020": "ابحث عن أي 3 فقاريات (طيور، ثدييات، زواحف، برمائيات، أسماك)",
+    "mission_2_dec_2020": "ابحث عن 3 نباتات",
+    "mission_3_dec_2020": "ابحث عن 3 حشرات",
+    "mission_4_dec_2020": "ابحث عن عنكبوت واحد",
+    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
+    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
   "replace_photo": {
     "header": "Replace Photo?",

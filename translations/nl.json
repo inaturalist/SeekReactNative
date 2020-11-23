@@ -618,8 +618,8 @@
     "mission_3_may_2020": "Vind 1 spinachtige",
     "mission_4_may_2020": "Vind 2 vogelsoorten",
     "resilience": "Weerstandsuitdaging",
-    "mission_1_june_2020": "Vind 2 planten van de orde Asterales (Asters, Bellbloemen, Fanbloemen en verwanten)",
-    "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (Perching Birds)",
+    "mission_1_june_2020": "Vind 2 planten van de orde Asterales (Composieten-, Klokjes- en Watergentiaanfamilie en verwanten)",
+    "mission_2_june_2020": "Vind 3 vogels van de orde Passeriformes (zangvogels)",
     "mission_3_june_2020": "Vind 1 insect van de orde Coleoptera (Kevers)",
     "june_2020_description": "De natuur is veerkrachtig en overal om ons heen. Van steden tot het platteland, planten en dieren vinden een manier om te gedijen. Zelfs in stedelijke gebieden leven planten, vogels en insecten samen met ons.",
     "action_june_2020": "Wist je dat je wetenschappelijke namen kunt tonen in plaats van algemene namen in de Seek camera? Ga naar de instellingen pagina vanuit het menu om de weergave te wijzigen van algemene namen naar wetenschappelijke namen!",
@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Vind 1 spinachtige",
     "mission_4_nov_2020": "Vind 2 insecten",
     "nov_2020_description": "Veel soorten zijn geëvolueerd om zich aan te passen aan de menselijke omgeving, aangezien onze bevolkingen wereldwijd zijn gegroeid. Zelfs in dichte stedelijke gebieden kunnen leven vogels, planten en insecten onder ons.",
-    "action_nov_2020": "Welke wilde soorten zie je veel in je omgeving? Zijn deze soorten inheems, invasief of ingevoerd? Als ze ingevoerd zijn, kijk dan of je erachter kunt komen hoe deze soorten hier zijn gekomen."
+    "action_nov_2020": "Welke wilde soorten zie je veel in je omgeving? Zijn deze soorten inheems, invasief of ingevoerd? Als ze ingevoerd zijn, kijk dan of je erachter kunt komen hoe deze soorten hier zijn gekomen.",
+    "ecosystem": "Ecosysteem Uitdaging",
+    "mission_1_dec_2020": "Vind 3 verschillende gewervelden (vogels, zoogdieren, reptielen, amfibieën of vissen)",
+    "mission_2_dec_2020": "Vind 3 plantensoorten",
+    "mission_3_dec_2020": "Vind 3 insektensoorten",
+    "mission_4_dec_2020": "Vind 1 spinachtige",
+    "dec_2020_description": "Ecosystemen functioneren met volledig verschillende soorten en niches. Producenten, consumenten en decomposers werken samen om het ecosysteem in evenwicht te brengen.",
+    "action_dec_2020": "Ontdek hoe verschillende soorten ecosystemen functioneren met organismen verspreid over de voedselketen. Hoe verschillen die in verschillende delen van de wereld en in verschillende biomes?"
   },
   "replace_photo": {
     "header": "Foto vervangen?",

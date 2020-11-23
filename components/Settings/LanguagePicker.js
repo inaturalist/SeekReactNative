@@ -19,22 +19,21 @@ const placeholder = {};
 const pickerStyles = { ...styles };
 const showIcon = () => <></>;
 
-const { languageTag } = RNLocalize.getLocales()[0];
-const deviceLanguage = languageTag.split( "-" )[0].toLowerCase();
-const deviceLanguageSupported = Object.keys( languages ).includes( deviceLanguage );
+const { languageCode } = RNLocalize.getLocales()[0];
+const deviceLanguageSupported = Object.keys( languages ).includes( languageCode );
 
 const LanguagePicker = () => {
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
 
   const chooseDisplayLanguage = useCallback( () => {
     if ( preferredLanguage === "device" ) {
-      return deviceLanguageSupported ? deviceLanguage : "en";
+      return deviceLanguageSupported ? languageCode : "en";
     }
     return preferredLanguage;
   }, [preferredLanguage] );
 
   const displayLanguage = chooseDisplayLanguage();
-  const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
+  const isChecked = preferredLanguage === "device" || displayLanguage === languageCode;
 
   const handleValueChange = useCallback( ( value ) => {
     // this prevents the double render on new Android install

@@ -1,5 +1,6 @@
 // @flow
 import AsyncStorage from "@react-native-community/async-storage";
+import { setDeviceLanguageOrFallback } from "./languageHelpers";
 
 const toggleScientificNames = ( boolean: boolean ) => {
   AsyncStorage.setItem( "scientific_names", boolean.toString() );
@@ -24,7 +25,7 @@ const toggleLanguage = ( language: string ) => {
 const getLanguage = async () => {
   try {
     const language = await AsyncStorage.getItem( "language" );
-    return language || "device"; // return device to trigger common names loading
+    return language || setDeviceLanguageOrFallback( );
   } catch ( error ) {
     return false;
   }

@@ -46,7 +46,7 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     maxWidth: 226,
-    paddingTop: padding.iOSPaddingFontSize18
+    paddingTop: padding.iOSButtonPadding
   },
   textContainer: {
     marginBottom: height / 11,

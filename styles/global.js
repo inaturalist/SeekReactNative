@@ -47,8 +47,7 @@ export const fonts = {
 
 export const padding = {
   iOSPadding: Platform.OS === "ios" ? 8 : 0,
-  iOSButtonPadding: Platform.OS === "ios" ? 7 : 0, // this looks different on RN 0.63.x
-  iOSPaddingFontSize18: Platform.OS === "ios" ? 6 : 0, // so does this
+  iOSButtonPadding: Platform.OS === "ios" ? 3 : 0, // this looks different on RN 0.63.x
   iOSPaddingSmall: Platform.OS === "ios" ? 5 : 0
 };
 
@@ -67,3 +66,4 @@ export const row = {
   flexDirection: "row",
   flexWrap: "nowrap"
 };
+

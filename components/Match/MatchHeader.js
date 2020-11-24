@@ -12,17 +12,17 @@ type Props = {
   gradientDark: string,
   gradientLight: string,
   setNavigationPath: Function,
-  image: Object,
-  taxon: Object
+  params: Object
 }
 
 const MatchHeader = ( {
   gradientDark,
   gradientLight,
   setNavigationPath,
-  image,
-  taxon
+  params
 }: Props ) => {
+  const { image, taxon } = params;
+
   useFocusEffect(
     useCallback( () => {
       const onBackPress = () => {

@@ -64,12 +64,19 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
   }, [predictions] );
 
   useEffect( () => {
-    if ( ( ancestors && ancestors.length > 0 ) && commonName ) {
+    if ( ( ancestors && ancestors.length > 0 ) ) {
       const species = ancestors.filter( ( a ) => a.rank === "species" );
       species[0].preferred_common_name = commonName || null;
       setTaxonomyList( ancestors );
     }
   }, [ancestors, commonName] );
+
+  const showCapitalizedName = ( name, rank ) => {
+    if ( rank !== "species" ) {
+      return capitalizeNames( name );
+    }
+    return name;
+  };
 
   return (
     <SpeciesDetailCard text="species_detail.taxonomy" hide={taxonomyList.length === 0}>
@@ -88,7 +95,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
                 {ancestor.name}
               </Text>
               <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>
-                {capitalizeNames( ancestor.preferred_common_name || ancestor.name )}
+                {showCapitalizedName( ancestor.preferred_common_name || ancestor.name, ancestor.rank )}
               </Text>
             </View>
           </View>

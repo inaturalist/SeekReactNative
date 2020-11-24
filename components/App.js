@@ -120,10 +120,6 @@ const App = () => {
     setTimeout( addARCameraFiles, 3000 );
 
     RNLocalize.addEventListener( "change", handleLocalizationChange );
-    // setTimeout( regenerateBackupUris, 3000 ); // this was a temporary fix, shouldn't need anymore
-
-    // Geolocation.setRNConfiguration( { authorizationLevel: "whenInUse" } );
-    // I don't think this line was doing anything anyway
 
     return () => RNLocalize.removeEventListener( "change", handleLocalizationChange );
   }, [] );

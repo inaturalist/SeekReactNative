@@ -20,24 +20,24 @@ const ChallengeBadgeRow = ( { challenge, large }: Props ) => {
   const text = is2020Challenge ? i18n.t( "challenges_card.new_join" ) : i18n.t( "challenges_card.join" );
   const longText = text.length > 70;
 
-  let badge;
-
-  if ( challenge && challenge.percentComplete === 100 ) {
-    badge = <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
-  } else {
-    badge = (
-      // $FlowFixMe
-      <Image
-        source={badges.badge_empty}
-        tintColor={colors.white}
-        style={[large ? styles.badge : styles.badgeSmall, styles.white]}
-      />
-    );
-  }
+  const showBadge = ( ) => {
+    if ( challenge.percentComplete === 100 ) {
+      return <Image source={badges[challenge.earnedIconName]} style={styles.badge} />;
+    } else {
+      return (
+        // $FlowFixMe
+        <Image
+          source={badges.badge_empty}
+          tintColor={colors.white}
+          style={[large ? styles.badge : styles.badgeSmall, styles.white]}
+        />
+      );
+    }
+  };
 
   return (
     <View style={[styles.row, styles.center]}>
-      {badge}
+      {challenge && showBadge( )}
       <View style={styles.marginMiddle} />
       <Text style={[large ? styles.text : styles.textSmall, longText && styles.longText]}>
         {text}

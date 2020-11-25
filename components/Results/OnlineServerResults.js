@@ -9,9 +9,9 @@ import ErrorScreen from "./Error";
 import {
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName,
   createJwtToken
 } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";

@@ -8,6 +8,14 @@ const setDeviceLanguageOrFallback = ( ) => {
   return deviceLanguageSupported ? "device" : "en";
 };
 
+const setLanguageCodeOrFallback = ( ) => {
+  const { languageCode } = RNLocalize.getLocales()[0];
+  const deviceLanguageSupported = Object.keys( languages ).includes( languageCode );
+
+  return deviceLanguageSupported ? languageCode : "en";
+};
+
 export {
-  setDeviceLanguageOrFallback
+  setDeviceLanguageOrFallback,
+  setLanguageCodeOrFallback
 };

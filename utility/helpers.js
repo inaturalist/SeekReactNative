@@ -194,29 +194,6 @@ const checkIfCardShown = async () => {
   }
 };
 
-const getTaxonCommonName = ( taxonID: number ) => (
-  new Promise<any>( ( resolve ) => {
-    Realm.open( realmConfig ).then( ( realm ) => {
-        let searchLocale;
-
-        const specificLocales = ["es-MX", "pt-BR"];
-
-        if ( specificLocales.includes( i18n.locale ) ) {
-          searchLocale = i18n.locale;
-        } else {
-          searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
-        }
-        // look up common names for predicted taxon in the current locale
-        const commonNames = realm.objects( "CommonNamesRealm" )
-          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
-        resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
-      } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
-        resolve( );
-      } );
-  } )
-);
-
 const setSpeciesId = ( id: number ) => {
   AsyncStorage.setItem( "id", id.toString() );
 };
@@ -302,7 +279,6 @@ export {
   addARCameraFiles,
   capitalizeNames,
   flattenUploadParameters,
-  getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
   checkIfCameraLaunched,

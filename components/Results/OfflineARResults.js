@@ -5,7 +5,8 @@ import { Platform } from "react-native";
 import inatjs from "inaturalistjs";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
-import { getTaxonCommonName, checkForIconicTaxonId } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
+import { checkForIconicTaxonId } from "../../utility/helpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import FullPhotoLoading from "./FullPhotoLoading";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";

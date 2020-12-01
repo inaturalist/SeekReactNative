@@ -1,5 +1,4 @@
 // @flow
-// import * as RNLocalize from "react-native-localize";
 import { setLanguageCodeOrFallback } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 
@@ -44,8 +43,6 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         }
 
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
-
-        console.log( realmLocale.length, "length of common names realm" );
 
         // if common names for desired locale already exist in realm, do nothing
         if ( realmLocale.length > 0 ) {

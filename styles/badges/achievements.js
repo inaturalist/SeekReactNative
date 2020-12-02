@@ -27,6 +27,11 @@ export default StyleSheet.create( {
     marginHorizontal: 6,
     width: width < 455 ? ( width / 4 ) : ( 455 / 4 )
   },
+  gridRowWrap: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center"
+  },
   header: {
     flex: 1
   },

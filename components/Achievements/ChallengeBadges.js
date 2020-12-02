@@ -1,11 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity
-} from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import Realm from "realm";
+import { addMonths } from "date-fns";
 
 import realmConfig from "../../models";
 import i18n from "../../i18n";
@@ -25,16 +21,34 @@ const ChallengeBadges = () => {
   const closeModal = useCallback( () => setModal( false ), [] );
 
   const createPlaceholderBadges = ( badges ) => {
-    const badgePlaceholders = badges;
+    const remainderOfBadges = badges.length % 5;
 
-    const oct2020challenge = {
+    if ( remainderOfBadges === 0 || remainderOfBadges === 3 ) {
+      // no placeholders needed
+      return badges;
+    }
+
+    const badgePlaceholders = badges;
+    const latestBadge = badges[badges.length - 1];
+
+    const nextBadge = {
       name: "",
-      availableDate: new Date( 2020, 9, 1 ),
-      index: 14
+      availableDate: addMonths( latestBadge.availableDate, 1 ),
+      index: latestBadge.index + 1
     };
 
-    if ( badgePlaceholders.length === 14 ) {
-      badgePlaceholders.push( oct2020challenge );
+    const badgeAfterNext = {
+      name: "",
+      availableDate: addMonths( latestBadge.availableDate, 2 ),
+      index: latestBadge.index + 2
+    };
+
+    if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {
+      badgePlaceholders.push( nextBadge );
+    }
+
+    if ( remainderOfBadges === 1 ) {
+      badgePlaceholders.push( nextBadge, badgeAfterNext );
     }
 
     return badgePlaceholders;
@@ -55,37 +69,42 @@ const ChallengeBadges = () => {
 
   useEffect( () => { fetchChallenges(); }, [fetchChallenges] );
 
-  const renderChallengeBadge = ( { item } ) => {
+  const renderChallengeBadge = ( item ) => {
     const openChallengeBadgeModal = () => {
       openModal();
       setChallenge( item );
     };
 
-    let badgeIcon;
-    if ( item.percentComplete === 100 ) {
-      badgeIcon = badgeImages[item.earnedIconName];
-    } else {
-      badgeIcon = badgeImages.badge_empty;
-    }
     return (
       <TouchableOpacity
         onPress={openChallengeBadgeModal}
         style={styles.gridCell}
+        key={item.name}
       >
-        <Image source={badgeIcon} style={styles.badgeIcon} />
+        <Image
+          source={item.percentComplete === 100 ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
+          style={styles.badgeIcon}
+        />
       </TouchableOpacity>
     );
   };
 
-  const renderChallengesRow = ( start, finish ) => (
-    <FlatList
-      alwaysBounceHorizontal={false}
-      data={challengeBadges.slice( start, finish )}
-      horizontal
-      keyExtractor={( challenge, index ) => `${challenge.name}${index}`}
-      renderItem={renderChallengeBadge}
-    />
+  const renderNextFiveChallenges = ( start, finish ) => (
+    <View style={styles.gridRowWrap} key={start}>
+      {challengeBadges.slice( start, finish ).map( ( item, index ) => renderChallengeBadge( item ) )}
+    </View>
   );
+
+  const renderChallengesGrid = ( ) => {
+    const numOfSets = Math.ceil( challengeBadges.length / 5 );
+    const sets = [];
+
+    for ( let i = 0; i < numOfSets; i += 1 ) {
+      sets.push( i * 5 );
+    }
+
+    return sets.map( ( set, index ) => renderNextFiveChallenges( sets[index], sets[index + 1] ) );
+  };
 
   return (
     <View style={styles.center}>
@@ -105,12 +124,7 @@ const ChallengeBadges = () => {
         )}
       />
       <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
-      {renderChallengesRow( 0, 3 )}
-      {renderChallengesRow( 3, 5 )}
-      {renderChallengesRow( 5, 8 )}
-      {renderChallengesRow( 8, 10 )}
-      {renderChallengesRow( 10, 13 )}
-      {renderChallengesRow( 13, 15 )}
+      {challengeBadges.length > 0 && renderChallengesGrid( )}
       <View style={styles.marginLarge} />
     </View>
   );

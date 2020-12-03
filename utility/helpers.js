@@ -126,7 +126,7 @@ const flattenUploadParameters = async ( image: Object ) => {
   return params;
 };
 
-const shuffleList = ( list ) => {
+const shuffleList = ( list: Array<Object> ) => {
   const newList = list;
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {

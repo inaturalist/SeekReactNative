@@ -19,7 +19,7 @@ import { localizeNumber } from "../../utility/helpers";
 
 type Props = {
   +level: Object,
-  +nextLevelCount: ?number,
+  +nextLevelCount: number,
   +speciesCount: ?number
 }
 

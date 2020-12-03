@@ -27,7 +27,7 @@ const AchievementsScreen = () => {
   const [state, setState] = useState( {
     speciesBadges: [],
     level: null,
-    nextLevelCount: null,
+    nextLevelCount: 0,
     badgesEarned: null
   } );
 

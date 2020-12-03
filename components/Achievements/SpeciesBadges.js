@@ -17,7 +17,7 @@ type Props = {
 
 const SpeciesBadges = ( { speciesBadges }: Props ) => {
   const [showModal, setModal] = useState( false );
-  const [iconicSpeciesCount, setIconicSpeciesCount] = useState( null );
+  const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
   const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );
 
   const openModal = useCallback( () => setModal( true ), [] );

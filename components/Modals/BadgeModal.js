@@ -21,7 +21,7 @@ import WhiteModal from "../UIComponents/Modals/WhiteModal";
 
 type Props = {
   +badges: Array<Object>,
-  +iconicSpeciesCount: ?number,
+  +iconicSpeciesCount: number,
   +closeModal: Function
 };
 

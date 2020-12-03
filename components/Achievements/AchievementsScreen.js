@@ -110,11 +110,11 @@ const AchievementsScreen = () => {
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />
-          <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>
+          {speciesCount && <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>}
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />
-          <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>
+          {state.badgesEarned && <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>}
         </View>
       </View>
       <View style={styles.center}>

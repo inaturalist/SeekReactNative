@@ -1,11 +1,7 @@
 // @flow
 
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image
-} from "react-native";
+import { View, Text, Image } from "react-native";
 
 import styles from "../../styles/challenges/challengeMission";
 import icons from "../../assets/icons";
@@ -20,44 +16,38 @@ type Props = {
 
 const ChallengeMissionCard = ( { challenge }: Props ) => {
   const [missions, setMissions] = useState( [] );
-  const missionNumbers = Object.keys( missionsDict[challenge.index] )
-    .map( mission => missionsDict[challenge.index][mission] );
+
+  const { index, percentComplete } = challenge;
+  const missionDetails = Object.keys( missionsDict[index] ).map( mission => missionsDict[index][mission] );
 
   useEffect( () => {
-    const missionList = Object.keys( challenge.missions ).map(
-      mission => challenge.missions[mission]
-    );
-    const observationsList = Object.keys( challenge.numbersObserved ).map(
-      number => challenge.numbersObserved[number]
-    );
+    const { numbersObserved } = challenge;
+    const missionList = Object.keys( challenge.missions ).map( mission => challenge.missions[mission] );
+    const observationsList = Object.keys( numbersObserved ).map( number => numbersObserved[number] );
 
-    const newMissions = [];
-
-    missionList.forEach( ( mission, i ) => {
-      newMissions.push( {
-        mission,
-        observations: observationsList[i]
-      } );
-    } );
+    const newMissions = missionList.map( ( mission, i ) => ( {
+      mission,
+      observations: observationsList[i]
+    } ) );
 
     setMissions( newMissions );
   }, [challenge] );
 
-  const formatLongMissionText = ( item, index ) => {
+  const formatLongMissionText = ( item, missionIndex ) => {
     const text = i18n.t( item.mission );
     let missionNoSubBullets = null;
     let header = "";
-    let secondLevelBullets = [];
+    let subBullets = [];
 
     if ( text.includes( ";\n" ) ) {
       const sections = text.split( ":\n\n" );
       header = `${sections[0]}:`;
-      secondLevelBullets = sections[1] ? sections[1].split( ";\n" ) : null; // account for case where this doesn't exist
+      subBullets = sections[1] ? sections[1].split( ";\n" ) : []; // account for case where this doesn't exist
     } else {
       missionNoSubBullets = text;
     }
 
-    const list = secondLevelBullets.map( ( bullet, i ) => (
+    const list = subBullets.map( ( bullet, i ) => (
       <View key={i.toString()} style={styles.missionRow}>
         <Image source={icons.grayBullet} style={styles.subBullets} />
         <Text style={styles.secondLevelBulletText}>{bullet.split( "-" )}</Text>
@@ -72,13 +62,13 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
 
     return (
       <>
-        {missionNumbers[index] && missionNumbers[index].number === item.observations
+        {missionDetails[missionIndex] && missionDetails[missionIndex].number === item.observations
           ? <Image source={icons.checklist} style={[styles.checklist, styles.leftItem]} />
           : <Text allowFontScaling={false} style={[styles.bullets, styles.leftItem]}>&#8226;</Text>}
         <View style={styles.textContainer}>
           <Text style={styles.text}>{missionNoSubBullets || header}</Text>
           {header.length > 0 && <View style={styles.marginTop} />}
-          {list}
+          {subBullets.length > 0 && list}
           {observedCount}
         </View>
       </>
@@ -90,9 +80,7 @@ const ChallengeMissionCard = ( { challenge }: Props ) => {
       {formatLongMissionText( item, i )}
       {i === 0 && (
         <View style={styles.circleStyle}>
-          {challenge.percentComplete === 100
-            ? <Image source={icons.completed} />
-            : <PercentCircle challenge={challenge} />}
+          {percentComplete === 100 ? <Image source={icons.completed} /> : <PercentCircle challenge={challenge} />}
         </View>
       )}
     </View>

@@ -4,10 +4,8 @@ import Realm from "realm";
 import { addMonths } from "date-fns";
 
 import realmConfig from "../../models";
-import i18n from "../../i18n";
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
 import ChallengeUnearnedModal from "../Modals/ChallengeUnearnedModal";
-import BannerHeader from "./BannerHeader";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
 import Modal from "../UIComponents/Modals/Modal";
@@ -20,7 +18,13 @@ const ChallengeBadges = () => {
   const openModal = useCallback( () => setModal( true ), [] );
   const closeModal = useCallback( () => setModal( false ), [] );
 
-  const createPlaceholderBadges = ( badges ) => {
+  const createBadge = ( latestBadge, numOfMonths ) => ( {
+    name: "",
+    availableDate: addMonths( latestBadge.availableDate, numOfMonths ),
+    index: latestBadge.index + numOfMonths
+  } );
+
+  const createPlaceholderBadges = useCallback( ( badges ) => {
     const remainderOfBadges = badges.length % 5;
 
     if ( remainderOfBadges === 0 || remainderOfBadges === 3 ) {
@@ -31,17 +35,8 @@ const ChallengeBadges = () => {
     const badgePlaceholders = badges;
     const latestBadge = badges[badges.length - 1];
 
-    const nextBadge = {
-      name: "",
-      availableDate: addMonths( latestBadge.availableDate, 1 ),
-      index: latestBadge.index + 1
-    };
-
-    const badgeAfterNext = {
-      name: "",
-      availableDate: addMonths( latestBadge.availableDate, 2 ),
-      index: latestBadge.index + 2
-    };
+    const nextBadge = createBadge( latestBadge, 1 );
+    const badgeAfterNext = createBadge( latestBadge, 2 );
 
     if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {
       badgePlaceholders.push( nextBadge );
@@ -52,7 +47,7 @@ const ChallengeBadges = () => {
     }
 
     return badgePlaceholders;
-  };
+  }, [] );
 
   const fetchChallenges = useCallback( () => {
     Realm.open( realmConfig ).then( ( realm ) => {
@@ -65,7 +60,7 @@ const ChallengeBadges = () => {
     } ).catch( () => {
       // console.log( "[DEBUG] Failed to open realm, error: ", err );
     } );
-  }, [] );
+  }, [createPlaceholderBadges] );
 
   useEffect( () => { fetchChallenges(); }, [fetchChallenges] );
 
@@ -107,7 +102,7 @@ const ChallengeBadges = () => {
   };
 
   return (
-    <View style={styles.center}>
+    <View>
       <Modal
         showModal={showModal}
         closeModal={closeModal}
@@ -123,7 +118,6 @@ const ChallengeBadges = () => {
           />
         )}
       />
-      <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
       {challengeBadges.length > 0 && renderChallengesGrid( )}
       <View style={styles.marginLarge} />
     </View>

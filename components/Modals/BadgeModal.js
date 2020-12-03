@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   View,
   Text,
@@ -43,35 +43,76 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
     }
   };
 
-  const scrollRight = () => scroll( nextIndex );
-  const scrollLeft = () => scroll( prevIndex );
+  const scrollRight = ( ) => scroll( nextIndex );
+  const scrollLeft = ( ) => scroll( prevIndex );
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
-    if ( index ) {
-      setScrollIndex( index );
+    console.log( index, "index change in view ref", !index );
+    if ( index === null || index === undefined ) {
+      return;
     }
+    setScrollIndex( index );
   } );
 
-  const badgeList = badges.map( ( badge ) => (
+  const renderLeftArrow = ( ) => (
+    <TouchableOpacity
+      accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
+      accessible
+      onPress={scrollLeft}
+      style={styles.leftArrow}
+    >
+      <Image source={icons.badgeSwipeRight} />
+    </TouchableOpacity>
+  );
+
+  const renderRightArrow = ( ) => (
+    <TouchableOpacity
+      accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
+      accessible
+      onPress={scrollRight}
+      style={styles.arrow}
+    >
+      <Image source={icons.badgeSwipeRight} />
+    </TouchableOpacity>
+  );
+
+  const renderBulletsAndSmallImages = ( ) => [0, 1, 2].map( ( item, index ) => (
+    <TouchableOpacity
+      key={item}
+      onPress={() => scroll( index )}
+    >
+      <Image
+        source={badges[item].earned
+          ? badgeImages[badges[item].earnedIconName]
+          : badgeImages.badge_empty}
+        style={styles.smallImage}
+      />
+      <Text style={[styles.bullets, index !== scrollIndex && styles.transparent]}>
+        &#8226;
+      </Text>
+    </TouchableOpacity>
+  ) );
+
+  const renderBadge = ( { item } ) => (
     <View
-      key={`badge${badge.earnedIconName}`}
+      key={`badge${item.earnedIconName}`}
       style={styles.carousel}
     >
-      {badge.earned ? (
-        <Image source={badgeImages[badge.earnedIconName]} style={styles.image} />
+      {item.earned ? (
+        <Image source={badgeImages[item.earnedIconName]} style={styles.image} />
       ) : (
         <ImageBackground
           imageStyle={styles.imageStyle}
           source={badgeImages.badge_empty}
           style={styles.image}
         >
-          <LargeProgressCircle badge={badge} iconicSpeciesCount={iconicSpeciesCount} />
+          <LargeProgressCircle badge={item} iconicSpeciesCount={iconicSpeciesCount} />
         </ImageBackground>
       )}
       <GreenText
-        text={badge.earned
-          ? badge.intlName
+        text={item.earned
+          ? item.intlName
           : "badges.to_earn"}
         allowFontScaling={false}
       />
@@ -79,10 +120,12 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
       <Text allowFontScaling={false} style={styles.nameText}>
         {i18n.t( "badges.observe_species" )}
         {" "}
-        {i18n.t( badge.infoText )}
+        {i18n.t( item.infoText )}
       </Text>
     </View>
-  ) );
+  );
+
+  const extractKey = useCallback( ( item, index ) => `${item}${index}`, [] );
 
   return (
     <WhiteModal closeModal={closeModal}>
@@ -94,50 +137,18 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
         ref={flatList}
         viewabilityConfig={viewConfigRef.current}
         onViewableItemsChanged={onViewRef.current}
-        data={badgeList}
+        data={badges}
+        keyExtractor={extractKey}
         horizontal
         pagingEnabled
-        renderItem={( { item } ) => item}
+        renderItem={renderBadge}
         showsHorizontalScrollIndicator={false}
       />
-      {scrollIndex > 0 && (
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.scroll_left" )}
-          accessible
-          onPress={() => scrollLeft()}
-          style={styles.leftArrow}
-        >
-          <Image source={icons.badgeSwipeRight} />
-        </TouchableOpacity>
-      )}
-      {scrollIndex < 2 && (
-        <TouchableOpacity
-          accessibilityLabel={i18n.t( "accessibility.scroll_right" )}
-          accessible
-          onPress={() => scrollRight()}
-          style={styles.arrow}
-        >
-          <Image source={icons.badgeSwipeRight} />
-        </TouchableOpacity>
-      )}
+      {scrollIndex > 0 && renderLeftArrow( )}
+      {scrollIndex < 2 && renderRightArrow( )}
       <View style={styles.marginLarge} />
       <View style={styles.row}>
-        {[0, 1, 2].map( ( item, index ) => (
-          <TouchableOpacity
-            key={item}
-            onPress={() => scroll( index )}
-          >
-            <Image
-              source={badges[item].earned
-                ? badgeImages[badges[item].earnedIconName]
-                : badgeImages.badge_empty}
-              style={styles.smallImage}
-            />
-            <Text style={[styles.bullets, index !== scrollIndex && styles.transparent]}>
-              &#8226;
-            </Text>
-          </TouchableOpacity>
-        ) )}
+        {renderBulletsAndSmallImages( )}
       </View>
       <View style={styles.marginBottom} />
     </WhiteModal>

@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import { useNavigation } from "@react-navigation/native";
 
+import i18n from "../../i18n";
 import taxonIds from "../../utility/dictionaries/taxonDict";
 import realmConfig from "../../models";
 import styles from "../../styles/badges/achievements";
@@ -17,6 +18,7 @@ import LoginCard from "../UIComponents/LoginCard";
 import Spacer from "../UIComponents/TopSpacer";
 import { fetchNumberSpeciesSeen, localizeNumber, setRoute } from "../../utility/helpers";
 import ScrollWithHeader from "../UIComponents/Screens/ScrollWithHeader";
+import BannerHeader from "./BannerHeader";
 
 const AchievementsScreen = () => {
   const navigation = useNavigation();
@@ -96,8 +98,12 @@ const AchievementsScreen = () => {
           speciesCount={speciesCount}
         />
       )}
-      <SpeciesBadges speciesBadges={state.speciesBadges} />
-      <ChallengeBadges />
+      <View style={styles.center}>
+        <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
+        <SpeciesBadges speciesBadges={state.speciesBadges} />
+        <BannerHeader text={i18n.t( "badges.challenge_badges" ).toLocaleUpperCase()} />
+        <ChallengeBadges />
+      </View>
       <View style={[styles.row, styles.center]}>
         <TouchableOpacity
           onPress={navToObservations}

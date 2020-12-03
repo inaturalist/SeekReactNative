@@ -92,7 +92,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
             <Image source={icons.greenDot} style={styles.bullet} />
             <View>
               <Text style={styles.taxonomyHeader}>
-                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank )} `}
+                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
                 {ancestor.name}
               </Text>
               <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>

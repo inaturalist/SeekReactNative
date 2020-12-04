@@ -131,6 +131,7 @@ const shuffleList = ( list: Array<Object> ) => {
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {
     const j = Math.floor( Math.random() * ( i + 1 ) );
+    // $FlowFixMe
     [newList[i], newList[j]] = [list[j], list[i]];
   }
 

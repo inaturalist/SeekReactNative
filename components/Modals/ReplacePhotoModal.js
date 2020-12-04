@@ -17,7 +17,7 @@ type Props = {
   +closeModal: Function,
   +image: Object,
   +speciesText?: ?string,
-  +seenDate: Date,
+  +seenDate: string,
   +taxaId: number
 };
 

@@ -22,7 +22,7 @@ type Props = {
   +color: string,
   +userImage: string,
   +originalImage: ?string,
-  +displayDate?: ?Date
+  +displayDate?: ?string
 };
 
 const ModalWithGradient = ( {

@@ -48,17 +48,20 @@ const ChallengeScreen = () => {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
-      console.log( "fetching challenges" );
       recalculateChallenges();
       fetchChallenges();
     } );
   }, [navigation] );
 
+  const renderHeader = text => (
+    <View style={styles.header}>
+      <GreenText text={text} />
+    </View>
+  );
+
   const renderStarted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.in_progress" />
-      </View>
+      {renderHeader( "challenges.in_progress" )}
       {started.length > 0 ? (
         <>
           {started.map( ( challenge ) => (
@@ -75,9 +78,7 @@ const ChallengeScreen = () => {
 
   const renderNotStarted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.not_started" />
-      </View>
+      {renderHeader( "challenges.not_started" )}
       {notStarted.length > 0 ? (
         <>
           {notStarted.map( ( challenge ) => (
@@ -95,9 +96,7 @@ const ChallengeScreen = () => {
 
   const renderCompleted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.completed" />
-      </View>
+      {renderHeader( "challenges.completed" )}
       {completed.length > 0 ? completed.map( ( challenge ) => (
         <ChallengeProgressCard
           key={`${challenge.name}`}

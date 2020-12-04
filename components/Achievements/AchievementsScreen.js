@@ -62,7 +62,8 @@ const AchievementsScreen = () => {
           speciesBadges,
           level: levelsEarned.length > 0 ? levelsEarned[0] : allLevels[0],
           nextLevelCount: nextLevel[0] ? nextLevel[0].count : 0,
-          badgesEarned
+          badgesEarned,
+          loading: false
         } );
         setLoading( false );
       } ).catch( () => {
@@ -110,11 +111,11 @@ const AchievementsScreen = () => {
           style={styles.secondHeaderText}
         >
           <GreenText center smaller text="badges.observed" />
-          {speciesCount && <Text style={styles.number}>{localizeNumber( speciesCount )}</Text>}
+          <Text style={styles.number}>{speciesCount && localizeNumber( speciesCount )}</Text>
         </TouchableOpacity>
         <View style={styles.secondHeaderText}>
           <GreenText center smaller text="badges.earned" />
-          {state.badgesEarned && <Text style={styles.number}>{localizeNumber( state.badgesEarned )}</Text>}
+          <Text style={styles.number}>{state.badgesEarned && localizeNumber( state.badgesEarned )}</Text>
         </View>
       </View>
       <View style={styles.center}>

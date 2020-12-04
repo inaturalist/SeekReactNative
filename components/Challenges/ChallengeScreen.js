@@ -41,7 +41,6 @@ const ChallengeScreen = () => {
           completed: challengesCompleted,
           loading: false
         } );
-        // setLoading( false );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );

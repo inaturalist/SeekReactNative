@@ -17,10 +17,14 @@ import EmptyChallengesCard from "./EmptyChallengesCard";
 
 const ChallengeScreen = () => {
   const navigation = useNavigation();
-  const [notStarted, setNotStarted] = useState( [] );
-  const [started, setStarted] = useState( [] );
-  const [completed, setCompleted] = useState( [] );
-  const [loading, setLoading] = useState( true );
+  const [state, setState] = useState( {
+    notStarted: [],
+    started: [],
+    completed: [],
+    loading: true
+  } );
+
+  const { notStarted, started, completed, loading } = state;
   const noChallenges = notStarted.length === 0 && started.length === 0;
 
   const fetchChallenges = () => {
@@ -31,10 +35,13 @@ const ChallengeScreen = () => {
         const challengesNotStarted = challenges.filtered( "startedDate == null" );
         const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
-        setStarted( challengesStarted );
-        setNotStarted( challengesNotStarted );
-        setCompleted( challengesCompleted );
-        setLoading( false );
+        setState( {
+          notStarted: challengesNotStarted,
+          started: challengesStarted,
+          completed: challengesCompleted,
+          loading: false
+        } );
+        // setLoading( false );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -42,6 +49,7 @@ const ChallengeScreen = () => {
 
   useEffect( () => {
     navigation.addListener( "focus", () => {
+      console.log( "fetching challenges" );
       recalculateChallenges();
       fetchChallenges();
     } );
@@ -91,13 +99,12 @@ const ChallengeScreen = () => {
       <View style={styles.header}>
         <GreenText text="challenges.completed" />
       </View>
-      {completed.length > 0 ? (
-        completed.map( ( challenge ) => (
-          <ChallengeProgressCard
-            key={`${challenge.name}`}
-            challenge={challenge}
-          />
-        ) )
+      {completed.length > 0 ? completed.map( ( challenge ) => (
+        <ChallengeProgressCard
+          key={`${challenge.name}`}
+          challenge={challenge}
+        />
+      )
       ) : <EmptyChallengesCard type="no_completed_challenges" />}
     </>
   );

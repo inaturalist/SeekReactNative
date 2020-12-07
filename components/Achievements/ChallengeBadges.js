@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import Realm from "realm";
-import { addMonths } from "date-fns";
+import { addMonths, isEqual } from "date-fns";
 
 import realmConfig from "../../models";
 import ChallengeModal from "../Modals/ChallengeEarnedModal";
@@ -35,7 +35,13 @@ const ChallengeBadges = () => {
     const badgePlaceholders = badges;
     const latestBadge = badges[badges.length - 1];
 
-    const nextBadge = createBadge( latestBadge, 1 );
+    let nextBadge = createBadge( latestBadge, 1 );
+
+    // next challenge after Dec 2020 will be released Mar 2021
+    if ( isEqual( new Date( 2020, 11, 1 ), new Date( latestBadge.availableDate ) ) ) {
+      nextBadge = createBadge( latestBadge, 3 );
+    }
+
     const badgeAfterNext = createBadge( latestBadge, 2 );
 
     if ( remainderOfBadges === 2 || remainderOfBadges === 4 ) {

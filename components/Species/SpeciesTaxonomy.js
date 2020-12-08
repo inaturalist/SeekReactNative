@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 
-import { capitalizeNames, getTaxonCommonName } from "../../utility/helpers";
+import { capitalizeNames } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import styles from "../../styles/species/speciesTaxonomy";
 import icons from "../../assets/icons";
 import SpeciesDetailCard from "../UIComponents/SpeciesDetailCard";
@@ -91,7 +92,7 @@ const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
             <Image source={icons.greenDot} style={styles.bullet} />
             <View>
               <Text style={styles.taxonomyHeader}>
-                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank )} `}
+                {ancestor.rank !== "species" && `${capitalizeNames( ancestor.rank ) || ""} `}
                 {ancestor.name}
               </Text>
               <Text style={[styles.taxonomyHeader, styles.taxonomyText]}>

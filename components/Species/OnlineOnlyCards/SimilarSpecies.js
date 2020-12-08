@@ -18,6 +18,7 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
   const { length } = similarSpecies;
 
   useEffect( () => {
+    let isActive = true;
     if ( id !== null ) {
       const resetState = () => setSimilarSpecies( [] );
 
@@ -34,12 +35,17 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
         inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
           const species = results.map( r => r.taxon );
 
-          setSimilarSpecies( species );
+          if ( isActive ) {
+            setSimilarSpecies( species );
+          }
         } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
       };
       resetState();
       fetchSimilarSpecies();
     }
+    return ( ) => {
+      isActive = false;
+    };
   }, [id] );
 
   return useMemo( () => (

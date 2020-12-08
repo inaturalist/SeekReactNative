@@ -1,8 +1,21 @@
 // @flow
-import * as RNLocalize from "react-native-localize";
+import { setLanguageCodeOrFallback } from "./languageHelpers";
+import { capitalizeNames } from "./helpers";
 
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
+
+const getTaxonCommonName = ( taxonID: number ) => (
+  new Promise<any>( ( resolve ) => {
+    Realm.open( realmConfig.default ).then( ( realm ) => {
+      const commonNames = realm.objects( "CommonNamesRealm" ).filtered( `taxon_id == ${taxonID}` );
+      resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm, error: ", err );
+      resolve( );
+    } );
+  } )
+);
 
 const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
@@ -21,8 +34,14 @@ const setupCommonNames = ( preferredLanguage: string ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        const { languageCode } = RNLocalize.getLocales()[0];
-        const seekLocale = ( preferredLanguage && preferredLanguage !== "device" ) ? preferredLanguage : languageCode;
+        let seekLocale;
+
+        if ( preferredLanguage === "device" ) {
+          seekLocale = setLanguageCodeOrFallback( );
+        } else {
+          seekLocale = preferredLanguage;
+        }
+
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         // if common names for desired locale already exist in realm, do nothing
@@ -75,5 +94,6 @@ const setupCommonNames = ( preferredLanguage: string ) => {
 };
 
 export {
+  getTaxonCommonName,
   setupCommonNames
 };

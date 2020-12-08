@@ -56,10 +56,7 @@ const SpeciesDetail = () => {
         return {
           id: null,
           photos: [],
-          taxon: {
-            scientificName: null,
-            iconicTaxonId: null
-          },
+          taxon: {},
           details: {},
           error: null,
           seenTaxa: null
@@ -70,10 +67,7 @@ const SpeciesDetail = () => {
   }, {
     id: null,
     photos: [],
-    taxon: {
-      scientificName: null,
-      iconicTaxonId: null
-    },
+    taxon: {},
     details: {},
     error: null,
     seenTaxa: null
@@ -135,9 +129,6 @@ const SpeciesDetail = () => {
   };
 
   const fetchTaxonDetails = useCallback( () => {
-    if ( id === null ) {
-      return;
-    }
     const localeParams = { locale: i18n.currentLocale() };
     const options = { user_agent: createUserAgent() };
 
@@ -203,6 +194,10 @@ const SpeciesDetail = () => {
     navigation.addListener( "blur", () => { dispatch( { type: "RESET_SCREEN" } ); } );
   }, [navigation, fetchiNatData] );
 
+  if ( !id ) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={styles.greenBanner} edges={["top"]}>
       <ScrollView
@@ -215,7 +210,7 @@ const SpeciesDetail = () => {
           seenTaxa={seenTaxa}
           photos={photos}
         />
-        {id !== null && (
+        {( Object.keys( taxon ).length > 0 || error ) && (
           <SpeciesContainer
             checkForInternet={checkInternetConnection}
             details={details}

@@ -7,7 +7,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import rankDict from "../../../utility/dictionaries/rankDict";
-import { getTaxonCommonName } from "../../../utility/helpers";
+import { getTaxonCommonName } from "../../../utility/commonNamesHelpers";
 import { CameraContext } from "../../UserContext";
 import GreenRectangle from "../../UIComponents/GreenRectangle";
 import { colors } from "../../../styles/global";

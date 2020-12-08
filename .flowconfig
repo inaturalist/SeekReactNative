@@ -1,12 +1,12 @@
 [ignore]
 
 ; 3rd party libraries
-# .*/node_modules/react-native-fs/.*
-# .*/node_modules/react-native-check-box/.*
-# .*/node_modules/react-native/Libraries/YellowBox/.*
-# .*/node_modules/react-native/Libraries/Utilities/.*
-# .*/node_modules/react-native/Libraries/Lists/.*
-# .*/node_modules/react-native/Libraries/Components/.*
+; .*/node_modules/react-native-fs/.*
+; .*/node_modules/react-native-check-box/.*
+; .*/node_modules/react-native/Libraries/YellowBox/.*
+; .*/node_modules/react-native/Libraries/Utilities/.*
+; .*/node_modules/react-native/Libraries/Lists/.*
+; .*/node_modules/react-native/Libraries/Components/.*
 
 ; We fork some components by platform
 .*/node_modules/.*/*[.]android.js

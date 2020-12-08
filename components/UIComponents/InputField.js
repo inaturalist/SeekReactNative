@@ -29,6 +29,7 @@ const InputField = ( {
   }
 
   return (
+    // $FlowFixMe
     <TextInput
       accessibilityLabel={text}
       accessible

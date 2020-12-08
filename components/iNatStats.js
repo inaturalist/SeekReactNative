@@ -26,7 +26,7 @@ const INatStatsScreen = () => {
   const [observers, setObservers] = useState( null );
   const [photos, setPhotos] = useState( [] );
 
-  const fetchProjectPhotos = ( isSubscribed ) => {
+  const fetchProjectPhotos = ( ) => {
     const params = {
       project_id: 29905,
       photos: true,
@@ -69,14 +69,11 @@ const INatStatsScreen = () => {
       } );
 
       const randomEightPhotos = shuffleList( projectPhotos ).splice( 0, 8 );
-
-      if ( isSubscribed ) {
-        setPhotos( randomEightPhotos );
-      }
+      setPhotos( randomEightPhotos );
     } ).catch( ( e ) => console.log( e, "couldn't fetch project photos" ) );
   };
 
-  const fetchiNatStats = ( isSubscribed ) => {
+  const fetchiNatStats = ( ) => {
     const options = { headers: { "User-Agent": createUserAgent() } };
 
     fetch( "https://www.inaturalist.org/stats/summary.json", options )
@@ -87,10 +84,8 @@ const INatStatsScreen = () => {
         const roundedObservations = Math.round( totalObservations / 1000000 ) * 1000000;
         const roundedObservers = Math.round( totalObservers / 10000 ) * 10000;
 
-        if ( isSubscribed ) {
-          setObservations( `${localizeNumber( roundedObservations )}+` );
-          setObservers( `${localizeNumber( roundedObservers )}+` );
-        }
+        setObservations( `${localizeNumber( roundedObservations )}+` );
+        setObservers( `${localizeNumber( roundedObservers )}+` );
       } ).catch( ( e ) => console.log( e ) );
   };
 
@@ -107,17 +102,9 @@ const INatStatsScreen = () => {
   ) );
 
   useEffect( () => {
-    let isSubscribed = true;
-
-    if ( !observations ) {
-      fetchiNatStats( isSubscribed );
-    }
-
-    if ( photos.length === 0 ) {
-      fetchProjectPhotos( isSubscribed );
-    }
-    return () => isSubscribed = false; // eslint-disable-line no-return-assign
-  }, [observations, photos] );
+    fetchiNatStats( );
+    fetchProjectPhotos( );
+  }, [] );
 
   const photoList = renderPhotos();
 

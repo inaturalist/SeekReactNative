@@ -19,9 +19,7 @@ const checkIsUsernameValid = ( username: string ) => {
   return false;
 };
 
-const saveAccessToken = ( token ) => {
-  AsyncStorage.setItem( "access_token", token.toString() );
-};
+const saveAccessToken = ( token: string ) => AsyncStorage.setItem( "access_token", token );
 
 const fetchAccessToken = async () => {
   try {

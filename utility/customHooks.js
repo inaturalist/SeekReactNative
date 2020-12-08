@@ -8,7 +8,7 @@ import { fetchLocationName, fetchTruncatedUserLocation } from "./locationHelpers
 import { dirPictures } from "./dirStorage";
 import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
-import { getTaxonCommonName } from "./helpers";
+import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
 
 const useScrollToTop = ( scrollView, navigation, route ) => {

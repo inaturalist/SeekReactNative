@@ -3,6 +3,7 @@ import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
+import piexif from "piexifjs";
 
 import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
@@ -323,6 +324,31 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
+const readNativeExifData = async ( file ) => {
+  const prefixe = "data:image/jpeg;base64,";
+  const srcdata = await RNFS.readFile( file, "base64" );
+
+  const srcexifs = piexif.load( prefixe + srcdata );
+
+  return srcexifs;
+};
+
+const writeExifData = async ( exifObj, cameraRollFile ) => {
+  const prefixe = "data:image/jpeg;base64,";
+  const stat = await RNFS.stat( cameraRollFile );
+  const nativeUri = `${Platform.OS === "android" ? "file://" : ""}${stat.originalFilepath}`;
+  const srcdata = await RNFS.readFile( nativeUri, "base64" );
+
+  const exifStr = piexif.dump( exifObj );
+
+  try {
+    const bs64Exif = piexif.insert( exifStr, prefixe + srcdata );
+    return bs64Exif;
+  } catch ( e ) {
+    console.log( e, "couldn't write exif data" );
+  }
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
@@ -335,5 +361,7 @@ export {
   checkForDirectory,
   writeToDebugLog,
   deleteDebugLogAfter7Days,
-  replacePhoto
+  replacePhoto,
+  readNativeExifData,
+  writeExifData
 };

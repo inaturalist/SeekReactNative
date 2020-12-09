@@ -37,6 +37,7 @@
     "date-fns": "^2.16.1",
     "i18n-js": "^3.7.1",
     "inaturalistjs": "github:inaturalist/inaturalistjs",
+    "piexifjs": "^1.0.6",
     "react": "^16.13.1",
     "react-native": "^0.63.3",
     "react-native-check-box": "^2.1.7",

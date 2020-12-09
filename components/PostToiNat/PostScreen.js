@@ -14,7 +14,7 @@ import { formatISO, isAfter } from "date-fns";
 import styles from "../../styles/posting/postToiNat";
 import { savePostingSuccess } from "../../utility/loginHelpers";
 import { fetchUserLocation, checkForTruncatedCoordinates } from "../../utility/locationHelpers";
-import { resizeImage } from "../../utility/photoHelpers";
+import { readNativeExifData, resizeImage } from "../../utility/photoHelpers";
 import i18n from "../../i18n";
 import GeoprivacyPicker from "./Pickers/GeoprivacyPicker";
 import CaptivePicker from "./Pickers/CaptivePicker";
@@ -279,6 +279,17 @@ const PostScreen = () => {
       resizeImageForUploading();
     } );
   }, [navigation, getLocation, resizeImageForUploading] );
+
+  // useEffect( ( ) => {
+  //   console.log( resizedImage, "resized image " );
+  //   const checkExif = async ( uri ) => {
+  //     const exif = await readNativeExifData( uri );
+  //     console.log( exif, "exiffff" );
+  //   };
+  //   if ( resizedImage ) {
+  //     checkExif( resizedImage );
+  //   }
+  // }, [resizedImage] );
 
   const dateToDisplay = date && formatYearMonthDay( date );
 

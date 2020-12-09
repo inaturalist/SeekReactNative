@@ -59,23 +59,30 @@ const checkForPhotoMetaData = ( location: Object ) => {
   return false;
 };
 
-const resizeImage = ( imageUri: string, width: number, height?: number ) => (
-  new Promise<any>( ( resolve ) => {
-    ImageResizer.createResizedImage( imageUri, width, height || width, "JPEG", 100 )
-      .then( ( { uri } ) => {
-        let userImage;
-        if ( Platform.OS === "ios" ) {
-          const uriParts = uri.split( "://" );
-          userImage = uriParts[uriParts.length - 1];
-          resolve( userImage );
-        } else {
-          resolve( uri );
-        }
-      } ).catch( () => {
-        resolve( null );
-      } );
-  } )
-);
+const resizeImage = async ( path: string, width: number, height?: number ) => {
+  try {
+    const { uri } = await ImageResizer.createResizedImage(
+      path,
+      width,
+      height || width, // height
+      "JPEG", // compressFormat
+      100, // quality
+      0, // rotation
+      // $FlowFixMe
+      null, // outputPath
+      true // keep metadata
+    );
+
+    if ( Platform.OS === "ios" ) {
+      const uriParts = uri.split( "://" );
+      return uriParts[uriParts.length - 1];
+    } else {
+      return uri;
+    }
+  } catch ( e ) {
+    console.log( e, "couldn't resize image" );
+  }
+};
 
 const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) => (
   new Promise( ( resolve ) => {
@@ -324,7 +331,7 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
-const readNativeExifData = async ( file ) => {
+const readNativeExifData = async ( file: string ) => {
   const prefixe = "data:image/jpeg;base64,";
   const srcdata = await RNFS.readFile( file, "base64" );
 
@@ -333,7 +340,7 @@ const readNativeExifData = async ( file ) => {
   return srcexifs;
 };
 
-const writeExifData = async ( exifObj, cameraRollFile ) => {
+const writeExifData = async ( exifObj: Object, cameraRollFile: string ) => {
   const prefixe = "data:image/jpeg;base64,";
   const stat = await RNFS.stat( cameraRollFile );
   const nativeUri = `${Platform.OS === "android" ? "file://" : ""}${stat.originalFilepath}`;

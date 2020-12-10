@@ -3,9 +3,10 @@ import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import jwt from "react-native-jwt-io";
 import Realm from "realm";
-import { Platform } from "react-native";
+import { Platform, LogBox } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
+import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
@@ -243,6 +244,30 @@ const navigateToMainStack = ( navigate: Function, screen: string, params: Object
   navigate( "Drawer", { screen: "Main", params: { screen, params } } );
 };
 
+const hideLogs = () => {
+  LogBox.ignoreLogs( [
+    "Picker has been extracted",
+    "Failed prop type: Invalid prop `confidenceThreshold`",
+    "Failed prop type: Invalid prop `taxaDetectionInterval`"
+  ] );
+};
+
+const setQuickActions = () => {
+  if ( Platform.OS === "android" ) {
+    QuickActions.setShortcutItems( [
+      {
+        type: "Seek AR Camera", // Required
+        title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
+        subtitle: "For quick identifications",
+        icon: "camerabutton", // Icons instructions below
+        userInfo: {
+          url: "app://Drawer/Main/Camera" // Provide any custom data like deep linking URL
+        }
+      }
+    ] );
+  }
+};
+
 export {
   addARCameraFiles,
   capitalizeNames,
@@ -262,5 +287,7 @@ export {
   localizeNumber,
   localizePercentage,
   requiresSafeArea,
-  navigateToMainStack
+  navigateToMainStack,
+  hideLogs,
+  setQuickActions
 };

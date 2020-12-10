@@ -1,9 +1,10 @@
 // @flow
 import ImageResizer from "react-native-image-resizer";
-import RNFS from "react-native-fs";
+import RNFS, { copyAssetsFileIOS } from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
 import piexif from "piexifjs";
+import { FileUpload } from "inaturalistjs";
 
 import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
@@ -73,15 +74,32 @@ const resizeImage = async ( path: string, width: number, height?: number ) => {
       true // keep metadata
     );
 
-    if ( Platform.OS === "ios" ) {
-      const uriParts = uri.split( "://" );
-      return uriParts[uriParts.length - 1];
-    } else {
-      return uri;
-    }
+    return uri;
   } catch ( e ) {
     console.log( e, "couldn't resize image" );
   }
+};
+
+const flattenUploadParameters = async ( image: Object ) => {
+  const {
+    latitude,
+    longitude,
+    uri,
+    time
+  } = image;
+  const userImage = await resizeImage( uri, 299 );
+
+  const params = {
+    image: new FileUpload( {
+      uri: userImage,
+      name: "photo.jpeg",
+      type: "image/jpeg"
+    } ),
+    observed_on: new Date( time * 1000 ).toISOString(),
+    latitude,
+    longitude
+  };
+  return params;
 };
 
 const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) => (
@@ -332,6 +350,7 @@ const replacePhoto = async ( id: number, image: Object ) => {
 };
 
 const readNativeExifData = async ( file: string ) => {
+  // this does not work on ph:// iOS files
   const prefixe = "data:image/jpeg;base64,";
   const srcdata = await RNFS.readFile( file, "base64" );
 
@@ -342,6 +361,7 @@ const readNativeExifData = async ( file: string ) => {
 
 const writeExifData = async ( exifObj: Object, cameraRollFile: string ) => {
   const prefixe = "data:image/jpeg;base64,";
+
   const stat = await RNFS.stat( cameraRollFile );
   const nativeUri = `${Platform.OS === "android" ? "file://" : ""}${stat.originalFilepath}`;
   const srcdata = await RNFS.readFile( nativeUri, "base64" );
@@ -370,5 +390,6 @@ export {
   deleteDebugLogAfter7Days,
   replacePhoto,
   readNativeExifData,
-  writeExifData
+  writeExifData,
+  flattenUploadParameters
 };

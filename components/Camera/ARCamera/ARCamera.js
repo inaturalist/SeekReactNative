@@ -111,7 +111,12 @@ const ARCamera = () => {
   };
 
   const writeExifAndNavToResults = useCallback( async ( exifData, uri, predictions ) => {
-    await writeExifData( exifData, uri );
+    // the issue is different on iOS
+    // need react-native-inat-camera to preserve GPS data in original photo
+    // 1st, Interop, and thumbnail are also null on iOS
+    if ( Platform.OS === "android" ) {
+      await writeExifData( exifData, uri );
+    }
     navigateToResults( uri, predictions );
   }, [navigateToResults] );
 
@@ -157,6 +162,7 @@ const ARCamera = () => {
           predictionSet = true;
           const prediction = predictions[rank][0];
 
+          //$FlowFixMe
           dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
         }
         if ( !predictionSet ) {

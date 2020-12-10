@@ -2,12 +2,10 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import jwt from "react-native-jwt-io";
-import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
 import { Platform } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
-import { resizeImage } from "./photoHelpers";
 
 import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
@@ -93,37 +91,6 @@ const addARCameraFiles = async () => {
   } else if ( Platform.OS === "ios" ) {
     addCameraFilesiOS();
   }
-};
-
-const resizePhoto = async ( uri ) => {
-  try {
-    const image = await resizeImage( uri, 299 );
-    return image;
-  } catch ( e ) {
-    return null;
-  }
-};
-
-const flattenUploadParameters = async ( image: Object ) => {
-  const {
-    latitude,
-    longitude,
-    uri,
-    time
-  } = image;
-  const userImage = await resizePhoto( uri );
-
-  const params = {
-    image: new FileUpload( {
-      uri: userImage,
-      name: "photo.jpeg",
-      type: "image/jpeg"
-    } ),
-    observed_on: new Date( time * 1000 ).toISOString(),
-    latitude,
-    longitude
-  };
-  return params;
 };
 
 const shuffleList = ( list: Array<Object> ) => {
@@ -279,7 +246,6 @@ const navigateToMainStack = ( navigate: Function, screen: string, params: Object
 export {
   addARCameraFiles,
   capitalizeNames,
-  flattenUploadParameters,
   checkIfFirstLaunch,
   checkIfCardShown,
   checkIfCameraLaunched,

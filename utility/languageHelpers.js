@@ -20,9 +20,19 @@ const setLanguageCodeOrFallback = ( ) => {
   return deviceLanguageSupported( ) ? languageCode : "en";
 };
 
-const setRTL = ( locale: string ) => {
+const localeNoHyphens = ( locale: string ) => {
+  if ( locale === "pt-BR" ) {
+    return locale.replace( "-","" );
+  } else {
+    return locale.split( "-" )[0];
+  }
+};
+
+const setRTL = ( ) => {
   // Android takes care of this automatically
   if ( Platform.OS === "android" ) { return; }
+
+  const locale = localeNoHyphens( i18n.locale );
 
   if ( locale === "he" || locale === "ar" ) {
     I18nManager.forceRTL( true );
@@ -36,20 +46,19 @@ const handleLocalizationChange = () => {
   const { languageTag } = RNLocalize.getLocales()[0] || fallback;
 
   i18n.locale = languageTag;
-  setRTL( languageTag );
+  setRTL( );
 };
 
 const loadUserLanguagePreference = ( preferredLanguage: string ) => {
+  setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
   // do not wait for commonNames setup to complete. It could take a while to
   // add all names to Realm and we don't want to hold up the UI as names
   // are not needed immediately
   if ( preferredLanguage !== "device" ) {
     i18n.locale = preferredLanguage;
-    setRTL( preferredLanguage );
-    setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
+    setRTL( );
   } else {
     handleLocalizationChange();
-    setTimeout( () => setupCommonNames( preferredLanguage ), 5000 );
   }
 };
 
@@ -58,14 +67,6 @@ const setDisplayLanguage = ( preferredLanguage: string ) => {
     return setLanguageCodeOrFallback( );
   }
   return preferredLanguage;
-};
-
-const localeNoHyphens = ( locale: string ) => {
-  if ( locale === "pt-BR" ) {
-    return locale.replace( "-","" );
-  } else {
-    return locale.split( "-" )[0];
-  }
 };
 
 export {

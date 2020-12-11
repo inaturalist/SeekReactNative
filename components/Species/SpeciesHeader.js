@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { View, Text, BackHandler } from "react-native";
-import { useNavigation, useRoute, useFocusEffect, useIsFocused } from "@react-navigation/native";
+import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
@@ -24,11 +24,10 @@ const SpeciesHeader = ( {
   id
 }: Props ) => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
   const { navigate } = navigation;
   const { params } = useRoute();
   const [routeName, setRouteName] = useState( null );
-  const commonName = useCommonName( id, isFocused );
+  const commonName = useCommonName( id );
 
   const fetchRoute = async () => {
     const route = await getRoute();

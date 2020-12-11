@@ -22,7 +22,7 @@ type Props = {
 const SpeciesObservedCell = ( { item }: Props ) => {
   const { navigate } = useNavigation();
   const isFocused = useIsFocused();
-  const commonName = useCommonName( item.taxon.id, isFocused );
+  const commonName = useCommonName( item.taxon.id );
 
   const seenTaxa = useSeenTaxa( item.taxon.id, isFocused );
   const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );

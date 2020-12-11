@@ -27,7 +27,7 @@ const SpeciesImageCell = ( { item, fetchiNatData }: Props ) => {
   const isFocused = useIsFocused();
 
   const seenTaxa = useSeenTaxa( item.id, isFocused );
-  const commonName = useCommonName( item.id, isFocused );
+  const commonName = useCommonName( item.id );
 
   const renderSpeciesImage = () => {
     const photo = item.default_photo;

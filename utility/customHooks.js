@@ -148,14 +148,22 @@ const useLocationPermission = () => {
   return granted;
 };
 
-const useCommonName = ( id, isFocused ) => {
+const useCommonName = ( id ) => {
   const [commonName, setCommonName] = useState( null );
 
-  getTaxonCommonName( id ).then( ( name ) => {
-    if ( isFocused ) {
-      setCommonName( name );
-    }
-  } );
+  useEffect( () => {
+    let isCurrent = true;
+
+    getTaxonCommonName( id ).then( ( name ) => {
+      if ( isCurrent ) {
+        setCommonName( name );
+      }
+    } );
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [id] );
 
   return commonName;
 };

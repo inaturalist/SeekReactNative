@@ -1,7 +1,7 @@
 // @flow
 import React, { useContext } from "react";
 import { Text } from "react-native";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import HTML from "react-native-render-html";
 
 import i18n from "../../../i18n";
@@ -24,9 +24,8 @@ const About = ( {
   scientificName
 }: Props ) => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
   const { login } = useContext( UserContext );
-  const commonName = useCommonName( id, isFocused );
+  const commonName = useCommonName( id );
 
   const html = about ? `${about}`.replace( /<b>/g, "" ) : null;
 

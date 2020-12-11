@@ -30,7 +30,7 @@ const ReplacePhotoModal = ( {
 }: Props ) => {
   const isFocused = useIsFocused();
   const seenTaxa = useSeenTaxa( taxaId, isFocused );
-  const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
+  const currentUserPhoto = useUserPhoto( seenTaxa );
 
   if ( !currentUserPhoto ) {
     return null;

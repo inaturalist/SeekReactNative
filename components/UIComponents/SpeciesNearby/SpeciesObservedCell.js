@@ -25,7 +25,7 @@ const SpeciesObservedCell = ( { item }: Props ) => {
   const commonName = useCommonName( item.taxon.id );
 
   const seenTaxa = useSeenTaxa( item.taxon.id, isFocused );
-  const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
+  const currentUserPhoto = useUserPhoto( seenTaxa );
 
   const displayName = commonName || item.taxon.name;
 

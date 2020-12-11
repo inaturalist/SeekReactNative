@@ -58,10 +58,10 @@ const useLocationName = ( latitude, longitude ) => {
   return location;
 };
 
-const useUserPhoto = ( item, isFocused ) => {
+const useUserPhoto = ( item ) => {
   const [photo, setPhoto] = useState( null );
 
-  const checkForSeekV2Photos = useCallback( () => {
+  const checkForSeekV2Photos = useCallback( ( isCurrent ) => {
     const { taxon } = item;
     const { defaultPhoto } = taxon;
     if ( !defaultPhoto ) {
@@ -73,25 +73,25 @@ const useUserPhoto = ( item, isFocused ) => {
       if ( Platform.OS === "ios" ) {
         const uri = backupUri.split( "Pictures/" );
         const backupFilepath = `${dirPictures}/${uri[1]}`;
-        if ( isFocused ) {
+        if ( isCurrent ) {
           setPhoto( { uri: backupFilepath } );
         }
       } else {
         writeToDebugLog( backupUri );
         RNFS.readFile( backupUri, { encoding: "base64" } ).then( ( encodedData ) => {
-          if ( isFocused ) {
+          if ( isCurrent ) {
             setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
           }
         } ).catch( ( e ) => console.log( "Error reading backupUri file in hooks:", e ) );
       }
     } else if ( mediumUrl ) {
-      if ( isFocused ) {
+      if ( isCurrent ) {
         setPhoto( { uri: mediumUrl } );
       }
     }
-  }, [item, isFocused] );
+  }, [item] );
 
-  const checkV1 = useCallback( async ( uuidString ) => {
+  const checkV1 = useCallback( async ( uuidString, isCurrent ) => {
     const seekv1Photos = `${RNFS.DocumentDirectoryPath}/large`;
     const photoPath = `${seekv1Photos}/${uuidString}`;
 
@@ -100,29 +100,34 @@ const useUserPhoto = ( item, isFocused ) => {
 
       if ( isv1Photo ) {
         RNFS.readFile( photoPath, { encoding: "base64" } ).then( ( encodedData ) => {
-          if ( isFocused ) {
+          if ( isCurrent ) {
             setPhoto( { uri: `data:image/jpeg;base64,${encodedData}` } );
           }
         } ).catch( () => checkForSeekV2Photos() );
       } else {
         // this is the one being fetched in test device
-        checkForSeekV2Photos();
+        checkForSeekV2Photos( isCurrent );
       }
     } catch ( e ) {
       console.log( e, "error checking for v1 photo existence" );
     }
-  }, [checkForSeekV2Photos, isFocused] );
+  }, [checkForSeekV2Photos] );
 
   useEffect( () => {
+    let isCurrent = true;
     if ( item !== null ) {
       if ( Platform.OS === "ios" ) {
-        checkV1( item.uuidString );
+        checkV1( item.uuidString, isCurrent );
       } else {
-        checkForSeekV2Photos();
+        checkForSeekV2Photos( isCurrent );
       }
     } else {
+      console.log( "do i need this code" );
       setPhoto( null );
     }
+    return () => {
+      isCurrent = false;
+    };
   }, [checkForSeekV2Photos, checkV1, item] );
 
   return photo;

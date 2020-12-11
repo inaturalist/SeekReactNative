@@ -122,7 +122,6 @@ const useUserPhoto = ( item ) => {
         checkForSeekV2Photos( isCurrent );
       }
     } else {
-      console.log( "do i need this code" );
       setPhoto( null );
     }
     return () => {
@@ -206,15 +205,19 @@ const useSeenTaxa = ( id ) => {
 
   useEffect( () => {
     let isCurrent = true;
-    if ( id !== null ) {
-      Realm.open( realmConfig ).then( ( realm ) => {
-        const observations = realm.objects( "ObservationRealm" );
-        const seen = observations.filtered( `taxon.id == ${id}` )[0];
-        if ( isCurrent ) {
-          setSeenTaxa( seen );
-        }
-      } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
-    }
+
+    if ( id === null ) { return; }
+
+    Realm.open( realmConfig ).then( ( realm ) => {
+      const observations = realm.objects( "ObservationRealm" );
+      const seen = observations.filtered( `taxon.id == ${id}` )[0];
+
+      // seen is undefined when filtered realm is empty
+      if ( isCurrent && seen !== undefined ) {
+        setSeenTaxa( seen );
+      }
+    } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
+
     return () => {
       isCurrent = false;
     };

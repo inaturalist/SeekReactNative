@@ -207,7 +207,6 @@ const SpeciesDetail = () => {
         <SpeciesHeader
           id={id}
           taxon={taxon}
-          seenTaxa={seenTaxa}
           photos={photos}
         />
         {( Object.keys( taxon ).length > 0 || error ) && (
@@ -218,7 +217,6 @@ const SpeciesDetail = () => {
             error={error}
             fetchiNatData={fetchiNatData}
             id={id}
-            seenTaxa={seenTaxa}
             predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
           />
         )}

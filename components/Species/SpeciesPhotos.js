@@ -13,14 +13,15 @@ import styles from "../../styles/species/speciesPhotos";
 import LoadingWheel from "../UIComponents/LoadingWheel";
 import { localizeAttributions } from "../../utility/photoHelpers";
 import HorizontalScroll from "../UIComponents/HorizontalScroll";
-import { useUserPhoto } from "../../utility/customHooks";
+import { useUserPhoto, useSeenTaxa } from "../../utility/customHooks";
 
 type Props = {
   +photos: Array<Object>,
-  +seenTaxa: ?Object
+  +id: number
 };
 
-const SpeciesPhotos = ( { photos, seenTaxa }: Props ) => {
+const SpeciesPhotos = ( { photos, id }: Props ) => {
+  const seenTaxa = useSeenTaxa( id );
   const userPhoto = useUserPhoto( seenTaxa );
   const [photoList, setPhotoList] = useState( [] );
 

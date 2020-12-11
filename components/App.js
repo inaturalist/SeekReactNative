@@ -5,7 +5,7 @@ import * as RNLocalize from "react-native-localize";
 
 import RootStack from "./Navigation/RootStack";
 import { setupChallenges } from "../utility/challengeHelpers";
-import { handleLocalizationChange, setSeekAndCommonNamesLanguage } from "../utility/languageHelpers";
+import { handleLocalizationChange, loadUserLanguagePreference } from "../utility/languageHelpers";
 import { addARCameraFiles, hideLogs, setQuickActions } from "../utility/helpers";
 import { fetchAccessToken } from "../utility/loginHelpers";
 import { UserContext, CameraContext, LanguageContext, SpeciesDetailContext } from "./UserContext";
@@ -43,7 +43,7 @@ const App = () => {
   useEffect( () => {
     // wait until check for stored language is completed
     if ( !preferredLanguage ) { return; }
-    setSeekAndCommonNamesLanguage( preferredLanguage );
+    loadUserLanguagePreference( preferredLanguage );
   }, [preferredLanguage] );
 
   useEffect( () => {

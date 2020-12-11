@@ -20,7 +20,7 @@ type Props = {
   +fetchiNatData: ?Function
 }
 
-const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
+const SpeciesImageCell = ( { item, fetchiNatData }: Props ) => {
   const { navigate } = useNavigation();
   const route = useRoute();
   const { name } = route;
@@ -84,4 +84,4 @@ const SpeciesObservedCell = ( { item, fetchiNatData }: Props ) => {
   );
 };
 
-export default SpeciesObservedCell;
+export default SpeciesImageCell;

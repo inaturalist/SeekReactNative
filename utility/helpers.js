@@ -13,7 +13,6 @@ import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
-import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
   new Promise<any>( ( resolve ) => {
@@ -238,8 +237,6 @@ const localizeNumber = ( number: number ) => {
 
 const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
 
-const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
-
 const navigateToMainStack = ( navigate: Function, screen: string, params: Object ) => {
   navigate( "Drawer", { screen: "Main", params: { screen, params } } );
 };
@@ -286,7 +283,6 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  requiresSafeArea,
   navigateToMainStack,
   hideLogs,
   setQuickActions

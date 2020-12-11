@@ -5,21 +5,22 @@ import languages from "./dictionaries/languageDict";
 import i18n from "../i18n";
 import { setupCommonNames } from "./commonNamesHelpers";
 
-const setDeviceLanguageOrFallback = ( ) => {
+const deviceLanguageSupported = ( ) => {
   const { languageCode } = RNLocalize.getLocales()[0];
-  const deviceLanguageSupported = Object.keys( languages ).includes( languageCode );
+  return Object.keys( languages ).includes( languageCode );
+};
 
-  return deviceLanguageSupported ? "device" : "en";
+const setDeviceLanguageOrFallback = ( ) => {
+  return deviceLanguageSupported( ) ? "device" : "en";
 };
 
 const setLanguageCodeOrFallback = ( ) => {
+  // this is the hyphenated version
   const { languageCode } = RNLocalize.getLocales()[0];
-  const deviceLanguageSupported = Object.keys( languages ).includes( languageCode );
-
-  return deviceLanguageSupported ? languageCode : "en";
+  return deviceLanguageSupported( ) ? languageCode : "en";
 };
 
-const setRTL = ( locale ) => {
+const setRTL = ( locale: string ) => {
   // Android takes care of this automatically
   if ( Platform.OS === "android" ) { return; }
 
@@ -38,7 +39,7 @@ const handleLocalizationChange = () => {
   setRTL( languageTag );
 };
 
-const setSeekAndCommonNamesLanguage = ( preferredLanguage ) => {
+const loadUserLanguagePreference = ( preferredLanguage: string ) => {
   // do not wait for commonNames setup to complete. It could take a while to
   // add all names to Realm and we don't want to hold up the UI as names
   // are not needed immediately
@@ -52,10 +53,28 @@ const setSeekAndCommonNamesLanguage = ( preferredLanguage ) => {
   }
 };
 
+const setDisplayLanguage = ( preferredLanguage: string ) => {
+  if ( preferredLanguage === "device" ) {
+    return setLanguageCodeOrFallback( );
+  }
+  return preferredLanguage;
+};
+
+const localeNoHyphens = ( locale: string ) => {
+  if ( locale === "pt-BR" ) {
+    return locale.replace( "-","" );
+  } else {
+    return locale.split( "-" )[0];
+  }
+};
+
 export {
   setDeviceLanguageOrFallback,
   setLanguageCodeOrFallback,
   setRTL,
   handleLocalizationChange,
-  setSeekAndCommonNamesLanguage
+  loadUserLanguagePreference,
+  setDisplayLanguage,
+  deviceLanguageSupported,
+  localeNoHyphens
 };

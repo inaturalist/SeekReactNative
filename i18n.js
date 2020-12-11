@@ -1,5 +1,5 @@
 // @flow
-import * as RNLocalize from "react-native-localize";
+// import * as RNLocalize from "react-native-localize";
 import i18n from "i18n-js";
 
 import af from "./translations/af.json";
@@ -57,11 +57,11 @@ i18n.translations = {
 };
 i18n.fallbacks = true;
 
-const fallback = { languageTag: "en", isRTL: false };
-const languages = Object.keys( i18n.translations );
-const { languageTag } = RNLocalize.findBestAvailableLanguage( languages ) || fallback;
+// const fallback = { languageTag: "en", isRTL: false };
+// const languages = Object.keys( i18n.translations );
+// const { languageTag } = RNLocalize.findBestAvailableLanguage( languages ) || fallback;
 
-i18n.locale = languageTag;
+// i18n.locale = languageTag;
 
 // Takes a count that might be a localized string with delimiters and turns it
 // into a number we can use for determining the right plural form

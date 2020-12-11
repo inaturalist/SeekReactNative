@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import {
   colors,
   fonts,
   dimensions
 } from "./global";
 
-import { requiresSafeArea } from "../utility/helpers";
+const { width, height } = dimensions;
 
-const { width } = dimensions;
+const requiresSafeArea = () => Platform.OS === "ios" && height > 570;
 
 export default StyleSheet.create( {
   cameraTab: {

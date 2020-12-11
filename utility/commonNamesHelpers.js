@@ -1,5 +1,5 @@
 // @flow
-import { setLanguageCodeOrFallback } from "./languageHelpers";
+import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
 import { capitalizeNames } from "./helpers";
 
 const Realm = require( "realm" );
@@ -34,14 +34,9 @@ const setupCommonNames = ( preferredLanguage: string ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        let seekLocale;
-
-        if ( preferredLanguage === "device" ) {
-          seekLocale = setLanguageCodeOrFallback( );
-        } else {
-          seekLocale = preferredLanguage;
-        }
-
+        const locale = setDisplayLanguage( preferredLanguage );
+        // need to remove hyphens for pt-BR and es-MX
+        const seekLocale = localeNoHyphens( locale );
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         // if common names for desired locale already exist in realm, do nothing
@@ -86,8 +81,6 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-15" ).default, seekLocale );
       } );
-      // } ).then( () => {
-      //   console.log( new Date().getTime(), "end time for realm" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );
     } );

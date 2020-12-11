@@ -201,20 +201,24 @@ const useTruncatedUserCoords = ( granted ) => {
   return coords;
 };
 
-const useSeenTaxa = ( id, isFocused ) => {
+const useSeenTaxa = ( id ) => {
   const [seenTaxa, setSeenTaxa] = useState( null );
 
   useEffect( () => {
+    let isCurrent = true;
     if ( id !== null ) {
       Realm.open( realmConfig ).then( ( realm ) => {
         const observations = realm.objects( "ObservationRealm" );
         const seen = observations.filtered( `taxon.id == ${id}` )[0];
-        if ( isFocused ) {
+        if ( isCurrent ) {
           setSeenTaxa( seen );
         }
       } ).catch( ( e ) => console.log( "[DEBUG] Failed to open realm, error: ", e ) );
     }
-  }, [id, isFocused] );
+    return () => {
+      isCurrent = false;
+    };
+  }, [id] );
 
   return seenTaxa;
 };

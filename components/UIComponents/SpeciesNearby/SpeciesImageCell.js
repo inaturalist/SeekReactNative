@@ -6,7 +6,7 @@ import {
   Image,
   ImageBackground
 } from "react-native";
-import { useRoute, useNavigation, useIsFocused } from "@react-navigation/native";
+import { useRoute, useNavigation } from "@react-navigation/native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesImageCell";
 import icons from "../../../assets/icons";
@@ -24,9 +24,8 @@ const SpeciesImageCell = ( { item, fetchiNatData }: Props ) => {
   const { navigate } = useNavigation();
   const route = useRoute();
   const { name } = route;
-  const isFocused = useIsFocused();
 
-  const seenTaxa = useSeenTaxa( item.id, isFocused );
+  const seenTaxa = useSeenTaxa( item.id );
   const commonName = useCommonName( item.id );
 
   const renderSpeciesImage = () => {

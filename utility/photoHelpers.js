@@ -1,10 +1,11 @@
 // @flow
 import ImageResizer from "react-native-image-resizer";
-import RNFS, { copyAssetsFileIOS } from "react-native-fs";
+import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
 import piexif from "piexifjs";
 import { FileUpload } from "inaturalistjs";
+import { version } from "react-native-inat-camera/package.json";
 
 import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
@@ -349,31 +350,38 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
-const readNativeExifData = async ( file: string ) => {
-  // this does not work on ph:// iOS files
+// helpful for development, but not used in production
+// const readNativeExifData = async ( file: string ) => {
+//   // this does not work on ph:// iOS files
+//   const prefixe = "data:image/jpeg;base64,";
+//   const srcdata = await RNFS.readFile( file, "base64" );
+
+//   const srcexifs = piexif.load( prefixe + srcdata );
+
+//   return srcexifs;
+// };
+
+const writeExifData = async ( file: string ) => {
   const prefixe = "data:image/jpeg;base64,";
   const srcdata = await RNFS.readFile( file, "base64" );
 
   const srcexifs = piexif.load( prefixe + srcdata );
 
-  return srcexifs;
-};
+  const _zero = srcexifs["0th"];
+  const _first = srcexifs["1st"];
+  const _Exif = srcexifs.Exif;
+  const _GPS = srcexifs.GPS;
+  const _Interop = srcexifs.Interop;
+  const _thumbnail = srcexifs.thumbnail;
 
-const writeExifData = async ( exifObj: Object, cameraRollFile: string ) => {
-  const prefixe = "data:image/jpeg;base64,";
+  _zero[piexif.ImageIFD.Software] = `React Native iNat Camera ${version}`;
 
-  const stat = await RNFS.stat( cameraRollFile );
-  const nativeUri = `${Platform.OS === "android" ? "file://" : ""}${stat.originalFilepath}`;
-  const srcdata = await RNFS.readFile( nativeUri, "base64" );
+  var exifObj = { "0th": _zero, "1st": _first, Exif: _Exif, GPS: _GPS, Interop: _Interop, thumbnail: _thumbnail };
 
   const exifStr = piexif.dump( exifObj );
-
-  try {
-    const bs64Exif = piexif.insert( exifStr, prefixe + srcdata );
-    return bs64Exif;
-  } catch ( e ) {
-    console.log( e, "couldn't write exif data" );
-  }
+  const bs64Exif = piexif.insert( exifStr, prefixe + srcdata ).substring( prefixe.length );
+  await RNFS.writeFile( file, bs64Exif, "base64" );
+  return bs64Exif;
 };
 
 export {
@@ -389,7 +397,7 @@ export {
   writeToDebugLog,
   deleteDebugLogAfter7Days,
   replacePhoto,
-  readNativeExifData,
+  // readNativeExifData,
   writeExifData,
   flattenUploadParameters
 };

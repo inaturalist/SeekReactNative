@@ -22,7 +22,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { readNativeExifData, writeExifData, writeToDebugLog } from "../../../utility/photoHelpers";
+import { writeExifData, writeToDebugLog } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -110,20 +110,12 @@ const ARCamera = () => {
     }
   };
 
-  const writeExifAndNavToResults = useCallback( async ( exifData, uri, predictions ) => {
-    // the issue is different on iOS
-    // need react-native-inat-camera to preserve GPS data in original photo
-    // 1st, Interop, and thumbnail are also null on iOS
+  const savePhoto = useCallback( async ( photo ) => {
     if ( Platform.OS === "android" ) {
-      await writeExifData( exifData, uri );
+      await writeExifData( photo.uri );
     }
-    navigateToResults( uri, predictions );
-  }, [navigateToResults] );
-
-  const savePhoto = useCallback( ( photo ) => {
-    const exifData = readNativeExifData( photo.uri );
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
-      .then( uri => writeExifAndNavToResults( exifData, uri, photo.predictions ) )
+      .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
         const gallery = "Error: Access to photo library was denied";
 
@@ -134,7 +126,7 @@ const ARCamera = () => {
           updateError( "save", e );
         }
       } );
-  }, [updateError, writeExifAndNavToResults] );
+  }, [updateError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id, filter ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );

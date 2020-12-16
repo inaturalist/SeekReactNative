@@ -1,7 +1,6 @@
 // @flow
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
 
 import { capitalizeNames } from "../../utility/helpers";
 import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
@@ -17,8 +16,7 @@ type Props = {
 };
 
 const SpeciesTaxonomy = ( { ancestors, predictions, id }: Props ) => {
-  const isFocused = useIsFocused();
-  const commonName = useCommonName( id, isFocused );
+  const commonName = useCommonName( id );
   const [taxonomyList, setTaxonomyList] = useState( [] );
 
   let marginLeft = 0;

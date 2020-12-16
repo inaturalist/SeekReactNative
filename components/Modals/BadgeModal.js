@@ -48,7 +48,6 @@ const BadgeModal = ( { badges, iconicSpeciesCount, closeModal }: Props ) => {
 
   const onViewRef = useRef( ( { changed } ) => {
     const { index } = changed[0];
-    console.log( index, "index change in view ref", !index );
     if ( index === null || index === undefined ) {
       return;
     }

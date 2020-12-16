@@ -2,7 +2,6 @@
 
 import React from "react";
 import { View, Text } from "react-native";
-import { useIsFocused } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import { colors } from "../../styles/global";
@@ -28,9 +27,8 @@ const ReplacePhotoModal = ( {
   seenDate,
   taxaId
 }: Props ) => {
-  const isFocused = useIsFocused();
-  const seenTaxa = useSeenTaxa( taxaId, isFocused );
-  const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
+  const seenTaxa = useSeenTaxa( taxaId );
+  const currentUserPhoto = useUserPhoto( seenTaxa );
 
   if ( !currentUserPhoto ) {
     return null;

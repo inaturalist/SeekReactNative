@@ -6,7 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity
 } from "react-native";
-import { useIsFocused, useNavigation } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "../../../styles/uiComponents/speciesNearby/speciesObservedCell";
 import i18n from "../../../i18n";
@@ -21,11 +21,10 @@ type Props = {
 
 const SpeciesObservedCell = ( { item }: Props ) => {
   const { navigate } = useNavigation();
-  const isFocused = useIsFocused();
-  const commonName = useCommonName( item.taxon.id, isFocused );
+  const commonName = useCommonName( item.taxon.id );
 
-  const seenTaxa = useSeenTaxa( item.taxon.id, isFocused );
-  const currentUserPhoto = useUserPhoto( seenTaxa, isFocused );
+  const seenTaxa = useSeenTaxa( item.taxon.id );
+  const currentUserPhoto = useUserPhoto( seenTaxa );
 
   const displayName = commonName || item.taxon.name;
 

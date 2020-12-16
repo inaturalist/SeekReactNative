@@ -1,18 +1,12 @@
 // @flow
 
-import React, { Component } from "react";
-import {
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity
-} from "react-native";
+import React, { useState, useCallback } from "react";
+import { View, Image, TouchableOpacity } from "react-native";
 import Realm from "realm";
 import Modal from "react-native-modal";
 
 import i18n from "../../i18n";
 import realmConfig from "../../models";
-import BannerHeader from "./BannerHeader";
 import BadgeModal from "../Modals/BadgeModal";
 import badgeImages from "../../assets/badges";
 import styles from "../../styles/badges/achievements";
@@ -21,108 +15,84 @@ type Props = {
   +speciesBadges: Array<Object>
 }
 
-type State = {
-  showModal: boolean,
-  iconicTaxonBadges: Array<Object>,
-  iconicSpeciesCount: ?number
-}
+const SpeciesBadges = ( { speciesBadges }: Props ) => {
+  const [showModal, setModal] = useState( false );
+  const [iconicSpeciesCount, setIconicSpeciesCount] = useState( 0 );
+  const [iconicTaxonBadges, setIconicTaxonBadges] = useState( [] );
 
-class SpeciesBadges extends Component<Props, State> {
-  constructor() {
-    super();
+  const openModal = useCallback( () => setModal( true ), [] );
+  const closeModal = useCallback( () => setModal( false ), [] );
 
-    this.state = {
-      showModal: false,
-      iconicTaxonBadges: [],
-      iconicSpeciesCount: null
-    };
-
-    ( this:any ).closeModal = this.closeModal.bind( this );
-  }
-
-  fetchBadgesByIconicId( taxaId: number ) {
+  const fetchBadgesByIconicId = ( taxaId: number ) => {
     Realm.open( realmConfig )
       .then( ( realm ) => {
         const badges = realm.objects( "BadgeRealm" ).filtered( `iconicTaxonId == ${taxaId}` ).sorted( "index" );
         const collectedTaxa = realm.objects( "TaxonRealm" );
         const collection = collectedTaxa.filtered( `iconicTaxonId == ${taxaId}` ).length;
 
-        this.setState( {
-          iconicTaxonBadges: badges,
-          iconicSpeciesCount: collection
-        }, () => this.openModal() );
+        setIconicTaxonBadges( badges );
+        setIconicSpeciesCount( collection );
+        openModal();
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
-  }
+  };
 
-  openModal() {
-    this.setState( { showModal: true } );
-  }
-
-  closeModal() {
-    this.setState( { showModal: false } );
-  }
-
-  renderBadgesRow( data: Array<Object> ) {
+  const renderSpeciesBadge = ( item ) => {
+    if ( !item ) { return; }
     return (
-      <FlatList
-        alwaysBounceHorizontal={false}
-        data={data}
-        horizontal
-        keyExtractor={( badge, index ) => `${badge.name}${index}`}
-        renderItem={( { item } ) => {
-          let badgeIcon;
-          if ( item.earned ) {
-            badgeIcon = badgeImages[item.earnedIconName];
-          } else {
-            badgeIcon = badgeImages.badge_empty;
-          }
-          return (
-            <TouchableOpacity
-              onPress={() => this.fetchBadgesByIconicId( item.iconicTaxonId )}
-              style={styles.gridCell}
-              accessible
-              accessibilityLabel={i18n.t( item.infoText )}
-            >
-              <Image
-                source={badgeIcon}
-                style={styles.badgeIcon}
-              />
-            </TouchableOpacity>
-          );
-        }}
+      <TouchableOpacity
+        onPress={() => fetchBadgesByIconicId( item.iconicTaxonId )}
+        style={styles.gridCell}
+        accessible
+        accessibilityLabel={i18n.t( item.infoText )}
+        key={item.iconicTaxonId}
+      >
+        <Image
+          source={item.earned ? badgeImages[item.earnedIconName] : badgeImages.badge_empty}
+          style={styles.badgeIcon}
+        />
+      </TouchableOpacity>
+    );
+  };
+
+  const renderNextFiveBadges = ( start, finish ) => (
+    <View style={styles.gridRowWrap} key={start}>
+      {speciesBadges.slice( start, finish ).map( ( item, index ) => renderSpeciesBadge( item ) )}
+    </View>
+  );
+
+  const renderBadgesGrid = ( ) => {
+    const numOfSets = Math.round( speciesBadges.length / 5 );
+    const sets = [];
+
+    for ( let i = 0; i < numOfSets; i += 1 ) {
+      sets.push( i * 5 );
+    }
+
+    return sets.map( ( set, index ) => renderNextFiveBadges( sets[index], sets[index + 1] ) );
+  };
+
+  const renderBadgeModal = ( ) => (
+    <Modal
+      isVisible={showModal}
+      onBackdropPress={closeModal}
+    >
+      <BadgeModal
+        badges={iconicTaxonBadges}
+        iconicSpeciesCount={iconicSpeciesCount}
+        closeModal={closeModal}
       />
-    );
-  }
+    </Modal>
+  );
 
-  render() {
-    const { speciesBadges } = this.props;
-    const { iconicTaxonBadges, showModal, iconicSpeciesCount } = this.state;
-
-    return (
-      <View style={styles.center}>
-        {iconicTaxonBadges.length > 0 && (
-          <Modal
-            isVisible={showModal}
-            onBackdropPress={() => this.closeModal()}
-          >
-            <BadgeModal
-              badges={iconicTaxonBadges}
-              iconicSpeciesCount={iconicSpeciesCount}
-              closeModal={this.closeModal}
-            />
-          </Modal>
-        )}
-        <BannerHeader text={i18n.t( "badges.species_badges" ).toLocaleUpperCase()} />
-        {this.renderBadgesRow( speciesBadges.slice( 0, 3 ) )}
-        {this.renderBadgesRow( speciesBadges.slice( 3, 5 ) )}
-        {this.renderBadgesRow( speciesBadges.slice( 5, 8 ) )}
-        {this.renderBadgesRow( speciesBadges.slice( 8, 10 ) )}
-        <View style={styles.margin} />
-      </View>
-    );
-  }
-}
+  return (
+    <View>
+      {iconicTaxonBadges.length > 0 && renderBadgeModal( )}
+      {speciesBadges.length > 0 && renderBadgesGrid( )}
+      <View style={styles.margin} />
+    </View>
+  );
+};
 
 export default SpeciesBadges;

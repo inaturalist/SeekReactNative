@@ -2,19 +2,17 @@
 import NetInfo from "@react-native-community/netinfo";
 import AsyncStorage from "@react-native-community/async-storage";
 import jwt from "react-native-jwt-io";
-import { FileUpload } from "inaturalistjs";
 import Realm from "realm";
-import { Platform } from "react-native";
+import { Platform, LogBox } from "react-native";
 import RNFS from "react-native-fs";
 import * as RNLocalize from "react-native-localize";
-import { resizeImage } from "./photoHelpers";
+import QuickActions from "react-native-quick-actions";
 
 import i18n from "../i18n";
 import iconicTaxaIds from "./dictionaries/iconicTaxonDictById";
 import config from "../config";
 import realmConfig from "../models/index";
 import { dirModel, dirTaxonomy } from "./dirStorage";
-import { dimensions } from "../styles/global";
 
 const checkForInternet = () => (
   new Promise<any>( ( resolve ) => {
@@ -95,42 +93,12 @@ const addARCameraFiles = async () => {
   }
 };
 
-const resizePhoto = async ( uri ) => {
-  try {
-    const image = await resizeImage( uri, 299 );
-    return image;
-  } catch ( e ) {
-    return null;
-  }
-};
-
-const flattenUploadParameters = async ( image: Object ) => {
-  const {
-    latitude,
-    longitude,
-    uri,
-    time
-  } = image;
-  const userImage = await resizePhoto( uri );
-
-  const params = {
-    image: new FileUpload( {
-      uri: userImage,
-      name: "photo.jpeg",
-      type: "image/jpeg"
-    } ),
-    observed_on: new Date( time * 1000 ).toISOString(),
-    latitude,
-    longitude
-  };
-  return params;
-};
-
-const shuffleList = ( list ) => {
+const shuffleList = ( list: Array<Object> ) => {
   const newList = list;
 
   for ( let i = list.length - 1; i > 0; i -= 1 ) {
     const j = Math.floor( Math.random() * ( i + 1 ) );
+    // $FlowFixMe
     [newList[i], newList[j]] = [list[j], list[i]];
   }
 
@@ -193,29 +161,6 @@ const checkIfCardShown = async () => {
     return false;
   }
 };
-
-const getTaxonCommonName = ( taxonID: number ) => (
-  new Promise<any>( ( resolve ) => {
-    Realm.open( realmConfig ).then( ( realm ) => {
-        let searchLocale;
-
-        const specificLocales = ["es-MX", "pt-BR"];
-
-        if ( specificLocales.includes( i18n.locale ) ) {
-          searchLocale = i18n.locale;
-        } else {
-          searchLocale = i18n.currentLocale( ).split( "-" )[0].toLowerCase( );
-        }
-        // look up common names for predicted taxon in the current locale
-        const commonNames = realm.objects( "CommonNamesRealm" )
-          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
-        resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
-      } ).catch( ( err ) => {
-        console.log( "[DEBUG] Failed to open realm, error: ", err );
-        resolve( );
-      } );
-  } )
-);
 
 const setSpeciesId = ( id: number ) => {
   AsyncStorage.setItem( "id", id.toString() );
@@ -292,17 +237,37 @@ const localizeNumber = ( number: number ) => {
 
 const localizePercentage = ( number: number ) => i18n.toPercentage( number, { precision: 0 } );
 
-const requiresSafeArea = () => Platform.OS === "ios" && dimensions.height > 570;
-
 const navigateToMainStack = ( navigate: Function, screen: string, params: Object ) => {
   navigate( "Drawer", { screen: "Main", params: { screen, params } } );
+};
+
+const hideLogs = () => {
+  LogBox.ignoreLogs( [
+    "Picker has been extracted",
+    "Failed prop type: Invalid prop `confidenceThreshold`",
+    "Failed prop type: Invalid prop `taxaDetectionInterval`"
+  ] );
+};
+
+const setQuickActions = () => {
+  if ( Platform.OS === "android" ) {
+    QuickActions.setShortcutItems( [
+      {
+        type: "Seek AR Camera", // Required
+        title: "Seek AR Camera", // Optional, if empty, `type` will be used instead
+        subtitle: "For quick identifications",
+        icon: "camerabutton", // Icons instructions below
+        userInfo: {
+          url: "app://Drawer/Main/Camera" // Provide any custom data like deep linking URL
+        }
+      }
+    ] );
+  }
 };
 
 export {
   addARCameraFiles,
   capitalizeNames,
-  flattenUploadParameters,
-  getTaxonCommonName,
   checkIfFirstLaunch,
   checkIfCardShown,
   checkIfCameraLaunched,
@@ -318,6 +283,7 @@ export {
   createJwtToken,
   localizeNumber,
   localizePercentage,
-  requiresSafeArea,
-  navigateToMainStack
+  navigateToMainStack,
+  hideLogs,
+  setQuickActions
 };

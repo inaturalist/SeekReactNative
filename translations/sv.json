@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Hitta 1 spindeldjur",
     "mission_4_nov_2020": "Hitta 2 insekter",
     "nov_2020_description": "Många arter har utvecklat anpassningar till mänskliga miljöer allteftersom våra populationer har vuxit runtom i världen. Även i tätbefolkade stadsområden kan vi hitta fåglar, växter och insekter som lever bland oss.",
-    "action_nov_2020": "Vilka vanliga vilda arter ser du i ditt område? Är dessa arter inhemska, invasiva eller introducerade? Om de är introducerade, försök ta reda på hur de kom hit."
+    "action_nov_2020": "Vilka vanliga vilda arter ser du i ditt område? Är dessa arter inhemska, invasiva eller introducerade? Om de är introducerade, försök ta reda på hur de kom hit.",
+    "ecosystem": "Ekosystemutmaning",
+    "mission_1_dec_2020": "Hitta 3 olika ryggradsdjur (fåglar, däggdjur, reptiler, groddjur och fiskar)",
+    "mission_2_dec_2020": "Hitta 3 växter",
+    "mission_3_dec_2020": "Hitta 3 insekter",
+    "mission_4_dec_2020": "Hitta 1 spindeldjur",
+    "dec_2020_description": "Ekosystem fungerar med en blandning av olika organismer i olika nischer. Producenter, konsumenter och nedbrytare arbetar tillsammans för att balansera ekosystemet.",
+    "action_dec_2020": "Undersök hur olika typer av ekosystem fungerar med organismer fördelade längs näringskedjan. Hur skiljer de sig i olika delar av världen och i olika biom?"
   },
   "replace_photo": {
     "header": "Ersätt bild?",

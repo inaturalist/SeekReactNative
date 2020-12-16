@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Găsește 1 arahnidă",
     "mission_4_nov_2020": "Găsește 2 insecte",
     "nov_2020_description": "Multe specii au evoluat pentru a se adapta la mediile umane pe măsură ce populațiile noastre au crescut în întreaga lume. Chiar și în zonele urbane dense, putem găsi păsări, plante și insecte care trăiesc printre noi.",
-    "action_nov_2020": "Care sunt speciile sălbatice comune pe care le vezi în zona ta? Sunt aceste specii native, invazive sau introduse? Dacă sunt introduse, vezi dacă poți afla cum au ajuns aceste specii aici."
+    "action_nov_2020": "Care sunt speciile sălbatice comune pe care le vezi în zona ta? Sunt aceste specii native, invazive sau introduse? Dacă sunt introduse, vezi dacă poți afla cum au ajuns aceste specii aici.",
+    "ecosystem": "Provocarea Ecosistemului",
+    "mission_1_dec_2020": "Găsește 3 vertebrate (păsări, mamifere, reptile, amfibieni și pești)",
+    "mission_2_dec_2020": "Găsește 3 plante",
+    "mission_3_dec_2020": "Găsește 3 insecte",
+    "mission_4_dec_2020": "Găsește 1 arahnidă",
+    "dec_2020_description": "Ecosistemele funcționează cu organisme de toate tipurile și nișele. Producătorii, consumatorii și descompunătorii lucrează împreună pentru a echilibra ecosistemul.",
+    "action_dec_2020": "Explorează modul în care diferite tipuri de ecosisteme funcționează cu organisme distribuite în lanțul alimentar. Care este diferența între ele în diferite părți ale lumii și în diferite biomuri?"
   },
   "replace_photo": {
     "header": "Înlocuiești Fotografia?",

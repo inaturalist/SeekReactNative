@@ -11,7 +11,8 @@ import Realm from "realm";
 import Modal from "react-native-modal";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { getRoute, getTaxonCommonName } from "../../utility/helpers";
+import { getRoute } from "../../utility/helpers";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import realmConfig from "../../models";
 import styles from "../../styles/observations/observations";
 import { createSectionList, removeFromCollection } from "../../utility/observationHelpers";

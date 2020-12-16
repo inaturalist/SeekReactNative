@@ -15,17 +15,14 @@ import i18n from "../../i18n";
 import About from "./OnlineOnlyCards/About";
 import SeenDate from "./OnlineOnlyCards/SeenDate";
 import { formatShortMonthDayYear } from "../../utility/dateHelpers";
-import { useTruncatedUserCoords, useLocationPermission } from "../../utility/customHooks";
+import { createRegion } from "../../utility/locationHelpers";
+import { useTruncatedUserCoords, useLocationPermission, useSeenTaxa } from "../../utility/customHooks";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesError from "./SpeciesError";
-
-const latitudeDelta = 0.2;
-const longitudeDelta = 0.2;
 
 type Props = {
   +details: Object,
   +id: number,
-  +seenTaxa: ?Object,
   +fetchiNatData: Function,
   +predictions: Array<Object>,
   +checkForInternet: Function,
@@ -35,7 +32,6 @@ type Props = {
 
 const SpeciesContainer = ( {
   id,
-  seenTaxa,
   details,
   fetchiNatData,
   predictions,
@@ -50,6 +46,8 @@ const SpeciesContainer = ( {
     ancestors,
     timesSeen
   } = details;
+
+  const seenTaxa = useSeenTaxa( id );
   const seenDate = seenTaxa ? formatShortMonthDayYear( seenTaxa.date ) : null;
   const granted = useLocationPermission();
   const coords = useTruncatedUserCoords( granted );
@@ -61,20 +59,18 @@ const SpeciesContainer = ( {
     ( stat => greenButtons[stat] )
   ).includes( true );
 
+  const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
+
   useEffect( () => {
-    const setNewRegion = ( newRegion ) => {
-      setRegion( {
-        latitude: newRegion.latitude,
-        longitude: newRegion.longitude,
-        latitudeDelta,
-        longitudeDelta
-      } );
-    };
     // if user has seen observation, fetch data based on obs location
     if ( seenTaxa && seenTaxa.latitude ) {
       setNewRegion( seenTaxa );
+    }
+  }, [seenTaxa] );
+
+  useEffect( () => {
       // otherwise, fetch data based on user location
-    } else if ( coords && coords.latitude ) {
+    if ( !seenTaxa && ( coords && coords.latitude ) ) {
       setNewRegion( coords );
     }
   }, [coords, seenTaxa] );

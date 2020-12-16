@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Finde 1 Spinnentier",
     "mission_4_nov_2020": "Finde 2 Insekten",
     "nov_2020_description": "Viele Arten haben sich an die menschliche Umwelt angepasst, da unsere Bevölkerung weltweit gewachsen ist. Selbst in dichten städtischen Gebieten finden wir Vögel, Pflanzen und Insekten, die unter uns leben.",
-    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind."
+    "action_nov_2020": "Was sind die häufigen wilden Arten, die du in deiner Gegend siehst? Sind diese Arten einheimisch, invasiv oder eingeschleppt? Wenn sie eingeschleppt werden, versuche herauszufinden, auf welche Weise sie bei uns angekommen sind.",
+    "ecosystem": "Ökosystem-Mission",
+    "mission_1_dec_2020": "Finde 3 verschiedene Wirbeltiere (Vögel, Säugetiere, Reptilien, Amphibien oder Fische)",
+    "mission_2_dec_2020": "Finde 3 Pflanzen",
+    "mission_3_dec_2020": "Finde 3 Insekten",
+    "mission_4_dec_2020": "Finde 1 Spinnentier",
+    "dec_2020_description": "Ökosysteme funktionieren im Zusammenspiel mit Organismen aller Formen und Ernährungsweisen. Produzenten, Konsumenten und Zersetzer bilden eine Gemeinschaft, die für ein Gleichgewicht im Ökosystem sorgen.",
+    "action_dec_2020": "Finde heraus, wie verschiedene Ökosysteme funktionieren mit Lebewesen auf verschiedenen Stufen der Nahrungskette. Wie unterscheiden sie sich in verschiedenen Teilen der Welt und in verschiedenen Lebensräumen?"
   },
   "replace_photo": {
     "header": "Foto ersetzen?",

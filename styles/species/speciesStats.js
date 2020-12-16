@@ -23,6 +23,6 @@ export default StyleSheet.create( {
     fontSize: 18,
     letterSpacing: 1.0,
     paddingHorizontal: 9,
-    paddingTop: padding.iOSPaddingFontSize18
+    paddingTop: padding.iOSButtonPadding
   }
 } );

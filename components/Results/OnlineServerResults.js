@@ -6,12 +6,9 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 import ConfirmScreen from "./ConfirmScreen";
 import ErrorScreen from "./Error";
-import {
-  capitalizeNames,
-  flattenUploadParameters,
-  getTaxonCommonName,
-  createJwtToken
-} from "../../utility/helpers";
+import { capitalizeNames, createJwtToken } from "../../utility/helpers";
+import { flattenUploadParameters } from "../../utility/photoHelpers";
+import { getTaxonCommonName } from "../../utility/commonNamesHelpers";
 import { addToCollection } from "../../utility/observationHelpers";
 import { fetchTruncatedUserLocation } from "../../utility/locationHelpers";
 import createUserAgent from "../../utility/userAgent";
@@ -237,8 +234,6 @@ const OnlineServerResults = () => {
       checkMetaData();
     } );
   }, [navigation, checkMetaData] );
-
-
 
   return (
     <>

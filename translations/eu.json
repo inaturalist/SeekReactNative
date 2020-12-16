@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Bilatu araknido 1",
     "mission_4_nov_2020": "Bilatu intsektu 2",
     "nov_2020_description": "Espezie asko gizakiek eraldatutako ingurugiroetara egokitzeko eboluzionatu dute eta munduan zehar hazi egin dira. Oso dentsitate handiko hiriguneetan ere, topa ditzakegu hegaztiak, landareak eta intsektuak gizakiez inguratuta.",
-    "action_nov_2020": "Zer dute berdinetik zure ingurugiroan bizi diren espezie basatiek? Bertoko espezieak dira, espezie inbasoreak edo berariaz inportatuko espezieak dira? Kanpotik sartu berriak diren espeziak baldin badira, ikertu ezazu ea nola sartu diren zure ingurugiroan."
+    "action_nov_2020": "Zer dute berdinetik zure ingurugiroan bizi diren espezie basatiek? Bertoko espezieak dira, espezie inbasoreak edo berariaz inportatuko espezieak dira? Kanpotik sartu berriak diren espeziak baldin badira, ikertu ezazu ea nola sartu diren zure ingurugiroan.",
+    "ecosystem": "Ekosistema erronka",
+    "mission_1_dec_2020": "Bilatu 3 ornodun (hegaztiak, ugaztunak, narrastiak, anfibioak eta arrainak)",
+    "mission_2_dec_2020": "Bilatu 3 landare",
+    "mission_3_dec_2020": "Bilatu 3 intsektu",
+    "mission_4_dec_2020": "Bilatu araknido 1",
+    "dec_2020_description": "Ekosistemek hainbat motatqako eta nitxotako organismoekin funtzionatzen dute. Ekoizleek, kontsumitzaileek eta deskonposatzaileek elkarrekin lan egiten dute ekosistema orekatzeko.",
+    "action_dec_2020": "Aztertu ekosistema mota desberdinek nola funtzionatzen duten elikadura-katean zehar banatutako organismoekin. Zertan dira desberdinak munduko alde ezberdinetan eta biomasa ezberdinetan?"
   },
   "replace_photo": {
     "header": "Argazkia ordezkatu?",

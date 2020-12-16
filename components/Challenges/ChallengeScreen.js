@@ -17,10 +17,14 @@ import EmptyChallengesCard from "./EmptyChallengesCard";
 
 const ChallengeScreen = () => {
   const navigation = useNavigation();
-  const [notStarted, setNotStarted] = useState( [] );
-  const [started, setStarted] = useState( [] );
-  const [completed, setCompleted] = useState( [] );
-  const [loading, setLoading] = useState( true );
+  const [state, setState] = useState( {
+    notStarted: [],
+    started: [],
+    completed: [],
+    loading: true
+  } );
+
+  const { notStarted, started, completed, loading } = state;
   const noChallenges = notStarted.length === 0 && started.length === 0;
 
   const fetchChallenges = () => {
@@ -31,10 +35,12 @@ const ChallengeScreen = () => {
         const challengesNotStarted = challenges.filtered( "startedDate == null" );
         const challengesCompleted = challenges.filtered( "startedDate != null AND percentComplete == 100" );
 
-        setStarted( challengesStarted );
-        setNotStarted( challengesNotStarted );
-        setCompleted( challengesCompleted );
-        setLoading( false );
+        setState( {
+          notStarted: challengesNotStarted,
+          started: challengesStarted,
+          completed: challengesCompleted,
+          loading: false
+        } );
       } ).catch( () => {
         // console.log( "[DEBUG] Failed to open realm, error: ", err );
       } );
@@ -47,11 +53,15 @@ const ChallengeScreen = () => {
     } );
   }, [navigation] );
 
+  const renderHeader = text => (
+    <View style={styles.header}>
+      <GreenText text={text} />
+    </View>
+  );
+
   const renderStarted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.in_progress" />
-      </View>
+      {renderHeader( "challenges.in_progress" )}
       {started.length > 0 ? (
         <>
           {started.map( ( challenge ) => (
@@ -68,9 +78,7 @@ const ChallengeScreen = () => {
 
   const renderNotStarted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.not_started" />
-      </View>
+      {renderHeader( "challenges.not_started" )}
       {notStarted.length > 0 ? (
         <>
           {notStarted.map( ( challenge ) => (
@@ -88,16 +96,13 @@ const ChallengeScreen = () => {
 
   const renderCompleted = () => (
     <>
-      <View style={styles.header}>
-        <GreenText text="challenges.completed" />
-      </View>
-      {completed.length > 0 ? (
-        completed.map( ( challenge ) => (
-          <ChallengeProgressCard
-            key={`${challenge.name}`}
-            challenge={challenge}
-          />
-        ) )
+      {renderHeader( "challenges.completed" )}
+      {completed.length > 0 ? completed.map( ( challenge ) => (
+        <ChallengeProgressCard
+          key={`${challenge.name}`}
+          challenge={challenge}
+        />
+      )
       ) : <EmptyChallengesCard type="no_completed_challenges" />}
     </>
   );

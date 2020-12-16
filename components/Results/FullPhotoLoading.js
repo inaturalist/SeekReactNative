@@ -14,14 +14,15 @@ const FullPhotoLoading = ( { uri }: Props ) => {
     return (
       <ImageBackground
         source={{ uri }}
-        style={[styles.imageBackground, styles.background]}
+        style={styles.imageBackground}
+        imageStyle={styles.contain}
       >
         <LoadingWheel color="white" />
       </ImageBackground>
     );
   }
   return (
-    <View style={[styles.background, styles.flex]}>
+    <View style={[styles.imageBackground]}>
       <LoadingWheel color="white" />
     </View>
   );

@@ -10,6 +10,7 @@ import { colors } from "../../styles/global";
 import languages from "../../utility/dictionaries/languageDict";
 import { LanguageContext } from "../UserContext";
 import { toggleLanguage } from "../../utility/settingsHelpers";
+import { deviceLanguageSupported, setDisplayLanguage } from "../../utility/languageHelpers";
 
 const localeList = Object.keys( languages ).map( ( locale ) => (
   { value: locale, label: languages[locale].toLocaleUpperCase() }
@@ -19,22 +20,13 @@ const placeholder = {};
 const pickerStyles = { ...styles };
 const showIcon = () => <></>;
 
-const { languageTag } = RNLocalize.getLocales()[0];
-const deviceLanguage = languageTag.split( "-" )[0].toLowerCase();
-const deviceLanguageSupported = Object.keys( languages ).includes( deviceLanguage );
+const { languageCode } = RNLocalize.getLocales()[0];
 
 const LanguagePicker = () => {
   const { toggleLanguagePreference, preferredLanguage } = useContext( LanguageContext );
 
-  const chooseDisplayLanguage = useCallback( () => {
-    if ( preferredLanguage === "device" ) {
-      return deviceLanguageSupported ? deviceLanguage : "en";
-    }
-    return preferredLanguage;
-  }, [preferredLanguage] );
-
-  const displayLanguage = chooseDisplayLanguage();
-  const isChecked = preferredLanguage === "device" || displayLanguage === deviceLanguage;
+  const displayLanguage = setDisplayLanguage( preferredLanguage );
+  const isChecked = preferredLanguage === "device" || displayLanguage === languageCode;
 
   const handleValueChange = useCallback( ( value ) => {
     // this prevents the double render on new Android install
@@ -74,7 +66,7 @@ const LanguagePicker = () => {
   return (
     <View style={styles.donateMarginBottom}>
       <Text style={styles.header}>{i18n.t( "settings.language" ).toLocaleUpperCase()}</Text>
-      {deviceLanguageSupported && renderDeviceCheckbox}
+      {deviceLanguageSupported( ) && renderDeviceCheckbox}
       <RNPickerSelect
         hideIcon
         Icon={showIcon}

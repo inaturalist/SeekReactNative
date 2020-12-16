@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { Image, TouchableOpacity, ScrollView } from "react-native";
-import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 
 import { setSpeciesId, setRoute } from "../../utility/helpers";
 import styles from "../../styles/observations/obsCard";
@@ -23,14 +23,13 @@ const ObservationCard = ( {
   updateItemScrolledId,
   itemScrolledId
 }: Props ) => {
-  const isFocused = useIsFocused();
   const scrollView = useRef( null );
   const { navigate } = useNavigation();
 
   const { taxon } = item;
   const { id } = taxon;
 
-  const photo = useUserPhoto( item, isFocused );
+  const photo = useUserPhoto( item );
 
   useEffect( () => {
     const scrollLeft = () => {

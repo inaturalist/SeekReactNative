@@ -1,6 +1,6 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState } from "react";
 import { View, Text, BackHandler } from "react-native";
-import { useNavigation, useRoute, useFocusEffect, useIsFocused } from "@react-navigation/native";
+import { useNavigation, useRoute, useFocusEffect } from "@react-navigation/native";
 
 import i18n from "../../i18n";
 import iconicTaxaNames from "../../utility/dictionaries/iconicTaxonDict";
@@ -13,22 +13,19 @@ import CustomBackArrow from "../../components/UIComponents/Buttons/CustomBackArr
 type Props = {
   photos: Array<Object>,
   taxon: Object,
-  seenTaxa: ?Object,
-  id: ?Number
+  id: number
 }
 
 const SpeciesHeader = ( {
   photos,
-  seenTaxa,
   taxon,
   id
 }: Props ) => {
   const navigation = useNavigation();
-  const isFocused = useIsFocused();
   const { navigate } = navigation;
   const { params } = useRoute();
   const [routeName, setRouteName] = useState( null );
-  const commonName = useCommonName( id, isFocused );
+  const commonName = useCommonName( id );
 
   const fetchRoute = async () => {
     const route = await getRoute();
@@ -45,19 +42,10 @@ const SpeciesHeader = ( {
     }
   }, [navigate, routeName, params] );
 
-  useEffect( () => {
-    let focused = true;
-    navigation.addListener( "focus", () => {
-      if ( focused ) {
-        fetchRoute();
-      }
-    } );
-
-    return () => { focused = false; };
-  }, [navigation] );
-
   useFocusEffect(
     useCallback( () => {
+      fetchRoute();
+
       const onBackPress = () => {
         backAction();
         return true; // following custom Android back behavior template in React Navigation
@@ -75,7 +63,7 @@ const SpeciesHeader = ( {
         handlePress={backAction}
         style={styles.backButton}
       />
-      {id !== null && <SpeciesPhotos photos={photos} seenTaxa={seenTaxa} />}
+      <SpeciesPhotos photos={photos} id={id} />
       <View style={styles.greenBanner}>
         {iconicTaxonId && (
           <Text style={styles.iconicTaxaText}>

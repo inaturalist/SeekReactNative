@@ -101,11 +101,24 @@ const checkForTruncatedCoordinates = ( latitude ) => {
   return false;
 };
 
+const createRegion = ( region ) => {
+  const latitudeDelta = 0.2;
+  const longitudeDelta = 0.2;
+
+  return {
+    latitude: region.latitude,
+    longitude: region.longitude,
+    latitudeDelta,
+    longitudeDelta
+  };
+};
+
 export {
   truncateCoordinates,
   fetchUserLocation,
   fetchLocationName,
   fetchTruncatedUserLocation,
   createLocationAlert,
-  checkForTruncatedCoordinates
+  checkForTruncatedCoordinates,
+  createRegion
 };

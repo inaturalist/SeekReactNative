@@ -17,7 +17,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.semibold,
     fontSize: 18,
     letterSpacing: 1.0,
-    paddingTop: padding.iOSPaddingFontSize18
+    paddingTop: padding.iOSButtonPadding
   },
   center,
   checkBox: {

@@ -3,6 +3,9 @@ import ImageResizer from "react-native-image-resizer";
 import RNFS from "react-native-fs";
 import { Platform } from "react-native";
 import Realm from "realm";
+import piexif from "piexifjs";
+import { FileUpload } from "inaturalistjs";
+import { version } from "react-native-inat-camera/package.json";
 
 import realmConfig from "../models/index";
 import { dirPictures, dirDebugLogs } from "./dirStorage";
@@ -58,23 +61,47 @@ const checkForPhotoMetaData = ( location: Object ) => {
   return false;
 };
 
-const resizeImage = ( imageUri: string, width: number, height?: number ) => (
-  new Promise<any>( ( resolve ) => {
-    ImageResizer.createResizedImage( imageUri, width, height || width, "JPEG", 100 )
-      .then( ( { uri } ) => {
-        let userImage;
-        if ( Platform.OS === "ios" ) {
-          const uriParts = uri.split( "://" );
-          userImage = uriParts[uriParts.length - 1];
-          resolve( userImage );
-        } else {
-          resolve( uri );
-        }
-      } ).catch( () => {
-        resolve( null );
-      } );
-  } )
-);
+const resizeImage = async ( path: string, width: number, height?: number ) => {
+  try {
+    const { uri } = await ImageResizer.createResizedImage(
+      path,
+      width,
+      height || width, // height
+      "JPEG", // compressFormat
+      100, // quality
+      0, // rotation
+      // $FlowFixMe
+      null, // outputPath
+      true // keep metadata
+    );
+
+    return uri;
+  } catch ( e ) {
+    console.log( e, "couldn't resize image" );
+  }
+};
+
+const flattenUploadParameters = async ( image: Object ) => {
+  const {
+    latitude,
+    longitude,
+    uri,
+    time
+  } = image;
+  const userImage = await resizeImage( uri, 299 );
+
+  const params = {
+    image: new FileUpload( {
+      uri: userImage,
+      name: "photo.jpeg",
+      type: "image/jpeg"
+    } ),
+    observed_on: new Date( time * 1000 ).toISOString(),
+    latitude,
+    longitude
+  };
+  return params;
+};
 
 const movePhotoToAppStorage = async ( filePath: string, newFilepath: string ) => (
   new Promise( ( resolve ) => {
@@ -323,6 +350,40 @@ const replacePhoto = async ( id: number, image: Object ) => {
   } );
 };
 
+// helpful for development, but not used in production
+// const readNativeExifData = async ( file: string ) => {
+//   // this does not work on ph:// iOS files
+//   const prefixe = "data:image/jpeg;base64,";
+//   const srcdata = await RNFS.readFile( file, "base64" );
+
+//   const srcexifs = piexif.load( prefixe + srcdata );
+
+//   return srcexifs;
+// };
+
+const writeExifData = async ( file: string ) => {
+  const prefixe = "data:image/jpeg;base64,";
+  const srcdata = await RNFS.readFile( file, "base64" );
+
+  const srcexifs = piexif.load( prefixe + srcdata );
+
+  const _zero = srcexifs["0th"];
+  const _first = srcexifs["1st"];
+  const _Exif = srcexifs.Exif;
+  const _GPS = srcexifs.GPS;
+  const _Interop = srcexifs.Interop;
+  const _thumbnail = srcexifs.thumbnail;
+
+  _zero[piexif.ImageIFD.Software] = `React Native iNat Camera ${version}`;
+
+  var exifObj = { "0th": _zero, "1st": _first, Exif: _Exif, GPS: _GPS, Interop: _Interop, thumbnail: _thumbnail };
+
+  const exifStr = piexif.dump( exifObj );
+  const bs64Exif = piexif.insert( exifStr, prefixe + srcdata ).substring( prefixe.length );
+  await RNFS.writeFile( file, bs64Exif, "base64" );
+  return bs64Exif;
+};
+
 export {
   checkForPhotoMetaData,
   resizeImage,
@@ -335,5 +396,8 @@ export {
   checkForDirectory,
   writeToDebugLog,
   deleteDebugLogAfter7Days,
-  replacePhoto
+  replacePhoto,
+  // readNativeExifData,
+  writeExifData,
+  flattenUploadParameters
 };

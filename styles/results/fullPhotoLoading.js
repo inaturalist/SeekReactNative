@@ -1,15 +1,14 @@
 import { StyleSheet } from "react-native";
-import { dimensions, colors } from "../global";
+import { colors } from "../global";
 
 export default StyleSheet.create( {
-  background: {
+  imageBackground: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
     backgroundColor: colors.black
   },
-  flex: {
-    flex: 1
-  },
-  imageBackground: {
-    height: dimensions.height,
-    width: dimensions.width
+  contain: {
+    resizeMode: "contain"
   }
 } );

@@ -7,7 +7,6 @@ import { useNavigation } from "@react-navigation/native";
 
 import { checkForPhotoMetaData } from "../../../utility/photoHelpers";
 import styles from "../../../styles/camera/gallery";
-
 import { dirTaxonomy, dirModel } from "../../../utility/dirStorage";
 
 type Props = {
@@ -58,7 +57,7 @@ const GalleryImage = ( { item }: Props ) => {
     } );
   }, [navigateToResults] );
 
-  const selectAndResizeImage = useCallback( () => {
+  const selectImage = useCallback( () => {
     const { timestamp, location, image } = item.node;
 
     if ( Platform.OS === "android" ) {
@@ -72,7 +71,7 @@ const GalleryImage = ( { item }: Props ) => {
     <TouchableOpacity
       accessibilityLabel={item.node.image.filename}
       accessible
-      onPress={selectAndResizeImage}
+      onPress={selectImage}
       style={styles.button}
     >
       <Image

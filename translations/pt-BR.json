@@ -655,7 +655,14 @@
     "mission_3_nov_2020": "Find 1 arachnid",
     "mission_4_nov_2020": "Find 2 insects",
     "nov_2020_description": "Many species have evolved to adapt to human environments as our populations have grown worldwide. Even in dense urban areas, we can find birds, plants, and insects living among us.",
-    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here."
+    "action_nov_2020": "What are common wild species you see in your area? Are these species native, invasive, or introduced? If introduced, see if you can find out how these species got here.",
+    "ecosystem": "Ecosystem Challenge",
+    "mission_1_dec_2020": "Find any 3 vertebrates (birds, mammals, reptiles, amphibians, and fish)",
+    "mission_2_dec_2020": "Find 3 plants",
+    "mission_3_dec_2020": "Find 3 insects",
+    "mission_4_dec_2020": "Find 1 arachnid",
+    "dec_2020_description": "Ecosystems function with organisms of all different types and niches. Producers, consumers, and decomposers work together to balance the ecosystem.",
+    "action_dec_2020": "Explore how different types of ecosystems function with organisms distributed across the food chain. How are they different in different parts of the world and in different biomes?"
   },
   "replace_photo": {
     "header": "Substituir foto?",

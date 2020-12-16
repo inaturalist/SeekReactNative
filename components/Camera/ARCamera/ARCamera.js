@@ -22,7 +22,7 @@ import i18n from "../../../i18n";
 import styles from "../../../styles/camera/arCamera";
 import icons from "../../../assets/icons";
 import CameraError from "../CameraError";
-import { writeToDebugLog } from "../../../utility/photoHelpers";
+import { writeExifData, writeToDebugLog } from "../../../utility/photoHelpers";
 import { requestAllCameraPermissions } from "../../../utility/androidHelpers.android";
 
 import { dirModel, dirTaxonomy } from "../../../utility/dirStorage";
@@ -110,7 +110,10 @@ const ARCamera = () => {
     }
   };
 
-  const savePhoto = useCallback( ( photo ) => {
+  const savePhoto = useCallback( async ( photo ) => {
+    if ( Platform.OS === "android" ) {
+      await writeExifData( photo.uri );
+    }
     CameraRoll.save( photo.uri, { type: "photo", album: "Seek" } )
       .then( uri => navigateToResults( uri, photo.predictions ) )
       .catch( e => {
@@ -123,7 +126,7 @@ const ARCamera = () => {
           updateError( "save", e );
         }
       } );
-  }, [navigateToResults, updateError] );
+  }, [updateError, navigateToResults] );
 
   const filterByTaxonId = useCallback( ( id, filter ) => {
     dispatch( { type: "FILTER_TAXON", taxonId: id, negativeFilter: filter } );
@@ -151,6 +154,7 @@ const ARCamera = () => {
           predictionSet = true;
           const prediction = predictions[rank][0];
 
+          //$FlowFixMe
           dispatch( { type: "SET_RANKS", ranks: { [rank]: [prediction] } } );
         }
         if ( !predictionSet ) {

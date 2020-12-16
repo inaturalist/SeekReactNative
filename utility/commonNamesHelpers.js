@@ -1,8 +1,28 @@
 // @flow
-import * as RNLocalize from "react-native-localize";
+import { setDisplayLanguage, localeNoHyphens } from "./languageHelpers";
+import { capitalizeNames } from "./helpers";
+import i18n from "../i18n";
 
 const Realm = require( "realm" );
 const realmConfig = require( "../models/index" );
+
+const getTaxonCommonName = ( taxonID: number ) => (
+  new Promise<any>( ( resolve ) => {
+    Realm.open( realmConfig.default ).then( ( realm ) => {
+      // need this because realm isn't guaranteed to only contain
+      // one locale; we could solve this by deleting the realm database each time
+      // the app loads or including this searchLocale parameter
+      const searchLocale = localeNoHyphens( ( i18n.locale ) );
+        // look up common names for predicted taxon in the current locale
+        const commonNames = realm.objects( "CommonNamesRealm" )
+          .filtered( `taxon_id == ${taxonID} and locale == '${searchLocale}'` );
+      resolve( commonNames.length > 0 ? capitalizeNames( commonNames[0].name ) : null );
+    } ).catch( ( err ) => {
+      console.log( "[DEBUG] Failed to open realm, error: ", err );
+      resolve( );
+    } );
+  } )
+);
 
 const addCommonNamesFromFile = ( realm, commonNamesDict, seekLocale ) => {
   commonNamesDict.forEach( ( commonNameRow ) => {
@@ -21,11 +41,13 @@ const setupCommonNames = ( preferredLanguage: string ) => {
   Realm.open( realmConfig.default )
     .then( ( realm ) => {
       realm.write( () => {
-        const { languageCode } = RNLocalize.getLocales()[0];
-        const seekLocale = ( preferredLanguage && preferredLanguage !== "device" ) ? preferredLanguage : languageCode;
+        const locale = setDisplayLanguage( preferredLanguage );
+        // need to remove hyphens for pt-BR and es-MX
+        const seekLocale = localeNoHyphens( locale );
         const realmLocale = realm.objects( "CommonNamesRealm" ).filtered( `locale == "${seekLocale}"` );
 
         // if common names for desired locale already exist in realm, do nothing
+        // note: early Seek adopters will have multiple languages stored in their realm
         if ( realmLocale.length > 0 ) {
           return;
         }
@@ -67,13 +89,12 @@ const setupCommonNames = ( preferredLanguage: string ) => {
         addCommonNamesFromFile( realm,
           require( "./commonNames/commonNamesDict-15" ).default, seekLocale );
       } );
-      // } ).then( () => {
-      //   console.log( new Date().getTime(), "end time for realm" );
     } ).catch( ( err ) => {
       console.log( "[DEBUG] Failed to setup common names: ", err );
     } );
 };
 
 export {
+  getTaxonCommonName,
   setupCommonNames
 };

@@ -10,7 +10,7 @@ import { calculatePercent } from "../../utility/challengeHelpers";
 
 type Props = {
   +badge: Object,
-  +iconicSpeciesCount: ?number
+  +iconicSpeciesCount: number
 }
 
 const LargeProgressCircle = ( { badge, iconicSpeciesCount }: Props ) => (

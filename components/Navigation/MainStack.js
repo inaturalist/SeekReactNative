@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Footer from "../UIComponents/Footer";
 import FooterTabNav from "./FooterTabs";
 import Match from "../Match/MatchScreen";
+import Social from "../Social/SocialScreen";
 import Notifications from "../Notifications/Notifications";
 
 const Tab = createBottomTabNavigator();
@@ -31,6 +32,11 @@ const MainStack = () => (
     initialRouteName="MainStack"
     screenOptions={{ gestureEnabled: false }}
   >
+    {/* <Stack.Screen
+      name="Social"
+      component={Social}
+      options={defaultConfig}
+    /> */}
     <Stack.Screen
       name="MainTab"
       component={FooterTabNav}
@@ -47,6 +53,11 @@ const MainStack = () => (
     <Stack.Screen
       name="Match"
       component={Match}
+      options={defaultConfig}
+    />
+    <Stack.Screen
+      name="Social"
+      component={Social}
       options={defaultConfig}
     />
   </Stack.Navigator>

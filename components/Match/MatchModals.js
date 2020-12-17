@@ -124,14 +124,12 @@ const MatchModals = ( {
   }, [levelModal] );
 
   const navigateTo = useCallback( () => {
-    const { taxaId } = taxon;
-
-    if ( navPath === "Camera" ) {
+    if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
-      navigation.navigate( "Camera" );
+      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
-      setSpeciesId( taxaId );
+      setSpeciesId( taxon.taxaId );
       // return user to match screen
       setRoute( "Match" );
       // full nav path for QuickActions
@@ -140,7 +138,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon, setNavigationPath] );
+  }, [navPath, navigation, params, taxon.taxaId, setNavigationPath, image.uri] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

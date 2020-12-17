@@ -13,7 +13,6 @@ import PostToiNat from "./PostToiNat";
 import i18n from "../../i18n";
 import SpeciesNearby from "./SpeciesNearby";
 import GreenButton from "../UIComponents/Buttons/GreenButton";
-import SocialSharing from "./SocialSharing";
 
 type Props = {
   params: Object,
@@ -34,7 +33,6 @@ const MatchContainer = ( {
   const { taxon, image, seenDate } = params;
   const speciesIdentified = seenDate || match;
 
-
   const {
     taxaName,
     taxaId,
@@ -42,6 +40,13 @@ const MatchContainer = ( {
     commonAncestor,
     rank
   } = taxon;
+
+  const taxaInfo = {
+    preferredCommonName: taxaName || commonAncestor,
+    taxaId,
+    scientificName,
+    image
+  };
 
   const renderHeaderText = () => {
     let headerText;
@@ -84,6 +89,18 @@ const MatchContainer = ( {
     return text;
   };
 
+  const handleGreenButtonPress = () => {
+    if ( speciesIdentified ) {
+      setNavigationPath( "Species" );
+    } else {
+      navigation.navigate( "Camera" );
+    }
+  };
+
+  const setCameraPath = () => setNavigationPath( "Camera" );
+
+  const greenButtonText = speciesIdentified ? "results.view_species" : "results.take_photo";
+
   return (
     <View style={styles.marginLarge}>
       <View style={styles.textContainer}>
@@ -93,25 +110,10 @@ const MatchContainer = ( {
         <View style={styles.marginMedium} />
         <GreenButton
           color={gradientLight}
-          handlePress={() => {
-            if ( speciesIdentified ) {
-              setNavigationPath( "Species" );
-            } else {
-              navigation.navigate( "Camera" );
-            }
-          }}
-          text={speciesIdentified ? "results.view_species" : "results.take_photo"}
+          handlePress={handleGreenButtonPress}
+          text={greenButtonText}
         />
       </View>
-      {/* experimenting with social sharing button */}
-      <View style={styles.marginMedium} />
-      <View style={styles.textContainer}>
-        <SocialSharing
-          image={image}
-          gradientLight={gradientLight}
-        />
-      </View>
-       {/* end experiment */}
       <View style={styles.marginMedium} />
       {( commonAncestor && rank < 60 ) && (
         <>
@@ -122,21 +124,13 @@ const MatchContainer = ( {
       <View style={styles.textContainer}>
         {speciesIdentified && (
           <TouchableOpacity
-            onPress={() => setNavigationPath( "Camera" )}
+            onPress={setCameraPath}
             style={styles.link}
           >
             <Text style={[styles.linkText, styles.marginMedium]}>{i18n.t( "results.back" )}</Text>
           </TouchableOpacity>
         )}
-        <PostToiNat
-          color={gradientLight}
-          taxaInfo={{
-            preferredCommonName: taxaName || commonAncestor,
-            taxaId,
-            scientificName,
-            image
-          }}
-        />
+        <PostToiNat color={gradientLight} taxaInfo={taxaInfo} />
       </View>
     </View>
   );

@@ -69,6 +69,11 @@ export default StyleSheet.create( {
   marginMedium: {
     marginBottom: 28
   },
+  socialIcon: {
+    position: "absolute",
+    top: -13,
+    right: 23
+  },
   speciesText: {
     color: colors.black,
     fontFamily: fonts.book,

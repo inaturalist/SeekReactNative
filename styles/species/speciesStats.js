@@ -15,7 +15,8 @@ export default StyleSheet.create( {
     flexDirection: "row",
     flexWrap: "wrap",
     marginHorizontal: 28,
-    marginTop: 28
+    marginTop: 28,
+    marginBottom: 21
   },
   greenButtonText: {
     color: colors.white,

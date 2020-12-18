@@ -1,21 +1,25 @@
 // @flow
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   Alert
 } from "react-native";
+import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
 import styles from "../../../styles/species/speciesStats";
+import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
-  +stats: Object
+  +stats: Object,
+  +region: Object,
+  +id: number
 };
 
-const SpeciesStats = ( { stats }: Props ) => {
-  const statuses = ["endangered", "endemic", "native", "threatened", "introduced"];
+const SpeciesStats = ( { stats, region, id }: Props ) => {
+  const [tagsToShow, setTagsToShow] = useState( [] );
 
   const showAlert = ( type ) => {
     const title = `species_detail.${type}`;
@@ -26,19 +30,62 @@ const SpeciesStats = ( { stats }: Props ) => {
     );
   };
 
-  return (
-    <View style={styles.greenButtonContainer}>
-      {statuses.map( ( status ) => stats[status] && (
-        <TouchableOpacity
-          onPress={() => showAlert( status )}
-          style={styles.greenButton}
-          key={status}
-        >
-          <Text style={styles.greenButtonText}>{i18n.t( `species_detail.${status}` ).toLocaleUpperCase()}</Text>
-        </TouchableOpacity>
-      ) )}
-    </View>
-  );
+  useEffect( () => {
+    const checkStats = () => {
+      const params = {
+        per_page: 1,
+        lat: region.latitude,
+        lng: region.longitude,
+        radius: 50,
+        taxon_id: id
+      };
+
+      const options = { user_agent: createUserAgent() };
+
+      inatjs.observations.search( params, options ).then( ( { results } ) => {
+        if ( results.length > 0 ) {
+          const taxonStats = results[0].taxon;
+          if ( taxonStats ) {
+            const { threatened, endemic, introduced, native } = taxonStats;
+
+            const tags = {
+              threatened,
+              endemic,
+              introduced,
+              native,
+              endangered: stats.endangered
+            };
+
+            const show = Object.keys( tags ).filter( t => tags[t] === true );
+
+            setTagsToShow( show );
+          }
+        }
+      } ).catch( ( err ) => console.log( err, "err fetching native threatened etc" ) );
+    };
+
+    if ( region.latitude && id && stats ) {
+      checkStats();
+    }
+  }, [region, id, stats] );
+
+  if ( tagsToShow.length === 0 ) {
+    return null;
+  } else {
+    return (
+      <View style={styles.greenButtonContainer}>
+        {tagsToShow.map( tag => (
+          <TouchableOpacity
+            onPress={() => showAlert( tag )}
+            style={styles.greenButton}
+            key={tag}
+          >
+            <Text style={styles.greenButtonText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
+          </TouchableOpacity>
+        ) )}
+      </View>
+    );
+  }
 };
 
 export default SpeciesStats;

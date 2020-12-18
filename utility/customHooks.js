@@ -10,6 +10,7 @@ import { writeToDebugLog } from "./photoHelpers";
 import { checkLocationPermissions } from "./androidHelpers.android";
 import { getTaxonCommonName } from "./commonNamesHelpers";
 import realmConfig from "../models";
+import { createRegion } from "./locationHelpers";
 
 const useScrollToTop = ( scrollView, navigation, route ) => {
   const scrollToTop = useCallback( () => {
@@ -226,6 +227,28 @@ const useSeenTaxa = ( id ) => {
   return seenTaxa;
 };
 
+const useRegion = ( coords, seenTaxa ) => {
+  const [region, setRegion] = useState( {} );
+
+  const setNewRegion = ( newRegion ) => setRegion( createRegion( newRegion ) );
+
+  useEffect( () => {
+    // if user has seen observation, fetch data based on obs location
+    if ( seenTaxa && seenTaxa.latitude ) {
+      setNewRegion( seenTaxa );
+    }
+  }, [seenTaxa] );
+
+  useEffect( () => {
+      // otherwise, fetch data based on user location
+    if ( !seenTaxa && ( coords && coords.latitude ) ) {
+      setNewRegion( coords );
+    }
+  }, [coords, seenTaxa] );
+
+  return region;
+};
+
 export {
   useScrollToTop,
   useLocationName,
@@ -233,5 +256,6 @@ export {
   useLocationPermission,
   useCommonName,
   useTruncatedUserCoords,
-  useSeenTaxa
+  useSeenTaxa,
+  useRegion
 };

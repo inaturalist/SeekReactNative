@@ -16,9 +16,10 @@ import i18n from "../../i18n";
 import realmConfig from "../../models/index";
 import styles from "../../styles/species/species";
 import { getSpeciesId, checkForInternet } from "../../utility/helpers";
-import SpeciesContainer from "./SpeciesContainer";
+import OnlineSpeciesContainer from "./OnlineSpeciesContainer";
 import createUserAgent from "../../utility/userAgent";
 import SpeciesHeader from "./SpeciesHeader";
+import OfflineSpeciesContainer from "./OfflineSpeciesContainer";
 
 const SpeciesDetail = () => {
   const scrollView = useRef( null );
@@ -198,6 +199,8 @@ const SpeciesDetail = () => {
     return null;
   }
 
+  const predictions = params.image || null;
+
   return (
     <SafeAreaView style={styles.greenBanner} edges={["top"]}>
       <ScrollView
@@ -209,15 +212,21 @@ const SpeciesDetail = () => {
           taxon={taxon}
           photos={photos}
         />
-        {( Object.keys( taxon ).length > 0 || error ) && (
-          <SpeciesContainer
+        {error && (
+          <OfflineSpeciesContainer
             checkForInternet={checkInternetConnection}
             details={details}
+            id={id}
+            predictions={predictions}
+          />
+        )}
+        {( Object.keys( taxon ).length > 0 && !error ) && (
+          <OnlineSpeciesContainer
+            details={details}
             scientificName={taxon.scientificName}
-            error={error}
             fetchiNatData={fetchiNatData}
             id={id}
-            predictions={( params && params.image && params.image.predictions ) && params.image.predictions}
+            predictions={predictions}
           />
         )}
       </ScrollView>

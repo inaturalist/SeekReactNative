@@ -1,13 +1,16 @@
 import CameraRoll from "@react-native-community/cameraroll";
 import Share from "react-native-share";
-import { Platform, Image } from "react-native";
+import { Platform } from "react-native";
 import Marker from "react-native-image-marker";
+import RNFS from "react-native-fs";
 
-import logos from "../assets/logos";
+import backgrounds from "../assets/backgrounds";
+import { colors, fonts } from "../styles/global";
 
-const shareToFacebook = async ( backgroundImage ) => {
+const shareToFacebook = async ( url ) => {
+  // this shares to newsfeed, story, or profile photo on Android
   const shareOptions = {
-    backgroundImage,
+    url,
     social: Share.Social.FACEBOOK
   };
 
@@ -28,39 +31,61 @@ const saveToCameraRoll = async ( uri ) => {
   }
 };
 
-const addWatermark = async( userImage ) => {
+const getAndroidCameraRollPath = async ( uri ) => {
+  const { originalFilepath } = await RNFS.stat( uri );
+  return "file://" + originalFilepath;
+};
+
+const addTextToWatermark = async( userImage, text, position ) => {
   const imageOptions = {
     src: userImage,
-    markerSrc: logos.seek, // icon uri
-    X: 100, // left
-    Y: 150, // top
-    scale: 1, // scale of bg
-    markerScale: 0.5, // scale of icon
-    quality: 100, // quality of image
-    saveFormat: "jpeg"
+    text,
+    X: 290, // left
+    Y: position === 1 ? 1853 : 1933, // top
+    color: colors.white,
+    fontName: position === 1 ? fonts.semibold : fonts.bookItalic,
+    fontSize: 62,
+    scale: 1,
+    quality: 100
   };
 
   try {
-    const path = Marker.markImage( imageOptions );
-    const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
-    return watermarkedImageUri;
+    const path = await Marker.markText( imageOptions );
+    const uri = Platform.OS === "android" ? "file://" + path : path;
+    return uri;
   } catch ( e ) {
     return e;
   }
 };
 
-const getOriginalHeight = ( uri ) => {
-  let originalHeight = 0;
-  Image.getSize( uri, ( width, height ) => {
-    originalHeight = height;
-  } );
+const addWatermark = async( userImage, commonName, name ) => {
+  // resized photo to 2048 * 2048 to be able to align watermark
+  const originalPath = Platform.OS === "android" ? await getAndroidCameraRollPath( userImage ) : userImage;
 
-  return originalHeight;
+  const imageOptions = {
+    src: originalPath,
+    markerSrc: backgrounds.sharing,
+    X: 0, // left
+    Y: 1793, // top
+    scale: 1, // scale of bg
+    markerScale: 1.39, // scale of icon
+    quality: 100, // quality of image
+    saveFormat: "jpeg"
+  };
+
+  try {
+    const path = await Marker.markImage( imageOptions );
+    const watermarkedImageUri = Platform.OS === "android" ? "file://" + path : path;
+    const uriWithCommonName = await addTextToWatermark( watermarkedImageUri, commonName, 1 );
+    const uriWithBothNames = await addTextToWatermark( uriWithCommonName, name, 2 );
+    return uriWithBothNames;
+  } catch ( e ) {
+    return e;
+  }
 };
 
 export {
   shareToFacebook,
   saveToCameraRoll,
-  addWatermark,
-  getOriginalHeight
+  addWatermark
 };

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, center, fonts, dimensions } from "../global";
+import { colors, center, fonts, dimensions, row } from "../global";
 
 export default StyleSheet.create( {
   center,
@@ -44,9 +44,11 @@ export default StyleSheet.create( {
     color: colors.seekForestGreen,
     fontFamily: fonts.semibold,
     fontSize: 19,
-    letterSpacing: 1.12
+    letterSpacing: 1.12,
+    marginBottom: 15
   },
   speciesIdText: {
+    marginLeft: 12,
     fontFamily: fonts.book,
     fontSize: 16
   },
@@ -66,14 +68,13 @@ export default StyleSheet.create( {
     height: 4,
     width: 138
   },
-  imageBackground: {
-    minHeight: 375
-  },
   image: {
+    backgroundColor: colors.black,
     width: dimensions.width,
     height: dimensions.height,
     resizeMode: "contain"
-  }
+  },
+  row
   // image: {
   //   height: ( height / 3 ) * 2,
   //   resizeMode: "contain",

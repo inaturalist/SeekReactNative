@@ -126,7 +126,7 @@ const MatchModals = ( {
   const navigateTo = useCallback( () => {
     if ( navPath === "Camera" || navPath === "Social" ) {
       setNavigationPath( null );
-      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri } );
+      navigation.navigate( navPath, navPath === "Social" && { uri: image.uri, taxon } );
     } else if ( navPath === "Species" ) {
       setNavigationPath( null );
       setSpeciesId( taxon.taxaId );
@@ -138,7 +138,7 @@ const MatchModals = ( {
       setNavigationPath( null );
       navigation.openDrawer();
     }
-  }, [navPath, navigation, params, taxon.taxaId, setNavigationPath, image.uri] );
+  }, [navPath, navigation, params, taxon, setNavigationPath, image.uri] );
 
   const checkBadges = () => {
     checkForNewBadges().then( ( { latestLevel, latestBadge } ) => { // eslint-disable-line no-shadow

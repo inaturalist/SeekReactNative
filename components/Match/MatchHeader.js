@@ -40,8 +40,6 @@ const MatchHeader = ( {
   const setCameraPath = ( ) => setNavigationPath( "Camera" );
   const showSocialSharing = ( ) => setNavigationPath( "Social" );
 
-  console.log( image.uri, "image uri in header" );
-
   return (
     // $FlowFixMe
     <LinearGradient colors={[gradientDark, gradientLight]} style={styles.header}>

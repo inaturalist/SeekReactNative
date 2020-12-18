@@ -87,5 +87,8 @@ export default StyleSheet.create( {
   },
   textContainer: {
     marginHorizontal: 28
+  },
+  seenDateContainer: {
+    marginHorizontal: 28
   }
 } );

@@ -11,12 +11,7 @@ type Props = {
 }
 
 const SeenDate = ( { seenDate }: Props ) => (
-  <View style={[
-    styles.row,
-    styles.rowMargin,
-    styles.textContainer
-  ]}
-  >
+  <View style={[styles.row, styles.seenDateContainer]}>
     <Image source={icons.checklist} style={styles.checkmark} />
     <Text style={styles.text}>{i18n.t( "species_detail.seen_on", { date: seenDate } )}</Text>
   </View>

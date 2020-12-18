@@ -71,10 +71,9 @@ const OnlineSpeciesContainer = ( {
     return null;
   }
 
-  // console.log( "rendering species CONTAINER", stats, region );
   return (
     <View style={styles.background}>
-      <SpeciesStats stats={stats} id={id} region={region} />
+      <SpeciesStats stats={stats} id={id} region={region} seenDate={seenDate} />
       {seenDate && <SeenDate seenDate={seenDate} />}
       <About about={about} wikiUrl={wikiUrl} id={id} scientificName={scientificName} />
       {id !== 43584 ? renderSpeciesCards( ) : renderHumanCard( )}

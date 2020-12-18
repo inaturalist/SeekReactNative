@@ -15,10 +15,11 @@ import createUserAgent from "../../../utility/userAgent";
 type Props = {
   +stats: Object,
   +region: Object,
-  +id: number
+  +id: number,
+  +seenDate: ?string
 };
 
-const SpeciesStats = ( { stats, region, id }: Props ) => {
+const SpeciesStats = ( { stats, region, id, seenDate }: Props ) => {
   const [tagsToShow, setTagsToShow] = useState( [] );
 
   const showAlert = ( type ) => {
@@ -70,17 +71,17 @@ const SpeciesStats = ( { stats, region, id }: Props ) => {
   }, [region, id, stats] );
 
   if ( tagsToShow.length === 0 ) {
-    return null;
+    return <View style={styles.noTags} />;
   } else {
     return (
-      <View style={styles.greenButtonContainer}>
+      <View style={[styles.tagContainer, seenDate && styles.tagAndSeenDate]}>
         {tagsToShow.map( tag => (
           <TouchableOpacity
             onPress={() => showAlert( tag )}
-            style={styles.greenButton}
+            style={styles.tag}
             key={tag}
           >
-            <Text style={styles.greenButtonText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
+            <Text style={styles.tagText}>{i18n.t( `species_detail.${tag}` ).toLocaleUpperCase()}</Text>
           </TouchableOpacity>
         ) )}
       </View>

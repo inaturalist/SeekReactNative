@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useCallback, useEffect, useContext } from "react";
+import React, { useState, useCallback, useEffect, useContext, useMemo } from "react";
 import { View, Platform } from "react-native";
 import { Circle } from "react-native-svg";
 import { XAxis, LineChart } from "react-native-svg-charts";
@@ -108,7 +108,19 @@ const SpeciesChart = ( { id }: Props ) => {
   const xAccessor = ( { item } ) => item.month;
   const yAccessor = ( { item } ) => item.count;
 
-  const formatLabel = ( value ) => formatXAxis( value - 1 );
+  const xAxis = useMemo( ( ) => {
+    const formatLabel = ( value ) => formatXAxis( value - 1 );
+    return (
+      <XAxis
+        contentInset={styles.xAxisWidth}
+        data={data}
+        formatLabel={formatLabel}
+        style={styles.xAxis}
+        svg={xAxisSvg}
+        xAccessor={xAccessor}
+      />
+    );
+  }, [data] );
 
   return (
     <SpeciesDetailCard text="species_detail.monthly_obs" hide={data.length === 0}>
@@ -125,14 +137,7 @@ const SpeciesChart = ( { id }: Props ) => {
             >
               <Decorator />
             </LineChart>
-            <XAxis
-              contentInset={styles.xAxisWidth}
-              data={data}
-              formatLabel={formatLabel}
-              style={styles.xAxis}
-              svg={xAxisSvg}
-              xAccessor={xAccessor}
-            />
+            {xAxis}
           </View>
         </View>
       )}

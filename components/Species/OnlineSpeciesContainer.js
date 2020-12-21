@@ -60,7 +60,7 @@ const OnlineSpeciesContainer = ( {
       <SpeciesMap id={id} seenDate={seenDate} region={region} />
       {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} id={id} />}
       <INatObs id={id} timesSeen={timesSeen} region={region} />
-      <SpeciesChart id={id} />
+      <SpeciesChart id={id} region={region} />
       <SimilarSpecies id={id} />
     </>
   );

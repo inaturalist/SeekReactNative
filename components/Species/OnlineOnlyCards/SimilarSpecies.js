@@ -3,6 +3,8 @@ import { View } from "react-native";
 import inatjs from "inaturalistjs";
 
 import i18n from "../../../i18n";
+import LoadingWheel from "../../UIComponents/LoadingWheel";
+import { colors } from "../../../styles/global";
 import styles from "../../../styles/species/similarSpecies";
 import SpeciesNearbyList from "../../UIComponents/SpeciesNearby/SpeciesNearbyList";
 import GreenText from "../../UIComponents/GreenText";
@@ -14,6 +16,7 @@ type Props = {
 
 const SimilarSpecies = ( { id }: Props ) => {
   const [similarSpecies, setSimilarSpecies] = useState( [] );
+  const [loading, setLoading] = useState( true );
   const { length } = similarSpecies;
 
   useEffect( ( ) => {
@@ -36,6 +39,7 @@ const SimilarSpecies = ( { id }: Props ) => {
 
           if ( isActive ) {
             setSimilarSpecies( species );
+            setLoading( false );
           }
         } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
       };
@@ -49,19 +53,17 @@ const SimilarSpecies = ( { id }: Props ) => {
 
   return useMemo( ( ) => (
     <>
-      {length > 0 && (
-        <View>
-          <View style={styles.similarSpeciesMargins}>
-            <GreenText text="species_detail.similar" />
-          </View>
-          <View style={styles.similarSpeciesContainer}>
-            <SpeciesNearbyList taxa={similarSpecies} />
-          </View>
-        </View>
-      )}
+      <View style={styles.similarSpeciesHeader}>
+        <GreenText text="species_detail.similar" />
+      </View>
+      <View style={styles.similarSpeciesContainer}>
+       {loading
+          ? <LoadingWheel color={colors.white} />
+          : <SpeciesNearbyList taxa={similarSpecies}  />}
+      </View>
       <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
     </>
-  ), [length, similarSpecies] );
+  ), [length, similarSpecies, loading] );
 };
 
 export default SimilarSpecies;

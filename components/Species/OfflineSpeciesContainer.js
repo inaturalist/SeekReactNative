@@ -41,10 +41,10 @@ const SpeciesContainer = ( {
   );
 
   return (
-    <View style={styles.background}>
+    <>
       <SpeciesError seenTaxa={seenTaxa} checkForInternet={checkForInternet} />
       {id !== 43584 ? renderOfflineSpeciesCards( ) : renderHumanCard( )}
-    </View>
+    </>
   );
 };
 

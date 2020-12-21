@@ -24,15 +24,13 @@ import {
 type Props = {
   +details: Object,
   +id: number,
-  +fetchiNatData: Function,
   +predictions: Array<Object>,
-  +scientificName: string
+  +scientificName: ?string
 }
 
 const OnlineSpeciesContainer = ( {
   id,
   details,
-  fetchiNatData,
   predictions,
   scientificName
 }: Props ) => {
@@ -63,7 +61,7 @@ const OnlineSpeciesContainer = ( {
       {( ancestors || predictions ) && <SpeciesTaxonomy ancestors={ancestors} predictions={predictions} id={id} />}
       <INatObs id={id} timesSeen={timesSeen} region={region} />
       <SpeciesChart id={id} />
-      <SimilarSpecies fetchiNatData={fetchiNatData} id={id} />
+      <SimilarSpecies id={id} />
     </>
   );
 
@@ -72,12 +70,12 @@ const OnlineSpeciesContainer = ( {
   }
 
   return (
-    <View style={styles.background}>
+    <>
       <SpeciesStats stats={stats} id={id} region={region} seenDate={seenDate} />
       {seenDate && <SeenDate seenDate={seenDate} />}
       <About about={about} wikiUrl={wikiUrl} id={id} scientificName={scientificName} />
       {id !== 43584 ? renderSpeciesCards( ) : renderHumanCard( )}
-    </View>
+    </>
   );
 };
 

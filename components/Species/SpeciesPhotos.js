@@ -74,13 +74,13 @@ const SpeciesPhotos = ( { photos, id }: Props ) => {
   }, [photos, userPhoto] );
 
   return (
-    <View>
+    <>
       {photoList.length === 0 ? (
         <View style={[styles.photoContainer, styles.fullWidth]}>
           <LoadingWheel color="white" />
         </View>
       ) : <HorizontalScroll photoList={photoList} screen="SpeciesPhotos" />}
-    </View>
+    </>
   );
 };
 

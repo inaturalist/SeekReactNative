@@ -16,19 +16,19 @@ import iconicTaxa from "../../../assets/iconicTaxa";
 import { useSeenTaxa, useCommonName } from "../../../utility/customHooks";
 
 type Props = {
-  +item: Object,
-  +fetchiNatData: ?Function
+  +item: Object
 }
 
-const SpeciesImageCell = ( { item, fetchiNatData }: Props ) => {
-  const { navigate } = useNavigation();
-  const route = useRoute();
+const SpeciesImageCell = ( { item }: Props ) => {
+  const navigation = useNavigation( );
+  const { navigate } = navigation;
+  const route = useRoute( );
   const { name } = route;
 
   const seenTaxa = useSeenTaxa( item.id );
   const commonName = useCommonName( item.id );
 
-  const renderSpeciesImage = () => {
+  const renderSpeciesImage = ( ) => {
     const photo = item.default_photo;
     const extraPhotos = item.taxonPhotos || item.taxon_photos;
     let uri;
@@ -42,34 +42,32 @@ const SpeciesImageCell = ( { item, fetchiNatData }: Props ) => {
       }
     }
 
-    return (
-      <Image source={{ uri }} style={styles.cellImage} />
-    );
+    return <Image source={{ uri }} style={styles.cellImage} />;
+  };
+
+  const navToNextScreen = ( ) => {
+    const speciesScreen = { screen: "Species", params: { ...route.params } };
+    setSpeciesId( item.id );
+    if ( name === "Match" ) {
+      setRoute( "Match" );
+      // full nav path for QuickActions
+      navigate( "MainTab", speciesScreen );
+    } else if ( name === "Species" ) {
+      navigation.push( "MainTab", speciesScreen );
+    } else {
+      setRoute( "Home" );
+      navigate( "Species", { ...route.params } );
+    }
   };
 
   return (
-    <TouchableOpacity
-      onPress={() => {
-        setSpeciesId( item.id );
-        if ( name === "Match" ) {
-          setRoute( "Match" );
-          // full nav path for QuickActions
-          navigate( "MainTab", { screen: "Species", params: { ...route.params } } );
-        } else if ( name === "Species" ) {
-          fetchiNatData();
-        } else {
-          setRoute( "Home" );
-          navigate( "Species", { ...route.params } );
-        }
-      }}
-      style={styles.gridCell}
-    >
+    <TouchableOpacity onPress={navToNextScreen} style={styles.gridCell}>
       <ImageBackground
         source={iconicTaxa[item.iconic_taxon_id]}
         style={styles.cellImage}
         imageStyle={styles.cellImage}
       >
-        {item.default_photo && renderSpeciesImage()}
+        {item.default_photo && renderSpeciesImage( )}
         {seenTaxa && <Image source={icons.speciesObserved} style={styles.checkbox} />}
       </ImageBackground>
       <View style={styles.cellTitle}>

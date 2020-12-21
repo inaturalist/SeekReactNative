@@ -46,7 +46,7 @@ const SpeciesDetail = () => {
         return {
           ...state,
           seenTaxa: action.seen,
-          taxon: { // is this correct?
+          taxon: {
             scientificName: action.seen.taxon.name,
             iconicTaxonId: action.seen.taxon.iconicTaxonId
           }
@@ -203,10 +203,7 @@ const SpeciesDetail = () => {
 
   return (
     <SafeAreaView style={styles.greenBanner} edges={["top"]}>
-      <ScrollView
-        ref={scrollView}
-        contentContainerStyle={[styles.footerMargin, styles.background]}
-      >
+      <ScrollView ref={scrollView} contentContainerStyle={styles.background}>
         <SpeciesHeader
           id={id}
           taxon={taxon}
@@ -224,7 +221,6 @@ const SpeciesDetail = () => {
           <OnlineSpeciesContainer
             details={details}
             scientificName={taxon.scientificName}
-            fetchiNatData={fetchiNatData}
             id={id}
             predictions={predictions}
           />

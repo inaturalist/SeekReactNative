@@ -24,9 +24,6 @@ export default StyleSheet.create( {
     lineHeight: 31,
     marginTop: 23
   },
-  footerMargin: {
-    marginBottom: 74
-  },
   greenBanner: {
     backgroundColor: colors.seekForestGreen
   },

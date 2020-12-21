@@ -9,20 +9,19 @@ import GreenText from "../../UIComponents/GreenText";
 import createUserAgent from "../../../utility/userAgent";
 
 type Props = {
-  +id: ?Number,
-  +fetchiNatData: Function
+  +id: ?Number
 }
 
-const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
+const SimilarSpecies = ( { id }: Props ) => {
   const [similarSpecies, setSimilarSpecies] = useState( [] );
   const { length } = similarSpecies;
 
-  useEffect( () => {
+  useEffect( ( ) => {
     let isActive = true;
     if ( id !== null ) {
-      const resetState = () => setSimilarSpecies( [] );
+      const resetState = ( ) => setSimilarSpecies( [] );
 
-      const fetchSimilarSpecies = () => {
+      const fetchSimilarSpecies = ( ) => {
         const params = {
           per_page: 20,
           taxon_id: id,
@@ -30,7 +29,7 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
           locale: i18n.currentLocale()
         };
 
-        const options = { user_agent: createUserAgent() };
+        const options = { user_agent: createUserAgent( ) };
 
         inatjs.identifications.similar_species( params, options ).then( ( { results } ) => {
           const species = results.map( r => r.taxon );
@@ -40,15 +39,15 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
           }
         } ).catch( ( error ) => console.log( error, "error fetching similar species" ) );
       };
-      resetState();
-      fetchSimilarSpecies();
+      resetState( );
+      fetchSimilarSpecies( );
     }
     return ( ) => {
       isActive = false;
     };
   }, [id] );
 
-  return useMemo( () => (
+  return useMemo( ( ) => (
     <>
       {length > 0 && (
         <View>
@@ -56,16 +55,13 @@ const SimilarSpecies = ( { id, fetchiNatData }: Props ) => {
             <GreenText text="species_detail.similar" />
           </View>
           <View style={styles.similarSpeciesContainer}>
-            <SpeciesNearbyList
-              fetchiNatData={fetchiNatData}
-              taxa={similarSpecies}
-            />
+            <SpeciesNearbyList taxa={similarSpecies} />
           </View>
         </View>
       )}
       <View style={[styles.bottomPadding, length === 0 && styles.empty]} />
     </>
-  ), [fetchiNatData, length, similarSpecies] );
+  ), [length, similarSpecies] );
 };
 
 export default SimilarSpecies;

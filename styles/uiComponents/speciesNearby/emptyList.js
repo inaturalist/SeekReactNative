@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { colors, fonts } from "../../global";
+import { colors, fonts, dimensions } from "../../global";
 
 export default StyleSheet.create( {
   cellTitleText: {
@@ -11,7 +11,8 @@ export default StyleSheet.create( {
     maxWidth: 322
   },
   noTaxon: {
-    justifyContent: "center",
-    marginHorizontal: 26
+    width: dimensions.width,
+    alignItems: "center",
+    justifyContent: "center"
   }
 } );

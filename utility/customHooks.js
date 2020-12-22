@@ -176,27 +176,36 @@ const useCommonName = ( id ) => {
 const useTruncatedUserCoords = ( granted ) => {
   const [coords, setCoords] = useState( null );
 
-  const fetchCoords = useCallback( async () => {
-    try {
-      const userCoords = await fetchTruncatedUserLocation();
+  useEffect( ( ) => {
+    let isCurrent = true;
 
-      if ( !coords || ( userCoords.latitude !== coords.latitude ) ) {
-        setCoords( userCoords );
+    const fetchCoords = async ( ) => {
+      try {
+        const userCoords = await fetchTruncatedUserLocation( );
+
+        // this stops this hook from rerunning a bunch of times
+        if ( !coords || ( userCoords.latitude !== coords.latitude ) ) {
+          if ( isCurrent ) {
+            setCoords( userCoords );
+          }
+        }
+      } catch ( e ) {
+        setCoords( null );
       }
-    } catch ( e ) {
-      setCoords( null );
-    }
-  }, [coords] );
+    };
 
-  useEffect( () => {
     if ( Platform.OS === "android" && !granted ) {
-      if ( coords ) {
+      if ( coords && isCurrent ) {
         setCoords( null );
       }
     } else {
-      fetchCoords();
+      fetchCoords( );
     }
-  }, [granted, fetchCoords, coords] );
+
+    return ( ) => {
+      isCurrent = false;
+    };
+  }, [granted, coords] );
 
   return coords;
 };

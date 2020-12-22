@@ -22,7 +22,7 @@
     ]
   },
   "dependencies": {
-    "@react-native-community/async-storage": "^1.7.1",
+    "@react-native-async-storage/async-storage": "^1.13.2",
     "@react-native-community/cameraroll": "^4.0.1",
     "@react-native-community/datetimepicker": "^3.0.3",
     "@react-native-community/image-editor": "^2.3.0",
@@ -55,17 +55,17 @@
     "react-native-localize": "^2.0.1",
     "react-native-mail": "^4.1.0",
     "react-native-maps": "^0.27.1",
-    "react-native-modal": "^11.5.6",
+    "react-native-modal": "^11.6.1",
     "react-native-modal-datetime-picker": "github:mmazzarolo/react-native-modal-datetime-picker",
     "react-native-open-settings": "github:pix-inc/react-native-open-settings",
     "react-native-picker-select": "^8.0.4",
     "react-native-progress-circle": "^2.1.0",
     "react-native-quick-actions": "^0.3.13",
     "react-native-reanimated": "^1.13.2",
-    "react-native-render-html": "^4.2.4",
+    "react-native-render-html": "^5.0.1",
     "react-native-safe-area-context": "^3.1.9",
-    "react-native-screens": "^2.11.0",
-    "react-native-share": "^4.1.0",
+    "react-native-screens": "^2.16.1",
+    "react-native-share": "^4.1.1",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-store-review": "^0.1.5",
     "react-native-svg": "^12.1.0",
@@ -73,8 +73,9 @@
     "react-native-tab-view": "^2.15.2",
     "react-native-uuid-generator": "^6.1.1",
     "react-native-webp-format": "^1.1.2",
-    "react-native-webview": "^10.10.0",
-    "realm": "^10.1.2"
+    "react-native-webview": "^11.0.2",
+    "realm": "^10.1.2",
+    "uninstall": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

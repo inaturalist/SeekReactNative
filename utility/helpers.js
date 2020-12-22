@@ -1,6 +1,6 @@
 // @flow
 import NetInfo from "@react-native-community/netinfo";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwt from "react-native-jwt-io";
 import Realm from "realm";
 import { Platform, LogBox } from "react-native";

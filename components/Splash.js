@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useNavigation, useLinkTo } from "@react-navigation/native";
 import QuickActions from "react-native-quick-actions";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { colors } from "../styles/global";
 import styles from "../styles/splash";

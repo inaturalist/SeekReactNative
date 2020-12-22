@@ -1,5 +1,5 @@
 import { NativeModules } from "react-native";
-import mockAsyncStorage from "@react-native-community/async-storage/jest/async-storage-mock";
+import mockAsyncStorage from "@react-native-async-storage/async-storage/jest/async-storage-mock";
 
 global.fetch = require( "jest-fetch-mock" );
 
@@ -16,7 +16,7 @@ jest.mock( "@react-navigation/native", () => ( {
   useRoute: jest.fn().mockReturnValue( { name: "About" } )
 } ) );
 
-jest.mock( "@react-native-community/async-storage", () => mockAsyncStorage );
+jest.mock( "@react-native-async-storage/async-storage", () => mockAsyncStorage );
 
 jest.mock( "react-native-fs", () => ( {
   addEventListener: jest.fn(),
